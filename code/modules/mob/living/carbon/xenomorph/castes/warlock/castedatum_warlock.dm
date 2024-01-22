@@ -35,6 +35,7 @@
 		/datum/action/ability/activable/xeno/psychic_shield,
 		/datum/action/ability/activable/xeno/transfer_plasma/drone,
 		/datum/action/ability/activable/psionic_interact,
+		/datum/action/ability/xeno_action/create_edible_jelly,
 	)
 
 /datum/xeno_caste/warlock/normal

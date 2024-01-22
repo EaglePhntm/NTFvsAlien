@@ -537,6 +537,9 @@
 	READ_FILE(S["genitalia_cock"], genitalia_cock)
 	READ_FILE(S["harmful_sex_allowed"], harmful_sex_allowed)
 	READ_FILE(S["burst_screams_enabled"], burst_screams_enabled)
+	READ_FILE(S["xeno_edible_jelly_name"], xeno_edible_jelly_name)
+	READ_FILE(S["xeno_edible_jelly_desc"], xeno_edible_jelly_desc)
+	READ_FILE(S["xeno_edible_jelly_flavors"], xeno_edible_jelly_flavors)
 
 	READ_FILE(S["metadata"], metadata)
 	READ_FILE(S["metadata_likes"], metadata_likes)
@@ -551,6 +554,7 @@
 	synthetic_type = sanitize_inlist(synthetic_type, SYNTH_TYPES, initial(synthetic_type))
 	robot_type = sanitize_inlist(robot_type, ROBOT_TYPES, initial(robot_type))
 	xeno_name = reject_bad_name(xeno_name)
+	xeno_edible_jelly_name = reject_bad_name(xeno_edible_jelly_name)
 	ai_name = reject_bad_name(ai_name, TRUE)
 
 	real_name = reject_bad_name(real_name, TRUE)
@@ -640,6 +644,9 @@
 		parent.mob.ooc_notes_maybes = metadata_maybes
 		parent.mob.ooc_notes_favs = metadata_favs
 		parent.mob.ooc_notes_style = metadata_ooc_style
+	xeno_edible_jelly_name = sanitize_text (xeno_edible_jelly_name, initial(xeno_edible_jelly_name))
+	xeno_edible_jelly_desc = sanitize_text (xeno_edible_jelly_desc, initial(xeno_edible_jelly_desc))
+	xeno_edible_jelly_flavors = sanitize_text (xeno_edible_jelly_flavors, initial(xeno_edible_jelly_flavors))
 
 	if(!synthetic_name)
 		synthetic_name = "David"
@@ -827,6 +834,9 @@
 	WRITE_FILE(S["metadata_maybes"], metadata_maybes)
 	WRITE_FILE(S["metadata_favs"], metadata_favs)
 	WRITE_FILE(S["metadata_ooc_style"], metadata_ooc_style)
+	WRITE_FILE(S["xeno_edible_jelly_name"], xeno_edible_jelly_name)
+	WRITE_FILE(S["xeno_edible_jelly_desc"], xeno_edible_jelly_desc)
+	WRITE_FILE(S["xeno_edible_jelly_flavors"], xeno_edible_jelly_flavors)
 
 	return TRUE
 

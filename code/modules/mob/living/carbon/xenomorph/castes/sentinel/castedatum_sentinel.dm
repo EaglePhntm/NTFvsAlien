@@ -60,6 +60,7 @@
 		/datum/action/ability/activable/xeno/xeno_spit/toxic_spit,
 		/datum/action/ability/xeno_action/toxic_slash,
 		/datum/action/ability/activable/xeno/drain_sting,
+		/datum/action/ability/xeno_action/create_edible_jelly,
 	)
 
 /datum/xeno_caste/sentinel/normal
@@ -88,6 +89,7 @@
 		/datum/action/ability/xeno_action/toxic_slash,
 		/datum/action/ability/activable/xeno/drain_sting,
 		/datum/action/ability/activable/xeno/toxic_grenade,
+		/datum/action/ability/xeno_action/create_edible_jelly,
 	)
 
 /datum/xeno_caste/sentinel/retrograde

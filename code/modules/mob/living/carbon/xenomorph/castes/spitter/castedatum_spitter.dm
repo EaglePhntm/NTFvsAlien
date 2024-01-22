@@ -65,6 +65,7 @@
 		/datum/action/ability/activable/xeno/xeno_spit,
 		/datum/action/ability/activable/xeno/scatter_spit,
 		/datum/action/ability/activable/xeno/spray_acid/line,
+		/datum/action/ability/xeno_action/create_edible_jelly,
 	)
 
 /datum/xeno_caste/spitter/normal

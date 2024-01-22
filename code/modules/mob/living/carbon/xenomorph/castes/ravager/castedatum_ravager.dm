@@ -55,6 +55,7 @@
 		/datum/action/ability/activable/xeno/ravage,
 		/datum/action/ability/xeno_action/endure,
 		/datum/action/ability/xeno_action/rage,
+		/datum/action/ability/xeno_action/create_edible_jelly,
 	)
 	///multiplier on plasma amount vs damage that is recieved on attack
 	var/plasma_damage_dealt_mult = 1.5
@@ -95,6 +96,7 @@
 		/datum/action/ability/xeno_action/endure,
 		/datum/action/ability/xeno_action/rage,
 		/datum/action/ability/xeno_action/vampirism,
+		/datum/action/ability/xeno_action/create_edible_jelly,
 	)
 
 

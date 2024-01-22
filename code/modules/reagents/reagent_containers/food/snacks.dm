@@ -38,6 +38,11 @@
 		consumer.put_in_hands(new_trash)
 	qdel(src)
 
+// Refreshes the taste of an food item based on new descriptions added.
+/obj/item/reagent_containers/food/snacks/proc/refresh_taste()
+	for(var/datum/reagent/consumable/nutriment/reagent_to_update in reagents.reagent_list)
+		reagent_to_update.change_taste(tastes.Copy())
+
 /obj/item/reagent_containers/food/snacks/attack_self(mob/user as mob)
 	return
 

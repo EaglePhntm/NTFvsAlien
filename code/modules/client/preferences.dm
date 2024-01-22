@@ -64,6 +64,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	//Xenomorph specific preferences
 	var/xeno_name = "Undefined"
+	var/xeno_edible_jelly_name = ""
+	var/xeno_edible_jelly_desc = ""
+	var/xeno_edible_jelly_flavors = ""
 
 	//AI specific preferences
 	var/ai_name = "ARES v3.2"

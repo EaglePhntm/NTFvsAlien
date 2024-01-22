@@ -509,3 +509,63 @@
 	gas.set_up(2, src)
 	gas.start()
 	qdel(src)
+/obj/item/reagent_containers/food/snacks/nutrient_jelly
+	name = "nutrient jelly"
+	desc = "A perplexing, soft mesh of almost bready protein-fibers. It's warm and spongey to the touch, and smells edible."
+	icon = 'icons/obj/items/food/xeno.dmi'
+	icon_state = "edible-biomass"
+	bitesize = 3
+	list_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/nutriment/vitamin = 1)
+	tastes = list("vague sweetness" = 1, "water" = 2)
+
+/datum/action/ability/xeno_action/create_edible_jelly
+	name = "Create Edible Jelly"
+	action_icon_state = "edible-biomass"
+	desc = "Create edible jelly for hosts."
+	ability_cost = 50
+	cooldown_duration = 20 SECONDS
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CREATE_EDIBLE_JELLY,
+	)
+
+/datum/action/ability/xeno_action/create_edible_jelly/can_use_action(silent = FALSE, override_flags)
+	. = ..()
+	if(!.)
+		return
+	if(owner.l_hand || owner.r_hand)
+		if(!silent)
+			owner.balloon_alert(owner, "Cannot create jelly, need empty hands")
+		return FALSE
+
+/datum/action/ability/xeno_action/create_edible_jelly/action_activate()
+	var/obj/item/reagent_containers/food/snacks/nutrient_jelly/jelly = new(owner.loc)
+
+	if(owner.client.prefs?.xeno_edible_jelly_name)
+		jelly.name = owner.client.prefs.xeno_edible_jelly_name
+
+	if(owner.client.prefs?.xeno_edible_jelly_desc)
+		jelly.desc = owner.client.prefs.xeno_edible_jelly_desc
+
+
+	if(owner.client.prefs?.xeno_edible_jelly_flavors)
+
+		jelly.tastes =  new /list(0)
+
+		// Split the player's tastes lists into individual string with the use of commas
+		var/newFlaves[] = splittext(owner.client.prefs.xeno_edible_jelly_flavors, ",")
+
+		// Iterating through those individual flavors to add them to our list'n such.
+		for(var/flavor in newFlaves)
+			flavor = trim(flavor, 256) // Remove whitespace
+
+			// Associative list, so in the index that's defined by each flavor's name.
+			// Makes each flavor's strength equal to the length of newFlaves to ensure they're tasted.
+			jelly.tastes[flavor] = newFlaves.len
+
+		// Refresh the individual reagents taste values to agree. Coding this was painful.
+		jelly.refresh_taste()
+
+	owner.put_in_hands(jelly)
+	to_chat(owner, span_xenonotice("We secrete a gelatinous mash of nutrients.")) // Yummy... :drool:
+	add_cooldown()
+	succeed_activate()
