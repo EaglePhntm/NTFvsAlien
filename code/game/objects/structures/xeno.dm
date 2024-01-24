@@ -513,14 +513,16 @@
 	name = "nutrient jelly"
 	desc = "A perplexing, soft mesh of almost bready protein-fibers. It's warm and spongey to the touch, and smells edible."
 	icon = 'icons/obj/items/food/xeno.dmi'
-	icon_state = "edible-biomass"
+	icon_state = "edible_biomass_mono"
+	greyscale_config = /datum/greyscale_config/nutrient_jelly
+	greyscale_colors = "#f47e7e"
 	bitesize = 3
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("vague sweetness" = 1, "water" = 2)
 
 /datum/action/ability/xeno_action/create_edible_jelly
 	name = "Create Edible Jelly"
-	action_icon_state = "edible-biomass"
+	action_icon_state = "edible_biomass"
 	desc = "Create edible jelly for hosts."
 	ability_cost = 50
 	cooldown_duration = 20 SECONDS
@@ -540,19 +542,29 @@
 /datum/action/ability/xeno_action/create_edible_jelly/action_activate()
 	var/obj/item/reagent_containers/food/snacks/nutrient_jelly/jelly = new(owner.loc)
 
-	if(owner.client.prefs?.xeno_edible_jelly_name)
+	var/datum/preferences/prefs = owner.client.prefs
+
+	if(prefs?.xeno_edible_jelly_name)
 		jelly.name = owner.client.prefs.xeno_edible_jelly_name
 
-	if(owner.client.prefs?.xeno_edible_jelly_desc)
-		jelly.desc = owner.client.prefs.xeno_edible_jelly_desc
+	// Change the colors on our greyscale
+	var/jellyhex = "#[num2hex(prefs.r_jelly, 2)][num2hex(prefs.g_jelly, 2)][num2hex(prefs.b_jelly, 2)]"
+	jelly.set_greyscale_colors(jellyhex)
+	jelly.update_icon()
+
+	// Fallback chromatic sprite
+	// action_icon_state = "edible_biomass"
+
+	if(prefs?.xeno_edible_jelly_desc)
+		jelly.desc = prefs.xeno_edible_jelly_desc
 
 
-	if(owner.client.prefs?.xeno_edible_jelly_flavors)
+	if(prefs?.xeno_edible_jelly_flavors)
 
 		jelly.tastes =  new /list(0)
 
 		// Split the player's tastes lists into individual string with the use of commas
-		var/newFlaves[] = splittext(owner.client.prefs.xeno_edible_jelly_flavors, ",")
+		var/newFlaves[] = splittext(prefs.xeno_edible_jelly_flavors, ",")
 
 		// Iterating through those individual flavors to add them to our list'n such.
 		for(var/flavor in newFlaves)

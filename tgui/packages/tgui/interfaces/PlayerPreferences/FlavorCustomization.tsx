@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Box, Button, Section, Stack, TextArea } from 'tgui-core/components';
 
 import { useBackend } from '../../backend';
+import { Button, Section, TextArea, Box, ColorBox, Stack } from 'tgui-core/components';
 import { TextFieldPreference } from './FieldPreferences';
 
 export const FlavorCustomization = (props) => {
@@ -9,11 +10,21 @@ export const FlavorCustomization = (props) => {
   const {
     slot,
     xeno_edible_jelly_name,
+    r_jelly,
+    g_jelly,
+    b_jelly,
     xeno_edible_jelly_desc,
     xeno_edible_jelly_flavors,
   } = data;
   const [xenoJellyDesc, setXenoJellyDesc] = useState(xeno_edible_jelly_desc);
   const [xenoJellyFlav, setXenoJellyFlav] = useState(xeno_edible_jelly_flavors);
+  const rgbToHex = (red, green, blue) => {
+    const convert = (comp) => {
+      const hex = comp.toString(16);
+      return hex.length === 1 ? `0${hex}` : hex;
+    };
+    return '#' + convert(red) + convert(green) + convert(blue);
+  };
   return (
     <Section title="Flavor information">
       <Section title="Edible Jelly Options">
@@ -22,11 +33,34 @@ export const FlavorCustomization = (props) => {
           hosts!
         </p>
         <p> Jelly names are limited to 26 characters.</p>
-        <TextFieldPreference
-          label={'Jelly Name'}
-          action={'xeno_edible_jelly_name'}
-          value={'xeno_edible_jelly_name'}
-        />
+        <Stack>
+          <Stack.Item grow>
+            <TextFieldPreference
+              label={'Jelly Name'}
+              action={'xeno_edible_jelly_name'}
+              value={'xeno_edible_jelly_name'}
+            />
+          </Stack.Item>
+          <Stack.Item grow>
+            <TextFieldPreference
+              label={'Jelly Color'}
+              value={rgbToHex(r_jelly, g_jelly, b_jelly)}
+              noAction
+              extra={
+                <>
+                  <ColorBox
+                    color={rgbToHex(r_jelly, g_jelly, b_jelly)}
+                    mr={1}
+                  />
+                  <Button
+                    icon="edit"
+                    onClick={() => act('xeno_edible_jelly_colors')}
+                  />
+                </>
+              }
+            />
+          </Stack.Item>
+        </Stack>
         <br />
         <Stack>
           <Stack.Item grow>

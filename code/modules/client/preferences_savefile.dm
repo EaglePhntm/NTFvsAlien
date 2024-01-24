@@ -527,6 +527,7 @@
 	READ_FILE(S["gen_record"], gen_record)
 	READ_FILE(S["exploit_record"], exploit_record)
 	READ_FILE(S["flavor_text"], flavor_text)
+
 	READ_FILE(S["xeno_desc"], xeno_desc)
 	READ_FILE(S["profile_pic"], profile_pic)
 	READ_FILE(S["nsfwprofile_pic"], nsfwprofile_pic)
@@ -538,6 +539,9 @@
 	READ_FILE(S["harmful_sex_allowed"], harmful_sex_allowed)
 	READ_FILE(S["burst_screams_enabled"], burst_screams_enabled)
 	READ_FILE(S["xeno_edible_jelly_name"], xeno_edible_jelly_name)
+	READ_FILE(S["r_jelly"], r_jelly)
+	READ_FILE(S["g_jelly"], g_jelly)
+	READ_FILE(S["b_jelly"], b_jelly)
 	READ_FILE(S["xeno_edible_jelly_desc"], xeno_edible_jelly_desc)
 	READ_FILE(S["xeno_edible_jelly_flavors"], xeno_edible_jelly_flavors)
 
@@ -647,6 +651,9 @@
 	xeno_edible_jelly_name = sanitize_text (xeno_edible_jelly_name, initial(xeno_edible_jelly_name))
 	xeno_edible_jelly_desc = sanitize_text (xeno_edible_jelly_desc, initial(xeno_edible_jelly_desc))
 	xeno_edible_jelly_flavors = sanitize_text (xeno_edible_jelly_flavors, initial(xeno_edible_jelly_flavors))
+	r_jelly = sanitize_integer(r_jelly, 0, 255, initial(r_jelly))
+	g_jelly = sanitize_integer(g_jelly, 0, 255, initial(g_jelly))
+	b_jelly = sanitize_integer(b_jelly, 0, 255, initial(b_jelly))
 
 	if(!synthetic_name)
 		synthetic_name = "David"
@@ -817,6 +824,7 @@
 	WRITE_FILE(S["gen_record"], gen_record)
 	WRITE_FILE(S["exploit_record"], exploit_record)
 	WRITE_FILE(S["flavor_text"], flavor_text)
+
 	WRITE_FILE(S["xeno_desc"], xeno_desc)
 	WRITE_FILE(S["profile_pic"], profile_pic)
 	WRITE_FILE(S["nsfwprofile_pic"], nsfwprofile_pic)
@@ -835,6 +843,9 @@
 	WRITE_FILE(S["metadata_favs"], metadata_favs)
 	WRITE_FILE(S["metadata_ooc_style"], metadata_ooc_style)
 	WRITE_FILE(S["xeno_edible_jelly_name"], xeno_edible_jelly_name)
+	WRITE_FILE(S["r_jelly"], r_jelly)
+	WRITE_FILE(S["g_jelly"], g_jelly)
+	WRITE_FILE(S["b_jelly"], b_jelly)
 	WRITE_FILE(S["xeno_edible_jelly_desc"], xeno_edible_jelly_desc)
 	WRITE_FILE(S["xeno_edible_jelly_flavors"], xeno_edible_jelly_flavors)
 
