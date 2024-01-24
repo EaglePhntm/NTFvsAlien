@@ -226,6 +226,15 @@
 			balloon_alert_to_viewers("nibbles")
 		monuse.health = min(monuse.health + 1, monuse.maxHealth)
 
+/obj/item/reagent_containers/food/snacks/examine(mob/user)
+	. = ..()
+	if(user.stat == DEAD) // Let ghosts get a little taste too :)
+		. += span_notice("[user.taste(reagents, "statpanel")]")
+
+// Here to serve as a preview for how things taste in the character creator
+/obj/item/reagent_containers/food/snacks/proc/view_taste_message(mob/user, type)
+	user.taste(reagents, type)
+
 //////////////////////////////////////////////////
 ////////////////////////////////////////////Snacks
 //////////////////////////////////////////////////

@@ -569,3 +569,31 @@
 	to_chat(owner, span_xenonotice("We secrete a gelatinous mash of nutrients.")) // Yummy... :drool:
 	add_cooldown()
 	succeed_activate()
+
+
+// Cannot guarantee whether living or dead, human or xeno since the preeview button can be clicked from anywhere.
+/mob/proc/edible_jelly_preview(type)
+	var/obj/item/reagent_containers/food/snacks/nutrient_jelly/jelly = new()
+
+	if(client.prefs?.xeno_edible_jelly_flavors)
+
+		jelly.tastes =  new /list(0)
+
+		// Split the player's tastes lists into individual string with the use of commas
+		var/newFlaves[] = splittext(client.prefs.xeno_edible_jelly_flavors, ",")
+
+		// Iterating through those individual flavors to add them to our list'n such.
+		for(var/flavor in newFlaves)
+			flavor = trim(flavor, 256) // Remove whitespace
+
+			// Associative list, so in the index that's defined by each flavor's name.
+			// Makes each flavor's strength equal to the length of newFlaves to ensure they're tasted.
+			jelly.tastes[flavor] = newFlaves.len
+
+		// Refresh the individual reagents taste values to agree. Coding this was painful.
+		jelly.refresh_taste()
+
+	jelly.view_taste_message(src, type)
+
+	// Clean up after ourselves.
+	qdel(jelly)

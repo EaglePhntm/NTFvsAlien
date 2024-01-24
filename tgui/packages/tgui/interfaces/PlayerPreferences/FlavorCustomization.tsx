@@ -23,7 +23,7 @@ export const FlavorCustomization = (props) => {
         </p>
         <p> Jelly names are limited to 26 characters.</p>
         <TextFieldPreference
-          label={'Edible Jelly Name'}
+          label={'Jelly Name'}
           action={'xeno_edible_jelly_name'}
           value={'xeno_edible_jelly_name'}
         />
@@ -31,7 +31,7 @@ export const FlavorCustomization = (props) => {
         <Stack>
           <Stack.Item grow>
             <Section
-              title="Edible Jelly Description"
+              title="Jelly Description"
               buttons={
                 <Box>
                   <Button
@@ -62,9 +62,14 @@ export const FlavorCustomization = (props) => {
           </Stack.Item>
           <Stack.Item grow>
             <Section
-              title="Edible Jelly Flavors. Separate with commas."
+              title="Jelly Flavors. Separate with commas."
               buttons={
                 <Box>
+                  <Button
+                    icon="eye"
+                    onClick={() => act('xeno_edible_jelly_preview')}>
+                    Test
+                  </Button>
                   <Button
                     icon="save"
                     disabled={xenoJellyFlav === xeno_edible_jelly_flavors}
