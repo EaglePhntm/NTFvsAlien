@@ -525,7 +525,7 @@
 	action_icon_state = "edible_biomass"
 	desc = "Create edible jelly for hosts."
 	ability_cost = 50
-	cooldown_duration = 20 SECONDS
+	cooldown_duration = 15 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CREATE_EDIBLE_JELLY,
 	)
