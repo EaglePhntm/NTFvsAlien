@@ -924,10 +924,6 @@
 	name = "Short Hair 2 Alt"
 	icon_state = "hair_short2_alt"
 
-/datum/sprite_accessory/hair/short2_alt2
-	name = "Short Hair 2 Alt2"
-	icon_state = "hair_short2_alt2"
-
 /datum/sprite_accessory/hair/short3
 	name = "Short Hair 3"
 	icon_state = "hair_short3"
