@@ -236,6 +236,14 @@
 	try_do_moan(arousal_amt, pain_amt, applied_force, giving)
 	try_do_pain_effect(pain_amt, giving)
 
+/*
+	/datum/sex_controller/proc/damage_from_pain(pain_amt)
+	if(pain_amt < PAIN_MINIMUM_FOR_DAMAGE)
+		return
+	var/damage = (pain_amt / PAIN_DAMAGE_DIVISOR)
+	user.adjustBruteLoss(damage, TRUE)
+*/
+
 /datum/sex_controller/proc/try_do_moan(arousal_amt, pain_amt, applied_force, giving)
 	if(arousal_amt < 1.5)
 		return
