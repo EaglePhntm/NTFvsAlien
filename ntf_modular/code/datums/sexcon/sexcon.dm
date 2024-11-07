@@ -197,9 +197,9 @@
 		if(SEX_FORCE_MID)
 			oxyloss_multiplier = 0
 		if(SEX_FORCE_HIGH)
-			oxyloss_multiplier = 1.0
+			oxyloss_multiplier = 0
 		if(SEX_FORCE_EXTREME)
-			oxyloss_multiplier = 2.0
+			oxyloss_multiplier = 0
 	oxyloss_amt *= oxyloss_multiplier
 	if(oxyloss_amt <= 0)
 		return
@@ -233,15 +233,8 @@
 		xuser.gain_plasma(5, TRUE)
 
 	adjust_arousal(arousal_amt)
-	damage_from_pain(pain_amt)
 	try_do_moan(arousal_amt, pain_amt, applied_force, giving)
 	try_do_pain_effect(pain_amt, giving)
-
-/datum/sex_controller/proc/damage_from_pain(pain_amt)
-	if(pain_amt < PAIN_MINIMUM_FOR_DAMAGE)
-		return
-	var/damage = (pain_amt / PAIN_DAMAGE_DIVISOR)
-	user.adjustBruteLoss(damage, TRUE)
 
 /datum/sex_controller/proc/try_do_moan(arousal_amt, pain_amt, applied_force, giving)
 	if(arousal_amt < 1.5)
@@ -585,24 +578,24 @@
 /datum/sex_controller/proc/get_force_pain_multiplier(passed_force)
 	switch(passed_force)
 		if(SEX_FORCE_LOW)
-			return 0.5
+			return 0
 		if(SEX_FORCE_MID)
-			return 1.0
+			return 0
 		if(SEX_FORCE_HIGH)
-			return 2.0
+			return 0
 		if(SEX_FORCE_EXTREME)
-			return 3.0
+			return 0
 
 /datum/sex_controller/proc/get_speed_pain_multiplier(passed_speed)
 	switch(passed_speed)
 		if(SEX_SPEED_LOW)
-			return 0.8
+			return 0
 		if(SEX_SPEED_MID)
-			return 1.0
+			return 0
 		if(SEX_SPEED_HIGH)
-			return 1.2
+			return 0
 		if(SEX_SPEED_EXTREME)
-			return 1.4
+			return 0
 
 /datum/sex_controller/proc/get_force_string()
 	switch(force)
