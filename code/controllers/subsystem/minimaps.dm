@@ -651,8 +651,8 @@ SUBSYSTEM_DEF(minimaps)
 
 
 /datum/action/minimap/survivor
-	minimap_flags = MINIMAP_FLAG_MARINE
-	marker_flags = MINIMAP_FLAG_SURVIVOR
+	minimap_flags = MINIMAP_FLAG_SURVIVOR
+	marker_flags = MINIMAP_FLAG_XENO
 
 /datum/action/minimap/researcher
 	minimap_flags = MINIMAP_FLAG_MARINE|MINIMAP_FLAG_EXCAVATION_ZONE|MINIMAP_FLAG_SURVIVOR

@@ -11,8 +11,8 @@
 
 /datum/job/survivor/after_spawn(mob/living/carbon/C, mob/M, latejoin = FALSE)
 	. = ..()
-	SSminimaps.add_marker(C, MINIMAP_FLAG_SURVIVOR, image('icons/UI_icons/map_blips.dmi', null, "survivor"))
 	var/datum/action/minimap/survivor/mini = new
+	SSminimaps.add_marker(C, mini.marker_flags, image('icons/UI_icons/map_blips.dmi', null, "survivor"))
 	mini.give_action(C)
 
 	if(SSmapping.configs[GROUND_MAP].environment_traits[MAP_COLD])
