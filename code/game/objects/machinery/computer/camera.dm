@@ -50,7 +50,6 @@
 /obj/machinery/computer/camera/Destroy()
 	qdel(cam_screen)
 	QDEL_LIST(cam_plane_masters)
-	qdel(cam_background)
 	return ..()
 
 /obj/machinery/computer/camera/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
@@ -79,7 +78,6 @@
 		user.client.register_map_obj(cam_screen)
 		for(var/plane in cam_plane_masters)
 			user.client.register_map_obj(plane)
-		user.client.register_map_obj(cam_background)
 		// Open UI
 		ui = new(user, src, "CameraConsole", name)
 		ui.open()

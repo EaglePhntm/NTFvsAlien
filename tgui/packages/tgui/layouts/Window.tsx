@@ -85,7 +85,6 @@ export const Window = (props: Props) => {
         Byond.winset(Byond.windowId, {
           'is-visible': true,
         });
-        Byond.sendMessage('visible');
         logger.log('set to visible');
       };
 

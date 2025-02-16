@@ -16,8 +16,6 @@ export const MarineSelector = (props) => {
   const [showEmpty, setShowEmpty] = useState(false);
   const [showDesc, setShowDesc] = useState(null);
 
-  const ui_theme = data[ui_theme] || "ntos";
-
   const categories = Object.keys(data.displayed_records)
     .map((key) => ({
       ...data.cats[key],

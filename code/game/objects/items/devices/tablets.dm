@@ -91,14 +91,10 @@
 			instance.blend_mode = instance.blend_mode_override
 		instance.screen_loc = "[map_name]:CENTER"
 		cam_plane_masters += instance
-	cam_background = new
-	cam_background.assigned_map = map_name
-	cam_background.del_on_map_removal = FALSE
 
 /obj/item/hud_tablet/Destroy()
 	qdel(cam_screen)
 	QDEL_LIST(cam_plane_masters)
-	qdel(cam_background)
 	return ..()
 
 /obj/item/hud_tablet/proc/get_available_cameras()
@@ -139,7 +135,6 @@
 		user.client.register_map_obj(cam_screen)
 		for(var/plane in cam_plane_masters)
 			user.client.register_map_obj(plane)
-		user.client.register_map_obj(cam_background)
 		// Open UI
 		ui = new(user, src, "CameraConsole", name)
 		ui.open()

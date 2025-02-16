@@ -61,8 +61,8 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/map_view)
 
 	var/datum/weakref/hud_ref = viewers_to_huds[client_ref]
 	var/datum/hud/our_hud = hud_ref?.resolve()
-	if(our_hud)
-		return our_hud.get_plane_group(PLANE_GROUP_POPUP_WINDOW(src))
+	//if(our_hud)
+	//	return our_hud.get_plane_group(PLANE_GROUP_POPUP_WINDOW(src))
 
 	// Generate a new plane group for this case
 	var/datum/plane_master_group/popup/pop_planes = new(PLANE_GROUP_POPUP_WINDOW(src), assigned_map)
@@ -88,5 +88,5 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/map_view)
 	if(!clear_from)
 		return
 
-	var/datum/plane_master_group/popup/pop_planes = clear_from.get_plane_group(PLANE_GROUP_POPUP_WINDOW(src))
-	qdel(pop_planes)
+	//var/datum/plane_master_group/popup/pop_planes = clear_from.get_plane_group(PLANE_GROUP_POPUP_WINDOW(src))
+	//qdel(pop_planes)
