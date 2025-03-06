@@ -16,7 +16,7 @@ GLOBAL_DATUM_INIT(datacore, /datum/datacore, new)
 
 
 // TODO: cleanup
-/datum/datacore/proc/get_manifest(monochrome, ooc)
+/datum/datacore/proc/get_manifest(monochrome, ooc, viewfaction)
 	var/list/eng = list()
 	var/list/med = list()
 	var/list/mar = list()
@@ -48,13 +48,18 @@ GLOBAL_DATUM_INIT(datacore, /datum/datacore, new)
 		var/name = t.fields["name"]
 		var/rank = t.fields["rank"]
 		var/squad_name = t.fields["squad"]
+		var/mobfaction = null
+		var/active = 0
 
-		if(ooc)
-			var/active = 0
-			for(var/mob/M in GLOB.player_list)
-				if(M.real_name == name && M.client && M.client.inactivity <= 10 * 60 * 10)
+		for(var/mob/living/M in GLOB.player_list)
+			if(M.real_name == name)
+				if(ooc && M.client && M.client.inactivity <= 10 * 60 * 10)
 					active = 1
-					break
+				mobfaction = M.job?.faction
+				message_admins("DEBUG: Getting manifest for [viewfaction], found [key_name(M)] with faction [mobfaction]")
+				break
+		
+		if(ooc)
 			isactive[name] = active ? "Active" : "Inactive"
 		else
 			isactive[name] = t.fields["p_stat"]
@@ -80,10 +85,13 @@ GLOBAL_DATUM_INIT(datacore, /datum/datacore, new)
 			if(rank in GLOB.jobs_regular_all)
 				misc[name] = rank
 			else
-				if(ooc)
+				message_admins("DEBUG: Getting manifest for [viewfaction], mobfaction = [mobfaction], name=[name], rank=[rank]")
+				if(ooc || (viewfaction && viewfaction == mobfaction))
+					message_admins("DEBUG: Getting manifest for [viewfaction], mobfaction = [mobfaction], matched, name=[name], rank=[rank]")
 					other[name] = rank
-	// Adds xenomorphs to the game manifest if it's being polled from the game lobby or ghosts
-	if(ooc)
+
+	// Adds xenomorphs to the game manifest if it's being polled from the game lobby, ghosts, or CLF
+	if(ooc || viewfaction == FACTION_CLF)
 		for(var/mob/living/carbon/xenomorph/X in GLOB.xeno_mob_list)
 			var/name = X.real_name
 			var/rank = X.xeno_caste.caste_name
