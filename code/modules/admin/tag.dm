@@ -65,7 +65,7 @@
 
 /datum/admins/proc/index_tags()
 	var/index = 0
-	var/list/dat = list("<center><B>Tag Menu</B></center><hr>")
+	var/list/dat = list()
 
 	dat += "<br><A href='byond://?src=[REF(src)];[HrefToken(forceGlobal = TRUE)];show_tags=1'>Refresh</a><br>"
 	if(LAZYLEN(tagged_datums))
@@ -102,8 +102,9 @@
 	else
 		dat += "No datums tagged :("
 
-	dat = dat.Join("<br>")
-	usr << browse(dat, "window=tag;size=800x480")
+	var/datum/browser/browser = new(usr, "tag", "Tag Menu", 800, 480)
+	browser.set_content(dat.Join("<br>"))
+	browser.open()
 
 #undef TAG_DEL
 #undef TAG_MARK
