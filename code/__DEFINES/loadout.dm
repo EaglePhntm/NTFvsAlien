@@ -203,6 +203,8 @@ GLOBAL_LIST_INIT(smartgunner_gear_listed_products, list(
 GLOBAL_LIST_INIT(specialist_gear_listed_products, list(
 
 	/obj/effect/vendor_bundle/specialist = list(CAT_ESS, "Essential Specialist Set", 0, "white"),
+	/obj/item/armor_module/module/hod_head = list(CAT_CDSUP, "HOD Ballistic Helmet Module", 3, "black"),
+	/obj/item/armor_module/module/ballistic_armor = list(CAT_CDSUP, "HOD Ballistic Armor Module", 7, "black"),
 	/obj/effect/supply_drop/grenadier = list(CAT_SPSUP, "Heavy Grenadier Pack", 30, "black"),
 	/obj/item/storage/backpack/marine/satchel/scout_cloak = list(CAT_SPSUP, "Scout Cloak", 15, "black"),
 	/obj/item/storage/backpack/marine/satchel/scout_cloak/sniper = list(CAT_SPSUP, "Sniper Cloak", 5, "black"),
