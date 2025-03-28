@@ -158,7 +158,7 @@
 			/obj/item/ammo_magazine/rocket/som/incendiary = 8,
 			/obj/item/ammo_magazine/rocket/som/heat = 8,
 			/obj/item/ammo_magazine/rocket/som/thermobaric = 8,
-			/obj/item/ammo_magazine/rocket/som/rad = 8,
+			/obj/item/ammo_magazine/rocket/som/rad = 6,
 			/obj/item/weapon/gun/flamer/som = 4,
 		),
 		"Heavy Weapons" = list(
