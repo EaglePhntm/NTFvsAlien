@@ -406,6 +406,7 @@
 			/obj/item/storage/pill_bottle/paracetamol = -1,
 			/obj/item/storage/pill_bottle/isotonic = -1,
 			/obj/item/storage/pill_bottle = -1,
+			/obj/item/storage/pill_bottle/aphrotoxin = 5,
 		),
 		"Auto Injector" = list(
 			/obj/item/reagent_containers/hypospray/autoinjector/bicaridine = -1,
@@ -424,6 +425,7 @@
 			/obj/item/reagent_containers/hypospray/autoinjector/quickclot = 10,
 			/obj/item/reagent_containers/hypospray/autoinjector/medicalnanites = 20,
 			/obj/item/reagent_containers/hypospray/autoinjector/russian_red = 10,
+			/obj/item/reagent_containers/hypospray/autoinjector/aphrotoxin = 10,
 		),
 		"Heal Pack" = list(
 			/obj/item/stack/medical/heal_pack/gauze = -1,
@@ -522,6 +524,7 @@
 		),
 		"General" = list(
 			/obj/item/facepaint/green = -1,
+			/obj/item/clothing/suit/modular/rownin = -1
 		),
 		"OLD SCHOOL" = list(
 			/obj/item/clothing/head/helmet/marine/som = -1,
@@ -560,6 +563,7 @@
 		"Standard" = list(
 			/obj/item/clothing/under/marine/robotic = -1,
 			/obj/item/clothing/under/marine/hyperscale = -1,
+			/obj/item/clothing/under/marine/hyperscale_skirt = -1,
 			/obj/item/clothing/under/marine/camo = -1,
 			/obj/item/clothing/under/marine/orion_fatigue = -1,
 			/obj/item/clothing/under/marine/red_fatigue = -1,
@@ -572,6 +576,7 @@
 			/obj/item/clothing/gloves/marine/som = -1,
 			/obj/item/clothing/gloves/brown = -1,
 			/obj/item/clothing/gloves/marine/som = -1,
+			/obj/item/clothing/gloves/marine/hyperscale = -1,
 			/obj/item/clothing/shoes/marine/som/knife = -1,
 			/obj/item/clothing/under/som = -1,
 			/obj/item/clothing/under/icc = -1,
@@ -579,6 +584,10 @@
 			/obj/item/clothing/gloves/marine/icc/guard = -1,
 			/obj/item/clothing/shoes/marine/icc/knife = -1,
 			/obj/item/clothing/shoes/marine/icc/guard/knife = -1,
+			/obj/item/armor_module/armor/badge = -1,
+			/obj/item/armor_module/armor/cape = -1,
+			/obj/item/armor_module/armor/cape/kama = -1,
+
 		),
 		"Webbings" = list(
 			/obj/item/armor_module/storage/uniform/black_vest = -1,
@@ -590,6 +599,7 @@
 		"Belts" = list(
 			/obj/item/storage/belt/knifepouch = -1,
 			/obj/item/storage/holster/blade/machete/full = -1,
+			/obj/item/storage/holster/blade/machete/full_harvester = -1,
 			/obj/item/storage/holster/belt/pistol/m4a3/som = -1,
 			/obj/item/belt_harness = -1,
 			/obj/item/storage/belt/shotgun/som = -1,
@@ -720,6 +730,9 @@
 			/obj/item/clothing/under/shorts/green = -1,
 			/obj/item/clothing/under/dress/maid = -1,
 			/obj/item/clothing/under/dress/maid/sexy = -1,
+			/obj/item/clothing/shoes/high_heels = -1,
+			/obj/item/clothing/shoes/high_heels/red = -1,
+			/obj/item/clothing/head/bunny_ears = -1,
 		),
 	)
 
