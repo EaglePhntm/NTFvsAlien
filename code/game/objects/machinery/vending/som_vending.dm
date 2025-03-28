@@ -88,6 +88,7 @@
 			/obj/item/weapon/gun/rifle/icc_mg = -1,
 			/obj/item/ammo_magazine/icc_mg = -1,
 			/obj/item/ammo_magazine/icc_mg/packet = -1,
+			/obj/item/ammo_magazine/icc_mg/belt = -1
 		),
 		"Melee" = list(
 			/obj/item/weapon/shield/riot/marine/som = 6,
@@ -594,8 +595,7 @@
 			/obj/item/storage/belt/shotgun/som = -1,
 			/obj/item/storage/belt/sparepouch/som = -1,
 			/obj/item/storage/belt/marine/som = -1,
-			/obj/item/storage/belt/grenade/som = -1,
-			/obj/item/ammo_magazine/icc_mg/belt = -1,
+			/obj/item/storage/belt/grenade/som = -1,,
 		),
 		"Pouches" = list(
 			/obj/item/storage/pouch/grenade/som = -1,
