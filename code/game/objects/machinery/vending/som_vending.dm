@@ -145,7 +145,7 @@
 			/obj/item/ammo_magazine/handful/micro_grenade/dragonbreath = 12,
 		),
 		"Specialized" = list(
-			/obj/item/weapon/gun/rifle/pepperball = 4,
+			/obj/item/weapon/gun/rifle/pepperball = 5,
 			/obj/item/ammo_magazine/rifle/pepperball = -1,
 			/obj/item/storage/holster/backholster/rpg/som = 4,
 			/obj/item/ammo_magazine/flamer_tank/large/som = 10,
