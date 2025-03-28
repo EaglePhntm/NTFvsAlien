@@ -56,7 +56,7 @@
 		),
 		"Marksman" = list(
 			/obj/item/weapon/gun/rifle/sniper/svd = 3,
-			/obj/item/ammo_magazine/sniper/svd = 25,
+			/obj/item/ammo_magazine/sniper/svd = 30,
 			/obj/item/weapon/gun/rifle/chambered = -1,
 			/obj/item/ammo_magazine/rifle/chamberedrifle = -1,
 			/obj/item/weapon/gun/shotgun/pump/lever = -1,
@@ -78,7 +78,7 @@
 			/obj/item/ammo_magazine/shotgun/barrikada = -1,
 			/obj/item/weapon/gun/shotgun/pump/sh23/som = -1,
 			/obj/item/weapon/gun/shotgun/som = -1,
-			/obj/item/weapon/gun/shotgun/som/burst = 3,
+			/obj/item/weapon/gun/shotgun/som/burst = 2,
 			/obj/item/weapon/gun/shotgun/double/sawn = 5,
 			/obj/item/weapon/gun/shotgun/pump/trenchgun = 5,
 		),
