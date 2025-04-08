@@ -260,8 +260,9 @@ type BackendState<TData> = {
     window: {
       key: string;
       size: [number, number];
-      fancy: boolean;
-      locked: boolean;
+      fancy: BooleanLike;
+      locked: BooleanLike;
+      scale: BooleanLike;
     };
     client: {
       ckey: string;
