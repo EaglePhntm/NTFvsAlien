@@ -89,6 +89,7 @@
 	RegisterSignal(SSdcs, COMSIG_GLOB_GAMEMODE_LOADED, TYPE_PROC_REF(/atom/movable/screen/text/lobby, update_text))
 
 /atom/movable/screen/text/lobby/clickable/join_game/update_text()
+	var/mob/new_player/player = hud.mymob
 	if(SSticker?.current_state > GAME_STATE_PREGAME)
 		maptext = "<span class='lobbytext'>JOIN GAME</span>"
 		icon_state = "join"
@@ -186,6 +187,6 @@
 	var/mob/new_player/player = hud.mymob
 	player.handle_playeR_POLLSing()
 	fetch_polls()
-
+*/
 #undef COLOR_HOVER_MOUSE
 #undef MAX_CHAR_NAME_DISPLAYED
