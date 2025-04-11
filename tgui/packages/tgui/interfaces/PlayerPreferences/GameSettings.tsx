@@ -1,4 +1,3 @@
-import { useBackend } from '../../backend';
 import {
   Button,
   ColorBox,
@@ -6,7 +5,9 @@ import {
   Section,
   Stack,
   Tooltip,
-} from '../../components';
+} from 'tgui-core/components';
+
+import { useBackend } from '../../backend';
 import {
   LoopingSelectionPreference,
   SelectFieldPreference,
@@ -128,6 +129,13 @@ export const GameSettings = (props) => {
                 action="fullscreen_mode"
                 leftLabel={'Fullscreen'}
                 rightLabel={'Windowed'}
+              />
+              <ToggleFieldPreference
+                label="Status Bar (Bottom left text)"
+                value="show_status_bar"
+                action="show_status_bar"
+                leftLabel={'Show'}
+                rightLabel={'Hide'}
               />
               <ToggleFieldPreference
                 label="TGUI Window Mode"
