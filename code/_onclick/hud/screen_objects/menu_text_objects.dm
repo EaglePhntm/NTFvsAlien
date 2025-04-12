@@ -85,11 +85,10 @@
 
 /atom/movable/screen/text/lobby/clickable/join_game/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
-	update_text()
 	RegisterSignal(SSdcs, COMSIG_GLOB_GAMEMODE_LOADED, TYPE_PROC_REF(/atom/movable/screen/text/lobby, update_text))
 
 /atom/movable/screen/text/lobby/clickable/join_game/update_text()
-	var/mob/new_player/player = hud.mymob
+	var/mob/new_player/player = hud?.mymob
 	if(SSticker?.current_state > GAME_STATE_PREGAME)
 		maptext = "<span class='lobbytext'>JOIN GAME</span>"
 		icon_state = "join"
