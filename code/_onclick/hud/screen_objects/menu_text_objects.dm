@@ -121,7 +121,7 @@
 	player.try_to_observe()
 
 /atom/movable/screen/text/lobby/clickable/take_ssd_mob
-	maptext = "<span class='lobbytext' style=font-size:8px>TAKE SSD XENO</span>"
+	maptext = "<span class='lobbytext'>TAKE SSD XENO</span>"
 	icon_state = "take_ssd_mob"
 
 /atom/movable/screen/text/lobby/clickable/take_ssd_mob/Click()
