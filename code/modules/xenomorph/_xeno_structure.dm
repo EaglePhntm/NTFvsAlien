@@ -1,7 +1,7 @@
 /obj/structure/xeno
 	hit_sound = SFX_ALIEN_RESIN_BREAK
 	layer = RESIN_STRUCTURE_LAYER
-	resistance_flags = UNACIDABLE
+	resistance_flags = UNACIDABLE | XENO_DAMAGEABLE
 	///Bitflags specific to xeno structures
 	var/xeno_structure_flags
 	///Which hive(number) do we belong to?
@@ -24,6 +24,9 @@
 		LAZYADDASSOC(GLOB.xeno_critical_structures_by_hive, hivenumber, src)
 	if((xeno_structure_flags & XENO_STRUCT_WARNING_RADIUS))
 		set_proximity_warning()
+	var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
+	name = "[hive.prefix][name]"
+	color = hive.color
 
 /obj/structure/xeno/Destroy()
 	//prox_warning_turfs = null
@@ -64,6 +67,8 @@
 		damage_alert()
 
 /obj/structure/xeno/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+	if(!issamexenohive(xeno_attacker))
+		return ..()
 	if(!(HAS_TRAIT(xeno_attacker, TRAIT_VALHALLA_XENO) && xeno_attacker.a_intent == INTENT_HARM && (tgui_alert(xeno_attacker, "Are you sure you want to tear down [src]?", "Tear down [src]?", list("Yes","No"))) == "Yes"))
 		return ..()
 	if(!do_after(xeno_attacker, 3 SECONDS, NONE, src))

@@ -76,14 +76,17 @@
 	if(!T.is_weedable())
 		to_chat(owner, span_warning("Bad place for a garden!"))
 		return fail_activate()
-
-	if(locate(weed_type) in T)
+	var/obj/alien/weeds/existing_weed = locate() in T
+	if(existing_weed && (!existing_weed.issamexenohive(xeno_owner)))
+		to_chat(owner, span_warning("You cannot build on another hive's weeds!"))
+		return fail_activate()
+	if(existing_weed && existing_weed.type == weed_type)
 		to_chat(owner, span_warning("There's a pod here already!"))
 		return fail_activate()
 
 	owner.visible_message(span_xenonotice("\The [owner] regurgitates a pulsating node and plants it on the ground!"), \
 		span_xenonotice("We regurgitate a pulsating node and plant it on the ground!"), null, 5)
-	new weed_type(T)
+	new weed_type(T, xeno_owner.hivenumber)
 	last_weeded_turf = T
 	playsound(T, SFX_ALIEN_RESIN_BUILD, 25)
 	GLOB.round_statistics.weeds_planted++
@@ -338,12 +341,15 @@
 		return
 
 	var/mob/living/carbon/xenomorph/X = owner
-	switch(is_valid_for_resin_structure(T, X.selected_resin == /obj/structure/mineral_door/resin, X.selected_resin))
+	switch(is_valid_for_resin_structure(T, X.selected_resin == /obj/structure/mineral_door/resin, X.selected_resin, X.hivenumber))
 		if(ERROR_CANT_WEED)
 			owner.balloon_alert(owner, span_notice("This spot cannot support a garden!"))
 			return
 		if(ERROR_NO_WEED)
 			owner.balloon_alert(owner, span_notice("This spot has no weeds to serve as support!"))
+			return
+		if(ERROR_ENEMY_WEED)
+			owner.balloon_alert(owner, span_notice("You cannot build on another hive's weeds!"))
 			return
 		if(ERROR_NO_SUPPORT)
 			owner.balloon_alert(owner, span_notice("This spot has no adjaecent support for the structure!"))
@@ -369,7 +375,7 @@
 		T.ChangeTurf(X.selected_resin, baseturfs)
 		new_resin = T
 	else
-		new_resin = new X.selected_resin(T)
+		new_resin = new X.selected_resin(T, xeno_owner.hivenumber)
 	if(new_resin)
 		SSresinshaping.quickbuild_points_by_hive[owner.get_xeno_hivenumber()]--
 
@@ -381,12 +387,15 @@
 
 /datum/action/ability/activable/xeno/secrete_resin/proc/build_resin(turf/T)
 	var/mob/living/carbon/xenomorph/X = owner
-	switch(is_valid_for_resin_structure(T, X.selected_resin == /obj/structure/mineral_door/resin, X.selected_resin))
+	switch(is_valid_for_resin_structure(T, X.selected_resin == /obj/structure/mineral_door/resin, X.selected_resin, X.hivenumber))
 		if(ERROR_CANT_WEED)
 			owner.balloon_alert(owner, span_notice("This spot cannot support a garden!"))
 			return
 		if(ERROR_NO_WEED)
 			owner.balloon_alert(owner, span_notice("This spot has no weeds to serve as support!"))
+			return
+		if(ERROR_ENEMY_WEED)
+			owner.balloon_alert(owner, span_notice("You cannot build on another hive's weeds!"))
 			return
 		if(ERROR_NO_SUPPORT)
 			owner.balloon_alert(owner, span_notice("This spot has no adjaecent support for the structure!"))
@@ -410,12 +419,15 @@
 		return fail_activate()
 	if(!do_after(X, get_wait(), NONE, T, BUSY_ICON_BUILD))
 		return fail_activate()
-	switch(is_valid_for_resin_structure(T, X.selected_resin == /obj/structure/mineral_door/resin, X.selected_resin))
+	switch(is_valid_for_resin_structure(T, X.selected_resin == /obj/structure/mineral_door/resin, X.selected_resin, X.hivenumber))
 		if(ERROR_CANT_WEED)
 			owner.balloon_alert(owner, span_notice("This spot cannot support a garden!"))
 			return
 		if(ERROR_NO_WEED)
 			owner.balloon_alert(owner, span_notice("This spot has no weeds to serve as support!"))
+			return
+		if(ERROR_ENEMY_WEED)
+			owner.balloon_alert(owner, span_notice("You cannot build on another hive's weeds!"))
 			return
 		if(ERROR_NO_SUPPORT)
 			owner.balloon_alert(owner, span_notice("This spot has no adjaecent support for the structure!"))
@@ -445,7 +457,7 @@
 		T.ChangeTurf(X.selected_resin, baseturfs)
 		new_resin = T
 	else
-		new_resin = new X.selected_resin(T)
+		new_resin = new X.selected_resin(T, xeno_owner.hivenumber)
 	switch(X.selected_resin)
 		if(/obj/alien/resin/sticky)
 			ability_cost = initial(ability_cost) / 3
@@ -546,12 +558,15 @@
 	if(GLOB.hive_datums[owner.get_xeno_hivenumber()].special_build_points <= 0)
 		owner.balloon_alert(owner, span_notice("There is not enough special build points to build this structure!"))
 		return
-	switch(is_valid_for_resin_structure(T, X.selected_special_resin == /obj/structure/mineral_door/resin, X.selected_special_resin))
+	switch(is_valid_for_resin_structure(T, X.selected_special_resin == /obj/structure/mineral_door/resin, X.selected_special_resin, X.hivenumber))
 		if(ERROR_CANT_WEED)
 			owner.balloon_alert(owner, span_notice("This spot cannot support a garden!"))
 			return
 		if(ERROR_NO_WEED)
 			owner.balloon_alert(owner, span_notice("This spot has no weeds to serve as support!"))
+			return
+		if(ERROR_ENEMY_WEED)
+			owner.balloon_alert(owner, span_notice("You cannot build on another hive's weeds!"))
 			return
 		if(ERROR_NO_SUPPORT)
 			owner.balloon_alert(owner, span_notice("This spot has no adjaecent support for the structure!"))
@@ -577,12 +592,15 @@
 	if(GLOB.hive_datums[owner.get_xeno_hivenumber()].special_build_points <= 0)
 		owner.balloon_alert(owner, span_notice("There is not enough special build points to build this structure!"))
 		return
-	switch(is_valid_for_resin_structure(T, X.selected_special_resin == /obj/structure/mineral_door/resin, X.selected_special_resin))
+	switch(is_valid_for_resin_structure(T, X.selected_special_resin == /obj/structure/mineral_door/resin, X.selected_special_resin, X.hivenumber))
 		if(ERROR_CANT_WEED)
 			owner.balloon_alert(owner, span_notice("This spot cannot support a garden!"))
 			return
 		if(ERROR_NO_WEED)
 			owner.balloon_alert(owner, span_notice("This spot has no weeds to serve as support!"))
+			return		
+		if(ERROR_ENEMY_WEED)
+			owner.balloon_alert(owner, span_notice("You cannot build on another hive's weeds!"))
 			return
 		if(ERROR_NO_SUPPORT)
 			owner.balloon_alert(owner, span_notice("This spot has no adjaecent support for the structure!"))
@@ -611,7 +629,7 @@
 		T.ChangeTurf(X.selected_special_resin, baseturfs)
 		new_resin = T
 	else
-		new_resin = new X.selected_special_resin(T)
+		new_resin = new X.selected_special_resin(T, xeno_owner.hivenumber)
 	if(new_resin)
 		add_cooldown(SSmonitor.gamestate == SHUTTERS_CLOSED ? get_cooldown()/2 : get_cooldown())
 		succeed_activate(SSmonitor.gamestate == SHUTTERS_CLOSED ? ability_cost/2 : ability_cost)

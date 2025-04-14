@@ -134,6 +134,9 @@
 	if(!(resistance_flags & XENO_DAMAGEABLE))
 		to_chat(xeno_attacker, span_warning("We stare at \the [src] cluelessly."))
 		return FALSE
+	if(issamexenohive(xeno_attacker))
+		to_chat(xeno_attacker, span_warning("We stare at \the [src] cluelessly."))
+		return FALSE
 	if(effects)
 		xeno_attacker.visible_message(span_danger("[xeno_attacker] has slashed [src]!"),
 		span_danger("We slash [src]!"))
