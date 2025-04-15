@@ -50,6 +50,7 @@ Godspeed, commander! And remember, you are not above the law."})
 	name = SOM_COMMANDER
 	jobtype = /datum/job/som/command/commander
 
+	wear_suit = /obj/item/clothing/suit/modular/som/heavy/leader/officer
 	id = /obj/item/card/id/gold
 	ears = /obj/item/radio/headset/mainship/mcom/som
 	belt = /obj/item/storage/holster/belt/mateba/officer/full
@@ -146,7 +147,7 @@ Make the SOM proud!"})
 	shoes = /obj/item/clothing/shoes/marine/som/knife
 	r_store = /obj/item/storage/pouch/general/large/command
 	gloves = /obj/item/clothing/gloves/marine/officer
-	belt = /obj/item/storage/holster/belt/pistol/m4a3/fieldcommander
+	belt = /obj/item/storage/holster/belt/mateba/officer/full
 	glasses = /obj/item/clothing/glasses/hud/health
 	l_store = /obj/item/storage/pouch/grenade/som/combat_patrol
 	back = /obj/item/storage/backpack/satchel/som
