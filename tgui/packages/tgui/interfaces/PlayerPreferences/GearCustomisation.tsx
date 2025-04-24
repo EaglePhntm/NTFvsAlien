@@ -5,8 +5,7 @@ import { useBackend } from '../../backend';
 export const GearCustomization = (props) => {
   const { act, data } = useBackend<GearCustomizationData>();
 
-  const { gearsets, gear, clothing, underwear, undershirt, backpack, gender } =
-    data;
+  const { gearsets, gear, clothing, undershirt, backpack, gender } = data;
 
   // These correspond to the gear slot and you need to update them if the defines change
   const slotMapping = {
@@ -144,6 +143,7 @@ export const GearCustomization = (props) => {
             </LabeledList>
           </Section>
         </Stack.Item>
+        {/* NTF removal
         <Stack.Item grow>
           <Section title={'Undershirt (select one)'}>
             <LabeledList>
@@ -160,8 +160,10 @@ export const GearCustomization = (props) => {
             </LabeledList>
           </Section>
         </Stack.Item>
+        */}
       </Stack>
       <Stack>
+        {/* NTF removal
         <Stack.Item grow>
           <Section title={'Underwear (select one)'}>
             <LabeledList>
@@ -178,6 +180,7 @@ export const GearCustomization = (props) => {
             </LabeledList>
           </Section>
         </Stack.Item>
+        */}
         <Stack.Item grow>
           <Section title={'Backpack (select one)'}>
             <LabeledList>
