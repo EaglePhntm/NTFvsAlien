@@ -15,9 +15,10 @@
 	// Stuff needed to render the map
 	var/map_name
 	var/const/default_map_size = 15
-	var/atom/movable/screen/map_view/camera/cam_screen
+	var/atom/movable/screen/map_view/cam_screen
 	/// All the plane masters that need to be applied.
 	var/list/cam_plane_masters
+	var/atom/movable/screen/background/cam_background
 
 /obj/item/hud_tablet/Initialize(mapload, rank, datum/squad/squad)
 	. = ..()
@@ -76,8 +77,6 @@
 	map_name = "hud_tablet_[REF(src)]_map"
 	// Initialize map objects
 	cam_screen = new
-	cam_screen.generate_view("hud_tablet_[REF(src)]_map")
-
 	cam_screen.name = "screen"
 	cam_screen.assigned_map = map_name
 	cam_screen.del_on_map_removal = FALSE
@@ -91,10 +90,14 @@
 			instance.blend_mode = instance.blend_mode_override
 		instance.screen_loc = "[map_name]:CENTER"
 		cam_plane_masters += instance
+	cam_background = new
+	cam_background.assigned_map = map_name
+	cam_background.del_on_map_removal = FALSE
 
 /obj/item/hud_tablet/Destroy()
 	qdel(cam_screen)
 	QDEL_LIST(cam_plane_masters)
+	qdel(cam_background)
 	return ..()
 
 /obj/item/hud_tablet/proc/get_available_cameras()
@@ -117,6 +120,11 @@
 			valid_cams["[C.c_tag]"] = C
 	return valid_cams
 
+/obj/item/hud_tablet/proc/show_camera_static()
+	cam_screen.vis_contents.Cut()
+	cam_background.icon_state = "scanline2"
+	cam_background.fill_rect(1, 1, default_map_size, default_map_size)
+
 /obj/item/hud_tablet/interact(mob/user)
 	if(!allowed(user))
 		to_chat(user, span_warning("Access denied, unauthorized user."))
@@ -135,6 +143,7 @@
 		user.client.register_map_obj(cam_screen)
 		for(var/plane in cam_plane_masters)
 			user.client.register_map_obj(plane)
+		user.client.register_map_obj(cam_background)
 		// Open UI
 		ui = new(user, src, "CameraConsole", name)
 		ui.open()
@@ -183,7 +192,7 @@
 /obj/item/hud_tablet/proc/update_active_camera_screen()
 	// Show static if can't use the camera
 	if(!active_camera?.can_use())
-		cam_screen.show_camera_static()
+		show_camera_static()
 		return
 
 	var/list/visible_turfs = list()
@@ -208,7 +217,9 @@
 	var/size_x = bbox[3] - bbox[1] + 1
 	var/size_y = bbox[4] - bbox[2] + 1
 
-	cam_screen.show_camera(visible_turfs, size_x, size_y)
+	cam_screen.vis_contents = visible_turfs
+	cam_background.icon_state = "clear"
+	cam_background.fill_rect(1, 1, size_x, size_y)
 
 /obj/item/hud_tablet/alpha
 	name = "alpha hud tablet"
@@ -260,4 +271,3 @@
 	network = list("terragovartillery") //This shows cameras of all mortars, so don't add this to HvH
 	req_access = list()
 	max_view_dist = WORLD_VIEW_NUM
-
