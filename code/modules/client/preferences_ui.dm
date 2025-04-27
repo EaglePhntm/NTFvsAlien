@@ -637,13 +637,15 @@
 			exploit_record = new_record
 
 		if("flavor_text")
-			var/new_record = trim(html_encode(params["characterDesc"]), MAX_MESSAGE_LEN)
+			var/new_record = input(user, "Enter your character's flavor text.", "Flavor text", flavor_text) as null|message
+			new_record = trim(html_encode(new_record), MAX_MESSAGE_LEN)
 			if(!new_record)
 				return
 			flavor_text = new_record
 
 		if("xeno_desc")
-			var/new_record = trim(html_encode(params["xenoDesc"]), MAX_MESSAGE_LEN)
+			var/new_record = input(user, "Enter your character's flavor text.", "Flavor text", xeno_desc) as null|message
+			new_record = trim(html_encode(new_record), MAX_MESSAGE_LEN)
 			if(!new_record)
 				return
 			xeno_desc = new_record

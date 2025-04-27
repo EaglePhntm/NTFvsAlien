@@ -29,53 +29,27 @@ export const BackgroundInformation = (props) => {
       <Section
         title="Character Description"
         buttons={
-          <Box>
-            <Button
-              icon="save"
-              disabled={characterDesc === flavor_text}
-              onClick={() => act('flavor_text', { characterDesc })}
-            >
-              Save
-            </Button>
-            <Button icon="times" onClick={() => setCharacterDesc(flavor_text)}>
-              Reset
-            </Button>
-          </Box>
+          <Button
+            fluid
+            icon="wrench"
+            onClick={() => act('flavor_text', { characterDesc })}
+          >
+            Edit
+          </Button>
         }
-      >
-        <TextArea
-          key="character"
-          height="200px"
-          maxLength={12000}
-          value={characterDesc}
-          onChange={(e, value) => setCharacterDesc(value)}
-        />
-      </Section>
+      />
       <Section
         title="Xenomorph Description"
         buttons={
-          <Box>
-            <Button
-              icon="save"
-              disabled={xenoDesc === xeno_desc}
-              onClick={() => act('xeno_desc', { xenoDesc })}
-            >
-              Save
-            </Button>
-            <Button icon="times" onClick={() => setXenoDesc(xeno_desc)}>
-              Reset
-            </Button>
-          </Box>
+          <Button
+            fluid
+            icon="wrench"
+            onClick={() => act('xeno_desc', { xenoDesc })}
+          >
+            Edit
+          </Button>
         }
-      >
-        <TextArea
-          key="xeno"
-          height="200px"
-          maxLength={12000}
-          value={xenoDesc}
-          onChange={(e, value) => setXenoDesc(value)}
-        />
-      </Section>
+      />
 
       <Stack>
         <Stack.Item grow>
