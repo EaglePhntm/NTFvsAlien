@@ -98,7 +98,7 @@
 			/obj/item/weapon/gun/rifle/icc_mg = -1,
 			/obj/item/ammo_magazine/icc_mg = -1,
 			/obj/item/ammo_magazine/icc_mg/packet = -1,
-			/obj/item/ammo_magazine/icc_mg/belt = -1
+			/obj/item/ammo_magazine/icc_mg/belt = -1,
 			/obj/item/weapon/gun/rifle/vsd_lmg = -1,
 			/obj/item/ammo_magazine/rifle/vsd_mg = -1,
 		),
