@@ -124,6 +124,12 @@
 			/obj/item/ammo_magazine/pistol/icc_dpistol = -1,
 			/obj/item/weapon/gun/pistol/plasma_pistol = -1,
 			/obj/item/ammo_magazine/pistol/plasma_pistol = -1,
+			/obj/item/weapon/gun/pistol/vsd_pistol = -1,
+			/obj/item/ammo_magazine/pistol/vsd_pistol = -1,
+			/obj/item/weapon/gun/pistol/xmdivider = -1,
+			/obj/item/ammo_magazine/pistol/xmdivider = -1,
+			/obj/item/weapon/gun/pistol/vp70 = -1,
+			/obj/item/ammo_magazine/pistol/vp70 = -1,
 		),
 		"Grenades" = list(
 			/obj/item/weapon/gun/grenade_launcher/single_shot = -1,
