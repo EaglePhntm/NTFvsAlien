@@ -13,6 +13,7 @@
 		"Rifles" = list(
 			/obj/item/weapon/gun/rifle/som_carbine = -1,
 			/obj/item/weapon/gun/rifle/mpi_km = -1,
+			/obj/item/weapon/gun/rifle/mpi_km/black = -1,
 			/obj/item/ammo_magazine/rifle/mpi_km/carbine = -1,
 			/obj/item/ammo_magazine/rifle/mpi_km/carbine/black = -1,
 			/obj/item/ammo_magazine/rifle/mpi_km/black = -1,
@@ -35,6 +36,12 @@
 			/obj/item/ammo_magazine/rifle/som_big = -1,
 			/obj/item/ammo_magazine/rifle/som_big/incendiary = 10,
 			/obj/item/ammo_magazine/rifle/som_big/anti_armour = 10,
+			/obj/item/weapon/gun/rifle/vsd_rifle = -1,
+			/obj/item/ammo_magazine/rifle/vsd_rifle = -1,
+			/obj/item/weapon/gun/rifle/m412 = -1,
+			/obj/item/ammo_magazine/rifle = -1,
+			/obj/item/weapon/gun/rifle/type71 = -1,
+			/obj/item/ammo_magazine/rifle/type71 = -1,
 		),
 		"Energy Weapons" = list(
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/charger = -1,
