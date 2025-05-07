@@ -640,6 +640,7 @@
 			/obj/item/clothing/gloves/marine/veteran/pmc = -1,
 			/obj/item/clothing/shoes/marine/icc/knife = -1,
 			/obj/item/clothing/shoes/marine/icc/guard/knife = -1,
+			/obj/item/clothing/shoes/cowboy = -1,
 			/obj/item/clothing/shoes/marine/vsd/full = -1,
 			/obj/item/clothing/under/vsd/secondary = -1,
 			/obj/item/clothing/under/vsd/upp = -1,
