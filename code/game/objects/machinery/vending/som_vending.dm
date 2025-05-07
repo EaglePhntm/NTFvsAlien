@@ -90,6 +90,7 @@
 			/obj/item/weapon/gun/shotgun/som/burst = 2,
 			/obj/item/weapon/gun/shotgun/double/sawn = 5,
 			/obj/item/weapon/gun/shotgun/pump/trenchgun = 5,
+				/obj/item/weapon/gun/shotgun/pump/ksg = -1,
 		),
 		"Machinegun" = list(
 			/obj/item/weapon/gun/rifle/som_mg = -1,
