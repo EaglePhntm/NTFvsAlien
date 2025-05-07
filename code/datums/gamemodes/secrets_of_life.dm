@@ -77,11 +77,6 @@
 		/datum/job/clf/standard = 2,
 		/datum/job/clf/leader = 2,
 		/datum/job/clf/medic = 2,
-
-		/datum/job/icc_squad/standard = 3,
-		/datum/job/icc_squad/medic = 2,
-		/datum/job/icc_squad/spec = 1,
-		/datum/job/icc_squad/leader = 1,
 	)
 	enable_fun_tads = TRUE
 	xenorespawn_time = 2 MINUTES
