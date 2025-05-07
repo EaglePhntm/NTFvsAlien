@@ -171,7 +171,12 @@
 			/obj/item/ammo_magazine/rocket/som/heat = 8,
 			/obj/item/ammo_magazine/rocket/som/thermobaric = 8,
 			/obj/item/ammo_magazine/rocket/som/rad = 6,
+			/obj/item/weapon/gun/launcher/rocket/vsd = 2,
+			/obj/item/ammo_magazine/rocket/vsd/he = 10,
+			/obj/item/ammo_magazine/rocket/vsd/incendiary = 10,
+			/obj/item/ammo_magazine/rocket/vsd/chemical = 5,
 			/obj/item/weapon/gun/flamer/som = 4,
+
 		),
 		"Heavy Weapons" = list(
 			/obj/structure/closet/crate/mortar_ammo/mortar_kit = 1,
