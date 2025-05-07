@@ -90,7 +90,7 @@
 			/obj/item/weapon/gun/shotgun/som/burst = 2,
 			/obj/item/weapon/gun/shotgun/double/sawn = 5,
 			/obj/item/weapon/gun/shotgun/pump/trenchgun = 5,
-				/obj/item/weapon/gun/shotgun/pump/ksg = -1,
+			/obj/item/weapon/gun/shotgun/pump/ksg = -1,
 		),
 		"Machinegun" = list(
 			/obj/item/weapon/gun/rifle/som_mg = -1,
@@ -178,9 +178,8 @@
 			/obj/item/ammo_magazine/rocket/som/thermobaric = 8,
 			/obj/item/ammo_magazine/rocket/som/rad = 6,
 			/obj/item/weapon/gun/launcher/rocket/vsd = 2,
-			/obj/item/ammo_magazine/rocket/vsd/he = 10,
-			/obj/item/ammo_magazine/rocket/vsd/incendiary = 10,
-			/obj/item/ammo_magazine/rocket/vsd/chemical = 5,
+			/obj/item/weapon/gun/rifle/icc_coilgun = -1,
+			/obj/item/ammo_magazine/rifle/icc_coilgun = 30,
 			/obj/item/weapon/gun/flamer/som = 4,
 
 		),
