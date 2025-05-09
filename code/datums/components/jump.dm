@@ -102,17 +102,16 @@
 	var/mob/living/living_jumper
 	if(isliving(jumper))
 		living_jumper = jumper
-		if(jumper.buckled)
-			return
-		if(jumper.incapacitated())
-			return
-
-	if(stamina_cost && (jumper.getStaminaLoss() > -stamina_cost))
-		if(isrobot(jumper) || issynth(jumper))
-			to_chat(jumper, span_warning("Your leg servos do not allow you to jump!"))
-			return
-		to_chat(jumper, span_warning("Catch your breath!"))
-		return
+		if(living_jumper.buckled)
+			return FALSE
+		if(living_jumper.incapacitated())
+			return FALSE
+		if(stamina_cost && (living_jumper.getStaminaLoss() > -stamina_cost))
+			if(isrobot(living_jumper) || issynth(living_jumper))
+				to_chat(living_jumper, span_warning("Your leg servos do not allow you to jump!"))
+				return FALSE
+			to_chat(living_jumper, span_warning("Catch your breath!"))
+			return FALSE
 
 	var/effective_jump_duration = jump_duration
 	var/effective_jump_height = jump_height
