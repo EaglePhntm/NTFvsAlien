@@ -10,14 +10,11 @@
 	var/maturity_time = 0
 	///Number of the last maturity stage before bursting
 	var/stage_ready_to_burst = 0
-	///Which hive it belongs to
-	var/hivenumber = XENO_HIVE_NORMAL
 	///How far will targets trigger the burst
 	var/trigger_size = 0
 
-/obj/alien/egg/Initialize(mapload, hivenumber)
+/obj/alien/egg/Initialize(mapload, _hivenumber)
 	. = ..()
-	src.hivenumber = hivenumber
 	advance_maturity(maturity_stage)
 
 /obj/alien/egg/update_icon_state()
@@ -93,11 +90,6 @@
 	overlays.Cut()
 	if(on_fire)
 		overlays += "alienegg_fire"
-	if(hivenumber != XENO_HIVE_NORMAL && GLOB.hive_datums[hivenumber])
-		var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
-		color = hive.color
-		return
-	color = null
 
 /obj/alien/egg/hugger/burst(via_damage)
 	. = ..()
