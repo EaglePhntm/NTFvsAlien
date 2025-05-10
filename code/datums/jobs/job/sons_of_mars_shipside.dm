@@ -294,8 +294,8 @@ Though you are a warrant officer, your authority is limited to the dropship and 
 	comm_title = "MCH"
 	total_positions = 0
 	skills_type = /datum/skills/mech_pilot
-	access = list(ACCESS_SOM_DEFAULT,ACCESS_SOM_MECHBAY,ACCESS_SOM_ENGINEERING,ACCESS_MARINE_ENGINEERING, ACCESS_SOM_REQUESITIONS, ACCESS_SOM_TADPOLE)
-	minimal_access = list(ACCESS_SOM_DEFAULT,ACCESS_SOM_MECHBAY,ACCESS_SOM_ENGINEERING,ACCESS_MARINE_ENGINEERING, ACCESS_SOM_REQUESITIONS, ACCESS_SOM_TADPOLE)
+	access = list(ACCESS_SOM_DEFAULT,ACCESS_SOM_MECHBAY,ACCESS_SOM_ENGINEERING,ACCESS_MARINE_ENGINEERING, ACCESS_SOM_REQUESITIONS, ACCESS_SOM_TADPOLE, ACCESS_SOM_ARMORED)
+	minimal_access = list(ACCESS_SOM_DEFAULT,ACCESS_SOM_MECHBAY,ACCESS_SOM_ENGINEERING,ACCESS_MARINE_ENGINEERING, ACCESS_SOM_REQUESITIONS, ACCESS_SOM_TADPOLE, ACCESS_SOM_ARMORED)
 	display_order = JOB_DISPLAY_ORDER_MECH_PILOT
 	outfit = /datum/outfit/job/som/command/mech_pilot
 	exp_requirements = XP_REQ_EXPERT
@@ -348,6 +348,34 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	head = /obj/item/clothing/head/helmet/marine/mech_pilot
 	shoes = /obj/item/clothing/shoes/marine/som/knife
 	gloves = /obj/item/clothing/gloves/marine
+
+/datum/job/som/command/assault_crewman
+	title = SOM_ASSAULT_CREWMAN
+	req_admin_notify = TRUE
+	paygrade = "E3"
+	comm_title = "AC"
+	total_positions = 0
+	max_positions = 2
+	skills_type = /datum/skills/assault_crewman
+	access = list(ACCESS_SOM_DEFAULT,ACCESS_SOM_MECHBAY,ACCESS_SOM_ENGINEERING,ACCESS_MARINE_ENGINEERING, ACCESS_SOM_REQUESITIONS, ACCESS_SOM_TADPOLE)
+	minimal_access = list(ACCESS_SOM_DEFAULT,ACCESS_SOM_MECHBAY,ACCESS_SOM_ENGINEERING,ACCESS_MARINE_ENGINEERING, ACCESS_SOM_REQUESITIONS, ACCESS_SOM_TADPOLE)
+	display_order = JOB_DISPLAY_ORDER_MECH_PILOT
+	outfit = /datum/outfit/job/som/command/mech_pilot
+	exp_requirements = XP_REQ_EXPERT
+	exp_type = EXP_TYPE_REGULAR_ALL
+	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
+	jobworth = list(
+		/datum/job/xenomorph = LARVA_POINTS_REGULAR,
+		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
+	)
+	html_description = {"
+		<b>Difficulty</b>:Very Hard<br /><br />
+		<b>You answer to the</b> acting Command Staff<br /><br />
+		<b>Unlock Requirement</b>: Starting Role<br /><br />
+		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
+		<b>Duty</b>: Provide heavy fire support
+	"}
+	minimap_icon = "assault_crew"
 
 /datum/job/som/engineering
 	job_category = JOB_CAT_ENGINEERINGSOM

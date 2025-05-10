@@ -118,3 +118,4 @@
 #define SHUTTLE_SHIPELEVATOR "shipelevator"
 #define SHUTTLE_ELEVATOR "elevator"
 #define SHUTTLE_VEHICLE_SUPPLY "vehicle_supply"
+#define SHUTTLE_SOM_VEHICLE_SUPPLY "som_vehicle_supply"

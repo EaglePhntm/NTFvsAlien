@@ -59,6 +59,8 @@
 #define ARMORED_HAS_HEADLIGHTS (1<<6)
 #define ARMORED_PURCHASABLE_ASSAULT (1<<7)
 #define ARMORED_PURCHASABLE_TRANSPORT (1<<8)
+#define ARMORED_PURCHASABLE_ASSAULT_SOM (1<<11)
+#define ARMORED_PURCHASABLE_TRANSPORT_SOM (1<<12)
 ///Turns into a wreck instead of being destroyed
 #define ARMORED_WRECKABLE (1<<9)
 ///Is currently a wreck

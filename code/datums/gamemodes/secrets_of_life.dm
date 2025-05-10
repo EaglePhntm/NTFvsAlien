@@ -60,6 +60,7 @@
 		/datum/job/xenomorph/queen = 1,
 		/datum/job/som/command/commander = 1,
 		/datum/job/som/command/fieldcommander = 1,
+		/datum/job/som/command/assault_crewman = 2,
 		/datum/job/som/command/staffofficer = 2,
 		/datum/job/som/command/mech_pilot = 1,
 		/datum/job/som/requisitions/officer = 1,
