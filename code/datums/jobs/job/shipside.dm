@@ -870,6 +870,35 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	supervisors = "the acting captain"
 	exp_type_department = EXP_TYPE_ENGINEERING
 
+/datum/job/terragov/command/assault_crewman/on_pre_setup()
+	if(total_positions)
+		return
+	if(length(GLOB.clients) >= ASSAULT_CREWMAN_POPLOCK)
+		add_job_positions(2) //always 2 there are, a master and an apprentice
+
+/datum/job/terragov/command/assault_crewman/radio_help_message(mob/M)
+	. = ..()
+	to_chat(M, {"You are an Assault Crewman. You operate the SOM's armored assault vehicles along with your partner, and in some cases a \"willing\" loader. Make sure that you work as a team to advance the front!"})
+
+/datum/job/terragov/command/assault_crewman/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
+	. = ..()
+	if(!ishuman(new_mob))
+		return
+	var/mob/living/carbon/human/new_human = new_mob
+	var/playtime_mins = user?.client?.get_exp(title)
+	if(!playtime_mins || playtime_mins < 1 )
+		return
+	switch(playtime_mins)
+		if(0 to 1500) // starting
+			new_human.wear_id.paygrade = "E3"
+		if(1501 to 6000) // 25 hrs
+			new_human.wear_id.paygrade = "E4"
+		if(6001 to 18000) // 100 hrs
+			new_human.wear_id.paygrade = "E5"
+		if(18001 to 60000) // 300 hrs
+			new_human.wear_id.paygrade = "E6"
+		if(60001 to INFINITY) // 1000 hrs
+			new_human.wear_id.paygrade = "E9A" //If you play way too much TGMC. 1000 hours.
 
 //Chief Ship Engineer
 /datum/job/terragov/engineering/chief
