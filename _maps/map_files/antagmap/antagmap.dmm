@@ -9515,6 +9515,10 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/sterile/plain,
 /area/antag_ship/pmc_ntf/aft/engiroom/port)
+"Xp" = (
+/obj/docking_port/stationary/supply/vehicle/som,
+/turf/open/floor/mainship/empty,
+/area/antag_ship/som/hangar)
 "Xq" = (
 /obj/structure/platform_decoration{
 	dir = 1
@@ -11800,7 +11804,7 @@ CN
 uH
 zU
 zU
-zU
+Xp
 zU
 zU
 bZ

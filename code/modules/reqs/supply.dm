@@ -733,6 +733,11 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	id = SHUTTLE_VEHICLE_SUPPLY
 	home_id = "vehicle_home"
 
+/obj/docking_port/mobile/supply/vehicle/som
+	railing_gear_name = "vehicle"
+	id = SHUTTLE_SOM_VEHICLE_SUPPLY
+	home_id = "som_vehicle_home"
+
 /obj/docking_port/mobile/supply/vehicle/buy(mob/user, datum/supply_ui/supply_ui)
 	var/datum/supply_ui/vehicles/veh_ui = supply_ui
 	if(!veh_ui || !veh_ui.current_veh_type)
@@ -767,7 +772,9 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	id = "vehicle_home"
 	roundstart_template = /datum/map_template/shuttle/supply/vehicle
 
-
+/obj/docking_port/stationary/supply/vehicle/som
+	id = "som_vehicle_home"
+	roundstart_template = /datum/map_template/shuttle/supply/vehicle/som
 
 GLOBAL_LIST_EMPTY(armored_gunammo)
 GLOBAL_LIST_EMPTY(armored_modtypes)
@@ -826,10 +833,19 @@ GLOBAL_LIST_INIT(armored_guntypes, armored_init_guntypes())
 	for(var/obj/vehicle/sealed/armored/vehtype AS in typesof(/obj/vehicle/sealed/armored))
 		var/flags = vehtype::armored_flags
 
-		if(flags & ARMORED_PURCHASABLE_TRANSPORT)
+		var/trait_transport = ARMORED_PURCHASABLE_TRANSPORT
+		var/trait_assault = ARMORED_PURCHASABLE_ASSAULT
+
+		if(user.faction == FACTION_SOM)
+			shuttle_id = SHUTTLE_SOM_VEHICLE_SUPPLY
+			home_id = "som_vehicle_home"
+			trait_transport = ARMORED_PURCHASABLE_TRANSPORT_SOM
+			trait_assault = ARMORED_PURCHASABLE_ASSAULT_SOM
+
+		if(flags & trait_transport)
 			if(user.skills.getRating(SKILL_LARGE_VEHICLE) < SKILL_LARGE_VEHICLE_EXPERIENCED)
 				continue
-		else if(flags & ARMORED_PURCHASABLE_ASSAULT)
+		else if(flags & trait_assault)
 			if(user.skills.getRating(SKILL_LARGE_VEHICLE) < SKILL_LARGE_VEHICLE_VETERAN)
 				continue
 		else
@@ -894,14 +910,14 @@ GLOBAL_LIST_INIT(armored_guntypes, armored_init_guntypes())
 	var/list/data = list()
 	if(supply_shuttle)
 		if(supply_shuttle?.mode == SHUTTLE_CALL)
-			if(is_mainship_level(supply_shuttle.destination.z))
+			if(is_mainship_level(supply_shuttle.z) || is_antagmainship_level(supply_shuttle.z))
 				data["elevator"] = "Raising"
 				data["elevator_dir"] = "up"
 			else
 				data["elevator"] = "Lowering"
 				data["elevator_dir"] = "down"
 		else if(supply_shuttle?.mode == SHUTTLE_IDLE)
-			if(is_mainship_level(supply_shuttle.z))
+			if(is_mainship_level(supply_shuttle.z) || is_antagmainship_level(supply_shuttle.z))
 				data["elevator"] = "Raised"
 				data["elevator_dir"] = "down"
 			else if(current_veh_type)
@@ -911,7 +927,7 @@ GLOBAL_LIST_INIT(armored_guntypes, armored_init_guntypes())
 				data["elevator"] = "Lowered"
 				data["elevator_dir"] = "up"
 		else
-			if(is_mainship_level(supply_shuttle.z))
+			if(is_mainship_level(supply_shuttle.z) || is_antagmainship_level(supply_shuttle.z))
 				data["elevator"] = "Lowering"
 				data["elevator_dir"] = "down"
 			else

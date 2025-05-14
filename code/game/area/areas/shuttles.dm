@@ -118,6 +118,9 @@
 /area/shuttle/vehicle_supply
 	name = "Vehicle Supply Shuttle"
 
+/area/shuttle/vehicle_supply/som
+	name = "SoM Vehicle Supply Shuttle"
+
 /*
 /area/shuttle/escape
 	name = "Emergency Shuttle"
