@@ -85,7 +85,7 @@
 	var/list/data = list()
 
 	if(completed_segments >= total_segments)
-		message = "security override code generated. Run program to send."
+		message = "Security override code generated. Run program to send."
 	else if(current_timer)
 		message = "Program running."
 	else if(!completed_segments)
@@ -108,8 +108,6 @@
 	data["segment_time"] = segment_time
 
 	data["color"] = code_color
-
-	data["segment_number"] = total_segments
 
 	return data
 
@@ -172,7 +170,7 @@
 ///Change minimap icon if its on or off
 /obj/machinery/computer/nt_access/proc/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips_large.dmi', null, "[code_color]_disk[current_timer ? "_on" : "_off"]", VERY_HIGH_FLOAT_LAYER))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips_large.dmi', null, "[code_color]_disk[current_timer ? "_on" : "_off"]", MINIMAP_LABELS_LAYER))
 
 /obj/machinery/computer/nt_access/red
 	name = "red NT security override terminal"

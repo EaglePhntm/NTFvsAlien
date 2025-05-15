@@ -1,4 +1,3 @@
-
 /datum/mech_limb
 	/// Reference to the mech we are attached too. Remember, this will clean us up ind estroy already
 	var/obj/vehicle/sealed/mecha/combat/greyscale/owner
@@ -127,6 +126,59 @@
 			return
 		var/dmg_percent = max(CEILING(percent, 0.25)*100, 25)
 		. += iconstate2appearance(greyscale_type::icon_file, prefix+icon_state+"[dmg_percent]")
+
+///intercepts damage intended for the mech and applies it to this limb when needed
+/datum/mech_limb/proc/intercept_damage(datum/source, damage_amount, damage_type = BRUTE, armor_type = null, effects = TRUE, attack_dir, armour_penetration = 0, mob/living/blame_mob)
+	SIGNAL_HANDLER
+	if(!(blame_mob?.zone_selected in def_zones))
+		return NONE
+	if(take_damage(damage_amount))
+		return COMPONENT_NO_TAKE_DAMAGE
+	return NONE
+
+///handles actually dealing damage to the mech
+/datum/mech_limb/proc/take_damage(damage_amount)
+	if(part_health <= 0)
+		return FALSE
+	part_health = max(0, part_health-damage_amount)
+	owner.update_appearance(UPDATE_OVERLAYS)
+	if(part_health <= 0)
+		disable()
+	return TRUE
+
+///intercepts repair intended for the mech and applies it to this limb when needed
+/datum/mech_limb/proc/intercept_repair(datum/source, repair_amount, mob/user)
+	SIGNAL_HANDLER
+	if(!user)
+		return NONE
+	if(!(user.zone_selected in def_zones))
+		return NONE
+	do_repairs(repair_amount)
+	return COMPONENT_NO_REPAIR
+
+///does the actual repair of this limb
+/datum/mech_limb/proc/do_repairs(repair_amount)
+	part_health = min(initial(part_health), part_health+repair_amount)
+	owner.update_appearance(UPDATE_OVERLAYS)
+	if(part_health >= initial(part_health))
+		reenable()
+
+///makes this limb "destroyed"
+/datum/mech_limb/proc/disable()
+	if(disabled)
+		return FALSE
+	disabled = TRUE
+	owner.update_appearance(UPDATE_OVERLAYS)
+	playsound(owner, 'sound/mecha/internaldmgalarm.ogg', 80, TRUE, falloff = 10)
+	return TRUE
+
+///makes this limb un-"destroyed"
+/datum/mech_limb/proc/reenable()
+	if(!disabled)
+		return
+	disabled = FALSE
+	owner.update_icon(UPDATE_OVERLAYS)
+	return TRUE
 
 ///intercepts damage intended for the mech and applies it to this limb when needed
 /datum/mech_limb/proc/intercept_damage(datum/source, damage_amount, damage_type = BRUTE, armor_type = null, effects = TRUE, attack_dir, armour_penetration = 0, mob/living/blame_mob)
@@ -312,7 +364,6 @@
 	greyscale_type = /datum/greyscale_config/mech_heavy/head
 	visor_config = /datum/greyscale_config/mech_heavy/visor
 */
-
 /datum/mech_limb/torso
 	display_name = "Torso"
 	icon_state = "core"
@@ -351,7 +402,6 @@
 	weight = 100
 	repairpacks = 1
 	greyscale_type = /datum/greyscale_config/mech_vanguard/torso
-
 /*
 /datum/mech_limb/torso/light
 	health_set = 250
@@ -380,7 +430,6 @@
 	has_destroyed_iconstate = TRUE
 	greyscale_type = /datum/greyscale_config/mech_heavy/torso
 */
-
 //MECH ARMS
 /datum/mech_limb/arm
 	icon_state = "arm"
@@ -450,7 +499,6 @@
 	weight = 65
 	scatter_mod = -20
 	greyscale_type = /datum/greyscale_config/mech_vanguard/arms
-
 /*
 /datum/mech_limb/arm/light
 	part_health = 100
@@ -485,7 +533,6 @@
 	gun_icon = 'icons/mecha/mech_core_weapons.dmi'
 	greyscale_type = /datum/greyscale_config/mech_heavy/arms
 */
-
 //MECH LEGS
 /datum/mech_limb/legs
 	display_name = "Legs"

@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import { Box, Button, Section, Stack, TextArea } from 'tgui-core/components';
 
 import { useBackend } from '../../backend';
-import { Box, Button, Section, Stack, TextArea } from '../../components';
 
 export const BackgroundInformation = (props) => {
   const { act, data } = useBackend<BackgroundInformationData>();
@@ -45,11 +45,13 @@ export const BackgroundInformation = (props) => {
         }
       >
         <TextArea
+          expensive
           key="character"
+          fluid
           height="200px"
           maxLength={12000}
           value={characterDesc}
-          onChange={(e, value) => setCharacterDesc(value)}
+          onChange={setCharacterDesc}
         />
       </Section>
       <Section
@@ -98,10 +100,12 @@ export const BackgroundInformation = (props) => {
             }
           >
             <TextArea
+              fluid
               height="100px"
+              expensive
               maxLength={1024}
               value={medicalDesc}
-              onChange={(e, value) => setMedicalDesc(value)}
+              onChange={setMedicalDesc}
             />
           </Section>
         </Stack.Item>
@@ -127,10 +131,12 @@ export const BackgroundInformation = (props) => {
             }
           >
             <TextArea
+              fluid
               height="100px"
               maxLength={1024}
               value={employmentDesc}
-              onChange={(e, value) => setEmploymentDesc(value)}
+              expensive
+              onChange={setEmploymentDesc}
             />
           </Section>
         </Stack.Item>
@@ -158,10 +164,12 @@ export const BackgroundInformation = (props) => {
             }
           >
             <TextArea
+              fluid
               height="100px"
               maxLength={1024}
               value={securityDesc}
-              onChange={(e, value) => setSecurityDesc(value)}
+              expensive
+              onChange={setSecurityDesc}
             />
           </Section>
         </Stack.Item>
@@ -187,10 +195,12 @@ export const BackgroundInformation = (props) => {
             }
           >
             <TextArea
+              fluid
               height="100px"
               maxLength={1024}
               value={exploitsDesc}
-              onChange={(e, value) => setExploitsDesc(value)}
+              expensive
+              onChange={setExploitsDesc}
             />
           </Section>
         </Stack.Item>

@@ -11,17 +11,7 @@
 	light_range = 1
 	light_power = 0.5
 	light_color = LIGHT_COLOR_BLUE
-	///The faction of this loadout vendor
-	var/faction = VENDOR_FACTION_NEUTRAL
-	var/list/categories = list(
-		"Squad Marine",
-		"Squad Engineer",
-		"Squad Corpsman",
-		"Squad Smartgunner",
-		"Squad Leader",
-		"Field Commander",
-		"Synthetic",
-	)
+	faction = VENDOR_FACTION_NEUTRAL
 
 /obj/machinery/loadout_vendor/Initialize(mapload)
 	. = ..()
@@ -45,7 +35,7 @@
 	. = ..()
 	if(!is_operational())
 		return
-	. += emissive_appearance(icon, "[icon_state]_emissive")
+	. += emissive_appearance(icon, "[icon_state]_emissive", src)
 
 /obj/machinery/loadout_vendor/can_interact(mob/user)
 	. = ..()
