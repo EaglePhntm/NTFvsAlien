@@ -104,3 +104,4 @@ GLOBAL_DATUM_INIT(round_statistics, /datum/round_statistics, new)
 	var/runner_items_stolen = 0
 	var/acid_maw_fires = 0
 	var/acid_jaw_fires = 0
+	var/sandevistan_gibs = 0

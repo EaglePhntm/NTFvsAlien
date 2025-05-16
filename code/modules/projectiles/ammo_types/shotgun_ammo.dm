@@ -230,7 +230,7 @@
 			affected_vehicle.take_damage(damage, BRUTE, BULLET, armour_penetration = 60)
 		if(!(affected_vehicle))
 			for(var/mob/living/carbon/human/human_occupant in affected_vehicle.occupants)
-				human_occupant.apply_effect(vehicle_stun_duration, PARALYZE)
+				human_occupant.apply_effect(vehicle_stun_duration, EFFECT_PARALYZE)
 
 /datum/ammo/bullet/shotgun/barrikada_slug/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
 	if(iswallturf(target_turf))
