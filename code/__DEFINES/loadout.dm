@@ -322,7 +322,7 @@ GLOBAL_LIST_INIT(pmc_medic_gear_listed_products, list(
 		/obj/item/reagent_containers/hypospray/advanced = list(CAT_MEDSUP, "Hypospray", 2, "corps-tools"),
 		/obj/item/clothing/glasses/hud/health = list(CAT_MEDSUP, "Medical HUD glasses", 2, "corps-tools"),
 		/obj/item/clothing/gloves/defibrillator = list(CAT_MEDSUP, "Advanced medical gloves", 4, "corps-tools"),
-		/obj/item/healthanalyzer/gloves = list(CAT_MEDSUP, "Health scanner gloves", 2, "corps-tools"),
+		/obj/item/clothing/gloves/healthanalyzer = list(CAT_MEDSUP, "Health scanner gloves", 2, "corps-tools"),
 		/obj/item/tweezers_advanced = list(CAT_MEDSUP, "Shrapnel Drill", 12, "corps-tools"),
 		/obj/item/ammo_magazine/smg/m25/ap = list(CAT_MEDSUP, "SMG-25 AP Magazine", 1, "black"),
 	))
@@ -486,7 +486,7 @@ GLOBAL_LIST_INIT(som_medic_gear_listed_products, list(
 		/obj/item/reagent_containers/hypospray/advanced = list(CAT_MEDSUP, "Hypospray", 2, "corps-tools"),
 		/obj/item/clothing/glasses/hud/health = list(CAT_MEDSUP, "Medical HUD glasses", 2, "corps-tools"),
 		/obj/item/clothing/gloves/defibrillator = list(CAT_MEDSUP, "Advanced medical gloves", 5, "corps-tools"),
-		/obj/item/healthanalyzer/gloves = list(CAT_MEDSUP, "Health scanner gloves", 2, "corps-tools"),
+		/obj/item/clothing/gloves/healthanalyzer = list(CAT_MEDSUP, "Health scanner gloves", 2, "corps-tools"),
 		/obj/item/tweezers_advanced = list(CAT_MEDSUP, "Shrapnel Drill", 8, "corps-tools"), //half the price NTC pays for it
 	))
 
@@ -552,7 +552,7 @@ GLOBAL_LIST_INIT(vsd_medic_gear_listed_products, list(
 		/obj/item/reagent_containers/hypospray/advanced = list(CAT_MEDSUP, "Hypospray", 2, "corps-tools"),
 		/obj/item/clothing/glasses/hud/health = list(CAT_MEDSUP, "Medical HUD glasses", 2, "corps-tools"),
 		/obj/item/clothing/gloves/defibrillator = list(CAT_MEDSUP, "Advanced medical gloves", 5, "corps-tools"),
-		/obj/item/healthanalyzer/gloves = list(CAT_MEDSUP, "Health scanner gloves", 2, "corps-tools"),
+		/obj/item/clothing/gloves/healthanalyzer = list(CAT_MEDSUP, "Health scanner gloves", 2, "corps-tools"),
 		/obj/item/tweezers_advanced = list(CAT_MEDSUP, "Shrapnel Drill", 8, "corps-tools"), //half the price NTC pays for it
 	))
 
@@ -650,7 +650,7 @@ GLOBAL_LIST_INIT(icc_medic_gear_listed_products, list(
 		/obj/item/reagent_containers/hypospray/advanced = list(CAT_MEDSUP, "Hypospray", 2, "corps-tools"),
 		/obj/item/clothing/glasses/hud/health = list(CAT_MEDSUP, "Medical HUD glasses", 2, "corps-tools"),
 		/obj/item/clothing/gloves/defibrillator = list(CAT_MEDSUP, "Advanced medical gloves", 5, "corps-tools"),
-		/obj/item/healthanalyzer/gloves = list(CAT_MEDSUP, "Health scanner gloves", 2, "corps-tools"),
+		/obj/item/clothing/gloves/healthanalyzer = list(CAT_MEDSUP, "Health scanner gloves", 2, "corps-tools"),
 		/obj/item/tweezers_advanced = list(CAT_MEDSUP, "Shrapnel Drill", 16, "corps-tools"),
 	))
 

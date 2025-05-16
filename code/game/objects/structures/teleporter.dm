@@ -142,7 +142,7 @@
 		icon_state = default_icon_state + "_on"
 		return
 	icon_state = default_icon_state
-	
+
 /obj/machinery/deployable/teleporter/disassemble(mob/user)
 	var/obj/item/teleporter_kit/kit = get_internal_item()
 	log_combat(user, src, "deconstructed", addition=" in [loc_name(src)], linked teleporter is \[[kit?.linked_teleporter ? kit?.linked_teleporter : "*null*"]\] in [loc_name(kit?.linked_teleporter)]")
@@ -152,17 +152,17 @@
 	var/obj/item/teleporter_kit/kit = get_internal_item()
 	. = ..()
 	log_combat(AM.thrower, src, "thrown at", AM, " in [loc_name(src)], linked teleporter is \[[kit?.linked_teleporter ? kit?.linked_teleporter : "*null*"]\] in [loc_name(kit?.linked_teleporter)]")
-	
+
 /obj/machinery/deployable/teleporter/attack_generic(mob/user, damage_amount = 0, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = 0)
 	var/obj/item/teleporter_kit/kit = get_internal_item()
 	. = ..()
 	log_combat(user, src, "attacked", "(DAMTYPE: [uppertext(damage_type)]) (RAW DMG: [damage_amount]) in [loc_name(src)], linked teleporter is \[[kit?.linked_teleporter ? kit?.linked_teleporter : "*null*"]\] in [loc_name(kit?.linked_teleporter)]")
 
-/obj/machinery/deployable/teleporter/bullet_act(obj/projectile/proj)
+/obj/machinery/deployable/teleporter/bullet_act(atom/movable/projectile/proj)
 	var/obj/item/teleporter_kit/kit = get_internal_item()
 	. = ..()
 	log_combat(proj.firer, src, "shot", proj, " in [loc_name(src)], linked teleporter is \[[kit?.linked_teleporter ? kit?.linked_teleporter : "*null*"]\] in [loc_name(kit?.linked_teleporter)]")
-	
+
 
 /obj/item/teleporter_kit
 	name = "\improper ASRS Bluespace teleporter"
@@ -239,21 +239,21 @@
 	if(!linked_teleporter)
 		return
 	user.forceMove(get_turf(linked_teleporter))
-	
+
 /obj/item/teleporter_kit/hitby(atom/movable/AM, speed = 5)
 	. = ..()
 	log_combat(AM.thrower, src, "thrown at", AM, " in [loc_name(src)], linked teleporter is \[[linked_teleporter ? linked_teleporter : "*null*"]\] in [loc_name(linked_teleporter)]")
-	
+
 
 /obj/item/teleporter_kit/attack_generic(mob/user, damage_amount = 0, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = 0)
 	. = ..()
 	log_combat(user, src, "attacked", "(DAMTYPE: [uppertext(damage_type)]) (RAW DMG: [damage_amount]) in [loc_name(src)], linked teleporter is \[[linked_teleporter ? linked_teleporter : "*null*"]\] in [loc_name(linked_teleporter)]")
-	
 
-/obj/item/teleporter_kit/bullet_act(obj/projectile/proj)
+
+/obj/item/teleporter_kit/bullet_act(/atom/movable/projectile/proj)
 	. = ..()
 	log_combat(proj.firer, src, "shot", proj, " in [loc_name(src)], linked teleporter is \[[linked_teleporter ? linked_teleporter : "*null*"]\] in [loc_name(linked_teleporter)]")
-	
+
 
 /obj/effect/teleporter_linker
 	name = "\improper ASRS bluespace teleporters"

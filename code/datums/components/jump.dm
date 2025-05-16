@@ -87,27 +87,6 @@
 	UnregisterSignal(parent, COMSIG_VEHICLE_REVOKE_CONTROL_FLAG)
 	external_user = null
 
-///Sets an external controller, such as a vehicle driver
-/datum/component/jump/proc/set_external_user(datum/source, mob/new_user, control_flags = VEHICLE_CONTROL_DRIVE)
-	SIGNAL_HANDLER
-	if(!(control_flags & VEHICLE_CONTROL_DRIVE))
-		return
-	if(external_user) //I don't know how you have 2 drivers, and I don't want to know
-		remove_external_user()
-	if(new_user)
-		external_user = new_user
-		RegisterSignal(external_user, COMSIG_KB_LIVING_JUMP_DOWN, PROC_REF(do_jump))
-		RegisterSignal(parent, COMSIG_VEHICLE_REVOKE_CONTROL_FLAG, PROC_REF(remove_external_user))
-
-///Unsets an external controller
-/datum/component/jump/proc/remove_external_user(datum/source, mob/old_user, control_flags = VEHICLE_CONTROL_DRIVE)
-	SIGNAL_HANDLER
-	if(!(control_flags & VEHICLE_CONTROL_DRIVE))
-		return
-	UnregisterSignal(external_user, COMSIG_KB_LIVING_JUMP_DOWN)
-	UnregisterSignal(parent, COMSIG_VEHICLE_REVOKE_CONTROL_FLAG)
-	external_user = null
-
 ///Starts charging the jump
 /datum/component/jump/proc/charge_jump(atom/movable/jumper)
 	jump_start_time = world.timeofday

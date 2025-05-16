@@ -1135,54 +1135,6 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 				areas += V
 	return areas
 
-/**
- *	Generates a cone shape. Any other checks should be handled with the resulting list. Can work with up to 359 degrees
- *	Variables:
- *	center - where the cone begins, or center of a circle drawn with this
- *	max_row_count - how many rows are checked
- *	starting_row - from how far should the turfs start getting included in the cone
- *	cone_width - big the angle of the cone is
- *	cone_direction - at what angle should the cone be made, relative to the game board's orientation
- *	blocked - whether the cone should take into consideration solid walls
- */
-/proc/generate_cone(atom/center, max_row_count = 10, starting_row = 1, cone_width = 60, cone_direction = 0, blocked = TRUE, pass_flags_checked = NONE)
-	var/right_angle = cone_direction + cone_width/2
-	var/left_angle = cone_direction - cone_width/2
-
-	//These are needed because degrees need to be from 0 to 359 for the checks to function
-	if(right_angle >= 360)
-		right_angle -= 360
-
-	if(left_angle < 0)
-		left_angle += 360
-	center = get_turf(center)
-	var/list/cardinals = GLOB.alldirs
-	var/list/turfs_to_check = list(center)
-	var/list/cone_turfs = list(center)
-
-	for(var/row in 1 to max_row_count)
-		if(row > 2)
-			cardinals = GLOB.cardinals
-		for(var/turf/old_turf AS in turfs_to_check) //checks the inital turf, then afterwards checks every turf that is added to cone_turfs
-			for(var/direction AS in cardinals)
-				var/turf/turf_to_check = get_step(old_turf, direction) //checks all turfs around X
-				if(cone_turfs.Find(turf_to_check))
-					continue
-				var/turf_angle = Get_Angle(center, turf_to_check)
-				if(right_angle > left_angle && (turf_angle > right_angle || turf_angle < left_angle))
-					continue
-				if(turf_angle > right_angle && turf_angle < left_angle)
-					continue
-				if(blocked && LinkBlocked(old_turf, turf_to_check, pass_flags_checked))
-					continue
-				cone_turfs += turf_to_check
-				turfs_to_check += turf_to_check
-			turfs_to_check -= old_turf
-		for(var/turf/checked_turf AS in cone_turfs)
-			if(get_dist(center, checked_turf) < starting_row) //if its before the starting row, ignore it.
-				cone_turfs -= checked_turf
-	return	cone_turfs
-
 ///Returns a list of all locations (except the area) the movable is within.
 /proc/get_nested_locs(atom/movable/atom_on_location, include_turf = FALSE)
 	. = list()

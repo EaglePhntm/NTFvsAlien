@@ -163,7 +163,7 @@
 	name = "NTC Energy blade"
 	icon_state = "sword"
 	desc = "A NTC energy sword, it should cut through anything."
-	active_force = 50
+	force_activated = 50
 	sword_color = "red"
 
 /obj/item/weapon/energy/sword/ntc/Initialize(mapload)
