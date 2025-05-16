@@ -186,12 +186,12 @@
 	damage = 55
 	damage_falloff = 5
 
-/datum/ammo/bullet/shotgun/heavy_buckshot/on_hit_turf(turf/target_turf, obj/projectile/proj)
+/datum/ammo/bullet/shotgun/heavy_buckshot/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
 	if(iswallturf(target_turf))
 		var/turf/closed/wall/affected_turf = target_turf
 		affected_turf.take_damage(damage * 4, BRUTE, BULLET)
 
-/datum/ammo/bullet/shotgun/heavy_buckshot/on_hit_obj(obj/target_obj, obj/projectile/proj)
+/datum/ammo/bullet/shotgun/heavy_buckshot/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
 	if(istype(target_obj, /obj/machinery/door))
 		var/obj/machinery/door/affected_door = target_obj
 		affected_door.take_damage(damage * 4, BRUTE, BULLET)
@@ -216,7 +216,7 @@
 	staggerstun(target_mob, proj, slowdown = 2, stagger = 3 SECONDS, knockback = 2)
 
 //already pretty high damage not gonna lie so adding ap and stagger to vehicles
-/datum/ammo/bullet/shotgun/barrikada_slug/on_hit_obj(obj/target_obj, obj/projectile/proj)
+/datum/ammo/bullet/shotgun/barrikada_slug/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
 	if(istype(target_obj, /obj/machinery/door))
 		var/obj/machinery/door/affected_door = target_obj
 		affected_door.take_damage(damage * 4, BRUTE, BULLET)
@@ -230,9 +230,9 @@
 			affected_vehicle.take_damage(damage, BRUTE, BULLET, armour_penetration = 60)
 		if(!(affected_vehicle))
 			for(var/mob/living/carbon/human/human_occupant in affected_vehicle.occupants)
-				human_occupant.apply_effect(vehicle_stun_duration, PARALYZE)
+				human_occupant.apply_effect(vehicle_stun_duration, EFFECT_PARALYZE)
 
-/datum/ammo/bullet/shotgun/barrikada_slug/on_hit_turf(turf/target_turf, obj/projectile/proj)
+/datum/ammo/bullet/shotgun/barrikada_slug/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
 	if(iswallturf(target_turf))
 		var/turf/closed/wall/affected_turf = target_turf
 		affected_turf.take_damage(damage * 4, BRUTE, BULLET)
@@ -264,12 +264,12 @@
 	penetration = 20
 	sundering = 15
 
-/datum/ammo/bullet/shotgun/heavy_flechette/on_hit_obj(obj/target_obj, obj/projectile/proj)
+/datum/ammo/bullet/shotgun/heavy_flechette/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
 	if(istype(target_obj, /obj/machinery/door))
 		var/obj/machinery/door/affected_door = target_obj
 		affected_door.take_damage(damage * 4, BRUTE, BULLET)
 
-/datum/ammo/bullet/shotgun/heavy_flechette/on_hit_turf(turf/target_turf, obj/projectile/proj)
+/datum/ammo/bullet/shotgun/heavy_flechette/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
 	if(iswallturf(target_turf))
 		var/turf/closed/wall/affected_turf = target_turf
 		affected_turf.take_damage(damage * 4, BRUTE, BULLET)

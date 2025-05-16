@@ -267,14 +267,6 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 		root_type = root_type::parent_type
 	return GLOB.strain_list[root_type] + root_type
 
-/proc/get_strain_options(datum/xeno_caste/root_type)
-	RETURN_TYPE(/list)
-
-	ASSERT(ispath(root_type), "Bad root type passed to get_strain_options")
-	while(initial(root_type.parent_type) != /datum/xeno_caste)
-		root_type = root_type::parent_type
-	return GLOB.strain_list[root_type] + root_type
-
 /mob/living/carbon/xenomorph
 	name = "Drone"
 	desc = "What the hell is THAT?"

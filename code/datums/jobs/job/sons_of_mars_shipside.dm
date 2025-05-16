@@ -56,7 +56,7 @@ Godspeed, commander! And remember, you are not above the law."})
 	w_uniform = /obj/item/clothing/under/som/officer/senior
 	shoes = /obj/item/clothing/shoes/marine/som/knife
 	gloves = /obj/item/clothing/gloves/marine/techofficer/captain
-	r_store = /obj/item/storage/pouch/general/large/command
+	r_pocket = /obj/item/storage/pouch/general/large/command
 
 /datum/outfit/job/som/command/commander/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -144,11 +144,11 @@ Make the SOM proud!"})
 	w_uniform = /obj/item/clothing/under/som/officer/senior
 	wear_suit = /obj/item/clothing/suit/modular/som/heavy/leader/officer
 	shoes = /obj/item/clothing/shoes/marine/som/knife
-	r_store = /obj/item/storage/pouch/general/large/command
+	r_pocket = /obj/item/storage/pouch/general/large/command
 	gloves = /obj/item/clothing/gloves/marine/officer
 	belt = /obj/item/storage/holster/belt/pistol/m4a3/fieldcommander
 	glasses = /obj/item/clothing/glasses/hud/health
-	l_store = /obj/item/storage/pouch/grenade/som/combat_patrol
+	l_pocket = /obj/item/storage/pouch/grenade/som/combat_patrol
 	back = /obj/item/storage/backpack/satchel/som
 
 /datum/outfit/job/som/command/fieldcommander/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -218,8 +218,8 @@ You are in charge of logistics and the overwatch system. You are also in line to
 	ears = /obj/item/radio/headset/mainship/mcom/som
 	w_uniform = /obj/item/clothing/under/som/officer
 	shoes = /obj/item/clothing/shoes/marine/som/knife
-	r_store = /obj/item/storage/pouch/general/large
-	l_store = /obj/item/binoculars/tactical
+	r_pocket = /obj/item/storage/pouch/general/large
+	l_pocket = /obj/item/binoculars/tactical
 //Pilot Officer
 /datum/job/som/command/pilot
 	title = SOM_PILOT_OFFICER
@@ -283,8 +283,8 @@ Though you are a warrant officer, your authority is limited to the dropship and 
 	gloves = /obj/item/clothing/gloves/insulated
 	glasses = /obj/item/clothing/glasses/sunglasses/aviator
 	head = /obj/item/clothing/head/helmet/marine/pilot
-	r_store = /obj/item/storage/pouch/general/large
-	l_store = /obj/item/hud_tablet/pilot
+	r_pocket = /obj/item/storage/pouch/general/large
+	l_pocket = /obj/item/hud_tablet/pilot
 
 //Mech pilot
 /datum/job/som/command/mech_pilot
@@ -419,7 +419,7 @@ You are also next in the chain of command, should the bridge crew fall in the li
 	glasses = /obj/item/clothing/glasses/welding/superior
 	gloves = /obj/item/clothing/gloves/insulated
 	head = /obj/item/clothing/head/beret/marine/techofficer
-	r_store = /obj/item/storage/pouch/construction
+	r_pocket = /obj/item/storage/pouch/construction
 	back = /obj/item/storage/backpack/marine/engineerpack
 
 /datum/outfit/job/som/engineering/chief/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -488,7 +488,7 @@ requisitions line and later on to be ready to send supplies for marines who are 
 	gloves = /obj/item/clothing/gloves/insulated
 	glasses = /obj/item/clothing/glasses/welding/flipped
 	head = /obj/item/clothing/head/tgmccap/req
-	r_store = /obj/item/storage/pouch/general/medium
+	r_pocket = /obj/item/storage/pouch/general/medium
 	back = /obj/item/storage/backpack/marine/engineerpack
 
 /datum/job/som/requisitions
@@ -563,7 +563,7 @@ A happy base is a well-functioning base."})
 	shoes = /obj/item/clothing/shoes/marine/som/knife
 	gloves = /obj/item/clothing/gloves/insulated
 	head = /obj/item/clothing/head/tgmccap/req
-	r_store = /obj/item/storage/pouch/general/large
+	r_pocket = /obj/item/storage/pouch/general/large
 
 /datum/job/som/medical
 	job_category = JOB_CAT_MEDICALSOM
@@ -632,8 +632,8 @@ Make sure that the doctors and nurses are doing their jobs and keeping the SOM h
 	glasses = /obj/item/clothing/glasses/hud/health
 	mask = /obj/item/clothing/mask/surgical
 	head = /obj/item/clothing/head/cmo
-	r_store = /obj/item/storage/pouch/medkit/doctor
-	l_store = /obj/item/storage/pouch/surgery
+	r_pocket = /obj/item/storage/pouch/medkit/doctor
+	l_pocket = /obj/item/storage/pouch/surgery
 
 /datum/outfit/job/som/medical/professor/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -697,8 +697,8 @@ You are also an expert when it comes to medication and treatment. If you do not 
 	glasses = /obj/item/clothing/glasses/hud/health
 	mask = /obj/item/clothing/mask/surgical
 	head = /obj/item/clothing/head/surgery/purple
-	r_store = /obj/item/storage/pouch/surgery
-	l_store = /obj/item/storage/pouch/medkit/doctor
+	r_pocket = /obj/item/storage/pouch/surgery
+	l_pocket = /obj/item/storage/pouch/medkit/doctor
 
 /datum/outfit/job/som/medical/medicalofficer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -854,5 +854,5 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 	w_uniform = /obj/item/clothing/under/rank/synthetic
 	shoes = /obj/item/clothing/shoes/white
 	gloves = /obj/item/clothing/gloves/insulated
-	r_store = /obj/item/storage/pouch/general/medium
-	l_store = /obj/item/storage/pouch/general/medium
+	r_pocket = /obj/item/storage/pouch/general/medium
+	l_pocket = /obj/item/storage/pouch/general/medium

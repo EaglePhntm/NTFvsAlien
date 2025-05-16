@@ -17,7 +17,7 @@
 	var/obj/structure/printing
 	/// Whether the fabricator is currently printing something or not
 	var/busy = FALSE
-	var/faction = FACTION_TERRAGOV
+	faction = FACTION_TERRAGOV
 
 /obj/machinery/dropship_part_fabricator/examine(mob/user)
 	. = ..()
