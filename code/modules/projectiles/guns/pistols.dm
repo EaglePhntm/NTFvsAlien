@@ -316,10 +316,10 @@
 
 /obj/item/weapon/gun/pistol/g22/tranq
 	name = "\improper P-22 custom pistol"
-	desc = "A 20th century military firearm customized for special forces use, fires chemical loaded bullets to take down enemies nonlethally. Must be cocked manually therefore has disgusting fire rate."
+	desc = "A 20th century military firearm customized for special forces use, fires chemical loaded bullets to take down enemies nonlethally. Must be cocked manually therefore has disgusting fire rate, but custom frame allows greater accuracy."
 	icon_state = "g22"
 	worn_icon_state = "g22"
-	fire_animation = null
+	fire_animation = null //it doesnt cycle itself.
 	cock_animation = "g22_fire"
 	cock_delay = 1 SECONDS
 	caliber = CALIBER_9X19_TRANQUILIZER //codex
@@ -350,9 +350,9 @@
 	cocked_message = "You rack the pistol"
 	cock_locked_message = "The pistol is loaded! Fire it first!"
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER
-	fire_delay = 2 SECONDS
-	accuracy_mult = 1.5
-	accuracy_mult_unwielded = 1.2
+	fire_delay = 0.7 SECONDS //manual cock anyway, meant to be able to not get obliterated up close too badly, unlike moonbeam.
+	accuracy_mult = 1.8
+	accuracy_mult_unwielded = 1.5
 	burst_amount = 1
 	akimbo_additional_delay = 0.9
 
@@ -684,7 +684,7 @@
 
 /obj/item/weapon/gun/pistol/vsd_pistol
 	name = "\improper C96 pistol"
-	desc = "A 'riot control' weapon used by the protectors of colonies. Now adopted by the V.S.D, it is the standard side arm for all members. Firing armor piercing 9x19mm parabellum with a capacity of 15 rounds."
+	desc = "A 'riot control' weapon used by the protectors of colonies. Now adopted by the KZ, it is the standard side arm for all members. Firing armor piercing 9x19mm parabellum with a capacity of 22 rounds."
 	icon_state = "c96"
 	worn_icon_state = "c96"
 	caliber = CALIBER_9X19
