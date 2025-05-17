@@ -331,6 +331,7 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 	categories = list(
 		"SOM Squad Standard",
 		"SOM Squad Engineer",
+		"SOM Squad Medic",
 		"SOM Squad Veteran",
 		"SOM Squad Leader",
 	)
