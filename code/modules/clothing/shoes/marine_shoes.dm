@@ -63,6 +63,21 @@
 	)
 	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
 
+/obj/item/clothing/shoes/marine/sneakingboots/Initialize(mapload)
+	. = ..()
+	update_icon()
+
+/obj/item/clothing/shoes/marine/sneakingboots/update_icon_state()
+	icon_state = initial(icon_state)
+	if(!attachments_by_slot[ATTACHMENT_SLOT_STORAGE])
+		return
+	if(!istype(attachments_by_slot[ATTACHMENT_SLOT_STORAGE], /obj/item/armor_module/storage))
+		return
+	var/obj/item/armor_module/storage/armor_storage = attachments_by_slot[ATTACHMENT_SLOT_STORAGE]
+	for(var/atom/item_in_pocket AS in armor_storage.contents)
+		if(istype(item_in_pocket, /obj/item/weapon/combat_knife) || istype(item_in_pocket, /obj/item/attachable/bayonet) || istype(item_in_pocket, /obj/item/stack/throwing_knife))
+			icon_state += "-knife"
+
 /obj/item/clothing/shoes/marine/sneakingboots/equipped(mob/user, shoes)
 	. = ..()
 	ADD_TRAIT(user, TRAIT_LIGHT_STEP, ARMOR_TRAIT)
