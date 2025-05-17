@@ -701,15 +701,18 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	keyslot = /obj/item/encryptionkey/retired
 	frequency = FREQ_RETIRED
 
-/obj/item/radio/headset/distress/vsd
-	name = "kaizoku corporation headset"
-	keyslot = /obj/item/encryptionkey/vsd
-	frequency = FREQ_VSD
-
 /obj/item/radio/headset/distress/erp
 	name = "prankster headset"
 	keyslot = /obj/item/encryptionkey/erp
 	frequency = FREQ_ERP
+
+/obj/item/radio/headset/mainship/kaizoku
+	name = "kaizoku corporation headset"
+	keyslot = /obj/item/encryptionkey/kaizoku
+	frequency = FREQ_KZ
+	faction = FACTION_VSD
+	minimap_type = /datum/action/minimap/kaizoku
+
 
 //SOM headsets
 

@@ -683,6 +683,10 @@ SUBSYSTEM_DEF(minimaps)
 	minimap_flags = MINIMAP_FLAG_MARINE_CLF|MINIMAP_FLAG_XENO|MINIMAP_FLAG_EXCAVATION_ZONE
 	marker_flags = MINIMAP_FLAG_MARINE_CLF
 
+/datum/action/minimap/kaizoku
+	minimap_flags = MINIMAP_FLAG_KZ
+	marker_flags = MINIMAP_FLAG_KZ
+
 /datum/action/minimap/observer
 	minimap_flags = MINIMAP_FLAG_ALL
 	marker_flags = NONE

@@ -66,7 +66,7 @@
 #define RADIO_CHANNEL_SECTOID "Alien"
 #define RADIO_CHANNEL_ICC "CM"
 #define RADIO_CHANNEL_ECHO "Echo"
-#define RADIO_CHANNEL_VSD "KZ"
+#define RADIO_CHANNEL_KZ "KZ"
 #define RADIO_CHANNEL_ERP "ERP"
 #define RADIO_CHANNEL_DS1 "Alamo"
 #define RADIO_CHANNEL_DS2 "Normandy"
@@ -96,7 +96,7 @@
 #define FREQ_ICC 1345
 #define FREQ_SECTOID 1347
 #define FREQ_ECHO 1349
-#define FREQ_VSD 1350
+#define FREQ_KZ 1350
 #define FREQ_ERP 1351
 #define MAX_ERT_FREQ 1351
 
