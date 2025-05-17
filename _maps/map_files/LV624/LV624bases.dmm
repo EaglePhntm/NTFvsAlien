@@ -507,7 +507,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand6)
 "aoF" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	is_wired = 1;
 	can_wire = 0;
 	dir = 8
@@ -6080,7 +6080,7 @@
 	},
 /area/mainship/patrol_base/som)
 "eHR" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	is_wired = 1;
 	can_wire = 0;
 	dir = 8
@@ -6162,12 +6162,12 @@
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "eMx" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	is_wired = 1;
 	can_wire = 0;
 	dir = 8
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	is_wired = 1;
 	can_wire = 0
 	},
@@ -7883,7 +7883,7 @@
 	},
 /area/lv624/lazarus/hydroponics)
 "gyO" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	is_wired = 1;
 	can_wire = 0
 	},
@@ -10410,7 +10410,7 @@
 /turf/open/floor/tile/vault,
 /area/lv624/lazarus/robotics)
 "iUk" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	is_wired = 1;
 	can_wire = 0
 	},
@@ -13759,7 +13759,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle5)
 "mki" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/solid/plasteel,
 /turf/open/floor/mainship/silver{
 	dir = 8
 	},
@@ -16741,7 +16741,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/crashed_ship)
 "ptY" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/solid/plasteel{
 	is_wired = 1;
 	can_wire = 0;
 	dir = 8
@@ -21257,7 +21257,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
 "tOd" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/solid/plasteel,
 /turf/open/floor/mainship/silver{
 	dir = 4
 	},
@@ -22177,7 +22177,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/lazarus/quartstorage/outdoors)
 "uJd" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	is_wired = 1;
 	can_wire = 0;
 	dir = 8
@@ -23494,7 +23494,7 @@
 /turf/closed/wall,
 /area/lv624/lazarus/fitness)
 "vVg" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	is_wired = 1;
 	can_wire = 0;
 	dir = 8
@@ -23808,7 +23808,7 @@
 	},
 /area/mainship/patrol_base/som)
 "wkw" = (
-/obj/machinery/computer/camera_advanced/overwatch/som,
+/obj/machinery/computer/camera_advanced/overwatch/military/som,
 /turf/open/floor/mainship/orange{
 	dir = 4
 	},
@@ -24208,7 +24208,7 @@
 	},
 /area/lv624/ground/filtration)
 "wEl" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/solid/plasteel,
 /turf/open/floor/mainship/silver/full,
 /area/mainship/patrol_base/som)
 "wEq" = (
@@ -26033,11 +26033,11 @@
 /turf/open/floor,
 /area/lv624/lazarus/spaceport)
 "yio" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	is_wired = 1;
 	can_wire = 0
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	is_wired = 1;
 	can_wire = 0;
 	dir = 8

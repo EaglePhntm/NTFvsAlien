@@ -108,7 +108,7 @@
 	var/mob/living/carbon/human/humancorpse = src
 	var/mob/dead/observer/ghost = src
 	if(isobserver(ghost))
-		humancorpse = ghost.can_reenter_corpse.resolve()
+		humancorpse = ghost.can_reenter_corpse?.resolve()
 	if(ishuman(humancorpse) && humancorpse.mind == mind)
 		humancorpse.set_undefibbable()
 	to_chat(usr, span_notice("You can respawn now, enjoy your new life!<br><b>Make sure to play a different character, and please roleplay correctly.</b>"))
