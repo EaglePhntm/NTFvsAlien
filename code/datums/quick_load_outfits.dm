@@ -2267,7 +2267,7 @@
 	r_store = /obj/item/storage/pouch/medical_injectors/firstaid
 	l_store = /obj/item/storage/pouch/magazine
 	back = /obj/item/storage/backpack/lightpack/vsd
-	ears = /obj/item/radio/headset/distress/vsd
+	ears = /obj/item/radio/headset/mainship/kaizoku
 	head = /obj/item/clothing/head/helmet/marine/vsd/heavy
 
 /datum/outfit/quick/vsd/standard/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -2314,7 +2314,7 @@
 	l_store = /obj/item/storage/pouch/magazine
 	back = /obj/item/storage/backpack/lightpack/vsd
 	belt = /obj/item/storage/belt/utility/full
-	ears = /obj/item/radio/headset/distress/vsd
+	ears = /obj/item/radio/headset/mainship/kaizoku
 
 /datum/outfit/quick/vsd/standard/grunt_one/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -2344,7 +2344,7 @@
 	r_store = /obj/item/storage/pouch/medical_injectors/firstaid
 	back = /obj/item/storage/backpack/lightpack/vsd
 	belt = /obj/item/storage/belt/utility/full
-	ears = /obj/item/radio/headset/distress/vsd
+	ears = /obj/item/radio/headset/mainship/kaizoku
 
 /datum/outfit/quick/vsd/standard/ksg/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -2377,7 +2377,7 @@
 	l_store = /obj/item/storage/pouch/magazine
 	back = /obj/item/storage/backpack/lightpack/vsd
 	belt = /obj/item/storage/belt/utility/full
-	ears = /obj/item/radio/headset/distress/vsd
+	ears = /obj/item/radio/headset/mainship/kaizoku
 	head = /obj/item/clothing/head/helmet/marine/vsd/heavy
 
 /datum/outfit/quick/vsd/engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -2419,7 +2419,7 @@
 	l_store = /obj/item/storage/pouch/magazine
 	back = /obj/item/storage/backpack/lightpack/vsd
 	belt = /obj/item/storage/belt/utility/full
-	ears = /obj/item/radio/headset/distress/vsd
+	ears = /obj/item/radio/headset/mainship/kaizoku
 
 /datum/outfit/quick/vsd/engineer/l26/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -2450,7 +2450,7 @@
 	r_store = /obj/item/storage/pouch/medical_injectors/firstaid
 	l_store = /obj/item/storage/pouch/magazine
 	back = /obj/item/storage/backpack/lightpack/vsd
-	ears = /obj/item/radio/headset/distress/vsd
+	ears = /obj/item/radio/headset/mainship/kaizoku
 
 /datum/outfit/quick/vsd/medic/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -2477,7 +2477,7 @@
 	desc = "For keeping everybody else alive. Equipped with the 14 round capacity L12 pump-action shotgun and C96 pistol."
 	suit_store = /obj/item/weapon/gun/shotgun/pump/ksg/support
 	l_store = /obj/item/storage/pouch/shotgun
-	ears = /obj/item/radio/headset/distress/vsd
+	ears = /obj/item/radio/headset/mainship/kaizoku
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/harmor
 	head = /obj/item/clothing/head/helmet/marine/vsd/heavy
 
@@ -2505,7 +2505,7 @@
 	name = "CC/67 Rifle KZ Medic"
 	desc = "For keeping everybody else alive. Equipped with the CC/67 combat rifle and C96 pistol."
 	suit_store = /obj/item/weapon/gun/rifle/vsd_rifle
-	ears = /obj/item/radio/headset/distress/vsd
+	ears = /obj/item/radio/headset/mainship/kaizoku
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/harmor
 	head = /obj/item/clothing/head/helmet/marine/vsd/heavy
 
@@ -2529,7 +2529,7 @@
 	name = "C17 PDW KZ Medic"
 	desc = "For keeping everybody else alive. Equipped with the C17 Riot PDW."
 	suit_store = /obj/item/weapon/gun/smg/vsd_pdw/medic
-	ears = /obj/item/radio/headset/distress/vsd
+	ears = /obj/item/radio/headset/mainship/kaizoku
 	w_uniform = /obj/item/clothing/under/vsd
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/harmor
 	head = /obj/item/clothing/head/helmet/marine/vsd/heavy
@@ -2543,7 +2543,7 @@
 	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
 	r_store = /obj/item/storage/pouch/medical_injectors/firstaid
 	back = /obj/item/storage/backpack/lightpack/vsd
-	ears = /obj/item/radio/headset/distress/vsd
+	ears = /obj/item/radio/headset/mainship/kaizoku
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/harmor
 	head = /obj/item/clothing/head/helmet/marine/vsd/heavy
 
@@ -2573,7 +2573,7 @@
 	r_store = /obj/item/storage/pouch/medical_injectors/firstaid
 	back = /obj/item/storage/backpack/lightpack/vsd
 	glasses = /obj/item/clothing/glasses/night/vsd/alt
-	ears = /obj/item/radio/headset/distress/vsd
+	ears = /obj/item/radio/headset/mainship/kaizoku
 
 /datum/outfit/quick/vsd/spec/flamer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -2606,7 +2606,7 @@
 	r_store = /obj/item/storage/pouch/medical_injectors/firstaid
 	back = /obj/item/storage/backpack/lightpack/vsd
 	glasses = /obj/item/clothing/glasses/night/vsd/alt
-	ears = /obj/item/radio/headset/distress/vsd
+	ears = /obj/item/radio/headset/mainship/kaizoku
 	w_uniform = /obj/item/clothing/under/vsd/officer
 
 /datum/outfit/quick/vsd/spec/demolitionist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -2644,7 +2644,7 @@
 	r_store = /obj/item/storage/pouch/medical_injectors/firstaid
 	back = /obj/item/storage/backpack/lightpack/vsd
 	glasses = /obj/item/clothing/glasses/night/vsd/alt
-	ears = /obj/item/radio/headset/distress/vsd
+	ears = /obj/item/radio/headset/mainship/kaizoku
 	w_uniform = /obj/item/clothing/under/vsd/officer
 
 /datum/outfit/quick/vsd/spec/gunslinger/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -2680,7 +2680,7 @@
 	mask = /obj/item/clothing/mask/gas/vsd
 	suit_store = /obj/item/weapon/gun/rifle/type71/flamer
 	l_store = /obj/item/storage/pouch/magazine
-	ears = /obj/item/radio/headset/distress/vsd
+	ears = /obj/item/radio/headset/mainship/kaizoku
 
 /datum/outfit/quick/vsd/spec/uslspec_one/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -2721,7 +2721,7 @@
 	suit_store = /obj/item/weapon/gun/clf_heavyrifle
 	back = /obj/item/shotgunbox/clf_heavyrifle
 	l_store = /obj/item/storage/pouch/grenade
-	ears = /obj/item/radio/headset/distress/vsd
+	ears = /obj/item/radio/headset/mainship/kaizoku
 
 /datum/outfit/quick/vsd/spec/uslspec_two/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -2761,7 +2761,7 @@
 	r_store = /obj/item/storage/pouch/medical_injectors/firstaid
 	l_store = /obj/item/storage/pouch/magazine
 	back = /obj/item/storage/backpack/lightpack/vsd
-	ears = /obj/item/radio/headset/distress/vsd
+	ears = /obj/item/radio/headset/mainship/kaizoku
 
 /datum/outfit/quick/vsd/juggernaut/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -2809,7 +2809,7 @@
 	r_store = /obj/item/storage/pouch/medical_injectors/firstaid
 	l_store = /obj/item/storage/pouch/explosive
 	back = /obj/item/storage/backpack/lightpack/vsd
-	ears = /obj/item/radio/headset/distress/vsd
+	ears = /obj/item/radio/headset/mainship/kaizoku
 
 /datum/outfit/quick/vsd/eod/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
