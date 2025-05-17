@@ -254,10 +254,9 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	ghost.icon = icon
 	ghost.icon_state = icon_state
 	ghost.appearance = strip_appearance_underlays(ghost)
-	if(ishuman(src))
+	if(!can_reenter_corpse && ishuman(src) && src.stat == DEAD)
 		var/mob/living/carbon/human/H = src
-		if(!can_reenter_corpse)
-			H.set_undefibbable()
+		H.set_undefibbable()
 
 	if(mind?.name)
 		ghost.real_name = mind.name

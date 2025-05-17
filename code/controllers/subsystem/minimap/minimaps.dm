@@ -779,6 +779,14 @@ SUBSYSTEM_DEF(minimaps)
 	minimap_flags = MINIMAP_FLAG_MARINE_SOM
 	marker_flags = MINIMAP_FLAG_MARINE_SOM
 
+/datum/action/minimap/vsd
+	minimap_flags = MINIMAP_FLAG_KZ
+	marker_flags = MINIMAP_FLAG_KZ
+
+/datum/action/minimap/icc
+	minimap_flags = MINIMAP_FLAG_ICC
+	marker_flags = MINIMAP_FLAG_ICC
+
 /datum/action/minimap/clf
 	minimap_flags = MINIMAP_FLAG_MARINE_CLF|MINIMAP_FLAG_XENO|MINIMAP_FLAG_EXCAVATION_ZONE
 	marker_flags = MINIMAP_FLAG_MARINE_CLF

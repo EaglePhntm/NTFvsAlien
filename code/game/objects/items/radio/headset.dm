@@ -632,11 +632,20 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	frequency = FREQ_PMC
 
 /obj/item/radio/headset/mainship/marine/icc
-	name = "shiphands headset"
+	name = "colonial militia headset"
 	icon_state = "headset_marine_generic"
 	keyslot = /obj/item/encryptionkey/icc
 	frequency = FREQ_ICC
 	faction = FACTION_ICC
+	minimap_type = /datum/action/minimap/icc
+
+/obj/item/radio/headset/mainship/vsd
+	name = "kaizoku headset"
+	icon_state = "headset_marine_generic"
+	keyslot = /obj/item/encryptionkey/vsd
+	frequency = FREQ_VSD
+	faction = FACTION_VSD
+	minimap_type = /datum/action/minimap/vsd
 
 //Distress headsets.
 /obj/item/radio/headset/distress
