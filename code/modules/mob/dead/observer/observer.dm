@@ -254,6 +254,10 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	ghost.icon = icon
 	ghost.icon_state = icon_state
 	ghost.appearance = strip_appearance_underlays(ghost)
+	if(ishuman(src))
+		var/mob/living/carbon/human/H = src
+		if(!can_reenter_corpse)
+			H.set_undefibbable()
 
 	if(mind?.name)
 		ghost.real_name = mind.name
@@ -837,6 +841,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		M.faction = faction
 
 	M.key = key
+	M.name = key
 
 	to_chat(M, span_warning("Your time is up."))
 

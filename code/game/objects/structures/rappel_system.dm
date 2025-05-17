@@ -227,7 +227,8 @@
 	update_icon_state()
 	rope.update_icon_state()
 	flick("rope_deploy", rope)
-	SSminimaps.add_marker(rope, MINIMAP_FLAG_MARINE, image('icons/UI_icons/map_blips.dmi', null, "rappel", MINIMAP_BLIPS_LAYER))
+	var/minimapflag = usr ? (GLOB.faction_to_minimap_flag[usr.faction] || MINIMAP_FLAG_MARINE) : MINIMAP_FLAG_MARINE
+	SSminimaps.add_marker(rope, minimapflag, image('icons/UI_icons/map_blips.dmi', null, "rappel, MINIMAP_BLIPS_LAYER"))
 	var/area/rappel_area = get_area(target)
 	if(!(rappel_area.area_flags & MARINE_BASE))
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_TADPOLE_RAPPEL_DEPLOYED_OUT_LZ)
