@@ -28,8 +28,8 @@
 #define BE_DEATHMATCH (1<<3)
 #define BE_SQUAD_STRICT (1<<4)
 #define BE_ALIEN_UNREVIVABLE (1<<5)
-#define BE_HIVE_TARGET (1<<6)
 #define BE_SSD_RANDOM_NAME (1<<6)
+#define BE_HIVE_TARGET (1<<7)
 
 #define BE_SPECIAL_DEFAULT (BE_DEATHMATCH)
 
