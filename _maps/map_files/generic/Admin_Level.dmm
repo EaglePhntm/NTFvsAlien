@@ -14,6 +14,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 6
 	},
+/obj/effect/ai_node,
 /turf/open/floor,
 /area/tdome)
 "aaJ" = (
@@ -2708,6 +2709,11 @@
 	dir = 5
 	},
 /area/centcom/valhalla)
+"dzs" = (
+/obj/structure/disposalpipe/segment,
+/obj/effect/ai_node,
+/turf/open/floor,
+/area/tdome)
 "dAC" = (
 /turf/open/floor/freezer,
 /area/centcom/valhalla)
@@ -8209,10 +8215,15 @@
 	},
 /turf/open/floor/tile/dark/gray,
 /area/centcom/valhalla)
+"lyt" = (
+/obj/effect/ai_node,
+/turf/open/floor,
+/area/tdome)
 "lzH" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 5
 	},
+/obj/effect/ai_node,
 /turf/open/floor,
 /area/tdome)
 "lAb" = (
@@ -10094,6 +10105,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 10
 	},
+/obj/effect/ai_node,
 /turf/open/floor,
 /area/tdome)
 "oov" = (
@@ -13119,6 +13131,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 9
 	},
+/obj/effect/ai_node,
 /turf/open/floor,
 /area/tdome)
 "sYL" = (
@@ -20087,11 +20100,11 @@ qpT
 mJp
 oHd
 oHd
+lyt
 oHd
 oHd
 oHd
-oHd
-oHd
+lyt
 oHd
 oHd
 mJp
@@ -21113,7 +21126,7 @@ sEd
 wrn
 sEd
 mJp
-oHd
+lyt
 oHd
 aaB
 wSO
@@ -21121,7 +21134,7 @@ wSO
 wSO
 lzH
 oHd
-oHd
+lyt
 mJp
 tiO
 keG
@@ -22141,7 +22154,7 @@ qpT
 wrn
 qpT
 mJp
-oHd
+lyt
 oHd
 onv
 kuQ
@@ -22149,7 +22162,7 @@ kuQ
 kuQ
 sYH
 oHd
-oHd
+lyt
 mJp
 vnF
 keG
@@ -23171,11 +23184,11 @@ vBB
 fOQ
 dNn
 dNn
+dzs
 dNn
 dNn
 dNn
-dNn
-dNn
+dzs
 dNn
 dNn
 fOQ

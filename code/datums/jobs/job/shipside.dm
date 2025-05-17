@@ -42,12 +42,15 @@
 	"}
 	minimap_icon = "captain"
 
-/datum/job/terragov/command/captain/radio_help_message(mob/M)
+/datum/job/terragov/command/captain/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"As the Commander of the [SSmapping.configs[SHIP_MAP].map_name] you are held by higher standard and are expected to act competently.
-While you may support Ninetails, you report to the NTC High Command, the corporate office.
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"As the Captain and Commander of the [SSmapping.configs[SHIP_MAP].map_name] you are held by higher standard and are expected to act competently. you report to NTC Management.
+Your primary task is the safety of the ship and her crew, and ensuring the survival and success of the Operatives.
 Your first order of business should be briefing the marines on the mission they are about to undertake.
-And remember, you are not above the law."})
+You should not be voluntarily leaving your vessel under any circumstances.
+If you require any help, use <b>Mentorhelp</b> to ask mentors about what you're supposed to do.
+Godspeed, Commander! And remember, you are not above the law."}
 
 /datum/job/terragov/command/captain/after_spawn(mob/living/new_mob, mob/user, latejoin)
 	. = ..()
@@ -135,12 +138,13 @@ And remember, you are not above the law."})
 	"}
 	minimap_icon = "fieldcommander"
 
-/datum/job/terragov/command/fieldcommander/radio_help_message(mob/M)
+/datum/job/terragov/command/fieldcommander/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"You are charged with overseeing the operation on the ground, and are the highest-ranked deployed marine.
-Your duties are to ensure marines hold when ordered, and push when they are cowering behind barricades.
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"You are charged with overseeing the operation on the ground, and are the highest-ranked deployed marine.
+Your duties are to ensure operatives hold when ordered, and push when they are cowering behind barricades.
 Do not ask your men to do anything you would not do side by side with them.
-Make the NTC proud!"})
+Make the NTC proud!"}
 
 /datum/job/terragov/command/fieldcommander/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
@@ -284,11 +288,12 @@ Make the NTC proud!"})
 	SSdirection.set_leader(TRACKING_ID_MARINE_COMMANDER, L)
 
 
-/datum/job/terragov/command/corpseccommander/radio_help_message(mob/M)
+/datum/job/terragov/command/corpseccommander/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"You are a veteran, elite operative with leadership skills and experience
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"You are a veteran, elite operative with leadership skills and experience
 	trusted to keep the law and base protection within the front operations of Ninetails Corporation,
-	do not let them down."})
+	do not let them down."}
 
 /datum/job/terragov/command/corpseccommander/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
@@ -372,10 +377,11 @@ Make the NTC proud!"})
 
 	minimap_icon = "staffofficer"
 
-/datum/job/terragov/command/staffofficer/radio_help_message(mob/M)
+/datum/job/terragov/command/staffofficer/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"Your job is to monitor the marines, man the CIC, and listen to your superior officers.
-You are in charge of logistics and the overwatch system. You are also in line to take command after the captain."})
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"Your job is to monitor the marines, man the CIC, and listen to your superior officers.
+You are in charge of logistics and the overwatch system. You are also in line to take command after the captain."}
 
 /datum/job/terragov/command/staffofficer/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
@@ -479,11 +485,11 @@ You are in charge of logistics and the overwatch system. You are also in line to
 		if(6001 to INFINITY) // 100 hrs
 			new_human.wear_id.paygrade = "O2"
 
-/datum/job/terragov/command/transportofficer/radio_help_message(mob/M)
+/datum/job/terragov/command/transportofficer/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"Your job is to support marines mobile dropship support with the Tadpole.
-You are to ensure the Tadpole's survival and to transport marines around, acting as a mobile bunker. In the case of it's death, you may perform the role of Combat Engineer.
-"})
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"Your job is to provide mobile dropship support with the Tadpole, which is capable of both mass-transporting marines as well as holding vast amounts of equipment on it.
+Try to ensure the Tadpole's survival. In the case of its destruction, you may request a repair board from requisitions or perform the role of Combat Engineer."}
 
 /datum/outfit/job/command/transportofficer
 	name = TRANSPORT_OFFICER
@@ -537,12 +543,13 @@ You are to ensure the Tadpole's survival and to transport marines around, acting
 	)
 	minimap_icon = "vanguard"
 
-/datum/job/terragov/command/vanguard/radio_help_message(mob/M)
+/datum/job/terragov/command/vanguard/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"\nYou are a Vanguard Unit, an elite bodyguard serving under the corporation to guard the command staff and provide tactical assistance to the deployed marines when required.
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"\nYou are a Vanguard Unit, an elite bodyguard serving under the corporation to guard the command staff and provide tactical assistance to the deployed marines when required.
 	You have also been tasked to provide 'special morale support' when needed or requested by a commanding officer.
 	You are the lowest command, even though you are trained to be a leader, but you can take control if all the other command are missing, dead or unavailable.
-	Though it also means you have likely failed your job as a bodyguard."})
+	Though it also means you have likely failed your job as a bodyguard."}
 
 /datum/job/terragov/command/vanguard/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
@@ -629,12 +636,12 @@ You are to ensure the Tadpole's survival and to transport marines around, acting
 		if(18001 to INFINITY) // 300 hrs
 			new_human.wear_id.paygrade = "O5"
 
-/datum/job/terragov/command/pilot/radio_help_message(mob/M)
+/datum/job/terragov/command/pilot/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"Your job is to support marines with either close air support via the Condor.
-You are expected to use the Condor as the Alamo is able to be ran automatically, though at some points you will be required to take control of the Alamo for the operation's success, though highly unlikey.
-Though you are an officer, your authority is limited to the dropship and the Condor, where you have authority over the enlisted personnel.
-"})
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"Your job is to support opreatives with close air support via the Condor.
+You are expected to use the Condor as the Alamo is able to be ran automatically, though at some points you will be required to take control of the Alamo for the operation's success, though highly unlikely.
+Though you are an officer, your authority is limited to the dropship and the Condor, where you have authority over the enlisted personnel."}
 
 
 /datum/outfit/job/command/pilot
@@ -681,10 +688,10 @@ Though you are an officer, your authority is limited to the dropship and the Con
 	"}
 	minimap_icon = "mech_pilot"
 
-/datum/job/terragov/command/mech_pilot/radio_help_message(mob/M)
+/datum/job/terragov/command/mech_pilot/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"\nYou are the operator of a very expensive and valuable Mech, and are trained and expected to use it in the field of combat.
-You can serve your Division in a variety of roles, so choose carefully."})
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += "You are the operator of a very expensive and valuable Mech, and are trained and expected to use it in the field of combat. You can serve your Division in a variety of roles, so choose carefully."
 
 /datum/job/terragov/command/mech_pilot/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
@@ -759,9 +766,10 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	if(length(GLOB.clients) >= ASSAULT_CREWMAN_POPLOCK)
 		add_job_positions(2) //always 2 there are, a master and an apprentice
 
-/datum/job/terragov/command/assault_crewman/radio_help_message(mob/M)
+/datum/job/terragov/command/assault_crewman/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"You are an Assault Crewman. You operate the TGMC's armored assault vehicles along with your partner, and in some cases a \"willing\" loader. Make sure that you work as a team to advance the front!"})
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += "You are an Assault Crewman. You operate the TGMC's armored assault vehicles along with your partner, and in some cases a \"willing\" loader. Make sure that you work as a team to advance the front!"
 
 /datum/job/terragov/command/assault_crewman/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
@@ -826,9 +834,10 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	"}
 	minimap_icon = "transport_crew"
 
-/datum/job/terragov/command/transport_crewman/radio_help_message(mob/M)
+/datum/job/terragov/command/transport_crewman/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"You are a Transport Crewman. You operate the TGMC's transport vehciles to ensure that marines and equipment gets to the front in a timely and safe manner."})
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += "You are a Transport Crewman. You operate the TGMC's transport vehciles to ensure that marines and equipment gets to the front in a timely and safe manner."
 
 /datum/job/terragov/command/transport_crewman/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
@@ -921,11 +930,12 @@ You can serve your Division in a variety of roles, so choose carefully."})
 		if(18001 to INFINITY) // 300 hrs
 			new_human.wear_id.paygrade = "O5"
 
-/datum/job/terragov/engineering/chief/radio_help_message(mob/M)
+/datum/job/terragov/engineering/chief/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"Your job is to maintain the ship's engine and keep everything running.
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"Your job is to maintain the ship's engine and keep everything running.
 If you have no idea how to set up the engine, or it's your first time, <b>mentorhelp</b> so that a mentor can assist you.
-You are also next in the chain of command, should the bridge crew fall in the line of duty."})
+You are also next in the chain of command, should the bridge crew fall in the line of duty."}
 
 
 /datum/outfit/job/engineering/chief
@@ -999,10 +1009,10 @@ You are also next in the chain of command, should the bridge crew fall in the li
 		if(18001 to INFINITY) // 300 hrs
 			new_human.wear_id.paygrade = "SCPO"
 
-/datum/job/terragov/engineering/tech/radio_help_message(mob/M)
+/datum/job/terragov/engineering/tech/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"Your job is to make sure the ship is operational, you should firstly focus on manning the
-requisitions line and later on to be ready to send supplies for marines who are groundside."})
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += "Your job is to make sure the ship is operational, you should firstly focus on manning the requisitions line and later on to be ready to send supplies for marines who are groundside."
 
 
 /datum/outfit/job/engineering/tech
@@ -1080,11 +1090,12 @@ requisitions line and later on to be ready to send supplies for marines who are 
 		if(18001 to INFINITY) // 300 hrs
 			new_human.wear_id.paygrade = "O5"
 
-/datum/job/terragov/requisitions/officer/radio_help_message(mob/M)
+/datum/job/terragov/requisitions/officer/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"Your job is to dispense supplies to the marines, including weapon attachments.
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"Your job is to dispense supplies to the marines, including weapon attachments.
 While you may request paperwork for supplies, do not go out of your way to screw with marines, unless you want to get deposed.
-A happy ship is a well-functioning ship."})
+A happy ship is a well-functioning ship."}
 
 
 /datum/outfit/job/requisitions/officer
@@ -1149,11 +1160,12 @@ A happy ship is a well-functioning ship."})
 	minimap_icon = "chief_medical"
 
 
-/datum/job/terragov/medical/professor/radio_help_message(mob/M)
+/datum/job/terragov/medical/professor/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"You are the chief medical officer aboard the [SSmapping.configs[SHIP_MAP].map_name] and supervisor to the medical department.
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"You are the chief medical officer aboard the [SSmapping.configs[SHIP_MAP].map_name] and supervisor to the medical department.
 You have final authority over the medical department, medications, and treatments.
-Make sure that the doctors and nurses are doing their jobs and keeping the marines healthy and strong."})
+Make sure that the doctors and nurses are doing their jobs and keeping the marines healthy and strong."}
 
 /datum/job/terragov/medical/professor/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
@@ -1258,12 +1270,12 @@ Make sure that the doctors and nurses are doing their jobs and keeping the marin
 		if(18001 to INFINITY) // 300 hrs
 			new_human.wear_id.paygrade = "AP"
 
-/datum/job/terragov/medical/medicalofficer/radio_help_message(mob/M)
+/datum/job/terragov/medical/medicalofficer/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"You are a doctor stationed aboard the [SSmapping.configs[SHIP_MAP].map_name].
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"You are a doctor stationed aboard the [SSmapping.configs[SHIP_MAP].map_name].
 You are tasked with keeping the marines healthy and strong, usually in the form of surgery.
-You are also an expert when it comes to medication and treatment. If you do not know what you are doing, <b>mentorhelp</b> so a mentor can assist you."})
-
+You are also an expert when it comes to medication and treatment. If you do not know what you are doing, <b>mentorhelp</b> so a mentor can assist you."}
 
 /datum/outfit/job/medical/medicalofficer
 	name = MEDICAL_DOCTOR
@@ -1331,13 +1343,14 @@ You are also an expert when it comes to medication and treatment. If you do not 
 	minimap_icon = "researcher"
 
 
-/datum/job/terragov/medical/researcher/radio_help_message(mob/M)
+/datum/job/terragov/medical/researcher/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"You are a civilian, working for the Ninetails Corporation, but you are still subject to the military chain of command.
-You are tasked with deploying with the marines and researching the remains of the colony to get funding for Requisitions.
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"You are a civilian, working for the Ninetails Corporation.
+You are tasked with deploying with the operatives and researching the remains of the colony to get funding for Requisitions.
 You are free to use any new technology you discover as you want, or give them out to the marines.
 If shipside medbay is unstaffed, you should consider working as a regular doctor until someone else is available to take over.
-It is also recommended that you gear up like a regular marine, or your 'internship' might be ending early..."})
+It is also recommended that you gear up like a regular marine, or your 'internship' might be ending early..."}
 
 /datum/job/terragov/medical/researcher/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
@@ -1444,22 +1457,13 @@ It is also recommended that you gear up like a regular marine, or your 'internsh
 		if(18001 to INFINITY) // 300 hrs
 			new_human.wear_id.paygrade = "NT5"
 
-/datum/job/terragov/civilian/liaison/radio_help_message(mob/M)
+/datum/job/terragov/civilian/liaison/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"As a representative of Ninetails Corporation you are expected to stay professional and loyal to the corporation at all times.
-You are expected to make sure the corporation is functioning as intended for Ninetails Corp's interests and good outlook. Running miners while at peace is usually more profitable than warring and wasting resources.
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"As a representative of Ninetails Corporation you are expected to stay professional and loyal to the corporation at all times.
+You are expected to make sure the NTF is functioning as intended for Ninetails Corp's interests and good outlook. Running miners while at peace is usually more profitable than warring and wasting resources, but that does not mean you should submit your rightful resources to hostile forces.
 Your primary job is to observe and report back your findings to Ninetails. Follow regular game rules unless told otherwise by your superiors.
-Use your office fax machine to communicate with corporate headquarters or to acquire new directives. You may not receive anything back (especially if the game staff is absent or otherwise busy), and this is normal."})
-
-/datum/outfit/job/civilian/liaison
-	name = CORPORATE_LIAISON
-	jobtype = /datum/job/terragov/civilian/liaison
-
-	id = /obj/item/card/id/silver
-	ears = /obj/item/radio/headset/mainship/mcom
-	w_uniform = /obj/item/clothing/under/liaison_suit
-	shoes = /obj/item/clothing/shoes/laceup
-
+Use your office fax machine to communicate with corporate headquarters or to acquire new directives. You may not receive anything back (especially if the game staff is absent or otherwise busy), and this is normal."}
 
 /datum/job/terragov/silicon
 	job_category = JOB_CAT_SILICON
@@ -1529,11 +1533,11 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 		if(18001 to INFINITY) // 300 hrs
 			new_human.wear_id.paygrade = "Mk.V"
 
-/datum/job/terragov/silicon/synthetic/radio_help_message(mob/M)
+/datum/job/terragov/silicon/synthetic/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"Your primary job is to support and assist all NTC departments and personnel on-board.
-In addition, being a Synthetic gives you knowledge in every field and specialization possible on-board the ship."})
-
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += "Your primary job is to support and assist all NTC departments and personnel on-board. \
+		In addition, being a Synthetic gives you knowledge in every field and specialization possible on-board the ship."
 
 /datum/outfit/job/civilian/synthetic
 	name = SYNTHETIC
@@ -1585,13 +1589,13 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 /datum/job/terragov/silicon/ai/return_spawn_type(datum/preferences/prefs)
 	return /mob/living/silicon/ai
 
-/datum/job/terragov/silicon/ai/radio_help_message(mob/M)
+/datum/job/terragov/silicon/ai/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"Your primary job is to support and assist all NTC departments and personnel on-board.
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"Your primary job is to support and assist all NTC departments and personnel on-board.
 However, your vision is limited through cameras from the ship or to marines groundside.
 Recon any threats and report findings at various communication channels.
-If you require any help, use <b>mentorhelp</b> to ask mentors about what you're supposed to do."})
-
+If you require any help, use <b>Mentorhelp</b> to ask mentors about what you're supposed to do."}
 
 /datum/job/terragov/silicon/ai/announce(mob/living/announced_mob)
 	. = ..()

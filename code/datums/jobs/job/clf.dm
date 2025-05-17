@@ -12,11 +12,12 @@
 	var/datum/action/minimap/clf/mini = new
 	mini.give_action(C)
 
-/datum/job/clf/radio_help_message(mob/M)
+/datum/job/clf/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"As a CLF member you are a ex NTC worker, now a servant of Xenomorphs, they are superior, evolved beings that you must serve.
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"As a CLF member you are a ex NTC worker, now a servant of Xenomorphs, they are superior, evolved beings that you must serve.
 You can understand but not speak xeno language but they can understand your language already, Obey your Xenomorph masters.
-Your primary goal is to serve the hive, and ultimate goal is to liberate the colonies from all occupational forces so the Xenos may reclaim the lands, and breed your kind forever."})
+Your primary goal is to serve the hive, and ultimate goal is to liberate the colonies from all occupational forces so the Xenos may reclaim the lands, and breed your kind forever."}
 
 //CLF Standard
 /datum/job/clf/standard
@@ -660,10 +661,11 @@ Your primary goal is to serve the hive, and ultimate goal is to liberate the col
 		if(18001 to INFINITY) // 300 hrs
 			new_human.wear_id.paygrade = "Mk.V"
 
-/datum/job/clf/silicon/synthetic/clf/radio_help_message(mob/M)
+/datum/job/clf/silicon/synthetic/clf/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"Your primary job is to support and assist all clf departments and personnel on-board.
-In addition, being a Synthetic gives you knowledge in every field and specialization possible on-board the ship."})
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"Your primary job is to support and assist all clf departments and personnel on-board.
+In addition, being a Synthetic gives you knowledge in every field and specialization possible on-board the ship."}
 
 
 /datum/outfit/job/civilian/synthetic/clf

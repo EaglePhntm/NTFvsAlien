@@ -149,11 +149,12 @@
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_R_POUCH)
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_R_POUCH)
 
-/datum/job/mothellian/standard/radio_help_message(mob/M)
+/datum/job/mothellian/standard/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"You are part of the glorious Mothellian Republic!
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"You are part of the glorious Mothellian Republic!
 You were born on one of the many planets under the umbrella of the Mothellian Republic. In the Republic, every member is deeply versed in the art of trade and exchange, Material wealth a key component to the betterment of your species!
-You serve in the Mothellian Military in order to bring profit to your family and clan, everyone contributes! You are a grunt soldier, do your best to protect your medics and listen to your Leader or the Veterans!"})
+You serve in the Mothellian Military in order to bring profit to your family and clan, everyone contributes! You are a grunt soldier, do your best to protect your medics and listen to your Leader or the Veterans!"}
 
 //Mothellian Medic
 /datum/job/mothellian/medic
@@ -189,11 +190,12 @@ You serve in the Mothellian Military in order to bring profit to your family and
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/famas, SLOT_IN_L_POUCH)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/famas, SLOT_IN_L_POUCH)
 
-/datum/job/mothellian/medic/radio_help_message(mob/M)
+/datum/job/mothellian/medic/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"You are part of the glorious Mothellian Republic!
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"You are part of the glorious Mothellian Republic!
 You were born on one of the many planets under the umbrella of the Mothellian Republic. In the Republic, every member is deeply versed in the art of trade and exchange, Material wealth a key component to the betterment of your species!
-You serve in the Mothellian Military in order to bring profit to your family and clan, everyone contributes! You are a Medic, you follow the orders of the Leader, or if not available, a Veteran. Your job is to make sure everyone makes it home!"})
+You serve in the Mothellian Military in order to bring profit to your family and clan, everyone contributes! You are a Medic, you follow the orders of the Leader, or if not available, a Veteran. Your job is to make sure everyone makes it home!"}
 
 //Mothellian engineer
 /datum/job/mothellian/engi
@@ -230,11 +232,12 @@ You serve in the Mothellian Military in order to bring profit to your family and
 	H.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_SUIT)
 	H.equip_to_slot_or_del(new /obj/item/stack/barbed_wire/half_stack, SLOT_IN_SUIT)
 
-/datum/job/mothellian/engi/radio_help_message(mob/M)
+/datum/job/mothellian/engi/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"You are part of the glorious Mothellian Republic!
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"You are part of the glorious Mothellian Republic!
 You were born on one of the many planets under the umbrella of the Mothellian Republic. In the Republic, every member is deeply versed in the art of trade and exchange, Material wealth a key component to the betterment of your species!
-You serve in the Mothellian Military in order to bring profit to your family and clan, everyone contributes!"})
+You serve in the Mothellian Military in order to bring profit to your family and clan, everyone contributes!"}
 
 
 //Mothellian Veteran. Generic term for 'better equipped dude'
@@ -340,11 +343,12 @@ You serve in the Mothellian Military in order to bring profit to your family and
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/standard_carbine, SLOT_IN_R_POUCH)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/standard_carbine, SLOT_IN_R_POUCH)
 
-/datum/job/mothellian/grenadier/radio_help_message(mob/M)
+/datum/job/mothellian/grenadier/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"You are part of the glorious Mothellian Republic!
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"You are part of the glorious Mothellian Republic!
 You were born on one of the many planets under the umbrella of the Mothellian Republic. In the Republic, every member is deeply versed in the art of trade and exchange, Material wealth a key component to the betterment of your species!
-You serve in the Mothellian Military in order to bring profit to your family and clan, everyone contributes! You are a Veteran, You've been at this for a loooong time, act like it. You follow the orders of the Leader, though if they die, it falls on you to guide your men and make sure they make it home."})
+You serve in the Mothellian Military in order to bring profit to your family and clan, everyone contributes! You are a Veteran, You've been at this for a loooong time, act like it. You follow the orders of the Leader, though if they die, it falls on you to guide your men and make sure they make it home."}
 
 //Mothellian Leader
 /datum/job/mothellian/leader
@@ -441,8 +445,9 @@ You serve in the Mothellian Military in order to bring profit to your family and
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/standard_carbine, SLOT_IN_R_POUCH)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/standard_carbine, SLOT_IN_R_POUCH)
 
-/datum/job/mothellian/leader/radio_help_message(mob/M)
+/datum/job/mothellian/leader/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"You are part of the glorious Mothellian Republic!
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"You are part of the glorious Mothellian Republic!
 You were born on one of the many planets under the umbrella of the Mothellian Republic. In the Republic, every member is deeply versed in the art of trade and exchange, Material wealth a key component to the betterment of your species!
-You serve in the Mothellian Military in order to bring profit to your family and clan, everyone contributes! You are the Leader, after years of hard work and service, you have been deemed vastly capable in leading men into battle and thus are in charge of your squad, take care of them and make sure they make it home. Unless told otherwise, it is the most important asset to protect."})
+You serve in the Mothellian Military in order to bring profit to your family and clan, everyone contributes! You are the Leader, after years of hard work and service, you have been deemed vastly capable in leading men into battle and thus are in charge of your squad, take care of them and make sure they make it home. Unless told otherwise, it is the most important asset to protect."}

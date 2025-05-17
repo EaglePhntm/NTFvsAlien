@@ -159,11 +159,12 @@
 	l_pocket = /obj/item/storage/pouch/survival/full
 	ears = /obj/item/radio/headset/mainship
 
-/datum/job/worker/radio_help_message(mob/M)
+/datum/job/worker/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"\nYou are a standard worker with wide access among the ship,
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"\nYou are a standard worker with wide access among the ship,
 	you can use a worker locker to get equipped and use your access to do your job properly,
-	you should not sabotage the station with this access."})
+	you should not sabotage the station with this access."}
 
 //Morale officer
 /datum/job/worker/moraleofficer
@@ -188,7 +189,8 @@
 	l_pocket = /obj/item/storage/pouch/general/large
 	ears = /obj/item/radio/headset/mainship
 
-/datum/job/worker/moraleofficer/radio_help_message(mob/M)
+/datum/job/worker/moraleofficer/get_spawn_message_information(mob/M)
 	. = ..()
-	to_chat(M, {"\nYou are a 'Morale Officer' fancy name for a free-use whore hired by a corporation to keep employees happy,
-	do your job and try not to 'stain' the ship too much."})
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"\nYou are a 'Morale Officer' fancy name for a free-use whore hired by a corporation to keep employees happy,
+	do your job and try not to 'stain' the ship too much."}
