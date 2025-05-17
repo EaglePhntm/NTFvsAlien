@@ -5,12 +5,8 @@
  */
 
 import { createRoot } from 'react-dom/client';
-import { EventEmitter } from 'common/events';
-import { classes } from 'common/react';
-import { render } from 'react-dom';
-import { Collapsible, Tooltip } from 'tgui/components';
 import { createLogger } from 'tgui/logging';
-import { Tooltip } from 'tgui-core/components';
+import { Collapsible, Tooltip } from 'tgui-core/components';
 import { EventEmitter } from 'tgui-core/events';
 import { classes } from 'tgui-core/react';
 

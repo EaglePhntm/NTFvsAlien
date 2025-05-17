@@ -72,11 +72,13 @@ export const BackgroundInformation = (props) => {
         }
       >
         <TextArea
+          expensive
           key="xeno"
+          fluid
           height="200px"
           maxLength={12000}
           value={xenoDesc}
-          onChange={(e, value) => setXenoDesc(value)}
+          onChange={(value) => setXenoDesc(value)}
         />
       </Section>
 
@@ -225,12 +227,14 @@ export const BackgroundInformation = (props) => {
             }
           >
             <TextArea
+              expensive
+              fluid
               height="100px"
               maxLength={2048}
               value={profilePic}
-              onChange={(e, value) => setProfilePic(value)}
+              onChange={(value) => setProfilePic(value)}
             />
-            <img src={profile_pic} width={350} height={400} />
+            {profile_pic ? <img src={profile_pic} width={350} height={400} /> :""}
           </Section>
         </Stack.Item>
         <Stack.Item grow>
@@ -255,12 +259,14 @@ export const BackgroundInformation = (props) => {
             }
           >
             <TextArea
+              expensive
+              fluid
               height="100px"
               maxLength={2048}
               value={nsfwprofilePic}
-              onChange={(e, value) => setNSFWProfilePic(value)}
+              onChange={(value) => setNSFWProfilePic(value)}
             />
-            <img src={nsfwprofile_pic} width={350} height={400} />
+            {nsfwprofile_pic ? <img src={nsfwprofile_pic} width={350} height={400} /> :""}
           </Section>
         </Stack.Item>
         <Stack.Item grow>
@@ -285,12 +291,14 @@ export const BackgroundInformation = (props) => {
             }
           >
             <TextArea
+              expensive
+              fluid
               height="100px"
               maxLength={2048}
               value={xenoprofilePic}
-              onChange={(e, value) => setXenoProfilePic(value)}
+              onChange={(value) => setXenoProfilePic(value)}
             />
-            <img src={xenoprofile_pic} width={350} height={400} />
+            {xenoprofile_pic ? <img src={xenoprofile_pic} width={350} height={400} /> :""}
           </Section>
         </Stack.Item>
       </Stack>
