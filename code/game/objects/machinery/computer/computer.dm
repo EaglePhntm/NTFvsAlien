@@ -118,8 +118,8 @@
 		return
 	if(dir == NORTH)
 		return
-	. += emissive_appearance(icon, screen_overlay, alpha = src.alpha)
-	. += mutable_appearance(icon, screen_overlay, alpha = src.alpha)
+	. += emissive_appearance(icon, screen_overlay, offset_spokesman = src, alpha = src.alpha)
+	. += mutable_appearance(icon, screen_overlay, offset_spokesman = src, alpha = src.alpha)
 
 /obj/machinery/computer/proc/set_broken()
 	machine_stat |= BROKEN
