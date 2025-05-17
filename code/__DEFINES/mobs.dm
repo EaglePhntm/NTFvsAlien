@@ -535,6 +535,8 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define XENO_ZOOMED (1<<2)
 ///mobhud on
 #define XENO_MOBHUD (1<<3)
+///rouny
+#define XENO_ROUNY (1<<4)
 
 
 #define XENO_DEFAULT_VENT_ENTER_TIME 4.5 SECONDS //Standard time for a xeno to enter a vent.

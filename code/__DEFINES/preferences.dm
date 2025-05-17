@@ -1,5 +1,5 @@
 //Do not decrease this unles you know what you're doing.
-#define MAX_SAVE_SLOTS 100
+#define MAX_SAVE_SLOTS 50
 
 #define AGE_MIN 18
 #define AGE_MAX 85
@@ -29,6 +29,7 @@
 #define BE_SQUAD_STRICT (1<<4)
 #define BE_ALIEN_UNREVIVABLE (1<<5)
 #define BE_HIVE_TARGET (1<<6)
+#define BE_SSD_RANDOM_NAME (1<<6)
 
 #define BE_SPECIAL_DEFAULT (BE_DEATHMATCH)
 
@@ -81,6 +82,7 @@
 #define AUTO_INTERACT_DEPLOYABLES (1<<3)
 #define RADIAL_LASERGUNS (1<<4)
 #define DIRECTIONAL_ATTACKS (1<<5)
+#define TOGGLE_CLICKDRAG (1<<6)
 
 #define PARALLAX_INSANE -1 //for show offs
 #define PARALLAX_HIGH    0 //default.
@@ -111,6 +113,8 @@
 #define GAME_SETTINGS 5
 #define KEYBIND_SETTINGS 6
 #define DRAW_ORDER 7
+
+#define USE_GENDER "use_gender"
 
 #define CITIZENSHIP_CHOICES list(\
 	"Phantom City (Earth)",\
@@ -199,7 +203,8 @@
 	"Take Own Chestburster" = BE_ALIEN_UNREVIVABLE,\
 	"End of Round Deathmatch" = BE_DEATHMATCH,\
 	"Eligible for Hive Target" = BE_HIVE_TARGET,\
-	"Prefer Squad over Role" = BE_SQUAD_STRICT\
+	"Prefer Squad over Role" = BE_SQUAD_STRICT,\
+	"Use random name when taking SSD mobs" = BE_SSD_RANDOM_NAME\
 	)
 
 #define HIVE_STATUS_SHOW_EMPTY (1<<0)

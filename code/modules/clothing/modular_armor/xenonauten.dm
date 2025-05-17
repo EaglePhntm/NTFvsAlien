@@ -51,6 +51,12 @@
 
 	allowed_uniform_type = /obj/item/clothing/under
 
+/obj/item/clothing/suit/modular/xenonauten/hodgrenades
+	starting_attachments = list(
+		/obj/item/armor_module/module/ballistic_armor,
+		/obj/item/armor_module/storage/grenade,
+	)
+
 /obj/item/clothing/suit/modular/xenonauten/engineer
 	starting_attachments = list(
 		/obj/item/armor_module/module/better_shoulder_lamp,
@@ -243,8 +249,8 @@
 	name = "\improper NTC standard flak jacket"
 	desc = "A flak jacket used by dropship pilots to protect themselves while flying in the cockpit. Excels in protecting the wearer against high-velocity solid projectiles."
 	item_flags = NONE
-	soft_armor = list(MELEE = 40, BULLET = 50, LASER = 50, ENERGY = 40, BOMB = 30, BIO = 5, FIRE = 25, ACID = 30)
-	slowdown = 0
+	soft_armor = list(MELEE = 40, BULLET = 50, LASER = 50, ENERGY = 25, BOMB = 30, BIO = 5, FIRE = 25, ACID = 30)
+	slowdown = 0.25
 
 	greyscale_config = /datum/greyscale_config/xenonaut/pilot
 
@@ -451,6 +457,9 @@
 	greyscale_colors = ARMOR_PALETTE_BLACK
 
 	visorless_offset_y = 0
+
+/obj/item/clothing/head/modular/m10x/hod
+	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/module/hod_head)
 
 /obj/item/clothing/head/modular/m10x/freyr
 	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/module/artemis)

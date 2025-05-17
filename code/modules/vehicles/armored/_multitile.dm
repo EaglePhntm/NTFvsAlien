@@ -35,7 +35,6 @@
 	max_occupants = 4
 	move_delay = 0.6 SECONDS
 	glide_size = 2.5
-	vis_range_mod = 2
 	ram_damage = 200
 	easy_load_list = list(
 		/obj/item/ammo_magazine/tank,

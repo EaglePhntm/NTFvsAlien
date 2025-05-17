@@ -266,12 +266,6 @@
 		to_chat(src, span_danger("Please download a new version of byond. If [byond_build] is the latest, you can go to <a href=\"https://secure.byond.com/download/build\">BYOND's website</a> to download other versions."))
 		addtimer(CALLBACK(src, qdel(src), 2 SECONDS))
 		return
-		
-	if(byond_version > 515)
-		to_chat(src, span_userdanger("Your byond version may be incompatible with this server."))
-		to_chat(src, span_danger("If you notice many menus showing up only as white boxes, please downgrade to the latest build of byond 515."))
-		to_chat(src, span_danger("You can find byond builds at <a href=\"https://secure.byond.com/download/build\">BYOND's website</a>. Builds of byond 515 specifically can be found at <a href=\"https://secure.byond.com/download/build/515/\">https://secure.byond.com/download/build/515/</a>."))
-		to_chat(src, span_danger("It is possible to have multiple versions of byond installed, in case you use other servers that require different versions of byond."))
 
 	if(GLOB.custom_info)
 		custom_info()
@@ -999,6 +993,9 @@ GLOBAL_VAR_INIT(automute_on, null)
 	var/weight = SPAM_TRIGGER_WEIGHT_FORMULA(message)
 	total_message_weight += weight
 
+	var/message_cache = total_message_count
+	var/weight_cache = total_message_weight
+
 	if(last_message_time && world.time > last_message_time)
 		last_message_time = 0
 		total_message_count = 0
@@ -1006,10 +1003,6 @@ GLOBAL_VAR_INIT(automute_on, null)
 
 	else if(!last_message_time)
 		last_message_time = world.time + SPAM_TRIGGER_TIME_PERIOD
-
-	// Having this before the if instead of after requires every long messsage to be sent twice or else have it get locked out.
-	var/message_cache = total_message_count
-	var/weight_cache = total_message_weight
 
 	last_message = message
 
@@ -1021,8 +1014,6 @@ GLOBAL_VAR_INIT(automute_on, null)
 			to_chat(src, span_danger("You have exceeded the spam filter. An auto-mute was applied."))
 			create_message("note", ckey(key), "SYSTEM", "Automuted due to spam. Last message: '[last_message]'", null, null, FALSE, TRUE, null, FALSE, "Minor")
 			mute(src, mute_type, TRUE)
-		else
-			to_chat(src, span_danger("You have hit the spam filter limit."))
 		return TRUE
 
 	if(warning && GLOB.automute_on && !check_rights(R_ADMIN, FALSE))

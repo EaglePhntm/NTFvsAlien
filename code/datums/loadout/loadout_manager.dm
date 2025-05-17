@@ -8,7 +8,7 @@
 	 */
 	var/list/loadouts_data = list()
 	/// The host of the loadout_manager, aka from which loadout vendor are you managing loadouts
-	var/obj/machinery/loadout_vendor/loadout_vendor
+	var/obj/machinery/quick_vendor/loadout_vendor
 	/// The version of the loadout manager
 	var/version = CURRENT_LOADOUT_VERSION
 

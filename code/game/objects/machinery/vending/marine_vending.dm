@@ -2400,7 +2400,7 @@
 		),
 		"Melee" = list(
 			/obj/item/weapon/combat_knife = -1,
-			/obj/item/attachable/bayonetknife = -1,
+			/obj/item/attachable/bayonet = -1,
 			/obj/item/stack/throwing_knife = -1,
 			/obj/item/storage/belt/knifepouch = -1,
 			/obj/item/storage/holster/blade/machete/full = -1,
@@ -2959,7 +2959,7 @@
 		),
 		"Melee" = list(
 			/obj/item/weapon/combat_knife = -1,
-			/obj/item/attachable/bayonetknife = -1,
+			/obj/item/attachable/bayonet = -1,
 			/obj/item/stack/throwing_knife = -1,
 			/obj/item/storage/belt/knifepouch = -1,
 			/obj/item/storage/holster/blade/machete/full = -1,
@@ -3508,7 +3508,7 @@
 		),
 		"Melee" = list(
 			/obj/item/weapon/combat_knife = -1,
-			/obj/item/attachable/bayonetknife = -1,
+			/obj/item/attachable/bayonet = -1,
 			/obj/item/stack/throwing_knife = -1,
 			/obj/item/storage/belt/knifepouch = -1,
 			/obj/item/storage/holster/blade/machete/full = -1,

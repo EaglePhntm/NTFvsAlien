@@ -483,7 +483,7 @@
 	var/stamina_loss_limit = L.maxHealth * 2
 	var/applied_damage = clamp(power, 0, (stamina_loss_limit - L.getStaminaLoss()))
 	var/damage_overflow = power - applied_damage
-	if(damage_overflow && COOLDOWN_CHECK(src, neuro_stun_cd))
+	if(damage_overflow && COOLDOWN_FINISHED(src, neuro_stun_cd))
 		L.adjustStaminaLoss(power)
 		COOLDOWN_START(src, neuro_stun_cd, 5 MINUTES) //only do the hard stun once every five minutes, unless the reagent is cleared completely
 	else

@@ -65,7 +65,6 @@
 	icon = 'icons/obj/clothing/glasses.dmi'
 	icon_state = "m56_goggles"
 	deactive_state = "m56_goggles_0"
-	darkness_view = 7
 	toggleable = TRUE
 	actions_types = list(/datum/action/item_action/toggle)
 	vision_flags = SEE_TURFS
@@ -114,7 +113,7 @@
 	deactive_state = "vsd_nvg_off"
 	toggleable = TRUE
 	actions_types = list(/datum/action/item_action/toggle)
-	tint = COLOR_VERY_SOFT_YELLOW
+	tint = COLOR_GREEN
 	worn_layer = COLLAR_LAYER
 
 /obj/item/clothing/glasses/night/vsd/alt

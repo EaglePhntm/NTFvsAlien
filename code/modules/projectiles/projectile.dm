@@ -112,7 +112,7 @@
 	///Max range the projectile can travel
 	var/proj_max_range = 30
 	///A damage multiplier applied when a mob from the same faction as the projectile firer is hit
-	var/friendly_fire_multiplier = 1
+	var/friendly_fire_multiplier = 0.5
 	///The "point blank" range of the projectile. Inside this range the projectile gets a bonus to hit
 	var/point_blank_range = 0
 	/// List of atoms already hit by that projectile. Will only matter for projectiles capable of passing through multiple atoms
@@ -297,7 +297,7 @@
 	apx += pixel_x //Update the absolute pixels with the offset.
 	apy += pixel_y
 
-	if(original_target_turf?.z != z)
+	if(original_target_turf && original_target_turf.z != z)
 		/**
 		 * For gameplays sake we want some inconsistent behaviour here
 		 * Specifically, you have to on an edge or flying to shoot DOWN (so people can see you)

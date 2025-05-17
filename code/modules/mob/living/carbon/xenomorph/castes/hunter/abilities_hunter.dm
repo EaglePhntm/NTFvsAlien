@@ -882,7 +882,6 @@
 		for(var/obj/machinery/light/lightie in range(rand(7,10), whereweat))
 			lightie.set_flicker(2 SECONDS, 1.5, 2.5, rand(1,2))
 		X.status_flags = initial(X.status_flags)
-		X.resistance_flags = initial(X.resistance_flags)
 		X.pass_flags = initial(X.pass_flags)
 		X.density = TRUE
 		REMOVE_TRAIT(X, TRAIT_HANDS_BLOCKED, X)
@@ -897,7 +896,6 @@
 	ADD_TRAIT(X, TRAIT_HANDS_BLOCKED, X)
 	X.status_flags = INCORPOREAL
 	X.alpha = 0
-	X.resistance_flags = BANISH_IMMUNE
 	X.pass_flags = PASS_MOB|PASS_XENO
 	X.density = FALSE
 	X.update_wounds()

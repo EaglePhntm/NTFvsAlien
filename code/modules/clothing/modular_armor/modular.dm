@@ -36,7 +36,7 @@
 		/obj/item/weapon/combat_knife,
 		/obj/item/storage/holster/belt/pistol/m4a3,
 		/obj/item/storage/holster/belt/m44,
-		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonet,
 		/obj/item/storage/belt/sparepouch,
 		/obj/item/storage/holster/blade,
 		/obj/item/weapon/sword,

@@ -131,6 +131,7 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 		"Squad Engineer",
 		"Squad Corpsman",
 		"Squad Smartgunner",
+		"Squad Specialist",
 		"Squad Leader",
 	)
 	///Whichever global loadout is used to build the vendor stock
@@ -321,4 +322,37 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 		"CM Medic",
 		"CM Guardsman",
 		"CM Squad Leader",
+	)
+
+
+/obj/machinery/quick_vendor/som
+	desc = "An advanced vendor used by the SOM to rapidly equip their soldiers"
+	faction = VENDOR_FACTION_SOM
+	categories = list(
+		"SOM Squad Standard",
+		"SOM Squad Engineer",
+		"SOM Squad Veteran",
+		"SOM Squad Leader",
+	)
+
+
+/obj/machinery/quick_vendor/vsd
+	desc = "An advanced vendor used by the VSD to rapidly equip their operatives"
+	faction = VENDOR_FACTION_VSD
+	categories = list(
+		"KZ Standard",
+		"KZ Engineer",
+		"KZ Specialist",
+		"KZ Squad Leader",
+	)
+
+
+/obj/machinery/quick_vendor/clf
+	desc = "An advanced vendor used by the CLF to rapidly equip their devotees"
+	faction = VENDOR_FACTION_CLF
+	categories = list(
+		"CLF Standard",
+		"CLF Medic",
+		"CLF Breeder",
+		"CLF Leader",
 	)

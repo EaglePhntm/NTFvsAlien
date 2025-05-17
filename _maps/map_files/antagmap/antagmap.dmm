@@ -9619,7 +9619,7 @@
 	id = "SOMINT";
 	dir = 8
 	},
-/obj/item/attachable/bayonetknife/som,
+/obj/item/attachable/bayonet/som,
 /obj/item/paper/brassnote{
 	info = "Clean the goddamn beds after you are done ripping apart NTC dogs' holes. - Som high command.";
 	name = "Note"

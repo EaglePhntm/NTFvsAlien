@@ -408,7 +408,7 @@
 	name = "\improper The NTC, a NTC-Class Marine Carrier Arsenal Ship"
 	desc = "The name of the ship stenciled on the hull."
 	icon = 'icons/obj/structures/prop/mainship_64.dmi'
-	icon_state = "NTC1"
+	icon_state = "TGMC1"
 	density = FALSE
 	plane = FLOOR_PLANE
 	layer = LOWER_RUNE_LAYER
@@ -416,16 +416,16 @@
 	resistance_flags = UNACIDABLE
 
 /obj/structure/prop/mainship/name_stencil/T
-	icon_state = "NTC1"
+	icon_state = "TGMC1"
 
 /obj/structure/prop/mainship/name_stencil/G
-	icon_state = "NTC2"
+	icon_state = "TGMC2"
 
 /obj/structure/prop/mainship/name_stencil/M
-	icon_state = "NTC3"
+	icon_state = "TGMC3"
 
 /obj/structure/prop/mainship/name_stencil/C
-	icon_state = "NTC4"
+	icon_state = "TGMC4"
 
 /obj/structure/prop/mainship/name_stencil/Initialize(mapload)
 	. = ..()
@@ -875,13 +875,6 @@
 	icon = 'icons/obj/machines/mining_machines.dmi'
 	icon_state = "silo"
 	density = TRUE
-
-/obj/structure/prop/rappel_bay
-	name = "rappel hatch"
-	desc = "A hatch in the ground wih support for a quick-deploy rope."
-	icon = 'icons/obj/structures/droppod.dmi'
-	icon_state = "launch_bay"
-	layer = PODDOOR_OPEN_LAYER
 
 /obj/structure/prop/mainship/propcarp
 	name = "space carp"

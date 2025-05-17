@@ -147,7 +147,7 @@
 	accuracy_var_high = 3
 	bullet_color = COLOR_TOXIN_APHROTOXIN
 	damage = 25
-	stagger_stacks = 0.5 SECONDS
+	stagger_duration = 0.5 SECONDS
 	slowdown_stacks = 0.5
 	smoke_strength = 0.4
 	smoke_range = 0
@@ -181,7 +181,7 @@
 	spit_cost = 25
 	added_spit_delay = 0 SECONDS
 	smoke_strength = 0.25
-	reagent_transfer_amount = 1.5	
+	reagent_transfer_amount = 1.5
 
 /datum/ammo/xeno/sticky
 	name = "sticky resin spit"
