@@ -92,6 +92,8 @@
 				continue
 			if(isnestedhost(nearby_human))
 				continue
+			if(need_los && !line_of_sight(source, nearby_human))
+				continue
 			if(get_dist(source, nearby_human) < shorter_distance)
 				nearest_target = nearby_human
 				shorter_distance = get_dist(source, nearby_human) //better to recalculate than to save the var
