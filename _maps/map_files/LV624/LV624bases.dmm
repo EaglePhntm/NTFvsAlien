@@ -13759,7 +13759,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle5)
 "mki" = (
-/obj/structure/barricade/solid/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/mainship/silver{
 	dir = 8
 	},
@@ -16741,7 +16741,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/crashed_ship)
 "ptY" = (
-/obj/structure/barricade/solid/plasteel{
+/obj/structure/barricade/folding{
 	is_wired = 1;
 	can_wire = 0;
 	dir = 8
@@ -21257,7 +21257,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
 "tOd" = (
-/obj/structure/barricade/solid/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/mainship/silver{
 	dir = 4
 	},
@@ -24208,7 +24208,7 @@
 	},
 /area/lv624/ground/filtration)
 "wEl" = (
-/obj/structure/barricade/solid/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/mainship/silver/full,
 /area/mainship/patrol_base/som)
 "wEq" = (

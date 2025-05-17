@@ -4495,7 +4495,7 @@
 	ceiling = 6
 	})
 "eoa" = (
-/obj/structure/barricade/solid/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/mainship/silver{
 	dir = 8
 	},
@@ -14828,7 +14828,7 @@
 	outside = 0
 	})
 "nYh" = (
-/obj/structure/barricade/solid/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/mainship/silver/full,
 /area/mainship/patrol_base/som)
 "nYN" = (
@@ -21545,7 +21545,7 @@
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/canteen)
 "ukc" = (
-/obj/structure/barricade/solid/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/mainship/silver{
 	dir = 4
 	},
@@ -25987,7 +25987,7 @@
 /turf/open/floor/wood,
 /area/lv624/lazarus/bar)
 "yke" = (
-/obj/structure/barricade/solid/plasteel{
+/obj/structure/barricade/folding{
 	is_wired = 1;
 	can_wire = 0;
 	dir = 8

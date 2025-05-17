@@ -355,7 +355,7 @@
 /turf/open/floor/wood,
 /area/antag_ship/som/office/commander/field)
 "cw" = (
-/obj/structure/barricade/solid/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -3055,7 +3055,7 @@
 /turf/open/floor/plating/heatinggrate,
 /area/antag_ship/icc/generator_room)
 "qa" = (
-/obj/structure/barricade/solid/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/mainship/mono,
@@ -7865,7 +7865,7 @@
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/security/cell)
 "PB" = (
-/obj/structure/barricade/solid/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /obj/machinery/light/mainship{
@@ -9493,7 +9493,7 @@
 /turf/open/floor/wood,
 /area/antag_ship/som/office/commander/field)
 "Xi" = (
-/obj/structure/barricade/solid/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /obj/machinery/light/mainship{

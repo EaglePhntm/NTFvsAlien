@@ -164,7 +164,7 @@
 	name = "HQ Central Hallways"
 	})
 "aga" = (
-/obj/structure/barricade/solid/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1;
 	is_wired = 1
 	},
@@ -386,7 +386,7 @@
 	name = "Tad Aux LZ"
 	})
 "apL" = (
-/obj/structure/barricade/solid/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1;
 	is_wired = 1
 	},
@@ -7169,7 +7169,7 @@
 	name = "Ground CEO Office"
 	})
 "ilE" = (
-/obj/structure/barricade/solid/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/grass,
@@ -9264,7 +9264,7 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/groundhq/ntf/shipboard/brig_cells)
 "kHb" = (
-/obj/structure/barricade/solid/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1;
 	is_wired = 1
 	},
@@ -10302,7 +10302,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/req)
 "lQt" = (
-/obj/structure/barricade/solid/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1;
 	is_wired = 1
 	},
@@ -19925,7 +19925,7 @@
 	},
 /area/mainship/living/basketball)
 "xch" = (
-/obj/structure/barricade/solid/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1;
 	is_wired = 1
 	},
