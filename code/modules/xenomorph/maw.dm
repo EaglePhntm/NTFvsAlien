@@ -242,10 +242,8 @@
 	return ..()
 
 /obj/structure/xeno/acid_maw/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, armor_type, effects, armor_penetration, isrightclick)
-	. = ..()
-	if(xeno_attacker.hivenumber != hivenumber)
-		balloon_alert(xeno_attacker, "wrong hive")
-		return FALSE
+	if(!issamexenohive(xeno_attacker)|| xeno_attacker.a_intent == INTENT_HARM)
+		return ..()
 	if(!isxenoqueen(xeno_attacker) && !isxenoshrike(xeno_attacker) && !isxenoking(xeno_attacker) && !(xeno_attacker.xeno_flags & XENO_LEADER))
 		balloon_alert(xeno_attacker, "must be leader")
 		return FALSE

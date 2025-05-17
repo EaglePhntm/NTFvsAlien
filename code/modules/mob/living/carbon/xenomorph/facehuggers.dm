@@ -881,7 +881,7 @@
 
 	for(var/turf/sticky_tile AS in RANGE_TURFS(1, loc))
 		if(!locate(/obj/effect/xenomorph/spray) in sticky_tile.contents)
-			new /obj/alien/resin/sticky/thin(sticky_tile)
+			new /obj/alien/resin/sticky/thin(sticky_tile, hivenumber)
 
 	for(var/mob/living/carbon/human/target in range(1, loc))
 		if(isxeno(target)) //Xenos aren't affected by sticky resin
