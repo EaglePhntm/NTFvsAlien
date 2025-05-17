@@ -55,6 +55,9 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 	range = CHECK_BITFIELD(gun.turret_flags, TURRET_RADIAL) ?  gun.turret_range - 2 : gun.turret_range
 
 	radio = new(src)
+	radio.freerange = TRUE
+	radio.canhear_range = 1
+	radio.set_frequency(GLOB.faction_default_frequency[faction] || FREQ_CIV_GENERAL)
 
 	spark_system = new /datum/effect_system/spark_spread
 	spark_system.set_up(5, 0, src)
@@ -367,7 +370,7 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 			notice = "<b>ALERT! [src] at: [AREACOORD_NO_Z(src)] has been destroyed!</b>"
 
 	playsound(loc, 'sound/machines/warning-buzzer.ogg', 50, FALSE)
-	radio.talk_into(src, "[notice]", FREQ_COMMON)
+	radio.talk_into(src, "[notice]")
 
 /obj/machinery/deployable/mounted/sentry/process()
 	update_icon()
