@@ -138,7 +138,7 @@
 			continue
 		if(isnull(ghost.can_reenter_corpse))
 			continue
-		if(ghost.can_reenter_corpse.resolve() != src)
+		if(ghost.can_reenter_corpse?.resolve() != src)
 			continue
 		if(ghost.client || bypass_client_check)
 			return ghost
