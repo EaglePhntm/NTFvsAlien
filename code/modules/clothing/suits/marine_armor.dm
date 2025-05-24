@@ -783,7 +783,7 @@
 	icon_state = "vsd_armor"
 	worn_icon_state = "vsd_armor"
 	slowdown = SLOWDOWN_ARMOR_LIGHT
-	soft_armor = list(MELEE = 45, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 50, FIRE = 50, ACID = 50)
+	soft_armor = MARINE_ARMOR_LIGHT
 	item_map_variant_flags = NONE
 	armor_features_flags = NONE
 
@@ -808,7 +808,7 @@
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
 	icon_state = "vsd_armor_medium"
 	worn_icon_state = "vsd_armor_medium"
-	soft_armor = list(MELEE = 50, BULLET = 65, LASER = 65, ENERGY = 50, BOMB = 50, BIO = 50, FIRE = 50, ACID = 50)
+	soft_armor = MARINE_ARMOR_MEDIUM
 
 /obj/item/clothing/suit/storage/marine/vsd/marmor/desert
 	name = "Crasher multi-threat medium-set ballistic armor"
@@ -826,7 +826,7 @@
 	slowdown = SLOWDOWN_ARMOR_HEAVY
 	icon_state = "vsd_armor_heavy"
 	worn_icon_state = "vsd_armor_heavy"
-	soft_armor = list(MELEE = 60, BULLET = 75, LASER = 75, ENERGY = 50, BOMB = 50, BIO = 50, FIRE = 50, ACID = 50)
+	soft_armor = MARINE_ARMOR_HEAVY
 
 /obj/item/clothing/suit/storage/marine/vsd/harmor/upp
 	name = "Crasher multi-threat heavy-set ballistic armor"
@@ -840,7 +840,7 @@
 	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
 	icon_state = "vsd_juggernaut_ballistic"
 	worn_icon_state = "vsd_juggernaut_ballistic"
-	soft_armor = list(MELEE = 75, BULLET = 85, LASER = 85, ENERGY = 60, BOMB = 60, BIO = 60, FIRE = 60, ACID = 75)
+	soft_armor = list(MELEE = 75, BULLET = 85, LASER = 75, ENERGY = 65, BOMB = 60, BIO = 60, FIRE = 60, ACID = 75)
 
 /obj/item/clothing/suit/storage/marine/vsd/juggernaut/Initialize(mapload, ...)
 	. = ..()
@@ -853,7 +853,7 @@
 	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
 	icon_state = "vsd_juggernaut_explosive"
 	worn_icon_state = "vsd_juggernaut_explosive"
-	soft_armor = list(MELEE = 65, BULLET = 80, LASER = 80, ENERGY = 60, BOMB = 90, BIO = 60, FIRE = 60, ACID = 75)
+	soft_armor = list(MELEE = 70, BULLET = 75, LASER = 75, ENERGY = 65, BOMB = 90, BIO = 60, FIRE = 60, ACID = 75)
 
 /obj/item/clothing/suit/storage/marine/vsd/flamer
 	name = "\improper Crasher MT-H/43 'Apollo' powered fire-protected armor"
@@ -862,5 +862,5 @@
 	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
 	icon_state = "vsd_juggernaut_flamer"
 	worn_icon_state = "vsd_juggernaut_flamer"
-	soft_armor = list(MELEE = 70, BULLET = 80, LASER = 80, ENERGY = 60, BOMB = 60, BIO = 60, FIRE = 90, ACID = 85)
+	soft_armor = list(MELEE = 70, BULLET = 75, LASER = 75, ENERGY = 65, BOMB = 60, BIO = 60, FIRE = 90, ACID = 75)
 	armor_features_flags = ARMOR_FIRE_RESISTANT
