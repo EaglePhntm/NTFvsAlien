@@ -822,6 +822,7 @@
 
 /obj/item/clothing/suit/storage/marine/vsd/harmor
 	name = "\improper Crasher MT-H/43 powered ballistic armor"
+	icon = 'icons/mob/clothing/suits/ert_suits.dmi'
 	desc = "The Kaizoku Corporation's heavy armor, rarely given to the grunts. Protects the user from most bullet calibers."
 	slowdown = SLOWDOWN_ARMOR_HEAVY
 	icon_state = "vsd_armor_heavy"
