@@ -84,7 +84,7 @@
 
 /datum/ammo/bullet/auto_cannon/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	proj.proj_max_range -= 5
-	staggerstun(target_mob, proj, max_range = 20, stagger = 1, slowdown = 1)
+	staggerstun(target_mob, proj, max_range = 20, stagger = 1.5)
 
 /datum/ammo/bullet/auto_cannon/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
 	proj.proj_max_range -= 5
@@ -118,7 +118,7 @@
 	autocannon_wall_bonus = 100
 
 /datum/ammo/bullet/auto_cannon/anti_tank/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
-	staggerstun(target_mob, proj, stagger = 3 SECONDS, slowdown = 3)
+	staggerstun(target_mob, proj, stagger = 2.5 SECONDS, slowdown = 1.5)
 
 /datum/ammo/bullet/railgun
 	name = "armor piercing railgun slug"
