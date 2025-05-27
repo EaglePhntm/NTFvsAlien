@@ -69,7 +69,7 @@
 	accuracy_var_high = 3
 	damage = 50
 	penetration = 50
-	sundering = 15
+	sundering = 12.5
 	shrapnel_chance = 0
 	max_range = 35
 	///Bonus flat damage to walls, balanced around resin walls.
@@ -113,7 +113,7 @@
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_TARGET_TURF
 	damage = 50
 	penetration = 30
-	sundering = 25
+	sundering = 17.5
 	shrapnel_chance = 25
 	autocannon_wall_bonus = 100
 
