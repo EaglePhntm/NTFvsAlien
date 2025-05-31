@@ -58,18 +58,29 @@
 	name = "heavy revolver bullet"
 	hud_state = "revolver_heavy"
 	damage = 50
-	penetration = 5
+	penetration = 15
 	accuracy = -10
 
 /datum/ammo/bullet/revolver/heavy/incen
 	name = "incendiary heavy revolver bullet"
 	ammo_behavior_flags = AMMO_INCENDIARY|AMMO_BALLISTIC
+	damage_type = BURN
+	damage_falloff = 0
+	accuracy = 15
+	accurate_range = 15
 
 /datum/ammo/bullet/revolver/heavy/ap
 	name = "armor-piercing heavy revolver bullet"
-	damage = 50
-	penetration = 15
+	damage_falloff = 0
+	accuracy = 15
+	accurate_range = 15
 	sundering = 5
+
+/datum/ammo/bullet/revolver/heavy/ap/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
+    if(ishuman(target_mob))
+        staggerstun(target_mob, proj, paralyze = 0, knockback = 1)
+    else
+        staggerstun(target_mob, proj, paralyze = 2 SECONDS, knockback = 1)
 
 /datum/ammo/bullet/revolver/t76
 	name = "magnum bullet"
