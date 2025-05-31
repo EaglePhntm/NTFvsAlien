@@ -76,13 +76,7 @@
 	accuracy = 15
 	accurate_range = 15
 	sundering = 5
-	penetration = 15
-
-/datum/ammo/bullet/revolver/heavy/ap/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
-    if(ishuman(target_mob))
-        staggerstun(target_mob, proj, paralyze = 0, knockback = 1)
-    else
-        staggerstun(target_mob, proj, paralyze = 2 SECONDS, knockback = 1)
+	penetration = 25
 
 /datum/ammo/bullet/revolver/t76
 	name = "magnum bullet"
