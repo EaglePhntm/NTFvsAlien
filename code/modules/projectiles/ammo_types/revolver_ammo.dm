@@ -58,7 +58,7 @@
 	name = "heavy revolver bullet"
 	hud_state = "revolver_heavy"
 	damage = 50
-	penetration = 15
+	penetration = 5
 	accuracy = -10
 
 /datum/ammo/bullet/revolver/heavy/incen
@@ -68,6 +68,7 @@
 	damage_falloff = 0
 	accuracy = 15
 	accurate_range = 15
+	penetration = 15
 
 /datum/ammo/bullet/revolver/heavy/ap
 	name = "armor-piercing heavy revolver bullet"
@@ -75,6 +76,7 @@
 	accuracy = 15
 	accurate_range = 15
 	sundering = 5
+	penetration = 15
 
 /datum/ammo/bullet/revolver/heavy/ap/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
     if(ishuman(target_mob))
