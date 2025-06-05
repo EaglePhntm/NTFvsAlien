@@ -680,7 +680,11 @@ below 100 is not dizzy
 /mob/living/update_sight()
 	if(SSticker.current_state == GAME_STATE_FINISHED && !is_centcom_level(z)) //Reveal ghosts to remaining survivors
 		set_invis_see(SEE_INVISIBLE_OBSERVER)
-	return ..()
+	. = ..()
+	if(stat == DEAD && CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS))
+		add_sight(BLIND)
+	else
+		clear_sight(BLIND)
 
 /mob/living/proc/can_track(mob/living/user)
 	//basic fast checks go first. When overriding this proc, I recommend calling ..() at the end.

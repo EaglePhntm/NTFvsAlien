@@ -90,3 +90,8 @@
 
 	if(SSticker.HasRoundStarted())
 		SSblackbox.ReportDeath(src)
+
+	if(CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS))
+		overlay_fullscreen("death", /atom/movable/screen/fullscreen/dead)
+		add_sight(BLIND)
+		client?.stop_sounds()
