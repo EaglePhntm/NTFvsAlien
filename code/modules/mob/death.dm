@@ -92,6 +92,15 @@
 		SSblackbox.ReportDeath(src)
 
 	if(CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS))
-		overlay_fullscreen("death", /atom/movable/screen/fullscreen/dead)
-		add_sight(BLIND)
+		switch(faction)
+			if(FACTION_TERRAGOV)
+				overlay_fullscreen("death", /atom/movable/screen/fullscreen/dead/terra)
+			if(FACTION_SOM)
+				overlay_fullscreen("death", /atom/movable/screen/fullscreen/dead/som)
+			if(FACTION_VSD)
+				overlay_fullscreen("death", /atom/movable/screen/fullscreen/dead/vsd)
+			if(FACTION_XENO)
+				overlay_fullscreen("death", /atom/movable/screen/fullscreen/dead/xeno)
+			else
+				overlay_fullscreen("death", /atom/movable/screen/fullscreen/dead)
 		client?.stop_sounds()
