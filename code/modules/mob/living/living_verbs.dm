@@ -61,7 +61,7 @@
 			return
 		// ADMIN SECTION - END
 
-		if(tgui_alert(usr, "Ghosting is not allowed in this game mode.\nGiving up right now will abandon this body and you will be sent to the title screen.\nAre you absolutely sure you want to ghost?", "Ghost", list("Yes", "No")) != "Yes")
+		if(tgui_alert(usr, "Ghosting is not allowed in this game mode.\nGiving up right now will abandon this body and you will be sent to the title screen.\nAre you absolutely sure you want to ghost?\nYOU WILL BE PENALIZED WITH A RESPAWN TIMER", "Ghost", list("Yes", "No")) != "Yes")
 			return
 		log_game("[key_name(usr)] has ghosted at [AREACOORD(usr)], sending them to the title screen.")
 		message_admins("[ADMIN_TPMONTY(usr)] has ghosted, sending them to the title screen.")
