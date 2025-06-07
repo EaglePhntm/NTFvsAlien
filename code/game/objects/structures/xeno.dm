@@ -509,6 +509,7 @@
 	gas.set_up(2, src)
 	gas.start()
 	qdel(src)
+
 /obj/item/reagent_containers/food/snacks/nutrient_jelly
 	name = "nutrient jelly"
 	desc = "A perplexing, soft mesh of almost bready protein-fibers. It's warm and spongey to the touch, and smells edible."

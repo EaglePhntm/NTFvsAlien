@@ -750,7 +750,7 @@
 			xeno_edible_jelly_flavors = new_record
 
 		if("xeno_edible_jelly_preview")
-			usr.edible_jelly_preview("popup")
+			usr.edible_jelly_preview("chat")
 
 		if("windowflashing")
 			windowflashing = !windowflashing
