@@ -4,11 +4,11 @@
 	icon_state = "somcas_cockpit"
 	dir = 1
 	layer = ABOVE_MOB_LAYER
-	req_access = null
 	faction = FACTION_SOM
+	home_dock = SHUTTLE_CAS_DOCK_SOM
 
 ///Handles updating the cockpit overlay
-/obj/structure/caspart/caschair/proc/set_cockpit_overlay(new_state)
+/obj/structure/caspart/caschair/som/set_cockpit_overlay(new_state)
 	cut_overlays()
 	cockpit = image('icons/obj/structures/prop/somship.dmi', src, new_state)
 	cockpit.pixel_x = 0
@@ -27,76 +27,26 @@
 	name = "SOM CAS plane hangar pad"
 	id = SHUTTLE_CAS_DOCK_SOM
 	roundstart_template = /datum/map_template/shuttle/cas/som
+	//fuckass thing wont work
 	dwidth = 4
 	dheight = 6
-	width = 7
-	height = 10
+	width = 9
+	height = 12
 
 /obj/docking_port/mobile/marine_dropship/casplane/som
 	name = "SOM Manta Jet"
 	id = SHUTTLE_CAS_DOCK_SOM
 	faction = FACTION_SOM
-	dwidth = 4
-	dheight = 6
-	width = 7
-	height = 10
+	dwidth = 5
+	dheight = 7
+	width = 8
+	height = 11
 
-/obj/structure/caspart/caschair/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/docking_port/mobile/marine_dropship/casplane/som/Initialize(mapload)
 	. = ..()
-	if(.)
-		return
-
-	if(!owner)
-		return
-	if(action == "toggle_engines")
-		if(owner.mode == SHUTTLE_IGNITING)
-			return
-		switch(owner.state)
-			if(PLANE_STATE_ACTIVATED)
-				owner.turn_on_engines()
-			if(PLANE_STATE_PREPARED)
-				owner.turn_off_engines()
-	if(action == "eject")
-		if(owner.state != PLANE_STATE_ACTIVATED)
-			return
-		resisted_against()
-		ui.close()
-
-	if(owner.state == PLANE_STATE_ACTIVATED)
-		return
-
-	switch(action)
-		if("launch")
-			if(!cas_usable)
-				to_chat(usr, span_warning("Combat has not yet initiated, CAS unavailable."))
-				return
-			if(owner.state == PLANE_STATE_FLYING || owner.mode != SHUTTLE_IDLE)
-				return
-			if(owner.fuel_left <= LOW_FUEL_TAKEOFF_THRESHOLD)
-				to_chat(usr, span_warning("Unable to launch, low fuel."))
-				return
-			SSshuttle.moveShuttleToDock(owner.id, SSshuttle.generate_transit_dock(owner), TRUE)
-			owner.currently_returning = FALSE
-		if("land")
-			if(owner.state != PLANE_STATE_FLYING)
-				return
-			SSshuttle.moveShuttle(owner.id, SHUTTLE_CAS_DOCK_SOM, TRUE)
-			owner.end_cas_mission(usr)
-			owner.currently_returning = TRUE
-		if("deploy")
-			if(owner.state != PLANE_STATE_FLYING)
-				return
-			owner.begin_cas_mission(usr)
-		if("change_weapon")
-			var/selection = text2num(params["selection"])
-			owner.active_weapon = owner.equipments[selection]
-			occupant.client.mouse_pointer_icon = owner.active_weapon.ammo_equipped.crosshair
-		if("cycle_attackdir")
-			if(params["newdir"] == null)
-				owner.attackdir = turn(owner.attackdir, 90)
-				return TRUE
-			owner.attackdir = params["newdir"]
-			return TRUE
+	if(faction == FACTION_SOM)
+		cas_mini.minimap_flags = MINIMAP_FLAG_MARINE_SOM
+		cas_mini.marker_flags = MINIMAP_FLAG_MARINE_SOM
 
 /obj/docking_port/mobile/marine_dropship/casplane/som/process()
 	#ifndef TESTING

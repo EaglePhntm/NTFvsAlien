@@ -45,9 +45,6 @@
 	. = ..()
 	off_action = new
 	cas_mini = new
-	if(faction == FACTION_SOM)
-		cas_mini.minimap_flags = MINIMAP_FLAG_MARINE_SOM
-		cas_mini.marker_flags = MINIMAP_FLAG_MARINE_SOM
 	jump_action = new(null, src)
 	RegisterSignal(src, COMSIG_SHUTTLE_SETMODE, PROC_REF(update_state))
 
@@ -121,7 +118,7 @@
 	SIGNAL_HANDLER
 	if(state == PLANE_STATE_DEACTIVATED)
 		return
-	if(!is_mainship_level(z) || mode != SHUTTLE_IDLE)
+	if(!(is_mainship_level(z) || is_antagmainship_level(z)) || mode != SHUTTLE_IDLE)
 		state = PLANE_STATE_FLYING
 		return
 	if(engines_on)
@@ -134,7 +131,7 @@
 	if(!fuel_left)
 		to_chat(user, span_warning("No fuel remaining!"))
 		return
-	if(state != PLANE_STATE_FLYING || is_mainship_level(z))
+	if(state != PLANE_STATE_FLYING || (is_mainship_level(z) || is_antagmainship_level(z)))
 		to_chat(user, span_warning("You are not in-flight!"))
 		return
 	if(currently_returning)
@@ -178,7 +175,7 @@
 	if(!starting_point)
 		return
 
-	if(state != PLANE_STATE_FLYING || is_mainship_level(z)) //Secondary safety due to input being able to delay time.
+	if(state != PLANE_STATE_FLYING || (is_mainship_level(z) || is_antagmainship_level(z))) //Secondary safety due to input being able to delay time.
 		to_chat(user, span_warning("You are not in-flight!"))
 		return
 	if(currently_returning)
@@ -289,7 +286,7 @@
 /obj/docking_port/mobile/marine_dropship/casplane/ui_data(mob/user)
 	. = list()
 	.["plane_state"] = state
-	.["location_state"] = !is_mainship_level(z)
+	.["location_state"] = !(is_mainship_level(z) || is_antagmainship_level(z))
 	.["plane_mode"] = mode
 	.["fuel_left"] = fuel_left
 	.["fuel_max"] = fuel_max

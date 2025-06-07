@@ -13,6 +13,7 @@
 	var/image/cockpit
 	/// Whether CAS is usable or not.
 	var/cas_usable = CAS_USABLE
+	var/home_dock = SHUTTLE_CAS_DOCK
 
 /obj/structure/caspart/caschair/Initialize(mapload)
 	. = ..()
@@ -43,7 +44,7 @@
 		to_chat(occupant, span_notice("Combat initiated, CAS now available."))
 
 ///Handles updating the cockpit overlay
-/obj/structure/caspart/caschair/set_cockpit_overlay(new_state)
+/obj/structure/caspart/caschair/proc/set_cockpit_overlay(new_state)
 	cut_overlays()
 	cockpit = image('icons/obj/structures/cas_cockpit.dmi', src, new_state)
 	cockpit.pixel_x = -16
@@ -216,7 +217,7 @@
 		if("land")
 			if(owner.state != PLANE_STATE_FLYING)
 				return
-			SSshuttle.moveShuttle(owner.id, SHUTTLE_CAS_DOCK, TRUE)
+			SSshuttle.moveShuttle(owner.id, home_dock, TRUE)
 			owner.end_cas_mission(usr)
 			owner.currently_returning = TRUE
 		if("deploy")

@@ -101,8 +101,6 @@
 /area/shuttle/cas)
 "EQ" = (
 /obj/effect/attach_point/weapon/cas/left{
-	equipment_offset_x = 5;
-	equipment_offset_y = 12;
 	icon = 'icons/obj/structures/prop/somship.dmi';
 	icon_state = "somcas_misc_one";
 	dir = 2
@@ -110,9 +108,7 @@
 /turf/open/floor/plating,
 /area/shuttle/cas)
 "Fj" = (
-/obj/structure/somcas{
-	dir = 1
-	},
+/obj/structure/caspart/caschair/som,
 /turf/open/floor/plating/dmg1,
 /area/shuttle/cas)
 "FT" = (
@@ -159,15 +155,11 @@
 /turf/open/floor/plating,
 /area/shuttle/cas)
 "Ot" = (
-/obj/structure/somcas/two{
-	dir = 6
-	},
+/obj/structure/somcas/two,
 /turf/open/floor/plating,
 /area/shuttle/cas)
 "SA" = (
 /obj/effect/attach_point/weapon/cas{
-	equipment_offset_x = -5;
-	equipment_offset_y = 12;
 	icon = 'icons/obj/structures/prop/somship.dmi';
 	icon_state = "somcas_misc_one"
 	},
