@@ -118,6 +118,7 @@
 		/datum/action/ability/activable/xeno/charge/acid_dash/melter,
 		/datum/action/ability/activable/xeno/melter_shroud,
 		/datum/action/ability/xeno_action/xenohide,
+		/datum/action/ability/xeno_action/create_edible_jelly,
 	)
 
 /datum/xeno_caste/runner/melter/normal
@@ -142,4 +143,5 @@
 		/datum/action/ability/activable/xeno/melter_shroud,
 		/datum/action/ability/activable/xeno/acidic_missile,
 		/datum/action/ability/xeno_action/xenohide,
+		/datum/action/ability/xeno_action/create_edible_jelly,
 	)

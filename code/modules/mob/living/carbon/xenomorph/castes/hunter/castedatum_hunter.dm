@@ -160,6 +160,7 @@
 		/datum/action/ability/activable/xeno/hunter_mark,
 		/datum/action/ability/xeno_action/psychic_trace,
 		/datum/action/ability/xeno_action/mirage,
+		/datum/action/ability/xeno_action/create_edible_jelly,
 	)
 
 // Assassin strain
@@ -202,6 +203,7 @@
 		/datum/action/ability/activable/xeno/hunter_mark/assassin,
 		/datum/action/ability/xeno_action/mirage,
 		/datum/action/ability/xeno_action/displacement,
+		/datum/action/ability/xeno_action/create_edible_jelly,
 	)
 
 /datum/xeno_caste/hunter/assassin/primordial
@@ -225,4 +227,5 @@
 		/datum/action/ability/activable/xeno/hunter_mark/assassin,
 		/datum/action/ability/xeno_action/mirage,
 		/datum/action/ability/xeno_action/displacement,
+		/datum/action/ability/xeno_action/create_edible_jelly,
 	)

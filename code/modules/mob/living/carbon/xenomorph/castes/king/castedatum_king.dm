@@ -185,6 +185,7 @@
 		/datum/action/ability/activable/xeno/conqueror_domination,
 		/datum/action/ability/activable/psionic_interact,
 		/datum/action/ability/activable/xeno/impregnatequeen,
+		/datum/action/ability/xeno_action/create_edible_jelly,
 	)
 
 /datum/xeno_caste/king/conqueror/normal
