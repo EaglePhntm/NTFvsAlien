@@ -159,13 +159,13 @@
 			if(isxenosjob(job_datum))
 				if(XENODEATHTIME_CHECK(usr))
 					if(check_other_rights(usr.client, R_ADMIN, FALSE))
-						if(tgui_alert(usr, "As a player your xeno respawn timer is not finished, though as an admin you can bypass it. Do you want to continue?", "Join Game", list("Yes", "No")) != "Yes")
+						if(tgui_alert(usr, "Your xeno respawn timer is not finished, though as an admin you can bypass it. Do you want to continue?", "Join Game", list("Yes", "No")) != "Yes")
 							XENODEATHTIME_MESSAGE(usr)
 							return
 			else
-				if(XENODEATHTIME_CHECK(usr))
+				if(DEATHTIME_CHECK(usr))
 					if(check_other_rights(usr.client, R_ADMIN, FALSE))
-						if(tgui_alert(usr, "As a player your respawn timer is not finished, though as an admin you can bypass it. Do you want to continue?", "Join Game", list("Yes", "No")) != "Yes")
+						if(tgui_alert(usr, "Your respawn timer is not finished, though as an admin you can bypass it. Do you want to continue?", "Join Game", list("Yes", "No")) != "Yes")
 							DEATHTIME_MESSAGE(usr)
 							return
 			SSticker.mode.LateSpawn(src)
