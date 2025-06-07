@@ -710,6 +710,15 @@
 	armor_protection_flags = CHEST|GROIN|ARMS|LEGS|HANDS|FEET
 	soft_armor = list(MELEE = 55, BULLET = 50, LASER = 40, ENERGY = 55, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
+/obj/item/clothing/suit/storage/marine/som/pilot
+	name = "\improper S12-P pilot armor"
+	desc = "A light piece of armor used by SOM pilots to protect themselves while flying in the cockpit. Made from tests into other armor systems for pilots."
+	icon_state = "som_pilot_black"
+	worn_icon_state = "som_pilot_black"
+	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 35, BOMB = 40, BIO = 5, FIRE = 25, ACID = 30)
+	slowdown = 0.20
+	item_map_variant_flags = NONE
+
 /obj/item/clothing/suit/storage/marine/icc
 	name = "\improper Modelle/16 combat armor"
 	desc = "A piece of ICC body armor, worn durning boarding actions by personnel in close quarters, as most ICC personnel serve dual purpose roles as ad-hoc marines, due to personnel shortages. Protects well from most sources, particularly explosions."

@@ -84,6 +84,17 @@
 /obj/item/clothing/mask/rebreather/scarf/freelancer
 	worn_icon_state = "coif_fl"
 
+/obj/item/clothing/mask/rebreather/som
+	name = "S37 Tactical Pilot Rebreather"
+	desc = "A close-fitting pilot breaher made to assist breathing in high altitudes without inhibiting them."
+	icon_state = "som_rebreather_pilot_black"
+	worn_icon_state = "som_rebreather_pilot_black"
+	armor_protection_flags = NONE
+	inventory_flags = COVERMOUTH|COVEREYES|BLOCKGASEFFECT
+	inv_hide_flags = HIDELOWHAIR
+	gas_transfer_coefficient = 0.01
+	permeability_coefficient = 0.01
+
 /obj/item/clothing/mask/bandanna
 	name = "tan bandanna"
 	desc = "A colored, resilient, and insulating cloth to cover your face from the elements. This one is Desert Tan"
