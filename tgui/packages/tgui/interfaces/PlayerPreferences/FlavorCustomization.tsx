@@ -1,8 +1,14 @@
 import { useState } from 'react';
-import { Box, Button, Section, Stack, TextArea } from 'tgui-core/components';
+import {
+  Box,
+  Button,
+  ColorBox,
+  Section,
+  Stack,
+  TextArea,
+} from 'tgui-core/components';
 
 import { useBackend } from '../../backend';
-import { Button, Section, TextArea, Box, ColorBox, Stack } from 'tgui-core/components';
 import { TextFieldPreference } from './FieldPreferences';
 
 export const FlavorCustomization = (props) => {
@@ -87,7 +93,8 @@ export const FlavorCustomization = (props) => {
               }
             >
               <TextArea
-                height="200px"
+                height="100px"
+                width="200px"
                 maxLength={1024}
                 value={xenoJellyDesc}
                 onChange={(value) => setXenoJellyDesc(value)}
@@ -101,7 +108,8 @@ export const FlavorCustomization = (props) => {
                 <Box>
                   <Button
                     icon="eye"
-                    onClick={() => act('xeno_edible_jelly_preview')}>
+                    onClick={() => act('xeno_edible_jelly_preview')}
+                  >
                     Test
                   </Button>
                   <Button
@@ -123,7 +131,8 @@ export const FlavorCustomization = (props) => {
               }
             >
               <TextArea
-                height="200px"
+                height="100px"
+                width="200px"
                 maxLength={256}
                 value={xenoJellyFlav}
                 onChange={(value) => setXenoJellyFlav(value)}

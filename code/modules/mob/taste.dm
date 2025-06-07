@@ -6,7 +6,7 @@
 
 
 // non destructively tastes a reagent container
-/mob/living/proc/taste(datum/reagents/from)
+/mob/proc/taste(datum/reagents/from, type = "chat")
 	if(TIMER_COOLDOWN_RUNNING(src, COOLDOWN_TASTE))
 		return
 
