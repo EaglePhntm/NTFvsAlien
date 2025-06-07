@@ -43,7 +43,7 @@
 		to_chat(occupant, span_notice("Combat initiated, CAS now available."))
 
 ///Handles updating the cockpit overlay
-/obj/structure/caspart/caschair/proc/set_cockpit_overlay(new_state)
+/obj/structure/caspart/caschair/set_cockpit_overlay(new_state)
 	cut_overlays()
 	cockpit = image('icons/obj/structures/cas_cockpit.dmi', src, new_state)
 	cockpit.pixel_x = -16

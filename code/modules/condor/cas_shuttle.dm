@@ -8,7 +8,6 @@
 	id = SHUTTLE_CAS_DOCK
 	width = 11
 	height = 12
-
 	callTime = 0
 	ignitionTime = 10 SECONDS
 	rechargeTime = 0
@@ -46,6 +45,9 @@
 	. = ..()
 	off_action = new
 	cas_mini = new
+	if(faction == FACTION_SOM)
+		cas_mini.minimap_flags = MINIMAP_FLAG_MARINE_SOM
+		cas_mini.marker_flags = MINIMAP_FLAG_MARINE_SOM
 	jump_action = new(null, src)
 	RegisterSignal(src, COMSIG_SHUTTLE_SETMODE, PROC_REF(update_state))
 
