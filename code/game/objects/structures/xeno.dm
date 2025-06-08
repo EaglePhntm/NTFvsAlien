@@ -219,18 +219,13 @@
 
 /obj/structure/mineral_door/resin/Cross(atom/movable/mover, turf/target)
 	. = ..()
-	if(!. && isxeno(mover) && !open)
-		if(issamexenohive(mover))
-			var/mob/living/living_mover = mover
-			if((!(istype(living_mover))) || (living_mover.stat != CONSCIOUS))
-				return
+	if(!. && issamexenohive(mover) && !open)
+		var/mob/living/living_mover = mover
+		if((!(istype(living_mover))) || (living_mover.stat != CONSCIOUS))
+			return
+		if(isxeno(living_mover))
 			toggle_state()
-			return TRUE
-	if(ishuman(mover))
-		var/mob/living/carbon/human/H = mover
-		if(!. && !open)
-			if(get_xeno_hivenumber() == XENO_HIVE_NORMAL && H.faction == FACTION_CLF || get_xeno_hivenumber() == XENO_HIVE_CORRUPTED && H.faction == FACTION_TERRAGOV)
-				return TRUE
+		return TRUE
 
 /obj/structure/mineral_door/resin/attack_larva(mob/living/carbon/xenomorph/larva/M)
 	var/turf/cur_loc = M.loc
