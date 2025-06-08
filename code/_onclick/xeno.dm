@@ -8,7 +8,7 @@
 		changeNext_move(xeno_caste ? xeno_caste.attack_delay : CLICK_CD_MELEE)
 	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
 		return
-	if(isxeno(A))
+	if(isxeno(A && get_xeno_hivenumber(A) != get_xeno_hivenumber(src)))
 		var/mob/living/carbon/xenomorph/X = A
 		X.apply_status_effect(/datum/status_effect/nohealthregen, 10 SECONDS)
 
