@@ -157,14 +157,14 @@
 		take_damage(damage_amount, damage_type, armor_type, effects, get_dir(src, xeno_attacker), armor_penetration, xeno_attacker)
 		return TRUE
 	if(issamexenohive(xeno_attacker) && xeno_attacker.a_intent == INTENT_GRAB)
-		xeno_attacker.visible_message(span_xenonotice("\The [xeno_attacker] starts tearing down \the [src]!"), \
+		xeno_attacker.visible_message(span_xenonotice("\The [xeno_attacker] starts scooping up \the [src]!"), \
 		span_xenonotice("We start to scoop up \the [src]."))
 		if(!do_after(xeno_attacker, 2 SECONDS, NONE, xeno_attacker, BUSY_ICON_GENERIC))
 			return
 		if(!istype(src)) // Prevent jumping to other turfs if do_after completes with the object already gone
 			return
 		xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
-		xeno_attacker.visible_message(span_xenonotice("\The [xeno_attacker] tears down \the [src]!"), \
+		xeno_attacker.visible_message(span_xenonotice("\The [xeno_attacker] scoops up \the [src]!"), \
 		span_xenonotice("We scoop up \the [src]."))
 		playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
 		take_damage(max_integrity) // Ensure its destroyed
@@ -363,14 +363,14 @@
 		take_damage(max_integrity/2)
 		return TRUE
 	if(issamexenohive(xeno_attacker) && xeno_attacker.a_intent == INTENT_GRAB)
-		xeno_attacker.visible_message(span_xenonotice("\The [xeno_attacker] starts tearing down \the [src]!"), \
+		xeno_attacker.visible_message(span_xenonotice("\The [xeno_attacker] starts scooping up \the [src]!"), \
 		span_xenonotice("We start to scoop up \the [src]."))
 		if(!do_after(xeno_attacker, 2 SECONDS, NONE, xeno_attacker, BUSY_ICON_GENERIC))
 			return
 		if(!istype(src)) // Prevent jumping to other turfs if do_after completes with the object already gone
 			return
 		xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
-		xeno_attacker.visible_message(span_xenonotice("\The [xeno_attacker] tears down \the [src]!"), \
+		xeno_attacker.visible_message(span_xenonotice("\The [xeno_attacker] scoops up \the [src]!"), \
 		span_xenonotice("We scoop up \the [src]."))
 		playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
 		take_damage(max_integrity) // Ensure its destroyed
