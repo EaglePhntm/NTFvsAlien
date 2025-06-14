@@ -76,7 +76,8 @@
 	if(CONFIG_GET(flag/xenos_on_strike))
 		replace_by_ai()
 	if(z) //Larva are initiated in null space
-		if(hivenumber != XENO_HIVE_CORRUPTED)
+		SSminimaps.remove_marker(src)
+		if(hivenumber == XENO_HIVE_NORMAL || hivenumber != XENO_HIVE_CORRUPTED)
 			SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_icon, MINIMAP_BLIPS_LAYER))
 		if(hivenumber == XENO_HIVE_CORRUPTED)
 			SSminimaps.add_marker(src, MINIMAP_FLAG_MARINE, image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_icon, MINIMAP_BLIPS_LAYER))
