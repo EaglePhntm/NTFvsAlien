@@ -79,6 +79,7 @@
 		/datum/action/ability/activable/xeno/impregnatequeen,
 		/datum/action/ability/xeno_action/create_edible_jelly,
 		/datum/action/ability/xeno_action/place_stew_pod,
+		/datum/action/ability/activable/xeno/place_pattern,
 	)
 
 
@@ -121,6 +122,7 @@
 		/datum/action/ability/xeno_action/blessing_menu,
 		/datum/action/ability/xeno_action/create_edible_jelly,
 		/datum/action/ability/xeno_action/place_stew_pod,
+		/datum/action/ability/activable/xeno/place_pattern,
 	)
 
 // ***************************************
@@ -192,6 +194,7 @@
 		/datum/action/ability/activable/xeno/impregnatequeen,
 		/datum/action/ability/xeno_action/create_edible_jelly,
 		/datum/action/ability/xeno_action/place_stew_pod,
+		/datum/action/ability/activable/xeno/place_pattern,
 	)
 
 /datum/xeno_caste/king/conqueror/normal
@@ -231,4 +234,5 @@
 		/datum/action/ability/activable/xeno/impregnatequeen,
 		/datum/action/ability/xeno_action/create_edible_jelly,
 		/datum/action/ability/xeno_action/place_stew_pod,
+		/datum/action/ability/activable/xeno/place_pattern,
 	)
