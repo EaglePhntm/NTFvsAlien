@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="../../../../" />
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>&#x2F;datum&#x2F;action&#x2F;ability&#x2F;xeno_action&#x2F;stealth - byond</title>
+</head>
+<body>
+<header>
+    <a href="index.html">byond</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="datum/action/ability/xeno_action/stealth.html#var">Var Details</a> - <a href="datum/action/ability/xeno_action/stealth.html#proc">Proc Details</a></header>
+<main>
+<h1>stealth <aside>/<a href="datum.html">datum</a>/<a href="datum/action.html">action</a>/<a href="datum/action/ability.html">ability</a>/<a href="datum/action/ability/xeno_action.html">xeno_action</a>/<a href="datum/action/ability/xeno_action/stealth.html">stealth</a></aside>
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/748c1248844a5accb4fb1807b9e3810d3e692d94/code/modules/mob/living/carbon/xenomorph/castes/hunter/abilities_hunter.dm#L17">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;hunter&#x2F;abilities_hunter.dm 17"/></a></h1>
+
+<table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
+            <tr><th><a href="datum/action/ability/xeno_action/stealth.html#var/can_sneak_attack">can_sneak_attack</a></th><td>If can sneak attack currently.</td></tr>
+            <tr><th><a href="datum/action/ability/xeno_action/stealth.html#var/disable_on_signals">disable_on_signals</a></th><td>Stealth disabler signals</td></tr>
+            <tr><th><a href="datum/action/ability/xeno_action/stealth.html#var/last_stealth">last_stealth</a></th><td>last stealthed time.</td></tr>
+            <tr><th><a href="datum/action/ability/xeno_action/stealth.html#var/sneak_attack_armor_pen">sneak_attack_armor_pen</a></th><td>Sneak attack armor penetration value</td></tr>
+            <tr><th><a href="datum/action/ability/xeno_action/stealth.html#var/stealth">stealth</a></th><td>if stealthed.</td></tr>
+            <tr><th><a href="datum/action/ability/xeno_action/stealth.html#var/stealth_alpha_multiplier">stealth_alpha_multiplier</a></th><td>Stealth alpha mult value</td></tr>
+            <tr><th><a href="datum/action/ability/xeno_action/stealth.html#var/stealth_flags">stealth_flags</a></th><td>Flag for stealth behaviors</td></tr>
+            <tr><th><a href="datum/action/ability/xeno_action/stealth.html#var/stealth_timer">stealth_timer</a></th><td>Stealth timer ID</td></tr>
+            <tr><th><a href="datum/action/ability/xeno_action/stealth.html#var/total_damage_taken">total_damage_taken</a></th><td>Damage taken during stealth</td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="datum/action/ability/xeno_action/stealth.html#proc/cancel_stealth">cancel_stealth</a></th><td>Disables stealth</td></tr>
+            <tr><th><a href="datum/action/ability/xeno_action/stealth.html#proc/damage_taken">damage_taken</a></th><td>Breaks stealth if sufficient damage taken</td></tr>
+            <tr><th><a href="datum/action/ability/xeno_action/stealth.html#proc/handle_stealth">handle_stealth</a></th><td>Updates or cancels stealth</td></tr>
+            <tr><th><a href="datum/action/ability/xeno_action/stealth.html#proc/handle_stealth_move">handle_stealth_move</a></th><td>Handles moving while in stealth</td></tr>
+            <tr><th><a href="datum/action/ability/xeno_action/stealth.html#proc/mob_hit">mob_hit</a></th><td>Callback for when a mob gets hit as part of a pounce</td></tr>
+            <tr><th><a href="datum/action/ability/xeno_action/stealth.html#proc/on_obj_attack">on_obj_attack</a></th><td>Signal wrapper to verify that an object is damageable before breaking stealth</td></tr>
+            <tr><th><a href="datum/action/ability/xeno_action/stealth.html#proc/plasma_regen">plasma_regen</a></th><td>Modifier to plasma regen when stealthed</td></tr>
+            <tr><th><a href="datum/action/ability/xeno_action/stealth.html#proc/sneak_attack_cooldown">sneak_attack_cooldown</a></th><td>Re-enables sneak attack if still stealthed</td></tr>
+            <tr><th><a href="datum/action/ability/xeno_action/stealth.html#proc/sneak_attack_pounce">sneak_attack_pounce</a></th><td>Callback listening for a xeno using the pounce ability</td></tr>
+            <tr><th><a href="datum/action/ability/xeno_action/stealth.html#proc/sneak_attack_slash">sneak_attack_slash</a></th><td>Special sneak attack when stealthed</td></tr>
+            <tr><th><a href="datum/action/ability/xeno_action/stealth.html#proc/sneak_attack_zone">sneak_attack_zone</a></th><td>Makes sneak attack always accurate to def zone</td></tr></table>
+    <h2 id="var">Var Details</h2><h3 id="var/can_sneak_attack"><aside class="declaration">var </aside>can_sneak_attack
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/748c1248844a5accb4fb1807b9e3810d3e692d94/code/modules/mob/living/carbon/xenomorph/castes/hunter/abilities_hunter.dm#L33">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;hunter&#x2F;abilities_hunter.dm 33"/></a></h3>
+        <p>If can sneak attack currently.</p><h3 id="var/disable_on_signals"><aside class="declaration">var </aside>disable_on_signals
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/748c1248844a5accb4fb1807b9e3810d3e692d94/code/modules/mob/living/carbon/xenomorph/castes/hunter/abilities_hunter.dm#L39">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;hunter&#x2F;abilities_hunter.dm 39"/></a></h3>
+        <p>Stealth disabler signals</p><h3 id="var/last_stealth"><aside class="declaration">var </aside>last_stealth
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/748c1248844a5accb4fb1807b9e3810d3e692d94/code/modules/mob/living/carbon/xenomorph/castes/hunter/abilities_hunter.dm#L29">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;hunter&#x2F;abilities_hunter.dm 29"/></a></h3>
+        <p>last stealthed time.</p><h3 id="var/sneak_attack_armor_pen"><aside class="declaration">var </aside>sneak_attack_armor_pen
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/748c1248844a5accb4fb1807b9e3810d3e692d94/code/modules/mob/living/carbon/xenomorph/castes/hunter/abilities_hunter.dm#L49">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;hunter&#x2F;abilities_hunter.dm 49"/></a></h3>
+        <p>Sneak attack armor penetration value</p><h3 id="var/stealth"><aside class="declaration">var </aside>stealth
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/748c1248844a5accb4fb1807b9e3810d3e692d94/code/modules/mob/living/carbon/xenomorph/castes/hunter/abilities_hunter.dm#L31">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;hunter&#x2F;abilities_hunter.dm 31"/></a></h3>
+        <p>if stealthed.</p><h3 id="var/stealth_alpha_multiplier"><aside class="declaration">var </aside>stealth_alpha_multiplier
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/748c1248844a5accb4fb1807b9e3810d3e692d94/code/modules/mob/living/carbon/xenomorph/castes/hunter/abilities_hunter.dm#L35">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;hunter&#x2F;abilities_hunter.dm 35"/></a></h3>
+        <p>Stealth alpha mult value</p><h3 id="var/stealth_flags"><aside class="declaration">var </aside>stealth_flags
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/748c1248844a5accb4fb1807b9e3810d3e692d94/code/modules/mob/living/carbon/xenomorph/castes/hunter/abilities_hunter.dm#L47">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;hunter&#x2F;abilities_hunter.dm 47"/></a></h3>
+        <p>Flag for stealth behaviors</p><h3 id="var/stealth_timer"><aside class="declaration">var </aside>stealth_timer
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/748c1248844a5accb4fb1807b9e3810d3e692d94/code/modules/mob/living/carbon/xenomorph/castes/hunter/abilities_hunter.dm#L37">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;hunter&#x2F;abilities_hunter.dm 37"/></a></h3>
+        <p>Stealth timer ID</p><h3 id="var/total_damage_taken"><aside class="declaration">var </aside>total_damage_taken
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/748c1248844a5accb4fb1807b9e3810d3e692d94/code/modules/mob/living/carbon/xenomorph/castes/hunter/abilities_hunter.dm#L51">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;hunter&#x2F;abilities_hunter.dm 51"/></a></h3>
+        <p>Damage taken during stealth</p><h2 id="proc">Proc Details</h2><h3 id="proc/cancel_stealth"><aside class="declaration">proc </aside>cancel_stealth<aside>() 
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/748c1248844a5accb4fb1807b9e3810d3e692d94/code/modules/mob/living/carbon/xenomorph/castes/hunter/abilities_hunter.dm#L116">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;hunter&#x2F;abilities_hunter.dm 116"/></a></aside>
+        </h3>
+        <p>Disables stealth</p><h3 id="proc/damage_taken"><aside class="declaration">proc </aside>damage_taken<aside>(/<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/<a href="mob/living/carbon.html">carbon</a>/<a href="mob/living/carbon/xenomorph.html">xenomorph</a>/X, damage_taken) 
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/748c1248844a5accb4fb1807b9e3810d3e692d94/code/modules/mob/living/carbon/xenomorph/castes/hunter/abilities_hunter.dm#L256">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;hunter&#x2F;abilities_hunter.dm 256"/></a></aside>
+        </h3>
+        <p>Breaks stealth if sufficient damage taken</p><h3 id="proc/handle_stealth"><aside class="declaration">proc </aside>handle_stealth<aside>() 
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/748c1248844a5accb4fb1807b9e3810d3e692d94/code/modules/mob/living/carbon/xenomorph/castes/hunter/abilities_hunter.dm#L175">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;hunter&#x2F;abilities_hunter.dm 175"/></a></aside>
+        </h3>
+        <p>Updates or cancels stealth</p><h3 id="proc/handle_stealth_move"><aside class="declaration">proc </aside>handle_stealth_move<aside>() 
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/748c1248844a5accb4fb1807b9e3810d3e692d94/code/modules/mob/living/carbon/xenomorph/castes/hunter/abilities_hunter.dm#L161">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;hunter&#x2F;abilities_hunter.dm 161"/></a></aside>
+        </h3>
+        <p>Handles moving while in stealth</p><h3 id="proc/mob_hit"><aside class="declaration">proc </aside>mob_hit<aside>(/<a href="datum.html">datum</a>/source, /<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/M) 
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/748c1248844a5accb4fb1807b9e3810d3e692d94/code/modules/mob/living/carbon/xenomorph/castes/hunter/abilities_hunter.dm#L200">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;hunter&#x2F;abilities_hunter.dm 200"/></a></aside>
+        </h3>
+        <p>Callback for when a mob gets hit as part of a pounce</p><h3 id="proc/on_obj_attack"><aside class="declaration">proc </aside>on_obj_attack<aside>(/<a href="datum.html">datum</a>/source, /<a href="obj.html">obj</a>/attacked) 
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/748c1248844a5accb4fb1807b9e3810d3e692d94/code/modules/mob/living/carbon/xenomorph/castes/hunter/abilities_hunter.dm#L147">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;hunter&#x2F;abilities_hunter.dm 147"/></a></aside>
+        </h3>
+        <p>Signal wrapper to verify that an object is damageable before breaking stealth</p><h3 id="proc/plasma_regen"><aside class="declaration">proc </aside>plasma_regen<aside>(/<a href="datum.html">datum</a>/source, /list/plasma_mod) 
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/748c1248844a5accb4fb1807b9e3810d3e692d94/code/modules/mob/living/carbon/xenomorph/castes/hunter/abilities_hunter.dm#L264">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;hunter&#x2F;abilities_hunter.dm 264"/></a></aside>
+        </h3>
+        <p>Modifier to plasma regen when stealthed</p><h3 id="proc/sneak_attack_cooldown"><aside class="declaration">proc </aside>sneak_attack_cooldown<aside>() 
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/748c1248844a5accb4fb1807b9e3810d3e692d94/code/modules/mob/living/carbon/xenomorph/castes/hunter/abilities_hunter.dm#L153">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;hunter&#x2F;abilities_hunter.dm 153"/></a></aside>
+        </h3>
+        <p>Re-enables sneak attack if still stealthed</p><h3 id="proc/sneak_attack_pounce"><aside class="declaration">proc </aside>sneak_attack_pounce<aside>() 
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/748c1248844a5accb4fb1807b9e3810d3e692d94/code/modules/mob/living/carbon/xenomorph/castes/hunter/abilities_hunter.dm#L188">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;hunter&#x2F;abilities_hunter.dm 188"/></a></aside>
+        </h3>
+        <p>Callback listening for a xeno using the pounce ability</p><h3 id="proc/sneak_attack_slash"><aside class="declaration">proc </aside>sneak_attack_slash<aside>(/<a href="datum.html">datum</a>/source, /<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/target, damage, /list/damage_mod, /list/armor_mod) 
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/748c1248844a5accb4fb1807b9e3810d3e692d94/code/modules/mob/living/carbon/xenomorph/castes/hunter/abilities_hunter.dm#L221">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;hunter&#x2F;abilities_hunter.dm 221"/></a></aside>
+        </h3>
+        <p>Special sneak attack when stealthed</p><h3 id="proc/sneak_attack_zone"><aside class="declaration">proc </aside>sneak_attack_zone<aside>() 
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/748c1248844a5accb4fb1807b9e3810d3e692d94/code/modules/mob/living/carbon/xenomorph/castes/hunter/abilities_hunter.dm#L272">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;hunter&#x2F;abilities_hunter.dm 272"/></a></aside>
+        </h3>
+        <p>Makes sneak attack always accurate to def zone</p></main>
+<footer>
+    tgmc.dme
+    <a href="https://github.com/EaglePhntm/NTFvsAlien/tree/748c1248844a5accb4fb1807b9e3810d3e692d94">748c124</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
+</body>
+</html>
