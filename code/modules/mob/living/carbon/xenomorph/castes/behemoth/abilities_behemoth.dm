@@ -590,6 +590,7 @@
 	var/maximum_pillars = 3
 	/// List that contains all Earth Pillars created by this ability.
 	var/list/obj/structure/earth_pillar/active_pillars = list()
+	var/obj/structure/earth_pillar/pillar_type = /obj/structure/earth_pillar
 
 /datum/action/ability/activable/xeno/earth_riser/on_cooldown_finish()
 	owner.balloon_alert(owner, "[initial(name)] ready[maximum_pillars > 1 ? " ([length(active_pillars)]/[maximum_pillars])" : ""]")
@@ -660,7 +661,7 @@
 /datum/action/ability/activable/xeno/earth_riser/proc/do_ability(turf/target_turf, enhanced)
 	if(!target_turf)
 		return
-	var/new_pillar = new /obj/structure/earth_pillar(target_turf, xeno_owner, enhanced)
+	var/new_pillar = new pillar_type(target_turf, xeno_owner, enhanced)
 	RegisterSignal(new_pillar, COMSIG_XENOABILITY_EARTH_PILLAR_THROW, PROC_REF(pillar_thrown))
 	RegisterSignal(new_pillar, COMSIG_QDELETING, PROC_REF(pillar_destroyed))
 	active_pillars += new_pillar
@@ -1343,6 +1344,7 @@
 	name = "earth pillar"
 	icon_state = "earth_pillar"
 	ping = null
+	damage = 50
 	bullet_color = COLOR_LIGHT_ORANGE
 	ammo_behavior_flags = AMMO_XENO|AMMO_SKIPS_ALIENS
 	shell_speed = 1
@@ -1475,186 +1477,3 @@
 		for(var/mob/living/target_living in target_turf)
 			if(xeno_owner.issamexenohive(target_living) || target_living.stat == DEAD || CHECK_BITFIELD(target_living.status_flags, INCORPOREAL|GODMODE))
 				continue
-
-//nerd sieger strain
-
-// ***************************************
-// *********** Tail Ram
-// ***************************************
-
-/datum/action/ability/activable/xeno/tail_stab/battering_ram
-	name = "Tail Ram"
-	action_icon = 'ntf_modular/icons/Xeno/actions.dmi'
-	action_icon_state = "tail_attack"
-	desc = "Strike a target within two tiles with a ram-like tail for non AP blunt damage, large stagger and slowdown, double stagger and slowdown to grappled targets, FIVE times damage to structures and machinery."
-	ability_cost = 30
-	cooldown_duration = 20 SECONDS
-	penetration = 0
-	structure_damage_multiplier = 5
-	disorientamount = 4
-
-// ***************************************
-// *********** Earth Riser (Siege)
-// ***************************************
-
-/datum/action/ability/activable/xeno/earth_riser/siege
-	name = "Earth Riser (Siege)"
-	action_icon_state = "earth_riser"
-	action_icon = 'icons/Xeno/actions/behemoth.dmi'
-	desc = "Raise a pillar of earth at the selected location. This solid structure can be used for defense, and it interacts with other abilities for offensive usage. The pillar can be launched by click-dragging it in a direction. Alternate use destroys active pillars, starting with the oldest one. These ones specialise in structure damage."
-	ability_cost = 20
-	cooldown_duration = 5 SECONDS
-	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_EARTH_RISER,
-		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_EARTH_RISER_ALTERNATE,
-	)
-	/// The maximum amount of Earth Pillars that can be active at once.
-	maximum_pillars = 2
-
-// ***************************************
-// *********** Gallop
-// ***************************************
-
-/datum/action/ability/xeno_action/ready_charge/behemoth_roll/sieger
-	name = "Gallop"
-	desc = "Toggles Galloping on or off. This can be used to crush and displace talls, has a less charge time than rolling and can deal damage, and can ram through structures but tires us."
-	charge_type = CHARGE_CRUSH
-	speed_per_step = 0.70
-	steps_for_charge = 2
-	max_steps_buildup = 2
-	crush_living_damage = 20
-	plasma_use_multiplier = 2
-
-// ***************************************
-// *********** Shard Burst
-// ***************************************
-
-/datum/action/ability/activable/xeno/shard_burst/cone
-	name = "Shard Burst"
-	desc = "Shoot a cone of stone shards at your target from your armor, sundering your armor each time."
-	ability_cost = 300
-	cooldown_duration = 30 SECONDS
-	/// How will far can the shards go? Tile underneath starts at 1.
-	var/range = 5
-
-/datum/action/ability/activable/xeno/shard_burst/cone/use_ability(atom/A)
-	var/turf/target = get_turf(A)
-
-	if(!istype(target)) //Something went horribly wrong. Clicked off edge of map probably
-		return
-
-	if(!do_after(xeno_owner, 5, NONE, target, BUSY_ICON_DANGER))
-		return fail_activate()
-
-	if(!can_use_ability(A, TRUE, override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
-		return fail_activate()
-
-	succeed_activate()
-
-	playsound(xeno_owner.loc, 'sound/weapons/guns/fire/grenadelauncher.ogg', 25, 1)
-	xeno_owner.visible_message(span_xenowarning("\The [xeno_owner] shoots forth a wide cone of stone shards!"), \
-	span_xenowarning("We shoot forth a cone of stone shards!"), null, 5)
-
-	xeno_owner.add_movespeed_modifier(type, TRUE, 0, NONE, TRUE, 1)
-	start_shard_burst_cone(target, range)
-	xeno_owner.adjust_sunder(30) //you shoot your armor
-	add_cooldown()
-	addtimer(CALLBACK(src, PROC_REF(reset_speed)), rand(2 SECONDS, 3 SECONDS))
-
-/datum/action/ability/activable/xeno/shard_burst/cone/proc/reset_speed()
-	if(QDELETED(xeno_owner))
-		return
-	xeno_owner.remove_movespeed_modifier(type)
-
-/datum/action/ability/activable/xeno/shard_burst/ai_should_start_consider()
-	return TRUE
-
-/datum/action/ability/activable/xeno/shard_burst/ai_should_use(atom/target)
-	if(owner.do_actions) //Chances are we're already spraying acid, don't override it
-		return FALSE
-	if(!iscarbon(target))
-		return FALSE
-	if(!line_of_sight(owner, target, 3))
-		return FALSE
-	if(!can_use_ability(target, override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
-		return FALSE
-	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
-		return FALSE
-	return TRUE
-
-GLOBAL_LIST_INIT(shard_burst_hit, typecacheof(list(/obj/structure/barricade, /obj/hitbox, /obj/structure/razorwire)))
-
-///Start the acid cone spray in the correct direction
-/datum/action/ability/activable/xeno/shard_burst/cone/proc/start_shard_burst_cone(turf/T, range)
-	var/facing = angle_to_dir(Get_Angle(owner, T))
-	owner.setDir(facing)
-	switch(facing)
-		if(NORTH, SOUTH, EAST, WEST)
-			do_shard_cone_spray(owner.loc, range, facing, CONE_PART_MIDDLE|CONE_PART_LEFT|CONE_PART_RIGHT, owner, TRUE)
-		if(NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
-			do_shard_cone_spray(owner.loc, range, facing, CONE_PART_MIDDLE_DIAG, owner, TRUE)
-			do_shard_cone_spray(owner.loc, range + 1, facing, CONE_PART_DIAG_LEFT|CONE_PART_DIAG_RIGHT, owner, TRUE)
-
-///Check if it's possible to create a spray, and if yes, check if the spray must continue
-/datum/action/ability/activable/xeno/shard_burst/cone/proc/do_shard_cone_spray(turf/T, distance_left, facing, direction_flag, source_spray, skip_timer = FALSE)
-	if(distance_left <= 0)
-		return
-	if(T.density)
-		return
-	var/is_blocked = FALSE
-	for (var/obj/O in T)
-		if(!O.CanPass(source_spray, get_turf(source_spray)))
-			is_blocked = TRUE
-			break
-	if(is_blocked)
-		return
-
-	xenomorph_spray_shard(T, xeno_owner, range)
-	var/turf/next_normal_turf = get_step(T, facing)
-	for (var/atom/movable/A AS in T)
-		// There would of been a snowflake check for carbons to paralyze them for the sake of making their density to FALSE and allowing it to continue,
-		// however, we want the spray to work on them and do things like statistics and damage. So, we tell it to skip the cooldown.
-		A.shard_burst_act(owner, TRUE)
-		if(((A.density && !(A.allow_pass_flags & PASS_PROJECTILE) && !(A.atom_flags & ON_BORDER)) || !A.Exit(source_spray, facing)) && !isxeno(A))
-			is_blocked = TRUE
-	if(!is_blocked)
-		if(!skip_timer)
-			addtimer(CALLBACK(src, PROC_REF(continue_shard_cone_spray), T, next_normal_turf, distance_left, facing, direction_flag, spray), 3)
-			return
-		continue_shard_cone_spray(T, next_normal_turf, distance_left, facing, direction_flag)
-
-/proc/xenomorph_spray_shard(turf/spraying_turf, mob/living/carbon/xenomorph/xenomorph_creator, range = 5)
-	var/datum/ammo/ammo = /datum/ammo/bullet/micro_rail_spread
-	for(var/atom/atom_in_turf AS in spraying_turf)
-		var/turf/current_turf = get_turf(xenomorph_creator)
-		var/atom/movable/projectile/newspit = new /atom/movable/projectile(current_turf)
-		newspit.generate_bullet(ammo)
-		newspit.def_zone = ran_zone()
-		newspit.fire_at(spraying_turf, xenomorph_creator, xenomorph_creator, range)
-
-///Call the next steps of the cone spray,
-/datum/action/ability/activable/xeno/shard_burst/cone/proc/continue_shard_cone_spray(turf/current_turf, turf/next_normal_turf, distance_left, facing, direction_flag, spray)
-	if(CHECK_BITFIELD(direction_flag, CONE_PART_MIDDLE))
-		do_shard_cone_spray(next_normal_turf, distance_left - 1 , facing, CONE_PART_MIDDLE, spray)
-	if(CHECK_BITFIELD(direction_flag, CONE_PART_RIGHT))
-		do_shard_cone_spray(get_step(next_normal_turf, turn(facing, 90)), distance_left - 1, facing, CONE_PART_RIGHT|CONE_PART_MIDDLE, spray)
-	if(CHECK_BITFIELD(direction_flag, CONE_PART_LEFT))
-		do_shard_cone_spray(get_step(next_normal_turf, turn(facing, -90)), distance_left - 1, facing, CONE_PART_LEFT|CONE_PART_MIDDLE, spray)
-	if(CHECK_BITFIELD(direction_flag, CONE_PART_DIAG_LEFT))
-		do_shard_cone_spray(get_step(current_turf, turn(facing, 45)), distance_left - 1, turn(facing, 45), CONE_PART_MIDDLE, spray)
-	if(CHECK_BITFIELD(direction_flag, CONE_PART_DIAG_RIGHT))
-		do_shard_cone_spray(get_step(current_turf, turn(facing, -45)), distance_left - 1, turn(facing, -45), CONE_PART_MIDDLE, spray)
-	if(CHECK_BITFIELD(direction_flag, CONE_PART_MIDDLE_DIAG))
-		do_shard_cone_spray(next_normal_turf, distance_left - 1, facing, CONE_PART_DIAG_LEFT|CONE_PART_DIAG_RIGHT, spray)
-		do_shard_cone_spray(next_normal_turf, distance_left - 2, facing, (distance_left < 5) ? CONE_PART_MIDDLE : CONE_PART_MIDDLE_DIAG, spray)
-
-/datum/action/ability/activable/xeno/shard_burst/cone/circle
-	name = "Shard Explosion"
-	desc = "Shoot shards of stone all around you."
-
-/datum/action/ability/activable/xeno/shard_burst/cone/circle/start_shard_burst_cone(turf/T, range)
-	for(var/direction in GLOB.alldirs)
-		if(direction in GLOB.cardinals)
-			do_shard_cone_spray(xeno_owner.loc, range, direction, CONE_PART_MIDDLE, xeno_owner, TRUE)
-		else
-			do_shard_cone_spray(xeno_owner.loc, range, direction, CONE_PART_MIDDLE_DIAG, xeno_owner, TRUE)

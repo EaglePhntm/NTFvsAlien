@@ -15,11 +15,6 @@
 	max_buckled_mobs = 2
 	pixel_x = -28.5
 	footstep_type = FOOTSTEP_XENO_HEAVY
-	blunt_stab = TRUE
-
-/mob/living/carbon/xenomorph/behemoth/sieger
-	icon_state = "Behemoth Sieger Walking"
-	caste_base_type = /datum/xeno_caste/behemoth/sieger
 
 // ***************************************
 // *********** Special States
