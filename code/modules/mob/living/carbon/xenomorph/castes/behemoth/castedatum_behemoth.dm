@@ -106,3 +106,81 @@
 	. = ..()
 	xenomorph.RemoveElement(/datum/element/ridable, /datum/component/riding/creature/crusher)
 	xenomorph.UnregisterSignal(xenomorph, COMSIG_GRAB_SELF_ATTACK)
+
+/datum/xeno_caste/behemoth/sieger
+	caste_name = "Behemoth Sieger"
+	display_name = "Behemoth"
+	upgrade_name = ""
+	caste_desc = "Behemoths are known to like rocks. This one liked them too much it is now harmonized, one with rocks, tough armor."
+	base_strain_type = /mob/living/carbon/xenomorph/behemoth
+	caste_type_path = /mob/living/carbon/xenomorph/behemoth
+	tier = XENO_TIER_THREE
+	upgrade = XENO_UPGRADE_BASETYPE
+	wound_type = "behemoth"
+
+	// *** Melee Attacks *** //
+	melee_damage = 20
+
+	// *** Flags *** //
+	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_STAGGER_RESISTANT|CASTE_MUTATIONS_ALLOWED
+	can_flags = parent_type::can_flags|CASTE_CAN_BE_GIVEN_PLASMA
+	caste_traits = list(TRAIT_CAN_TEAR_HOLE, TRAIT_CAN_DISABLE_MINER)
+
+	// *** Defense *** //
+	soft_armor = list(MELEE = 50, BULLET = 60, LASER = 60, ENERGY = 60, BOMB = 70, BIO = 60, FIRE = 60, ACID = 60)
+	hard_armor = list(MELEE = 10, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+
+	// *** Minimap Icon *** //
+	minimap_icon = "crusher"
+
+	// *** Abilities *** ///
+	actions = list(
+		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/psychic_whisper,
+		/datum/action/ability/xeno_action/psychic_influence,
+		/datum/action/ability/activable/xeno/impregnate,
+		/datum/action/ability/xeno_action/watch_xeno,
+		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/activable/xeno/devour,
+		/datum/action/ability/activable/xeno/tail_stab/battering_ram,
+		/datum/action/ability/xeno_action/ready_charge/behemoth_roll/sieger,
+		/datum/action/ability/activable/xeno/shard_burst/cone,
+		/datum/action/ability/activable/xeno/earth_riser/siege,
+		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
+	)
+
+	mutations = list(
+		/datum/mutation_upgrade/shell/rocky_layers,
+		/datum/mutation_upgrade/spur/refined_palate,
+		/datum/mutation_upgrade/veil/avalanche
+	)
+
+/datum/xeno_caste/behemoth/normal
+	upgrade = XENO_UPGRADE_NORMAL
+
+/datum/xeno_caste/behemoth/primordial
+	upgrade_name = "Primordial"
+	primordial_message = "In the ancient embrace of the earth, we have honed our art to perfection. Our might will crush the feeble pleas of our enemies before they can escape their lips."
+	upgrade = XENO_UPGRADE_PRIMO
+
+	// *** Wrath *** //
+	wrath_max = 650
+
+	// *** Abilities *** ///
+	actions = list(
+		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/psychic_whisper,
+		/datum/action/ability/xeno_action/psychic_influence,
+		/datum/action/ability/activable/xeno/impregnate,
+		/datum/action/ability/xeno_action/watch_xeno,
+		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/activable/xeno/devour,
+		/datum/action/ability/activable/xeno/tail_stab/battering_ram,
+		/datum/action/ability/xeno_action/ready_charge/behemoth_roll/sieger,
+		/datum/action/ability/activable/xeno/shard_burst/cone/circle,
+		/datum/action/ability/activable/xeno/earth_riser/siege,
+		/datum/action/ability/xeno_action/primal_wrath,
+		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
+	)
