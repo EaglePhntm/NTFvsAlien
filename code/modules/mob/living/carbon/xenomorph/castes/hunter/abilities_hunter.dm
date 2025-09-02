@@ -48,7 +48,12 @@
 	///Sneak attack armor penetration value
 	var/sneak_attack_armor_pen = HUNTER_SNEAK_SLASH_ARMOR_PEN
 	///Damage taken during stealth
+	/// Damage taken during Stealth.
 	var/total_damage_taken = 0
+	/// How long in deciseconds should Sneak Attack stun/paralyze for?
+	var/sneak_attack_stun_duration = 1 SECONDS
+	/// The multiplier to add as damage on Sneak Attack.
+	var/bonus_stealth_damage_multiplier = 0
 
 /datum/action/ability/xeno_action/stealth/remove_action(mob/living/L)
 	if(stealth)
@@ -82,6 +87,8 @@
 	to_chat(owner, "<span class='xenodanger'>We vanish into the shadows...</span>")
 	last_stealth = world.time
 	stealth = TRUE
+	GLOB.round_statistics.hunter_cloaks++
+	SSblackbox.record_feedback("tally", "round_statistics", 1, "hunter_cloaks")
 
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(handle_stealth_move))
 	RegisterSignal(owner, COMSIG_XENOMORPH_POUNCE_END, PROC_REF(sneak_attack_pounce))
@@ -233,6 +240,8 @@
 	else
 		armor_mod += sneak_attack_armor_pen
 		flavour = "deadly"
+	if(bonus_stealth_damage_multiplier)
+		damage_mod += xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier * bonus_stealth_damage_multiplier
 
 	owner.visible_message(span_danger("\The [owner] strikes [target] with [flavour] precision!"), \
 	span_danger("We strike [target] with [flavour] precision!"))
@@ -244,7 +253,10 @@
 		armor_mod += sneak_attack_armor_pen //should double it.
 	target.adjust_stagger(staggerslow_stacks)
 	target.add_slowdown(staggerslow_stacks)
-	target.ParalyzeNoChain(paralyzesecs)
+	if(sneak_attack_stun_duration)
+		target.ParalyzeNoChain(sneak_attack_stun_duration)
+	GLOB.round_statistics.hunter_cloak_victims++
+	SSblackbox.record_feedback("tally", "round_statistics", 1, "hunter_cloak_victims")
 
 	if(stealth_flags & DIS_MOB_SLASH)
 		cancel_stealth()
@@ -341,6 +353,10 @@
 	use_state_flags = ABILITY_USE_BUCKLED
 	/// The range of this ability.
 	var/pounce_range = HUNTER_POUNCE_RANGE
+	/// The stun duration (inflicted to mob) on successful tackle.
+	var/stun_duration = XENO_POUNCE_STUN_DURATION
+	/// The immobilize duration (inflicted to self) on successful tackle.
+	var/self_immobilize_duration = XENO_POUNCE_STANDBY_DURATION
 	///pass_flags given when leaping
 	var/leap_pass_flags = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_XENO
 
@@ -400,9 +416,11 @@
 ///Triggers the effect of a successful pounce on the target.
 /datum/action/ability/activable/xeno/pounce/proc/trigger_pounce_effect(mob/living/living_target)
 	playsound(get_turf(living_target), 'sound/voice/alien/pounce.ogg', 25, TRUE)
-	xeno_owner.Immobilize(XENO_POUNCE_STANDBY_DURATION)
+	xeno_owner.Immobilize(self_immobilize_duration)
 	xeno_owner.forceMove(get_turf(living_target))
-	living_target.Knockdown(XENO_POUNCE_STUN_DURATION)
+	living_target.Knockdown(stun_duration)
+	GLOB.round_statistics.runner_pounce_victims++
+	SSblackbox.record_feedback("tally", "round_statistics", 1, "runner_pounce_victims")
 
 /datum/action/ability/activable/xeno/pounce/proc/pounce_complete()
 	SIGNAL_HANDLER
@@ -582,17 +600,19 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_MIRAGE,
 	)
 	cooldown_duration = 33 SECONDS
-	///How long will the illusions live
+	/// How long will the illusions live?
 	var/illusion_life_time = 10 SECONDS
-	///How many illusions are created
+	/// How many illusions should be created?
 	var/illusion_count = 3
-	/// List of illusions
+	/// List of illusions.
 	var/list/mob/illusion/illusions = list()
-	/// If swap has been used during the current set of illusions
+	/// Has the ability been used to swap to the current set of illusion yet?
 	var/swap_used = FALSE
+	/// The illusion that will take priority when mirage swapping.
+	var/mob/illusion/xeno/prioritized_illusion
 
 /datum/action/ability/xeno_action/mirage/remove_action()
-	illusions = list() //the actual illusions fade on their own, and the cooldown object may be qdel'd
+	illusions = list() // No need to manually delete the illusions as the illusions will delete themselves once their life time expires.
 	return ..()
 
 /datum/action/ability/xeno_action/mirage/can_use_action(silent = FALSE, override_flags)
@@ -611,7 +631,7 @@
 	else
 		swap()
 
-/// Spawns a set of illusions around the hunter
+/// Spawns a set of illusions around the hunter.
 /datum/action/ability/xeno_action/mirage/proc/spawn_illusions()
 	var/mob/illusion/xeno/center_illusion = new (owner.loc, owner, owner, illusion_life_time)
 	for(var/i in 1 to (illusion_count - 1))
@@ -619,23 +639,23 @@
 	illusions += center_illusion
 	addtimer(CALLBACK(src, PROC_REF(clean_illusions)), illusion_life_time)
 
-/// Clean up the illusions list
+/// Clean up the illusions list.
 /datum/action/ability/xeno_action/mirage/proc/clean_illusions()
 	illusions = list()
 	add_cooldown()
 	swap_used = FALSE
 
-/// Swap places of hunter and an illusion
+/// Swap places of hunter and an illusion.
 /datum/action/ability/xeno_action/mirage/proc/swap()
 	swap_used = TRUE
-	if(!length(illusions))
+	if(!length(illusions) && !prioritized_illusion)
 		to_chat(xeno_owner, span_xenowarning("We have no illusions to swap with!"))
 		return
 
 	xeno_owner.playsound_local(xeno_owner, 'sound/effects/swap.ogg', 10, 0, 1)
 	var/turf/current_turf = get_turf(xeno_owner)
 
-	var/mob/selected_illusion = illusions[1]
+	var/mob/selected_illusion = prioritized_illusion ? prioritized_illusion : illusions[1]
 	if(selected_illusion.z != xeno_owner.z)
 		return
 	SEND_SIGNAL(xeno_owner, COMSIG_XENOABILITY_MIRAGE_SWAP)
@@ -656,6 +676,8 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SILENCE,
 	)
 	cooldown_duration = HUNTER_SILENCE_COOLDOWN
+	/// The multiplier of Silence's effects to the victim that the owner has selected with Hunter's Mark.
+	var/hunter_mark_multiplier = HUNTER_SILENCE_MULTIPLIER
 
 /datum/action/ability/activable/xeno/silence/can_use_ability(atom/A, silent = FALSE, override_flags)
 	if(owner.status_flags & INCORPOREAL)
@@ -696,7 +718,7 @@
 		var/silence_multiplier = 1
 		var/datum/action/ability/activable/xeno/hunter_mark/mark_action = xeno_owner.actions_by_path[/datum/action/ability/activable/xeno/hunter_mark]
 		if(mark_action?.marked_target == target) //Double debuff stacks for the marked target
-			silence_multiplier = HUNTER_SILENCE_MULTIPLIER
+			silence_multiplier = hunter_mark_multiplier
 		to_chat(target, span_danger("Your mind convulses at the touch of something ominous as the world seems to blur, your voice dies in your throat, and everything falls silent!") ) //Notify privately
 		target.playsound_local(target, 'sound/effects/ghost.ogg', 25, 0, 1)
 		target.adjust_stagger(HUNTER_SILENCE_STAGGER_DURATION * silence_multiplier)
@@ -723,181 +745,3 @@
 	owner.playsound_local(owner, 'sound/effects/alien/new_larva.ogg', 25, 0, 1)
 	cooldown_duration = initial(cooldown_duration) //Reset the cooldown timer to its initial state in the event of a whiffed Silence.
 	return ..()
-
-//assassin things
-
-// ***************************************
-// *********** Lunge
-// ***************************************
-
-/datum/action/ability/activable/xeno/pounce/lunge
-	name = "Lunge"
-	action_icon = 'icons/Xeno/actions/hunter.dmi'
-	action_icon_state = "assassin_lunge"
-	desc = "Swiftly lunge at your destination, if on a target, attack them."
-	ability_cost = 10
-	cooldown_duration = 6 SECONDS
-	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_HUNTER_LUNGE,
-	)
-	use_state_flags = ABILITY_USE_BUCKLED
-
-//Triggers the effect of a successful pounce on the target.
-/datum/action/ability/activable/xeno/pounce/lunge/trigger_pounce_effect(mob/living/living_target)
-	playsound(get_turf(living_target), 'sound/voice/alien/roar4.ogg', 25, TRUE)
-	var/mob/living/carbon/xenomorph/xeno_owner = owner
-	xeno_owner.UnarmedAttack(living_target)
-	step_away(living_target, xeno_owner, 1, 3)
-	xeno_owner.face_atom(living_target)
-
-#define ASSASSIN_SNEAK_SLASH_ARMOR_PEN 30
-
-// ***************************************
-// *********** Phase Out
-// ***************************************
-
-/datum/action/ability/xeno_action/stealth/phaseout
-	name = "Phase Out"
-	action_icon_state = "hunter_invisibility"
-	action_icon = 'icons/Xeno/actions/hunter.dmi'
-	desc = "Become fully invisible for 6 seconds, or until damaged. Attacking does not break invisibility."
-	ability_cost = 10
-	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_PHASEOUT,
-	)
-	cooldown_duration = 6 SECONDS
-	var/stealth_duration = 6 SECONDS
-	disable_on_signals = list(
-		COMSIG_LIVING_IGNITED,
-		COMSIG_LIVING_ADD_VENTCRAWL,
-	)
-	stealth_flags = DIS_POUNCE_SLASH
-	sneak_attack_armor_pen = ASSASSIN_SNEAK_SLASH_ARMOR_PEN
-
-///Updates or cancels stealth
-/datum/action/ability/xeno_action/stealth/phaseout/handle_stealth()
-	var/mob/living/carbon/xenomorph/xenoowner = owner
-	xenoowner.alpha = HUNTER_STEALTH_STILL_ALPHA * stealth_alpha_multiplier // instant full stealth regardless of movement.
-/datum/action/ability/xeno_action/stealth/phaseout/action_activate()
-	. = ..()
-	if(stealth_duration != -1)
-		stealth_timer = addtimer(CALLBACK(src, PROC_REF(cancel_stealth)), stealth_duration, TIMER_STOPPABLE)
-
-///Duration for the mark.
-#define DEATH_MARK_TIMEOUT 15 SECONDS
-///Charge-up duration of the mark where you need to stay still for it to apply.
-#define DEATH_MARK_CHARGEUP 2 SECONDS
-
-// ***************************************
-// *********** Death Mark
-// ***************************************
-/datum/action/ability/activable/xeno/hunter_mark/assassin
-	name = "Death Mark"
-	action_icon_state = "death_mark"
-	action_icon = 'icons/Xeno/actions/hunter.dmi'
-	desc = "Psionically disturb a creature for 15 seconds, allowing you to deal a stronger sneak attack. They will know you are coming for them."
-	ability_cost = 50
-	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_HUNTER_MARK,
-	)
-	cooldown_duration = 30 SECONDS
-	require_los = FALSE
-
-/datum/action/ability/activable/xeno/hunter_mark/assassin/can_use_ability(atom/A, silent = FALSE, override_flags)
-	var/mob/living/carbon/xenomorph/X = owner
-	if(require_los && !line_of_sight(X, A)) //Need line of sight.
-		if(!silent)
-			to_chat(X, span_xenowarning("We require line of sight to mark them!"))
-		return FALSE
-	return ..()
-
-
-/datum/action/ability/activable/xeno/hunter_mark/assassin/use_ability(atom/A)
-	. = ..()
-	var/mob/living/carbon/xenomorph/X = owner
-	if(!do_after(X, DEATH_MARK_CHARGEUP, IGNORE_TARGET_LOC_CHANGE, A, BUSY_ICON_HOSTILE, NONE, PROGRESS_GENERIC))
-		return
-
-	RegisterSignal(marked_target, COMSIG_QDELETING, PROC_REF(unset_target)) //For var clean up
-
-	to_chat(X, span_xenodanger("We will be able to maintain the mark for [DEATH_MARK_TIMEOUT / 10] seconds."))
-	addtimer(CALLBACK(src, PROC_REF(unset_target)), DEATH_MARK_TIMEOUT)
-
-	playsound(marked_target, 'sound/effects/alien/new_larva.ogg', 50, 0, 1)
-	to_chat(marked_target, span_danger("You feel uneasy."))
-
-///Nulls the target of our hunter's mark
-/datum/action/ability/activable/xeno/hunter_mark/assassin/proc/unset_target()
-	SIGNAL_HANDLER
-	to_chat(owner, span_xenodanger("We cannot maintain our focus on [marked_target] any longer."))
-	owner.balloon_alert(owner, "Death mark expired!")
-	UnregisterSignal(marked_target, COMSIG_QDELETING)
-	marked_target = null //Nullify hunter's mark target and clear the var
-
-// ***************************************
-// *********** Displacement
-// ***************************************
-
-/datum/action/ability/xeno_action/displacement
-	name = "Displacement"
-	action_icon_state = "hunter_invisibility"
-	action_icon = 'icons/Xeno/actions/hunter.dmi'
-	desc = "Physically disappear, become incorporeal until you decide to reappear somewhere else, reappearing on lighted areas will disorient you and flicker the lights."
-	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOMORPH_HUNTER_DISPLACEMENT,
-	)
-	use_state_flags = ABILITY_USE_SOLIDOBJECT
-
-/datum/action/ability/xeno_action/displacement/action_activate()
-	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
-	change_form(xenomorph_owner)
-
-/datum/action/ability/xeno_action/displacement/proc/change_form(mob/living/carbon/xenomorph/X)
-	if(!X.loc_weeds_type)
-		X.balloon_alert(X, "We need to be on weeds.")
-		return
-	X.wound_overlay.icon_state = "none"
-	var/turf/whereweat = get_turf(X)
-	if(X.status_flags & INCORPOREAL) //will alert if the xeno will get disoriented due lit turf, if phasing in.
-		if(whereweat.get_lumcount() > 0.3) //is it a lit turf
-			X.balloon_alert(X, "We will be disoriented and sensed in this light.") //so its more visible to xeno.
-			//Marines can sense the manifestation if it's in lit-enough turf nearby.
-			X.visible_message(span_danger("Something begins to manifest nearby!"), span_xenodanger("We begin to manifest in the light... talls sense us!"))
-	else
-		if(whereweat.get_lumcount() > 0.4) //cant shift out a lit turf.
-			X.balloon_alert(X, "We need a darker spot.") //so its more visible to xeno.
-			return
-	if(do_after(X, 3 SECONDS, IGNORE_HELD_ITEM, X, BUSY_ICON_BAR, NONE, PROGRESS_GENERIC)) //dont move
-		do_change_form(X)
-
-///Finish the form changing of the hunter and give the needed stats
-/datum/action/ability/xeno_action/displacement/proc/do_change_form(mob/living/carbon/xenomorph/X)
-	playsound(get_turf(X), 'sound/effects/alien/new_larva.ogg', 25, 0, 1)
-	if(X.status_flags & INCORPOREAL)
-		var/turf/whereweat = get_turf(X)
-		if(whereweat.get_lumcount() > 0.3) //is it a lit turf
-			X.balloon_alert(X, "Light disorients us!")
-			X.adjust_stagger(6 SECONDS)
-			X.add_slowdown(4)
-		for(var/obj/machinery/light/lightie in range(rand(7,10), whereweat))
-			lightie.set_flicker(2 SECONDS, 1.5, 2.5, rand(1,2))
-		X.status_flags = initial(X.status_flags)
-		X.pass_flags = initial(X.pass_flags)
-		X.density = TRUE
-		REMOVE_TRAIT(X, TRAIT_HANDS_BLOCKED, X)
-		X.alpha = 255
-		X.update_wounds()
-		X.update_icon()
-		X.update_action_buttons()
-		return
-	var/turf/whereweat = get_turf(X)
-	for(var/obj/machinery/light/lightie in range(rand(7,10), whereweat))
-		lightie.set_flicker(2 SECONDS, 1, 2, rand(1,2))
-	ADD_TRAIT(X, TRAIT_HANDS_BLOCKED, X)
-	X.status_flags = INCORPOREAL
-	X.alpha = 0
-	X.pass_flags = PASS_MOB|PASS_XENO
-	X.density = FALSE
-	X.update_wounds()
-	X.update_icon()
-	X.update_action_buttons()

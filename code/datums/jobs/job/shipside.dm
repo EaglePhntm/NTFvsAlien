@@ -37,9 +37,9 @@
 	html_description = {"
 		<b>Difficulty</b>: Hard<br /><br />
 		<b>You answer to</b> NTC High Command<br /><br />
-		<b>Unlock Requirement</b>: Starting Role<br /><br />
+		<b>Unlock Requirement</b>: 25 hours playtime (any role)<br /><br />
 		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
-		<b>Duty</b>: Lead the NTF platoon and complete your mission. Support the marines and communicate with your command staff, execute orders.
+		<b>Duty</b>: Lead the NTF platoon and complete your mission. Support the marines and communicate with your command staff, execute orders. Coordinate with Operations officer.
 	"}
 	minimap_icon = "captain"
 
@@ -236,7 +236,7 @@ You are in charge of logistics and the overwatch system. You are also in line to
 	html_description = {"
 		<b>Difficulty</b>: Hard<br /><br />
 		<b>You answer to the</b> acting Command Staff<br /><br />
-		<b>Unlock Requirement</b>: 100 hours<br /><br />
+		<b>Unlock Requirement</b>: 25 hours playtime (any role)<br /><br />
 		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
 		<b>Duty</b>: Pilot the Tadpole, a versatile dropship capable of fulfilling roles ranging from ambulance to mobile bunker.
 	"}
@@ -290,7 +290,7 @@ Try to ensure the Tadpole's survival. In the case of its destruction, you may re
 	html_description = {"
 		<b>Difficulty</b>: Medium<br /><br />
 		<b>You answer to the</b> acting Command Staff<br /><br />
-		<b>Unlock Requirement</b>: Starting Role<br /><br />
+		<b>Unlock Requirement</b>: 25 hours playtime (any role)<br /><br />
 		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
 		<b>Duty</b>: Pilot the Condor, a modular attack aircraft that provides close air support with a variety of weapons ranging from the inbuilt gatling to wing mounted rockets.
 	"}
@@ -347,7 +347,7 @@ Though you are an officer, your authority is limited to the dropship and the Con
 	html_description = {"
 		<b>Difficulty</b>:Very Hard<br /><br />
 		<b>You answer to the</b> acting Command Staff<br /><br />
-		<b>Unlock Requirement</b>: Starting Role<br /><br />
+		<b>Unlock Requirement</b>: 25 hours playtime (any role)<br /><br />
 		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
 		<b>Duty</b>: Act as the spearhead of the operation
 	"}
@@ -363,10 +363,8 @@ Though you are an officer, your authority is limited to the dropship and the Con
 	if(total_positions)
 		return
 	var/client_count = length(GLOB.clients)
-	client_count -= 20
-	client_count = FLOOR(client_count / 20, 1)
-	// effectively, 1 at 40, 2 at 60, 3 at 80, etc
-	if(client_count >= 1)
+	if(client_count >= NUCLEAR_WAR_MECH_MINIMUM_POP_REQUIRED)
+		client_count = 1 + FLOOR((client_count - NUCLEAR_WAR_MECH_MINIMUM_POP_REQUIRED) / NUCLEAR_WAR_MECH_INTERVAL_PER_SLOT, 1)
 		add_job_positions(client_count)
 */
 
@@ -391,9 +389,6 @@ Though you are an officer, your authority is limited to the dropship and the Con
 			new_human.wear_id.paygrade = "E9A" //If you play way too much TGMC. 1000 hours.
 	new_human.wear_id.update_label()
 
-
-
-#define ASSAULT_CREWMAN_POPLOCK 50
 //tank/arty driver+gunner
 /datum/job/terragov/command/assault_crewman
 	title = ASSAULT_CREWMAN
@@ -425,7 +420,7 @@ Though you are an officer, your authority is limited to the dropship and the Con
 	html_description = {"
 		<b>Difficulty</b>:Very Hard<br /><br />
 		<b>You answer to the</b> acting Command Staff<br /><br />
-		<b>Unlock Requirement</b>: Starting Role<br /><br />
+		<b>Unlock Requirement</b>: 25 hours playtime (any role)<br /><br />
 		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
 		<b>Duty</b>: Provide heavy fire support
 	"}
@@ -434,7 +429,7 @@ Though you are an officer, your authority is limited to the dropship and the Con
 /datum/job/terragov/command/assault_crewman/on_pre_setup()
 	if(total_positions)
 		return
-	if(length(GLOB.clients) >= ASSAULT_CREWMAN_POPLOCK)
+	if(length(GLOB.clients) >= NUCLEAR_WAR_TANK_MINIMUM_POP_REQUIRED)
 		add_job_positions(2) //always 2 there are, a master and an apprentice
 
 /datum/job/terragov/command/assault_crewman/get_spawn_message_information(mob/M)
@@ -486,7 +481,7 @@ Though you are an officer, your authority is limited to the dropship and the Con
 	html_description = {"
 		<b>Difficulty</b>:Very Hard<br /><br />
 		<b>You answer to the</b> acting Command Staff<br /><br />
-		<b>Unlock Requirement</b>: Starting Role<br /><br />
+		<b>Unlock Requirement</b>: 25 hours playtime (any role)<br /><br />
 		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
 		<b>Duty</b>: Transport and support the frontline troops
 	"}
@@ -523,7 +518,7 @@ Though you are an officer, your authority is limited to the dropship and the Con
 /datum/job/terragov/engineering
 	job_category = JOB_CAT_ENGINEERING
 	selection_color = "#fff5cc"
-	supervisors = "the acting captain"
+	supervisors = "the acting captain, Archercorp."
 	exp_type_department = EXP_TYPE_ENGINEERING
 
 
@@ -592,7 +587,7 @@ You are also next in the chain of command, should the bridge crew fall in the li
 	comm_title = "ST"
 	paygrade = "PO3"
 	total_positions = 5
-	supervisors = "the chief ship engineer and the requisitions officer"
+	supervisors = "the chief ship engineer and the requisitions officer, Archercorp."
 	access = list(ACCESS_MARINE_ENGINEERING, ACCESS_MARINE_PREP, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_CARGO, ACCESS_CIVILIAN_ENGINEERING)
 	minimal_access = list(ACCESS_MARINE_ENGINEERING, ACCESS_MARINE_PREP, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_CARGO, ACCESS_CIVILIAN_ENGINEERING)
 	skills_type = /datum/skills/st
@@ -644,7 +639,7 @@ You are also next in the chain of command, should the bridge crew fall in the li
 /datum/job/terragov/requisitions
 	job_category = JOB_CAT_REQUISITIONS
 	selection_color = "#BAAFD9"
-	supervisors = "the acting captain"
+	supervisors = "the acting captain, TRANSCO."
 	exp_type_department = EXP_TYPE_REQUISITIONS
 
 
@@ -727,7 +722,7 @@ A happy ship is a well-functioning ship."}
 	comm_title = "CMO"
 	paygrade = "SP"
 	total_positions = 1
-	supervisors = "the acting captain"
+	supervisors = "the acting captain, Novamed."
 	selection_color = "#99FF99"
 	access = list(ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_CMO, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_RESEARCH, ACCESS_MARINE_BRIDGE, ACCESS_MARINE_CHEMISTRY)
 	minimal_access = list(ACCESS_MARINE_CMO, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_RESEARCH, ACCESS_MARINE_BRIDGE, ACCESS_MARINE_CHEMISTRY, ACCESS_MARINE_CARGO, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LOGISTICS)
@@ -792,7 +787,7 @@ Make sure that the doctors and nurses are doing their jobs and keeping the marin
 	comm_title = "MD"
 	paygrade = "MS"
 	total_positions = 4
-	supervisors = "the chief medical officer"
+	supervisors = "the chief medical officer, Novamed."
 	access = list(ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY)
 	minimal_access = list(ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY, ACCESS_MARINE_CARGO, ACCESS_MARINE_DROPSHIP)
 	skills_type = /datum/skills/doctor
@@ -853,7 +848,7 @@ You are also an expert when it comes to medication and treatment. If you do not 
 	comm_title = "Rsr"
 	paygrade = "RSRA"
 	total_positions = 2
-	supervisors = "the NT corporate office"
+	supervisors = "Novamed."
 	access = list(ACCESS_MARINE_MEDBAY, ACCESS_MARINE_RESEARCH, ACCESS_MARINE_CHEMISTRY, ACCESS_MARINE_ENGINEERING, ACCESS_CIVILIAN_ENGINEERING)
 	minimal_access = list(ACCESS_MARINE_MEDBAY, ACCESS_MARINE_RESEARCH, ACCESS_MARINE_CHEMISTRY, ACCESS_MARINE_CARGO, ACCESS_MARINE_DROPSHIP)
 	skills_type = /datum/skills/researcher
@@ -922,7 +917,7 @@ It is also recommended that you gear up like a regular marine, or your 'internsh
 	title = CORPORATE_LIAISON
 	paygrade = "NT1"
 	comm_title = "OO"
-	supervisors = "the NT corporate office"
+	supervisors = "the NT corporate office, and the corporate council."
 	total_positions = 1
 	shadow_languages = list(/datum/language/xenocommon)
 	access = ALL_ACCESS
@@ -987,7 +982,7 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 	req_admin_notify = TRUE
 	comm_title = "Syn"
 	paygrade = "Mk.I"
-	supervisors = "the acting captain"
+	supervisors = "the acting captain, Ninetails."
 	total_positions = 1
 	skills_type = /datum/skills/synthetic
 	access = ALL_ACCESS
@@ -1061,7 +1056,7 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 	comm_title = "AI"
 	total_positions = 1
 	selection_color = "#92c255"
-	supervisors = "your laws and the human crew"
+	supervisors = "your laws and the human crew."
 	exp_requirements = XP_REQ_INTERMEDIATE
 	exp_type = EXP_TYPE_REGULAR_ALL
 	exp_type_department = EXP_TYPE_SILICON

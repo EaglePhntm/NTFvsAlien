@@ -51,8 +51,10 @@
 #define MODE_ALLOW_XENO_QUICKBUILD (1<<14)
 #define MODE_DISALLOW_RAILGUN (1<<15)
 #define MODE_FORCE_CUSTOMSQUAD_UI (1<<16)
-#define MODE_SURVIVAL (1<<17)
-#define MODE_NO_GHOSTS (1<<18)
+#define MODE_MUTATIONS_OBTAINABLE (1<<17)
+#define MODE_BIOMASS_POINTS (1<<18)
+#define MODE_SURVIVAL (1<<19)
+#define MODE_NO_GHOSTS (1<<20)
 
 #define MODE_INFESTATION_X_MAJOR "Xenomorph Major Victory"
 #define MODE_INFESTATION_M_MAJOR "Ninetails Major Victory"
@@ -110,10 +112,10 @@
 #define AFK_TIMER 5 MINUTES
 #define TIME_BEFORE_TAKING_BODY 2 MINUTES
 
-#define DEATHTIME_CHECK(M) ((world.time - GLOB.key_to_time_of_role_death[M.key]) < SSticker.mode?.respawn_time)
+#define DEATHTIME_CHECK(M) ((M.key in GLOB.key_to_time_of_role_death)  && ((world.time - GLOB.key_to_time_of_role_death[M.key]) < SSticker.mode?.respawn_time))
 #define DEATHTIME_MESSAGE(M) to_chat(M, span_warning("You have been dead for [(world.time - GLOB.key_to_time_of_role_death[M.key]) * 0.1] second\s.</span><br><span class='warning'>You must wait [SSticker.mode?.respawn_time * 0.1] seconds before rejoining the game!"))
 
-#define XENODEATHTIME_CHECK(M) ((world.time - (GLOB.key_to_time_of_xeno_death[M.key] ? GLOB.key_to_time_of_xeno_death[M.key] : -INFINITY) < SSticker.mode?.xenorespawn_time))
+#define XENODEATHTIME_CHECK(M) ((M.key in GLOB.key_to_time_of_xeno_death)  && ((world.time - (GLOB.key_to_time_of_xeno_death[M.key] ? GLOB.key_to_time_of_xeno_death[M.key] : -INFINITY) < SSticker.mode?.xenorespawn_time)))
 #define XENODEATHTIME_MESSAGE(M) to_chat(M, span_warning("You have been dead for [(world.time - GLOB.key_to_time_of_xeno_death[M.key]) * 0.1] second\s.</span><br><span class ='warning'>You must wait [SSticker.mode?.xenorespawn_time * 0.1] seconds before rejoining the game as a Xenomorph! You can take a SSD minion without resetting your timer."))
 
 #define COUNT_IGNORE_HUMAN_SSD (1<<0)
@@ -149,7 +151,7 @@
 #define INFESTATION_DROPSHIP_CAPTURED_XENOS 2
 
 #define NUCLEAR_WAR_LARVA_POINTS_NEEDED 10
-#define CRASH_LARVA_POINTS_NEEDED 10
+#define CRASH_LARVA_POINTS_NEEDED 8
 
 #define FREE_XENO_AT_START 8
 #define FREE_XENO_AT_START_CORRUPT 3
@@ -158,3 +160,7 @@
 
 #define SENSOR_CAP_ADDITION_TIME_BONUS 3 MINUTES //additional time granted by capturing a sensor tower
 #define SENSOR_CAP_TIMER_PAUSED "paused"
+
+#define NUCLEAR_WAR_MECH_MINIMUM_POP_REQUIRED 40 // This amount of clients must be connected at gamemode setup to get the first mech pilot slot.
+#define NUCLEAR_WAR_MECH_INTERVAL_PER_SLOT 20 // After meeting NUCLEAR_WAR_MECH_MINIMUM_POP_REQUIRED, a mech pilot slot is open for each set of X clients.
+#define NUCLEAR_WAR_TANK_MINIMUM_POP_REQUIRED 50 // This amount of clients must be connected at gamemode setup to get two assault crewman jobs (and thus tank).

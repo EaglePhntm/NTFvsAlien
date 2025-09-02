@@ -13,9 +13,9 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	density = FALSE
 	see_invisible = SEE_INVISIBLE_OBSERVER
 	invisibility = INVISIBILITY_OBSERVER
-	sight = SEE_TURFS|SEE_MOBS|SEE_OBJS|SEE_SELF
+	sight = SEE_SELF
 	hud_type = /datum/hud/ghost
-	lighting_cutoff = LIGHTING_CUTOFF_HIGH
+	//lighting_cutoff = LIGHTING_CUTOFF_HIGH
 	dextrous = TRUE
 	status_flags = GODMODE | INCORPOREAL
 
@@ -238,12 +238,12 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 				ghost.abstract_move(resin_silo.loc)
 				break
 
-/mob/proc/ghostize(can_reenter_corpse = TRUE, aghosting = FALSE)
+/mob/proc/ghostize(can_reenter_corpse = TRUE, aghosting = FALSE, force_lobby = FALSE)
 	if(!key || isaghost(src))
 		return FALSE
 	SEND_SIGNAL(SSdcs, COMSIG_MOB_GHOSTIZE, src, can_reenter_corpse)
 
-	if(SSticker.mode.round_type_flags & MODE_NO_GHOSTS && !(client && check_rights_for(client, R_ADMIN)))
+	if(force_lobby || (SSticker.mode.round_type_flags & MODE_NO_GHOSTS && !(client && check_rights_for(client, R_ADMIN))))
 		if(client)
 			client?.screen?.Cut()
 		var/mob/new_player/new_player = new /mob/new_player()
@@ -290,6 +290,10 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		ghost.ooc_notes_maybes = ooc_notes_maybes
 		ghost.ooc_notes_favs = ooc_notes_favs
 		ghost.ooc_notes_style = ooc_notes_style
+		if(client && check_rights_for(client, R_ADMIN))
+			ghost.set_sight(SEE_SELF|SEE_TURFS|SEE_MOBS|SEE_OBJS)
+			ghost.set_invis_see(SEE_INVISIBLE_OBSERVER)
+			ghost.update_sight()
 
 		if(!T)
 			T = SAFEPICK(GLOB.latejoin)
@@ -322,9 +326,8 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	if(!. || can_reenter_corpse || aghosting)
 		return
 	var/mob/ghost = .
-	if(tier != XENO_TIER_MINION && hivenumber == XENO_HIVE_NORMAL)
+	if(tier != XENO_TIER_MINION)
 		GLOB.key_to_time_of_xeno_death[ghost.key] = world.time //If you ghost as a xeno that is not a minion, sets respawn timer
-
 
 /mob/dead/observer/Move(atom/newloc, direct, glide_size_override = 32)
 	if(updatedir)
@@ -564,6 +567,9 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	set category = "Ghost.Toggles"
 	set name = "Toggle Darkness"
 
+	if(client && !check_rights_for(client, R_ADMIN))
+		to_chat(src, span_notice("Must be an admin to see more than the rest."))
+		return
 	switch(lighting_cutoff)
 		if (LIGHTING_CUTOFF_VISIBLE)
 			lighting_cutoff = LIGHTING_CUTOFF_MEDIUM
@@ -597,6 +603,8 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		set_invis_see(SEE_INVISIBLE_OBSERVER)
 	else
 		set_invis_see(SEE_INVISIBLE_LIVING)
+	if(client && check_rights_for(client, R_ADMIN))
+		set_sight(SEE_TURFS|SEE_MOBS|SEE_OBJS)
 
 	updateghostimages()
 

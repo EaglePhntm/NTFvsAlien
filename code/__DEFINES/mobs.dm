@@ -30,8 +30,8 @@ GLOBAL_VAR_INIT(max_larva_count_per_mob, 3) //Added for adminbus reasons
 #define COLLAR_LAYER 12
 #define SUIT_STORE_LAYER 11
 #define BACK_LAYER 10
-#define KAMA_LAYER 9
-#define CAPE_LAYER 8
+#define CAPE_LAYER 9
+#define KAMA_LAYER 8
 #define HANDCUFF_LAYER 7
 #define L_HAND_LAYER 6
 #define R_HAND_LAYER 5
@@ -157,6 +157,7 @@ GLOBAL_VAR_INIT(max_larva_count_per_mob, 3) //Added for adminbus reasons
 //=================================================
 
 #define EFFECT_STUN "stun"
+#define EFFECT_KNOCKDOWN "knockdown"
 #define EFFECT_PARALYZE "paralyze"
 #define EFFECT_UNCONSCIOUS "unconscious"
 #define EFFECT_STAGGER "stagger"
@@ -537,6 +538,10 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define XENO_MOBHUD (1<<3)
 ///rouny
 #define XENO_ROUNY (1<<4)
+///bumping allies
+#define XENO_ALLIES_BUMP (1<<5)
+///ability to destroy your own xeno structures
+#define XENO_DESTROY_OWN_STRUCTURES (1<<6)
 
 
 #define XENO_DEFAULT_VENT_ENTER_TIME 4.5 SECONDS //Standard time for a xeno to enter a vent.
@@ -611,7 +616,8 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define CASTE_CANNOT_EVOLVE_IN_CAPTIVITY (1<<17) // Whether we cannot evolve in the research lab.
 #define CASTE_REQUIRES_FREE_TILE (1<<18) // Whether we require a free tile to evolve.
 #define CASTE_LEADER_TYPE (1<<19) // Whether this is a leader type caste (e.g. Queen/Shrike/King/Dragon). Restricts who can play these castes based on: playtime & if banned from Queen.
-#define CASTE_EXCLUDE_STRAINS (1<<20) // Excludes this caste/basetype from strain selection
+#define CASTE_EXCLUDE_STRAINS (1<<20) // Excludes this caste/basetype from strain selection.
+#define CASTE_MUTATIONS_ALLOWED (1<<21) // Whether we are allowed to access, view, and potentially purchase mutations for our caste/strain.
 // Xenomorph can_flags:
 #define CASTE_CAN_HOLD_FACEHUGGERS (1<<0) // Are we allowed to carry facehuggers in our hands?
 #define CASTE_CAN_BE_GIVEN_PLASMA (1<<1) // Can we receive plasma / have our plasma be taken away?
@@ -622,6 +628,9 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define CASTE_CAN_BE_RULER (1<<6) // Caste can become a ruler if no queen / shrike / king exists in the hive.
 #define CASTE_CAN_BE_QUEEN_HEALED (1<<7) // Does nothing.
 #define CASTE_CAN_HOLD_JELLY (1<<8) // Can we hold fireproof jelly in our hands?
+
+///How often we can swap strains
+#define XENO_STRAIN_SWAP_COOLDOWN 5 MINUTES
 
 //Charge-Crush
 #define CHARGE_OFF 0
@@ -720,7 +729,7 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 
 // Pyrogen defines
 /// Damage per melting fire stack
-#define PYROGEN_DAMAGE_PER_STACK 2.5
+#define PYROGEN_DAMAGE_PER_STACK 2
 /// Amount of ticks of fire removed when helped by another human to extinguish
 #define PYROGEN_ASSIST_REMOVAL_STRENGTH 2
 /// How fast the pyrogen moves when charging using fire charge
@@ -782,8 +791,13 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define BOILER_LUMINOSITY_AMMO 0.5 //don't set this to 0. How much each 'piece' of ammo in reserve glows by.
 #define BOILER_LUMINOSITY_AMMO_NEUROTOXIN_COLOR LIGHT_COLOR_YELLOW
 #define BOILER_LUMINOSITY_AMMO_CORROSIVE_COLOR LIGHT_COLOR_GREEN
-#define BOILER_BOMBARD_COOLDOWN_REDUCTION 1.5 //Amount of seconds each glob stored reduces bombard cooldown by
-#define	BOILER_LUMINOSITY_THRESHOLD 2 //Amount of ammo needed to start glowing
+#define BOILER_LUMINOSITY_AMMO_OZELOMELYN_COLOR LIGHT_COLOR_WHITE
+#define BOILER_LUMINOSITY_AMMO_HEMODILE_COLOR LIGHT_COLOR_PURPLE
+#define BOILER_LUMINOSITY_AMMO_SANGUINAL_COLOR LIGHT_COLOR_RED
+/// Amount of deciseconds each stored glob reduces bombard cooldown by.
+#define BOILER_BOMBARD_COOLDOWN_REDUCTION 1.5 SECONDS
+/// Amount of stored globs needed to start glowing.
+#define	BOILER_LUMINOSITY_THRESHOLD 2
 
 //Hivelord defines
 #define HIVELORD_TUNNEL_DISMANTLE_TIME 3 SECONDS
@@ -1033,3 +1047,9 @@ GLOBAL_LIST_INIT(ai_damtype_to_heal_list, list(
 ))
 
 #define POINT_TIME 4 SECONDS
+
+// Dragon
+
+#define DRAGON_BREATH_MELTING "Melting"
+#define DRAGON_BREATH_SHATTERING "Shattering"
+#define DRAGON_BREATH_MELTING_ACID "Melting Acid"

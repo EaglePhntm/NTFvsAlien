@@ -209,6 +209,12 @@
 	description = ""
 	keybind_signal = COMSIG_XENOABILITY_PSYCHIC_WHISPER
 
+/datum/keybinding/xeno/psychic_radiance
+	name = "psychic_radiance"
+	full_name = "Psychic Radiance"
+	description = ""
+	keybind_signal = COMSIG_XENOABILITY_PSYCHIC_RADIANCE
+
 /datum/keybinding/xeno/impregnate
 	name = "Impregnate"
 	full_name = "Impregnate"
@@ -429,7 +435,7 @@
 
 /datum/keybinding/xeno/drop_all_hugger
 	name = "drop_all_hugger"
-	full_name = "Carrier: Drop All Facehuggers"
+	full_name = "Carrier: Carrier Panic"
 	description = "Drop all stored huggers in a fit of panic. Uses all remaining plasma!"
 	keybind_signal = COMSIG_XENOABILITY_DROP_ALL_HUGGER
 	hotkey_keys = list("Space")

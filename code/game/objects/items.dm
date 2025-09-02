@@ -384,7 +384,7 @@
 ///When hit by a thrown object, play the associated hitsound of the object
 /obj/item/throw_impact(atom/hit_atom, speed, bounce)
 	. = ..()
-	if(. && isliving(hit_atom))
+	if(. && isliving(hit_atom) && hitsound)
 		playsound(src, hitsound, 50)
 
 // apparently called whenever an item is removed from a slot, container, or anything else.
@@ -545,6 +545,9 @@
 	var/list/mob_equip = list()
 	if(H.species.hud?.equip_slots)
 		mob_equip = H.species.hud.equip_slots
+
+	if(!H.has_limb_for_slot(slot))
+		return FALSE
 
 	if(bitslot)
 		var/old_slot = slot
@@ -1185,11 +1188,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		// Create a callback with checks that would be called every tick by do_after.
 		var/datum/callback/tool_check = CALLBACK(src, PROC_REF(tool_check_callback), user, amount, extra_checks)
 
-		if(ismob(target))
-			if(do_mob(user, target, delay, extra_checks=tool_check))
-				return
-
-		else if(!do_after(user, delay, target=target, extra_checks=tool_check))
+		if(!do_after(user, delay, target=target, extra_checks=tool_check))
 			return
 
 	else if(extra_checks && !extra_checks.Invoke()) // Invoke the extra checks once, just in case.
@@ -1355,18 +1354,22 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 //fancy tricks
 
-///Checks to see if you successfully perform a trick, and what kind
-/obj/item/proc/do_trick(mob/living/carbon/human/user)
-	if(TIMER_COOLDOWN_RUNNING(user, COOLDOWN_ITEM_TRICK))
-		return FALSE
+/// Checks if you can do a trick with it.
+/obj/item/proc/can_do_trick(mob/living/carbon/human/user)
 	if(!istype(user))
 		return FALSE
-	var/chance = -5
-	chance = user.health < 6 ? 0 : user.health - 5
+	if(TIMER_COOLDOWN_RUNNING(user, COOLDOWN_ITEM_TRICK))
+		return FALSE
+	if(item_flags & ITEM_ABSTRACT)
+		return FALSE
+	return TRUE
 
-	var/obj/item/double = user.get_inactive_held_item()
-	if(prob(chance))
-		switch(rand(1,7))
+/// Does a random trick if you are lucky enough to do one.
+/obj/item/proc/do_trick(mob/living/carbon/human/user)
+	var/success_chance = max(0, user.health - 5)
+	if(success_chance)
+		var/obj/item/double = user.get_inactive_held_item()
+		switch(rand(1, (istype(double) && double.can_do_trick(user)) ? 7 : 4))
 			if(1)
 				basic_spin_trick(user, -1)
 			if(2)
@@ -1376,23 +1379,17 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			if(4)
 				basic_spin_trick(user, 1)
 			if(5)
-				var/arguments[] = istype(double) ? list(user, 1, double) : list(user, -1)
-				basic_spin_trick(arglist(arguments))
+				basic_spin_trick(user, 1, double)
 			if(6)
-				var/arguments[] = istype(double) ? list(user, -1, double) : list(user, 1)
-				basic_spin_trick(arglist(arguments))
+				basic_spin_trick(user, -1, double)
 			if(7)
-				if(istype(double))
-					spawn(0)
-						double.throw_catch_trick(user)
-					throw_catch_trick(user)
-				else
-					throw_catch_trick(user)
+				spawn(0)
+					double.throw_catch_trick(user)
+				throw_catch_trick(user)
+	else if(prob(10))
+		to_chat(user, span_warning("You fumble with [src] like an idiot... Uncool."))
 	else
-		if(prob(10))
-			to_chat(user, span_warning("You fumble with [src] like an idiot... Uncool."))
-		else
-			user.visible_message(span_info("<b>[user]</b> fumbles with [src] like a huge idiot!"))
+		user.visible_message(span_info("<b>[user]</b> fumbles with [src] like a huge idiot!"))
 
 	TIMER_COOLDOWN_START(user, COOLDOWN_ITEM_TRICK, 6)
 

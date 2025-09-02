@@ -14,10 +14,11 @@ endmap
 
 map lv624
 	minplayers 1
+	default
 endmap
 
-map lv624small
-    default
+map lv624bases
+	minplayers 0
 endmap
 
 map bigred_v2
@@ -130,4 +131,8 @@ map metnal
 
 map fiorina
 	minplayers 1
+endmap
+
+map bluemoon
+	maxplayers 40
 endmap

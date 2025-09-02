@@ -333,7 +333,7 @@
 				forceMove(z_destination)
 
 
-	if(firer && !recursivity)
+	if(ismob(firer) && !recursivity)
 		record_projectile_fire(firer)
 		GLOB.round_statistics.total_projectiles_fired[firer.faction]++
 		SSblackbox.record_feedback("tally", "round_statistics", 1, "total_projectiles_fired[firer.faction]")
@@ -888,7 +888,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 		return FALSE
 	if(proj.ammo.ammo_behavior_flags & AMMO_SKIPS_ALIENS)
 		return FALSE
-	if(proj.ammo.ammo_behavior_flags & AMMO_SNIPER)
+	if((proj.ammo.ammo_behavior_flags & AMMO_SNIPER) && proj.iff_signal)
 		var/datum/status_effect/incapacitating/recently_sniped/sniped = is_recently_sniped()
 		var/obj/item/weapon/gun/shooter = proj.shot_from
 
@@ -902,7 +902,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 
 			sniped.duration = max(world.time + shooter.fire_delay, sniped.duration)
 
-			if(sniped.shooter != WEAKREF(shooter)) //different gun shot us, apply the effect.
+			if(sniped.shooter != WEAKREF(shooter))//different gun shot us, apply the effect.
 				proj.damage = proj.damage * 0.1
 
 			sniped.shooter = WEAKREF(shooter)
@@ -977,7 +977,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 	if(proj.sundering)
 		adjust_sunder(proj.sundering)
 
-	if(stat != DEAD && proj.firer)
+	if(stat != DEAD && ismob(proj.firer))
 		proj.firer.record_projectile_damage(damage, src)	//Tally up whoever the shooter was
 
 	if(damage)
@@ -1038,7 +1038,8 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 	setDir(angle2dir(dir_angle))
 
 	if(!recursivity)	//Recursivity check in case the bonus projectiles have bonus projectiles of their own. Let's not loop infinitely.
-		record_projectile_fire(shooter)
+		if(ismob(shooter))
+			record_projectile_fire(shooter)
 
 		//If we have the the right kind of ammo, we can fire several projectiles at once.
 		if(ammo.bonus_projectiles_amount)
@@ -1325,10 +1326,9 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 
 /mob/living/proc/bullet_message(atom/movable/projectile/proj, feedback_flags, damage)
 	if(!proj.firer)
-		log_message("SOMETHING?? shot [key_name(src)] with a [proj]", LOG_ATTACK)
+		src.log_message("was shot by SOMETHING?? with [logdetails(proj)]", LOG_ATTACK)
 		return BULLET_MESSAGE_NO_SHOOTER
-	var/turf/T = get_turf(proj.firer)
-	log_combat(proj.firer, src, "shot", proj, "in [AREACOORD(T)]")
+	log_combat(proj.firer, src, "shot", proj)
 	if(ishuman(proj.firer))
 		return BULLET_MESSAGE_HUMAN_SHOOTER
 	return BULLET_MESSAGE_OTHER_SHOOTER

@@ -21,7 +21,7 @@
 	evolution_threshold = 225
 
 	deevolves_to = /datum/xeno_caste/defender
-	caste_flags = CASTE_INNATE_PLASMA_REGEN|CASTE_PLASMADRAIN_IMMUNE|CASTE_EVOLUTION_ALLOWED
+	caste_flags = CASTE_INNATE_PLASMA_REGEN|CASTE_PLASMADRAIN_IMMUNE|CASTE_EVOLUTION_ALLOWED|CASTE_MUTATIONS_ALLOWED
 
 	soft_armor = list(MELEE = 20, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 10, BIO = 20, FIRE = 20, ACID = 20)
 	minimap_icon = "puppeteer"
@@ -49,6 +49,13 @@
 		/datum/action/ability/activable/xeno/articulate,
 		/datum/action/ability/activable/xeno/puppet_blessings,
 		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
+	)
+
+	mutations = list(
+		/datum/mutation_upgrade/shell/flesh_for_life,
+		/datum/mutation_upgrade/spur/suffocating_presence,
+		/datum/mutation_upgrade/veil/shifting_costs
 	)
 
 /datum/xeno_caste/puppeteer/normal
@@ -86,6 +93,7 @@
 		/datum/action/ability/activable/xeno/articulate,
 		/datum/action/ability/activable/xeno/puppet_blessings,
 		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
 	)
 
 	aura_strength = 3

@@ -9,6 +9,9 @@
 	if((resistance_flags & INDESTRUCTIBLE) || obj_integrity <= 0)
 		return
 
+	if((istype(src, /turf/closed/wall/resin) || istype(src, /obj/structure/mineral_door/resin) || istype(src, /obj/structure/xeno) || istype(src, /obj/alien/weeds)) && issamexenohive(blame_mob))
+		return
+
 	if(armor_type)
 		damage_amount = round(modify_by_armor(damage_amount, armor_type, armour_penetration, null, attack_dir), DAMAGE_PRECISION)
 	if(damage_amount < DAMAGE_PRECISION)
@@ -35,7 +38,8 @@
 	if(user?.client)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[user.ckey]
 		personal_statistics.integrity_repaired += repair_amount
-		personal_statistics.mission_integrity_repaired += repair_amount
+		if(!is_ground_level(user.z)) //Can't trust players
+			personal_statistics.mission_integrity_repaired += repair_amount
 		personal_statistics.times_repaired++
 	obj_integrity += repair_amount
 
@@ -133,7 +137,7 @@
 	if(xeno_attacker.status_flags & INCORPOREAL) //Ghosts can't attack machines
 		return FALSE
 	SEND_SIGNAL(xeno_attacker, COMSIG_XENOMORPH_ATTACK_OBJ, src)
-	if(SEND_SIGNAL(src, COMSIG_OBJ_ATTACK_ALIEN, xeno_attacker) & COMPONENT_NO_ATTACK_ALIEN)
+	if(SEND_SIGNAL(src, COMSIG_OBJ_ATTACK_ALIEN, xeno_attacker, damage_amount) & COMPONENT_NO_ATTACK_ALIEN)
 		return FALSE
 	if(!(resistance_flags & XENO_DAMAGEABLE))
 		to_chat(xeno_attacker, span_warning("We stare at \the [src] cluelessly."))
@@ -149,7 +153,6 @@
 /obj/attack_larva(mob/living/carbon/xenomorph/larva/L)
 	L.visible_message(span_danger("[L] nudges its head against [src]."), \
 	span_danger("You nudge your head against [src]."))
-
 
 ///the obj is deconstructed into pieces, whether through careful disassembly or when destroyed.
 /obj/proc/deconstruct(disassembled = TRUE, mob/living/blame_mob)

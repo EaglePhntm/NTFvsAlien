@@ -11,6 +11,7 @@ GLOBAL_LIST_EMPTY(stealthminID)						//reference list with IDs that store ckeys,
 
 GLOBAL_LIST_EMPTY(player_list)				//all mobs **with clients attached**.
 GLOBAL_LIST_EMPTY(mob_list)					//all mobs, including clientless
+GLOBAL_LIST_EMPTY(mobs_by_ckey_list)		//all mobs with keys, associative via ckey
 GLOBAL_LIST_EMPTY(new_player_list)			//all /mob/new_player
 GLOBAL_LIST_EMPTY(ready_players)			//all /mob/new_player that are (ready == TRUE)
 GLOBAL_LIST_EMPTY(observer_list)			//all /mob/dead/observer
@@ -75,6 +76,8 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/gorger/primordial,
 	/mob/living/carbon/xenomorph/hunter,
 	/mob/living/carbon/xenomorph/hunter/primordial,
+	/mob/living/carbon/xenomorph/hunter/assassin,
+	/mob/living/carbon/xenomorph/hunter/assassin/primordial,
 	/mob/living/carbon/xenomorph/warrior,
 	/mob/living/carbon/xenomorph/warrior/primordial,
 	/mob/living/carbon/xenomorph/spitter,
@@ -125,6 +128,8 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/puppeteer/primordial,
 	/mob/living/carbon/xenomorph/behemoth,
 	/mob/living/carbon/xenomorph/behemoth/primordial,
+	/mob/living/carbon/xenomorph/behemoth/sieger,
+	/mob/living/carbon/xenomorph/behemoth/sieger/primordial,
 	/mob/living/carbon/xenomorph/beetle,
 	/mob/living/carbon/xenomorph/mantis,
 	/mob/living/carbon/xenomorph/scorpion,

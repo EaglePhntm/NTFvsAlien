@@ -200,7 +200,7 @@
 
 	var/turf/TU = get_turf(A)
 	var/distance = get_dist(TU, get_turf(user))
-	var/zoom_screen_size = zoom_tile_offset + zoom_viewsize + 1
+	var/zoom_screen_size = zoom_tile_offset + zoom_viewsize + 3
 	if(TU.z != user.z || distance == -1 || (distance > zoom_screen_size))
 		to_chat(user, span_warning("You can't focus properly through \the [src] while looking through something else."))
 		return
@@ -236,7 +236,7 @@
 		if(MODE_CAS)
 			to_chat(user, span_notice("TARGET ACQUIRED. LASER TARGETING IS ONLINE. DON'T MOVE."))
 			log_game("[key_name(user)] has begun lasing a CAS mission at [AREACOORD(TU)].")
-			var/obj/effect/overlay/temp/laser_target/cas/CS = new (TU, 0, laz_name, S)
+			var/obj/effect/overlay/temp/laser_target/cas/CS = new (TU, 0, laz_name, S, user.faction)
 			laser = CS
 			playsound(src, 'sound/effects/binoctarget.ogg', 35)
 			while(laser)

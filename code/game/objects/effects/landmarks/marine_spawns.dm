@@ -201,6 +201,10 @@
 	icon_state = "som_staff_officer"
 	job = /datum/job/icc_squad/leader
 
+/obj/effect/landmark/start/job/som/icc_tech
+	icon_state = "som_staff_officer"
+	job = /datum/job/icc_squad/tech
+
 /obj/effect/landmark/start/job/clf/leader
 	icon_state = "Shaft Miner"
 	job = /datum/job/clf/leader
@@ -232,6 +236,10 @@
 /obj/effect/landmark/start/job/prisonersom
 	icon_state = "Shaft Miner"
 	job = /datum/job/other/prisonersom
+
+/obj/effect/landmark/start/job/prisonerclf
+	icon_state = "Shaft Miner"
+	job = /datum/job/other/prisonerclf
 
 // pmc
 

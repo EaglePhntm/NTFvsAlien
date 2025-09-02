@@ -24,6 +24,12 @@
 	var/list/obj/structure/xeno/pherotower/pherotowers = list()
 	/// List of recovery pylons.
 	var/list/obj/structure/xeno/recovery_pylon/recovery_pylons = list()
+	/// List of shell mutation chambers.
+	var/list/obj/structure/xeno/mutation_chamber/shell/shell_chambers = list()
+	/// List of spur mutation chambers.
+	var/list/obj/structure/xeno/mutation_chamber/spur/spur_chambers = list()
+	/// List of veil mutation chambers.
+	var/list/obj/structure/xeno/mutation_chamber/veil/veil_chambers = list()
 
 	///list of hivemind cores
 	var/list/obj/structure/xeno/hivemindcore/hivemindcores = list()
@@ -33,7 +39,7 @@
 	var/list/client/candidates
 	/// Amount of special resin points used to build special resin walls by each hive.
 	var/special_build_points = 50
-	/// These factions cannot sell this hive's corpses.
+	/// These factions will not be attacked by turrets of this hive but cannot sell their resin jelly or corpses.
 	var/list/allied_factions = list(FACTION_CLF, FACTION_XENO)
 
 	///Reference to upgrades available and purchased by this hive.
@@ -146,6 +152,13 @@
 	// Acid Jaws
 	for(var/obj/structure/xeno/acid_maw/acid_jaws AS in GLOB.xeno_acid_jaws_by_hive[hivenumber])
 		.["hive_structures"] += list(get_structure_packet(acid_jaws))
+	// Mutation chambers
+	for(var/obj/structure/xeno/mutation_chamber/shell/chamber AS in GLOB.hive_datums[hivenumber].shell_chambers)
+		.["hive_structures"] += list(get_structure_packet(chamber))
+	for(var/obj/structure/xeno/mutation_chamber/spur/chamber AS in GLOB.hive_datums[hivenumber].spur_chambers)
+		.["hive_structures"] += list(get_structure_packet(chamber))
+	for(var/obj/structure/xeno/mutation_chamber/veil/chamber AS in GLOB.hive_datums[hivenumber].veil_chambers)
+		.["hive_structures"] += list(get_structure_packet(chamber))
 
 	.["xeno_info"] = list()
 	for(var/mob/living/carbon/xenomorph/xeno AS in get_all_xenos())
@@ -181,6 +194,7 @@
 	.["user_maturity"] = isxeno(user) ? xeno_user.upgrade_stored : 0
 	.["user_next_mat_level"] = isxeno(user) && xeno_user.upgrade_possible() ? xeno_user.xeno_caste.upgrade_threshold : 0
 	.["user_tracked"] = isxeno(user) && !isnull(xeno_user.tracked) ? REF(xeno_user.tracked) : ""
+	.["user_can_mutate"] = isxeno(user) && (xeno_user.xeno_caste.caste_flags & CASTE_MUTATIONS_ALLOWED) && ((SSticker.mode?.round_type_flags & MODE_MUTATIONS_OBTAINABLE) || HAS_TRAIT(xeno_user, TRAIT_VALHALLA_XENO))
 
 	.["user_show_empty"] = !!(user.client.prefs.status_toggle_flags & HIVE_STATUS_SHOW_EMPTY)
 	.["user_show_compact"] = !!(user.client.prefs.status_toggle_flags & HIVE_STATUS_COMPACT_MODE)
@@ -286,6 +300,10 @@
 			if(!isxeno(usr))
 				return
 			SEND_SIGNAL(usr, COMSIG_XENOABILITY_BLESSINGSMENU)
+		if("Mutations")
+			if(!isxeno(usr))
+				return
+			GLOB.mutation_selector.interact(usr)
 		if("Compass")
 			var/atom/target = locate(params["target"])
 			if(isobserver(usr))
@@ -456,11 +474,21 @@
 
 	hive = HS
 	hivenumber = HS.hivenumber // just to be sure
+	LAZYADD(GLOB.alive_xeno_list_hive[hivenumber], src)
 	generate_name()
 
 	SSdirection.start_tracking(HS.hivenumber, src)
 	hive.update_tier_limits() //Update our tier limits.
 	hive.update_ruler()
+
+	remove_abilities()
+	remove_component(/datum/component/seethrough_mob)
+	for(var/datum/action/A in actions)
+		if(istype(A, /datum/action/toggle_seethrough))
+			A.remove_action(src)
+	apply_minimap_hud()
+	add_abilities()
+	AddComponent(/datum/component/seethrough_mob)
 
 /mob/living/carbon/xenomorph/hivemind/add_to_hive(datum/hive_status/HS, force = FALSE, prevent_ruler=FALSE)
 	. = ..()
@@ -554,6 +582,7 @@
 
 	SSdirection.stop_tracking(hive.hivenumber, src)
 
+	LAZYREMOVE(GLOB.alive_xeno_list_hive[hivenumber], src)
 	var/datum/hive_status/reference_hive = hive
 	hive = null
 	hivenumber = XENO_HIVE_NONE // failsafe value
@@ -748,6 +777,8 @@
 	var/list/mob/living/carbon/xenomorph/seco_candidates = xenos_by_tier[XENO_TIER_THREE]
 
 	for(var/mob/living/carbon/xenomorph/potential_successor in prio_candidates)
+		if(!(potential_successor.xeno_caste.can_flags & CASTE_CAN_BE_RULER))
+			continue
 		successor = potential_successor
 		if(isxenoqueen(potential_successor))
 			break
@@ -1205,6 +1236,25 @@ to_chat will check for valid clients itself already so no need to double check f
 	tier3_xeno_limit = max(threes, FLOOR((zeros + ones + twos + fours + threes*SSticker.mode.tier_three_inclusion) / 3 + length(psychictowers) + 1  - SSticker.mode.tier_three_penalty, 1))
 	tier2_xeno_limit = max(twos, (zeros + ones + fours) + length(psychictowers) * 2 + 1 - threes)
 
+/// Returns TRUE if the hive owns any mutation structures.
+/datum/hive_status/proc/has_any_mutation_structures()
+	return length(shell_chambers) || length(spur_chambers) || length(veil_chambers)
+
+/// Returns TRUE if the hive owns any mutation structures in a particular category.
+/datum/hive_status/proc/has_any_mutation_structures_in_category(category)
+	switch(category)
+		if(MUTATION_SHELL)
+			if(length(shell_chambers))
+				return TRUE
+		if(MUTATION_SPUR)
+			if(length(spur_chambers))
+				return TRUE
+		if(MUTATION_VEIL)
+			if(length(veil_chambers))
+				return TRUE
+	return FALSE
+
+
 // ***************************************
 // *********** Corrupted Xenos
 // ***************************************
@@ -1647,7 +1697,7 @@ to_chat will check for valid clients itself already so no need to double check f
 /atom/proc/get_xeno_hivenumber()
 	return FALSE
 
-/obj/alien/egg/get_xeno_hivenumber()
+/obj/alien/get_xeno_hivenumber()
 	return hivenumber
 
 /obj/item/alien_embryo/get_xeno_hivenumber()
@@ -1656,7 +1706,10 @@ to_chat will check for valid clients itself already so no need to double check f
 /obj/item/clothing/mask/facehugger/get_xeno_hivenumber()
 	return hivenumber
 
-/mob/living/carbon/xenomorph/get_xeno_hivenumber()
+/mob/living
+	var/hivenumber = FALSE
+
+/mob/living/get_xeno_hivenumber()
 	return hivenumber
 
 /mob/illusion/xeno/get_xeno_hivenumber()
@@ -1669,17 +1722,21 @@ to_chat will check for valid clients itself already so no need to double check f
 	return ..()
 
 /obj/structure/xeno/trap/get_xeno_hivenumber()
-	if(hugger)
-		return hugger.hivenumber
+	if(length(huggers))
+		return huggers[1].hivenumber
 	return ..()
 
-/mob/living/carbon/human/get_xeno_hivenumber()
-	if(faction == FACTION_ZOMBIE)
-		return FACTION_ZOMBIE
-	if(faction == FACTION_CLF)
-		return XENO_HIVE_NORMAL
-	return FALSE
-
 /obj/machinery/deployable/mounted/sentry/get_xeno_hivenumber()
-	if(iff_signal == CLF_IFF)
-		return XENO_HIVE_NORMAL
+	return hivenumber
+
+/obj/structure/mineral_door/resin/get_xeno_hivenumber()
+	return hivenumber
+
+/turf/closed/wall/resin/get_xeno_hivenumber()
+	return hivenumber
+
+/obj/item/resin_jelly/get_xeno_hivenumber()
+	return hivenumber
+
+/obj/item/reagent_containers/food/snacks/nutrient_jelly/get_xeno_hivenumber()
+	return hivenumber

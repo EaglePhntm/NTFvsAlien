@@ -224,19 +224,10 @@
 			/obj/item/tool/soap = 3,
 			/obj/item/clothing/glasses/hud/health = 6,
 			/obj/item/roller = 6,
+			/obj/item/stack/nanopaste = 15,
 		),
 	)
 	idle_power_usage = 211
-
-/obj/machinery/vending/medical/som
-	name = "Stolen Medicament Vendor"
-	desc = "Medical Pharmaceutical dispenser. 'Provided' by Novamed Pharmaceuticals."
-	req_access = ACCESS_SOM_MEDICAL
-
-/obj/machinery/vending/medical/kz
-	name = "KZ Medicament Vendor"
-	desc = "Medical Pharmaceutical dispenser. 'Provided' by Novamed Pharmaceuticals."
-	req_access = ACCESS_VSD_MEDPREP
 
 /obj/machinery/vending/medical/shipside
 	isshared = TRUE
@@ -471,11 +462,9 @@
 			/obj/item/ammo_magazine/shotgun/tracker = 16,
 			/obj/item/ammo_magazine/rifle/tx15_flechette = 30,
 			/obj/item/ammo_magazine/rifle/tx15_slug = 30,
-			/* Icons broken - needs modularization
 			/obj/item/ammo_magazine/rifle/sh410_sabot = 30,
 			/obj/item/ammo_magazine/rifle/sh410_buckshot = 30,
-			/obj/item/ammo_magazine/rifle/sh410_tracker = 30,
-			*/
+			/obj/item/ammo_magazine/rifle/sh410_ricochet = 30,
 		),
 		"Machinegun" = list(
 			/obj/item/ammo_magazine/standard_lmg = 30,

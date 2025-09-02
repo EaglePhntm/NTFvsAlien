@@ -13,8 +13,7 @@
 	. = ..()
 	set_datum()
 	add_inherent_verbs()
-	var/datum/action/minimap/xeno/mini = new
-	mini.give_action(src)
+	apply_minimap_hud()
 	add_abilities()
 
 	var/datum/game_mode/mode = SSticker.mode
@@ -77,7 +76,11 @@
 	if(CONFIG_GET(flag/xenos_on_strike))
 		replace_by_ai()
 	if(z) //Larva are initiated in null space
-		SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_icon, MINIMAP_BLIPS_LAYER))
+		SSminimaps.remove_marker(src)
+		if(hivenumber == XENO_HIVE_NORMAL || hivenumber != XENO_HIVE_CORRUPTED)
+			SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_icon, MINIMAP_BLIPS_LAYER))
+		if(hivenumber == XENO_HIVE_CORRUPTED)
+			SSminimaps.add_marker(src, MINIMAP_FLAG_MARINE, image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_icon, MINIMAP_BLIPS_LAYER))
 	handle_weeds_on_movement()
 
 	AddElement(/datum/element/footstep, footstep_type, mob_size >= MOB_SIZE_BIG ? 0.8 : 0.5)
@@ -156,7 +159,7 @@
 /mob/living/carbon/xenomorph/proc/generate_name()
 	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
 	var/rank_name
-	var/prefix = (hive.prefix || xeno_caste.upgrade_name) ? "[hive.prefix][xeno_caste.upgrade_name] " : ""
+	var/prefix = "[hive.prefix][xeno_caste.upgrade_name ? "[xeno_caste.upgrade_name] " : ""]"
 	if(!client?.prefs.show_xeno_rank || !client)
 		name = prefix + "[xeno_caste.display_name] ([nicknumber])"
 		real_name = name
@@ -350,7 +353,7 @@
 	if(!ishuman(puller))
 		return TRUE
 	var/mob/living/carbon/human/H = puller
-	if(hivenumber == XENO_HIVE_CORRUPTED) // we can grab friendly benos
+	if(hivenumber == XENO_HIVE_CORRUPTED && !(xeno_flags & XENO_ALLIES_BUMP)) // we can grab friendly benos
 		return TRUE
 	H.Paralyze(rand(xeno_caste.tacklemin,xeno_caste.tacklemax) * 20)
 	playsound(H.loc, 'sound/weapons/pierce.ogg', 25, 1)
@@ -360,7 +363,10 @@
 
 /mob/living/carbon/xenomorph/resist_grab()
 	if(pulledby.grab_state)
-		visible_message(span_danger("[src] has broken free of [pulledby]'s grip!"), null, null, 5)
+		if(!isxeno(pulledby))
+			visible_message(span_danger("[src] has broken free of [pulledby]'s grip!"), null, null, 5)
+		else
+			return ..()
 	pulledby.stop_pulling()
 	. = 1
 
@@ -467,6 +473,8 @@
 	for(var/obj/alien/weeds/W in range(strict_turf_check ? 0 : 1, T ? T : get_turf(src)))
 		if(QDESTROYING(W))
 			continue
+		if(!issamexenohive(W))
+			continue
 		return
 	return FALSE
 
@@ -482,6 +490,9 @@
 /mob/living/carbon/xenomorph/proc/handle_weeds_on_movement(datum/source)
 	SIGNAL_HANDLER
 	var/obj/alien/weeds/found_weed = locate(/obj/alien/weeds) in loc
+	if(!issamexenohive(found_weed))
+		loc_weeds_type = null
+		return
 	loc_weeds_type = found_weed?.type
 
 /mob/living/carbon/xenomorph/toggle_resting()
@@ -594,18 +605,23 @@
 		return
 	INVOKE_ASYNC(src, PROC_REF(carry_target), user, TRUE)
 
-///updates the xenos glow, based on its base glow/color, and its ammo reserves. More green ammo = more green glow; more yellow = more yellow.
+/// Updates the xenomorph's light based on their stored corrosive and neurotoxin ammo. The range, power, and color scales accordingly. More corrosive ammo = more green color; more neurotoxin ammo = more yellow color.
 /mob/living/carbon/xenomorph/proc/update_ammo_glow()
-	var/current_ammo = corrosive_ammo + neuro_ammo
+	var/current_ammo = corrosive_ammo + neurotoxin_ammo
 	var/ammo_glow = BOILER_LUMINOSITY_AMMO * current_ammo
 	var/glow = CEILING(BOILER_LUMINOSITY_BASE + ammo_glow, 1)
 	var/color = BOILER_LUMINOSITY_BASE_COLOR
 	if(current_ammo)
-		var/ammo_color = BlendRGB(BOILER_LUMINOSITY_AMMO_CORROSIVE_COLOR, BOILER_LUMINOSITY_AMMO_NEUROTOXIN_COLOR, neuro_ammo/current_ammo)
-		color = BlendRGB(color, ammo_color, (ammo_glow*2)/glow)
-	if(!light_on && glow >= BOILER_LUMINOSITY_THRESHOLD)
+		var/ammo_color = BlendRGB(BOILER_LUMINOSITY_AMMO_CORROSIVE_COLOR, BOILER_LUMINOSITY_AMMO_NEUROTOXIN_COLOR, neurotoxin_ammo / current_ammo)
+		color = BlendRGB(color, ammo_color, (ammo_glow * 2) / glow)
+	if(!glob_luminosity_slowing && current_ammo > glob_luminosity_threshold)
 		set_light_on(TRUE)
-	else if(glow < BOILER_LUMINOSITY_THRESHOLD && !fire_luminosity)
-		set_light_range_power_color(0, 0)
-		set_light_on(FALSE)
-	set_light_range_power_color(glow, 4, color)
+		set_light_range_power_color(glow, 4, color) //
+		return
+	remove_movespeed_modifier(MOVESPEED_ID_BOILER_GLOB_GLOW)
+	var/excess_globs = current_ammo - glob_luminosity_threshold
+	if(glob_luminosity_slowing && excess_globs > 0)
+		add_movespeed_modifier(MOVESPEED_ID_BOILER_GLOB_GLOW, TRUE, 0, NONE, TRUE, excess_globs * glob_luminosity_slowing)
+	// Light from being on fire is not from us, but from an overlay attached to us. Therefore, we don't need to worry about it.
+	set_light_range_power_color(0, 0)
+	set_light_on(FALSE)

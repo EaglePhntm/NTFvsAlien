@@ -88,6 +88,8 @@
 		adjustBruteLoss(XENO_CRIT_DAMAGE * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD)
 
 /mob/living/carbon/xenomorph/proc/heal_wounds(multiplier = XENO_RESTING_HEAL, scaling = FALSE, seconds_per_tick = 2)
+	if(HAS_TRAIT(src, TRAIT_NOHEALTHREGEN))
+		return
 	var/amount = 1 + (maxHealth * 0.0375) // 1 damage + 3.75% max health, with scaling power.
 	if(recovery_aura)
 		amount += recovery_aura * maxHealth * 0.01 // +1% max health per recovery level, up to +5%
@@ -103,10 +105,10 @@
 		amount *= regen_power
 	amount *= multiplier * GLOB.xeno_stat_multiplicator_buff * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD
 
-	var/list/heal_data = list(amount)
+	var/list/heal_data = list(amount, amount)
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_HEALTH_REGEN, heal_data, seconds_per_tick)
 	HEAL_XENO_DAMAGE(src, heal_data[1], TRUE)
-	return heal_data[1]
+	return heal_data // [1] = amount of unused healing, [2] = raw healing
 
 /mob/living/carbon/xenomorph/proc/handle_living_plasma_updates(seconds_per_tick)
 	var/turf/T = loc
@@ -189,13 +191,10 @@
 			clear_alert(ALERT_FIRE)
 
 /mob/living/carbon/xenomorph/updatehealth()
-	if(status_flags & GODMODE)
-		health = maxHealth
-		stat = CONSCIOUS
+	. = ..()
+	if(!. || QDELING(src)) // For godmode / if they got gibbed via update_stat.
 		return
-	health = maxHealth - getFireLoss() - getBruteLoss() //Xenos can only take brute and fire damage.
-	med_hud_set_health() //todo: Make all damage update health so we can just kill pointless life updates entirely
-	update_stat()
+	med_hud_set_health() // Todo: Make all damage update health so we can just kill pointless life updates entirely.
 	update_wounds()
 
 /mob/living/carbon/xenomorph/handle_slowdown()

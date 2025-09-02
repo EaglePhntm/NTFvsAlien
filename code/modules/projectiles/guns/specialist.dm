@@ -234,7 +234,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	default_ammo_type = /obj/item/ammo_magazine/sniper/elite
 	allowed_ammo_types = list(/obj/item/ammo_magazine/sniper/elite)
 	force = 17
-	attachable_allowed = list()
 	gun_features_flags = GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_IFF|GUN_SMOKE_PARTICLES
 	attachable_offset = list("muzzle_x" = 32, "muzzle_y" = 18,"rail_x" = 15, "rail_y" = 19, "under_x" = 20, "under_y" = 15, "stock_x" = 20, "stock_y" = 15)
 	item_map_variant_flags = NONE
@@ -1166,7 +1165,9 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 		)
 	attachable_allowed = list(/obj/item/attachable/flashlight, /obj/item/attachable/magnetic_harness)
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 19,"rail_x" = 13, "rail_y" = 22, "under_x" = 24, "under_y" = 14, "stock_x" = 24, "stock_y" = 12)
-	fire_delay = 0.8 SECONDS
+
+	fire_delay = 0.45 SECONDS
+	wield_delay = 0.85 SECONDS
 	windup_delay = 0 SECONDS
 	aim_slowdown = 2.75
 	accuracy_mult = 2

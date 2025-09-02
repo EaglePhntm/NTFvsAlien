@@ -58,6 +58,16 @@ ADMIN_VERB(rouny_all, R_FUN, "Toggle Glob Xeno Rouny", "Toggle all living xenos 
 			return
 		xenotorouny.is_a_rouny = !xenotorouny.is_a_rouny
 
+ADMIN_VERB(toggle_observer_freedom, R_FUN, "Toggle Observer Freedom", "Makes observer able to orbit other factions' members etc, bad for pvp.", ADMIN_CATEGORY_FUN)
+	GLOB.observer_freedom = !GLOB.observer_freedom
+
+	if(GLOB.observer_freedom)
+		to_chat(world, span_boldnotice("observer freedom has been enabled!"))
+	else
+		to_chat(world, span_boldnotice("observer freedom has been disabled!"))
+
+	log_admin("[key_name(user)] [GLOB.observer_freedom ? "enabled" : "disabled"] observer freedom.")
+	message_admins("[ADMIN_TPMONTY(user.mob)] [GLOB.observer_freedom ? "enabled" : "disabled"] observer freedom.")
 
 ADMIN_VERB(hive_status, R_FUN, "Check Hive Status", "Check the status of the hive.", ADMIN_CATEGORY_FUN)
 	if(!SSticker)
@@ -876,8 +886,8 @@ ADMIN_VERB(ai_squad, R_FUN, "Spawn AI squad", "Spawns a AI squad of your choice"
 		dude.forceMove(spawn_loc)
 		dude.AddComponent(/datum/component/ai_controller, /datum/ai_behavior/human)
 
-	message_admins("[key_name_admin(user)] spawned a [quantity] man [squad_choice] of AI humans on the z-level [spawn_loc.z].")
-	log_admin("[key_name(user)] spawned a [quantity] man [squad_choice] of AI humans on the z-level [spawn_loc.z]")
+	message_admins("[key_name_admin(user)] spawned a [quantity] man [squad_choice] of AI humans in [AREACOORD(spawn_loc)].")
+	log_admin("[key_name(user)] spawned a [quantity] man [squad_choice] of AI humans in [AREACOORD(spawn_loc)].")
 
 
 ADMIN_VERB(load_lazy_template, R_FUN, "Load/Jump Lazy Template", "Loads a lazy template and/or jumps to it.", ADMIN_CATEGORY_FUN)

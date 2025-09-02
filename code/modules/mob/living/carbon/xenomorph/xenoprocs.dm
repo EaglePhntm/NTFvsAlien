@@ -166,9 +166,7 @@
 
 	. += "Regeneration power: [max(regen_power * 100, 0)]%"
 
-	var/caste_swap_timer = SSticker.mode.caste_swap_timer
-
-	var/casteswap_value = ((GLOB.key_to_time_of_caste_swap[key] ? GLOB.key_to_time_of_caste_swap[key] : -INFINITY)  + caste_swap_timer - world.time) * 0.1
+	var/casteswap_value = ((GLOB.key_to_time_of_caste_swap[key] ? GLOB.key_to_time_of_caste_swap[key] : -INFINITY)  + SSticker.mode.caste_swap_cooldown - world.time) * 0.1
 	if(casteswap_value <= 0)
 		. += "Caste Swap Timer: READY"
 	else
@@ -327,7 +325,7 @@
 	if(isliving(hit_atom)) //Hit a mob! This overwrites normal throw code.
 		if(SEND_SIGNAL(src, COMSIG_XENO_LIVING_THROW_HIT, hit_atom) & COMPONENT_KEEP_THROWING)
 			return FALSE
-		stop_throw() //Resert throwing since something was hit.
+		set_throwing(FALSE) //Resert throwing since something was hit.
 		return TRUE
 
 	return ..() //Do the parent otherwise, for turfs.
@@ -443,25 +441,25 @@
 
 
 // this mess will be fixed by obj damage refactor
-/atom/proc/acid_spray_act(mob/living/carbon/xenomorph/X)
+/atom/proc/acid_spray_act(mob/living/carbon/xenomorph/X, skip_cooldown)
 	return TRUE
 
-/obj/structure/acid_spray_act(mob/living/carbon/xenomorph/X)
+/obj/structure/acid_spray_act(mob/living/carbon/xenomorph/X, skip_cooldown)
 	if(!is_type_in_typecache(src, GLOB.acid_spray_hit))
 		return TRUE // normal density flag
 	take_damage(X.xeno_caste.acid_spray_structure_damage, BURN, ACID)
 	return TRUE // normal density flag
 
-/obj/structure/razorwire/acid_spray_act(mob/living/carbon/xenomorph/X)
+/obj/structure/razorwire/acid_spray_act(mob/living/carbon/xenomorph/X, skip_cooldown)
 	take_damage(2 * X.xeno_caste.acid_spray_structure_damage, BURN, ACID)
 	return FALSE // not normal density flag
 
-/mob/living/carbon/acid_spray_act(mob/living/carbon/xenomorph/X)
+/mob/living/carbon/acid_spray_act(mob/living/carbon/xenomorph/X, skip_cooldown)
 	ExtinguishMob()
 	if(isnestedhost(src))
 		return
 
-	if(TIMER_COOLDOWN_RUNNING(src, COOLDOWN_ACID))
+	if(!skip_cooldown && TIMER_COOLDOWN_RUNNING(src, COOLDOWN_ACID))
 		return
 	TIMER_COOLDOWN_START(src, COOLDOWN_ACID, 2 SECONDS)
 
@@ -481,13 +479,13 @@
 	emote("scream")
 	Paralyze(2 SECONDS)
 
-/mob/living/carbon/xenomorph/acid_spray_act(mob/living/carbon/xenomorph/X)
+/mob/living/carbon/xenomorph/acid_spray_act(mob/living/carbon/xenomorph/X, skip_cooldown)
 	ExtinguishMob()
 
-/obj/fire/flamer/acid_spray_act(mob/living/carbon/xenomorph/X)
+/obj/fire/flamer/acid_spray_act(mob/living/carbon/xenomorph/X, skip_cooldown)
 	qdel(src)
 
-/obj/hitbox/acid_spray_act(mob/living/carbon/xenomorph/X)
+/obj/hitbox/acid_spray_act(mob/living/carbon/xenomorph/X, skip_cooldown)
 	take_damage(X.xeno_caste.acid_spray_structure_damage, BURN, ACID)
 	return TRUE
 
@@ -515,8 +513,23 @@
 		H.remove_hud_from(src)
 	to_chat(src, span_notice("You have [(xeno_flags & XENO_MOBHUD) ? "enabled" : "disabled"] the Xeno Status HUD."))
 
+/mob/living/carbon/xenomorph/verb/toggle_bump_attack_allies()
+	set name = "Toggle Bump Attack Allies"
+	set desc = "Toggles the ability to bump attack your allies."
+	set category = "Alien"
 
-/mob/living/carbon/xenomorph/proc/recurring_injection(mob/living/carbon/C, list/toxin = list(/datum/reagent/toxin/xeno_neurotoxin), channel_time = XENO_NEURO_CHANNEL_TIME, transfer_amount = XENO_NEURO_AMOUNT_RECURRING, count = 4, no_overdose = FALSE)
+	xeno_flags ^= XENO_ALLIES_BUMP
+	to_chat(src, span_notice("You have [(xeno_flags & XENO_ALLIES_BUMP) ? "enabled" : "disabled"] the Bump Attack Allies Toggle."))
+
+/mob/living/carbon/xenomorph/verb/toggle_destroy_own_structures()
+	set name = "Toggle Destroy Own Structures"
+	set desc = "Toggles the ability to destroy your own structures."
+	set category = "Alien"
+
+	xeno_flags ^= XENO_DESTROY_OWN_STRUCTURES
+	to_chat(src, span_notice("You have [(xeno_flags & XENO_DESTROY_OWN_STRUCTURES) ? "enabled" : "disabled"] the Destroy Own Structures Toggle."))
+
+/mob/living/carbon/xenomorph/proc/recurring_injection(mob/living/carbon/C, list/toxin = list(/datum/reagent/toxin/xeno_neurotoxin), channel_time = XENO_NEURO_CHANNEL_TIME, transfer_amount = XENO_NEURO_AMOUNT_RECURRING, count = 4, datum/effect_system/smoke_spread/gas_type, gas_range, no_overdose = FALSE) //NTF edit - multiple chemicals in one injection
 	if(!C?.can_sting() || !toxin)
 		return FALSE
 	if(!length(toxin) && islist(toxin))
@@ -539,6 +552,10 @@
 		chemical_string += "[initial(chemical.name)][string_append]"
 	if(!do_after(src, channel_time, TRUE, C, BUSY_ICON_HOSTILE))
 		return FALSE
+	if(gas_type && gas_range)
+		var/datum/effect_system/smoke_spread/smoke_system = new gas_type()
+		smoke_system.set_up(gas_range, get_turf(C))
+		smoke_system.start()
 	var/i = 1
 	to_chat(C, span_danger("You feel a tiny prick."))
 	to_chat(src, span_xenowarning("Our stinger injects our victim with [chemical_string]!"))
@@ -569,7 +586,9 @@
 	. = ..()
 	if(.)
 		return
+	var/old_sunder = sunder
 	sunder = clamp(sunder + (adjustment > 0 ? adjustment * xeno_caste.sunder_multiplier : adjustment), 0, xeno_caste.sunder_max)
+	SEND_SIGNAL(src, COMSIG_XENOMORPH_SUNDER_CHANGE, old_sunder, sunder)
 //Applying sunder is an adjustment value above 0, healing sunder is an adjustment value below 0. Use multiplier when taking sunder, not when healing.
 
 /mob/living/carbon/xenomorph/set_sunder(new_sunder)
@@ -629,7 +648,10 @@
 	var/image/blip = image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_icon, MINIMAP_BLIPS_LAYER)
 	if(makeleader)
 		blip.overlays += image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_leadered_overlay)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, blip)
+	if(hivenumber != XENO_HIVE_CORRUPTED)
+		SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, blip)
+	if(hivenumber == XENO_HIVE_CORRUPTED)
+		SSminimaps.add_marker(src, MINIMAP_FLAG_MARINE, blip)
 
 ///updates the xeno's glow, based on the ability being used
 /mob/living/carbon/xenomorph/proc/update_glow(range, power, color)
@@ -644,7 +666,7 @@
 
 /mob/living/carbon/xenomorph/verb/swapgender()
 	set name = "Swap Gender"
-	set desc = "Swap between xeno genders in an instant, nothing compared to evolving."
+	set desc = "Swap between xeno genders in an instant, nothing compared to evolving. Some may not have textures, PR it yourself."
 	set category = "Alien"
 
 	update_xeno_gender(src, TRUE)
@@ -688,4 +710,4 @@
 
 	if(xeno_caste.caste_flags & CASTE_HAS_WOUND_MASK) //ig if u cant see wounds u shouldnt see tiddies too maybe for things like being ethereal
 		apply_overlay(GENITAL_LAYER)
-	genital_overlay.vis_flags &= ~VIS_HIDE // Show the overlay
+	genital_overlay.vis_flags &= ~VIS_HIDE // Show the overla

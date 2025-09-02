@@ -33,7 +33,7 @@
 	deevolves_to = /datum/xeno_caste/drone
 
 	// *** Flags *** //
-	caste_flags = CASTE_IS_INTELLIGENT|CASTE_IS_BUILDER|CASTE_INSTANT_EVOLUTION|CASTE_EVOLUTION_ALLOWED|CASTE_LEADER_TYPE
+	caste_flags = CASTE_IS_INTELLIGENT|CASTE_IS_BUILDER|CASTE_INSTANT_EVOLUTION|CASTE_EVOLUTION_ALLOWED|CASTE_LEADER_TYPE|CASTE_MUTATIONS_ALLOWED
 	can_hold_eggs = CAN_HOLD_TWO_HANDS
 	can_flags = parent_type::can_flags|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_CORRUPT_GENERATOR|CASTE_CAN_BE_RULER
 	caste_traits = list(TRAIT_CAN_TEAR_HOLE, TRAIT_CAN_DISABLE_MINER)
@@ -54,6 +54,7 @@
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
 		/datum/action/ability/xeno_action/psychic_whisper,
+		/datum/action/ability/xeno_action/psychic_radiance,
 		/datum/action/ability/xeno_action/psychic_influence,
 		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
@@ -83,6 +84,19 @@
 		/datum/action/ability/activable/psionic_interact,
 		/datum/action/ability/activable/xeno/place_pattern,
 		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
+	)
+
+	mutations = list(
+		/datum/mutation_upgrade/shell/lone_healer,
+		/datum/mutation_upgrade/shell/shared_cure,
+		/datum/mutation_upgrade/shell/resistant_cure,
+		/datum/mutation_upgrade/spur/smashing_fling,
+		/datum/mutation_upgrade/spur/psychic_choke,
+		/datum/mutation_upgrade/spur/gravity_tide,
+		/datum/mutation_upgrade/veil/delayed_condition,
+		/datum/mutation_upgrade/veil/deflective_force,
+		/datum/mutation_upgrade/veil/utility_fling
 	)
 
 /datum/xeno_caste/shrike/normal
@@ -97,6 +111,7 @@
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
 		/datum/action/ability/xeno_action/psychic_whisper,
+		/datum/action/ability/xeno_action/psychic_radiance,
 		/datum/action/ability/xeno_action/psychic_influence,
 		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
@@ -127,4 +142,5 @@
 		/datum/action/ability/activable/xeno/psychic_vortex,
 		/datum/action/ability/activable/xeno/place_pattern,
 		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
 	)

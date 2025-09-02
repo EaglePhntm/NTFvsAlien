@@ -16,6 +16,7 @@ GLOBAL_LIST_EMPTY(marine_turrets)
 GLOBAL_LIST_EMPTY(droppod_list)
 GLOBAL_LIST_EMPTY(tank_list)
 GLOBAL_LIST_EMPTY(mechas_list)
+GLOBAL_LIST_EMPTY(ridden_vehicles_list)
 GLOBAL_LIST_EMPTY(head_list)
 GLOBAL_LIST_EMPTY(beacon_list)
 GLOBAL_LIST_EMPTY(id_card_list)
@@ -51,6 +52,8 @@ GLOBAL_LIST_EMPTY(nuke_disk_spawn_locs)
 GLOBAL_LIST_EMPTY(nuke_disk_list)
 //list of all atoms which light can be shut down
 GLOBAL_LIST_EMPTY(nightfall_toggleable_lights)
+// List of all flares that are activated.
+GLOBAL_LIST_EMPTY(activated_flares)
 //list of all main overwatch consoles
 GLOBAL_LIST_EMPTY(main_overwatch_consoles)
 ///List of all objectives in the campaign gamemode loaded in the current mission
@@ -104,6 +107,7 @@ GLOBAL_LIST_EMPTY(alert_consoles)
 ///list of all /obj/structure/xeno/tunnel
 GLOBAL_LIST_EMPTY(xeno_tunnels_by_hive)
 GLOBAL_LIST_EMPTY(xeno_resin_silo_turfs)
+GLOBAL_LIST_EMPTY(xeno_spawner_turfs)
 GLOBAL_LIST_EMPTY(xeno_weed_node_turfs)
 GLOBAL_LIST_EMPTY(xeno_resin_door_turfs)
 GLOBAL_LIST_EMPTY(xeno_resin_wall_turfs)

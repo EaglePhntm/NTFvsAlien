@@ -26,6 +26,7 @@
 #define MAP_FIORINA "Fiorina Prison"
 
 #define MAP_COLONY1 "Colony 1"
+#define MAP_LV_624BASES "LV624 Bases"
 
 #define MAP_PILLAR_OF_SPRING "Pillar of Spring"
 #define MAP_SULACO "Sulaco"
@@ -37,6 +38,9 @@
 
 #define MAP_FORT_PHOBOS "Fort Phobos"
 #define MAP_ITERON "Iteron"
+
+#define MAP_ANTAGMAP_DEFAULT "Antag Map"
+#define MAP_ANTAGMAP_NOSPAWN "Antag Map - No Spawns"
 
 //Object specific defines
 #define CANDLE_LUM 3 //For how bright candles are

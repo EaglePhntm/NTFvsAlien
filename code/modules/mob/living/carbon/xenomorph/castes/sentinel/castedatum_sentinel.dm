@@ -29,7 +29,7 @@
 	upgrade_threshold = TIER_ONE_THRESHOLD
 
 	// *** Flags *** //
-	caste_flags = CASTE_EVOLUTION_ALLOWED
+	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_MUTATIONS_ALLOWED
 	can_flags = parent_type::can_flags|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_RIDE_CRUSHER
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 
@@ -61,6 +61,19 @@
 		/datum/action/ability/xeno_action/toxic_slash,
 		/datum/action/ability/activable/xeno/drain_sting,
 		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
+	)
+
+	mutations = list(
+		/datum/mutation_upgrade/shell/comforting_acid,
+		/datum/mutation_upgrade/shell/healing_sting,
+		/datum/mutation_upgrade/shell/constant_surge,
+		/datum/mutation_upgrade/spur/acidic_slasher,
+		/datum/mutation_upgrade/spur/far_sting,
+		/datum/mutation_upgrade/spur/imbued_claws,
+		/datum/mutation_upgrade/veil/toxic_compatibility,
+		/datum/mutation_upgrade/veil/toxic_blood,
+		/datum/mutation_upgrade/veil/automatic_sting,
 	)
 
 /datum/xeno_caste/sentinel/normal
@@ -90,6 +103,7 @@
 		/datum/action/ability/activable/xeno/drain_sting,
 		/datum/action/ability/activable/xeno/toxic_grenade,
 		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
 	)
 
 /datum/xeno_caste/sentinel/retrograde
@@ -116,6 +130,13 @@
 		/datum/action/ability/activable/xeno/neurotox_sting,
 		/datum/action/ability/activable/xeno/xeno_spit,
 		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
+	)
+
+	mutations = list(
+		/datum/mutation_upgrade/shell/gaseous_blood,
+		/datum/mutation_upgrade/spur/toxic_claws,
+		/datum/mutation_upgrade/veil/toxic_spillage
 	)
 
 /datum/xeno_caste/sentinel/retrograde/primordial
@@ -136,4 +157,5 @@
 		/datum/action/ability/activable/xeno/xeno_spit,
 		/datum/action/ability/activable/xeno/toxic_grenade/neuro,
 		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
 	)

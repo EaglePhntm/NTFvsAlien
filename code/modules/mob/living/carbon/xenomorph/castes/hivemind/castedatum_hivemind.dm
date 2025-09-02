@@ -51,6 +51,7 @@
 		/datum/action/ability/activable/xeno/command_minions,
 		/datum/action/ability/xeno_action/psychic_whisper,
 		/datum/action/ability/xeno_action/psychic_influence,
+		/datum/action/ability/xeno_action/psychic_radiance,
 		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/activable/xeno/plant_weeds/ranged,
 		/datum/action/ability/activable/xeno/psychic_cure/queen_give_heal/hivemind,
@@ -64,6 +65,7 @@
 		/datum/action/ability/activable/xeno/shoot_xeno_artillery,
 		/datum/action/ability/activable/xeno/place_pattern,
 		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
 	)
 
 /datum/xeno_caste/hivemind/on_caste_applied(mob/xenomorph)

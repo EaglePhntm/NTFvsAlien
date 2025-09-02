@@ -297,6 +297,7 @@
 
 /obj/item/ammo_magazine/handful/heavy_flechette
 	name = "handful of shotgun flechette shells (6g)"
+	icon = 'ntf_modular/icons/obj/items/ammo/handful.dmi'
 	icon_state = "heavy_shotgun_flechette"
 	current_rounds = 5
 	default_ammo = /datum/ammo/bullet/shotgun/heavy_flechette
@@ -616,7 +617,6 @@ Turn() or Shift() as there is virtually no overhead. ~N
 
 /obj/item/big_ammo_box/smg
 	name = "big ammo box (10x20mm)"
-	caliber = CALIBER_10X20
 	icon_state = "big_m25"
 	base_icon_state = "big_m25"
 	default_ammo = /datum/ammo/bullet/smg

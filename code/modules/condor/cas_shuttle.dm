@@ -162,6 +162,8 @@
 
 	else //if we don't have any targets use the minimap to select a starting position
 		var/atom/movable/screen/minimap/map = SSminimaps.fetch_minimap_object(2, MINIMAP_FLAG_MARINE)
+		if(faction == FACTION_SOM)
+			map = SSminimaps.fetch_minimap_object(2, MINIMAP_FLAG_MARINE_SOM)
 		user.client.screen += map
 		var/list/polled_coords = map.get_coords_from_click(user)
 		user?.client?.screen -= map
@@ -321,6 +323,9 @@
 		var/obj/effect/overlay/temp/laser_target/cas/lase = locate(href_list["cas_jump"]) in GLOB.active_cas_targets
 		if(!istype(lase))
 			to_chat(user, span_warning("That marker has expired."))
+			return
+		if(lase.assigned_faction != user.faction)
+			to_chat(user, span_warning("That marker does not belong to us."))
 			return
 
 		eyeobj.setLoc(get_turf(lase))

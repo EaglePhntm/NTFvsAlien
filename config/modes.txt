@@ -2,7 +2,7 @@
 
 mode Crash
 	requiredplayers 4
-	votable 0
+	votable 1
 endmode
 
 mode Nuclear War
@@ -11,7 +11,7 @@ mode Nuclear War
 endmode
 
 mode Extended
-	requiredplayers 600
+	requiredplayers 0
 	votable 0
 endmode
 
@@ -31,13 +31,8 @@ mode Survival
 endmode
 
 mode Extended - Survivor-Heavy
-	requiredplayers 8
-	votable 1
-endmode
-
-mode Secret of Life
 	requiredplayers 0
-	default
+	votable 1
 endmode
 
 mode Zombie Crash
@@ -58,4 +53,29 @@ endmode
 mode Campaign
 	requiredplayers 65
 	votable 0
+endmode
+
+mode Secret of Life - Main
+	requiredplayers 0
+	default
+endmode
+
+mode Secret of Life - Alien only
+	requiredplayers 0
+	votable 1
+endmode
+
+mode Secret of Life - No Subfactions
+	requiredplayers 0
+	votable 1
+endmode
+
+mode Secret of Life - Classic
+	requiredplayers 0
+	votable 1
+endmode
+
+mode Secret of Life - NTF vs CLF
+	requiredplayers 0
+	votable 1
 endmode

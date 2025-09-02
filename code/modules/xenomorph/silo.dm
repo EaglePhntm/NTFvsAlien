@@ -11,7 +11,7 @@
 	pixel_x = -32
 	pixel_y = -24
 	max_integrity = 1000
-	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE | PLASMACUTTER_IMMUNE
+	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE | PLASMACUTTER_IMMUNE | XENO_DAMAGEABLE
 	xeno_structure_flags = IGNORE_WEED_REMOVAL|CRITICAL_STRUCTURE|XENO_STRUCT_WARNING_RADIUS|XENO_STRUCT_DAMAGE_ALERT
 	///How many larva points one silo produce in one minute
 	var/larva_spawn_rate = 0.5
@@ -37,9 +37,8 @@
 	. = ..()
 	if(!(SSticker.mode?.round_type_flags & MODE_SILO_RESPAWN))
 		QDEL_NULL(proximity_monitor)
-	var/siloprefix = GLOB.hive_datums[hivenumber].name
 	number_silo = length(GLOB.xeno_resin_silos_by_hive[hivenumber]) + 1
-	name = "[siloprefix == "Normal" ? "" : "[siloprefix] "][name] [number_silo]"
+	name = "[name] [number_silo]"
 	LAZYADDASSOC(GLOB.xeno_resin_silos_by_hive, hivenumber, src)
 
 	if(!locate(/obj/alien/weeds) in loc)
@@ -108,6 +107,9 @@
 		if(victim.stat != DEAD)
 			to_chat(user, "<span class='notice'>[victim] is not dead!</span>")
 			return
+		if(!HAS_TRAIT(victim, TRAIT_UNDEFIBBABLE) && !ismonkey(victim))
+			to_chat(user, "<span class='notice'>[victim] is not unrevivable yet, this might make problems.</span>")
+			return
 
 		if(issynth(victim))
 			to_chat(user, "<span class='notice'>[victim] has no useful biomass for us.</span>")
@@ -118,7 +120,7 @@
 		if(!do_after(user, 20, FALSE, victim, BUSY_ICON_DANGER) || QDELETED(src))
 			return
 
-		victim.forceMove(src)
+		victim.despawn() //basically gore cryo
 
 		shake(4 SECONDS)
 
@@ -148,6 +150,19 @@
 
 			larba.burrow()
 			shake(4 SECONDS)
+			if(!larba.client)
+				return
+			larba.client.screen.Cut()
+			if(!larba.client)
+				return
+
+			var/mob/new_player/nerd = new /mob/new_player()
+
+			nerd.key = larba.key
+			nerd.name = larba.key
+			if(!nerd.client)
+				qdel(nerd)
+				return
 
 /// Make the silo shake
 /obj/structure/xeno/silo/proc/shake(duration)
@@ -167,7 +182,7 @@
 	animate(src)
 	pixel_x = old_px
 
-/obj/structure/xeno/silo/take_damage(damage_amount, damage_type = BRUTE, armor_type = null, effects = TRUE, attack_dir, armour_penetration = 0, mob/living/blame_mob)
+/obj/structure/xeno/silo/take_damage(damage_amount, damage_type = BRUTE, armor_type = null, effects = TRUE, attack_dir, armour_penetration = 0, mob/living/blame_mob, silent)
 	. = ..()
 	//We took damage, so it's time to start regenerating if we're not already processing
 	if(!CHECK_BITFIELD(datum_flags, DF_ISPROCESSING))
@@ -175,7 +190,10 @@
 
 /obj/structure/xeno/silo/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "silo[threat_warning ? "_warn" : "_passive"]", MINIMAP_LABELS_LAYER))
+	if(hivenumber != XENO_HIVE_CORRUPTED)
+		SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "silo[threat_warning ? "_warn" : "_passive"]", MINIMAP_LABELS_LAYER))
+	if(hivenumber == XENO_HIVE_CORRUPTED)
+		SSminimaps.add_marker(src, MINIMAP_FLAG_MARINE, image('icons/UI_icons/map_blips.dmi', null, "silo[threat_warning ? "_warn" : "_passive"]", MINIMAP_LABELS_LAYER))
 
 /obj/structure/xeno/silo/process()
 	//Regenerate if we're at less than max integrity
@@ -191,3 +209,38 @@
 /obj/structure/xeno/silo/proc/on_spawn(list/newly_spawned_things)
 	for(var/mob/living/carbon/xenomorph/spawned_minion AS in newly_spawned_things)
 		spawned_minion.transfer_to_hive(hivenumber)
+
+/obj/structure/xeno/silo/MouseDrop_T(mob/M, mob/user)
+	. = ..()
+	if(isxeno(user))
+		if(M == user)
+			if(isxenolarva(user))
+				if(user.stat == DEAD)
+					to_chat(user, span_xenonotice("We are... dead?"))
+					return
+				var/mob/living/carbon/xenomorph/larva/larba = user
+
+				visible_message("[user] starts burrowing into [src].", 3)
+
+				if(!do_after(user, 1 SECONDS, FALSE, user, BUSY_ICON_DANGER) || QDELETED(src))
+					return
+
+				larba.ghostize(FALSE, FALSE)
+				larba.burrow()
+				shake(4 SECONDS)
+				if(!larba.client)
+					return
+				larba.client.screen.Cut()
+				if(!larba.client)
+					return
+
+				var/mob/new_player/nerd = new /mob/new_player()
+
+				nerd.key = larba.key
+				nerd.name = larba.key
+				if(!nerd.client)
+					qdel(nerd)
+					return
+
+			else
+				to_chat(user, span_xenonotice("We need to be a larva to fit there."))

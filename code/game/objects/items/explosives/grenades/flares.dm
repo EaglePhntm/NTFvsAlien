@@ -102,6 +102,7 @@
 	damtype = initial(damtype)
 	update_icon()
 	set_light_on(FALSE)
+	GLOB.activated_flares -= src
 	STOP_PROCESSING(SSobj, src)
 
 ///Activates the flare
@@ -115,6 +116,7 @@
 	update_icon()
 	set_light_on(TRUE)
 	playsound(src,'sound/items/flare.ogg', 15, 1)
+	GLOB.activated_flares += src
 	START_PROCESSING(SSobj, src)
 
 //Starts on
@@ -145,11 +147,13 @@
 	. = ..()
 	if(user.assigned_squad)
 		user_squad = user.assigned_squad
+	if(user.faction)
+		faction = user.faction
 	var/turf/TU = get_turf(src)
 	if(!istype(TU))
 		return
 	if(is_ground_level(TU.z))
-		target = new(src, null, name, user_squad)//da lazer is stored in the grenade
+		target = new(src, null, name, user_squad, faction)//da lazer is stored in the grenade
 
 /obj/item/explosive/grenade/flare/cas/process()
 	. = ..()

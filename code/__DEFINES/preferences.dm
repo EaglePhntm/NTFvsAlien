@@ -69,7 +69,7 @@
 #define CHAT_STATISTICS (1<<12)
 #define CHAT_LOOC (1<<13)
 
-#define TOGGLES_CHAT_DEFAULT (CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_DEBUGLOGS|CHAT_GHOSTRADIO|CHAT_FFATTACKLOGS|CHAT_ENDROUNDLOGS|CHAT_GHOSTHIVEMIND|CHAT_STATISTICS|CHAT_LOOC)
+#define TOGGLES_CHAT_DEFAULT (CHAT_OOC|CHAT_DEAD|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_DEBUGLOGS|CHAT_GHOSTRADIO|CHAT_FFATTACKLOGS|CHAT_ENDROUNDLOGS|CHAT_GHOSTHIVEMIND|CHAT_STATISTICS|CHAT_LOOC)
 
 #define DISABLE_DEATHRATTLE (1<<0)
 #define DISABLE_ARRIVALRATTLE (1<<1)
@@ -127,31 +127,17 @@
 
 
 #define RELIGION_CHOICES list(\
-	"Christianity (Catholic)",\
-	"Christianity (Protestant, Anglicanism)",\
-	"Christianity (Protestant, Baptist)",\
-	"Christianity (Protestant, Lutheranism)",\
-	"Christianity (Protestant, Calvinism)",\
-	"Christianity (Protestant, Methodism)",\
-	"Christianity (Protestant, Adventism)",\
-	"Christianity (Protestant, Pentecostalism)",\
-	"Christianity (Protestant, Other)",\
-	"Christianity (Eastern Orthodoxy)",\
-	"Christianity (Oriental Orthodoxy)",\
-	"Christianity (Non-trinitarian Restorationism, Mormonism)",\
-	"Christianity (Non-trinitarian Restorationism, Jehovah's Witnesses)",\
-	"Christianity (Non-trinitarian Restorationism, Oneness Pentecostalism)",\
-	"Christianity (Other)",\
-	"Judaism",\
-	"Islam (Shia)",\
-	"Islam (Sunni)",\
-	"Buddhism",\
-	"Hinduism",\
-	"Sikhism",\
-	"Shintoism",\
-	"Adherents of the Machine God",\
-	"Paganism",\
-	"Other Religion",\
+	"Church of Moonbeam",\
+	"Church of Death",\
+	"Church of Solaria",\
+	"Church of Lunaria",\
+	"Church of Wanderer",\
+	"Church of The Plantmother",\
+	"Cult of Lamashtu",\
+	"Cult of Dismas",\
+	"Cult of Sinius",\
+	"Cult of Tenebrase",\
+	"Some Old world religion",\
 	"Atheism",\
 	"None"\
 	)

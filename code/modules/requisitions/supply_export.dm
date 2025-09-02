@@ -30,6 +30,12 @@
 		. += AM.supply_export(faction_selling)
 		qdel(AM)
 
+/obj/item/resin_jelly/req_jelly/supply_export(faction_selling)
+	var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
+	if(faction_selling in hive.allied_factions)
+		return list(new /datum/export_report(0, name, faction_selling, 0))
+	. = ..()
+
 /**
  * Getter proc for the point value of this object
  *
@@ -88,3 +94,6 @@
 			if(GLOB.faction_to_alignement[seller_faction] == ALIGNEMENT_FRIENDLY)
 				return FALSE
 			return TRUE
+
+/obj/item/resin_jelly/reqjelly/get_export_value()
+	return list(100, 25)

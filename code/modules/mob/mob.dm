@@ -1,5 +1,7 @@
 
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
+	if(ckey)
+		GLOB.mobs_by_ckey_list -= ckey
 	GLOB.mob_list -= src
 	GLOB.dead_mob_list -= src
 	GLOB.offered_mob_list -= src
@@ -891,10 +893,10 @@
 
 /mob/set_throwing(new_throwing)
 	. = ..()
-	if(isnull(.))
+	if(!.)
 		return
 	if(throwing)
-		ADD_TRAIT(src, TRAIT_IMMOBILE, THROW_TRAIT)
+		ADD_TRAIT(src, TRAIT_IMMOBILE, THROW_TRAIT) // Prevents moving during the throw.
 	else
 		REMOVE_TRAIT(src, TRAIT_IMMOBILE, THROW_TRAIT)
 

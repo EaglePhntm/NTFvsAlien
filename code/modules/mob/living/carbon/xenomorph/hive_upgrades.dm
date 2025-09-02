@@ -138,7 +138,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	var/building_time = 10 SECONDS
 
 /datum/hive_upgrade/building/can_buy(mob/living/carbon/xenomorph/buyer, silent)
-	. = ..()
+	. = ..() //
 	if(!.)
 		return
 	var/turf/buildloc = get_turf(buyer)
@@ -146,8 +146,11 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 		return FALSE
 
 	if(!buildloc.is_weedable())
+		return FALSE
+
+	if(!buyer.loc_weeds_type)
 		if(!silent)
-			to_chat(buyer, span_warning("We can't do that here."))
+			to_chat(buyer, span_xenowarning("We can't do that here."))
 		return FALSE
 
 	var/obj/alien/weeds/alien_weeds = locate() in buildloc
@@ -297,7 +300,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 /datum/hive_upgrade/building/acid_maw
 	name = "Acid Maw"
 	desc = "Constructs an acid maw that allows the hive to unleash its most devastating bombardments from any location. This structure's acid is strong enough to eat through any ceiling above it, but it requires ten minutes to prepare each shot."
-	psypoint_cost = 1200
+	psypoint_cost = 1000
 	icon = "maw"
 	gamemode_flags = ABILITY_NUCLEARWAR
 	building_type = /obj/structure/xeno/acid_maw
@@ -321,6 +324,72 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	if(buildloc.density)
 		if(!silent)
 			to_chat(buyer, span_xenowarning("You cannot build in a dense location!"))
+		return FALSE
+	var/area/buildzone = get_area(buyer)
+	if(buildzone.ceiling >= CEILING_DEEP_UNDERGROUND)
+		if(!silent)
+			to_chat(buyer, span_xenowarning("We cannot fire this structure through deep cave ceilings! Find a shallow part of the cave to build in."))
+		return FALSE
+
+/datum/hive_upgrade/building/mutation_chamber
+	/// The maximum amount of buildings that can exist before being disallowed from buying more.
+	var/max_chambers = MUTATION_CHAMBER_MAXIMUM
+
+/datum/hive_upgrade/building/mutation_chamber/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
+	. = ..()
+	if(!.)
+		return FALSE
+	if(!(SSticker.mode?.round_type_flags & MODE_MUTATIONS_OBTAINABLE) && !HAS_TRAIT(buyer, TRAIT_VALHALLA_XENO))
+		if(!silent)
+			to_chat(buyer, span_xenowarning("The hive isn't permitted to buy this structure."))
+		return FALSE
+
+/datum/hive_upgrade/building/mutation_chamber/shell
+	name = "Shell Mutation Chamber"
+	desc = "Constructs a chamber that allows xenos to buy survival mutations. Build up to 3 structures to increase mutation power."
+	icon = "shell"
+	psypoint_cost = MUTATION_SHELL_CHAMBER_COST
+	building_type = /obj/structure/xeno/mutation_chamber/shell
+
+/datum/hive_upgrade/building/mutation_chamber/shell/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
+	. = ..()
+	if(!.)
+		return FALSE
+	if(length(buyer.hive.shell_chambers) >= max_chambers)
+		if(!silent)
+			to_chat(buyer, span_xenowarning("Hive cannot support more than [max_chambers] active shell chambers!"))
+		return FALSE
+
+/datum/hive_upgrade/building/mutation_chamber/spur
+	name = "Spur Mutation Chamber"
+	desc = "Constructs a chamber that allows xenos to buy attack mutations. Build up to 3 structures to increase mutation power."
+	icon = "spur"
+	psypoint_cost = MUTATION_SPUR_CHAMBER_COST
+	building_type = /obj/structure/xeno/mutation_chamber/spur
+
+/datum/hive_upgrade/building/mutation_chamber/spur/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
+	. = ..()
+	if(!.)
+		return FALSE
+	if(length(buyer.hive.spur_chambers) >= max_chambers)
+		if(!silent)
+			to_chat(buyer, span_xenowarning("Hive cannot support more than [max_chambers] active spur chambers!"))
+		return FALSE
+
+/datum/hive_upgrade/building/mutation_chamber/veil
+	name = "Veil Mutation Chamber"
+	desc = "Constructs a chamber that allows xenos to buy utility mutations. Build up to 3 structures to increase mutation power."
+	icon = "veil"
+	psypoint_cost = MUTATION_VEIL_CHAMBER_COST
+	building_type = /obj/structure/xeno/mutation_chamber/veil
+
+/datum/hive_upgrade/building/mutation_chamber/veil/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
+	. = ..()
+	if(!.)
+		return FALSE
+	if(length(buyer.hive.veil_chambers) >= max_chambers)
+		if(!silent)
+			to_chat(buyer, span_xenowarning("Hive cannot support more than [max_chambers] active veil chambers!"))
 		return FALSE
 
 /datum/hive_upgrade/defence
@@ -354,7 +423,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 
 	if(!buyer.loc_weeds_type)
 		if(!silent)
-			to_chat(buyer, span_xenowarning("No weeds here!"))
+			to_chat(buyer, span_xenowarning("We can't do that here."))
 		return FALSE
 
 	if(!T.check_alien_construction(buyer, silent, /obj/structure/xeno/xeno_turret) || !T.check_disallow_alien_fortification(buyer))
@@ -407,8 +476,11 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 		return FALSE
 
 	if(!buildloc.is_weedable())
+		return FALSE
+
+	if(!buyer.loc_weeds_type)
 		if(!silent)
-			to_chat(buyer, span_warning("We can't do that here."))
+			to_chat(buyer, span_xenowarning("We can't do that here."))
 		return FALSE
 
 	var/obj/alien/weeds/alien_weeds = locate() in buildloc

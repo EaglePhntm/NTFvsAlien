@@ -106,7 +106,7 @@
 /datum/maw_ammo/smoke/acid_small/on_impact(turf/target)
 	. = ..()
 	for(var/turf/newspray in view(smokeradius*0.5, target))
-		new /obj/effect/xenomorph/spray(newspray, duration*2, XENO_DEFAULT_ACID_PUDDLE_DAMAGE)
+		xenomorph_spray(newspray, duration*2, XENO_DEFAULT_ACID_PUDDLE_DAMAGE)
 
 /datum/maw_ammo/hugger
 	name = "ball of huggers"
@@ -176,7 +176,7 @@
 /datum/maw_ammo/minion
 	name = "ball of minions"
 	radial_icon_state = "minion"
-	cooldown_time = 5 MINUTES
+	cooldown_time = 10 MINUTES
 	impact_time = 12 SECONDS
 	/// range_turfs that minions will be dropped around the target
 	var/drop_range = 7
@@ -298,7 +298,10 @@
 
 /obj/structure/xeno/acid_maw/Initialize(mapload, _hivenumber)
 	. = ..()
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, minimap_icon, MINIMAP_LABELS_LAYER))
+	if(hivenumber != XENO_HIVE_CORRUPTED)
+		SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, minimap_icon, MINIMAP_LABELS_LAYER))
+	if(hivenumber == XENO_HIVE_CORRUPTED)
+		SSminimaps.add_marker(src, MINIMAP_FLAG_MARINE, image('icons/UI_icons/map_blips.dmi', null, minimap_icon, MINIMAP_LABELS_LAYER))
 	var/list/parsed_maw_options = list()
 	for(var/datum/maw_ammo/path AS in maw_options)
 		parsed_maw_options[path] = image(icon='icons/mob/radial.dmi', icon_state=path::radial_icon_state)
@@ -310,15 +313,25 @@
 	return ..()
 
 /obj/structure/xeno/acid_maw/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, armor_type, effects, armor_penetration, isrightclick)
-	. = ..()
+	if(!issamexenohive(xeno_attacker))
+		return ..()
+	if(issamexenohive(xeno_attacker) && xeno_attacker.a_intent == INTENT_HARM && (xeno_attacker.xeno_flags & XENO_DESTROY_OWN_STRUCTURES))
+		xeno_attacker.visible_message(span_xenonotice("\The [xeno_attacker] starts tearing down \the [src]!"), \
+		span_xenonotice("We start to tear down \the [src]."))
+		if(!do_after(xeno_attacker, 10 SECONDS, NONE, xeno_attacker, BUSY_ICON_GENERIC))
+			return
+		if(!istype(src)) // Prevent jumping to other turfs if do_after completes with the object already gone
+			return
+		xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
+		xeno_attacker.visible_message(span_xenonotice("\The [xeno_attacker] tears down \the [src]!"), \
+		span_xenonotice("We tear down \the [src]."))
+		playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
+		take_damage(max_integrity, silent=TRUE) // Ensure its destroyed
+		return
 	try_fire(xeno_attacker, src)
 
 /// Tries to fire the acid maw after going through various checks and player inputs.
 /obj/structure/xeno/acid_maw/proc/try_fire(mob/living/carbon/xenomorph/xeno_shooter, atom/radical_target, slient, leaders_only = TRUE, requires_adjacency = TRUE)
-	if(xeno_shooter.hivenumber != hivenumber)
-		if(!slient)
-			balloon_alert(xeno_shooter, "wrong hive")
-		return FALSE
 	if(leaders_only && xeno_shooter.tier != XENO_TIER_FOUR && !(xeno_shooter.xeno_flags & XENO_LEADER))
 		if(!slient)
 			balloon_alert(xeno_shooter, "must be leader")
