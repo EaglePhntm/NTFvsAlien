@@ -2,12 +2,11 @@
 	name = "Secret of Life - Main"
 	config_tag = "Secret of Life - Main"
 	silo_scaling = 1
-	round_type_flags = MODE_INFESTATION|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_ALLOW_XENO_QUICKBUILD
+	round_type_flags = MODE_INFESTATION|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_ALLOW_XENO_QUICKBUILD|MODE_MUTATIONS_OBTAINABLE
 	shutters_drop_time = 15 MINUTES
 	xeno_abilities_flags = ABILITY_NUCLEARWAR
 	factions = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_ALIEN, FACTION_XENO, FACTION_CLF, FACTION_ICC, FACTION_VSD)
 	human_factions = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_CLF, FACTION_ICC, FACTION_VSD)
-	allow_antag_map = TRUE
 	//NTC, SOM and CLF are significant factions which have req access so they get more members, others aren't as invested and get 1 squad but usually get stronger gear (they are ERT anyway.)
 	valid_job_types = list(
 		/datum/job/terragov/command/ceo = 1,
@@ -86,6 +85,7 @@
 		/datum/job/clf/tech = 3,
 		/datum/job/clf/leader = 2,
 		/datum/job/clf/silicon/synthetic/clf = 1,
+		/datum/job/other/prisonerclf = 2,
 		/datum/job/vsd_squad/standard = -1,
 		/datum/job/vsd_squad/medic = 1,
 		/datum/job/vsd_squad/engineer = 1,
@@ -102,12 +102,6 @@
 	respawn_time = 5 MINUTES
 	bioscan_interval = 30 MINUTES
 	deploy_time_lock = 15 SECONDS
-
-/datum/game_mode/pre_setup()
-	/*dont know how to remove the zlevel this does nothing.
-	if(!allow_antag_map)
-	*/
-	. = ..()
 
 /datum/game_mode/infestation/extended_plus/secret_of_life/nosub
 	name = "Secret of Life - No subfactions"
@@ -153,6 +147,7 @@
 		/datum/job/clf/medic = 4,
 		/datum/job/clf/standard = -1,
 		/datum/job/clf/breeder = -1,
+		/datum/job/other/prisonerclf = 2,
 		/datum/job/som/silicon/synthetic/som = 1,
 		/datum/job/som/command/commander = 1,
 		/datum/job/som/command/fieldcommander = 1,
@@ -181,7 +176,7 @@
 	human_factions = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_CLF)
 	whitelist_ship_maps = list(MAP_EAGLE)
 	whitelist_ground_maps = list(MAP_LV_624BASES)
-	allow_antag_map = FALSE
+	whitelist_antag_maps = list(MAP_ANTAGMAP_NOSPAWN)
 	valid_job_types = list(
 		/datum/job/terragov/command/captain = 1,
 		/datum/job/terragov/command/fieldcommander = 1,
@@ -345,4 +340,5 @@
 		/datum/job/clf/specialist = 4,
 		/datum/job/clf/leader = 2,
 		/datum/job/clf/silicon/synthetic/clf = 1,
+		/datum/job/other/prisonerclf = 2,
 	)

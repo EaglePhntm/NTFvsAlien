@@ -269,6 +269,7 @@
 	playsound(loc, 'sound/items/ratchet.ogg', 25, TRUE)
 	miner_integrity = max_miner_integrity
 	faction = user.faction
+	log_combat(user, src, "claimed", addition = "for [faction]")
 	set_miner_status()
 	user.visible_message(span_notice("[user] repairs [src]'s tubing and plating."),
 	span_notice("You repair [src]'s tubing and plating."))
@@ -326,6 +327,7 @@
 		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('ntf_modular/icons/UI_icons/map_blips.dmi', null, marker_icon, MINIMAP_BLIPS_LAYER))
 		return
 	if(add_tick >= required_ticks)
+		set_miner_status() // shouldn't be necessary but should fix the markers breaking
 		if(miner_upgrade_type == MINER_AUTOMATED)
 			for(var/direction in GLOB.cardinals)
 				if(!isopenturf(get_step(loc, direction))) //Must be open on one side to operate
@@ -341,6 +343,7 @@
 			playsound(loc,'sound/machines/buzz-two.ogg', 35, FALSE)
 			add_tick = 0
 			miner_integrity -= 25
+			src.log_message("was disabled due to lack of empty space", LOG_ATTACK)
 			set_miner_status()
 			return
 		stored_mineral += 1
@@ -369,6 +372,7 @@
 		span_danger("We slash \the [src]!"), null, 5)
 		playsound(loc, SFX_ALIEN_CLAW_METAL, 25, TRUE)
 		miner_integrity -= 25
+		log_combat(xeno_attacker, src, "damaged")
 		set_miner_status()
 		if(miner_status == MINER_DESTROYED && xeno_attacker.client)
 			var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[xeno_attacker.ckey]
@@ -398,6 +402,7 @@
 		span_danger("You sabotage \the [src]!"), null, 5)
 		playsound(loc, "alien_claw_metal", 25, TRUE)
 		miner_integrity -= 25
+		log_combat(user, src, "damaged")
 		set_miner_status()
 
 /obj/machinery/miner/proc/set_miner_status()

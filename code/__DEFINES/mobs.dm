@@ -157,6 +157,7 @@ GLOBAL_VAR_INIT(max_larva_count_per_mob, 3) //Added for adminbus reasons
 //=================================================
 
 #define EFFECT_STUN "stun"
+#define EFFECT_KNOCKDOWN "knockdown"
 #define EFFECT_PARALYZE "paralyze"
 #define EFFECT_UNCONSCIOUS "unconscious"
 #define EFFECT_STAGGER "stagger"
@@ -537,6 +538,10 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define XENO_MOBHUD (1<<3)
 ///rouny
 #define XENO_ROUNY (1<<4)
+///bumping allies
+#define XENO_ALLIES_BUMP (1<<5)
+///ability to destroy your own xeno structures
+#define XENO_DESTROY_OWN_STRUCTURES (1<<6)
 
 
 #define XENO_DEFAULT_VENT_ENTER_TIME 4.5 SECONDS //Standard time for a xeno to enter a vent.

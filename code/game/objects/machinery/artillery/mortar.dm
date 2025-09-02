@@ -81,7 +81,9 @@
 	for (var/obj/item/binoculars/tactical/binoc in mortar?.linked_item_binoculars)
 		binoc.set_mortar(src)
 	impact_cam = new
-	impact_cam.forceMove(src)
+	if(impact_cam.status)
+		impact_cam.toggle_cam()
+	impact_cam.moveToNullspace()
 	impact_cam.c_tag = "[strip_improper(name)] #[++id_by_type[type]]"
 
 /obj/machinery/deployable/mortar/Destroy()
@@ -264,7 +266,7 @@
 	balloon_alert(user, "unlinked")
 
 ///Start firing the gun on target and increase tally
-/obj/machinery/deployable/mortar/proc/begin_fire(atom/target, obj/item/mortal_shell/arty_shell)
+/obj/machinery/deployable/mortar/proc/begin_fire(atom/target, obj/item/mortal_shell/arty_shell, mob/user)
 	firing = TRUE
 	for(var/mob/M in GLOB.player_list)
 		if(get_dist(M , src) <= 7)
@@ -285,7 +287,7 @@
 	var/datum/ammo/ammo = GLOB.ammo_list[arty_shell.ammo_type]
 	shell.generate_bullet(ammo)
 	var/shell_range = min(get_dist_euclidean(src, target), ammo.max_range)
-	shell.fire_at(target, null, src, shell_range, ammo.shell_speed)
+	shell.fire_at(target, user, src, shell_range, ammo.shell_speed)
 
 	perform_firing_visuals()
 
@@ -293,10 +295,14 @@
 	//prevent runtime
 	if(fall_time < 0.5 SECONDS)
 		fall_time = 0.5 SECONDS
+	if(impact_cam.status)
+		impact_cam.toggle_cam()
 	impact_cam.forceMove(get_turf(target))
+	if(!impact_cam.status)
+		impact_cam.toggle_cam()
 	current_shots++
 	addtimer(CALLBACK(src, PROC_REF(falling), target, shell), fall_time)
-	addtimer(CALLBACK(src, PROC_REF(return_cam)), fall_time + 5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(return_cam)), fall_time + 185 SECONDS)
 	addtimer(VARSET_CALLBACK(src, firing, FALSE), cool_off_time)
 
 ///Proc called by tactical binoculars to send targeting information.
@@ -315,7 +321,9 @@
 /obj/machinery/deployable/mortar/proc/return_cam()
 	current_shots--
 	if(current_shots <= 0)
-		impact_cam.forceMove(src)
+		if(impact_cam.status)
+			impact_cam.toggle_cam()
+		impact_cam.moveToNullspace()
 
 ///Begins fall animation for projectile and plays fall sound
 /obj/machinery/deployable/mortar/proc/falling(turf/T, atom/movable/projectile/shell)
@@ -384,7 +392,6 @@
 	visible_message("[icon2html(src, viewers(src))] [span_danger("The [name] fires!")]")
 	var/turf/location = get_turf(src)
 	location.ceiling_debris_check(2)
-	log_game("[key_name(user)] has fired the [src] at [AREACOORD(target)]")
 
 	var/max_offset = round(abs((get_dist_euclidean(src,target)))/offset_per_turfs)
 	var/firing_spread = max_offset + spread
@@ -404,7 +411,8 @@
 	for(var/i = 1 to amount_to_fire)
 		var/turf/impact_turf = pick(turf_list)
 		in_chamber = chamber_items[next_chamber_position]
-		addtimer(CALLBACK(src, PROC_REF(begin_fire), impact_turf, in_chamber), fire_delay * i)
+		addtimer(CALLBACK(src, PROC_REF(begin_fire), impact_turf, in_chamber, user), fire_delay * i)
+		log_combat(user, src, "fired" , in_chamber," aiming at [AREACOORD(target)], will land at [AREACOORD(impact_turf)]")
 		next_chamber_position--
 		chamber_items -= in_chamber
 		if(istype(in_chamber, /obj/item/mortal_shell/howitzer/white_phos || /obj/item/mortal_shell/rocket/mlrs/gas))
