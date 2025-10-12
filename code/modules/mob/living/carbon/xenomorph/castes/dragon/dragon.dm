@@ -32,12 +32,20 @@
 	return FALSE
 
 /mob/living/carbon/xenomorph/dragon/handle_special_state()
+	var/image/holder = hud_list[HEALTH_HUD_XENO]
+	if(!holder)
+		stack_trace("dragon/handle_special_state HEALTH_HUD_XENO holder is null")
 	if(!(status_flags & INCORPOREAL))
+		holder.overlays.Cut()
+		invisibility = 0
 		return FALSE
 	var/datum/action/ability/activable/xeno/fly/fly_ability = actions_by_path[/datum/action/ability/activable/xeno/fly]
 	if(!fly_ability || fly_ability.performing_landing_animation || COOLDOWN_TIMELEFT(fly_ability, animation_cooldown))
 		return FALSE
+	invisibility = INVISIBILITY_MAXIMUM
 	icon_state = "dragon_marker"
+	holder.overlays.Cut()
+	holder.overlays += image('icons/Xeno/castes/dragon.dmi', src, "dragon_marker")
 	return TRUE
 
 /// If they have plasma, reduces their damage accordingly by up to 50%. Ratio is 4 plasma per 1 damage.

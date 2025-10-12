@@ -92,6 +92,8 @@
 			if(ishitbox(affected_obj) || isvehicle(affected_obj))
 				has_hit_anything = handle_affected_vehicle(affected_obj, hit_vehicles)
 				continue
+			if(xeno_owner.issamexenohive(affected_obj))
+				continue
 			affected_obj.take_damage(get_damage(), BRUTE, MELEE, blame_mob = xeno_owner)
 			has_hit_anything = TRUE
 			continue
@@ -287,6 +289,8 @@
 			var/obj/affected_obj = affected_atom
 			if(ishitbox(affected_obj) || isvehicle(affected_obj))
 				handle_affected_vehicle(affected_obj, hit_vehicles)
+				continue
+			if(xeno_owner.issamexenohive(affected_obj))
 				continue
 			affected_obj.take_damage(damage, BRUTE, MELEE, blame_mob = xeno_owner)
 			continue
@@ -629,6 +633,8 @@
 			if(!(impacted_atom.resistance_flags & XENO_DAMAGEABLE))
 				continue
 			var/obj/impacted_obj = impacted_atom
+			if(xeno_owner.issamexenohive(impacted_obj))
+				continue
 			if(ishitbox(impacted_obj))
 				impacted_obj.take_damage(damage * 1/3, BRUTE, MELEE, blame_mob = xeno_owner) // Adjusted for 3x3 multitile vehicles.
 				continue
