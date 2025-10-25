@@ -55,6 +55,8 @@
 					continue
 				if(isarmoredvehicle(target))
 					dam_mult -= 0.5
+				if(P.firer.issamexenohive(target))
+					continue
 				obj_victim.take_damage(aoe_damage * dam_mult, BURN, ENERGY, TRUE, armour_penetration = penetration)
 			if(target.anchored)
 				continue
