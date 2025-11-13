@@ -1,0 +1,1393 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aO" = (
+/turf/open/floor/marking/asteroidwarning{
+	dir = 1
+	},
+/area/bigredv2/outside/se)
+"by" = (
+/obj/effect/turf_decal/warning_stripes/box/empty,
+/turf/open/floor,
+/area/bigredv2/outside/s)
+"bz" = (
+/turf/open/floor/plating/ground/mars/random/sand,
+/area/bigredv2/outside/se)
+"ce" = (
+/obj/machinery/portable_atmospherics/scrubber/huge,
+/obj/effect/turf_decal/warning_stripes,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/bigredv2/outside/filtration_plant)
+"ct" = (
+/turf/open/floor,
+/area/bigredv2/outside/s)
+"cx" = (
+/obj/machinery/computer3/server/rack,
+/obj/effect/turf_decal/warning_stripes/box/threeside,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"cT" = (
+/obj/effect/ai_node,
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/bigredv2/outside/se)
+"dn" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/ai_node,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"dP" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/obj/effect/ai_node,
+/obj/structure/cable,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"dR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/rack,
+/obj/effect/spawner/random/engineering/tool,
+/obj/structure/cable,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"em" = (
+/turf/closed/wall,
+/area/bigredv2/outside/filtration_plant)
+"eQ" = (
+/obj/machinery/door/airlock/mainship/engineering{
+	dir = 1;
+	name = "\improper Filtration Facility";
+	req_one_access = null
+	},
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/structure/cable,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"eR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/warning_stripes/box/empty,
+/obj/effect/spawner/random/engineering/structure/tank/fuelweighted,
+/turf/open/floor,
+/area/bigredv2/outside/s)
+"fg" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/ai_node,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"fx" = (
+/obj/effect/spawner/random/engineering/pickaxe,
+/turf/open/floor,
+/area/bigredv2/outside/s)
+"fH" = (
+/obj/item/clothing/head/warning_cone,
+/turf/open/floor/plating/ground/mars/random/sand,
+/area/bigredv2/outside/se)
+"fI" = (
+/obj/effect/spawner/random/engineering/structure/tank_dispenser/oxygenweighted,
+/obj/effect/landmark/lv624/fog_blocker,
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/bigredv2/outside/se)
+"gj" = (
+/obj/effect/spawner/random/engineering/structure/tank/waterweighted,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"gl" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/item/clothing/head/warning_cone,
+/turf/open/floor,
+/area/bigredv2/outside/s)
+"gw" = (
+/obj/effect/ai_node,
+/obj/structure/cable,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"hR" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/marking/asteroidwarning{
+	dir = 4
+	},
+/area/bigredv2/outside/s)
+"iQ" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"jl" = (
+/obj/structure/window/framed/colony,
+/turf/open/floor/plating,
+/area/bigredv2/outside/filtration_plant)
+"kf" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor,
+/area/bigredv2/outside/s)
+"kj" = (
+/obj/structure/nuke_disk_candidate,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"kB" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/ai_node,
+/obj/structure/cable,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"kH" = (
+/obj/structure/table,
+/obj/effect/spawner/random/engineering/toolbox,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"kI" = (
+/obj/effect/landmark/lv624/fog_blocker,
+/turf/closed/mineral/smooth/bigred,
+/area/bigredv2/caves/rock)
+"kO" = (
+/obj/machinery/door/airlock/mainship/engineering{
+	dir = 1;
+	name = "\improper Filtration Facility";
+	req_one_access = null
+	},
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"kY" = (
+/obj/machinery/portable_atmospherics/scrubber/huge,
+/obj/effect/turf_decal/warning_stripes,
+/turf/open/floor/plating,
+/area/bigredv2/outside/filtration_plant)
+"lo" = (
+/obj/machinery/door/airlock/mainship/engineering{
+	name = "\improper Filtration Facility";
+	req_one_access = null
+	},
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"lt" = (
+/obj/structure/table,
+/obj/effect/spawner/random/engineering/toolbox,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"lK" = (
+/obj/item/tank/air,
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/bigredv2/outside/se)
+"mH" = (
+/obj/item/clothing/head/warning_cone,
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/bigredv2/outside/se)
+"ne" = (
+/obj/structure/rack,
+/obj/effect/spawner/random/engineering/tool,
+/obj/machinery/light,
+/obj/structure/cable,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"ni" = (
+/obj/effect/landmark/lv624/fog_blocker,
+/turf/closed/wall/r_wall/unmeltable,
+/area/bigredv2/outside/s)
+"no" = (
+/obj/structure/sign/safety/vent,
+/turf/closed/wall/r_wall,
+/area/bigredv2/outside/filtration_plant)
+"nt" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/radio/headset,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"nO" = (
+/obj/structure/cable,
+/turf/closed/wall/r_wall,
+/area/bigredv2/outside/filtration_plant)
+"ok" = (
+/obj/structure/closet/firecloset/full,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"oz" = (
+/obj/effect/landmark/lv624/fog_blocker,
+/turf/open/floor/asteroidfloor,
+/area/bigredv2/outside/s)
+"pg" = (
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/bigredv2/outside/se)
+"pu" = (
+/obj/item/tank/air,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"pX" = (
+/obj/machinery/computer/general_air_control,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"pY" = (
+/obj/item/weapon/twohanded/fireaxe,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"qc" = (
+/turf/open/floor/asteroidfloor,
+/area/bigredv2/outside/s)
+"qp" = (
+/obj/machinery/power/geothermal,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/bigredv2/outside/filtration_plant)
+"qx" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/poddoor/shutters/mainship{
+	dir = 1;
+	id = "FiltrationShutters";
+	name = "\improper Airlock Shutters"
+	},
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"qK" = (
+/obj/effect/landmark/lv624/fog_blocker,
+/turf/open/floor/marking/asteroidwarning{
+	dir = 8
+	},
+/area/bigredv2/outside/s)
+"rm" = (
+/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"rF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"rT" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/obj/effect/ai_node,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"rU" = (
+/obj/structure/closet/wardrobe/atmospherics_yellow,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"sk" = (
+/obj/effect/spawner/random/engineering/structure/tank_dispenser/oxygenweighted,
+/obj/effect/turf_decal/warning_stripes/box/empty,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"ss" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"tm" = (
+/turf/closed/wall/r_wall,
+/area/bigredv2/outside/filtration_plant)
+"uc" = (
+/obj/effect/turf_decal/warning_stripes/box/empty,
+/obj/effect/spawner/random/engineering/structure/tank/waterweighted,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"ux" = (
+/obj/structure/window/framed/colony/reinforced/hull,
+/obj/effect/forcefield/allow_bullet_travel,
+/turf/open/floor/plating,
+/area/bigredv2/caves/rock)
+"uU" = (
+/obj/machinery/atmospherics/components/unary/vent_pump,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"vN" = (
+/obj/machinery/door/airlock/mainship/engineering{
+	dir = 1;
+	name = "\improper Atmospherics Condenser";
+	req_one_access = null
+	},
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"wk" = (
+/obj/structure/cryofeed,
+/obj/effect/forcefield/allow_bullet_travel,
+/turf/open/floor/engine,
+/area/bigredv2/caves/rock)
+"wY" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 5
+	},
+/obj/structure/cable,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"xv" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 5
+	},
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"xD" = (
+/obj/structure/table,
+/obj/item/tool/lighter/random,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"xE" = (
+/obj/structure/cargo_container/ch_red{
+	dir = 1
+	},
+/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/turf_decal/warning_stripes/box/empty,
+/turf/open/floor,
+/area/bigredv2/outside/s)
+"xJ" = (
+/obj/machinery/atmospherics/components/unary/vent_pump,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"xL" = (
+/obj/structure/fence/standard/xenoproof,
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/bigredv2/outside/se)
+"xW" = (
+/obj/machinery/door_control{
+	id = "FiltrationShutters";
+	name = "Airlock Shutters"
+	},
+/turf/open/floor,
+/area/bigredv2/outside/s)
+"xY" = (
+/obj/structure/cryofeed/right{
+	name = "\improper coolant feed"
+	},
+/obj/effect/forcefield/allow_bullet_travel,
+/turf/open/floor/engine,
+/area/bigredv2/caves/rock)
+"yj" = (
+/obj/structure/window/framed/colony,
+/obj/structure/sign/safety/vent,
+/turf/open/floor/plating,
+/area/bigredv2/outside/filtration_plant)
+"yG" = (
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/bigredv2/outside/filtration_plant)
+"yS" = (
+/obj/effect/ai_node,
+/turf/open/floor/asteroidfloor,
+/area/bigredv2/outside/s)
+"ze" = (
+/obj/structure/table,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"zq" = (
+/obj/effect/landmark/lv624/fog_blocker,
+/turf/open/floor/marking/asteroidwarning{
+	dir = 4
+	},
+/area/bigredv2/outside/s)
+"zD" = (
+/obj/effect/forcefield/allow_bullet_travel,
+/turf/closed/wall/r_wall/unmeltable,
+/area/bigredv2/caves/rock)
+"zX" = (
+/obj/machinery/door/poddoor/shutters/mainship{
+	dir = 1;
+	id = "FiltrationShutters";
+	name = "\improper Airlock Shutters"
+	},
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"AH" = (
+/obj/structure/cargo_container/ch_red{
+	dir = 4
+	},
+/obj/effect/turf_decal/warning_stripes/box/empty,
+/turf/open/floor,
+/area/bigredv2/outside/s)
+"BP" = (
+/turf/closed/wall/r_wall/unmeltable,
+/area/bigredv2/outside/s)
+"CD" = (
+/obj/effect/ai_node,
+/turf/open/floor,
+/area/bigredv2/outside/s)
+"CJ" = (
+/obj/structure/table,
+/obj/effect/spawner/random/engineering/technology_scanner,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"CW" = (
+/turf/open/floor/marking/asteroidwarning{
+	dir = 9
+	},
+/area/bigredv2/outside/se)
+"Dl" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"Dx" = (
+/obj/machinery/door/airlock/mainship/engineering{
+	dir = 1;
+	name = "\improper Atmospherics Condenser";
+	req_one_access = null
+	},
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/structure/cable,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"Ey" = (
+/obj/machinery/atmospherics/components/unary/vent_pump{
+	dir = 4
+	},
+/obj/effect/ai_node,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"Fe" = (
+/obj/effect/turf_decal/warning_stripes/box/empty,
+/obj/effect/spawner/random/engineering/structure/tank/fuelweighted,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"Ff" = (
+/turf/closed/wall/r_wall/unmeltable,
+/area/bigredv2/outside/filtration_plant)
+"Fi" = (
+/obj/effect/ai_node,
+/obj/machinery/power/apc/high/ntf,
+/obj/structure/cable,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"FG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 10
+	},
+/obj/structure/cable,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"FY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 10
+	},
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"GD" = (
+/turf/open/floor/plating,
+/area/bigredv2/outside/filtration_plant)
+"Ha" = (
+/obj/effect/turf_decal/warning_stripes/box/threeside,
+/obj/machinery/computer3/server/rack,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"Hd" = (
+/obj/structure/window/framed/colony/reinforced,
+/turf/open/floor/plating,
+/area/bigredv2/outside/filtration_plant)
+"Ht" = (
+/obj/effect/turf_decal/warning_stripes/box/empty,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"HM" = (
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"If" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/window/framed/colony,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/bigredv2/outside/filtration_plant)
+"Is" = (
+/turf/open/floor/marking/asteroidwarning{
+	dir = 4
+	},
+/area/bigredv2/outside/s)
+"Iy" = (
+/obj/structure/table,
+/obj/effect/spawner/random/engineering/tool,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"IM" = (
+/obj/structure/cable,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"Jl" = (
+/turf/closed/mineral/smooth/bigred,
+/area/bigredv2/caves/rock)
+"Jp" = (
+/obj/item/tank/air,
+/turf/open/floor,
+/area/bigredv2/outside/s)
+"Ju" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/forcefield/allow_bullet_travel,
+/turf/closed/wall/r_wall/unmeltable,
+/area/bigredv2/caves/rock)
+"JF" = (
+/obj/machinery/computer/area_atmos/area,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"Lx" = (
+/turf/closed/wall/r_wall,
+/area/bigredv2/outside/s)
+"LK" = (
+/obj/effect/turf_decal/warning_stripes/box/empty,
+/obj/effect/spawner/random/misc/structure/supplycrate,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"LX" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/structure/cable,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"Mj" = (
+/obj/structure/table,
+/obj/machinery/door_control/old{
+	id = "FiltrationShutters";
+	name = "Airlock Shutters";
+	pixel_y = 2
+	},
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"Mx" = (
+/obj/structure/cargo_container/ch_red,
+/obj/effect/turf_decal/warning_stripes/box/empty,
+/turf/open/floor,
+/area/bigredv2/outside/s)
+"ME" = (
+/obj/effect/landmark/lv624/fog_blocker,
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/bigredv2/outside/se)
+"Np" = (
+/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/ai_node,
+/obj/structure/cable,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"Ny" = (
+/turf/open/floor/marking/asteroidwarning{
+	dir = 5
+	},
+/area/bigredv2/outside/se)
+"NN" = (
+/obj/machinery/light,
+/obj/effect/ai_node,
+/turf/open/floor/asteroidfloor,
+/area/bigredv2/outside/s)
+"NR" = (
+/obj/machinery/portable_atmospherics/scrubber/huge,
+/turf/open/floor/plating,
+/area/bigredv2/outside/filtration_plant)
+"OK" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/obj/machinery/door/airlock/mainship/engineering{
+	name = "\improper Atmospherics Condenser Storage";
+	req_one_access = null
+	},
+/obj/structure/cable,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"PG" = (
+/obj/effect/ai_node,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"Qo" = (
+/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"Qp" = (
+/obj/effect/ai_node,
+/obj/effect/turf_decal/warning_stripes/box/empty,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"Rb" = (
+/turf/closed/wall,
+/area/bigredv2/outside/s)
+"Rj" = (
+/obj/machinery/door/poddoor/shutters/mainship{
+	dir = 1;
+	id = "FiltrationShutters";
+	name = "\improper Airlock Shutters"
+	},
+/turf/open/floor/marking/delivery,
+/area/bigredv2/outside/filtration_plant)
+"Ru" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/closed/wall,
+/area/bigredv2/outside/filtration_plant)
+"Rz" = (
+/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/turf_decal/warning_stripes/box/empty,
+/turf/open/floor,
+/area/bigredv2/outside/s)
+"SI" = (
+/obj/machinery/computer3/server/rack,
+/obj/effect/turf_decal/warning_stripes/box/threeside{
+	dir = 1
+	},
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"SR" = (
+/obj/machinery/computer/atmos_alert{
+	dir = 8
+	},
+/obj/structure/table,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"Te" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 5
+	},
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"Tm" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/obj/effect/ai_node,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"TA" = (
+/obj/structure/rack,
+/obj/item/tank/air,
+/obj/effect/spawner/random/engineering/pickaxe,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"TO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"UH" = (
+/turf/open/floor/marking/asteroidwarning{
+	dir = 8
+	},
+/area/bigredv2/outside/s)
+"UL" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"UP" = (
+/obj/effect/landmark/lv624/fog_blocker,
+/turf/open/floor,
+/area/bigredv2/outside/s)
+"VK" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 10
+	},
+/obj/effect/ai_node,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"Wn" = (
+/obj/structure/table,
+/obj/effect/spawner/random/engineering/technology_scanner,
+/obj/machinery/light,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"Wt" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"Wy" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"WS" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"Xr" = (
+/obj/machinery/light,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"XH" = (
+/obj/structure/table,
+/obj/item/circuitboard/solar_tracker,
+/turf/open/floor,
+/area/bigredv2/outside/filtration_plant)
+"Yh" = (
+/obj/effect/ai_node,
+/turf/open/floor/plating/ground/mars/random/sand,
+/area/bigredv2/outside/se)
+"ZD" = (
+/obj/machinery/light,
+/turf/open/floor,
+/area/bigredv2/outside/s)
+
+(1,1,1) = {"
+em
+OK
+em
+em
+em
+em
+em
+em
+em
+jl
+jl
+Hd
+Ff
+Ff
+Ff
+Ff
+qc
+qc
+qc
+qc
+qc
+qc
+qc
+qc
+Rb
+"}
+(2,1,1) = {"
+rU
+iQ
+gj
+em
+Fe
+Ht
+Fe
+Fe
+em
+HM
+HM
+pY
+Ff
+Jl
+Jl
+Ff
+qc
+qc
+qc
+yS
+qc
+qc
+qc
+NN
+BP
+"}
+(3,1,1) = {"
+rU
+dP
+Xr
+em
+UL
+PG
+HM
+HM
+kO
+HM
+Ey
+HM
+Ff
+Ff
+Ff
+Ff
+Is
+Is
+Is
+Is
+hR
+Is
+Is
+Is
+Lx
+"}
+(4,1,1) = {"
+rU
+iQ
+HM
+em
+sk
+uc
+sk
+Ht
+em
+HM
+Wt
+HM
+ss
+kj
+Mj
+tm
+xW
+ct
+ct
+kf
+ct
+kf
+ct
+ct
+Lx
+"}
+(5,1,1) = {"
+em
+OK
+em
+em
+em
+em
+em
+em
+em
+UL
+Wt
+HM
+HM
+HM
+Xr
+tm
+gl
+kf
+kf
+kf
+ct
+by
+by
+ZD
+Lx
+"}
+(6,1,1) = {"
+xD
+Dl
+Wy
+em
+Fi
+cx
+SI
+HM
+em
+HM
+Wt
+Qp
+Ht
+Ht
+PG
+Rj
+ct
+kf
+kf
+CD
+ct
+by
+Mx
+ct
+BP
+"}
+(7,1,1) = {"
+Wy
+FG
+xv
+vN
+IM
+HM
+HM
+PG
+kO
+HM
+Tm
+Fe
+LK
+Ht
+HM
+Rj
+ct
+UP
+UP
+UP
+UP
+Rz
+xE
+UP
+ni
+"}
+(8,1,1) = {"
+Te
+xJ
+rm
+jl
+IM
+Ha
+SI
+Wy
+jl
+Wy
+Wt
+Ht
+Ht
+LK
+HM
+Rj
+ct
+UP
+ct
+ct
+ct
+by
+AH
+ct
+BP
+"}
+(9,1,1) = {"
+FY
+fg
+rF
+Dx
+LX
+LX
+wY
+gw
+jl
+HM
+Wt
+Ht
+Ht
+Ht
+PG
+Rj
+ct
+UP
+ct
+CD
+Jp
+eR
+by
+ZD
+Lx
+"}
+(10,1,1) = {"
+Wy
+nt
+WS
+em
+dn
+HM
+rT
+ne
+em
+UL
+Wt
+HM
+HM
+HM
+Xr
+tm
+gl
+UP
+ct
+fx
+ct
+by
+by
+ct
+Lx
+"}
+(11,1,1) = {"
+ze
+JF
+SR
+em
+ok
+uU
+Qo
+dR
+em
+em
+lo
+em
+zD
+ux
+ux
+zD
+ct
+UP
+ct
+ct
+ct
+ct
+ct
+ct
+Lx
+"}
+(12,1,1) = {"
+jl
+jl
+jl
+em
+ok
+HM
+Wt
+IM
+em
+HM
+Wt
+CJ
+zD
+xY
+xY
+zD
+UH
+qK
+UH
+UH
+UH
+UH
+UH
+UH
+Lx
+"}
+(13,1,1) = {"
+GD
+NR
+GD
+em
+pX
+HM
+VK
+LX
+eQ
+LX
+Np
+CJ
+Ju
+wk
+wk
+zD
+qc
+oz
+qc
+yS
+qc
+qc
+qc
+NN
+Lx
+"}
+(14,1,1) = {"
+yG
+yG
+yG
+em
+lt
+HM
+HM
+Xr
+Ru
+UL
+iQ
+Wn
+zD
+xY
+xY
+zD
+Is
+zq
+Is
+Is
+hR
+Is
+Is
+Is
+Rb
+"}
+(15,1,1) = {"
+qp
+qp
+qp
+em
+Iy
+kH
+ze
+XH
+em
+HM
+iQ
+CJ
+zD
+wk
+wk
+zD
+pg
+ME
+pg
+pg
+pg
+pg
+pg
+xL
+xL
+"}
+(16,1,1) = {"
+em
+em
+em
+em
+em
+em
+Ru
+em
+em
+HM
+iQ
+HM
+zD
+ux
+ux
+zD
+pg
+fI
+lK
+pg
+pg
+pg
+xL
+xL
+pg
+"}
+(17,1,1) = {"
+bz
+bz
+bz
+bz
+fH
+tm
+UL
+TA
+TA
+HM
+iQ
+Xr
+em
+mH
+pg
+pg
+pg
+ME
+pg
+pg
+pg
+xL
+xL
+pg
+pg
+"}
+(18,1,1) = {"
+Jl
+bz
+bz
+bz
+CW
+zX
+HM
+HM
+HM
+HM
+iQ
+Wy
+qx
+pg
+pg
+pg
+pg
+ME
+pg
+pg
+xL
+xL
+pg
+pg
+pg
+"}
+(19,1,1) = {"
+Jl
+bz
+Yh
+bz
+aO
+zX
+PG
+HM
+HM
+uU
+kB
+HM
+zX
+cT
+pg
+pg
+pg
+ME
+cT
+xL
+xL
+pg
+cT
+pg
+cT
+"}
+(20,1,1) = {"
+bz
+bz
+bz
+bz
+Ny
+zX
+HM
+HM
+Wy
+pu
+IM
+TO
+zX
+pg
+pg
+pg
+pg
+ME
+xL
+xL
+pg
+pg
+pg
+pg
+pg
+"}
+(21,1,1) = {"
+bz
+bz
+bz
+bz
+fH
+tm
+UL
+ok
+ok
+HM
+IM
+Xr
+tm
+mH
+pg
+pg
+pg
+ME
+xL
+pg
+pg
+pg
+pg
+pg
+pg
+"}
+(22,1,1) = {"
+bz
+bz
+bz
+bz
+bz
+tm
+tm
+no
+tm
+jl
+If
+yj
+tm
+pg
+pg
+pg
+pg
+ME
+xL
+pg
+pg
+pg
+pg
+pg
+pg
+"}
+(23,1,1) = {"
+bz
+bz
+bz
+bz
+bz
+bz
+bz
+bz
+tm
+kY
+ce
+kY
+tm
+Jl
+pg
+pg
+Jl
+kI
+xL
+pg
+pg
+pg
+pg
+pg
+pg
+"}
+(24,1,1) = {"
+bz
+bz
+Yh
+bz
+bz
+bz
+bz
+Yh
+tm
+tm
+nO
+tm
+tm
+Jl
+Jl
+Jl
+Jl
+Jl
+kI
+cT
+pg
+pg
+pg
+pg
+cT
+"}

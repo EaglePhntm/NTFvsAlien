@@ -645,6 +645,12 @@
 /obj/machinery/power/apc/hyper
 	cell_type = /obj/item/cell/hyper
 
+//------ NTF Various APCs ------//
+
+/obj/machinery/power/apc/high/ntf
+	cell_type = /obj/item/cell/high
+	start_charge = 100
+
 //------Marine ship APCs ------//
 
 /obj/machinery/power/apc/mainship

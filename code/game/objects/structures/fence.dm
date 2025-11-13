@@ -142,6 +142,8 @@
 /obj/structure/fence/fire_act(burn_level)
 	take_damage(burn_level, BURN, FIRE)
 
+//------ Various Fences ------//
+
 /obj/structure/fence/broken
 	chance_to_break = 100
 
@@ -151,3 +153,17 @@
 
 /obj/structure/fence/dark/quality
 	chance_to_break = 15
+
+//------ NTF Various Fences ------//
+
+/obj/structure/fence/standard
+	chance_to_break = 0
+
+/obj/structure/fence/standard/xenoproof
+	resistance_flags = RESIST_ALL
+
+/obj/structure/fence/dark/standard
+	chance_to_break = 0
+
+/obj/structure/fence/dark/standard/xenoproof
+	resistance_flags = RESIST_ALL

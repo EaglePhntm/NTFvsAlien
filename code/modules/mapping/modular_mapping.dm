@@ -1492,3 +1492,764 @@
 	modular_id = "ficore"
 	template_width = 25
 	template_height = 25
+
+// NTF Modular Maps
+
+// BIG RED
+
+// Barracks
+
+/datum/map_template/modular/bigred/ntf/barracks
+	name = "Big red Barracks"
+	mappath = "_maps/modularmaps/big_red_v3/barracks.dmm"
+	modular_id = "ntfbroperations"
+	template_width = 29
+	template_height = 24
+
+// Atmos
+
+/datum/map_template/modular/bigred/ntf/atmosone
+	name = "Big red atmos"
+	mappath = "_maps/modularmaps/big_red_v3/bigredatmosvar1.dmm"
+	modular_id = "ntfbratmos"
+	template_width = 24
+	template_height = 25
+
+/datum/map_template/modular/bigred/ntf/atmostwo
+	name = "Big red atmos"
+	mappath = "_maps/modularmaps/big_red_v3/bigredatmosvar2.dmm"
+	modular_id = "ntfbratmos"
+	template_width = 24
+	template_height = 25
+
+/datum/map_template/modular/bigred/ntf/atmosthree
+	name = "Big red atmos"
+	mappath = "_maps/modularmaps/big_red_v3/bigredatmosvar3.dmm"
+	modular_id = "ntfbratmos"
+	template_width = 24
+	template_height = 25
+
+/datum/map_template/modular/bigred/ntf/atmosfour
+	name = "Big red atmos"
+	mappath = "_maps/modularmaps/big_red_v3/bigredatmosvar4.dmm"
+	modular_id = "ntfbratmos"
+	template_width = 24
+	template_height = 25
+
+// Cargo
+
+/datum/map_template/modular/bigred/ntf/cargoareaone
+	name = "Big red cargo area"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcargoareavar1.dmm"
+	modular_id = "ntfbrcargoarea"
+	template_width = 54
+	template_height = 22
+
+/datum/map_template/modular/bigred/ntf/cargoareatwo
+	name = "Big red cargo area"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcargoareavar2.dmm"
+	modular_id = "ntfbrcargoarea"
+	template_width = 54
+	template_height = 22
+
+/datum/map_template/modular/bigred/ntf/cargoareathree
+	name = "Big red cargo area"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcargoareavar3.dmm"
+	modular_id = "ntfbrcargoarea"
+	template_width = 54
+	template_height = 22
+
+/datum/map_template/modular/bigred/ntf/cargoareafour
+	name = "Big red cargo area"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcargoareavar4.dmm"
+	modular_id = "ntfbrcargoarea"
+	template_width = 54
+	template_height = 22
+
+/datum/map_template/modular/bigred/ntf/cargoareafive
+	name = "Big red cargo area"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcargoareavar5.dmm"
+	modular_id = "ntfbrcargoarea"
+	template_width = 54
+	template_height = 22
+
+/datum/map_template/modular/bigred/ntf/cargoareasix
+	name = "Big red cargo area"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcargoareavar6.dmm"
+	modular_id = "ntfbrcargoarea"
+	template_width = 54
+	template_height = 22
+
+/datum/map_template/modular/bigred/ntf/cargoareaseven
+	name = "Big red cargo area"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcargoareavar7.dmm"
+	modular_id = "ntfbrcargoarea"
+	template_width = 54
+	template_height = 22
+
+/datum/map_template/modular/bigred/ntf/cargoareaeight
+	name = "Big red cargo area"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcargoareavar8.dmm"
+	modular_id = "ntfbrcargoarea"
+	template_width = 54
+	template_height = 22
+
+// Cargo Entry
+
+/datum/map_template/modular/bigred/ntf/cargoentryone
+	name = "Big red cargo entry"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcargoentryvar1.dmm"
+	modular_id = "ntfbrcargoentry"
+	template_width = 3
+	template_height = 5
+
+/datum/map_template/modular/bigred/ntf/cargoentrytwo
+	name = "Big red cargo area"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcargoentryvar2.dmm"
+	modular_id = "ntfbrcargoentry"
+	template_width = 3
+	template_height = 5
+
+/datum/map_template/modular/bigred/ntf/cargoentrythree
+	name = "Big red cargo area"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcargoentryvar3.dmm"
+	modular_id = "ntfbrcargoentry"
+	template_width = 3
+	template_height = 5
+
+// Cargo
+
+/datum/map_template/modular/bigred/ntf/cargoone
+	name = "Big red cargo"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcargovar1.dmm"
+	modular_id = "ntfbrcargo"
+	template_width = 19
+	template_height = 19
+
+/datum/map_template/modular/bigred/ntf/cargotwo
+	name = "Big red cargo"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcargovar2.dmm"
+	modular_id = "ntfbrcargo"
+	template_width = 19
+	template_height = 19
+
+// South West Caves
+
+/datum/map_template/modular/bigred/ntf/southwestcornerone
+	name = "Big red southwestern corner"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcaveswvar1.dmm"
+	modular_id = "ntfbrswcorner"
+	template_width = 41
+	template_height = 43
+
+/datum/map_template/modular/bigred/ntf/southwestcornertwo
+	name = "Big red southwestern corner"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcaveswvar2.dmm"
+	modular_id = "ntfbrswcorner"
+	template_width = 41
+	template_height = 43
+
+/datum/map_template/modular/bigred/ntf/southwestcornerthree
+	name = "Big red southwestern corner"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcaveswvar3.dmm"
+	modular_id = "ntfbrswcorner"
+	template_width = 41
+	template_height = 43
+
+/datum/map_template/modular/bigred/ntf/southwestcornerfour
+	name = "Big red southwestern corner"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcaveswvar4.dmm"
+	modular_id = "ntfbrswcorner"
+	template_width = 41
+	template_height = 43
+
+/datum/map_template/modular/bigred/ntf/southwestcornerfive
+	name = "Big red southwestern corner"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcaveswvar5.dmm"
+	modular_id = "ntfbrswcorner"
+	template_width = 41
+	template_height = 43
+
+// East Caves
+
+/datum/map_template/modular/bigred/ntf/eastone
+	name = "Big red east caves"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcavevar1.dmm"
+	modular_id = "ntfbreastcaves"
+	template_width = 66
+	template_height = 42
+
+/datum/map_template/modular/bigred/ntf/easttwo
+	name = "Big red east caves"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcavevar2.dmm"
+	modular_id = "ntfbreastcaves"
+	template_width = 66
+	template_height = 42
+
+/datum/map_template/modular/bigred/ntf/eastthree
+	name = "Big red east caves"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcavevar3.dmm"
+	modular_id = "ntfbreastcaves"
+	template_width = 66
+	template_height = 42
+
+/datum/map_template/modular/bigred/ntf/eastfour
+	name = "Big red east caves"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcavevar4.dmm"
+	modular_id = "ntfbreastcaves"
+	template_width = 66
+	template_height = 42
+
+/datum/map_template/modular/bigred/ntf/eastfive
+	name = "Big red east caves"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcavevar5.dmm"
+	modular_id = "ntfbreastcaves"
+	template_width = 66
+	template_height = 42
+
+// Chapel
+
+/datum/map_template/modular/bigred/ntf/chapelone
+	name = "Big red chapel"
+	mappath = "_maps/modularmaps/big_red_v3/bigredchapelvar1.dmm"
+	modular_id = "ntfbrchapel"
+	template_width = 18
+	template_height = 9
+
+/datum/map_template/modular/bigred/ntf/chapeltwo
+	name = "Big red chapel"
+	mappath = "_maps/modularmaps/big_red_v3/bigredchapelvar2.dmm"
+	modular_id = "ntfbrchapel"
+	template_width = 18
+	template_height = 9
+
+// South Checkpoint
+
+/datum/map_template/modular/bigred/ntf/checkpointsouthone
+	name = "Big red checkpoint south"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcheckpointsouthvar1.dmm"
+	modular_id = "ntfbrcheckpointsouth"
+	template_width = 12
+	template_height = 10
+
+/datum/map_template/modular/bigred/ntf/checkpointsouthtwo
+	name = "Big red checkpoint south"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcheckpointsouthvar2.dmm"
+	modular_id = "ntfbrcheckpointsouth"
+	template_width = 12
+	template_height = 10
+
+// Checkpoint
+
+/datum/map_template/modular/bigred/ntf/checkpointone
+	name = "Big red checkpoint"
+	mappath = "_maps/modularmaps/big_red_v3/bigredcheckpointvar1.dmm"
+	modular_id = "ntfbrcheckpoint"
+	template_width = 4
+	template_height = 4
+
+// Lambda Entry
+
+/datum/map_template/modular/bigred/ntf/lambdalockone
+	name = "Big red lockdown shutters"
+	mappath = "_maps/modularmaps/big_red_v3/bigreddoor1.dmm"
+	modular_id = "ntfbrlambdalock"
+	template_width = 1
+	template_height = 2
+	min_player_num = 45
+	max_player_num = INFINITY
+
+/datum/map_template/modular/bigred/ntf/lambdalocktwo
+	name = "Big red lockdown shutters"
+	mappath = "_maps/modularmaps/big_red_v3/bigreddoor2.dmm"
+	modular_id = "ntfbrlambdalock"
+	template_width = 1
+	template_height = 2
+
+/datum/map_template/modular/bigred/ntf/lambdalockthree
+	name = "Big red lockdown shutters"
+	mappath = "_maps/modularmaps/big_red_v3/bigreddoor3.dmm"
+	modular_id = "ntfbrlambdalock"
+	template_width = 1
+	template_height = 2
+	min_player_num = 45
+	max_player_num = INFINITY
+
+/datum/map_template/modular/bigred/ntf/lambdalockfour
+	name = "Big red lockdown shutters"
+	mappath = "_maps/modularmaps/big_red_v3/bigreddoor4.dmm"
+	modular_id = "ntfbrlambdalock"
+	template_width = 1
+	template_height = 2
+
+// Dorms
+
+/datum/map_template/modular/bigred/ntf/dormsone
+	name = "Big red dorms"
+	mappath = "_maps/modularmaps/big_red_v3/bigreddormvar1.dmm"
+	modular_id = "ntfbrdorms"
+	template_width = 19
+	template_height = 7
+
+/datum/map_template/modular/bigred/ntf/dormstwo
+	name = "Big red dorms"
+	mappath = "_maps/modularmaps/big_red_v3/bigreddormvar2.dmm"
+	modular_id = "ntfbrdorms"
+	template_width = 19
+	template_height = 7
+
+// Engineering
+
+/datum/map_template/modular/bigred/ntf/engione
+	name = "Big red engineering"
+	mappath = "_maps/modularmaps/big_red_v3/bigredengineeringvar1.dmm"
+	modular_id = "ntfbrengineering"
+	template_width = 30
+	template_height = 27
+
+/datum/map_template/modular/bigred/ntf/engitwo
+	name = "Big red engineering"
+	mappath = "_maps/modularmaps/big_red_v3/bigredengineeringvar2.dmm"
+	modular_id = "ntfbrengineering"
+	template_width = 30
+	template_height = 27
+
+/datum/map_template/modular/bigred/ntf/engithree
+	name = "Big red engineering"
+	mappath = "_maps/modularmaps/big_red_v3/bigredengineeringvar3.dmm"
+	modular_id = "ntfbrengineering"
+	template_width = 30
+	template_height = 27
+
+/datum/map_template/modular/bigred/ntf/engifour
+	name = "Big red engineering"
+	mappath = "_maps/modularmaps/big_red_v3/bigredengineeringvar4.dmm"
+	modular_id = "ntfbrengineering"
+	template_width = 30
+	template_height = 27
+
+// ETA
+
+/datum/map_template/modular/bigred/ntf/etaone
+	name = "Big red eta"
+	mappath = "_maps/modularmaps/big_red_v3/bigredetavar1.dmm"
+	modular_id = "ntfbreta"
+	template_width = 26
+	template_height = 24
+
+/datum/map_template/modular/bigred/ntf/etatwo
+	name = "Big red eta"
+	mappath = "_maps/modularmaps/big_red_v3/bigredetavar2.dmm"
+	modular_id = "ntfbreta"
+	template_width = 26
+	template_height = 24
+
+/datum/map_template/modular/bigred/ntf/etathree
+	name = "Big red eta"
+	mappath = "_maps/modularmaps/big_red_v3/bigredetavar3.dmm"
+	modular_id = "ntfbreta"
+	template_width = 26
+	template_height = 24
+
+/datum/map_template/modular/bigred/ntf/etafour
+	name = "Big red eta"
+	mappath = "_maps/modularmaps/big_red_v3/bigredetavar4.dmm"
+	modular_id = "ntfbreta"
+	template_width = 26
+	template_height = 24
+
+// General Store
+
+/datum/map_template/modular/bigred/ntf/generalstoreone
+	name = "Big red general store"
+	mappath = "_maps/modularmaps/big_red_v3/bigredgeneralstorevar1.dmm"
+	modular_id = "ntfbrgeneral"
+	template_width = 31
+	template_height = 14
+
+/datum/map_template/modular/bigred/ntf/generalstoretwo
+	name = "Big red general store"
+	mappath = "_maps/modularmaps/big_red_v3/bigredgeneralstorevar2.dmm"
+	modular_id = "ntfbrgeneral"
+	template_width = 31
+	template_height = 14
+
+// Lambda Cave
+
+/datum/map_template/modular/bigred/ntf/lambdacavesone
+	name = "Big red lambda tunnel"
+	mappath = "_maps/modularmaps/big_red_v3/bigredlambdacave1.dmm"
+	modular_id = "ntfbrlambdacave"
+	template_width = 15
+	template_height = 15
+
+/datum/map_template/modular/bigred/ntf/lambdacavestwo
+	name = "Big red dorms"
+	mappath = "_maps/modularmaps/big_red_v3/bigredlambdacave2.dmm"
+	modular_id = "ntfbrlambdacave"
+	template_width = 15
+	template_height = 15
+
+// South Lambda Tunnel
+
+/datum/map_template/modular/bigred/ntf/lambdatunnelsouthone
+	name = "Big red lambda tunnel"
+	mappath = "_maps/modularmaps/big_red_v3/bigredlambdatunnelsouthvar1.dmm"
+	modular_id = "ntfbrlambdatunnelsouth"
+	template_width = 22
+	template_height = 11
+
+/datum/map_template/modular/bigred/ntf/lambdatunnelsouthtwo
+	name = "Big red lambda tunnel"
+	mappath = "_maps/modularmaps/big_red_v3/bigredlambdatunnelsouthvar2.dmm"
+	modular_id = "ntfbrlambdatunnelsouth"
+	template_width = 22
+	template_height = 11
+
+/datum/map_template/modular/bigred/ntf/lambdatunnelsouththree
+	name = "Big red lambda tunnel"
+	mappath = "_maps/modularmaps/big_red_v3/bigredlambdatunnelsouthvar3.dmm"
+	modular_id = "ntfbrlambdatunnelsouth"
+	template_width = 22
+	template_height = 11
+
+/datum/map_template/modular/bigred/ntf/lambdatunnelsouthfour
+	name = "Big red lambda tunnel"
+	mappath = "_maps/modularmaps/big_red_v3/bigredlambdatunnelsouthvar4.dmm"
+	modular_id = "ntfbrlambdatunnelsouth"
+	template_width = 22
+	template_height = 11
+
+// Lambda Tunnel
+
+/datum/map_template/modular/bigred/ntf/lambdatunnelone
+	name = "Big red lambda tunnel"
+	mappath = "_maps/modularmaps/big_red_v3/bigredlambdatunnelvar1.dmm"
+	modular_id = "ntfbrlambdatunnel"
+	template_width = 25
+	template_height = 6
+
+/datum/map_template/modular/bigred/ntf/lambdatunneltwo
+	name = "Big red lambda caves"
+	mappath = "_maps/modularmaps/big_red_v3/bigredlambdatunnelvar2.dmm"
+	modular_id = "ntfbrlambdatunnel"
+	template_width = 25
+	template_height = 6
+
+// Library
+
+/datum/map_template/modular/bigred/ntf/libraryone
+	name = "Big red library"
+	mappath = "_maps/modularmaps/big_red_v3/bigredlibraryvar1.dmm"
+	modular_id = "ntfbrlibrary"
+	template_width = 11
+	template_height = 18
+
+/datum/map_template/modular/bigred/ntf/librarytwo
+	name = "Big red library"
+	mappath = "_maps/modularmaps/big_red_v3/bigredlibraryvar2.dmm"
+	modular_id = "ntfbrlibrary"
+	template_width = 11
+	template_height = 18
+
+/datum/map_template/modular/bigred/ntf/librarythree
+	name = "Big red library"
+	mappath = "_maps/modularmaps/big_red_v3/bigredlibraryvar3.dmm"
+	modular_id = "ntfbrlibrary"
+	template_width = 11
+	template_height = 18
+
+// Medbay Passage
+
+/datum/map_template/modular/bigred/ntf/medbaypassageone
+	name = "Big red medbaypassage"
+	mappath = "_maps/modularmaps/big_red_v3/bigredmedbaypassagevar1.dmm"
+	modular_id = "ntfbrmedbaypassage"
+	template_width = 6
+	template_height = 3
+
+/datum/map_template/modular/bigred/ntf/medbaypassagetwo
+	name = "Big red medbaypassage"
+	mappath = "_maps/modularmaps/big_red_v3/bigredmedbaypassagevar2.dmm"
+	modular_id = "ntfbrmedbaypassage"
+	template_width = 6
+	template_height = 3
+
+// Medbay
+
+/datum/map_template/modular/bigred/ntf/medbayone
+	name = "Big red medbay"
+	mappath = "_maps/modularmaps/big_red_v3/bigredmedbayvar1.dmm"
+	modular_id = "ntfbrmedbay"
+	template_width = 33
+	template_height = 26
+
+/datum/map_template/modular/bigred/ntf/medbaytwo
+	name = "Big red medbay"
+	mappath = "_maps/modularmaps/big_red_v3/bigredmedbayvar2.dmm"
+	modular_id = "ntfbrmedbay"
+	template_width = 33
+	template_height = 26
+
+/datum/map_template/modular/bigred/ntf/medbaythree
+	name = "Big red medbay"
+	mappath = "_maps/modularmaps/big_red_v3/bigredmedbayvar3.dmm"
+	modular_id = "ntfbrmedbay"
+	template_width = 33
+	template_height = 26
+
+/datum/map_template/modular/bigred/ntf/medbayfour
+	name = "Big red medbay"
+	mappath = "_maps/modularmaps/big_red_v3/bigredmedbayvar4.dmm"
+	modular_id = "ntfbrmedbay"
+	template_width = 33
+	template_height = 26
+
+/datum/map_template/modular/bigred/ntf/medbayfive
+	name = "Big red medbay"
+	mappath = "_maps/modularmaps/big_red_v3/bigredmedbayvar5.dmm"
+	modular_id = "ntfbrmedbay"
+	template_width = 33
+	template_height = 26
+
+/datum/map_template/modular/bigred/ntf/medbaysix
+	name = "Big red medbay"
+	mappath = "_maps/modularmaps/big_red_v3/bigredmedbayvar6.dmm"
+	modular_id = "ntfbrmedbay"
+	template_width = 33
+	template_height = 26
+
+// North Lambda
+
+/datum/map_template/modular/bigred/ntf/lambdatunnelnorthone
+	name = "Big red lambda caves"
+	mappath = "_maps/modularmaps/big_red_v3/bigrednorthlambdavar1.dmm"
+	modular_id = "ntfbrlambdatunnelnorth"
+	template_width = 65
+	template_height = 32
+
+/datum/map_template/modular/bigred/ntf/lambdatunnelnorthtwo
+	name = "Big red lambda caves"
+	mappath = "_maps/modularmaps/big_red_v3/bigrednorthlambdavar2.dmm"
+	modular_id = "ntfbrlambdatunnelnorth"
+	template_width = 65
+	template_height = 32
+
+/datum/map_template/modular/bigred/ntf/lambdatunnelnorththree
+	name = "Big red lambda caves"
+	mappath = "_maps/modularmaps/big_red_v3/bigrednorthlambdavar3.dmm"
+	modular_id = "ntfbrlambdatunnelnorth"
+	template_width = 65
+	template_height = 32
+
+/datum/map_template/modular/bigred/ntf/lambdatunnelnorthfour
+	name = "Big red lambda caves"
+	mappath = "_maps/modularmaps/big_red_v3/bigrednorthlambdavar4.dmm"
+	modular_id = "ntfbrlambdatunnelnorth"
+	template_width = 65
+	template_height = 32
+
+/datum/map_template/modular/bigred/ntf/lambdatunnelnorthfive
+	name = "Big red lambda caves"
+	mappath = "_maps/modularmaps/big_red_v3/bigrednorthlambdavar5.dmm"
+	modular_id = "ntfbrlambdatunnelnorth"
+	template_width = 65
+	template_height = 32
+
+/datum/map_template/modular/bigred/ntf/lambdatunnelnorthsix
+	name = "Big red lambda caves"
+	mappath = "_maps/modularmaps/big_red_v3/bigrednorthlambdavar6.dmm"
+	modular_id = "ntfbrlambdatunnelnorth"
+	template_width = 65
+	template_height = 32
+
+// Office
+
+/datum/map_template/modular/bigred/ntf/officeone
+	name = "Big red office"
+	mappath = "_maps/modularmaps/big_red_v3/bigredofficevar1.dmm"
+	modular_id = "ntfbroffice"
+	template_width = 28
+	template_height = 23
+
+/datum/map_template/modular/bigred/ntf/officetwo
+	name = "Big red office"
+	mappath = "_maps/modularmaps/big_red_v3/bigredofficevar2.dmm"
+	modular_id = "ntfbroffice"
+	template_width = 28
+	template_height = 23
+
+// Security Corner
+
+/datum/map_template/modular/bigred/ntf/secornerone
+	name = "Big red southeastern caves"
+	mappath = "_maps/modularmaps/big_red_v3/bigredsecornervar1.dmm"
+	modular_id = "ntfbrsecorner"
+	template_width = 71
+	template_height = 67
+
+/datum/map_template/modular/bigred/ntf/secornertwo
+	name = "Big red southeastern caves"
+	mappath = "_maps/modularmaps/big_red_v3/bigredsecornervar2.dmm"
+	modular_id = "ntfbrsecorner"
+	template_width = 71
+	template_height = 67
+
+/datum/map_template/modular/bigred/ntf/secornerthree
+	name = "Big red southeastern caves"
+	mappath = "_maps/modularmaps/big_red_v3/bigredsecornervar3.dmm"
+	modular_id = "ntfbrsecorner"
+	template_width = 71
+	template_height = 67
+
+/datum/map_template/modular/bigred/ntf/secornerfour
+	name = "Big red southeastern caves"
+	mappath = "_maps/modularmaps/big_red_v3/bigredsecornervar4.dmm"
+	modular_id = "ntfbrsecorner"
+	template_width = 71
+	template_height = 67
+
+// South ETA
+
+/datum/map_template/modular/bigred/ntf/southetaone
+	name = "Big red southwest eta"
+	mappath = "_maps/modularmaps/big_red_v3/bigredsouthetavar1.dmm"
+	modular_id = "ntfbrsoutheta"
+	template_width = 23
+	template_height = 10
+
+/datum/map_template/modular/bigred/ntf/southetatwo
+	name = "Big red southwest eta"
+	mappath = "_maps/modularmaps/big_red_v3/bigredsouthetavar2.dmm"
+	modular_id = "ntfbrsoutheta"
+	template_width = 23
+	template_height = 10
+
+/datum/map_template/modular/bigred/ntf/southetathree
+	name = "Big red southwest eta"
+	mappath = "_maps/modularmaps/big_red_v3/bigredsouthetavar3.dmm"
+	modular_id = "ntfbrsoutheta"
+	template_width = 23
+	template_height = 10
+
+// South West ETA
+
+/datum/map_template/modular/bigred/ntf/westetaone
+	name = "Big red southwest eta"
+	mappath = "_maps/modularmaps/big_red_v3/bigredsouthwestetavar1.dmm"
+	modular_id = "ntfbrsouthwesteta"
+	template_width = 61
+	template_height = 38
+
+/datum/map_template/modular/bigred/ntf/westetatwo
+	name = "Big red southwest eta"
+	mappath = "_maps/modularmaps/big_red_v3/bigredsouthwestetavar2.dmm"
+	modular_id = "ntfbrsouthwesteta"
+	template_width = 61
+	template_height = 38
+
+/datum/map_template/modular/bigred/ntf/westetathree
+	name = "Big red southwest eta"
+	mappath = "_maps/modularmaps/big_red_v3/bigredsouthwestetavar3.dmm"
+	modular_id = "ntfbrsouthwesteta"
+	template_width = 61
+	template_height = 38
+
+/datum/map_template/modular/bigred/ntf/westetafour
+	name = "Big red southwest eta"
+	mappath = "_maps/modularmaps/big_red_v3/bigredsouthwestetavar4.dmm"
+	modular_id = "ntfbrsouthwesteta"
+	template_width = 61
+	template_height = 38
+
+/datum/map_template/modular/bigred/ntf/westetafive
+	name = "Big red southwest eta"
+	mappath = "_maps/modularmaps/big_red_v3/bigredsouthwestetavar5.dmm"
+	modular_id = "ntfbrsouthwesteta"
+	template_width = 61
+	template_height = 38
+
+// South West Corner
+
+/datum/map_template/modular/bigred/ntf/sweastone
+	name = "Big red general store"
+	mappath = "_maps/modularmaps/big_red_v3/bigredsweastcornervar1.dmm"
+	modular_id = "ntfbrsweast"
+	template_width = 44
+	template_height = 22
+
+/datum/map_template/modular/bigred/ntf/sweasttwo
+	name = "Big red general store"
+	mappath = "_maps/modularmaps/big_red_v3/bigredsweastcornervar2.dmm"
+	modular_id = "ntfbrsweast"
+	template_width = 44
+	template_height = 22
+
+/datum/map_template/modular/bigred/ntf/sweastthree
+	name = "Big red general store"
+	mappath = "_maps/modularmaps/big_red_v3/bigredsweastcornervar3.dmm"
+	modular_id = "ntfbrsweast"
+	template_width = 44
+	template_height = 22
+
+/datum/map_template/modular/bigred/ntf/sweastfour
+	name = "Big red general store"
+	mappath = "_maps/modularmaps/big_red_v3/bigredsweastcornervar4.dmm"
+	modular_id = "ntfbrsweast"
+	template_width = 44
+	template_height = 22
+
+/datum/map_template/modular/bigred/ntf/sweastfive
+	name = "Big red general store"
+	mappath = "_maps/modularmaps/big_red_v3/bigredsweastcornervar5.dmm"
+	modular_id = "ntfbrsweast"
+	template_width = 44
+	template_height = 22
+
+// Tool Shed
+
+/datum/map_template/modular/bigred/ntf/toolshedone
+	name = "Big red tool shed"
+	mappath = "_maps/modularmaps/big_red_v3/bigredtoolshedvar1.dmm"
+	modular_id = "ntfbrtoolshed"
+	template_width = 16
+	template_height = 9
+
+/datum/map_template/modular/bigred/ntf/toolshedtwo
+	name = "Big red tool shed"
+	mappath = "_maps/modularmaps/big_red_v3/bigredtoolshedvar2.dmm"
+	modular_id = "ntfbrtoolshed"
+	template_width = 16
+	template_height = 9
+
+/datum/map_template/modular/bigred/ntf/toolshedthree
+	name = "Big red tool shed"
+	mappath = "_maps/modularmaps/big_red_v3/bigredtoolshedvar3.dmm"
+	modular_id = "ntfbrtoolshed"
+	template_width = 16
+	template_height = 9
+
+/datum/map_template/modular/bigred/ntf/toolshedfour
+	name = "Big red tool shed"
+	mappath = "_maps/modularmaps/big_red_v3/bigredtoolshedvar4.dmm"
+	modular_id = "ntfbrtoolshed"
+	template_width = 16
+	template_height = 9
+
+/datum/map_template/modular/bigred/ntf/toolshedfive
+	name = "Big red tool shed"
+	mappath = "_maps/modularmaps/big_red_v3/bigredtoolshedvar5.dmm"
+	modular_id = "ntfbrtoolshed"
+	template_width = 16
+	template_height = 9
+
+// Operations
+
+/datum/map_template/modular/bigred/ntf/operations
+	name = "Big red administration"
+	mappath = "_maps/modularmaps/big_red_v3/operation.dmm"
+	modular_id = "ntfbroperations"
+	template_width = 29
+	template_height = 24
+
+// BIG RED END

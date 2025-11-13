@@ -59,6 +59,9 @@
 /obj/machinery/floodlight/outpost/oscar
 	brightness_on = 30
 
+/obj/machinery/floodlight/outpost/bigred
+	brightness_on = 15
+
 /obj/machinery/floodlight/outpost/Initialize(mapload)
 	. = ..()
 	set_light(brightness_on)

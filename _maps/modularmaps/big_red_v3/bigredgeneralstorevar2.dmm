@@ -3,7 +3,6 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
 	},
-/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/general_store)
 "aU" = (
@@ -50,9 +49,6 @@
 "dh" = (
 /turf/closed/wall,
 /area/bigredv2/outside/cargo)
-"dk" = (
-/turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
 "dq" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/snacks/chips,
@@ -70,13 +66,6 @@
 /obj/effect/ai_node,
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
-"dM" = (
-/obj/structure/barricade/wooden{
-	dir = 8
-	},
-/obj/effect/landmark/weed_node,
-/turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
 "ex" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/yellow/full,
@@ -85,12 +74,6 @@
 /obj/structure/table,
 /obj/item/toy/prize/mauler,
 /obj/item/toy/prize/odysseus,
-/turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
-"gf" = (
-/obj/structure/barricade/wooden{
-	dir = 8
-	},
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "gJ" = (
@@ -114,22 +97,8 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "hA" = (
-/obj/structure/window_frame/colony,
+/obj/structure/window/framed/colony,
 /turf/open/floor/plating,
-/area/bigredv2/outside/general_store)
-"hB" = (
-/obj/effect/decal/cleanable/dirt,
-
-/turf/open/floor,
-/area/bigredv2/outside/general_store)
-"hX" = (
-/turf/open/floor,
-/area/bigredv2/outside/general_store)
-"is" = (
-/obj/item/stack/sheet/wood{
-	amount = 2
-	},
-/turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "it" = (
 /obj/effect/decal/cleanable/dirt,
@@ -144,16 +113,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating,
 /area/bigredv2/outside/cargo)
-"iV" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
-"ji" = (
-/obj/structure/barricade/wooden{
-	dir = 1
-	},
-/turf/open/floor,
-/area/bigredv2/outside/general_store)
 "jB" = (
 /obj/machinery/door/airlock/mainship/maint/free_access{
 	name = "\improper General Store Storage"
@@ -162,6 +121,9 @@
 /area/bigredv2/outside/cargo)
 "jS" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	name = "\improper General Store"
+	},
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/general_store)
 "ke" = (
@@ -169,7 +131,7 @@
 	id = "General Store";
 	name = "\improper General Store Shutters"
 	},
-/obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
+/obj/structure/window/framed/colony/reinforced,
 /turf/open/floor/plating,
 /area/bigredv2/outside/general_store)
 "kl" = (
@@ -201,9 +163,6 @@
 /obj/machinery/computer/arcade,
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/general_store)
-"lu" = (
-/turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
 "lL" = (
 /obj/structure/table,
 /obj/effect/spawner/random/food_or_drink/kitchenknife,
@@ -219,7 +178,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "mN" = (
-/obj/effect/spawner/random/misc/structure/broken_window/colonyspawn,
+/obj/structure/window/framed/colony,
 /obj/machinery/door/poddoor/shutters/mainship{
 	dir = 2;
 	id = "General Store";
@@ -239,31 +198,15 @@
 /obj/item/storage/toolbox/mechanical,
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/general_store)
-"oy" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor,
-/area/bigredv2/outside/general_store)
 "oM" = (
 /obj/structure/table,
 /obj/effect/spawner/random/food_or_drink/packagedbar/candyweighted,
 /obj/effect/spawner/random/food_or_drink/burger/bunweighted,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
-"oN" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
-/turf/open/floor,
-/area/bigredv2/outside/general_store)
 "oY" = (
 /obj/item/weapon/gun/pistol/holdout,
 /obj/effect/ai_node,
-/turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
-"po" = (
-/obj/structure/barricade/wooden{
-	dir = 1
-	},
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "pH" = (
@@ -323,7 +266,6 @@
 /area/bigredv2/outside/general_store)
 "se" = (
 /obj/structure/closet/toolcloset,
-/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "sk" = (
@@ -342,7 +284,6 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/obj/effect/landmark/weed_node,
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
 "tl" = (
@@ -394,7 +335,6 @@
 /area/bigredv2/outside/general_store)
 "wr" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "wx" = (
@@ -432,7 +372,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "yU" = (
-/obj/machinery/power/apc/drained,
+/obj/machinery/power/apc/high/ntf,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/bigredv2/outside/general_store)
@@ -469,9 +409,6 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "zX" = (
-/obj/structure/barricade/wooden{
-	dir = 1
-	},
 /obj/machinery/door_control{
 	id = "General Store";
 	name = "Storm Shutters"
@@ -487,18 +424,6 @@
 /obj/structure/table,
 /obj/item/toy/prize/mauler,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
-"CJ" = (
-/obj/effect/landmark/corpsespawner/colonist,
-/turf/open/floor,
-/area/bigredv2/outside/general_store)
-"Df" = (
-/obj/effect/spawner/random/misc/structure/broken_window/colonyspawn,
-/turf/open/floor/plating,
-/area/bigredv2/outside/general_store)
-"DC" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/general_store)
 "Ef" = (
 /obj/structure/cable,
@@ -523,7 +448,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/general_store)
 "EW" = (
@@ -561,16 +485,10 @@
 /obj/item/toy/prize/odysseus,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
-"Hs" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/weed_node,
-/turf/open/floor,
-/area/bigredv2/outside/general_store)
 "HC" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
 	},
-/obj/effect/landmark/corpsespawner/doctor,
 /obj/effect/ai_node,
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
@@ -598,14 +516,6 @@
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
 "Jm" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor,
-/area/bigredv2/outside/general_store)
-"JI" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/effect/landmark/corpsespawner/colonist,
-/obj/effect/landmark/weed_node,
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
 "JV" = (
@@ -669,7 +579,6 @@
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 1
 	},
-/obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
@@ -696,16 +605,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "Oq" = (
-/obj/effect/landmark/weed_node,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
-"Os" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/weed_node,
-/turf/open/floor,
 /area/bigredv2/outside/general_store)
 "Ox" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
@@ -715,7 +615,6 @@
 /area/bigredv2/outside/general_store)
 "OC" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/weed_node,
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
 "OR" = (
@@ -725,7 +624,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "Pe" = (
-/obj/structure/barricade/wooden,
+,
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/general_store)
 "PR" = (
@@ -757,7 +656,6 @@
 /area/bigredv2/outside/general_store)
 "Re" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/weed_node,
 /turf/open/floor/plating,
 /area/bigredv2/outside/cargo)
 "Rs" = (
@@ -830,7 +728,6 @@
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/general_store)
 "UV" = (
-/obj/effect/landmark/weed_node,
 /turf/open/floor/plating,
 /area/bigredv2/outside/cargo)
 "UY" = (
@@ -838,7 +735,6 @@
 	dir = 1;
 	name = "\improper General Store"
 	},
-/obj/effect/landmark/weed_node,
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
 "VF" = (
@@ -858,7 +754,6 @@
 /area/bigredv2/outside/general_store)
 "Wg" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/weed_node,
 /turf/open/floor/plating,
 /area/bigredv2/outside/cargo)
 "Wo" = (
@@ -896,14 +791,6 @@
 /obj/machinery/computer/arcade,
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/general_store)
-"Zm" = (
-/obj/structure/cable,
-/obj/structure/barricade/wooden{
-	dir = 8
-	},
-/obj/effect/landmark/weed_node,
-/turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
 "ZS" = (
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/general_store)
@@ -935,39 +822,39 @@ SM
 "}
 (2,1,1) = {"
 mN
-po
-dM
-iV
-gf
-gf
+Oq
+Oq
 wr
-iV
-lu
-gf
-Zm
+Oq
+Oq
+wr
+wr
+Oq
+Oq
+Ty
 GU
 fH
 SM
 "}
 (3,1,1) = {"
 mN
-po
+Oq
 Rs
 mk
 mk
-hX
+Jm
 mk
 mk
-hX
+Jm
 mk
 dD
-hX
+Jm
 qV
 SM
 "}
 (4,1,1) = {"
 mN
-po
+Oq
 sa
 Fz
 dq
@@ -977,21 +864,21 @@ Ev
 Ns
 Jm
 Ty
-hB
+mk
 BL
 SM
 "}
 (5,1,1) = {"
 mN
-po
-Os
+Oq
+WG
 zT
 SM
 SM
 SM
 SM
 ym
-hX
+Jm
 Ty
 mk
 Ub
@@ -999,15 +886,15 @@ SM
 "}
 (6,1,1) = {"
 SM
-is
-oN
+Oq
+sA
 yx
 yx
 wZ
 qO
 vs
 oM
-hX
+Jm
 KK
 Ef
 Sx
@@ -1015,28 +902,28 @@ ZW
 "}
 (7,1,1) = {"
 SM
-lu
+Oq
 WG
-hX
-hX
-hX
+Jm
+Jm
+Jm
 mk
 mk
 zL
 Ad
 sA
-hX
+Jm
 FW
 SM
 "}
 (8,1,1) = {"
 SM
-lu
+Oq
 Ng
 IO
 IO
 QV
-JI
+IO
 IO
 QV
 IO
@@ -1047,87 +934,87 @@ SM
 "}
 (9,1,1) = {"
 SM
-lu
-oN
+Oq
+sA
 OR
 aU
 tl
 xd
 Sb
 km
-hX
-lu
+Jm
+Oq
 SM
 SM
 SM
 "}
 (10,1,1) = {"
 SM
-lu
-oN
+Oq
+sA
 uo
 SM
 SM
 SM
 SM
 km
-hX
-lu
+Jm
+Oq
 SM
-dk
-dk
+UV
+UV
 "}
 (11,1,1) = {"
 mN
-po
-oN
+Oq
+sA
 sk
 NI
 VZ
 PR
 mB
 LI
-hX
+Jm
 Oq
 SM
-dk
+UV
 iA
 "}
 (12,1,1) = {"
 mN
-po
+Oq
 sA
-hX
-hX
-hX
 Jm
-hX
-hX
-oy
-lu
+Jm
+Jm
+Jm
+Jm
+Jm
+OC
+Oq
 SM
 Wg
 dB
 "}
 (13,1,1) = {"
 hA
-lu
-oN
-CJ
-hX
-hX
-hX
+Oq
+sA
+Jm
+Jm
+Jm
+Jm
 MK
-hX
-hX
+Jm
+Jm
 Wc
 SM
-dk
+UV
 dB
 "}
 (14,1,1) = {"
 hA
-is
+Oq
 zq
 Ie
 EW
@@ -1135,15 +1022,15 @@ Ie
 EW
 Lt
 RJ
-hX
-lu
+Jm
+Oq
 SM
-dk
+UV
 dB
 "}
 (15,1,1) = {"
 mN
-po
+Oq
 sA
 EW
 SM
@@ -1151,23 +1038,23 @@ SM
 SM
 SM
 Ie
-hX
+Jm
 wr
 SM
-dk
+UV
 dB
 "}
 (16,1,1) = {"
 mN
-po
-oN
+Oq
+sA
 KO
 EW
 KO
 KO
 qW
 Qa
-hX
+Jm
 TL
 SM
 UV
@@ -1175,18 +1062,18 @@ tz
 "}
 (17,1,1) = {"
 mN
-po
-oN
+Oq
+sA
 mk
 IV
-hX
-hX
-hX
+Jm
+Jm
+Jm
 mk
 mk
 tq
 SM
-dk
+UV
 dB
 "}
 (18,1,1) = {"
@@ -1198,40 +1085,40 @@ QV
 Ox
 it
 mk
-hX
-hX
+Jm
+Jm
 oY
 SM
-dk
+UV
 dB
 "}
 (19,1,1) = {"
 mN
-po
+Oq
 mk
-Hs
+mk
 mk
 zj
-hX
-Hs
+Jm
+mk
 Fg
 Rs
 se
 SM
-dk
+UV
 dB
 "}
 (20,1,1) = {"
 mN
-hX
-hX
-lu
+Jm
+Jm
+Oq
 rl
 ci
-lu
-lu
-iV
-lu
+Oq
+Oq
+wr
+Oq
 Mz
 SM
 UV
@@ -1243,27 +1130,27 @@ EG
 EG
 SM
 Ti
-oN
+sA
 kM
-hX
+Jm
 nU
 mk
 SM
 SM
-dk
+UV
 dB
 "}
 (22,1,1) = {"
 UY
-ji
+Jm
 OC
-Df
+hA
 gJ
-oN
+sA
 kn
-hX
+Jm
 uk
-Hs
+mk
 SM
 yU
 dB
@@ -1271,9 +1158,9 @@ dB
 "}
 (23,1,1) = {"
 IG
-ji
+Jm
 Rs
-Df
+hA
 nX
 sA
 JV
@@ -1283,7 +1170,7 @@ mk
 SM
 JZ
 Wg
-dk
+UV
 "}
 (24,1,1) = {"
 SM
@@ -1291,19 +1178,19 @@ EG
 EG
 SM
 WI
-oN
+sA
 rm
-hX
+Jm
 rm
-hX
+Jm
 SM
 Kg
-dk
-dk
+UV
+UV
 "}
 (25,1,1) = {"
 mN
-ji
+Jm
 mk
 ZS
 ZS
@@ -1314,8 +1201,8 @@ ZS
 ex
 SM
 JZ
-dk
-dk
+UV
+UV
 "}
 (26,1,1) = {"
 SM
@@ -1323,9 +1210,9 @@ QZ
 rY
 mk
 mk
-oN
-hX
-hX
+sA
+Jm
+Jm
 wx
 sv
 SM
@@ -1336,12 +1223,12 @@ dh
 (27,1,1) = {"
 mN
 Xh
-hX
-Hs
+Jm
+mk
 uY
 Wo
 ZS
-DC
+ZS
 ZS
 kt
 SM
@@ -1353,32 +1240,32 @@ GR
 mN
 lm
 mk
-hX
-hX
+Jm
+Jm
 UB
 SM
-Df
-Df
-Df
+hA
+hA
+hA
 SM
 uc
-dk
+UV
 GR
 "}
 (29,1,1) = {"
 mN
 Pe
-hX
-hX
-hX
+Jm
+Jm
+Jm
 UB
-JZ
+hA
 cE
 cY
 ZS
 SM
 uc
-dk
+UV
 zl
 "}
 (30,1,1) = {"
@@ -1394,7 +1281,7 @@ cI
 sv
 SM
 uc
-dk
+UV
 GR
 "}
 (31,1,1) = {"
