@@ -1,55 +1,37 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "b" = (
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "e" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "h" = (
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast/garbledradio)
-"k" = (
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
-"l" = (
-/obj/effect/ai_node,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 "p" = (
-
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/east/garbledradio)
 "r" = (
-
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/east/garbledradio)
 "t" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/east/garbledradio)
 "z" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/east/garbledradio)
-"K" = (
-
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast/garbledradio)
-"Q" = (
-
-
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/east/garbledradio)
 "U" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 "X" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/east/garbledradio)
 
 (1,1,1) = {"
 b
@@ -117,119 +99,119 @@ b
 b
 "}
 (6,1,1) = {"
-K
+h
 b
 b
-k
 r
-k
-l
-k
+r
+r
+p
+r
 b
 b
 b
 "}
 (7,1,1) = {"
 h
-k
-k
-k
 r
-k
-k
 r
-k
+r
+r
+r
+r
+r
+r
 z
 z
 "}
 (8,1,1) = {"
 U
 r
-k
-l
-k
-k
-l
-k
-k
+r
+p
+r
+r
+p
+r
+r
 p
 X
 "}
 (9,1,1) = {"
 h
-k
-k
-k
+r
+r
+r
 b
 b
 b
 b
-k
+r
 X
-l
+p
 "}
 (10,1,1) = {"
 U
-k
 r
-k
+r
+r
 b
 b
 b
 b
 b
 t
-k
+r
 "}
 (11,1,1) = {"
-K
-k
+h
 r
-k
-k
+r
+r
+r
 b
-k
+r
 e
 e
-k
-Q
+r
+r
 "}
 (12,1,1) = {"
 h
-k
 r
-k
 r
-k
+r
+r
+r
 X
 z
 r
-k
-l
+r
+p
 "}
 (13,1,1) = {"
 U
 r
-k
-l
-k
+r
+p
+r
 X
-k
-k
-k
-l
+r
+r
+r
+p
 b
 "}
 (14,1,1) = {"
 b
-k
-k
+r
+r
 b
 r
 X
 b
 b
-k
+r
 b
 b
 "}

@@ -1,40 +1,29 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aA" = (
-/obj/structure/cable,
-/turf/open/floor/wood,
-/area/bigredv2/outside/library)
 "ce" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/engineering_construction,
 /obj/item/book/manual/engineering_guide,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "da" = (
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/power/apc/high/ntf,
+/obj/machinery/power/apc/weak/ntf,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
-"dg" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
-
-/turf/open/floor/carpet/side{
-	dir = 4
-	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "eF" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/barman_recipes,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "gS" = (
 /obj/structure/table/wood,
 /obj/item/book/manual/nuclear,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "iU" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump{
@@ -42,21 +31,22 @@
 	on = 1
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "iX" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/structure/cable,
 /turf/open/floor/carpet/side{
 	dir = 5
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "jD" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	name = "\improper Library"
 	},
-
+/obj/structure/cable,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "li" = (
 /obj/machinery/door_control{
 	dir = 8;
@@ -64,23 +54,17 @@
 	name = "Storm Shutters"
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "lB" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
-"mP" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
-/turf/open/floor/carpet/side{
-	dir = 4
-	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "oL" = (
 /turf/open/floor/carpet/side{
 	dir = 1
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "pO" = (
 /obj/structure/window/framed/colony,
 /obj/machinery/door/poddoor/shutters/mainship{
@@ -88,12 +72,12 @@
 	name = "\improper Library Shutters"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/wall)
 "pV" = (
 /obj/structure/table/wood,
 /obj/item/toy/dice/d20,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "ql" = (
 /obj/structure/window/framed/colony,
 /obj/machinery/door/poddoor/shutters/mainship{
@@ -102,81 +86,74 @@
 	name = "\improper Library Shutters"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/wall)
 "qr" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/detective,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "qY" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/ripley_build_and_repair,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "ua" = (
 /turf/open/floor/carpet/side,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "uo" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/engineering_particle_accelerator,
 /obj/item/book/manual/engineering_singularity_safety,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "vg" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "vJ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "xz" = (
-
 /turf/open/floor/carpet/side{
 	dir = 6
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "yu" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/evaguide,
 /obj/item/book/manual/marine_law,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "yy" = (
 /turf/closed/wall,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/wall)
 "yG" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
-/area/bigredv2/outside/e)
+/area/bigredv3/outside/directions/e)
 "yM" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/structure/cable,
 /turf/open/floor/carpet,
-/area/bigredv2/outside/library)
-"yV" = (
-/obj/effect/ai_node,
-/turf/open/floor/wood,
-/area/bigredv2/outside/library)
-"AJ" = (
-/turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "AN" = (
 /turf/open/floor/carpet/side{
 	dir = 9
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "AY" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/chef_recipes,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Bm" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -185,15 +162,15 @@
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
 	name = "\improper Greenhouse Storage"
 	},
-
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Cn" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/structure/cable,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
 	},
-/area/bigredv2/outside/e)
+/area/bigredv3/outside/directions/e)
 "Dt" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -203,174 +180,173 @@
 	name = "\improper Library Backroom"
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Ey" = (
 /obj/structure/bed/chair/wood/normal{
 	dir = 1
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "EI" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Fe" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/engineering_guide,
 /obj/item/book/manual/nuclear,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Ft" = (
 /obj/structure/table/wood,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "FB" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/effect/ai_node,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "FH" = (
 /obj/machinery/air_alarm{
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Ht" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
 	},
+/obj/structure/cable,
 /turf/open/floor/carpet/side,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "HF" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
+/obj/structure/cable,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "JC" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 5
 	},
-
+/obj/structure/cable,
 /turf/open/floor/carpet/side,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "JQ" = (
 /obj/structure/bookcase,
-/obj/machinery/light{
-	dir = 8
-	},
-
 /obj/item/book/manual/engineering_singularity_safety,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "KJ" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
+"LK" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/bigredv3/inside/colony/library)
 "Mb" = (
 /obj/machinery/light,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "MU" = (
 /obj/structure/bed/chair/wood/normal,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Nc" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Nh" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/medical_cloning,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "NC" = (
 /turf/open/floor/carpet/side{
 	dir = 5
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "NO" = (
-
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "NR" = (
 /obj/structure/table/wood,
 /obj/item/paper,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "OB" = (
 /obj/structure/bookcase,
-
 /obj/item/book/manual/engineering_guide,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "PW" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/atmospipes,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "QC" = (
 /turf/open/floor/plating/ground/mars/random/dirt,
-/area/bigredv2/outside/e)
+/area/bigredv3/outside/directions/e)
 "Sj" = (
 /turf/open/floor/carpet/side{
 	dir = 10
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Sy" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/ai_node,
+/obj/structure/cable,
 /turf/open/floor/carpet/side{
 	dir = 4
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "SK" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/structure/cable,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "VR" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/engineering_construction,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Wf" = (
 /turf/open/floor/carpet/side{
 	dir = 8
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "WJ" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-
+/obj/structure/cable,
 /turf/open/floor/carpet/side{
 	dir = 4
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "WY" = (
-
 /obj/effect/ai_node,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "YQ" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/engineering_construction,
 /obj/item/book/manual/marine_law,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
-"ZP" = (
-/obj/structure/nuke_disk_candidate,
-/turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 
 (1,1,1) = {"
 yy
@@ -395,48 +371,48 @@ yy
 (2,1,1) = {"
 yy
 AY
-AJ
-AJ
+NO
+NO
 EI
 OB
-AJ
+LK
 ce
 FH
 JQ
-AJ
+LK
 qY
-AJ
-VR
 NO
-AJ
+VR
+LK
+NO
 yy
 QC
 "}
 (3,1,1) = {"
 yy
 eF
-AJ
-AJ
+NO
+NO
 EI
 PW
-AJ
+NO
 uo
-AJ
+NO
 YQ
-AJ
+NO
 Nh
-AJ
+NO
 qr
-AJ
-AJ
+NO
+NO
 ql
 QC
 "}
 (4,1,1) = {"
 yy
-ZP
-AJ
-aA
+NO
+NO
+NO
 vg
 AN
 Wf
@@ -448,7 +424,7 @@ Wf
 Wf
 Wf
 Sj
-AJ
+NO
 ql
 QC
 "}
@@ -460,12 +436,12 @@ vJ
 HF
 iX
 WJ
-dg
-mP
-mP
+WJ
+WJ
+WJ
 WJ
 Sy
-mP
+WJ
 yM
 JC
 Mb
@@ -475,17 +451,17 @@ QC
 (6,1,1) = {"
 yy
 FB
-AJ
+NO
 vg
-AJ
-AJ
-AJ
-AJ
-AJ
-AJ
-AJ
+NO
+NO
+NO
+NO
+NO
+NO
+NO
 uo
-yV
+WY
 oL
 Ht
 SK
@@ -498,18 +474,18 @@ vJ
 lB
 Nc
 li
-AJ
+NO
 MU
 NR
 pV
 Ey
-AJ
-AJ
-AJ
+NO
+NO
+NO
 oL
 ua
-AJ
-AJ
+NO
+NO
 yG
 "}
 (8,1,1) = {"
@@ -518,14 +494,14 @@ Dt
 yy
 yy
 yy
-AJ
+NO
 MU
 Ft
 gS
 Ey
-AJ
+NO
 Fe
-AJ
+NO
 oL
 ua
 Mb
@@ -538,17 +514,17 @@ iU
 Ft
 Ft
 yy
-AJ
 NO
-AJ
-AJ
-AJ
+NO
+NO
+NO
+NO
 NO
 qY
-AJ
+NO
 NC
 xz
-AJ
+NO
 ql
 QC
 "}
@@ -556,19 +532,19 @@ QC
 yy
 da
 NO
-AJ
+NO
 yy
 KJ
-AJ
-AJ
-AJ
+NO
+NO
+NO
 KJ
-AJ
-AJ
+NO
+NO
 KJ
-AJ
-AJ
-AJ
+NO
+NO
+NO
 ql
 QC
 "}

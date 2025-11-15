@@ -582,7 +582,21 @@
 	max_integrity = 1000000 //Failsafe, shouldn't matter
 	icon_state = "window-invincible"
 
+// NTF Windows
 
+/obj/structure/window/framed/colony/unbreakable
+	name = "window"
+	desc = "A glass window with a special rod matrice inside a wall frame. This one was made out of exotic materials to prevent breaches. No way to get through here."
+	deconstructable = FALSE
+	resistance_flags = RESIST_ALL
+	max_integrity = 1000000 //Failsafe, shouldn't matter
+
+/obj/structure/window/framed/colony/reinforced/unbreakable
+	name = "reinforced window"
+	desc = "A reinforced glass window with a special rod matrice inside a wall frame. This one was made out of exotic materials to prevent breaches. No way to get through here."
+	deconstructable = FALSE
+	resistance_flags = RESIST_ALL
+	max_integrity = 1000000 //Failsafe, shouldn't matter
 
 //Chigusa windows
 

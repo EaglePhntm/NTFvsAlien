@@ -2,57 +2,44 @@
 "e" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/east/garbledradio)
 "g" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/east/garbledradio)
 "l" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/east/garbledradio)
 "m" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
-"s" = (
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/east/garbledradio)
 "w" = (
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "x" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 "y" = (
-
-
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/east/garbledradio)
 "E" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/east/garbledradio)
 "J" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "N" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/northeast/garbledradio)
-"Q" = (
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 "X" = (
-
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast/garbledradio)
-"Z" = (
-
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 
 (1,1,1) = {"
 w
@@ -120,7 +107,7 @@ w
 w
 "}
 (6,1,1) = {"
-Q
+X
 w
 w
 w
@@ -133,8 +120,8 @@ w
 w
 "}
 (7,1,1) = {"
-Q
-s
+X
+y
 w
 w
 w
@@ -146,93 +133,93 @@ l
 l
 "}
 (8,1,1) = {"
-Q
-Z
-s
+X
+y
+y
 w
 w
 w
 w
 w
-s
-Z
+y
+y
 g
 "}
 (9,1,1) = {"
-Q
-s
-s
+X
+y
+y
 w
 w
 w
-Z
-s
-s
+y
+y
+y
 g
 e
 "}
 (10,1,1) = {"
 x
-s
-Z
-s
+y
+y
+y
 e
-s
-s
+y
+y
 E
-s
+y
 m
-s
+y
 "}
 (11,1,1) = {"
 X
-s
-Z
-s
-s
-s
-s
+y
+y
+y
+y
+y
+y
 g
 g
-s
+y
 y
 "}
 (12,1,1) = {"
-Q
-s
-s
-s
-Z
-s
+X
+y
+y
+y
+y
+y
 g
 l
-s
-s
+y
+y
 e
 "}
 (13,1,1) = {"
 x
-Z
-s
-s
-s
+y
+y
+y
+y
 g
-s
-s
-s
+y
+y
+y
 w
 w
 "}
 (14,1,1) = {"
 w
-s
-s
-s
-Z
+y
+y
+y
+y
 g
-s
-Z
-s
+y
+y
+y
 w
 w
 "}
@@ -240,10 +227,10 @@ w
 w
 w
 w
-s
+y
 e
 g
-s
+y
 e
 w
 w
@@ -254,9 +241,9 @@ w
 w
 w
 w
-s
+y
 g
-s
+y
 w
 w
 w

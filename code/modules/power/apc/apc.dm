@@ -647,6 +647,10 @@
 
 //------ NTF Various APCs ------//
 
+/obj/machinery/power/apc/weak/ntf
+	cell_type = /obj/item/cell
+	start_charge = 100
+
 /obj/machinery/power/apc/high/ntf
 	cell_type = /obj/item/cell/high
 	start_charge = 100

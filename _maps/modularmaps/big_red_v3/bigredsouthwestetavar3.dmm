@@ -2,28 +2,31 @@
 "ak" = (
 /obj/structure/closet/crate/secure,
 /turf/open/floor/tile/dark/red2/corner,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "aW" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south)
+/area/bigredv3/caves/south)
 "cQ" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/technology_scanner,
 /turf/open/floor/tile/dark/red2/corner{
 	dir = 8
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "dB" = (
 /obj/structure/xenoautopsy/tank/hugger,
 /turf/open/floor/tile/dark/red2/corner{
 	dir = 8
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "dM" = (
 /obj/effect/spawner/random/engineering/structure/tank/fuelweighted,
 /turf/open/floor/plating,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/research_office)
+"eB" = (
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv3/inside/wall)
 "eY" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -31,33 +34,33 @@
 /turf/open/floor/tile/dark/red2{
 	dir = 8
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "gD" = (
 /turf/open/floor/tile/darkgreen/darkgreen2{
 	dir = 4
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "hf" = (
 /turf/open/floor/tile/darkgreen/darkgreen2{
 	dir = 8
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "hY" = (
 /obj/machinery/door/airlock/mainship/research/glass/free_access{
 	name = "\improper Eta Lab Cell"
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "iN" = (
 /turf/closed/wall/r_wall,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/wall)
 "jy" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/maint/free_access{
 	name = "\improper Eta Lab Maintenance Storage"
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/research_office)
 "kg" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -66,42 +69,49 @@
 	name = "\improper Eta Lab Xenobiology Lab"
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "kv" = (
 /obj/machinery/computer/security,
 /turf/open/floor/tile/dark/red2/corner{
 	dir = 4
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "lH" = (
 /obj/effect/ai_node,
 /turf/open/ground/jungle/clear,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "lQ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/dark/red2/corner,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "nN" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/sand,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
+"og" = (
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv3/inside/science/research_office)
 "op" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "ow" = (
 /turf/open/floor/tile/dark/red2/corner{
 	dir = 4
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "oG" = (
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "pk" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/plating,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/research_office)
+"py" = (
+/obj/structure/window/framed/colony/reinforced/unbreakable,
+/turf/open/floor/plating,
+/area/bigredv3/inside/wall)
 "qE" = (
 /obj/machinery/light{
 	dir = 1
@@ -109,63 +119,59 @@
 /turf/open/floor/tile/dark/red2{
 	dir = 9
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "rV" = (
 /turf/open/floor/tile/dark/red2{
 	dir = 8
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "sd" = (
 /obj/structure/window/framed/colony,
 /turf/open/floor/plating,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/wall)
 "sx" = (
 /turf/open/floor/tile/darkgreen/darkgreen2{
 	dir = 10
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "sP" = (
 /turf/open/floor/tile/dark/red2{
 	dir = 1
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "th" = (
 /turf/open/floor/tile/darkgreen/darkgreen2{
 	dir = 6
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "tn" = (
 /turf/open/ground/jungle/clear,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "tF" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south)
+/area/bigredv3/caves/south)
 "tW" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/nanotrasen_lab/inside)
-"um" = (
-/obj/effect/landmark/excavation_site_spawner,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south)
+/area/bigredv3/inside/science/xenolab)
 "uI" = (
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/open/floor/plating/ground/mars/random/sand,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "uV" = (
 /obj/structure/closet/toolcloset,
 /turf/open/floor/plating,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/research_office)
 "ve" = (
 /obj/structure/table,
 /obj/item/tool/pen,
 /turf/open/floor/tile/dark/red2/corner{
 	dir = 4
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "vV" = (
 /obj/machinery/light{
 	dir = 4
@@ -173,27 +179,27 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark/red2/corner,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "wj" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/south)
+/area/bigredv3/caves/south)
 "wO" = (
 /obj/effect/landmark/xeno_silo_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south)
+/area/bigredv3/caves/south)
 "xc" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/technology_scanner,
 /turf/open/floor/tile/dark/red2/corner{
 	dir = 4
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "xw" = (
 /turf/open/floor/tile/dark/red2{
 	dir = 10
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "xT" = (
 /obj/machinery/light{
 	dir = 8
@@ -201,7 +207,7 @@
 /turf/open/floor/tile/dark/red2/corner{
 	dir = 8
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "zh" = (
 /obj/machinery/light{
 	dir = 1
@@ -209,62 +215,69 @@
 /turf/open/floor/tile/dark/red2{
 	dir = 5
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "zy" = (
 /obj/structure/table,
 /obj/structure/xenoautopsy,
 /turf/open/floor/tile/dark/red2/corner{
 	dir = 4
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "zH" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 4;
 	on = 1
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
+"AG" = (
+/obj/effect/spawner/random/engineering/structure/tank/fuelweighted,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/bigredv3/inside/science/research_office)
 "BJ" = (
 /turf/open/floor/plating/ground/mars/random/sand,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "Ck" = (
 /obj/structure/table,
 /obj/item/alienjar,
 /turf/open/floor/tile/dark/red2/corner{
 	dir = 4
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "CR" = (
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "Dm" = (
 /turf/open/floor/tile/dark/red2/corner{
 	dir = 8
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "DF" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "DS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "DY" = (
 /turf/open/floor/tile/dark/red2,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "EK" = (
 /turf/open/floor/plating,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/research_office)
 "Fp" = (
 /obj/structure/xenoautopsy/tank,
 /turf/open/floor/tile/dark/red2/corner{
 	dir = 8
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "GM" = (
 /obj/structure/table,
 /obj/machinery/light,
@@ -273,190 +286,173 @@
 /turf/open/floor/tile/dark/red2/corner{
 	dir = 8
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "HX" = (
 /obj/machinery/light,
 /turf/open/floor/tile/darkgreen/darkgreen2,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "Ii" = (
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/rock)
-"JN" = (
-/turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/south)
+/area/bigredv3/caves/rock)
 "JW" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "Kh" = (
 /turf/open/floor/tile/dark/red2/corner,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "Kp" = (
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south)
+/area/bigredv3/caves/south)
 "KJ" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "KK" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/high/ntf{
+/obj/machinery/power/apc/weak/ntf{
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/research_office)
 "Ly" = (
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "LP" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/south)
+/area/bigredv3/caves/south)
 "LZ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/dark/red2/corner{
 	dir = 8
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "NK" = (
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/research_office)
 "NL" = (
 /obj/structure/fence/standard/xenoproof,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/south)
+/area/bigredv3/caves/south)
 "NO" = (
 /obj/structure/table,
 /obj/item/paper,
 /turf/open/floor/tile/dark/red2/corner,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "Oh" = (
 /obj/structure/fence/standard/xenoproof,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south)
-"Ot" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
-/turf/open/floor/tile/dark/red2{
-	dir = 4
-	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/caves/south)
 "Oz" = (
 /obj/structure/closet/l3closet/scientist,
 /turf/open/floor/tile/darkgreen/darkgreen2{
 	dir = 5
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "PE" = (
 /turf/closed/mineral/smooth/bigred/indestructible,
 /area/space)
 "QU" = (
 /obj/structure/closet/firecloset,
 /turf/open/floor/plating,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/research_office)
 "Rw" = (
 /obj/structure/closet/l3closet/scientist,
 /turf/open/floor/tile/darkgreen/darkgreen2{
 	dir = 1
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "RA" = (
 /obj/item/target,
 /turf/open/floor/tile/dark/red2{
 	dir = 1
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "RE" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/open/ground/jungle/clear,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "Sc" = (
 /obj/structure/window/framed/colony/reinforced,
 /turf/open/floor/plating,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/wall)
 "Sm" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 1;
 	on = 1
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "TA" = (
 /turf/open/floor/tile/dark/red2{
 	dir = 4
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "TN" = (
-/obj/structure/xenoautopsy/tank/broken,
-/turf/open/floor/tile/dark/red2/corner{
-	dir = 8
-	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/turf/closed/wall,
+/area/bigredv3/inside/wall)
 "TT" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south)
+/area/bigredv3/caves/south)
 "UT" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 1
 	},
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "Vq" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "VI" = (
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/tile/dark/red2{
 	dir = 4
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "Wa" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/closed/wall/r_wall,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/wall)
 "Yn" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "Yp" = (
 /obj/structure/closet/l3closet/scientist,
 /turf/open/floor/tile/darkgreen/darkgreen2{
 	dir = 9
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "YI" = (
 /turf/open/floor/tile/dark/red2{
 	dir = 6
 	},
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 "YK" = (
-/turf/closed/wall,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/turf/closed/wall)
 "YO" = (
-/obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/south)
+/area/bigredv3/caves/south)
 "ZR" = (
 /obj/machinery/door/airlock/mainship/research/glass/free_access{
 	dir = 1;
 	name = "\improper Eta Lab Cell"
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/science/xenolab)
 
 (1,1,1) = {"
 PE
@@ -746,7 +742,7 @@ PE
 PE
 PE
 PE
-PE
+og
 PE
 PE
 PE
@@ -826,7 +822,7 @@ PE
 PE
 PE
 PE
-PE
+eB
 PE
 PE
 PE
@@ -1708,8 +1704,8 @@ CR
 CR
 CR
 CR
-JN
-JN
+YO
+YO
 CR
 CR
 CR
@@ -1747,10 +1743,10 @@ CR
 CR
 CR
 CR
-JN
+YO
 Kp
 Kp
-JN
+YO
 CR
 CR
 JW
@@ -1786,13 +1782,13 @@ CR
 CR
 CR
 CR
-JN
+YO
 Kp
 Kp
 wO
 Kp
-JN
-JN
+YO
+YO
 JW
 CR
 CR
@@ -1825,14 +1821,14 @@ JW
 CR
 CR
 CR
-JN
+YO
 Kp
 Kp
 Kp
 Kp
 Kp
 Kp
-JN
+YO
 JW
 CR
 CR
@@ -1906,7 +1902,7 @@ CR
 Kp
 Kp
 Kp
-um
+Kp
 Kp
 Kp
 Kp
@@ -2020,17 +2016,17 @@ PE
 "}
 (40,1,1) = {"
 Kp
-JN
+YO
 aW
 Kp
-JN
-JN
+YO
+YO
 Kp
 Kp
 Kp
 Kp
 Kp
-JN
+YO
 Kp
 Kp
 aW
@@ -2071,16 +2067,16 @@ Kp
 TT
 Kp
 Kp
-JN
-JN
+YO
+YO
 wj
-JN
-JN
-JN
+YO
+YO
+YO
 Kp
-JN
+YO
 LP
-JN
+YO
 Kp
 Kp
 Kp
@@ -2121,7 +2117,7 @@ Kp
 Kp
 Kp
 Kp
-JN
+YO
 Kp
 Kp
 Kp
@@ -2146,7 +2142,7 @@ CR
 CR
 CR
 CR
-JN
+YO
 Kp
 Kp
 Kp
@@ -2199,10 +2195,10 @@ CR
 Kp
 CR
 CR
-JN
-JN
+YO
+YO
 CR
-JN
+YO
 Kp
 Kp
 Kp
@@ -2283,7 +2279,7 @@ Vq
 Vq
 CR
 CR
-JN
+YO
 Kp
 Kp
 Kp
@@ -2345,10 +2341,10 @@ rV
 xw
 iN
 Fp
-TN
 dB
 dB
-dB
+Fp
+Fp
 iN
 BJ
 uI
@@ -2366,7 +2362,7 @@ CR
 Oh
 TT
 Kp
-um
+Kp
 Kp
 Kp
 Kp
@@ -2402,7 +2398,7 @@ BJ
 nN
 BJ
 Wa
-JN
+YO
 NL
 Kp
 Kp
@@ -2470,23 +2466,23 @@ tW
 oG
 GM
 iN
-Sc
+py
 hY
-Sc
+py
 iN
-Sc
+py
 hY
-Sc
+py
 iN
-Sc
+py
 hY
-Sc
+py
 Wa
 Kp
 Oh
 Kp
 Kp
-JN
+YO
 Kp
 Kp
 Kp
@@ -2513,11 +2509,11 @@ YK
 eY
 tW
 eY
-YK
+TN
 eY
 oG
 eY
-YK
+TN
 eY
 oG
 eY
@@ -2566,7 +2562,7 @@ Kp
 Oh
 Kp
 Kp
-JN
+YO
 Kp
 Kp
 Kp
@@ -2606,7 +2602,7 @@ Kp
 Oh
 Kp
 Kp
-JN
+YO
 Kp
 Kp
 Kp
@@ -2669,18 +2665,18 @@ Kh
 DF
 Kh
 ak
-YK
-Ot
+TN
+VI
 oG
 VI
-YK
-Ot
+TN
+VI
 oG
-Ot
-YK
-Ot
+VI
+TN
+VI
 tW
-Ot
+VI
 Wa
 CR
 NL
@@ -2704,23 +2700,23 @@ iN
 iN
 iN
 iN
-YK
+TN
 sd
 kg
 sd
-YK
+TN
 iN
-Sc
+py
 hY
-Sc
+py
 iN
-Sc
+py
 hY
-Sc
+py
 iN
-Sc
+py
 hY
-Sc
+py
 Wa
 CR
 CR
@@ -2743,7 +2739,7 @@ dM
 NK
 NK
 KK
-YK
+TN
 Yp
 hf
 DF
@@ -2779,11 +2775,11 @@ CR
 PE
 "}
 (59,1,1) = {"
-dM
+AG
 pk
 EK
 QU
-YK
+TN
 Rw
 oG
 UT
@@ -2823,7 +2819,7 @@ dM
 NK
 EK
 uV
-YK
+TN
 Oz
 gD
 DF
@@ -2859,16 +2855,16 @@ CR
 PE
 "}
 (61,1,1) = {"
-YK
+TN
 jy
-YK
-YK
-YK
-YK
+TN
+TN
+TN
+TN
 sd
 kg
 sd
-YK
+TN
 iN
 iN
 iN

@@ -7,7 +7,7 @@
 /turf/open/floor/marking/asteroidwarning{
 	dir = 10
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "b" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/toolbox,
@@ -16,7 +16,7 @@
 	dir = 1
 	},
 /turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "c" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 1
@@ -24,37 +24,37 @@
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "d" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "e" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/toolbox,
 /obj/effect/spawner/random/engineering/toolbox,
 /turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "f" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "g" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "h" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 1
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "l" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -64,82 +64,79 @@
 	name = "\improper Emergency Vault"
 	},
 /turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "n" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 1;
 	on = 1
 	},
 /turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "o" = (
 /obj/effect/ai_node,
 /turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "q" = (
-/obj/structure/table,
-/obj/effect/spawner/random/engineering/toolbox,
-/obj/effect/spawner/random/engineering/toolbox,
 /obj/structure/cable,
-/obj/machinery/power/apc/high/ntf,
+/obj/machinery/power/apc/weak/ntf,
 /turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "r" = (
 /turf/closed/wall,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/wall)
 "t" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "u" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/marking/asteroidwarning,
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "v" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/toolbox,
 /obj/effect/spawner/random/engineering/toolbox,
 /obj/machinery/light,
 /turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "A" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "B" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 5
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "C" = (
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "D" = (
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "E" = (
 /turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "F" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "I" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "J" = (
 /obj/effect/ai_node,
 /obj/structure/cable,
@@ -147,7 +144,7 @@
 	dir = 1
 	},
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "L" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
@@ -157,43 +154,43 @@
 /turf/open/floor/marking/asteroidwarning{
 	dir = 6
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "M" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 9
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "N" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "P" = (
 /turf/open/floor/plating/ground/mars/random/sand,
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "S" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
 	},
 /obj/structure/cable,
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "W" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
 	},
 /turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "Y" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 
 (1,1,1) = {"
 P

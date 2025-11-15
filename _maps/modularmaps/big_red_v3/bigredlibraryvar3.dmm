@@ -4,30 +4,31 @@
 /turf/open/floor/carpet/side{
 	dir = 8
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "aV" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/structure/cable,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
 	},
-/area/bigredv2/outside/e)
+/area/bigredv3/outside/directions/e)
 "cB" = (
 /obj/structure/table/wood,
 /obj/item/toy/dice/d20,
 /obj/item/paper/crumpled,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "cF" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "cM" = (
 /turf/open/floor/carpet/side{
 	dir = 8
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "de" = (
 /obj/machinery/light{
 	dir = 4
@@ -52,44 +53,45 @@
 	pixel_y = 12
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "dx" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/item/paper,
+/obj/structure/cable,
 /turf/open/floor/carpet/side{
 	dir = 4
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "eI" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/structure/cable,
 /turf/open/floor/carpet/side{
 	dir = 5
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "eV" = (
-
 /obj/effect/ai_node,
-
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "fU" = (
 /obj/item/toy/dice/d20,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "gs" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "iG" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
 /obj/effect/spawner/random/misc/trash,
+/obj/structure/cable,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "jI" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump{
@@ -97,21 +99,16 @@
 	on = 1
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "jK" = (
 /turf/closed/wall,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/wall)
 "ka" = (
-
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/carpet/side{
 	dir = 5
 	},
-/area/bigredv2/outside/library)
-"ke" = (
-/obj/effect/ai_node,
-/turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "kf" = (
 /obj/machinery/door_control{
 	dir = 8;
@@ -119,7 +116,7 @@
 	name = "Storm Shutters"
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "kP" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -127,11 +124,7 @@
 	},
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
-"lw" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "lG" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -142,40 +135,34 @@
 	},
 /obj/effect/ai_node,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "nb" = (
 /turf/open/floor/carpet/side{
 	dir = 1
 	},
-/area/bigredv2/outside/library)
-"nr" = (
-/obj/structure/bookcase,
-
-/turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "nL" = (
 /turf/open/floor/carpet/side{
 	dir = 9
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "qw" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "rc" = (
-
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "rt" = (
 /obj/machinery/air_alarm{
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "rL" = (
 /obj/structure/window/framed/colony,
 /obj/machinery/door/poddoor/shutters/mainship{
@@ -183,7 +170,7 @@
 	name = "\improper Library Shutters"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/wall)
 "rO" = (
 /obj/structure/table/wood,
 /obj/item/pizzabox/meat{
@@ -191,25 +178,24 @@
 	pixel_y = 12
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "so" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-
 /obj/effect/decal/cleanable/blood,
+/obj/structure/cable,
 /turf/open/floor/carpet/side{
 	dir = 4
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "up" = (
-
 /turf/open/floor/carpet/side{
 	dir = 6
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "uy" = (
 /obj/structure/bookcase,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "uM" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -219,20 +205,20 @@
 	name = "\improper Greenhouse Storage"
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "ve" = (
 /obj/effect/spawner/random/misc/trash,
 /turf/open/floor/carpet/side,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "vN" = (
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/power/apc/high/ntf,
+/obj/machinery/power/apc/weak/ntf,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "vX" = (
 /obj/structure/table/wood,
 /obj/item/pizzabox/meat{
@@ -245,11 +231,7 @@
 	},
 /obj/item/reagent_containers/food/drinks/bottle/absinthe,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
-"wI" = (
-/obj/structure/nuke_disk_candidate,
-/turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "xB" = (
 /obj/structure/table/wood,
 /obj/item/toy/dice/d20,
@@ -260,50 +242,48 @@
 	},
 /obj/effect/spawner/random/food_or_drink/drink_alcohol_bottle,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "yE" = (
 /obj/item/trash/chunk{
 	pixel_x = -3;
 	pixel_y = 4
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "zM" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/structure/cable,
 /turf/open/floor/carpet,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "AA" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
-
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "BC" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/ai_node,
+/obj/structure/cable,
 /turf/open/floor/carpet/side{
 	dir = 4
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "CH" = (
 /obj/effect/decal/cleanable/vomit,
 /turf/open/floor/carpet/side{
 	dir = 8
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "CM" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 5
 	},
-
+/obj/structure/cable,
 /turf/open/floor/carpet/side,
-/area/bigredv2/outside/library)
-"Ey" = (
-/turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Ez" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/pizzapasta/meatpizzaslice{
@@ -313,19 +293,19 @@
 /obj/effect/spawner/random/food_or_drink/outdoors_snacks,
 /obj/item/tool/pen/invisible,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "EI" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
-/area/bigredv2/outside/e)
+/area/bigredv3/outside/directions/e)
 "Fz" = (
 /obj/structure/bed/chair/wood/normal{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "FX" = (
 /obj/item/trash/chunk{
 	pixel_x = -3;
@@ -334,66 +314,55 @@
 /turf/open/floor/carpet/side{
 	dir = 8
 	},
-/area/bigredv2/outside/library)
-"Gj" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
-/turf/open/floor/carpet/side{
-	dir = 4
-	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "HS" = (
 /obj/effect/spawner/random/misc/trash,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Jb" = (
 /obj/structure/bed/chair/wood/normal,
 /obj/item/paper,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Jz" = (
 /obj/item/toy/dice/d20,
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/carpet/side{
 	dir = 8
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Kh" = (
 /obj/structure/reagent_dispensers/beerkeg,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Mt" = (
 /turf/open/floor/carpet/side{
 	dir = 10
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "MR" = (
 /turf/open/floor/carpet/side,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Nb" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/pizzapasta/meatpizzaslice,
 /obj/effect/spawner/random/food_or_drink/drink_alcohol_bottle,
 /obj/effect/spawner/random/food_or_drink/drink_alcohol_bottle,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
-"NF" = (
-/obj/structure/cable,
-/obj/effect/decal/cleanable/vomit,
-/turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "PL" = (
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/carpet/side{
 	dir = 8
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Qv" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Rn" = (
 /obj/structure/window/framed/colony,
 /obj/machinery/door/poddoor/shutters/mainship{
@@ -402,57 +371,54 @@
 	name = "\improper Library Shutters"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/wall)
 "RJ" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/item/weapon/broken_bottle,
-
-
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "St" = (
 /obj/effect/decal/cleanable/vomit,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "SH" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	name = "\improper Library"
 	},
+/obj/structure/cable,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "SU" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-
+/obj/structure/cable,
 /turf/open/floor/carpet/side{
 	dir = 4
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Tc" = (
 /obj/structure/bed/chair/wood/normal,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Tr" = (
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/carpet/side{
 	dir = 1
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Tw" = (
 /obj/structure/table/wood,
 /obj/item/paper,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "UU" = (
-/obj/structure/bookcase,
 /obj/machinery/light{
 	dir = 8
 	},
-
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "VU" = (
 /obj/structure/table/wood,
 /obj/item/paper,
@@ -462,56 +428,57 @@
 	},
 /obj/effect/spawner/random/food_or_drink/drink_alcohol_bottle,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "VX" = (
 /turf/open/floor/plating/ground/mars/random/dirt,
-/area/bigredv2/outside/e)
+/area/bigredv3/outside/directions/e)
 "We" = (
 /obj/machinery/light,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "WK" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
 	},
+/obj/structure/cable,
 /turf/open/floor/carpet/side,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "WZ" = (
 /obj/structure/bed/chair/wood/normal{
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Xq" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/structure/reagent_dispensers/beerkeg,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "XA" = (
 /obj/item/paper,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Yv" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Yz" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/structure/cable,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Zn" = (
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "ZY" = (
-
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 
 (1,1,1) = {"
 jK
@@ -536,48 +503,48 @@ jK
 (2,1,1) = {"
 jK
 uy
-Ey
-Ey
+ZY
+ZY
 qw
-nr
-Ey
+uy
+UU
 uy
 rt
-UU
-Ey
 uy
-Ey
+UU
 uy
 ZY
-lw
+uy
+UU
+rc
 jK
 VX
 "}
 (3,1,1) = {"
 jK
 uy
-Ey
-Ey
+ZY
+ZY
 AA
 uy
 St
 uy
 HS
 uy
-Ey
+ZY
 uy
-Ey
+ZY
 uy
 HS
-Ey
+ZY
 Rn
 VX
 "}
 (4,1,1) = {"
 jK
-wI
+ZY
 HS
-NF
+St
 Qv
 nL
 cM
@@ -602,11 +569,11 @@ iG
 eI
 SU
 so
-Gj
+SU
 dx
 SU
 BC
-Gj
+SU
 zM
 CM
 We
@@ -616,17 +583,17 @@ VX
 (6,1,1) = {"
 jK
 RJ
-Ey
+ZY
 Qv
 XA
 rc
 XA
-Ey
+ZY
 Fz
 WZ
 HS
 uy
-ke
+eV
 nb
 WK
 Yz
@@ -644,13 +611,13 @@ Tc
 VU
 cB
 Nb
-Ey
+ZY
 yE
-Ey
+ZY
 Tr
 MR
-Ey
-Ey
+ZY
+ZY
 EI
 "}
 (8,1,1) = {"
@@ -666,7 +633,7 @@ Tw
 Ez
 fU
 uy
-Ey
+ZY
 nb
 ve
 We
@@ -683,13 +650,13 @@ Kh
 ZY
 rc
 Zn
-Ey
+ZY
 ZY
 uy
-Ey
+ZY
 ka
 up
-Ey
+ZY
 Rn
 VX
 "}
@@ -697,7 +664,7 @@ VX
 jK
 vN
 ZY
-Ey
+ZY
 jK
 Xq
 HS
@@ -705,11 +672,11 @@ yE
 Jb
 de
 XA
-Ey
+ZY
 cF
-Ey
-Ey
-Ey
+ZY
+ZY
+ZY
 Rn
 VX
 "}

@@ -2,42 +2,34 @@
 "a" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 "f" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
+/area/bigredv3/caves/northeast)
 "g" = (
 /turf/open/floor/plating,
 /area/bigredv2/caves/lambda_lab)
-"i" = (
-/obj/effect/ai_node,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
 "o" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
-"p" = (
-/obj/machinery/miner/damaged/platinum,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
+/area/bigredv3/caves/rock)
 "q" = (
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "r" = (
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
+/area/bigredv3/caves/northeast)
 "s" = (
 /obj/structure/fence/standard/xenoproof,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
+/area/bigredv3/caves/northeast)
 "v" = (
 /turf/closed/mineral/smooth/bigred/indestructible,
 /area/space)
 "y" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/northeast/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 "A" = (
 /obj/machinery/chem_dispenser,
 /turf/open/floor/tile/whiteyellow{
@@ -46,17 +38,17 @@
 /area/bigredv2/caves/lambda_lab)
 "E" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/northeast)
+/area/bigredv3/caves/northeast)
 "I" = (
 /turf/closed/wall/r_wall,
-/area/bigredv2/caves/rock)
+/area/bigredv3/inside/wall)
 "L" = (
 /obj/structure/closet/crate/internals,
 /turf/open/floor/plating,
 /area/bigredv2/caves/lambda_lab)
 "M" = (
-/turf/closed/wall/r_wall,
-/area/bigredv2/caves/lambda_lab)
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv3/inside/wall)
 "N" = (
 /obj/structure/closet/crate/freezer/rations,
 /turf/open/floor/plating,
@@ -69,9 +61,8 @@
 /area/bigredv2/caves/lambda_lab)
 "R" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
+/area/bigredv3/caves/northeast)
 "S" = (
 /obj/machinery/chem_dispenser,
 /turf/open/floor/tile/whiteyellow{
@@ -80,7 +71,7 @@
 /area/bigredv2/caves/lambda_lab)
 "Y" = (
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 
 (1,1,1) = {"
 v
@@ -458,7 +449,7 @@ Y
 "}
 (12,1,1) = {"
 v
-v
+M
 v
 v
 v
@@ -706,7 +697,7 @@ v
 v
 v
 q
-i
+R
 r
 r
 r
@@ -809,11 +800,11 @@ v
 v
 q
 q
-i
+R
 r
 r
 r
-i
+R
 r
 r
 q
@@ -1017,17 +1008,17 @@ q
 q
 q
 r
-i
+R
 r
 r
 r
 r
 r
-i
+R
 r
 r
 r
-i
+R
 q
 q
 q
@@ -1134,7 +1125,7 @@ q
 q
 o
 q
-M
+I
 "}
 (32,1,1) = {"
 v
@@ -1168,7 +1159,7 @@ q
 q
 o
 q
-M
+I
 "}
 (33,1,1) = {"
 v
@@ -1194,15 +1185,15 @@ q
 q
 q
 q
-i
+R
 r
 r
-i
+R
 q
 q
 o
 q
-M
+I
 "}
 (34,1,1) = {"
 v
@@ -1236,7 +1227,7 @@ q
 q
 o
 q
-M
+I
 "}
 (35,1,1) = {"
 v
@@ -1270,7 +1261,7 @@ q
 q
 o
 q
-M
+I
 "}
 (36,1,1) = {"
 v
@@ -1405,8 +1396,8 @@ r
 r
 q
 o
-M
-M
+I
+I
 "}
 (40,1,1) = {"
 v
@@ -1439,7 +1430,7 @@ r
 r
 q
 o
-M
+I
 g
 "}
 (41,1,1) = {"
@@ -1473,7 +1464,7 @@ r
 r
 q
 o
-M
+I
 L
 "}
 (42,1,1) = {"
@@ -1507,7 +1498,7 @@ r
 r
 q
 o
-M
+I
 N
 "}
 (43,1,1) = {"
@@ -1534,15 +1525,15 @@ v
 q
 q
 q
-i
+R
 r
 r
-i
+R
 r
 q
 o
-M
-M
+I
+I
 "}
 (44,1,1) = {"
 v
@@ -1575,7 +1566,7 @@ r
 r
 s
 o
-M
+I
 S
 "}
 (45,1,1) = {"
@@ -1609,7 +1600,7 @@ r
 r
 s
 f
-M
+I
 A
 "}
 (46,1,1) = {"
@@ -1643,7 +1634,7 @@ r
 r
 s
 f
-M
+I
 A
 "}
 (47,1,1) = {"
@@ -1677,7 +1668,7 @@ r
 r
 q
 o
-M
+I
 Q
 "}
 (48,1,1) = {"
@@ -1711,8 +1702,8 @@ r
 r
 q
 o
-M
-M
+I
+I
 "}
 (49,1,1) = {"
 v
@@ -1746,7 +1737,7 @@ r
 q
 q
 o
-M
+I
 "}
 (50,1,1) = {"
 v
@@ -1843,11 +1834,11 @@ q
 q
 q
 r
-i
+R
 r
 r
 r
-i
+R
 r
 "}
 (53,1,1) = {"
@@ -1947,7 +1938,7 @@ q
 q
 q
 r
-p
+r
 r
 r
 r
@@ -2051,7 +2042,7 @@ q
 r
 r
 r
-i
+R
 r
 "}
 (59,1,1) = {"
@@ -2119,7 +2110,7 @@ q
 q
 r
 r
-i
+R
 r
 "}
 (61,1,1) = {"

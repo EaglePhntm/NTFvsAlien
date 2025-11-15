@@ -5,42 +5,31 @@
 	dir = 4
 	},
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "ad" = (
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
-"ag" = (
-/obj/docking_port/stationary/crashmode,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
-/turf/open/floor/tile/dark/blue2{
-	dir = 4
-	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "av" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/dark/blue2{
 	dir = 6
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "be" = (
 /obj/machinery/door/airlock/mainship/generic{
 	dir = 2;
 	name = "\improper Operations Toilet"
 	},
 /turf/open/floor/freezer,
-/area/bigredv2/outside/admin_building)
-"bl" = (
-/turf/open/floor/tile/dark/blue2/corner,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "ca" = (
 /obj/structure/bed/chair{
 	dir = 1
 	},
 /obj/machinery/light,
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "cd" = (
 /obj/machinery/door_control{
 	id = "Operations";
@@ -49,10 +38,10 @@
 /turf/open/floor/tile/dark/blue2{
 	dir = 1
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "cD" = (
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "cH" = (
 /obj/machinery/light,
 /obj/structure/cable,
@@ -60,7 +49,7 @@
 	dir = 1
 	},
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "cK" = (
 /obj/machinery/light{
 	dir = 4
@@ -68,55 +57,50 @@
 /turf/open/floor/tile/dark/blue2{
 	dir = 4
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "dq" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-
 /turf/open/floor/tile/dark/blue2{
 	dir = 4
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "dV" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/dark/blue2/corner,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "dZ" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 4;
 	on = 1
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "ea" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/tile/dark/blue2/corner,
-/area/bigredv2/outside/admin_building)
-"ee" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
-/turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "ep" = (
 /turf/closed/wall,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/wall)
 "eA" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "eD" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/wood,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "eX" = (
 /turf/open/floor/tile/dark/blue2{
 	dir = 6
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "fb" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/command/free_access{
@@ -124,22 +108,16 @@
 	name = "\improper Operations Maintenance"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "fc" = (
 /turf/open/floor/tile/dark/blue2{
 	dir = 10
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "fe" = (
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
-"fx" = (
-/obj/structure/bed/chair/office/dark{
-	dir = 8
-	},
-/turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "fP" = (
 /obj/machinery/light{
 	dir = 1
@@ -147,16 +125,7 @@
 /turf/open/floor/tile/dark/red2{
 	dir = 5
 	},
-/area/bigredv2/outside/admin_building)
-"fW" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
-/obj/effect/landmark/excavation_site_spawner,
-
-/obj/structure/cable,
-/turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/security/colarmory)
 "fY" = (
 /obj/effect/landmark/start/job/survivor,
 /obj/effect/landmark/start/latejoinsurvivor,
@@ -164,34 +133,34 @@
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "gj" = (
 /obj/effect/landmark/start/job/survivor,
 /obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/grimy,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "gk" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 1
 	},
 /turf/open/floor/grimy,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "gQ" = (
 /obj/structure/table,
 /obj/item/tool/pen/red,
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "hn" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "ht" = (
 /obj/machinery/vending/coffee,
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "hG" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
@@ -199,21 +168,28 @@
 /turf/open/floor/tile/dark/blue2{
 	dir = 8
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "if" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark/blue2{
 	dir = 4
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "ir" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
+"iy" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/tile/dark,
+/area/bigredv3/inside/command/highcomm)
 "iT" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -221,29 +197,31 @@
 /turf/open/floor/tile/dark/blue2{
 	dir = 4
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
+"ja" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/turf/open/floor/tile/dark,
+/area/bigredv3/inside/command/bridge)
 "jj" = (
 /obj/structure/table,
 /obj/item/phone,
 /obj/machinery/light,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "jz" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
-"jZ" = (
-
-/turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "kK" = (
 /obj/machinery/computer/security,
 /obj/structure/table,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "kX" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/ausbushes/ywflowers,
@@ -258,26 +236,14 @@
 	dir = 8
 	},
 /turf/open/ground/jungle/clear,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "la" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
-"lf" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
-
-/turf/open/floor/tile/dark/blue2{
-	dir = 8
-	},
-/area/bigredv2/outside/admin_building)
-"ll" = (
-
-/turf/open/floor/tile/dark/blue2,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "lq" = (
 /obj/structure/table,
 /obj/machinery/faxmachine,
@@ -285,39 +251,37 @@
 	dir = 1
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "mv" = (
-/obj/machinery/computer/intel_computer,
 /turf/open/floor/tile/dark/blue2{
 	dir = 4
 	},
-/area/bigredv2/outside/admin_building)
-"mU" = (
-/obj/effect/landmark/excavation_site_spawner,
+/area/bigredv3/inside/command/bridge)
+"mF" = (
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "nt" = (
 /obj/machinery/computer/station_alert,
 /obj/structure/table,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "nB" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/dark/blue2{
 	dir = 8
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "nF" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/dark/blue2{
 	dir = 5
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "nH" = (
 /turf/closed/wall/r_wall,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/wall)
 "nO" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -325,29 +289,27 @@
 	},
 /obj/effect/ai_node,
 /turf/open/floor/grimy,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "nP" = (
 /obj/structure/table,
 /obj/item/flashlight/lamp,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "oG" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
 	},
 /obj/effect/ai_node,
-
-
 /turf/open/floor/tile/dark/blue2/corner{
 	dir = 1
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "oS" = (
 /turf/open/floor/tile/dark/blue2{
 	dir = 9
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "pc" = (
 /obj/machinery/light{
 	dir = 1
@@ -355,7 +317,7 @@
 /turf/open/floor/tile/dark/blue2{
 	dir = 1
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "ph" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 8;
@@ -363,29 +325,22 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "py" = (
 /turf/open/floor/tile/dark/blue2/corner{
 	dir = 4
 	},
-/area/bigredv2/outside/admin_building)
-"qm" = (
-
-/turf/open/floor/tile/dark/blue2{
-	dir = 1
-	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "qq" = (
-
 /obj/structure/cable,
 /obj/structure/bed/chair{
 	dir = 1
 	},
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "qw" = (
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "qy" = (
 /obj/machinery/door_control{
 	dir = 1;
@@ -393,60 +348,51 @@
 	name = "Storm Shutters"
 	},
 /turf/open/floor/tile/dark/blue2,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "ru" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
 	},
-
 /turf/open/floor/tile/dark/blue2/corner{
 	dir = 1
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "rv" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 4
 	},
-
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "rI" = (
 /obj/machinery/faxmachine,
 /obj/structure/table,
 /turf/open/floor/tile/dark/blue2{
 	dir = 9
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "rM" = (
 /obj/structure/bed/chair{
 	dir = 1
 	},
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "rV" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /turf/open/floor/tile/dark/blue2,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "st" = (
 /turf/open/floor/tile/dark/blue2,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "sx" = (
 /obj/effect/ai_node,
 /turf/open/floor/grimy,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "sE" = (
-
 /turf/open/floor/grimy,
-/area/bigredv2/outside/admin_building)
-"sQ" = (
-
-/turf/open/floor/tile/dark/blue2/corner{
-	dir = 1
-	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "td" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -454,14 +400,7 @@
 	},
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
-"te" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
-/turf/open/floor/tile/dark/blue2,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "to" = (
 /obj/machinery/door/airlock/mainship/generic{
 	name = "\improper Operations Bedroom"
@@ -470,29 +409,27 @@
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "tH" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/machinery/light,
-
 /turf/open/floor/tile/dark/blue2,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "tP" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
 	},
-
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "tU" = (
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "ud" = (
 /obj/machinery/door/airlock/multi_tile/mainship/comdoor/free_access{
 	name = "\improper Operations"
@@ -502,32 +439,30 @@
 /turf/open/floor/tile/dark/blue2{
 	dir = 8
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "uu" = (
 /obj/machinery/computer3/server,
 /turf/open/floor/tile/dark/blue2{
 	dir = 4
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "uI" = (
 /obj/machinery/light,
-
 /turf/open/floor/tile/dark/red2{
 	dir = 6
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/security/colarmory)
 "uM" = (
 /obj/structure/bed/chair,
-
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "vf" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 8;
 	on = 1
 	},
 /turf/open/floor/grimy,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "vM" = (
 /obj/structure/rack,
 /obj/item/weapon/gun/smg/mp7,
@@ -537,33 +472,30 @@
 /turf/open/floor/tile/dark/red2{
 	dir = 8
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/security/colarmory)
 "wi" = (
 /obj/effect/spawner/random/machinery/random_broken_computer/small/comms,
 /obj/structure/table,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "wq" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 4
 	},
-
 /turf/open/floor/tile/dark/blue2/corner,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "xC" = (
 /obj/machinery/computer/atmos_alert,
 /obj/structure/table,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "xL" = (
-
 /turf/open/floor/tile/dark/blue2/corner,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "xM" = (
-/obj/structure/nuke_disk_candidate,
 /turf/open/floor/tile/dark/blue2,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "xT" = (
 /obj/machinery/door/airlock/mainship/command/free_access{
 	dir = 1;
@@ -571,45 +503,38 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "xV" = (
 /obj/structure/bed,
-
 /turf/open/floor/wood,
-/area/bigredv2/outside/admin_building)
-"ye" = (
-/obj/structure/cable,
-/obj/effect/ai_node,
-/turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "yq" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /obj/machinery/light,
 /turf/open/floor/tile/dark/blue2,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "yt" = (
 /obj/structure/closet/secure_closet/guncabinet/mp_armory,
 /turf/open/floor/tile/dark/red2{
 	dir = 9
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/security/colarmory)
 "yD" = (
 /obj/machinery/light,
 /obj/structure/cable,
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "zl" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "zC" = (
-
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "zQ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -618,59 +543,44 @@
 /turf/open/floor/tile/dark/blue2/corner{
 	dir = 8
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Ag" = (
 /obj/structure/closet/secure_closet/guncabinet/mp_armory,
 /turf/open/floor/tile/dark/red2{
 	dir = 10
 	},
-/area/bigredv2/outside/admin_building)
-"Aj" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
-/turf/open/floor/tile/dark/blue2{
-	dir = 8
-	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/security/colarmory)
 "Ap" = (
 /obj/machinery/computer3/server/rack,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
-"AM" = (
-/obj/structure/bed/chair,
-/turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "Bc" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "Bu" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/grimy,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Bz" = (
 /obj/machinery/computer3/server/rack,
 /turf/open/floor/tile/dark/blue2{
 	dir = 1
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "BV" = (
 /turf/open/floor/wood,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Cu" = (
 /obj/structure/table/wood,
 /turf/open/floor/wood,
-/area/bigredv2/outside/admin_building)
-"CU" = (
-/turf/open/floor/grimy,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "CY" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 4;
@@ -680,7 +590,7 @@
 	dir = 1
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Dq" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -689,18 +599,7 @@
 /turf/open/floor/tile/dark/blue2{
 	dir = 1
 	},
-/area/bigredv2/outside/admin_building)
-"Dz" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-
-/turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
-"DJ" = (
-
-/turf/open/floor/wood,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Eg" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
@@ -709,39 +608,36 @@
 /turf/open/floor/tile/dark/blue2{
 	dir = 4
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Ev" = (
-
 /turf/open/floor/tile/dark/blue2{
 	dir = 4
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "ER" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
 	},
-
 /turf/open/floor/tile/dark/blue2/corner{
 	dir = 1
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Fn" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/tile/dark/blue2/corner{
 	dir = 4
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Fx" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "FS" = (
 /obj/structure/window/framed/colony/reinforced,
 /obj/machinery/door/poddoor/shutters/mainship{
@@ -749,7 +645,7 @@
 	name = "\improper Operations Shutters"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/wall)
 "Gd" = (
 /obj/machinery/door/airlock/mainship/command/free_access{
 	name = "\improper Operations Office"
@@ -759,7 +655,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "Go" = (
 /obj/structure/rack,
 /obj/item/weapon/gun/pistol/highpower,
@@ -769,18 +665,18 @@
 /turf/open/floor/tile/dark/red2{
 	dir = 8
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/security/colarmory)
 "GK" = (
 /obj/structure/bed/chair/office/dark,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "GM" = (
 /obj/structure/table,
 /obj/effect/spawner/random/machinery/random_broken_computer/small/comms,
 /turf/open/floor/tile/dark/blue2{
 	dir = 6
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "GX" = (
 /obj/machinery/air_alarm{
 	dir = 1
@@ -790,7 +686,7 @@
 	dir = 1
 	},
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Hg" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -800,18 +696,19 @@
 /turf/open/floor/tile/dark/blue2{
 	dir = 4
 	},
-/area/bigredv2/outside/admin_building)
-"HN" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
-/turf/open/floor/tile/dark/blue2{
-	dir = 4
+/area/bigredv3/inside/command/highcomm)
+"Hx" = (
+/obj/machinery/light{
+	dir = 8
 	},
-/area/bigredv2/outside/admin_building)
+/turf/open/floor/tile/dark/blue2{
+	dir = 8
+	},
+/area/bigredv3/inside/command/highcomm)
 "HW" = (
 /obj/machinery/vending/cigarette,
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Io" = (
 /obj/machinery/door/airlock/mainship/security/glass/free_access{
 	name = "\improper Operations Armory"
@@ -820,20 +717,20 @@
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/security/colarmory)
 "Ir" = (
 /obj/structure/table,
 /obj/item/tool/pen/red,
 /obj/effect/spawner/random/misc/paperbin,
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "IN" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 4;
 	on = 1
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "Je" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -843,7 +740,7 @@
 /turf/open/floor/tile/dark/blue2{
 	dir = 9
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Jk" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -851,20 +748,13 @@
 /turf/open/floor/tile/dark/blue2{
 	dir = 8
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "JJ" = (
 /obj/machinery/door/airlock/mainship/generic{
 	name = "\improper Operations Toilet"
 	},
 /turf/open/floor/freezer,
-/area/bigredv2/outside/admin_building)
-"JK" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
-	dir = 4
-	},
-/turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "JO" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -872,16 +762,15 @@
 /turf/open/floor/tile/dark/blue2/corner{
 	dir = 1
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "JS" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-
 /turf/open/floor/tile/dark/blue2{
 	dir = 8
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "KC" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
@@ -889,27 +778,27 @@
 	name = "\improper Operations"
 	},
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "KL" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	on = 1
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "KP" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/dark/blue2/corner{
 	dir = 8
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Lf" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 5
 	},
 /turf/open/floor/grimy,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Ls" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -921,42 +810,37 @@
 /turf/open/floor/tile/dark/blue2{
 	dir = 1
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "LB" = (
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark/blue2{
 	dir = 4
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "LG" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-
 /turf/open/floor/tile/dark/blue2,
-/area/bigredv2/outside/admin_building)
-"Mh" = (
-
-/turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Mj" = (
 /obj/structure/table/wood,
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Mk" = (
 /obj/machinery/photocopier,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "Mr" = (
 /obj/machinery/photocopier,
 /turf/open/floor/tile/dark/blue2{
 	dir = 5
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "MG" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
@@ -965,75 +849,61 @@
 /turf/open/floor/tile/dark/blue2{
 	dir = 8
 	},
-/area/bigredv2/outside/admin_building)
-"Ne" = (
-/turf/open/floor/tile/dark/red2{
-	dir = 4
-	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Ni" = (
-
 /turf/open/floor/tile/dark/red2{
 	dir = 4
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/security/colarmory)
 "Nq" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold4w/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark/blue2/corner,
-/area/bigredv2/outside/admin_building)
-"NB" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
-/obj/machinery/light,
-/turf/open/floor/tile/dark/blue2,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "ND" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/dark/blue2{
 	dir = 1
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "NN" = (
 /turf/open/floor/tile/dark/blue2/corner{
 	dir = 8
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "NO" = (
 /obj/machinery/lapvend,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "NW" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 1
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "Oa" = (
 /obj/structure/toilet,
 /obj/machinery/light/small{
 	dir = 1
 	},
 /turf/open/floor/freezer,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Ol" = (
 /turf/open/floor/tile/dark/blue2{
 	dir = 8
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Om" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/power/apc/high/ntf,
+/obj/machinery/power/apc/weak/ntf,
 /obj/structure/cable,
 /turf/open/floor/tile/dark/blue2{
 	dir = 1
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "Or" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 4;
@@ -1044,47 +914,41 @@
 	name = "Storm Shutters"
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "OE" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-
 /turf/open/floor/tile/dark/blue2/corner,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "OI" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /turf/open/floor/tile/dark/blue2/corner{
 	dir = 4
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Pb" = (
 /obj/structure/bed/chair/office/dark,
 /turf/open/floor/tile/dark/blue2{
 	dir = 4
 	},
-/area/bigredv2/outside/admin_building)
-"Pr" = (
-/turf/open/floor/tile/dark/blue2{
-	dir = 4
-	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "PQ" = (
 /obj/machinery/vending/cola,
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Qo" = (
 /obj/machinery/vending/snack,
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "QL" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/dark/blue2{
 	dir = 8
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "QX" = (
 /obj/machinery/door/airlock/mainship/generic{
 	dir = 2;
@@ -1092,21 +956,21 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/wood,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Sd" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/structure/bed/chair,
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Se" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/dark/blue2/corner{
 	dir = 4
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Sw" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 1;
@@ -1115,21 +979,16 @@
 /turf/open/floor/tile/dark/red2{
 	dir = 4
 	},
-/area/bigredv2/outside/admin_building)
-"SJ" = (
-/obj/structure/bed,
-/turf/open/floor/wood,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/security/colarmory)
 "SK" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
 	},
-/obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/security/colarmory)
 "SW" = (
 /turf/open/floor/freezer,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Tf" = (
 /obj/machinery/light{
 	dir = 8
@@ -1137,7 +996,7 @@
 /turf/open/floor/tile/dark/blue2{
 	dir = 8
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "Tk" = (
 /obj/machinery/door/airlock/multi_tile/mainship/comdoor/free_access{
 	dir = 1;
@@ -1148,107 +1007,100 @@
 	dir = 4
 	},
 /turf/open/floor/tile/dark/blue2,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Tt" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "TE" = (
 /turf/open/floor/tile/dark/blue2{
 	dir = 1
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "TR" = (
 /obj/structure/table,
 /turf/open/floor/tile/dark/blue2{
 	dir = 8
 	},
-/area/bigredv2/outside/admin_building)
-"Ub" = (
-/turf/open/floor/tile/dark/blue2/corner{
-	dir = 1
-	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "Ue" = (
 /obj/structure/table/wood,
 /obj/machinery/light,
 /turf/open/floor/wood,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "UA" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 8
 	},
 /obj/effect/ai_node,
-
 /turf/open/floor/grimy,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "UC" = (
 /obj/structure/table,
 /obj/item/tool/pen,
 /turf/open/floor/tile/dark/blue2{
 	dir = 10
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "UD" = (
 /obj/structure/bed/chair,
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "UL" = (
 /obj/structure/table/wood,
 /obj/effect/spawner/random/misc/paperbin,
 /obj/item/tool/pen,
 /obj/machinery/light,
 /turf/open/floor/wood,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "US" = (
 /obj/structure/table,
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Va" = (
 /obj/structure/table,
 /obj/effect/spawner/random/misc/paperbin,
 /obj/item/tool/pen,
 /obj/machinery/light,
 /turf/open/floor/tile/dark/blue2,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "VB" = (
 /obj/structure/cable,
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "VC" = (
 /obj/structure/cable,
 /turf/open/floor/tile/dark/blue2{
 	dir = 4
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "VK" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 8;
 	on = 1
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Xz" = (
 /obj/structure/table,
 /obj/item/paper,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "XA" = (
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark/blue2{
 	dir = 1
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "XS" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/grimy,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Yi" = (
 /obj/structure/window/framed/colony/reinforced,
 /obj/machinery/door/poddoor/shutters/mainship{
@@ -1257,7 +1109,7 @@
 	name = "\improper Operations Shutters"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/wall)
 "Ym" = (
 /obj/structure/toilet{
 	dir = 4
@@ -1265,18 +1117,17 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-
 /turf/open/floor/freezer,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Yp" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 1
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "YR" = (
 /obj/machinery/computer3/server,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "Za" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -1284,7 +1135,7 @@
 /turf/open/floor/tile/dark/blue2/corner{
 	dir = 4
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Zj" = (
 /obj/machinery/door/airlock/mainship/command/free_access{
 	name = "\improper Operations Office"
@@ -1293,20 +1144,12 @@
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/admin_building)
-"ZD" = (
-
-/turf/open/floor/tile/dark/blue2{
-	dir = 8
-	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/bridge)
 "ZW" = (
-
-
 /turf/open/floor/tile/dark/blue2/corner{
 	dir = 1
 	},
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 
 (1,1,1) = {"
 Yp
@@ -1362,16 +1205,16 @@ nH
 "}
 (3,1,1) = {"
 nH
-AM
+uM
 ad
-CU
-CU
-CU
+sE
+sE
+sE
 US
 ep
 Ap
 tP
-fx
+tP
 cD
 nP
 ep
@@ -1389,16 +1232,16 @@ nH
 (4,1,1) = {"
 nH
 uM
-CU
-CU
-CU
-CU
-Dz
+sE
+sE
+sE
+sE
+rM
 ep
 lq
 cD
 IN
-mU
+cD
 jj
 ep
 ep
@@ -1418,21 +1261,21 @@ eA
 XS
 Lf
 sE
-CU
+sE
 ca
 ep
 kK
 NW
 fY
-jZ
+cD
 NO
 ep
 Je
 rv
 nB
 MG
-JK
-lf
+rv
+nB
 nB
 td
 fc
@@ -1441,36 +1284,36 @@ Yi
 (6,1,1) = {"
 ad
 ad
-CU
+sE
 nO
 kX
-CU
+sE
 rM
 ep
 nt
 NW
-Fx
+ja
 cD
 Mk
 ep
 Dq
-bl
+xL
 Ev
 Fx
 cK
-Pr
-Pr
+Ev
+Ev
 Fn
 st
 Yi
 "}
 (7,1,1) = {"
 nH
-AM
+uM
 sE
 Bu
 sx
-CU
+sE
 rM
 ep
 ep
@@ -1487,7 +1330,7 @@ ep
 ep
 ep
 Dq
-ll
+st
 nH
 "}
 (8,1,1) = {"
@@ -1501,7 +1344,7 @@ zl
 ud
 Jk
 Jk
-JK
+rv
 nB
 nB
 MG
@@ -1509,7 +1352,7 @@ oG
 st
 ep
 VK
-DJ
+BV
 UL
 ep
 Dq
@@ -1518,23 +1361,23 @@ nH
 "}
 (9,1,1) = {"
 Yi
-AM
-CU
+uM
+sE
 vf
-CU
+sE
 Bu
-Mh
-Pr
+ad
+Ev
 py
 xL
 Ev
 cK
-Pr
-Bc
-Pr
+Ev
+iy
+Ev
 eX
 ep
-SJ
+xV
 BV
 eD
 ep
@@ -1547,7 +1390,7 @@ Yi
 gQ
 sE
 sE
-CU
+sE
 Bu
 US
 ep
@@ -1608,8 +1451,8 @@ st
 ep
 Bz
 cD
-fW
-fx
+Bc
+tP
 Va
 ep
 XA
@@ -1626,7 +1469,7 @@ eD
 Mj
 ep
 TE
-te
+LG
 ep
 oS
 ZW
@@ -1639,7 +1482,7 @@ GK
 xM
 ep
 pc
-te
+LG
 ep
 ep
 ep
@@ -1648,14 +1491,14 @@ nH
 "}
 (14,1,1) = {"
 Yi
-SJ
+xV
 KL
 QX
 Tt
 rV
 ep
 TE
-bl
+xL
 eX
 ep
 Mr
@@ -1667,7 +1510,7 @@ ep
 XA
 jz
 xT
-ye
+zC
 VB
 VB
 nH
@@ -1678,7 +1521,7 @@ ep
 ep
 ep
 TE
-te
+LG
 ep
 pc
 st
@@ -1690,8 +1533,8 @@ ep
 ep
 ep
 ep
-qm
-te
+TE
+LG
 ep
 Sd
 US
@@ -1706,7 +1549,7 @@ ep
 cd
 tH
 ep
-qm
+TE
 st
 ep
 yt
@@ -1717,19 +1560,19 @@ Go
 Ag
 ep
 TE
-te
+LG
 ep
-AM
+uM
 US
 GX
 nH
 "}
 (17,1,1) = {"
 Yi
-SJ
+xV
 KL
 QX
-ee
+Tt
 rV
 ep
 TE
@@ -1739,13 +1582,13 @@ fP
 Ni
 SK
 Sw
-Ne
+Ni
 uI
 ep
 TE
-te
+LG
 ep
-AM
+uM
 US
 qq
 nH
@@ -1756,10 +1599,10 @@ ep
 ep
 ep
 TE
-te
+LG
 ep
 TE
-ll
+st
 ep
 ep
 ep
@@ -1784,18 +1627,18 @@ ep
 TE
 zQ
 Ol
-sQ
+ZW
 NN
-Tf
-ZD
+Hx
 Ol
-Aj
-cD
 Ol
-Tf
+JS
+mF
 Ol
-Ub
-te
+Hx
+Ol
+ZW
+LG
 ep
 HW
 VB
@@ -1804,17 +1647,17 @@ nH
 "}
 (20,1,1) = {"
 Yi
-SJ
+xV
 KL
 QX
-ee
+Tt
 Nq
-HN
-HN
+dq
+dq
 iT
 Hg
-HN
-HN
+dq
+dq
 Eg
 Se
 dV
@@ -1845,7 +1688,7 @@ ep
 pc
 st
 TE
-NB
+tH
 ep
 ep
 ep
@@ -1859,30 +1702,30 @@ Yi
 eD
 Mj
 ep
-cD
-te
+mF
+LG
 ep
-SJ
+xV
 eD
 ep
-SJ
+xV
 eD
 ep
 TE
-ll
+st
 TE
-te
+LG
 ep
-SJ
+xV
 eD
 ep
-SJ
+xV
 eD
 nH
 "}
 (23,1,1) = {"
 Yi
-SJ
+xV
 KL
 QX
 ND
@@ -1897,7 +1740,7 @@ ep
 TE
 st
 TE
-te
+LG
 ep
 Or
 Ue
@@ -1912,7 +1755,7 @@ ep
 ep
 ep
 TE
-te
+LG
 ep
 to
 ep
@@ -1922,8 +1765,8 @@ ep
 ep
 pc
 st
-qm
-NB
+TE
+tH
 ep
 to
 ep
@@ -1937,16 +1780,16 @@ Yi
 eD
 Mj
 ep
-cD
+mF
 zQ
 Ol
 Fx
 Ol
-Tf
+Hx
 Fx
 Ol
 Ol
-Ub
+ZW
 st
 TE
 zQ
@@ -1955,31 +1798,31 @@ JS
 tU
 Ol
 JO
-ll
+st
 nH
 "}
 (26,1,1) = {"
 Yi
-SJ
+xV
 KL
 QX
 ND
 wq
-HN
+dq
 Eg
 dq
-HN
+dq
 Eg
-HN
-HN
-HN
+dq
+dq
+dq
 av
 nF
 Eg
-ag
+dq
 Eg
-HN
-HN
+dq
+dq
 OI
 st
 nH
@@ -1998,11 +1841,11 @@ Ol
 Ol
 Ol
 Ol
-ZD
 Ol
 Ol
 Ol
-ZD
+Ol
+Ol
 Ol
 Ol
 Ol
@@ -2015,26 +1858,26 @@ nH
 Oa
 SW
 be
-cD
+mF
 LB
-Pr
 Ev
-Pr
-Pr
+Ev
+Ev
+Ev
 LB
 cK
-Pr
-Pr
-Pr
+Ev
+Ev
+Ev
 LB
-Pr
-Pr
+Ev
+Ev
 cK
 Ev
-Pr
-Pr
-Pr
-Pr
+Ev
+Ev
+Ev
+Ev
 "}
 (29,1,1) = {"
 nH

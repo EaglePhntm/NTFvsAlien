@@ -6,60 +6,53 @@
 	name = "\improper Chapel Shutters"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/wall)
 "cb" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
-"gy" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
-
-/turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "hE" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 8;
 	on = 1
 	},
 /obj/effect/ai_node,
+/obj/structure/cable,
 /turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "hN" = (
 /obj/structure/table/wood,
 /turf/open/floor/engine/cult,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "im" = (
 /obj/structure/table/wood,
 /obj/item/radio/headset/survivor,
-
 /turf/open/floor/engine/cult,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "je" = (
 /obj/structure/closet/wardrobe/chaplain_black,
 /turf/open/floor/engine/cult,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "jg" = (
 /turf/open/floor/tile/darkish,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "le" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/chapel{
 	dir = 4
 	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "lU" = (
 /turf/open/floor/tile/chapel{
 	dir = 4
 	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "ns" = (
 /obj/item/tool/candle,
 /turf/open/floor/tile/chapel,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "nQ" = (
 /obj/effect/landmark/start/job/survivor,
 /obj/effect/landmark/start/latejoinsurvivor,
@@ -69,11 +62,11 @@
 /turf/open/floor/tile/chapel{
 	dir = 4
 	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "ow" = (
 /obj/item/tool/kitchen/knife/ritual,
 /turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "pK" = (
 /obj/structure/bed/chair/wood/wings{
 	dir = 8
@@ -82,11 +75,11 @@
 /turf/open/floor/tile/chapel{
 	dir = 8
 	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "pS" = (
 /obj/structure/stairs/edge,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "qq" = (
 /obj/structure/bed/chair/wood/wings{
 	dir = 8
@@ -94,7 +87,7 @@
 /turf/open/floor/tile/chapel{
 	dir = 1
 	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "rc" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -103,7 +96,7 @@
 	dir = 4
 	},
 /turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "ru" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 4;
@@ -112,39 +105,32 @@
 /obj/effect/decal/cleanable/blood,
 /obj/item/clothing/head/cardborg,
 /turf/open/floor/engine/cult,
-/area/bigredv2/outside/chapel)
-"sI" = (
-/obj/structure/cable,
-/obj/machinery/power/apc/high/ntf{
-	dir = 1
-	},
-/turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "tb" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /turf/open/floor/engine/cult,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "tX" = (
 /obj/effect/ai_node,
 /obj/item/organ/heart,
 /turf/open/floor/engine/cult,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "uy" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "uV" = (
 /obj/item/tool/candle,
 /turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "vc" = (
 /obj/structure/bed/chair/wood/wings{
 	dir = 8
 	},
 /turf/open/floor/tile/chapel,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "vg" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /obj/structure/cable,
@@ -152,7 +138,7 @@
 	dir = 4
 	},
 /turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "vJ" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
@@ -160,40 +146,37 @@
 /turf/open/floor/tile/chapel{
 	dir = 1
 	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "vU" = (
 /turf/closed/wall,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/wall)
 "wa" = (
-/obj/structure/cable,
 /obj/item/tool/candle,
 /turf/open/floor/tile/chapel{
 	dir = 8
 	},
-/area/bigredv2/outside/chapel)
-"xk" = (
-/obj/structure/table/wood,
-
-/obj/item/tool/candle,
-/turf/open/floor/tile/darkish,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "xw" = (
-/obj/structure/cable,
-
 /obj/item/trash/candle,
 /turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "zF" = (
-
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/power/apc/weak/ntf{
+	dir = 8
+	},
+/obj/structure/cable,
 /turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "zI" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/item/tool/candle,
 /turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "AD" = (
 /obj/machinery/door_control{
 	dir = 4;
@@ -202,7 +185,7 @@
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/engine/cult,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "By" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -210,32 +193,23 @@
 	name = "\improper Chapel"
 	},
 /turf/open/floor/tile/darkish,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "Cl" = (
 /obj/machinery/air_alarm{
 	dir = 1
 	},
-
 /turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "CO" = (
-
 /obj/structure/stairs/edge{
 	dir = 1
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/chapel)
-"De" = (
-/obj/structure/cable,
-/obj/item/tool/candle,
-/turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "Dk" = (
 /obj/structure/table/wood,
-/obj/effect/spawner/random/weaponry/ammo,
-/obj/effect/spawner/random/weaponry/ammo,
 /turf/open/floor/tile/darkish,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "Ei" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -243,32 +217,30 @@
 /obj/structure/table/wood,
 /obj/item/storage/bible,
 /turf/open/floor/engine/cult,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "EZ" = (
-
-/obj/item/tool/candle,
+/obj/machinery/light,
 /turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "FV" = (
 /obj/item/trash/candle,
 /turf/open/floor/engine/cult,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "ID" = (
-/obj/docking_port/stationary/crashmode,
 /turf/open/floor/engine/cult,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "JD" = (
 /obj/structure/bed/chair/wood/wings{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/ash,
 /turf/open/floor/tile/chapel,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "Lr" = (
 /obj/structure/table/wood,
 /obj/item/tool/candle,
 /turf/open/floor/tile/darkish,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "NF" = (
 /obj/structure/bed/chair/wood/wings{
 	dir = 8
@@ -277,7 +249,7 @@
 /turf/open/floor/tile/chapel{
 	dir = 4
 	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "Oe" = (
 /obj/structure/window/framed/colony,
 /obj/machinery/door/poddoor/shutters/mainship{
@@ -286,14 +258,14 @@
 	name = "\improper Chapel Shutters"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/wall)
 "OL" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/chapel{
 	dir = 8
 	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "PY" = (
 /obj/structure/bed/chair/wood/wings{
 	dir = 8
@@ -301,56 +273,51 @@
 /turf/open/floor/tile/chapel{
 	dir = 8
 	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "Qt" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-
 /obj/effect/ai_node,
 /obj/effect/decal/cleanable/blood/six{
 	dir = 1
 	},
 /turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "Sg" = (
 /turf/open/floor/tile/chapel,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "Sv" = (
 /obj/structure/table/wood,
 /obj/item/weapon/chainofcommand,
 /turf/open/floor/engine/cult,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "SE" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "Te" = (
 /turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "TT" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/item/trash/candle,
 /turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
-"TV" = (
-/obj/structure/cable,
-/turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "TZ" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "VH" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/item/trash/candle,
 /turf/open/floor/grayscale/darkred,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "VS" = (
 /obj/effect/decal/cleanable/blood/six{
 	dir = 1
@@ -358,16 +325,12 @@
 /turf/open/floor/tile/chapel{
 	dir = 8
 	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "Xm" = (
-/obj/structure/cable,
 /turf/open/floor/tile/chapel{
 	dir = 1
 	},
-/area/bigredv2/outside/chapel)
-"Xt" = (
-/turf/open/floor/engine/cult,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "XR" = (
 /obj/effect/decal/cleanable/blood/six{
 	dir = 1
@@ -375,7 +338,7 @@
 /turf/open/floor/tile/chapel{
 	dir = 1
 	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "Zz" = (
 /obj/structure/bed/chair/wood/wings{
 	dir = 8
@@ -383,7 +346,7 @@
 /turf/open/floor/tile/chapel{
 	dir = 4
 	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 
 (1,1,1) = {"
 vU
@@ -403,7 +366,7 @@ ID
 FV
 tX
 FV
-Xt
+ID
 AD
 vU
 "}
@@ -437,7 +400,7 @@ VS
 Qt
 XR
 VS
-Te
+EZ
 vU
 "}
 (6,1,1) = {"
@@ -453,13 +416,13 @@ vU
 "}
 (7,1,1) = {"
 Oe
-zF
+Te
 qq
 pK
 TT
 qq
 pK
-zF
+Te
 vU
 "}
 (8,1,1) = {"
@@ -470,7 +433,7 @@ JD
 rc
 nQ
 vc
-Te
+EZ
 vU
 "}
 (9,1,1) = {"
@@ -478,7 +441,7 @@ Oe
 Te
 qq
 PY
-gy
+cb
 qq
 PY
 Te
@@ -492,7 +455,7 @@ vc
 cb
 NF
 JD
-sI
+Te
 vU
 "}
 (11,1,1) = {"
@@ -503,12 +466,12 @@ PY
 zI
 qq
 PY
-TV
+EZ
 vU
 "}
 (12,1,1) = {"
 Oe
-EZ
+uV
 Zz
 vc
 rc
@@ -522,10 +485,10 @@ Oe
 uV
 qq
 PY
-gy
+cb
 qq
 PY
-De
+uV
 vU
 "}
 (14,1,1) = {"
@@ -536,7 +499,7 @@ vc
 cb
 Zz
 vc
-TV
+EZ
 vU
 "}
 (15,1,1) = {"
@@ -547,7 +510,7 @@ OL
 vg
 Xm
 wa
-TV
+Te
 vU
 "}
 (16,1,1) = {"
@@ -564,7 +527,7 @@ vU
 (17,1,1) = {"
 vU
 Te
-xk
+Lr
 Lr
 zF
 Dk

@@ -3,53 +3,48 @@
 /obj/effect/landmark/lv624/fog_blocker,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south)
+/area/bigredv3/caves/south)
 "i" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/closed/wall/r_wall,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/wall)
 "n" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south)
-"v" = (
-
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south)
+/area/bigredv3/caves/south)
 "x" = (
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south)
+/area/bigredv3/caves/south)
 "J" = (
 /turf/closed/mineral/smooth/bigred/indestructible,
 /area/space)
 "L" = (
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "O" = (
-/obj/effect/ai_node,
+/obj/structure/fence/standard/xenoproof,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south)
+/area/bigredv3/caves/south)
 "Q" = (
 /turf/closed/wall/r_wall,
-/area/bigredv2/outside/nanotrasen_lab/inside)
+/area/bigredv3/inside/wall)
 "S" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "Z" = (
-
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south)
+/area/bigredv3/caves/south)
 
 (1,1,1) = {"
 Q
 S
 L
-v
 x
 x
-v
+x
+x
 L
 L
 J
@@ -69,35 +64,35 @@ J
 (3,1,1) = {"
 Q
 S
+O
 x
 x
-v
 x
 x
-v
+x
 L
 J
 "}
 (4,1,1) = {"
 Q
 h
-x
-x
 O
 x
+Z
 x
-O
+x
+Z
 L
 J
 "}
 (5,1,1) = {"
 Q
 n
+O
 x
 x
-v
 x
-v
+x
 x
 L
 J
@@ -105,7 +100,7 @@ J
 (6,1,1) = {"
 Q
 n
-x
+O
 x
 x
 x
@@ -117,12 +112,12 @@ J
 (7,1,1) = {"
 Q
 S
-x
-v
-x
+O
 x
 x
-v
+x
+x
+x
 L
 J
 "}
@@ -143,8 +138,8 @@ Q
 S
 L
 L
-O
-v
+Z
+x
 x
 Z
 L
@@ -179,9 +174,9 @@ Q
 S
 L
 L
-v
 x
-v
+x
+x
 x
 L
 J
@@ -203,9 +198,9 @@ Q
 S
 L
 x
-v
 x
-v
+x
+x
 x
 L
 J
@@ -213,21 +208,21 @@ J
 (15,1,1) = {"
 Q
 S
-x
-x
 O
 x
+Z
 x
-O
+x
+Z
 L
 J
 "}
 (16,1,1) = {"
 Q
 h
-x
 O
-v
+Z
+x
 x
 x
 x
@@ -237,19 +232,19 @@ J
 (17,1,1) = {"
 Q
 n
+O
 x
 x
 x
-v
 x
-v
+x
 L
 J
 "}
 (18,1,1) = {"
 Q
 n
-x
+O
 x
 x
 x
@@ -261,7 +256,7 @@ J
 (19,1,1) = {"
 Q
 h
-x
+O
 x
 Z
 x
@@ -287,7 +282,7 @@ Q
 S
 L
 L
-v
+x
 x
 x
 L
@@ -311,9 +306,9 @@ i
 S
 L
 L
-O
+Z
 x
-v
+x
 L
 L
 J

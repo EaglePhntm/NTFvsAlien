@@ -1,58 +1,73 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "e" = (
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south)
+/area/bigredv3/caves/south)
+"g" = (
+/obj/structure/fence/standard/xenoproof,
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/bigredv3/caves/southwest)
 "h" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/southwest)
+/area/bigredv3/caves/southwest)
 "j" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/southwest)
+/area/bigredv3/caves/southwest)
 "l" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/southwest)
+/area/bigredv3/caves/southwest)
 "p" = (
 /obj/effect/landmark/lv624/fog_blocker,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south/garbledradio)
-"q" = (
-/obj/effect/landmark/excavation_site_spawner,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south/garbledradio)
+/turf/closed/wall/r_wall,
+/area/bigredv3/inside/wall)
 "s" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/south/garbledradio)
+/area/bigredv3/caves/south/garbledradio)
 "u" = (
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south/garbledradio)
+/area/bigredv3/caves/south/garbledradio)
+"w" = (
+/turf/closed/wall/r_wall,
+/area/bigredv3/inside/wall)
 "x" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
+"y" = (
+/obj/structure/fence/standard/xenoproof,
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/bigredv3/caves/south/garbledradio)
 "B" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/southwest)
+/area/bigredv3/caves/southwest)
+"D" = (
+/obj/structure/fence/standard/xenoproof,
+/turf/open/floor/plating/ground/mars/random/cave/rock,
+/area/bigredv3/caves/southwest)
 "H" = (
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/southwest)
+/area/bigredv3/caves/southwest)
+"O" = (
+/obj/structure/fence/standard/xenoproof,
+/turf/open/floor/plating/ground/mars/random/cave/rock,
+/area/bigredv3/caves/south/garbledradio)
 "Q" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south/garbledradio)
+/area/bigredv3/caves/south/garbledradio)
 "T" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south)
+/area/bigredv3/caves/south)
 "U" = (
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "Y" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/southwest)
+/area/bigredv3/caves/southwest)
 
 (1,1,1) = {"
 x
@@ -180,7 +195,7 @@ h
 U
 U
 h
-h
+D
 H
 H
 H
@@ -201,10 +216,10 @@ U
 (7,1,1) = {"
 l
 H
-h
+w
 j
 H
-H
+g
 H
 H
 B
@@ -225,10 +240,10 @@ U
 (8,1,1) = {"
 l
 H
-H
+w
 h
 H
-H
+g
 H
 H
 H
@@ -249,10 +264,10 @@ U
 (9,1,1) = {"
 l
 h
+w
 H
 H
-H
-H
+g
 H
 U
 U
@@ -273,7 +288,7 @@ U
 (10,1,1) = {"
 Y
 H
-H
+w
 B
 U
 U
@@ -785,8 +800,8 @@ x
 U
 U
 U
-u
-u
+y
+y
 u
 u
 u
@@ -810,7 +825,7 @@ U
 U
 u
 u
-u
+y
 u
 u
 u
@@ -834,7 +849,7 @@ u
 u
 u
 u
-u
+y
 u
 u
 u
@@ -858,7 +873,7 @@ u
 u
 u
 u
-u
+y
 u
 u
 u
@@ -882,7 +897,7 @@ u
 u
 u
 Q
-u
+y
 u
 u
 u
@@ -1058,7 +1073,7 @@ u
 u
 u
 u
-q
+u
 e
 e
 "}
@@ -1099,12 +1114,12 @@ U
 U
 U
 U
-u
-s
-u
-u
-u
-s
+y
+O
+y
+y
+y
+O
 U
 U
 U

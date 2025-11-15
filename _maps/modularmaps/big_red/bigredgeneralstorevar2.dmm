@@ -119,7 +119,6 @@
 /area/bigredv2/outside/general_store)
 "hB" = (
 /obj/effect/decal/cleanable/dirt,
-
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
 "hX" = (
@@ -309,7 +308,7 @@
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/general_store)
 "rY" = (
-/obj/docking_port/stationary/crashmode,
+
 /obj/effect/ai_node,
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
@@ -584,7 +583,7 @@
 	dir = 1;
 	name = "\improper General Store"
 	},
-/obj/docking_port/stationary/crashmode,
+
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
 "IO" = (
@@ -732,7 +731,7 @@
 /obj/structure/table,
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask,
 /obj/item/reagent_containers/food/drinks/flask,
-/obj/effect/landmark/excavation_site_spawner,
+
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "Qa" = (

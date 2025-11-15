@@ -3,41 +3,35 @@
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "f" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/outside/directions/central)
 "l" = (
 /obj/structure/cable,
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/outside/directions/central)
 "n" = (
 /obj/structure/cable,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
-/area/bigredv2/outside/c)
-"t" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/structure/cable,
-
-/turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/outside/directions/central)
 "E" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "R" = (
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/outside/directions/central)
 "T" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/outside/directions/central)
 
 (1,1,1) = {"
 a
@@ -51,7 +45,7 @@ R
 "}
 (3,1,1) = {"
 f
-t
+f
 f
 "}
 (4,1,1) = {"

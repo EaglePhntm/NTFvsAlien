@@ -7,26 +7,21 @@
 /turf/open/floor/marking/asteroidwarning{
 	dir = 10
 	},
-/area/bigredv2/outside/c)
-"b" = (
-/obj/structure/rack,
-/obj/effect/spawner/random/weaponry/ammo/machinegun,
-/turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/outside/directions/central)
 "c" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 1;
 	on = 1
 	},
 /turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "d" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
 	},
 /turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "g" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
@@ -36,121 +31,90 @@
 /turf/open/floor/marking/asteroidwarning{
 	dir = 6
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "h" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "i" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "k" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
 	},
 /obj/structure/cable,
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "l" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
 	},
-/area/bigredv2/outside/c)
-"m" = (
-/obj/structure/rack,
-/obj/effect/spawner/random/weaponry/ammo/rifle,
-/turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/outside/directions/central)
 "n" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/c)
-"o" = (
-/obj/structure/rack,
-/obj/effect/spawner/random/weaponry/gun/rifles,
-/obj/effect/spawner/random/weaponry/gun/machineguns,
-/turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/outside/directions/central)
 "q" = (
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "r" = (
 /turf/closed/wall/r_wall,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/wall)
 "s" = (
 /obj/structure/rack,
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "t" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "u" = (
 /obj/effect/ai_node,
 /turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "v" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/marking/asteroidwarning,
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "w" = (
-/obj/structure/rack,
-/obj/effect/spawner/random/weaponry/ammo/sidearm,
-/obj/effect/spawner/random/weaponry/ammo/sidearm,
-/obj/effect/spawner/random/weaponry/ammo/sidearm,
-/obj/effect/spawner/random/weaponry/ammo/sidearm,
-/obj/effect/spawner/random/weaponry/ammo,
-/obj/machinery/power/apc/high/ntf,
 /obj/structure/cable,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/power/apc/weak/ntf,
 /turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "y" = (
 /turf/open/floor/plating/ground/mars/random/sand,
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "A" = (
 /obj/structure/rack,
-/obj/effect/spawner/random/weaponry/gun/sidearms,
 /obj/machinery/light,
 /turf/open/floor,
-/area/bigredv2/outside/storage)
-"B" = (
-/obj/structure/rack,
-/obj/effect/spawner/random/weaponry/gun,
-/obj/machinery/light,
-/turf/open/floor,
-/area/bigredv2/outside/storage)
-"C" = (
-/obj/structure/rack,
-/obj/effect/spawner/random/weaponry/gun/shotgun,
-/obj/effect/spawner/random/weaponry/gun,
-/obj/machinery/light,
-/turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "D" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 1
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "E" = (
 /obj/effect/ai_node,
 /obj/structure/cable,
@@ -158,46 +122,39 @@
 	dir = 1
 	},
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "F" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "G" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "H" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "I" = (
 /obj/structure/sign/securearea,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 1
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "J" = (
 /turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "K" = (
 /obj/structure/rack,
-/obj/effect/spawner/random/weaponry/ammo/shotgun,
 /turf/open/floor,
-/area/bigredv2/outside/storage)
-"L" = (
-/obj/structure/rack,
-/obj/effect/spawner/random/weaponry/ammo/shotgun,
-/obj/effect/spawner/random/weaponry/ammo/shotgun,
-/turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "M" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 1
@@ -205,31 +162,19 @@
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "O" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "P" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 5
 	},
-/area/bigredv2/outside/c)
-"Q" = (
-/obj/structure/rack,
-/obj/effect/spawner/random/weaponry/ammo/shotgun,
-/obj/effect/spawner/random/weaponry/ammo/shotgun,
-/obj/effect/spawner/random/weaponry/ammo,
-/turf/open/floor,
-/area/bigredv2/outside/storage)
-"R" = (
-/obj/structure/rack,
-/obj/effect/spawner/random/weaponry/gun/machineguns,
-/turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/outside/directions/central)
 "S" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -239,34 +184,21 @@
 	name = "\improper Emergency Vault"
 	},
 /turf/open/floor,
-/area/bigredv2/outside/storage)
-"U" = (
-/obj/structure/rack,
-/obj/effect/spawner/random/weaponry/ammo/machinegun,
-/obj/effect/spawner/random/weaponry/ammo/machinegun,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "V" = (
 /obj/structure/rack,
 /obj/structure/sign/securearea,
 /turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 "W" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 9
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "X" = (
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/storage)
-"Z" = (
-/obj/structure/rack,
-/turf/open/floor,
-/area/bigredv2/outside/storage)
+/area/bigredv3/inside/secondary/auxstore)
 
 (1,1,1) = {"
 y
@@ -305,10 +237,10 @@ v
 y
 D
 r
-U
+s
 J
 J
-C
+A
 r
 v
 "}
@@ -316,10 +248,10 @@ v
 y
 D
 r
-Z
+K
 J
 J
-Z
+K
 r
 v
 "}
@@ -327,10 +259,10 @@ v
 y
 D
 r
-Z
+K
 J
 J
-R
+K
 r
 v
 "}
@@ -338,10 +270,10 @@ v
 y
 D
 r
-L
+K
 u
 J
-o
+K
 r
 O
 "}
@@ -360,10 +292,10 @@ E
 y
 D
 r
-b
+K
 X
 J
-Z
+K
 r
 t
 "}
@@ -371,10 +303,10 @@ t
 y
 D
 r
-L
+K
 d
 c
-Z
+K
 r
 v
 "}
@@ -382,10 +314,10 @@ v
 y
 D
 r
-m
+K
 i
 J
-Z
+K
 r
 v
 "}
@@ -393,10 +325,10 @@ v
 y
 D
 r
-Z
+K
 i
 J
-Z
+K
 r
 v
 "}
@@ -407,7 +339,7 @@ r
 s
 i
 J
-B
+A
 r
 v
 "}
@@ -415,7 +347,7 @@ v
 y
 I
 r
-Q
+K
 i
 J
 V

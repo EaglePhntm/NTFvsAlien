@@ -2,52 +2,34 @@
 "b" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "d" = (
-
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/east/garbledradio)
 "n" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/east/garbledradio)
 "p" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
-"t" = (
-
-/turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/east/garbledradio)
 "w" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/northeast/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 "y" = (
-
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
-"B" = (
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
-"H" = (
-/obj/effect/ai_node,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/east/garbledradio)
 "I" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/east/garbledradio)
-"J" = (
-
-
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/east/garbledradio)
 "M" = (
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "P" = (
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 
 (1,1,1) = {"
 M
@@ -77,9 +59,9 @@ M
 "}
 (3,1,1) = {"
 M
-t
-B
-B
+I
+y
+y
 I
 I
 I
@@ -90,11 +72,11 @@ M
 "}
 (4,1,1) = {"
 M
-H
-B
-B
-B
-B
+d
+y
+y
+y
+y
 y
 n
 M
@@ -103,12 +85,12 @@ M
 "}
 (5,1,1) = {"
 w
-B
-B
-B
-B
-B
-B
+y
+y
+y
+y
+y
+y
 I
 M
 M
@@ -116,94 +98,94 @@ M
 "}
 (6,1,1) = {"
 P
-B
-B
 y
-B
-B
-B
+y
+y
+y
+y
+y
 I
-B
+y
 M
 M
 "}
 (7,1,1) = {"
 P
-B
-B
-B
-B
-B
-B
-B
+y
+y
+y
+y
+y
+y
+y
 I
 I
 I
 "}
 (8,1,1) = {"
 P
-H
-y
-B
-B
-B
-B
 d
-B
-H
+y
+y
+y
+y
+y
+d
+y
+d
 p
 "}
 (9,1,1) = {"
 P
-B
-B
-B
-B
-B
-B
-B
-B
+y
+y
+y
+y
+y
+y
+y
+y
 p
-H
+d
 "}
 (10,1,1) = {"
 P
-B
-B
-B
+y
+y
+y
 M
 M
-B
+y
 I
-B
+y
 p
-B
+y
 "}
 (11,1,1) = {"
 P
-H
-B
+d
+y
 M
 M
 M
-B
+y
 p
 p
-B
-J
+y
+y
 "}
 (12,1,1) = {"
 P
-B
+y
 M
 M
 M
 M
 b
 I
-B
-B
-B
+y
+y
+y
 "}
 (13,1,1) = {"
 P

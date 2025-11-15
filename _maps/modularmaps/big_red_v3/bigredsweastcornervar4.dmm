@@ -1,58 +1,77 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "b" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/south/garbledradio)
+/area/bigredv3/caves/south/garbledradio)
 "c" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/southwest)
+/area/bigredv3/caves/southwest)
 "d" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south/garbledradio)
+/area/bigredv3/caves/south/garbledradio)
 "h" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/southwest)
+/area/bigredv3/caves/southwest)
 "i" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "j" = (
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "l" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/southwest)
+/area/bigredv3/caves/southwest)
 "q" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/southwest)
+/area/bigredv3/caves/southwest)
 "s" = (
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/southwest)
+/area/bigredv3/caves/southwest)
 "u" = (
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south)
-"A" = (
-/obj/effect/landmark/excavation_site_spawner,
+/area/bigredv3/caves/south)
+"x" = (
+/turf/closed/wall/r_wall,
+/area/bigredv3/inside/wall)
+"y" = (
+/obj/structure/fence/standard/xenoproof,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south/garbledradio)
+/area/bigredv3/caves/south/garbledradio)
+"A" = (
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/bigredv3/caves/south/garbledradio)
 "E" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/south/garbledradio)
-"M" = (
+/area/bigredv3/caves/south/garbledradio)
+"I" = (
+/obj/effect/landmark/lv624/fog_blocker,
+/turf/closed/wall/r_wall,
+/area/bigredv3/inside/wall)
+"L" = (
+/obj/structure/fence/standard/xenoproof,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south/garbledradio)
+/area/bigredv3/caves/southwest)
 "N" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/southwest)
+/area/bigredv3/caves/southwest)
+"T" = (
+/obj/structure/fence/standard/xenoproof,
+/turf/open/floor/plating/ground/mars/random/cave/rock,
+/area/bigredv3/caves/south/garbledradio)
+"V" = (
+/obj/structure/fence/standard/xenoproof,
+/turf/open/floor/plating/ground/mars/random/cave/rock,
+/area/bigredv3/caves/southwest)
 "W" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south)
+/area/bigredv3/caves/south)
 
 (1,1,1) = {"
 i
@@ -180,7 +199,7 @@ c
 j
 j
 c
-c
+V
 s
 s
 s
@@ -201,10 +220,10 @@ j
 (7,1,1) = {"
 N
 s
-c
+x
 h
 s
-s
+L
 s
 s
 q
@@ -225,10 +244,10 @@ j
 (8,1,1) = {"
 N
 s
-s
+x
 c
 s
-s
+L
 s
 s
 s
@@ -249,10 +268,10 @@ j
 (9,1,1) = {"
 N
 c
+x
 s
 s
-s
-s
+L
 s
 j
 j
@@ -273,7 +292,7 @@ j
 (10,1,1) = {"
 l
 s
-s
+x
 q
 j
 j
@@ -565,7 +584,7 @@ s
 s
 s
 s
-N
+I
 j
 j
 j
@@ -589,7 +608,7 @@ s
 s
 s
 s
-N
+I
 s
 s
 j
@@ -613,10 +632,10 @@ s
 s
 s
 s
-N
+I
 s
 s
-s
+L
 s
 s
 s
@@ -640,7 +659,7 @@ j
 i
 s
 s
-s
+L
 s
 c
 s
@@ -655,21 +674,21 @@ j
 j
 "}
 (26,1,1) = {"
-M
-M
-M
-M
-M
+A
+A
+A
+A
+A
 j
 i
 j
 j
-M
-M
-M
-M
+y
+A
+A
+A
 b
-M
+A
 A
 j
 j
@@ -679,11 +698,11 @@ j
 j
 "}
 (27,1,1) = {"
-M
+A
 d
-M
-M
-M
+A
+A
+A
 j
 i
 j
@@ -691,11 +710,11 @@ j
 j
 j
 j
-M
-M
-M
-M
-M
+A
+A
+A
+A
+A
 j
 j
 j
@@ -704,10 +723,10 @@ j
 "}
 (28,1,1) = {"
 b
-M
-M
-M
-M
+A
+A
+A
+A
 j
 i
 j
@@ -716,22 +735,22 @@ j
 j
 j
 j
-M
-M
-M
-M
-M
-M
+A
+A
+A
+A
+A
+A
 j
 j
 j
 "}
 (29,1,1) = {"
 b
-M
-M
-M
-M
+A
+A
+A
+A
 j
 i
 j
@@ -740,22 +759,22 @@ j
 j
 j
 j
-M
+A
 d
 b
-M
+A
 d
-M
-M
+A
+A
 j
 j
 "}
 (30,1,1) = {"
-M
-M
-M
-M
-M
+A
+A
+A
+A
+A
 j
 i
 j
@@ -765,21 +784,21 @@ j
 j
 j
 j
-M
-M
-M
-M
-M
-M
-M
+A
+A
+A
+A
+A
+A
+A
 j
 "}
 (31,1,1) = {"
-M
-M
-M
-M
-M
+A
+A
+A
+A
+A
 j
 i
 j
@@ -790,20 +809,20 @@ j
 j
 j
 j
-M
-M
-M
-M
-M
-M
+A
+A
+A
+A
+A
+A
 j
 "}
 (32,1,1) = {"
-M
-M
-M
-M
-M
+A
+A
+A
+A
+A
 j
 i
 j
@@ -814,20 +833,20 @@ j
 j
 j
 j
-M
-M
-M
-M
-M
-M
+A
+A
+A
+A
+A
+A
 u
 "}
 (33,1,1) = {"
-M
-M
-M
-M
-M
+A
+A
+A
+A
+A
 j
 i
 j
@@ -839,18 +858,18 @@ j
 j
 j
 j
-M
-M
-M
-M
+A
+A
+A
+A
 u
 u
 "}
 (34,1,1) = {"
 b
-M
-M
-M
+A
+A
+A
 j
 j
 i
@@ -865,16 +884,16 @@ j
 j
 j
 d
-M
-M
+A
+A
 W
 u
 "}
 (35,1,1) = {"
 b
-M
-M
-M
+A
+A
+A
 j
 j
 i
@@ -888,17 +907,17 @@ j
 j
 j
 j
-M
-M
-M
+A
+A
+A
 b
 u
 "}
 (36,1,1) = {"
 b
-M
-M
-M
+A
+A
+A
 j
 j
 i
@@ -913,16 +932,16 @@ j
 j
 j
 j
-M
-M
-M
+A
+A
+A
 u
 "}
 (37,1,1) = {"
-M
-M
-M
-M
+A
+A
+A
+A
 j
 j
 i
@@ -937,16 +956,16 @@ j
 j
 j
 j
-M
-M
-M
+A
+A
+A
 u
 "}
 (38,1,1) = {"
-M
+A
 d
-M
-M
+A
+A
 j
 j
 i
@@ -960,16 +979,16 @@ j
 j
 j
 j
-M
-M
-M
+A
+A
+A
 u
 u
 "}
 (39,1,1) = {"
-M
-M
-M
+A
+A
+A
 j
 j
 j
@@ -982,18 +1001,18 @@ j
 j
 j
 j
-M
-M
-M
-M
-M
+A
+A
+A
+A
+A
 u
 u
 "}
 (40,1,1) = {"
-M
-M
-M
+A
+A
+A
 j
 j
 j
@@ -1005,19 +1024,19 @@ j
 j
 j
 j
-M
-M
-M
-M
-M
-M
+A
+A
+A
+A
+A
+A
 d
 u
 "}
 (41,1,1) = {"
-M
-M
-M
+A
+A
+A
 j
 j
 j
@@ -1028,19 +1047,19 @@ j
 j
 j
 j
-M
-M
-M
-M
-M
+A
+A
+A
+A
+A
 E
-M
-M
+A
+A
 W
 "}
 (42,1,1) = {"
-M
-M
+A
+A
 j
 j
 j
@@ -1051,19 +1070,19 @@ j
 j
 j
 j
-M
-M
-M
-M
-M
-M
-M
 A
-M
+A
+A
+A
+A
+A
+A
+A
+A
 u
 "}
 (43,1,1) = {"
-M
+A
 j
 j
 j
@@ -1074,13 +1093,13 @@ j
 j
 j
 j
-M
+A
 d
-M
+A
 b
 d
-M
-M
+A
+A
 d
 b
 j
@@ -1099,12 +1118,12 @@ j
 j
 j
 j
-M
-b
-M
-M
-M
-b
+y
+T
+y
+y
+y
+T
 j
 j
 j

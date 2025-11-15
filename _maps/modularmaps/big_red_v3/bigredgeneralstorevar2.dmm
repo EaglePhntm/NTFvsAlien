@@ -4,7 +4,7 @@
 	dir = 9
 	},
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "aU" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/drinks/cans/thirteenloko,
@@ -13,14 +13,14 @@
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "ci" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "cE" = (
 /obj/structure/table,
 /obj/item/reagent_containers/spray/cleaner,
@@ -28,9 +28,8 @@
 	dir = 4;
 	on = 1
 	},
-/obj/item/weapon/gun/pistol/holdout,
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "cI" = (
 /obj/machinery/door_control{
 	dir = 8;
@@ -38,50 +37,49 @@
 	name = "Storm Shutters"
 	},
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "cY" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "dh" = (
 /turf/closed/wall,
-/area/bigredv2/outside/cargo)
+/area/bigredv3/inside/wall)
 "dq" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/snacks/chips,
 /obj/item/reagent_containers/food/snacks/cookie,
 /obj/item/reagent_containers/food/snacks/donkpocket,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "dB" = (
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/bigredv3/inside/secondary/maintence/cargo)
 "dD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "ex" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "fH" = (
 /obj/structure/table,
 /obj/item/toy/prize/mauler,
 /obj/item/toy/prize/odysseus,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "gJ" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/blood,
-/obj/effect/spawner/random/food_or_drink/kitchenknife,
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "gL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -89,17 +87,17 @@
 	},
 /obj/effect/ai_node,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "hf" = (
 /obj/structure/table,
 /obj/item/toy/gun,
 /obj/item/toy/katana,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "hA" = (
 /obj/structure/window/framed/colony,
 /turf/open/floor/plating,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/wall)
 "it" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_pump{
@@ -107,25 +105,31 @@
 	on = 1
 	},
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "iA" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/bigredv3/inside/secondary/maintence/cargo)
+"jp" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/bigredv3/inside/secondary/maintence/cargo)
 "jB" = (
 /obj/machinery/door/airlock/mainship/maint/free_access{
 	name = "\improper General Store Storage"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/bigredv3/inside/secondary/maintence/cargo)
 "jS" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
 	name = "\improper General Store"
 	},
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "ke" = (
 /obj/machinery/door/poddoor/shutters/mainship{
 	id = "General Store";
@@ -133,50 +137,50 @@
 	},
 /obj/structure/window/framed/colony/reinforced,
 /turf/open/floor/plating,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/wall)
 "kl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/vending/snack,
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "km" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/drinks/coffee,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "kn" = (
 /obj/structure/table,
 /obj/item/healthanalyzer,
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "kt" = (
 /obj/effect/ai_node,
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "kM" = (
 /obj/structure/table,
 /obj/item/tool/surgery/surgicaldrill,
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "lm" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/computer/arcade,
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "lL" = (
 /obj/structure/table,
 /obj/effect/spawner/random/food_or_drink/kitchenknife,
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "mk" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "mB" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "mN" = (
 /obj/structure/window/framed/colony,
 /obj/machinery/door/poddoor/shutters/mainship{
@@ -185,37 +189,37 @@
 	name = "\improper General Store Shutters"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/wall)
 "nU" = (
 /obj/structure/table,
 /obj/item/toy/dice,
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "nX" = (
 /obj/structure/table,
 /obj/item/tool/lighter/random,
 /obj/item/tool/lighter/random,
 /obj/item/storage/toolbox/mechanical,
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "oM" = (
 /obj/structure/table,
 /obj/effect/spawner/random/food_or_drink/packagedbar/candyweighted,
 /obj/effect/spawner/random/food_or_drink/burger/bunweighted,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "oY" = (
 /obj/item/weapon/gun/pistol/holdout,
 /obj/effect/ai_node,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "pH" = (
 /obj/structure/table,
 /obj/effect/spawner/random/food_or_drink/cheesewedge,
 /obj/item/reagent_containers/food/snacks/chips,
 /obj/item/reagent_containers/food/snacks/cookie,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "qO" = (
 /obj/structure/table,
 /obj/effect/spawner/random/food_or_drink/packagedbar/candyweighted,
@@ -223,39 +227,33 @@
 /obj/effect/spawner/random/food_or_drink/packagedbar/candyweighted,
 /obj/item/reagent_containers/food/snacks/chips,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "qV" = (
 /obj/structure/table,
 /obj/machinery/light,
 /obj/item/toy/prize/ripley,
 /obj/item/toy/prize/odysseus,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "qW" = (
 /obj/structure/table,
-/obj/item/weapon/gun/pistol/holdout,
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "rl" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "rm" = (
 /obj/structure/table,
 /obj/machinery/computer/pod/old{
 	name = "Register"
 	},
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
-"rY" = (
-/obj/docking_port/stationary/crashmode,
-/obj/effect/ai_node,
-/turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "sa" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_pump{
@@ -263,66 +261,61 @@
 	on = 1
 	},
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "se" = (
 /obj/structure/closet/toolcloset,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "sk" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/drinks/flask,
 /obj/item/reagent_containers/food/drinks/cans/waterbottle,
 /obj/effect/spawner/random/food_or_drink/beer,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "sv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "sA" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "tl" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/drinks/cans/thirteenloko,
 /obj/item/reagent_containers/food/drinks/cans/cola,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "tq" = (
 /obj/structure/bed,
 /obj/item/toy/plush/farwa,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "tz" = (
-/obj/machinery/light,
 /obj/structure/cable,
+/obj/machinery/light/small,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
-"uc" = (
-/obj/structure/rack,
-/turf/open/floor/plating,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/secondary/maintence/cargo)
 "uk" = (
 /obj/structure/table,
-/obj/item/weapon/gun/pistol/holdout,
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "uo" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/drinks/cans/waterbottle,
 /obj/item/reagent_containers/food/drinks/cans/cola,
 /obj/effect/spawner/random/food_or_drink/beer,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "uY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "vs" = (
 /obj/structure/table,
 /obj/effect/spawner/random/food_or_drink/packagedbar/candyweighted,
@@ -332,16 +325,16 @@
 	dir = 8
 	},
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "wr" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "wx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/ai_node,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "wZ" = (
 /obj/structure/table,
 /obj/effect/spawner/random/food_or_drink/packagedbar/candyweighted,
@@ -351,85 +344,85 @@
 /obj/effect/spawner/random/food_or_drink/packagedbar/candyweighted,
 /obj/item/reagent_containers/food/snacks/donkpocket,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "xd" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/drinks/cans/tonic,
 /obj/item/reagent_containers/food/drinks/cans/waterbottle,
 /obj/item/reagent_containers/food/drinks/cans/aspen,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "ym" = (
 /obj/structure/table,
 /obj/effect/spawner/random/food_or_drink/burger/bunweighted,
 /obj/effect/spawner/random/food_or_drink/burger/bunweighted,
 /obj/effect/spawner/random/food_or_drink/cheesewedge,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "yx" = (
 /obj/structure/table,
 /obj/effect/spawner/random/food_or_drink/packagedbar/candyweighted,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "yU" = (
-/obj/machinery/power/apc/high/ntf,
+/obj/machinery/power/apc/weak/ntf,
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "zj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "zl" = (
-/obj/machinery/light,
 /obj/structure/rack,
+/obj/machinery/light/small,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/bigredv3/inside/secondary/maintence/cargo)
 "zq" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "zL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/chair,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "zT" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/snacks/chips,
 /obj/item/reagent_containers/food/snacks/cookie,
 /obj/effect/spawner/random/food_or_drink/donut,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "zX" = (
 /obj/machinery/door_control{
 	id = "General Store";
 	name = "Storm Shutters"
 	},
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Ad" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/item/paper/crumpled/bloody,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "BL" = (
 /obj/structure/table,
 /obj/item/toy/prize/mauler,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Ef" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Ev" = (
 /obj/structure/table,
 /obj/effect/spawner/random/food_or_drink/burger/bunweighted,
@@ -437,101 +430,100 @@
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "EG" = (
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
 	name = "\improper General Store"
 	},
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "ER" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "EW" = (
 /obj/structure/table,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Fg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/roller,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Fk" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Fz" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/snacks/chips,
 /obj/effect/spawner/random/food_or_drink/donut,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "FW" = (
 /obj/structure/table,
 /obj/item/toy/plush/carp,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "GR" = (
 /obj/structure/rack,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/bigredv3/inside/secondary/maintence/cargo)
 "GU" = (
 /obj/structure/table,
 /obj/item/toy/prize/ripley,
 /obj/item/toy/prize/odysseus,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "HC" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
 	},
 /obj/effect/ai_node,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Ie" = (
 /obj/structure/table,
 /obj/item/storage/briefcase,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "IG" = (
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
 	dir = 1;
 	name = "\improper General Store"
 	},
-/obj/docking_port/stationary/crashmode,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "IO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "IV" = (
 /obj/effect/landmark/start/job/survivor,
 /obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Jm" = (
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "JV" = (
 /obj/structure/table,
 /obj/item/tool/multitool,
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "JZ" = (
 /turf/open/floor/plating,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/secondary/maintence/cargo)
 "Kg" = (
-/obj/machinery/light{
+/obj/machinery/light/small{
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/secondary/maintence/cargo)
 "KK" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
@@ -539,19 +531,19 @@
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "KO" = (
 /obj/structure/table,
 /obj/item/storage/box/snappops,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Lc" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
 	name = "\improper General Store"
 	},
 /turf/open/floor/tile/bar,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Lt" = (
 /obj/structure/table,
 /obj/item/storage/briefcase,
@@ -559,21 +551,21 @@
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "LI" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask,
 /obj/item/reagent_containers/food/drinks/cans/aspen,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Mz" = (
 /obj/structure/bed,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "MK" = (
 /obj/effect/spawner/random/engineering/structure/tank/waterweighted,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Ng" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
@@ -581,7 +573,7 @@
 	},
 /obj/effect/ai_node,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Ns" = (
 /obj/structure/table,
 /obj/effect/spawner/random/food_or_drink/burger/bunweighted,
@@ -589,7 +581,7 @@
 /obj/effect/spawner/random/food_or_drink/cheesewedge,
 /obj/effect/spawner/random/food_or_drink/donut,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "NI" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask,
@@ -598,96 +590,94 @@
 	dir = 8
 	},
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Oj" = (
 /obj/structure/table,
 /obj/item/toy/beach_ball,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Oq" = (
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Ox" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 8
 	},
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "OC" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "OR" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/drinks/cans/waterbottle,
 /obj/item/reagent_containers/food/drinks/cans/cola,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Pe" = (
-,
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "PR" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask,
 /obj/item/reagent_containers/food/drinks/flask,
-/obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Qa" = (
 /obj/structure/table,
 /obj/item/storage/box/snappops,
 /obj/item/storage/box/snappops,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "QJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/vending/cola,
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "QV" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "QZ" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Re" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock/mainship/maint/free_access{
+	name = "\improper General Store Storage"
+	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/bigredv3/inside/secondary/maintence/cargo)
 "Rs" = (
 /obj/effect/ai_node,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "RJ" = (
 /obj/structure/table,
 /obj/item/flashlight,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Sb" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/drinks/cans/waterbottle,
 /obj/item/reagent_containers/food/drinks/cans/aspen,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Sd" = (
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
 	name = "\improper General Store"
 	},
 /turf/open/floor/tile/bar,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Sx" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
-"SM" = (
-/turf/closed/wall,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Ti" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/blood,
@@ -697,16 +687,16 @@
 	name = "Storm Shutters"
 	},
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Ty" = (
 /obj/structure/cable,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "TL" = (
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "TU" = (
 /obj/structure/table,
 /obj/effect/spawner/random/food_or_drink/cheesewedge,
@@ -714,69 +704,59 @@
 /obj/item/reagent_containers/food/snacks/donkpocket,
 /obj/effect/spawner/random/food_or_drink/donut,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Ub" = (
 /obj/structure/table,
 /obj/item/toy/prize/ripley,
 /obj/item/toy/prize/mauler,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "UB" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
-"UV" = (
-/turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
-"UY" = (
-/obj/machinery/door/airlock/mainship/medical/glass/free_access{
-	dir = 1;
-	name = "\improper General Store"
-	},
-/turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "VF" = (
 /obj/item/flashlight,
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "VZ" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/drinks/flask,
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Wc" = (
 /obj/machinery/air_alarm{
 	dir = 1
 	},
 /turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Wg" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating,
-/area/bigredv2/outside/cargo)
+/area/bigredv3/inside/secondary/maintence/cargo)
 "Wo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Wp" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
 	},
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "WG" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "WI" = (
 /obj/structure/table,
 /obj/machinery/computer/pod/old{
@@ -786,14 +766,11 @@
 	dir = 1
 	},
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "Xh" = (
 /obj/machinery/computer/arcade,
 /turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
-"ZS" = (
-/turf/open/floor/tile/yellow/full,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/cargo/store)
 "ZW" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -802,23 +779,23 @@
 	name = "\improper General Store Maintenance"
 	},
 /turf/open/floor,
-/area/bigredv2/outside/general_store)
+/area/bigredv3/inside/secondary/maintence/cargo)
 
 (1,1,1) = {"
-SM
-SM
-SM
-SM
-SM
-SM
-SM
-SM
+dh
+dh
+dh
+dh
+dh
+dh
+dh
+dh
 ke
 Sd
 Lc
 ke
-SM
-SM
+dh
+dh
 "}
 (2,1,1) = {"
 mN
@@ -834,7 +811,7 @@ Oq
 Ty
 GU
 fH
-SM
+dh
 "}
 (3,1,1) = {"
 mN
@@ -850,7 +827,7 @@ mk
 dD
 Jm
 qV
-SM
+dh
 "}
 (4,1,1) = {"
 mN
@@ -866,26 +843,26 @@ Jm
 Ty
 mk
 BL
-SM
+dh
 "}
 (5,1,1) = {"
 mN
 Oq
 WG
 zT
-SM
-SM
-SM
-SM
+dh
+dh
+dh
+dh
 ym
 Jm
 Ty
 mk
 Ub
-SM
+dh
 "}
 (6,1,1) = {"
-SM
+dh
 Oq
 sA
 yx
@@ -901,7 +878,7 @@ Sx
 ZW
 "}
 (7,1,1) = {"
-SM
+dh
 Oq
 WG
 Jm
@@ -914,10 +891,10 @@ Ad
 sA
 Jm
 FW
-SM
+dh
 "}
 (8,1,1) = {"
-SM
+dh
 Oq
 Ng
 IO
@@ -930,10 +907,10 @@ IO
 gL
 Oj
 hf
-SM
+dh
 "}
 (9,1,1) = {"
-SM
+dh
 Oq
 sA
 OR
@@ -944,25 +921,25 @@ Sb
 km
 Jm
 Oq
-SM
-SM
-SM
+dh
+dh
+dh
 "}
 (10,1,1) = {"
-SM
+dh
 Oq
 sA
 uo
-SM
-SM
-SM
-SM
+dh
+dh
+dh
+dh
 km
 Jm
 Oq
-SM
-UV
-UV
+dh
+JZ
+dB
 "}
 (11,1,1) = {"
 mN
@@ -976,8 +953,8 @@ mB
 LI
 Jm
 Oq
-SM
-UV
+dh
+JZ
 iA
 "}
 (12,1,1) = {"
@@ -992,7 +969,7 @@ Jm
 Jm
 OC
 Oq
-SM
+dh
 Wg
 dB
 "}
@@ -1008,8 +985,8 @@ MK
 Jm
 Jm
 Wc
-SM
-UV
+dh
+JZ
 dB
 "}
 (14,1,1) = {"
@@ -1024,24 +1001,24 @@ Lt
 RJ
 Jm
 Oq
-SM
-UV
-dB
+dh
+JZ
+tz
 "}
 (15,1,1) = {"
 mN
 Oq
 sA
 EW
-SM
-SM
-SM
-SM
+dh
+dh
+dh
+dh
 Ie
 Jm
 wr
-SM
-UV
+dh
+JZ
 dB
 "}
 (16,1,1) = {"
@@ -1056,9 +1033,9 @@ qW
 Qa
 Jm
 TL
-SM
-UV
-tz
+dh
+JZ
+dB
 "}
 (17,1,1) = {"
 mN
@@ -1072,12 +1049,12 @@ Jm
 mk
 mk
 tq
-SM
-UV
+dh
+JZ
 dB
 "}
 (18,1,1) = {"
-SM
+dh
 zX
 HC
 Fk
@@ -1088,8 +1065,8 @@ mk
 Jm
 Jm
 oY
-SM
-UV
+dh
+JZ
 dB
 "}
 (19,1,1) = {"
@@ -1104,8 +1081,8 @@ mk
 Fg
 Rs
 se
-SM
-UV
+dh
+Kg
 dB
 "}
 (20,1,1) = {"
@@ -1120,28 +1097,28 @@ Oq
 wr
 Oq
 Mz
-SM
-UV
+dh
+JZ
 dB
 "}
 (21,1,1) = {"
-SM
+dh
 EG
 EG
-SM
+dh
 Ti
 sA
 kM
 Jm
 nU
 mk
-SM
-SM
-UV
+dh
+dh
+JZ
 dB
 "}
 (22,1,1) = {"
-UY
+IG
 Jm
 OC
 hA
@@ -1151,7 +1128,7 @@ kn
 Jm
 uk
 mk
-SM
+dh
 yU
 dB
 dB
@@ -1167,47 +1144,47 @@ JV
 Jm
 lL
 mk
-SM
+dh
 JZ
 Wg
-UV
+JZ
 "}
 (24,1,1) = {"
-SM
+dh
 EG
 EG
-SM
+dh
 WI
 sA
 rm
 Jm
 rm
 Jm
-SM
-Kg
-UV
-UV
+dh
+JZ
+JZ
+JZ
 "}
 (25,1,1) = {"
 mN
 Jm
 mk
-ZS
-ZS
+Pe
+Pe
 UB
-ZS
-ZS
-ZS
+Pe
+Pe
+Pe
 ex
-SM
+dh
+jp
 JZ
-UV
-UV
+JZ
 "}
 (26,1,1) = {"
-SM
+dh
 QZ
-rY
+Rs
 mk
 mk
 sA
@@ -1215,8 +1192,8 @@ Jm
 Jm
 wx
 sv
-SM
-SM
+dh
+dh
 jB
 dh
 "}
@@ -1227,13 +1204,13 @@ Jm
 mk
 uY
 Wo
-ZS
-ZS
-ZS
+Pe
+Pe
+Pe
 kt
-SM
-uc
-UV
+dh
+GR
+JZ
 GR
 "}
 (28,1,1) = {"
@@ -1243,13 +1220,13 @@ mk
 Jm
 Jm
 UB
-SM
+dh
 hA
 hA
 hA
-SM
-uc
-UV
+dh
+GR
+JZ
 GR
 "}
 (29,1,1) = {"
@@ -1262,10 +1239,10 @@ UB
 hA
 cE
 cY
-ZS
-SM
-uc
-UV
+Pe
+dh
+GR
+JZ
 zl
 "}
 (30,1,1) = {"
@@ -1279,24 +1256,24 @@ jS
 aq
 cI
 sv
-SM
-uc
-UV
+dh
+GR
+JZ
 GR
 "}
 (31,1,1) = {"
-SM
-SM
-SM
-SM
-SM
-SM
-SM
-SM
-SM
-SM
-SM
-SM
+dh
+dh
+dh
+dh
+dh
+dh
+dh
+dh
+dh
+dh
+dh
+dh
 Re
 dh
 "}

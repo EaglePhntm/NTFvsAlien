@@ -2,21 +2,20 @@
 "c" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 "d" = (
-/turf/closed/wall/r_wall,
-/area/bigredv2/caves/rock)
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv3/inside/wall)
 "e" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
+/area/bigredv3/caves/northeast)
 "g" = (
-/obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
+/area/bigredv3/caves/northeast)
 "h" = (
 /turf/closed/wall/r_wall,
-/area/bigredv2/caves/lambda_lab)
+/area/bigredv3/inside/wall)
 "k" = (
 /turf/open/floor/plating,
 /area/bigredv2/caves/lambda_lab)
@@ -28,27 +27,20 @@
 /area/bigredv2/caves/lambda_lab)
 "o" = (
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 "r" = (
 /turf/closed/mineral/smooth/bigred/indestructible,
 /area/space)
-"v" = (
-/obj/effect/ai_node,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
 "w" = (
 /obj/structure/fence/standard/xenoproof,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
-"x" = (
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
+/area/bigredv3/caves/northeast)
 "y" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/northeast)
+/area/bigredv3/caves/northeast)
 "z" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/northeast/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 "C" = (
 /obj/machinery/chem_dispenser,
 /turf/open/floor/tile/whiteyellow{
@@ -57,9 +49,8 @@
 /area/bigredv2/caves/lambda_lab)
 "E" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
+/area/bigredv3/caves/northeast)
 "G" = (
 /obj/machinery/chem_master,
 /turf/open/floor/tile/whiteyellow{
@@ -69,10 +60,10 @@
 "I" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "M" = (
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "N" = (
 /obj/structure/closet/crate/internals,
 /turf/open/floor/plating,
@@ -81,11 +72,7 @@
 /obj/effect/landmark/lv624/fog_blocker,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
-"X" = (
-/obj/effect/landmark/excavation_site_spawner,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast/garbledradio)
+/area/bigredv3/caves/northeast)
 "Y" = (
 /obj/structure/closet/crate/freezer/rations,
 /turf/open/floor/plating,
@@ -399,7 +386,7 @@ o
 "}
 (10,1,1) = {"
 r
-r
+d
 r
 r
 r
@@ -460,7 +447,7 @@ M
 M
 M
 M
-M
+o
 o
 c
 o
@@ -494,7 +481,7 @@ M
 M
 M
 M
-M
+o
 z
 o
 c
@@ -528,9 +515,9 @@ M
 M
 M
 M
-M
-M
-M
+o
+o
+o
 M
 "}
 (14,1,1) = {"
@@ -562,9 +549,9 @@ M
 M
 M
 M
-M
-M
-M
+o
+o
+o
 M
 "}
 (15,1,1) = {"
@@ -595,11 +582,11 @@ M
 M
 M
 M
-d
-d
-d
-d
-d
+M
+o
+o
+o
+M
 "}
 (16,1,1) = {"
 r
@@ -629,7 +616,7 @@ M
 M
 M
 M
-d
+M
 o
 o
 o
@@ -663,7 +650,7 @@ M
 M
 M
 M
-d
+M
 o
 o
 o
@@ -697,7 +684,7 @@ M
 M
 M
 M
-d
+M
 o
 o
 o
@@ -764,7 +751,7 @@ M
 M
 M
 M
-X
+o
 o
 o
 o
@@ -965,8 +952,8 @@ r
 M
 M
 M
-x
-x
+g
+g
 o
 o
 o
@@ -998,11 +985,11 @@ r
 r
 M
 M
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
 o
 o
 o
@@ -1032,12 +1019,12 @@ r
 r
 M
 M
-v
-x
-x
-x
-v
-x
+E
+g
+g
+g
+E
+g
 o
 o
 M
@@ -1066,12 +1053,12 @@ r
 r
 M
 M
-x
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
+g
 o
 M
 I
@@ -1101,11 +1088,11 @@ r
 M
 M
 M
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
 M
 I
 M
@@ -1135,11 +1122,11 @@ r
 M
 M
 M
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
 M
 I
 M
@@ -1169,11 +1156,11 @@ r
 M
 M
 M
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
 M
 I
 M
@@ -1203,11 +1190,11 @@ r
 M
 M
 M
-x
-x
-x
-v
-x
+g
+g
+g
+E
+g
 M
 I
 M
@@ -1237,11 +1224,11 @@ r
 M
 M
 M
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
 M
 I
 M
@@ -1271,11 +1258,11 @@ r
 M
 M
 M
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
 M
 I
 M
@@ -1305,11 +1292,11 @@ r
 M
 M
 M
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
 M
 I
 M
@@ -1339,11 +1326,11 @@ r
 M
 M
 M
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
 M
 I
 M
@@ -1373,11 +1360,11 @@ r
 M
 M
 M
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
 M
 I
 M
@@ -1407,11 +1394,11 @@ r
 M
 M
 M
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
 w
 I
 h
@@ -1441,11 +1428,11 @@ r
 M
 M
 M
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
 w
 e
 h
@@ -1475,11 +1462,11 @@ r
 M
 M
 M
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
 w
 e
 h
@@ -1509,11 +1496,11 @@ r
 M
 M
 M
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
 w
 e
 h
@@ -1543,11 +1530,11 @@ r
 M
 M
 M
-x
-x
-x
-v
-x
+g
+g
+g
+E
+g
 w
 V
 h
@@ -1577,11 +1564,11 @@ r
 M
 M
 M
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
 w
 e
 h
@@ -1611,11 +1598,11 @@ r
 M
 M
 M
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
 w
 e
 h
@@ -1645,11 +1632,11 @@ r
 M
 M
 M
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
 w
 e
 h
@@ -1679,11 +1666,11 @@ r
 M
 M
 M
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
 w
 e
 h
@@ -1714,10 +1701,10 @@ M
 M
 M
 M
-x
-x
-x
-x
+g
+g
+g
+g
 w
 e
 h
@@ -1748,10 +1735,10 @@ M
 M
 M
 M
-x
-x
-x
-x
+g
+g
+g
+g
 w
 w
 I
@@ -1782,12 +1769,12 @@ M
 M
 M
 M
-x
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
+g
 M
 I
 "}
@@ -1817,12 +1804,12 @@ M
 M
 M
 M
-x
-x
+g
+g
 E
-x
-x
-x
+g
+g
+g
 y
 "}
 (52,1,1) = {"
@@ -1851,13 +1838,13 @@ M
 M
 M
 M
-x
-v
-x
-x
-x
-v
-x
+g
+E
+g
+g
+g
+E
+g
 "}
 (53,1,1) = {"
 r
@@ -1886,12 +1873,12 @@ M
 M
 M
 M
-x
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
+g
 "}
 (54,1,1) = {"
 r
@@ -1920,12 +1907,12 @@ M
 M
 M
 M
-x
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
+g
 "}
 (55,1,1) = {"
 r
@@ -1955,11 +1942,11 @@ M
 M
 M
 M
-x
 g
-x
-x
-x
+g
+g
+g
+g
 "}
 (56,1,1) = {"
 r
@@ -1989,11 +1976,11 @@ M
 M
 M
 M
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
 "}
 (57,1,1) = {"
 r
@@ -2023,11 +2010,11 @@ M
 M
 M
 M
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
 "}
 (58,1,1) = {"
 r
@@ -2057,11 +2044,11 @@ M
 M
 M
 M
-x
-x
-x
-v
-x
+g
+g
+g
+E
+g
 "}
 (59,1,1) = {"
 r
@@ -2091,11 +2078,11 @@ M
 M
 M
 M
-x
-x
-x
-x
-x
+g
+g
+g
+g
+g
 "}
 (60,1,1) = {"
 r
@@ -2126,10 +2113,10 @@ M
 M
 M
 M
-x
-x
-v
-x
+g
+g
+E
+g
 "}
 (61,1,1) = {"
 r
@@ -2161,9 +2148,9 @@ M
 M
 M
 M
-x
-x
-x
+g
+g
+g
 "}
 (62,1,1) = {"
 r
@@ -2195,9 +2182,9 @@ M
 M
 M
 M
-x
-x
-x
+g
+g
+g
 "}
 (63,1,1) = {"
 r
@@ -2229,9 +2216,9 @@ M
 M
 M
 M
-x
-x
-x
+g
+g
+g
 "}
 (64,1,1) = {"
 r
@@ -2263,9 +2250,9 @@ M
 M
 M
 M
-x
-x
-x
+g
+g
+g
 "}
 (65,1,1) = {"
 r
@@ -2297,7 +2284,7 @@ M
 M
 M
 M
-x
-x
-x
+g
+g
+g
 "}

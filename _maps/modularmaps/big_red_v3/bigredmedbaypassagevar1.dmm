@@ -3,29 +3,29 @@
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "g" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "q" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
 	name = "\improper Medical Command Complex"
 	},
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "w" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "z" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "A" = (
 /obj/structure/sign/safety/medical{
 	dir = 1
@@ -33,37 +33,31 @@
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "B" = (
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
 	name = "\improper Medical Command Complex"
 	},
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "C" = (
 /turf/closed/wall/r_wall,
-/area/bigredv2/outside/admin_building)
-"F" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/structure/cable,
-
-/turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/wall)
 "I" = (
 /turf/closed/wall,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/wall)
 "L" = (
 /obj/structure/cable,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "X" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 "Y" = (
 /obj/structure/sign/safety/medical{
 	dir = 1
@@ -71,10 +65,10 @@
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
 	},
-/area/bigredv2/outside/c)
+/area/bigredv3/outside/directions/central)
 "Z" = (
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/admin_building)
+/area/bigredv3/inside/command/highcomm)
 
 (1,1,1) = {"
 Y
@@ -88,7 +82,7 @@ C
 "}
 (3,1,1) = {"
 g
-F
+g
 g
 "}
 (4,1,1) = {"

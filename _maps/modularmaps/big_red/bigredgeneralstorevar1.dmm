@@ -217,7 +217,6 @@
 /area/bigredv2/outside/general_store)
 "nu" = (
 /obj/effect/decal/cleanable/dirt,
-
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
 "nv" = (
@@ -404,7 +403,7 @@
 	dir = 1;
 	name = "\improper General Store"
 	},
-/obj/docking_port/stationary/crashmode,
+
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
 "xb" = (
@@ -423,7 +422,7 @@
 /obj/structure/table,
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask,
 /obj/item/reagent_containers/food/drinks/flask,
-/obj/effect/landmark/excavation_site_spawner,
+
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "yk" = (
@@ -586,7 +585,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "Gn" = (
-/obj/docking_port/stationary/crashmode,
+
 /obj/effect/ai_node,
 /turf/open/floor,
 /area/bigredv2/outside/general_store)

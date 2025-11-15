@@ -7,17 +7,14 @@
 /area/bigredv2/caves/lambda_lab)
 "d" = (
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast/garbledradio)
-"h" = (
-/turf/closed/wall/r_wall,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/northeast/garbledradio)
 "j" = (
 /obj/structure/fence/standard/xenoproof,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
+/area/bigredv3/caves/northeast)
 "l" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/northeast/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 "n" = (
 /obj/structure/closet/crate/freezer/rations,
 /turf/open/floor/plating,
@@ -25,27 +22,22 @@
 "o" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
-"q" = (
-/obj/effect/ai_node,
-/obj/effect/landmark/excavation_site_spawner,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
+/area/bigredv3/caves/northeast)
 "r" = (
 /turf/open/floor/plating,
 /area/bigredv2/caves/lambda_lab)
 "u" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
+/area/bigredv3/caves/northeast)
 "v" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 "z" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "A" = (
 /obj/machinery/chem_dispenser,
 /turf/open/floor/tile/whiteyellow{
@@ -54,14 +46,13 @@
 /area/bigredv2/caves/lambda_lab)
 "B" = (
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
+/area/bigredv3/caves/northeast)
 "C" = (
 /turf/closed/mineral/smooth/bigred/indestructible,
 /area/space)
 "H" = (
-/obj/machinery/door/poddoor/two_tile_hor,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast/garbledradio)
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv3/inside/wall)
 "J" = (
 /obj/structure/closet/crate/internals,
 /turf/open/floor/plating,
@@ -74,17 +65,13 @@
 /area/bigredv2/caves/lambda_lab)
 "N" = (
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
-"O" = (
-/obj/machinery/miner/damaged/platinum,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast)
+/area/bigredv3/caves/rock)
 "T" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/northeast)
+/area/bigredv3/caves/northeast)
 "X" = (
 /turf/closed/wall/r_wall,
-/area/bigredv2/caves/lambda_lab)
+/area/bigredv3/inside/wall)
 
 (1,1,1) = {"
 C
@@ -276,7 +263,7 @@ N
 N
 v
 d
-H
+d
 d
 v
 d
@@ -326,7 +313,7 @@ N
 "}
 (8,1,1) = {"
 C
-C
+H
 C
 C
 C
@@ -592,9 +579,9 @@ N
 N
 N
 N
-h
-h
-h
+X
+X
+X
 "}
 (16,1,1) = {"
 C
@@ -1814,7 +1801,7 @@ N
 N
 B
 B
-q
+u
 B
 B
 B
@@ -1951,7 +1938,7 @@ N
 N
 N
 B
-O
+B
 B
 B
 B

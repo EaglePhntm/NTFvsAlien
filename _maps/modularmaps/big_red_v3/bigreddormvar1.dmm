@@ -1,120 +1,125 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "am" = (
-/obj/docking_port/stationary/crashmode,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "dY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/grimy,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "gp" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "gy" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "hT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/start/job/survivor,
 /obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/grimy,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "jB" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 5
 	},
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "jW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/grimy,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "kG" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
+"lS" = (
+/obj/effect/ai_node,
+/obj/structure/cable,
+/turf/open/floor,
+/area/bigredv3/inside/colony/dorm)
 "lT" = (
 /obj/structure/bed/chair{
 	dir = 1
 	},
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "lX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/plate,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "mF" = (
 /turf/open/floor/grimy,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "pi" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "qM" = (
-/obj/machinery/power/apc/high/ntf,
+/obj/machinery/power/apc/weak/ntf,
+/obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "rr" = (
 /obj/structure/bed/chair{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "sn" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "sS" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "tr" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/powercell,
 /obj/machinery/atmospherics/components/unary/vent_pump,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "tJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/grimy,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "tZ" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "ul" = (
 /obj/structure/table,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "vy" = (
 /obj/machinery/air_alarm,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "vT" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -122,17 +127,17 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "wd" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/ai_node,
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "wJ" = (
 /obj/effect/ai_node,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "yd" = (
 /obj/machinery/vending/cola,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -140,17 +145,17 @@
 	},
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "yT" = (
 /obj/structure/bed/chair,
 /obj/effect/ai_node,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "zv" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "AC" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -158,18 +163,18 @@
 	},
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "Bd" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
 /turf/open/floor/grimy,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "Bq" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "BU" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 1
@@ -177,7 +182,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "BZ" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -189,7 +194,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "Cg" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -197,46 +202,43 @@
 /obj/effect/ai_node,
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "Cz" = (
 /obj/structure/table,
 /obj/item/radio/survivor,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "Dq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/pistachios,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "DI" = (
 /obj/effect/ai_node,
 /turf/open/floor/grimy,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "ES" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "Gz" = (
 /obj/structure/bed/chair{
 	dir = 4
 	},
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
-"Ha" = (
-/turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "Jn" = (
 /obj/machinery/atmospherics/components/unary/vent_pump,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "JI" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/toolbox,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "JU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_pump{
@@ -244,21 +246,21 @@
 	on = 1
 	},
 /turf/open/floor/grimy,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "Lx" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/tool,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "Mp" = (
 /obj/structure/table,
 /obj/item/ashtray/bronze,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "Om" = (
 /obj/structure/bed/chair,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "Rl" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -266,7 +268,7 @@
 /obj/effect/landmark/start/job/survivor,
 /obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "RW" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -274,7 +276,7 @@
 /obj/structure/prop/tgbrokenvendor/snackbrokebed,
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "Th" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
@@ -282,11 +284,11 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/grimy,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "TX" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/grimy,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "Uw" = (
 /obj/structure/noticeboard{
 	dir = 1;
@@ -297,23 +299,27 @@
 	},
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "US" = (
 /obj/structure/table,
 /obj/item/trash/plate,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 "Wu" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/grimy,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
+"WC" = (
+/obj/structure/cable,
+/turf/open/floor,
+/area/bigredv3/inside/colony/dorm)
 "Xh" = (
 /obj/machinery/vending/cigarette/colony,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/dorms)
+/area/bigredv3/inside/colony/dorm)
 
 (1,1,1) = {"
 zv
@@ -336,32 +342,32 @@ vT
 (3,1,1) = {"
 ES
 sn
-Ha
+am
 wJ
-Ha
-Ha
+am
+am
 BU
 "}
 (4,1,1) = {"
-Ha
-Ha
+am
+am
 Gz
 Rl
-Ha
+am
 sn
 gp
 "}
 (5,1,1) = {"
-Ha
+am
 yT
 ul
 Lx
 lT
-Ha
+am
 RW
 "}
 (6,1,1) = {"
-Ha
+am
 Om
 Mp
 tr
@@ -370,16 +376,16 @@ Bq
 Xh
 "}
 (7,1,1) = {"
-Ha
+am
 Om
 ul
 US
 lT
-Ha
+am
 yd
 "}
 (8,1,1) = {"
-Ha
+am
 Om
 Cz
 Lx
@@ -388,44 +394,44 @@ Jn
 sS
 "}
 (9,1,1) = {"
-Ha
+am
 yT
 JI
 ul
 lT
-Ha
+am
 gp
 "}
 (10,1,1) = {"
-Ha
-Ha
+am
+am
 pi
 pi
-Ha
-Ha
+am
+am
 Uw
 "}
 (11,1,1) = {"
 qM
-wJ
-Ha
-Ha
-Ha
-Ha
+lS
+WC
+WC
+WC
+WC
 BZ
 "}
 (12,1,1) = {"
 vy
-Ha
-Ha
-Ha
-Ha
+am
+am
+am
+am
 am
 kG
 "}
 (13,1,1) = {"
-Ha
-Ha
+am
+am
 sn
 sn
 sn
@@ -433,7 +439,7 @@ sn
 gp
 "}
 (14,1,1) = {"
-Ha
+am
 mF
 TX
 TX
@@ -451,7 +457,7 @@ TX
 gp
 "}
 (16,1,1) = {"
-Ha
+am
 DI
 mF
 JU
@@ -469,7 +475,7 @@ hT
 AC
 "}
 (18,1,1) = {"
-Ha
+am
 Bd
 Wu
 Th
@@ -478,11 +484,11 @@ Wu
 gy
 "}
 (19,1,1) = {"
-Ha
+am
 gp
-Ha
-Ha
-Ha
-Ha
+am
+am
+am
+am
 gp
 "}

@@ -36,7 +36,6 @@
 		#include "map_files\Blue_Moon\bluemoon.dmm"
 		// NTF Custom Maps
 		#include "map_files\BigRed_v3\BigRed_v3.dmm"
-		// NTF End Edit
 		#ifdef CIBUILDING
 			#include "templates.dm"
 		#endif

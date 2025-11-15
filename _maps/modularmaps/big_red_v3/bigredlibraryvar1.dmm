@@ -1,14 +1,14 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/closed/wall,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/wall)
 "b" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/effect/ai_node,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "c" = (
 /obj/structure/window/framed/colony,
 /obj/machinery/door/poddoor/shutters/mainship{
@@ -17,36 +17,31 @@
 	name = "\improper Library Shutters"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/wall)
 "d" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "e" = (
 /turf/open/floor/carpet/side{
 	dir = 1
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "f" = (
 /turf/open/floor/carpet/side{
 	dir = 9
 	},
-/area/bigredv2/outside/library)
-"g" = (
-
-/obj/effect/ai_node,
-/turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "h" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "i" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -56,42 +51,40 @@
 	name = "\improper Library Backroom"
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "j" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/structure/cable,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
 	},
-/area/bigredv2/outside/e)
+/area/bigredv3/outside/directions/e)
 "k" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
-
-/turf/open/floor/carpet/side{
-	dir = 4
-	},
-/area/bigredv2/outside/library)
-"l" = (
+/obj/structure/bookcase,
 /obj/machinery/light{
-	dir = 4
+	dir = 1
 	},
-/obj/machinery/power/apc/high/ntf,
+/turf/open/floor/wood,
+/area/bigredv3/inside/colony/library)
+"l" = (
+/obj/machinery/power/apc/weak/ntf,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "m" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
+/obj/structure/cable,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "n" = (
-
 /turf/open/floor/carpet/side{
 	dir = 6
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "o" = (
 /obj/structure/window/framed/colony,
 /obj/machinery/door/poddoor/shutters/mainship{
@@ -99,53 +92,54 @@
 	name = "\improper Library Shutters"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/wall)
 "p" = (
 /turf/open/floor/carpet/side{
 	dir = 5
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "q" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/structure/cable,
 /turf/open/floor/carpet,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "r" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	name = "\improper Library"
 	},
+/obj/structure/cable,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "s" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "t" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "u" = (
 /obj/structure/table/wood,
 /obj/item/paper,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "v" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 5
 	},
-
+/obj/structure/cable,
 /turf/open/floor/carpet/side,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "w" = (
-/obj/structure/nuke_disk_candidate,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "x" = (
 /obj/machinery/door_control{
 	dir = 8;
@@ -153,113 +147,97 @@
 	name = "Storm Shutters"
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "y" = (
 /obj/structure/table/wood,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "z" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/structure/cable,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
-"A" = (
-/obj/structure/bookcase,
-/turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "B" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/ai_node,
+/obj/structure/cable,
 /turf/open/floor/carpet/side{
 	dir = 4
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "C" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "D" = (
 /obj/structure/bed/chair/wood/normal,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "E" = (
 /turf/open/floor/carpet/side,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "F" = (
 /obj/structure/bookcase,
-
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
-"G" = (
-/obj/structure/cable,
-/turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "H" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/structure/cable,
 /turf/open/floor/carpet/side{
 	dir = 4
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "I" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/structure/cable,
 /turf/open/floor/carpet/side{
 	dir = 5
 	},
-/area/bigredv2/outside/library)
-"J" = (
-/obj/structure/bookcase,
-/obj/machinery/light{
-	dir = 8
-	},
-
-/turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "K" = (
 /obj/structure/table/wood,
 /obj/item/toy/dice/d20,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "L" = (
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "M" = (
 /obj/structure/bed/chair/wood/normal{
 	dir = 1
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "N" = (
 /obj/effect/ai_node,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "O" = (
 /turf/open/floor/carpet/side{
 	dir = 8
 	},
-/area/bigredv2/outside/library)
-"P" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
-
-/turf/open/floor/carpet/side{
-	dir = 4
-	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Q" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
 	},
+/obj/structure/cable,
 /turf/open/floor/carpet/side,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "R" = (
 /obj/machinery/light,
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "S" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "T" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -269,18 +247,18 @@
 	name = "\improper Greenhouse Storage"
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "U" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
-/area/bigredv2/outside/e)
+/area/bigredv3/outside/directions/e)
 "V" = (
 /obj/machinery/air_alarm{
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "W" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump{
@@ -288,19 +266,15 @@
 	on = 1
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/library)
-"X" = (
-
-/turf/open/floor/wood,
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Y" = (
 /turf/open/floor/carpet/side{
 	dir = 10
 	},
-/area/bigredv2/outside/library)
+/area/bigredv3/inside/colony/library)
 "Z" = (
 /turf/open/floor/plating/ground/mars/random/dirt,
-/area/bigredv2/outside/e)
+/area/bigredv3/outside/directions/e)
 
 (1,1,1) = {"
 a
@@ -324,49 +298,49 @@ a
 "}
 (2,1,1) = {"
 a
-A
-L
-L
+F
+w
+w
 t
 F
 L
-A
+F
 V
-J
+F
 L
-A
+F
+w
+F
 L
-A
-X
-L
+w
 a
 Z
 "}
 (3,1,1) = {"
 a
-A
-L
-L
+F
+w
+w
 t
-A
-L
-A
-L
-A
-L
-A
-L
-A
-L
-L
+F
+w
+F
+w
+F
+w
+F
+w
+F
+w
+w
 c
 Z
 "}
 (4,1,1) = {"
 a
 w
-L
-G
+w
+w
 d
 f
 O
@@ -378,22 +352,22 @@ O
 O
 O
 Y
-L
+w
 c
 Z
 "}
 (5,1,1) = {"
 a
-A
-g
+k
+N
 h
 m
 I
-P
-k
 H
 H
-P
+H
+H
+H
 B
 H
 q
@@ -405,16 +379,16 @@ Z
 (6,1,1) = {"
 a
 b
-L
+w
 d
-L
-L
-L
-L
-L
-L
-L
-A
+w
+w
+w
+w
+w
+w
+w
+F
 N
 e
 Q
@@ -428,18 +402,18 @@ h
 C
 s
 x
-L
+w
 D
 u
 K
 M
-L
-L
-L
+w
+w
+w
 e
 E
-L
-L
+w
+w
 U
 "}
 (8,1,1) = {"
@@ -448,14 +422,14 @@ i
 a
 a
 a
-L
+w
 D
 y
 y
 M
-L
-A
-L
+w
+F
+w
 e
 E
 R
@@ -468,37 +442,37 @@ W
 y
 y
 a
-L
-X
-L
-L
-L
-X
-A
-L
+w
+w
+w
+w
+w
+w
+F
+w
 p
 n
-L
+w
 c
 Z
 "}
 (10,1,1) = {"
 a
 l
-X
-L
+S
+w
 a
 S
-L
-L
-L
+w
+w
+w
 S
-L
-L
+w
+w
 S
-L
-L
-L
+w
+w
+w
 c
 Z
 "}

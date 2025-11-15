@@ -2,66 +2,75 @@
 "c" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/southwest)
+/area/bigredv3/caves/southwest)
 "h" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south/garbledradio)
+/area/bigredv3/caves/south/garbledradio)
 "j" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/southwest)
+/area/bigredv3/caves/southwest)
+"k" = (
+/obj/structure/fence/standard/xenoproof,
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/bigredv3/caves/southwest)
+"r" = (
+/turf/closed/wall/r_wall,
+/area/bigredv3/inside/wall)
 "t" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/southwest)
+/area/bigredv3/caves/southwest)
 "u" = (
-/obj/effect/landmark/lv624/fog_blocker,
-/obj/effect/ai_node,
+/obj/structure/fence/standard/xenoproof,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south/garbledradio)
+/area/bigredv3/caves/south/garbledradio)
 "y" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "z" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/southwest)
+/area/bigredv3/caves/southwest)
 "B" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south)
+/area/bigredv3/caves/south)
 "G" = (
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "J" = (
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south)
+/area/bigredv3/caves/south)
 "K" = (
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/southwest)
+/area/bigredv3/caves/southwest)
 "L" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/south)
+/area/bigredv3/caves/south)
+"M" = (
+/obj/structure/fence/standard/xenoproof,
+/turf/open/floor/plating/ground/mars/random/cave/rock,
+/area/bigredv3/caves/south/garbledradio)
+"R" = (
+/obj/structure/fence/standard/xenoproof,
+/turf/open/floor/plating/ground/mars/random/cave/rock,
+/area/bigredv3/caves/southwest)
 "T" = (
 /obj/effect/landmark/lv624/fog_blocker,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south/garbledradio)
-"V" = (
-/obj/effect/landmark/excavation_site_spawner,
-/obj/effect/ai_node,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south/garbledradio)
+/turf/closed/wall/r_wall,
+/area/bigredv3/inside/wall)
 "X" = (
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/south/garbledradio)
+/area/bigredv3/caves/south/garbledradio)
 "Y" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/south/garbledradio)
+/area/bigredv3/caves/south/garbledradio)
 "Z" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/southwest)
+/area/bigredv3/caves/southwest)
 
 (1,1,1) = {"
 y
@@ -189,7 +198,7 @@ t
 G
 G
 t
-t
+R
 K
 K
 K
@@ -210,10 +219,10 @@ G
 (7,1,1) = {"
 z
 K
-t
+r
 j
 K
-K
+k
 K
 K
 c
@@ -234,10 +243,10 @@ G
 (8,1,1) = {"
 z
 K
-K
+r
 t
 K
-K
+k
 K
 K
 K
@@ -258,10 +267,10 @@ G
 (9,1,1) = {"
 z
 t
+r
 K
 K
-K
-K
+k
 K
 G
 G
@@ -282,7 +291,7 @@ G
 (10,1,1) = {"
 Z
 K
-K
+r
 c
 G
 G
@@ -624,7 +633,7 @@ K
 G
 y
 K
-K
+k
 K
 K
 K
@@ -646,9 +655,9 @@ K
 K
 K
 c
-z
+T
 K
-K
+k
 K
 K
 t
@@ -672,8 +681,8 @@ X
 X
 T
 X
-X
-X
+u
+u
 X
 X
 X
@@ -957,8 +966,8 @@ h
 X
 X
 X
-X
-u
+h
+T
 G
 G
 G
@@ -1009,7 +1018,7 @@ X
 T
 X
 X
-X
+u
 X
 G
 G
@@ -1030,10 +1039,10 @@ X
 G
 G
 X
+T
+h
+X
 u
-X
-X
-X
 X
 X
 h
@@ -1057,6 +1066,7 @@ G
 y
 X
 X
+u
 X
 X
 X
@@ -1066,8 +1076,7 @@ X
 X
 X
 X
-X
-V
+h
 J
 J
 "}
@@ -1108,12 +1117,12 @@ G
 G
 G
 G
-X
-Y
-X
-X
-X
-Y
+u
+M
+u
+u
+u
+M
 G
 G
 G

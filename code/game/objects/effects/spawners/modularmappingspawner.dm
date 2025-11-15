@@ -235,152 +235,135 @@
 
 /************NTF BIG RED******/
 
-/obj/effect/spawner/modularmap/bigred/ntf/operations
+/obj/effect/spawner/modularmap/bigred/operations/ntf
 	mapid = "ntfbroperations"
 	spawner_width = 29
 	spawner_height = 24
 
-/obj/effect/spawner/modularmap/bigred/ntf/fence
+/obj/effect/spawner/modularmap/bigred/fence/ntf
 	mapid = "ntfbrfence"
 	spawner_width = 24
 	spawner_height = 8
 
-/obj/effect/spawner/modularmap/bigred/ntf/medbay
+/obj/effect/spawner/modularmap/bigred/medbay/ntf
 	mapid = "ntfbrmedbay"
 	spawner_width = 33
 	spawner_height = 26
 
-/obj/effect/spawner/modularmap/bigred/ntf/medbaypassage
+/obj/effect/spawner/modularmap/bigred/medbaypassage/ntf
 	mapid = "ntfbrmedbaypassage"
 	spawner_width = 6
 	spawner_height = 3
 
-/obj/effect/spawner/modularmap/bigred/ntf/generalstore
+/obj/effect/spawner/modularmap/bigred/generalstore/ntf
 	mapid = "ntfbrgeneral"
 	spawner_width = 31
 	spawner_height = 14
 
-/obj/effect/spawner/modularmap/bigred/ntf/chapel
+/obj/effect/spawner/modularmap/bigred/chapel/ntf
 	mapid = "ntfbrchapel"
 	spawner_width = 18
 	spawner_height = 9
 
-/obj/effect/spawner/modularmap/bigred/ntf/eta
+/obj/effect/spawner/modularmap/bigred/eta/ntf
 	mapid = "ntfbreta"
 	spawner_width = 26
 	spawner_height = 24
 
-/obj/effect/spawner/modularmap/bigred/ntf/lambdatunnel
+/obj/effect/spawner/modularmap/bigred/lambdatunnel/ntf
 	mapid = "ntfbrlambdatunnel"
 	spawner_width = 25
 	spawner_height = 6
 
-/obj/effect/spawner/modularmap/bigred/ntf/lambdacave
+/obj/effect/spawner/modularmap/bigred/lambdacave/ntf
 	mapid = "ntfbrlambdacave"
 	spawner_width = 15
 	spawner_height = 15
 
-/obj/effect/spawner/modularmap/bigred/ntf/dorms
+/obj/effect/spawner/modularmap/bigred/dorms/ntf
 	mapid = "ntfbrdorms"
 	spawner_width = 19
 	spawner_height = 7
 
-/obj/effect/spawner/modularmap/bigred/ntf/cargo
+/obj/effect/spawner/modularmap/bigred/cargo/ntf
 	mapid = "ntfbrcargo"
 	spawner_width = 19
 	spawner_height = 19
 
-/obj/effect/spawner/modularmap/bigred/ntf/engineering
+/obj/effect/spawner/modularmap/bigred/engineering/ntf
 	mapid = "ntfbrengineering"
 	spawner_width = 30
 	spawner_height = 27
 
-/obj/effect/spawner/modularmap/bigred/ntf/atmos
+/obj/effect/spawner/modularmap/bigred/atmos/ntf
 	mapid = "ntfbratmos"
 	spawner_width = 24
 	spawner_height = 25
 
-/obj/effect/spawner/modularmap/bigred/ntf/cargoentry
-	mapid = "ntfbrcargoentry"
-	spawner_width = 3
-	spawner_height = 5
-
-/obj/effect/spawner/modularmap/bigred/ntf/northlambda
+/obj/effect/spawner/modularmap/bigred/northlambda/ntf
 	mapid = "ntfbrlambdatunnelnorth"
 	spawner_width = 65
 	spawner_height = 32
 
-/obj/effect/spawner/modularmap/bigred/ntf/westeta
+/obj/effect/spawner/modularmap/bigred/westeta/ntf
 	mapid = "ntfbrsouthwesteta"
 	spawner_width = 61
 	spawner_height = 38
 
-/obj/effect/spawner/modularmap/bigred/ntf/southeta
+/obj/effect/spawner/modularmap/bigred/southeta/ntf
 	mapid = "ntfbrsoutheta"
 	spawner_width = 23
 	spawner_height = 10
 
-/obj/effect/spawner/modularmap/bigred/ntf/checkpointsouth
+/obj/effect/spawner/modularmap/bigred/checkpointsouth/ntf
 	mapid = "ntfbrcheckpointsouth"
 	spawner_width = 12
 	spawner_height = 10
 
-/obj/effect/spawner/modularmap/bigred/ntf/checkpoint
-	mapid = "ntfbrcheckpoint"
-	spawner_width = 4
-	spawner_height = 4
-
-/obj/effect/spawner/modularmap/bigred/ntf/southwesteast
+/obj/effect/spawner/modularmap/bigred/southwesteast/ntf
 	mapid = "ntfbrsweast"
 	spawner_width = 44
 	spawner_height = 22
 
-/obj/effect/spawner/modularmap/bigred/ntf/toolshed
+/obj/effect/spawner/modularmap/bigred/toolshed/ntf
 	mapid = "ntfbrtoolshed"
 	spawner_width = 16
 	spawner_height = 9
 
-/obj/effect/spawner/modularmap/bigred/ntf/secorner
+/obj/effect/spawner/modularmap/bigred/secorner/ntf
 	mapid = "ntfbrsecorner"
 	spawner_width = 71
 	spawner_height = 67
 
-/obj/effect/spawner/modularmap/bigred/ntf/swcorner
+/obj/effect/spawner/modularmap/bigred/swcorner/ntf
 	mapid = "ntfbrswcorner"
 	spawner_width = 41
 	spawner_height = 43
 
-/obj/effect/spawner/modularmap/bigred/ntf/lambdalock
-	mapid = "ntfbrlambdalock"
-	spawner_width = 1
-	spawner_height = 2
-
-/obj/effect/spawner/modularmap/bigred/ntf/lambdatunnelsouth
+/obj/effect/spawner/modularmap/bigred/lambdatunnelsouth/ntf
 	mapid = "ntfbrlambdatunnelsouth"
 	spawner_width = 22
 	spawner_height = 11
 
-/obj/effect/spawner/modularmap/bigred/ntf/library
+/obj/effect/spawner/modularmap/bigred/library/ntf
 	mapid = "ntfbrlibrary"
 	spawner_width = 11
 	spawner_height = 18
 
-/obj/effect/spawner/modularmap/bigred/ntf/office
+/obj/effect/spawner/modularmap/bigred/office/ntf
 	mapid = "ntfbroffice"
 	spawner_width = 28
 	spawner_height = 23
 
-/obj/effect/spawner/modularmap/bigred/ntf/east
+/obj/effect/spawner/modularmap/bigred/east/ntf
 	mapid = "ntfbreastcaves"
 	spawner_width = 66
 	spawner_height = 42
 
-/obj/effect/spawner/modularmap/bigred/ntf/cargoarea
+/obj/effect/spawner/modularmap/bigred/cargoarea/ntf
 	mapid = "ntfbrcargoarea"
 	spawner_width = 54
 	spawner_height = 22
-
-// NTF Edit End
 
 /************OSCAR OUTPOST**********/
 /obj/effect/spawner/modularmap/oscaroutposttophalf

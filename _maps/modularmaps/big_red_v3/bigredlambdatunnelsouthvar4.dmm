@@ -1,55 +1,37 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"b" = (
-/obj/effect/ai_node,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
-"f" = (
-
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast/garbledradio)
-"h" = (
-
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
 "k" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/east/garbledradio)
 "m" = (
-
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/east/garbledradio)
 "o" = (
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 "z" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/east/garbledradio)
 "B" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/northeast/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 "C" = (
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "G" = (
-
-
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/east/garbledradio)
 "H" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
-"S" = (
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/bigredv2/caves/east/garbledradio)
+/area/bigredv3/caves/east/garbledradio)
 "V" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 
 (1,1,1) = {"
 C
@@ -117,119 +99,119 @@ C
 C
 "}
 (6,1,1) = {"
-f
+o
 C
 C
-S
-h
-S
-b
-S
+G
+G
+G
+m
+G
 C
 C
 C
 "}
 (7,1,1) = {"
 o
-S
-S
-S
-h
-S
-S
-h
-S
+G
+G
+G
+G
+G
+G
+G
+G
 z
 z
 "}
 (8,1,1) = {"
 B
-h
-S
-S
-S
-S
-S
-S
-S
+G
+G
+G
+G
+G
+G
+G
+G
 m
 k
 "}
 (9,1,1) = {"
 o
-b
-S
-S
-h
-S
-b
-h
-S
+m
+G
+G
+G
+G
+m
+G
+G
 k
-b
+m
 "}
 (10,1,1) = {"
 B
-S
-h
-S
-S
-h
-S
-S
-S
+G
+G
+G
+G
+G
+G
+G
+G
 H
-S
+G
 "}
 (11,1,1) = {"
-f
-S
-h
-S
-S
-S
-S
+o
+G
+G
+G
+G
+G
+G
 k
 k
-S
+G
 G
 "}
 (12,1,1) = {"
 o
-S
-h
-S
-h
-S
+G
+G
+G
+G
+G
 k
 z
-h
-S
-b
+G
+G
+m
 "}
 (13,1,1) = {"
 B
-h
-S
-b
-S
+G
+G
+m
+G
 k
-S
-S
-S
-b
+G
+G
+G
+m
 C
 "}
 (14,1,1) = {"
 C
-S
-S
+G
+G
 C
-h
+G
 k
 C
 C
-S
+G
 C
 C
 "}

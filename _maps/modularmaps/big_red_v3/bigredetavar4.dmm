@@ -3,42 +3,38 @@
 /obj/structure/rack,
 /obj/item/stack/sheet/mineral/gold,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "aC" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/plating,
-/area/bigredv2/outside/general_offices)
-"aU" = (
-/
-/turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/secondary/maintence)
 "aV" = (
 /obj/structure/rack,
 /obj/item/stack/sheet/mineral/diamond,
 /obj/item/clothing/under/redcoat,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "bh" = (
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth{
 	dir = 10
 	},
-/area/bigredv2/outside/ne)
+/area/bigredv3/outside/directions/ne)
 "bk" = (
 /obj/machinery/washing_machine,
 /obj/item/clothing/under/brown,
 /turf/open/floor/freezer,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "bC" = (
 /obj/machinery/suit_storage_unit/carbon_unit,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "bQ" = (
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth{
 	dir = 8
 	},
-/area/bigredv2/caves/northeast/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 "cg" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 8;
@@ -47,18 +43,18 @@
 /obj/structure/table,
 /obj/structure/bedsheetbin,
 /turf/open/floor/freezer,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "cy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/air_alarm{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "cC" = (
 /obj/machinery/vending/tool,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "cD" = (
 /obj/structure/table,
 /obj/machinery/atmospherics/components/unary/vent_pump{
@@ -66,22 +62,22 @@
 	on = 1
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "cK" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "cW" = (
-/obj/machinery/computer/intel_computer,
+
 /turf/open/floor/freezer,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "dl" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/outside/directions/ne)
 "dz" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 8;
@@ -89,23 +85,23 @@
 	},
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "dC" = (
 /obj/structure/rack,
 /obj/item/stack/sheet/mineral/uranium{
 	amount = 50
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "dH" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "dL" = (
 /obj/machinery/vending/hydroseeds,
 /turf/open/floor,
-/area/bigredv2/outside/hydroponics)
+/area/bigredv3/inside/colony/hydroponics)
 "eK" = (
 /obj/machinery/light{
 	dir = 8
@@ -113,139 +109,138 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/outside/directions/ne)
 "eP" = (
-/obj/effect/landmark/excavation_site_spawner,
+
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "fi" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm/recreation)
 "fE" = (
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "fJ" = (
 /obj/structure/table,
 /obj/item/tool/shovel/spade,
 /turf/open/floor,
-/area/bigredv2/outside/hydroponics)
+/area/bigredv3/inside/colony/hydroponics)
 "fS" = (
 /turf/open/floor/plating/ground/mars/random/sand,
-/area/bigredv2/outside/ne)
+/area/bigredv3/outside/directions/ne)
 "fV" = (
 /obj/machinery/vending/engivend,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "fZ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "gC" = (
 /obj/machinery/vending/cigarette/colony,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "hy" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/ne)
-"hJ" = (
-/obj/structure/window/framed/colony,
-/turf/open/floor/plating,
-/area/bigredv2/outside/hydroponics)
+/area/bigredv3/outside/directions/ne)
 "hQ" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/bar)
+/area/bigredv3/inside/secondary/maintence)
 "iw" = (
 /turf/closed/wall/r_wall,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/wall)
 "iA" = (
 /obj/structure/rack,
 /obj/item/stack/sheet/mineral/diamond,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "iP" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	name = "\improper Dormitories"
 	},
-
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "iZ" = (
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm/recreation)
 "jb" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "jn" = (
 /obj/item/clothing/under/darkred,
 /turf/open/floor/freezer,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "jt" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm/recreation)
+"jz" = (
+/obj/machinery/floodlight/outpost/bigred,
+/turf/open/floor/plating/ground/mars/random/sand,
+/area/bigredv3/outside/directions/ne)
 "jO" = (
 /obj/structure/closet/l3closet,
 /turf/open/floor/tile/vault{
 	dir = 8
 	},
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "km" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/engineering/tool,
 /obj/effect/spawner/random/engineering/tool,
 /obj/effect/spawner/random/engineering/tool,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "ks" = (
 /obj/item/clothing/under/lightbrown,
 /turf/open/floor/freezer,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "kI" = (
 /obj/structure/closet/toolcloset,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "lJ" = (
 /obj/effect/ai_node,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "me" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/ammo_casing/bullet,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "mi" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/bigredv2/outside/bar)
+/area/bigredv3/inside/secondary/maintence)
 "mp" = (
 /obj/structure/sign/safety/EVA{
 	dir = 1
 	},
-/obj/effect/landmark/excavation_site_spawner,
+
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "nh" = (
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
-/area/bigredv2/outside/ne)
+/area/bigredv3/outside/directions/ne)
 "nj" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 1
@@ -253,11 +248,11 @@
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "nn" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "no" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
@@ -266,7 +261,7 @@
 	name = "\improper Greenhouse"
 	},
 /turf/open/floor,
-/area/bigredv2/outside/hydroponics)
+/area/bigredv3/inside/colony/hydroponics)
 "nD" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
@@ -274,18 +269,18 @@
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "oi" = (
 /obj/machinery/washing_machine,
 /obj/item/clothing/under/lightred,
 /turf/open/floor/freezer,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "oF" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/engineering/tool,
 /obj/effect/spawner/random/engineering/tool,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "pk" = (
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
 	name = "\improper Dormitories Lavatory"
@@ -294,26 +289,26 @@
 	dir = 4
 	},
 /turf/open/floor/freezer,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "ps" = (
 /obj/item/ammo_casing/bullet,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "pE" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/machinery/vending/cola,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "pF" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/dirt,
-/area/bigredv2/caves/northeast/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 "pL" = (
 /obj/structure/table,
 /turf/open/floor/wood,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "pX" = (
 /obj/structure/rack,
 /obj/item/stack/sheet/mineral/diamond,
@@ -323,24 +318,24 @@
 	pixel_y = 4
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "qc" = (
 /obj/structure/table,
 /obj/item/paper/hydroponics,
 /turf/open/floor,
-/area/bigredv2/outside/hydroponics)
+/area/bigredv3/inside/colony/hydroponics)
 "qq" = (
 /obj/structure/sign/safety/EVA{
 	dir = 1
 	},
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "qr" = (
 /obj/effect/ai_node,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 6
 	},
-/area/bigredv2/outside/ne)
+/area/bigredv3/outside/directions/ne)
 "rf" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -348,7 +343,7 @@
 /obj/item/ammo_casing/bullet,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "rq" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 1
@@ -356,63 +351,69 @@
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "ru" = (
 /turf/open/floor/plating,
-/area/bigredv2/outside/bar)
+/area/bigredv3/inside/secondary/maintence)
+"rG" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/turf/open/floor,
+/area/bigredv3/inside/colony/dorm)
 "rH" = (
 /obj/machinery/hydroponics,
 /turf/open/floor/tile/green/whitegreenfull,
-/area/bigredv2/outside/hydroponics)
+/area/bigredv3/inside/colony/hydroponics)
 "rN" = (
 /obj/structure/window/framed/colony/reinforced,
 /turf/open/floor/plating,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/wall)
 "rW" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/excavation_site_spawner,
+
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "st" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "sT" = (
 /obj/item/ammo_casing/bullet,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "tq" = (
 /obj/structure/table,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm/recreation)
 "ux" = (
 /turf/open/floor/wood,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "uG" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "uJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "uR" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm/recreation)
 "uZ" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
 /turf/open/floor/freezer,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "vi" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -422,10 +423,7 @@
 	name = "\improper Bar Maintenance"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/bar)
-"vC" = (
-/turf/closed/wall,
-/area/bigredv2/outside/hydroponics)
+/area/bigredv3/inside/secondary/maintence)
 "vG" = (
 /obj/structure/window/framed/colony,
 /obj/machinery/door/poddoor/shutters/mainship{
@@ -434,51 +432,54 @@
 	name = "\improper Dormitories Shutters"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/wall)
 "vI" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm/recreation)
 "wo" = (
 /obj/machinery/door/airlock/mainship/maint/free_access{
 	dir = 1;
 	name = "\improper Dormitories Tool Storage Maintenance"
 	},
-
 /turf/open/floor/plating,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/secondary/maintence)
+"ws" = (
+/obj/item/ammo_casing/bullet,
+/turf/open/floor,
+/area/bigredv3/inside/colony/dorm/recreation)
 "wD" = (
 /obj/item/ammo_casing/bullet,
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "wO" = (
 /obj/machinery/washing_machine,
 /obj/item/clothing/under/darkred,
 /turf/open/floor/freezer,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "wP" = (
 /obj/machinery/door/airlock/mainship/maint/free_access{
 	name = "\improper Dormitories EVA Maintenance"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/secondary/maintence)
 "xA" = (
 /turf/open/floor/freezer,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "xU" = (
 /obj/item/ammo_casing/bullet,
 /turf/open/floor/wood,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "xZ" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/item/ammo_casing/bullet,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "ya" = (
 /obj/machinery/door/airlock/mainship/engineering/free_access{
 	dir = 1;
@@ -487,7 +488,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "yb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/rack,
@@ -495,46 +496,40 @@
 	amount = 50
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "yc" = (
 /obj/structure/table,
 /obj/structure/bedsheetbin,
 /turf/open/floor/freezer,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "yy" = (
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "zn" = (
 /obj/structure/rack,
 /obj/item/stack/sheet/mineral/phoron{
 	amount = 25
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "zC" = (
 /obj/structure/bed/chair{
 	dir = 1
 	},
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
-"Av" = (
-/obj/machinery/door/airlock/mainship/engineering/free_access{
-	dir = 1;
-	name = "\improper Dormitories EVA"
-	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/structure/cable,
-
-/turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm/recreation)
 "AR" = (
 /obj/structure/closet/l3closet,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/vault{
 	dir = 8
 	},
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
+"Ba" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/turf/open/floor,
+/area/bigredv3/inside/colony/dorm)
 "Bh" = (
 /obj/structure/window/framed/colony,
 /obj/machinery/door/poddoor/shutters/mainship{
@@ -543,11 +538,11 @@
 	name = "\improper Greenhouse Shutters"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/hydroponics)
+/area/bigredv3/inside/wall)
 "Bl" = (
 /obj/machinery/light,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "By" = (
 /obj/structure/table,
 /obj/effect/spawner/random/misc/paperbin,
@@ -555,34 +550,34 @@
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "Cc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "Cj" = (
-/obj/machinery/power/apc/high/ntf{
+/obj/machinery/power/apc/weak/ntf{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/secondary/maintence)
 "CS" = (
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "Dg" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
-/area/bigredv2/outside/ne)
+/area/bigredv3/outside/directions/ne)
 "Ds" = (
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	name = "\improper Dormitories Tool Storage"
 	},
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "DD" = (
 /obj/machinery/light{
 	dir = 4
@@ -596,20 +591,20 @@
 	amount = 25
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "DU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "DY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/ammo_casing/bullet,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "Ef" = (
 /obj/structure/rack,
 /obj/item/stack/sheet/mineral/plastic,
@@ -617,25 +612,20 @@
 /obj/item/stack/sheet/mineral/plastic,
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "Ei" = (
 /obj/machinery/vending/hydronutrients,
 /turf/open/floor,
-/area/bigredv2/outside/hydroponics)
-"Et" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
-/turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/hydroponics)
 "Ew" = (
 /obj/machinery/suit_storage_unit/carbon_unit,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "Ez" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "EG" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 4;
@@ -643,63 +633,57 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "EL" = (
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/open/floor/wood,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "EZ" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm/recreation)
 "Fd" = (
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/outside/directions/ne)
 "Fl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "Fu" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/green/whitegreenfull,
-/area/bigredv2/outside/hydroponics)
+/area/bigredv3/inside/colony/hydroponics)
 "GG" = (
-/obj/docking_port/stationary/crashmode,
+
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "GO" = (
 /obj/machinery/light,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "GP" = (
 /turf/open/floor/plating/ground/mars/random/dirt,
-/area/bigredv2/caves/northeast/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 "GV" = (
 /obj/machinery/door/airlock/mainship/maint/free_access{
 	name = "\improper Dormitories EVA Maintenance"
 	},
 /obj/structure/cable,
-
 /turf/open/floor/plating,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "Iz" = (
 /obj/machinery/washing_machine,
 /turf/open/floor/freezer,
-/area/bigredv2/outside/general_offices)
-"IG" = (
-/obj/effect/decal/cleanable/dirt,
-/
-/turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "IP" = (
 /turf/open/floor/plating/ground/mars/random/sand,
-/area/bigredv2/outside/n)
+/area/bigredv3/outside/directions/n)
 "Jj" = (
 /obj/machinery/door/airlock/mainship/engineering/free_access{
 	name = "\improper Dormitories EVA"
@@ -708,23 +692,22 @@
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "JR" = (
 /obj/machinery/door/airlock/mainship/generic{
 	dir = 1;
 	name = "\improper Dormitories Bedroom"
 	},
-
 /turf/open/floor/wood,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "JY" = (
 /obj/structure/table,
 /turf/open/floor,
-/area/bigredv2/outside/hydroponics)
+/area/bigredv3/inside/colony/hydroponics)
 "Kx" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/sand,
-/area/bigredv2/outside/ne)
+/area/bigredv3/outside/directions/ne)
 "KG" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -732,24 +715,24 @@
 	},
 /obj/effect/ai_node,
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/ne)
+/area/bigredv3/outside/directions/ne)
 "KL" = (
 /obj/machinery/vending/snack,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "Lp" = (
 /turf/open/floor/plating/ground/mars/random/dirt,
-/area/bigredv2/outside/ne)
+/area/bigredv3/outside/directions/ne)
 "Lx" = (
 /obj/machinery/washing_machine,
 /obj/item/clothing/under/lightbrown,
 /turf/open/floor/freezer,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "Mg" = (
 /obj/machinery/washing_machine,
 /obj/machinery/light,
 /turf/open/floor/freezer,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "Mv" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -757,10 +740,10 @@
 /obj/structure/cable,
 /obj/item/ammo_casing/bullet,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "Nk" = (
 /turf/open/floor/marking/asteroidwarning,
-/area/bigredv2/outside/ne)
+/area/bigredv3/outside/directions/ne)
 "Nn" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -768,43 +751,43 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/ne)
+/area/bigredv3/outside/directions/ne)
 "Nu" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
-/area/bigredv2/caves/rock)
+/area/bigredv3/caves/rock)
 "NJ" = (
 /obj/structure/bed,
 /turf/open/floor/wood,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "Oc" = (
 /obj/structure/window/framed/colony,
 /turf/open/floor/plating,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/wall)
 "Oq" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/sand,
-/area/bigredv2/caves/northeast/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 "Ox" = (
 /obj/item/clothing/under/brown,
 /turf/open/floor/freezer,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "OE" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/machinery/suit_storage_unit/carbon_unit,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "OO" = (
 /turf/open/floor,
-/area/bigredv2/outside/hydroponics)
+/area/bigredv3/inside/colony/hydroponics)
 "OU" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/toolbox,
 /obj/machinery/atmospherics/components/unary/vent_pump,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "Pl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_pump{
@@ -812,11 +795,11 @@
 	on = 1
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "Pn" = (
 /obj/structure/rack,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "PA" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 4
@@ -824,68 +807,59 @@
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/ne)
+/area/bigredv3/outside/directions/ne)
 "PG" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "RL" = (
-/turf/open/floor/plating,
-/area/bigredv2/outside/general_offices)
+/turf/open/floor,
+/area/bigredv3/inside/colony/dorm)
 "Sb" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
 	},
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm/recreation)
 "Sq" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm/recreation)
 "St" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/asteroidfloor,
-/area/bigredv2/outside/ne)
+/area/bigredv3/outside/directions/ne)
 "Ty" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "TC" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/sand,
-/area/bigredv2/caves/northeast/garbledradio)
-"TL" = (
-/obj/structure/barricade/solid{
-	dir = 8
-	},
-/turf/open/floor,
-/area/bigredv2/outside/general_offices)
-"Uk" = (
-/turf/closed/wall,
-/area/bigredv2/outside/bar)
+/area/bigredv3/caves/northeast/garbledradio)
 "UJ" = (
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/secondary/maintence)
 "UM" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/freezer,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "UR" = (
 /obj/effect/spawner/random/engineering/structure/tank_dispenser/oxygenweighted,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "UU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -893,7 +867,7 @@
 	},
 /obj/effect/ai_node,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "Vo" = (
 /obj/structure/window/framed/colony,
 /obj/machinery/door/poddoor/shutters/mainship{
@@ -901,11 +875,11 @@
 	name = "\improper Greenhouse Shutters"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/hydroponics)
+/area/bigredv3/inside/wall)
 "Vp" = (
 /obj/structure/table,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "Vv" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 4
@@ -913,69 +887,68 @@
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "Vy" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/toolbox,
 /obj/item/stack/cable_coil,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "XG" = (
 /turf/closed/wall,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/wall)
+"Ym" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor,
+/area/bigredv3/inside/colony/dorm)
 "Yq" = (
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "Yy" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "YR" = (
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "YW" = (
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
-"Zf" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
-/turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "Zw" = (
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 "ZF" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "ZR" = (
 /turf/open/floor/plating/ground/mars/random/sand,
-/area/bigredv2/caves/northeast/garbledradio)
+/area/bigredv3/caves/northeast/garbledradio)
 "ZS" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/bar)
 "ZT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
 	},
 /turf/open/floor,
-/area/bigredv2/outside/general_offices)
+/area/bigredv3/inside/colony/dorm)
 
 (1,1,1) = {"
 IP
@@ -996,12 +969,12 @@ uR
 iZ
 iZ
 zC
-Uk
+XG
 hQ
 mi
 ru
 ru
-Uk
+XG
 "}
 (2,1,1) = {"
 IP
@@ -1019,15 +992,15 @@ XG
 XG
 jt
 Sq
-ps
+ws
 EZ
 tq
-Uk
+XG
 ru
 mi
 ru
 ru
-Uk
+XG
 "}
 (3,1,1) = {"
 IP
@@ -1043,17 +1016,17 @@ km
 oF
 oF
 XG
-TL
-Sq
-TL
+RL
+rG
+RL
 XG
 XG
-Uk
-Uk
+XG
+XG
 vi
-Uk
-Uk
-Uk
+XG
+XG
+XG
 "}
 (4,1,1) = {"
 IP
@@ -1065,9 +1038,9 @@ UM
 xA
 Iz
 XG
-jt
+Ym
 nn
-iZ
+RL
 XG
 me
 jb
@@ -1079,7 +1052,7 @@ XG
 Nn
 Nk
 Lp
-Uk
+XG
 "}
 (5,1,1) = {"
 IP
@@ -1091,12 +1064,12 @@ uZ
 xA
 bk
 XG
-iZ
+RL
 nn
-iZ
+RL
 XG
 nn
-Sq
+rG
 Zw
 XG
 pL
@@ -1105,7 +1078,7 @@ XG
 Nn
 Nk
 Lp
-Uk
+XG
 "}
 (6,1,1) = {"
 IP
@@ -1119,7 +1092,7 @@ Mg
 XG
 fV
 nn
-iZ
+RL
 XG
 nn
 PG
@@ -1131,7 +1104,7 @@ XG
 Nn
 Nk
 Lp
-Uk
+XG
 "}
 (7,1,1) = {"
 CS
@@ -1144,7 +1117,7 @@ Ox
 Iz
 XG
 cC
-iZ
+RL
 ps
 Ds
 GG
@@ -1157,7 +1130,7 @@ XG
 Nn
 Nk
 Lp
-Uk
+XG
 "}
 (8,1,1) = {"
 Nu
@@ -1172,10 +1145,10 @@ XG
 Vy
 UU
 uJ
-fi
-fi
+Ba
+Ba
 uG
-iZ
+RL
 XG
 pL
 NJ
@@ -1200,8 +1173,8 @@ ZT
 nn
 XG
 eP
-Sq
-iZ
+rG
+RL
 XG
 XG
 XG
@@ -1226,7 +1199,7 @@ me
 YR
 XG
 rW
-Sq
+rG
 yy
 JR
 ux
@@ -1241,11 +1214,11 @@ nh
 ZR
 Oq
 XG
-RL
+ru
 Cj
 UJ
-RL
-RL
+ru
+ru
 XG
 kI
 nn
@@ -1253,32 +1226,32 @@ nn
 XG
 nn
 xZ
-iZ
+RL
 XG
 pL
 NJ
 XG
 Nn
 Nk
-vC
+XG
 Vo
 "}
 (12,1,1) = {"
 TC
 Oq
 wP
-RL
+ru
 aC
-RL
-RL
-RL
+ru
+ru
+ru
 wo
-iZ
+RL
 lJ
-iZ
+RL
 XG
 Ez
-Sq
+rG
 GO
 XG
 XG
@@ -1307,9 +1280,9 @@ st
 rq
 dH
 iP
-Et
+St
 eK
-Et
+St
 PA
 St
 no
@@ -1329,16 +1302,16 @@ AR
 AR
 jO
 XG
-iZ
+RL
 cK
 lJ
-iZ
+RL
 Fd
 Fd
 dl
 Dg
 qr
-Bh
+XG
 rH
 "}
 (15,1,1) = {"
@@ -1347,7 +1320,7 @@ Oq
 XG
 Ew
 YW
-IG
+fZ
 fE
 Vp
 XG
@@ -1357,7 +1330,7 @@ fE
 XG
 qq
 cK
-iZ
+RL
 XG
 XG
 XG
@@ -1381,7 +1354,7 @@ fZ
 Pl
 fE
 Oc
-iZ
+RL
 Mv
 Zw
 JR
@@ -1406,17 +1379,17 @@ ya
 Ty
 Vv
 Ty
-Av
+ya
 Yy
 nD
-iZ
+RL
 XG
 pL
 NJ
 XG
 fS
-fS
-Bh
+jz
+XG
 rH
 "}
 (18,1,1) = {"
@@ -1424,8 +1397,8 @@ GP
 Nu
 XG
 Ew
-Zf
-IG
+ZS
+fZ
 fE
 By
 Oc
@@ -1434,8 +1407,8 @@ fE
 fE
 Oc
 nn
-iZ
-iZ
+RL
+RL
 XG
 XG
 XG
@@ -1476,7 +1449,7 @@ pF
 Nu
 XG
 bC
-Zf
+ZS
 fE
 UR
 Vp
@@ -1485,8 +1458,8 @@ jO
 jO
 jO
 XG
-iZ
-iZ
+RL
+RL
 GO
 XG
 pL
@@ -1494,8 +1467,8 @@ NJ
 XG
 fS
 fS
-vC
-hJ
+XG
+Oc
 "}
 (21,1,1) = {"
 GP
@@ -1512,15 +1485,15 @@ iw
 iw
 iw
 nn
-iZ
-iZ
+RL
+RL
 XG
 XG
 XG
 XG
 fS
 Kx
-vC
+XG
 Ei
 "}
 (22,1,1) = {"
@@ -1528,7 +1501,7 @@ CS
 Nu
 iw
 Ef
-Zf
+ZS
 zn
 fZ
 yb
@@ -1539,14 +1512,14 @@ av
 iw
 nn
 ps
-iZ
+RL
 XG
 CS
 fS
 fS
 fS
 fS
-vC
+XG
 dL
 "}
 (23,1,1) = {"
@@ -1554,7 +1527,7 @@ CS
 Nu
 iw
 fE
-Zf
+ZS
 fE
 fZ
 fZ
@@ -1570,9 +1543,9 @@ XG
 CS
 fS
 fS
+jz
 fS
-fS
-vC
+XG
 JY
 "}
 (24,1,1) = {"
@@ -1583,14 +1556,14 @@ fE
 dz
 fE
 fE
-aU
+fE
 fE
 fE
 Yq
-aU
+fE
 iw
 nn
-iZ
+RL
 ps
 XG
 CS
@@ -1598,7 +1571,7 @@ CS
 fS
 fS
 fS
-vC
+XG
 fJ
 "}
 (25,1,1) = {"
@@ -1616,15 +1589,15 @@ fE
 iA
 iw
 ps
-iZ
-iZ
+RL
+RL
 XG
 CS
 CS
 fS
 fS
 fS
-vC
+XG
 qc
 "}
 (26,1,1) = {"
@@ -1650,6 +1623,6 @@ CS
 fS
 fS
 fS
-vC
+XG
 OO
 "}

@@ -1,31 +1,24 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/closed/wall,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/wall)
 "b" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/chapel{
 	dir = 1
 	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "c" = (
 /obj/machinery/air_alarm{
 	dir = 1
 	},
-
 /turf/open/floor/tile/darkish,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "d" = (
 /obj/structure/stairs/edge,
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/chapel)
-"e" = (
-/obj/structure/cable,
-/turf/open/floor/tile/chapel{
-	dir = 1
-	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "g" = (
 /obj/structure/window/framed/colony,
 /obj/machinery/door/poddoor/shutters/mainship{
@@ -34,21 +27,14 @@
 	name = "\improper Chapel Shutters"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/wall)
 "h" = (
 /obj/structure/closet/wardrobe/chaplain_black,
 /turf/open/floor/engine/cult,
-/area/bigredv2/outside/chapel)
-"i" = (
-/obj/structure/cable,
-/obj/machinery/power/apc/high/ntf{
-	dir = 1
-	},
-/turf/open/floor/tile/darkish,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "j" = (
 /turf/open/floor/tile/chapel,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "k" = (
 /obj/structure/bed/chair/wood/normal{
 	dir = 8
@@ -56,30 +42,22 @@
 /turf/open/floor/tile/chapel{
 	dir = 4
 	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "l" = (
-
 /obj/structure/stairs/edge{
 	dir = 1
 	},
 /turf/open/floor/tile/dark,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "m" = (
-/obj/docking_port/stationary/crashmode,
 /turf/open/floor/engine/cult,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "n" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/open/floor/tile/darkish,
-/area/bigredv2/outside/chapel)
-"o" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
-/turf/open/floor/tile/darkish,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "q" = (
 /obj/machinery/door_control{
 	dir = 4;
@@ -87,42 +65,38 @@
 	name = "Storm Shutters"
 	},
 /turf/open/floor/engine/cult,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "s" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-
 /turf/open/floor/tile/darkish,
-/area/bigredv2/outside/chapel)
-"t" = (
-/turf/open/floor/engine/cult,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "w" = (
 /obj/structure/table/wood,
 /turf/open/floor/engine/cult,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "x" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/darkish,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "y" = (
 /turf/open/floor/tile/chapel{
 	dir = 1
 	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "z" = (
-/obj/structure/table/wood,
+/obj/machinery/light,
 /turf/open/floor/tile/darkish,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "A" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/chapel{
 	dir = 8
 	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "B" = (
 /obj/structure/bed/chair/wood/normal{
 	dir = 8
@@ -130,16 +104,22 @@
 /turf/open/floor/tile/chapel{
 	dir = 1
 	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "C" = (
-
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/power/apc/weak/ntf{
+	dir = 8
+	},
+/obj/structure/cable,
 /turf/open/floor/tile/darkish,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "D" = (
 /turf/open/floor/tile/chapel{
 	dir = 8
 	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "F" = (
 /obj/structure/bed/chair/wood/normal{
 	dir = 8
@@ -149,7 +129,7 @@
 /turf/open/floor/tile/chapel{
 	dir = 4
 	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "H" = (
 /obj/structure/window/framed/colony,
 /obj/machinery/door/poddoor/shutters/mainship{
@@ -157,14 +137,14 @@
 	name = "\improper Chapel Shutters"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/wall)
 "K" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 4;
 	on = 1
 	},
 /turf/open/floor/engine/cult,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "L" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -172,7 +152,7 @@
 /obj/structure/table/wood,
 /obj/item/storage/bible,
 /turf/open/floor/engine/cult,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "M" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -180,27 +160,11 @@
 	name = "\improper Chapel"
 	},
 /turf/open/floor/tile/darkish,
-/area/bigredv2/outside/chapel)
-"N" = (
-/obj/structure/cable,
-/turf/open/floor/tile/darkish,
-/area/bigredv2/outside/chapel)
-"O" = (
-/obj/structure/cable,
-
-/turf/open/floor/tile/darkish,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "P" = (
 /obj/structure/table/wood,
-
 /turf/open/floor/tile/darkish,
-/area/bigredv2/outside/chapel)
-"R" = (
-/obj/structure/cable,
-/turf/open/floor/tile/chapel{
-	dir = 8
-	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "S" = (
 /obj/structure/bed/chair/wood/normal{
 	dir = 8
@@ -208,39 +172,39 @@
 /turf/open/floor/tile/chapel{
 	dir = 8
 	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "U" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 8;
 	on = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/tile/darkish,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "V" = (
 /obj/structure/bed/chair/wood/normal{
 	dir = 8
 	},
 /turf/open/floor/tile/chapel,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "W" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/darkish,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "X" = (
 /turf/open/floor/tile/chapel{
 	dir = 4
 	},
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "Y" = (
 /turf/open/floor/tile/darkish,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 "Z" = (
 /obj/structure/table/wood,
 /obj/item/radio/headset/survivor,
-
 /turf/open/floor/engine/cult,
-/area/bigredv2/outside/chapel)
+/area/bigredv3/inside/colony/chapel)
 
 (1,1,1) = {"
 a
@@ -257,10 +221,10 @@ a
 a
 h
 m
-t
-t
-t
-t
+m
+m
+m
+m
 q
 a
 "}
@@ -268,9 +232,9 @@ a
 g
 Y
 d
-t
+m
 K
-t
+m
 l
 Y
 a
@@ -283,7 +247,7 @@ w
 L
 w
 w
-Y
+z
 a
 "}
 (5,1,1) = {"
@@ -302,7 +266,7 @@ g
 Y
 k
 V
-o
+s
 k
 V
 Y
@@ -310,13 +274,13 @@ a
 "}
 (7,1,1) = {"
 g
-C
+Y
 B
 S
-o
+s
 B
 S
-C
+Y
 a
 "}
 (8,1,1) = {"
@@ -324,10 +288,10 @@ a
 n
 k
 V
-o
+s
 F
 V
-Y
+z
 a
 "}
 (9,1,1) = {"
@@ -346,10 +310,10 @@ g
 Y
 k
 V
-o
+s
 k
 V
-i
+Y
 a
 "}
 (11,1,1) = {"
@@ -357,21 +321,21 @@ a
 n
 B
 S
-o
+s
 B
 S
-N
+z
 a
 "}
 (12,1,1) = {"
 g
-C
+Y
 k
 V
-o
+s
 k
 V
-O
+Y
 a
 "}
 (13,1,1) = {"
@@ -382,7 +346,7 @@ S
 s
 B
 S
-N
+Y
 a
 "}
 (14,1,1) = {"
@@ -390,10 +354,10 @@ a
 n
 k
 V
-o
+s
 k
 V
-N
+z
 a
 "}
 (15,1,1) = {"
@@ -402,9 +366,9 @@ W
 b
 A
 x
-e
-R
-N
+y
+D
+Y
 a
 "}
 (16,1,1) = {"
@@ -422,10 +386,10 @@ a
 a
 Y
 P
-z
+P
 C
-z
-z
+P
+P
 c
 a
 "}
