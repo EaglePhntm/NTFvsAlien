@@ -51,6 +51,13 @@
 	penetration = 35
 	sundering = 15
 
+/datum/ammo/bullet/sniper/dragoon
+	name = "exotic rifle bullet"
+	handful_amount = 4
+	damage = 60
+	penetration = 25
+	sundering = 6
+
 /datum/ammo/bullet/sniper/martini
 	name = "crude heavy sniper bullet"
 	handful_icon_state = "crude_heavy_sniper"
