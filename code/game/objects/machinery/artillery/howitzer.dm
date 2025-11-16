@@ -9,6 +9,7 @@
 	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
 	w_class = WEIGHT_CLASS_HUGE
 	deployable_item = /obj/machinery/deployable/mortar/howitzer
+	faction = FACTION_TERRAGOV
 
 /obj/machinery/deployable/mortar/howitzer
 	pixel_x = -16
@@ -30,6 +31,8 @@
 		/obj/item/mortal_shell/smoke/aphrotox,
 		/obj/item/mortal_shell/smoke/neuro,
 		/obj/item/mortal_shell/smoke/sleep,
+		/obj/item/mortal_shell/razorburn,
+		/obj/item/mortal_shell/metalfoam,
 	)
 	tally_type = TALLY_HOWITZER
 	cool_off_time = 10 SECONDS

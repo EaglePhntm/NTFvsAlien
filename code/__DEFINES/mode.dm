@@ -70,14 +70,20 @@
 #define MODE_FORCE_CUSTOMSQUAD_UI (1<<16)
 /// Should xenomorphs be allowed to buy mutations (including its structures)?
 #define MODE_MUTATIONS_OBTAINABLE (1<<17)
-#define MODE_BIOMASS_POINTS (1<<18)
-#define MODE_SURVIVAL (1<<19)
-#define MODE_NO_GHOSTS (1<<20)
+///Alamo only, no tad or pods. Sovl.
+#define MODE_ALAMO_ONLY (1<<18)
+#define MODE_BIOMASS_POINTS (1<<19)
+#define MODE_SURVIVAL (1<<20)
+#define MODE_NO_GHOSTS (1<<21)
 
 #define MODE_INFESTATION_X_MAJOR "Xenomorph Major Victory"
 #define MODE_INFESTATION_M_MAJOR "Ninetails Major Victory"
 #define MODE_INFESTATION_X_MINOR "Xenomorph Minor Victory"
 #define MODE_INFESTATION_M_MINOR "Ninetails Minor Victory"
+
+#define MODE_ZOMBIE_Z_MAJOR "Zombie Major Victory"
+#define MODE_ZOMBIE_Z_MINOR "Zombie Minor Victory"
+
 #define MODE_INFESTATION_DRAW_DEATH "DRAW: Mutual Annihilation"
 
 #define MODE_GENERIC_DRAW_NUKE "DRAW: Nuclear Explosion"
@@ -91,6 +97,8 @@
 #define CRASH_EVAC_NONE "CRASH_EVAC_NONE"
 #define CRASH_EVAC_INPROGRESS "CRASH_EVAC_INPROGRESS"
 #define CRASH_EVAC_COMPLETED "CRASH_EVAC_COMPLETED"
+///Initial delay before crash landing
+#define CRASH_DELAY_TIME 10 MINUTES
 
 #define INFESTATION_NUKE_NONE "INFESTATION_NUKE_NONE"
 #define INFESTATION_NUKE_INPROGRESS "INFESTATION_NUKE_INPROGRESS"
@@ -139,6 +147,9 @@
 #define COUNT_IGNORE_HUMAN_SSD (1<<0)
 #define COUNT_IGNORE_XENO_SSD (1<<1)
 #define COUNT_IGNORE_XENO_SPECIAL_AREA (1<<2)
+#define COUNT_CLF_TOWARDS_XENOS (1<<3)
+#define COUNT_GREENOS_TOWARDS_MARINES (1<<4)
+#define COUNT_IGNORE_ALTERNATE_FACTION_MARINES (1<<5)
 
 #define COUNT_IGNORE_ALIVE_SSD (COUNT_IGNORE_HUMAN_SSD|COUNT_IGNORE_XENO_SSD)
 

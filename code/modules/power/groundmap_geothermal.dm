@@ -104,7 +104,7 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 	if(corrupted)
 		. += image(icon, src, "overlay_corrupted", layer)
 	else
-		SSminimaps.add_marker(owner_marker, MINIMAP_FLAG_XENO, image('ntf_modular/icons/UI_icons/map_blips.dmi', null, "generator_on", MINIMAP_BLIPS_LAYER+0.1))
+		SSminimaps.add_marker(owner_marker, MINIMAP_FLAG_XENO, image('ntf_modular/icons/UI_icons/map_blips.dmi', null, "generator_on", MINIMAP_BLIPS_LAYER_HIGH))
 
 /obj/machinery/power/geothermal/power_change()
 	return
@@ -192,7 +192,8 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 	return FALSE //Nope, all fine
 
 /obj/machinery/power/geothermal/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
-	if(corrupted == xeno_attacker.hivenumber) //you have no reason to interact with it if its already corrupted
+	var/hivenumber = xeno_attacker.get_xeno_hivenumber()
+	if(corrupted == hivenumber) //you have no reason to interact with it if its already corrupted
 		to_chat(xeno_attacker, span_xenowarning("This has already been claimed for the glory of the hive."))
 		return
 
@@ -202,15 +203,15 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 	if(SEND_SIGNAL(src, COMSIG_OBJ_ATTACK_ALIEN, xeno_attacker, damage_amount) & COMPONENT_NO_ATTACK_ALIEN)
 		return FALSE
 
-	if(is_corruptible && (CHECK_BITFIELD(xeno_attacker.xeno_caste.can_flags, CASTE_CAN_CORRUPT_GENERATOR) || (xeno_attacker.hive?.living_xeno_ruler == xeno_attacker)))
+	if(is_corruptible && (CHECK_BITFIELD(xeno_attacker.xeno_caste.can_flags, CASTE_CAN_CORRUPT_GENERATOR) || (xeno_attacker.get_hive()?.living_xeno_ruler == xeno_attacker)))
 		to_chat(xeno_attacker, span_notice("You start to corrupt [src]"))
 		if(!do_after(xeno_attacker, 10 SECONDS, NONE, src, BUSY_ICON_HOSTILE))
 			return
-		if(corrupted == xeno_attacker.hivenumber)
+		if(corrupted == xeno_attacker.get_xeno_hivenumber())
 			return
-		corrupt(xeno_attacker.hivenumber)
+		corrupt(hivenumber)
 		to_chat(xeno_attacker, span_notice("You have corrupted [src]"))
-		log_combat(xeno_attacker, src, "corrupted", addition = "for hive [xeno_attacker.hivenumber]")
+		log_combat(xeno_attacker, src, "corrupted", addition = "for hive [hivenumber]")
 		record_generator_sabotages(xeno_attacker)
 		return
 

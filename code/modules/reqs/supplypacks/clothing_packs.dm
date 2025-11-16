@@ -113,5 +113,6 @@ CLOTHING
 
 /datum/supply_packs/clothing/insuls
 	name = "Insulated gloves"
+	notes = "For only 10 more points you can get these as part of the Electrical Maintenance crate under engineering"
 	contains = list(/obj/item/clothing/gloves/insulated)
-	cost = 100
+	cost = 40

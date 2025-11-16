@@ -392,7 +392,7 @@
 	},
 /area/antag_ship/som/requisition)
 "cG" = (
-/obj/alien/weeds/node/resting,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
 /area/antag_ship/clf_base/reedroom)
 "cH" = (
@@ -577,6 +577,10 @@
 "dP" = (
 /turf/open/floor/iron/dark,
 /area/antag_ship/vsd/med)
+"dR" = (
+/obj/docking_port/stationary/supplyicc,
+/turf/open/floor/mainship/empty,
+/area/antag_ship/icc/requisition)
 "dS" = (
 /obj/machinery/light/mainship{
 	dir = 4
@@ -630,6 +634,12 @@
 	dir = 5
 	},
 /area/antag_ship/pmc_ntf/center/armory)
+"eg" = (
+/obj/structure/table/reinforced,
+/obj/structure/paper_bin,
+/obj/item/tool/pen,
+/turf/open/floor/plating/ground/concrete,
+/area/antag_ship/icc/requisition)
 "eh" = (
 /obj/structure/largecrate/guns/russian,
 /turf/open/floor/plating/plating_catwalk,
@@ -694,7 +704,7 @@
 /area/antag_ship/vsd/hall)
 "ey" = (
 /obj/machinery/smartfridge/chemistry,
-/turf/closed/wall/mainship/gray,
+/turf/open/floor/mainship/sterile,
 /area/antag_ship/som/medbay)
 "ez" = (
 /obj/machinery/door/airlock/hatch/engineering{
@@ -770,11 +780,6 @@
 	},
 /turf/open/floor/iron/grimy,
 /area/antag_ship/som/office/commander)
-"eO" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/turf/open/floor/plating/plating_catwalk,
-/area/antag_ship/som/requisition)
 "eQ" = (
 /obj/item/weapon/butterfly/switchblade,
 /obj/item/weapon/butterfly/switchblade,
@@ -892,7 +897,7 @@
 /area/antag_ship/pmc_ntf/aft/spaceport)
 "fx" = (
 /obj/machinery/door/poddoor/shutters/mainship{
-	name = "Privacy shutters";
+	name = "Privacy Shutters";
 	id = "SOMAdmiral2"
 	},
 /obj/structure/window/framed/mainship/gray/toughened/hull,
@@ -1108,7 +1113,6 @@
 /obj/item/fulton_extraction_pack,
 /obj/structure/rack,
 /turf/open/shuttle/dropship/three,
-/turf/open/floor/plating/asteroidfloor,
 /area/antag_ship/clf_base/requisition)
 "gN" = (
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -2400,12 +2404,9 @@
 /turf/open/floor/iron/dark,
 /area/antag_ship/vsd/port)
 "mR" = (
-/obj/structure/largecrate/random,
-/obj/effect/turf_decal/trimline/brown/warning{
-	dir = 8
-	},
+/obj/structure/window/framed/mainship/gray,
 /turf/open/floor/plating/ground/concrete,
-/area/antag_ship/icc/hangar/west)
+/area/antag_ship/icc/requisition)
 "mS" = (
 /obj/structure/window/framed/prison/reinforced/hull,
 /turf/open/floor/iron/dark,
@@ -2416,12 +2417,6 @@
 	},
 /turf/open/floor/mainship/office,
 /area/antag_ship/som/bridge)
-"mU" = (
-/obj/structure/cargo_container{
-	dir = 1
-	},
-/turf/open/floor/plating/ground/concrete,
-/area/antag_ship/icc/hangar/west)
 "mV" = (
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
@@ -2449,6 +2444,13 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/bridge)
+"na" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/concrete,
+/area/antag_ship/icc/hangar/center)
 "nb" = (
 /obj/item/reagent_containers/spray/cleaner,
 /obj/item/reagent_containers/spray/cleaner,
@@ -2530,7 +2532,7 @@
 "np" = (
 /obj/structure/window/framed/mainship/gray/toughened/hull,
 /obj/machinery/door/poddoor/shutters/mainship{
-	name = "Privacy shutters";
+	name = "Privacy Shutters";
 	id = "SOMFC2";
 	dir = 2
 	},
@@ -3011,7 +3013,7 @@
 /turf/open/floor/plating/ground/concrete,
 /area/antag_ship/icc/warehouse)
 "pE" = (
-/obj/alien/weeds/node/resting,
+/obj/effect/landmark/weed_node,
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/coffee{
 	pixel_y = 5
@@ -3622,7 +3624,7 @@
 /obj/item/flashlight/lamp/green,
 /obj/item/reagent_containers/spray/cleaner,
 /obj/machinery/door_control/old{
-	name = "Privacy shutters";
+	name = "Privacy Shutters";
 	id = "SOMFC2"
 	},
 /turf/open/floor/wood,
@@ -3660,13 +3662,6 @@
 	},
 /turf/open/floor/plating/ground/concrete,
 /area/antag_ship/icc/commcenter)
-"sX" = (
-/obj/effect/turf_decal/trimline/brown/warning{
-	dir = 1
-	},
-/obj/effect/urban/decal/trash/ten,
-/turf/open/floor/plating/ground/concrete,
-/area/antag_ship/icc/hangar/west)
 "te" = (
 /obj/machinery/door/airlock/mainship/generic{
 	name = "\improper PMC Airlock";
@@ -3867,7 +3862,7 @@
 "uf" = (
 /obj/machinery/door/poddoor/shutters/mainship{
 	dir = 2;
-	name = "Privacy shutters";
+	name = "Privacy Shutters";
 	id = "SOMAdmiral1"
 	},
 /obj/structure/window/framed/mainship/gray/toughened,
@@ -4029,7 +4024,6 @@
 	req_one_access = list(186);
 	name = "\improper PMC Airlock"
 	},
-/obj/structure/cable,
 /obj/structure/cable,
 /turf/open/floor/mainship/sterile/plain,
 /area/antag_ship/pmc_ntf/port/spaceport)
@@ -4345,6 +4339,12 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/security)
+"wB" = (
+/obj/effect/turf_decal/trimline/brown/filled/warning{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/concrete,
+/area/antag_ship/icc/requisition)
 "wE" = (
 /obj/item/bdsm_bed_kit,
 /turf/open/floor/plating/ground/desertdam/asphalt/threeside{
@@ -4390,10 +4390,6 @@
 /obj/item/storage/firstaid/adv,
 /obj/item/storage/firstaid/adv,
 /obj/item/tweezers,
-/obj/item/tweezers,
-/obj/item/tweezers,
-/obj/item/tweezers,
-/obj/item/tweezers,
 /turf/open/floor/plating/asteroidfloor,
 /area/antag_ship/clf_base/medbay)
 "wR" = (
@@ -4411,7 +4407,7 @@
 /obj/structure/window/framed/mainship/gray/toughened,
 /obj/machinery/door/poddoor/shutters/mainship{
 	dir = 2;
-	name = "Privacy shutters";
+	name = "Privacy Shutters";
 	id = "SOMFC1"
 	},
 /turf/open/floor/mainship/mono,
@@ -4637,13 +4633,6 @@
 	dir = 1
 	},
 /area/antag_ship/icc/hangar/west)
-"xN" = (
-/obj/effect/spawner/random/engineering/shovel,
-/obj/effect/turf_decal/trimline/brown/warning{
-	dir = 9
-	},
-/turf/open/floor/plating/ground/concrete,
-/area/antag_ship/icc/hangar/west)
 "xO" = (
 /obj/machinery/cryopod/right,
 /turf/open/floor/plating/asteroidwarning{
@@ -4738,10 +4727,8 @@
 /turf/open/floor/plating/ground/concrete,
 /area/antag_ship/icc/hangar/west)
 "yh" = (
-/obj/effect/spawner/random/engineering/engibelt,
-/obj/structure/cargo_container,
-/turf/open/floor/plating/ground/concrete,
-/area/antag_ship/icc/hangar/west)
+/turf/closed/wall/mainship/gray,
+/area/antag_ship/icc/requisition)
 "yj" = (
 /turf/open/floor/prison/darkbrown{
 	dir = 1
@@ -5136,7 +5123,7 @@
 "Bc" = (
 /obj/structure/table/wood/fancy,
 /obj/machinery/door_control/old{
-	name = "Privacy shutters";
+	name = "Privacy Shutters";
 	id = "SOMFC1"
 	},
 /turf/open/floor/wood,
@@ -5321,7 +5308,7 @@
 "BS" = (
 /obj/structure/window/framed/mainship/gray/toughened/hull,
 /obj/machinery/door/poddoor/shutters/mainship{
-	name = "Privacy shutters";
+	name = "Privacy Shutters";
 	id = "SOMFC2";
 	dir = 2
 	},
@@ -5458,7 +5445,7 @@
 /area/antag_ship/vsd/armory)
 "Cx" = (
 /obj/machinery/door/poddoor/shutters/mainship{
-	name = "Privacy shutters";
+	name = "Privacy Shutters";
 	id = "SOMFC2";
 	dir = 2
 	},
@@ -5484,7 +5471,7 @@
 /obj/structure/window/framed/mainship/gray/toughened,
 /obj/machinery/door/poddoor/shutters/mainship{
 	dir = 2;
-	name = "Privacy shutters";
+	name = "Privacy Shutters";
 	id = "SOMAdmiral1"
 	},
 /turf/open/floor/plating,
@@ -5535,7 +5522,7 @@
 "CQ" = (
 /obj/machinery/door/poddoor/shutters/mainship{
 	dir = 2;
-	name = "Privacy shutters";
+	name = "Privacy Shutters";
 	id = "SOMFC1"
 	},
 /obj/structure/window/framed/mainship/gray/toughened/hull,
@@ -5925,6 +5912,12 @@
 /obj/item/storage/box/ids,
 /turf/open/floor/wood,
 /area/antag_ship/som/office/commander/field)
+"EP" = (
+/obj/structure/table/reinforced,
+/obj/machinery/computer/voucher/icc,
+/obj/structure/cable,
+/turf/open/floor/plating/ground/concrete,
+/area/antag_ship/icc/requisition)
 "EQ" = (
 /obj/machinery/vending/uniform_supply/pmc,
 /obj/machinery/light/mainship{
@@ -5973,6 +5966,12 @@
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
 /area/antag_ship/icc/warehouse)
+"EY" = (
+/obj/structure/cable,
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 1
+	},
+/area/antag_ship/icc/hangar/west)
 "Fc" = (
 /obj/machinery/light/mainship{
 	dir = 8
@@ -6481,7 +6480,7 @@
 /area/antag_ship/vsd/port)
 "HD" = (
 /obj/machinery/door/poddoor/shutters/mainship{
-	name = "Privacy shutters";
+	name = "Privacy Shutters";
 	id = "SOMFC2"
 	},
 /obj/structure/window/framed/mainship/gray/toughened/hull,
@@ -7000,8 +6999,7 @@
 /area/antag_ship/pmc_ntf/aft/engiroom/port)
 "Ka" = (
 /obj/structure/table/reinforced,
-/obj/item/tool/pen,
-/obj/structure/paper_bin,
+/obj/item/tool/crowbar,
 /turf/open/floor/plating/ground/concrete,
 /area/antag_ship/icc/hangar/east)
 "Ke" = (
@@ -7055,7 +7053,6 @@
 "Kt" = (
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/engineering/insulatedgloves,
-/obj/machinery/computer/voucher/icc,
 /turf/open/floor/plating/ground/concrete,
 /area/antag_ship/icc/hangar/east)
 "Ku" = (
@@ -7281,6 +7278,11 @@
 /obj/structure/cable,
 /turf/open/floor/plating/asteroidfloor,
 /area/antag_ship/clf_base/armory)
+"LN" = (
+/obj/structure/cable,
+/obj/machinery/computer/supplycomp/icc,
+/turf/open/floor/plating/ground/concrete,
+/area/antag_ship/icc/requisition)
 "LO" = (
 /turf/open/floor/plating/ground/concrete,
 /area/antag_ship/icc/warehouse)
@@ -7425,12 +7427,6 @@
 "MB" = (
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/antag_ship/clf_base/kitchen)
-"ME" = (
-/obj/structure/prop/mainship/doorblocker/patrol_base/som{
-	dir = 4
-	},
-/turf/open/shuttle/dropship/three,
-/area/shuttle/transport)
 "MG" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -7454,7 +7450,7 @@
 	dir = 10
 	},
 /obj/machinery/door_control/old{
-	name = "Privacy shutters";
+	name = "Privacy Shutters";
 	id = "SOMAdmiral2"
 	},
 /turf/open/floor/iron/grimy,
@@ -7513,7 +7509,6 @@
 /turf/open/floor/mainship/office,
 /area/antag_ship/som/bridge)
 "Ni" = (
-/obj/structure/cable,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk,
@@ -7640,6 +7635,10 @@
 	dir = 1
 	},
 /area/antag_ship/icc/hangar/east)
+"NC" = (
+/obj/structure/cable,
+/turf/open/floor/plating/plating_catwalk,
+/area/antag_ship/icc/hangar/center)
 "ND" = (
 /obj/structure/platform,
 /obj/structure/platform{
@@ -7925,12 +7924,8 @@
 	},
 /area/antag_ship/vsd/engi)
 "OZ" = (
-/obj/effect/turf_decal/trimline/brown/warning{
-	dir = 4
-	},
-/obj/structure/largecrate/random,
-/turf/open/floor/plating/ground/concrete,
-/area/antag_ship/icc/hangar/west)
+/turf/open/floor/mainship/empty,
+/area/antag_ship/icc/requisition)
 "Pa" = (
 /obj/effect/turf_decal/trimline/brown/warning{
 	dir = 1
@@ -7946,10 +7941,6 @@
 	dir = 8
 	},
 /area/antag_ship/pmc_ntf/port/quarters)
-"Pe" = (
-/obj/structure/rack,
-/turf/open/floor/plating/ground/concrete,
-/area/antag_ship/icc/hangar/west)
 "Pf" = (
 /obj/structure/cable,
 /obj/machinery/power/apc{
@@ -8286,7 +8277,7 @@
 "QN" = (
 /obj/machinery/door/poddoor/shutters/mainship{
 	dir = 2;
-	name = "Privacy shutters";
+	name = "Privacy Shutters";
 	id = "SOMAdmiral1"
 	},
 /obj/structure/window/framed/mainship/gray/toughened/hull,
@@ -8354,7 +8345,6 @@
 	dir = 4
 	},
 /turf/open/shuttle/dropship/three,
-/turf/open/floor/plating/asteroidfloor,
 /area/shuttle/transport)
 "QZ" = (
 /obj/machinery/loadout_vendor/icc,
@@ -8878,12 +8868,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating/asteroidfloor,
 /area/antag_ship/clf_base/sleeproom)
-"Tr" = (
-/obj/machinery/light/mainship{
-	light_color = "#da2f1b"
-	},
-/turf/open/floor/plating/ground/concrete,
-/area/antag_ship/icc/hangar/west)
 "Ts" = (
 /obj/machinery/telecomms/processor/preset_three/som,
 /turf/open/floor/bcircuit/anim,
@@ -9656,13 +9640,6 @@
 /obj/item/minerupgrade/automatic,
 /turf/open/floor/plating/ground/concrete,
 /area/antag_ship/icc/hangar/west)
-"WZ" = (
-/obj/effect/urban/decal/trash/fourteen,
-/obj/structure/cargo_container{
-	dir = 4
-	},
-/turf/open/floor/plating/ground/concrete,
-/area/antag_ship/icc/hangar/west)
 "Xc" = (
 /obj/machinery/button/door{
 	id = "clfarmoury";
@@ -9875,7 +9852,7 @@
 /area/antag_ship/icc/hangar/west)
 "Yf" = (
 /obj/machinery/door/poddoor/shutters/mainship{
-	name = "Privacy shutters";
+	name = "Privacy Shutters";
 	id = "SOMFC2";
 	dir = 2
 	},
@@ -9947,6 +9924,9 @@
 /obj/machinery/power/apc,
 /turf/open/floor/plating/plating_catwalk,
 /area/antag_ship/som/maintenance/south)
+"Yt" = (
+/turf/open/floor/plating/ground/concrete,
+/area/antag_ship/icc/requisition)
 "Yu" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -9997,7 +9977,7 @@
 	pixel_x = -4
 	},
 /obj/machinery/door_control/old{
-	name = "Privacy shutters";
+	name = "Privacy Shutters";
 	id = "SOMAdmiral1"
 	},
 /turf/open/floor/wood/alt_three,
@@ -10225,11 +10205,9 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/antag_ship/clf_base/requisition)
 "ZV" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 4
-	},
+/obj/structure/cable,
 /turf/open/floor/plating/ground/concrete,
-/area/antag_ship/icc/hangar/center)
+/area/antag_ship/icc/requisition)
 "ZW" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/siding/wood{
@@ -14415,13 +14393,13 @@ Ni
 pF
 aI
 zE
-eO
+Ni
 uY
-eO
+Ni
 qX
 wU
 FE
-eO
+Ni
 qu
 qu
 vX
@@ -17586,11 +17564,11 @@ iK
 xM
 Mb
 Mb
-Tr
+Mb
+Mb
+Mb
 la
 la
-la
-zb
 zb
 zb
 zb
@@ -17679,13 +17657,13 @@ JH
 JH
 iK
 xM
-xN
-Hh
+Mb
+yh
 mR
+mR
+yh
 la
 la
-zb
-zb
 zb
 zb
 zb
@@ -17774,13 +17752,13 @@ JH
 JH
 iK
 JB
-Pa
+Mb
 yh
-ff
+eg
+EP
+LN
 la
 la
-zb
-zb
 zb
 zb
 zb
@@ -17868,14 +17846,14 @@ Ye
 JH
 JH
 Fs
-JB
-sX
-mU
-ff
+pp
+jo
+ZV
+ZV
+ZV
+ZV
 la
 la
-zb
-zb
 zb
 zb
 zb
@@ -17963,14 +17941,14 @@ Ye
 JH
 JH
 iK
-JB
-Pa
-WZ
-ff
+pp
+Mb
+yh
+Yt
+Yt
+Yt
 la
 la
-zb
-zb
 zb
 zb
 zb
@@ -18058,14 +18036,14 @@ Ye
 JH
 JH
 iK
-xM
-kR
-yf
-OZ
+EY
+Mb
+mR
+wB
+wB
+wB
 la
 la
-zb
-zb
 zb
 zb
 zb
@@ -18153,14 +18131,14 @@ Ye
 JH
 JH
 iK
-xM
+EY
 WC
-Pe
+yh
+OZ
+dR
+OZ
 la
 la
-la
-la
-zb
 zb
 zb
 zb
@@ -18244,11 +18222,11 @@ la
 la
 la
 lr
-og
-og
-og
-og
-ZV
+NC
+NC
+NC
+NC
+na
 la
 la
 la
@@ -22200,7 +22178,7 @@ QY
 Gk
 Gk
 Gk
-ME
+QY
 Gk
 Uq
 Xr
@@ -22214,7 +22192,7 @@ QY
 Gk
 Gk
 Gk
-ME
+QY
 Gk
 Uq
 Xr

@@ -177,7 +177,7 @@
 	new_xeno.transfer_to_hive(hivenumber)
 	new_xeno.generate_name() // This is specifically for numbered xenos who want to keep their previous number instead of a random new one.
 	if(new_xeno.hive)
-		INVOKE_NEXT_TICK(new_xeno.hive, TYPE_PROC_REF(/datum/hive_status, update_ruler)) // Since ruler wasn't set during initialization, update ruler now.
+		INVOKE_NEXT_TICK_UNIQUE(new_xeno.hive, TYPE_PROC_REF(/datum/hive_status, update_ruler)) // Since ruler wasn't set during initialization, update ruler now.
 	transfer_observers_to(new_xeno)
 
 	if(new_xeno.health - getBruteLoss(src) - getFireLoss(src) > 0) //Cmon, don't kill the new one! Shouldnt be possible though
@@ -201,7 +201,7 @@
 	SEND_SIGNAL(hive, COMSIG_XENOMORPH_POSTEVOLVING, new_xeno)
 	// Update the turf just in case they moved, somehow.
 	var/turf/T = get_turf(src)
-	deadchat_broadcast(" has evolved into a <b>[new_xeno.xeno_caste.caste_name]</b> at <b>[get_area_name(T)]</b>.", "<b>[src]</b>", follow_target = new_xeno, turf_target = T)
+	deadchat_broadcast(" has evolved into a <b>[new_xeno.xeno_caste.caste_name]</b> at <b>[AREACOORD(T)][TURF_LINK(null, T)]</b>.", "<b>[src]</b>", follow_target = new_xeno, turf_target = T)
 
 	GLOB.round_statistics.total_xenos_created-- //so an evolved xeno doesn't count as two.
 	SSblackbox.record_feedback("tally", "round_statistics", -1, "total_xenos_created")

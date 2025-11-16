@@ -76,6 +76,8 @@
 #define AMMO_SOUND_PITCH (1<<16)
 ///Is this projectile considered sniper ammo, used for the anti sniper stacking status effect
 #define AMMO_SNIPER (1<<17)
+///Ammo type entirely ignores xenos
+#define AMMO_SKIPS_ZOMBIE (1<<18)
 
 //Gun defines for gun related thing. More in the projectile folder.
 //gun_features_flags
@@ -138,6 +140,7 @@
 #define MAGAZINE_NOT_FABRICABLE (1<<4)
 ///ammo count shown on mag sprite
 #define MAGAZINE_SHOW_AMMO (1<<5)
+#define MAGAZINE_REQUIRES_EMPTY_GUN (1<<6)
 
 //Slowdown from various armors.
 #define SHOES_SLOWDOWN -1.0			// How much shoes slow you down by default. Negative values speed you up

@@ -31,7 +31,7 @@
 /obj/item/storage/backpack/equipped(mob/user, slot)
 	if(slot == SLOT_BACK)
 		mouse_opacity = 2 //so it's easier to click when properly equipped.
-		if(storage_datum.use_sound)
+		if(storage_datum?.use_sound)
 			playsound(loc, storage_datum.use_sound, 15, 1, 6)
 	return ..()
 
@@ -771,6 +771,10 @@ GLOBAL_LIST_INIT(stealth_greyscale_matrix,\
 	desc = "The M68-B thermal cloak is a variant custom-purposed for snipers, allowing for faster, superior, stationary concealment at the expense of mobile concealment. It is designed to be paired with the lightweight M3 recon battle armor. Serves as a satchel."
 	shimmer_alpha = SCOUT_CLOAK_RUN_ALPHA * 0.5 //Half the normal shimmer transparency.
 	show_energy = FALSE // since it never gets used up
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/equipment/backpacks_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/equipment/backpacks_right.dmi',
+	)
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/sniper/handle_movement(mob/living/carbon/human/source, atom/old_loc, movement_dir, forced, list/old_locs)
 	if(!camo_active)

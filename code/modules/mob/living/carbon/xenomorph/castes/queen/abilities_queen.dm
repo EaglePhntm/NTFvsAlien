@@ -32,12 +32,12 @@
 		return FALSE
 
 	log_game("[key_name(xeno_owner)] has messaged the hive with: \"[input]\"")
-	deadchat_broadcast(" has messaged the hive: \"[input]\"", xeno_owner, xeno_owner)
+	deadchat_broadcast(" has messaged the hive: \"[input]\"", xeno_owner, xeno_owner, get_turf(xeno_owner))
 	var/queens_word = HUD_ANNOUNCEMENT_FORMATTING("HIVE MESSAGE", input, CENTER_ALIGN_TEXT)
 
 	var/sound/queen_sound = sound(get_sfx(SFX_QUEEN), channel = CHANNEL_ANNOUNCEMENTS)
 	var/sound/king_sound = sound('sound/voice/alien/xenos_roaring.ogg', channel = CHANNEL_ANNOUNCEMENTS)
-	var/list/xeno_listeners = xeno_owner.hive.get_all_xenos()
+	var/list/xeno_listeners = xeno_owner.get_hive().get_all_xenos()
 	for(var/mob/living/carbon/xenomorph/xeno AS in xeno_listeners)
 		to_chat(xeno, assemble_alert(
 			title = "Hive Announcement",
@@ -189,7 +189,7 @@
 	if(prob(chancebunch)) //Queen has a higher chance to lay in batches.
 		for(var/lcount=0, lcount<larvalbunch, lcount++)
 			var/obj/item/alien_embryo/larba = new(A)
-			larba.hivenumber = X.hivenumber
+			larba.hivenumber = X.get_xeno_hivenumber()
 			larba.emerge_target_flavor = victimhole
 		to_chat(owner, span_danger("You lay multiple larva at once!"))
 		to_chat(A, span_danger("You feel multiple larva being inserted at once!"))
@@ -197,7 +197,7 @@
 			A.apply_damage(larvalbunch*10, CLONE, BODY_ZONE_PRECISE_GROIN, updating_health = TRUE)
 	else
 		var/obj/item/alien_embryo/embryo = new(A)
-		embryo.hivenumber = X.hivenumber
+		embryo.hivenumber = X.get_xeno_hivenumber()
 		embryo.emerge_target_flavor = victimhole
 		GLOB.round_statistics.now_pregnant++
 		SSblackbox.record_feedback("tally", "round_statistics", 1, "now_pregnant") //Only counts once to give Xenomorphs a fair chance.
@@ -560,7 +560,7 @@
 		unset_xeno_leader(selected_xeno)
 		return
 
-	if(xeno_owner.xeno_caste.queen_leader_limit <= length(xeno_owner.hive.xeno_leader_list))
+	if(xeno_owner.xeno_caste.queen_leader_limit <= length(xeno_owner.get_hive().xeno_leader_list))
 		xeno_owner.balloon_alert(xeno_owner, "No more leadership slots")
 		return
 
@@ -570,7 +570,7 @@
 /datum/action/ability/xeno_action/set_xeno_lead/proc/unset_xeno_leader(mob/living/carbon/xenomorph/selected_xeno)
 	xeno_owner.balloon_alert(xeno_owner, "Xeno demoted")
 	selected_xeno.balloon_alert(selected_xeno, "Leadership removed")
-	selected_xeno.hive.remove_leader(selected_xeno)
+	selected_xeno.get_hive().remove_leader(selected_xeno)
 	selected_xeno.hud_set_queen_overwatch()
 	selected_xeno.handle_xeno_leader_pheromones(xeno_owner)
 
@@ -588,7 +588,7 @@
 	selected_xeno.balloon_alert(selected_xeno, "Promoted to leader")
 	to_chat(selected_xeno, span_xenoannounce("[xeno_owner] has selected us as a Hive Leader. The other Xenomorphs must listen to us. We will also act as a beacon for the Ruler's pheromones."))
 
-	xeno_owner.hive.add_leader(selected_xeno)
+	xeno_owner.get_hive().add_leader(selected_xeno)
 	selected_xeno.hud_set_queen_overwatch()
 	selected_xeno.handle_xeno_leader_pheromones(xeno_owner)
 	notify_ghosts("\ [xeno_owner] has designated [selected_xeno] as a Hive Leader", source = selected_xeno, action = NOTIFY_ORBIT)

@@ -175,7 +175,7 @@
 		"Hypospray" = list (
 			/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus = 10,
 			/obj/item/reagent_containers/hypospray/autoinjector/sleeptoxin = 10,
-			/obj/item/reagent_containers/hypospray/advanced = 30,
+			/obj/item/reagent_containers/hypospray/advanced = 5,
 			/obj/item/reagent_containers/hypospray/advanced/bicaridine = 5,
 			/obj/item/reagent_containers/hypospray/advanced/kelotane = 5,
 			/obj/item/reagent_containers/hypospray/advanced/tramadol = 5,
@@ -220,6 +220,8 @@
 			/obj/item/tool/research/excavation_tool = -1,
 			/obj/item/storage/pouch/surgery = -1,
 			/obj/item/armor_module/storage/uniform/surgery_webbing = -1,
+			/obj/item/tweezers = 15,
+			/obj/item/clothing/ears/earmuffs = 5,
 			/obj/item/reagent_containers/spray/surgery = -1,
 			/obj/item/tool/soap = 3,
 			/obj/item/clothing/glasses/hud/health = 6,
@@ -296,6 +298,8 @@
 			/obj/item/tool/research/excavation_tool = -1,
 			/obj/item/storage/pouch/surgery = -1,
 			/obj/item/armor_module/storage/uniform/surgery_webbing = -1,
+			/obj/item/tweezers = -1,
+			/obj/item/clothing/ears/earmuffs = -1,
 			/obj/item/reagent_containers/spray/surgery = -1,
 			/obj/item/tool/soap = -1,
 			/obj/item/clothing/glasses/hud/health = -1,
@@ -366,6 +370,7 @@
 		/obj/item/stack/medical/heal_pack/ointment = 2,
 		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/splint = 1,
+		/obj/item/tweezers = 1,
 	)
 	mouse_over_pointer = MOUSE_HAND_POINTER
 
@@ -417,6 +422,7 @@
 			/obj/item/stack/medical/heal_pack/advanced/burn_pack = 5,
 			/obj/item/healthanalyzer = 1,
 			/obj/item/stack/medical/splint = 1,
+			/obj/item/tweezers = 1,
 		),
 	)
 

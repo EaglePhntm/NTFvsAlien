@@ -73,7 +73,7 @@ ADMIN_VERB(hive_status, R_FUN, "Check Hive Status", "Check the status of the hiv
 	if(!SSticker)
 		return
 
-	check_hive_status(user.mob)
+	check_hive_status(user.mob, force_choose_hive = TRUE)
 
 	log_admin("[key_name(user)] checked the hive status.")
 	message_admins("[key_name_admin(user)] checked the hive status.")
@@ -641,7 +641,7 @@ ADMIN_VERB_ONLY_CONTEXT_MENU(xeno_panel, R_FUN, "Xeno Panel", mob/living/carbon/
 
 	var/dat = "<br>"
 
-	dat += "Hive: [X.hive.hivenumber] <a href='byond://?src=[REF(user.holder)];[HrefToken()];xeno=hive;mob=[REF(X)]'>Edit</a><br>"
+	dat += "Hive: [X.get_xeno_hivenumber()] <a href='byond://?src=[REF(user.holder)];[HrefToken()];xeno=hive;mob=[REF(X)]'>Edit</a><br>"
 	dat += "Nicknumber: [X.nicknumber] <a href='byond://?src=[REF(user.holder)];[HrefToken()];xeno=nicknumber;mob=[REF(X)]'>Edit</a><br>"
 	dat += "Upgrade Tier: [X.xeno_caste.upgrade_name] <a href='byond://?src=[REF(user.holder)];[HrefToken()];xeno=upgrade;mob=[REF(X)]'>Edit</a><br>"
 

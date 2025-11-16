@@ -187,7 +187,6 @@
 	if(loc == interactor && ishuman(interactor))
 		var/mob/living/carbon/human/human_interactor = interactor
 		human_interactor.do_quick_equip()
-		//do_quick_equip(interactor)
 
 /obj/item/tool/weldingtool/do_ai_interact(mob/living/interactor, datum/ai_behavior/human/behavior_datum)
 	. = ..()
@@ -434,7 +433,7 @@
 		return
 	if(. == AI_OBSTACLE_JUMP)
 		return //jumping is always best
-	if(!climbable)
+	if(!can_climb(user))
 		return
 	INVOKE_ASYNC(src, PROC_REF(do_climb), user)
 	return AI_OBSTACLE_RESOLVED

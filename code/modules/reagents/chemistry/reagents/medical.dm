@@ -48,7 +48,7 @@
 	L.Unconscious(40 SECONDS)
 
 /datum/reagent/medicine/inaprovaline/overdose_crit_process(mob/living/L, metabolism)
-	L.setDrowsyness(L.drowsyness, 20)
+	L.drowsy(20)
 	if(ishuman(L)) //Critical overdose causes total blackout and heart damage. Too much stimulant
 		var/mob/living/carbon/human/H = L
 		var/datum/internal_organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
@@ -233,7 +233,7 @@
 		L.Unconscious(5 SECONDS)
 
 /datum/reagent/medicine/leporazine/overdose_crit_process(mob/living/L, metabolism)
-	L.drowsyness = max(L.drowsyness, 30)
+	L.drowsy(30)
 
 /datum/reagent/medicine/kelotane
 	name = "Kelotane"
@@ -306,7 +306,7 @@
 	taste_description = "salty water"
 
 /datum/reagent/medicine/saline_glucose/on_mob_life(mob/living/L, metabolism)
-	if(L.blood_volume < BLOOD_VOLUME_NORMAL)
+	if(L.get_blood_volume() < BLOOD_VOLUME_NORMAL)
 		L.adjust_blood_volume(1.2)
 	return ..()
 
@@ -907,9 +907,10 @@
 	L.adjust_blood_volume(2.4)
 	L.adjustToxLoss(effect_str)
 	L.adjustStaminaLoss(6*effect_str)
-	if(L.blood_volume < BLOOD_VOLUME_OKAY)
+	var/blood_volume = L.get_blood_volume()
+	if(blood_volume < BLOOD_VOLUME_OKAY)
 		L.adjust_blood_volume(2.4)
-	if(L.blood_volume < BLOOD_VOLUME_BAD)
+	if(blood_volume < BLOOD_VOLUME_BAD)
 		L.set_blood_volume(BLOOD_VOLUME_BAD+1)
 		L.reagents.add_reagent(/datum/reagent/toxin/scannable,25)
 		L.AdjustSleeping(10 SECONDS)
@@ -1496,3 +1497,55 @@
 /datum/reagent/medicine/regrow/overdose_crit_process(mob/living/L, metabolism)
 	L.reagent_shock_modifier -= PAIN_REDUCTION_SUPER_HEAVY
 	L.apply_damages(effect_str, effect_str, effect_str * 4)
+
+/datum/reagent/medicine/experimental_medical_salve
+	name = "Experimental Medical Salve"
+	description = "A new drug made by BioCourse Pharmaceuticals. Quickly restores health and stamina initially, then lesser healing before purging itself."
+	color = COLOR_REAGENT_EMSALVE
+	custom_metabolism = REAGENTS_METABOLISM * 0.1 //since it purges itself this prevents people from using one unit to spam the early healing
+	reagent_ui_priority = REAGENT_UI_UNIQUE
+	/// Used for particles. Holds the particles instead of the mob. See particle_holder for documentation.
+	var/obj/effect/abstract/particle_holder/particle_holder
+
+/datum/reagent/medicine/experimental_medical_salve/reaction_mob(mob/living/L, method = TOUCH, volume, show_message = TRUE, touch_protection = 0)
+	if(!(method in list(TOUCH, VAPOR)))
+		return
+	return ..()
+
+/datum/reagent/medicine/experimental_medical_salve/on_mob_life(mob/living/L, metabolism)
+	L.reagent_shock_modifier += PAIN_REDUCTION_HEAVY
+	switch(current_cycle)
+		if(1 to 5) // big burst of healing + stamina initially
+			if(!particle_holder)
+				particle_holder = new(L, /particles/healing_cross)
+			L.heal_overall_damage(4*effect_str, 4*effect_str)
+			L.adjustStaminaLoss(-4*effect_str)
+		if(6 to 25) // smaller gradual healing
+			L.heal_overall_damage(1.5*effect_str, 1.5*effect_str)
+		if(26 to INFINITY) // purges itself quickly
+			if(particle_holder)
+				qdel(particle_holder)
+				particle_holder = null
+			holder.remove_reagent(/datum/reagent/medicine/experimental_medical_salve, 10)
+	return ..()
+
+/datum/reagent/medicine/experimental_medical_salve/on_mob_delete(mob/living/L, metabolism)
+	if(particle_holder)
+		qdel(particle_holder)
+		particle_holder = null
+	return ..()
+
+/particles/healing_cross
+	icon = 'icons/effects/particles/generic_particles.dmi'
+	icon_state = "cross"
+	width = 500
+	height = 500
+	count = 10
+	spawning = 1
+	gravity = list(0, 0.1)
+	color = LIGHT_COLOR_WHITE
+	lifespan = 13
+	fade = 5
+	fadein = 5
+	friction = generator(GEN_NUM, 0.1, 0.15)
+	position = generator(GEN_SQUARE, 0, 16)

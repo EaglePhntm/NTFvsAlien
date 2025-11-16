@@ -19,3 +19,46 @@
 	name = "sexy maid costume"
 	desc = "You must be a bit risque teasing all of them in a maid uniform!"
 	icon_state = "sexymaid"
+
+/obj/item/clothing/under/schoolgirl
+	name = "schoolgirl costume"
+	desc = "Looks like some kind of schoolgirl cosplay outfit."
+	icon_state = "schoolgirl"
+
+/obj/item/clothing/under/dress/dress_firepink
+	name = "pink flame dress"
+	desc = "A small black dress with pink flames print on it."
+	icon_state = "dress_firepink"
+
+/obj/item/clothing/under/cheerleader
+	name = "cheerleader outfit"
+	desc = "A white cheerleader's outfit."
+	icon_state = "white_cheer"
+	icon = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi'
+
+/obj/item/clothing/under/cheerleader/yellow
+	name = "yellow cheerleader outfit"
+	desc = "A yellow cheerleader's outfit."
+	icon_state = "yellow_cheer"
+	icon = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi'
+
+/obj/item/clothing/under/cheerleader/purple
+	name = "purple cheerleader outfit"
+	desc = "A pueple cheerleader's outfit."
+	icon_state = "purple_cheer"
+	icon = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi'
+
+/obj/item/clothing/under/dress/dress_yellow
+	name = "yellow dress"
+	desc = "A flirty little yellow dress."
+	icon_state = "bridesmaid"
+	icon = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi'
+
+/obj/item/clothing/under/dress/black_tango
+	name = "black tango dress"
+	desc = "A black tango dress."
+	icon_state = "black_tango"
+	icon = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi'
+
+/obj/item/clothing/under/dress/plaid_purple
+	name = "purple plaid skirt"

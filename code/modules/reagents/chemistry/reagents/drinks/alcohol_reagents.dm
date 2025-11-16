@@ -313,7 +313,7 @@
 			L.hallucination = max(L.hallucination, 60)
 			L.jitter(4)
 			L.dizzy(4)
-			L.druggy = max(L.druggy, 60)
+			L.druggy(60)
 			if(prob(10))
 				L.emote(pick("twitch","giggle"))
 			if(prob(30))
@@ -330,7 +330,7 @@
 			L.hallucination = max(L.hallucination, 60)
 			L.jitter(4)
 			L.dizzy(4)
-			L.druggy = max(L.druggy, 60)
+			L.druggy(60)
 			if(ishuman(L) && prob(10))
 				var/mob/living/carbon/human/H = L
 				var/datum/internal_organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
@@ -433,7 +433,7 @@
 	boozepwr = 55
 
 /datum/reagent/consumable/ethanol/bloody_mary/on_mob_life(mob/living/L, metabolism)
-	if(L.blood_volume < BLOOD_VOLUME_NORMAL)
+	if(L.get_blood_volume() < BLOOD_VOLUME_NORMAL)
 		L.adjust_blood_volume(0.3) //Bloody Mary slowly restores blood loss.
 	return ..()
 

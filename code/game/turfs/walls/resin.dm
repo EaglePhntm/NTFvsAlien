@@ -35,6 +35,16 @@
 		add_filter("hive_color", 10, outline_filter(2, hive.color))
 	return INITIALIZE_HINT_LATELOAD
 
+/turf/closed/wall/resin/AfterChange(flags)
+	. = ..()
+	//This exists solely so mazes don't show up on the minimap if the map is redrawn
+	var/turf/under_turf
+	if(islist(baseturfs))
+		under_turf = baseturfs[length(baseturfs)]
+	else
+		under_turf = baseturfs
+	minimap_color = under_turf::minimap_color
+
 /turf/closed/wall/resin/get_mechanics_info()
 	. += ..()
 	var/list/list = list()
@@ -152,7 +162,7 @@
 		take_damage(damage_amount, damage_type, armor_type, effects, get_dir(src, xeno_attacker), armor_penetration, xeno_attacker)
 		return TRUE
 	if(CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active)
-		SSresinshaping.quickbuild_points_by_hive[xeno_attacker.hivenumber]++
+		SSresinshaping.quickbuild_points_by_hive[xeno_attacker.get_xeno_hivenumber()]++
 		take_damage(max_integrity) // Ensure its destroyed
 		return
 	xeno_attacker.visible_message(span_xenonotice("\The [xeno_attacker] starts tearing down \the [src]!"), \
@@ -190,7 +200,7 @@
 	take_damage(damage, I.damtype, MELEE)
 	playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
 
-/turf/closed/wall/resin/dismantle_wall(devastated = 0, explode = 0)
+/turf/closed/wall/resin/dismantle_wall(devastated = 0, explode = 0, mob/living/blame_mob)
 	ScrapeAway()
 
 
@@ -252,7 +262,7 @@
 	if(wall_integrity == max_integrity)
 		max_integrity = min(max_integrity + max_upgrade_per_tick, max_upgradable_health)
 
-/turf/closed/wall/resin/regenerating/take_damage(damage)
+/turf/closed/wall/resin/regenerating/take_damage(damage, damage_type = BRUTE, armor_type = null, armour_penetration = 0, mob/living/blame_mob)
 	var/destroyed = (wall_integrity - damage <= 0)
 	. = ..()
 	STOP_PROCESSING(SSslowprocess, src)

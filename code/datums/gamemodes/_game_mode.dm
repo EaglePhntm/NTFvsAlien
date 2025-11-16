@@ -43,6 +43,14 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	 * after the end of the last round with the gamemode type
 	 */
 	var/time_between_round = 0
+	/** The time between two rounds of this gamemode group. If it's zero, this mode group i always votable.
+	 * It an integer in ticks, set in config. If it's 8 HOURS, it means that it will be votable again 8 hours
+	 * after the end of the last round with the gamemode type
+	 */
+	var/time_between_round_group = 1 HOURS
+	/** group for purpose of time_between_round_group
+	 */
+	var/time_between_round_group_name = "GROUP_Combat"
 	///What factions are used in this gamemode, typically TGMC and xenos
 	var/list/factions = list(FACTION_TERRAGOV, FACTION_XENO)
 	///Factions that are used in this gamemode and which should have human members
@@ -224,8 +232,8 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	end_round_fluff()
 	log_game("The round has ended.")
 	SSdbcore.SetRoundEnd()
-	if(time_between_round)
-		SSpersistence.last_modes_round_date[name] = world.realtime
+	SSpersistence.last_modes_round_date[name] = world.realtime
+	SSpersistence.last_modes_round_date[time_between_round_group_name] = world.realtime
 	//Collects persistence features
 	if(allow_persistence_save)
 		SSpersistence.CollectData()
@@ -481,6 +489,10 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.drone_essence_link] health points restored through Drone's Essence Link."
 	if(GLOB.round_statistics.drone_essence_link_sunder)
 		parts += "[GLOB.round_statistics.drone_essence_link_sunder] sunder removed through Drone's Essence Link."
+	if(GLOB.round_statistics.hivelord_healing_infusion)
+		parts += "[GLOB.round_statistics.hivelord_healing_infusion] health points restored through Hivelord's Healing Infusion."
+	if(GLOB.round_statistics.hivelord_healing_infusion_sunder)
+		parts += "[GLOB.round_statistics.hivelord_healing_infusion_sunder] sunder removed through Hivelord's Healing Infusion."
 	if(GLOB.round_statistics.sentinel_drain_stings)
 		parts += "[GLOB.round_statistics.sentinel_drain_stings] number of times Sentinel drain sting was used."
 	if(GLOB.round_statistics.defender_charge_victims)
@@ -626,10 +638,21 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 				continue
 			if(H.status_flags & XENO_HOST)
 				continue
-			if(H.faction == FACTION_XENO)
-				continue
 			if(isspaceturf(H.loc))
 				continue
+			if(count_flags & COUNT_CLF_TOWARDS_XENOS)
+				if(H.faction == FACTION_CLF)
+					num_xenos += 1/XENO_MARINE_RATIO
+					continue
+			if(count_flags & COUNT_IGNORE_ALTERNATE_FACTION_MARINES)
+				if(H.faction != FACTION_TERRAGOV)
+					continue
+			else
+				if(H.faction == FACTION_XENO)
+					continue
+				if(H.faction == FACTION_ZOMBIE)
+					continue
+
 			num_humans++
 			if (is_mainship_level(z))
 				num_humans_ship++
@@ -652,6 +675,28 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 				continue
 
 			num_xenos++
+
+	if(count_flags & COUNT_GREENOS_TOWARDS_MARINES)
+		for(var/z in z_levels)
+			for(var/i in GLOB.hive_datums[XENO_HIVE_CORRUPTED].xenos_by_zlevel["[z]"])
+				var/mob/living/carbon/xenomorph/X = i
+				if(!istype(X)) // Small fix?
+					continue
+				if(count_flags & COUNT_IGNORE_XENO_SSD && !X.client && X.afk_status == MOB_DISCONNECTED)
+					continue
+				if(count_flags & COUNT_IGNORE_XENO_SPECIAL_AREA && is_xeno_in_forbidden_zone(X))
+					continue
+				if(isspaceturf(X.loc))
+					continue
+				if(X.xeno_caste.upgrade == XENO_UPGRADE_BASETYPE) //Ais don't count
+					continue
+				// Never count hivemind
+				if(isxenohivemind(X))
+					continue
+
+			num_humans += XENO_MARINE_RATIO
+			if (is_mainship_level(z))
+				num_humans_ship += XENO_MARINE_RATIO
 
 	return list(num_humans, num_xenos, num_humans_ship)
 
@@ -719,7 +764,8 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	job.on_late_spawn(player.new_character)
 	player.new_character.client?.init_verbs()
 	var/area/A = get_area(player.new_character)
-	deadchat_broadcast(span_game(" has woken at [span_name("[A?.name]")]."), span_game("[span_name("[player.new_character.real_name]")] ([job.title])"), follow_target = player.new_character, message_type = DEADCHAT_ARRIVALRATTLE)
+	deadchat_broadcast(span_game(" has woken at [span_name("[A?.name]")]."), span_game("[span_name("[player.new_character.real_name]")] ([job.title])"), follow_target = player.new_character, turf_target = get_turf(player.new_character), message_type = DEADCHAT_ARRIVALRATTLE)
+	message_admins("[key_name_admin(player.new_character)][ADMIN_QUE(player.new_character)] has woken at [AREACOORD(player.new_character)]")
 	qdel(player)
 
 /datum/game_mode/proc/attempt_to_join_as_larva(mob/xeno_candidate)
@@ -1047,13 +1093,13 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		CRASH("Warning: Current map has too few nuke disk generators to correctly generate disks for set \">[chosen_disk_set]<\". Make sure both generators and json are set up correctly.")
 	if(length(forced_disks) > length(GLOB.nuke_disk_generator_types))
 		CRASH("Warning: Current map has too many forced disks for the current set type \">[chosen_disk_set]<\". Amount is [length(forced_disks)]. Please revisit your disk candidates.")
-	for(var/obj/machinery/computer/nuke_disk_generator AS in GLOB.nuke_disk_generator_types)
+	for(var/obj/machinery/computer/disk_generator AS in GLOB.nuke_disk_generator_types)
 		var/spawn_loc
 		if(length(forced_disks))
 			spawn_loc = pick_n_take(forced_disks)
 		else
 			spawn_loc = pick_n_take(viable_disks)
-		new nuke_disk_generator(get_turf(spawn_loc))
+		new disk_generator(get_turf(spawn_loc))
 		qdel(spawn_loc)
 
 /// Add gamemode related items to statpanel
@@ -1077,7 +1123,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 /datum/game_mode/proc/handle_collapse_timer(datum/dcs, mob/source, list/items)
 	if (isxeno(source))
 		var/mob/living/carbon/xenomorph/xeno = source
-		if(xeno.hivenumber != XENO_HIVE_NORMAL)
+		if(xeno.get_xeno_hivenumber() != XENO_HIVE_NORMAL)
 			return // Don't show for non-normal hives
 	var/rulerless_countdown = get_hivemind_collapse_countdown()
 	if(rulerless_countdown)
