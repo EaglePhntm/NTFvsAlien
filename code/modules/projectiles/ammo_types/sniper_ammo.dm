@@ -58,6 +58,25 @@
 	penetration = 25
 	sundering = 6
 
+/datum/ammo/bullet/sniper/dragoon/flathead
+	name = "flathead exotic rifle bullet"
+	handful_amount = 4
+	damage_type = STAMINA
+	damage = 50
+	penetration = 20
+	sundering = 0
+
+/datum/ammo/bullet/sniper/dragoon/pox
+	name = "green-tipped exotic rifle bullet"
+	damage = 40
+	penetration = 10
+	sundering = 3
+
+/datum/ammo/bullet/sniper/dragoon/pox/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
+	if(iscarbon(target_mob))
+		var/mob/living/carbon/carbon_victim = target_mob
+		carbon_victim.reagents.add_reagent(/datum/reagent/toxin/poxomelanin, 4, no_overdose = FALSE)
+
 /datum/ammo/bullet/sniper/martini
 	name = "crude heavy sniper bullet"
 	handful_icon_state = "crude_heavy_sniper"
