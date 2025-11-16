@@ -1384,20 +1384,9 @@
 				playsound(src, hand_reload_sound, 25, 1)
 			else
 				var/rounds_in_chamber = CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_ROTATES_CHAMBER) ? rounds : length(chamber_items)
-				if(CHECK_BITFIELD(mag.magazine_flags,MAGAZINE_REQUIRES_EMPTY_GUN) && rounds_in_chamber)
+				if(!CHECK_BITFIELD(reciever_flags,AMMO_RECIEVER_MULTICLIP) && rounds_in_chamber)
 					to_chat(user, span_warning("[src] must be completely empty to use the [mag]!"))
 					return FALSE
-				var/reload_delay = get_magazine_reload_delay(new_mag)
-				if(reload_delay > 0 && user && !force)
-					reload_delay -= reload_delay * 0.25 * min(user.skills.getRating(gun_skill_category), 2)
-					to_chat(user, span_notice("You begin reloading [src] with [new_mag]."))
-					ADD_TRAIT(user, TRAIT_IS_RELOADING, REF(src))
-				if(!do_after(user, reload_delay, NONE, user))
-					REMOVE_TRAIT(user, TRAIT_IS_RELOADING, REF(src))
-					to_chat(user, span_warning("Your reload was interupted!"))
-					return FALSE
-				REMOVE_TRAIT(user, TRAIT_IS_RELOADING, REF(src))
-				var/rounds_to_fill = mag.current_rounds < max_chamber_items ? mag.current_rounds : max_chamber_items
 				var/rounds_to_fill = min(mag.current_rounds, max_chamber_items - rounds_in_chamber)
 				for(var/i = 0, i < rounds_to_fill, i++)
 					items_to_insert += mag.create_handful(null, 1)
