@@ -44,7 +44,8 @@
 		COMSIG_TURF_CHECK_COVERED = TYPE_PROC_REF(/atom/movable, turf_cover_check),
 	)
 	AddElement(/datum/element/connect_loc, connections)
-	setup_reagents()
+
+	create_reagents(tank_volume, AMOUNT_VISIBLE|DRAINABLE, list_reagents)
 
 /obj/structure/reagent_dispensers/ex_act(severity)
 	switch(severity)
@@ -58,10 +59,6 @@
 			if (prob(5))
 				new /obj/effect/particle_effect/water(loc)
 				qdel(src)
-
-///Sets up the correct reagents for the dispenser type
-/obj/structure/reagent_dispensers/proc/setup_reagents()
-	create_reagents(tank_volume, AMOUNT_VISIBLE|DRAINABLE, list_reagents)
 
 //Dispensers
 /obj/structure/reagent_dispensers/watertank
@@ -87,9 +84,6 @@
 	//Whether the tank is already exploding to prevent chain explosions
 	var/exploding = FALSE
 
-/obj/structure/reagent_dispensers/fueltank/setup_reagents()
-	AddComponent(/datum/component/fuel_storage, tank_volume, list_reagents[1])
-
 /obj/structure/reagent_dispensers/fueltank/Destroy()
 	QDEL_NULL(rig)
 	return ..()
@@ -110,7 +104,7 @@
 	if(!rig)
 		return
 	user.visible_message("[user] begins to detach [rig] from \the [src].", "You begin to detach [rig] from \the [src]...")
-	if(!do_after(user, 2 SECONDS, TRUE, src, BUSY_ICON_GENERIC))
+	if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_GENERIC))
 		return
 	user.visible_message(span_notice("[user] detaches [rig] from \the [src]."), span_notice("You detach [rig] from \the [src]."))
 	rig.forceMove(get_turf(user))
@@ -131,6 +125,16 @@
 /obj/structure/reagent_dispensers/fueltank/welder_act(mob/living/user, obj/item/I)
 	var/obj/item/tool/weldingtool/W = I
 	if(!W.welding)
+		if(W.reagents.has_reagent(/datum/reagent/fuel, W.max_fuel))
+			balloon_alert(user, "already full!")
+			return
+		if(!reagents.has_reagent(/datum/reagent/fuel, 1))
+			balloon_alert(user, "no valid fuel")
+			return
+		reagents.trans_to(W, W.max_fuel)
+		W.weld_tick = 0
+		user.visible_message(span_notice("[user] refills [W]."), span_notice("You refill [W]."))
+		playsound(loc, 'sound/effects/refill.ogg', 25, 1, 3)
 		return
 	log_bomber(user, "triggered a fueltank explosion with", src, "using a welder")
 	var/self_message = user.a_intent != INTENT_HARM ? span_danger("You begin welding on the fueltank, and in a last moment of lucidity realize this might not have been the smartest thing you've ever done.") : span_danger("[src] catastrophically explodes in a wave of flames as you begin to weld it.")
@@ -151,7 +155,7 @@
 		return
 
 	user.visible_message("[user] begins rigging [I] to \the [src].", "You begin rigging [I] to \the [src]")
-	if(!do_after(user, 20, TRUE, src, BUSY_ICON_HOSTILE) || rig)
+	if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_HOSTILE) || rig)
 		return
 
 	user.visible_message(span_notice("[user] rigs [I] to \the [src]."), span_notice("You rig [I] to \the [src]."))

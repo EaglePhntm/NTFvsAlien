@@ -181,14 +181,12 @@
 	f_style = "Shaved"
 	if(ishumanbasic(src))
 		h_style = pick("Bedhead", "Bedhead 2", "Bedhead 3")
-	/*NTF removal
 	if(physique == MALE)
 		underwear = GLOB.underwear_m.Find("None")
 		undershirt = GLOB.undershirt_m.Find("None")
 	else
 		underwear = GLOB.underwear_f.Find("None")
 		undershirt = GLOB.undershirt_f.Find("None")
-	*/
 	regenerate_icons()
 
 

@@ -136,6 +136,3 @@
 
 /datum/ammo/mortar/rocket/smoke/mlrs/cloak
 	smoketype = /datum/effect_system/smoke_spread/tactical
-
-/datum/ammo/mortar/smoke/plasmaloss
-	smoketype = /datum/effect_system/smoke_spread/plasmaloss

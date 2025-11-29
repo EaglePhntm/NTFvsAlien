@@ -121,7 +121,6 @@ const Upgrades = (props: { selectedCategory: string | null }) => {
                 upgrade_cost={upgrade.cost}
                 upgrade_times_bought={upgrade.times_bought}
                 upgradeicon={upgrade.iconstate}
-                istactical={upgrade.istactical}
               />
             ))
         )}
@@ -137,7 +136,6 @@ type UpgradeEntryProps = {
   upgrade_cost: number;
   upgrade_times_bought: number;
   upgradeicon: string;
-  istactical: boolean;
 };
 
 const UpgradeEntry = (props: UpgradeEntryProps) => {
@@ -150,7 +148,6 @@ const UpgradeEntry = (props: UpgradeEntryProps) => {
     upgrade_cost,
     upgrade_times_bought,
     upgradeicon,
-    istactical,
   } = props;
 
   return (
@@ -160,9 +157,7 @@ const UpgradeEntry = (props: UpgradeEntryProps) => {
       buttons={
         <Button
           mr={1}
-          tooltip={
-            upgrade_cost + (istactical ? ' Tactical' : ' Strategic') + ' Points'
-          }
+          tooltip={upgrade_cost + ' points'}
           disabled={upgrade_cost > psy_points}
           onClick={() => act('buy', { buyname: upgrade_name })}
         >
@@ -177,7 +172,6 @@ const UpgradeEntry = (props: UpgradeEntryProps) => {
         iconstate={upgradeicon}
         cost={upgrade_cost}
         psy_points={psy_points}
-        istactical={istactical}
       />
     </Collapsible>
   );
@@ -190,13 +184,11 @@ type UpgradeViewEntryProps = {
   iconstate: string;
   cost: number;
   psy_points: number;
-  istactical: boolean;
 };
 
 const UpgradeView = (props: UpgradeViewEntryProps) => {
   const { data } = useBackend<BlessingData>();
-  const { name, desc, timesbought, iconstate, cost, psy_points, istactical } =
-    props;
+  const { name, desc, timesbought, iconstate, cost, psy_points } = props;
 
   return (
     <Flex align="center">
@@ -215,9 +207,7 @@ const UpgradeView = (props: UpgradeViewEntryProps) => {
           }}
         />
         <Box bold mt={5} color={psy_points > cost ? 'good' : 'bad'}>
-          {'Cost: ' +
-            cost +
-            (istactical ? 'Tactical Points' : 'Strategic Points')}
+          {'Cost: ' + cost}
         </Box>
         <Box bold my={0.5} color={timesbought >= 1 ? 'good' : ''}>
           {timesbought + ' Bought'}

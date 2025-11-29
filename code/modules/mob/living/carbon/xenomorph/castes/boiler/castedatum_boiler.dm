@@ -55,22 +55,15 @@
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
-		/datum/action/ability/xeno_action/psychic_whisper,
-		/datum/action/ability/xeno_action/psychic_influence,
-		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/activable/xeno/devour,
 		/datum/action/ability/xeno_action/place_acidwell,
-		/datum/action/ability/activable/xeno/tail_stab,
 		/datum/action/ability/activable/xeno/corrosive_acid/strong,
 		/datum/action/ability/xeno_action/create_boiler_bomb,
 		/datum/action/ability/activable/xeno/bombard,
 		/datum/action/ability/xeno_action/toggle_long_range,
 		/datum/action/ability/xeno_action/toggle_bomb,
 		/datum/action/ability/activable/xeno/spray_acid/line/boiler,
-		/datum/action/ability/xeno_action/create_edible_jelly,
-		/datum/action/ability/xeno_action/place_stew_pod,
 		/datum/action/ability/activable/xeno/acid_shroud,
 	)
 
@@ -99,29 +92,6 @@
 	primordial_message = "We have refined the art of bombardement to perfection. End them before they can utter a desperate plea."
 	// Primordial Upgrade: Corrosive Lance and Neurotoxin Lance are now selectable spit types in Toggle Bombard Type, one of Boiler's abilities.
 
-	// *** Ranged Attack *** //
-	spit_types = list(/datum/ammo/xeno/boiler_gas, /datum/ammo/xeno/boiler_gas/lance, /datum/ammo/xeno/boiler_gas/corrosive, /datum/ammo/xeno/boiler_gas/corrosive/lance)
-
-	actions = list(
-		/datum/action/ability/xeno_action/xeno_resting,
-		/datum/action/ability/xeno_action/psychic_whisper,
-		/datum/action/ability/xeno_action/psychic_influence,
-		/datum/action/ability/activable/xeno/impregnate,
-		/datum/action/ability/xeno_action/watch_xeno,
-		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/activable/xeno/devour,
-		/datum/action/ability/xeno_action/place_acidwell,
-		/datum/action/ability/activable/xeno/corrosive_acid/strong,
-		/datum/action/ability/xeno_action/create_boiler_bomb,
-		/datum/action/ability/activable/xeno/bombard,
-		/datum/action/ability/xeno_action/toggle_long_range,
-		/datum/action/ability/xeno_action/toggle_bomb,
-		/datum/action/ability/activable/xeno/spray_acid/line/boiler,
-		/datum/action/ability/xeno_action/create_edible_jelly,
-		/datum/action/ability/xeno_action/place_stew_pod,
-		/datum/action/ability/activable/xeno/acid_shroud,
-	)
-
 /datum/xeno_caste/boiler/sizzler
 	caste_type_path = /mob/living/carbon/xenomorph/boiler/sizzler
 	upgrade_name = ""
@@ -143,19 +113,13 @@
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
-		/datum/action/ability/xeno_action/psychic_whisper,
-		/datum/action/ability/xeno_action/psychic_influence,
-		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/activable/xeno/devour,
 		/datum/action/ability/xeno_action/place_acidwell,
 		/datum/action/ability/activable/xeno/corrosive_acid/strong,
 		/datum/action/ability/activable/xeno/smokescreen_spit,
 		/datum/action/ability/activable/xeno/charge/acid_dash,
 		/datum/action/ability/xeno_action/steam_rush,
-		/datum/action/ability/xeno_action/create_edible_jelly,
-		/datum/action/ability/xeno_action/place_stew_pod,
 	)
 
 	mutations = list(
@@ -172,18 +136,12 @@
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
-		/datum/action/ability/xeno_action/psychic_whisper,
-		/datum/action/ability/xeno_action/psychic_influence,
-		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/activable/xeno/devour,
 		/datum/action/ability/xeno_action/place_acidwell,
 		/datum/action/ability/activable/xeno/corrosive_acid/strong,
 		/datum/action/ability/activable/xeno/smokescreen_spit,
 		/datum/action/ability/activable/xeno/charge/acid_dash,
 		/datum/action/ability/xeno_action/steam_rush,
 		/datum/action/ability/activable/xeno/high_pressure_spit,
-		/datum/action/ability/xeno_action/create_edible_jelly,
-		/datum/action/ability/xeno_action/place_stew_pod,
 	)

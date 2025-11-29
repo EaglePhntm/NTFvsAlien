@@ -4,11 +4,10 @@
 
 /mob/living/carbon/human/species/monkey
 	race = "Monkey"
-	initial_language_holder = /datum/language_holder/monkey
 
 /mob/living/carbon/human/species/monkey/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/ai_controller, /datum/ai_behavior/human/monkey) //monkey business
+	AddComponent(/datum/component/ai_controller, /datum/ai_behavior/human) //monkey business
 
 /mob/living/carbon/human/species/monkey/farwa
 	race = "Farwa"
@@ -29,7 +28,11 @@
 	race = "Early Synthetic"
 
 /mob/living/carbon/human/species/moth
-	race = "Mothellian"
+	race = "Moth"
+
+/datum/species/moth/handle_post_spawn(mob/living/carbon/human/H)
+	. = ..()
+	H.moth_wings = pick(GLOB.moth_wings_list - "Burnt Off")
 
 /mob/living/carbon/human/species/vatgrown
 	race = "Vat-Grown Human"
@@ -46,27 +49,12 @@
 /mob/living/carbon/human/species/zombie
 	race = "Strong zombie"
 
-/mob/living/carbon/human/species/zombie/Initialize(mapload, datum/outfit/job/outfit)
+/mob/living/carbon/human/species/zombie/Initialize(mapload)
 	. = ..()
+	var/datum/outfit/outfit = pick(GLOB.survivor_outfits)
+	outfit = new outfit()
+	INVOKE_ASYNC(outfit, TYPE_PROC_REF(/datum/outfit, equip), src)
 	a_intent = INTENT_HARM
-	ASYNC
-		if(!outfit)
-			outfit = pick(GLOB.survivor_outfits)
-		outfit = new outfit()
-		var/datum/job/outfit_job = SSjob.type_occupations[outfit.jobtype]
-		job = outfit_job
-		if(SSticker.mode.zombie_ids)
-			outfit.equip(src, FALSE, TRUE)
-			outfit.handle_id(src)
-			if(wear_id)
-				wear_id.access = list()
-				wear_id.iff_signal = NONE
-		else
-			outfit.equip(src, FALSE, FALSE)
-			if(wear_id)
-				QDEL_NULL(wear_id)
-		job = SSjob.type_occupations[/datum/job/zombie]
-
 
 /mob/living/carbon/human/species/robot
 	race = "Combat Robot"

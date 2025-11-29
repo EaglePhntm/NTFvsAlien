@@ -2,7 +2,7 @@
 	caste_base_type = /datum/xeno_caste/ravager
 	name = "Ravager"
 	desc = "A huge, nasty red alien with enormous scythed claws."
-	icon = 'ntf_modular/icons/Xeno/castes/ravager.dmi'
+	icon = 'icons/Xeno/castes/ravager.dmi'
 	icon_state = "Ravager Walking"
 	health = 250
 	maxHealth = 250
@@ -37,5 +37,3 @@
 
 /mob/living/carbon/xenomorph/ravager/bloodthirster
 	caste_base_type = /datum/xeno_caste/ravager/bloodthirster
-	name = "Bloodthirster"
-	icon_state = "Bloodthirster Walking"

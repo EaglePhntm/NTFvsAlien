@@ -6,7 +6,7 @@ CLOTHING
 	containertype = /obj/structure/closet/crate
 
 /datum/supply_packs/clothing/combat_pack
-	name = "Combat Backpack"
+	name = "Combat backpack"
 	contains = list(/obj/item/storage/backpack/lightpack)
 	cost = 150
 
@@ -16,17 +16,17 @@ CLOTHING
 	cost = 400
 
 /datum/supply_packs/clothing/welding_pack
-	name = "Engineering Welding Pack"
+	name = "Engineering welding pack"
 	contains = list(/obj/item/storage/backpack/marine/engineerpack)
 	cost = 50
 
 /datum/supply_packs/clothing/radio_pack
-	name = "Radio Operator Pack"
+	name = "Radio operator pack"
 	contains = list(/obj/item/storage/backpack/marine/radiopack)
 	cost = 50
 
 /datum/supply_packs/clothing/technician_pack
-	name = "Engineering Technician Pack"
+	name = "Engineering technician pack"
 	contains = list(/obj/item/storage/backpack/marine/tech)
 	cost = 50
 
@@ -42,7 +42,7 @@ CLOTHING
 	cost = 100
 
 /datum/supply_packs/clothing/marine_outfits
-	name = "Marine outfit"
+	name = "Marine outfits"
 	contains = list(
 		/obj/item/clothing/under/marine,
 		/obj/item/storage/belt/marine,
@@ -67,52 +67,21 @@ CLOTHING
 	cost = 120
 
 /datum/supply_packs/clothing/night_vision
-	name = "BE-47 Night Vision Goggles (Requires nvg batteries to operate)"
+	name = "BE-47 NVG night vision goggles"
 	contains = list(/obj/item/clothing/glasses/night_vision)
-	cost = 500 //requires batteries and not great vis range
+	cost = 500
 
 /datum/supply_packs/clothing/night_vision_mounted
-	name = "BE-35 Night Vision Module (Requires nvg batteries to operate)"
+	name = "BE-35 NVG night vision module"
 	contains = list(/obj/item/armor_module/module/night_vision)
-	cost = 400
+	cost = 300
 
 /datum/supply_packs/clothing/night_vision_batteries
 	name = "Double pack of night vision batteries"
 	contains = list(/obj/item/cell/night_vision_battery, /obj/item/cell/night_vision_battery)
-	cost = 50
-
-/datum/supply_packs/clothing/saddle
-	name = "Runner Saddle"
-	contains = list(/obj/item/storage/backpack/marine/duffelbag/xenosaddle)
-	cost = 120
-
-/datum/supply_packs/clothing/ktlnvg
-	name = "KTLD head mounted sight"
-	contains = list(/obj/item/clothing/glasses/night/m56_goggles)
-	cost = 2000
-
-/datum/supply_packs/clothing/cm12nvg
-	name = "CM-12 night vision goggles"
-	contains = list(/obj/item/clothing/glasses/night/vsd)
-	cost = 1500
-
-/datum/supply_packs/clothing/m42nvg
-	name = "M42 scout sight"
-	contains = list(/obj/item/clothing/glasses/night/m42_night_goggles)
-	cost = 2500
-
-/datum/supply_packs/clothing/night_visionvsd
-	name = "KZ Type 9 goggles"
-	contains = list(/obj/item/clothing/glasses/night/m42_night_goggles/upp)
-	cost = 2500
-
-/datum/supply_packs/clothing/hypnogoggles
-	name = "Hypnotic goggles"
-	contains = list(/obj/item/clothing/glasses/hypno)
 	cost = 100
 
-/datum/supply_packs/clothing/insuls
-	name = "Insulated gloves"
-	notes = "For only 10 more points you can get these as part of the Electrical Maintenance crate under engineering"
-	contains = list(/obj/item/clothing/gloves/insulated)
-	cost = 40
+/datum/supply_packs/clothing/saddle
+	name = "Runner saddle"
+	contains = list(/obj/item/storage/backpack/marine/duffelbag/xenosaddle)
+	cost = 120

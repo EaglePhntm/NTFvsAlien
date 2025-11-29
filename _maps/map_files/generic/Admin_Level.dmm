@@ -1693,7 +1693,9 @@
 /turf/open/floor/tile/dark,
 /area/centcom/valhalla)
 "cjh" = (
-/obj/structure/displaycase,
+/obj/structure/displaycase{
+	req_access = null
+	},
 /turf/open/floor/grimy,
 /area/centcom/valhalla)
 "cjO" = (
@@ -9380,7 +9382,9 @@
 /turf/closed/wall/r_wall/unmeltable,
 /area/centcom/valhalla)
 "noI" = (
-/obj/machinery/sleeper,
+/obj/machinery/sleeper{
+	dir = 4
+	},
 /turf/open/floor/tile/dark/gray,
 /area/centcom/valhalla)
 "noL" = (
@@ -10241,9 +10245,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating,
 /area/centcom/valhalla)
-"oDh" = (
-/turf/open/floor/mainship/empty,
-/area/space)
 "oFX" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -21136,21 +21137,21 @@ qBd
 uzq
 lIC
 xrI
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
 "}
 (17,1,1) = {"
 xrI
@@ -21393,21 +21394,21 @@ mmW
 qXz
 lIC
 xrI
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
+xrI
 "}
 (18,1,1) = {"
 xrI
@@ -21650,21 +21651,21 @@ kMT
 wYF
 lIC
 xrI
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
+mQe
+mQe
+mQe
+mQe
+mQe
+mQe
+mQe
+mQe
+mQe
+mQe
+mQe
+mQe
+mQe
+mQe
+mQe
 "}
 (19,1,1) = {"
 xrI
@@ -21907,21 +21908,21 @@ wEg
 qXz
 lIC
 xrI
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
-oDh
+mQe
+mQe
+mQe
+mQe
+mQe
+mQe
+mQe
+mQe
+mQe
+mQe
+mQe
+mQe
+mQe
+mQe
+mQe
 "}
 (20,1,1) = {"
 xrI

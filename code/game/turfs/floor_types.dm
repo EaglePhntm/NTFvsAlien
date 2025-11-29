@@ -188,7 +188,7 @@
 //Others
 /turf/open/floor/mainship/terragov
 	icon_state = "logo_central"
-	name = "\improper Ninetails logo"
+	name = "\improper TerraGov logo"
 
 /turf/open/floor/mainship/terragov/west
 	icon_state = "logo_directional_west"

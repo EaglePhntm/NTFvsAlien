@@ -114,7 +114,6 @@
 	owner = C
 	owner.holder = src
 	owner.add_admin_verbs()
-	C.mob.update_sight()
 	remove_verb(owner, /client/proc/readmin)
 	owner.init_verbs()
 	GLOB.admins |= C
@@ -247,14 +246,10 @@ ADMIN_VERB(deadmin, R_NONE, "DeAdmin", "Shed your admin powers.", ADMIN_CATEGORY
 	return TRUE
 
 
-/proc/message_admins(msg, sound = null, flash = FALSE)
+/proc/message_admins(msg)
 	msg = "<span class=\"admin\"><span class=\"prefix\">ADMIN LOG:</span> <span class=\"message\">[msg]</span></span>"
 	for(var/client/C in GLOB.admins)
 		if(check_other_rights(C, R_ADMIN, FALSE))
-			if(sound)
-				SEND_SOUND(C, sound)
-			if(flash)
-				window_flash(C)
 			to_chat(C,
 				type = MESSAGE_TYPE_ADMINLOG,
 				html = msg)

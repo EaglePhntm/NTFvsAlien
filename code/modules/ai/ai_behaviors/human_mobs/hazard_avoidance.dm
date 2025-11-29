@@ -88,7 +88,7 @@
 	if(isnull(hazard_radius))
 		return
 	hazard_list[hazard] = hazard_radius
-	RegisterSignals(hazard, list(COMSIG_QDELETING, COMSIG_MOVABLE_Z_CHANGED), PROC_REF(remove_hazard), override = TRUE)
+	RegisterSignals(hazard, list(COMSIG_QDELETING, COMSIG_MOVABLE_Z_CHANGED), PROC_REF(remove_hazard))
 	if(get_dist(mob_parent, hazard) > 5)
 		return
 	if(isgrenade(hazard))

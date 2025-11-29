@@ -47,13 +47,12 @@
 	. = ..()
 	sound_active_acidrain.stop()
 
-/datum/weather/acid_rain/weather_act(mob/living/carbon/human/L)
+/datum/weather/acid_rain/weather_act(mob/living/L)
 	if(L.stat == DEAD)
 		return
-	if(!isxeno(L))
-		if(prob(L.modify_by_armor(100, ACID)))
-			L.adjustFireLoss(7)
-			to_chat(L, span_danger("You feel the acid rain melting you away!"))
+	if(prob(L.modify_by_armor(100, ACID)))
+		L.adjustFireLoss(7)
+		to_chat(L, span_danger("You feel the acid rain melting you away!"))
 	L.wash()
 	if(L.fire_stacks > -20)
 		L.fire_stacks = max(-20, L.fire_stacks - 1)

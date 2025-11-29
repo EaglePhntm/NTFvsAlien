@@ -50,9 +50,6 @@
 
 /// Create the mob and delete the corpse spawner
 /obj/effect/landmark/corpsespawner/proc/create_mob()
-	if(death_type != REGULAR_DEATH)
-		qdel(src)
-		return
 	var/mob/living/carbon/human/victim = new(loc)
 	SSmobs.stop_processing(victim)
 	GLOB.round_statistics.total_humans_created[victim.faction]-- //corpses don't count
@@ -108,8 +105,6 @@
 	qdel(src)
 
 /obj/effect/landmark/corpsespawner/proc/equip_items_to_mob(mob/living/carbon/human/corpse)
-	if(!corpse)
-		return FALSE
 	if(corpseuniform)
 		corpse.equip_to_slot_or_del(new corpseuniform(corpse), SLOT_W_UNIFORM)
 	if(corpsesuit)
@@ -167,7 +162,7 @@
 	corpsemask = /obj/item/clothing/mask/gas
 	corpsehelmet = /obj/item/clothing/head/helmet/swat
 	corpseback = /obj/item/storage/backpack
-	corpseid = 0
+	corpseid = 1
 	corpseidjob = "Operative"
 	corpseidaccess = "Syndicate"
 
@@ -188,7 +183,7 @@
 	corpsehelmet = /obj/item/clothing/head/helmet/space/rig/syndi
 	corpseback = /obj/item/tank/jetpack/oxygen
 	corpsepocket1 = /obj/item/tank/emergency_oxygen
-	corpseid = 0
+	corpseid = 1
 	corpseidjob = "Operative"
 	corpseidaccess = "Syndicate"
 /obj/effect/landmark/corpsespawner/syndicatecommando/burst
@@ -267,7 +262,7 @@
 	name = "Prisoner"
 	corpseuniform = /obj/item/clothing/under/rank/prisoner
 	corpseshoes = /obj/item/clothing/shoes/orange
-	corpseid = 0
+	corpseid = 1
 	corpseidjob = "Prisoner"
 
 /obj/effect/landmark/corpsespawner/prisoner/burst
@@ -283,7 +278,7 @@
 	corpseshoes = /obj/item/clothing/shoes/black
 	corpsehelmet = /obj/item/clothing/head/chefhat
 	corpseback = /obj/item/storage/backpack
-	corpseid = 0
+	corpseid = 1
 	corpseidjob = "Chef"
 //	corpseidaccess = "Syndicate"
 
@@ -300,7 +295,7 @@
 	corpseback = /obj/item/storage/backpack/corpsman
 	corpsepocket1 = /obj/item/flashlight/pen
 	corpseshoes = /obj/item/clothing/shoes/black
-	corpseid = 0
+	corpseid = 1
 	corpseidjob = "Medical Doctor"
 //	corpseidaccess = "Medical Doctor"
 
@@ -318,7 +313,7 @@
 	corpsebelt = /obj/item/storage/belt/utility/full
 	corpsegloves = /obj/item/clothing/gloves/insulated
 	corpsehelmet = /obj/item/clothing/head/hardhat
-	corpseid = 0
+	corpseid = 1
 	corpseidjob = "Station Engineer"
 //	corpseidaccess = "Station Engineer"
 
@@ -345,7 +340,7 @@
 	corpsesuit = /obj/item/clothing/suit/storage/labcoat
 	corpseback = /obj/item/storage/backpack
 	corpseshoes = /obj/item/clothing/shoes/white
-	corpseid = 0
+	corpseid = 1
 	corpseidjob = "Scientist"
 //	corpseidaccess = "Scientist"
 
@@ -363,7 +358,7 @@
 	corpsegloves = /obj/item/clothing/gloves/black
 	corpseback = /obj/item/storage/backpack/industrial
 	corpseshoes = /obj/item/clothing/shoes/black
-	corpseid = 0
+	corpseid = 1
 	corpseidjob = "Shaft Miner"
 //	corpseidaccess = "Shaft Miner"
 
@@ -402,7 +397,7 @@
 	corpsegloves = /obj/item/clothing/gloves/black
 	corpsesuit = /obj/item/clothing/suit/armor/vest/security
 	corpsehelmet = /obj/item/clothing/head/helmet
-	corpseid = 0
+	corpseid = 1
 	corpseidjob = "Prison Guard"
 
 /obj/effect/landmark/corpsespawner/prison_security/burst
@@ -469,7 +464,7 @@
 	corpsesuit = /obj/item/clothing/suit/armor/bulletproof
 	corpseshoes = /obj/item/clothing/shoes/black
 	corpseglasses = /obj/item/clothing/glasses/sunglasses
-	corpseid = 0
+	corpseid = 1
 	corpseidjob = "Staff Officer"
 	corpseidaccess = CAPTAIN
 
@@ -489,7 +484,7 @@
 	corpsegloves = /obj/item/clothing/gloves/swat
 	corpseshoes = /obj/item/clothing/shoes/swat
 	corpsepocket1 = /obj/item/tool/lighter/zippo
-	corpseid = 0
+	corpseid = 1
 	corpseidjob = "Commander"
 	corpseidaccess = CAPTAIN
 
@@ -510,7 +505,7 @@
 	corpsegloves = /obj/item/clothing/gloves/marine/veteran/pmc
 	corpseshoes = /obj/item/clothing/shoes/jackboots
 	corpsepocket1 = /obj/item/tool/lighter/zippo
-	corpseid = 0
+	corpseid = 1
 	corpseidjob = "Private Security Officer"
 	corpseidaccess = "101"
 
@@ -633,7 +628,7 @@
 
 //ICC
 /obj/effect/landmark/corpsespawner/icc
-	name = "CM infantry"
+	name = "ICC infantry"
 	corpseuniform = /obj/item/clothing/under/som
 	corpsesuit = /obj/item/clothing/suit/modular/som
 	corpsemask = /obj/item/clothing/mask/gas
@@ -643,7 +638,7 @@
 	corpsepocket1 = /obj/item/tool/lighter/zippo
 
 /obj/effect/landmark/corpsespawner/icc_officer
-	name = "CM leader"
+	name = "ICC leader"
 	corpseuniform = /obj/item/clothing/under/icc
 	corpsesuit = /obj/item/clothing/suit/storage/marine/icc/guard
 	corpsemask = /obj/item/clothing/mask/gas/icc
@@ -654,7 +649,7 @@
 
 // VSD
 /obj/effect/landmark/corpsespawner/vsd_standard
-	name = "Kaizoku operative"
+	name = "Vyacheslav operative"
 	corpseuniform = /obj/item/clothing/under/vsd/webbing
 	corpsesuit = /obj/item/clothing/suit/storage/marine/vsd
 	corpsemask = /obj/item/clothing/mask/gas/vsd
@@ -663,7 +658,7 @@
 	corpseshoes = /obj/item/clothing/shoes/marine/vsd
 
 /obj/effect/landmark/corpsespawner/vsd_command
-	name = "Kaizoku officer"
+	name = "Vyacheslav officer"
 	corpseuniform = /obj/item/clothing/under/vsd/officer/webbing
 	corpsesuit = /obj/item/clothing/suit/storage/marine/vsd/alt
 	corpsemask = /obj/item/clothing/mask/gas/vsd

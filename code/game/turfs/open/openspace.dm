@@ -64,7 +64,7 @@
 	zFall(movable)
 
 /turf/open/openspace/can_have_cabling()
-	if(locate(/obj/structure/lattice, src))
+	if(locate(/obj/structure/catwalk, src))
 		return TRUE
 	return FALSE
 

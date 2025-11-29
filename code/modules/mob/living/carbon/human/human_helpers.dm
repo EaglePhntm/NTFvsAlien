@@ -182,13 +182,11 @@
 
 
 /mob/living/carbon/human/has_brain()
-	var/datum/internal_organ/brain = get_organ_slot(ORGAN_SLOT_BRAIN)
-	if(!istype(brain))
-		return FALSE
-	var/datum/limb/braincase = get_limb(brain.parent_limb)
-	if(braincase.limb_status & LIMB_DESTROYED)
-		return FALSE
-	return TRUE
+	if(get_organ_slot(ORGAN_SLOT_BRAIN))
+		var/datum/internal_organ/brain = get_organ_slot(ORGAN_SLOT_BRAIN)
+		if(brain && istype(brain))
+			return TRUE
+	return FALSE
 
 /mob/living/carbon/human/has_eyes()
 	if(get_organ_slot(ORGAN_SLOT_EYES))
@@ -299,7 +297,6 @@
 	updatehealth() //One more time, so it doesn't show the target as dead on HUDs
 	dead_ticks = 0 //We reset the DNR timer
 	REMOVE_TRAIT(src, TRAIT_PSY_DRAINED, TRAIT_PSY_DRAINED)
-	clear_fullscreen("death")
 
 /**
  * Proc for checking parameters of a human for defibrillation.

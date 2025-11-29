@@ -18,7 +18,7 @@
 	buckle_flags = NONE
 	has_unlimited_silicon_privilege = TRUE
 
-	var/list/available_networks = list("marinemainship", "marine", "dropship1", "dropship2", "landing zones")
+	var/list/available_networks = list("marinemainship", "marine", "dropship1", "dropship2")
 	var/obj/machinery/camera/current
 
 	var/mob/camera/aiEye/hud/eyeobj
@@ -94,8 +94,8 @@
 
 	laws = list()
 	laws += "Safeguard: Protect your assigned vessel from damage to the best of your abilities."
-	laws += "Serve: Serve the personnel of your assigned vessel, and all other Ninetails personnel to the best of your abilities, with priority as according to their rank and role."
-	laws += "Protect: Protect the personnel of your assigned vessel, and all other Ninetails personnel to the best of your abilities, with priority as according to their rank and role."
+	laws += "Serve: Serve the personnel of your assigned vessel, and all other TerraGov personnel to the best of your abilities, with priority as according to their rank and role."
+	laws += "Protect: Protect the personnel of your assigned vessel, and all other TerraGov personnel to the best of your abilities, with priority as according to their rank and role."
 	laws += "Preserve: Do not allow unauthorized personnel to tamper with your equipment."
 
 	var/list/iconstates = GLOB.ai_core_display_screens
@@ -253,7 +253,7 @@
 /mob/living/silicon/ai/proc/toggle_camera_light()
 	if(camera_light_on)
 		for(var/obj/machinery/camera/C in lit_cameras)
-			C.set_light(0)
+			C.set_light(initial(C.light_range), initial(C.light_power))
 			lit_cameras = list()
 		to_chat(src, span_notice("Camera lights deactivated."))
 	else
@@ -414,12 +414,12 @@
 
 	. += "Current supply points: [round(SSpoints.supply_points[FACTION_TERRAGOV])]"
 
-	. += "Current dropship points: [round(SSpoints.dropship_points[FACTION_TERRAGOV])]"
+	. += "Current dropship points: [round(SSpoints.dropship_points)]"
 
 	. += "Current alert level: [SSsecurity_level.get_current_level_as_text()]"
 
 	if(SSticker.mode)
-		. += "Number of living marines: [SSticker.mode.count_humans_and_xenos(null, COUNT_IGNORE_ALTERNATE_FACTION_MARINES)[1]]"
+		. += "Number of living marines: [SSticker.mode.count_humans_and_xenos()[1]]"
 
 	if(GLOB.rail_gun?.last_firing_ai + COOLDOWN_RAILGUN_FIRE > world.time)
 		. += "Railgun status: Cooling down, next fire in [(GLOB.rail_gun?.last_firing_ai + COOLDOWN_RAILGUN_FIRE - world.time)/10] seconds."
@@ -544,8 +544,6 @@
 
 /datum/action/innate/squad_message/can_use_action(silent, override_flags, selecting)
 	. = ..()
-	if(!.)
-		return FALSE
 	if(owner.stat)
 		to_chat(owner, span_warning("You cannot give orders in your current state."))
 		return FALSE
@@ -571,7 +569,7 @@
 	owner.playsound_local(owner, "sound/effects/CIC_order.ogg", 10, 1)
 	TIMER_COOLDOWN_START(owner, COOLDOWN_HUD_ORDER, CIC_ORDER_COOLDOWN)
 	log_game("[key_name(owner)] has broadcasted the hud message [text] at [AREACOORD(owner)]")
-	deadchat_broadcast(" has sent the command order \"[text]\"", owner, owner, get_turf(owner))
+	deadchat_broadcast(" has sent the command order \"[text]\"", owner, owner)
 	for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
 		if(human.faction == owner.faction)
 			human.play_screen_text(HUD_ANNOUNCEMENT_FORMATTING("<u>ORDERS UPDATED:</u>", text, CENTER_ALIGN_TEXT), /atom/movable/screen/text/screen_text/command_order)

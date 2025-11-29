@@ -1,5 +1,5 @@
 /obj/structure/closet/secure_closet/captains
-	name = "Commander's Locker"
+	name = "Captain's Locker"
 	req_access = list(ACCESS_MARINE_CAPTAIN)
 	icon_state = "capsecure1"
 	icon_closed = "capsecure"

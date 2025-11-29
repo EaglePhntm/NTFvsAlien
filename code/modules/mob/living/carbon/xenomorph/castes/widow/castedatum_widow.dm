@@ -21,7 +21,7 @@
 	plasma_gain = 55
 
 	// *** Health *** //
-	max_health = 410
+	max_health = 450
 
 	// *** Evolution *** //
 	upgrade_threshold = TIER_THREE_THRESHOLD
@@ -50,17 +50,10 @@
 	// *** Abilities *** ///
 	resin_max_range = 1 // Widow can place resin structures from 1 tile away
 
-	// *** Pheromones *** //
-	aura_strength = 3 //As much as a hivelord, although big mommy she is basically hivelord+ now with more combat power.
-
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
-		/datum/action/ability/xeno_action/psychic_whisper,
-		/datum/action/ability/xeno_action/psychic_influence,
-		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/activable/xeno/devour,
 		/datum/action/ability/activable/xeno/cocoon,
 		/datum/action/ability/activable/xeno/plant_weeds,
 		/datum/action/ability/activable/xeno/secrete_resin/widow,
@@ -77,8 +70,6 @@
 		/datum/action/ability/xeno_action/pheromones/emit_warding,
 		/datum/action/ability/xeno_action/pheromones/emit_frenzy,
 		/datum/action/ability/activable/xeno/place_pattern,
-		/datum/action/ability/xeno_action/create_edible_jelly,
-		/datum/action/ability/xeno_action/place_stew_pod,
 	)
 
 	mutations = list(
@@ -111,12 +102,8 @@
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
-		/datum/action/ability/xeno_action/psychic_whisper,
-		/datum/action/ability/xeno_action/psychic_influence,
-		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/activable/xeno/devour,
 		/datum/action/ability/activable/xeno/cocoon,
 		/datum/action/ability/activable/xeno/plant_weeds,
 		/datum/action/ability/activable/xeno/secrete_resin/widow,
@@ -135,6 +122,4 @@
 		/datum/action/ability/xeno_action/pheromones/emit_warding,
 		/datum/action/ability/xeno_action/pheromones/emit_frenzy,
 		/datum/action/ability/activable/xeno/place_pattern,
-		/datum/action/ability/xeno_action/create_edible_jelly,
-		/datum/action/ability/xeno_action/place_stew_pod,
 	)

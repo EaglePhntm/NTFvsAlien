@@ -7,18 +7,18 @@ VEHICLES
 	containertype = /obj/structure/closet/crate/weapon
 
 /datum/supply_packs/vehicles/motorbike
-	name = "All-Terrain Motorbike"
+	name = "All-terrain motorbike"
 	cost = 400
 	contains = list(/obj/vehicle/ridden/motorbike)
 	containertype = null
 
 /datum/supply_packs/vehicles/sidecar
-	name = "Sidecar motorbike upgrade"
+	name = "Motorbike sidecar upgrade"
 	cost = 200
 	contains = list(/obj/item/sidecar)
 
 /datum/supply_packs/vehicles/jerrycan
-	name = "Jerry Can"
+	name = "Jerry can"
 	cost = 100
 	contains = list(/obj/item/reagent_containers/jerrycan)
 
@@ -47,25 +47,25 @@ VEHICLES
 	containertype = /obj/structure/closet/crate/weapon
 
 /datum/supply_packs/vehicles/tiny_uv
-	name = "Tiny unmanned vehicle - Skink"
+	name = "\"Skink\" tiny unmanned vehicle"
 	contains = list(/obj/item/deployable_vehicle/tiny)
 	cost = 50
 
 /datum/supply_packs/vehicles/light_uv
-	name = "Light unmanned vehicle - Iguana"
+	name = "\"Iguana\" light unmanned vehicle"
 	contains = list(/obj/vehicle/unmanned)
 	cost = 300
 
 /datum/supply_packs/vehicles/medium_uv
-	name = "Medium unmanned vehicle - Gecko"
+	name = "\"Gecko\" Mmedium unmanned vehicle"
 	contains = list(/obj/vehicle/unmanned/medium)
 	cost = 500
 
 /datum/supply_packs/vehicles/heavy_uv
-	name = "Heavy unmanned vehicle - Komodo"
+	name = "\"Komodo\" heavy unmanned vehicle"
 	contains = list(/obj/vehicle/unmanned/heavy)
 	cost = 700
-/*
+
 /datum/supply_packs/vehicles/uv_light_weapon
 	name = "Light UV weapon"
 	contains = list(/obj/item/uav_turret)
@@ -76,18 +76,6 @@ VEHICLES
 	name = "Heavy UV weapon"
 	contains = list(/obj/item/uav_turret/heavy)
 	cost = 200
-	containertype = /obj/structure/closet/crate/weapon
-*/
-/datum/supply_packs/vehicles/uv_claw
-	name = "UV Claw module"
-	contains = list(/obj/item/uav_turret/claw)
-	cost = 50
-	containertype = /obj/structure/closet/crate/weapon
-
-/datum/supply_packs/vehicles/uv_claw
-	name = "UV Claw module"
-	contains = list(/obj/item/uav_turret/claw)
-	cost = 50
 	containertype = /obj/structure/closet/crate/weapon
 
 /datum/supply_packs/vehicles/uv_light_ammo

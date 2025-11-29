@@ -23,9 +23,6 @@
 	return ..()
 
 /obj/machinery/computer/dropship_picker/ui_interact(mob/user, datum/tgui/ui)
-	if(SSticker?.mode?.round_type_flags & MODE_ALAMO_ONLY)
-		to_chat(user, span_warning("Tadpoles are not usable in this operation."))
-		return
 	ui = SStgui.try_update_ui(user, src, ui)
 
 	if(!ui)
@@ -37,8 +34,6 @@
 	var/list/shuttles = list()
 	for (var/datum/map_template/shuttle/minidropship/shuttle_template AS in SSmapping.minidropship_templates)
 		if(!shuttle_template.admin_enable && !SSticker.mode.enable_fun_tads)
-			continue
-		if(!shuttle_template.pickable)
 			continue
 		shuttles += list(list(
 			"name" = shuttle_template.display_name,

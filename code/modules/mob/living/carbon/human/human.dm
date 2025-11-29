@@ -81,7 +81,6 @@
 	RegisterSignal(src, COMSIG_KB_GIVE, PROC_REF(give_signal_handler))
 
 /mob/living/carbon/human/Destroy()
-	set_undefibbable()
 	assigned_squad?.remove_from_squad(src)
 	remove_from_all_mob_huds()
 	GLOB.human_mob_list -= src
@@ -636,7 +635,7 @@
 	visible_message(span_notice("[src] starts lifting [target] onto [p_their()] back..."),
 	span_notice("You start to lift [target] onto your back..."))
 	var/delay = 5 SECONDS - LERP(0 SECONDS, 4 SECONDS, skills.getPercent(SKILL_MEDICAL, SKILL_MEDICAL_MASTER))
-	if(!do_mob(src, target, delay, target_display = BUSY_ICON_HOSTILE))
+	if(!do_after(src, delay, NONE, target, target_display = BUSY_ICON_HOSTILE))
 		visible_message(span_warning("[src] fails to fireman carry [target]!"))
 		return
 	//Second check to make sure they're still valid to be carried
@@ -737,19 +736,18 @@
 
 	to_chat(usr, "You must[self ? "" : " both"] remain still until counting is finished.")
 
-	if(!do_mob(usr, src, 6 SECONDS))
+	if(!do_after(usr, 6 SECONDS, NONE, src))
 		to_chat(usr, span_warning("You failed to check the pulse. Try again."))
 		return
 
 	to_chat(usr, span_notice("[self ? "Your" : "[src]'s"] pulse is [get_pulse(GETPULSE_HAND)]."))
 
 
-///mob/living/carbon/human/verb/view_manifest()
-/mob/living/verb/view_manifest()
+/mob/living/carbon/human/verb/view_manifest()
 	set name = "View Crew Manifest"
 	set category = "IC"
 
-	var/dat = GLOB.datacore.get_manifest(ooc = FALSE, viewfaction = job?.faction)
+	var/dat = GLOB.datacore.get_manifest()
 
 	var/datum/browser/popup = new(src, "manifest", "<div align='center'>Crew Manifest</div>", 370, 420)
 	popup.set_content(dat)
@@ -850,7 +848,7 @@
 		return FALSE
 	return ..()
 
-/mob/living/carbon/human/smokecloak_on(smokecloak_alpha)
+/mob/living/carbon/human/smokecloak_on()
 	var/obj/item/storage/backpack/marine/satchel/scout_cloak/S = back
 	if(istype(S) && S.camo_active)
 		return FALSE

@@ -79,7 +79,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	var/mob/living/carbon/target = null
 
 /obj/effect/hallucination/simple
-	icon = 'ntf_modular/icons/Xeno/castes/runner.dmi'
+	icon = 'icons/Xeno/castes/runner.dmi'
 	icon_state = "Runner Walking"
 	var/px = 0
 	var/py = 0
@@ -126,7 +126,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 /obj/effect/hallucination/simple/xeno
 	name = "Mature Runner"
 	desc = "A small red alien that looks like it could run fairly quickly..."
-	icon = 'ntf_modular/icons/Xeno/castes/runner.dmi'
+	icon = 'icons/Xeno/castes/runner.dmi'
 	icon_state = "Runner Walking"
 
 /obj/effect/hallucination/simple/xeno/Initialize(mapload, mob/living/carbon/T)
@@ -255,7 +255,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			qdel(src)
 			return
 		person = pick(humans)
-		var/message = target.compose_message(person,understood_language,chosen,FREQ_COMMON,list(person.speech_span),face_name = TRUE)
+		var/message = target.compose_message(person,understood_language,chosen,"[FREQ_COMMON]",list(person.speech_span),face_name = TRUE)
 		to_chat(target, message)
 	qdel(src)
 

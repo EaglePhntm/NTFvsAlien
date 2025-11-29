@@ -49,7 +49,6 @@ const StartVoteOptions = (props) => {
   const {
     allow_vote_mode,
     allow_vote_restart,
-    allow_vote_endround,
     allow_vote_groundmap,
     allow_vote_shipmap,
     vote_happening,
@@ -81,15 +80,7 @@ const StartVoteOptions = (props) => {
                   disabled={vote_happening || !allow_vote_restart}
                   onClick={() => act('restart')}
                 >
-                  Restart (immediately)
-                </Button>
-              </Stack.Item>
-              <Stack.Item>
-                <Button
-                  disabled={vote_happening || !allow_vote_endround}
-                  onClick={() => act('endround')}
-                >
-                  End Round and Restart
+                  Restart
                 </Button>
               </Stack.Item>
               <Stack.Item>
@@ -114,7 +105,6 @@ const VoteOptions = (props) => {
   const {
     allow_vote_mode,
     allow_vote_restart,
-    allow_vote_endround,
     allow_vote_groundmap,
     allow_vote_shipmap,
     upper_admin,
@@ -160,18 +150,6 @@ const VoteOptions = (props) => {
                     onClick={() => act('toggle_restart')}
                   >
                     Restart vote {allow_vote_restart ? 'Enabled' : 'Disabled'}
-                  </Button.Checkbox>
-                )}
-              </Stack.Item>
-              <Stack.Item>
-                {!!upper_admin && (
-                  <Button.Checkbox
-                    mr={!allow_vote_endround ? 1 : 1.6}
-                    color="red"
-                    checked={!!allow_vote_endround}
-                    onClick={() => act('toggle_endround')}
-                  >
-                    End Round vote {allow_vote_endround ? 'Enabled' : 'Disabled'}
                   </Button.Checkbox>
                 )}
               </Stack.Item>

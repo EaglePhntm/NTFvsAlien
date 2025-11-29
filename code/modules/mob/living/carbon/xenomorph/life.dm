@@ -88,15 +88,11 @@
 		adjustBruteLoss(XENO_CRIT_DAMAGE * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD)
 
 /mob/living/carbon/xenomorph/proc/heal_wounds(multiplier = XENO_RESTING_HEAL, scaling = FALSE, seconds_per_tick = 2)
-	if(HAS_TRAIT(src, TRAIT_NOHEALTHREGEN))
-		return
 	var/amount = 1 + (maxHealth * 0.0375) // 1 damage + 3.75% max health, with scaling power.
 	if(recovery_aura)
 		amount += recovery_aura * maxHealth * 0.01 // +1% max health per recovery level, up to +5%
 	if(scaling)
-		SEND_SIGNAL(src, COMSIG_XENOMORPH_PRE_HEALTH_REGEN_SCALING)
 		var/time_modifier = seconds_per_tick * XENO_PER_SECOND_LIFE_MOD
-		var/previous_regen_power = regen_power
 		if(recovery_aura)
 			regen_power = clamp(regen_power + xeno_caste.regen_ramp_amount * time_modifier * 30, 0, 1) //Ignores the cooldown, and gives a 50% boost.
 		else if(regen_power < 0) // We're not supposed to regenerate yet. Start a countdown for regeneration.
@@ -104,9 +100,8 @@
 			return
 		else
 			regen_power = min(regen_power + xeno_caste.regen_ramp_amount * time_modifier * 20, 1)
-		SEND_SIGNAL(src, COMSIG_XENOMORPH_POST_HEALTH_REGEN_SCALING, regen_power, previous_regen_power)
 		amount *= regen_power
-	amount *= multiplier * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD
+	amount *= multiplier * GLOB.xeno_stat_multiplicator_buff * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD
 
 	var/list/heal_data = list(amount, amount)
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_HEALTH_REGEN, heal_data, seconds_per_tick)
@@ -163,19 +158,17 @@
 		if(leader_current_aura)
 			leader_current_aura.suppressed = TRUE
 
-	var/new_frenzy_aura = (received_auras[AURA_XENO_FRENZY] || 0) * hive.aura_multiplier
-	if(frenzy_aura != new_frenzy_aura)
-		set_frenzy_aura(new_frenzy_aura)
+	if(frenzy_aura != (received_auras[AURA_XENO_FRENZY] || 0))
+		set_frenzy_aura(received_auras[AURA_XENO_FRENZY] || 0)
 
-	var/new_warding_aura = (received_auras[AURA_XENO_WARDING] || 0) * hive.aura_multiplier
-	if(warding_aura != new_warding_aura)
+	if(warding_aura != (received_auras[AURA_XENO_WARDING] || 0))
 		if(warding_aura) //If either the new or old warding is 0, we can skip adjusting armor for it.
 			soft_armor = soft_armor.modifyAllRatings(-warding_aura * 2.5)
-		warding_aura = new_warding_aura
+		warding_aura = received_auras[AURA_XENO_WARDING] || 0
 		if(warding_aura)
 			soft_armor = soft_armor.modifyAllRatings(warding_aura * 2.5)
 
-	recovery_aura = (received_auras[AURA_XENO_RECOVERY] || 0) * hive.aura_multiplier
+	recovery_aura = received_auras[AURA_XENO_RECOVERY] || 0
 
 	update_aura_overlay()
 	..()

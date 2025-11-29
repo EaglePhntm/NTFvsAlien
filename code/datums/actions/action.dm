@@ -110,8 +110,6 @@ KEYBINDINGS
 /datum/action/proc/update_button_icon()
 	if(!button)
 		return
-	if(QDELETED(owner))
-		return FALSE
 	button.name = name
 	button.desc = desc
 	if(action_icon && action_icon_state)
@@ -202,7 +200,7 @@ KEYBINDINGS
 				update_map_text(our_kb.get_keys_formatted(M.client), signal)
 
 	SEND_SIGNAL(M, ACTION_GIVEN)
-	INVOKE_NEXT_TICK_UNIQUE(owner, TYPE_PROC_REF(/mob, update_action_buttons))
+	owner.update_action_buttons()
 
 /datum/action/proc/remove_action(mob/M)
 	for(var/type in keybinding_signals)
@@ -215,8 +213,7 @@ KEYBINDINGS
 	M.actions -= src
 	owner = null
 	SEND_SIGNAL(M, ACTION_REMOVED)
-	if(!QDELING(M))
-		M.update_action_buttons()
+	M.update_action_buttons()
 
 ///Should a AI element occasionally see if this ability should be used?
 /datum/action/proc/ai_should_start_consider()
@@ -228,9 +225,6 @@ KEYBINDINGS
 
 ///This is the proc used to update all the action buttons.
 /mob/proc/update_action_buttons(reload_screen)
-	if(QDELETED(src))
-		return // this proc causes a bunch of runtimes on QDELing mobs and skipping it shouldn't really matter, the players' next mob can handle it.
-
 	if(!hud_used || !client)
 		return
 

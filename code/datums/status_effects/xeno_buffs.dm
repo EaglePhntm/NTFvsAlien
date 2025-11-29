@@ -358,11 +358,11 @@
 /// Toggles the buff on or off.
 /datum/status_effect/drone_enhancement/proc/toggle_buff(toggle)
 	if(!toggle)
-		buffed_xeno.xeno_melee_damage_modifier -= (enhancement_action.damage_multiplier - 1)
+		buffed_xeno.xeno_melee_damage_modifier = initial(buffed_xeno.xeno_melee_damage_modifier)
 		buffed_xeno.remove_movespeed_modifier(MOVESPEED_ID_ENHANCEMENT)
 		toggle_particles(FALSE)
 		return
-	buffed_xeno.xeno_melee_damage_modifier += (enhancement_action.damage_multiplier - 1)
+	buffed_xeno.xeno_melee_damage_modifier = enhancement_action.damage_multiplier
 	buffed_xeno.add_movespeed_modifier(MOVESPEED_ID_ENHANCEMENT, TRUE, 0, NONE, FALSE, enhancement_action.speed_addition)
 	toggle_particles(TRUE)
 
@@ -567,7 +567,7 @@
 		ADD_TRAIT(owner_xeno, TRAIT_HANDS_BLOCKED, src)
 		target.AdjustKnockdown(KNOCKDOWN_DURATION)
 
-		if(do_after(owner_xeno, KNOCKDOWN_DURATION, FALSE, target, ignore_turf_checks = FALSE))
+		if(do_after(owner_xeno, KNOCKDOWN_DURATION, IGNORE_HELD_ITEM, target))
 			owner_xeno.gain_plasma(plasma_gain_on_hit)
 			SEND_SIGNAL(target, COMSIG_XENO_CARNAGE_HIT, owner_xeno.xeno_caste.drain_plasma_gain, owner_xeno)
 	if(owner_xeno.has_status_effect(STATUS_EFFECT_XENO_FEAST))
@@ -657,7 +657,7 @@
 	SIGNAL_HANDLER
 
 	var/mob/living/carbon/xenomorph/X = owner
-	if(HAS_TRAIT(X, TRAIT_NOPLASMAREGEN)) //No bonus plasma if you're on a diet
+	if(HAS_TRAIT(X,TRAIT_NOPLASMAREGEN)) //No bonus plasma if you're on a diet
 		return
 	var/bonus_plasma = X.xeno_caste.plasma_gain * bonus_regen * (1 + X.recovery_aura * 0.05) * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD //Recovery aura multiplier; 5% bonus per full level
 	X.gain_plasma(bonus_plasma)
@@ -729,9 +729,6 @@
 /datum/status_effect/healing_infusion/proc/healing_infusion_regeneration(mob/living/carbon/xenomorph/patient, heal_data, seconds_per_tick)
 	SIGNAL_HANDLER
 
-	if(HAS_TRAIT(patient, TRAIT_NOHEALTHREGEN)) //No regen if you're on a diet
-		return
-
 	if(!health_ticks_remaining)
 		qdel(src)
 		return
@@ -741,7 +738,7 @@
 	new /obj/effect/temp_visual/healing(get_turf(patient)) //Cool SFX
 
 	var/total_heal_amount = 6 + (patient.maxHealth * 0.03) * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD //Base amount 6 HP plus 3% of max
-	if(isxeno(patient) && patient.recovery_aura)
+	if(patient.recovery_aura)
 		total_heal_amount *= (1 + patient.recovery_aura * 0.05) //Recovery aura multiplier; 5% bonus per full level
 
 	var/leftover_healing = total_heal_amount
@@ -954,33 +951,29 @@
 	var/obj/effect/abstract/particle_holder/particle_holder
 
 /datum/status_effect/baton_pass/on_apply()
-	particle_holder = new(owner, /particles/baton_pass)
-	var/particle_x = abs(owner.pixel_x)
+	if(!isxeno(owner))
+		return FALSE
+	var/mob/living/carbon/xenomorph/owner_xeno = owner
+
+	particle_holder = new(owner_xeno, /particles/baton_pass)
+	var/particle_x = abs(owner_xeno.pixel_x)
 	particle_holder.pixel_x = particle_x
 	particle_holder.pixel_y = -3
-	var/movespeed_mod //Hold this here; as we'll want to apply seperate code for humans. Just incase.
-	//only slower xenos get better movespeed amplify. No gigaspeed runners
-	if(isxeno(owner))
-		var/mob/living/carbon/xenomorph/owner_xeno = owner
-		movespeed_mod =((owner_xeno.xeno_caste.speed <= -1) ? -0.1 : (owner_xeno.xeno_caste.speed <= -0.8) ? -0.2 : -0.4)
-		owner.emote("roar")
-	else
-		movespeed_mod = -0.18 //Less effective than on slow castes for humans.
-		owner.emote("warcry")
-	owner.add_movespeed_modifier(MOVESPEED_ID_PRAETORIAN_DANCER_BATON_PASS, TRUE, 1, NONE, TRUE, movespeed_mod)
 
-	to_chat(owner, span_notice("You feel on top of the world! Go, go, go!"))
-	owner.Shake(duration = 6 SECONDS, shake_interval = 0.08 SECONDS)
+	//only slower xenos get better movespeed amplify. No gigaspeed runners
+	var/movespeed_mod =((owner_xeno.xeno_caste.speed <= -1) ? -0.1 : (owner_xeno.xeno_caste.speed <= -0.8) ? -0.2 : -0.4)
+	owner_xeno.add_movespeed_modifier(MOVESPEED_ID_PRAETORIAN_DANCER_BATON_PASS, TRUE, 1, NONE, TRUE, movespeed_mod)
+
+	to_chat(owner, span_notice("We feel on top of the world! Go, go, go!"))
+	owner_xeno.Shake(duration = 6 SECONDS, shake_interval = 0.08 SECONDS)
+	owner_xeno.emote("roar")
 
 	return ..()
 
 /datum/status_effect/baton_pass/on_remove()
 	. = ..()
 	var/mob/living/carbon/xenomorph/owner_xeno = owner
-	if(isxeno(owner))
-		owner_xeno.remove_movespeed_modifier(MOVESPEED_ID_PRAETORIAN_DANCER_BATON_PASS)
-	else
-		owner.remove_movespeed_modifier(MOVESPEED_ID_PRAETORIAN_DANCER_BATON_PASS) //ensure to correctly handle this so we dont get infinite speed
+	owner_xeno.remove_movespeed_modifier(MOVESPEED_ID_PRAETORIAN_DANCER_BATON_PASS)
 	to_chat(owner, span_notice("We come down from our adrenaline high."))
 	QDEL_NULL(particle_holder)
 

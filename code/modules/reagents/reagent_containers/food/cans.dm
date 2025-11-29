@@ -3,7 +3,9 @@
 	reagent_flags = NONE
 	var/canopened = FALSE
 
-/obj/item/reagent_containers/food/drinks/cans/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/item/reagent_containers/food/drinks/cans/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+	if(!CONFIG_GET(flag/fun_allowed))
+		return FALSE
 	attack_hand(xeno_attacker)
 
 
@@ -28,15 +30,15 @@
 //DRINKS
 
 /obj/item/reagent_containers/food/drinks/cans/cola
-	name = "\improper NT Cola"
-	desc = "A can of artificial flavors, sweeteners, and coloring, at least it's carbonated. Canned by Ninetails."
+	name = "\improper TGM Cola"
+	desc = "A can of artificial flavors, sweeteners, and coloring, at least it's carbonated. Canned by Nanotrasen."
 	icon_state = "tgm_cola"
 	center_of_mass = list("x"=16, "y"=10)
 	list_reagents = list(/datum/reagent/consumable/space_cola = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/waterbottle
-	name = "\improper Ninetails bottled spring water"
-	desc = "Overpriced 'Spring' water. Bottled by Ninetails."
+	name = "\improper Nanotrasen bottled spring water"
+	desc = "Overpriced 'Spring' water. Bottled by Nanotrasen."
 	icon_state = "bottled_water"
 	center_of_mass = list("x"=15, "y"=8)
 	list_reagents = list(/datum/reagent/water = 30)
@@ -155,8 +157,8 @@
 	list_reagents = list(/datum/reagent/consumable/suoto/cherry = 25, /datum/reagent/consumable/ethanol = 25)
 
 /obj/item/reagent_containers/food/drinks/cans/aspen
-	name = "\improper Ninetails Aspen Beer"
-	desc = "Pretty good when you get past the fact that it tastes like piss. Canned by Ninetails."
+	name = "\improper Nanotrasen Aspen Beer"
+	desc = "Pretty good when you get past the fact that it tastes like piss. Canned by Nanotrasen."
 	icon_state = "6_pack_1"
 	center_of_mass = list("x"=16, "y"=10)
 	list_reagents = list(/datum/reagent/consumable/ethanol/nt_beer = 50)

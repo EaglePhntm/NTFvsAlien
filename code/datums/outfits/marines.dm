@@ -26,7 +26,8 @@
 	name = SQUAD_SPECIALIST
 	jobtype = /datum/job/terragov/squad/specialist
 
-	id = /obj/item/card/id/dogtag/specialist
+	id = /obj/item/card/id/dogtag
+	head = /obj/item/clothing/head/helmet/specrag
 
 /datum/outfit/job/marine/leader
 	name = SQUAD_LEADER
@@ -38,24 +39,3 @@
 	name = SQUAD_VATGROWN
 	jobtype = /datum/job/terragov/squad/vatgrown
 	id = /obj/item/card/id/dogtag
-
-/datum/outfit/job/marine/slut
-	name = SQUAD_SLUT
-	jobtype = /datum/job/terragov/squad/slut
-
-	id = /obj/item/card/id/dogtag
-
-/datum/outfit/job/security_officer
-	name = SECURITY_OFFICER
-	jobtype = /datum/job/terragov/security/security_officer
-
-	id = /obj/item/card/id/dogtag
-	back = /obj/item/storage/backpack/security
-	glasses = /obj/item/clothing/glasses/hud/security
-	belt = /obj/item/storage/belt/security
-	head = /obj/item/clothing/head/beret/sec
-	ears = /obj/item/radio/headset/mainship/marine/generic/sec
-	w_uniform = /obj/item/clothing/under/rank/security/corp
-	wear_suit = /obj/item/clothing/suit/modular/xenonauten/bulletresistant
-	shoes = /obj/item/clothing/shoes/swat
-	gloves = /obj/item/clothing/gloves/marine/fingerless

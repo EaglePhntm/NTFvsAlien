@@ -55,10 +55,6 @@ const SLOTS: Record<string, string> = {
   right_pocket: 'Right pocket',
   id: 'ID',
   handcuffs: 'Handcuffs',
-  undershirt: 'Undershirt',
-  underwear: 'Underwear',
-  socks: 'Socks',
-  bra: 'Bra',
 };
 
 type Layout = Array<
@@ -129,20 +125,6 @@ const DEFAULT_LAYOUT: Layout = [
     },
     {
       id: 'handcuffs',
-    },
-  ],
-  [
-    {
-      id: 'undershirt',
-    },
-    {
-      id: 'underwear',
-    },
-    {
-      id: 'socks',
-    },
-    {
-      id: 'bra',
     },
   ],
 ];

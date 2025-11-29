@@ -74,9 +74,6 @@ GLOBAL_LIST_INIT(string_equip_flags, list("suit slot" = ITEM_SLOT_OCLOTHING,
 	if(accuracy_mod)
 		armor_strings += "<br>This will alter your shooting accuracy by up to [accuracy_mod]% when worn."
 
-	if(stamina_regen_mod)
-		armor_strings += "<br>This will alter your stamina recovery by [100*stamina_regen_mod]% when worn."
-
 	if(inventory_flags & NOPRESSUREDMAGE)
 		armor_strings += "Wearing this will protect you from the vacuum of space."
 
@@ -123,8 +120,6 @@ GLOBAL_LIST_INIT(string_equip_flags, list("suit slot" = ITEM_SLOT_OCLOTHING,
 		for(var/X in storage_datum.storage_type_limits)
 			var/obj/B = X
 			. += "<br>[initial(B.name)]"
-	if(stamina_regen_mod)
-		. += "<br>This will alter your stamina recovery by [100*stamina_regen_mod]% when worn."
 
 /obj/item/clothing/suit/armor/pcarrier/get_mechanics_info()
 	. = ..()
@@ -133,9 +128,9 @@ GLOBAL_LIST_INIT(string_equip_flags, list("suit slot" = ITEM_SLOT_OCLOTHING,
 /datum/codex_entry/M3_normal
 	display_name = "M3 pattern marine armor"
 	mechanics_text = "This is the base armor, it neither good nor bad. It will serve you well in most situations."
-	lore_text = "This armor was first developed for the NTC upon requests by General McCoy because he was finding casualties happening due to chest penetrations a bit too common for his liking."
+	lore_text = "This armor was first developed for the TGMC upon requests by General McCoy because he was finding casualties happening due to chest penetrations a bit too common for his liking."
 
 /datum/codex_entry/M3_edge
 	display_name = "M3-E pattern marine armor"
 	mechanics_text = "This is the edge armor. It is good vs melee based attacks but bad against most everything else. Great for those who like to get in close."
-	lore_text = "This armor was first developed for the NTC upon requests by General McCoy because he was finding casualties happening due to guerrilla machete commandos a bit too common for his liking."
+	lore_text = "This armor was first developed for the TGMC upon requests by General McCoy because he was finding casualties happening due to guerrilla machete commandos a bit too common for his liking."

@@ -1,7 +1,7 @@
 ///Base item used in factories, only changes icon and stage for the item then creates a new item when its done
 ///in order to set a recipe set recipe = GLOB.myrecipe in Initialize
 /obj/item/factory_part
-	name = "nothing"
+	name = "test part"
 	desc = "you shouldnt be seeing this"
 	icon = 'icons/obj/factory/factoryparts.dmi'
 	icon_state = "implant_evil"
@@ -739,8 +739,8 @@ GLOBAL_LIST_INIT(equipment_recipe, list(
 	))
 
 /obj/item/factory_part/drop_pod
-	name = "NTC Zeus orbital drop pod assembly"
-	desc = "An incomplete Zeus orbital drop pod assembly"
+	name = "TGMC Zeus orbital drop pod assembly"
+	desc = "An incomplete Zeus orbital drop pod assembly."
 	result = /obj/structure/droppod
 
 /obj/item/factory_part/drop_pod/Initialize(mapload)

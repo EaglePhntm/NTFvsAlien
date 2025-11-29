@@ -39,7 +39,7 @@
 		if(0)
 			return ALL_ACCESS
 		if(1)
-			return list(ACCESS_MARINE_CAPTAIN, ACCESS_CEO, ACCESS_MARINE_COMMANDER, ACCESS_MARINE_VANGPREP, ACCESS_MARINE_LOGISTICS, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_TADPOLE, ACCESS_MARINE_PILOT, ACCESS_MARINE_MECH, ACCESS_MARINE_BRIDGE, ACCESS_MARINE_ARMORED)//command
+			return list(ACCESS_MARINE_CAPTAIN, ACCESS_MARINE_COMMANDER, ACCESS_MARINE_LOGISTICS, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_TADPOLE, ACCESS_MARINE_PILOT, ACCESS_MARINE_MECH, ACCESS_MARINE_BRIDGE, ACCESS_MARINE_ARMORED)//command
 		if(2)
 			return list(ACCESS_MARINE_CE, ACCESS_MARINE_ENGINEERING, ACCESS_MARINE_REMOTEBUILD)//engineering and maintenance
 		if(3)
@@ -49,7 +49,7 @@
 		if(5)
 			return list(ACCESS_MARINE_WO, ACCESS_MARINE_ARMORY, ACCESS_MARINE_BRIG)//security
 		if(6)
-			return list(ACCESS_MARINE_PREP, ACCESS_MARINE_MEDPREP, ACCESS_MARINE_SPECPREP, ACCESS_MARINE_ENGPREP, ACCESS_MARINE_SMARTPREP, ACCESS_MARINE_LEADER,)//spess mahreens
+			return list(ACCESS_MARINE_PREP, ACCESS_MARINE_MEDPREP, ACCESS_MARINE_ENGPREP, ACCESS_MARINE_SMARTPREP, ACCESS_MARINE_LEADER)//spess mahreens
 		if(7)
 			return list(ACCESS_MARINE_ALPHA, ACCESS_MARINE_BRAVO, ACCESS_MARINE_CHARLIE, ACCESS_MARINE_DELTA)//squads
 		if(8)
@@ -102,8 +102,6 @@
 			return "FOB Construction Drone"
 		if(ACCESS_MARINE_CAPTAIN)
 			return "Captain's Quarters"
-		if(ACCESS_CEO)
-			return "CEO Office"
 		if(ACCESS_MARINE_COMMANDER)
 			return "Field Commander's Quarters"
 		if(ACCESS_MARINE_LOGISTICS)
@@ -116,8 +114,6 @@
 			return "Marine Squad Engineering"
 		if(ACCESS_MARINE_MEDPREP)
 			return "Marine Squad Medical"
-		if(ACCESS_MARINE_SPECPREP)
-			return "Marine Specialist Prep"
 		if(ACCESS_MARINE_SMARTPREP)
 			return "Marine Smartgunner"
 		if(ACCESS_MARINE_LEADER)
@@ -236,15 +232,15 @@
 		if("PMCDSL")
 			. = size ? "APTL" : "Assets Protection Team Leader"
 		if("NT1")
-			. = size ? "CE" : "Corporate Employee"
+			. = size ? "INT" : "Corporate Intern"
 		if("NT2")
-			. = size ? "CSVSR" : "Corporate Supervisor"
+			. = size ? "ASSOC" : "Corporate Associate"
 		if("NT3")
-			. = size ? "SNRO" : "Corporate Senior Officer"
+			. = size ? "PTNR" : "Corporate Partner"
 		if("NT4")
-			. = size ? "MNGR" : "Corporate Manager"
+			. = size ? "ANLST" : "Corporate Analyst"
 		if("NT5")
-			. = size ? "CO" : "Corporate Chief Officer"
+			. = size ? "SPVR" : "Corporate Supervisor"
 		if("E1")
 			. = size ? "PVT" : "Private"
 		if("E2")
@@ -276,21 +272,15 @@
 		if("O1")
 			. = size ? "ENS" : "Ensign"
 		if("O2")
-			. = size ? "2LT" : "Second Lieutenant"
+			. = size ? "LTJG" : "Lieutenant Junior Grade"
 		if("O3")
-			. = size ? "LT" : "First Lieutenant"
+			. = size ? "LT" : "Lieutenant"
 		if("O4")
 			. = size ? "LCDR" : "Lieutenant Commander"
 		if("O5")
 			. = size ? "CDR" : "Commander"
 		if("O6")
 			. = size ? "CPT" : "Captain"
-		if("COL")
-			. = size ? "COL" : "Colonel"
-		if("MGEN")
-			. = size ? "MGEN" : "Major General"
-		if("GEN")
-			. = size ? "GEN" : "General"
 		if("O7")
 			. = size ? "COMM" : "Commodore"
 		if("O8")
@@ -313,8 +303,6 @@
 			. = size ? "PO1" : "Petty Officer First Class"
 		if("CPO")
 			. = size ? "CPO" : "Chief Petty Officer"
-		if("CEO")
-			. = size ? "CEO " : "Chief Executive Officer"
 		if("SCPO")
 			. = size ? "SCPO" : "Senior Chief Petty Officer"
 		if("MO4")
@@ -361,18 +349,12 @@
 			. = size ? "FRE" : "Freelancer Veteran"
 		if("FRE4")
 			. = size ? "FRE" : "Freelancer Leader"
-		if("CLF0")
-			. = size ? "CLFB" : "CLF Breeding Slave"
 		if("CLF1")
-			. = size ? "CLFS" : "CLF Standard"
+			. = size ? "CLF" : "CLF Standard"
 		if("CLF2")
-			. = size ? "CLFM" : "CLF Medic"
+			. = size ? "CLF" : "CLF Medic"
 		if("CLF3")
-			. = size ? "CLFL" : "CLF Leader"
-		if("CLF4")
-			. = size ? "CLFS" : "CLF Specialist"
-		if("CLF5")
-			. = size ? "CLFT" : "CLF Base Technician"
+			. = size ? "CLF" : "CLF Leader"
 		if("SOM_E1")
 			. = size ? "PTE" : "SOM Private"
 		if("SOM_E2")
@@ -435,26 +417,24 @@
 			. = size ? "VADM" : "SOM Vice-Admiral"
 		if("SOM_A4")
 			. = size ? "ADM" : "SOM Admiral"
-		if("CM1")
-			. = size ? "CM" : "CM Standard"
-		if("CM2")
-			. = size ? "CMM" : "CM Medic"
-		if("CM3")
-			. = size ? "CMG" : "CM Guard"
-		if("CM4")
-			. = size ? "CML" : "CM Leader"
-		if("CM5")
-			. = size ? "CMT" : "CM Base Technician"
-		if("KZ1")
-			. = size ? "JSGT" : "KZ Junior Sergeant"
-		if("KZ2")
-			. = size ? "SSGT" : "KZ Staff Sergeant"
-		if("KZ3")
-			. = size ? "SGM" : "KZ Sergeant Major"
-		if("KZ4")
-			. = size ? "LT" : "KZ Lieutenant"
-		if("KZ5")
-			. = size ? "COLGEN" : "KZ Colonel-General"
+		if("ICC1")
+			. = size ? "ICC" : "ICC Standard"
+		if("ICC2")
+			. = size ? "ICC" : "ICC Medic"
+		if("ICC3")
+			. = size ? "ICCG" : "ICC Guard"
+		if("ICC4")
+			. = size ? "ICCL" : "ICC Leader"
+		if("VSD1")
+			. = size ? "JSGT" : "VSD Mládshiy serzhánt"
+		if("VSD2")
+			. = size ? "SSGT" : "VSD Stárshiy serzhánt"
+		if("VSD3")
+			. = size ? "SGM" : "VSD Starshiná"
+		if("VSD4")
+			. = size ? "LT" : "VSD Leytenánt"
+		if("VSD5")
+			. = size ? "COLGEN" : "VSD Generál-polkóvnik"
 		if("MRC1")
 			. = size ? "MERC" : "MERC Heavy"
 		if("MRC2")
@@ -473,15 +453,5 @@
 			. = size ? "Mk.II" : "Mark II"
 		if("Mk.I")
 			. = size ? "Mk.I" : "Mark I"
-		if("MTH1")
-			. = size ? "MTH" : "Mothellian Standard"
-		if("MTH2")
-			. = size ? "MTH" : "Mothellian Medic"
-		if("MTH3")
-			. = size ? "MTH" : "Mothellian Technician"
-		if("MTH4")
-			. = size ? "MTH" : "Mothellian Veteran"
-		if("MTH")
-			. = size ? "MTH" : "Mothellian Leader"
 		else
 			. = paygrade //custom paygrade

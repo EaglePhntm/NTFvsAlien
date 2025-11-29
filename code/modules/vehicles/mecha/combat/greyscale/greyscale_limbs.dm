@@ -168,7 +168,6 @@
 	if(disabled)
 		return FALSE
 	disabled = TRUE
-	owner.update_icon(UPDATE_OVERLAYS)
 	owner.update_appearance(UPDATE_OVERLAYS)
 	playsound(owner, 'sound/mecha/internaldmgalarm.ogg', 80, TRUE, falloff = 10)
 	return TRUE
@@ -180,6 +179,7 @@
 	disabled = FALSE
 	owner.update_icon(UPDATE_OVERLAYS)
 	return TRUE
+
 
 ///MECH HEAD
 /datum/mech_limb/head

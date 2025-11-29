@@ -47,7 +47,7 @@
 		L.heal_limb_damage(brute_heal, burn_heal)
 	if(iscarbon(L))
 		var/mob/living/carbon/C = L
-		if(C.get_blood_volume() < BLOOD_VOLUME_NORMAL)
+		if(C.blood_volume < BLOOD_VOLUME_NORMAL)
 			C.adjust_blood_volume(blood_gain)
 
 	return ..()
@@ -289,7 +289,7 @@
 	reagent_ui_priority = REAGENT_UI_TOXINS
 
 /datum/reagent/consumable/psilocybin/on_mob_life(mob/living/L, metabolism)
-	L.druggy(30)
+	L.druggy = max(L.druggy, 30)
 	switch(current_cycle)
 		if(1 to 5)
 			L.adjust_timed_status_effect(2 SECONDS, /datum/status_effect/speech/stutter)
@@ -321,7 +321,7 @@
 	L.apply_damage(2, TOX)
 	if(prob(60))
 		L.Unconscious(6 SECONDS)
-	L.drowsy(30)
+	L.setDrowsyness(max(L.drowsyness, 30))
 
 /datum/reagent/consumable/sprinkles
 	name = "Sprinkles"
@@ -410,12 +410,15 @@
 	name = "Larva Jelly"
 	description = "The blood and guts of a xenomorph larva blended into a paste. Drinking this is bad for you."
 	reagent_state = LIQUID
-	nutriment_factor = 2
+	nutriment_factor = 0
 	color = "#66801e"
-	taste_description = "sweetness"
+	taste_description = "burning"
+	reagent_ui_priority = REAGENT_UI_TOXINS
 
 /datum/reagent/consumable/larvajelly/on_mob_life(mob/living/L, metabolism)
 	L.adjustBruteLoss(-0.5*effect_str)
+	L.adjustFireLoss(effect_str)
+	L.adjustToxLoss(effect_str)
 	return ..()
 
 /datum/reagent/consumable/larvajellyprepared

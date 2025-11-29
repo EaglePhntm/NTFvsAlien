@@ -15,11 +15,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	RADIO_KEY_CHARLIE = RADIO_CHANNEL_CHARLIE,
 	RADIO_KEY_DELTA = RADIO_CHANNEL_DELTA,
 	RADIO_KEY_CAS = RADIO_CHANNEL_CAS,
-	RADIO_KEY_SEC = RADIO_CHANNEL_SEC,
 	RADIO_KEY_REQUISITIONS = RADIO_CHANNEL_REQUISITIONS,
-
-	RADIO_KEY_PMC = RADIO_CHANNEL_PMC,
-	RADIO_KEY_CIV_GENERAL = RADIO_CHANNEL_CIV_GENERAL,
 ))
 
 GLOBAL_LIST_INIT(department_radio_keys_som, list(
@@ -36,7 +32,6 @@ GLOBAL_LIST_INIT(department_radio_keys_som, list(
 	RADIO_KEY_BRAVO = RADIO_CHANNEL_YANKEE,
 	RADIO_KEY_CHARLIE = RADIO_CHANNEL_XRAY,
 	RADIO_KEY_DELTA = RADIO_CHANNEL_WHISKEY,
-	RADIO_KEY_CIV_GENERAL = RADIO_CHANNEL_CIV_GENERAL,
 ))
 
 /mob/living/proc/Ellipsis(original_msg, chance = 50, keep_words)
@@ -201,9 +196,6 @@ GLOBAL_LIST_INIT(department_radio_keys_som, list(
 	. = ..()
 	if(!client)
 		return FALSE
-	if(stat == DEAD)
-		if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS)) && !check_rights_for(client, R_ADMIN)) // no getting to know what you shouldn't
-			return FALSE
 
 	// Create map text prior to modifying message for goonchat
 	if (client?.prefs.chat_on_map && stat != UNCONSCIOUS && !isdeaf(src) && (client.prefs.see_chat_non_mob || ismob(speaker)))
@@ -248,17 +240,14 @@ GLOBAL_LIST_INIT(department_radio_keys_som, list(
 		if(!client || isnull(player_mob)) //client is so that ghosts don't have to listen to mice
 			continue
 		if(get_dist(player_mob, src) > 7) //they're out of range of normal hearing
-			if(!(player_mob?.client?.prefs.toggles_chat & CHAT_GHOSTEARS) && !check_other_rights(player_mob?.client, R_ADMIN, FALSE))
+			if(!(player_mob?.client?.prefs.toggles_chat & CHAT_GHOSTEARS))
 				continue
-		if((player_mob.faction != FACTION_NEUTRAL && faction != FACTION_NEUTRAL ) && player_mob.faction != faction && !check_other_rights(player_mob?.client, R_ADMIN, FALSE))
-			balloon_alert(player_mob, "says something you cannot hear.")
-			continue
 		listening |= player_mob
 
 	var/eavesdropping
 	var/eavesrendered
 	if(eavesdrop_range)
-		eavesdropping = stars(message_raw, probability=50)
+		eavesdropping = stars(message_raw)
 		eavesrendered = compose_message(src, message_language, eavesdropping, null, spans, message_mode)
 
 	var/list/listened = list()
@@ -332,6 +321,9 @@ GLOBAL_LIST_INIT(department_radio_keys_som, list(
 		return FALSE
 
 /mob/living/proc/can_speak_vocal(message) //Check AFTER handling of xeno channels
+	if(istype(wear_mask, /obj/item/clothing/mask/muzzle))
+		return FALSE
+
 	if(!IsVocal())
 		return FALSE
 

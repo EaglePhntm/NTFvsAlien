@@ -1,5 +1,3 @@
-Funny lewd modification of TGMC, i try to keep it updated to modern tgmc for as long as i can.
-
 
 <h1>
 

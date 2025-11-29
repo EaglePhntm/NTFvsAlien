@@ -64,7 +64,7 @@ export const Vending = (props) => {
   return (
     <Window
       title={vendor_name || 'Vending Machine'}
-      width={600}
+      width={500}
       height={600}
       theme={ui_theme}
     >

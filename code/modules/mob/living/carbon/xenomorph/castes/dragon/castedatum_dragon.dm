@@ -23,22 +23,19 @@
 	plasma_icon_state = "armor"
 
 	// *** Health *** //
-	max_health = 810
+	max_health = 900
 
 	// *** Evolution *** //
 	upgrade_threshold = TIER_THREE_THRESHOLD
 	maximum_active_caste = 1
-
+	evolve_min_xenos = 8
 	death_evolution_delay = 15 MINUTES
-	evolve_population_lock = 0
+	evolve_population_lock = 50 // Tank
 
 	// *** Flags *** //
-/* NTF EDIT - allow evolution
 	caste_flags = CASTE_FIRE_IMMUNE|CASTE_IS_INTELLIGENT|CASTE_INSTANT_EVOLUTION|CASTE_LEADER_TYPE|CASTE_MUTATIONS_ALLOWED
-*/
-	caste_flags = CASTE_FIRE_IMMUNE|CASTE_IS_INTELLIGENT|CASTE_INSTANT_EVOLUTION|CASTE_LEADER_TYPE|CASTE_EVOLUTION_ALLOWED|CASTE_MUTATIONS_ALLOWED
 	can_flags = parent_type::can_flags|CASTE_CAN_CORRUPT_GENERATOR
-	caste_traits = list(TRAIT_STAGGERIMMUNE, TRAIT_SLOWDOWNIMMUNE, TRAIT_STUNIMMUNE, TRAIT_CAN_TEAR_HOLE, TRAIT_CAN_DISABLE_MINER, TRAIT_NEEDS_SILO_TO_EVOLVE_FROM, TRAIT_NEEDS_SILO_TO_EVOLVE_TO)
+	caste_traits = list(TRAIT_STAGGERIMMUNE, TRAIT_SLOWDOWNIMMUNE, TRAIT_STUNIMMUNE, TRAIT_CAN_TEAR_HOLE, TRAIT_CAN_DISABLE_MINER)
 
 	// *** Defense *** //
 	soft_armor = list(MELEE = 60, BULLET = 60, LASER = 60, ENERGY = 60, BOMB = 45, BIO = 60, FIRE = 200, ACID = 60)
@@ -51,13 +48,8 @@
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
-		/datum/action/ability/xeno_action/psychic_whisper,
-		/datum/action/ability/xeno_action/psychic_influence,
-		/datum/action/ability/xeno_action/psychic_radiance,
-		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain/free,
-		/datum/action/ability/activable/xeno/devour,
 		/datum/action/ability/xeno_action/call_of_the_burrowed/free,
 		/datum/action/ability/activable/xeno/backhand,
 		/datum/action/ability/activable/xeno/backhand/dragon_breath,
@@ -68,8 +60,6 @@
 		/datum/action/ability/xeno_action/rally_hive,
 		/datum/action/ability/xeno_action/rally_minion,
 		/datum/action/ability/xeno_action/blessing_menu,
-		/datum/action/ability/xeno_action/create_edible_jelly,
-		/datum/action/ability/xeno_action/place_stew_pod,
 	)
 
 	mutations = list(
@@ -89,13 +79,8 @@
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
-		/datum/action/ability/xeno_action/psychic_whisper,
-		/datum/action/ability/xeno_action/psychic_influence,
-		/datum/action/ability/xeno_action/psychic_radiance,
-		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain/free,
-		/datum/action/ability/activable/xeno/devour,
 		/datum/action/ability/xeno_action/call_of_the_burrowed/free,
 		/datum/action/ability/activable/xeno/backhand,
 		/datum/action/ability/activable/xeno/backhand/dragon_breath,
@@ -107,6 +92,4 @@
 		/datum/action/ability/xeno_action/rally_hive,
 		/datum/action/ability/xeno_action/rally_minion,
 		/datum/action/ability/xeno_action/blessing_menu,
-		/datum/action/ability/xeno_action/create_edible_jelly,
-		/datum/action/ability/xeno_action/place_stew_pod,
 	)

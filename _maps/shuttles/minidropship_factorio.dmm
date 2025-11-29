@@ -20,16 +20,6 @@
 	dir = 1
 	},
 /area/shuttle/minidropship)
-"j" = (
-/obj/structure/dropship_piece/singlewindow/tadpole{
-	dir = 1
-	},
-/obj/structure/dropship_piece/tadpole/tadpole_nose{
-	dir = 1;
-	pixel_y = 32
-	},
-/turf/open/floor/mainship/mono,
-/area/shuttle/minidropship)
 "k" = (
 /obj/structure/dropship_piece/tadpole/engine{
 	dir = 1;
@@ -46,23 +36,6 @@
 /area/shuttle/minidropship)
 "l" = (
 /turf/open/floor/mainship/floor,
-/area/shuttle/minidropship)
-"n" = (
-/obj/structure/dropship_piece/tadpole/tadpole_nose/right{
-	dir = 1;
-	pixel_y = 32
-	},
-/obj/structure/dropship_piece/two/weapon/rightright{
-	dir = 1;
-	pixel_y = 32
-	},
-/obj/effect/attach_point/weapon/minidropship{
-	equipment_offset_y = 25
-	},
-/obj/structure/dropship_piece/tadpole/cockpit/right{
-	dir = 1
-	},
-/turf/open/space/basic,
 /area/shuttle/minidropship)
 "q" = (
 /turf/open/floor/plating/plating_catwalk,
@@ -124,23 +97,6 @@
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship,
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
-"L" = (
-/obj/structure/dropship_piece/tadpole/tadpole_nose/left{
-	dir = 1;
-	pixel_y = 32
-	},
-/obj/structure/dropship_piece/tadpole/cockpit/left{
-	dir = 1
-	},
-/obj/effect/attach_point/weapon/minidropship{
-	equipment_offset_y = 25
-	},
-/obj/structure/dropship_piece/two/weapon/leftleft{
-	dir = 1;
-	pixel_y = 32
-	},
-/turf/open/floor/mainship/mono,
-/area/shuttle/minidropship)
 "P" = (
 /obj/effect/attach_point/crew_weapon/minidropship,
 /turf/open/floor/plating/plating_catwalk,
@@ -192,14 +148,8 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "Z" = (
-/obj/structure/dropship_piece/singlewindow/tadpole{
-	dir = 1
-	},
-/obj/structure/dropship_piece/tadpole/tadpole_nose{
-	dir = 1;
-	pixel_y = 32
-	},
-/turf/open/space/basic,
+/obj/structure/window/framed/mainship/canterbury/dropship/reinforced,
+/turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 
 (1,1,1) = {"
@@ -214,7 +164,7 @@ F
 a
 "}
 (2,1,1) = {"
-L
+F
 F
 w
 q
@@ -225,7 +175,7 @@ F
 F
 "}
 (3,1,1) = {"
-j
+Z
 t
 B
 q
@@ -247,7 +197,7 @@ c
 R
 "}
 (5,1,1) = {"
-j
+Z
 r
 B
 q
@@ -258,7 +208,7 @@ C
 X
 "}
 (6,1,1) = {"
-n
+F
 F
 w
 q

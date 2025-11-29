@@ -28,11 +28,6 @@
 #define RESIN_WALL "resin wall"
 #define STICKY_RESIN "sticky resin"
 #define RESIN_DOOR "resin door"
-#define RESIN_NEST "resin nest"
-#define RESIN_MEMBRANE "resin membrane"
-#define WALL_RESIN_NEST "wall resin nest"
-#define LIGHT_TOWER "light tower"
-#define ADVANCED_RESIN_NEST "tentacle breeding nest"
 
 //Special resin defines
 #define BULLETPROOF_WALL "bulletproof resin wall"
@@ -44,14 +39,12 @@
 #define DEFILER_HEMODILE "Hemodile"
 #define DEFILER_TRANSVITOX "Transvitox"
 #define DEFILER_OZELOMELYN "Ozelomelyn"
-#define DEFILER_APHROTOXIN "Aphrotoxin"
 
 //Baneling specific reagent define
 #define BANELING_ACID "Sulphuric acid"
 
 #define TRAP_HUGGER "hugger"
 #define TRAP_SMOKE_NEURO "neurotoxin gas"
-#define TRAP_SMOKE_APHRO "aphrotoxin gas"
 #define TRAP_SMOKE_ACID "acid gas"
 #define TRAP_ACID_WEAK "weak acid"
 #define TRAP_ACID_NORMAL "acid"
@@ -73,21 +66,11 @@ GLOBAL_LIST_INIT(weed_type_list, typecacheof(list(
 	/obj/alien/weeds/node/resting,
 )))
 
-//List of xeno objects immune friendly xeno attacks by default
-GLOBAL_LIST_INIT(xeno_object_list, typecacheof(list(
-	/obj/alien,
-	/obj/structure/xeno,
-	/obj/structure/mineral_door/resin,
-	/obj/structure/bed/nest,
-	/obj/structure/cocoon,
-	/obj/item/clothing/mask/facehugger,
-)))
-
 //List of weeds with probability of spawning
 GLOBAL_LIST_INIT(weed_prob_list, list(
-	/obj/alien/weeds/node = 39,
-	/obj/alien/weeds/node/sticky = 1,
-	/obj/alien/weeds/node/resting = 60,
+	/obj/alien/weeds/node = 5,
+	/obj/alien/weeds/node/sticky = 85,
+	/obj/alien/weeds/node/resting = 10,
 ))
 
 //List of weed images
@@ -110,7 +93,6 @@ GLOBAL_LIST_INIT(defiler_toxin_type_list, list(
 	/datum/reagent/toxin/xeno_neurotoxin,
 	/datum/reagent/toxin/xeno_hemodile,
 	/datum/reagent/toxin/xeno_transvitox,
-	/datum/reagent/toxin/xeno_aphrotoxin,
 	/datum/reagent/toxin/xeno_ozelomelyn,
 ))
 
@@ -121,17 +103,12 @@ GLOBAL_LIST_INIT(defiler_toxins_typecache_list, typecacheof(list(
 	/datum/reagent/toxin/xeno_transvitox,
 	/datum/reagent/toxin/xeno_neurotoxin,
 	/datum/reagent/toxin/xeno_sanguinal,
-	/datum/reagent/toxin/xeno_aphrotoxin,
 	/datum/status_effect/stacking/intoxicated,
 )))
 
 //List of Baneling chemical types available for selection
 GLOBAL_LIST_INIT(baneling_chem_type_list, list(
-	/datum/reagent/toxin/xeno_ozelomelyn,
-	/datum/reagent/toxin/xeno_hemodile,
-	/datum/reagent/toxin/xeno_transvitox,
 	/datum/reagent/toxin/xeno_neurotoxin,
-	/datum/reagent/toxin/xeno_aphrotoxin,
 	/datum/reagent/toxin/acid,
 ))
 
@@ -153,28 +130,13 @@ GLOBAL_LIST_INIT(plant_images_list, list(
 
 //List of resin structure images
 GLOBAL_LIST_INIT(resin_images_list, list(
-		RESIN_WALL = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL),
-		RESIN_MEMBRANE = image('ntf_modular/icons/Xeno/construction.dmi', icon_state = RESIN_MEMBRANE),
-		STICKY_RESIN = image('icons/Xeno/actions/construction.dmi', icon_state = STICKY_RESIN),
-		RESIN_DOOR = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_DOOR),
-		RESIN_NEST = image('ntf_modular/icons/Xeno/construction.dmi', icon_state = RESIN_NEST),
-		WALL_RESIN_NEST = image('ntf_modular/icons/Xeno/construction.dmi', icon_state = WALL_RESIN_NEST),
-		RESIN_LIGHTTOWER = image('ntf_modular/icons/Xeno/construction.dmi', icon_state = LIGHT_TOWER),
-		BULLETPROOF_WALL = image('icons/Xeno/actions/construction.dmi', icon_state = BULLETPROOF_WALL),
-		FIREPROOF_WALL = image('icons/Xeno/actions/construction.dmi', icon_state = FIREPROOF_WALL),
-		HARDY_WALL = image('icons/Xeno/actions/construction.dmi', icon_state = HARDY_WALL),
-		ADVANCED_RESIN_NEST = image('ntf_modular/icons/Xeno/construction.dmi', icon_state = RESIN_NEST),
-		))
-
-/*List of special resin structure images
-GLOBAL_LIST_INIT(resin_special_images_list, list(
+	RESIN_WALL = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL),
 	BULLETPROOF_WALL = image('icons/Xeno/actions/construction.dmi', icon_state = BULLETPROOF_WALL),
 	FIREPROOF_WALL = image('icons/Xeno/actions/construction.dmi', icon_state = FIREPROOF_WALL),
 	HARDY_WALL = image('icons/Xeno/actions/construction.dmi', icon_state = HARDY_WALL),
 	STICKY_RESIN = image('icons/Xeno/actions/construction.dmi', icon_state = STICKY_RESIN),
 	RESIN_DOOR = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_DOOR),
 ))
-*/
 
 //List of puppeteer pheromone images
 GLOBAL_LIST_INIT(puppeteer_phero_images_list, list(
@@ -188,7 +150,6 @@ GLOBAL_LIST_INIT(puppeteer_phero_images_list, list(
 #define UPGRADE_FLAG_MESSAGE_HIVE (1<<0)
 #define UPGRADE_FLAG_ONETIME (1<<1)
 #define UPGRADE_FLAG_USES_TACTICAL (1<<2)
-#define UPGRADE_FLAG_MUST_BE_HIVE_RULER (1<<3)
 
 GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
 	/mob/living/carbon/xenomorph/beetle/ai,
@@ -232,8 +193,6 @@ GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
 #define ERROR_NO_SUPPORT 7
 /// Failed to other blockers such as egg, power plant , coocon , traps
 #define ERROR_CONSTRUCT 8
-// Failed due to enemy weeds
-#define ERROR_ENEMY_WEED 9
 
 #define WEED_REQUIRES_LOS (1<<0)
 #define WEED_TAKES_TIME (1<<1)
@@ -257,6 +216,3 @@ GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
 #define XENO_STRUCTURE_DETECTION_COOLDOWN 30 SECONDS
 ///Proxy detection radius
 #define XENO_STRUCTURE_DETECTION_RANGE 10
-
-///Turrets cannot be build closer than this range to another
-#define XENO_TURRET_EXCLUSION_RANGE 6

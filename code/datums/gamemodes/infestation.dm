@@ -18,9 +18,7 @@
 	 * [caste datum] = [amount of xenos needed]
 	 */
 	var/list/evo_requirements = list(
-/* NTF removal - evolution minimums
 		/datum/xeno_caste/queen = 8,
-NTF removal end*/
 	)
 
 /datum/game_mode/infestation/post_setup()
@@ -75,7 +73,7 @@ NTF removal end*/
 			return
 		bioscanning_ai.last_ai_bioscan = world.time
 		to_chat(bioscanning_ai, span_warning("Scanning for hostile lifeforms..."))
-		if(!do_after(usr, AI_SCAN_DELAY, TRUE, usr, BUSY_ICON_GENERIC)) //initial windup time until firing begins
+		if(!do_after(usr, AI_SCAN_DELAY, NONE, usr, BUSY_ICON_GENERIC)) //initial windup time until firing begins
 			bioscanning_ai.last_ai_bioscan = 0
 			return
 
@@ -198,7 +196,7 @@ NTF removal end*/
 	if(world.time < (SSticker.round_start_time + 5 SECONDS))
 		return FALSE
 
-	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_ALIVE_SSD|COUNT_IGNORE_XENO_SPECIAL_AREA| COUNT_CLF_TOWARDS_XENOS | COUNT_GREENOS_TOWARDS_MARINES )
+	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_ALIVE_SSD|COUNT_IGNORE_XENO_SPECIAL_AREA)
 	var/num_humans = living_player_list[1]
 	var/num_xenos = living_player_list[2]
 	var/num_humans_ship = living_player_list[3]
@@ -248,7 +246,7 @@ NTF removal end*/
 	send_ooc_announcement(
 		sender_override = "Round Concluded",
 		title = round_finished,
-		text = "Thus ends the story of the brave men and women of the Nine-Tailed Fox, and their struggle on [SSmapping.configs[GROUND_MAP].map_name]...",
+		text = "Thus ends the story of the brave men and women of the TerraGov Marine Corps, and their struggle on [SSmapping.configs[GROUND_MAP].map_name]...",
 		play_sound = FALSE,
 		style = OOC_ALERT_GAME
 	)
@@ -323,8 +321,8 @@ NTF removal end*/
 				xeno_candidate = TRUE
 				break
 	if(!xeno_candidate && !bypass_checks)
-		to_chat(world, "WARNING: No xeno candidate found.")
-		return TRUE
+		to_chat(world, "<b>Unable to start [name].</b> No xeno candidate found.")
+		return FALSE
 
 /datum/game_mode/infestation/pre_setup()
 	. = ..()
@@ -337,8 +335,8 @@ NTF removal end*/
 
 	priority_announce(
 		title = "High Command Update",
-		subtitle = "Good morning, operatives.",
-		message = "Cryosleep disengaged by NTF High Command.<br><br>ATTN: [SSmapping.configs[SHIP_MAP].map_name].<br>[SSmapping.configs[GROUND_MAP].announce_text]",
+		subtitle = "Good morning, marines.",
+		message = "Cryosleep disengaged by TGMC High Command.<br><br>ATTN: [SSmapping.configs[SHIP_MAP].map_name].<br>[SSmapping.configs[GROUND_MAP].announce_text]",
 		sound = 'sound/AI/ares_online.ogg',
 		color_override = "red"
 	)

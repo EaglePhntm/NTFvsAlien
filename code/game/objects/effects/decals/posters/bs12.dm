@@ -7,7 +7,7 @@
 /datum/poster/bay_30
 	icon_state="bsposter30"
 	name = "No ERP"
-	desc = "This poster reminds the crew that Eroticism, Rape, and Pornography (but not pin up posters!) are encouraged on Ninetails stations."
+	desc = "This poster reminds the crew that Eroticism, Rape, and Pornography (but not pin up posters!) are banned on Nanotrasen stations."
 
 /datum/poster/bay_31
 	icon_state="bsposter31"
@@ -81,8 +81,8 @@
 
 /datum/poster/bay_60
 	icon_state="bsposter60"
-	name = "\improper Ninetails logo"
-	desc = "A poster depicting the Ninetails logo."
+	name = "\improper Nanotrasen logo"
+	desc = "A poster depicting the Nanotrasen logo."
 
 /datum/poster/bay_61
 	icon_state="bsposter61"

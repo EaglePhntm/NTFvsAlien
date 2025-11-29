@@ -13,7 +13,7 @@
 
 //mech spawn points
 /obj/effect/landmark/campaign/vehicle_spawner/mech
-	name = "NTF med mech spawner"
+	name = "tgmc med mech spawner"
 	icon_state = "mech"
 	vehicle_type = /obj/vehicle/sealed/mecha/combat/greyscale/assault/noskill
 	///Colours to paint mechs from this spawner
@@ -40,13 +40,13 @@
 	new_mech.update_icon()
 
 /obj/effect/landmark/campaign/vehicle_spawner/mech/heavy
-	name = "NTF heavy mech spawner"
+	name = "tgmc heavy mech spawner"
 	icon_state = "mech_heavy"
 	head_colors = list(ARMOR_PALETTE_RED, ARMOR_PALETTE_GREYISH_TURQUOISE, VISOR_PALETTE_SYNDIE_GREEN)
 	vehicle_type = /obj/vehicle/sealed/mecha/combat/greyscale/vanguard/noskill
 
 /obj/effect/landmark/campaign/vehicle_spawner/mech/light
-	name = "NTF light mech spawner"
+	name = "tgmc light mech spawner"
 	icon_state = "mech_light"
 	head_colors = list(ARMOR_PALETTE_SPACE_CADET, ARMOR_PALETTE_GREYISH_TURQUOISE, VISOR_PALETTE_SYNDIE_GREEN)
 	vehicle_type = /obj/vehicle/sealed/mecha/combat/greyscale/recon/noskill
@@ -73,7 +73,7 @@
 
 
 /obj/effect/landmark/campaign/vehicle_spawner/tank
-	name = "NTF LTB tank spawner"
+	name = "TGMC LTB tank spawner"
 	icon_state = "tank_spawner"
 	vehicle_type = /obj/vehicle/sealed/armored/multitile/campaign
 	///List of gear the tank spawns with
@@ -117,7 +117,7 @@
 		new /obj/item/pamphlet/tank_crew(pamphlet_turf)
 
 /obj/effect/landmark/campaign/vehicle_spawner/tank/ltaap_chaingun
-	name = "NTF LTAAP tank spawner"
+	name = "TGMC LTAAP tank spawner"
 	equipment_list = list(
 		/obj/item/armored_weapon/ltaap = 1,
 		/obj/item/armored_weapon/secondary_weapon = 1,

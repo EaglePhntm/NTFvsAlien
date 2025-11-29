@@ -23,9 +23,8 @@ SUBSYSTEM_DEF(weeds_decay)
 		var/decay_chance = 100
 		for(var/direction in GLOB.cardinals)
 			var/turf/adj = get_step(weed, direction)
-			var/obj/alien/weeds/nearbyweed = locate() in adj
-			if(weed.issamexenohive(nearbyweed))
-				decay_chance -= 20
+			if(locate(/obj/alien/weeds) in adj)
+				decay_chance -= rand(15, 20)
 
 		if(prob(decay_chance))
 			addtimer(CALLBACK(weed, TYPE_PROC_REF(/obj/alien/weeds, check_for_parent_node)), rand(3, 10 SECONDS))

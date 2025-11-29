@@ -31,14 +31,12 @@
 	return ..()
 
 /datum/action/ability/activable/sectoid/mindmeld/can_use_action(silent, override_flags, selecting)
-	. = ..()
-	if(!.)
-		return
 	var/mob/living/carbon/carbon_owner = owner
 	if(melded_mob)
 		return FALSE
 	if(HAS_TRAIT(carbon_owner, TRAIT_MINDMELDED))
 		return FALSE
+	return ..()
 
 /datum/action/ability/activable/sectoid/mindmeld/can_use_ability(atom/A, silent = FALSE, override_flags)
 	. = ..()
@@ -407,7 +405,7 @@
 		return fail_activate()
 
 	QDEL_NULL(particle_holder)
-	playsound(owner, 'sound/effects/magic.ogg', 10)
+	playsound(owner, 'sound/effects/petrify_activate.ogg', 50)
 
 	var/list/outcome = target.psi_act(psi_strength, owner)
 	if(!outcome)

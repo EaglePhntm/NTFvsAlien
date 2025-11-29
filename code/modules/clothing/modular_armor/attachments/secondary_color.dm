@@ -68,3 +68,4 @@
 	name = "chest secondary color"
 	icon_state = "chest_secondary_color"
 	colorable_colors = VISOR_PALETTES_LIST
+

@@ -47,7 +47,7 @@
 				balloon_alert(user, "blocked by [thing_to_check]!")
 				return
 	playsound(loc, 'sound/machines/hydraulics_1.ogg', 40, 1)
-	if(!do_after(user, 7 SECONDS, FALSE, src))
+	if(!do_after(user, 7 SECONDS, IGNORE_HELD_ITEM, src))
 		return
 	if(installed_equipment || attached_clamp.loaded != loaded_equipment)
 		return
@@ -215,7 +215,7 @@
 			to_chat(user, span_warning("[clamp_ammo] doesn't fit in [src]."))
 			return
 		playsound(src, 'sound/machines/hydraulics_1.ogg', 40, 1)
-		if(!do_after(user, 30, FALSE, src, BUSY_ICON_BUILD))
+		if(!do_after(user, 30, IGNORE_HELD_ITEM, src, BUSY_ICON_BUILD))
 			return
 		if(ammo_equipped || attached_clamp.loaded != clamp_ammo || !LAZYLEN(attached_clamp.linked_powerloader?.buckled_mobs) || attached_clamp.linked_powerloader.buckled_mobs[1] != user)
 			return
@@ -229,7 +229,7 @@
 		return //refilled dropship ammo
 	if((dropship_equipment_flags & USES_AMMO) && ammo_equipped)
 		playsound(src, 'sound/machines/hydraulics_2.ogg', 40, 1)
-		if(!do_after(user, 30, FALSE, src, BUSY_ICON_BUILD))
+		if(!do_after(user, 30, IGNORE_HELD_ITEM, src, BUSY_ICON_BUILD))
 			return
 		if(!ammo_equipped || !LAZYLEN(attached_clamp.linked_powerloader?.buckled_mobs) || attached_clamp.linked_powerloader.buckled_mobs[1] != user)
 			return
@@ -481,12 +481,9 @@
 
 /obj/structure/dropship_equipment/shuttle/sentry_holder/Initialize(mapload)
 	. = ..()
-	if(!istype(deployed_turret))
+	if(!deployed_turret)
 		var/obj/new_gun = new sentry_type(src)
 		deployed_turret = new_gun.loc
-		if(!istype(deployed_turret))
-			deployed_turret = null
-			return
 		RegisterSignal(deployed_turret, COMSIG_OBJ_DECONSTRUCT, PROC_REF(clean_refs))
 	deployed_turret.set_on(FALSE)
 
@@ -828,11 +825,6 @@
 	for(var/turf/impact in predicted_dangerous_turfs)
 		effects_to_delete += new /obj/effect/overlay/blinking_laser/marine/lines(impact)
 
-	var/mob/user = usr
-	if(istype(usr))
-		log_combat(user, selected_target, "shot (CAS)", SA, "(Will land in [ammo_travelling_time/(1 SECONDS)] seconds) (fired from [logdetails(src)], linked console is [logdetails(linked_console)])")
-	else
-		log_attack("???UNKNOWN??? shot (CAS) [logdetails(selected_target)] with [logdetails(SA)] (Will land in [ammo_travelling_time/(1 SECONDS)] seconds) (fired from [logdetails(src)], linked console is [logdetails(linked_console)])")
 	addtimer(CALLBACK(SA, TYPE_PROC_REF(/obj/structure/ship_ammo, detonate_on), target_turf, attackdir), ammo_travelling_time)
 	QDEL_LIST_IN(effects_to_delete, ammo_travelling_time)
 
@@ -916,7 +908,7 @@
 /obj/structure/dropship_equipment/cas/weapon/laser_beam_gun
 	name = "laser beam gun"
 	icon_state = "laser_beam"
-	desc = "State of the art technology recently acquired by the NTC, it fires a battery-fed pulsed laser beam at near lightspeed setting on fire everything it touches. Moving this will require some sort of lifter."
+	desc = "State of the art technology recently acquired by the TGMC, it fires a battery-fed pulsed laser beam at near lightspeed setting on fire everything it touches. Moving this will require some sort of lifter."
 	icon = 'icons/obj/structures/prop/mainship_64.dmi'
 	firing_sound = 'sound/weapons/gunship_laser.ogg'
 	firing_delay = 50 //5 seconds

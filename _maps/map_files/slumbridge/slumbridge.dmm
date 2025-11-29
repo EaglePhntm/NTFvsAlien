@@ -4048,7 +4048,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/tile/bar,
 /area/slumbridge/inside/houses/recreational)
 "cYO" = (
@@ -7585,7 +7584,6 @@
 	on = 1
 	},
 /obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
 /obj/effect/ai_node,
 /turf/open/floor/tile/bar,
 /area/slumbridge/inside/houses/recreational)
@@ -11050,7 +11048,6 @@
 /area/slumbridge/inside/medical/southern)
 "iky" = (
 /obj/machinery/power/smes/buildable/empty/dist,
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/slumbridge/inside/engi/central)
 "ikN" = (
@@ -11774,7 +11771,6 @@
 	dir = 8
 	},
 /obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/purple/whitepurple{
 	dir = 4
@@ -13051,7 +13047,6 @@
 	dir = 8
 	},
 /obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/lightred/full,
 /area/slumbridge/inside/colony/southerndome)
@@ -21623,7 +21618,6 @@
 /area/slumbridge/inside/prison/outerringsouth)
 "pTG" = (
 /obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/snow/layer2,
 /area/slumbridge/outside/southwest)
@@ -22660,7 +22654,6 @@
 /area/slumbridge/inside/prison/outerringsouth)
 "qFB" = (
 /obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/prison/kitchen,
 /area/slumbridge/inside/colony/kitchen)
 "qFG" = (

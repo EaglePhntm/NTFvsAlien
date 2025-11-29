@@ -13,12 +13,9 @@
 	. = ..()
 	set_datum()
 	add_inherent_verbs()
-	apply_minimap_hud()
+	var/datum/action/minimap/xeno/mini = new
+	mini.give_action(src)
 	add_abilities()
-
-	var/datum/game_mode/mode = SSticker.mode
-	if(mode.round_type_flags & MODE_SURVIVAL)
-		DISABLE_BITFIELD(sight, SEE_MOBS)
 
 	create_reagents(1000)
 	gender = NEUTER
@@ -31,9 +28,11 @@
 
 	switch(stat)
 		if(CONSCIOUS)
-			GLOB.alive_xeno_list |= src
+			GLOB.alive_xeno_list += src
+			LAZYADD(GLOB.alive_xeno_list_hive[hivenumber], src)
 		if(UNCONSCIOUS)
-			GLOB.alive_xeno_list |= src
+			GLOB.alive_xeno_list += src
+			LAZYADD(GLOB.alive_xeno_list_hive[hivenumber], src)
 
 	GLOB.xeno_mob_list += src
 	GLOB.round_statistics.total_xenos_created++
@@ -41,9 +40,6 @@
 
 	wound_overlay = new(null, src)
 	vis_contents += wound_overlay
-
-	genital_overlay = new(src, src)
-	vis_contents += genital_overlay
 
 	fire_overlay = new(src, src)
 	vis_contents += fire_overlay
@@ -73,10 +69,8 @@
 	hive.update_tier_limits()
 	if(CONFIG_GET(flag/xenos_on_strike))
 		replace_by_ai()
-	/* NTF EDIT - moved to add_to_hive()
 	if(z) //Larva are initiated in null space
 		SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_icon, MINIMAP_BLIPS_LAYER))
-	*/
 	handle_weeds_on_movement()
 
 	AddElement(/datum/element/footstep, footstep_type, mob_size >= MOB_SIZE_BIG ? 0.8 : 0.5)
@@ -120,13 +114,7 @@
 
 ///Will multiply the base max health of this xeno by GLOB.xeno_stat_multiplicator_buff while maintaining current health percent.
 /mob/living/carbon/xenomorph/proc/apply_health_stat_buff()
-	var/new_max_health = max(xeno_caste.max_health * hive.health_mulitiplier, 10)
-	var/new_endurance_health_max = new_max_health * 1.5
-	if(new_endurance_health_max != endurance_health_max)
-		endurance_health = endurance_health * new_endurance_health_max / endurance_health_max
-		endurance_health_max = new_endurance_health_max
-	if(new_max_health == maxHealth)
-		return
+	var/new_max_health = max(xeno_caste.max_health * GLOB.xeno_stat_multiplicator_buff, 10)
 	var/needed_healing = 0
 
 	if(health < 0) //In crit. Death threshold below 0 doesn't change with stat buff, so we can just apply damage equal to the max health change
@@ -138,10 +126,9 @@
 		var/current_total_damage = maxHealth - health
 		needed_healing = current_total_damage - new_total_damage
 
-	if(needed_healing)
-		var/brute_healing = min(getBruteLoss(), needed_healing)
-		adjustBruteLoss(-brute_healing)
-		adjustFireLoss(-(needed_healing - brute_healing))
+	var/brute_healing = min(getBruteLoss(), needed_healing)
+	adjustBruteLoss(-brute_healing)
+	adjustFireLoss(-(needed_healing - brute_healing))
 
 	maxHealth = new_max_health
 	updatehealth()
@@ -162,7 +149,7 @@
 /mob/living/carbon/xenomorph/proc/generate_name()
 	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
 	var/rank_name
-	var/prefix = "[hive.prefix][xeno_caste.upgrade_name ? "[xeno_caste.upgrade_name] " : ""]"
+	var/prefix = (hive.prefix || xeno_caste.upgrade_name) ? "[hive.prefix][xeno_caste.upgrade_name] " : ""
 	if(!client?.prefs.show_xeno_rank || !client)
 		name = prefix + "[xeno_caste.display_name] ([nicknumber])"
 		real_name = name
@@ -182,7 +169,7 @@
 			rank_name = "Prime"
 		else
 			rank_name = "Young"
-	name = prefix + "[rank_name ? "[rank_name] " : ""][xeno_caste.display_name][src == hive.living_xeno_ruler ? " Regnant" :""] ([nicknumber])"
+	name = prefix + "[rank_name ? "[rank_name] " : ""][xeno_caste.display_name] ([nicknumber])"
 
 	//Update linked data so they show up properly
 	real_name = name
@@ -204,13 +191,13 @@
 	switch(playtime_mins)
 		if(0 to 600)
 			return 0
-		if(601 to 3000)
+		if(601 to 1500)
 			return 1
-		if(3001 to 9000)
+		if(1501 to 4200)
 			return 2
-		if(9001 to 18000)
+		if(4201 to 10500)
 			return 3
-		if(18001 to INFINITY)
+		if(10501 to INFINITY)
 			return 4
 		else
 			return 0
@@ -260,46 +247,30 @@
 	. += xeno_caste.caste_desc
 	. += "<span class='notice'>"
 
-	if(xeno_desc)
-		. += "\n<span class='info'>[span_collapsible("Flavor Text", "[xeno_desc]")]</span>"
-
-	if(pose)
-		. += "\n[span_info(span_collapsible("Temporary Flavor Text", "[pose]"))]"
-
-	if(xenoprofile_pic)
-		. += "<span class='info'><img src=[xenoprofile_pic] width=300 height=350/></span>"
-
 	if(stat == DEAD)
-		. += "<span class='deadsay'>[p_they(TRUE)] is DEAD. Kicked the bucket. Off to that great hive in the sky.</span>"
+		. += "<span class='deadsay'>It is DEAD. Kicked the bucket. Off to that great hive in the sky.</span>"
 	else if(stat == UNCONSCIOUS)
-		. += "[p_they(TRUE)] quivers a bit, but barely moves."
+		. += "It quivers a bit, but barely moves."
 	else
 		var/percent = (health / maxHealth * 100)
 		switch(percent)
 			if(95 to 101)
-				. += "[p_they(TRUE)] looks quite healthy."
+				. += "It looks quite healthy."
 			if(75 to 94)
-				. += "[p_they(TRUE)] looks slightly injured."
+				. += "It looks slightly injured."
 			if(50 to 74)
-				. += "[p_they(TRUE)] looks injured."
+				. += "It looks injured."
 			if(25 to 49)
-				. += "[p_they(TRUE)] bleeds with sizzling wounds."
+				. += "It bleeds with sizzling wounds."
 			if(1 to 24)
-				. += "[p_they(TRUE)] is heavily injured and limping badly."
+				. += "It is heavily injured and limping badly."
 
 	. += "</span>"
 
-	if(has_brain() && stat != DEAD)
-		if(!key)
-			. += "[span_deadsay("They are fast asleep. It doesn't look like they are waking up anytime soon.")]\n"
-		else if(!client)
-			. += "[span_xenowarning("They don't seem responsive.")]\n"
-
 	if(hivenumber != XENO_HIVE_NORMAL)
 		var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
-		. += "[p_they(TRUE)] appears to belong to the [hive.prefix]hive"
+		. += "It appears to belong to the [hive.prefix]hive"
 	return
-
 
 /mob/living/carbon/xenomorph/Destroy()
 	if(mind) mind.name = name //Grabs the name when the xeno is getting deleted, to reference through hive status later.
@@ -318,7 +289,6 @@
 	vis_contents -= wound_overlay
 	vis_contents -= fire_overlay
 	vis_contents -= backpack_overlay
-	QDEL_NULL(genital_overlay)
 	QDEL_NULL(wound_overlay)
 	QDEL_NULL(fire_overlay)
 	QDEL_NULL(backpack_overlay)
@@ -358,18 +328,26 @@
 	return ..()
 
 /mob/living/carbon/xenomorph/pull_response(mob/puller)
-	if(incapacitated() || HAS_TRAIT(src, TRAIT_FLOORED)) // If the Xeno is incapacitated, don't fight back against a grab/pull
+	if(stat != CONSCIOUS) // If the Xeno is unconscious, don't fight back against a grab/pull
 		return TRUE
 	if(!ishuman(puller))
 		return TRUE
 	var/mob/living/carbon/human/H = puller
-	if((issamexenohive(H) || (H.faction in hive.allied_factions)) && !(xeno_flags & XENO_ALLIES_BUMP)) // we can grab friendly benos
+	if(hivenumber == XENO_HIVE_CORRUPTED) // we can grab friendly benos
 		return TRUE
 	H.Paralyze(rand(xeno_caste.tacklemin,xeno_caste.tacklemax) * 20)
 	playsound(H.loc, 'sound/weapons/pierce.ogg', 25, 1)
 	H.visible_message(span_warning("[H] tried to pull [src] but instead gets a tail swipe to the head!"))
 	H.stop_pulling()
 	return FALSE
+
+/mob/living/carbon/xenomorph/resist_grab()
+	if(pulledby.grab_state)
+		visible_message(span_danger("[src] has broken free of [pulledby]'s grip!"), null, null, 5)
+	pulledby.stop_pulling()
+	. = 1
+
+
 
 /mob/living/carbon/xenomorph/prepare_huds()
 	..()
@@ -472,8 +450,6 @@
 	for(var/obj/alien/weeds/W in range(strict_turf_check ? 0 : 1, T ? T : get_turf(src)))
 		if(QDESTROYING(W))
 			continue
-		if(!issamexenohive(W))
-			continue
 		return
 	return FALSE
 
@@ -485,14 +461,21 @@
 		return
 	loc_weeds_type = null
 
-/// Handles logic for the xeno moving to a new weeds tile
+/**  Handles logic for the xeno moving to a new weeds tile.
+Returns TRUE when loc_weeds_type changes. Returns FALSE when it doesn’t change */
 /mob/living/carbon/xenomorph/proc/handle_weeds_on_movement(datum/source)
 	SIGNAL_HANDLER
 	var/obj/alien/weeds/found_weed = locate(/obj/alien/weeds) in loc
-	if(!issamexenohive(found_weed))
-		loc_weeds_type = null
-		return
+	if(loc_weeds_type == found_weed?.type)
+		return FALSE
 	loc_weeds_type = found_weed?.type
+	return TRUE
+
+/mob/living/carbon/xenomorph/hivemind/handle_weeds_on_movement(datum/source)
+	. = ..()
+	if(!.)
+		return
+	update_icon()
 
 /mob/living/carbon/xenomorph/toggle_resting()
 	var/datum/action/ability/xeno_action/xeno_resting/resting_action = actions_by_path[/datum/action/ability/xeno_action/xeno_resting]

@@ -54,13 +54,11 @@
 	if(!isliving(grabbed_thing) || user.do_actions)
 		return
 
-	if(!ishuman(user) && !isxeno(user))
+	if(!ishuman(user)) //only humans can reinforce a grab.
 		return
-
 	var/mob/living/victim = grabbed_thing
-	if(!isxeno(user))
-		if(victim.mob_size > MOB_SIZE_HUMAN || !(victim.status_flags & CANPUSH))
-			return //can't tighten your grip on big mobs and mobs you can't push.
+	if(victim.mob_size > MOB_SIZE_HUMAN || !(victim.status_flags & CANPUSH))
+		return //can't tighten your grip on big mobs and mobs you can't push.
 	if(user.grab_state > GRAB_KILL)
 		return
 	user.changeNext_move(CLICK_CD_GRABBING)
@@ -89,8 +87,7 @@
 			if(victim.pulling)
 				victim.stop_pulling()
 		if(GRAB_NECK)
-			if(!isxeno(src))
-				icon_state = "disarm/kill"
+			icon_state = "disarm/kill"
 			log_combat(src, victim, "neck grabbed")
 			visible_message(span_danger("[src] grabs [victim] by the neck!"),
 				span_danger("You grab [victim] by the neck!"),
@@ -101,8 +98,7 @@
 			if(!victim.buckled && !victim.density)
 				victim.Move(loc)
 		if(GRAB_KILL)
-			if(!isxeno(src))
-				icon_state = "disarm/kill1"
+			icon_state = "disarm/kill1"
 			log_combat(src, victim, "strangled")
 			visible_message(span_danger("[src] is strangling [victim]!"),
 				span_danger("You're strangling [victim]!"),
@@ -125,9 +121,9 @@
 		return TRUE
 	if(user.grab_state > GRAB_KILL)
 		return FALSE
-	if(user.do_actions || (!ishuman(user) && !isxeno(user)) || attacked != user.pulling)
+	if(user.do_actions || !ishuman(user) || attacked != user.pulling)
 		return FALSE
-	if(!do_mob(user, attacked, 2 SECONDS, BUSY_ICON_HOSTILE, extra_checks = CALLBACK(user, TYPE_PROC_REF(/datum, Adjacent), attacked)) || !user.pulling)
+	if(!do_after(user, 2 SECONDS, NONE, attacked, BUSY_ICON_HOSTILE, extra_checks = CALLBACK(user, TYPE_PROC_REF(/datum, Adjacent), attacked)) || !user.pulling)
 		return TRUE
 	user.advance_grab_state(attacked)
 	return TRUE

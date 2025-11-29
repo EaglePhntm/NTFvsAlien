@@ -14,7 +14,7 @@
 	var/static/list/connections = list(
 		COMSIG_OBJ_TRY_ALLOW_THROUGH = PROC_REF(can_climb_over),
 	)
-	AddElement(/datum/element/connect_loc, connections, TRUE)
+	AddElement(/datum/element/connect_loc, connections)
 
 /obj/structure/concrete_planter/setDir(newdir)
 	. = ..()

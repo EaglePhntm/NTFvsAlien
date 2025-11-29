@@ -57,7 +57,6 @@ GLOBAL_LIST_EMPTY(personal_statistics_list)
 	var/delimbs = 0
 	var/internal_injuries = 0
 	var/internal_injuries_inflicted = 0
-	var/tail_stabs = 0
 
 	var/grenade_hand_delimbs = 0
 
@@ -625,7 +624,7 @@ The alternative is scattering them everywhere under their respective objects whi
 	if(victim.ckey)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[victim.ckey]
 		personal_statistics.internal_injuries++
-	if(istype(attacker) && attacker?.ckey)
+	if(attacker?.ckey)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[attacker.ckey]
 		personal_statistics.internal_injuries_inflicted++
 	return TRUE

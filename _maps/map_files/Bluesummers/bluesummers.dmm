@@ -8654,13 +8654,6 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/bluesummers/caves/cryostorage/tcomms)
-"hMr" = (
-/obj/structure/disposalpipe/segment/corner{
-	dir = 1
-	},
-/obj/structure/cable,
-/turf/open/floor/plating/plating_catwalk,
-/area/bluesummers/inside/engineering/plant)
 "hNp" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
 /turf/open/floor/freezer,
@@ -15843,13 +15836,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/drought,
 /area/bluesummers/inside/chapel)
-"nrn" = (
-/obj/structure/disposalpipe/segment/corner{
-	dir = 8
-	},
-/obj/structure/cable,
-/turf/open/floor/plating/plating_catwalk,
-/area/bluesummers/inside/engineering/plant)
 "nrH" = (
 /obj/machinery/light,
 /obj/effect/spawner/random/machinery/machine_frame,
@@ -17054,13 +17040,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/floor,
 /area/bluesummers/inside/eva)
-"ouD" = (
-/obj/structure/disposalpipe/segment/corner{
-	dir = 2
-	},
-/obj/structure/cable,
-/turf/open/floor/plating/plating_catwalk,
-/area/bluesummers/inside/engineering/plant)
 "ouI" = (
 /obj/machinery/light{
 	dir = 8
@@ -23075,13 +23054,6 @@
 /obj/machinery/newscaster,
 /turf/closed/wall/mainship,
 /area/bluesummers/inside/food_processing/east)
-"toC" = (
-/obj/structure/disposalpipe/segment/corner{
-	dir = 4
-	},
-/obj/structure/cable,
-/turf/open/floor/plating/plating_catwalk,
-/area/bluesummers/inside/engineering/plant)
 "toU" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/dmg1,
@@ -24777,7 +24749,7 @@
 /turf/open/floor/plating,
 /area/bluesummers/outside/north)
 "uJW" = (
-/obj/machinery/cic_maptable/survivor,
+/obj/machinery/cic_maptable,
 /obj/structure/cable,
 /turf/open/floor/mainship/orange/full,
 /area/bluesummers/inside/engineering/office)
@@ -27901,12 +27873,9 @@
 /turf/open/floor/mainship/floor,
 /area/bluesummers/inside/observation_deck)
 "xHT" = (
+/obj/structure/lattice,
 /obj/effect/landmark/weed_node,
-/obj/structure/cable,
-/obj/machinery/power/terminal{
-	dir = 8
-	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/ground/drought/cave,
 /area/bluesummers/inside/engineering/plant)
 "xIi" = (
 /obj/structure/prop/mainship/suit_storage_prop,
@@ -28109,7 +28078,7 @@
 	},
 /area/bluesummers/inside/biodome)
 "xTl" = (
-/obj/machinery/cic_maptable/drawable/big/survivor,
+/obj/machinery/cic_maptable/drawable/big,
 /obj/structure/cable,
 /turf/open/floor/mainship/floor,
 /area/bluesummers/caves/cryostorage/bridge)
@@ -47681,11 +47650,11 @@ rOc
 gLa
 gLa
 gLa
-toC
+eDQ
 oyP
 cLT
 oyP
-hMr
+xUD
 gLa
 rOc
 rOc
@@ -47863,11 +47832,11 @@ rOc
 gLa
 eDQ
 tNf
-nrn
+lZG
 jvw
 xHT
 jvw
-ouD
+njF
 uQn
 ykV
 rOc

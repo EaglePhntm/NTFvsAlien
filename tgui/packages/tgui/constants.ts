@@ -134,13 +134,8 @@ export const RADIO_CHANNELS = [
     color: '#f37746',
   },
   {
-    name: 'CAS',
-    freq: 1359,
-    color: '#dd3535',
-  },
-  {
     name: 'Security',
-    freq: 1439,
+    freq: 1359,
     color: '#dd3535',
   },
   {

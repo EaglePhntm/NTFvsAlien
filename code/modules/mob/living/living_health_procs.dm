@@ -75,8 +75,8 @@
 
 	var/stamina_loss_adjustment = staminaloss + amount
 	var/health_limit = maxHealth * 2
-	if(stamina_loss_adjustment > health_limit) //If we exceed maxHealth * 2 stamina damage, get hardstunned for 15 seconds, instead of taking oxygen damage.
-		apply_effect(15 SECONDS, EFFECT_PARALYZE)
+	if(stamina_loss_adjustment > health_limit) //If we exceed maxHealth * 2 stamina damage, half of any excess as oxyloss
+		adjustOxyLoss((stamina_loss_adjustment - health_limit) * 0.5)
 
 	staminaloss = clamp(stamina_loss_adjustment, -max_stamina, health_limit)
 
@@ -174,18 +174,10 @@
 /mob/living/proc/set_Losebreath(amount, forced = FALSE)
 	return
 
-/mob/living/proc/getDrowsyness()
-	return drowsyness
-
-/mob/living/proc/drowsy(amount)
-	if(status_flags & GODMODE)
-		return FALSE
-	setDrowsyness(max(getDrowsyness(), amount))
-
 /mob/living/proc/adjustDrowsyness(amount)
 	if(status_flags & GODMODE)
 		return FALSE
-	setDrowsyness(max(getDrowsyness() + amount, 0))
+	setDrowsyness(max(drowsyness + amount, 0))
 
 /mob/living/proc/setDrowsyness(amount)
 	if(status_flags & GODMODE)
@@ -213,13 +205,6 @@
 		return
 
 	blood_volume = clamp(amount, 0, BLOOD_VOLUME_MAXIMUM)
-
-///returns blood voluem
-/mob/living/proc/get_blood_volume()
-	return blood_volume
-
-/mob/living/proc/get_regular_blood_volume()
-	return initial(src.blood_volume)
 
 
 // heal ONE limb, organ gets randomly selected from damaged ones.
@@ -280,8 +265,8 @@
 
 /mob/living/carbon/xenomorph/on_revive()
 	. = ..()
-	GLOB.alive_xeno_list |= src
-	LAZYOR(GLOB.alive_xeno_list_hive[hivenumber], src)
+	GLOB.alive_xeno_list += src
+	LAZYADD(GLOB.alive_xeno_list_hive[hivenumber], src)
 	GLOB.dead_xeno_list -= src
 
 /mob/living/proc/revive(admin_revive = FALSE)
@@ -316,14 +301,12 @@
 	restore_all_organs()
 
 	//remove larva
-	for(var/obj/item/alien_embryo/A in contents)
+	var/obj/item/alien_embryo/A = locate() in src
+	var/mob/living/carbon/xenomorph/larva/L = locate() in src //the larva was fully grown, ready to burst.
+	if(A)
 		qdel(A)
-		if(!A)
-			break
-	for(var/mob/living/carbon/xenomorph/larva/L in contents) //the larva was fully grown, ready to burst.
+	if(L)
 		qdel(L)
-		if(!L)
-			break
 	DISABLE_BITFIELD(status_flags, XENO_HOST)
 
 	// restore us to conciousness
@@ -342,7 +325,6 @@
 	SSmobs.start_processing(src)
 	SEND_SIGNAL(src, COMSIG_LIVING_POST_FULLY_HEAL, admin_revive)
 
-	clear_fullscreen("death")
 
 /mob/living/carbon/revive(admin_revive = FALSE)
 	set_nutrition(400)

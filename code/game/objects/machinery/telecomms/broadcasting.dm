@@ -111,11 +111,7 @@
 	spans  // the list of spans applied to the message
 )
 	src.source = source
-	if(isnum(frequency))
-		src.frequency = frequency
-	else
-		stack_trace("Invalid frequency! [logdetails(frequency)][istext(frequency) ? " \[AS TEXT\]" :""]")
-		src.frequency = text2num(frequency) || 0
+	src.frequency = frequency
 	src.language = language
 	virt = speaker
 	var/datum/language/lang_instance = GLOB.language_datum_instances[language]
@@ -138,7 +134,6 @@
 	copy.levels = levels
 	return copy
 
-GLOBAL_VAR_INIT(null_in_hearers_cooldown, 0)
 
 /// This is the meat function for making radios hear vocal transmissions.
 /datum/signal/subspace/vocal/broadcast()
@@ -201,7 +196,6 @@ GLOBAL_VAR_INIT(null_in_hearers_cooldown, 0)
 	for(var/atom/movable/hearer as anything in receive)
 		if(!hearer)
 			stack_trace("null found in the hearers list returned by the spatial grid. this is bad")
-			COOLDOWN_START(GLOB, null_in_hearers_cooldown, 5 MINUTES)
 			continue
 		hearer.Hear(rendered, virt, language, message, frequency, spans)
 
@@ -220,6 +214,10 @@ GLOBAL_VAR_INIT(null_in_hearers_cooldown, 0)
 	var/lang_name = data["language"]
 	var/log_text = "\[[get_radio_name(frequency)]\] [spans_part]\"[message]\" (language: [lang_name])"
 
-	virt.source.log_message(log_text, LOG_TELECOMMS)
+	var/mob/source_mob = virt.source
+	if(ismob(source_mob))
+		source_mob.log_message(log_text, LOG_TELECOMMS)
+	else
+		log_telecomms("[virt.source] [log_text] [loc_name(get_turf(virt.source))]")
 
 	QDEL_IN(virt, 50)  // Make extra sure the virtualspeaker gets qdeleted

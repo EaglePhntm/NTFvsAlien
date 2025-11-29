@@ -48,7 +48,6 @@
 			RES_TIER_UNCOMMON = list(
 				/obj/item/research_product/money/uncommon,
 				/obj/item/implanter/blade,
-				/obj/item/attachable/shoulder_mount,
 			),
 			RES_TIER_RARE = list(
 				/obj/item/research_product/money/rare,
@@ -65,7 +64,6 @@
 			RES_TIER_UNCOMMON = list(
 				/obj/item/research_product/money/uncommon,
 				/obj/item/implanter/chem/blood,
-				/obj/item/attachable/shoulder_mount,
 			),
 			RES_TIER_RARE = list(
 				/obj/item/research_product/money/rare,
@@ -278,9 +276,9 @@
 	var/export_points = 1
 
 /obj/item/research_product/supply_export(faction_selling)
-	SSpoints.add_supply_points(faction_selling, export_points)  //NTF edit. Forcibly caps req points
+	SSpoints.supply_points[faction_selling] += export_points
 	GLOB.round_statistics.points_from_research += export_points
-	return list(new /datum/export_report(export_points, name, faction_selling))
+	return new /datum/export_report(export_points, name, faction_selling)
 
 /obj/item/research_product/money/examine(user)
 	. = ..()

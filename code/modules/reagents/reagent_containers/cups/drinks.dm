@@ -92,7 +92,7 @@
 	drink_type = SUGAR
 
 /obj/item/reagent_containers/cup/glass/mug/nanotrasen
-	name = "\improper Ninetails mug"
+	name = "\improper Nanotrasen mug"
 	desc = "A mug to display your corporate pride."
 	icon_state = "mug_nt_empty"
 	base_icon_state = "mug_nt"

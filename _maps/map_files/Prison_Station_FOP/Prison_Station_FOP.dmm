@@ -39699,7 +39699,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/cable,
 /turf/open/floor/prison/darkyellow{
 	dir = 4
 	},
@@ -40248,11 +40247,6 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
 /turf/closed/wall/r_wall/prison,
 /area/prison/command/quarters)
-"eVZ" = (
-/obj/effect/landmark/weed_node,
-/obj/structure/cable,
-/turf/open/floor/prison,
-/area/prison/engineering)
 "eWi" = (
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/misc/paperbin{
@@ -40847,12 +40841,6 @@
 	dir = 4
 	},
 /area/prison/cellblock/mediumsec/north)
-"gpf" = (
-/obj/structure/cable,
-/turf/open/floor/prison/darkyellow{
-	dir = 8
-	},
-/area/prison/engineering)
 "gpm" = (
 /obj/structure/bed,
 /obj/effect/spawner/random/weaponry/shiv,
@@ -43034,7 +43022,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/cable,
 /turf/open/floor/prison/darkyellow{
 	dir = 8
 	},
@@ -44310,7 +44297,6 @@
 /area/prison/hallway/central)
 "nmv" = (
 /obj/machinery/power/smes/buildable/empty,
-/obj/structure/cable,
 /turf/open/floor/prison/darkyellow{
 	dir = 9
 	},
@@ -45631,12 +45617,6 @@
 	},
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/prison/maintenance/residential/nw)
-"pYQ" = (
-/obj/structure/cable,
-/turf/open/floor/prison/darkyellow{
-	dir = 4
-	},
-/area/prison/engineering)
 "pZB" = (
 /turf/open/floor/prison/darkred{
 	dir = 5
@@ -46216,7 +46196,6 @@
 /area/prison/residential/south)
 "rha" = (
 /obj/machinery/power/smes/buildable/empty,
-/obj/structure/cable,
 /turf/open/floor/prison/darkyellow{
 	dir = 5
 	},
@@ -84089,7 +84068,7 @@ cgB
 bRC
 nmv
 kIC
-gpf
+gYO
 dGA
 gYO
 gYO
@@ -85374,7 +85353,7 @@ pfC
 bRC
 pTc
 ojj
-eVZ
+hge
 cbJ
 cbJ
 hge
@@ -85631,7 +85610,7 @@ cgB
 mws
 rha
 dSj
-pYQ
+sgK
 wkb
 tbE
 sgK

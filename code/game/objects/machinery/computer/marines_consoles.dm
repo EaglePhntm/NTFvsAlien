@@ -227,18 +227,18 @@
 		if ("scan")
 			if (scan)
 				if(ishuman(usr))
-					modify?.forceMove(drop_location())
+					modify.forceMove(drop_location())
 					if(!usr.get_active_held_item())
 						usr.put_in_hands(scan)
 					scan = null
 				else
-					modify?.forceMove(drop_location())
+					modify.forceMove(drop_location())
 					scan = null
 			else
 				var/obj/item/I = usr.get_active_held_item()
 				if (istype(I, /obj/item/card/id))
 					usr.drop_held_item()
-					modify?.forceMove(src)
+					modify.forceMove(src)
 					scan = I
 			authenticated = 0
 		if ("auth")
@@ -442,7 +442,7 @@
 						to_chat(usr, "Old squad access removed.")
 
 				if(selected) //Now we have a proper squad. Change their ID to it.
-					modify.assignment = "[selected.name] [modify.rank]" //Change the assignment - "Alpha Squad Operative"
+					modify.assignment = "[selected.name] [modify.rank]" //Change the assignment - "Alpha Squad Marine"
 					modify.access += selected.access //Add their new squad access (if anything) to their ID.
 					to_chat(usr, "[selected.name] Squad added to card.")
 				else

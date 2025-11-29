@@ -38,15 +38,11 @@
 	if(!do_checks(spirited_away, user))
 		return
 	do_extract(spirited_away, user)
-	var/list/datum/export_report/export_reports = spirited_away.supply_export(user.faction)
-	var/points = 0
-	var/dropship_points = 0
-	for(var/datum/export_report/export_report in export_reports)
-		points += export_report.points
-		dropship_points += export_report.dropship_points
+	var/datum/export_report/export_report = spirited_away.supply_export(user.faction)
+	if(export_report)
 		SSpoints.export_history += export_report
 	user.visible_message(span_notice("[user] finishes attaching [src] to [spirited_away] and activates it."),\
-	span_notice("You attach the pack to [spirited_away] and activate it. This looks like it will yield [points ? points : "no"] point[points == 1 ? "" : "s"][dropship_points ? " and [dropship_points] dropship point[dropship_points == 1 ? "" : "s"]" : ""]."), null, 5)
+	span_notice("You attach the pack to [spirited_away] and activate it. This looks like it will yield [export_report.points ? export_report.points : "no"] point[export_report.points == 1 ? "" : "s"]."), null, 5)
 	uses--
 	if(uses < 1)
 		user.temporarilyRemoveItemFromInventory(src) //Removes the item without qdeling it, qdeling it this early will break the rest of the procs
@@ -63,7 +59,7 @@
 		return FALSE
 	user.visible_message(span_notice("[user] starts attaching [src] to [spirited_away]."),\
 	span_notice("You start attaching the pack to [spirited_away]..."), null, 5)
-	if(!do_after(user, 5 SECONDS, TRUE, spirited_away))
+	if(!do_after(user, 5 SECONDS, NONE, spirited_away))
 		return FALSE
 	if(!isturf(spirited_away.loc))
 		balloon_alert(user, "Must extract on the ground")
@@ -115,35 +111,6 @@
 		qdel(src)
 	active = FALSE
 
-/obj/item/fulton_extraction_pack/tank
-	name = "heavy tank fulton"
-	desc = "A heavy duty balloon intended to be used to extract severely damaged tanks and other large vehicles."
-	w_class = WEIGHT_CLASS_BULKY
-	uses = 1
-
-/obj/item/fulton_extraction_pack/tank/Initialize(mapload)
-	. = ..()
-	//even lower than a coder sprite
-	var/matrix/M = new
-	M.Scale(1.5, 1.5)
-	transform = M
-
-/obj/item/fulton_extraction_pack/tank/extract(atom/movable/spirited_away, mob/living/user)
-	if(!isarmoredvehicle(spirited_away))
-		return ..()
-	RegisterSignal(spirited_away, COMSIG_ARMORED_DO_EXTRACT, PROC_REF(extract_vehicle))
-
-	user.visible_message(span_notice("[user] finishes attaching [src] to [spirited_away], ready for fastening"),\
-	span_notice("You attach the pack to [spirited_away], ready for fastening."), null, 5)
-
-	user.temporarilyRemoveItemFromInventory(src) //Removes the item without qdeling it, qdeling it this early will break the rest of the procs
-	moveToNullspace()
-
-/obj/item/fulton_extraction_pack/tank/proc/extract_vehicle(obj/vehicle/sealed/armored/spirited_away, mob/living/user)
-	SIGNAL_HANDLER
-	do_extract(spirited_away, user)
-	spirited_away.moveToNullspace()
-	addtimer(CALLBACK(spirited_away, TYPE_PROC_REF(/obj/vehicle/sealed/armored, return_to_base)), 8 SECONDS)
 
 /obj/effect/fulton_extraction_holder
 	name = "fulton extraction holder"
@@ -267,28 +234,6 @@
 			REMOVE_TRAIT(movable_target, TRAIT_IMMOBILE, type)
 	else
 		qdel(target)
-
-/obj/vehicle/sealed/armored/fulton_act(mob/living/user, obj/item/I)
-	. = TRUE
-	if(!istype(I, /obj/item/fulton_extraction_pack/tank))
-		user.balloon_alert(user, "needs a bigger fulton!")
-		return
-	if((armored_flags & ARMORED_WRECK_PREP_STAGE_TWO))
-		user.balloon_alert(user, "already attached!")
-		return
-	if(!(armored_flags & ARMORED_WRECK_PREP_STAGE_ONE))
-		user.balloon_alert(user, "needs [ARMORED_WRECK_PLASTEEL_REQ] plasteel")
-		return
-	if(!do_after(user, 5 SECONDS, NONE, src, BUSY_ICON_BUILD))
-		return
-	if((armored_flags & ARMORED_WRECK_PREP_STAGE_TWO))
-		user.balloon_alert(user, "already attached!")
-		return
-
-	armored_flags |= ARMORED_WRECK_PREP_STAGE_TWO
-	var/obj/item/fulton_extraction_pack/ext_pack = I
-	ext_pack.extract(src, user)
-	return TRUE
 
 
 /obj/structure/fulton_extraction_point

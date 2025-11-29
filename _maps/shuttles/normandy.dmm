@@ -2,42 +2,29 @@
 "ay" = (
 /obj/structure/dropship_piece/two/engine/leftbottom,
 /turf/closed/shuttle/dropship2/engineone,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "bi" = (
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 4
 	},
 /turf/open/shuttle/dropship/four,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "cK" = (
 /turf/closed/shuttle/dropship2/glassone,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "cW" = (
-/obj/structure/bed/chair/dropship/doublewide/left,
-/obj/structure/bed/chair/dropship/doublewide/right,
+/obj/structure/bed/chair/dropship/passenger,
 /turf/open/shuttle/dropship/seven,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "eY" = (
 /turf/open/shuttle/dropship/three,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "fz" = (
 /obj/structure/dropship_piece/two/engine/leftbottom,
 /turf/closed/shuttle/dropship2/engineone{
 	dir = 4
 	},
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "fJ" = (
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 4
@@ -46,149 +33,103 @@
 	dir = 8
 	},
 /turf/open/shuttle/dropship/three,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "gx" = (
 /turf/closed/shuttle/dropship2/engine_sidealt{
 	dir = 4
 	},
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "gA" = (
 /obj/effect/attach_point/crew_weapon/dropship2,
 /turf/open/shuttle/dropship/floor,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "hz" = (
 /obj/structure/dropship_piece/two/cockpit/right{
 	dir = 1
 	},
 /turf/template_noop,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "iq" = (
-/obj/docking_port/mobile/marine_dropship/two{
-	callTime = 240;
-	ignitionTime = 50
-	},
-/obj/effect/attach_point/crew_weapon/dropship2,
+/obj/structure/bed/chair/dropship/passenger,
+/obj/docking_port/mobile/marine_dropship/two,
 /turf/open/shuttle/dropship/floor,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "jx" = (
-/obj/machinery/computer/shuttle/marine_dropship/two{
-	possible_destinations = "lz1;lz2;hqlz1;hqlz2;normandy;alamo"
-	},
+/obj/machinery/computer/shuttle/marine_dropship/two,
 /turf/open/shuttle/dropship/floor,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "jY" = (
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 8
 	},
 /turf/open/shuttle/dropship/three,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "lI" = (
 /obj/machinery/door/poddoor/shutters/transit{
 	dir = 1
 	},
 /turf/open/shuttle/dropship/floor/alt,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "mf" = (
-/obj/machinery/light{
-	dir = 4
+/obj/machinery/telecomms/relay/preset/telecomms/onboard,
+/turf/closed/shuttle/dropship2/edge{
+	dir = 1
 	},
-/turf/template_noop,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "nu" = (
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 4
 	},
 /turf/open/shuttle/dropship/three,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "oe" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 8
+	},
 /obj/machinery/camera/autoname/mainship/dropship_two{
 	dir = 8
 	},
-/obj/structure/bed/chair/dropship/doublewide/left,
-/obj/structure/bed/chair/dropship/doublewide/right,
 /turf/open/shuttle/dropship/three,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "oB" = (
+/obj/structure/bed/chair/dropship/passenger,
 /obj/item/radio/intercom/dropship/normandy,
-/obj/structure/bed/chair/dropship/doublewide/left,
-/obj/structure/bed/chair/dropship/doublewide/right,
 /turf/open/shuttle/dropship/six,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "pB" = (
 /turf/closed/shuttle/dropship2/glassfour,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "qP" = (
 /turf/closed/shuttle/dropship2/enginetwo{
 	dir = 1
 	},
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "qW" = (
 /turf/closed/shuttle/dropship2/enginethree{
 	dir = 4
 	},
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "rG" = (
-/obj/machinery/vending/MarineMed,
 /turf/closed/shuttle/dropship2/edge{
 	dir = 1
 	},
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "rN" = (
 /turf/closed/shuttle/dropship2/enginetwo{
 	dir = 8
 	},
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "sh" = (
 /turf/closed/shuttle/dropship2/enginetwo{
 	dir = 4
 	},
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "th" = (
 /turf/open/shuttle/dropship/five,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "ud" = (
 /turf/closed/shuttle/dropship2/engineone/alt,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "ur" = (
 /obj/structure/bed/chair/dropship/pilot{
 	dir = 1
@@ -200,112 +141,51 @@
 	dir = 8
 	},
 /turf/open/shuttle/dropship/floor,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
-"uD" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/template_noop,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
-"vE" = (
-/obj/effect/attach_point/weapon/dropship2{
-	pixel_y = -10
-	},
-/obj/structure/dropship_piece/two/weapon/rightleft,
-/turf/template_noop,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
-"vT" = (
-/obj/effect/attach_point/weapon/dropship2{
-	pixel_y = -10
-	},
-/obj/structure/dropship_piece/two/weapon/leftright,
-/turf/template_noop,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "xX" = (
 /turf/closed/shuttle/dropship2/singlewindow{
 	dir = 1
 	},
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "yx" = (
 /obj/structure/dropship_piece/two/corner/rearleft{
 	dir = 1
 	},
 /turf/template_noop,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "yT" = (
-/obj/structure/dropship_piece/two/wing/right/top,
-/obj/effect/attach_point/electronics/dropship2{
-	pixel_y = -10
-	},
-/obj/structure/dropship_piece/two/weapon/leftright,
-/turf/template_noop,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/obj/machinery/door/poddoor/shutters/transit,
+/obj/machinery/door/airlock/dropship_hatch/right/two,
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/dropship/normandy)
 "zF" = (
 /obj/structure/dropship_piece/two/front/left{
 	dir = 1
 	},
 /turf/template_noop,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
-"AC" = (
-/obj/machinery/door/airlock/dropship_hatch/left/two,
-/obj/machinery/door/poddoor/shutters/transit{
-	dir = 8
-	},
-/turf/open/shuttle/dropship/floor,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "AM" = (
 /turf/closed/shuttle/dropship2/enginetwo,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "BK" = (
 /obj/machinery/door/poddoor/shutters/transit{
 	dir = 1
 	},
 /obj/machinery/door/airlock/multi_tile/mainship/dropshiprear/ds2,
 /turf/open/shuttle/dropship/floor/alt,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "Cq" = (
-/obj/structure/dropship_piece/two/wing/left/bottom,
-/obj/effect/attach_point/weapon/dropship2,
-/turf/template_noop,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/obj/machinery/door/poddoor/shutters/transit{
+	dir = 8
+	},
+/obj/machinery/door/airlock/dropship_hatch/left/two,
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/dropship/normandy)
 "CN" = (
 /turf/closed/shuttle/dropship2/engineone/alt{
 	dir = 1
 	},
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
-"Dl" = (
-/obj/structure/bed/chair/dropship/doublewide/left,
-/obj/structure/bed/chair/dropship/doublewide/right,
-/turf/open/shuttle/dropship/three,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "Dz" = (
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 8
@@ -314,128 +194,83 @@
 	dir = 4
 	},
 /turf/open/shuttle/dropship/three,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "DH" = (
 /turf/closed/shuttle/dropship2/walltwo,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "Fn" = (
 /turf/closed/shuttle/dropship2/glassthree,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "FH" = (
 /turf/closed/shuttle/dropship2/engineone/alt{
 	dir = 4
 	},
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "Gg" = (
 /turf/closed/shuttle/dropship2/engineone/alt{
 	dir = 8
 	},
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "Ii" = (
-/obj/effect/attach_point/fuel/dropship2,
 /turf/closed/shuttle/dropship2/enginethree,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "Iv" = (
 /turf/closed/shuttle/dropship2/engine_sidealt{
 	dir = 8
 	},
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "Js" = (
 /turf/closed/shuttle/dropship2/glasstwo,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
-"Jx" = (
-/obj/machinery/door/airlock/dropship_hatch/right/two,
-/obj/machinery/door/poddoor/shutters/transit,
-/turf/open/shuttle/dropship/floor,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "JK" = (
 /turf/closed/shuttle/dropship2/enginethree{
 	dir = 1
 	},
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "JT" = (
 /turf/closed/shuttle/dropship2/engine_sidealt,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "LS" = (
 /turf/open/shuttle/dropship/floor,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "Mg" = (
 /obj/structure/dropship_piece/two/engine/rightbottom,
 /turf/closed/shuttle/dropship2/engineone{
 	dir = 8
 	},
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "OZ" = (
 /turf/closed/shuttle/dropship2/wallthree,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "Ph" = (
 /obj/structure/dropship_piece/two/front/right{
 	dir = 1
 	},
 /turf/template_noop,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "Qh" = (
 /obj/structure/dropship_piece/two/front{
 	dir = 1
 	},
 /turf/template_noop,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "QN" = (
 /obj/structure/dropship_piece/two/corner/rearright{
 	dir = 1
 	},
 /turf/template_noop,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "Rq" = (
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 8
 	},
 /turf/open/shuttle/dropship/eight,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "Su" = (
-/obj/effect/attach_point/fuel/dropship2,
 /turf/closed/shuttle/dropship2/enginethree{
 	dir = 8
 	},
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "SV" = (
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 4
@@ -444,48 +279,23 @@
 	dir = 4
 	},
 /turf/open/shuttle/dropship/three,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "Tb" = (
 /obj/structure/dropship_piece/two/cockpit/left{
 	dir = 1
 	},
 /turf/template_noop,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
-"Uz" = (
-/obj/effect/attach_point/electronics/dropship2{
-	pixel_y = -10
-	},
-/turf/closed/shuttle/dropship2/enginetwo{
-	dir = 1
-	},
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
-"UZ" = (
-/obj/structure/dropship_piece/two/wing/right/bottom,
-/obj/effect/attach_point/weapon/dropship2,
-/turf/template_noop,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "Wg" = (
 /turf/closed/shuttle/dropship2/rearcorner/alt{
 	dir = 1
 	},
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "Wk" = (
 /turf/closed/shuttle/dropship2/rearcorner{
 	dir = 1
 	},
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "XK" = (
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 8
@@ -494,43 +304,19 @@
 	dir = 8
 	},
 /turf/open/shuttle/dropship/three,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "Ye" = (
 /turf/closed/shuttle/dropship2/engine_sidealt{
 	dir = 1
 	},
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
-"YI" = (
-/obj/machinery/vending/weapon,
-/turf/closed/shuttle/dropship2/edge{
-	dir = 1
-	},
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 "Zp" = (
 /turf/template_noop,
 /area/template_noop)
-"ZC" = (
-/obj/structure/dropship_piece/two/wing/left/top,
-/obj/effect/attach_point/electronics/dropship2{
-	pixel_y = -10
-	},
-/obj/structure/dropship_piece/two/weapon/rightleft,
-/turf/template_noop,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
 "ZF" = (
 /obj/machinery/door/airlock/hatch/cockpit/two,
 /turf/open/shuttle/dropship/floor,
-/area/shuttle/dropship/normandy{
-	ceiling = 2
-	})
+/area/shuttle/dropship/normandy)
 
 (1,1,1) = {"
 Zp
@@ -538,7 +324,7 @@ Zp
 Zp
 Zp
 Zp
-mf
+Zp
 Zp
 Zp
 ud
@@ -552,9 +338,9 @@ Zp
 Zp
 Zp
 Zp
-ZC
-sh
-Cq
+Zp
+Zp
+Zp
 Zp
 CN
 JK
@@ -566,11 +352,11 @@ Zp
 Zp
 Zp
 Zp
-vE
+Zp
 Wg
 DH
+Cq
 DH
-AC
 DH
 JT
 gx
@@ -584,8 +370,8 @@ Fn
 Js
 rG
 oB
-Dl
 eY
+nu
 fJ
 SV
 nu
@@ -600,10 +386,10 @@ ur
 ZF
 th
 iq
-LS
 gA
 LS
-gA
+LS
+LS
 th
 lI
 "}
@@ -612,10 +398,10 @@ Ph
 hz
 pB
 cK
-YI
+mf
 cW
-oe
 eY
+oe
 Dz
 XK
 jY
@@ -626,11 +412,11 @@ lI
 Zp
 Zp
 Zp
-vT
+Zp
 Wk
 OZ
+yT
 OZ
-Jx
 OZ
 Ye
 Iv
@@ -642,9 +428,9 @@ Zp
 Zp
 Zp
 Zp
-yT
-Uz
-UZ
+Zp
+Zp
+Zp
 Zp
 FH
 Su
@@ -658,7 +444,7 @@ Zp
 Zp
 Zp
 Zp
-uD
+Zp
 Zp
 Zp
 Gg

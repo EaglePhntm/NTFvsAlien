@@ -5,7 +5,7 @@
 	icon_state = "cart"
 	anchored = FALSE
 	density = TRUE
-	drag_delay = 0
+	drag_delay = 1
 	coverage = 20
 	resistance_flags = XENO_DAMAGEABLE
 	max_integrity = 100
@@ -110,8 +110,6 @@
 /obj/structure/janitorialcart/interact(mob/user)
 	. = ..()
 	if(.)
-		return
-	if(!(user.client))
 		return
 	var/dat
 	if(mybag)

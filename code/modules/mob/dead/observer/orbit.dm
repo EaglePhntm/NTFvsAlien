@@ -28,12 +28,7 @@
 			if (poi == null)
 				. = TRUE
 				return
-			if(poi.faction != FACTION_NEUTRAL && !(check_other_rights(owner.client, R_ADMIN, FALSE)))
-				if(owner.faction != poi.faction && !GLOB.observer_freedom)
-					to_chat(owner, span_warning("Can't teleport to other factions."))
-					return
-			if(!(owner.ManualFollow(poi)))
-				return
+			owner.ManualFollow(poi)
 			owner.reset_perspective(null)
 			if(auto_observe)
 				owner.do_observe(poi)
@@ -71,7 +66,7 @@
 	var/list/pois = getpois(skip_mindless = !is_admin, specify_dead_role = FALSE)
 	for(var/name in pois)
 		var/list/serialized = list()
-		serialized["full_name"] = "[name || "???SOMETHING???"]"
+		serialized["full_name"] = name
 
 		var/poi = pois[name]
 
@@ -82,9 +77,6 @@
 		if(!istype(mob_poi))
 			misc += list(serialized)
 			continue
-
-		if (is_admin)
-			serialized["ckey"] = mob_poi.ckey
 
 		if(isobserver(mob_poi))
 			ghosts += list(serialized)
@@ -97,6 +89,9 @@
 		if(mob_poi.mind == null)
 			npcs += list(serialized)
 			continue
+
+		if (is_admin)
+			serialized["ckey"] = mob_poi.ckey
 
 		var/number_of_orbiters = length(mob_poi.get_all_orbiters())
 		if(number_of_orbiters)

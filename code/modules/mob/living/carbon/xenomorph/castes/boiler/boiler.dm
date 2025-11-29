@@ -37,5 +37,4 @@
 
 /mob/living/carbon/xenomorph/boiler/sizzler
 	caste_base_type = /datum/xeno_caste/boiler/sizzler
-	icon_state = "Sizzler Boiler Walking"
 

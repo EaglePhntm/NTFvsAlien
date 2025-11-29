@@ -7,7 +7,7 @@
 /datum/outfit/quick/beginner
 	name = "Beginner loadout base"
 	desc = "The base loadout for beginners. You shouldn't be able to see this"
-	jobtype = "Squad Operative"
+	jobtype = "Squad Marine"
 
 	w_uniform = /obj/item/clothing/under/marine
 	shoes = /obj/item/clothing/shoes/marine/full

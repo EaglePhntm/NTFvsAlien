@@ -84,7 +84,7 @@
 	. = ..()
 	if(I.damtype == BURN)
 		ignite_fuel(I)
-		user.log_message("ignites [logdetails(src)]")
+		log_attack("[key_name(user)] ignites [src] in fuel in [AREACOORD(user)]")
 
 /obj/effect/decal/cleanable/liquid_fuel/fire_act(burn_level)
 	. = ..()

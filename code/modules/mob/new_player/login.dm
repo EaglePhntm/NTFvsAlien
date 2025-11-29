@@ -17,15 +17,6 @@
 
 	. = ..()
 
-	ooc_notes = client.prefs.metadata
-	ooc_notes_likes = client.prefs.metadata_likes
-	ooc_notes_dislikes = client.prefs.metadata_dislikes
-	ooc_notes_maybes = client.prefs.metadata_maybes
-	ooc_notes_favs = client.prefs.metadata_favs
-	ooc_notes_style = client.prefs.metadata_ooc_style
-
 	sight |= SEE_TURFS
 
 	client?.play_title_music()
-
-	name = "[key](In Lobby)"

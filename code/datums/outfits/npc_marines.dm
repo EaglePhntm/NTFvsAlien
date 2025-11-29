@@ -1,5 +1,5 @@
 /datum/outfit/job/npc/tgmc/squad_leader
-	name = "NPC NTF squad leader"
+	name = "NPC TGMC squad leader"
 	jobtype = /datum/job/terragov/squad/leader
 
 	id = /obj/item/card/id/dogtag
@@ -42,7 +42,7 @@
 	)
 
 /datum/outfit/job/npc/tgmc/smartgunner
-	name = "NPC NTF smartgunner"
+	name = "NPC TGMC smartgunner"
 	jobtype = /datum/job/terragov/squad/smartgunner
 
 	id = /obj/item/card/id/dogtag
@@ -91,7 +91,7 @@
 	)
 
 /datum/outfit/job/npc/tgmc/corpsman
-	name = "NPC NTF Corpsman"
+	name = "NPC TGMC Corpsman"
 	jobtype = /datum/job/terragov/squad/corpsman
 
 	id = /obj/item/card/id/dogtag
@@ -153,7 +153,7 @@
 	)
 
 /datum/outfit/job/npc/tgmc/standard
-	name = "NPC NTF standard"
+	name = "NPC TGMC standard"
 	jobtype = /datum/job/terragov/squad/standard
 
 	id = /obj/item/card/id/dogtag
@@ -199,7 +199,7 @@
 	)
 
 /datum/outfit/job/npc/tgmc/standard/shotgunner
-	name = "NPC NTF standard shotgunner"
+	name = "NPC TGMC standard shotgunner"
 	jobtype = /datum/job/terragov/squad/standard
 
 	id = /obj/item/card/id/dogtag
@@ -207,7 +207,7 @@
 	glasses = /obj/item/clothing/glasses/mgoggles
 	w_uniform = /obj/item/clothing/under/marine/black_vest
 	mask = /obj/item/clothing/mask/gas
-	head = /obj/item/clothing/head/modular/m10x
+	head = /obj/item/clothing/head/modular/m10x/hod
 	back = /obj/item/storage/backpack/marine/standard
 	belt = /obj/item/storage/belt/shotgun
 	gloves = /obj/item/clothing/gloves/marine/black
@@ -251,7 +251,7 @@
 
 //
 /datum/outfit/job/npc/tgmc/squad_engineer
-	name = "NPC NTF squad engineer"
+	name = "NPC TGMC squad engineer"
 	jobtype = /datum/job/terragov/squad/engineer
 
 	id = /obj/item/card/id/dogtag

@@ -13,123 +13,110 @@ Format:
 endmap
 
 map lv624
-	minplayers 1
-	default
-endmap
-
-map lv624bases
-	minplayers 0
+	minplayers 25
 endmap
 
 map bigred_v2
-        minplayers 1
+	minplayers 25
 endmap
 
 map ice_colony_v2
-	minplayers 1
+	minplayers 40
 endmap
 
 map prison_station_fop
-        minplayers 1
+	minplayers 20
+	maxplayers 60
 endmap
 
 map vapor_processing
-        disabled
+	default
 endmap
 
 map icy_caves
-        minplayers 1
+	maxplayers 50
 endmap
 
 map research_outpost
-        minplayers 1
+	maxplayers 40
 endmap
 
 map whiskey_outpost_v2
-	minplayers 1
 endmap
 
 map oscar_outpost
-	minplayers 1
 endmap
 
 map magmoor_digsite_iv
-        minplayers 1
+	minplayers 20
 endmap
 
 map orion_outpost
-        minplayers 1
+	maxplayers 40
 endmap
 
 map gelida_iv
-        minplayers 1
+	minplayers 50
 endmap
 
 map deltastation
-	minplayers 1
+	minplayers 60
 endmap
 
 map fort_phobos
-	minplayers 600
 endmap
 
 map desparity
-	minplayers 1
+	maxplayers 30
 endmap
 
 map lawanka
-	minplayers 1
-endmap
-
-map larvae_pits
-	minplayers 1
+	minplayers 60
 endmap
 
 map slumbridge
-	minplayers 1
+	minplayers 35
 endmap
 
 map daedalusprison
-	minplayers 1
+	minplayers 50
 endmap
 
 map riptide
-	minplayers 1
+	minplayers 40
 endmap
 
 map kutjevo
-	minplayers 1
+	minplayers 35
 endmap
 
 map lv759
-	minplayers 1
+	minplayers 65
 endmap
 
 map lavaoutpost
-	minplayers 1
+	minplayers 20
 endmap
 
 map desertdam
-	minplayers 1
+	minplayers 60
 endmap
 
 map corsat
-	minplayers 1
+	minplayers 75
 endmap
 
-map colony1
-	minplayers 0
-endmap
 map bluesummers
-	minplayers 1
+	minplayers 30
 endmap
 
 map metnal
-	minplayers 1
+	minplayers 55
   endmap
 
+
 map fiorina
-	minplayers 1
+	minplayers 65
 endmap
 
 map bluemoon

@@ -9,7 +9,7 @@
 	hud_state_empty = "grenade_empty_flash"
 	handful_icon_state = "micro_grenade_airburst"
 	ammo_behavior_flags = AMMO_BALLISTIC
-	shell_speed = 2.5
+	shell_speed = 2
 	handful_amount = 3
 	max_range = 3 //failure to detonate if the target is too close
 	damage = 15
@@ -27,21 +27,21 @@
 
 //piercing scatter shot
 /datum/ammo/bullet/micro_rail/airburst
-	name = "airburst micro grenade"
+	name = "micro grenade"
 	handful_icon_state = "micro_grenade_airburst"
 	hud_state = "grenade_airburst"
 	bonus_projectiles_type = /datum/ammo/bullet/micro_rail_spread
 
 //incendiary piercing scatter shot
 /datum/ammo/bullet/micro_rail/dragonbreath
-	name = "dragon's breath micro grenade"
+	name = "micro grenade"
 	handful_icon_state = "micro_grenade_incendiary"
 	hud_state = "grenade_fire"
 	bonus_projectiles_type = /datum/ammo/bullet/micro_rail_spread/incendiary
 
 //cluster grenade. Bomblets explode in a rough cone pattern
 /datum/ammo/bullet/micro_rail/cluster
-	name = "clustermunition micro grenade"
+	name = "micro grenade"
 	handful_icon_state = "micro_grenade_cluster"
 	hud_state = "grenade_he"
 	bonus_projectiles_type = /datum/ammo/micro_rail_cluster
@@ -49,7 +49,7 @@
 
 //creates a literal smokescreen
 /datum/ammo/bullet/micro_rail/smoke_burst
-	name = "smoke burst micro grenade"
+	name = "micro grenade"
 	handful_icon_state = "micro_grenade_smoke"
 	hud_state = "grenade_smoke"
 	bonus_projectiles_type = /datum/ammo/smoke_burst
@@ -78,7 +78,7 @@
 	sundering = 3
 	damage_falloff = 1
 	max_range = 7
-	shell_speed = 3.5
+	shell_speed = 3
 
 /datum/ammo/bullet/micro_rail_spread/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	staggerstun(target_mob, proj, stagger = 1 SECONDS, slowdown = 0.5)
@@ -111,7 +111,7 @@
 	sound_armor = SFX_BALLISTIC_ARMOR
 	sound_miss = SFX_BALLISTIC_MISS
 	sound_bounce = SFX_BALLISTIC_BOUNCE
-	shell_speed = 2.5
+	shell_speed = 2
 	damage = 5
 	accuracy = -60 //stop you from just emptying all the bomblets into one guys face for big damage
 	shrapnel_chance = 0
@@ -174,7 +174,7 @@
 	sound_armor = SFX_BALLISTIC_ARMOR
 	sound_miss = SFX_BALLISTIC_MISS
 	sound_bounce = SFX_BALLISTIC_BOUNCE
-	shell_speed = 2.5
+	shell_speed = 2
 	damage = 5
 	shrapnel_chance = 0
 	max_range = 6

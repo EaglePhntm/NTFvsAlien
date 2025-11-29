@@ -74,7 +74,7 @@
 #define AMMO_PASS_THROUGH_MOB (1<<15)
 ///If the projectile ricochet and miss sound is pitched up
 #define AMMO_SOUND_PITCH (1<<16)
-///Is this projectile considered sniper ammo, used for the anti sniper stacking status effect (ntf removal, this is here for compat)
+///Is this projectile considered sniper ammo, used for the anti sniper stacking status effect
 #define AMMO_SNIPER (1<<17)
 ///Ammo type entirely ignores xenos
 #define AMMO_SKIPS_ZOMBIE (1<<18)
@@ -139,7 +139,6 @@
 #define MAGAZINE_NOT_FABRICABLE (1<<4)
 ///ammo count shown on mag sprite
 #define MAGAZINE_SHOW_AMMO (1<<5)
-#define MAGAZINE_REQUIRES_EMPTY_GUN (1<<6)
 
 //Slowdown from various armors.
 #define SHOES_SLOWDOWN -1.0			// How much shoes slow you down by default. Negative values speed you up
@@ -148,7 +147,7 @@
 #define SLOWDOWN_ARMOR_LIGHT 0.2
 #define SLOWDOWN_ARMOR_MEDIUM 0.5
 #define SLOWDOWN_ARMOR_HEAVY 0.7
-#define SLOWDOWN_ARMOR_VERY_HEAVY 1.1
+#define SLOWDOWN_ARMOR_VERY_HEAVY 1
 
 //Marine armor defines
 #define MARINE_ARMOR_LIGHT list(MELEE = 35, BULLET = 55, LASER = 55, ENERGY = 50, BOMB = 45, BIO = 45, FIRE = 45, ACID = 45)
@@ -199,8 +198,7 @@
 #define SMOKE_XENO_TOXIC (1<<21) //deals damage to anyone inside it and inflicts the intoxicated debuff, dealing damage over time
 ///Purges all types of smoke
 #define SMOKE_PURGER (1<<22)
-#define SMOKE_XENO_APHROTOXIN (1<<23)
-#define SMOKE_XENO_PYROGEN (1<<24) // Smoke that acts like SMOKE_BLISTERING for non-xenos and applies pyrogen's melting fire status effect when entering.
+#define SMOKE_XENO_PYROGEN (1<<23) // Smoke that acts like SMOKE_BLISTERING for non-xenos and applies pyrogen's melting fire status effect when entering.
 
 //Incapacitated
 #define INCAPACITATED_IGNORE_RESTRAINED (1<<0)

@@ -9,6 +9,8 @@ export const GearCustomization = (props) => {
     gearsets,
     gear,
     clothing,
+    underwear,
+    undershirt,
     backpack,
     physique_used,
   } = data;
@@ -148,7 +150,6 @@ export const GearCustomization = (props) => {
             </LabeledList>
           </Section>
         </Stack.Item>
-        {/* NTF removal
         <Stack.Item grow>
           <Section title={'Undershirt (select one)'}>
             <LabeledList>
@@ -165,10 +166,8 @@ export const GearCustomization = (props) => {
             </LabeledList>
           </Section>
         </Stack.Item>
-        */}
       </Stack>
       <Stack>
-        {/* NTF removal
         <Stack.Item grow>
           <Section title={'Underwear (select one)'}>
             <LabeledList>
@@ -185,7 +184,6 @@ export const GearCustomization = (props) => {
             </LabeledList>
           </Section>
         </Stack.Item>
-        */}
         <Stack.Item grow>
           <Section title={'Backpack (select one)'}>
             <LabeledList>

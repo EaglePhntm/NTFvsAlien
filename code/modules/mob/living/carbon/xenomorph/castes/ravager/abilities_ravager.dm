@@ -10,7 +10,6 @@
 	action_icon_state = "pounce"
 	action_icon = 'icons/Xeno/actions/runner.dmi'
 	desc = "Charge up to 4 tiles and viciously attack your target."
-
 	cooldown_duration = 20 SECONDS
 	ability_cost = 500 //Can't ignore pain/Charge and ravage in the same timeframe, but you can combo one of them.
 	keybinding_signals = list(
@@ -111,7 +110,6 @@
 	action_icon_state = "ravage"
 	action_icon = 'icons/Xeno/actions/ravager.dmi'
 	desc = "Attacks and knockbacks enemies in the direction your facing."
-
 	ability_cost = 200
 	cooldown_duration = 6 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY | ABILITY_IGNORE_SELECTED_ABILITY
@@ -184,12 +182,12 @@
 		RegisterSignal(xeno_owner, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(on_attack_living))
 	for(var/atom/movable/ravaged_atom AS in atoms_to_ravage)
 		if(ishitbox(ravaged_atom) || isvehicle(ravaged_atom))
-			ravaged_atom.attack_alien(xeno_owner, xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier, armor_penetration = xeno_owner.xeno_caste.melee_ap + armor_penetration) // Handles APC/Tank stuff. Has to be before the !ishuman check or else ravage does work properly on vehicles.
+			ravaged_atom.attack_alien(xeno_owner, xeno_owner.xeno_caste.melee_damage, armor_penetration = xeno_owner.xeno_caste.melee_ap + armor_penetration) // Handles APC/Tank stuff. Has to be before the !ishuman check or else ravage does work properly on vehicles.
 			continue
 		if(!(ravaged_atom.resistance_flags & XENO_DAMAGEABLE))
 			continue
 		if(!ishuman(ravaged_atom))
-			ravaged_atom.attack_alien(xeno_owner, xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier, armor_penetration = xeno_owner.xeno_caste.melee_ap + armor_penetration)
+			ravaged_atom.attack_alien(xeno_owner, xeno_owner.xeno_caste.melee_damage, armor_penetration = xeno_owner.xeno_caste.melee_ap + armor_penetration)
 			ravaged_atom.knockback(xeno_owner, RAV_RAVAGE_THROW_RANGE, RAV_CHARGESPEED)
 			continue
 		var/mob/living/carbon/human/ravaged_human = ravaged_atom
@@ -298,7 +296,6 @@
 	action_icon_state = "ignore_pain"
 	action_icon = 'icons/Xeno/actions/ravager.dmi'
 	desc = "For the next few moments you will not go into crit and become resistant to explosives and immune to stagger and slowdown, but you still die if you take damage exceeding your crit health."
-
 	ability_cost = 200
 	cooldown_duration = 60 SECONDS
 	keybinding_signals = list(
@@ -408,8 +405,8 @@
 	var/total_damage = xeno_owner.getFireLoss() + xeno_owner.getBruteLoss()
 	var/burn_percentile_damage = xeno_owner.getFireLoss() / total_damage
 	var/brute_percentile_damage = xeno_owner.getBruteLoss() / total_damage
-	xeno_owner.setBruteLoss((xeno_owner.maxHealth - xeno_owner.get_crit_threshold() - 1) * brute_percentile_damage)
-	xeno_owner.setFireLoss((xeno_owner.maxHealth - xeno_owner.get_crit_threshold() - 1) * burn_percentile_damage)
+	xeno_owner.setBruteLoss((xeno_owner.xeno_caste.max_health - xeno_owner.get_crit_threshold() - 1) * brute_percentile_damage)
+	xeno_owner.setFireLoss((xeno_owner.xeno_caste.max_health - xeno_owner.get_crit_threshold() - 1) * burn_percentile_damage)
 	to_chat(xeno_owner, span_userdanger("The last of the plasma drains from our body... We can no longer endure beyond our normal limits!"))
 
 ///Warns us when our health is critically low and tells us exactly how much more punishment we can take
@@ -445,7 +442,6 @@
 	action_icon_state = "rage"
 	action_icon = 'icons/Xeno/actions/ravager.dmi'
 	desc = "Use while at 50% health or lower to gain extra slash damage, resistances and speed in proportion to your missing hit points. This bonus is increased and you regain plasma while your HP is negative."
-
 	ability_cost = 0 //We're limited by cooldowns, not plasma
 	cooldown_duration = 60 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY | ABILITY_IGNORE_SELECTED_ABILITY
@@ -641,7 +637,6 @@
 	action_icon_state = "neuroclaws_off"
 	action_icon = 'icons/Xeno/actions/sentinel.dmi'
 	desc = "Toggle on to enable boosting on "
-
 	ability_cost = 0 //We're limited by nothing, rip and tear
 	cooldown_duration = 1 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY | ABILITY_IGNORE_SELECTED_ABILITY
@@ -693,8 +688,8 @@
 		return
 	if(timeleft(timer_ref) > 0)
 		return
-	xeno_owner.adjustBruteLoss(-xeno_owner.getBruteLoss() * 0.125)
-	xeno_owner.adjustFireLoss(-xeno_owner.getFireLoss() * 0.125)
+	xeno_owner.adjustBruteLoss(-xeno_owner.bruteloss * 0.125)
+	xeno_owner.adjustFireLoss(-xeno_owner.fireloss * 0.125)
 	particle_holder = new(xeno_owner, /particles/xeno_slash/vampirism)
 	particle_holder.pixel_y = 18
 	particle_holder.pixel_x = 18
@@ -705,7 +700,7 @@
 #define MAX_DAMAGE_PER_DISINTEGRATING 25
 
 /datum/action/ability/xeno_action/bloodthirst
-	name = "Bloodthirst"
+	name = "bloodthirst"
 	desc = "Passive ability for generating bloodthirst"
 	hidden = TRUE
 	///tick time of last time we attacked a human
@@ -771,7 +766,7 @@
 #define DEATHMARK_MESSAGE_COOLDOWN 2 SECONDS
 
 /datum/action/ability/xeno_action/deathmark
-	name = "Deathmark"
+	name = "deathmark"
 	desc = "Mark yourself for death, filling your bloodthirst, but failing to deal enough damage to living creatures while it is active instantly kills you."
 	action_icon = 'icons/Xeno/actions/ravager.dmi'
 	action_icon_state = "deathmark"

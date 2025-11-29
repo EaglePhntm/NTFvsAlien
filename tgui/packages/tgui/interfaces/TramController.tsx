@@ -145,7 +145,7 @@ export const TramController = (props) => {
           <Stack.Item grow={6}>
             <Section title="Controls">
               <NoticeBox>
-                Ninetails is not responsible for any injuries or fatalities
+                Nanotrasen is not responsible for any injuries or fatalities
                 caused by usage of the tram.
               </NoticeBox>
               <Button

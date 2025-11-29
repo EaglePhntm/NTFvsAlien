@@ -10,7 +10,3 @@
 #define MESSAGE_INDEX_SPEECH 2
 
 #define CATEGORY_INDEX 3
-
-#define RANGE 4
-
-#define GHOST_VISIBLE 5

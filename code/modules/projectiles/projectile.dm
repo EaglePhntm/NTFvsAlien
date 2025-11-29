@@ -112,7 +112,7 @@
 	///Max range the projectile can travel
 	var/proj_max_range = 30
 	///A damage multiplier applied when a mob from the same faction as the projectile firer is hit
-	var/friendly_fire_multiplier = 1 // NTF edit - full damage friendly fire
+	var/friendly_fire_multiplier = 0.5
 	///The "point blank" range of the projectile. Inside this range the projectile gets a bonus to hit
 	var/point_blank_range = 0
 	/// List of atoms already hit by that projectile. Will only matter for projectiles capable of passing through multiple atoms
@@ -333,7 +333,7 @@
 				forceMove(z_destination)
 
 
-	if(ismob(firer) && !recursivity)
+	if(firer && !recursivity)
 		record_projectile_fire(firer)
 		GLOB.round_statistics.total_projectiles_fired[firer.faction]++
 		SSblackbox.record_feedback("tally", "round_statistics", 1, "total_projectiles_fired[firer.faction]")
@@ -738,7 +738,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 	bullet_act(proj)
 
 /obj/machinery/deployable/mounted/projectile_hit(atom/movable/projectile/proj, cardinal_move, uncrossing)
-	if(operator?.get_iff_signal() & proj.iff_signal)
+	if(operator?.wear_id?.iff_signal & proj.iff_signal)
 		return FALSE
 	if(src == proj.original_target)
 		return TRUE
@@ -798,10 +798,8 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 
 	///Is the shooter a living mob. Defined before the check as used later as well
 	if(proj.firer)
-	/* NTF Edit - full accuracy friendly fire
 		if(proj.firer.faction == faction)
 			hit_chance = round(hit_chance*0.85) //You (presumably) aren't trying to shoot your friends
-	*/
 		var/obj/item/shot_source = proj.shot_from
 		if((!istype(shot_source) || !shot_source.zoom) && !line_of_sight(proj.starting_turf, src, 9)) //if you can't draw LOS within 9 tiles (to accomodate wide screen), AND the source was either not zoomed or not an item(like a xeno)
 			BULLET_DEBUG("Can't see target ([round(hit_chance*0.8)]).")
@@ -892,6 +890,27 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 		return FALSE
 	if(proj.ammo.ammo_behavior_flags & AMMO_SKIPS_ALIENS)
 		return FALSE
+	if((proj.ammo.ammo_behavior_flags & AMMO_SNIPER) && proj.iff_signal)
+		var/datum/status_effect/incapacitating/recently_sniped/sniped = is_recently_sniped()
+		var/obj/item/weapon/gun/shooter = proj.shot_from
+
+		if(!isgun(proj.shot_from))
+			stack_trace("Got a non-gun projectile source while trying to apply sniper status effect! Source: [proj.shot_from]")
+			return ..()
+
+		if(sniped)
+			if(sniped.check_duration())
+				return ..()
+
+			sniped.duration = max(world.time + shooter.fire_delay, sniped.duration)
+
+			if(sniped.shooter != WEAKREF(shooter))//different gun shot us, apply the effect.
+				proj.damage = proj.damage * 0.1
+
+			sniped.shooter = WEAKREF(shooter)
+			return ..()
+
+		apply_status_effect(STATUS_EFFECT_SNIPED, shooter.fire_delay, WEAKREF(shooter))
 	return ..()
 
 ///visual and audio feedback for hits
@@ -960,7 +979,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 	if(proj.sundering)
 		adjust_sunder(proj.sundering)
 
-	if(stat != DEAD && ismob(proj.firer))
+	if(stat != DEAD && proj.firer)
 		proj.firer.record_projectile_damage(damage, src)	//Tally up whoever the shooter was
 
 	if(damage)
@@ -981,29 +1000,8 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 	return TRUE
 
 /mob/living/carbon/xenomorph/bullet_act(atom/movable/projectile/proj)
-	if(issamexenohive(proj.shot_from) && (isxeno(proj.shot_from) || istype(proj.shot_from, /obj/structure/xeno))) //Aliens won't be harming allied aliens.
+	if(issamexenohive(proj.shot_from)) //Aliens won't be harming allied aliens.
 		return
-
-	var/mob/prey = eaten_mob || devouring_mob
-	if(ismob(prey))
-		var/effect = max(0,proj.ammo.plasma_drain + proj.damage + proj.sundering)
-		if(effect)
-			if(prey.stat == DEAD)
-				add_slowdown(SLOWDOWN_ARMOR_VERY_HEAVY)
-				apply_status_effect(/datum/status_effect/shatter, 5 SECONDS)
-				apply_status_effect(/datum/status_effect/noplasmaregen, 5 SECONDS)
-				if(!CHECK_BITFIELD(xeno_caste.caste_flags, CASTE_PLASMADRAIN_IMMUNE))
-					use_plasma(effect)
-			else
-				add_slowdown(SLOWDOWN_ARMOR_MEDIUM)
-				if(prob(30))
-					apply_status_effect(/datum/status_effect/shatter, 0.1 SECONDS)
-					apply_status_effect(/datum/status_effect/noplasmaregen, 1 SECONDS)
-				if(!CHECK_BITFIELD(xeno_caste.caste_flags, CASTE_PLASMADRAIN_IMMUNE))
-					use_plasma(effect/5)
-
-	if(proj.ammo.plasma_drain && !CHECK_BITFIELD(xeno_caste.caste_flags, CASTE_PLASMADRAIN_IMMUNE))
-		use_plasma(proj.ammo.plasma_drain)
 
 	return ..()
 
@@ -1042,8 +1040,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 	setDir(angle2dir(dir_angle))
 
 	if(!recursivity)	//Recursivity check in case the bonus projectiles have bonus projectiles of their own. Let's not loop infinitely.
-		if(ismob(shooter))
-			record_projectile_fire(shooter)
+		record_projectile_fire(shooter)
 
 		//If we have the the right kind of ammo, we can fire several projectiles at once.
 		if(ammo.bonus_projectiles_amount)
@@ -1330,9 +1327,10 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 
 /mob/living/proc/bullet_message(atom/movable/projectile/proj, feedback_flags, damage)
 	if(!proj.firer)
-		src.log_message("was shot by SOMETHING?? with [logdetails(proj)]", LOG_ATTACK)
+		log_message("SOMETHING?? shot [key_name(src)] with a [proj]", LOG_ATTACK)
 		return BULLET_MESSAGE_NO_SHOOTER
-	log_combat(proj.firer, src, "shot", proj)
+	var/turf/T = get_turf(proj.firer)
+	log_combat(proj.firer, src, "shot", proj, "in [AREACOORD(T)]")
 	if(ishuman(proj.firer))
 		return BULLET_MESSAGE_HUMAN_SHOOTER
 	return BULLET_MESSAGE_OTHER_SHOOTER

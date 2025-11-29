@@ -10,11 +10,10 @@
 
 /obj/structure/campaign_objective/destruction_objective/Initialize(mapload)
 	. = ..()
-	setDir(dir)
 	var/static/list/connections = list(
 		COMSIG_OBJ_TRY_ALLOW_THROUGH = PROC_REF(can_climb_over),
 	)
-	AddElement(/datum/element/connect_loc, connections, TRUE)
+	AddElement(/datum/element/connect_loc, connections)
 
 /obj/structure/campaign_objective/destruction_objective/Destroy()
 	QDEL_NULL(explosion_smoke)
@@ -335,7 +334,7 @@
 
 /obj/structure/campaign_objective/destruction_objective/viper
 	name = "\improper Viper"
-	desc = "A viper MK.III fightcraft. Effective in atmosphere and space, the viper has been a reliable and versatile workhorse in the Ninetails navy for decades."
+	desc = "A viper MK.III fightcraft. Effective in atmosphere and space, the viper has been a reliable and versatile workhorse in the TerraGov navy for decades."
 	icon = 'icons/obj/structures/prop/mainship_96.dmi'
 	icon_state = "fighter_loaded"
 	pixel_x = -33

@@ -153,10 +153,10 @@
 		human_user.put_in_hands(bundle)
 
 /obj/item/spacecash/ewallet
-	name = "\improper Ninetails cash card"
+	name = "\improper Nanotrasen cash card"
 	icon = 'icons/obj/items/items.dmi'
 	icon_state = "efundcard"
-	desc = "A Ninetails backed cash card that holds an amount of money."
+	desc = "A Nanotrasen backed cash card that holds an amount of money."
 	var/owner_name = "" //So the ATM can set it so the EFTPOS can put a valid name on transactions.
 
 /obj/item/spacecash/ewallet/examine(mob/user)

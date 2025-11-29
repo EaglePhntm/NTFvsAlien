@@ -1087,6 +1087,7 @@
 /area/bluemoon/caves/facility/eta)
 "blh" = (
 /obj/structure/cable,
+/obj/machinery/power/apc/drained,
 /turf/open/floor/plating,
 /area/bluemoon/caves/facility/lambda/s)
 "blj" = (
@@ -1145,7 +1146,6 @@
 /obj/item/storage/box/MRE{
 	name = "\improper MRE"
 	},
-/obj/structure/cable,
 /turf/open/floor/prison/darkyellow{
 	dir = 1
 	},
@@ -7691,7 +7691,6 @@
 	dir = 1;
 	on = 1
 	},
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/bluemoon/caves/facility/lambda/s)
 "iPZ" = (
@@ -12536,8 +12535,6 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/power/apc/drained,
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/bluemoon/caves/facility/lambda/s)
 "okt" = (
@@ -16436,10 +16433,6 @@
 /area/bluemoon/outside/building/dorms/bar)
 "tdN" = (
 /obj/structure/rack,
-/obj/structure/cable,
-/obj/machinery/power/terminal{
-	dir = 8
-	},
 /turf/open/floor/prison/darkyellow{
 	dir = 1
 	},
@@ -19407,6 +19400,7 @@
 /turf/open/floor/rcircuit/anim,
 /area/bluemoon/caves/facility/omicron)
 "wwa" = (
+/obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
@@ -39853,7 +39847,7 @@ rpa
 qft
 xyG
 fSB
-blh
+ocb
 ocb
 qft
 nkm

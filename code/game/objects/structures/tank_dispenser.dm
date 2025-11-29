@@ -40,7 +40,7 @@
 
 /obj/structure/dispenser/interact(mob/user)
 	. = ..()
-	if(. || !(user.client))
+	if(.)
 		return
 
 	var/dat

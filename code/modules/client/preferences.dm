@@ -62,6 +62,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	//Robot specific preferences
 	var/robot_type = "Basic"
 
+	//Xenomorph specific preferences
+	var/xeno_name = "Undefined"
+
 	//AI specific preferences
 	var/ai_name = "ARES v3.2"
 
@@ -84,11 +87,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/gear
 	var/list/job_preferences = list()
 
-	/*NTF removal
 	//Clothing
 	var/underwear = 1
 	var/undershirt = 1
-	*/
 	var/backpack = BACK_SATCHEL
 
 	//Hair style
@@ -113,45 +114,23 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/g_eyes = 0
 	var/b_eyes = 0
 
-	/// Genitalia overlay system
-	var/genitalia_ass = null
-	var/genitalia_boobs = null
-	var/genitalia_cock = null
-
 	//Species specific
 	var/moth_wings = "Plain"
 
 	//Lore
-	var/citizenship = "Phantom City (Earth)"
+	var/citizenship = "Earth Born"
 	var/religion = "None"
 	var/flavor_text = ""
 	var/med_record = ""
 	var/sec_record = ""
 	var/gen_record = ""
 	var/exploit_record = ""
-	var/profile_pic = ""
-	var/nsfwprofile_pic = ""
-	var/xenoprofile_pic = ""
-	var/xenogender = 1
-	var/harmful_sex_flags = HARMFUL_SEX_ALL
-	var/burst_screams_enabled = TRUE
 
 	var/list/exp = list()
 	var/list/menuoptions = list()
 
 	/// List of keys we are ignoring in global OOC
 	var/list/ignoring = list()
-	//Xenomorph specific preferences
-	var/xeno_name = "Undefined"
-	var/xeno_desc = ""
-	var/xeno_edible_jelly_name = ""
-	var/xeno_edible_jelly_desc = ""
-	var/xeno_edible_jelly_flavors = ""
-	// Purplish color for the jelly
-	// hex code #9b09ef
-	var/r_jelly = 155
-	var/g_jelly = 9
-	var/b_jelly = 239
 
 	// Hud tooltip
 	var/tooltips = TRUE
@@ -263,7 +242,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 
 	// We don't have a savefile or we failed to load them
-	random_character_set_species(/datum/species/human)
+	random_character()
 	menuoptions = list()
 	key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key) // give them default keybinds and update their movement keys
 	save_keybinds()

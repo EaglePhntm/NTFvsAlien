@@ -189,7 +189,7 @@
 		trailer.Move(old_loc, movement_dir, glide_size)
 
 
-//NTC ADDED BELOW
+//TGMC ADDED BELOW
 /obj/vehicle/effect_smoke(obj/effect/particle_effect/smoke/S)
 	. = ..()
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))

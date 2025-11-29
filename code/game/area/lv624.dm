@@ -153,7 +153,7 @@
 	minimap_color = MINIMAP_AREA_ENGI
 
 /area/lv624/ground/compound
-	name = "\improper Ninetails Compound"
+	name = "\improper Nanotrasen Compound"
 	icon_state = "green"
 
 /area/lv624/ground/compound/ne

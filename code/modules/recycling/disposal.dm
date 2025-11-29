@@ -1204,7 +1204,7 @@
 		set_linked(O)
 	update()
 
-//Override attackby so we disallow trunkremoval when somethings on top
+//Override attackby so we disallow trunkremoval when somethings ontop
 /obj/structure/disposalpipe/trunk/attackby(obj/item/I, mob/user, params)
 	//Disposal constructors
 	var/obj/structure/disposalconstruct/C = locate() in loc

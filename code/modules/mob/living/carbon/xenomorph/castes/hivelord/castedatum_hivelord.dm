@@ -22,7 +22,7 @@
 	plasma_icon_state = "hivelord_plasma"
 
 	// *** Health *** //
-	max_health = 380
+	max_health = 410
 
 
 	// *** Evolution *** //
@@ -56,22 +56,17 @@
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
-		/datum/action/ability/xeno_action/psychic_whisper,
-		/datum/action/ability/xeno_action/psychic_influence,
-		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/activable/xeno/devour,
 		/datum/action/ability/activable/xeno/cocoon,
 		/datum/action/ability/activable/xeno/plant_weeds,
 		/datum/action/ability/activable/xeno/healing_infusion,
-		/datum/action/ability/activable/xeno/psychic_cure/queen_give_heal/hivemind,
 		/datum/action/ability/xeno_action/place_acidwell,
-		/datum/action/ability/activable/xeno/larval_growth_sting,
 		/datum/action/ability/activable/xeno/secrete_resin/hivelord,
 		/datum/action/ability/xeno_action/blessing_menu,
 		/datum/action/ability/activable/xeno/transfer_plasma/improved,
 		/datum/action/ability/activable/xeno/corrosive_acid,
+		/datum/action/ability/xeno_action/build_tunnel,
 		/datum/action/ability/xeno_action/toggle_speed,
 		/datum/action/ability/xeno_action/pheromones,
 		/datum/action/ability/xeno_action/pheromones/emit_recovery,
@@ -80,8 +75,7 @@
 		/datum/action/ability/activable/xeno/xeno_spit,
 		/datum/action/ability/xeno_action/create_jelly,
 		/datum/action/ability/xeno_action/place_jelly_pod,
-		/datum/action/ability/xeno_action/create_edible_jelly,
-		/datum/action/ability/xeno_action/place_stew_pod,
+		/datum/action/ability/xeno_action/place_recovery_pylon,
 		/datum/action/ability/activable/xeno/recycle,
 		/datum/action/ability/activable/xeno/place_pattern,
 	)
@@ -111,23 +105,18 @@
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
-		/datum/action/ability/xeno_action/psychic_whisper,
-		/datum/action/ability/xeno_action/psychic_influence,
-		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/activable/xeno/devour,
 		/datum/action/ability/activable/xeno/cocoon,
 		/datum/action/ability/activable/xeno/plant_weeds,
 		/datum/action/ability/activable/xeno/healing_infusion,
-		/datum/action/ability/activable/xeno/psychic_cure/queen_give_heal/hivemind,
 		/datum/action/ability/xeno_action/place_acidwell,
-		/datum/action/ability/activable/xeno/larval_growth_sting,
 		/datum/action/ability/activable/xeno/secrete_resin/hivelord,
 		/datum/action/ability/xeno_action/blessing_menu,
 		/datum/action/ability/activable/xeno/transfer_plasma/improved,
 		/datum/action/ability/activable/xeno/corrosive_acid/strong,
 		/datum/action/ability/xeno_action/sow,
+		/datum/action/ability/xeno_action/build_tunnel,
 		/datum/action/ability/xeno_action/toggle_speed,
 		/datum/action/ability/xeno_action/pheromones,
 		/datum/action/ability/xeno_action/pheromones/emit_recovery,
@@ -136,8 +125,7 @@
 		/datum/action/ability/activable/xeno/xeno_spit,
 		/datum/action/ability/xeno_action/create_jelly,
 		/datum/action/ability/xeno_action/place_jelly_pod,
-		/datum/action/ability/xeno_action/create_edible_jelly,
-		/datum/action/ability/xeno_action/place_stew_pod,
+		/datum/action/ability/xeno_action/place_recovery_pylon,
 		/datum/action/ability/activable/xeno/recycle,
 		/datum/action/ability/activable/xeno/place_pattern,
 	)

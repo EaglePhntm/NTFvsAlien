@@ -39,13 +39,6 @@ one type of shotgun ammo, but I think it helps in referencing it. ~N
 	default_ammo = /datum/ammo/bullet/shotgun/flechette
 	icon_state_mini = "flechette"
 
-/obj/item/ammo_magazine/shotgun/rubber_pellet
-	name = "box of 12 gauge rubber pellet shells"
-	desc = "A box filled with rubber pellet shotgun shells. 12 Gauge."
-	icon_state = "flechette"
-	default_ammo = /datum/ammo/bullet/shotgun/flechette/rubber
-	icon_state_mini = "flechette"
-
 /obj/item/ammo_magazine/shotgun/beanbag
 	name = "box of 12 gauge beanbag slugs"
 	desc = "A box filled with beanbag shotgun shells used for non-lethal crowd control. 12 Gauge."
@@ -140,8 +133,7 @@ one type of shotgun ammo, but I think it helps in referencing it. ~N
 	caliber = CALIBER_6G
 	icon_state = "heavy_shotgun_buckshot"
 	default_ammo = /datum/ammo/bullet/shotgun/heavy_buckshot
-	icon_state_mini = "buckshot"
-	max_rounds = 15
+	icon_state_mini = "buckshot_heavy"
 
 /obj/item/ammo_magazine/shotgun/barrikada
 	name = "box of 6 gauge 'Barrikada' shells"
@@ -149,14 +141,4 @@ one type of shotgun ammo, but I think it helps in referencing it. ~N
 	caliber = CALIBER_6G
 	icon_state = "heavy_shotgun_barrikada"
 	default_ammo = /datum/ammo/bullet/shotgun/barrikada_slug
-	icon_state_mini = "buckshot"
-	max_rounds = 15
-
-/obj/item/ammo_magazine/shotgun/heavy_flechette
-	name = "box of 6 gauge flechette shells"
-	desc = "A box filled with flechette spread shotgun shells. 6 Gauge."
-	caliber = CALIBER_6G
-	icon_state = "heavy_shotgun_flechette"
-	default_ammo = /datum/ammo/bullet/shotgun/heavy_flechette
-	icon_state_mini = "buckshot"
-	max_rounds = 15
+	icon_state_mini = "barrikada"
