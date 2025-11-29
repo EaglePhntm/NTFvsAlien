@@ -741,6 +741,7 @@
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/compensator,
+		/obj/item/attachable/gyro,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/heavy_barrel,
@@ -753,6 +754,7 @@
 	accuracy_mult = 1.0
 	accuracy_mult_unwielded = 0.75
 	recoil = -2
+	damage_mult = 1.2
 	aim_slowdown = 0.1
 	scatter = -1
 	scatter_unwielded = 4

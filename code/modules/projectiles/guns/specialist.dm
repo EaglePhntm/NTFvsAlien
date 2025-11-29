@@ -1000,7 +1000,9 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	)
 	wield_delay = 1 SECONDS
 	aim_slowdown = 1
-	attachable_allowed = list()
+	attachable_allowed = list(
+		/obj/item/attachable/buildasentry,
+	)
 	reload_sound = 'sound/weapons/guns/interact/rpg_load.ogg'
 	unload_sound = 'sound/weapons/guns/interact/rpg_load.ogg'
 	fire_sound = "rpg_fire"
@@ -1119,7 +1121,11 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 		slot_r_hand_str = 'icons/mob/inhands/guns/special_right_1.dmi',
 	)
 	fire_animation = "at32"
+<<<<<<< Updated upstream
 	max_shells = 100 //codex
+=======
+	max_shells = 50 //codex
+>>>>>>> Stashed changes
 	caliber = CALIBER_20 //codex
 	load_method = MAGAZINE //codex
 	fire_sound = 'sound/weapons/guns/fire/autocannon_1.ogg'
@@ -1132,7 +1138,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 		/obj/item/ammo_magazine/rifle/vsd_autocannon/explosive,
 		/obj/item/ammo_magazine/rifle/vsd_autocannon/at,
 		)
-	attachable_allowed = list(/obj/item/attachable/flashlight, /obj/item/attachable/magnetic_harness)
+	attachable_allowed = list(/obj/item/attachable/flashlight, /obj/item/attachable/magnetic_harness, /obj/item/attachable/buildasentry, /obj/item/attachable/foldable/bipod)
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 19,"rail_x" = 13, "rail_y" = 22, "under_x" = 24, "under_y" = 14, "stock_x" = 24, "stock_y" = 12)
 
 	fire_delay = 0.45 SECONDS
