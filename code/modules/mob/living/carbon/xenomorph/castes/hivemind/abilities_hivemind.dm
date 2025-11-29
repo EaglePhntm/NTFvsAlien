@@ -10,9 +10,11 @@
 	return ..()
 
 /datum/action/ability/activable/xeno/secrete_resin/hivemind/can_use_action(silent, override_flags, selecting)
+	. = ..()
+	if(!.)
+		return
 	if (owner.status_flags & INCORPOREAL)
 		return FALSE
-	return ..()
 
 /datum/action/ability/xeno_action/change_form
 	name = "Change form"
@@ -32,6 +34,7 @@
 	action_icon_state = "minion_agressive"
 	action_icon = 'icons/Xeno/actions/leader.dmi'
 	desc = "Command all minions, ordering them to converge on this location. Rightclick to change minion behaviour."
+
 	ability_cost = 100
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_RALLY_MINION,
@@ -64,27 +67,35 @@
 	hivemind_heal = TRUE
 
 /datum/action/ability/activable/xeno/psychic_cure/queen_give_heal/hivemind/can_use_action(silent, override_flags, selecting)
+	. = ..()
+	if(!.)
+		return
 	if (owner.status_flags & INCORPOREAL)
 		return FALSE
-	return ..()
 
 /datum/action/ability/activable/xeno/transfer_plasma/hivemind
 	plasma_transfer_amount = PLASMA_TRANSFER_AMOUNT * 2
 
 /datum/action/ability/activable/xeno/transfer_plasma/hivemind/can_use_action(silent, override_flags, selecting)
+	. = ..()
+	if(!.)
+		return
 	if (owner.status_flags & INCORPOREAL)
 		return FALSE
-	return ..()
 
 /datum/action/ability/xeno_action/pheromones/hivemind/can_use_action(silent, override_flags, selecting)
+	. = ..()
+	if(!.)
+		return
 	if (owner.status_flags & INCORPOREAL)
 		return FALSE
-	return ..()
 
 /datum/action/ability/xeno_action/watch_xeno/hivemind/can_use_action(silent, override_flags, selecting)
+	. = ..()
+	if(!.)
+		return
 	if(TIMER_COOLDOWN_RUNNING(owner, COOLDOWN_HIVEMIND_MANIFESTATION))
 		return FALSE
-	return ..()
 
 /datum/action/ability/xeno_action/watch_xeno/hivemind/on_list_xeno_selection(datum/source, mob/living/carbon/xenomorph/selected_xeno)
 	if(!can_use_action())
@@ -104,7 +115,7 @@
 	var/showing_map = FALSE
 
 /datum/action/ability/xeno_action/teleport/action_activate()
-	var/atom/movable/screen/minimap/shown_map = SSminimaps.fetch_minimap_object(owner.z, MINIMAP_FLAG_XENO)
+	var/atom/movable/screen/minimap/shown_map = SSminimaps.fetch_minimap_object(owner.z, GLOB.hivenumber_to_minimap_flag[owner.get_xeno_hivenumber()])
 
 	if(showing_map) // The map is open on their screen, close it
 		owner.client?.screen -= shown_map
@@ -148,7 +159,7 @@
 	. = ..()
 	if(!.)
 		return
-	if(!GLOB.xeno_acid_jaws_by_hive[xeno_owner.hivenumber])
+	if(!GLOB.xeno_acid_jaws_by_hive[xeno_owner.get_xeno_hivenumber()])
 		if(!silent)
 			xeno_owner.balloon_alert(xeno_owner, "no xeno artillery found!")
 		return FALSE
@@ -173,17 +184,18 @@
 	waiting_on_player_input = FALSE
 
 /datum/action/ability/activable/xeno/shoot_xeno_artillery/alternate_action_activate()
-	if(!GLOB.xeno_acid_jaws_by_hive[xeno_owner.hivenumber] || waiting_on_player_input)
+	var/hivenumber = xeno_owner.get_xeno_hivenumber()
+	if(!GLOB.xeno_acid_jaws_by_hive[hivenumber] || waiting_on_player_input)
 		return
-	if(length(GLOB.xeno_acid_jaws_by_hive[xeno_owner.hivenumber]) == 1)
-		selected_artillery = GLOB.xeno_acid_jaws_by_hive[xeno_owner.hivenumber][1]
+	if(length(GLOB.xeno_acid_jaws_by_hive[hivenumber]) == 1)
+		selected_artillery = GLOB.xeno_acid_jaws_by_hive[hivenumber][1]
 		xeno_owner.balloon_alert(xeno_owner, "artillery selected")
 		update_button_icon()
 		return
 	INVOKE_ASYNC(src, PROC_REF(select_artillery_from_input_list))
 
 /datum/action/ability/activable/xeno/shoot_xeno_artillery/proc/select_artillery_from_input_list()
-	selected_artillery = tgui_input_list(xeno_owner, "Which artillery to use?", "Artillery List",  GLOB.xeno_acid_jaws_by_hive[xeno_owner.hivenumber])
+	selected_artillery = tgui_input_list(xeno_owner, "Which artillery to use?", "Artillery List",  GLOB.xeno_acid_jaws_by_hive[xeno_owner.get_xeno_hivenumber()])
 	if(!selected_artillery)
 		return
 	xeno_owner.balloon_alert(xeno_owner, "artillery selected")

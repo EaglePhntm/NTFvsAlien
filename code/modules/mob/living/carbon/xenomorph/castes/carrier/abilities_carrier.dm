@@ -4,6 +4,7 @@
 #define ACID_HUGGER "acid hugger"
 #define RESIN_HUGGER "resin hugger"
 #define OZELOMELYN_HUGGER "ozelomelyn hugger"
+#define APHROTOXIN_HUGGER "aphrotoxin hugger"
 
 //List of huggie types
 GLOBAL_LIST_INIT(hugger_type_list, list(
@@ -11,6 +12,7 @@ GLOBAL_LIST_INIT(hugger_type_list, list(
 		/obj/item/clothing/mask/facehugger/combat/slash,
 		/obj/item/clothing/mask/facehugger/combat/chem_injector/neuro,
 		/obj/item/clothing/mask/facehugger/combat/chem_injector/ozelomelyn,
+		/obj/item/clothing/mask/facehugger/combat/chem_injector/aphrotoxin,
 		/obj/item/clothing/mask/facehugger/combat/acid,
 		/obj/item/clothing/mask/facehugger/combat/resin,
 		))
@@ -20,6 +22,7 @@ GLOBAL_LIST_INIT(hugger_to_ammo, list(
 	/obj/item/clothing/mask/facehugger/combat/slash = /datum/ammo/xeno/hugger/slash,
 	/obj/item/clothing/mask/facehugger/combat/chem_injector/neuro = /datum/ammo/xeno/hugger/neuro,
 	/obj/item/clothing/mask/facehugger/combat/chem_injector/ozelomelyn = /datum/ammo/xeno/hugger/ozelomelyn,
+	/obj/item/clothing/mask/facehugger/combat/chem_injector/aphrotoxin = /datum/ammo/xeno/hugger/aphrotoxin,
 	/obj/item/clothing/mask/facehugger/combat/acid = /datum/ammo/xeno/hugger/acid,
 	/obj/item/clothing/mask/facehugger/combat/resin = /datum/ammo/xeno/hugger/resin,
 ))
@@ -30,6 +33,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	CLAWED_HUGGER = image('icons/Xeno/actions/carrier.dmi', icon_state = CLAWED_HUGGER),
 	NEURO_HUGGER = image('icons/Xeno/actions/carrier.dmi', icon_state = NEURO_HUGGER),
 	OZELOMELYN_HUGGER = image('icons/Xeno/actions/carrier.dmi', icon_state = OZELOMELYN_HUGGER),
+	APHROTOXIN_HUGGER = image('ntf_modular/icons/Xeno/actions.dmi', icon_state = APHROTOXIN_HUGGER),
 	ACID_HUGGER = image('icons/Xeno/actions/carrier.dmi', icon_state = ACID_HUGGER),
 	RESIN_HUGGER = image('icons/Xeno/actions/carrier.dmi', icon_state = RESIN_HUGGER),
 ))
@@ -107,7 +111,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 		F.facehugger_register_source(xeno_owner) //Set us as the source
 		F.throw_at(A, CARRIER_HUGGER_THROW_DISTANCE, CARRIER_HUGGER_THROW_SPEED)
 		if(fake_hugger_gradiant_percentage > 0 && !istype(F, /obj/item/clothing/mask/facehugger/combat/harmless))
-			var/obj/item/clothing/mask/facehugger/combat/harmless/fake = new(get_turf(xeno_owner), xeno_owner.hivenumber, xeno_owner)
+			var/obj/item/clothing/mask/facehugger/combat/harmless/fake = new(get_turf(xeno_owner), xeno_owner.get_xeno_hivenumber(), xeno_owner)
 			fake.set_fire_immunity(F.fire_immune)
 			fake.impact_time = F.impact_time
 			fake.activate_time = F.activate_time
@@ -154,6 +158,8 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 
 /datum/action/ability/xeno_action/place_trap/can_use_action(silent, override_flags, selecting)
 	. = ..()
+	if(!.)
+		return
 	var/turf/T = get_turf(owner)
 	if(!T || !T.is_weedable() || T.density)
 		if(!silent)
@@ -273,7 +279,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 
 	xeno_owner.visible_message(span_xenowarning("A chittering mass of tiny aliens is trying to escape [xeno_owner]!"))
 	while(xeno_owner.huggers > 0)
-		var/obj/item/clothing/mask/facehugger/new_hugger = new /obj/item/clothing/mask/facehugger/larval(get_turf(xeno_owner), xeno_owner.hivenumber, xeno_owner)
+		var/obj/item/clothing/mask/facehugger/new_hugger = new /obj/item/clothing/mask/facehugger/larval(get_turf(xeno_owner), xeno_owner.get_xeno_hivenumber(), xeno_owner)
 		step_away(new_hugger, xeno_owner, 1)
 		addtimer(CALLBACK(new_hugger, TYPE_PROC_REF(/obj/item/clothing/mask/facehugger, go_active), TRUE), new_hugger.jump_cooldown)
 		xeno_owner.huggers--
@@ -351,6 +357,8 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 
 /datum/action/ability/xeno_action/build_hugger_turret/can_use_action(silent, override_flags, selecting)
 	. = ..()
+	if(!.)
+		return
 	var/turf/T = get_turf(owner)
 	var/mob/living/carbon/xenomorph/blocker = locate() in T
 	if(blocker && blocker != owner && blocker.stat != DEAD)
@@ -369,21 +377,20 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	if(!T.check_alien_construction(owner, silent, /obj/structure/xeno/xeno_turret) || !T.check_disallow_alien_fortification(owner))
 		return FALSE
 
-	for(var/obj/structure/xeno/xeno_turret/turret AS in GLOB.xeno_resin_turrets_by_hive[blocker.hivenumber])
-		if(get_dist(turret, owner) < 6)
+	for(var/obj/structure/xeno/xeno_turret/turret AS in GLOB.xeno_resin_turrets_by_hive[blocker.get_xeno_hivenumber()])
+		if(get_dist(turret, owner) < XENO_TURRET_EXCLUSION_RANGE)
 			if(!silent)
 				to_chat(owner, span_xenowarning("Another turret is too close!"))
 			return FALSE
 
 /datum/action/ability/xeno_action/build_hugger_turret/action_activate()
-	if(!do_after(owner, 10 SECONDS, NONE, owner, BUSY_ICON_BUILD))
+	if(!do_after(owner, 10 SECONDS, TRUE, owner, BUSY_ICON_BUILD))
 		return FALSE
 
 	if(!can_use_action())
 		return FALSE
 
-	var/obj/structure/xeno/xeno_turret/hugger_turret/turret = new (get_turf(owner), xeno_owner.hivenumber)
-	turret.ammo = GLOB.ammo_list[GLOB.hugger_to_ammo[xeno_owner.selected_hugger_type]]
+	new /obj/structure/xeno/xeno_turret/hugger_turret(get_turf(owner), xeno_owner.get_xeno_hivenumber(), GLOB.ammo_list[GLOB.hugger_to_ammo[xeno_owner.selected_hugger_type]])
 	succeed_activate()
 	add_cooldown()
 
@@ -395,9 +402,9 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	name = "Call of Younger"
 	action_icon_state = "call_younger"
 	action_icon = 'icons/Xeno/actions/carrier.dmi'
-	desc = "Appeals to the larva inside the Marine. The Marine loses their balance, and the larva's growth progress accelerates."
+	desc = "Appeals to the larva inside a hugged target. The target loses their balance, gets pulled towards you, and their larva's growth progress accelerates."
 	ability_cost = 150
-	cooldown_duration = 20 SECONDS
+	cooldown_duration = 10 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CALL_YOUNGER,
 	)
@@ -450,7 +457,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	owner.visible_message(span_xenowarning("\the [owner] emits an unusual roar!"), \
 	span_xenowarning("We called out to the younger one inside [victim]!"))
 	victim.visible_message(span_xenowarning("\The [victim] loses [victim.p_their()] balance, falling to the side!"), \
-	span_xenowarning("You feel like something inside you is tearing out!"))
+	span_xenowarning("You feel like something inside you is moving!"))
 
 	victim.apply_effects(2 SECONDS, 1 SECONDS)
 	victim.adjust_stagger(debuff SECONDS)

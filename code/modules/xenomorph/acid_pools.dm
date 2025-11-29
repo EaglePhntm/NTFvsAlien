@@ -13,12 +13,17 @@
 
 /obj/structure/xeno/acid_pool/Initialize(mapload, _hivenumber)
 	. = ..()
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "acid_pool", MINIMAP_LABELS_LAYER))
+	SSminimaps.add_marker(src, GLOB.hivenumber_to_minimap_flag[hivenumber], image('icons/UI_icons/map_blips.dmi', null, "acid_pool", MINIMAP_LABELS_LAYER))
 
 /obj/structure/xeno/acid_pool/Initialize(mapload, _hivenumber)
 	. = ..()
+	LAZYADDASSOC(GLOB.xeno_acid_pools_by_hive, hivenumber, src)
 	START_PROCESSING(SSprocessing, src)
 	update_icon()
+
+/obj/structure/xeno/acid_pool/Destroy()
+	GLOB.xeno_acid_pools_by_hive[hivenumber] -= src
+	return ..()
 
 /obj/structure/xeno/acid_pool/update_overlays()
 	. = ..()
@@ -31,6 +36,6 @@
 				continue
 			if(!xeno.lying_angle)
 				continue
-			if(GLOB.hive_datums[hivenumber] != xeno.hive)
+			if(hivenumber != xeno.get_xeno_hivenumber())
 				continue
 			xeno.adjust_sunder(-1)

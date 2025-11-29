@@ -6,9 +6,10 @@
 /////////////////////////////////
 /datum/action/ability/activable/xeno/devour
 	name = "Devour"
+	action_icon = 'ntf_modular/icons/Xeno/actions.dmi'
 	action_icon_state = "abduct"
-	action_icon = 'icons/Xeno/actions/gorger.dmi'
 	desc = "Devour your victim to be able to carry it faster."
+	desc = "Devour your victim to be able to carry it around."
 	use_state_flags = ABILITY_USE_STAGGERED|ABILITY_USE_FORTIFIED|ABILITY_USE_CRESTED //can't use while staggered, defender fortified or crest down
 	ability_cost = 0
 	target_flags = ABILITY_MOB_TARGET
@@ -20,62 +21,83 @@
 	. = ..()
 	if(!.)
 		return
-	if(!ishuman(target) || issynth(target))
+	if(!ismob(target))
 		if(!silent)
 			to_chat(owner, span_warning("That wouldn't taste very good."))
 		return FALSE
 	var/mob/living/carbon/human/victim = target
+	if(owner.status_flags & INCORPOREAL)
+		if(!silent)
+			to_chat(owner, span_warning("Can't do while in flight!"))
+		return FALSE
 	if(owner.do_actions) //can't use if busy
 		return FALSE
 	if(!owner.Adjacent(victim)) //checks if owner next to target
-		return FALSE
-	if(!HAS_TRAIT(victim, TRAIT_UNDEFIBBABLE))
-		if(!silent)
-			to_chat(owner, span_warning("This creature is struggling too much for us to devour it."))
 		return FALSE
 	if(victim.buckled)
 		if(!silent)
 			to_chat(owner, span_warning("[victim] is buckled to something."))
 		return FALSE
-	if(xeno_owner.eaten_mob)
+	var/mob/living/carbon/xenomorph/owner_xeno = owner
+	if(owner_xeno.eaten_mob)
 		if(!silent)
-			to_chat(xeno_owner, span_warning("We have already swallowed one."))
+			to_chat(owner_xeno, span_warning("You have already swallowed one."))
 		return FALSE
-	if(xeno_owner.on_fire)
+	if(owner_xeno.on_fire)
 		if(!silent)
-			to_chat(xeno_owner, span_warning("We're too busy being on fire to do this!"))
+			to_chat(owner_xeno, span_warning("We're too busy being on fire to do this!"))
 		return FALSE
-	for(var/obj/effect/forcefield/fog in range(1, xeno_owner))
+	for(var/obj/effect/forcefield/fog in range(1, owner_xeno))
 		if(!silent)
-			to_chat(xeno_owner, span_warning("We are too close to the fog."))
+			to_chat(owner_xeno, span_warning("We are too close to the fog."))
 		return FALSE
 
 /datum/action/ability/activable/xeno/devour/action_activate()
 	. = ..()
-	if(!xeno_owner.eaten_mob)
+	var/mob/living/carbon/xenomorph/owner_xeno = owner
+	var/mob/living/carbon/human/victim = owner_xeno.eaten_mob
+	if(!victim)
 		return
 
 	var/channel = SSsounds.random_available_channel()
-	playsound(xeno_owner, 'sound/vore/escape.ogg', 40, channel = channel)
-	if(!do_after(xeno_owner, GORGER_REGURGITATE_DELAY, IGNORE_HELD_ITEM, null, BUSY_ICON_DANGER))
+	playsound(owner_xeno, 'sound/vore/escape.ogg', 40, channel = channel)
+	if(!do_after(owner_xeno, GORGER_REGURGITATE_DELAY, FALSE, null, BUSY_ICON_DANGER))
 		to_chat(owner, span_warning("We moved too soon!"))
-		xeno_owner.stop_sound_channel(channel)
+		owner_xeno.stop_sound_channel(channel)
 		return
-	xeno_owner.eject_victim()
+	owner_xeno.eject_victim()
+	log_combat(owner_xeno, victim, "released", addition="from being devoured")
+	REMOVE_TRAIT(victim, TRAIT_STASIS, TRAIT_STASIS)
 
 /datum/action/ability/activable/xeno/devour/use_ability(atom/target)
 	var/mob/living/carbon/human/victim = target
-	xeno_owner.face_atom(victim)
-	xeno_owner.visible_message(span_danger("[xeno_owner] starts to devour [victim]!"), span_danger("We start to devour [victim]!"), null, 5)
+	var/mob/living/carbon/xenomorph/owner_xeno = owner
+	owner_xeno.face_atom(victim)
+	owner_xeno.visible_message(span_danger("[owner_xeno] starts to devour [victim]!"), span_danger("We start to devour [victim]!"), null, 5)
+	log_combat(owner_xeno, victim, "started to devour")
 	var/channel = SSsounds.random_available_channel()
-	playsound(xeno_owner, 'sound/vore/struggle.ogg', 40, channel = channel)
-	if(!do_after(xeno_owner, GORGER_DEVOUR_DELAY, IGNORE_HELD_ITEM, victim, BUSY_ICON_DANGER, extra_checks = CALLBACK(owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = xeno_owner.health))))
+	var/devour_delay = GORGER_DEVOUR_DELAY
+	if((HAS_TRAIT(victim, TRAIT_UNDEFIBBABLE) || !victim.client) && !isxeno(victim))
+		devour_delay = GORGER_DEVOUR_DELAY*3
+	if(isxenogorger(owner_xeno)) //gorgers balling anyway, kidnappers.
+		devour_delay = GORGER_DEVOUR_DELAY
+	playsound(owner_xeno, 'sound/vore/struggle.ogg', 40, channel = channel)
+	owner_xeno.devouring_mob = victim
+	if(!do_after(owner_xeno, devour_delay, FALSE, victim, BUSY_ICON_DANGER, extra_checks = CALLBACK(owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = owner_xeno.health))))
+		owner_xeno.devouring_mob = null
 		to_chat(owner, span_warning("We stop devouring \the [victim]. They probably tasted gross anyways."))
-		xeno_owner.stop_sound_channel(channel)
+		owner_xeno.stop_sound_channel(channel)
 		return
-	owner.visible_message(span_warning("[xeno_owner] devours [victim]!"), span_warning("We devour [victim]!"), null, 5)
-	victim.forceMove(xeno_owner)
-	xeno_owner.eaten_mob = victim
+	owner_xeno.devouring_mob = null
+	log_combat(owner_xeno, victim, "devoured")
+	owner.visible_message(span_warning("[owner_xeno] devours [victim]!"), span_warning("We devour [victim]!"), null, 5)
+	ADD_TRAIT(victim, TRAIT_STASIS, TRAIT_STASIS)
+	victim.forceMove(owner_xeno)
+	owner_xeno.eaten_mob = victim
+	if(ishuman(victim))
+		var/obj/item/radio/headset/mainship/headset = victim.wear_ear
+		if(istype(headset))
+			headset.disable_locator(40 SECONDS)
 	add_cooldown()
 
 /datum/action/ability/activable/xeno/devour/ai_should_use(atom/target)

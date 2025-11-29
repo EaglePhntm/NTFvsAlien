@@ -244,7 +244,7 @@
 	///Determines character slowdown from aim mode. Default is 66%
 	var/aim_speed_modifier = 6
 	/// Time to enter aim mode, generally one second.
-	var/aim_time = 1 SECONDS
+	var/aim_time = 12 SECONDS
 
 	///How many shots can the weapon shoot in burst? Anything less than 2 and you cannot toggle burst.
 	var/burst_amount = 1
@@ -459,6 +459,8 @@
 
 ///Set the user in argument as gun_user
 /obj/item/weapon/gun/proc/set_gun_user(mob/user)
+	if(ismovable(user) && !istype(src, /obj/item/weapon/gun/rifle/drone))
+		faction = user.faction
 	active_attachable?.set_gun_user(user)
 	if(user == gun_user)
 		return
@@ -839,7 +841,7 @@
 		if(!gun_user)
 			addtimer(CALLBACK(src, PROC_REF(fire_after_autonomous_windup)), windup_delay)
 			return NONE
-		if(!do_after(gun_user, windup_delay, IGNORE_LOC_CHANGE, src, BUSY_ICON_DANGER, BUSY_ICON_DANGER))
+		if(!do_after(gun_user, windup_delay, TRUE, src, BUSY_ICON_DANGER, BUSY_ICON_DANGER, ignore_turf_checks = TRUE))
 			windup_checked = WEAPON_WINDUP_NOT_CHECKED
 			return NONE
 		windup_checked = WEAPON_WINDUP_CHECKED
@@ -1098,7 +1100,7 @@
 	user.visible_message(span_warning("[user] sticks their gun in their mouth, ready to pull the trigger."))
 	log_combat(user, null, "is trying to commit suicide")
 
-	if(!do_after(user, 40, NONE, src, BUSY_ICON_DANGER))
+	if(!do_after(user, 40, TRUE, src, BUSY_ICON_DANGER))
 		M.visible_message(span_notice("[user] decided life was worth living."))
 		ENABLE_BITFIELD(gun_features_flags, GUN_CAN_POINTBLANK)
 		return
@@ -1194,7 +1196,8 @@
 			return
 		cycle(user, FALSE)
 		update_icon()
-		playsound(src, cocked_sound, 25, 1)
+		if(cocked_sound)
+			playsound(src, cocked_sound, 25, 1)
 		if(!CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_TOGGLES_OPEN) && casings_to_eject)
 			make_casing()
 			casings_to_eject = 0
@@ -1207,7 +1210,8 @@
 	if(!CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_TOGGLES_OPEN))
 		cycle(user, FALSE)
 		update_icon()
-		playsound(src, cocked_sound, 25, 1)
+		if(cocked_sound)
+			playsound(src, cocked_sound, 25, 1)
 		return
 	if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_CLOSED)) //We want to open it.
 		DISABLE_BITFIELD(reciever_flags, AMMO_RECIEVER_CLOSED)
@@ -1260,7 +1264,8 @@
 			casings_to_eject = 0
 	else
 		ENABLE_BITFIELD(reciever_flags, AMMO_RECIEVER_CLOSED)
-		playsound(src, cocked_sound, 25, 1)
+		if(cocked_sound)
+			playsound(src, cocked_sound, 25, 1)
 		if(chamber_closed_message)
 			to_chat(user, span_notice(chamber_closed_message))
 		cycle(user, FALSE)
@@ -1355,6 +1360,16 @@
 		RegisterSignal(new_mag, COMSIG_ITEM_REMOVED_INVENTORY, PROC_REF(drop_connected_mag))
 		return TRUE
 
+	var/reload_delay = get_magazine_reload_delay(new_mag)
+	if(reload_delay > 0 && user && !force)
+		reload_delay -= reload_delay * 0.25 * min(user.skills.getRating(gun_skill_category), 2)
+		to_chat(user, span_notice("You begin reloading [src] with [new_mag]."))
+		ADD_TRAIT(user, TRAIT_IS_RELOADING, REF(src))
+		if(!do_after(user, reload_delay, NONE, user))
+			REMOVE_TRAIT(user, TRAIT_IS_RELOADING, REF(src))
+			to_chat(user, span_warning("Your reload was interupted!"))
+			return FALSE
+		REMOVE_TRAIT(user, TRAIT_IS_RELOADING, REF(src))
 
 	var/list/obj/items_to_insert = list()
 	if(max_chamber_items)
@@ -1367,10 +1382,11 @@
 					items_to_insert += mag
 				playsound(src, hand_reload_sound, 25, 1)
 			else
-				if((length(chamber_items) && !CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_ROTATES_CHAMBER)) || (CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_ROTATES_CHAMBER) && rounds))
+				var/rounds_in_chamber = CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_ROTATES_CHAMBER) ? rounds : length(chamber_items)
+				if(CHECK_BITFIELD(mag.magazine_flags,MAGAZINE_REQUIRES_EMPTY_GUN) && rounds_in_chamber)
 					to_chat(user, span_warning("[src] must be completely empty to use the [mag]!"))
 					return FALSE
-				var/rounds_to_fill = mag.current_rounds < max_chamber_items ? mag.current_rounds : max_chamber_items
+				var/rounds_to_fill = min(mag.current_rounds, max_chamber_items - rounds_in_chamber)
 				for(var/i = 0, i < rounds_to_fill, i++)
 					items_to_insert += mag.create_handful(null, 1)
 				playsound(src, reload_sound, 25, 1)
@@ -1515,7 +1531,8 @@
 		new_in_chamber = null
 	else if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_MAGAZINES))
 		if(!after_fire && in_chamber && !CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_DO_NOT_EJECT_HANDFULS))
-			playsound(src, cocked_sound, 25, 1)
+			if(cocked_sound)
+				playsound(src, cocked_sound, 25, 1)
 			if(cocked_message)
 				to_chat(user, span_notice(cocked_message))
 			var/atom/movable/projectile/projectile_in_chamber = in_chamber
@@ -1661,6 +1678,8 @@
 ///Getter to draw max rounds.
 /obj/item/weapon/gun/proc/get_max_rounds(obj/item/mag)
 	var/obj/item/ammo_magazine/magazine = mag
+	if(!istype(magazine))
+		return 1
 	return magazine?.max_rounds
 
 ///Getter to draw magazine_flags features. If the mag has none, overwrite and return null.
@@ -1673,16 +1692,22 @@
 ///Getter to draw default ammo type. If the mag has none, overwrite and return null.
 /obj/item/weapon/gun/proc/get_magazine_default_ammo(obj/item/mag)
 	var/obj/item/ammo_magazine/magazine = mag
+	if(!istype(magazine))
+		return null
 	return magazine?.default_ammo
 
 ///Getter to draw reload delay. If the mag has none, overwrite and return null.
 /obj/item/weapon/gun/proc/get_magazine_reload_delay(obj/item/mag)
 	var/obj/item/ammo_magazine/magazine = mag
+	if(!istype(magazine))
+		return 0
 	return magazine?.reload_delay
 
 ///Getter to draw the magazine overlay on the gun. If the mag has none, overwrite and return null.
 /obj/item/weapon/gun/proc/get_magazine_overlay(obj/item/mag)
 	var/obj/item/ammo_magazine/magazine = mag
+	if(!istype(magazine))
+		return null
 	return magazine?.bonus_overlay
 
 /obj/item/weapon/gun/rifle/garand/reload(obj/item/new_mag, mob/living/user, force = FALSE)
@@ -1721,6 +1746,9 @@
 		return FALSE
 	if(!(gun_features_flags & GUN_ALLOW_SYNTHETIC) && !CONFIG_GET(flag/allow_synthetic_gun_use) && issynth(user))
 		to_chat(user, span_warning("Your program does not allow you to use this firearm."))
+		return FALSE
+	if(HAS_TRAIT(user, TRAIT_KNIGHT))
+		to_chat(user, span_warning("Your armor does not allow you to use this firearm!"))
 		return FALSE
 	if(HAS_TRAIT(src, TRAIT_GUN_SAFETY))
 		to_chat(user, span_warning("The safety is on!"))
@@ -1781,6 +1809,7 @@
 
 ///Applies gun modifiers to a projectile before firing
 /obj/item/weapon/gun/proc/apply_gun_modifiers(atom/movable/projectile/projectile_to_fire, atom/target, firer)
+	projectile_to_fire.firer = firer
 	projectile_to_fire.shot_from = src
 	projectile_to_fire.damage *= damage_mult
 	projectile_to_fire.sundering *= damage_mult
@@ -1789,10 +1818,9 @@
 	projectile_to_fire.projectile_speed += shell_speed_mod
 	if(gun_features_flags & GUN_IFF || HAS_TRAIT(src, TRAIT_GUN_IS_AIMING) || projectile_to_fire.ammo.ammo_behavior_flags & AMMO_IFF)
 		var/iff_signal
-		if(ishuman(firer))
-			var/mob/living/carbon/human/_firer = firer
-			var/obj/item/card/id/id = _firer.get_idcard()
-			iff_signal = id?.iff_signal
+		if(ismob(firer))
+			var/mob/firing_mob = firer
+			iff_signal = firing_mob.get_iff_signal()
 		else if(istype(firer, /obj/machinery/deployable/mounted/sentry))
 			var/obj/machinery/deployable/mounted/sentry/sentry = firer
 			iff_signal = sentry.iff_signal
@@ -1907,17 +1935,20 @@
 	gun_user?.client?.mouse_pointer_icon = gun_crosshair
 
 //For letting xenos turn off the flashlights on any guns left lying around.
-/obj/item/weapon/gun/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
-	if(!HAS_TRAIT(src, TRAIT_GUN_FLASHLIGHT_ON))
-		return
-	for(var/attachment_slot in attachments_by_slot)
-		var/obj/item/attachable/flashlight/lit_flashlight = attachments_by_slot[attachment_slot]
-		if(!istype(lit_flashlight))
-			continue
-		lit_flashlight.turn_light(null, FALSE)
-	playsound(loc, SFX_ALIEN_CLAW_METAL, 25, 1)
-	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
-	to_chat(xeno_attacker, span_warning("We disable the metal thing's lights.") )
+/obj/item/weapon/gun/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+	if(xeno_attacker.a_intent == INTENT_HARM)
+		if(!HAS_TRAIT(src, TRAIT_GUN_FLASHLIGHT_ON))
+			return
+		for(var/attachment_slot in attachments_by_slot)
+			var/obj/item/attachable/flashlight/lit_flashlight = attachments_by_slot[attachment_slot]
+			if(!istype(lit_flashlight))
+				continue
+			lit_flashlight.turn_light(null, FALSE)
+		playsound(loc, SFX_ALIEN_CLAW_METAL, 25, 1)
+		xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
+		to_chat(xeno_attacker, span_warning("We disable the metal thing's lights.") )
+	else
+		attack_hand(xeno_attacker)
 
 /obj/item/weapon/gun/special_stripped_behavior(mob/stripper, mob/owner)
 	var/obj/item/attachable/magnetic_harness/magharn = attachments_by_slot[ATTACHMENT_SLOT_RAIL]

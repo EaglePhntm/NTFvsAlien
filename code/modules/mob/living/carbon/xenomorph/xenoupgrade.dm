@@ -46,25 +46,8 @@
 		current_aura.range = 6 + xeno_caste.aura_strength * 2
 		current_aura.strength = xeno_caste.aura_strength
 
-	switch(upgrade)
-		if(XENO_UPGRADE_NORMAL)
-			switch(tier)
-				if(XENO_TIER_TWO)
-					SSmonitor.stats.normal_T2++
-				if(XENO_TIER_THREE)
-					SSmonitor.stats.normal_T3++
-				if(XENO_TIER_FOUR)
-					SSmonitor.stats.normal_T4++
-		if(XENO_UPGRADE_PRIMO)
-			switch(tier)
-				if(XENO_TIER_TWO)
-					SSmonitor.stats.primo_T2++
-				if(XENO_TIER_THREE)
-					SSmonitor.stats.primo_T3++
-				if(XENO_TIER_FOUR)
-					SSmonitor.stats.primo_T4++
-			if(!silent)
-				to_chat(src, span_xenoannounce(xeno_caste.primordial_message))
+	if(upgrade == XENO_UPGRADE_PRIMO && !silent)
+		to_chat(src, span_xenoannounce(xeno_caste.primordial_message))
 
 	generate_name() //Give them a new name now
 
@@ -256,6 +239,13 @@
 	upgrade = XENO_UPGRADE_PRIMO
 	upgrade_stored = TIER_TWO_THRESHOLD
 
+/mob/living/carbon/xenomorph/hunter/assassin
+	upgrade = XENO_UPGRADE_NORMAL
+
+/mob/living/carbon/xenomorph/hunter/assassin/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+	upgrade_stored = TIER_TWO_THRESHOLD
+
 //----HUNTER END----//
 //================//
 //HUNTER ERT START
@@ -307,6 +297,7 @@
 	upgrade_stored = TIER_THREE_THRESHOLD
 
 //----DRAGON END----//
+
 
 //============//
 //---CRUSHER START---//
@@ -425,6 +416,15 @@
 
 //----WARLOCK END----//
 //============//
+//----BANELING START----//
+/mob/living/carbon/xenomorph/baneling
+	upgrade = XENO_UPGRADE_NORMAL
+
+/mob/living/carbon/xenomorph/baneling/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
+//----BANELING END----//
+//============//
 //----PUPPETEER START----//
 /mob/living/carbon/xenomorph/puppeteer
 	upgrade = XENO_UPGRADE_NORMAL
@@ -441,6 +441,12 @@
 	upgrade = XENO_UPGRADE_NORMAL
 
 /mob/living/carbon/xenomorph/behemoth/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
+/mob/living/carbon/xenomorph/behemoth/sieger
+	upgrade = XENO_UPGRADE_NORMAL
+
+/mob/living/carbon/xenomorph/behemoth/sieger/primordial
 	upgrade = XENO_UPGRADE_PRIMO
 
 //----BEHEMOTH END----//

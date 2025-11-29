@@ -3,9 +3,9 @@
 #define LOW_FUEL_LEFT_MESSAGE 100
 /obj/vehicle/ridden/motorbike
 	name = "all-terrain motorbike"
-	desc = "An all-terrain vehicle built for traversing rough terrain with ease. \"TGMC CAVALRY\" is stamped on the side of the engine."
+	desc = "An all-terrain vehicle built for traversing rough terrain with ease. \"NTC CAVALRY\" is stamped on the side of the engine."
 	icon_state = "motorbike"
-	max_integrity = 300
+	max_integrity = 200
 	soft_armor = list(MELEE = 30, BULLET = 30, LASER = 30, ENERGY = 0, BOMB = 30, FIRE = 60, ACID = 60)
 	resistance_flags = XENO_DAMAGEABLE
 	atom_flags = PREVENT_CONTENTS_EXPLOSION
@@ -41,6 +41,8 @@
 	)
 	/// Cooldown for revving the bike, to prevent spamming
 	COOLDOWN_DECLARE(rev_cooldown)
+	///Cooldown for telling someone they're buckled
+	COOLDOWN_DECLARE(sticky_stuck_cooldown)
 
 /obj/vehicle/ridden/motorbike/Initialize(mapload)
 	. = ..()
@@ -139,7 +141,7 @@
 			balloon_alert("There is a rider already!")
 			return TRUE
 		balloon_alert(user, "You start attaching the sidecar...")
-		if(!do_after(user, 3 SECONDS, NONE, src))
+		if(!do_after(user, 3 SECONDS, TRUE, src))
 			return TRUE
 		user.temporarilyRemoveItemFromInventory(I)
 		I.forceMove(src)
@@ -178,7 +180,7 @@
 	if(user.do_actions)
 		balloon_alert(user, "Already busy!")
 		return FALSE
-	if(!do_after(user, 3 SECONDS, NONE, src))
+	if(!do_after(user, 3 SECONDS, TRUE, src))
 		return TRUE
 	attached_sidecar.forceMove(get_turf(src))
 	attached_sidecar = null
@@ -217,6 +219,37 @@
 	STOP_PROCESSING(SSobj,src)
 	return ..()
 
+//NTF ADDITION START
+//not calling parent cause i want to override this for weed stuck so it cant be reliably used for combat harrassment since they are so fast here
+/obj/vehicle/ridden/motorbike/relaymove(mob/living/user, direction)
+	if(!canmove)
+		return FALSE
+	if(is_driver(user))
+		if(COOLDOWN_FINISHED(src, sticky_stuck_cooldown)) //so it does not get caught in spam relaymove triggers constantly
+			var/obj/alien/weeds/sticky/sticky_floor
+			for (var/obj/alien/weeds/sticky/O in loc)
+				sticky_floor = O
+			if(sticky_floor && prob(30))
+				canmove = FALSE
+				playsound(src, pick(rev_sounds), 40, TRUE, falloff = 3)
+				balloon_alert(user, "Your [name] struggles on sticky resin!")
+				fuel_count -= 2
+				if(prob(25))
+					var/datum/effect_system/smoke_spread/smoke = new
+					smoke.set_up(0, src)
+					smoke.start()
+				COOLDOWN_START(src, sticky_stuck_cooldown, 2.5 SECONDS)
+				addtimer(CALLBACK(src, PROC_REF(unstuck_from_resin), user), 2 SECONDS)
+				return FALSE
+		return relaydrive(user, direction)
+	return FALSE
+
+/obj/vehicle/ridden/motorbike/proc/unstuck_from_resin(mob/living/user)
+	if(is_driver(user))
+		balloon_alert(user, "Your [name] gets unstuck.")
+	canmove = TRUE
+//NTF ADDITION END
+
 //internal storage
 /obj/item/vehicle_module/storage/motorbike
 	name = "internal storage"
@@ -228,7 +261,7 @@
  */
 /obj/item/sidecar
 	name = "motorbike sidecar"
-	desc = "A detached sidecar for TGMC motorbikes, which can be attached to them, allowing a second passenger. Use a wrench to dettach the sidecar."
+	desc = "A detached sidecar for NTC motorbikes, which can be attached to them, allowing a second passenger. Use a wrench to dettach the sidecar."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "sidecar"
 

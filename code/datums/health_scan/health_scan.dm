@@ -122,7 +122,7 @@
  */
 /datum/health_scan/proc/analyze_vitals(mob/living/carbon/human/patient_candidate, mob/user, show_patient)
 	if(user.skills.getRating(SKILL_MEDICAL) < skill_threshold)
-		user.balloon_alert("fumbling...")
+		user.balloon_alert(user, "fumbling...")
 		if(!do_after(user, max(SKILL_TASK_AVERAGE - (1 SECONDS * user.skills.getRating(SKILL_MEDICAL)), 0), NONE, patient_candidate, BUSY_ICON_UNSKILLED))
 			return
 	if(!ishuman(patient_candidate))
@@ -198,8 +198,8 @@
 		"total_clone" = round(patient.getCloneLoss()),
 
 		"blood_type" = patient.blood_type,
-		"blood_amount" = patient.blood_volume,
-		"regular_blood_amount" = patient::blood_volume,
+		"blood_amount" = patient.get_blood_volume(),
+		"regular_blood_amount" = patient.get_regular_blood_volume(),
 
 		"hugged" = !!(patient.status_flags & XENO_HOST),
 
@@ -267,7 +267,7 @@
 				if(!istype(wound, /datum/wound/internal_bleeding))
 					continue
 				internal_bleeding = TRUE
-				total_flow_rate += round(patient.blood_volume - INTERNAL_BLEEDING_FLOW_RATE(patient.blood_volume, wound.damage), 0.1)
+				total_flow_rate += round(patient.get_blood_volume() - INTERNAL_BLEEDING_FLOW_RATE(patient.get_blood_volume(), wound.damage), 0.1)
 		if(limb.germ_level > INFECTION_LEVEL_ONE)
 			infection_message = "Infection detected in subject's [limb.display_name]. Antibiotics recommended."
 			infected = TRUE

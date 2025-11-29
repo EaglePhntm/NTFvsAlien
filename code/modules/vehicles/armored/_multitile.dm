@@ -8,7 +8,6 @@
 	hitbox = /obj/hitbox
 	interior = /datum/interior/armored
 	minimap_icon_state = "tank"
-	required_entry_skill = SKILL_LARGE_VEHICLE_TRAINED
 	atom_flags = DIRLOCK|BUMP_ATTACKABLE|PREVENT_CONTENTS_EXPLOSION|CRITICAL_ATOM
 	armored_flags = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_SECONDARY_WEAPON|ARMORED_HAS_UNDERLAY|ARMORED_HAS_HEADLIGHTS|ARMORED_PURCHASABLE_ASSAULT|ARMORED_WRECKABLE
 	appearance_flags = PIXEL_SCALE
@@ -34,12 +33,13 @@
 		/obj/item/armored_weapon/microrocket_pod,
 	)
 	max_occupants = 4
-	move_delay = 0.75 SECONDS
+	move_delay = 0.6 SECONDS
 	glide_size = 2.5
-
-	ram_damage = 100
+	ram_damage = 200
 	easy_load_list = list(
 		/obj/item/ammo_magazine/tank,
+		/obj/structure/largecrate,
+		/obj/structure/closet/crate,
 	)
 	///pass_flags given to desants, in addition to the vehicle's pass_flags
 	var/desant_pass_flags = PASS_FIRE|PASS_LOW_STRUCTURE
@@ -125,39 +125,23 @@
 	for(var/atom/movable/desant AS in hitbox?.tank_desants)
 		desant.Shake(pixelshiftx, pixelshifty, duration, shake_interval)
 
-///Puts the vehicle into a wrecked state
-/obj/vehicle/sealed/armored/multitile/proc/wreck_vehicle()
-	if(armored_flags & ARMORED_IS_WRECK)
+/obj/vehicle/sealed/armored/multitile/wreck_vehicle()
+	. = ..()
+	if(!.)
 		return
-	for(var/mob/occupant AS in occupants)
-		mob_exit(occupant, FALSE, TRUE)
-	armored_flags |= ARMORED_IS_WRECK
-	obj_integrity = max_integrity
-	update_appearance(UPDATE_ICON_STATE|UPDATE_DESC|UPDATE_NAME)
 	smoke_holder = new(src, /particles/tank_wreck_smoke)
 	smoke_del_timer = addtimer(CALLBACK(src, PROC_REF(del_smoke)), 10 MINUTES, TIMER_STOPPABLE)
 	if(turret_overlay)
 		RegisterSignal(turret_overlay, COMSIG_ATOM_DIR_CHANGE, PROC_REF(update_smoke_dir))
 		update_smoke_dir(newdir = turret_overlay.dir)
-		turret_overlay.icon_state += "_wreck"
-		turret_overlay?.primary_overlay?.icon_state += "_wreck"
-	update_minimap_icon()
 
-///Returns the vehicle to an unwrecked state
-/obj/vehicle/sealed/armored/multitile/proc/unwreck_vehicle(restore = FALSE)
-	if(!(armored_flags & ARMORED_IS_WRECK))
+/obj/vehicle/sealed/armored/multitile/unwreck_vehicle(restore = FALSE)
+	. = ..()
+	if(!.)
 		return
-	armored_flags &= ~ARMORED_IS_WRECK
-	obj_integrity = restore ? max_integrity : 50
-	update_appearance(UPDATE_ICON_STATE|UPDATE_DESC|UPDATE_NAME)
 	QDEL_NULL(smoke_holder)
 	deltimer(smoke_del_timer)
 	smoke_del_timer = null
-	if(turret_overlay)
-		UnregisterSignal(turret_overlay, COMSIG_ATOM_DIR_CHANGE)
-		turret_overlay.icon_state = turret_overlay.base_icon_state
-		turret_overlay?.primary_overlay?.icon_state = turret_overlay?.primary_overlay?.base_icon_state
-	update_minimap_icon()
 
 ///Updates the wreck smoke position
 /obj/vehicle/sealed/armored/multitile/proc/update_smoke_dir(datum/source, dir, newdir)
@@ -179,7 +163,6 @@
 //THe HvX tank is not balanced at all for HvH
 /obj/vehicle/sealed/armored/multitile/campaign
 	desc = "A gigantic wall of metal designed for maximum SOM destruction. Drag yourself onto it at an entrance to get inside."
-	required_entry_skill = SKILL_LARGE_VEHICLE_DEFAULT
 	max_integrity = 1400
 	soft_armor = list(MELEE = 90, BULLET = 95 , LASER = 95, ENERGY = 95, BOMB = 80, BIO = 100, FIRE = 100, ACID = 75)
 	hard_armor = list(MELEE = 10, BULLET = 5, LASER = 5, ENERGY = 5, BOMB = 40, BIO = 100, FIRE = 0, ACID = 0)
