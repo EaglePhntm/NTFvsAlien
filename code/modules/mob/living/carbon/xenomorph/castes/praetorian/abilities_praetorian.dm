@@ -3,11 +3,14 @@
 // ***************************************
 /datum/action/ability/activable/xeno/spray_acid/cone
 	name = "Spray Acid Cone"
-	desc = "Spray a cone of dangerous acid at your target."
 	ability_cost = 300
 	cooldown_duration = 40 SECONDS
 	/// How will far can the acid go? Tile underneath starts at 1.
 	var/range = 5
+
+/datum/action/ability/activable/xeno/spray_acid/cone/New(Target)
+	. = ..()
+	desc = "Spray a [range - 1] tile cone of dangerous acid at your target."
 
 /datum/action/ability/activable/xeno/spray_acid/cone/use_ability(atom/A)
 	var/turf/target = get_turf(A)
@@ -147,7 +150,7 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	name = "Slime grenade"
 	action_icon_state = "gas mine"
 	action_icon = 'icons/Xeno/actions/sentinel.dmi'
-	desc = "Throws a lump of compressed acid to stick to a target, which will leave a trail of acid behind them."
+	desc = "Throws a lump of compressed acid to stick to a target, which will then leave a trail of acid behind them. Will explode in a 3x3 of acid if not stuck."
 	ability_cost = 75
 	cooldown_duration = 45 SECONDS
 	keybinding_signals = list(
@@ -180,7 +183,6 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	name = "Dodge"
 	action_icon_state = "dodge"
 	action_icon = 'icons/Xeno/actions/praetorian.dmi'
-	desc = "Flood your body with adrenaline, gaining a speed boost upon activation and the ability to pass through mobs. Enemies automatically receive bump attacks when passed."
 	ability_cost = 100
 	cooldown_duration = 18 SECONDS
 	use_state_flags = ABILITY_USE_BUSY
@@ -196,6 +198,10 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	var/obj/effect/abstract/particle_holder/particle_holder
 	///List of pass_flags given by this action
 	var/dodge_pass_flags = PASS_MOB|PASS_XENO
+
+/datum/action/ability/xeno_action/dodge/New(Target)
+	. = ..()
+	desc = "Flood your body with adrenaline for [duration / (1 SECONDS)] seconds, gaining a speed boost upon activation and the ability to pass through mobs. Enemies automatically receive bump attacks when passed."
 
 /datum/action/ability/xeno_action/dodge/action_activate(atom/A)
 	owner.balloon_alert(owner, "Dodge ready!")
@@ -294,7 +300,7 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	playsound(xeno_owner, get_sfx(SFX_ALIEN_TAIL_ATTACK), 30, TRUE)
 	xeno_owner.visible_message(span_danger("\The [xeno_owner] violently spears \the [target_atom] with their tail!"))
 	if(!ishuman(target_atom))
-		target_atom.attack_alien(xeno_owner, xeno_owner.xeno_caste.melee_damage * DANCER_NONHUMAN_IMPALE_MULT)
+		target_atom.attack_alien(xeno_owner, xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier * DANCER_NONHUMAN_IMPALE_MULT)
 
 	else
 		var/mob/living/carbon/human/human_victim = target_atom
@@ -423,7 +429,7 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	name = "Tail Hook"
 	action_icon_state = "tail_hook"
 	action_icon = 'icons/Xeno/actions/praetorian.dmi'
-	desc = "Swing your tail high, sending the hooked edge gouging into any targets within 2 tiles. Hooked marines have their movement slowed and are dragged, spinning, towards you. Marked marines are slowed for longer and briefly knocked over."
+	desc = "Swing your tail high, sending the hooked edge gouging into any targets within 2 tiles. Hooked marines have their movement slowed and are dragged, spinning, towards you. Marked marines are slowed for longer and get briefly knocked over."
 	cooldown_duration = 12 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
 	ability_cost = 100
@@ -530,7 +536,7 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	for (var/mob/living/carbon/xenomorph/xeno_target in orange(1, xeno_owner))
 		if(xeno_target.stat == DEAD)
 			continue
-		if(xeno_target.hivenumber != xeno_owner.hivenumber)
+		if(!xeno_owner.issamexenohive(xeno_target))
 			continue
 		xeno_target.apply_status_effect(STATUS_EFFECT_XENO_BATONPASS)
 

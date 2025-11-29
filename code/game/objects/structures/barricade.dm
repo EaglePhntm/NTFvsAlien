@@ -27,7 +27,7 @@
 	var/is_open = FALSE
 	///Can this barricade type be wired
 	var/can_wire = FALSE
-	///is this barriade wired?
+	///Is this barricade wired?
 	var/is_wired = FALSE
 
 /obj/structure/barricade/Initialize(mapload, mob/user)
@@ -77,7 +77,7 @@
 /obj/structure/barricade/attack_animal(mob/user)
 	return attack_alien(user)
 
-/obj/structure/barricade/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/structure/barricade/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 
@@ -145,12 +145,9 @@
 	if(disassembled && is_wired)
 		new /obj/item/stack/barbed_wire(loc)
 	if(stack_type)
-		var/stack_amt
-		if(!disassembled && destroyed_stack_amount)
-			stack_amt = destroyed_stack_amount
-		else
+		var/stack_amt = destroyed_stack_amount
+		if(disassembled)
 			stack_amt = round(stack_amount * (obj_integrity/max_integrity)) //Get an amount of sheets back equivalent to remaining health. Obviously, fully destroyed means 0
-
 		if(stack_amt)
 			new stack_type (loc, stack_amt)
 	return ..()
@@ -388,8 +385,8 @@
 
 //cade armor defines
 #define CADE_UPGRADE_BOMB 80
-#define CADE_UPGRADE_MELEE list(melee = 30, bullet = 50, laser = 50, energy = 50)
-#define CADE_UPGRADE_ACID 35
+#define CADE_UPGRADE_MELEE list(melee = 30, bullet = 80, laser = 80, energy = 80)
+#define CADE_UPGRADE_ACID 75
 
 /obj/structure/barricade/solid
 	name = "metal barricade"

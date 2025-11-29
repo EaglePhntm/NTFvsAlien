@@ -46,7 +46,7 @@
 		AI.anchored = FALSE
 		CHECK_TICK
 
-	GLOB.enter_allowed = FALSE //No joining after dropship crash
+	//GLOB.enter_allowed = FALSE //No joining after dropship crash
 
 	//clear areas around the shuttle with explosions
 	var/turf/C = return_center_turf()
@@ -123,6 +123,31 @@
 	dwidth = 4
 	height = 13
 	width = 9
+
+/obj/docking_port/stationary/marine_dropship/shipelevator/floor1
+	name = "Floor 1"
+	id = "elevatorfloor1"
+	roundstart_template = /datum/map_template/shuttle/shipelevator
+
+/obj/docking_port/stationary/marine_dropship/shipelevator/floor2
+	name = "Floor 2"
+	id = "elevatorfloor2"
+	roundstart_template = null
+
+/obj/docking_port/stationary/marine_dropship/elevator/floor1
+	name = "Floor 1"
+	id = "floor1"
+	roundstart_template = /datum/map_template/shuttle/elevator
+
+/obj/docking_port/stationary/marine_dropship/elevator/floor2
+	name = "Floor 2"
+	id = "floor2"
+	roundstart_template = null
+
+/obj/docking_port/stationary/marine_dropship/elevator/floor3
+	name = "Floor 3"
+	id = "floor3"
+	roundstart_template = null
 
 #define HIJACK_STATE_NORMAL "hijack_state_normal"
 #define HIJACK_STATE_CALLED_DOWN "hijack_state_called_down"
@@ -393,15 +418,68 @@
 	name = "Normandy"
 	id = SHUTTLE_NORMANDY
 	control_flags = SHUTTLE_MARINE_PRIMARY_DROPSHIP
-	callTime = 28 SECONDS //smaller shuttle go whoosh
-	rechargeTime = 1.5 MINUTES
+	callTime = 18 SECONDS //smaller shuttle go whoosh
+	rechargeTime = 30 SECONDS
 	dheight = 6
 	dwidth = 4
 	height = 13
 	width = 9
 
-// queen calldown
 
+/obj/machinery/computer/shuttle/shuttle_control/shipelevator
+	name = "Elevator Control Console"
+	icon = 'icons/obj/machines/computer.dmi'
+	icon_state = "computer_small"
+	screen_overlay = "shuttle"
+	possible_destinations = "elevatorfloor2;elevatorfloor1"
+	shuttleId = SHUTTLE_SHIPELEVATOR
+
+/obj/docking_port/mobile/shuttle/shipelevator
+	name = "Ship Elevator"
+	id = SHUTTLE_SHIPELEVATOR
+	callTime = 0 SECONDS
+	rechargeTime = 2 SECONDS
+	dheight = 2
+	dwidth = 2
+	height = 5
+	width = 5
+	ignitionTime = 0.5
+	shuttle_flags = GAMEMODE_IMMUNE
+	ignition_sound = 'sound/effects/escape_pod_launch.ogg'
+	landing_sound = 'sound/effects/droppod_impact.ogg'
+	prearrivalTime = 0.05
+	port_direction = 1
+	dir = 2
+	railing_gear_name = "cargobay"
+
+/obj/machinery/computer/shuttle/shuttle_control/elevator
+	name = "Elevator Control Console"
+	icon = 'icons/obj/machines/computer.dmi'
+	icon_state = "computer_small"
+	screen_overlay = "shuttle"
+	possible_destinations = "floor3;floor2;floor1"
+	shuttleId = SHUTTLE_ELEVATOR
+
+/obj/docking_port/mobile/shuttle/elevator
+	name = "elevator"
+	id = SHUTTLE_ELEVATOR
+	callTime = 0 SECONDS
+	rechargeTime = 2 SECONDS
+	dheight = 1
+	dwidth = 1
+	height = 3
+	width = 3
+	ignitionTime = 0.5
+	shuttle_flags = GAMEMODE_IMMUNE
+	ignition_sound = 'sound/effects/escape_pod_launch.ogg'
+	landing_sound = 'sound/effects/droppod_impact.ogg'
+	prearrivalTime = 0.5
+	port_direction = 1
+	dir = 2
+	railing_gear_name = "ntc"
+
+
+// queen calldown
 /obj/docking_port/mobile/marine_dropship/afterShuttleMove(turf/oldT, rotation)
 	. = ..()
 	if(hijack_state != HIJACK_STATE_CALLED_DOWN)
@@ -479,7 +557,7 @@
 		return
 
 	to_chat(src, span_warning("You begin calling down the shuttle."))
-	if(!do_after(src, 80, IGNORE_HELD_ITEM, null, BUSY_ICON_DANGER, BUSY_ICON_DANGER))
+	if(!do_after(src, 80, FALSE, null, BUSY_ICON_DANGER, BUSY_ICON_DANGER))
 		to_chat(src, span_warning("You stop."))
 		return
 
@@ -542,7 +620,7 @@
 		if(D.hijack_state != HIJACK_STATE_NORMAL)
 			return FALSE
 		to_chat(user, span_warning("We begin overriding the shuttle lockdown. This will take a while..."))
-		if(!do_after(user, 30 SECONDS, IGNORE_HELD_ITEM, null, BUSY_ICON_DANGER, BUSY_ICON_DANGER))
+		if(!do_after(user, 30 SECONDS, FALSE, null, BUSY_ICON_DANGER, BUSY_ICON_DANGER))
 			to_chat(user, span_warning("We cease overriding the shuttle lockdown."))
 			return FALSE
 		if(!is_ground_level(D.z))
@@ -614,11 +692,11 @@
 	possible_destinations = "lz1;lz2;alamo"
 	opacity = FALSE
 
-/obj/machinery/computer/shuttle/marine_dropship/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/machinery/computer/shuttle/marine_dropship/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	var/datum/game_mode/infestation/infestation_mode = SSticker.mode //Minor QOL, any xeno can check the console after a leader hijacks
 	if(!(xeno_attacker.xeno_caste.caste_flags & CASTE_IS_INTELLIGENT) && (infestation_mode.round_stage != INFESTATION_MARINE_CRASHING))
 		return
-	if(xeno_attacker.hive.living_xeno_ruler != xeno_attacker) //If we aren't the actual hive leader, prevent us from controling alamo
+	if(xeno_attacker.get_hive().living_xeno_ruler != xeno_attacker) //If we aren't the actual hive leader, prevent us from controling alamo
 		to_chat(xeno_attacker, span_xenowarning("We must be the hive leader!"))
 		return
 	#ifndef TESTING
@@ -628,6 +706,8 @@
 	#endif
 	var/obj/docking_port/mobile/marine_dropship/shuttle = SSshuttle.getShuttle(shuttleId)
 	if(shuttle.hijack_state != HIJACK_STATE_CALLED_DOWN && shuttle.hijack_state != HIJACK_STATE_CRASHING) //Process of corrupting the controls
+		if(!do_after(xeno_attacker, 10 SECONDS, NONE, src, BUSY_ICON_DANGER, BUSY_ICON_HOSTILE))
+			return
 		to_chat(xeno_attacker, span_xenowarning("We corrupt the bird's controls, unlocking the doors and preventing it from flying."))
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_DROPSHIP_CONTROLS_CORRUPTED, src)
 		shuttle.set_idle()
@@ -784,7 +864,7 @@
 				to_chat(usr, span_warning("Hijacking is not possible."))
 				return
 			var/mob/living/carbon/xenomorph/xeno = usr
-			if(!(xeno.hive.hive_flags & HIVE_CAN_HIJACK))
+			if(!(xeno.get_hive().hive_flags & HIVE_CAN_HIJACK))
 				to_chat(xeno, span_warning("Our hive lacks the psychic prowess to hijack the bird."))
 				return
 			if(shuttle.mode == SHUTTLE_RECHARGING)
@@ -847,7 +927,7 @@
 		sound = 'sound/AI/hijack.ogg',
 		color_override = "red")
 	to_chat(user, span_userdanger("A loud alarm erupts from [src]! The fleshy hosts must know that you can access it!"))
-	user.hive.on_shuttle_hijack(crashing_dropship)
+	user.get_hive().on_shuttle_hijack(crashing_dropship)
 	playsound(src, 'sound/misc/queen_alarm.ogg')
 	crashing_dropship.silicon_lock_airlocks(TRUE)
 	SSevacuation.scuttle_flags &= ~FLAGS_SDEVAC_TIMELOCK
@@ -881,7 +961,7 @@
 
 /obj/machinery/door/poddoor/shutters/transit/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
 	. = ..()
-	if(SSmapping.level_has_any_trait(z, list(ZTRAIT_MARINE_MAIN_SHIP, ZTRAIT_GROUND)))
+	if(SSmapping.level_has_any_trait(z, list(ZTRAIT_MARINE_MAIN_SHIP, ZTRAIT_ANTAG_MAIN_SHIP, ZTRAIT_GROUND)))
 		open()
 	else
 		close()
@@ -1598,12 +1678,11 @@
 	icon = 'icons/obj/machines/computer.dmi'
 	icon_state = "computer_small"
 	screen_overlay = "shuttle"
-	resistance_flags = RESIST_ALL
+//	resistance_flags = RESIST_ALL
 	req_one_access = list(ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LEADER) // TLs can only operate the remote console
 	shuttleId = SHUTTLE_ALAMO
 	possible_destinations = "lz1;lz2;alamo"
 	compatible_control_flags = SHUTTLE_MARINE_PRIMARY_DROPSHIP
-
 
 /obj/machinery/computer/shuttle/shuttle_control/dropship/two
 	name = "\improper 'Normandy' dropship console"

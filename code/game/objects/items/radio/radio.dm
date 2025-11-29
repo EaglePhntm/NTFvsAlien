@@ -15,14 +15,14 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 	///if FALSE, broadcasting and listening dont matter and this radio shouldnt do anything
-	var/on = TRUE
+	VAR_PROTECTED/on = TRUE
 	///the "default" radio frequency this radio is set to, listens and transmits to this frequency by default. wont work if the channel is encrypted
-	var/frequency = FREQ_COMMON
+	VAR_PROTECTED/frequency = FREQ_CIV_GENERAL
 
 	/// Whether the radio will transmit dialogue it hears nearby into its radio channel.
-	var/broadcasting = FALSE
+	VAR_PROTECTED/broadcasting = FALSE
 	/// Whether the radio is currently receiving radio messages from its radio frequencies.
-	var/listening = TRUE
+	VAR_PROTECTED/listening = TRUE
 
 	//the below three vars are used to track listening and broadcasting should they be forced off for whatever reason but "supposed" to be active
 	//eg player sets the radio to listening, but an emp or whatever turns it off, its still supposed to be activated but was forced off,
@@ -59,6 +59,8 @@
 	var/list/channels = list()
 	/// associative list of the encrypted radio channels this radio can listen/broadcast to, of the form: list(channel name = channel frequency)
 	var/list/secure_radio_connections
+	/// associative list of the encrypted radio channels will always have regardless of encryption keys
+	var/list/inherent_channels = list()
 	var/obj/item/encryptionkey/keyslot
 
 	var/const/FREQ_LISTENING = 1
@@ -87,6 +89,9 @@
 	remove_radio(src, frequency)
 	frequency = add_radio(src, new_frequency)
 
+/obj/item/radio/proc/get_initial_frequency()
+	return initial(src.frequency)
+
 ///simple getter for the on variable. necessary due to VAR_PROTECTED
 /obj/item/radio/proc/is_on()
 	return on
@@ -103,6 +108,13 @@
 /obj/item/radio/proc/get_listening()
 	return listening
 
+/obj/item/radio/RightClick(mob/user)
+	. = ..()
+	if(!can_interact(usr))
+		return FALSE
+
+	interact(usr)
+
 /obj/item/radio/interact(mob/user)
 	. = ..()
 	if(.)
@@ -111,20 +123,18 @@
 	if(unscrewed)
 		return wires.interact(user)
 
-	var/dat
-
-
-	dat += "Microphone: [broadcasting ? "<A href='byond://?src=[text_ref(src)];talk=0'>Engaged</A>" : "<A href='byond://?src=[text_ref(src)];talk=1'>Disengaged</A>"]<BR>"
-	dat += "Speaker: [listening ? "<A href='byond://?src=[text_ref(src)];listen=0'>Engaged</A>" : "<A href='byond://?src=[text_ref(src)];listen=1'>Disengaged</A>"]<BR>"
-	dat += "Frequency: [format_frequency(frequency)]"
-
-	for(var/ch_name in channels)
-		dat += text_sec_channel(ch_name, channels[ch_name])
-
 	var/datum/browser/popup = new(user, "radio", "<div align='center'>[src]</div>")
-	popup.set_content(dat)
+	popup.set_content(get_interact_data(user))
 	popup.open()
 
+/obj/item/radio/proc/get_interact_data(mob/user)
+
+	. += "Microphone: [broadcasting ? "<A href='byond://?src=[text_ref(src)];talk=0'>Engaged</A>" : "<A href='byond://?src=[text_ref(src)];talk=1'>Disengaged</A>"]<BR>"
+	. += "Speaker: [listening ? "<A href='byond://?src=[text_ref(src)];listen=0'>Engaged</A>" : "<A href='byond://?src=[text_ref(src)];listen=1'>Disengaged</A>"]<BR>"
+	. += "Frequency: [format_frequency(frequency)]<BR>"
+
+	for(var/ch_name in channels)
+		. += text_sec_channel(ch_name, channels[ch_name])
 
 /obj/item/radio/proc/text_sec_channel(chan_name, chan_stat)
 	var/list = !!(chan_stat & FREQ_LISTENING) != 0
@@ -418,6 +428,10 @@
 
 		if(keyslot.independent)
 			independent = TRUE
+	channels += inherent_channels
+
+	if(!LAZYLEN(GLOB.radiochannels)) //happens for dummies early in initialization
+		return
 
 	for(var/ch_name in channels)
 		secure_radio_connections[ch_name] = add_radio(src, GLOB.radiochannels[ch_name])

@@ -2,8 +2,9 @@
 	name = "Nuclear War"
 	config_tag = "Nuclear War"
 	silo_scaling = 2
-	round_type_flags = MODE_INFESTATION|MODE_LATE_OPENING_SHUTTER_TIMER|MODE_XENO_RULER|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_SILOS_SPAWN_MINIONS|MODE_ALLOW_XENO_QUICKBUILD|MODE_FORCE_CUSTOMSQUAD_UI|MODE_MUTATIONS_OBTAINABLE
+	round_type_flags = MODE_INFESTATION|MODE_LATE_OPENING_SHUTTER_TIMER|MODE_XENO_RULER|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_SILOS_SPAWN_MINIONS|MODE_ALLOW_XENO_QUICKBUILD|MODE_FORCE_CUSTOMSQUAD_UI|MODE_MUTATIONS_OBTAINABLE|MODE_BIOMASS_POINTS
 	xeno_abilities_flags = ABILITY_NUCLEARWAR
+	time_between_round = 48 HOURS
 	valid_job_types = list(
 		/datum/job/terragov/command/captain = 1,
 		/datum/job/terragov/command/fieldcommander = 1,
@@ -18,6 +19,8 @@
 		/datum/job/terragov/medical/researcher = 2,
 		/datum/job/terragov/civilian/liaison = 2,
 		/datum/job/terragov/silicon/synthetic = 1,
+		/datum/job/terragov/command/mech_pilot = 0,
+		/datum/job/terragov/command/assault_crewman = 0,
 		/datum/job/terragov/command/transport_crewman = 1,
 		/datum/job/terragov/silicon/ai = 1,
 		/datum/job/terragov/squad/engineer = 1,
@@ -36,7 +39,9 @@
 	)
 
 	evo_requirements = list(
+/* NTF removal - evolution minimums
 		/datum/xeno_caste/queen = 8,
+NTF removal end*/
 	)
 
 /datum/game_mode/infestation/nuclear_war/post_setup()
@@ -84,7 +89,7 @@
 	if(world.time < (SSticker.round_start_time + 5 SECONDS))
 		return FALSE
 
-	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_ALIVE_SSD|COUNT_IGNORE_XENO_SPECIAL_AREA)
+	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_ALIVE_SSD|COUNT_IGNORE_XENO_SPECIAL_AREA| COUNT_CLF_TOWARDS_XENOS | COUNT_GREENOS_TOWARDS_MARINES )
 	var/num_humans = living_player_list[1]
 	var/num_xenos = living_player_list[2]
 	var/num_humans_ship = living_player_list[3]

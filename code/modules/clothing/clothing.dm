@@ -4,6 +4,7 @@
 	// Resets the armor on clothing since by default /objs get 100 bio armor
 	soft_armor = list()
 	inventory_flags = NOQUICKEQUIP
+	resistance_flags = parent_type::resistance_flags | UNACIDABLE
 
 	///Assoc list of available slots. Since this keeps track of all currently equiped attachments per object, this cannot be a string_list()
 	var/list/attachments_by_slot = list()
@@ -24,6 +25,12 @@
 	/// Used by headgear mostly to affect accuracy
 	var/accuracy_mod = 0
 
+	///Increases your stamina regen by 100*this%.  Can be negative.
+	var/stamina_regen_mod = 0
+
+	var/shows_bottom_genital = FALSE
+	var/shows_top_genital = FALSE
+
 /obj/item/clothing/Initialize(mapload)
 	. = ..()
 	attachments_allowed = string_list(attachments_allowed)
@@ -34,6 +41,8 @@
 
 
 /obj/item/clothing/equipped(mob/user, slot)
+	if(ismovable(user))
+		faction = user.faction
 	. = ..()
 	if(!(equip_slot_flags & slotdefine2slotbit(slot)))
 		return
@@ -42,8 +51,17 @@
 	var/mob/living/carbon/human/human_user = user
 	if(accuracy_mod)
 		human_user.adjust_mob_accuracy(accuracy_mod)
+	if(stamina_regen_mod)
+		human_user.add_stamina_regen_modifier("Clothing:[slot_flag_to_fluff(slot)]", stamina_regen_mod)
 	if(armor_features_flags & ARMOR_FIRE_RESISTANT)
 		ADD_TRAIT(human_user, TRAIT_NON_FLAMMABLE, src)
+	if(armor_features_flags & MELEE_ONLY_ARMOR)
+		ADD_TRAIT(human_user, TRAIT_KNIGHT, src)
+		ADD_TRAIT(human_user, TRAIT_SWORD_EXPERT, src)
+		ADD_TRAIT(human_user, TRAIT_AXE_EXPERT, src)
+		human_user.set_skills(human_user.skills.modifyRating(unarmed=1))
+		human_user.set_skills(human_user.skills.modifyRating(melee_weapons=1))
+		human_user.set_skills(human_user.skills.modifyRating(stamina=1))
 
 
 /obj/item/clothing/unequipped(mob/unequipper, slot)
@@ -54,8 +72,16 @@
 	var/mob/living/carbon/human/human_unequipper = unequipper
 	if(accuracy_mod)
 		human_unequipper.adjust_mob_accuracy(-accuracy_mod)
+	human_unequipper.remove_stamina_regen_modifier("Clothing:[slot_flag_to_fluff(slot)]")
 	if(armor_features_flags & ARMOR_FIRE_RESISTANT)
 		REMOVE_TRAIT(human_unequipper, TRAIT_NON_FLAMMABLE, src)
+	if(armor_features_flags & MELEE_ONLY_ARMOR)
+		REMOVE_TRAIT(human_unequipper, TRAIT_KNIGHT, src)
+		REMOVE_TRAIT(human_unequipper, TRAIT_AXE_EXPERT, src)
+		REMOVE_TRAIT(human_unequipper, TRAIT_SWORD_EXPERT, src)
+		human_unequipper.set_skills(human_unequipper.skills.modifyRating(unarmed=-1))
+		human_unequipper.set_skills(human_unequipper.skills.modifyRating(melee_weapons=-1))
+		human_unequipper.set_skills(human_unequipper.skills.modifyRating(stamina=-1))
 	return ..()
 
 /obj/item/clothing/vendor_equip(mob/user)
@@ -290,7 +316,6 @@
 	armor_protection_flags = FEET
 	equip_slot_flags = ITEM_SLOT_FEET
 	permeability_coefficient = 0.50
-	slowdown = SHOES_SLOWDOWN
 	blood_sprite_state = "shoeblood"
 	soft_armor = list(MELEE = 25, BULLET = 15, LASER = 5, ENERGY = 5, BOMB = 5, BIO = 5, FIRE = 5, ACID = 20)
 

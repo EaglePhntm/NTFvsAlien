@@ -12,7 +12,7 @@
 	load_method = MAGAZINE //codex
 	force = 8
 	w_class = WEIGHT_CLASS_BULKY
-	wield_delay = 0.6 SECONDS
+	wield_delay = 0.3 SECONDS
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/reddot,
@@ -35,7 +35,7 @@
 
 /obj/item/weapon/gun/smg/standard_machinepistol
 	name = "\improper MP-19 machinepistol"
-	desc = "The MP-19 is the TerraGov Marine Corps standard-issue machine pistol. It's known for it's low recoil and scatter when used one handed. It's usually carried by specialized troops who do not have the space to carry a much larger gun like medics and engineers. It uses 10x20mm caseless rounds."
+	desc = "The MP-19 is the Nine Tailed Fox standard-issue machine pistol. It's known for it's low recoil and scatter when used one handed. It's usually carried by specialized troops who do not have the space to carry a much larger gun like medics and engineers. It uses 10x20mm caseless rounds."
 	icon_state = "t19"
 	worn_icon_state = "t19"
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_mp19.ogg'
@@ -98,14 +98,14 @@
 
 /obj/item/weapon/gun/smg/standard_smg
 	name = "\improper SMG-90 submachinegun"
-	desc = "The SMG-90 is the TerraGov Marine Corps standard issue SMG. Its known for it's compact size and ease of use inside the field. It's usually carried by troops who want a lightweight firearm to rush with. It uses 10x20mm caseless rounds."
+	desc = "The SMG-90 is the Nine Tailed Fox standard issue SMG. Its known for it's compact size and ease of use inside the field. It's usually carried by troops who want a lightweight firearm to rush with. It uses 10x20mm caseless rounds."
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_smg90.ogg'
 	icon_state = "t90"
 	worn_icon_state = "t90"
 	caliber = CALIBER_10X20_CASELESS //codex
 	max_shells = 80 //codex
 	equip_slot_flags = ITEM_SLOT_BACK
-	wield_delay = 0.7 SECONDS
+	wield_delay = 0.5 SECONDS
 	force = 20
 	type_of_casings = null
 	default_ammo_type = /obj/item/ammo_magazine/smg/standard_smg
@@ -123,11 +123,13 @@
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/buildasentry,
+		/obj/item/attachable/shoulder_mount,
 	)
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	attachable_offset = list("muzzle_x" = 32, "muzzle_y" = 15,"rail_x" = 22, "rail_y" = 22, "under_x" = 17, "under_y" = 15, "stock_x" = 24, "stock_y" = 10)
+	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 0.55
 	accuracy_mult = 1.05
@@ -157,7 +159,7 @@
 
 /obj/item/weapon/gun/smg/standard_heavysmg
 	name = "\improper SMG-45 heavy submachinegun"
-	desc = "The SMG-45 is a heavier than usual subgun used by the TerraGov Marine Corps. Best known for carrying a punch within a small package. It's usually carried by troops who want a lightweight firearm to rush with while beating a mean punch, however it struggles at range. It uses .41 AE caseless rounds."
+	desc = "The SMG-45 is a heavier than usual subgun used by the Nine-Tailed Fox. Best known for carrying a punch within a small package. It's usually carried by troops who want a lightweight firearm to rush with while beating a mean punch, however it struggles at range. It uses .41 AE caseless rounds."
 	icon = 'icons/obj/items/guns/submachineguns64.dmi'
 	icon_state = "t45"
 	worn_icon_state = "t45"
@@ -172,6 +174,7 @@
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/smg/standard_heavysmg,
 		/obj/item/ammo_magazine/smg/standard_heavysmg/squashhead,
+		/obj/item/ammo_magazine/smg/standard_heavysmg/rubber,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
@@ -195,13 +198,15 @@
 	)
 
 	attachable_offset = list("muzzle_x" = 43, "muzzle_y" = 19,"rail_x" = 22, "rail_y" = 23, "under_x" = 32, "under_y" = 14, "stock_x" = 24, "stock_y" = 16)
+	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.1 SECONDS
 
 	aim_slowdown = 0.25
 	accuracy_mult = 1.15
 	accuracy_mult_unwielded = 0.85
-	fire_delay = 0.25 SECONDS
-	burst_delay =  0.2 SECONDS
+	fire_delay = 0.2 SECONDS
+	burst_delay =  0.15 SECONDS
+	extra_delay = 0.1 SECONDS
 	burst_amount = 3
 	scatter = 2
 	scatter_unwielded = 11
@@ -296,12 +301,17 @@
 
 	item_map_variant_flags = NONE
 
-	burst_amount = 4
+	scatter = 4
+	fire_delay = 0.2 SECONDS
+	scatter_unwielded = 10
+	aim_slowdown = 0.15
+	burst_amount = 3
+	akimbo_additional_delay = 0.4
+	damage_falloff_mult = 0.9
 	accuracy_mult = 1.1
 	accuracy_mult_unwielded = 1
 	damage_mult = 1.2
-	aim_slowdown = 0.2
-	scatter = 3
+	scatter = 4
 
 /obj/item/weapon/gun/smg/m25/elite/pmc
 	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/attachable/flashlight/under)
@@ -381,7 +391,7 @@
 	scatter_unwielded = 6
 	fire_delay = 0.1 SECONDS
 	aim_slowdown = 0.3
-	wield_delay = 0.5 SECONDS
+	wield_delay = 0.3 SECONDS
 
 /obj/item/weapon/gun/smg/skorpion/mag_harness
 	starting_attachment_types = list(/obj/item/attachable/foldable/skorpion_stock, /obj/item/attachable/magnetic_harness)
@@ -426,6 +436,7 @@
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	attachable_offset = list("muzzle_x" = 38, "muzzle_y" = 19,"rail_x" = 13, "rail_y" = 21, "under_x" = 26, "under_y" = 15, "stock_x" = 19, "stock_y" = 13)
+	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.15 SECONDS
 	aim_speed_modifier = 2.5
 
@@ -472,7 +483,7 @@
 	scatter = 0
 	scatter_unwielded = 4
 	aim_slowdown = 0.15
-	wield_delay = 0.4 SECONDS
+	wield_delay = 0.2 SECONDS
 
 /obj/item/weapon/gun/smg/uzi/mag_harness
 	default_ammo_type = /obj/item/ammo_magazine/smg/uzi/extended
@@ -494,10 +505,12 @@
 	default_ammo_type = /obj/item/ammo_magazine/smg/som
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/smg/som,
+		/obj/item/ammo_magazine/smg/som/rubber,
 		/obj/item/ammo_magazine/smg/som/ap,
 		/obj/item/ammo_magazine/smg/som/incendiary,
 		/obj/item/ammo_magazine/smg/som/extended,
 		/obj/item/ammo_magazine/smg/som/rad,
+		/obj/item/ammo_magazine/smg/som/squashhead,
 	)
 	fire_sound = 'sound/weapons/guns/fire/vector_fire.ogg'
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_AUTOBURST) //full auto, fuller auto
@@ -520,7 +533,7 @@
 
 	fire_delay = 0.15 SECONDS
 	aim_slowdown = 0.15
-	wield_delay = 0.6 SECONDS
+	wield_delay = 0.4 SECONDS
 
 	accuracy_mult = 1.05
 	accuracy_mult_unwielded = 0.9
@@ -536,7 +549,7 @@
 	extra_delay = 0.1 SECONDS
 	autoburst_delay = 0.1 SECONDS //this makes it fuller auto
 	burst_accuracy_bonus = -0.3
-	burst_scatter_mult = 15
+	burst_scatter_mult = 9
 
 	akimbo_additional_delay = 0.7
 
@@ -634,7 +647,7 @@
 	scatter = 2
 	scatter_unwielded = 5
 	aim_slowdown = 0.2
-	wield_delay = 0.55 SECONDS
+	wield_delay = 0.35 SECONDS
 
 /obj/item/weapon/gun/smg/icc_machinepistol/medic
 	starting_attachment_types = list(/obj/item/attachable/foldable/icc_machinepistol, /obj/item/attachable/magnetic_harness, /obj/item/attachable/verticalgrip, /obj/item/attachable/extended_barrel)
@@ -687,13 +700,14 @@
 	starting_attachment_types = list(/obj/item/attachable/stock/icc_pdw)
 
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 17,"rail_x" = 13, "rail_y" = 20, "under_x" = 31, "under_y" = 13, "stock_x" = 9, "stock_y" = 10)
+	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 0.55
 
 	burst_amount = 1
 	fire_delay = 0.15 SECONDS
 	aim_slowdown = 0.25
-	wield_delay = 0.6 SECONDS
+	wield_delay = 0.4 SECONDS
 
 	accuracy_mult = 1.05
 	accuracy_mult_unwielded = 0.9
@@ -750,6 +764,7 @@
 	)
 
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 18,"rail_x" = 14, "rail_y" = 21, "under_x" = 24, "under_y" = 15, "stock_x" = 24, "stock_y" = 16)
+	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.1 SECONDS
 
 	aim_slowdown = 0.25
@@ -773,7 +788,7 @@
 
 /obj/item/weapon/gun/smg/val
 	name = "\improper RA-VAL submachine gun"
-	desc = "The RA-VAL is a heavier than usual subgun used by the Nanotrasen Contractors. Best known for carrying a punch within a small package. It's usually carried by troops who want a lightweight firearm to rush with while beating a mean punch. However, it suffers at long range due to heavy bullet of 9x39mm caliber."
+	desc = "The RA-VAL is a heavier than usual subgun used by the Ninetails Contractors. Best known for carrying a punch within a small package. It's usually carried by troops who want a lightweight firearm to rush with while beating a mean punch. However, it suffers at long range due to heavy bullet of 9x39mm caliber."
 	icon = 'icons/obj/items/guns/submachineguns64.dmi'
 	icon_state = "val"
 	worn_icon_state = "val"

@@ -112,6 +112,7 @@
 	GLOB.mob_living_list += src
 	if(stat != DEAD)
 		GLOB.alive_living_list += src
+		sexcon = new /datum/sex_controller(src)
 	SSmobs.start_processing(src)
 
 	set_armor_datum()
@@ -142,6 +143,7 @@
 	. = ..()
 	hard_armor = null
 	soft_armor = null
+	QDEL_NULL(sexcon)
 
 
 //This proc is used for mobs which are affected by pressure to calculate the amount of pressure that actually
@@ -539,7 +541,7 @@
 	ranged_scatter_mod += scatter_mod
 	SEND_SIGNAL(src, COMSIG_RANGED_SCATTER_MOD_CHANGED, scatter_mod)
 
-/mob/living/proc/smokecloak_on()
+/mob/living/proc/smokecloak_on(smokecloak_alpha)
 
 	if(smokecloaked)
 		return
@@ -547,7 +549,7 @@
 	if(stat == DEAD)
 		return
 
-	alpha = 5 // bah, let's make it better, it's a disposable device anyway
+	alpha = smokecloak_alpha
 
 	GLOB.huds[DATA_HUD_SECURITY_ADVANCED].remove_from_hud(src)
 	GLOB.huds[DATA_HUD_XENO_INFECTION].remove_from_hud(src)
@@ -575,10 +577,14 @@
 /mob/living/proc/update_cloak()
 	if(!smokecloaked)
 		return
-
-	var/obj/effect/particle_effect/smoke/tactical/S = locate() in loc
-	if(S)
-		return
+	var/best_alpha = 255
+	var/any_camo = FALSE
+	for(var/obj/effect/particle_effect/smoke/S in loc)
+		if(CHECK_BITFIELD(S.smoke_traits, SMOKE_CAMO) && !CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO))
+			any_camo = TRUE
+			best_alpha = min(best_alpha, S.smokecloak_alpha)
+	if(any_camo)
+		smokecloak_on(best_alpha)
 	else
 		smokecloak_off()
 
@@ -964,7 +970,7 @@ below 100 is not dizzy
 			wielded_item.unwield(src) //Get rid of it.
 	hand = !hand
 	SEND_SIGNAL(src, COMSIG_LIVING_SWAPPED_HANDS)
-	if(hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
+	if(hud_used?.l_hand_hud_object && hud_used?.r_hand_hud_object)
 		hud_used.l_hand_hud_object.update_icon()
 		hud_used.r_hand_hud_object.update_icon()
 	return

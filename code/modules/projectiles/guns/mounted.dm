@@ -121,7 +121,8 @@
 	item_flags = IS_DEPLOYABLE|TWOHANDED
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
-	aim_time = 2 SECONDS
+	actions_types = list(/datum/action/item_action/aim_mode)
+	aim_time = parent_type::aim_time * 2
 	aim_fire_delay = 0.05 SECONDS
 
 	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg_102)
@@ -451,6 +452,7 @@
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	deployable_item = /obj/machinery/deployable/mounted
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.05 SECONDS
 	aim_speed_modifier = 5
 	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 0, ACID = 0)
@@ -469,17 +471,12 @@
 	max_integrity = 200
 	actions_types = list(/datum/action/item_action/aim_mode)
 
-/obj/item/weapon/gun/standard_mmg/toggle_auto_aim_mode(mob/living/carbon/human/user) //somewhat redundant, but just for clarity to the user
-	if(!(item_flags & IS_DEPLOYED))
-		user.balloon_alert(user, "Not deployed")
-		return
-	return ..()
-
-/obj/item/weapon/gun/standard_mmg/toggle_aim_mode(mob/living/carbon/human/user)
-	if(!HAS_TRAIT(src, TRAIT_GUN_IS_AIMING) && !(item_flags & IS_DEPLOYED))
-		user.balloon_alert(user, "Not deployed")
-		return
-	return ..()
+/obj/item/weapon/gun/standard_mmg/toggle_deployment_flag(deployed)
+	if(deployed)
+		aim_time = 1 SECONDS
+	else
+		aim_time = initial(aim_time)
+	. = ..()
 
 /obj/item/weapon/gun/standard_mmg/machinegunner
 	starting_attachment_types = list(/obj/item/attachable/stock/t27, /obj/item/attachable/scope/unremovable/mmg)
@@ -548,7 +545,7 @@
 
 /obj/item/weapon/gun/standard_atgun
 	name = "\improper AT-36 anti tank gun"
-	desc = "The AT-36 is a light dual purpose anti tank and anti personnel weapon used by the TGMC. Used for light vehicle or bunker busting on a short notice. Best used by two people. It can move around with wheels, and has an ammo rack intergral to the weapon. CANNOT BE UNDEPLOYED ONCE DEPLOYED! It uses several types of 37mm shells boxes. Alt-right click on it to anchor it so that it cannot be moved by anyone, then alt-right click again to move it."
+	desc = "The AT-36 is a light dual purpose anti tank and anti personnel weapon used by the NTC. Used for light vehicle or bunker busting on a short notice. Best used by two people. It can move around with wheels, and has an ammo rack intergral to the weapon. CANNOT BE UNDEPLOYED ONCE DEPLOYED! It uses several types of 37mm shells boxes. Alt-right click on it to anchor it so that it cannot be moved by anyone, then alt-right click again to move it."
 	w_class = WEIGHT_CLASS_BULKY
 	icon = 'icons/obj/machines/deployable/at36.dmi'
 	icon_state = "at36"
@@ -573,7 +570,8 @@
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 
 	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO)
-	aim_time = 6 SECONDS
+	actions_types = list(/datum/action/item_action/aim_mode)
+	aim_time = 24 SECONDS
 	reciever_flags = AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_AUTO_EJECT
 	soft_armor = list(MELEE = 60, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 0, ACID = 0)
 
@@ -727,6 +725,7 @@
 	item_flags = IS_DEPLOYABLE|TWOHANDED
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.05 SECONDS
 	aim_speed_modifier = 5
 
@@ -758,6 +757,7 @@
 	icon = 'icons/obj/machines/deployable/at45.dmi'
 	icon_state = "at45"
 	worn_icon_list = list(
+		slot_back_str = 'ntf_modular/icons/mob/clothing/back.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/guns/misc_left_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/guns/misc_right_1.dmi',
 	)

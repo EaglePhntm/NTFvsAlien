@@ -15973,7 +15973,7 @@
 	},
 /obj/structure/window/framed/mainship/requisitions{
 	basestate = "gray_rwindow";
-	name = "Corporate Liason's Office Window"
+	name = "Operations Officer's Office Window"
 	},
 /turf/open/floor/plating/platebotc,
 /area/sulaco/liaison)
@@ -22646,7 +22646,6 @@
 	},
 /obj/effect/decal/cleanable/blood/oil,
 /obj/structure/table/mainship/nometal,
-/obj/item/clothing/head/modular/robot/heavy,
 /obj/machinery/light/mainship/small,
 /turf/open/floor/prison,
 /area/sulaco/hangar/storage)

@@ -35,6 +35,7 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 	var/iff_signal = NONE
 	///For minimap icon change if sentry is firing
 	var/firing
+	var/hivenumber = FALSE
 
 //------------------------------------------------------------------
 //Setup and Deletion
@@ -45,11 +46,17 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 
 	if(deployer)
 		faction = deployer.faction
-		var/mob/living/carbon/human/_deployer = deployer
-		var/obj/item/card/id/id = _deployer.get_idcard(TRUE)
-		iff_signal = id?.iff_signal
+		iff_signal = deployer.get_iff_signal()
+		hivenumber = deployer.get_xeno_hivenumber()
 	else if(gun?.faction && (gun.faction in GLOB.faction_to_iff))
+		faction = gun.faction
 		iff_signal = GLOB.faction_to_iff[gun.faction]
+		if(iff_signal & CLF_IFF)
+			hivenumber = XENO_HIVE_NORMAL
+		else
+			if(iff_signal & TGMC_LOYALIST_IFF)
+				hivenumber = XENO_HIVE_CORRUPTED
+
 
 	knockdown_threshold = gun?.knockdown_threshold ? gun.knockdown_threshold : initial(gun.knockdown_threshold)
 	range = CHECK_BITFIELD(gun.turret_flags, TURRET_RADIAL) ?  gun.turret_range - 2 : gun.turret_range
@@ -70,6 +77,7 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 		camera.c_tag = "[name] ([rand(0, 1000)])"
 
 	GLOB.marine_turrets += src
+	GLOB.sentry_list += src
 	set_on(TRUE)
 
 ///Change minimap icon if its firing or not firing
@@ -77,14 +85,12 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 	SSminimaps.remove_marker(src)
 	if(!z)
 		return
-	var/marker_flags
-	switch(iff_signal)
-		if(TGMC_LOYALIST_IFF)
-			marker_flags = MINIMAP_FLAG_MARINE
-		if(SOM_IFF)
-			marker_flags = MINIMAP_FLAG_MARINE_SOM
-		else
-			marker_flags = MINIMAP_FLAG_MARINE
+	var/marker_flags = 0
+	for(var/faction in GLOB.faction_to_minimap_flag)
+		if(iff_signal & GLOB.faction_to_iff[faction])
+			marker_flags |= GLOB.faction_to_minimap_flag[faction]
+	if(!marker_flags)
+		marker_flags = MINIMAP_FLAG_MARINE
 	SSminimaps.add_marker(src, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "sentry[firing ? "_firing" : "_passive"]", MINIMAP_BLIPS_LAYER))
 
 /obj/machinery/deployable/mounted/sentry/update_icon_state()
@@ -108,6 +114,7 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 		if(internal_sentry)
 			UnregisterSignal(internal_sentry, COMSIG_MOB_GUN_FIRED)
 	GLOB.marine_turrets -= src
+	GLOB.sentry_list -= src
 	return ..()
 
 /obj/machinery/deployable/mounted/sentry/deconstruct(disassembled = TRUE, mob/living/blame_mob)
@@ -369,7 +376,7 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 			notice = "<b>ALERT! [src] at: [AREACOORD_NO_Z(src)] has been destroyed!</b>"
 
 	playsound(loc, 'sound/machines/warning-buzzer.ogg', 50, FALSE)
-	radio.talk_into(src, "[notice]", FREQ_COMMON)
+	radio.talk_into(src, "[notice]")
 
 /obj/machinery/deployable/mounted/sentry/process()
 	update_icon()
@@ -410,6 +417,25 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 		if(human_occupant.wear_id?.iff_signal & iff_signal)
 			continue
 		potential_targets += nearby_tank
+	for(var/obj/vehicle/ridden/nearby_ridden AS in cheap_get_ridden_vehicles_near(src, range))
+		var/list/driver_list = nearby_ridden.return_drivers()
+		if(!length(driver_list))
+			continue
+		var/mob/living/carbon/human/human_occupant = driver_list[1]
+		if(human_occupant.wear_id?.iff_signal & iff_signal)
+			continue
+		potential_targets += nearby_ridden
+	for(var/obj/vehicle/unmanned/nearby_unmanned AS in cheap_get_unmanned_vehicles_near(src, range))
+		if(nearby_unmanned.iff_signal & iff_signal)
+			continue
+		potential_targets += nearby_unmanned
+	for(var/obj/machinery/deployable/mounted/sentry/nearby_sentry AS in cheap_get_sentries_near(src, range))
+		if(nearby_sentry.iff_signal & iff_signal)
+			continue
+		var/datum/hive_status/hive = GLOB.hive_datums[nearby_sentry.get_xeno_hivenumber()]
+		if(istype(hive) && (faction in hive.allied_factions))
+			continue
+		potential_targets += nearby_sentry
 	return length(potential_targets)
 
 ///Checks the range and the path of the target currently being shot at to see if it is eligable for being shot at again. If not it will stop the firing.
@@ -418,6 +444,14 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 	var/obj/item/weapon/gun/internal_gun = get_internal_item()
 	if(!internal_gun)
 		return
+	if(QDELETED(gun_target)) // Maybe they just got gibbed or deleted.
+		sentry_stop_fire()
+		return
+	if(isliving(gun_target))
+		var/mob/living/living_target = gun_target
+		if(living_target.stat == DEAD)
+			sentry_stop_fire()
+			return
 	if(CHECK_BITFIELD(internal_gun.reciever_flags, AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION) && length(internal_gun.chamber_items))
 		INVOKE_ASYNC(internal_gun, TYPE_PROC_REF(/obj/item/weapon/gun, do_unique_action))
 	if(!CHECK_BITFIELD(internal_gun.item_flags, IS_DEPLOYED) || get_dist(src, gun_target) > range || (!CHECK_BITFIELD(get_dir(src, gun_target), dir) && !CHECK_BITFIELD(internal_gun.turret_flags, TURRET_RADIAL)) || !check_target_path(gun_target))
@@ -557,7 +591,6 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 
 //Throwable turret
 /obj/machinery/deployable/mounted/sentry/cope
-	density = FALSE
 
 /obj/machinery/deployable/mounted/sentry/cope/sentry_start_fire()
 	var/obj/item/weapon/gun/internal_gun = get_internal_item()
@@ -574,12 +607,13 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 //A sentry specific radio that sets its freq based on faction
 /obj/item/radio/sentry
 	freerange = TRUE
+	canhear_range = 1
 
 /obj/item/radio/sentry/Initialize(mapload, new_faction)
 	faction = new_faction
 	if(faction in GLOB.faction_to_radio)
 		frequency = GLOB.faction_to_radio[faction]
 	else
-		frequency = FREQ_COMMON
+		frequency = FREQ_CIV_GENERAL
 
 	return ..()
