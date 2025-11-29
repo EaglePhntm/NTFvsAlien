@@ -563,7 +563,7 @@ GLOBAL_LIST_EMPTY(flamer_particles)
 	starting_attachment_types = list(/obj/item/attachable/flamer_nozzle/wide)
 	default_ammo_type = /obj/item/ammo_magazine/flamer_tank/vsd
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/flamer_tank/vsd
+		/obj/item/ammo_magazine/flamer_tank/vsd,
 		/obj/item/ammo_magazine/flamer_tank/backtank,
 		/obj/item/ammo_magazine/flamer_tank/backtank/X,
 		/obj/item/ammo_magazine/flamer_tank/vsd,
