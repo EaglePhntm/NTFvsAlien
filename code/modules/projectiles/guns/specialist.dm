@@ -1121,11 +1121,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 		slot_r_hand_str = 'icons/mob/inhands/guns/special_right_1.dmi',
 	)
 	fire_animation = "at32"
-<<<<<<< Updated upstream
-	max_shells = 100 //codex
-=======
 	max_shells = 50 //codex
->>>>>>> Stashed changes
 	caliber = CALIBER_20 //codex
 	load_method = MAGAZINE //codex
 	fire_sound = 'sound/weapons/guns/fire/autocannon_1.ogg'
