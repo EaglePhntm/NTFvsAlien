@@ -173,7 +173,7 @@
 
 		if(!HAS_TRAIT(current_mob, TRAIT_SKILLS_EXTRACTED))
 			ADD_TRAIT(current_mob, TRAIT_SKILLS_EXTRACTED, TRAIT_GENERIC)
-			current_mob.set_skills(current_mob.skills.ModifyAllRatings(-1))
+			current_mob.set_skills(current_mob.skills.modifyAllRatings(-1))
 			addtimer(CALLBACK(src, PROC_REF(restore_skills), current_mob), 5 MINUTES)
 
 
