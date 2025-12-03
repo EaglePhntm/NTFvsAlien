@@ -310,6 +310,14 @@
 	dir = 9
 	},
 /area/antag_ship/clf_base/hallways/inside)
+"ch" = (
+/obj/machinery/light/red{
+	dir = 1
+	},
+/turf/open/floor/prison/darkpurple{
+	dir = 1
+	},
+/area/antag_ship/vsd/hall)
 "ci" = (
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
@@ -384,6 +392,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt/cement_sunbleached,
 /area/antag_ship/clf_base/lounge)
 "cB" = (
+/obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/prison/darkpurple{
 	dir = 9
 	},
@@ -513,6 +522,10 @@
 "do" = (
 /turf/open/floor/mainship/empty,
 /area/antag_ship/som/requisition)
+"dp" = (
+/obj/effect/turf_decal/tracks/claw1/bloody,
+/turf/open/floor/prison,
+/area/antag_ship/vsd/hall)
 "dq" = (
 /obj/structure/sink/bathroom{
 	dir = 4
@@ -2015,6 +2028,10 @@
 /obj/structure/table/mainship,
 /turf/open/floor/mainship/sterile/plain,
 /area/antag_ship/pmc_ntf/aft/spaceport)
+"kV" = (
+/obj/machinery/atmospherics/components/unary/cryo_cell,
+/turf/open/floor/iron/dark/small,
+/area/antag_ship/vsd/med)
 "kW" = (
 /obj/machinery/optable,
 /obj/item/clothing/mask/breath/medical,
@@ -2424,6 +2441,11 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/iron/dark/small,
+/area/antag_ship/vsd/hall)
+"mK" = (
+/obj/machinery/light_construct,
+/obj/structure/bed/roller/hospital_empty/bigrollerbloodempty,
+/turf/open/floor/prison/darkpurple,
 /area/antag_ship/vsd/hall)
 "mL" = (
 /obj/structure/drop_pod_launcher,
@@ -3236,6 +3258,10 @@
 /obj/effect/landmark/start/job/vsd_spec,
 /turf/open/floor/iron/dark,
 /area/antag_ship/vsd/port)
+"qj" = (
+/obj/structure/prop/urban/misc/blood/blood2,
+/turf/open/floor/prison,
+/area/antag_ship/vsd/hall)
 "qn" = (
 /obj/structure/ship_ammo/cas/heavygun,
 /turf/open/floor/mainship/cargo,
@@ -3529,6 +3555,7 @@
 /turf/open/floor/mainship/sterile/plain,
 /area/antag_ship/pmc_ntf/port/spaceport)
 "rJ" = (
+/obj/structure/prop/mainship/vat/broken/bloody,
 /turf/open/floor/prison/darkpurple{
 	dir = 6
 	},
@@ -3620,6 +3647,7 @@
 /turf/open/shuttle/dropship/five,
 /area/shuttle/transport)
 "sf" = (
+/obj/effect/decal/cleanable/cobweb2,
 /turf/open/floor/prison/darkpurple{
 	dir = 5
 	},
@@ -3860,6 +3888,10 @@
 /obj/item/reagent_containers/jerrycan,
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/hangar)
+"tw" = (
+/obj/machinery/light_construct,
+/turf/open/floor/prison/darkpurple,
+/area/antag_ship/vsd/hall)
 "tx" = (
 /obj/machinery/light/mainship{
 	dir = 4
@@ -3874,6 +3906,9 @@
 /area/antag_ship/icc/warehouse)
 "tC" = (
 /obj/structure/cable,
+/obj/effect/urban/decal/bloodtrail{
+	dir = 4
+	},
 /turf/open/floor/prison/darkpurple{
 	dir = 8
 	},
@@ -4512,11 +4547,14 @@
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/security)
 "wK" = (
+/obj/structure/cable,
 /obj/machinery/door/airlock/mainship/secure{
 	name = "\improper KZ Research Airlock";
 	req_access = list(239, 240)
 	},
-/obj/structure/cable,
+/obj/structure/barricade/wooden{
+	dir = 8
+	},
 /turf/open/floor/grayscale/round/black,
 /area/antag_ship/vsd/hall)
 "wM" = (
@@ -6390,6 +6428,11 @@
 /obj/machinery/floodlight/landing,
 /turf/open/floor/plating,
 /area/antag_ship/som/hangar)
+"Ge" = (
+/obj/structure/cable,
+/obj/structure/prop/urban/misc/blood/blood1,
+/turf/open/floor/prison,
+/area/antag_ship/vsd/hall)
 "Gf" = (
 /obj/machinery/power/terminal{
 	dir = 8
@@ -6475,6 +6518,10 @@
 /obj/structure/closet/secure_closet/chemical/colony,
 /turf/open/floor/plating/asteroidfloor,
 /area/antag_ship/clf_base/medbay)
+"GA" = (
+/obj/structure/prop/urban/misc/blood/blood3,
+/turf/open/floor/prison,
+/area/antag_ship/vsd/hall)
 "GC" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
@@ -6535,6 +6582,14 @@
 "GN" = (
 /turf/open/floor/plating/ground/dirt,
 /area/antag_ship/clf_base/hallways/inside)
+"GO" = (
+/obj/machinery/light_construct{
+	dir = 1
+	},
+/turf/open/floor/prison/darkpurple{
+	dir = 1
+	},
+/area/antag_ship/vsd/hall)
 "GP" = (
 /obj/machinery/door/airlock/mainship/generic{
 	dir = 1;
@@ -7602,6 +7657,10 @@
 "Mb" = (
 /turf/open/floor/plating/ground/concrete,
 /area/antag_ship/icc/hangar/west)
+"Mc" = (
+/obj/machinery/light/red,
+/turf/open/floor/prison/darkpurple,
+/area/antag_ship/vsd/hall)
 "Md" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 8
@@ -10145,6 +10204,12 @@
 	},
 /turf/open/floor/prison,
 /area/antag_ship/vsd/engi)
+"XR" = (
+/obj/structure/bed/chair/kz/imprinter,
+/turf/open/floor/prison/darkpurple{
+	dir = 1
+	},
+/area/antag_ship/vsd/hall)
 "XT" = (
 /obj/structure/cable,
 /turf/open/floor/iron/dark/small,
@@ -10503,6 +10568,12 @@
 	dir = 8
 	},
 /area/antag_ship/som/requisition)
+"Zy" = (
+/obj/structure/bed/chair/kz/extractor,
+/turf/open/floor/prison/darkpurple{
+	dir = 1
+	},
+/area/antag_ship/vsd/hall)
 "Zz" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -15171,7 +15242,7 @@ mg
 Tu
 UQ
 Bl
-UQ
+dp
 on
 mg
 mg
@@ -15263,11 +15334,11 @@ IL
 dP
 Th
 mg
-Tu
-UQ
+GO
+qj
 Bl
 UQ
-on
+tw
 mg
 QE
 QE
@@ -15354,11 +15425,11 @@ Wg
 Rb
 pK
 ki
-IL
+kV
 dP
 az
 mg
-Tu
+Zy
 UQ
 Bl
 UQ
@@ -15455,7 +15526,7 @@ ur
 mg
 Tu
 Bl
-Bl
+Ge
 UQ
 on
 mg
@@ -15548,11 +15619,11 @@ xr
 df
 tk
 mg
-Tu
+ch
 Bl
 UQ
 UQ
-on
+mK
 mg
 mg
 mg
@@ -15738,10 +15809,10 @@ CN
 CN
 CN
 mg
-Tu
+XR
 Bl
 UQ
-UQ
+GA
 on
 mg
 CN
@@ -15833,11 +15904,11 @@ CN
 CN
 CN
 mg
-Tu
+GO
 Bl
 UQ
 UQ
-on
+Mc
 mg
 CN
 CN

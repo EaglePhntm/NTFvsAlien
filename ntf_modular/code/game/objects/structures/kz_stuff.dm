@@ -1,9 +1,9 @@
 /obj/structure/bed/chair/kz
 	name = "Suspicious device"
 	desc = "You shouldn't be seeing this."
-	icon = 'ntf_modular/icons/obj/structures/bdsm_furniture.dmi'
-	icon_state = "xstand_open"
-	base_icon_state = "xstand"
+	icon = 'ntf_modular/icons/obj/structures/kz_stuff.dmi'
+	icon_state = "kz_pod"
+	base_icon_state = "kz_pod"
 	resistance_flags = RESIST_ALL
 	max_integrity = 1000000
 	max_buckled_mobs = 1
@@ -162,22 +162,18 @@
 		if(!do_after(user, 60 SECONDS, current_mob))
 			to_chat(user, span_warning("Your extraction is interrupted!"))
 			return TRUE
-		to_chat(world, span_boldwarning("Stored disk skills before: [stored_disk.stored_skills]"))
-		var/list/buckled_skills = current_mob.skills.getList()
-		to_chat(world, span_boldwarning("buckled skills: [buckled_skills]"))
 		stored_disk = new /obj/item/disk/kz_neurodisk
 		stored_disk.stored_name = current_mob
-		stored_disk.stored_skills = buckled_skills
-		to_chat(world, span_boldwarning("buckled_mobs1 skills: [current_mob.skills.getList()]"))
-		to_chat(world, span_boldwarning("Stored disk skills after: [stored_disk.stored_skills]"))
+		stored_disk.stored_skills = current_mob.skills
 
 		if(!HAS_TRAIT(current_mob, TRAIT_SKILLS_EXTRACTED))
 			ADD_TRAIT(current_mob, TRAIT_SKILLS_EXTRACTED, TRAIT_GENERIC)
 			current_mob.set_skills(current_mob.skills.modifyAllRatings(-1))
 			addtimer(CALLBACK(src, PROC_REF(restore_skills), current_mob), 5 MINUTES)
 
-
 		to_chat(user, span_notice("An empty neurodisk is now ready inside the extractor."))
+		to_chat(current_mob, span_userdanger("Your mind feels hollowed out... You should rest and spend some time in a cryotube to recover."))
+		to_chat(user, span_notice("[current_mob] will need to rest and recover in a cryotube before another extraction can be performed."))
 		return TRUE
 
 /obj/structure/bed/chair/kz/extractor/attackby(obj/item/I, mob/living/user)
@@ -217,51 +213,85 @@
 			return TRUE
 		var/obj/item/disk/kz_neurodisk/new_disk = new /obj/item/disk/kz_neurodisk(src.loc)
 		new_disk.stored_name = stored_disk.stored_name
+		new_disk.stored_skills = stored_disk.stored_skills
 		stored_disk = null
 		to_chat(user, span_notice("You smoothly remove the neurodisk from the imprinter, ready for use."))
 		return TRUE
 
 /obj/structure/bed/chair/kz/imprinter/attack_hand_alternate(mob/living/user)
-	if(!ishuman(buckled_mobs[1]))
-		return
-	if(!(LAZYLEN(buckled_mobs)))
-		return
-
-	var/mob/living/carbon/human/H = buckled_mobs[1]
+	if(!current_mob)
+		return FALSE
 
 	if(user.faction == FACTION_VSD && user.a_intent == INTENT_HARM && stored_disk)
-		if(HAS_TRAIT(H, TRAIT_SKILLS_IMPRINTED))
+		if(HAS_TRAIT(current_mob, TRAIT_SKILLS_IMPRINTED))
 			to_chat(user, span_warning("Their neural lattice is still destabilized from the last imprint. They'll need cryotube recovery and time to stabilize before another transfer."))
 			return TRUE
-		to_chat(user, span_notice("You place the neurodisk against [H]'s interface, feeling the neural patterns align."))
-		if(!do_after(user, 60 SECONDS, H))
+		to_chat(user, span_notice("You place the neurodisk against [current_mob]'s interface, feeling the neural patterns align."))
+		if(!do_after(user, 60 SECONDS, current_mob))
 			to_chat(user, span_warning("The imprinting is interrupted!"))
 			return TRUE
 
-		var/list/current_list = H.skills.getList()
-		var/list/saved_list = stored_disk.stored_skills
-		var/list/new_values = list()
-
-		for(var/skill in current_list)
-			new_values += saved_list[skill] > current_list[skill] ? saved_list[skill] : current_list[skill]
-		H.set_skills(H.skills.modifyRating(arglist(new_values)))
+		imprint_skills()
 
 		stored_disk.stored_name = null
-		stored_disk.stored_skills = list()
+		stored_disk.stored_skills = null
 
-		if(!HAS_TRAIT(H, TRAIT_SKILLS_IMPRINTED))
-			ADD_TRAIT(H, TRAIT_SKILLS_IMPRINTED, TRAIT_GENERIC)
-			addtimer(CALLBACK(src, PROC_REF(restore_skills), H), 5 MINUTES)
+		if(!HAS_TRAIT(current_mob, TRAIT_SKILLS_IMPRINTED))
+			ADD_TRAIT(current_mob, TRAIT_SKILLS_IMPRINTED, TRAIT_GENERIC)
+			addtimer(CALLBACK(src, PROC_REF(restore_skills), current_mob), 5 MINUTES)
 
-		to_chat(user, span_notice("The neural data transfers successfully into [H]'s cortex, the imprint complete."))
+		current_mob.adjustBrainLoss(15)
+		current_mob.adjustCloneLoss(15)
+
+		to_chat(user, span_notice("The neural data transfers successfully into [current_mob]'s cortex, the imprint complete."))
+		to_chat(current_mob, span_danger("A wave of disorientation washes over you. You should rest and stabilize in a cryotube."))
+		to_chat(user, span_notice("[current_mob] will need time in a cryotube to stabilize after receiving the imprint."))
 		return TRUE
 
+/obj/structure/bed/chair/kz/proc/imprint_skills()
+	if(stored_disk.stored_skills.unarmed > current_mob.skills.unarmed)
+		current_mob.set_skills(current_mob.skills.setRating(unarmed = stored_disk.stored_skills.unarmed))
+	if(stored_disk.stored_skills.melee_weapons > current_mob.skills.melee_weapons)
+		current_mob.set_skills(current_mob.skills.setRating(melee_weapons = stored_disk.stored_skills.melee_weapons))
+	if(stored_disk.stored_skills.combat > current_mob.skills.combat)
+		current_mob.set_skills(current_mob.skills.setRating(combat = stored_disk.stored_skills.combat))
+	if(stored_disk.stored_skills.pistols > current_mob.skills.pistols)
+		current_mob.set_skills(current_mob.skills.setRating(pistols = stored_disk.stored_skills.pistols))
+	if(stored_disk.stored_skills.shotguns > current_mob.skills.shotguns)
+		current_mob.set_skills(current_mob.skills.setRating(shotguns = stored_disk.stored_skills.shotguns))
+	if(stored_disk.stored_skills.rifles > current_mob.skills.rifles)
+		current_mob.set_skills(current_mob.skills.setRating(rifles = stored_disk.stored_skills.rifles))
+	if(stored_disk.stored_skills.smgs > current_mob.skills.smgs)
+		current_mob.set_skills(current_mob.skills.setRating(smgs = stored_disk.stored_skills.smgs))
+	if(stored_disk.stored_skills.heavy_weapons > current_mob.skills.heavy_weapons)
+		current_mob.set_skills(current_mob.skills.setRating(heavy_weapons = stored_disk.stored_skills.heavy_weapons))
+	if(stored_disk.stored_skills.smartgun > current_mob.skills.smartgun)
+		current_mob.set_skills(current_mob.skills.setRating(smartgun = stored_disk.stored_skills.smartgun))
+	if(stored_disk.stored_skills.engineer > current_mob.skills.engineer)
+		current_mob.set_skills(current_mob.skills.setRating(engineer = stored_disk.stored_skills.engineer))
+	if(stored_disk.stored_skills.construction > current_mob.skills.construction)
+		current_mob.set_skills(current_mob.skills.setRating(construction = stored_disk.stored_skills.construction))
+	if(stored_disk.stored_skills.leadership > current_mob.skills.leadership)
+		current_mob.set_skills(current_mob.skills.setRating(leadership = stored_disk.stored_skills.leadership))
+	if(stored_disk.stored_skills.medical > current_mob.skills.medical)
+		current_mob.set_skills(current_mob.skills.setRating(medical = stored_disk.stored_skills.medical))
+	if(stored_disk.stored_skills.surgery > current_mob.skills.surgery)
+		current_mob.set_skills(current_mob.skills.setRating(surgery = stored_disk.stored_skills.surgery))
+	if(stored_disk.stored_skills.pilot > current_mob.skills.pilot)
+		current_mob.set_skills(current_mob.skills.setRating(pilot = stored_disk.stored_skills.pilot))
+	if(stored_disk.stored_skills.police > current_mob.skills.police)
+		current_mob.set_skills(current_mob.skills.setRating(police = stored_disk.stored_skills.police))
+	if(stored_disk.stored_skills.powerloader > current_mob.skills.powerloader)
+		current_mob.set_skills(current_mob.skills.setRating(powerloader = stored_disk.stored_skills.powerloader))
+	if(stored_disk.stored_skills.large_vehicle > current_mob.skills.large_vehicle)
+		current_mob.set_skills(current_mob.skills.setRating(large_vehicle = stored_disk.stored_skills.large_vehicle))
+	if(stored_disk.stored_skills.mech > current_mob.skills.mech)
+		current_mob.set_skills(current_mob.skills.setRating(mech = stored_disk.stored_skills.mech))
+	if(stored_disk.stored_skills.stamina > current_mob.skills.stamina)
+		current_mob.set_skills(current_mob.skills.setRating(stamina = stored_disk.stored_skills.stamina))
+
 /obj/structure/bed/chair/kz/proc/restore_skills(mob/living/target)
-	if(HAS_TRAIT(target, TRAIT_SKILLS_EXTRACTED))
-		target.skills.modifyAllRatings(1)
-		REMOVE_TRAIT(target, TRAIT_SKILLS_EXTRACTED, TRAIT_GENERIC)
-	if(HAS_TRAIT(target, TRAIT_SKILLS_IMPRINTED))
-		REMOVE_TRAIT(target, TRAIT_SKILLS_IMPRINTED, TRAIT_GENERIC)
+	target.can_restore_skills = TRUE
 
 /obj/structure/bed/chair/kz/imprinter/attackby(obj/item/I, mob/living/user)
 	. = ..()
@@ -291,7 +321,7 @@
 	icon_state = "nucleardisk"
 	resistance_flags = RESIST_ALL
 	var/stored_name = null
-	var/list/stored_skills = list()
+	var/datum/skills/stored_skills = null
 
 /obj/item/disk/kz_neurodisk/examine(mob/user)
 	. = ..()
