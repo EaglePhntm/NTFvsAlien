@@ -126,6 +126,7 @@
 	. = ..()
 	if(user.faction == FACTION_VSD)
 		. += "<br><b>KZ Neural Extractor</b><br>Kaizoku Covert Division prototype for neural harvesting. Designed to capture and encode cortical skill structures onto NS-92 neurodisks."
+		. += "<br><i>Unauthorized disclosure of this device or its operational parameters may result in immediate contract termination and or asset liquidation.</i><br>"
 
 /obj/structure/bed/chair/kz/extractor/attack_hand(mob/living/user)
 	if(user.faction == FACTION_VSD && user.a_intent == INTENT_HARM && stored_disk)
@@ -204,6 +205,7 @@
 	. = ..()
 	if(user.faction == FACTION_VSD)
 		. += "<br><b>KZ Neural Imprinter</b><br>Kaizoku Covert Division prototype imprinting platform. Transfers encoded NS-92 neural architectures directly into the operator's cortex."
+		. += "<br><i>Unauthorized disclosure of this device or its operational parameters may result in immediate contract termination and or asset liquidation.</i><br>"
 
 /obj/structure/bed/chair/kz/imprinter/attack_hand(mob/living/user)
 	if(user.faction == FACTION_VSD && user.a_intent == INTENT_HARM && stored_disk)
@@ -327,5 +329,6 @@
 	. = ..()
 	if(user.faction == FACTION_VSD)
 		. += "<br><b>NS-92 Covert Neurodisk</b><br>Kaizoku Covert Division encrypted module containing extracted neural skill architecture."
+		. += "<br><i>Unauthorized disclosure of this device or its operational parameters may result in immediate contract termination and or asset liquidation.</i><br>"
 		if(stored_name)
 			. += "This neurodisk contains <b>[stored_name]'s</b> scan."
