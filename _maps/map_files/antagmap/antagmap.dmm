@@ -7328,6 +7328,12 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/antag_ship/som/maintenance/south)
+"Km" = (
+/obj/item/disk/kz_neurodisk,
+/obj/item/disk/kz_neurodisk,
+/obj/item/disk/kz_neurodisk,
+/turf/open/floor/prison/darkpurple,
+/area/antag_ship/vsd/hall)
 "Kn" = (
 /obj/machinery/telecomms/processor/preset_four/som,
 /turf/open/floor/bcircuit/anim,
@@ -15813,7 +15819,7 @@ XR
 Bl
 UQ
 GA
-on
+Km
 mg
 CN
 CN
