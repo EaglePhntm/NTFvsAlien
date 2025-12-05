@@ -1179,7 +1179,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	accuracy_mult_unwielded = 0.5
 	movement_acc_penalty_mult = 10
 	scatter = 0
-
+	autobalance_monitor_value = null
 
 //The Dragoon rapid engagement rifle.
 /obj/item/weapon/gun/rifle/dragoon
@@ -1238,4 +1238,3 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	recoil_unwielded = 4
 	aim_slowdown = 0.60
 	movement_acc_penalty_mult = 3
-	autobalance_monitor_value = null
