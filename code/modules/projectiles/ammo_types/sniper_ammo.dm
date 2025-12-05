@@ -57,6 +57,7 @@
 	damage = 60
 	penetration = 30
 	sundering = 6
+	accurate_range_min = 3
 
 /datum/ammo/bullet/sniper/dragoon/flathead
 	name = "flathead exotic rifle bullet"

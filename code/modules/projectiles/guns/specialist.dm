@@ -1213,6 +1213,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	default_ammo_type = /datum/ammo/bullet/sniper/dragoon
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/boltclip/dragoon,
+		/obj/item/ammo_magazine/rifle/boltclip/dragoon/pox
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/magnetic_harness,
@@ -1231,7 +1232,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	reciever_flags = AMMO_RECIEVER_HANDFULS|AMMO_RECIEVER_MULTICLIP
 
 	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO)
-	attachable_offset = list("muzzle_x" = 40, "muzzle_y" = 19,"rail_x" = 9, "rail_y" = 22, "under_x" = 33, "under_y" = 16, "stock_x" = 0, "stock_y" = 11)
+	attachable_offset = list("muzzle_x" = 32, "muzzle_y" = 17,"rail_x" = 22, "rail_y" = 18, "under_x" = 32, "under_y" = 14, "stock_x" = 20, "stock_y" = 14)
 	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 1.25 SECONDS
 
