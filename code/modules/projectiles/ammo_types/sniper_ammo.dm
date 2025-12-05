@@ -55,14 +55,14 @@
 	name = "exotic rifle bullet"
 	handful_amount = 4
 	damage = 60
-	penetration = 25
+	penetration = 30
 	sundering = 6
 
 /datum/ammo/bullet/sniper/dragoon/flathead
 	name = "flathead exotic rifle bullet"
 	handful_amount = 4
 	damage_type = STAMINA
-	damage = 50
+	damage = 60
 	penetration = 20
 	sundering = 0
 
