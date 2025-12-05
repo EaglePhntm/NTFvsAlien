@@ -1192,7 +1192,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 //The Dragoon rapid engagement rifle.
 /obj/item/weapon/gun/rifle/dragoon
 	name = "\improper Dragoon Mk1 Rapid Engagement Rifle"
-	desc = "The Dragoon Rapid Engagement rifle is a powerful, above-average capacity and agile rifle designed to be used in situations requiring frequent relocation and short engagements. Triangular casings allow it to hold a greater amount of ammo compared to similar rifles. Unfortunately it has not seen widespread adoption due to the lack of detachable magazine and a complex, delicate feeding mechanism that requires users to put additional care into every reload, lest the newly-loaded cartridges end up pushed right back up into the stripper clip. Fires an exotic 9.8x22mm cartridge."
+	desc = "The Dragoon Rapid Engagement rifle is a powerful, above-average capacity and agile rifle designed to be used in situations requiring frequent relocation and short engagements. Triangular casings allow it to hold a greater amount of ammo compared to similar rifles. Unfortunately it has not seen widespread adoption due to the lack of detachable magazine and a complex, delicate feeding mechanism that requires users to put additional care into every reload, lest the newly-loaded cartridges end up pushed right back up into the stripper clip. Fires an exotic 9.8x22mm cartridge with great penetration capabilities."
 	icon = 'icons/obj/items/guns/marksman64.dmi'
 	icon_state = "dragoon"
 	worn_icon_state = "l11"

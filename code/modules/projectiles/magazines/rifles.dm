@@ -634,7 +634,7 @@
 //Dragoon
 /obj/item/ammo_magazine/rifle/boltclip/dragoon
 	name = "clip of 9.8x22mm rifle rounds"
-	desc = "A Disposible Stripper clip filled with rifle bullets."
+	desc = "A Disposible Stripper clip filled with exotic rifle bullets."
 	icon_state = "clipdragoon"
 	default_ammo = /datum/ammo/bullet/sniper/dragoon
 	caliber = CALIBER_98x22
@@ -644,8 +644,8 @@
 	reload_delay = 5
 
 /obj/item/ammo_magazine/rifle/boltclip/dragoon/pox //Poison rounds
-	name = "clip of 9.8x22mm rifle rounds"
-	desc = "A Disposible Stripper clip filled with rifle bullets."
+	name = "clip of green-tipped 9.8x22mm rifle rounds"
+	desc = "A Disposible Stripper clip filled with exotic rifle bullets."
 	icon_state = "clipdragoonp"
 	default_ammo = /datum/ammo/bullet/sniper/dragoon/pox
 	caliber = CALIBER_98x22

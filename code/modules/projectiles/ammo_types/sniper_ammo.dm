@@ -54,8 +54,8 @@
 /datum/ammo/bullet/sniper/dragoon
 	name = "exotic rifle bullet"
 	handful_amount = 4
-	damage = 60
-	penetration = 30
+	damage = 50
+	penetration = 20
 	sundering = 6
 	accurate_range_min = 3
 
@@ -64,13 +64,13 @@
 	handful_amount = 4
 	damage_type = STAMINA
 	damage = 60
-	penetration = 20
-	sundering = 0
+	penetration = 15
+	sundering = 20
 
 /datum/ammo/bullet/sniper/dragoon/pox
 	name = "green-tipped exotic rifle bullet"
-	damage = 40
-	penetration = 10
+	damage = 35
+	penetration = 15
 	sundering = 3
 
 /datum/ammo/bullet/sniper/dragoon/pox/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
