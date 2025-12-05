@@ -10,7 +10,8 @@
 	bound_y = -32
 	pixel_x = -32
 	pixel_y = -24
-	max_integrity = 1000
+	max_integrity = 1001
+	integrity_failure = 1
 	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE | PLASMACUTTER_IMMUNE | XENO_DAMAGEABLE
 	xeno_structure_flags = IGNORE_WEED_REMOVAL|CRITICAL_STRUCTURE|XENO_STRUCT_WARNING_RADIUS|XENO_STRUCT_DAMAGE_ALERT
 	///How many larva points one silo produce in one minute
@@ -47,16 +48,26 @@
 		RegisterSignals(GLOB.hive_datums[hivenumber], list(COMSIG_HIVE_XENO_MOTHER_PRE_CHECK, COMSIG_HIVE_XENO_MOTHER_CHECK), PROC_REF(is_burrowed_larva_host))
 		if(length(GLOB.xeno_resin_silos_by_hive[hivenumber]) == 1)
 			GLOB.hive_datums[hivenumber].give_larva_to_next_in_queue()
+	SSticker.mode.update_silo_death_timer(GLOB.hive_datums[hivenumber])
 	var/turf/tunnel_turf = get_step(src, NORTH)
 	if(tunnel_turf.can_dig_xeno_tunnel())
 		var/obj/structure/xeno/tunnel/newt = new(tunnel_turf, hivenumber)
 		newt.tunnel_desc = "[AREACOORD_NO_Z(newt)]"
 		newt.name += " [name]"
 
+/obj/structure/xeno/silo/obj_break(damage_flag)
+	if(length(GLOB.xeno_resin_silos_by_hive[hivenumber]) == 1 && !istype(SSticker.mode, /datum/game_mode/infestation/nuclear_war) && !istype(SSticker.mode, /datum/game_mode/infestation/sovl_war))
+		obj_integrity = max_integrity
+		GLOB.hive_datums[hivenumber].trigger_silo_shock(src)
+		return
+	obj_integrity = 0
+	. = ..()
+
 /obj/structure/xeno/silo/obj_destruction(damage_amount, damage_type, damage_flag, mob/living/blame_mob)
 	if(GLOB.hive_datums[hivenumber])
 		UnregisterSignal(GLOB.hive_datums[hivenumber], list(COMSIG_HIVE_XENO_MOTHER_PRE_CHECK, COMSIG_HIVE_XENO_MOTHER_CHECK))
 		GLOB.hive_datums[hivenumber].xeno_message("A resin silo has been destroyed at [AREACOORD_NO_Z(src)]!", "xenoannounce", 5, FALSE, loc, 'sound/voice/alien/help2.ogg',FALSE , null, /atom/movable/screen/arrow/silo_damaged_arrow)
+		INVOKE_NEXT_TICK(SSticker.mode, TYPE_PROC_REF(/datum/game_mode, update_silo_death_timer), GLOB.hive_datums[hivenumber]) // checks all silos next tick after this one is gone
 		notify_ghosts("\ A resin silo has been destroyed at [AREACOORD_NO_Z(src)]!", source = get_turf(src), action = NOTIFY_JUMP)
 		playsound(loc,'sound/effects/alien/egg_burst.ogg', 75)
 	return ..()
@@ -161,7 +172,7 @@
 	if(prob(1))
 		playsound(src, shake_sound, 25, TRUE)
 	animate(src, pixel_x = pixel_x + offset, time = 2, loop = -1) //start shaking
-	addtimer(CALLBACK(src, .proc/stop_shake, old_pixel_x), duration)
+	addtimer(CALLBACK(src, PROC_REF(stop_shake), old_pixel_x), duration)
 
 /// Stop the shaking animation
 /obj/structure/xeno/silo/proc/stop_shake(old_px)

@@ -74,7 +74,7 @@
 #define AMMO_PASS_THROUGH_MOB (1<<15)
 ///If the projectile ricochet and miss sound is pitched up
 #define AMMO_SOUND_PITCH (1<<16)
-///Is this projectile considered sniper ammo, used for the anti sniper stacking status effect
+///Is this projectile considered sniper ammo, used for the anti sniper stacking status effect (ntf removal, this is here for compat)
 #define AMMO_SNIPER (1<<17)
 ///Ammo type entirely ignores xenos
 #define AMMO_SKIPS_ZOMBIE (1<<18)
@@ -149,7 +149,7 @@
 #define SLOWDOWN_ARMOR_LIGHT 0.2
 #define SLOWDOWN_ARMOR_MEDIUM 0.5
 #define SLOWDOWN_ARMOR_HEAVY 0.7
-#define SLOWDOWN_ARMOR_VERY_HEAVY 1
+#define SLOWDOWN_ARMOR_VERY_HEAVY 1.25
 
 //Marine armor defines
 #define MARINE_ARMOR_LIGHT list(MELEE = 35, BULLET = 55, LASER = 55, ENERGY = 50, BOMB = 45, BIO = 45, FIRE = 45, ACID = 45)

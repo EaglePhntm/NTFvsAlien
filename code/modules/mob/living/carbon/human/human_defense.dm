@@ -80,7 +80,7 @@ Contains most of the procs that are called when a mob is attacked by something
 	if(!.)
 		return
 	if((S.smoke_traits & SMOKE_CAMO) && !(S.smoke_traits & SMOKE_XENO))
-		smokecloak_on()
+		smokecloak_on(S.smokecloak_alpha)
 
 /mob/living/carbon/human/inhale_smoke(obj/effect/particle_effect/smoke/S)
 	. = ..()
@@ -398,6 +398,9 @@ Contains most of the procs that are called when a mob is attacked by something
 /mob/living/carbon/human/attackby(obj/item/I, mob/living/user, params)
 	if(stat != DEAD || I.sharp < IS_SHARP_ITEM_ACCURATE || user.a_intent != INTENT_HARM)
 		return ..()
+	if(issamexenohive(user) || (!hivenumber && (faction == user.faction)))
+		to_chat(user, span_warning("You shouldn't rip out an allied zombie's heart."))
+		return
 	if(!get_organ_slot(ORGAN_SLOT_HEART))
 		to_chat(user, span_notice("[src] no longer has a heart."))
 		return

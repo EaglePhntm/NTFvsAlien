@@ -53,6 +53,7 @@
 	end_cas_mission(chair?.occupant)
 	QDEL_NULL(off_action)
 	QDEL_NULL(cas_mini)
+	QDEL_NULL(jump_action)
 	return ..()
 
 /obj/docking_port/mobile/marine_dropship/casplane/process()
@@ -138,6 +139,7 @@
 		to_chat(user, span_warning("You are currently on your return flight!"))
 		return
 	if(!eyeobj)
+		eyeobj.origin = src
 		if(user.faction == FACTION_SOM)
 			eyeobj = new /mob/camera/aiEye/remote/hud/som(null, GLOB.som_cameranet)
 		else
@@ -191,7 +193,7 @@
 
 	SSmonitor.process_human_positions()
 	#ifndef TESTING
-	if(SSmonitor.human_on_ground <= 1)
+	if(SSmonitor.human_on_ground < 1)
 		to_chat(user, span_warning("The signal from the area of operations is too weak, you cannot route towards the battlefield."))
 		return
 	#endif

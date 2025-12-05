@@ -31,7 +31,7 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 	var/last_damage_alert = 0
 	///Radio so that the sentry can scream for help
 	var/obj/item/radio/radio
-	///Iff signal of the sentry. If the /gun has a set IFF then this will be the same as that. If not the sentry will get its IFF signal from the deployer
+	///Iff signal of the sentry. Set by the deployer or internal gun fation
 	var/iff_signal = NONE
 	///For minimap icon change if sentry is firing
 	var/firing
@@ -44,28 +44,24 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 	. = ..()
 	var/obj/item/weapon/gun/gun = get_internal_item()
 
-	iff_signal = gun?.sentry_iff_signal ? gun.sentry_iff_signal : initial(iff_signal)
 	if(deployer)
-		var/mob/living/carbon/human/_deployer = deployer
-		var/obj/item/card/id/id = _deployer.get_idcard(TRUE)
-		iff_signal = id?.iff_signal
-		hivenumber = _deployer.get_xeno_hivenumber()
-	else
+		faction = deployer.faction
+		iff_signal = deployer.get_iff_signal()
+		hivenumber = deployer.get_xeno_hivenumber()
+	else if(gun?.faction && (gun.faction in GLOB.faction_to_iff))
+		faction = gun.faction
+		iff_signal = GLOB.faction_to_iff[gun.faction]
 		if(iff_signal & CLF_IFF)
 			hivenumber = XENO_HIVE_NORMAL
 		else
 			if(iff_signal & TGMC_LOYALIST_IFF)
 				hivenumber = XENO_HIVE_CORRUPTED
-	if(deployer)
-		faction = deployer.faction
+
 
 	knockdown_threshold = gun?.knockdown_threshold ? gun.knockdown_threshold : initial(gun.knockdown_threshold)
 	range = CHECK_BITFIELD(gun.turret_flags, TURRET_RADIAL) ?  gun.turret_range - 2 : gun.turret_range
 
-	radio = new(src)
-	radio.freerange = TRUE
-	radio.canhear_range = 1
-	radio.set_frequency(GLOB.faction_default_frequency[faction] || FREQ_CIV_GENERAL)
+	radio = new /obj/item/radio/sentry(src, faction)
 
 	spark_system = new /datum/effect_system/spark_spread
 	spark_system.set_up(5, 0, src)
@@ -448,6 +444,14 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 	var/obj/item/weapon/gun/internal_gun = get_internal_item()
 	if(!internal_gun)
 		return
+	if(QDELETED(gun_target)) // Maybe they just got gibbed or deleted.
+		sentry_stop_fire()
+		return
+	if(isliving(gun_target))
+		var/mob/living/living_target = gun_target
+		if(living_target.stat == DEAD)
+			sentry_stop_fire()
+			return
 	if(CHECK_BITFIELD(internal_gun.reciever_flags, AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION) && length(internal_gun.chamber_items))
 		INVOKE_ASYNC(internal_gun, TYPE_PROC_REF(/obj/item/weapon/gun, do_unique_action))
 	if(!CHECK_BITFIELD(internal_gun.item_flags, IS_DEPLOYED) || get_dist(src, gun_target) > range || (!CHECK_BITFIELD(get_dir(src, gun_target), dir) && !CHECK_BITFIELD(internal_gun.turret_flags, TURRET_RADIAL)) || !check_target_path(gun_target))
@@ -587,6 +591,7 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 
 //Throwable turret
 /obj/machinery/deployable/mounted/sentry/cope
+	obj_flags = CAN_BE_HIT|PROJ_IGNORE_DENSITY
 
 /obj/machinery/deployable/mounted/sentry/cope/sentry_start_fire()
 	var/obj/item/weapon/gun/internal_gun = get_internal_item()
@@ -599,3 +604,17 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 	if(!.)
 		return
 	internal_gun?.reset()
+
+//A sentry specific radio that sets its freq based on faction
+/obj/item/radio/sentry
+	freerange = TRUE
+	canhear_range = 1
+
+/obj/item/radio/sentry/Initialize(mapload, new_faction)
+	faction = new_faction
+	if(faction in GLOB.faction_to_radio)
+		frequency = GLOB.faction_to_radio[faction]
+	else
+		frequency = FREQ_CIV_GENERAL
+
+	return ..()

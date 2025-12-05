@@ -8,18 +8,32 @@ SUBSYSTEM_DEF(silo)
 	var/current_larva_spawn_rate = 0
 
 /datum/controller/subsystem/silo/Initialize()
-	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_TADPOLE_LAUNCHED), PROC_REF(start_spawning))
+	RegisterSignal(SSdcs, COMSIG_GLOB_GAMESTATE_GROUNDSIDE, PROC_REF(start_spawning))
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/silo/fire(resumed = 0)
-	var/current_z = SSmonitor.gamestate == SHIPSIDE ? 3 : 2
-	var/active_humans = length(GLOB.humans_by_zlevel["[current_z]"])
+	var/list/active_zs = list()
+	if(SSmonitor.gamestate == SHIPSIDE)
+		active_zs += SSmapping.levels_by_trait(ZTRAIT_MARINE_MAIN_SHIP)
+	else
+		active_zs += SSmapping.levels_by_trait(ZTRAIT_GROUND)
+	var/active_humans = 0
+	var/list/human_list = list()
+	for(var/active_z in active_zs)
+		human_list += GLOB.humans_by_zlevel["[active_z]"]
 	for(var/obj/vehicle/sealed/armored/tank AS in GLOB.tank_list)
-		if(tank.z != current_z)
+		if(!(tank.z in active_zs))
 			continue
 		if(tank.armored_flags & ARMORED_IS_WRECK)
 			continue
 		active_humans += tank.larva_value
+		human_list += tank.occupants
+
+	list_clear_nulls(human_list)
+	for(var/mob/living/carbon/human/human AS in human_list)
+		if(!human.key && !human.has_ai())
+			continue
+		active_humans ++
 	for(var/hivenumber in GLOB.hive_datums)
 		var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
 		var/active_xenos = xeno_job.total_positions - xeno_job.current_positions //burrowed
@@ -50,6 +64,6 @@ SUBSYSTEM_DEF(silo)
 ///Activate the subsystem when shutters open and remove the free spawning when marines are joining
 /datum/controller/subsystem/silo/proc/start_spawning()
 	SIGNAL_HANDLER
-	UnregisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_TADPOLE_LAUNCHED))
+	UnregisterSignal(SSdcs, COMSIG_GLOB_GAMESTATE_GROUNDSIDE)
 	if(SSticker.mode?.round_type_flags & MODE_SILO_RESPAWN)
 		can_fire = TRUE

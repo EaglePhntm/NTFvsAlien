@@ -126,6 +126,7 @@
 
 //Nuclear war mode collapse duration
 #define NUCLEAR_WAR_ORPHAN_HIVEMIND 5 MINUTES
+#define NUCLEAR_WAR_SILO_COLLAPSE 5 MINUTES
 
 #define SHUTTLE_HIJACK_LOCK 30 MINUTES
 
@@ -153,8 +154,17 @@
 
 #define COUNT_IGNORE_ALIVE_SSD (COUNT_IGNORE_HUMAN_SSD|COUNT_IGNORE_XENO_SSD)
 
-#define SILO_PRICE 800
-#define XENO_TURRET_PRICE 100
+#define RESIN_SILO_PRICE 800
+#define EVOLUTION_TOWER_PRICE 300
+#define PSYCHIC_RELAY_PRICE 300
+#define PHEROMONE_TOWER_PRICE 300
+#define SPAWNER_PRICE 400
+#define ACID_POOL_PRICE 200
+#define ACID_JAWS_PRICE 450
+#define XENO_ACID_TURRET_PRICE 100
+#define XENO_RESIN_TURRET_PRICE 50
+#define GARGOYLE_PRICE 25
+#define ANY_PRIMORDIAL_PRICE 600
 
 //How many psy points a hive gets if all generators are corrupted
 #define GENERATOR_PSYCH_POINT_OUTPUT 1
@@ -196,4 +206,4 @@
 
 #define NUCLEAR_WAR_MECH_MINIMUM_POP_REQUIRED 40 // This amount of clients must be connected at gamemode setup to get the first mech pilot slot.
 #define NUCLEAR_WAR_MECH_INTERVAL_PER_SLOT 20 // After meeting NUCLEAR_WAR_MECH_MINIMUM_POP_REQUIRED, a mech pilot slot is open for each set of X clients.
-#define NUCLEAR_WAR_TANK_MINIMUM_POP_REQUIRED 50 // This amount of clients must be connected at gamemode setup to get two assault crewman jobs (and thus tank).
+#define NUCLEAR_WAR_TANK_MINIMUM_POP_REQUIRED 55 // This amount of clients must be connected at gamemode setup to get two assault crewman jobs (and thus tank).

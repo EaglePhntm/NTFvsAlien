@@ -380,9 +380,6 @@
 	var/knockdown_threshold = 100
 	///Range of deployed turret
 	var/turret_range = 7
-	///IFF signal for sentries. If it is set here it will be this signal forever. If null the IFF signal will be dependant on the deployer.
-	var/sentry_iff_signal = NONE
-
 	///Icon state used for an added overlay for a sentry. Currently only used in Build-A-Sentry.
 	var/placed_overlay_iconstate = "rifle"
 
@@ -462,6 +459,8 @@
 
 ///Set the user in argument as gun_user
 /obj/item/weapon/gun/proc/set_gun_user(mob/user)
+	if(ismovable(user) && !istype(src, /obj/item/weapon/gun/rifle/drone))
+		faction = user.faction
 	active_attachable?.set_gun_user(user)
 	if(user == gun_user)
 		return
@@ -1819,10 +1818,9 @@
 	projectile_to_fire.projectile_speed += shell_speed_mod
 	if(gun_features_flags & GUN_IFF || HAS_TRAIT(src, TRAIT_GUN_IS_AIMING) || projectile_to_fire.ammo.ammo_behavior_flags & AMMO_IFF)
 		var/iff_signal
-		if(ishuman(firer))
-			var/mob/living/carbon/human/_firer = firer
-			var/obj/item/card/id/id = _firer.get_idcard()
-			iff_signal = id?.iff_signal
+		if(ismob(firer))
+			var/mob/firing_mob = firer
+			iff_signal = firing_mob.get_iff_signal()
 		else if(istype(firer, /obj/machinery/deployable/mounted/sentry))
 			var/obj/machinery/deployable/mounted/sentry/sentry = firer
 			iff_signal = sentry.iff_signal

@@ -469,7 +469,14 @@
 	damage_falloff_mult = 0.25
 	undeploy_time = 0.5 SECONDS
 	max_integrity = 200
+	actions_types = list(/datum/action/item_action/aim_mode)
 
+/obj/item/weapon/gun/standard_mmg/toggle_deployment_flag(deployed)
+	if(deployed)
+		aim_time = 1 SECONDS
+	else
+		aim_time = initial(aim_time)
+	. = ..()
 
 /obj/item/weapon/gun/standard_mmg/machinegunner
 	starting_attachment_types = list(/obj/item/attachable/stock/t27, /obj/item/attachable/scope/unremovable/mmg)
