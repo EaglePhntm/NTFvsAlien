@@ -174,3 +174,6 @@
 	///The z level this mob is currently registered in
 	var/registered_z = null
 	var/datum/sex_controller/sexcon
+
+	var/can_restore_skills = FALSE
+	var/extract_count = 0
