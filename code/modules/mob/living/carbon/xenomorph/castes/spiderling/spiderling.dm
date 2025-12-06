@@ -91,11 +91,7 @@
 /datum/ai_behavior/spiderling/set_escort()
 	return FALSE //we don't automatically reset our escort
 
-<<<<<<< HEAD
 /datum/ai_behavior/spiderling/should_hold() // For some reason, this completely causes widow spiderlings to break and stop working.
-=======
-/datum/ai_behavior/spiderling/should_hold()
->>>>>>> 0281671e8720b3b3fd8a5e64fff153052ed91f5c
 	//We don't move if we're riding mum
 	if(current_action == ESCORTING_ATOM && (mob_parent.buckled == escorted_atom))
 		return TRUE
