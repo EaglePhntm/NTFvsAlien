@@ -259,7 +259,7 @@
 	hud_state = "rifle_heavy"
 	//unholy offspring between dmr and AR
 	shell_speed = 4.5
-	damage_falloff = 0.25
+	damage_falloff = 0.5
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SNIPER
 	accurate_range_min = 7
 	accurate_range = 30
