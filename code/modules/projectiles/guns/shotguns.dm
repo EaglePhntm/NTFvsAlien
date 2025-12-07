@@ -1089,7 +1089,7 @@
 	scatter_decay_unwielded = 1
 
 	cock_delay = 1.0 SECONDS
-	aim_slowdown = 0.7
+	aim_slowdown = 0.5
 
 /obj/item/weapon/gun/shotgun/pump/ksg/standard
 	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/verticalgrip, /obj/item/attachable/compensator,)
