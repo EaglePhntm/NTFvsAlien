@@ -712,7 +712,7 @@
 	. = ..()
 	new /obj/item/pamphlet/rifleman(src)
 	new /obj/item/weapon/gun/rifle/dragoon(src)
-	new new /obj/item/ammo_magazine/rifle/boltclip/dragoon(src)
+	new /obj/item/ammo_magazine/rifle/boltclip/dragoon(src)
 	new /obj/item/ammo_magazine/rifle/boltclip/dragoon(src)
 	new /obj/item/ammo_magazine/rifle/boltclip/dragoon(src)
 	new /obj/item/ammo_magazine/rifle/boltclip/dragoon(src)
