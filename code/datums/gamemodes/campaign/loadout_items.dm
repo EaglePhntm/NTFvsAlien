@@ -19,9 +19,10 @@ GLOBAL_LIST_INIT_TYPED(campaign_loadout_item_type_list, /datum/loadout_item, ini
 	. = list()
 	for(var/type in subtypesof(/datum/loadout_item))
 		var/datum/loadout_item/item_type = new type
+		/* ntf we use those for public access ig shit breaks without atleast a single item available.
 		if(!length(item_type.jobs_supported))
 			qdel(item_type)
-			continue
+			continue*/
 		.[item_type.type] = item_type
 
 //List of all loadout_item datums by job, excluding ones that must be unlocked //now including those
@@ -29,10 +30,12 @@ GLOBAL_LIST_INIT(campaign_loadout_items_by_role, init_campaign_loadout_items_by_
 
 /proc/init_campaign_loadout_items_by_role()
 	. = list()
-	for(var/job in GLOB.campaign_jobs)
+	for(var/job in GLOB.jobs_regular_all)
 		.[job] = list()
 		for(var/i in GLOB.campaign_loadout_item_type_list)
 			var/datum/loadout_item/option = GLOB.campaign_loadout_item_type_list[i]
+			if(!length(option.jobs_supported)) //all if nothing
+				option.jobs_supported = GLOB.jobs_regular_all
 			if(option.jobs_supported && !(job in option.jobs_supported))
 				continue
 			.[job] += option

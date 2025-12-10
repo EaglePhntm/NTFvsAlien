@@ -126,6 +126,11 @@
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
 	jobs_supported = list(STAFF_OFFICER, CAPTAIN)
 
+/datum/loadout_item/belt/pistol_holster/free
+	name = "Pistol holster (Everyone)"
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
+	jobs_supported = list()
+
 /datum/loadout_item/belt/db_shotgun
 	name = "Shotgun holster"
 	desc = "A leather holster for a SH-34 shotgun."

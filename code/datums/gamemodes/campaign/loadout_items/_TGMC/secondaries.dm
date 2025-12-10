@@ -18,6 +18,11 @@
 	item_typepath = /obj/item/weapon/gun/pistol/standard_pistol/standard
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
 
+/datum/loadout_item/secondary/gun/marine/standard_pistol/free
+	name = "P-14 (Everyone)"
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
+	jobs_supported = list()
+
 /datum/loadout_item/secondary/gun/marine/fc_pistol
 	name = "P-1911A1-C pistol"
 	desc = "The P-1911A1-C is a custom modified pistol with impressive stopping power for its size. \
@@ -49,6 +54,11 @@
 	desc = "A standard P-23 chambered in .45 ACP. Has a smaller magazine capacity, but packs a better punch. Has an irremovable laser sight. Uses .45 magazines."
 	ui_icon = "tp23"
 	item_typepath = /obj/item/weapon/gun/pistol/standard_heavypistol/tactical
+
+/datum/loadout_item/secondary/gun/marine/standard_heavypistol/free
+	name = "P-23 (Everyone)"
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
+	jobs_supported = list()
 
 /datum/loadout_item/secondary/gun/marine/mod_four
 	name = "MK88 Mod 4"
@@ -82,6 +92,10 @@
 	ui_icon = "default"
 	item_typepath = /obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol/tactical
 	loadout_item_flags = NONE
+
+/datum/loadout_item/secondary/gun/marine/laser_pistol/free
+	name = "TE-P (Everyone)"
+	jobs_supported = list()
 
 /datum/loadout_item/secondary/gun/marine/standard_machinepistol
 	name = "MP-19"
@@ -213,7 +227,10 @@
 	jobs_supported = list(SQUAD_MARINE, SQUAD_CORPSMAN, SQUAD_ENGINEER, SQUAD_SMARTGUNNER)
 
 /datum/loadout_item/secondary/kit/binoculars/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
-	wearer.equip_to_slot_or_del(new /obj/item/binoculars/fire_support/campaign, SLOT_IN_BACKPACK)
+	if(iscampaigngamemode(SSticker.mode))
+		wearer.equip_to_slot_or_del(new /obj/item/binoculars/fire_support/campaign, SLOT_IN_BACKPACK)
+	else
+		wearer.equip_to_slot_or_del(new /obj/item/binoculars/tactical, SLOT_IN_BACKPACK)
 	wearer.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_BACKPACK)
 	wearer.equip_to_slot_or_del(new /obj/item/tool/crowbar, SLOT_IN_BACKPACK)
 	wearer.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
