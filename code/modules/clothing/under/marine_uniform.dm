@@ -614,14 +614,6 @@
 /obj/item/clothing/under/som/officer/webbing
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/black_vest)
 
-/obj/item/clothing/under/som/officer/pilot
-	name = "S35 SOM officer flightsuit"
-	desc = "A specialized, kevlar-weaved, hazmat-tested, EMF-augmented, survival-friendly pilot flightsuit. A small label on it says it is not rated for Cordium, whatever that is."
-	icon_state = "som_uniform_pilot"
-	worn_icon_state = "som_uniform_pilot"
-	cold_protection_flags = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
-	item_map_variant_flags = null
-
 /obj/item/clothing/under/som/officer/senior
 	name = "\improper SOM officer uniform"
 	desc = "The distinct jacketed black uniform of a SOM officer. Usually worn by senior officers."

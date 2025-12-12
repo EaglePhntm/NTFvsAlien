@@ -477,16 +477,6 @@
 	worn_icon_state = "som_helmet_leader"
 	soft_armor = list(MELEE = 55, BULLET = 65, LASER = 65, ENERGY = 30, BOMB = 20, BIO = 50, FIRE = 30, ACID = 50)
 
-/obj/item/clothing/head/helmet/marine/som/pilot
-	name = "\improper S36 combat pilot helmet"
-	desc = "The S18 combat pilot helmet has a specialized visor displaying pilot tactical data. Its origins come from modifications to the M30 Tactical Helmet."
-	icon_state = "som_helmet_pilot"
-	worn_icon_state = "som_helmet_pilot"
-	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 50, FIRE = 50, ACID = 50)
-	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
-	inventory_flags = BLOCKSHARPOBJ
-	inv_hide_flags = HIDEEARS|HIDETOPHAIR
-
 /obj/item/clothing/head/helmet/sectoid
 	name = "psionic field"
 	desc = "A field of invisible energy, it protects the wearer but prevents any clothing from being worn."
