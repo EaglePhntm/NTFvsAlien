@@ -82,6 +82,7 @@
 #include "code\game\objects\structures\teleporter.dm"
 #include "code\modules\client\preferences.dm"
 #include "code\modules\clothing\head\head.dm"
+#include "code\modules\clothing\masks\breath.dm"
 #include "code\modules\clothing\modular_armor\attachments\modules.dm"
 #include "code\modules\clothing\shoes\marine_shoes.dm"
 #include "code\modules\clothing\suits\marine_armor.dm"

@@ -50,3 +50,13 @@
 		slot_l_hand_str = 'icons/mob/inhands/clothing/hats_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/clothing/hats_right.dmi',
 	)
+
+/obj/item/clothing/head/helmet/marine/som/pilot
+	name = "\improper S36 combat pilot helmet"
+	desc = "The S18 combat pilot helmet has a specialized visor displaying pilot tactical data. Its origins come from modifications to the M30 Tactical Helmet."
+	icon_state = "som_helmet_pilot"
+	worn_icon_state = "som_helmet_pilot"
+	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 50, FIRE = 50, ACID = 50)
+	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
+	inventory_flags = BLOCKSHARPOBJ
+	inv_hide_flags = HIDEEARS|HIDETOPHAIR
