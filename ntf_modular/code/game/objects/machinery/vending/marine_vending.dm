@@ -46,7 +46,6 @@
 			/obj/item/ammo_magazine/rifle/standard_dmr = -1,
 			/obj/item/weapon/gun/rifle/chambered = -1,
 			/obj/item/ammo_magazine/rifle/chamberedrifle = -1,
-			/obj/item/weapon/gun/rifle/sniper/pmc_railgun = 3,
 			/obj/item/ammo_magazine/railgun/pmc = -1,
 		),
 		"Shotgun" = list(
@@ -180,6 +179,8 @@
 		),
 		"Utility" = list(
 			/obj/item/roller/bedroll = -1,
+			/obj/item/restraints/handcuffs/cable = -1,
+			/obj/item/restraints/handcuffs/zip = -1,
 			/obj/item/flashlight/combat = -1,
 			/obj/item/weapon/gun/grenade_launcher/single_shot/flare/marine = -1,
 			/obj/item/tool/shovel/etool = -1,
@@ -360,6 +361,7 @@
 			/obj/item/clothing/under/lewd/chaps = -1,
 			/obj/item/clothing/under/lewd/corset = -1,
 			/obj/item/clothing/under/lewd/stripper = -1,
+			/obj/item/clothing/under/lewd/stripper/string = -1,
 			/obj/item/clothing/under/lewd/stripper/green = -1,
 			/obj/item/clothing/under/lewd/gear_harness = -1,
 			/obj/item/clothing/under/lewd/keyholesweater = -1,
@@ -586,8 +588,9 @@
 	wrenchable = FALSE
 	product_ads = "You are out of uniform, marine! Where is your armor? Don't have any? You expect me to believe that, maggot?;Why wear heavy armor and unable to chase the enemy when you can go light and zoom by your peers?;Thank your armor later when you didn't die!;I remember PAS, do you remember PAS?;Time to paint the rainbow!;So many selections to choose from!"
 	products = list(
-		"PMC standard issue" = list(
+		"AC standard issue" = list(
 			/obj/item/clothing/suit/storage/marine/veteran/pmc = -1,
+			/obj/item/clothing/suit/storage/marine/veteran/pmc/standard = -1,
 			/obj/item/clothing/suit/storage/marine/veteran/pmc/sniper = -1,
 			/obj/item/clothing/suit/storage/marine/veteran/pmc/gunner = -1,
 			/obj/item/clothing/suit/storage/marine/veteran/pmc/leader = -1,
@@ -807,6 +810,8 @@
 		),
 		"Utility" = list(
 			/obj/item/roller/bedroll = -1,
+			/obj/item/restraints/handcuffs/cable = -1,
+			/obj/item/restraints/handcuffs/zip = -1,
 			/obj/item/flashlight/combat = -1,
 			/obj/item/weapon/gun/grenade_launcher/single_shot/flare/marine = -1,
 			/obj/item/tool/shovel/etool = -1,
@@ -968,6 +973,7 @@
 			/obj/item/clothing/under/lewd/chaps = -1,
 			/obj/item/clothing/under/lewd/corset = -1,
 			/obj/item/clothing/under/lewd/stripper = -1,
+			/obj/item/clothing/under/lewd/stripper/string = -1,
 			/obj/item/clothing/under/lewd/stripper/green = -1,
 			/obj/item/clothing/under/lewd/gear_harness = -1,
 			/obj/item/clothing/under/lewd/keyholesweater = -1,
@@ -1257,6 +1263,7 @@
 		),
 		"Hardsuits" = list(
 			/obj/item/clothing/suit/modular/vsd_exoskeleton = -1,
+			/obj/item/clothing/suit/modular/vsd_exoskeleton/nt = -1,
 			/obj/item/armor_module/armor/chest/marine/vsd_hardsuit = -1,
 			/obj/item/armor_module/armor/arms/marine/vsd_hardsuit = -1,
 			/obj/item/armor_module/armor/legs/marine/vsd_hardsuit = -1,
@@ -1265,6 +1272,7 @@
 			/obj/item/armor_module/armor/arms/marine/vsd_hardsuit/clementia = -1,
 			/obj/item/armor_module/armor/legs/marine/vsd_hardsuit/clementia = -1,
 			/obj/item/clothing/head/modular/marine/vsd_hardsuit/clementia = -1,
+			/obj/item/armor_module/armor/chest/marine/vsd_hardsuit/aphrodite = -1,
 			/obj/item/armor_module/armor/chest/marine/vsd_hardsuit/hephaestus = -1,
 			/obj/item/armor_module/armor/arms/marine/vsd_hardsuit/hephaestus = -1,
 			/obj/item/armor_module/armor/legs/marine/vsd_hardsuit/hephaestus = -1,
@@ -1476,6 +1484,8 @@
 		),
 		"Utility" = list(
 			/obj/item/roller/bedroll = -1,
+			/obj/item/restraints/handcuffs/cable = -1,
+			/obj/item/restraints/handcuffs/zip = -1,
 			/obj/item/flashlight/combat = -1,
 			/obj/item/weapon/gun/grenade_launcher/single_shot/flare/marine = -1,
 			/obj/item/tool/shovel/etool = -1,
@@ -1622,6 +1632,7 @@
 			/obj/item/clothing/under/lewd/chaps = -1,
 			/obj/item/clothing/under/lewd/corset = -1,
 			/obj/item/clothing/under/lewd/stripper = -1,
+			/obj/item/clothing/under/lewd/stripper/string = -1,
 			/obj/item/clothing/under/lewd/stripper/green = -1,
 			/obj/item/clothing/under/lewd/gear_harness = -1,
 			/obj/item/clothing/under/lewd/keyholesweater = -1,
@@ -1996,6 +2007,7 @@
 			/obj/item/clothing/under/lewd/chaps = -1,
 			/obj/item/clothing/under/lewd/corset = -1,
 			/obj/item/clothing/under/lewd/stripper = -1,
+			/obj/item/clothing/under/lewd/stripper/string = -1,
 			/obj/item/clothing/under/lewd/stripper/green = -1,
 			/obj/item/clothing/under/lewd/gear_harness = -1,
 			/obj/item/clothing/under/lewd/keyholesweater = -1,
@@ -2470,6 +2482,8 @@
 		),
 		"Utility" = list(
 			/obj/item/roller/bedroll = -1,
+			/obj/item/restraints/handcuffs/cable = -1,
+			/obj/item/restraints/handcuffs/zip = -1,
 			/obj/item/flashlight/combat = -1,
 			/obj/item/weapon/gun/grenade_launcher/single_shot/flare/marine = -1,
 			/obj/item/tool/shovel/etool = -1,

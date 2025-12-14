@@ -1,3 +1,6 @@
+/**
+ *WARNING: This file is obsolete, use /code/datums/outfits/quick_load_outfits.dm for any new outfits
+*/
 /datum/outfit/quick
 	///Description of the loadout
 	var/desc = "Description here"
@@ -2101,34 +2104,6 @@
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som/extended, SLOT_IN_HOLSTER)
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/som/burst(H), SLOT_IN_HOLSTER)
 
-/datum/outfit/quick/som/veteran/dragoon
-	name = "Dragoon Veteran"
-	desc = "A lightly-armored agile class. Equipped with a Dragoon Mk1 Rapid Engagement rifle, plentiful ammo and autodoc. The rifle allows the soldier to harrass enemy units before tactically retreating, either picking off high-value targets or applying a constant pressure on the enemy. Also comes with a rifle instruction pamphlet to make up for your lack of training!"
-
-	wear_suit = /obj/item/clothing/suit/modular/som/light/autodoc
-	belt = /obj/item/storage/belt/marine/som
-	suit_store = /obj/item/wepaon/gun/rifle/dragoon
-	back = /obj/item/storage/backpack/lightpack/icc
-	glasses = /obj/item/clothing/glasses/thermal/m64_thermal_goggles
-	r_hand = /obj/item/pamphlet/rifleman
-
-/datum/outfit/quick/som/veteran/dragoon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon/pox, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon/pox, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon, SLOT_IN_BELT)
-
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon, SLOT_IN_BACKPACK)
-
 //Base SOM leader outfit
 /datum/outfit/quick/som/squad_leader
 	name = "SOM Squad Leader"
@@ -2280,8 +2255,8 @@
 
 // PMC Kwik-E-Quip Outfits
 /datum/outfit/quick/pmc/standard
-	name = "PMC Standard"
-	jobtype = "PMC Standard"
+	name = "AC Standard"
+	jobtype = "AC Standard"
 
 	belt = /obj/item/storage/belt/marine
 	ears = /obj/item/radio/headset/mainship/marine/pmc
@@ -2333,8 +2308,8 @@
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/enrg_bar, SLOT_IN_HEAD)
 
 /datum/outfit/quick/pmc/medic
-	name = "PMC Medic"
-	jobtype = "PMC Medic"
+	name = "AC Medic"
+	jobtype = "AC Medic"
 
 	belt = /obj/item/storage/belt/lifesaver/quick
 	ears = /obj/item/radio/headset/mainship/marine/pmc
@@ -2373,8 +2348,8 @@
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/enrg_bar, SLOT_IN_HEAD)
 
 /datum/outfit/quick/pmc/engineer
-	name = "PMC Engineer"
-	jobtype = "PMC Engineer"
+	name = "AC Engineer"
+	jobtype = "AC Engineer"
 
 	ears = /obj/item/radio/headset/mainship/marine/pmc
 	belt = /obj/item/storage/belt/marine
@@ -2423,8 +2398,8 @@
 
 
 /datum/outfit/quick/pmc/gunner
-	name = "PMC Gunner"
-	jobtype = "PMC Gunner"
+	name = "AC Gunner"
+	jobtype = "AC Gunner"
 
 	belt = /obj/item/belt_harness/marine
 	ears = /obj/item/radio/headset/mainship/marine/pmc
@@ -2470,8 +2445,8 @@
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_R_POUCH)
 
 /datum/outfit/quick/pmc/sniper
-	name = "PMC Specialist"
-	jobtype = "PMC Specialist"
+	name = "AC Specialist"
+	jobtype = "AC Specialist"
 
 	belt = /obj/item/storage/holster/belt/pistol/m4a3/vp70_pmc
 	ears = /obj/item/radio/headset/mainship/marine/pmc
@@ -2510,8 +2485,8 @@
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/sliceable/sandwiches/meatbread, SLOT_IN_BACKPACK)
 
 /datum/outfit/quick/pmc/squad_leader
-	name = "PMC Squad Leader"
-	jobtype = "PMC Squad Leader"
+	name = "AC Squad Leader"
+	jobtype = "AC Squad Leader"
 
 	belt = /obj/item/storage/belt/marine
 	ears = /obj/item/radio/headset/mainship/marine/pmc
