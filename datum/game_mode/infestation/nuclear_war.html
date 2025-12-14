@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="../../../" />
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>&#x2F;datum&#x2F;game_mode&#x2F;infestation&#x2F;nuclear_war - byond</title>
+</head>
+<body>
+<header>
+    <a href="index.html">byond</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="datum/game_mode/infestation/nuclear_war.html#var">Var Details</a> - <a href="datum/game_mode/infestation/nuclear_war.html#proc">Proc Details</a></header>
+<main>
+<h1>nuclear_war <aside>/<a href="datum.html">datum</a>/<a href="datum/game_mode.html">game_mode</a>/<a href="datum/game_mode/infestation.html">infestation</a>/<a href="datum/game_mode/infestation/nuclear_war.html">nuclear_war</a></aside>
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/c38939ac6d39416209cf304b4234dd7c44818953/code/datums/gamemodes/nuclear_war.dm#L1">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;gamemodes&#x2F;nuclear_war.dm 1"/></a></h1>
+
+<table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
+            <tr><th><a href="datum/game_mode/infestation/nuclear_war.html#var/siloless_hive_timer">siloless_hive_timer</a></th><td>Timer used to track the countdown to hive collapse due to lack of silos or corrupted generators</td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="datum/game_mode/infestation/nuclear_war.html#proc/get_hivemind_collapse_countdown">get_hivemind_collapse_countdown</a></th><td>Returns the time left before the hivemind collapses due to being orphaned</td></tr>
+            <tr><th><a href="datum/game_mode/infestation/nuclear_war.html#proc/get_siloless_collapse_countdown">get_siloless_collapse_countdown</a></th><td>Returns the time left before the hive collapses due to lack of silos or corrupted generators</td></tr>
+            <tr><th><a href="datum/game_mode/infestation/nuclear_war.html#proc/orphan_hivemind_collapse">orphan_hivemind_collapse</a></th><td>Called by <a href="datum/hive_status/normal.html" title="/datum/hive_status/normal">/datum/hive_status/normal/handle_ruler_timer()</a> after [NUCLEAR_WAR_HIVEMIND_COLLAPSE] elapses to end the round</td></tr>
+            <tr><th><a href="datum/game_mode/infestation/nuclear_war.html#proc/siloless_hive_collapse">siloless_hive_collapse</a></th><td>Called by [/proc/update_silo_death_timer] after [NUCLEAR_WAR_SILO_COLLAPSE] elapses to end the round</td></tr>
+            <tr><th><a href="datum/game_mode/infestation/nuclear_war.html#proc/update_silo_death_timer">update_silo_death_timer</a></th><td>Checks if the conditions for silo collapse have been met and starts/stops the countdown timer accordingly</td></tr></table>
+    <h2 id="var">Var Details</h2><h3 id="var/siloless_hive_timer"><aside class="declaration">var </aside>siloless_hive_timer
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/c38939ac6d39416209cf304b4234dd7c44818953/code/datums/gamemodes/nuclear_war.dm#L51">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;gamemodes&#x2F;nuclear_war.dm 51"/></a></h3>
+        <p>Timer used to track the countdown to hive collapse due to lack of silos or corrupted generators</p><h2 id="proc">Proc Details</h2><h3 id="proc/get_hivemind_collapse_countdown"><aside class="parent"><a title="/datum/game_mode" href="datum/game_mode.html#proc/get_hivemind_collapse_countdown">&uarr;</a></aside>get_hivemind_collapse_countdown<aside>() 
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/c38939ac6d39416209cf304b4234dd7c44818953/code/datums/gamemodes/nuclear_war.dm#L86">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;gamemodes&#x2F;nuclear_war.dm 86"/></a></aside>
+        </h3>
+        <p>Returns the time left before the hivemind collapses due to being orphaned</p><h3 id="proc/get_siloless_collapse_countdown"><aside class="parent"><a title="/datum/game_mode" href="datum/game_mode.html#proc/get_siloless_collapse_countdown">&uarr;</a></aside>get_siloless_collapse_countdown<aside>() 
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/c38939ac6d39416209cf304b4234dd7c44818953/code/datums/gamemodes/nuclear_war.dm#L130">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;gamemodes&#x2F;nuclear_war.dm 130"/></a></aside>
+        </h3>
+        <p>Returns the time left before the hive collapses due to lack of silos or corrupted generators</p><h3 id="proc/orphan_hivemind_collapse"><aside class="parent"><a title="/datum/game_mode" href="datum/game_mode.html#proc/orphan_hivemind_collapse">&uarr;</a></aside>orphan_hivemind_collapse<aside>() 
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/c38939ac6d39416209cf304b4234dd7c44818953/code/datums/gamemodes/nuclear_war.dm#L78">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;gamemodes&#x2F;nuclear_war.dm 78"/></a></aside>
+        </h3>
+        <p>Called by <a href="datum/hive_status/normal.html" title="/datum/hive_status/normal">/datum/hive_status/normal/handle_ruler_timer()</a> after [NUCLEAR_WAR_HIVEMIND_COLLAPSE] elapses to end the round</p><h3 id="proc/siloless_hive_collapse"><aside class="parent"><a title="/datum/game_mode" href="datum/game_mode.html#proc/siloless_hive_collapse">&uarr;</a></aside>siloless_hive_collapse<aside>() 
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/c38939ac6d39416209cf304b4234dd7c44818953/code/datums/gamemodes/nuclear_war.dm#L120">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;gamemodes&#x2F;nuclear_war.dm 120"/></a></aside>
+        </h3>
+        <p>Called by [/proc/update_silo_death_timer] after [NUCLEAR_WAR_SILO_COLLAPSE] elapses to end the round</p><h3 id="proc/update_silo_death_timer"><aside class="parent"><a title="/datum/game_mode" href="datum/game_mode.html#proc/update_silo_death_timer">&uarr;</a></aside>update_silo_death_timer<aside>(/<a href="datum.html">datum</a>/<a href="datum/hive_status.html">hive_status</a>/silo_owner) 
+        
+    
+            <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/c38939ac6d39416209cf304b4234dd7c44818953/code/datums/gamemodes/nuclear_war.dm#L91">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;gamemodes&#x2F;nuclear_war.dm 91"/></a></aside>
+        </h3>
+        <p>Checks if the conditions for silo collapse have been met and starts/stops the countdown timer accordingly</p></main>
+<footer>
+    tgmc.dme
+    <a href="https://github.com/EaglePhntm/NTFvsAlien/tree/c38939ac6d39416209cf304b4234dd7c44818953">c38939a</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
+</body>
+</html>
