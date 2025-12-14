@@ -13,24 +13,7 @@
 	desc = ""
 	ui_icon = "empty"
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
-	jobs_supported = list(
-		SQUAD_MARINE,
-		SQUAD_CORPSMAN,
-		SQUAD_ENGINEER,
-		SQUAD_SMARTGUNNER,
-		SQUAD_LEADER,
-		FIELD_COMMANDER,
-		STAFF_OFFICER,
-		CAPTAIN,
-		SOM_SQUAD_MARINE,
-		SOM_SQUAD_CORPSMAN,
-		SOM_SQUAD_ENGINEER,
-		SOM_SQUAD_VETERAN,
-		SOM_SQUAD_LEADER,
-		SOM_FIELD_COMMANDER,
-		SOM_STAFF_OFFICER,
-		SOM_COMMANDER,
-	)
+	jobs_supported = list()
 
 
 /datum/loadout_item/suit_slot/light_shield
@@ -39,12 +22,12 @@
 	ui_icon = "light_armour_shield"
 	req_desc = "Requires a light helmet."
 	item_typepath = /obj/item/clothing/suit/modular/tdf/light/shield
-	jobs_supported = list(SQUAD_MARINE, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER)
 
 /datum/loadout_item/suit_slot/light_shield/overclocked
 	desc = "Light armor with a Svallin shield module. Provides excellent mobility but lower protection. The shield module has been overclocked for improved performance."
 	item_typepath = /obj/item/clothing/suit/modular/tdf/light/shield_overclocked
-	jobs_supported = list(SQUAD_MARINE, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER)
 	loadout_item_flags = null
 
 /datum/loadout_item/suit_slot/light_shield/overclocked/medic
@@ -72,12 +55,12 @@
 	ui_icon = "medium_armour_shield"
 	req_desc = "Requires a medium helmet."
 	item_typepath = /obj/item/clothing/suit/modular/tdf/shield
-	jobs_supported = list(SQUAD_MARINE, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER)
 
 /datum/loadout_item/suit_slot/medium_shield/overclocked
 	desc = "Medium armor with a Svallin shield module. Provides balanced mobility and protection."
 	item_typepath = /obj/item/clothing/suit/modular/tdf/shield_overclocked
-	jobs_supported = list(SQUAD_MARINE, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER)
 	loadout_item_flags = null
 
 /datum/loadout_item/suit_slot/medium_shield/overclocked/medic
@@ -109,13 +92,13 @@
 		/obj/item/clothing/head/modular/tdf/heavy = ITEM_SLOT_HEAD,
 		/obj/item/clothing/head/modular/tdf/sg = ITEM_SLOT_HEAD,
 	)
-	jobs_supported = list(SQUAD_MARINE, SQUAD_SMARTGUNNER)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_SMARTGUNNER)
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
 
 /datum/loadout_item/suit_slot/heavy_shield/overclocked
 	desc = "Heavy armor with a Svallin shield module. Provides excellent protection but lower mobility. The shield module has been overclocked for improved performance."
 	item_typepath = /obj/item/clothing/suit/modular/tdf/heavy/shield_overclocked
-	jobs_supported = list(SQUAD_MARINE, SQUAD_SMARTGUNNER)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_SMARTGUNNER)
 	loadout_item_flags = null
 
 /datum/loadout_item/suit_slot/heavy_shield/leader
@@ -184,7 +167,7 @@
 	wearer.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_SUIT)
 
 /datum/loadout_item/suit_slot/heavy_tyr/universal
-	jobs_supported = list(SQUAD_MARINE, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER)
 	loadout_item_flags = NONE
 	item_whitelist = null
 	req_desc = null
@@ -208,7 +191,7 @@
 	name = "Dress jacket"
 	desc = "The perfect white jacket to go with your white dress uniform. WARNING: Incompatible with almost all weapons."
 	item_typepath = /obj/item/clothing/suit/white_dress_jacket
-	jobs_supported = list(SQUAD_MARINE, SQUAD_CORPSMAN, SQUAD_ENGINEER, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER, STAFF_OFFICER, CAPTAIN)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_CORPSMAN, SQUAD_ENGINEER, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER, STAFF_OFFICER, CAPTAIN)
 
 //corpsman
 /datum/loadout_item/suit_slot/medium_mimir

@@ -45,13 +45,13 @@
 	desc = "M-21 battle armor with a Aegis shield module. Provides balanced mobility and protection."
 	ui_icon = "medium_armour_shield"
 	item_typepath = /obj/item/clothing/suit/modular/som/shield
-	jobs_supported = list(SOM_SQUAD_MARINE, SOM_SQUAD_VETERAN, SOM_SQUAD_LEADER, SOM_FIELD_COMMANDER)
+	jobs_supported = list(SOM_SQUAD_MARINE, SOM_SQUAD_SLUT, SOM_SQUAD_VETERAN, SOM_SQUAD_LEADER, SOM_FIELD_COMMANDER)
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
 
 /datum/loadout_item/suit_slot/som_medium_shield/overclocked
 	desc = "M-21 battle armor with a Aegis shield module. Provides balanced mobility and protection. The shield module has been overclocked for improved performance."
 	item_typepath = /obj/item/clothing/suit/modular/som/shield_overclocked
-	jobs_supported = list(SOM_SQUAD_MARINE, SOM_SQUAD_VETERAN, SOM_SQUAD_LEADER, SOM_FIELD_COMMANDER)
+	jobs_supported = list(SOM_SQUAD_MARINE, SOM_SQUAD_SLUT, SOM_SQUAD_VETERAN, SOM_SQUAD_LEADER, SOM_FIELD_COMMANDER)
 	loadout_item_flags = null
 
 /datum/loadout_item/suit_slot/som_medium_shield/overclocked/medic
@@ -151,7 +151,7 @@
 	wearer.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_SUIT)
 
 /datum/loadout_item/suit_slot/som_heavy_tyr/universal
-	jobs_supported = list(SOM_SQUAD_MARINE, SOM_SQUAD_VETERAN, SOM_SQUAD_LEADER, SOM_FIELD_COMMANDER)
+	jobs_supported = list(SOM_SQUAD_MARINE, SOM_SQUAD_SLUT, SOM_SQUAD_VETERAN, SOM_SQUAD_LEADER, SOM_FIELD_COMMANDER)
 	loadout_item_flags = null
 	item_whitelist = null
 	req_desc = null

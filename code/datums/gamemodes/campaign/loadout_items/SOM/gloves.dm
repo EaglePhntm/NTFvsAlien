@@ -2,7 +2,7 @@
 	name = "SOM gloves"
 	desc = "Gloves with origins dating back to the old mining colonies, they look pretty tough."
 	item_typepath = /obj/item/clothing/gloves/marine/som
-	jobs_supported = list(SOM_SQUAD_MARINE, SOM_SQUAD_CORPSMAN)
+	jobs_supported = list(SOM_SQUAD_MARINE, SOM_SQUAD_SLUT, SOM_SQUAD_CORPSMAN)
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
 
 /datum/loadout_item/gloves/som_veteran_gloves

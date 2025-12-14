@@ -174,7 +174,7 @@ Needed both for a purchase list and effected list (if one perk impacts multiple 
 	req_desc = "Requires Melee specialisation."
 	ui_icon = "axe"
 	traits = list(TRAIT_AXE_EXPERT)
-	jobs_supported = list(SOM_SQUAD_MARINE, SOM_SQUAD_VETERAN, SOM_SQUAD_LEADER, SOM_FIELD_COMMANDER)
+	jobs_supported = list(SOM_SQUAD_MARINE, SOM_SQUAD_SLUT, SOM_SQUAD_VETERAN, SOM_SQUAD_LEADER, SOM_FIELD_COMMANDER)
 	unlock_cost = 450
 	prereq_perks = list(/datum/perk/skill_mod/melee/two)
 
@@ -189,7 +189,7 @@ Needed both for a purchase list and effected list (if one perk impacts multiple 
 	req_desc = "Requires Melee specialisation."
 	ui_icon = "sword"
 	traits = list(TRAIT_SWORD_EXPERT)
-	jobs_supported = list(SQUAD_MARINE, SQUAD_LEADER, FIELD_COMMANDER, SOM_SQUAD_MARINE, SOM_SQUAD_ENGINEER, SOM_SQUAD_VETERAN, SOM_SQUAD_LEADER, SOM_FIELD_COMMANDER)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_LEADER, FIELD_COMMANDER, SOM_SQUAD_MARINE, SOM_SQUAD_ENGINEER, SOM_SQUAD_VETERAN, SOM_SQUAD_LEADER, SOM_FIELD_COMMANDER)
 	unlock_cost = 450
 	prereq_perks = list(/datum/perk/skill_mod/melee/two)
 

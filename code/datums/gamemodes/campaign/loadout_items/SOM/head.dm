@@ -47,7 +47,7 @@
 	req_desc = "Requires a suit with a Lorica module."
 	ui_icon = "lorica"
 	item_typepath = /obj/item/clothing/head/modular/som/lorica
-	jobs_supported = list(SOM_SQUAD_MARINE, SOM_SQUAD_VETERAN)
+	jobs_supported = list(SOM_SQUAD_MARINE, SOM_SQUAD_SLUT, SOM_SQUAD_VETERAN)
 	item_whitelist = list(
 		/obj/item/clothing/suit/modular/som/heavy/lorica = ITEM_SLOT_OCLOTHING,
 		/obj/item/clothing/suit/modular/som/heavy/lorica/medic = ITEM_SLOT_OCLOTHING,
@@ -71,7 +71,7 @@
 	wearer.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
 
 /datum/loadout_item/helmet/som_tyr/universal
-	jobs_supported = list(SOM_SQUAD_MARINE, SOM_SQUAD_CORPSMAN, SOM_SQUAD_ENGINEER, SOM_SQUAD_VETERAN, SOM_SQUAD_LEADER, SOM_FIELD_COMMANDER)
+	jobs_supported = list(SOM_SQUAD_MARINE, SOM_SQUAD_SLUT, SOM_SQUAD_CORPSMAN, SOM_SQUAD_ENGINEER, SOM_SQUAD_VETERAN, SOM_SQUAD_LEADER, SOM_FIELD_COMMANDER)
 	loadout_item_flags = NONE
 
 /datum/loadout_item/helmet/som_mimir

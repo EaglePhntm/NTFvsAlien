@@ -1267,8 +1267,8 @@
 		/obj/item/armor_module/module/valkyrie_autodoc,
 		/obj/item/clothing/head/modular/m10x/leader,
 		/obj/item/storage/pouch/medkit/medic,
-		/obj/item/clothing/glasses/hud/health,
-		/obj/item/storage/backpack/lightpack
+		/obj/item/storage/backpack/lightpack,
+		/obj/item/clothing/gloves/healthanalyzer
 	)
 
 /obj/effect/vendor_bundle/stretcher
@@ -1290,7 +1290,6 @@
 
 /obj/effect/vendor_bundle/smartgunner_pistol
 	gear_to_spawn = list(
-		/obj/item/clothing/glasses/night/m56_goggles,
 		/obj/item/storage/holster/belt/pistol/smart_pistol,
 		/obj/item/weapon/gun/pistol/smart_pistol,
 		/obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol,

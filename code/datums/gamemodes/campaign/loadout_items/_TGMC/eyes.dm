@@ -6,31 +6,14 @@
 	desc = ""
 	ui_icon = "empty"
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
-	jobs_supported = list(
-		SQUAD_MARINE,
-		SQUAD_CORPSMAN,
-		SQUAD_ENGINEER,
-		SQUAD_SMARTGUNNER,
-		SQUAD_LEADER,
-		FIELD_COMMANDER,
-		STAFF_OFFICER,
-		CAPTAIN,
-		SOM_SQUAD_MARINE,
-		SOM_SQUAD_CORPSMAN,
-		SOM_SQUAD_ENGINEER,
-		SOM_SQUAD_VETERAN,
-		SOM_SQUAD_LEADER,
-		SOM_FIELD_COMMANDER,
-		SOM_STAFF_OFFICER,
-		SOM_COMMANDER,
-	)
+	jobs_supported = list()
 
 
 /datum/loadout_item/eyes/ballistic_goggles
 	name = "Ballistic goggles"
 	desc = "Standard issue NTF goggles. Mostly used to decorate one's helmet."
 	item_typepath = /obj/item/clothing/glasses/mgoggles
-	jobs_supported = list(SQUAD_MARINE, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER)
 
 /datum/loadout_item/eyes/health_hud
 	name = "HealthMate HUD"
@@ -51,7 +34,7 @@
 	name = "Welding goggles"
 	desc = "Protects the eyes from welders, approved by the mad scientist association."
 	item_typepath = /obj/item/clothing/glasses/welding
-	jobs_supported = list(SQUAD_MARINE, SQUAD_ENGINEER, SOM_SQUAD_MARINE, SOM_SQUAD_VETERAN)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_ENGINEER, SOM_SQUAD_MARINE, SOM_SQUAD_VETERAN)
 
 /datum/loadout_item/eyes/smartgun_imagers
 	name = "KTLD sight"

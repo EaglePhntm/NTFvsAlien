@@ -6,7 +6,7 @@
 	shutters_drop_time = 15 MINUTES
 	xeno_abilities_flags = ABILITY_NUCLEARWAR
 	factions = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_XENO, FACTION_CLF, FACTION_ICC, FACTION_VSD, FACTION_NANOTRASEN)
-	human_factions = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_CLF, FACTION_ICC, FACTION_VSD, FACTION_NANOTRASEN)
+	human_factions = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_CLF, FACTION_ICC, FACTION_VSD, FACTION_NANOTRASEN, FACTION_NEUTRAL)
 	//NTC, SOM and CLF are significant factions which have req access so they get more members, others aren't as invested and get 1 squad but usually get stronger gear (they are ERT anyway.)
 	valid_job_types = list(
 		/datum/job/terragov/command/ceo = 1,
@@ -117,6 +117,7 @@
 	bioscan_interval = 30 MINUTES
 	deploy_time_lock = 15 SECONDS
 	var/list/datum/faction_stats/stat_list = list()
+	var/list/datum/job/stat_restricted_jobs = list(/datum/job/survivor/prisoner,/datum/job/other/prisoner,/datum/job/other/prisonersom,/datum/job/other/prisonerclf)
 
 /datum/game_mode/infestation/extended_plus/secret_of_life/pre_setup()
 	. = ..()
@@ -126,6 +127,9 @@
 
 /datum/game_mode/infestation/extended_plus/secret_of_life/proc/things_after_spawn(datum/source, mob/living/carbon/human/new_member)
 	SIGNAL_HANDLER
+	//no prisoner guns.
+	if(new_member.job in stat_restricted_jobs)
+		return
 	//we use pdas for this
 	var/datum/action/campaign_loadout/loadout = locate() in new_member.actions
 	if(loadout)

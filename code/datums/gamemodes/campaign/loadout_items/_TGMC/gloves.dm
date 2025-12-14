@@ -6,44 +6,27 @@
 	desc = ""
 	ui_icon = "empty"
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
-	jobs_supported = list(
-		SQUAD_MARINE,
-		SQUAD_CORPSMAN,
-		SQUAD_ENGINEER,
-		SQUAD_SMARTGUNNER,
-		SQUAD_LEADER,
-		FIELD_COMMANDER,
-		STAFF_OFFICER,
-		CAPTAIN,
-		SOM_SQUAD_MARINE,
-		SOM_SQUAD_CORPSMAN,
-		SOM_SQUAD_ENGINEER,
-		SOM_SQUAD_VETERAN,
-		SOM_SQUAD_LEADER,
-		SOM_FIELD_COMMANDER,
-		SOM_STAFF_OFFICER,
-		SOM_COMMANDER,
-	)
+	jobs_supported = list()
 
 
 /datum/loadout_item/gloves/marine_gloves
 	name = "Combat gloves"
 	desc = "Standard issue marine tactical gloves. It reads: 'knit by Marine Widows Association'."
 	item_typepath = /obj/item/clothing/gloves/marine/tdf
-	jobs_supported = list(SQUAD_MARINE, SQUAD_CORPSMAN, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_CORPSMAN, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER)
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
 
 /datum/loadout_item/gloves/marine_fingerless
 	name = "Fingerless gloves"
 	desc = "Standard issue marine tactical gloves but fingerless! It reads: 'knit by Marine Widows Association'."
 	item_typepath = /obj/item/clothing/gloves/marine/fingerless
-	jobs_supported = list(SQUAD_MARINE, SQUAD_CORPSMAN, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_CORPSMAN, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER)
 
 /datum/loadout_item/gloves/white_dress
 	name = "Dress gloves"
 	desc = "Fancy white gloves to go with your white dress uniform."
 	item_typepath = /obj/item/clothing/gloves/white
-	jobs_supported = list(SQUAD_MARINE, SQUAD_CORPSMAN, SQUAD_ENGINEER, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER, STAFF_OFFICER, CAPTAIN)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_CORPSMAN, SQUAD_ENGINEER, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER, STAFF_OFFICER, CAPTAIN)
 
 //corpsman
 /datum/loadout_item/gloves/defib_gloves

@@ -6,44 +6,27 @@
 	desc = ""
 	ui_icon = "empty"
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
-	jobs_supported = list(
-		SQUAD_MARINE,
-		SQUAD_CORPSMAN,
-		SQUAD_ENGINEER,
-		SQUAD_SMARTGUNNER,
-		SQUAD_LEADER,
-		FIELD_COMMANDER,
-		STAFF_OFFICER,
-		CAPTAIN,
-		SOM_SQUAD_MARINE,
-		SOM_SQUAD_CORPSMAN,
-		SOM_SQUAD_ENGINEER,
-		SOM_SQUAD_VETERAN,
-		SOM_SQUAD_LEADER,
-		SOM_FIELD_COMMANDER,
-		SOM_STAFF_OFFICER,
-		SOM_COMMANDER,
-	)
+	jobs_supported = list()
 
 /datum/loadout_item/back/marine_satchel
 	name = "Satchel"
 	desc = "A heavy-duty satchel carried by some NTF soldiers and support personnel. Carries less than a backpack, but items can be drawn instantly."
 	item_typepath = /obj/item/storage/backpack/marine/satchel
-	jobs_supported = list(SQUAD_MARINE, SQUAD_SMARTGUNNER, STAFF_OFFICER, CAPTAIN)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_SMARTGUNNER, STAFF_OFFICER, CAPTAIN)
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
 
 /datum/loadout_item/back/marine_backpack
 	name = "Backpack"
 	desc = "The standard-issue pack of the NTF forces. Designed to slug gear into the battlefield. Carries more than a satchel but has a draw delay."
 	item_typepath = /obj/item/storage/backpack/marine
-	jobs_supported = list(SQUAD_MARINE, SQUAD_SMARTGUNNER)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_SMARTGUNNER)
 
 /datum/loadout_item/back/combat_pack
 	name = "Combat pack"
 	desc = "A small lightweight pack for expeditions and short-range operations. Has the storage capacity of a backpack but no draw delay."
 	purchase_cost = 25
 	item_typepath = /obj/item/storage/backpack/lightpack
-	jobs_supported = list(SQUAD_MARINE, SQUAD_SMARTGUNNER)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_SMARTGUNNER)
 
 /datum/loadout_item/back/combat_pack/free
 	purchase_cost = 0
@@ -88,9 +71,9 @@
 	When using flechette rounds, it can provide surprisingly powerful long range damage with good penetration, although its low rate of fire means its sustained damage is relatively poor. \
 	Uses 12 gauge shells."
 	ui_icon = "t35"
-	purchase_cost = 25
+	purchase_cost = 0
 	item_typepath = /obj/item/weapon/gun/shotgun/pump/t35/back_slot
-	jobs_supported = list(SQUAD_MARINE, SQUAD_SMARTGUNNER, SQUAD_LEADER)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_SMARTGUNNER, SQUAD_LEADER)
 	loadout_item_flags = NONE
 
 /datum/loadout_item/back/marine_shotgun/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
@@ -115,7 +98,7 @@
 	desc = "A large leather scabbard carrying a M2132 machete. It can be strapped to the back, waist or armor. Extremely dangerous against human opponents - if you can get close enough."
 	ui_icon = "machete"
 	item_typepath = /obj/item/storage/holster/blade/machete/full
-	jobs_supported = list(SQUAD_MARINE, SQUAD_LEADER)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_LEADER)
 	loadout_item_flags = NONE
 
 /datum/loadout_item/back/minigun_powerpack
