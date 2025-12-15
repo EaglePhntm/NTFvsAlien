@@ -19,7 +19,7 @@
 	desc = "A standard TDF combat helmet. Apply to head for best results."
 	req_desc = "Requires a light armor suit."
 	item_typepath = /obj/item/clothing/head/modular/tdf
-	jobs_supported = list(SQUAD_MARINE)
+	jobs_supported = list(SQUAD_MARINE, VANGUARD, SQUAD_SPECIALIST)
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 	item_whitelist = list(
 		/obj/item/clothing/suit/modular/tdf/light/shield = ITEM_SLOT_OCLOTHING,
@@ -31,7 +31,7 @@
 	desc = "A standard TDF combat helmet. Apply to head for best results."
 	req_desc = "Requires a medium armor suit."
 	item_typepath = /obj/item/clothing/head/modular/tdf/medium
-	jobs_supported = list(SQUAD_MARINE)
+	jobs_supported = list(SQUAD_MARINE, VANGUARD, SQUAD_SPECIALIST)
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 	item_whitelist = list(
 		/obj/item/clothing/suit/modular/tdf/shield = ITEM_SLOT_OCLOTHING,
@@ -43,7 +43,7 @@
 	desc = "A heavy TDF combat helmet. Apply to head for best results."
 	req_desc = "Requires a heavy armor suit."
 	item_typepath = /obj/item/clothing/head/modular/tdf/heavy
-	jobs_supported = list(SQUAD_MARINE)
+	jobs_supported = list(SQUAD_MARINE, VANGUARD, SQUAD_SPECIALIST)
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 	item_whitelist = list(
 		/obj/item/clothing/suit/modular/tdf/heavy/shield = ITEM_SLOT_OCLOTHING,
@@ -54,7 +54,7 @@
 	name = "Leader Helmet"
 	desc = "An upgraded helmet for protecting upgraded brains."
 	item_typepath = /obj/item/clothing/head/modular/tdf/leader
-	jobs_supported = list(SQUAD_LEADER)
+	jobs_supported = list(SQUAD_LEADER, SQUAD_SPECIALIST)
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/helmet/fcdr
@@ -69,7 +69,7 @@
 	desc = "A standard combat helmet with a Surt fireproof module."
 	req_desc = "Requires a suit with a Surt module."
 	item_typepath = /obj/item/clothing/head/modular/tdf/pyro
-	jobs_supported = list(SQUAD_MARINE)
+	jobs_supported = list(SQUAD_MARINE, VANGUARD, SQUAD_SPECIALIST)
 	item_whitelist = list(/obj/item/clothing/suit/modular/tdf/heavy/surt = ITEM_SLOT_OCLOTHING)
 
 /datum/loadout_item/helmet/smartgunner
@@ -85,7 +85,7 @@
 	req_desc = "Requires a suit with a Tyr module."
 	ui_icon = "tyr"
 	item_typepath = /obj/item/clothing/head/modular/tdf/heavy/tyr
-	jobs_supported = list(SQUAD_MARINE)
+	jobs_supported = list(SQUAD_MARINE, VANGUARD, SQUAD_SPECIALIST)
 	item_whitelist = list(
 		/obj/item/clothing/suit/modular/tdf/heavy/tyr_two = ITEM_SLOT_OCLOTHING,
 		/obj/item/clothing/suit/modular/tdf/heavy/tyr_two/corpsman = ITEM_SLOT_OCLOTHING,
@@ -98,7 +98,7 @@
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/helmet/tyr/corpsman
-	jobs_supported = list(SQUAD_CORPSMAN)
+	jobs_supported = list(SQUAD_CORPSMAN, VANGUARD)
 	loadout_item_flags = NONE
 
 /datum/loadout_item/helmet/tyr/corpsman/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
@@ -128,7 +128,7 @@
 	desc = "A standard combat helmet with a Mimir environmental protection module."
 	req_desc = "Requires a suit with a Mimir module."
 	item_typepath = /obj/item/clothing/head/modular/tdf/medic
-	jobs_supported = list(SQUAD_CORPSMAN)
+	jobs_supported = list(SQUAD_CORPSMAN, VANGUARD)
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/helmet/mimir/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)

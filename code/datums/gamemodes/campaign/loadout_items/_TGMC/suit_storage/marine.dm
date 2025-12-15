@@ -1,5 +1,5 @@
 /datum/loadout_item/suit_store/main_gun/marine
-	jobs_supported = list(SQUAD_MARINE)
+	jobs_supported = list(SQUAD_MARINE, VANGUARD, SQUAD_SPECIALIST)
 
 /datum/loadout_item/suit_store/main_gun/marine/role_post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
 	wearer.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
@@ -775,7 +775,7 @@
 	The defensive shield provides incredible resilience, allowing the user to soak up tremendous amounts of damage while they or their team mates push the enemy."
 	ui_icon = "machete"
 	item_typepath = /obj/item/storage/holster/blade/machete/full_alt
-	jobs_supported = list(SQUAD_MARINE)
+	jobs_supported = list(SQUAD_MARINE, VANGUARD, SQUAD_SPECIALIST)
 	loadout_item_flags = NONE
 
 /datum/loadout_item/suit_store/machete_shield/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)

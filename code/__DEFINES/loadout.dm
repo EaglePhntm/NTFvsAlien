@@ -97,7 +97,7 @@ GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 		/obj/item/uav_turret/claw = list(CAT_ENGSUP, "UV Claw", 5, "engi-other"),
 		/obj/structure/closet/crate/uvt_crate = list(CAT_ENGSUP, "Skink Unmanned Vehicle", 5, "engi-other"),
 		/obj/item/attachable/buildasentry = list(CAT_ENGSUP, "Build-A-Sentry Attachment", 30, "engi-other"),
-		/obj/item/ammo_magazine/flamer_tank/large = list(CAT_ENGSUP, "Flamethrower tank", 4, "engi-other"),
+		/obj/effect/vendor_bundle/engi_flamer = list(CAT_ENGSUP, "Flametrooper pack", 20, "engi-other"),
 		/obj/item/supply_beacon = list(CAT_ENGSUP, "Supply beacon", 5, "engi-other"),
 		/obj/item/minerupgrade/overclock = list(CAT_ENGSUP, "Mining well overclock upgrade", 4, "engi-mining"),
 		/obj/item/minerupgrade/reinforcement = list(CAT_ENGSUP, "Mining well reinforcement upgrade", 4, "engi-mining"),

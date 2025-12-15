@@ -209,7 +209,7 @@
 	)
 
 /datum/loadout_item/l_pocket/magazine/medic
-	jobs_supported = list(SQUAD_CORPSMAN)
+	jobs_supported = list(SQUAD_CORPSMAN, VANGUARD)
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/l_pocket/general

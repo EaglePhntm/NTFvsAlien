@@ -104,7 +104,7 @@
 	item_typepath = /obj/item/weapon/gun/smg/m25/holstered
 	item_whitelist = list(/obj/item/storage/holster/m25 = ITEM_SLOT_BELT)
 	req_desc = "Requires an SMG-25 holster and either a MG-27, FL-84 or MG-100."
-	jobs_supported = list(SQUAD_MARINE)
+	jobs_supported = list(SQUAD_MARINE, VANGUARD, SQUAD_SPECIALIST)
 
 /datum/loadout_item/secondary/gun/marine/standard_smg/item_checks(datum/outfit_holder/outfit_holder)
 	. = ..()
@@ -225,7 +225,7 @@
 	name = "Cameras"
 	desc = "Two deployable cameras and a hud tablet. Useful for watching things remotely, and your command officers might appreciate it as well."
 	ui_icon = "default"
-	jobs_supported = list(SQUAD_LEADER)
+	jobs_supported = list(SQUAD_LEADER, SQUAD_SPECIALIST)
 
 /datum/loadout_item/secondary/kit/cameras/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
 	wearer.equip_to_slot_or_del(new /obj/item/deployable_camera, SLOT_IN_BACKPACK)
@@ -319,7 +319,7 @@
 	wearer.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
 
 /datum/loadout_item/secondary/kit/tgmc_corpsman
-	jobs_supported = list(SQUAD_CORPSMAN)
+	jobs_supported = list(SQUAD_CORPSMAN, VANGUARD)
 	req_desc = "Requires a medical backpack."
 
 /datum/loadout_item/secondary/kit/tgmc_corpsman/advanced

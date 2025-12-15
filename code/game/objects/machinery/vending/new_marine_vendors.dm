@@ -1945,6 +1945,14 @@
 		/obj/item/clothing/head/helmet/marine/icc/guard/heavy,
 	)
 
+//ntf packs
+/obj/effect/vendor_bundle/engi_flamer
+	gear_to_spawn = list(
+		/obj/item/ammo_magazine/flamer_tank/large,
+		/obj/item/clothing/head/modular/tdf/pyro,
+		/obj/item/clothing/suit/modular/tdf/heavy/sur,
+	)
+
 #undef DEFAULT_TOTAL_BUY_POINTS
 #undef MEDIC_TOTAL_BUY_POINTS
 #undef ENGINEER_TOTAL_BUY_POINTS

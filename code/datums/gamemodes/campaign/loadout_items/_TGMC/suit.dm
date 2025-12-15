@@ -32,7 +32,7 @@
 
 /datum/loadout_item/suit_slot/light_shield/overclocked/medic
 	item_typepath = /obj/item/clothing/suit/modular/tdf/light/shield_overclocked/medic
-	jobs_supported = list(SQUAD_CORPSMAN)
+	jobs_supported = list(SQUAD_CORPSMAN, VANGUARD)
 
 /datum/loadout_item/suit_slot/light_shield/overclocked/medic/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
 	wearer.equip_to_slot_or_del(new /obj/item/tool/extinguisher, SLOT_IN_SUIT)
@@ -65,7 +65,7 @@
 
 /datum/loadout_item/suit_slot/medium_shield/overclocked/medic
 	item_typepath = /obj/item/clothing/suit/modular/tdf/shield_overclocked/medic
-	jobs_supported = list(SQUAD_CORPSMAN)
+	jobs_supported = list(SQUAD_CORPSMAN, VANGUARD)
 
 /datum/loadout_item/suit_slot/medium_shield/overclocked/medic/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
 	wearer.equip_to_slot_or_del(new /obj/item/tool/extinguisher, SLOT_IN_SUIT)
@@ -119,7 +119,7 @@
 	ui_icon = "heavy_armour"
 	req_desc = "Requires a FL-84 flamethrower."
 	item_typepath = /obj/item/clothing/suit/modular/tdf/heavy/surt
-	jobs_supported = list(SQUAD_MARINE)
+	jobs_supported = list(SQUAD_MARINE, VANGUARD, SQUAD_SPECIALIST)
 	item_whitelist = list(/obj/item/weapon/gun/flamer/big_flamer/marinestandard/wide = ITEM_SLOT_SUITSTORE)
 
 /datum/loadout_item/suit_slot/heavy_tyr
@@ -128,7 +128,7 @@
 	req_desc = "Requires a ALF-51B or SMG-25."
 	ui_icon = "tyr"
 	item_typepath = /obj/item/clothing/suit/modular/tdf/heavy/tyr_two
-	jobs_supported = list(SQUAD_MARINE)
+	jobs_supported = list(SQUAD_MARINE, VANGUARD, SQUAD_SPECIALIST)
 	item_whitelist = list(
 		/obj/item/weapon/gun/rifle/alf_machinecarbine/assault = ITEM_SLOT_SUITSTORE,
 		/obj/item/weapon/gun/smg/m25/magharness = ITEM_SLOT_SUITSTORE,
@@ -143,7 +143,7 @@
 
 /datum/loadout_item/suit_slot/heavy_tyr/medic
 	item_typepath = /obj/item/clothing/suit/modular/tdf/heavy/tyr_two/corpsman
-	jobs_supported = list(SQUAD_CORPSMAN)
+	jobs_supported = list(SQUAD_CORPSMAN, VANGUARD)
 	loadout_item_flags = null
 	item_whitelist = null
 	req_desc = null
@@ -199,7 +199,7 @@
 	desc = "Medium armor with a Mimir environmental protection module. Provides respectable armor and total immunity to chemical attacks, and improved radiological protection. Has modest mobility."
 	ui_icon = "medium_armour"
 	item_typepath = /obj/item/clothing/suit/modular/tdf/mimir
-	jobs_supported = list(SQUAD_CORPSMAN)
+	jobs_supported = list(SQUAD_CORPSMAN, VANGUARD)
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/suit_slot/medium_mimir/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)

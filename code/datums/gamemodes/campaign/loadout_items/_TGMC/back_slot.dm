@@ -38,7 +38,7 @@
 	desc = "A specialized fuel tank for use with the FL-84 flamethrower and FL-240 incinerator unit."
 	req_desc = "Requires a FL-84 flamethrower."
 	item_typepath = /obj/item/ammo_magazine/flamer_tank/backtank
-	jobs_supported = list(SQUAD_MARINE)
+	jobs_supported = list(SQUAD_MARINE, VANGUARD, SQUAD_SPECIALIST)
 	item_whitelist = list(/obj/item/weapon/gun/flamer/big_flamer/marinestandard/wide = ITEM_SLOT_SUITSTORE)
 
 /datum/loadout_item/back/flamer_tank/x_fuel
@@ -56,7 +56,7 @@
 	Alt right click or middleclick to fly to a destination when the jetpack is equipped. Will collide with hostiles"
 	req_desc = "Requires a SMG-25 or ALF-51B."
 	item_typepath = /obj/item/jetpack_marine/heavy
-	jobs_supported = list(SQUAD_MARINE)
+	jobs_supported = list(SQUAD_MARINE, VANGUARD, SQUAD_SPECIALIST)
 	item_whitelist = list(
 		/obj/item/weapon/gun/smg/m25/magharness = ITEM_SLOT_SUITSTORE,
 		/obj/item/weapon/gun/rifle/alf_machinecarbine/assault = ITEM_SLOT_SUITSTORE,
@@ -91,7 +91,7 @@
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_UNLOCKABLE
 	quantity = 2
 	item_typepath = /obj/item/storage/holster/backholster/rpg/heam
-	jobs_supported = list(SQUAD_MARINE)
+	jobs_supported = list(SQUAD_MARINE, VANGUARD, SQUAD_SPECIALIST)
 
 /datum/loadout_item/back/machete
 	name = "Machete"
@@ -106,7 +106,7 @@
 	desc = "A heavy reinforced backpack with support equipment, power cells, and spare rounds for the MG-100 Minigun System. You don't get any spare, so make it count."
 	req_desc = "Requires an MG-100."
 	item_typepath = /obj/item/ammo_magazine/minigun_powerpack
-	jobs_supported = list(SQUAD_MARINE)
+	jobs_supported = list(SQUAD_MARINE, VANGUARD, SQUAD_SPECIALIST)
 	loadout_item_flags = NONE
 	item_whitelist = list(/obj/item/weapon/gun/minigun/magharness = ITEM_SLOT_SUITSTORE)
 
@@ -115,13 +115,13 @@
 	name = "Medical satchel"
 	desc = "A heavy-duty satchel carried by some NTF corpsmen. You can recharge defibrillators by plugging them in. Carries less than a backpack, but items can be drawn instantly."
 	item_typepath = /obj/item/storage/backpack/marine/corpsman/satchel
-	jobs_supported = list(SQUAD_CORPSMAN)
+	jobs_supported = list(SQUAD_CORPSMAN, VANGUARD)
 
 /datum/loadout_item/back/corpsman_backpack
 	name = "Medical backpack"
 	desc = "The standard-issue backpack worn by NTF corpsmen. You can recharge defibrillators by plugging them in. Carries more than a satchel but has a draw delay."
 	item_typepath = /obj/item/storage/backpack/marine/corpsman
-	jobs_supported = list(SQUAD_CORPSMAN)
+	jobs_supported = list(SQUAD_CORPSMAN, VANGUARD)
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 //engineer

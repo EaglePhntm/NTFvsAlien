@@ -1,5 +1,5 @@
 /datum/loadout_item/suit_store/main_gun/corpsman
-	jobs_supported = list(SQUAD_CORPSMAN)
+	jobs_supported = list(SQUAD_CORPSMAN, VANGUARD)
 
 /datum/loadout_item/suit_store/main_gun/corpsman/laser_carbine
 	name = "Laser carbine"

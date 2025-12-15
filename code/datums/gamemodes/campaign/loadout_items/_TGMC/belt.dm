@@ -28,7 +28,7 @@
 	name = "G8 pouch"
 	desc = "A small, lightweight pouch that can be clipped onto Armat Systems M3 Pattern armor or your belt to provide additional storage for miscellaneous gear or box and drum magazines."
 	item_typepath = /obj/item/storage/belt/sparepouch
-	jobs_supported = list(SQUAD_MARINE)
+	jobs_supported = list(SQUAD_MARINE, VANGUARD, SQUAD_SPECIALIST)
 
 /datum/loadout_item/belt/sparepouch/smartgunner
 	desc = "A general storage pouch. \
@@ -44,7 +44,7 @@
 	name = "Shotgun shell rig"
 	desc = "An ammunition belt designed to hold shotgun shells or individual bullets. Loaded full of buckshot and flechette shells."
 	item_typepath = /obj/item/storage/belt/shotgun/mixed
-	jobs_supported = list(SQUAD_MARINE)
+	jobs_supported = list(SQUAD_MARINE, VANGUARD, SQUAD_SPECIALIST)
 	item_whitelist = list(
 		/obj/item/weapon/gun/shotgun/pump/t35/standard = ITEM_SLOT_SUITSTORE,
 		/obj/item/weapon/gun/shotgun/pump/t35/back_slot = ITEM_SLOT_BACK,
@@ -57,7 +57,7 @@
 	ui_icon = "m25"
 	req_desc = "Requires a SMG-25 secondary."
 	item_typepath = /obj/item/storage/holster/m25
-	jobs_supported = list(SQUAD_MARINE)
+	jobs_supported = list(SQUAD_MARINE, VANGUARD, SQUAD_SPECIALIST)
 	item_whitelist = list(/obj/item/weapon/gun/smg/m25/holstered = ITEM_SLOT_SECONDARY)
 
 /datum/loadout_item/belt/scabbard
@@ -123,5 +123,5 @@
 	desc = "The M276 is the standard load-bearing equipment of the NTF. This configuration mounts a duffel bag filled with a range of injectors and light medical supplies and is common among medics."
 	ui_icon = "medkit"
 	item_typepath = /obj/item/storage/belt/lifesaver/quick
-	jobs_supported = list(SQUAD_CORPSMAN)
+	jobs_supported = list(SQUAD_CORPSMAN, VANGUARD)
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION

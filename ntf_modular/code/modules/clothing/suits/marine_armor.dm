@@ -71,7 +71,6 @@
 
 //tdf overwrites.
 /obj/item/clothing/suit/modular/tdf
-	desc = "The Knight medium combat armor is the standard issue armor given to NTF infantry. Provides good protection without minor impairment to the users mobility. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
 	icon = 'ntf_modular/icons/mob/modular/tdf_armor.dmi'
 	worn_icon_list = list(
 		slot_wear_suit_str = 'ntf_modular/icons/mob/modular/tdf_armor.dmi',
@@ -79,14 +78,7 @@
 		slot_r_hand_str = 'icons/mob/inhands/clothing/suits_right.dmi',
 	)
 
-/obj/item/clothing/suit/modular/tdf/light
-	desc = "The Pawn light combat armor is the standard issue armor given to NTF recon units and assault units for their mobility. Provides good protection without minor impairment to the users mobility. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
-
-/obj/item/clothing/suit/modular/tdf/robot
-	desc = "Heavy armor plating designed for self mounting on NTF combat robotics. It has self-sealing bolts for mounting on robotic owners inside. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
-
 /obj/item/clothing/head/modular/tdf
-	desc = "The standard combat helmet worn by NTF combat troops. Comes with an integrated hud and AR to provide situational awareness to the wearer."
 	icon = 'ntf_modular/icons/mob/modular/tdf_helmets.dmi'
 	worn_icon_list = list(
 		slot_head_str = 'ntf_modular/icons/mob/modular/tdf_helmets.dmi',
