@@ -11,6 +11,11 @@
 	start_sound = null
 
 /datum/fire_support/cruise_missile/select_target(turf/target_turf)
+	for(var/obj/machinery/deployable/mounted/sentry/ads_system/ads in orange(GLOB.ads_intercept_range,target_turf))
+		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
+			continue
+		if(ads.try_intercept(target_turf, src, 2, 20))
+			return
 	explosion(target_turf, 4, 5, 6, 9, explosion_cause="cruise missile")
 
 /datum/fire_support/cruise_missile/unlimited
@@ -39,6 +44,11 @@
 	var/outer_range = 9
 
 /datum/fire_support/rad_missile/do_impact(turf/target_turf)
+	for(var/obj/machinery/deployable/mounted/sentry/ads_system/ads in orange(GLOB.ads_intercept_range,target_turf))
+		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
+			continue
+		if(ads.try_intercept(target_turf, src, 2, 20))
+			return
 	playsound(target_turf, 'sound/effects/portal_opening.ogg', 100, FALSE)
 	for(var/mob/living/victim in hearers(outer_range, target_turf))
 		var/strength

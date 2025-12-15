@@ -399,19 +399,18 @@
 			user.playsound_local(user, 'sound/effects/menu_click.ogg', 50)
 			user_id.id_flags &= ~CAN_BUY_LOADOUT
 			if(!iscampaigngamemode(SSticker.mode))
+				//those can practically give special op gear to others if rebought, sorry bros. (quick equip vendor moment)
+				if(user.job.title in list(SOM_SQUAD_VETERAN))
+					return
 				addtimer(CALLBACK(src, PROC_REF(reenable_loadout_select), user), 1 HOURS)
 			return TRUE
 
 /datum/individual_stats/proc/reenable_loadout_select(mob/living/user)
 	var/obj/item/card/id/user_id = user.get_idcard()
 	user.playsound_local(user.loc, 'sound/machines/ping.ogg', 25)
-	user.balloon_alert("You are now authorized to another loadout purchase and 150 credits.")
-	to_chat(user, span_nicegreen("You are now authorized to another loadout purchase and 150 credits."))
-	var/datum/game_mode/infestation/extended_plus/secret_of_life/gaymode = SSticker.mode
-	if(gaymode)
-		var/datum/individual_stats/the_stats = gaymode.stat_list[user.faction].get_player_stats(user)
-		the_stats.give_funds(150)
-		user_id.id_flags &= CAN_BUY_LOADOUT
+	user.balloon_alert("You are now authorized to another loadout purchase.")
+	to_chat(user, span_nicegreen("You are now authorized to another loadout purchase."))
+	user_id.id_flags &= CAN_BUY_LOADOUT
 
 //loadout/perk UI for campaign gamemode
 /datum/action/campaign_loadout
