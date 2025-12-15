@@ -34,7 +34,8 @@
 	initiate_screen_message = "Target locked, rad missile inbound from our ship."
 	initiate_title = "SOM Armanents Officer"
 	portrait_type = /atom/movable/screen/text/screen_text/picture/potrait/som_mortar
-	start_visual = /obj/effect/temp_visual/dropship_flyby/som
+	start_visual = null
+	start_sound = null
 	uses = 2
 	///Base strength of the rad effects
 	var/rad_strength = 25

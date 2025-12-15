@@ -4,7 +4,7 @@
 
 	id = /obj/item/card/id/gold
 	ears = /obj/item/radio/headset/mainship/mcom/som
-	belt = /obj/item/storage/holster/belt/mateba/officer/full
+	belt = /obj/item/storage/holster/belt/pistol/m4a3/som/fancy/fieldcommander
 	w_uniform = /obj/item/clothing/under/som/officer/senior
 	shoes = /obj/item/clothing/shoes/marine/som/knife
 	gloves = /obj/item/clothing/gloves/marine/techofficer/captain
@@ -28,7 +28,7 @@
 	shoes = /obj/item/clothing/shoes/marine/som/knife
 	r_pocket = /obj/item/storage/pouch/general/large/command
 	gloves = /obj/item/clothing/gloves/marine/officer
-	belt = /obj/item/storage/holster/belt/pistol/m4a3/fieldcommander
+	belt = /obj/item/storage/holster/belt/pistol/m4a3/som/fancy/fieldcommander
 	glasses = /obj/item/clothing/glasses/hud/health
 	l_pocket = /obj/item/storage/pouch/grenade/som/combat_patrol
 	back = /obj/item/storage/backpack/satchel/som

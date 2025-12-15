@@ -1,18 +1,20 @@
 /datum/fire_support
 	///time it takes to reload fully.
-	var/solmode_rearm_duration = 5 MINUTES
+	var/solmode_rearm_duration = 3 MINUTES
 	var/rearm_timer = 0
 	var/bino_cooldown_mult = 1
 
 /datum/fire_support/gau/solmode
-	uses = 5
+	impact_quantity = 8
+	uses = 4
+	cooldown_duration = 3 SECONDS
 	bino_cooldown_mult = 0.2
 
 /datum/fire_support/rockets/solmode
-	uses = 3
-	solmode_rearm_duration = 5 MINUTES
+	uses = 2
 	scatter_range = 6
-	impact_quantity = 10
+	impact_quantity = 12
+	solmode_rearm_duration = 5 MINUTES
 	bino_cooldown_mult = 0.5
 
 /datum/fire_support/cruise_missile/solmode
@@ -27,15 +29,17 @@
 	fire_support_type = FIRESUPPORT_TYPE_SUPPLY_POD_SOLMODE
 	bino_cooldown_mult = 0.1
 
+//som shit has also lasting fire and overall crazy so i gotta gut em a bit.
 /datum/fire_support/volkite/solmode
-	uses = 5
+	uses = 2
+	cooldown_duration = 10 SECONDS
 	fire_support_type = FIRESUPPORT_TYPE_VOLKITE_SOLMODE
 	bino_cooldown_mult = 0.2
 
 /datum/fire_support/incendiary_rockets/solmode
-	uses = 3
+	uses = 2
 	scatter_range = 6
-	impact_quantity = 4
+	impact_quantity = 6
 	fire_support_type = FIRESUPPORT_TYPE_INCEND_ROCKETS_SOLMODE
 	solmode_rearm_duration = 5 MINUTES
 	bino_cooldown_mult = 0.5
@@ -95,6 +99,10 @@
 		FIRESUPPORT_TYPE_TELE_COPE_SOLMODE,
 	)
 
+/obj/item/binoculars/fire_support/examine(mob/user)
+	. = ..()
+	. += span_warning("Rearm in [round(timeleft(mode.rearm_timer) MILLISECONDS)] seconds.")
+
 /obj/item/binoculars/fire_support/extended/equipped(mob/user, slot)
 	. = ..()
 	if(user.faction != faction)
@@ -107,8 +115,6 @@
 		return
 	. = ..()
 	if(!.)
-		return
-	if(!target_atom)
 		return
 	if(mode && mode.solmode_rearm_duration && !mode.rearm_timer) //start rearming timer after first use.
 		mode.rearm_timer = addtimer(CALLBACK(src, PROC_REF(recharge_weapon), mode, user), mode.solmode_rearm_duration, TIMER_CLIENT_TIME)
