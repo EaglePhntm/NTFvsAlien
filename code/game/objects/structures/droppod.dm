@@ -360,9 +360,9 @@ GLOBAL_DATUM(droppod_reservation, /datum/turf_reservation/transit/droppod)
 			if(isliving(deployed))
 				var/mob/living/livinguser = deployed
 				to_chat(livinguser, span_warning("You are shredded with bullets and broken metal from the violent impact due to your explosive entry."))
-				livinguser.apply_damage(rand(75,125), BRUTE, BODY_ZONE_CHEST, BOMB)
-				livinguser.Unconscious(4 SECONDS)
-				livinguser.KnockdownNoChain(7 SECONDS)
+				livinguser.apply_damage(rand(75,150), BRUTE, BODY_ZONE_CHEST, BOMB)
+				livinguser.Unconscious(5 SECONDS)
+				livinguser.Knockdown(8 SECONDS)
 				livinguser.blur_eyes(6)
 			else if(isobj(deployed))
 				var/obj/deployedobj = deployed
