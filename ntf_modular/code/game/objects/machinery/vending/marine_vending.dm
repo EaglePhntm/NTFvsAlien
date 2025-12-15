@@ -608,6 +608,7 @@
 		),
 		"General" = list(
 			/obj/item/clothing/suit/modular = -1,
+			/obj/item/clothing/suit/modular/goon = -1,
 			/obj/item/clothing/suit/modular/rownin = -1,
 			/obj/item/clothing/suit/modular/xenonauten/pilot = -1,
 			/obj/item/clothing/suit/storage/marine/ballistic = -1,

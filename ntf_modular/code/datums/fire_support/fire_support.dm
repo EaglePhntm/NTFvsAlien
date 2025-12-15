@@ -105,6 +105,7 @@
 	if(!(COOLDOWN_FINISHED(src, bino_cooldown_timer)))
 		balloon_alert(user, "Too soon! Systems recalibrating... [round((bino_cooldown_timer - world.time)/10)]s")
 		return
+	. = ..()
 	if(!.)
 		return
 	if(!target_atom)
