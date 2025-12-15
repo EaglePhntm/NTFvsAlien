@@ -11,7 +11,7 @@
 	start_sound = null
 
 /datum/fire_support/cruise_missile/select_target(turf/target_turf)
-	explosion(target_turf, 4, 5, 6, explosion_cause="cruise missile")
+	explosion(target_turf, 4, 5, 6, 9, explosion_cause="cruise missile")
 
 /datum/fire_support/cruise_missile/unlimited
 	fire_support_type = FIRESUPPORT_TYPE_CRUISE_MISSILE_UNLIMITED

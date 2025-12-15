@@ -2,10 +2,13 @@
 	///cooldown added for unlimited weapons used in extended gamemode
 	var/ex_recharge_duration = 3 MINUTES
 
+/datum/fire_support/gau/unlimited
+	ex_recharge_duration = 3 MINUTES
+
 /datum/fire_support/rockets/unlimited
 	ex_recharge_duration = 10 MINUTES
 	scatter_range = 6
-	impact_quantity = 10
+	impact_quantity = 8
 
 /datum/fire_support/cruise_missile/unlimited
 	ex_recharge_duration = 15 MINUTES
@@ -25,7 +28,7 @@
 /datum/fire_support/incendiary_rockets/unlimited
 	uses = -1
 	scatter_range = 6
-	impact_quantity = 6
+	impact_quantity = 4
 	fire_support_type = FIRESUPPORT_TYPE_INCEND_ROCKETS_UNLIMITED
 	ex_recharge_duration = 10 MINUTES
 
@@ -37,7 +40,7 @@
 /datum/fire_support/tele_cope/unlimited
 	uses = -1
 	fire_support_type = FIRESUPPORT_TYPE_TELE_COPE_UNLIMITED
-	ex_recharge_duration = 8 MINUTES //free cope.
+	ex_recharge_duration = 10 MINUTES //free cope.
 
 /obj/item/binoculars/fire_support/extended
 	name = "pair of NTC command laser-designator"
@@ -53,6 +56,7 @@
 	var/bino_cooldown_timer = 0
 	var/list/weapon_cooldowns = list()
 	faction = FACTION_TERRAGOV
+	color = COLOR_ALMOST_BLACK //so its distinguishable hopefully
 
 /obj/item/binoculars/fire_support/extended/sl
 	name = "pair of NTC SL laser-designator"
@@ -71,6 +75,7 @@
 		FIRESUPPORT_TYPE_TELE_COPE_UNLIMITED,
 	)
 	faction = FACTION_SOM
+	color = COLOR_TAN_ORANGE
 
 /obj/item/binoculars/fire_support/extended/som/sl
 	name = "pair of SOM SL laser-designator"

@@ -30,6 +30,7 @@
 	glasses = /obj/item/clothing/glasses/hud/health
 	l_pocket = /obj/item/storage/pouch/grenade/som/combat_patrol
 	back = /obj/item/storage/backpack/satchel/som
+	l_hand = /obj/item/binoculars/fire_support/extended/som
 
 /datum/outfit/job/som/command/fieldcommander/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()

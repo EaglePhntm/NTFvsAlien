@@ -1318,8 +1318,10 @@
 		/obj/item/whistle,
 		/obj/item/compass,
 		/obj/item/binoculars/tactical,
+		/obj/item/binoculars/fire_support/extended/sl,
 		/obj/item/pinpointer,
 		/obj/item/clothing/glasses/hud/health,
+		/obj/item/armor_module/module/valkyrie_autodoc, //som sl gets one so you get one.
 	)
 
 /obj/effect/vendor_bundle/specialist
@@ -1339,6 +1341,7 @@
 		/obj/item/whistle,
 		/obj/item/clothing/glasses/hud/health,
 		/obj/item/clothing/under/marine/sneaking,
+		/obj/item/binoculars/fire_support/extended
 	)
 
 /obj/effect/vendor_bundle/synth
