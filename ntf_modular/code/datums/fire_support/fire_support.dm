@@ -6,8 +6,8 @@
 
 /datum/fire_support/gau/solmode
 	impact_quantity = 8
-	uses = 4
-	cooldown_duration = 3 SECONDS
+	uses = 5
+	cooldown_duration = 5 SECONDS
 	bino_cooldown_mult = 0.2
 
 /datum/fire_support/rockets/solmode
@@ -31,8 +31,8 @@
 
 //som shit has also lasting fire and overall crazy so i gotta gut em a bit.
 /datum/fire_support/volkite/solmode
-	uses = 2
-	cooldown_duration = 10 SECONDS
+	uses = 3
+	cooldown_duration = 10 SECONDS //they still got fire so give it a break
 	fire_support_type = FIRESUPPORT_TYPE_VOLKITE_SOLMODE
 	bino_cooldown_mult = 0.2
 
