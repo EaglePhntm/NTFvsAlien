@@ -1,5 +1,5 @@
 /datum/loadout_item/suit_store/main_gun/squad_leader
-	jobs_supported = list(SQUAD_LEADER, VANGUARD, SQUAD_SPECIALIST)
+	jobs_supported = list(SQUAD_LEADER, SQUAD_SPECIALIST)
 
 /datum/loadout_item/suit_store/main_gun/squad_leader/role_post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
 	wearer.equip_to_slot_or_del(new /obj/item/binoculars/fire_support/campaign, SLOT_IN_ACCESSORY)

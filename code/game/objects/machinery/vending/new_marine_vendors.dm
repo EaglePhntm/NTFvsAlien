@@ -1341,7 +1341,6 @@
 		/obj/item/whistle,
 		/obj/item/clothing/glasses/hud/health,
 		/obj/item/clothing/under/marine/sneaking,
-		/obj/item/binoculars/fire_support/extended
 	)
 
 /obj/effect/vendor_bundle/synth
@@ -1950,7 +1949,7 @@
 	gear_to_spawn = list(
 		/obj/item/ammo_magazine/flamer_tank/large,
 		/obj/item/clothing/head/modular/tdf/pyro,
-		/obj/item/clothing/suit/modular/tdf/heavy/sur,
+		/obj/item/clothing/suit/modular/tdf/heavy/surt,
 	)
 
 #undef DEFAULT_TOTAL_BUY_POINTS

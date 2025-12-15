@@ -1,5 +1,5 @@
 /datum/loadout_item/secondary/gun/som
-	jobs_supported = list(SOM_SQUAD_MARINE, SOM_SQUAD_SLUT, SOM_SQUAD_CORPSMAN, SOM_SQUAD_ENGINEER, SOM_SQUAD_LEADER, SOM_SQUAD_VETERAN, SOM_FIELD_COMMANDER)
+	jobs_supported = list(SOM_SQUAD_MARINE, SOM_SQUAD_SLUT, SOM_SQUAD_CORPSMAN, SOM_SQUAD_ENGINEER, SOM_SQUAD_LEADER, SOM_SQUAD_VETERAN, SOM_FIELD_COMMANDER, SOM_COMMANDER)
 	item_whitelist = list(
 		/obj/item/storage/holster/belt/pistol/m4a3/som = ITEM_SLOT_BELT,
 		/obj/item/storage/holster/belt/pistol/m4a3/som/fancy = ITEM_SLOT_BELT,

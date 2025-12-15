@@ -119,7 +119,6 @@
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
 	jobs_supported = list()
 
-
 /datum/loadout_item/l_pocket/standard_first_aid
 	name = "First aid pouch"
 	desc = "Standard marine first-aid pouch. Contains a basic set of medical supplies."

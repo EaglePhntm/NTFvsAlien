@@ -1,5 +1,5 @@
 /datum/loadout_item/suit_store/main_gun/marine
-	jobs_supported = list(SQUAD_MARINE, VANGUARD, SQUAD_SPECIALIST)
+	jobs_supported = list(SQUAD_MARINE)
 
 /datum/loadout_item/suit_store/main_gun/marine/role_post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
 	wearer.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)

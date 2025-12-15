@@ -1,5 +1,1 @@
 #define COMSIG_KB_MOB_PIXELSHIFT "keybinding_mob_pixelshift"
-#define FIRESUPPORT_TYPE_VOLKITE_UNLIMITED "volkite_gun_unlimited"
-#define FIRESUPPORT_TYPE_INCEND_ROCKETS_UNLIMITED "incend_rockets_unlimited"
-#define FIRESUPPORT_TYPE_RAD_MISSILE_UNLIMITED "rad_missile_unlimited"
-#define FIRESUPPORT_TYPE_TELE_COPE_UNLIMITED "tele_cope_unlimited"

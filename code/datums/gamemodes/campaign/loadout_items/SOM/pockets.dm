@@ -104,7 +104,7 @@
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/r_pocket/som_general
-	name = "General pouch"
+	name = "General pouch (R)"
 	desc = "A general purpose pouch used to carry small items."
 	ui_icon = "grenade"
 	item_typepath = /obj/item/storage/pouch/general/som
@@ -224,7 +224,7 @@
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/l_pocket/som_general
-	name = "General pouch"
+	name = "General pouch (L)"
 	desc = "A general purpose pouch used to carry small items."
 	ui_icon = "grenade"
 	item_typepath = /obj/item/storage/pouch/general/som

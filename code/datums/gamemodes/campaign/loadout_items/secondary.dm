@@ -39,11 +39,10 @@
 	name = "None"
 	desc = "Nothing. Nadda."
 	ui_icon = "empty"
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
 	req_desc = null
 	item_whitelist = null
 	jobs_supported = list()
-
 
 /datum/loadout_item/secondary/gun
 	///Ammo type this gun will use

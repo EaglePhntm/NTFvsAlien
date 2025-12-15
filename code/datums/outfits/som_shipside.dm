@@ -10,7 +10,9 @@
 	gloves = /obj/item/clothing/gloves/marine/techofficer/captain
 	r_pocket = /obj/item/storage/pouch/general/large/command
 
-	r_hand = /obj/item/binoculars/fire_support/campaign/som
+/datum/outfit/job/som/command/commander/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_to_slot_or_hand(new /obj/item/binoculars/fire_support/extended/som, SLOT_IN_R_POUCH)
 
 
 /datum/outfit/job/som/command/fieldcommander
@@ -30,7 +32,6 @@
 	glasses = /obj/item/clothing/glasses/hud/health
 	l_pocket = /obj/item/storage/pouch/grenade/som/combat_patrol
 	back = /obj/item/storage/backpack/satchel/som
-	l_hand = /obj/item/binoculars/fire_support/extended/som
 
 /datum/outfit/job/som/command/fieldcommander/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -41,6 +42,7 @@
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/isotonic, SLOT_IN_SUIT)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/quickclot, SLOT_IN_SUIT)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_SUIT)
+	H.equip_to_slot_or_hand(new /obj/item/binoculars/fire_support/extended/som, SLOT_IN_R_POUCH)
 
 /datum/outfit/job/som/command/staffofficer
 	name = SOM_STAFF_OFFICER
@@ -52,6 +54,10 @@
 	shoes = /obj/item/clothing/shoes/marine/som/knife
 	r_pocket = /obj/item/storage/pouch/general/large
 	l_pocket = /obj/item/binoculars/tactical
+
+/datum/outfit/job/som/command/staffofficer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_to_slot_or_hand(new /obj/item/binoculars/fire_support/extended/som/sl, SLOT_IN_R_POUCH)
 
 /datum/outfit/job/som/command/pilot
 	name = SOM_PILOT_OFFICER

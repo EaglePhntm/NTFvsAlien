@@ -100,12 +100,18 @@
 	if(mode && mode.ex_recharge_duration)
 		mode_list -= mode.fire_support_type
 		addtimer(CALLBACK(src, PROC_REF(recharge_weapon), mode, user), mode.ex_recharge_duration)
-		mode = null
 	COOLDOWN_START(src, bino_cooldown_timer, bino_cooldown)
 
 /obj/item/binoculars/fire_support/extended/proc/recharge_weapon(var/datum/fire_support/weapontype, mob/living/carbon/human/user)
 	playsound(loc, 'sound/effects/radiostatic.ogg', 50, TRUE)
+	mode = null
 	if(user.get_active_held_item(src)) //if still holding this shit
 		balloon_alert(user, "[weapontype] is ready to be used again.")
 		to_chat(user, span_notice("[weapontype] is ready to be used again."))
 	mode_list[weapontype.fire_support_type] += GLOB.fire_support_types[weapontype.fire_support_type]
+
+/obj/item/binoculars/fire_support/extended/select_radial(mob/user)
+	if(!length(mode_list))
+		balloon_alert(user, "No weapons are ready to use yet.")
+		return
+	. = ..()

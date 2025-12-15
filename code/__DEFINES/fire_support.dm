@@ -47,6 +47,12 @@
 ///Unlimited cruise missile for regular gamemodes
 #define FIRESUPPORT_TYPE_CRUISE_MISSILE_UNLIMITED "cruise_missile_unlimited"
 
+//ntf things
+#define FIRESUPPORT_TYPE_VOLKITE_UNLIMITED "volkite_gun_unlimited"
+#define FIRESUPPORT_TYPE_INCEND_ROCKETS_UNLIMITED "incend_rockets_unlimited"
+#define FIRESUPPORT_TYPE_RAD_MISSILE_UNLIMITED "rad_missile_unlimited"
+#define FIRESUPPORT_TYPE_TELE_COPE_UNLIMITED "tele_cope_unlimited"
+
 ///Assoc list of firesupport types
 GLOBAL_LIST_INIT(fire_support_types, list(
 	FIRESUPPORT_TYPE_GUN_UNLIMITED = new /datum/fire_support/gau/unlimited,
@@ -70,4 +76,9 @@ GLOBAL_LIST_INIT(fire_support_types, list(
 	FIRESUPPORT_TYPE_SMOKE_MORTAR_SOM = new /datum/fire_support/mortar/smoke/som,
 	FIRESUPPORT_TYPE_SATRAPINE_SMOKE_MORTAR = new /datum/fire_support/mortar/smoke/satrapine,
 	FIRESUPPORT_TYPE_TELE_COPE = new /datum/fire_support/tele_cope,
+	//ntf additions
+	FIRESUPPORT_TYPE_VOLKITE_UNLIMITED = new /datum/fire_support/volkite/unlimited
+	FIRESUPPORT_TYPE_INCEND_ROCKETS_UNLIMITED = new /datum/fire_support/incendiary_rockets/unlimited
+	FIRESUPPORT_TYPE_RAD_MISSILE_UNLIMITED = new /datum/fire_support/rad_missile/unlimited
+	FIRESUPPORT_TYPE_TELE_COPE_UNLIMITED = new /datum/fire_support/tele_cope/unlimited
 	))
