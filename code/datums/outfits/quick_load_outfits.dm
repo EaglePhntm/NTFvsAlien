@@ -1918,7 +1918,6 @@
 	r_pocket = /obj/item/storage/pouch/firstaid/som/combat_patrol_leader
 	l_pocket = /obj/item/storage/pouch/grenade/som/combat_patrol
 	back = /obj/item/storage/backpack/satchel/som
-	r_hand = /obj/item/binoculars/fire_support/extended/som/sl
 
 	suit_contents = list(
 		/obj/item/stack/medical/heal_pack/gauze = 1,

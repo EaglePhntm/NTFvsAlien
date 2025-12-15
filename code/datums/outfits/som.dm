@@ -34,3 +34,5 @@
 	jobtype = /datum/job/som/squad/leader
 
 	id = /obj/item/card/id/dogtag/som
+	//bro sleeps with a bino but its the only way to ensure those idiots get it between loadout select and quick equip vendor.
+	r_hand = /obj/item/binoculars/fire_support/extended/som/sl
