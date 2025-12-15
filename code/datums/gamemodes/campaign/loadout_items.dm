@@ -78,7 +78,7 @@ GLOBAL_LIST_INIT(campaign_loadout_items_by_role, init_campaign_loadout_items_by_
 	if(!(loadout_item_flags & LOADOUT_ITEM_ROUNDSTART_OPTION)) //adds every item to loadout from the get go,
 		loadout_item_flags &= LOADOUT_ITEM_ROUNDSTART_OPTION
 	if(quantity > 0) //instead of quantities we just increase price trifold.
-		purchase_cost *= 3
+		purchase_cost = initial(purchase_cost)*3
 
 ///Attempts to add an item to a loadout
 /datum/loadout_item/proc/item_checks(datum/outfit_holder/outfit_holder)
