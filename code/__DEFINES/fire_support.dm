@@ -48,10 +48,15 @@
 #define FIRESUPPORT_TYPE_CRUISE_MISSILE_UNLIMITED "cruise_missile_unlimited"
 
 //ntf things
-#define FIRESUPPORT_TYPE_VOLKITE_UNLIMITED "volkite_gun_unlimited"
-#define FIRESUPPORT_TYPE_INCEND_ROCKETS_UNLIMITED "incend_rockets_unlimited"
-#define FIRESUPPORT_TYPE_RAD_MISSILE_UNLIMITED "rad_missile_unlimited"
-#define FIRESUPPORT_TYPE_TELE_COPE_UNLIMITED "tele_cope_unlimited"
+#define FIRESUPPORT_TYPE_GUN_SOLMODE "gun_solmode"
+#define FIRESUPPORT_TYPE_ROCKETS_SOLMODE "rockets_solmode"
+#define FIRESUPPORT_TYPE_CRUISE_MISSILE_SOLMODE "cruise_missile_solmode"
+#define FIRESUPPORT_TYPE_VOLKITE_SOLMODE "volkite_gun_solmode"
+#define FIRESUPPORT_TYPE_INCEND_ROCKETS_SOLMODE "incend_rockets_solmode"
+#define FIRESUPPORT_TYPE_RAD_MISSILE_SOLMODE "rad_missile_solmode"
+#define FIRESUPPORT_TYPE_TELE_COPE_SOLMODE "tele_cope_solmode"
+#define FIRESUPPORT_TYPE_SENTRY_POD_SOLMODE "sentry_pod_solmode"
+#define FIRESUPPORT_TYPE_SUPPLY_POD_SOLMODE "supply_pod_solmode"
 
 ///Assoc list of firesupport types
 GLOBAL_LIST_INIT(fire_support_types, list(
@@ -77,8 +82,13 @@ GLOBAL_LIST_INIT(fire_support_types, list(
 	FIRESUPPORT_TYPE_SATRAPINE_SMOKE_MORTAR = new /datum/fire_support/mortar/smoke/satrapine,
 	FIRESUPPORT_TYPE_TELE_COPE = new /datum/fire_support/tele_cope,
 	//ntf additions
-	FIRESUPPORT_TYPE_VOLKITE_UNLIMITED = new /datum/fire_support/volkite/unlimited
-	FIRESUPPORT_TYPE_INCEND_ROCKETS_UNLIMITED = new /datum/fire_support/incendiary_rockets/unlimited
-	FIRESUPPORT_TYPE_RAD_MISSILE_UNLIMITED = new /datum/fire_support/rad_missile/unlimited
-	FIRESUPPORT_TYPE_TELE_COPE_UNLIMITED = new /datum/fire_support/tele_cope/unlimited
+	FIRESUPPORT_TYPE_GUN_SOLMODE = new /datum/fire_support/gau/solmode,
+	FIRESUPPORT_TYPE_ROCKETS_SOLMODE = new /datum/fire_support/rockets/solmode,
+	FIRESUPPORT_TYPE_CRUISE_MISSILE_SOLMODE = new /datum/fire_support/cruise_missile/solmode,
+	FIRESUPPORT_TYPE_VOLKITE_SOLMODE = new /datum/fire_support/volkite/solmode,
+	FIRESUPPORT_TYPE_INCEND_ROCKETS_SOLMODE = new /datum/fire_support/incendiary_rockets/solmode,
+	FIRESUPPORT_TYPE_RAD_MISSILE_SOLMODE = new /datum/fire_support/rad_missile/solmode,
+	FIRESUPPORT_TYPE_TELE_COPE_SOLMODE = new /datum/fire_support/tele_cope/solmode,
+	FIRESUPPORT_TYPE_SENTRY_POD_SOLMODE = new /datum/fire_support/droppod/solmode,
+	FIRESUPPORT_TYPE_SUPPLY_POD_SOLMODE = new /datum/fire_support/droppod/supply/solmode,
 	))

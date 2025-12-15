@@ -36,7 +36,7 @@
 
 /datum/fire_support/New()
 	. = ..()
-	if(uses > 0)
+	if(iscampaigngamemode(SSticker.mode) && uses > 0)
 		disable()
 
 ///Enables the firesupport option

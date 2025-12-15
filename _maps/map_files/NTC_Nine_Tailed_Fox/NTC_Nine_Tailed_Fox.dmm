@@ -182,12 +182,6 @@
 /area/mainship/medical/upper_medical{
 	name = "Shipside Medbay"
 	})
-"aiI" = (
-/obj/structure/droppod/nonmob/supply_pod,
-/turf/open/floor/mainship/cargo,
-/area/outpost/cargo{
-	outside = 1
-	})
 "aiO" = (
 /turf/open/floor/mainship/black{
 	dir = 1
@@ -339,12 +333,6 @@
 /turf/open/floor/plating,
 /area/mainship/shipboard/port_missiles{
 	name = "Shipside Corpsec Office"
-	})
-"arX" = (
-/obj/structure/droppod/nonmob/supply_pod,
-/turf/open/floor/mainship/orange/full,
-/area/outpost/cargo{
-	outside = 1
 	})
 "asa" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
@@ -1676,12 +1664,6 @@
 /obj/structure/droppod,
 /turf/open/shuttle/escapepod,
 /area/mainship/hallways/hangar/droppod)
-"byi" = (
-/obj/structure/droppod/nonmob/turret_pod,
-/turf/open/floor/mainship/cargo,
-/area/outpost/cargo{
-	outside = 1
-	})
 "byD" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 6
@@ -2013,12 +1995,6 @@
 	dir = 8
 	},
 /area/mainship/hull/lower_hull)
-"bNg" = (
-/obj/structure/droppod,
-/turf/open/floor/mainship/cargo,
-/area/outpost/cargo{
-	outside = 1
-	})
 "bNn" = (
 /turf/open/floor/mainship_hull/dir{
 	dir = 10
@@ -8046,12 +8022,6 @@
 /obj/effect/landmark/start/job/mechpilot,
 /turf/open/floor/wood,
 /area/mainship/living/tankerbunks)
-"hdT" = (
-/obj/item/storage/box/crate/sentry/ads,
-/turf/open/floor/mainship/mono,
-/area/outpost/cargo{
-	outside = 1
-	})
 "heq" = (
 /obj/machinery/light/mainship/small{
 	dir = 4
@@ -10197,12 +10167,6 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/upper_hull)
-"jhQ" = (
-/obj/item/storage/box/crate/sentry_laser,
-/turf/open/floor/mainship/mono,
-/area/outpost/cargo{
-	outside = 1
-	})
 "jiX" = (
 /obj/structure/table/reinforced,
 /obj/machinery/reagentgrinder,
@@ -11574,12 +11538,6 @@
 	},
 /turf/open/floor/wood,
 /area/mainship/ntf/fcroom)
-"kvm" = (
-/obj/structure/droppod/nonmob/mech_pod,
-/turf/open/floor/mainship/cargo,
-/area/outpost/cargo{
-	outside = 1
-	})
 "kvt" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
@@ -12556,13 +12514,6 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/sulaco/engineering/lower_engineering{
 	name = "Lower Power"
-	})
-"lib" = (
-/obj/machinery/light/floor,
-/obj/item/storage/box/crate/sentry,
-/turf/open/floor/mainship/mono,
-/area/outpost/cargo{
-	outside = 1
 	})
 "lik" = (
 /obj/structure/cable,
@@ -13856,12 +13807,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/synthdorms)
-"mmO" = (
-/obj/structure/droppod/nonmob/turret_pod,
-/turf/open/floor/mainship/orange/full,
-/area/outpost/cargo{
-	outside = 1
-	})
 "mmS" = (
 /turf/closed/wall/mainship,
 /area/mainship/ntf/fcroom)
@@ -18986,13 +18931,6 @@
 /obj/structure/cable,
 /turf/open/floor/tile/chapel,
 /area/mainship/living/chapel)
-"rcB" = (
-/obj/effect/ai_node,
-/obj/item/storage/box/crate/sentry,
-/turf/open/floor/mainship/mono,
-/area/outpost/cargo{
-	outside = 1
-	})
 "rcI" = (
 /obj/machinery/door/poddoor/mainship/open/cic{
 	id = "shipside_cic_lockdown";
@@ -31254,7 +31192,7 @@ izo
 xPo
 kkx
 izo
-byi
+izo
 woS
 wHQ
 izo
@@ -31365,16 +31303,16 @@ izo
 izo
 izo
 iJZ
-byi
 izo
-bNg
+izo
+izo
 izo
 izo
 xPo
 kkx
 izo
 izo
-bNg
+izo
 izo
 izo
 izo
@@ -31487,7 +31425,7 @@ izo
 izo
 izo
 izo
-bNg
+izo
 kwl
 xPo
 kkx
@@ -31849,7 +31787,7 @@ kwl
 xPo
 kkx
 kwl
-aiI
+izo
 izo
 izo
 izo
@@ -31958,10 +31896,10 @@ ftV
 kkx
 izo
 izo
-byi
 izo
 izo
-byi
+izo
+izo
 izo
 izo
 izo
@@ -32086,7 +32024,7 @@ woS
 izo
 xPo
 kkx
-kvm
+izo
 izo
 nEl
 izo
@@ -32201,12 +32139,12 @@ iKR
 dzM
 woS
 woS
-arX
+woS
 izo
 xPo
 kkx
 izo
-kvm
+izo
 izo
 jFp
 dzM
@@ -32436,9 +32374,9 @@ izo
 woS
 izo
 eCS
-arX
+woS
 izo
-aiI
+izo
 woS
 izo
 xPo
@@ -32552,7 +32490,7 @@ aya
 chO
 kkx
 izo
-mmO
+woS
 woS
 cwf
 dzM
@@ -32794,7 +32732,7 @@ izo
 izo
 izo
 izo
-aiI
+izo
 izo
 izo
 izo
@@ -33512,10 +33450,10 @@ fNo
 duO
 urx
 lRY
-hdT
-rcB
-jhQ
-lib
+urx
+coD
+urx
+lRY
 qlw
 fsT
 fsT

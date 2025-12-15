@@ -410,7 +410,7 @@
 	user.playsound_local(user.loc, 'sound/machines/ping.ogg', 25)
 	user.balloon_alert("You are now authorized to another loadout purchase.")
 	to_chat(user, span_nicegreen("You are now authorized to another loadout purchase."))
-	user_id.id_flags &= CAN_BUY_LOADOUT
+	user_id.id_flags |= CAN_BUY_LOADOUT
 
 //loadout/perk UI for campaign gamemode
 /datum/action/campaign_loadout

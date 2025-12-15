@@ -12,7 +12,7 @@
 	for(var/obj/machinery/deployable/mounted/sentry/ads_system/ads in orange(GLOB.ads_intercept_range,target_turf))
 		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
 			continue
-		if(ads.try_intercept(target_turf, src, 0.1, 3))
+		if(ads.try_intercept(target_turf, src, 0.2, 3))
 			return
 	explosion(target_turf, 0, 2, 4, 6, 2, explosion_cause=name)
 

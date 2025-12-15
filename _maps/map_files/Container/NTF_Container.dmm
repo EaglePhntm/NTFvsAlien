@@ -881,8 +881,7 @@
 	dir = 2;
 	id = "supply_elevator_railing"
 	},
-/obj/structure/droppod/nonmob,
-/turf/open/floor/mainship/cargo,
+/turf/open/floor/mainship/floor,
 /area/mainship/squads/req)
 "bbn" = (
 /obj/machinery/light/mainship{
@@ -2953,14 +2952,6 @@
 /obj/effect/urban/decal/dirt,
 /turf/open/floor/mainship/floor,
 /area/mainship/living/bridgebunks)
-"cTq" = (
-/obj/machinery/door/poddoor/railing{
-	dir = 2;
-	id = "supply_elevator_railing"
-	},
-/obj/structure/droppod/nonmob/supply_pod,
-/turf/open/floor/mainship/cargo,
-/area/mainship/squads/req)
 "cTA" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 8
@@ -4822,8 +4813,7 @@
 /obj/machinery/light/mainship{
 	dir = 1
 	},
-/obj/structure/droppod/nonmob/supply_pod,
-/turf/open/floor/mainship/cargo,
+/turf/open/floor/mainship/floor,
 /area/mainship/squads/req)
 "eIg" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -15177,6 +15167,7 @@
 /obj/machinery/camera/autoname/mainship{
 	dir = 1
 	},
+/obj/vehicle/ridden/powerloader,
 /turf/open/floor/mainship/floor,
 /area/mainship/squads/req)
 "oQX" = (
@@ -22796,12 +22787,8 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/command/cic)
 "wnQ" = (
-/obj/machinery/door/poddoor/railing{
-	dir = 2;
-	id = "supply_elevator_railing"
-	},
-/obj/structure/droppod/nonmob/turret_pod,
-/turf/open/floor/mainship/cargo,
+/obj/vehicle/ridden/powerloader,
+/turf/open/floor/mainship/floor,
 /area/mainship/squads/req)
 "wot" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -58650,7 +58637,7 @@ ogT
 jpC
 vhY
 eCz
-eCz
+wnQ
 ics
 uUK
 mue
@@ -60260,7 +60247,7 @@ mue
 rEd
 eMD
 ics
-cTq
+bbi
 deC
 deC
 deC
@@ -60664,7 +60651,7 @@ dRx
 rEd
 uUK
 ics
-wnQ
+bbi
 deC
 deC
 deC
@@ -60866,7 +60853,7 @@ uxo
 uxo
 uxo
 ics
-wnQ
+bbi
 deC
 deC
 deC
