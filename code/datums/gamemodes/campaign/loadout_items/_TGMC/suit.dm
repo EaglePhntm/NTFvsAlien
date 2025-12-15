@@ -93,7 +93,7 @@
 		/obj/item/clothing/head/modular/tdf/sg = ITEM_SLOT_HEAD,
 	)
 	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_SMARTGUNNER)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/suit_slot/heavy_shield/overclocked
 	desc = "Heavy armor with a Svallin shield module. Provides excellent protection but lower mobility. The shield module has been overclocked for improved performance."
@@ -137,7 +137,7 @@
 
 /datum/loadout_item/suit_slot/heavy_tyr/smartgunner
 	jobs_supported = list(SQUAD_SMARTGUNNER)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 	item_whitelist = null
 	req_desc = null
 
@@ -185,7 +185,7 @@
 	ui_icon = "heavy_armour"
 	item_typepath = /obj/item/clothing/suit/modular/tdf/heavy/leader
 	jobs_supported = list(SQUAD_LEADER, FIELD_COMMANDER)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/suit_slot/white_dress
 	name = "Dress jacket"
@@ -200,7 +200,7 @@
 	ui_icon = "medium_armour"
 	item_typepath = /obj/item/clothing/suit/modular/tdf/mimir
 	jobs_supported = list(SQUAD_CORPSMAN)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/suit_slot/medium_mimir/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
 	wearer.equip_to_slot_or_del(new /obj/item/tool/extinguisher, SLOT_IN_SUIT)
@@ -213,7 +213,7 @@
 	ui_icon = "medium_armour"
 	item_typepath = /obj/item/clothing/suit/modular/tdf/engineer
 	jobs_supported = list(SQUAD_ENGINEER)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/suit_slot/medium_engineer/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
 	wearer.equip_to_slot_or_del(new /obj/item/circuitboard/apc, SLOT_IN_SUIT)

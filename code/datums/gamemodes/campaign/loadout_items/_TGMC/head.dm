@@ -20,7 +20,7 @@
 	req_desc = "Requires a light armor suit."
 	item_typepath = /obj/item/clothing/head/modular/tdf
 	jobs_supported = list(SQUAD_MARINE)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 	item_whitelist = list(
 		/obj/item/clothing/suit/modular/tdf/light/shield = ITEM_SLOT_OCLOTHING,
 		/obj/item/clothing/suit/modular/tdf/light/shield_overclocked = ITEM_SLOT_OCLOTHING,
@@ -44,7 +44,7 @@
 	req_desc = "Requires a heavy armor suit."
 	item_typepath = /obj/item/clothing/head/modular/tdf/heavy
 	jobs_supported = list(SQUAD_MARINE)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 	item_whitelist = list(
 		/obj/item/clothing/suit/modular/tdf/heavy/shield = ITEM_SLOT_OCLOTHING,
 		/obj/item/clothing/suit/modular/tdf/heavy/shield_overclocked = ITEM_SLOT_OCLOTHING,
@@ -55,14 +55,14 @@
 	desc = "An upgraded helmet for protecting upgraded brains."
 	item_typepath = /obj/item/clothing/head/modular/tdf/leader
 	jobs_supported = list(SQUAD_LEADER)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/helmet/fcdr
 	name = "FCDR Helmet"
 	desc = "An upgraded helmet for protecting upgraded brains."
 	item_typepath = /obj/item/clothing/head/modular/tdf/leader/fcdr
 	jobs_supported = list(FIELD_COMMANDER)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/helmet/surt
 	name = "Surt helmet"
@@ -95,7 +95,7 @@
 /datum/loadout_item/helmet/tyr/smartgunner
 	item_typepath = /obj/item/clothing/head/modular/tdf/sg/tyr
 	jobs_supported = list(SQUAD_SMARTGUNNER)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/helmet/tyr/corpsman
 	jobs_supported = list(SQUAD_CORPSMAN)
@@ -129,7 +129,7 @@
 	req_desc = "Requires a suit with a Mimir module."
 	item_typepath = /obj/item/clothing/head/modular/tdf/medic
 	jobs_supported = list(SQUAD_CORPSMAN)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/helmet/mimir/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
 	wearer.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/neuraline, SLOT_IN_HEAD)
@@ -140,7 +140,7 @@
 	desc = "A standard combat helmet with a welding module."
 	item_typepath = /obj/item/clothing/head/modular/tdf/engi/welding
 	jobs_supported = list(SQUAD_ENGINEER)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/helmet/engineer/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
 	wearer.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
@@ -157,11 +157,11 @@
 	desc = "A hat usually worn by officers in the NTF. While it has limited combat functionality, some prefer to wear it instead of the standard issue helmet."
 	item_typepath = /obj/item/clothing/head/tgmccap/ro
 	jobs_supported = list(STAFF_OFFICER)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/helmet/captain_beret
 	name = "Captain Beret"
 	desc = "A beret worn by ship's captains. You thought it would have been more fancy."
 	item_typepath = /obj/item/clothing/head/tgmcberet/tan
 	jobs_supported = list(CAPTAIN)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION

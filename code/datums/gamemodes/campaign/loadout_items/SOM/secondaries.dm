@@ -15,7 +15,7 @@
 	Typically chambered in 9mm armor piercing rounds."
 	ui_icon = "v11"
 	item_typepath = /obj/item/weapon/gun/pistol/som/standard
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 	jobs_supported = list(SOM_SQUAD_MARINE, SOM_SQUAD_SLUT, SOM_SQUAD_CORPSMAN, SOM_SQUAD_ENGINEER, SOM_SQUAD_VETERAN)
 
 /datum/loadout_item/secondary/gun/som/extended_pistol
@@ -40,7 +40,7 @@
 	ui_icon = "vx12"
 	item_typepath = /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta
 	jobs_supported = list(SOM_SQUAD_LEADER, SOM_STAFF_OFFICER)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/secondary/gun/som/serpenta_custom
 	name = "VX-12c Serpenta"
@@ -49,7 +49,7 @@
 	ui_icon = "vx12"
 	item_typepath = /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta/custom
 	jobs_supported = list(SOM_FIELD_COMMANDER, SOM_COMMANDER)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/secondary/gun/som/sawn_off
 	name = "Sawn-off shotgun"
@@ -111,7 +111,7 @@
 	name = "COPE Sentry"
 	desc = "A powerful sentry gun. Throw like a grenade to deploy."
 	ui_icon = "sentry"
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/secondary/kit/som_engineer/sentry/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
 	wearer.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/cope, SLOT_IN_BACKPACK)

@@ -21,7 +21,7 @@
 	ui_icon = "grenade"
 	item_typepath = /obj/item/storage/pouch/grenade/som/combat_patrol
 	jobs_supported = list(SOM_SQUAD_MARINE, SOM_SQUAD_SLUT, SOM_SQUAD_CORPSMAN, SOM_SQUAD_VETERAN, SOM_SQUAD_LEADER, SOM_FIELD_COMMANDER)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/r_pocket/som_standard_grenades
 	name = "Standard nades"
@@ -101,7 +101,7 @@
 	ui_icon = "construction"
 	item_typepath = /obj/item/storage/pouch/tools/som/full
 	jobs_supported = list(SOM_SQUAD_ENGINEER)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/r_pocket/som_general
 	name = "General pouch"
@@ -117,7 +117,7 @@
 	ui_icon = "medkit"
 	item_typepath = /obj/item/storage/pouch/firstaid/som/combat_patrol
 	jobs_supported = list(SOM_SQUAD_MARINE, SOM_SQUAD_SLUT, SOM_SQUAD_ENGINEER, SOM_SQUAD_VETERAN)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/l_pocket/som_standard_first_aid/standard_improved
 	desc = "Standard SOM first-aid pouch. Contains a improved set of medical supplies."
@@ -128,7 +128,7 @@
 	desc = "Standard SOM first-aid pouch. Contains a improved set of medical supplies."
 	item_typepath = /obj/item/storage/pouch/firstaid/som/combat_patrol_leader
 	jobs_supported = list(SOM_SQUAD_LEADER, SOM_FIELD_COMMANDER)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/l_pocket/som_support_grenades
 	name = "Support nades"
@@ -221,7 +221,7 @@
 
 /datum/loadout_item/l_pocket/som_magazine/medic
 	jobs_supported = list(SOM_SQUAD_CORPSMAN)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/l_pocket/som_general
 	name = "General pouch"

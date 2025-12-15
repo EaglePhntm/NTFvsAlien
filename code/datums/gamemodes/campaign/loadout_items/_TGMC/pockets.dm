@@ -8,6 +8,7 @@
 	ui_icon = "empty"
 	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
 	jobs_supported = list()
+
 /datum/loadout_item/back/empty
 	name = "no backpack"
 	desc = ""
@@ -38,7 +39,7 @@
 	ui_icon = "grenade"
 	item_typepath = /obj/item/storage/pouch/grenade/combat_patrol
 	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_CORPSMAN, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/r_pocket/marine_standard_grenades
 	name = "Standard nades"
@@ -98,10 +99,10 @@
 	ui_icon = "construction"
 	item_typepath = /obj/item/storage/pouch/tools/full
 	jobs_supported = list(SQUAD_ENGINEER)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/r_pocket/general
-	name = "General pouch"
+	name = "General pouch (R)"
 	desc = "A general purpose pouch used to carry small items."
 	ui_icon = "grenade"
 	item_typepath = /obj/item/storage/pouch/general/large
@@ -125,7 +126,7 @@
 	ui_icon = "medkit"
 	item_typepath = /obj/item/storage/pouch/firstaid/combat_patrol
 	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_ENGINEER, SQUAD_SMARTGUNNER)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/l_pocket/standard_first_aid/standard_improved
 	desc = "Standard marine first-aid pouch. Contains a improved set of medical supplies."
@@ -136,7 +137,7 @@
 	desc = "Standard marine first-aid pouch. Contains a improved set of medical supplies."
 	item_typepath = /obj/item/storage/pouch/firstaid/combat_patrol_leader
 	jobs_supported = list(SQUAD_LEADER, FIELD_COMMANDER)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/l_pocket/marine_support_grenades
 	name = "Support nades"
@@ -207,13 +208,12 @@
 		/obj/item/weapon/gun/minigun/smart_minigun/motion_detector = ITEM_SLOT_SUITSTORE,
 	)
 
-
 /datum/loadout_item/l_pocket/magazine/medic
 	jobs_supported = list(SQUAD_CORPSMAN)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/l_pocket/general
-	name = "General pouch"
+	name = "General pouch (L)"
 	desc = "A general purpose pouch used to carry small items."
 	ui_icon = "grenade"
 	item_typepath = /obj/item/storage/pouch/general/large

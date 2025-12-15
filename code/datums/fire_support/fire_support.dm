@@ -22,7 +22,7 @@
 	///screentext message when initiating fire support
 	var/initiate_screen_message = "fire support inbound."
 	///Screentext message title
-	var/initiate_title = "Garuda-1"
+	var/initiate_title = "Eagle-1"
 	///Portrait used for screentext message
 	var/portrait_type = /atom/movable/screen/text/screen_text/picture/potrait/pilot
 	///Initiating sound effect

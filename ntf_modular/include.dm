@@ -1,4 +1,5 @@
 
+
 #include "code\_DEFINES\colors.dm"
 #include "code\_DEFINES\ntf_defines.dm"
 #include "code\_DEFINES\sexcon_defines.dm"
@@ -6,6 +7,7 @@
 #include "code\_DEFINES\span.dm"
 #include "code\_HELPERS\announce.dm"
 #include "code\_onclick\hud\fullscreen.dm"
+#include "code\datums\fire_support\fire_support.dm"
 #include "code\datums\gamemodes\_game_mode.dm"
 #include "code\datums\genital_menu.dm"
 #include "code\datums\health_scan\advice\damage_types.dm"
@@ -54,8 +56,8 @@
 #include "code\datums\sexcon\sex_actions\masturbate\masturbate_other_breasts.dm"
 #include "code\datums\sexcon\sex_actions\masturbate\masturbate_other_penis.dm"
 #include "code\datums\sexcon\sex_actions\masturbate\masturbate_other_vagina.dm"
-#include "code\datums\sexcon\sex_actions\masturbate\masturbate_penis_over.dm"
 #include "code\datums\sexcon\sex_actions\masturbate\masturbate_penis.dm"
+#include "code\datums\sexcon\sex_actions\masturbate\masturbate_penis_over.dm"
 #include "code\datums\sexcon\sex_actions\masturbate\masturbate_vagina.dm"
 #include "code\datums\sexcon\sex_actions\oral\blowjob.dm"
 #include "code\datums\sexcon\sex_actions\oral\crotch_nuzzle.dm"
@@ -70,8 +72,8 @@
 #include "code\datums\sexcon\sex_actions\sex\throat_sex.dm"
 #include "code\datums\sexcon\sex_actions\sex\vaginal_ride_sex.dm"
 #include "code\datums\sexcon\sex_actions\sex\vaginal_sex.dm"
-#include "code\datums\sexcon\sexcon_helpers.dm"
 #include "code\datums\sexcon\sexcon.dm"
+#include "code\datums\sexcon\sexcon_helpers.dm"
 #include "code\game\objects\effects\effect_system\smoke.dm"
 #include "code\game\objects\effects\landmarks\marine_spawns.dm"
 #include "code\game\objects\items.dm"

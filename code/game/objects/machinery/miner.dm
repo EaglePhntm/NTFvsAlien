@@ -315,6 +315,9 @@
 	do_sparks(5, TRUE, src)
 	playsound(loc,'sound/effects/phasein.ogg', 50, FALSE)
 	say("Ore shipment has been sold for [mineral_value * stored_mineral] points.")
+	var/datum/individual_stats/the_stats = stat_list[user.faction].get_player_stats(user)
+	the_stats.give_funds(round((dropship_bonus * stored_mineral)/4))
+	to_chat(user, span_notice("(N-UI) Transaction: +[round((dropship_bonus * stored_mineral)/4)] credits."))
 	stored_mineral = 0
 	start_processing()
 

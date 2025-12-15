@@ -15,7 +15,7 @@
 	desc = "Standard issue combat boots for combat scenarios or combat situations. All combat, all the time."
 	item_typepath = /obj/item/clothing/shoes/marine/tdf/full
 	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_CORPSMAN, SQUAD_ENGINEER, SQUAD_SMARTGUNNER, SQUAD_LEADER, FIELD_COMMANDER, STAFF_OFFICER, CAPTAIN)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/feet/marine_brown_boots
 	name = "Brown boots"
@@ -35,4 +35,4 @@
 	desc = "Has special soles for better trampling those underneath."
 	item_typepath = /obj/item/clothing/shoes/marinechief/captain
 	jobs_supported = list(CAPTAIN)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION

@@ -16,7 +16,7 @@
 	desc = "The P-14, produced by Terran Armories. A reliable sidearm that loads 9x19mm Parabellum Auto munitions. Has a good rate of fire and takes 21-round 9mm magazines."
 	ui_icon = "tp14"
 	item_typepath = /obj/item/weapon/gun/pistol/standard_pistol/standard
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/secondary/gun/marine/fc_pistol
 	name = "P-1911A1-C pistol"
@@ -24,7 +24,7 @@
 	Light and easy to use one handed, it suffers from a small magazine size and no auto eject feature. Uses .45 ACP ammunition."
 	ui_icon = "m1911c"
 	item_typepath = /obj/item/weapon/gun/pistol/m1911/custom
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 	jobs_supported = list(FIELD_COMMANDER)
 
 /datum/loadout_item/secondary/gun/marine/so_pistol
@@ -32,7 +32,7 @@
 	desc = "TAn RT-3 target pistol, a common sight throughout the bubble and the standard sidearm for noncombat roles in the NTF. Uses 9mm caseless ammunition."
 	ui_icon = "rt3"
 	item_typepath = /obj/item/weapon/gun/pistol/rt3
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 	jobs_supported = list(STAFF_OFFICER)
 
 /datum/loadout_item/secondary/gun/marine/smart_pistol
@@ -41,7 +41,7 @@
 	Expensive to manufacture, this sophisticated pistol is only occassionally used by smartgunners, or some higher ranking officers who have the skills to use it. Uses 9x19mm Parabellum ammunition."
 	ui_icon = "sp13"
 	item_typepath = /obj/item/weapon/gun/pistol/smart_pistol
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 	jobs_supported = list(CAPTAIN)
 
 /datum/loadout_item/secondary/gun/marine/standard_heavypistol
@@ -56,7 +56,7 @@
 	Light and easy to use one handed, but still a sidearm. Comes in a holster that fits on your waist or armor. Uses 9mm AP ammunition."
 	ui_icon = "vp70"
 	item_typepath = /obj/item/weapon/gun/pistol/vp70/tactical
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 	jobs_supported = list(SQUAD_LEADER, FIELD_COMMANDER, STAFF_OFFICER, CAPTAIN)
 
 /datum/loadout_item/secondary/gun/marine/standard_revolver
@@ -240,7 +240,7 @@
 	name = "Sentry gun"
 	desc = "A point defence sentry gun, with spare ammo. Because more guns are always better."
 	ui_icon = "sentry"
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/secondary/kit/tgmc_engineer/sentry/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
 	wearer.equip_to_slot_or_del(new /obj/item/weapon/gun/sentry/mini/combat_patrol, SLOT_IN_BACKPACK)

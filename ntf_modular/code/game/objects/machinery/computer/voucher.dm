@@ -61,6 +61,10 @@
 			return TRUE
 	if(istype(I, /obj/item/disk/intel_disk))
 		I.supply_export(faction)
+		var/obj/item/disk/intel_disk/le_disk
+		var/datum/individual_stats/the_stats = stat_list[user.faction].get_player_stats(user)
+		the_stats.give_funds(round(le_disk.dropship_reward/5))
+		to_chat(user, span_notice("(N-UI) Transaction: +[round(le_disk.dropship_reward/5)] credits."))
 		qdel(I)
 		return TRUE
 

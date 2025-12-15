@@ -13,7 +13,7 @@
 	desc = "A heavy-duty satchel carried by some NTF soldiers and support personnel. Carries less than a backpack, but items can be drawn instantly."
 	item_typepath = /obj/item/storage/backpack/marine/satchel
 	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_SMARTGUNNER, STAFF_OFFICER, CAPTAIN)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/back/marine_backpack
 	name = "Backpack"
@@ -31,7 +31,7 @@
 /datum/loadout_item/back/combat_pack/free
 	purchase_cost = 0
 	jobs_supported = list(SQUAD_LEADER, FIELD_COMMANDER)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/back/flamer_tank
 	name = "Flame tank"
@@ -122,7 +122,7 @@
 	desc = "The standard-issue backpack worn by NTF corpsmen. You can recharge defibrillators by plugging them in. Carries more than a satchel but has a draw delay."
 	item_typepath = /obj/item/storage/backpack/marine/corpsman
 	jobs_supported = list(SQUAD_CORPSMAN)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 //engineer
 /datum/loadout_item/back/engineerpack
@@ -130,7 +130,7 @@
 	desc = "A specialized backpack worn by NTF technicians. It carries a fueltank for quick welder refueling. Loaded with a point defense sentry, excellent for defending areas or establishing killboxes."
 	item_typepath = /obj/item/storage/backpack/marine/engineerpack
 	jobs_supported = list(SQUAD_ENGINEER)
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/back/engineerpack/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
 	. = ..()
