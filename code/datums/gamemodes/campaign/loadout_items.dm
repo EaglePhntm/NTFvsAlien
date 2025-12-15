@@ -70,6 +70,16 @@ GLOBAL_LIST_INIT(campaign_loadout_items_by_role, init_campaign_loadout_items_by_
 	///assoc list by slot of items blacklisted for this to be equipped
 	var/list/item_blacklist
 
+/datum/loadout_item/New()
+	. = ..()
+	if(iscampaigngamemode(SSticker.mode)) //for extended etc, allat ntf edit.
+		return
+	//idk how myself but if someone made research actually unlock shit itd be good.
+	if(!(loadout_item_flags & LOADOUT_ITEM_ROUNDSTART_OPTION)) //adds every item to loadout from the get go,
+		loadout_item_flags &= LOADOUT_ITEM_ROUNDSTART_OPTION
+	if(quantity > 0) //instead of quantities we just increase price trifold.
+		purchase_cost *= 3
+
 ///Attempts to add an item to a loadout
 /datum/loadout_item/proc/item_checks(datum/outfit_holder/outfit_holder)
 	if(length(item_whitelist) && !whitelist_check(outfit_holder))
