@@ -10,7 +10,6 @@
 
 	products = list(
 		"Rifles" = list(
-			/obj/item/weapon/gun/rifle/m416 = 2,
 			/obj/item/ammo_magazine/rifle/m416 = -1,
 			/obj/item/weapon/gun/rifle/standard_assaultrifle = -1,
 			/obj/item/ammo_magazine/rifle/standard_assaultrifle = -1,
@@ -36,9 +35,7 @@
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla = 2,
 		),
 		"SMGs" = list(
-			/obj/item/weapon/gun/smg/val = 2,
 			/obj/item/ammo_magazine/smg/val = -1,
-			/obj/item/weapon/gun/smg/m25 = -1,
 			/obj/item/ammo_magazine/smg/m25 = -1,
 			/obj/item/weapon/gun/smg/standard_heavysmg = -1,
 			/obj/item/ammo_magazine/smg/standard_heavysmg = -1,
@@ -84,9 +81,7 @@
 			/obj/item/ammo_magazine/handful/barrikada = 3,
 		),
 		"Machinegun" = list(
-			/obj/item/weapon/gun/rifle/pmc_gpmg = 2,
 			/obj/item/ammo_magazine/smart_gpmg = -1,
-			/obj/item/weapon/gun/rifle/pmc_smartrifle = 2,
 			/obj/item/ammo_magazine/rifle/standard_smartrifle = -1,
 			/obj/item/weapon/gun/rifle/m41a = -1,
 			/obj/item/ammo_magazine/rifle/m41a = -1,
@@ -110,7 +105,6 @@
 			/obj/item/weapon/gun/pistol/mk90 = -1,
 			/obj/item/ammo_magazine/pistol/mk90 = -1,
 			/obj/item/ammo_magazine/pistol/mk90/extended = 20,
-			/obj/item/weapon/gun/pistol/mk100_gyrojet = -1,
 			/obj/item/ammo_magazine/pistol/mk100_gyrojet = -1,
 			/obj/item/weapon/gun/pistol/standard_pistol = -1,
 			/obj/item/ammo_magazine/pistol/standard_pistol = -1,
@@ -607,7 +601,7 @@
 	wrenchable = FALSE
 	product_ads = "You are out of uniform, marine! Where is your armor? Don't have any? You expect me to believe that, maggot?;Why wear heavy armor and unable to chase the enemy when you can go light and zoom by your peers?;Thank your armor later when you didn't die!;I remember PAS, do you remember PAS?;Time to paint the rainbow!;So many selections to choose from!"
 	products = list(
-		"AC standard issue" = list(
+		"Armor" = list(
 			/obj/item/clothing/suit/storage/marine/veteran/pmc = -1,
 			/obj/item/clothing/suit/storage/marine/veteran/pmc/standard = -1,
 			/obj/item/clothing/suit/storage/marine/veteran/pmc/standard/sarge = -1,
@@ -620,6 +614,8 @@
 			/obj/item/clothing/suit/storage/marine/veteran/pmc/gunner/stripes = -1,
 			/obj/item/clothing/suit/storage/marine/veteran/pmc/gunner/leader = -1,
 			/obj/item/clothing/suit/storage/marine/veteran/pmc/leader = -1,
+		),
+		"Helmets" = list(
 			/obj/item/clothing/head/helmet/marine/veteran/pmc = -1,
 			/obj/item/clothing/head/helmet/marine/veteran/pmc/standard = -1,
 			/obj/item/clothing/head/helmet/marine/veteran/pmc/standard/stripes = -1,
