@@ -73,6 +73,7 @@
 	name = "\improper S12-P pilot armor"
 	desc = "A light piece of armor used by SOM pilots to protect themselves while flying in the cockpit. Made from tests into other armor systems for pilots."
 	icon_state = "som_pilot_black"
+	icon = 'ntf_modular/icons/obj/clothing/suits/ert_suits.dmi'
 	worn_icon_state = "som_pilot_black"
 	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 35, BOMB = 40, BIO = 5, FIRE = 25, ACID = 30)
 	slowdown = 0.20

@@ -24,6 +24,7 @@
 	name = "S35 SOM officer flightsuit"
 	desc = "A specialized, kevlar-weaved, hazmat-tested, EMF-augmented, survival-friendly pilot flightsuit. A small label on it says it is not rated for Cordium, whatever that is."
 	icon_state = "som_uniform_pilot"
+	icon = 'ntf_modular/icons/obj/clothing/uniforms.dmi'
 	worn_icon_state = "som_uniform_pilot"
 	cold_protection_flags = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
 	item_map_variant_flags = null

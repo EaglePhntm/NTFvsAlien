@@ -55,6 +55,7 @@
 	name = "\improper S36 combat pilot helmet"
 	desc = "The S18 combat pilot helmet has a specialized visor displaying pilot tactical data. Its origins come from modifications to the M30 Tactical Helmet."
 	icon_state = "som_helmet_pilot"
+	icon = 'ntf_modular/icons/obj/clothing/headwear/ert_headwear.dmi'
 	worn_icon_state = "som_helmet_pilot"
 	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 40, FIRE = 50, ACID = 40)
 	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
