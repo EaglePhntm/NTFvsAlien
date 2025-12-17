@@ -366,7 +366,7 @@
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/angledgrip,
 		/obj/item/attachable/gyro,
-
+	)
 	item_map_variant_flags = NONE
 	attachable_offset = list("muzzle_x" = 34, "muzzle_y" = 19,"rail_x" = 12, "rail_y" = 21, "under_x" = 37, "under_y" = 16, "stock_x" = 0, "stock_y" = 12)
 	starting_attachment_types = list(

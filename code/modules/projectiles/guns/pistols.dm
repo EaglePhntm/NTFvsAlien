@@ -890,6 +890,7 @@ It is a modified Beretta 93R, and can fire three round burst or single fire. Whe
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/bayonet/converted,
+		/obj/item/attachable/compensator,
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonet/som,
 		/obj/item/attachable/reddot,

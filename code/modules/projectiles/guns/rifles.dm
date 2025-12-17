@@ -2361,10 +2361,12 @@
 		/obj/item/ammo_magazine/rifle/mpi_km/extended,
 	)
 	attachable_allowed = list(
+		/obj/item/attachable/foldable/som_carbine,
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/bayonet/converted,
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonet/som,
+		/obj/item/attachable/compensator,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/angledgrip,
@@ -2413,10 +2415,12 @@
 	worn_icon_state = "v34_black"
 	default_ammo_type = /obj/item/ammo_magazine/rifle/mpi_km/carbine/black
 	attachable_allowed = list(
+		/obj/item/attachable/foldable/som_carbine,
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/bayonet/converted,
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonet/som,
+		/obj/item/attachable/compensator,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/angledgrip,
@@ -2767,6 +2771,7 @@
 		/obj/item/attachable/bayonet/converted,
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonet/som,
+		/obj/item/attachable/compensator,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/angledgrip,
@@ -2775,7 +2780,6 @@
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/foldable/bipod,
-		/obj/item/attachable/burstfire_assembly,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/scope,
 		/obj/item/attachable/scope/mini,
