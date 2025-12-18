@@ -92,7 +92,7 @@ EXPLOSIVES
 	name = "M25 HEFA grenade box"
 	notes = "Contains 25 grenades"
 	contains = list(/obj/item/storage/box/visual/grenade/hefa)
-	cost = 500
+	cost = 750
 
 /datum/supply_packs/explosives/explosives_neurotoxin
 	name = "M40-N Neurotoxin smoke grenade box"
@@ -109,6 +109,14 @@ EXPLOSIVES
 		/obj/item/storage/box/visual/grenade/acid,
 	)
 	cost = 500
+
+/datum/supply_packs/explosives/explosives_tanglefoot
+	name = "M40-T Tanglefoot smoke grenade box"
+	notes = "Contains 25 grenades"
+	contains = list(
+		/obj/item/storage/box/visual/grenade/drain,
+	)
+	cost = 120
 
 /datum/supply_packs/explosives/explosives_sleep
 	name = "NT-1 Knock-out smoke grenade box"

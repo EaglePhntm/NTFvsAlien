@@ -208,9 +208,9 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 		/turf/closed/wall/resin/regenerating/thick = 75,
 		/turf/closed/wall/resin/membrane = 50,
 		/turf/closed/wall/resin/membrane/thick = 50,
-		/turf/closed/wall/resin/regenerating/special/bulletproof = 125,
-		/turf/closed/wall/resin/regenerating/special/fireproof = 100,
-		/turf/closed/wall/resin/regenerating/special/hardy = 100,
+		/turf/closed/wall/resin/regenerating/special/bulletproof = 180,
+		/turf/closed/wall/resin/regenerating/special/fireproof = 180,
+		/turf/closed/wall/resin/regenerating/special/hardy = 250,
 		/obj/alien/resin/sticky = 25,
 		/obj/structure/mineral_door/resin = 50,
 		/obj/structure/mineral_door/resin/thick = 50,
@@ -1218,6 +1218,7 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 	gamemode_flags = ABILITY_NUCLEARWAR
 	///How much larva points it gives (10 points for one larva in NW)
 	var/larva_point_reward = 1
+	var/drain_time = 5 SECONDS
 
 /datum/action/ability/activable/xeno/psydrain/can_use_ability(atom/A, silent = FALSE, override_flags)
 	if(!iscarbon(A))
@@ -1238,10 +1239,16 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 		if(!silent)
 			to_chat(xeno_owner, span_warning("We're too busy being on fire to do this!"))
 		return FALSE
-	if(victim.stat != DEAD)
+	if(victim.ckey == null && victim.stat != DEAD)
 		if(!silent)
 			to_chat(xeno_owner, span_warning("This creature is struggling too much for us to drain its life force."))
 		return FALSE
+	if(victim.stat != DEAD)
+		if(!silent)
+			to_chat(xeno_owner, span_warning("The living victim will take time to drain."))
+			drain_time = 12 SECONDS // Takes 12 seconds to drain the living
+	else
+		drain_time = 5 SECONDS
 	if(HAS_TRAIT(victim, TRAIT_PSY_DRAINED))
 		if(!silent)
 			to_chat(xeno_owner, span_warning("There is no longer any life force in this creature!"))
@@ -1249,6 +1256,10 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 	if(!ishuman(victim))
 		if(!silent)
 			to_chat(xeno_owner, span_warning("We can't drain something that is not human."))
+		return FALSE
+	if(victim.getCloneLoss() >= 20) // So xenomorphs don't spam it on people
+		if(!silent)
+			to_chat(xeno_owner, span_warning("We can't drain something thats lifeforce is already weak."))
 		return FALSE
 	if(issynth(victim)) //checks if target is a synth
 		if(!silent)
@@ -1264,7 +1275,7 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 	span_danger("We slowly drain \the [victim]'s life force!"), null, 20)
 	var/channel = SSsounds.random_available_channel()
 	playsound(xeno_owner, 'sound/magic/nightfall.ogg', 40, channel = channel)
-	if(!do_after(xeno_owner, 5 SECONDS, IGNORE_HELD_ITEM, victim, BUSY_ICON_DANGER, extra_checks = CALLBACK(xeno_owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = xeno_owner.health))))
+	if(!do_after(xeno_owner, drain_time, IGNORE_HELD_ITEM, victim, BUSY_ICON_DANGER, extra_checks = CALLBACK(xeno_owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = xeno_owner.health))))
 		xeno_owner.visible_message(span_xenowarning("\The [xeno_owner] retracts its inner jaw."), \
 		span_danger("We retract our inner jaw."), null, 20)
 		xeno_owner.stop_sound_channel(channel)
@@ -1275,7 +1286,7 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 /datum/action/ability/activable/xeno/psydrain/use_ability(mob/M)
 	var/mob/living/carbon/victim = M
 
-	if(HAS_TRAIT(victim, TRAIT_PSY_DRAINED))
+	if(HAS_TRAIT(victim, TRAIT_PSY_DRAINED) || victim.getCloneLoss() >= 20)
 		to_chat(xeno_owner, span_warning("Someone drained the life force of our victim before we could do it!"))
 		return fail_activate()
 
@@ -1286,14 +1297,15 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 
 	victim.do_jitter_animation(2)
 	victim.adjustCloneLoss(20)
-	SSpoints.add_biomass_points(xeno_owner.get_xeno_hivenumber(), MUTATION_BIOMASS_PER_PSYDRAIN)
-	GLOB.round_statistics.biomass_from_psydrains += MUTATION_BIOMASS_PER_PSYDRAIN
-
-	ADD_TRAIT(victim, TRAIT_PSY_DRAINED, TRAIT_PSY_DRAINED)
+	var/multiplier = (victim.stat != DEAD && !HAS_TRAIT(victim, TRAIT_HIVE_TARGET)) ? 0.25 : 1
+	SSpoints.add_biomass_points(xeno_owner.get_xeno_hivenumber(), MUTATION_BIOMASS_PER_PSYDRAIN * multiplier)
+	GLOB.round_statistics.biomass_from_psydrains += MUTATION_BIOMASS_PER_PSYDRAIN * multiplier
+	if(victim.stat == DEAD)
+		ADD_TRAIT(victim, TRAIT_PSY_DRAINED, TRAIT_PSY_DRAINED)
 	if(HAS_TRAIT(victim, TRAIT_UNDEFIBBABLE))
 		victim.med_hud_set_status()
 	var/psy_points_reward = PSY_DRAIN_REWARD_MIN + ((HIGH_PLAYER_POP - SSmonitor.maximum_connected_players_count) / HIGH_PLAYER_POP * (PSY_DRAIN_REWARD_MAX - PSY_DRAIN_REWARD_MIN))
-	psy_points_reward = clamp(psy_points_reward, PSY_DRAIN_REWARD_MIN, PSY_DRAIN_REWARD_MAX)
+	psy_points_reward = clamp(psy_points_reward, PSY_DRAIN_REWARD_MIN, PSY_DRAIN_REWARD_MAX) * multiplier
 	GLOB.round_statistics.strategic_psypoints_from_psydrains += psy_points_reward
 	GLOB.round_statistics.psydrains++
 	var/hivenumber = xeno_owner.get_xeno_hivenumber()
@@ -1307,9 +1319,9 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 	SSpoints.add_strategic_psy_points(hivenumber, psy_points_reward)
 	SSpoints.add_tactical_psy_points(hivenumber, psy_points_reward*0.25)
 	var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
-	xeno_job.add_job_points(larva_point_reward)
+	xeno_job.add_job_points(larva_point_reward * multiplier)
 	GLOB.hive_datums[hivenumber].update_tier_limits()
-	GLOB.round_statistics.larva_from_psydrain += larva_point_reward / xeno_job.job_points_needed
+	GLOB.round_statistics.larva_from_psydrain += larva_point_reward * multiplier / xeno_job.job_points_needed
 
 	if(owner.client)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[owner.ckey]
@@ -1330,7 +1342,6 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 	cooldown_duration = 30 SECONDS
 	use_state_flags = ABILITY_USE_STAGGERED
 	ability_cost = 50
-	gamemode_flags = ABILITY_NUCLEARWAR
 	target_flags = ABILITY_HUMAN_TARGET
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_IMPREGNATE,
@@ -1415,6 +1426,7 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 	gamemode_flags = ABILITY_NUCLEARWAR
 	///In how much time the cocoon will be ejected
 	var/cocoon_production_time = 3 SECONDS
+	var/devour_time = 7 SECONDS
 
 /datum/action/ability/activable/xeno/cocoon/can_use_ability(atom/A, silent, override_flags)
 	. = ..()
@@ -1428,7 +1440,10 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 		return FALSE
 	if(!owner.Adjacent(victim)) //checks if owner next to target
 		return FALSE
-	if(victim.stat != DEAD)
+	if(HAS_TRAIT(victim, TRAIT_TIME_SHIFTED))
+		to_chat(owner, span_warning("They are anchored in time!"))
+		return FALSE
+	if(victim.ckey == null && victim.stat != DEAD)
 		if(!silent)
 			to_chat(owner, span_warning("This creature is struggling too much for us to devour it."))
 		return FALSE
@@ -1436,9 +1451,19 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 		if(!silent)
 			to_chat(owner, span_warning("There is no longer any life force in this creature!"))
 		return FALSE
+	if(victim.stat != DEAD)
+		devour_time = 12 SECONDS // Takes 12 seconds to devour the living
+		cocoon_production_time = 4 SECONDS //4 seconds total just for fun
+	else
+		devour_time = 7 SECONDS // Takes 7 seconds to devour the dead
+		cocoon_production_time = 3 SECONDS
 	if(victim.buckled)
 		if(!silent)
 			to_chat(owner, span_warning("[victim] is buckled to something."))
+		return FALSE
+	if(victim.getCloneLoss() >= 20) // So xenomorphs don't spam it on people
+		if(!silent)
+			to_chat(xeno_owner, span_warning("We can't cacoon something thats lifeforce is already weak."))
 		return FALSE
 	if(xeno_owner.on_fire)
 		if(!silent)
@@ -1463,11 +1488,11 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 	var/channel = SSsounds.random_available_channel()
 	playsound(xeno_owner, 'sound/vore/struggle.ogg', 40, channel = channel)
 	log_combat(xeno_owner, victim, "started to cocoon")
-	if(!do_after(xeno_owner, 7 SECONDS, IGNORE_HELD_ITEM, victim, BUSY_ICON_DANGER, extra_checks = CALLBACK(owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = xeno_owner.health))))
+	if(!do_after(xeno_owner, devour_time, IGNORE_HELD_ITEM, victim, BUSY_ICON_DANGER, extra_checks = CALLBACK(owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = xeno_owner.health))))
 		to_chat(owner, span_warning("We stop devouring \the [victim]. They probably tasted gross anyways."))
 		xeno_owner.stop_sound_channel(channel)
 		return fail_activate()
-	if(HAS_TRAIT(victim, TRAIT_PSY_DRAINED))
+	if(HAS_TRAIT(victim, TRAIT_PSY_DRAINED) || victim.getCloneLoss() >= 20)
 		to_chat(owner, span_warning("Someone drained the life force of our victim before we could devour it!"))
 		return fail_activate()
 	owner.visible_message(span_warning("[xeno_owner] devours [victim]!"), \

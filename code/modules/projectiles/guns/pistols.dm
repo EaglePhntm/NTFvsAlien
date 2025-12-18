@@ -37,7 +37,6 @@
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	actions_types = list(/datum/action/item_action/aim_mode) // all pistols can aim mode
-	aim_time = 1 SECONDS
 	aim_speed_modifier = 0.65
 	scatter = -2
 	scatter_unwielded = 4
@@ -321,6 +320,7 @@
 /obj/item/weapon/gun/pistol/g22/tranq
 	name = "\improper P-22 custom pistol"
 	desc = "A 20th century military firearm customized for special forces use, fires chemical loaded bullets to take down enemies nonlethally. Must be cocked manually therefore has disgusting fire rate, but custom frame allows greater accuracy."
+	icon = 'ntf_modular/icons/obj/items/guns/pistols.dmi'
 	icon_state = "g22"
 	worn_icon_state = "g22"
 	fire_animation = null //it doesnt cycle itself.

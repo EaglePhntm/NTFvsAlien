@@ -5,12 +5,16 @@
 	id = /obj/item/card/id/gold
 	belt = /obj/item/storage/holster/belt/mateba/officer/full
 	ears = /obj/item/radio/headset/mainship/mcom
-	w_uniform = /obj/item/clothing/under/spec_operative/armoredsuit
-	shoes = /obj/item/clothing/shoes/marine/sneakingboots
+	w_uniform = /obj/item/clothing/under/marine/sneaking/armoredsuit
+	shoes = /obj/item/clothing/shoes/marine
 	gloves = /obj/item/clothing/gloves/marine/officer/
 	r_pocket = /obj/item/storage/pouch/general/large/command
 	l_pocket = /obj/item/hud_tablet/leadership
 	back = /obj/item/storage/backpack/lightpack
+
+/datum/outfit/job/command/ceo/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_to_slot_or_hand(new /obj/item/binoculars/fire_support/extended, SLOT_IN_R_POUCH)
 
 /datum/outfit/job/command/corpseccommander
 	name = CORPSEC_COMMANDER
@@ -47,7 +51,7 @@
 	id = /obj/item/card/id/card/silver/vanguard
 	ears = /obj/item/radio/headset/mainship/mcom
 	w_uniform = /obj/item/clothing/under/marine/officer
-	shoes = /obj/item/clothing/shoes/marine/sneakingboots
+	shoes = /obj/item/clothing/shoes/marine
 	r_pocket = /obj/item/storage/pouch/general/large
 
 

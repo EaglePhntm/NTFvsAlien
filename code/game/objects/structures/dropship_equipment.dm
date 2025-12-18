@@ -800,7 +800,7 @@
 		ammo_equipped.ammo_count = max(ammo_equipped.ammo_count-ammo_equipped.ammo_used_per_firing, 0)
 	update_icon()
 
-/obj/structure/dropship_equipment/cas/weapon/proc/open_fire(obj/selected_target, attackdir)
+/obj/structure/dropship_equipment/cas/weapon/proc/open_fire(obj/selected_target, attackdir, faction)
 	var/turf/target_turf = get_turf(selected_target)
 	if(firing_sound)
 		playsound(loc, firing_sound, 70, TRUE)
@@ -825,8 +825,12 @@
 
 	//Marine-only visuals
 	var/predicted_dangerous_turfs = SA.get_turfs_to_impact(target_turf, attackdir)
-	for(var/turf/impact in predicted_dangerous_turfs)
-		effects_to_delete += new /obj/effect/overlay/blinking_laser/marine/lines(impact)
+	if(faction == FACTION_TERRAGOV)
+		for(var/turf/impact in predicted_dangerous_turfs)
+			effects_to_delete += new /obj/effect/overlay/blinking_laser/marine/lines(impact)
+	else
+		for(var/turf/impact in predicted_dangerous_turfs)
+			effects_to_delete += new /obj/effect/overlay/blinking_laser/som/lines(impact)
 
 	var/mob/user = usr
 	if(istype(usr))

@@ -2,7 +2,7 @@
 	name = "Zombie"
 	icobase = 'icons/mob/human_races/r_husk.dmi'
 	total_health = 125
-	species_flags = NO_BREATHE|NO_SCAN|NO_BLOOD|NO_POISON|NO_PAIN|NO_CHEM_METABOLIZATION|NO_STAMINA|HEALTH_HUD_ALWAYS_DEAD|PARALYSE_RESISTANT
+	species_flags = NO_BREATHE|NO_SCAN|NO_BLOOD|NO_POISON|NO_PAIN|NO_CHEM_METABOLIZATION|NO_STAMINA|HEALTH_HUD_ALWAYS_DEAD|PARALYSE_RESISTANT|SPECIES_NO_HUG
 	lighting_cutoff = LIGHTING_CUTOFF_HIGH
 	inherent_traits = TRAIT_CRIT_IS_DEATH //so they dont stay alive when downed ig.
 	blood_color = "#110a0a"
@@ -39,6 +39,12 @@
 
 /datum/species/zombie/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
 	. = ..()
+	for(var/datum/limb/limb AS in H.limbs)
+		if(!istype(limb, /datum/limb/head))
+			continue
+		limb.vital = FALSE
+		break
+
 	H.set_undefibbable()
 	H.faction = faction
 	H.transfer_to_hive(hivenumber)
@@ -82,6 +88,12 @@
 
 /datum/species/zombie/post_species_loss(mob/living/carbon/human/H)
 	. = ..()
+	for(var/datum/limb/limb AS in H.limbs)
+		if(!istype(limb, /datum/limb/head))
+			continue
+		limb.vital = TRUE
+		break
+
 	var/datum/atom_hud/health_hud = GLOB.huds[DATA_HUD_MEDICAL_OBSERVER]
 	health_hud.remove_hud_from(H)
 	qdel(H.r_hand)
@@ -94,9 +106,6 @@
 /datum/species/zombie/handle_unique_behavior(mob/living/carbon/human/H)
 	if(prob(10))
 		playsound(get_turf(H), pick(sounds), 50)
-
-
-
 	if(SSticker.mode.zombies_regrow_limbs)
 		var/datum/limb/limb = pick(H.limbs) //small chance of regrowing a limb
 		if(limb.limb_status & LIMB_DESTROYED && !(limb.parent?.limb_status & LIMB_DESTROYED) && prob(1))

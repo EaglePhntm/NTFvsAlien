@@ -70,6 +70,7 @@ export const JobPreferences = (props) => {
     'SOM Staff Officer',
     'SOM Pilot Officer',
     'SOM Assault Crewman',
+    'Sons of Mars Representative',
     'SOM Chief Medical Officer',
     'SOM Chief Engineer',
     'SOM Requisitions Officer',
@@ -78,6 +79,9 @@ export const JobPreferences = (props) => {
   ];
   const flavourJobs = [
     'Operations Officer',
+    'Archercorp Liaison',
+    'Novamed Liaison',
+    'TRANSCo Liaison',
     'Worker',
     'Morale Officer',
     'Prisoner',
@@ -92,6 +96,7 @@ export const JobPreferences = (props) => {
     'CLF Synthetic',
     'CLF Leader',
     'CLF Base Technician',
+    'CLF Representative',
   ];
   const cmJobs = [
     'CM Standard',
@@ -99,6 +104,7 @@ export const JobPreferences = (props) => {
     'CM Guardsman',
     'CM Squad Leader',
     'CM Base Technician',
+    'Colonial Militia Representative',
   ];
   const kzJobs = [
     'KZ Standard',
@@ -106,6 +112,7 @@ export const JobPreferences = (props) => {
     'KZ Engineer',
     'KZ Specialist',
     'KZ Squad Leader',
+    'Kaizoku Liaison',
   ];
   const survivorJobs = [
     'Assistant Survivor',
@@ -128,6 +135,15 @@ export const JobPreferences = (props) => {
     'Prisoner Survivor',
     'Stripper Survivor',
     'Maid Survivor',
+    'Synthetic Survivor',
+  ];
+  const pmcJobs = [
+    'AC Standard',
+    'AC Medic',
+    'AC Engineer',
+    'AC Gunner',
+    'AC Specialist',
+    'AC Squad Leader',
   ];
 
   const JobList = ({ name, jobs }) => (
@@ -261,7 +277,15 @@ export const JobPreferences = (props) => {
           <JobList name="SOM Jobs" jobs={somJobs} />
         </Stack.Item>
         <Stack.Item grow>
+          <JobList name="Survivor Jobs" jobs={survivorJobs} />
+        </Stack.Item>
+      </Stack>
+      <Stack>
+        <Stack.Item grow>
           <JobList name="CLF Jobs" jobs={clfJobs} />
+        </Stack.Item>
+        <Stack.Item grow>
+          <JobList name="AC Jobs" jobs={pmcJobs} />
         </Stack.Item>
       </Stack>
       <Stack>
@@ -270,11 +294,6 @@ export const JobPreferences = (props) => {
         </Stack.Item>
         <Stack.Item grow>
           <JobList name="KZ Jobs" jobs={kzJobs} />
-        </Stack.Item>
-      </Stack>
-      <Stack>
-        <Stack.Item grow>
-          <JobList name="Survivor Jobs" jobs={survivorJobs} />
         </Stack.Item>
       </Stack>
     </Section>

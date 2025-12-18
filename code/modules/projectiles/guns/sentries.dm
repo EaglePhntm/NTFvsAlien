@@ -17,7 +17,7 @@
 	burst_scatter_mult = 0
 	burst_amount = 4
 
-	turret_flags = TURRET_HAS_CAMERA|TURRET_ALERTS|TURRET_ALERTS
+	turret_flags = TURRET_HAS_CAMERA|TURRET_ALERTS
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_IFF|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	deployable_item = /obj/machinery/deployable/mounted/sentry
@@ -92,6 +92,7 @@
 	max_integrity = 225
 	integrity_failure = 50
 	deploy_time = 1 SECONDS
+	throw_range = 3
 	turret_flags = TURRET_HAS_CAMERA|TURRET_ALERTS|TURRET_RADIAL
 	deployable_item = /obj/machinery/deployable/mounted/sentry/cope
 	turret_range = 9

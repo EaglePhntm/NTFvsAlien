@@ -194,6 +194,10 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	. = ..()
 	if(faction == FACTION_SOM)
 		camera = new /obj/machinery/camera/headset/som(src)
+	else if(faction == FACTION_VSD)
+		camera = new /obj/machinery/camera/headset/kz(src)
+	else if(faction == FACTION_CLF)
+		camera = new /obj/machinery/camera/headset/clf(src)
 	else
 		camera = new(src)
 
@@ -474,6 +478,8 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 /obj/item/radio/headset/mainship/marine
 	keyslot = /obj/item/encryptionkey/general
+	///Is designated as the squad leader, ensures correct radio channels
+	var/squad_leader = FALSE
 
 /obj/item/radio/headset/mainship/marine/Initialize(mapload, datum/squad/squad, rank)
 	if(squad)
@@ -496,6 +502,12 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 			keyslot2 = /obj/item/encryptionkey/med
 		name = dat + " radio headset"
 	return ..()
+
+/obj/item/radio/headset/mainship/marine/recalculateChannels()
+	. = ..()
+	if(squad_leader)
+		channels[RADIO_CHANNEL_COMMAND] = TRUE
+		secure_radio_connections[RADIO_CHANNEL_COMMAND] = add_radio(src, GLOB.radiochannels[RADIO_CHANNEL_COMMAND])
 
 /obj/item/radio/headset/mainship/marine/alpha
 	name = "marine alpha radio headset"
@@ -624,11 +636,12 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	keyslot2 = /obj/item/encryptionkey/sec
 
 /obj/item/radio/headset/mainship/marine/pmc
-	name = "pmc radio headset"
+	name = "AC radio headset"
 	icon_state = "headset_marine_generic"
 	keyslot = /obj/item/encryptionkey/PMC
-	keyslot2 = /obj/item/encryptionkey/mcom
+	keyslot2 = /obj/item/encryptionkey/general
 	frequency = FREQ_PMC
+	faction = FACTION_NANOTRASEN
 
 /obj/item/radio/headset/mainship/marine/icc
 	name = "colonial militia headset"

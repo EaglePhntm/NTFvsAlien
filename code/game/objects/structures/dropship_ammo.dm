@@ -223,7 +223,7 @@
 	icon_state = "30mm_crate"
 	desc = "A crate full of 30mm bullets used on the dropship heavy guns. Moving this will require some sort of lifter."
 	equipment_type = /obj/structure/dropship_equipment/cas/weapon/heavygun
-	travelling_time = 4 SECONDS
+	travelling_time = 2 SECONDS
 	ammo_count = 2000
 	max_ammo_count = 2000
 	transferable_ammo = TRUE
@@ -287,7 +287,7 @@
 	name = "high-velocity 30mm ammo crate"
 	icon_state = "30mm_crate_hv"
 	desc = "A crate full of 30mm high-velocity bullets used on the dropship heavy guns. Moving this will require some sort of lifter."
-	travelling_time = 2 SECONDS
+	travelling_time = 1.25 SECONDS
 	point_cost = 225
 	crosshair = 'icons/UI_Icons/cas_crosshairs/gun_hv.dmi'
 
@@ -332,7 +332,7 @@
 	name = "high-capacity laser battery"
 	icon_state = "laser_battery"
 	desc = "A high-capacity laser battery used to power laser beam weapons. Moving this will require some sort of lifter."
-	travelling_time = 1 SECONDS
+	travelling_time = 0.5 SECONDS
 	ammo_count = 100
 	max_ammo_count = 100
 	equipment_type = /obj/structure/dropship_equipment/cas/weapon/laser_beam_gun
@@ -401,12 +401,18 @@
 	firing_voiceline = 'sound/voice/plane_vws/shot_missile.ogg'
 	bound_width = 64
 	bound_height = 32
-	travelling_time = 4 SECONDS
+	travelling_time = 3 SECONDS
 	point_cost = 0
 	ammo_type = CAS_MISSILE
 
 /obj/structure/ship_ammo/cas/rocket/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(3)
+	for(var/obj/machinery/deployable/mounted/sentry/ads_system/ads in orange(GLOB.ads_intercept_range,impact))
+		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
+			continue
+		if(ads.try_intercept(impact, src, 0.5, 5))
+			qdel(src)
+			return
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, explosion_cause=src)
 	qdel(src)
 
@@ -456,13 +462,17 @@
 
 /obj/structure/ship_ammo/cas/rocket/napalm/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(3)
-	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, explosion_cause=src)
 	flame_radius(fire_range, impact, 30, 60) //cooking for a long time
 	var/datum/effect_system/smoke_spread/phosphorus/warcrime = new
 	warcrime.set_up(fire_range + 1, impact, 7)
 	warcrime.start()
-	qdel(src)
-
+	for(var/obj/machinery/deployable/mounted/sentry/ads_system/ads in orange(GLOB.ads_intercept_range,impact))
+		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
+			continue
+		if(ads.try_intercept(impact, src, 0.5, 5))
+			qdel(src)
+			return
+	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, explosion_cause=src)
 
 // High yield missiles are defined by having... high yields and high travel time, usually around six seconds.
 
@@ -478,12 +488,18 @@
 	light_explosion_range = 5
 	fire_range = 7
 	prediction_type = CAS_AMMO_INCENDIARY
-	travelling_time = 6 SECONDS
+	travelling_time = 5 SECONDS
 	cas_effect = /obj/effect/overlay/blinking_laser/banshee
 	crosshair = 'icons/UI_Icons/cas_crosshairs/banshee.dmi'
 
 /obj/structure/ship_ammo/cas/rocket/banshee/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(3)
+	for(var/obj/machinery/deployable/mounted/sentry/ads_system/ads in orange(GLOB.ads_intercept_range,impact))
+		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
+			continue
+		if(ads.try_intercept(impact, src, 0.5, 5))
+			qdel(src)
+			return
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, flame_range = fire_range, explosion_cause=src) //more spread out, with flames
 	qdel(src)
 
@@ -504,6 +520,12 @@
 
 /obj/structure/ship_ammo/cas/rocket/fatty/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
+	for(var/obj/machinery/deployable/mounted/sentry/ads_system/ads in orange(GLOB.ads_intercept_range,impact))
+		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
+			continue
+		if(ads.try_intercept(impact, src, 0.5, 5))
+			qdel(src)
+			return
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, explosion_cause=src) //first explosion is small to trick xenos into thinking its a minirocket.
 	addtimer(CALLBACK(src, PROC_REF(delayed_detonation), impact), 3 SECONDS)
 
@@ -578,9 +600,15 @@
 
 /obj/structure/ship_ammo/cas/minirocket/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
-	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, explosion_cause=src)
 	if(!ammo_count)
 		QDEL_IN(src, travelling_time) //deleted after last minirocket has fired and impacted the ground.
+	for(var/obj/machinery/deployable/mounted/sentry/ads_system/ads in orange(GLOB.ads_intercept_range,impact))
+		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
+			continue
+		if(ads.try_intercept(impact, src, 0.5, 5))
+			return
+	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, explosion_cause=src)
+
 
 /obj/structure/ship_ammo/cas/minirocket/show_loaded_desc(mob/user)
 	return "It's loaded with \a [src] containing [ammo_count] minirocket\s."
@@ -595,7 +623,7 @@
 	desc = "A pack of laser guided incendiary mini rockets. Moving this will require some sort of lifter."
 	icon_state = "minirocket_inc"
 	point_cost = 250
-	travelling_time = 4 SECONDS
+	travelling_time = 3 SECONDS
 	light_explosion_range = 3 //Slightly weaker than standard minirockets
 	fire_range = 3 //Fire range should be the same as the explosion range. Explosion should leave fire, not vice versa
 	prediction_type = CAS_AMMO_INCENDIARY
@@ -604,6 +632,12 @@
 
 /obj/structure/ship_ammo/cas/minirocket/incendiary/detonate_on(turf/impact, attackdir = NORTH)
 	. = ..()
+	impact.ceiling_debris_check(2)
+	for(var/obj/machinery/deployable/mounted/sentry/ads_system/ads in orange(GLOB.ads_intercept_range,impact))
+		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
+			continue
+		if(ads.try_intercept(impact, src, 0.5, 5))
+			return
 	flame_radius(fire_range, impact)
 
 /obj/structure/ship_ammo/cas/minirocket/smoke
@@ -623,6 +657,11 @@
 	var/datum/effect_system/smoke_spread/tactical/S = new
 	S.set_up(7, impact)// Large radius, but dissipates quickly
 	S.start()
+	for(var/obj/machinery/deployable/mounted/sentry/ads_system/ads in orange(GLOB.ads_intercept_range,impact))
+		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
+			continue
+		if(ads.try_intercept(impact, src, 0.5, 5))
+			return //shit happen anyway
 
 /obj/structure/ship_ammo/cas/minirocket/tangle
 	name = "Tanglefoot mini rocket stack"
@@ -638,10 +677,15 @@
 
 /obj/structure/ship_ammo/cas/minirocket/tangle/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
-	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, throw_range = 0, explosion_cause=src)
 	var/datum/effect_system/smoke_spread/plasmaloss/S = new
 	S.set_up(9, impact, 9)// Between grenade and mortar
 	S.start()
+	for(var/obj/machinery/deployable/mounted/sentry/ads_system/ads in orange(GLOB.ads_intercept_range,impact))
+		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
+			continue
+		if(ads.try_intercept(impact, src, 0.5, 5))
+			return
+	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, throw_range = 0, explosion_cause=src)
 
 /obj/structure/ship_ammo/cas/minirocket/illumination
 	name = "illumination rocket flare stack"
@@ -659,9 +703,14 @@
 
 /obj/structure/ship_ammo/cas/minirocket/illumination/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
-	addtimer(CALLBACK(src, PROC_REF(drop_cas_flare), impact), 1.5 SECONDS)
 	if(!ammo_count)
 		QDEL_IN(src, travelling_time) //deleted after last minirocket has fired and impacted the ground.
+	for(var/obj/machinery/deployable/mounted/sentry/ads_system/ads in orange(GLOB.ads_intercept_range,impact))
+		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
+			continue
+		if(ads.try_intercept(impact, src, 0.5, 5))
+			return
+	addtimer(CALLBACK(src, PROC_REF(drop_cas_flare), impact), 1.5 SECONDS)
 
 /obj/structure/ship_ammo/cas/minirocket/illumination/proc/drop_cas_flare(turf/impact)
 	new /obj/effect/temp_visual/above_flare(impact)
@@ -691,6 +740,11 @@
 
 /obj/structure/ship_ammo/cas/bomb/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
+	for(var/obj/machinery/deployable/mounted/sentry/ads_system/ads in orange(GLOB.ads_intercept_range,impact))
+		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
+			continue
+		if(ads.try_intercept(impact, src, 0.5, 5))
+			return
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, explosion_cause=src)
 
 // Four hundos have no real gimmick beyond being a bigger payload.
@@ -749,6 +803,11 @@
 
 /obj/structure/ship_ammo/cas/bomblet/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
+	for(var/obj/machinery/deployable/mounted/sentry/ads_system/ads in orange(GLOB.ads_intercept_range,impact))
+		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
+			continue
+		if(ads.try_intercept(impact, src, 0.5, 5))
+			return
 	explosion(impact, heavy_explosion_range, light_explosion_range, explosion_cause=src)
 
 /obj/structure/ship_ammo/cas/bomblet/medium

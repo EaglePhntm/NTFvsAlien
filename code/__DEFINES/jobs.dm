@@ -82,12 +82,12 @@
 #define SQUAD_ROBOT "Squad Robot"
 #define SQUAD_VATGROWN "Squad VatGrown"
 #define SILICON_AI "AI"
-#define PMC_STANDARD "PMC Standard"
-#define PMC_MEDIC "PMC Medic"
-#define PMC_ENGINEER "PMC Engineer"
-#define PMC_GUNNER "PMC Gunner"
-#define PMC_SNIPER "PMC Specialist"
-#define PMC_LEADER "PMC Squad Leader"
+#define PMC_STANDARD "AC Standard"
+#define PMC_MEDIC "AC Medic"
+#define PMC_ENGINEER "AC Engineer"
+#define PMC_GUNNER "AC Gunner"
+#define PMC_SNIPER "AC Specialist"
+#define PMC_LEADER "AC Squad Leader"
 
 //ICC
 
@@ -133,7 +133,7 @@
 #define JOB_CAT_MARINE "Military"
 #define JOB_CAT_XENO "Xenomorph"
 #define JOB_CAT_UNASSIGNED "Unassigned"
-#define JOB_CAT_PMC "Private Military Company"
+#define JOB_CAT_PMC "ArcherCorp Asset Protection"
 #define JOB_CAT_VSD "Kaizoku Corporation"
 
 #define JOB_CAT_COMMANDSOM "SOM Command"
@@ -163,7 +163,7 @@ GLOBAL_LIST_INIT(jobs_regular_all, list(CAPTAIN, EXECUTIVE_OFFICER, SECURITY_OFF
 CHIEF_MEDICAL_OFFICER, SYNTHETIC, SILICON_AI, CORPORATE_LIAISON, SHIP_TECH, ASSAULT_CREWMAN, TRANSPORT_CREWMAN, \
 MEDICAL_DOCTOR, MEDICAL_RESEARCHER, SQUAD_LEADER, SQUAD_SPECIALIST, SQUAD_SMARTGUNNER, SQUAD_CORPSMAN, SQUAD_ENGINEER, SQUAD_MARINE, SQUAD_SLUT, SQUAD_ROBOT, SQUAD_VATGROWN, \
 SOM_SQUAD_SLUT, SOM_SQUAD_MARINE, SOM_SQUAD_VETERAN, SOM_SQUAD_ENGINEER, SOM_SQUAD_CORPSMAN, SOM_SQUAD_LEADER, SOM_CHEF, SOM_MEDICAL_DOCTOR, SOM_TECH, SOM_CHIEF_MEDICAL_OFFICER, SOM_CHIEF_ENGINEER, SOM_REQUISITIONS_OFFICER, SOM_MECH_PILOT, SOM_PILOT_OFFICER, SOM_ASSAULT_CREWMAN, SOM_FIELD_COMMANDER, SOM_STAFF_OFFICER, SOM_COMMANDER, \
-PMC_MEDIC, PMC_ENGINEER, PMC_GUNNER, PMC_STANDARD, PMC_SNIPER, PMC_LEADER))
+PMC_MEDIC, PMC_ENGINEER, PMC_GUNNER, PMC_STANDARD, PMC_SNIPER, PMC_LEADER, VANGUARD, "CLF Breeder", "CLF Standard", "CLF Specialist", "CLF Leader", "CLF Medic", "KZ Standard", "KZ Engineer", "KZ Medic", "KZ Specialist", "KZ Squad Leader", "Morale Officer", "Worker", "Archercorp Liaison", "Novamed Liaison", "TRANSCo Liaison", "Kaizoku Liaison", "Colonial Militia Representative", "CLF Representative", "Sons of Mars Representative"))
 GLOBAL_LIST_INIT(jobs_xenos, list(ROLE_XENOMORPH, ROLE_XENO_QUEEN))
 GLOBAL_LIST_INIT(jobs_fallen_marine, typecacheof(list(/datum/job/fallen/marine), TRUE))
 ///Squad type role, regardless of faction

@@ -74,6 +74,16 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 	if(CHECK_BITFIELD(gun?.turret_flags, TURRET_HAS_CAMERA))
 		camera = new (src)
 		camera.network = list("military")
+		if(iff_signal & CLF_IFF)
+			camera.network = list("clf")
+		if(iff_signal & SOM_IFF)
+			camera.network = list(SOM_CAMERA_NETWORK)
+		if(iff_signal & TGMC_LOYALIST_IFF)
+			camera.network = list("marine", "marinesl")
+		if(iff_signal & VSD_IFF)
+			camera.network = list("kaizoku")
+		if(iff_signal & ICC_IFF)
+			camera.network = list("icc")
 		camera.c_tag = "[name] ([rand(0, 1000)])"
 
 	GLOB.marine_turrets += src
@@ -401,6 +411,10 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 		if(nearby_xeno.stat == DEAD || HAS_TRAIT(nearby_xeno, TRAIT_TURRET_HIDDEN) || CHECK_BITFIELD(nearby_xeno.status_flags, INCORPOREAL) || CHECK_BITFIELD(nearby_xeno.xeno_iff_check(), iff_signal)) //So wraiths wont be shot at when in phase shift
 			continue
 		potential_targets += nearby_xeno
+	for(var/obj/item/clothing/mask/facehugger/nearby_hugger AS in cheap_get_fhugger_near(src, range))
+		if(nearby_hugger.stat == DEAD || (faction in (GLOB.hive_datums[nearby_hugger.hivenumber].allied_factions)))
+			continue
+		potential_targets += nearby_hugger
 	for(var/obj/vehicle/sealed/mecha/nearby_mech AS in cheap_get_mechs_near(src, range))
 		var/list/driver_list = nearby_mech.return_drivers()
 		if(!length(driver_list))

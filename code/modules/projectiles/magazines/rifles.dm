@@ -271,7 +271,7 @@
 	icon = 'icons/obj/items/ammo/machinegun.dmi'
 	icon_state_mini = "mag_gpmg"
 	caliber = CALIBER_10x26_CASELESS
-	default_ammo = /datum/ammo/bullet/rifle/machinegun
+	default_ammo = /datum/ammo/bullet/rifle/som_machinegun //ntf change cause som mg fucks
 	w_class = WEIGHT_CLASS_NORMAL
 	max_rounds = 200
 	reload_delay = 3 SECONDS
@@ -631,6 +631,30 @@
 	max_rounds = 8
 
 //-------------------------------------------------------
+//Dragoon
+/obj/item/ammo_magazine/rifle/boltclip/dragoon
+	name = "clip of 9.8x22mm rifle rounds"
+	desc = "A Disposible Stripper clip filled with exotic rifle bullets."
+	icon_state = "clipdragoon"
+	default_ammo = /datum/ammo/bullet/sniper/dragoon
+	caliber = CALIBER_98x22
+	max_rounds = 5
+	w_class = WEIGHT_CLASS_SMALL
+	icon_state_mini = "clips"
+	reload_delay = 5
+
+/obj/item/ammo_magazine/rifle/boltclip/dragoon/pox //Poison rounds
+	name = "clip of green-tipped 9.8x22mm rifle rounds"
+	desc = "A Disposible Stripper clip filled with exotic rifle bullets."
+	icon_state = "clipdragoonp"
+	default_ammo = /datum/ammo/bullet/sniper/dragoon/pox
+	caliber = CALIBER_98x22
+	max_rounds = 5
+	w_class = WEIGHT_CLASS_SMALL
+	icon_state_mini = "clips"
+	reload_delay = 5
+
+//-------------------------------------------------------
 //V-31 SOM rifle
 
 /obj/item/ammo_magazine/rifle/som
@@ -658,6 +682,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	default_ammo = /datum/ammo/bullet/rifle/ap
 	max_rounds = 50
+	scatter_mod = 3
 
 /obj/item/ammo_magazine/rifle/som/incendiary
 	name = "\improper V-31 incendiary magazine (10x24mm)"
@@ -880,10 +905,18 @@
 	default_ammo = /datum/ammo/bullet/rifle/heavy/rubber
 	color = list(1,0,0,0, 0,1,0,0, 0,1.5,1,0, 0,0,0,1) //recolor it green.  New sprites would be better but too much work
 
+/obj/item/ammo_magazine/rifle/vsd_carbine/rubber/extended
+	name = "\improper CC/77 extended rubber magazine (10x24mm)"
+	max_rounds = 48
+	wield_delay_mod = 0.2 SECONDS
+	scatter_mod = 2
+
 /obj/item/ammo_magazine/rifle/vsd_carbine/extended
 	name = "\improper CC/77 extended magazine (10x24mm)"
 	icon_state = "c77_ext"
 	max_rounds = 48
+	wield_delay_mod = 0.2 SECONDS
+	scatter_mod = 2
 
 /obj/item/ammo_magazine/rifle/vsd_carbine/ap
 	name = "\improper CC/77 armor-piercing magazine (10x24mm)"

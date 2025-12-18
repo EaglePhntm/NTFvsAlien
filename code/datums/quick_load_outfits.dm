@@ -1,3 +1,6 @@
+/**
+ *WARNING: This file is obsolete, use /code/datums/outfits/quick_load_outfits.dm for any new outfits
+*/
 /datum/outfit/quick
 	///Description of the loadout
 	var/desc = "Description here"
@@ -1782,7 +1785,7 @@
 	gloves = /obj/item/clothing/gloves/marine/som/veteran
 	mask = /obj/item/clothing/mask/gas
 	head = /obj/item/clothing/head/modular/som/veteran
-	glasses = /obj/item/clothing/glasses/meson
+	glasses = /obj/item/clothing/glasses/night/m42_night_goggles
 	r_pocket = /obj/item/storage/pouch/firstaid/som/combat_patrol
 	l_pocket = /obj/item/storage/pouch/grenade/som/combat_patrol
 	back = /obj/item/storage/backpack/satchel/som
@@ -2081,6 +2084,7 @@
 	wear_suit = /obj/item/clothing/suit/modular/som/light/shield
 	belt = /obj/item/storage/holster/belt/pistol/m4a3/som
 	suit_store = /obj/item/weapon/energy/sword/som
+	glasses = /obj/item/clothing/glasses/meson
 	back = /obj/item/blink_drive
 
 /datum/outfit/quick/som/veteran/blinker/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -2251,8 +2255,8 @@
 
 // PMC Kwik-E-Quip Outfits
 /datum/outfit/quick/pmc/standard
-	name = "PMC Standard"
-	jobtype = "PMC Standard"
+	name = "AC Standard"
+	jobtype = "AC Standard"
 
 	belt = /obj/item/storage/belt/marine
 	ears = /obj/item/radio/headset/mainship/marine/pmc
@@ -2304,8 +2308,8 @@
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/enrg_bar, SLOT_IN_HEAD)
 
 /datum/outfit/quick/pmc/medic
-	name = "PMC Medic"
-	jobtype = "PMC Medic"
+	name = "AC Medic"
+	jobtype = "AC Medic"
 
 	belt = /obj/item/storage/belt/lifesaver/quick
 	ears = /obj/item/radio/headset/mainship/marine/pmc
@@ -2344,8 +2348,8 @@
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/enrg_bar, SLOT_IN_HEAD)
 
 /datum/outfit/quick/pmc/engineer
-	name = "PMC Engineer"
-	jobtype = "PMC Engineer"
+	name = "AC Engineer"
+	jobtype = "AC Engineer"
 
 	ears = /obj/item/radio/headset/mainship/marine/pmc
 	belt = /obj/item/storage/belt/marine
@@ -2394,8 +2398,8 @@
 
 
 /datum/outfit/quick/pmc/gunner
-	name = "PMC Gunner"
-	jobtype = "PMC Gunner"
+	name = "AC Gunner"
+	jobtype = "AC Gunner"
 
 	belt = /obj/item/belt_harness/marine
 	ears = /obj/item/radio/headset/mainship/marine/pmc
@@ -2441,8 +2445,8 @@
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_R_POUCH)
 
 /datum/outfit/quick/pmc/sniper
-	name = "PMC Specialist"
-	jobtype = "PMC Specialist"
+	name = "AC Specialist"
+	jobtype = "AC Specialist"
 
 	belt = /obj/item/storage/holster/belt/pistol/m4a3/vp70_pmc
 	ears = /obj/item/radio/headset/mainship/marine/pmc
@@ -2453,7 +2457,7 @@
 	head = /obj/item/clothing/head/helmet/marine/veteran/pmc/sniper
 	mask = /obj/item/clothing/mask/gas/pmc/leader
 	glasses = /obj/item/clothing/glasses/night/m42_night_goggles
-	suit_store = /obj/item/weapon/gun/rifle/sniper/elite
+	suit_store = /obj/item/weapon/gun/rifle/sniper/pmc_railgun
 	r_pocket = /obj/item/storage/pouch/magazine/large/pmc_sniper
 	l_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
 	back = /obj/item/storage/backpack/lightpack
@@ -2481,8 +2485,8 @@
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/sliceable/sandwiches/meatbread, SLOT_IN_BACKPACK)
 
 /datum/outfit/quick/pmc/squad_leader
-	name = "PMC Squad Leader"
-	jobtype = "PMC Squad Leader"
+	name = "AC Squad Leader"
+	jobtype = "AC Squad Leader"
 
 	belt = /obj/item/storage/belt/marine
 	ears = /obj/item/radio/headset/mainship/marine/pmc
@@ -2666,7 +2670,7 @@
 	H.equip_to_slot_or_del(new /obj/item/tweezers, SLOT_IN_ACCESSORY)
 
 /datum/outfit/quick/icc/medic/icc_sharpshooter
-	name = "L-11 ICC Medic"
+	name = "L-11 CM Medic"
 	desc = "Equipped with an L-11 sharpshooter rifle and everything you need to keep people alive."
 	suit_store = /obj/item/weapon/gun/rifle/icc_sharpshooter/medic
 	l_pocket = /obj/item/storage/pouch/magazine/large/icc
@@ -2780,6 +2784,7 @@
 	gloves = /obj/item/clothing/gloves/marine/icc/guard
 	head = /obj/item/clothing/head/helmet/marine/icc/guard
 	back = /obj/item/storage/backpack/lightpack/icc/guard
+	glasses = /obj/item/clothing/glasses/night/m42_night_goggles
 	l_pocket = /obj/item/storage/pouch/medical_injectors/icc/firstaid
 	r_pocket = /obj/item/storage/pouch/construction/icc/full
 

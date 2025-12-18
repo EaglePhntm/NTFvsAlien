@@ -89,9 +89,9 @@
 	},
 /area/shuttle/minidropship)
 "s" = (
-/obj/machinery/camera/autoname/mainship/dropship_two,
 /obj/structure/bed/chair/dropship/passenger,
 /obj/machinery/vending/nanomed/tadpolemed,
+/obj/machinery/camera/autoname/mainship/somship,
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "t" = (
@@ -104,12 +104,12 @@
 /obj/structure/bed/chair/dropship/pilot{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/mainship/dropship_two{
-	dir = 8
-	},
 /obj/effect/turf_decal/tile/transparent/dark_blue/anticorner/contrasted,
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/machinery/camera/autoname/mainship/somship{
+	dir = 8
 	},
 /turf/open/floor/mainship,
 /area/shuttle/minidropship)
@@ -172,6 +172,12 @@
 	id = "minidropship_podlocksom"
 	},
 /turf/open/floor/plating/plating_catwalk,
+/area/shuttle/minidropship)
+"F" = (
+/obj/item/weapon/gun/sentry/ads_system/premade{
+	faction = "Sons of Mars"
+	},
+/turf/closed/wall/mainship/outer/canterbury,
 /area/shuttle/minidropship)
 "I" = (
 /obj/structure/dropship_piece/tadpole/tadpole_nose/left{
@@ -377,7 +383,7 @@ T
 O
 a
 a
-b
+F
 r
 O
 "}

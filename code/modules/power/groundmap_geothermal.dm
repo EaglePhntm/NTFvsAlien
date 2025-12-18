@@ -66,6 +66,7 @@ GLOBAL_VAR_INIT(corrupted_generators, 0)
 	. = ..()
 	if(corrupted)
 		. += "It is covered in writhing tendrils [!isxeno(user) ? "that could be cut away with a welder" : ""]."
+		. += "It is claimed by the [GLOB.hive_datums[corrupted].name] hive."
 	if(isxeno(user) && !is_corruptible)
 		. += "It is reinforced, making us not able to corrupt it."
 
@@ -290,20 +291,22 @@ GLOBAL_VAR_INIT(corrupted_generators, 0)
 		user.balloon_alert(user, "You start carefully burning the resin off.")
 		var/datum/hive_status/hive = GLOB.hive_datums[corrupted]
 		if(istype(hive))
-			hive.xeno_message("Our [name] is being attacked by [user] at [AREACOORD_NO_Z(src)]!", "xenoannounce", 5, FALSE, loc, 'sound/voice/alien/help2.ogg',FALSE , null, /atom/movable/screen/arrow/silo_damaged_arrow)
+			hive.xeno_message("Our [name] is being attacked by [user] at [AREACOORD_NO_Z(src)]!", "xenoannounce", 5, FALSE, loc, 'sound/voice/hiss4.ogg',FALSE , null, /atom/movable/screen/arrow/silo_damaged_arrow)
 
 		if(!I.use_tool(src, user, 20 SECONDS - clamp((user.skills.getRating(SKILL_ENGINEER) - SKILL_ENGINEER_ENGI) * 5, 0, 20), 2, 25, null, BUSY_ICON_BUILD))
 			return FALSE
 
 		log_combat(user, src, "decorrupted", addition = "from hive [corrupted]")
 		if(istype(hive))
-			hive.xeno_message("Our [name] has been stolen by [user] at [AREACOORD_NO_Z(src)]!", "xenoannounce", 5, FALSE, loc, 'sound/voice/alien/help2.ogg',FALSE , null, /atom/movable/screen/arrow/silo_damaged_arrow)
+			hive.xeno_message("Our [name] has been stolen by [user] at [AREACOORD_NO_Z(src)]!", "xenoannounce", 5, FALSE, loc, 'sound/voice/hiss4.ogg',FALSE , null, /atom/movable/screen/arrow/silo_damaged_arrow)
 
 		corrupted = 0
+		color = null
+		name = initial(name)
 
 		if(is_ground_level(z) && hive?.hivenumber == XENO_HIVE_NORMAL)
 			GLOB.corrupted_generators -= 1
-			SSticker.mode?.update_silo_death_timer(GLOB.hive_datums[corrupted])
+			SSticker.mode?.update_silo_death_timer(hive)
 
 		stop_processing()
 		update_icon()
@@ -380,6 +383,8 @@ GLOBAL_VAR_INIT(corrupted_generators, 0)
 	if(is_ground_level(z) && hivenumber == XENO_HIVE_NORMAL && corrupted != hivenumber)
 		GLOB.corrupted_generators += 1
 	corrupted = hivenumber
+	color = GLOB.hive_datums[hivenumber].color
+	name = initial(name) +" ([GLOB.hive_datums[hivenumber].name] Hive)"
 	is_on = FALSE
 	if(SSticker.mode)
 		SSticker.mode.update_silo_death_timer(GLOB.hive_datums[hivenumber])

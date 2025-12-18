@@ -324,6 +324,11 @@ WEAPONS
 	contains = list(/obj/item/weapon/gun/rifle/pepperball)
 	cost = 100
 
+/datum/supply_packs/weapons/pepperball/mag
+	name = "PB-12 pepperball gun magazine (x1)"
+	contains = list(/obj/item/ammo_magazine/rifle/pepperball)
+	cost = 3
+
 /datum/supply_packs/weapons/bricks
 	name = "Brick"
 	contains = list(/obj/item/weapon/brick)
@@ -625,3 +630,17 @@ WEAPONS
 	contains = list(/obj/item/ammo_magazine/rifle/chamberedrifle/tranq)
 	cost = 30
 
+/datum/supply_packs/weapons/dragoon
+	name = "Dragoon Mk1 Rapid Engagement Rifle"
+	contains = list(/obj/item/weapon/gun/rifle/dragoon)
+	cost = 650
+
+/datum/supply_packs/weapons/dragoon_ammo
+	name = "Dragoon Mk1 RER stripper clip"
+	contains = list(/obj/item/ammo_magazine/rifle/boltclip/dragoon)
+	cost = 20
+
+/datum/supply_packs/weapons/dragoon_ammo_pox
+	name = "Dragoon Mk1 RER poxomelanin rounds stripper clip"
+	contains = list(/obj/item/ammo_magazine/rifle/boltclip/dragoon/pox)
+	cost = 100

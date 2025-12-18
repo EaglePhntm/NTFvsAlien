@@ -19,7 +19,6 @@
 	load_method = SINGLE_CASING|SPEEDLOADER //codex
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_SMOKE_PARTICLES
 	actions_types = list(/datum/action/item_action/aim_mode)
-	aim_time = 1 SECONDS
 	aim_speed_modifier = 0.75
 	aim_fire_delay = 0.25 SECONDS
 	wield_delay = 0.2 SECONDS
@@ -43,6 +42,11 @@
 	///Whether the chamber can be spun for Russian Roulette. If False the chamber can be spun.
 	var/catchworking = TRUE
 
+/obj/item/weapon/gun/RightClick(mob/user)
+	. = ..()
+	var/holding = user.get_active_held_item()
+	if(holding && holding == src)
+		do_trick(user)
 //-------------------------------------------------------
 //R-44 COMBAT REVOLVER
 

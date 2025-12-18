@@ -72,6 +72,7 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 		/datum/outfit/quick/som/veteran/v35breacher,
 		/datum/outfit/quick/som/veteran/rocket_man,
 		/datum/outfit/quick/som/veteran/blinker,
+		/datum/outfit/quick/som/veteran/dragoon,
 		/datum/outfit/quick/som/squad_leader/standard_assaultrifle,
 		/datum/outfit/quick/som/squad_leader/standard_smg,
 		/datum/outfit/quick/som/squad_leader/charger,
@@ -93,9 +94,11 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 		/datum/outfit/quick/pmc/standard,
 		/datum/outfit/quick/pmc/engineer,
 		/datum/outfit/quick/pmc/medic,
-		/datum/outfit/quick/pmc/gunner,
-		/datum/outfit/quick/pmc/sniper,
-		/datum/outfit/quick/pmc/squad_leader,
+		/datum/outfit/quick/pmc/gunner/smart_machinegun,
+		/datum/outfit/quick/pmc/gunner/smart_rifle,
+		/datum/outfit/quick/pmc/sniper/sniper_rifle,
+		/datum/outfit/quick/pmc/sniper/ra_val,
+		/datum/outfit/quick/pmc/squad_leader/m416,
 		/datum/outfit/quick/icc/standard/icc_battlecarbine,
 		/datum/outfit/quick/icc/standard/icc_sharpshooter,
 		/datum/outfit/quick/icc/standard/icc_assaultcarbine,
@@ -301,16 +304,16 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 	)
 
 /obj/machinery/quick_vendor/pmc
-	name = "PMC Kwik-E-Quip Vendor"
+	name = "AC Kwik-E-Quip Vendor"
 	icon_state = "loadoutvendor"
 	faction = FACTION_NANOTRASEN
 	categories = list(
-		"PMC Standard",
-		"PMC Engineer",
-		"PMC Medic",
-		"PMC Gunner",
-		"PMC Specialist",
-		"PMC Squad Leader",
+		"AC Standard",
+		"AC Engineer",
+		"AC Medic",
+		"AC Gunner",
+		"AC Specialist",
+		"AC Squad Leader",
 	)
 
 /obj/machinery/quick_vendor/icc

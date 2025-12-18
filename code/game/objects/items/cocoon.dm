@@ -42,18 +42,20 @@
 /obj/structure/cocoon/examine(mob/user, distance, infix, suffix)
 	. = ..()
 	if(anchored && victim && ishuman(user))
-		. += span_notice("There seems to be someone inside it. You think you can open it with a sharp object.")
+		. += span_notice("There seems to be someone inside it.")
 
 /obj/structure/cocoon/process()
 	var/psych_points_output = COCOON_PSY_POINTS_REWARD_MIN + ((HIGH_PLAYER_POP - SSmonitor.maximum_connected_players_count) / HIGH_PLAYER_POP * (COCOON_PSY_POINTS_REWARD_MAX - COCOON_PSY_POINTS_REWARD_MIN))
 	psych_points_output = clamp(psych_points_output, COCOON_PSY_POINTS_REWARD_MIN, COCOON_PSY_POINTS_REWARD_MAX)
+	var/multiplier = (victim.stat != DEAD && !HAS_TRAIT(victim, TRAIT_HIVE_TARGET)) ? 0.3 : 1
+	psych_points_output *= multiplier
 	GLOB.round_statistics.strategic_psypoints_from_cocoons += psych_points_output
 	SSpoints.add_strategic_psy_points(hivenumber, psych_points_output)
 	SSpoints.add_tactical_psy_points(hivenumber, psych_points_output*0.25)
 	//Gives marine cloneloss for a total of 30.
 	victim.adjustCloneLoss(0.5)
-	SSpoints.add_biomass_points(hivenumber, MUTATION_BIOMASS_PER_COCOON_TICK)
-	GLOB.round_statistics.biomass_from_cocoons += MUTATION_BIOMASS_PER_COCOON_TICK
+	SSpoints.add_biomass_points(hivenumber, MUTATION_BIOMASS_PER_COCOON_TICK * multiplier)
+	GLOB.round_statistics.biomass_from_cocoons += MUTATION_BIOMASS_PER_COCOON_TICK * multiplier
 
 /obj/structure/cocoon/take_damage(damage_amount, damage_type = BRUTE, armor_type = null, effects = TRUE, attack_dir, armour_penetration = 0, mob/living/blame_mob)
 	. = ..()
@@ -72,17 +74,18 @@
 ///Stop producing points and release the victim if needed
 /obj/structure/cocoon/proc/life_draining_over(datum/source, must_release_victim = FALSE)
 	SIGNAL_HANDLER
+	var/multiplier = (victim.stat != DEAD && !HAS_TRAIT(victim, TRAIT_HIVE_TARGET)) ? 0.4 : 1
 	STOP_PROCESSING(SSslowprocess, src)
 	if(anchored)
 		unanchor_from_nest()
 	if(must_release_victim)
 		var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
-		xeno_job.add_job_points(larva_point_reward)
+		xeno_job.add_job_points(larva_point_reward * multiplier)
 		var/datum/hive_status/hive_status = GLOB.hive_datums[hivenumber]
 		hive_status.update_tier_limits()
-		GLOB.round_statistics.larva_from_cocoon += larva_point_reward / xeno_job.job_points_needed
-		SSpoints.add_biomass_points(hivenumber, MUTATION_BIOMASS_PER_COCOON_COMPLETION)
-		GLOB.round_statistics.biomass_from_cocoons += MUTATION_BIOMASS_PER_COCOON_COMPLETION
+		GLOB.round_statistics.larva_from_cocoon += larva_point_reward * multiplier / xeno_job.job_points_needed
+		SSpoints.add_biomass_points(hivenumber, MUTATION_BIOMASS_PER_COCOON_COMPLETION  * multiplier)
+		GLOB.round_statistics.biomass_from_cocoons += MUTATION_BIOMASS_PER_COCOON_COMPLETION * multiplier
 		release_victim()
 	update_icon()
 
@@ -127,6 +130,24 @@
 		return
 	return ..()
 
+/obj/structure/cocoon/attack_hand(mob/living/user)
+	if(!anchored && victim)
+		if(busy)
+			return
+		busy = TRUE
+		var/channel = SSsounds.random_available_channel()
+		playsound(user, "sound/effects/cutting_cocoon.ogg", 30, channel = channel)
+		if(!do_after(user, 1 MINUTES, TRUE, src))
+			busy = FALSE
+			user.stop_sound_channel(channel)
+			return
+		release_victim()
+		update_icon()
+		busy = FALSE
+		return
+	unanchor_from_nest()
+
+
 /obj/structure/cocoon/update_icon_state()
 	. = ..()
 	if(anchored)
@@ -137,10 +158,11 @@
 		return
 	icon_state = "xeno_cocoon_open"
 
+/* //Its kinda hot to be pulled around by an evil cacoon mommy
 /obj/structure/cocoon/can_be_pulled(user, force)
 	if(isxeno(user))
 		return FALSE
-	return ..()
+	return ..() */
 
 /obj/structure/cocoon/opened_cocoon
 	icon_state = "xeno_cocoon_open"

@@ -215,9 +215,6 @@
 /area/mainship/engineering/port_atmos)
 "aoH" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/marine/sneakingboots,
-/obj/item/clothing/under/marine/spec_operative,
-/obj/item/clothing/under/spec_operative/tback,
 /turf/open/floor/carpet/side{
 	dir = 10
 	},
@@ -480,6 +477,7 @@
 /obj/machinery/light/mainship{
 	light_color = "#da2f1b"
 	},
+/obj/structure/closet/crate/ammo,
 /turf/open/floor/mainship/floor,
 /area/mainship/squads/req)
 "aFV" = (
@@ -5619,8 +5617,8 @@
 /obj/structure/window/reinforced/toughened{
 	dir = 1
 	},
-/obj/machinery/cic_maptable,
 /obj/structure/cable,
+/obj/machinery/cic_maptable/drawable,
 /turf/open/floor/mainship/floor,
 /area/mainship/command/cic)
 "frP" = (
@@ -7178,9 +7176,6 @@
 /area/mainship/medical/medical_science)
 "gWO" = (
 /obj/structure/table/mainship,
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/computer/security/marinemainship{
 	dir = 4;
 	pixel_x = 17
@@ -7634,6 +7629,16 @@
 /obj/structure/prop/mainship/mission_planning_system/black,
 /turf/open/floor/plating/mainship,
 /area/mainship/command/cic)
+"hys" = (
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/obj/structure/drop_pod_launcher/supply,
+/obj/structure/droppod/nonmob/turret_pod,
+/turf/open/floor/mainship/green{
+	dir = 6
+	},
+/area/mainship/squads/req)
 "hyv" = (
 /obj/machinery/atmospherics/pipe/simple/general/hidden,
 /obj/machinery/pipedispenser,
@@ -9128,7 +9133,7 @@
 	},
 /area/mainship/medical/medical_science)
 "jgo" = (
-/mob/living/simple_animal/catslug/newt,
+/obj/structure/closet/secure_closet/xeno_cage,
 /turf/open/floor/mainship/sterile/side{
 	dir = 4
 	},
@@ -9715,6 +9720,16 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/plating,
 /area/mainship/medical/operating_room_two)
+"jGx" = (
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/obj/structure/drop_pod_launcher/supply,
+/obj/structure/droppod/nonmob/supply_pod,
+/turf/open/floor/mainship/green{
+	dir = 6
+	},
+/area/mainship/squads/req)
 "jGJ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -10658,6 +10673,13 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/tankerbunks)
+"kDi" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 8
+	},
+/obj/effect/teleporter_linker,
+/turf/open/floor/mainship/floor,
+/area/mainship/squads/req)
 "kDm" = (
 /turf/open/floor/mainship/sterile/side{
 	dir = 6
@@ -14333,9 +14355,6 @@
 	dir = 8;
 	pixel_x = -17
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /turf/open/floor/mainship/orange{
 	dir = 9
 	},
@@ -15148,6 +15167,7 @@
 /obj/machinery/camera/autoname/mainship{
 	dir = 1
 	},
+/obj/vehicle/ridden/powerloader,
 /turf/open/floor/mainship/floor,
 /area/mainship/squads/req)
 "oQX" = (
@@ -15576,6 +15596,13 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
+/area/mainship/command/cic)
+"plI" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 8
+	},
+/obj/machinery/light,
+/turf/open/floor/mainship/floor,
 /area/mainship/command/cic)
 "plT" = (
 /obj/item/storage/box/explosive_mines/antitank,
@@ -17673,6 +17700,7 @@
 /area/mainship/medical/medical_science)
 "rzV" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/mob/living/simple_animal/catslug/newt,
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/medical_science)
 "rAS" = (
@@ -17910,6 +17938,7 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
+/obj/structure/closet/secure_closet/xeno_cage,
 /turf/open/floor/mainship/sterile/corner{
 	dir = 4
 	},
@@ -18186,6 +18215,10 @@
 	},
 /obj/item/tool/hand_labeler,
 /obj/structure/table/mainship/nometal,
+/obj/item/storage/box/crate/sentry/ads,
+/obj/item/storage/box/crate/sentry,
+/obj/item/storage/box/crate/sentry_laser,
+/obj/item/storage/box/crate/sentry,
 /turf/open/floor/mainship/floor,
 /area/mainship/squads/req)
 "rYk" = (
@@ -19734,7 +19767,8 @@
 	},
 /area/mainship/living/cafeteria)
 "twE" = (
-/obj/structure/prop/mainship/sensor_computer2/black,
+/obj/item/radio/headset/ntc_listener,
+/obj/item/radio/headset/mainship/mcom,
 /turf/open/floor/plating/mainship,
 /area/mainship/command/cic)
 "txg" = (
@@ -21158,10 +21192,7 @@
 	pixel_x = 10
 	},
 /obj/item/disk/nuclear/red,
-/obj/item/clothing/shoes/marine/sneakingboots,
-/obj/item/clothing/under/marine/spec_operative,
 /obj/item/armor_module/module/valkyrie_autodoc,
-/obj/item/clothing/suit/modular/xenonauten/bulletresistant,
 /turf/open/floor/carpet/side,
 /area/mainship/living/commandbunks)
 "uSO" = (
@@ -22755,6 +22786,10 @@
 	},
 /turf/open/floor/mainship/floor,
 /area/mainship/command/cic)
+"wnQ" = (
+/obj/vehicle/ridden/powerloader,
+/turf/open/floor/mainship/floor,
+/area/mainship/squads/req)
 "wot" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -28706,7 +28741,7 @@ frI
 pcK
 wQB
 jQM
-cTA
+plI
 fvt
 iWr
 hjN
@@ -29312,7 +29347,7 @@ jQM
 ukU
 jQM
 jQM
-cTA
+plI
 hjN
 iWr
 hjN
@@ -56982,7 +57017,7 @@ uUK
 ics
 fqp
 lji
-oWz
+kDi
 oAo
 oWz
 sXe
@@ -57996,7 +58031,7 @@ sXh
 jpC
 vhY
 eCz
-eCz
+hys
 ics
 uUK
 mue
@@ -58198,7 +58233,7 @@ ogT
 jpC
 vhY
 eCz
-eCz
+jGx
 ics
 dTJ
 tWc
@@ -58602,7 +58637,7 @@ ogT
 jpC
 vhY
 eCz
-eCz
+wnQ
 ics
 uUK
 mue

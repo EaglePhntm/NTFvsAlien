@@ -180,7 +180,7 @@
 	wield_delay = 0.9 SECONDS
 	burst_amount = 3
 	aim_slowdown = 0.4
-	damage_falloff_mult = 0.5
+	damage_falloff_mult = 0.4
 
 	placed_overlay_iconstate = "t12"
 
@@ -258,7 +258,6 @@
 	starting_attachment_types = list(/obj/item/attachable/scope/mini/dmr)
 	attachable_offset = list("muzzle_x" = 50, "muzzle_y" = 20,"rail_x" = 21, "rail_y" = 22, "under_x" = 31, "under_y" = 15, "stock_x" = 14, "stock_y" = 10)
 	actions_types = list(/datum/action/item_action/aim_mode)
-	aim_time = 1 SECONDS
 	aim_fire_delay = 0.2 SECONDS
 	aim_speed_modifier = 2
 
@@ -1015,7 +1014,7 @@
 
 /obj/item/weapon/gun/rifle/standard_gpmg
 	name = "\improper MG-60 Raummetall general purpose machine gun"
-	desc = "The Raummetall MG-60 general purpose machinegun is the TGMC's current standard GPMG. Though usually seen mounted on vehicles, it is sometimes used by infantry to hold chokepoints or suppress enemies, or in rare cases for marching fire. It uses 10x26mm boxes."
+	desc = "The Raummetall MG-60 general purpose machinegun is the NTC's current standard GPMG. Though usually seen mounted on vehicles, it is sometimes used by infantry to hold chokepoints or suppress enemies, or in rare cases for marching fire. It uses 10x26mm boxes."
 	icon = 'icons/obj/items/guns/machineguns64.dmi'
 	icon_state = "t60"
 	worn_icon_state = "t60"
@@ -1657,7 +1656,6 @@
 	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO)
 	attachable_offset = list("muzzle_x" = 40, "muzzle_y" = 19,"rail_x" = 10, "rail_y" = 22, "under_x" = 33, "under_y" = 16, "stock_x" = 8, "stock_y" = 12)
 	actions_types = list(/datum/action/item_action/aim_mode)
-	aim_time = 1 SECONDS
 	aim_fire_delay = 1 SECONDS
 
 	starting_attachment_types = list(
@@ -1771,7 +1769,7 @@
 	fire_delay = 0.25 SECONDS
 	burst_amount = 3
 	burst_delay = 0.05 SECONDS
-	extra_delay = 0.15 SECONDS
+	extra_delay = 0.1 SECONDS
 	accuracy_mult_unwielded = 0.5
 	accuracy_mult = 1.15
 	scatter = -1
@@ -1867,14 +1865,14 @@
 	aim_fire_delay = 0.15 SECONDS
 	aim_speed_modifier = 2.5
 
-	fire_delay = 0.25 SECONDS
+	fire_delay = 0.20 SECONDS
 	burst_amount = 1
 	burst_delay = 0.15 SECONDS
 	accuracy_mult = 1.2
 	scatter = -2
 	wield_delay = 0.8 SECONDS
 	aim_slowdown = 0.5
-	damage_falloff_mult = 0.5
+	damage_falloff_mult = 0.4
 
 /obj/item/weapon/gun/rifle/standard_skirmishrifle/standard
 	starting_attachment_types = list(
@@ -1985,9 +1983,9 @@
 	accuracy_mult = 1.1
 	burst_amount = 1
 	fire_delay = 0.2 SECONDS
-	scatter = 1
-	wield_delay = 0.7 SECONDS
-	movement_acc_penalty_mult = 4
+	scatter = -1
+	wield_delay = 0.5 SECONDS
+	movement_acc_penalty_mult = 3
 
 //-------------------------------------------------------
 // GL-54 grenade launcher
@@ -2067,7 +2065,6 @@
 	attach_delay = 3 SECONDS
 	detach_delay = 3 SECONDS
 	actions_types = list(/datum/action/item_action/aim_mode)
-	aim_time = 1 SECONDS
 	starting_attachment_types = list()
 
 //-------------------------------------------------------
@@ -2125,7 +2122,7 @@
 	burst_delay = 0.15 SECONDS
 	extra_delay = 0.05 SECONDS
 	accuracy_mult_unwielded = 0.5
-	scatter = 1
+	scatter = 0
 	scatter_unwielded = 15
 	burst_scatter_mult = 2
 	aim_slowdown = 1
@@ -2227,7 +2224,7 @@
 	)
 
 	burst_amount = 0
-	fire_delay = 0.8 SECONDS
+	fire_delay = 0.6 SECONDS
 	accuracy_mult = 1.15
 	accuracy_mult_unwielded = 0.75
 	scatter = 0
@@ -2235,7 +2232,7 @@
 	recoil = 0
 	recoil_unwielded = 4
 	aim_slowdown = 0.75
-	wield_delay = 1.2 SECONDS
+	wield_delay = 1 SECONDS
 	movement_acc_penalty_mult = 6
 
 //-------------------------------------------------------
@@ -2524,7 +2521,6 @@
 	movement_acc_penalty_mult = 7
 
 	actions_types = list(/datum/action/item_action/aim_mode)
-	aim_time = 1 SECONDS
 	aim_fire_delay = 0.2 SECONDS
 	aim_speed_modifier = 2
 
@@ -2661,7 +2657,6 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	attachable_offset = list("muzzle_x" = 40, "muzzle_y" = 14, "rail_x" = 15, "rail_y" = 17, "under_x" = 23, "under_y" = 10, "stock_x" = 17, "stock_y" = 10)
 	actions_types = list(/datum/action/item_action/aim_mode)
-	aim_time = 1 SECONDS
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 2
 
@@ -3097,8 +3092,8 @@
 // CC/67, the new C550!
 
 /obj/item/weapon/gun/rifle/vsd_rifle
-	name = "\improper CC/67 battle rifle"
-	desc = "Crash Core's next-gen battle rifle, chambered in 10x27mm. Combat and Support worthy, this will pack a kick to anyone standing infront of you."
+	name = "\improper CC/67 marksman rifle"
+	desc = "Crash Core's next-gen marksman rifle, chambered in 10x27mm. Combat and Support worthy, this will pack a kick to anyone standing infront of you."
 	icon = 'icons/obj/items/guns/rifles64.dmi'
 	icon_state = "c550"
 	worn_icon_state = "c550"
@@ -3113,7 +3108,7 @@
 	unload_sound = 'sound/weapons/guns/interact/m41a_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/m41a_reload.ogg'
 	aim_slowdown = 0.5
-	wield_delay =  0.9 SECONDS
+	wield_delay =  1.2 SECONDS
 	max_shells = 30 //codex
 	default_ammo_type = /obj/item/ammo_magazine/rifle/vsd_rifle
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/vsd_rifle)
@@ -3149,13 +3144,15 @@
 	)
 
 	attachable_offset = list("muzzle_x" = 63, "muzzle_y" = 19,"rail_x" = 27, "rail_y" = 23, "under_x" = 40, "under_y" = 15, "stock_x" = 8, "stock_y" = 13)
-	burst_amount = 3
-	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
-	burst_delay = 0.25 SECONDS
-	extra_delay = 0.15 SECONDS
-	scatter = 0
-	fire_delay = 0.35 SECONDS
-	damage_mult = 0.5
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	aim_fire_delay = 0.2 SECONDS
+	aim_speed_modifier = 2
+
+	fire_delay = 0.55 SECONDS
+	accuracy_mult = 1.15
+	scatter = -4
+	burst_amount = 1
+	movement_acc_penalty_mult = 6
 
 /obj/item/weapon/gun/rifle/vsd_rifle/standard
 	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/verticalgrip, /obj/item/attachable/extended_barrel)
@@ -3255,7 +3252,7 @@
 	wield_delay =  0.9 SECONDS
 	max_shells = 24 //codex
 	default_ammo_type = /obj/item/ammo_magazine/rifle/vsd_carbine
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/vsd_carbine, /obj/item/ammo_magazine/rifle/vsd_carbine/rubber, /obj/item/ammo_magazine/rifle/vsd_carbine/extended, /obj/item/ammo_magazine/rifle/vsd_carbine/ap)
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/vsd_carbine, /obj/item/ammo_magazine/rifle/vsd_carbine/rubber, /obj/item/ammo_magazine/rifle/vsd_carbine/rubber/extended, /obj/item/ammo_magazine/rifle/vsd_carbine/extended, /obj/item/ammo_magazine/rifle/vsd_carbine/ap)
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_CAN_POINTBLANK|GUN_SMOKE_PARTICLES
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
