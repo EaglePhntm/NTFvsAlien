@@ -813,10 +813,6 @@
 	},
 /turf/open/floor/tile/dark,
 /area/outpost/medbay)
-"ei" = (
-/obj/machinery/power/geothermal,
-/turf/open/floor/plating,
-/area/outpost/engineering/engine)
 "ek" = (
 /obj/machinery/light/small,
 /turf/open/floor/tile/dark/yellow2,
@@ -1130,7 +1126,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 1
 	},
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/outpost/engineering/engine)
 "fF" = (
@@ -2256,6 +2251,14 @@
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /turf/open/floor/tile/dark/purple2,
 /area/outpost/science)
+"kM" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/power/apc/drained,
+/turf/open/floor/plating,
+/area/outpost/engineering/engine)
 "kN" = (
 /turf/open/floor/plating/asteroidfloor,
 /area/outpost/yard/south)
@@ -5134,7 +5137,6 @@
 	},
 /area/outpost/medbay)
 "xY" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/plating,
 /area/outpost/engineering/engine)
@@ -9096,8 +9098,8 @@
 /turf/open/floor/tile/dark,
 /area/outpost/hallway/south_west)
 "QK" = (
-/obj/machinery/power/apc/drained,
 /obj/structure/cable,
+/obj/machinery/power/smes/buildable,
 /turf/open/floor/plating,
 /area/outpost/engineering/engine)
 "QN" = (
@@ -10879,6 +10881,13 @@
 /obj/structure/cable,
 /turf/open/floor/tile/dark/brown2,
 /area/outpost/hallway/east)
+"Zb" = (
+/obj/structure/cable,
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/outpost/engineering/engine)
 "Zd" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -19149,9 +19158,9 @@ hK
 hK
 hK
 hK
+hK
+hK
 wQ
-hK
-hK
 hK
 yW
 yW
@@ -24562,8 +24571,8 @@ Ek
 Cy
 Cy
 DX
-MG
-MG
+QK
+Zb
 MG
 MG
 ih
@@ -24695,7 +24704,7 @@ Cy
 Cy
 DX
 QK
-wz
+Zb
 wz
 wz
 yj
@@ -24826,9 +24835,9 @@ Sz
 Db
 DX
 DX
+QK
+Zb
 MG
-MG
-wz
 MG
 AC
 MU
@@ -24958,9 +24967,9 @@ sf
 TB
 wR
 DX
-RA
-MG
+kM
 wz
+MG
 FJ
 MG
 MU
@@ -25231,7 +25240,7 @@ MU
 MG
 CU
 MG
-ei
+oh
 xx
 Ij
 MG

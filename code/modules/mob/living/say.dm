@@ -202,7 +202,7 @@ GLOBAL_LIST_INIT(department_radio_keys_som, list(
 	if(!client)
 		return FALSE
 	if(stat == DEAD)
-		if(CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS) && !check_rights_for(client, R_ADMIN)) // no getting to know what you shouldn't
+		if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS)) && !check_rights_for(client, R_ADMIN)) // no getting to know what you shouldn't
 			return FALSE
 
 	// Create map text prior to modifying message for goonchat
@@ -328,13 +328,10 @@ GLOBAL_LIST_INIT(department_radio_keys_som, list(
 /mob/living/IsVocal()
 	. = ..()
 
-	if(HAS_TRAIT(src, TRAIT_MUTED))
+	if(HAS_TRAIT(src, TRAIT_MUTE))
 		return FALSE
 
 /mob/living/proc/can_speak_vocal(message) //Check AFTER handling of xeno channels
-	if(istype(wear_mask, /obj/item/clothing/mask/muzzle))
-		return FALSE
-
 	if(!IsVocal())
 		return FALSE
 

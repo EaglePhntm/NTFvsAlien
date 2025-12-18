@@ -12,10 +12,10 @@ SUBSYSTEM_DEF(resinshaping)
 /datum/controller/subsystem/resinshaping/proc/toggle_off()
 	SIGNAL_HANDLER
 	active = FALSE
-	UnregisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE,COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND))
+	UnregisterSignal(SSdcs, COMSIG_GLOB_GAMESTATE_GROUNDSIDE)
 
 /datum/controller/subsystem/resinshaping/Initialize()
 	for(var/hivenumber in GLOB.hive_datums)
 		quickbuild_points_by_hive[hivenumber] = SSmapping.configs[GROUND_MAP].quickbuilds
-	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE,COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND), PROC_REF(toggle_off))
+	RegisterSignal(SSdcs, COMSIG_GLOB_GAMESTATE_GROUNDSIDE, PROC_REF(toggle_off))
 	return SS_INIT_SUCCESS

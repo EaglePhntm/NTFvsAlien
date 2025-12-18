@@ -26,7 +26,7 @@
 	accuracy = 0
 	damage_type = BURN
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY|AMMO_BETTER_COVER_RNG|AMMO_SNIPER
-	accuracy_var_high = 7
+	accuracy_variation = 7
 	damage = 70
 	penetration = 30
 	sundering = 5
@@ -50,6 +50,33 @@
 	damage = 75
 	penetration = 35
 	sundering = 15
+
+/datum/ammo/bullet/sniper/dragoon
+	name = "exotic rifle bullet"
+	handful_amount = 4
+	damage = 55
+	penetration = 30
+	sundering = 6
+	accurate_range_min = 3
+
+/datum/ammo/bullet/sniper/dragoon/flathead
+	name = "flathead exotic rifle bullet"
+	handful_amount = 4
+	damage_type = STAMINA
+	damage = 60
+	penetration = 15
+	sundering = 20
+
+/datum/ammo/bullet/sniper/dragoon/pox
+	name = "green-tipped exotic rifle bullet"
+	damage = 35
+	penetration = 15
+	sundering = 3
+
+/datum/ammo/bullet/sniper/dragoon/pox/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
+	if(iscarbon(target_mob))
+		var/mob/living/carbon/carbon_victim = target_mob
+		carbon_victim.reagents.add_reagent(/datum/reagent/toxin/poxomelanin, 4, no_overdose = FALSE)
 
 /datum/ammo/bullet/sniper/martini
 	name = "crude heavy sniper bullet"

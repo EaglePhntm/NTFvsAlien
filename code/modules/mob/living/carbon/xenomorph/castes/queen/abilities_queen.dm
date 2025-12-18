@@ -32,12 +32,12 @@
 		return FALSE
 
 	log_game("[key_name(xeno_owner)] has messaged the hive with: \"[input]\"")
-	deadchat_broadcast(" has messaged the hive: \"[input]\"", xeno_owner, xeno_owner)
+	deadchat_broadcast(" has messaged the hive: \"[input]\"", xeno_owner, xeno_owner, get_turf(xeno_owner))
 	var/queens_word = HUD_ANNOUNCEMENT_FORMATTING("HIVE MESSAGE", input, CENTER_ALIGN_TEXT)
 
 	var/sound/queen_sound = sound(get_sfx(SFX_QUEEN), channel = CHANNEL_ANNOUNCEMENTS)
 	var/sound/king_sound = sound('sound/voice/alien/xenos_roaring.ogg', channel = CHANNEL_ANNOUNCEMENTS)
-	var/list/xeno_listeners = xeno_owner.hive.get_all_xenos()
+	var/list/xeno_listeners = xeno_owner.get_hive().get_all_xenos()
 	for(var/mob/living/carbon/xenomorph/xeno AS in xeno_listeners)
 		to_chat(xeno, assemble_alert(
 			title = "Hive Announcement",
@@ -166,7 +166,7 @@
 	if(A.stat == CONSCIOUS)
 		to_chat(A, span_warning("[X] thoroughly [sexverb]s you!"))
 		implanted_embryos++
-	if(implanted_embryos >= MAX_LARVA_PREGNANCIES)
+	if(implanted_embryos > MAX_LARVA_PREGNANCIES)
 		to_chat(owner, span_danger("This Host is way too full! We overstuff them..."))
 		A.emote("scream")
 		A.apply_damage((damageperlarva/damagescaledivisor)*implanted_embryos, BRUTE, BODY_ZONE_PRECISE_GROIN, updating_health = TRUE) //Too many larvae!
@@ -189,7 +189,7 @@
 	if(prob(chancebunch)) //Queen has a higher chance to lay in batches.
 		for(var/lcount=0, lcount<larvalbunch, lcount++)
 			var/obj/item/alien_embryo/larba = new(A)
-			larba.hivenumber = X.hivenumber
+			larba.hivenumber = X.get_xeno_hivenumber()
 			larba.emerge_target_flavor = victimhole
 		to_chat(owner, span_danger("You lay multiple larva at once!"))
 		to_chat(A, span_danger("You feel multiple larva being inserted at once!"))
@@ -197,7 +197,7 @@
 			A.apply_damage(larvalbunch*10, CLONE, BODY_ZONE_PRECISE_GROIN, updating_health = TRUE)
 	else
 		var/obj/item/alien_embryo/embryo = new(A)
-		embryo.hivenumber = X.hivenumber
+		embryo.hivenumber = X.get_xeno_hivenumber()
 		embryo.emerge_target_flavor = victimhole
 		GLOB.round_statistics.now_pregnant++
 		SSblackbox.record_feedback("tally", "round_statistics", 1, "now_pregnant") //Only counts once to give Xenomorphs a fair chance.
@@ -221,8 +221,7 @@
 	name = "Screech"
 	action_icon_state = "screech"
 	action_icon = 'icons/Xeno/actions/queen.dmi'
-	desc = "A large area knockdown that causes pain and screen-shake."
-
+	desc = "A large area knockdown that deafens nearby enemies and disorentates them. Stun and stagger amount depends on distance from the target, maximum stun of 1.5 seconds. Comes at the cost of shattering your armor for 20 seconds, starting 10 seconds after you use it."
 	ability_cost = 250
 	cooldown_duration = 100 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
@@ -322,6 +321,10 @@
 			affected_xeno.add_movespeed_modifier(MOVESPEED_ID_QUEEN_SCREECH, TRUE, 0, NONE, TRUE, movement_speed_modifier)
 			speedy_xenomorphs += affected_xeno
 		timer_id = addtimer(CALLBACK(src, PROC_REF(revoke_movespeed_modifier)), 4 SECONDS, TIMER_STOPPABLE|TIMER_UNIQUE)
+
+/datum/action/ability/activable/xeno/screech/succeed_activate(ability_cost_override)
+	. = ..()
+	addtimer(CALLBACK(xeno_owner, TYPE_PROC_REF(/mob/living/carbon, apply_status_effect), /datum/status_effect/shatter, 20 SECONDS), 10 SECONDS)
 
 /datum/action/ability/activable/xeno/screech/alternate_action_activate()
 	var/mob/living/carbon/xenomorph/queen/xeno_owner = owner
@@ -475,7 +478,7 @@
 	if(overwatch_active)
 		stop_overwatch()
 
-/datum/action/ability/xeno_action/watch_xeno/proc/on_damage_taken(datum/source, damage)
+/datum/action/ability/xeno_action/watch_xeno/proc/on_damage_taken(datum/source, damage, mob/living/attacker)
 	SIGNAL_HANDLER
 	if(overwatch_active)
 		stop_overwatch()
@@ -560,7 +563,7 @@
 		unset_xeno_leader(selected_xeno)
 		return
 
-	if(xeno_owner.xeno_caste.queen_leader_limit <= length(xeno_owner.hive.xeno_leader_list))
+	if(xeno_owner.xeno_caste.queen_leader_limit <= length(xeno_owner.get_hive().xeno_leader_list))
 		xeno_owner.balloon_alert(xeno_owner, "No more leadership slots")
 		return
 
@@ -570,7 +573,7 @@
 /datum/action/ability/xeno_action/set_xeno_lead/proc/unset_xeno_leader(mob/living/carbon/xenomorph/selected_xeno)
 	xeno_owner.balloon_alert(xeno_owner, "Xeno demoted")
 	selected_xeno.balloon_alert(selected_xeno, "Leadership removed")
-	selected_xeno.hive.remove_leader(selected_xeno)
+	selected_xeno.get_hive().remove_leader(selected_xeno)
 	selected_xeno.hud_set_queen_overwatch()
 	selected_xeno.handle_xeno_leader_pheromones(xeno_owner)
 
@@ -588,7 +591,7 @@
 	selected_xeno.balloon_alert(selected_xeno, "Promoted to leader")
 	to_chat(selected_xeno, span_xenoannounce("[xeno_owner] has selected us as a Hive Leader. The other Xenomorphs must listen to us. We will also act as a beacon for the Ruler's pheromones."))
 
-	xeno_owner.hive.add_leader(selected_xeno)
+	xeno_owner.get_hive().add_leader(selected_xeno)
 	selected_xeno.hud_set_queen_overwatch()
 	selected_xeno.handle_xeno_leader_pheromones(xeno_owner)
 	notify_ghosts("\ [xeno_owner] has designated [selected_xeno] as a Hive Leader", source = selected_xeno, action = NOTIFY_ORBIT)
@@ -668,9 +671,15 @@
 	cooldown_duration = 8 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_QUEEN_GIVE_PLASMA,
+		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_QUEEN_GIVE_PLASMA_QUICKCAST
 	)
 	use_state_flags = ABILITY_USE_LYING
 	target_flags = ABILITY_MOB_TARGET
+	var/mob/living/carbon/xenomorph/last_xenomorph_transferred_to
+
+/datum/action/ability/activable/xeno/queen_give_plasma/Destroy()
+	last_xenomorph_transferred_to = null
+	return ..()
 
 /datum/action/ability/activable/xeno/queen_give_plasma/can_use_ability(atom/target, silent = FALSE, override_flags)
 	. = ..()
@@ -696,7 +705,6 @@
 			receiver.balloon_alert(owner, "Cannot give plasma, full")
 		return FALSE
 
-
 /datum/action/ability/activable/xeno/queen_give_plasma/give_action(mob/living/L)
 	. = ..()
 	RegisterSignal(L, COMSIG_XENOMORPH_QUEEN_PLASMA, PROC_REF(try_use_ability))
@@ -705,7 +713,13 @@
 	. = ..()
 	UnregisterSignal(L, COMSIG_XENOMORPH_QUEEN_PLASMA)
 
-/// Signal handler for the queen_give_plasma action that checks can_use
+/datum/action/ability/activable/xeno/queen_give_plasma/alternate_action_activate()
+	if(!last_xenomorph_transferred_to)
+		return
+	try_use_ability(null, last_xenomorph_transferred_to)
+	return COMSIG_KB_ACTIVATED
+
+/// Signal handler for the queen_give_plasma action that checks can_use.
 /datum/action/ability/activable/xeno/queen_give_plasma/proc/try_use_ability(datum/source, mob/living/carbon/xenomorph/target)
 	SIGNAL_HANDLER
 	if(!can_use_ability(target, FALSE, ABILITY_IGNORE_SELECTED_ABILITY))
@@ -713,15 +727,26 @@
 	use_ability(target)
 
 /datum/action/ability/activable/xeno/queen_give_plasma/use_ability(atom/target)
-	var/mob/living/carbon/xenomorph/receiver = target
-	add_cooldown()
-	receiver.gain_plasma(300)
-	succeed_activate()
-	receiver.balloon_alert_to_viewers("Queen plasma", ignored_mobs = GLOB.alive_human_list)
-	if (get_dist(owner, receiver) > 7)
+	if(!last_xenomorph_transferred_to)
+		RegisterSignal(target, COMSIG_QDELETING, PROC_REF(on_target_qdeleted))
+		last_xenomorph_transferred_to = target
+	else if(last_xenomorph_transferred_to != target)
+		UnregisterSignal(last_xenomorph_transferred_to, COMSIG_QDELETING)
+		RegisterSignal(target, COMSIG_QDELETING, PROC_REF(on_target_qdeleted))
+		last_xenomorph_transferred_to = target
+
+	last_xenomorph_transferred_to.gain_plasma(300)
+	last_xenomorph_transferred_to.balloon_alert_to_viewers("Queen plasma", ignored_mobs = GLOB.alive_human_list)
+	if(get_dist(owner, last_xenomorph_transferred_to) > 7)
 		// Out of screen transfer.
 		owner.balloon_alert(owner, "Transferred plasma")
+	add_cooldown()
+	succeed_activate()
 
+/// Should the last xenomorph get deleted, removes them from the ability as the last target.
+/datum/action/ability/activable/xeno/queen_give_plasma/proc/on_target_qdeleted(datum/source, force)
+	SIGNAL_HANDLER
+	last_xenomorph_transferred_to = null
 
 #define BULWARK_LOOP_TIME 1 SECONDS
 #define BULWARK_RADIUS 4
@@ -737,7 +762,7 @@
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_QUEEN_BULWARK,
 	)
-	/// The multiplier of the soft armor from the affected's base caste. This amount will be added ontop of the affected's current soft armor.
+	/// The multiplier of the soft armor from the affected's base caste. This amount will be added on top of the affected's current soft armor.
 	var/armor_multiplier = BULWARK_ARMOR_MULTIPLIER
 	/// Associative list: [xeno] == armor_difference
 	var/list/armor_keys = list()

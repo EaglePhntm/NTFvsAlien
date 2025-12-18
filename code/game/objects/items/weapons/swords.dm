@@ -100,7 +100,7 @@
 	if(!ishuman(target))
 		return
 	var/mob/living/carbon/human/human_victim = target
-	human_victim.apply_damage(damage, BRUTE, BODY_ZONE_CHEST, MELEE, TRUE, TRUE, TRUE, penetration)
+	human_victim.apply_damage(damage, BRUTE, BODY_ZONE_CHEST, MELEE, TRUE, TRUE, TRUE, penetration, owner)
 	human_victim.adjust_stagger(1 SECONDS)
 	playsound(human_victim, "sound/weapons/wristblades_hit.ogg", 25, 0, 5)
 	shake_camera(human_victim, 2, 1)
@@ -121,7 +121,7 @@
 
 /obj/item/weapon/sword/machete
 	name = "\improper M2132 machete"
-	desc = "Latest issue of the TGMC Machete. Great for clearing out jungle or brush on outlying colonies. Found commonly in the hands of scouts and trackers, but difficult to carry with the usual kit."
+	desc = "Latest issue of the NTF Machete. Great for clearing out jungle or brush on outlying colonies. Found commonly in the hands of scouts and trackers, but difficult to carry with the usual kit."
 	icon_state = "machete"
 	worn_icon_state = "machete"
 	force = 75
@@ -165,25 +165,29 @@
 	name = "katana"
 	desc = "A finely made Japanese sword, with a well sharpened blade. The blade has been filed to a molecular edge, and is extremely deadly. Commonly found in the hands of mercenaries and yakuza."
 	icon_state = "katana"
-	worn_icon_state = "machete"
+	worn_icon_state = "katana"
 	force = 50
-	throwforce = 10
+	penetration = 20
+	throwforce = 40
+	equip_slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/weapon/sword/katana/suicide_act(mob/user)
 	user.visible_message(span_danger("[user] is slitting [user.p_their()] stomach open with the [name]! It looks like [user.p_theyre()] trying to commit seppuku."))
 	return(BRUTELOSS)
 
-//To do: replace the toys.
+/obj/item/weapon/sword/katana/samurai
+	name = "tachi"
+	desc = "A genuine replica of an ancient blade. This one is in remarkably good condition. It could do some damage to everyone, including yourself."
+	icon_state = "katana_red"
+	worn_icon_state = "katana_red"
+	force = 60
+	penetration = 15
+	w_class = WEIGHT_CLASS_BULKY
+
 /obj/item/weapon/sword/katana/replica
 	name = "replica katana"
 	desc = "A cheap knock-off commonly found in regular knife stores. Can still do some damage."
 	force = 27
+	penetration = 0
 	throwforce = 7
-
-/obj/item/weapon/sword/katana/samurai
-	name = "\improper tachi"
-	desc = "A genuine replica of an ancient blade. This one is in remarkably good condition. It could do some damage to everyone, including yourself."
-	icon_state = "samurai_open"
-	force = 60
-	attack_speed = 12
-	w_class = WEIGHT_CLASS_BULKY

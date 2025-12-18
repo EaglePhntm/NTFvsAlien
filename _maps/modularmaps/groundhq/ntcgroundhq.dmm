@@ -1612,6 +1612,18 @@
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/mainship/hallways/ntf/dorm1)
+"bOW" = (
+/obj/item/card/id/captains_spare,
+/obj/structure/table/mainship,
+/obj/machinery/door/window/secure/bridge{
+	dir = 1
+	},
+/obj/structure/window/reinforced/east,
+/obj/structure/window/reinforced/west,
+/turf/open/floor/mainship/mono,
+/area/mainship/groundhq/ntf/hallways/aft_hallway{
+	name = "HQ Northwest Hallways"
+	})
 "bPD" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -10204,7 +10216,6 @@
 /obj/item/roller,
 /obj/item/tweezers,
 /obj/item/tweezers,
-/obj/item/tweezers,
 /turf/open/floor/mainship/sterile{
 	dir = 8
 	},
@@ -12623,6 +12634,13 @@
 	base_lighting_alpha = 0;
 	static_lighting = 1
 	})
+"oBu" = (
+/obj/machinery/computer/voucher,
+/obj/structure/table/mainship,
+/turf/open/floor/mainship/mono,
+/area/mainship/groundhq/ntf/hallways/aft_hallway{
+	name = "HQ Northwest Hallways"
+	})
 "oCx" = (
 /obj/structure/table/reinforced,
 /obj/machinery/computer/secure_data,
@@ -12865,6 +12883,10 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/groundhq/ntf/engineering/lower_engineering)
+"oTc" = (
+/obj/effect/landmark/start,
+/turf/open/floor/mainship/mono,
+/area/mainship/groundhq/ntf/living/chapel)
 "oTl" = (
 /obj/structure/cable,
 /obj/effect/landmark/start/job/chiefshipengineer,
@@ -14404,6 +14426,7 @@
 	})
 "qBH" = (
 /obj/effect/ai_node,
+/obj/effect/landmark/start/latejoin,
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/living/chapel)
 "qDb" = (
@@ -16115,7 +16138,7 @@
 /obj/structure/cable,
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/spacetwinkie,
-/obj/item/storage/box/ntc_mre,
+/obj/item/storage/box/tgmc_mre,
 /obj/item/storage/box/nt_mre,
 /turf/open/floor/wood,
 /area/mainship/command/corporateliaison{
@@ -18406,7 +18429,6 @@
 	},
 /obj/item/tweezers,
 /obj/item/tweezers,
-/obj/item/tweezers,
 /obj/item/storage/box/rxglasses,
 /obj/item/storage/box/rxglasses,
 /turf/open/floor/mainship/sterile,
@@ -20538,7 +20560,6 @@
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/spray/cleaner,
 /obj/machinery/light,
-/obj/item/tweezers,
 /obj/item/tweezers,
 /obj/item/tweezers,
 /obj/item/storage/box/rxglasses,
@@ -24361,7 +24382,7 @@ hKj
 gfR
 adO
 sih
-adO
+bOW
 fUf
 cOy
 qIm
@@ -25220,7 +25241,7 @@ hKj
 hKj
 hKj
 gfR
-adO
+oBu
 hGy
 adO
 vFN
@@ -31896,7 +31917,7 @@ tJt
 mGA
 maY
 qBH
-akp
+oTc
 gmg
 bCT
 rdt

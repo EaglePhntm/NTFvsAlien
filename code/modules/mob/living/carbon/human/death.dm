@@ -1,4 +1,9 @@
 /mob/living/carbon/human/gib()
+	visible_message(
+		span_boldwarning("[src] is blown apart!"),
+		span_userdanger("You're blown apart!"),
+		span_boldwarning("You hear terrible cracking and squelching."),
+	)
 	for(var/datum/limb/E in limbs)
 		if(istype(E, /datum/limb/chest))
 			continue
@@ -7,7 +12,7 @@
 		// Only make the limb drop if it's not too damaged
 		if(prob(100 - E.get_damage()))
 			// Override the current limb status
-			E.droplimb()
+			E.droplimb(gibbing = TRUE, silent = TRUE)
 	return ..()
 
 /mob/living/carbon/human/gib_animation()
@@ -44,7 +49,7 @@
 		playsound(loc, species.death_sound, 50, TRUE)
 	if(faction)
 		for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
-			if(human.faction == faction)
+			if((human.faction == faction) || (GLOB.faction_to_iff[human.faction] & GLOB.faction_to_iff[faction]))
 				human.play_screen_text(HUD_ANNOUNCEMENT_FORMATTING("<u>ALERT:</u>", "[src.name] K.I.A at: [get_area_name(src)].", LEFT_ALIGN_TEXT), /atom/movable/screen/text/screen_text/command_order/automated/death_alert)
 				to_chat(human, span_danger("(N-UI) DeathRattle: '[src]' died at [get_area_name(src)]."))
 		playsound(loc, 'sound/effects/radiostatic.ogg', 40, TRUE)
@@ -52,8 +57,8 @@
 
 
 /mob/living/carbon/human/on_death()
-	if(pulledby)
-		pulledby.stop_pulling()
+	if(!ishuman(pulledby))
+		pulledby?.stop_pulling()
 
 	//Handle species-specific deaths.
 	species.handle_death(src)

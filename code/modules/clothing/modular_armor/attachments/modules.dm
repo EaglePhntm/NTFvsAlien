@@ -32,7 +32,7 @@
 	slowdown = 0
 	light_mod = 6 /// The boost to armor shoulder light
 	slot = ATTACHMENT_SLOT_MODULE
-	variants_by_parent_type = list(/obj/item/clothing/suit/modular/xenonauten = "mod_lamp_xn", /obj/item/clothing/suit/modular/tdf = "")
+	variants_by_parent_type = list(/obj/item/clothing/suit/modular/xenonauten = "mod_lamp_xn", /obj/item/clothing/suit/modular/tdf = "", /obj/item/clothing/suit/storage/marine/freelancer = "")
 
 /**
  * Mini autodoc module
@@ -45,7 +45,7 @@
 	worn_icon_state = "mod_autodoc_a"
 	slowdown = 0
 	slot = ATTACHMENT_SLOT_MODULE
-	variants_by_parent_type = list(/obj/item/clothing/suit/modular/xenonauten = "mod_autodoc_xn", /obj/item/clothing/suit/modular/tdf = "")
+	variants_by_parent_type = list(/obj/item/clothing/suit/modular/xenonauten = "mod_autodoc_xn", /obj/item/clothing/suit/modular/tdf = "", /obj/item/clothing/suit/storage/marine/freelancer = "")
 
 /obj/item/armor_module/module/valkyrie_autodoc/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
@@ -80,7 +80,7 @@
 	soft_armor = list(MELEE = -10, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 40, ACID = -10)
 	slowdown = 0.4
 	slot = ATTACHMENT_SLOT_MODULE
-	variants_by_parent_type = list(/obj/item/clothing/suit/modular/xenonauten = "mod_fire_xn", /obj/item/clothing/suit/modular/tdf/heavy = "mod_fire_tdf")
+	variants_by_parent_type = list(/obj/item/clothing/suit/modular/xenonauten = "mod_fire_xn", /obj/item/clothing/suit/modular/tdf/heavy = "mod_fire_tdf", /obj/item/clothing/suit/storage/marine/freelancer = "")
 
 /obj/item/armor_module/module/fire_proof/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
@@ -235,7 +235,7 @@
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 40, FIRE = 0, ACID = 30)
 	slowdown = 0
 	slot = ATTACHMENT_SLOT_MODULE
-	variants_by_parent_type = list(/obj/item/clothing/suit/modular/xenonauten = "mod_biohazard_xn", /obj/item/clothing/suit/modular/tdf = "")
+	variants_by_parent_type = list(/obj/item/clothing/suit/modular/xenonauten = "mod_biohazard_xn", /obj/item/clothing/suit/modular/tdf = "", /obj/item/clothing/suit/storage/marine/freelancer = "")
 	///siemens coefficient mod for gas protection.
 	var/siemens_coefficient_mod = -0.9
 	///permeability coefficient mod for gas protection.
@@ -319,13 +319,14 @@
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 40, BIO = 0, FIRE = 0, ACID = 0)
 	slowdown = 0.2
 	slot = ATTACHMENT_SLOT_MODULE
+	variants_by_parent_type = list(/obj/item/clothing/suit/storage/marine/freelancer = "")
 
 /*
 	chemical enhancement module
 */
 /obj/item/armor_module/module/ballistic_armor
-	name = "\improper Hod Accident Prevention Plating"
-	desc = "Designed for mounting on modular armor. A substantial amount of additional reflective ballistic armor plating designed to reduce the impact of friendly fire incidents, will lessen the affects of bullets and lasers. Will impact mobility. Made by ArcherCorp."
+	name = "\improper Hod Combat Plating"
+	desc = "Designed for mounting on modular armor. A substantial amount of additional reflective ballistic armor plating designed to increase survival in a humanoid versus humanoid combat situation, will lessen the affects of bullets and lasers. Will impact mobility. Made by ArcherCorp."
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_ff"
 	worn_icon_state = "mod_ff_a"
@@ -439,8 +440,7 @@
 	shield_health = 0
 
 	STOP_PROCESSING(SSobj, src)
-	deltimer(recharge_timer)
-	recharge_timer = addtimer(CALLBACK(src, PROC_REF(begin_recharge)), damaged_shield_cooldown * 3 / severity, TIMER_STOPPABLE)
+	recharge_timer = addtimer(CALLBACK(src, PROC_REF(begin_recharge)), damaged_shield_cooldown * 3 / severity, TIMER_STOPPABLE|TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT)
 
 ///Called to give extra info on parent examine.
 /obj/item/armor_module/module/eshield/proc/parent_examine(datum/source, mob/user, list/examine_list)
@@ -485,25 +485,19 @@
 	if(attack_type == COMBAT_TOUCH_ATTACK) //Touch attack so runners can pounce
 		return incoming_damage
 	STOP_PROCESSING(SSobj, src)
-	deltimer(recharge_timer)
 	var/shield_left = shield_health - incoming_damage
 	var/mob/living/affected = parent.loc
 	affected.remove_filter("eshield")
 	if(shield_left > 0)
 		shield_health = shield_left
-		switch(shield_left / max_shield_health)
-			if(0 to 0.33)
-				affected.add_filter("eshield", 2, outline_filter(1, shield_color_low))
-			if(0.33 to 0.66)
-				affected.add_filter("eshield", 2, outline_filter(1, shield_color_mid))
-			if(0.66 to 1)
-				affected.add_filter("eshield", 2, outline_filter(1, shield_color_full))
+		current_color = gradient(0, shield_color_low, 0.5, shield_color_mid, 1, shield_color_full, space = COLORSPACE_HCY, index = (shield_health/max_shield_health))
+		affected.add_filter("eshield", 2, outline_filter(1, current_color))
 		spark_system.start()
 	else
 		shield_health = 0
-		recharge_timer = addtimer(CALLBACK(src, PROC_REF(begin_recharge)), damaged_shield_cooldown + 1, TIMER_STOPPABLE) //Gives it a little extra time for the cooldown.
+		recharge_timer = addtimer(CALLBACK(src, PROC_REF(begin_recharge)), damaged_shield_cooldown + 1, TIMER_STOPPABLE|TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT) //Gives it a little extra time for the cooldown.
 		return -shield_left
-	recharge_timer = addtimer(CALLBACK(src, PROC_REF(begin_recharge)), damaged_shield_cooldown, TIMER_STOPPABLE)
+	recharge_timer = addtimer(CALLBACK(src, PROC_REF(begin_recharge)), damaged_shield_cooldown, TIMER_STOPPABLE|TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT)
 	return 0
 
 ///Starts the shield recharging after it has been broken.
@@ -520,23 +514,15 @@
 
 /obj/item/armor_module/module/eshield/process()
 	shield_health = min(shield_health + recharge_rate, max_shield_health)
+	var/new_color = gradient(0, shield_color_low, 0.5, shield_color_mid, 1, shield_color_full, space = COLORSPACE_HCY, index = (shield_health/max_shield_health))
+	if(shield_health/max_shield_health < 0.2)
+		playsound(parent.loc, 'sound/items/eshield_down.ogg', 40)
+	if(new_color != current_color)
+		current_color = new_color
+		var/mob/living/affected = parent.loc
+		affected.add_filter("eshield", 2, outline_filter(1, current_color))
 	if(shield_health == max_shield_health) //Once health is full, we don't need to process until the next time we take damage.
 		STOP_PROCESSING(SSobj, src)
-		return
-	var/new_color
-	switch(shield_health/max_shield_health)
-		if(0 to 0.2)
-			playsound(parent.loc, 'sound/items/eshield_down.ogg', 40)
-			new_color = (shield_color_low != current_color) ? shield_color_low : null
-		if(0.2 to 0.6)
-			new_color = (shield_color_mid != current_color) ? shield_color_mid : null
-		if(0.6 to 1)
-			new_color = (shield_color_full != current_color) ? shield_color_full : null
-	if(!new_color)
-		return
-	var/mob/living/affected = parent.loc
-	affected.remove_filter("eshield")
-	affected.add_filter("eshield", 2, outline_filter(1, new_color))
 
 /obj/item/armor_module/module/eshield/overclocked
 	max_shield_health = 75
@@ -548,7 +534,7 @@
 //original Martian design, donutsteel
 /obj/item/armor_module/module/eshield/som
 	name = "\improper Aegis energy dispersion system"
-	desc = "A sophisticated shielding unit, designed to disperse the energy of incoming impacts, rendering them harmless to the user. If it sustains too much it will deactivate, and leave the user vulnerable. It is unclear if this was a purely  SOM designed module, or whether it was reverse engineered from the TGMC's 'Svalinn' shield system which was developed around the same time."
+	desc = "A sophisticated shielding unit, designed to disperse the energy of incoming impacts, rendering them harmless to the user. If it sustains too much it will deactivate, and leave the user vulnerable. It is unclear if this was a purely  SOM designed module, or whether it was reverse engineered from the NTF's 'Svalinn' shield system which was developed around the same time."
 
 /obj/item/armor_module/module/eshield/som/overclocked
 	max_shield_health = 75
@@ -575,7 +561,7 @@
 
 /obj/item/armor_module/module/mirage/activate(mob/living/user)
 	if(!COOLDOWN_FINISHED(src, mirage_cooldown))
-		balloon_alert(user, "[COOLDOWN_TIMELEFT(src, mirage_cooldown)*0.1] seconds")
+		balloon_alert(user, "wait [COOLDOWN_TIMELEFT(src, mirage_cooldown)*0.1] seconds!")
 		return
 	var/alpha_mod = user.alpha * 0.95
 	user.alpha -= alpha_mod
@@ -618,7 +604,7 @@
 
 /obj/item/armor_module/module/armorlock/activate(mob/living/user)
 	if(!COOLDOWN_FINISHED(src, armorlock_cooldown))
-		balloon_alert(user, "[COOLDOWN_TIMELEFT(src, armorlock_cooldown)*0.1] seconds")
+		balloon_alert(user, "wait [COOLDOWN_TIMELEFT(src, armorlock_cooldown)*0.1] seconds!")
 		return
 
 	user.add_traits(list(TRAIT_HANDS_BLOCKED, TRAIT_STOPS_TANK_COLLISION, TRAIT_IMMOBILE, TRAIT_INCAPACITATED), REF(src))
@@ -856,7 +842,7 @@
 		return
 	if(comms_setup == COMMS_SETUP)
 		var/turf/location = get_turf(user)
-		user.show_message(span_notice("The [src] beeps and states, \"Uplink data: LONGITUDE [location.x]. LATITUDE [location.y]. Area ID: [get_area(src)]\""), EMOTE_AUDIBLE, span_notice("The [src] vibrates but you can not hear it!"))
+		user.show_message(span_notice("The [src] beeps and states, \"Uplink data: LONGITUDE [location.x]. LATITUDE [location.y]. Area ID: [get_area(src)]\""), EMOTE_TYPE_AUDIBLE, span_notice("The [src] vibrates but you can not hear it!"))
 		return
 
 ///Begins the startup sequence.
@@ -870,7 +856,7 @@
 ///Finishes startup, rendering the module effective.
 /obj/item/armor_module/module/antenna/proc/finish_startup(mob/living/user)
 	comms_setup = COMMS_SETUP
-	user.show_message(span_notice("[src] beeps twice and states: \"Antenna configuration complete. Relay system active.\""), EMOTE_AUDIBLE, span_notice("[src] vibrates twice."))
+	user.show_message(span_notice("[src] beeps twice and states: \"Antenna configuration complete. Relay system active.\""), EMOTE_TYPE_AUDIBLE, span_notice("[src] vibrates twice."))
 	startup_timer_id = null
 
 
@@ -971,3 +957,4 @@
 /obj/item/armor_module/module/night_vision/Destroy()
 	QDEL_NULL(attached_goggles)
 	return ..()
+

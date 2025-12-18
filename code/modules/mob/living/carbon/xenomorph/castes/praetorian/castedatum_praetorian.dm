@@ -119,7 +119,7 @@
 	caste_desc = "A giant melee monster. It looks pretty strong."
 
 	// +2 melee damage
-	melee_damage = 25
+//	melee_damage = 25
 
 	// +30 hp
 	max_health = 420
@@ -181,7 +181,6 @@
 		/datum/action/ability/activable/xeno/tail_stab,
 		/datum/action/ability/xeno_action/place_acidwell,
 		/datum/action/ability/activable/xeno/corrosive_acid,
-		/datum/action/ability/activable/xeno/baton_pass,
 		/datum/action/ability/activable/xeno/baton_pass,
 		/datum/action/ability/xeno_action/pheromones,
 		/datum/action/ability/xeno_action/pheromones/emit_recovery,

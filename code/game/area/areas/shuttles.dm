@@ -67,7 +67,7 @@
 	name = "UPP ERT"
 
 /area/shuttle/ert/pmc
-	name = "PMC ERT"
+	name = "AC ERT"
 
 /area/shuttle/big_ert
 	name = "Big ERT Ship"
@@ -118,6 +118,9 @@
 
 /area/shuttle/supply/clf
 	name = "CLF Supply Shuttle"
+
+/area/shuttle/supply/icc
+	name = "CM Supply Shuttle"
 
 /area/shuttle/vehicle_supply
 	name = "Vehicle Supply Shuttle"

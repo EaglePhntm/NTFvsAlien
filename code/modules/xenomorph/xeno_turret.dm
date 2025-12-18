@@ -35,16 +35,14 @@
 ///Change minimap icon if its firing or not firing
 /obj/structure/xeno/xeno_turret/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	if(hivenumber != XENO_HIVE_CORRUPTED)
-		SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "xeno_turret[firing ? "_firing" : "_passive"]", MINIMAP_BLIPS_LAYER))
-	if(hivenumber == XENO_HIVE_CORRUPTED)
-		SSminimaps.add_marker(src, MINIMAP_FLAG_MARINE, image('icons/UI_icons/map_blips.dmi', null, "xeno_turret[firing ? "_firing" : "_passive"]", MINIMAP_BLIPS_LAYER))
+	SSminimaps.add_marker(src, GLOB.hivenumber_to_minimap_flag[hivenumber], image('icons/UI_icons/map_blips.dmi', null, "xeno_turret[firing ? "_firing" : "_passive"]", MINIMAP_BLIPS_LAYER))
 
 /obj/structure/xeno/xeno_turret/Initialize(mapload, _hivenumber)
 	. = ..()
 	ammo = GLOB.ammo_list[ammo]
 	potential_hostiles = list()
 	LAZYADDASSOC(GLOB.xeno_resin_turrets_by_hive, hivenumber, src)
+	GLOB.sentry_list += src
 	START_PROCESSING(SSobj, src)
 	AddComponent(/datum/component/automatedfire/xeno_turret_autofire, firerate)
 	RegisterSignal(src, COMSIG_AUTOMATIC_SHOOTER_SHOOT, PROC_REF(shoot))
@@ -68,6 +66,7 @@
 
 /obj/structure/xeno/xeno_turret/Destroy()
 	GLOB.xeno_resin_turrets_by_hive[hivenumber] -= src
+	GLOB.sentry_list -= src
 	set_hostile(null)
 	set_last_hostile(null)
 	STOP_PROCESSING(SSobj, src)
@@ -222,6 +221,13 @@
 			if(human_occupant.faction in hive?.allied_factions)
 				continue
 			potential_hostiles += ridden
+	for(var/obj/machinery/deployable/mounted/sentry/nearby_sentry AS in GLOB.sentry_list)
+		if(nearby_sentry.z == z && get_dist(nearby_sentry, src) <= TURRET_SCAN_RANGE)
+			if(nearby_sentry.faction in hive?.allied_factions)
+				continue
+			if(issamexenohive(nearby_sentry))
+				continue
+			potential_hostiles += nearby_sentry
 
 ///Signal handler to make the turret shoot at its target
 /obj/structure/xeno/xeno_turret/proc/shoot()
@@ -260,3 +266,12 @@
 	light_initial_color = LIGHT_COLOR_BROWN
 	ammo = /datum/ammo/xeno/hugger
 	firerate = 5 SECONDS
+
+/obj/structure/xeno/xeno_turret/hugger_turret/Initialize(mapload, _hivenumber, datum/ammo/xeno/hugger/hugger_ammo)
+	if(istype(hugger_ammo))
+		var/huggername = initial((hugger_ammo.hugger_type).name)
+		name = "[huggername] turret"
+		desc = "A menacing looking construct of resin, it seems to be alive. It fires [huggername]s against intruders."
+	. = ..()
+	if(istype(hugger_ammo, /datum/ammo))
+		ammo = hugger_ammo

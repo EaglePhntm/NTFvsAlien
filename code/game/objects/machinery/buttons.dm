@@ -10,6 +10,8 @@
 	idle_power_usage = 2
 	active_power_usage = 5
 	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 10, BIO = 100, FIRE = 90, ACID = 70)
+
+	layer = ABOVE_MOB_LAYER
 	var/id = null
 	var/next_activate = 0
 
@@ -324,7 +326,7 @@
 		return
 	linked.equipOutfit(job_outfits[selected_outfit], TRUE)
 
-/obj/machinery/button/valhalla/marine_spawner/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/machinery/button/valhalla/marine_spawner/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	spawn_humans(xeno_attacker)
 
 /obj/machinery/button/valhalla/marine_spawner/attack_hand(mob/living/user)
@@ -367,7 +369,7 @@
 		CRASH("Valhalla button linked with an improper landmark: button ID: [link].")
 	linked = new selected_vehicle(get_turf(GLOB.valhalla_button_spawn_landmark[link]))
 
-/obj/machinery/button/valhalla/vehicle_button/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/machinery/button/valhalla/vehicle_button/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	spawn_vehicles(xeno_attacker)
 
 /obj/machinery/button/valhalla/vehicle_button/attack_hand(mob/living/user)

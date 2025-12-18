@@ -131,10 +131,11 @@
 	// Determine what job is marked as 'High' priority, and dress them up as such.
 	var/datum/job/previewJob
 	var/highest_pref = JOBS_PRIORITY_NEVER
-	for(var/job in job_preferences)
-		if(job_preferences[job] > highest_pref)
-			previewJob = SSjob.GetJob(job)
-			highest_pref = job_preferences[job]
+	if(LAZYLEN(SSjob.occupations))
+		for(var/job in job_preferences)
+			if(job_preferences[job] > highest_pref)
+				previewJob = SSjob.GetJob(job)
+				highest_pref = job_preferences[job]
 
 	if(!previewJob)
 		var/mob/living/carbon/human/dummy/mannequin = generate_or_wait_for_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
@@ -238,11 +239,24 @@
 	character.update_body()
 	character.update_hair()
 
-
-/datum/preferences/proc/random_character()
+///Create a random character. Uses a specified species if set.
+/datum/preferences/proc/random_character(datum/species/selected)
+	var/datum/species/S
 	gender = pick(MALE, FEMALE)
-	var/speciestype = pick(GLOB.roundstart_species)
-	var/datum/species/S = GLOB.roundstart_species[speciestype]
+	if(!selected)
+		var/speciestype = pick(GLOB.roundstart_species)
+		S = GLOB.roundstart_species[speciestype]
+	else
+		S = GLOB.all_species[selected.name]
+	species = S.name
+	real_name = S.random_name(gender)
+	age = rand(AGE_MIN, AGE_MAX)
+	h_style = pick("Crewcut", "Bald", "Short Hair")
+
+///Create a random character of the specified species
+/datum/preferences/proc/random_character_set_species(datum/species/selected)
+	gender = pick(MALE, FEMALE)
+	var/datum/species/S = GLOB.all_species[selected.name]
 	species = S.name
 	real_name = S.random_name(gender)
 	age = rand(AGE_MIN, AGE_MAX)

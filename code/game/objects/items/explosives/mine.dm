@@ -83,12 +83,15 @@ Stepping directly on the mine will also blow it up
 		return
 	user.visible_message(span_notice("[user] finishes deploying [src]."), \
 	span_notice("You finish deploying [src]."))
-	var/obj/item/card/id/id = user.get_idcard()
-	deploy_mine(user, id?.iff_signal)
+	deploy_mine(user, user.get_iff_signal())
 	user.record_traps_created()
 
 ///this proc is used to deploy a mine
 /obj/item/explosive/mine/proc/deploy_mine(mob/living/user, iff_sig)
+	if(user)
+		log_combat(user, src, "deployed", "IFF signal [iff_sig]")
+	else
+		log_attack("[logdetails(src)] was deployed with IFF signal [iff_sig]")
 	iff_signal = iff_sig
 	anchored = TRUE
 	armed = TRUE
@@ -171,8 +174,7 @@ Stepping directly on the mine will also blow it up
 		return FALSE
 	if(living_victim.stat == DEAD)
 		return FALSE
-	var/obj/item/card/id/id = living_victim.get_idcard()
-	if(id?.iff_signal & iff_signal)
+	if(living_victim.get_iff_signal() & iff_signal)
 		return FALSE
 
 	living_victim.visible_message(span_danger("[icon2html(src, viewers(living_victim))] \The [src] clicks as [victim] moves in front of it."), \
@@ -184,7 +186,7 @@ Stepping directly on the mine will also blow it up
 	return TRUE
 
 /// Alien attacks trigger the explosive to instantly detonate
-/obj/item/explosive/mine/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/item/explosive/mine/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 	if(triggered) //Mine is already set to go off

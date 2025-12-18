@@ -56,6 +56,8 @@
 
 /obj/machinery/computer/emp_act(severity)
 	. = ..()
+	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
+		return FALSE
 	if(prob(20/severity))
 		set_broken()
 
@@ -128,7 +130,7 @@
 
 /obj/machinery/computer/proc/repair()
 	machine_stat &= ~BROKEN
-	density = TRUE
+	density = initial(density)
 	durability = initial(durability)
 	update_icon()
 
@@ -151,8 +153,8 @@
 		return FALSE
 
 	if(user.skills.getRating(SKILL_ENGINEER) < SKILL_ENGINEER_EXPERT)
-		user.visible_message(span_notice("[user] fumbles around figuring out how to deconstruct [src]."),
-		span_notice("You fumble around figuring out how to deconstruct [src]."))
+		user.visible_message(span_notice("[user] fumbles around figuring out how to repair [src]."),
+		span_notice("You fumble around figuring out how to repair [src]."))
 		var/fumbling_time = 5 SECONDS * (SKILL_ENGINEER_EXPERT - user.skills.getRating(SKILL_ENGINEER))
 		if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED))
 			return
@@ -172,6 +174,7 @@
 	span_notice("You repair [src]."))
 	machine_stat &= ~DISABLED //Remove the disabled flag
 	durability = initial(durability) //Reset its durability to its initial value
+	density = initial(density)
 	update_icon()
 	playsound(loc, 'sound/items/welder2.ogg', 25, 1)
 
@@ -230,7 +233,7 @@
 		pick(playsound(src, 'sound/machines/computer_typing1.ogg', 5, 1), playsound(src, 'sound/machines/computer_typing2.ogg', 5, 1), playsound(src, 'sound/machines/computer_typing3.ogg', 5, 1))
 
 ///So Xenos can smash computers out of the way without actually breaking them
-/obj/machinery/computer/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/machinery/computer/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 

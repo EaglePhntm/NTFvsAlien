@@ -2,7 +2,7 @@
 	name = "Extended Mini"
 	config_tag = "Extended Mini"
 	silo_scaling = 1
-	round_type_flags = MODE_INFESTATION|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_ALLOW_XENO_QUICKBUILD
+	round_type_flags = MODE_INFESTATION|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_ALLOW_XENO_QUICKBUILD|MODE_XENO_GRAB_DEAD_ALLOWED|MODE_MUTATIONS_OBTAINABLE|MODE_BIOMASS_POINTS
 	shutters_drop_time = 3 MINUTES
 	xeno_abilities_flags = ABILITY_NUCLEARWAR
 	factions = list(FACTION_TERRAGOV, FACTION_XENO)
@@ -37,7 +37,7 @@
 		/datum/job/moraleofficer = -1,
 		/datum/job/worker = -1,
 		/datum/job/other/prisoner = 4,
-		/datum/job/xenomorph = 8,
+		/datum/job/xenomorph = FREE_XENO_AT_START,
 		/datum/job/xenomorph/queen = 1,
 	)
 	enable_fun_tads = TRUE

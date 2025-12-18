@@ -66,18 +66,35 @@
 	popup.set_content(dat)
 	popup.open(FALSE)
 
-/proc/check_hive_status(mob/user)
+/proc/check_hive_status(mob/user, force_choose_hive)
 	if(!SSticker)
 		return
 
 	var/datum/hive_status/hive
-	if(isxeno(user))
+	if(isxeno(user) && !force_choose_hive)
 		var/mob/living/carbon/xenomorph/xeno_user = user
-		if(xeno_user.hive)
-			hive = xeno_user.hive
+		hive = xeno_user.get_hive()
 	else
-		hive = GLOB.hive_datums[XENO_HIVE_NORMAL]
+		var/isadmin = check_other_rights(user.client, R_ADMIN, FALSE)
+		var/list/hives_by_name = list()
+		var/list/hivenames = list()
+		for(var/hivenumber in GLOB.hive_datums)
 
+			if(!isadmin && !LAZYLEN(GLOB.alive_xeno_list_hive[hivenumber]))
+				var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
+				if(!xeno_job.total_positions)
+					continue
+			hive = GLOB.hive_datums[hivenumber]
+			hivenames |= hive.name
+			hives_by_name[hive.name] = hive
+		if(!length(hivenames))
+			to_chat(user, span_warning("There are no active hives."))
+			return
+		hive = hives_by_name[tgui_input_list(user, "Which hive?", "Check Hive Status", hivenames, hivenames[1])]
+
+	if(!hive)
+		to_chat(user, span_warning("Valid hive not selected."))
+		return
 	hive.interact(user)
 
 	return
@@ -159,6 +176,9 @@
 
 	. += "Health: [health]/[maxHealth][overheal ? " + [overheal]": ""]" //Changes with balance scalar, can't just use the caste
 
+	if(xeno_caste.caste_flags & CASTE_MUTATIONS_ALLOWED)
+		. += "Biomass: [!isnull(SSpoints.xeno_biomass_points_by_hive[hivenumber]) ? SSpoints.xeno_biomass_points_by_hive[hivenumber] : 0]/[MUTATION_BIOMASS_MAXIMUM]"
+
 	if(xeno_caste.plasma_max > 0)
 		. += "Plasma: [plasma_stored]/[xeno_caste.plasma_max]"
 
@@ -235,7 +255,10 @@
 	hud_set_plasma()
 
 /mob/living/carbon/xenomorph/proc/use_plasma(value, update_plasma = TRUE)
-	plasma_stored = max(plasma_stored - value, 0)
+	plasma_stored = plasma_stored - value
+	if(plasma_stored < 0)
+		plasma_stored = 0
+		Paralyze(15 SECONDS) // 3 seconds after xeno paralyze resistance applied
 	update_action_button_icons()
 	if(!update_plasma)
 		return
@@ -274,7 +297,7 @@
 
 /mob/living/carbon/xenomorph/proc/update_progression(seconds_per_tick)
 	// Upgrade is increased based on marine to xeno population taking stored_larva as a modifier.
-	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+	var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
 	var/stored_larva = xeno_job.total_positions - xeno_job.current_positions
 	upgrade_stored += (1 + (stored_larva/6) + hive.get_upgrade_boost()) * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD //Do this regardless of whether we can upgrade so age accrues at primo
 	if(!upgrade_possible())
@@ -293,7 +316,7 @@
 		return
 
 	// Evolution is increased based on marine to xeno population taking stored_larva as a modifier.
-	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+	var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
 	var/stored_larva = xeno_job.total_positions - xeno_job.current_positions
 	var/evolution_points = 1 + (FLOOR(stored_larva / 3, 1)) + hive.get_evolution_boost() + spec_evolution_boost()
 	var/evolution_points_lag = evolution_points * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD
@@ -513,22 +536,6 @@
 		H.remove_hud_from(src)
 	to_chat(src, span_notice("You have [(xeno_flags & XENO_MOBHUD) ? "enabled" : "disabled"] the Xeno Status HUD."))
 
-/mob/living/carbon/xenomorph/verb/toggle_bump_attack_allies()
-	set name = "Toggle Bump Attack Allies"
-	set desc = "Toggles the ability to bump attack your allies."
-	set category = "Alien"
-
-	xeno_flags ^= XENO_ALLIES_BUMP
-	to_chat(src, span_notice("You have [(xeno_flags & XENO_ALLIES_BUMP) ? "enabled" : "disabled"] the Bump Attack Allies Toggle."))
-
-/mob/living/carbon/xenomorph/verb/toggle_destroy_own_structures()
-	set name = "Toggle Destroy Own Structures"
-	set desc = "Toggles the ability to destroy your own structures."
-	set category = "Alien"
-
-	xeno_flags ^= XENO_DESTROY_OWN_STRUCTURES
-	to_chat(src, span_notice("You have [(xeno_flags & XENO_DESTROY_OWN_STRUCTURES) ? "enabled" : "disabled"] the Destroy Own Structures Toggle."))
-
 /mob/living/carbon/xenomorph/proc/recurring_injection(mob/living/carbon/C, list/toxin = list(/datum/reagent/toxin/xeno_neurotoxin), channel_time = XENO_NEURO_CHANNEL_TIME, transfer_amount = XENO_NEURO_AMOUNT_RECURRING, count = 4, datum/effect_system/smoke_spread/gas_type, gas_range, no_overdose = FALSE) //NTF edit - multiple chemicals in one injection
 	if(!C?.can_sting() || !toxin)
 		return FALSE
@@ -589,6 +596,8 @@
 	var/old_sunder = sunder
 	sunder = clamp(sunder + (adjustment > 0 ? adjustment * xeno_caste.sunder_multiplier : adjustment), 0, xeno_caste.sunder_max)
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_SUNDER_CHANGE, old_sunder, sunder)
+	return sunder - old_sunder // The real difference in sunder. Negative: real loss in sunder. Positive: real gain in sunder.
+
 //Applying sunder is an adjustment value above 0, healing sunder is an adjustment value below 0. Use multiplier when taking sunder, not when healing.
 
 /mob/living/carbon/xenomorph/set_sunder(new_sunder)
@@ -615,7 +624,8 @@
 	var/mob/living/carbon/victim = eaten_mob
 	eaten_mob = null
 	if(make_cocoon)
-		ADD_TRAIT(victim, TRAIT_PSY_DRAINED, TRAIT_PSY_DRAINED)
+		if(victim.stat == DEAD)
+			ADD_TRAIT(victim, TRAIT_PSY_DRAINED, TRAIT_PSY_DRAINED)
 		if(HAS_TRAIT(victim, TRAIT_UNDEFIBBABLE))
 			victim.med_hud_set_status()
 		new /obj/structure/cocoon(loc, hivenumber, victim)
@@ -648,10 +658,7 @@
 	var/image/blip = image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_icon, MINIMAP_BLIPS_LAYER)
 	if(makeleader)
 		blip.overlays += image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_leadered_overlay)
-	if(hivenumber != XENO_HIVE_CORRUPTED)
-		SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, blip)
-	if(hivenumber == XENO_HIVE_CORRUPTED)
-		SSminimaps.add_marker(src, MINIMAP_FLAG_MARINE, blip)
+	SSminimaps.add_marker(src, GLOB.hivenumber_to_minimap_flag[hivenumber], blip)
 
 ///updates the xeno's glow, based on the ability being used
 /mob/living/carbon/xenomorph/proc/update_glow(range, power, color)
@@ -664,50 +671,3 @@
 /mob/living/carbon/xenomorph/on_eord(turf/destination)
 	revive(TRUE)
 
-/mob/living/carbon/xenomorph/verb/swapgender()
-	set name = "Swap Gender"
-	set desc = "Swap between xeno genders in an instant, nothing compared to evolving. Some may not have textures, PR it yourself."
-	set category = "Alien"
-
-	update_xeno_gender(src, TRUE)
-
-/mob/living/carbon/xenomorph/proc/update_xeno_gender(mob/living/carbon/xenomorph/user = src, swapping = FALSE)
-	remove_overlay(GENITAL_LAYER)
-	if(!user)
-		return
-	var/xgen = user?.client?.prefs?.xenogender
-	if(swapping) //flips to next in selection
-		xgen += 1
-	if(xgen >= 5) //revert to start if over max.
-		xgen = 1
-	//updates the overlays
-	user.client?.prefs?.xenogender = xgen
-	genital_overlay.layer = layer + 0.3
-	genital_overlay.vis_flags |= VIS_HIDE
-	genital_overlay.icon = src.icon
-	genital_overlay.icon_state = "none"
-	switch(xgen)
-		if(1) //blank
-			genital_overlay.icon_state = null
-			gender=NEUTER
-			if(swapping)
-				user.balloon_alert(user, "None")
-		if(2)
-			genital_overlay.icon_state = "[icon_state]_female"
-			gender=FEMALE
-			if(swapping)
-				user.balloon_alert(user, "Female")
-		if(3)
-			genital_overlay.icon_state = "[icon_state]_male"
-			gender=MALE
-			if(swapping)
-				user.balloon_alert(user, "Male")
-		if(4)
-			genital_overlay.icon_state = "[icon_state]_futa"
-			gender=FEMALE
-			if(swapping)
-				user.balloon_alert(user, "Futa")
-
-	if(xeno_caste.caste_flags & CASTE_HAS_WOUND_MASK) //ig if u cant see wounds u shouldnt see tiddies too maybe for things like being ethereal
-		apply_overlay(GENITAL_LAYER)
-	genital_overlay.vis_flags &= ~VIS_HIDE // Show the overla

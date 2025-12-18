@@ -1,5 +1,5 @@
 /datum/loadout_item/secondary/gun/marine
-	jobs_supported = list(SQUAD_MARINE, SQUAD_CORPSMAN, SQUAD_ENGINEER, SQUAD_LEADER, SQUAD_SMARTGUNNER, FIELD_COMMANDER, STAFF_OFFICER, CAPTAIN)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_CORPSMAN, SQUAD_ENGINEER, SQUAD_LEADER, SQUAD_SMARTGUNNER, FIELD_COMMANDER, STAFF_OFFICER, CAPTAIN)
 	item_whitelist = list(
 		/obj/item/storage/holster/belt/pistol/standard_pistol = ITEM_SLOT_BELT,
 		/obj/item/storage/backpack/marine/satchel = ITEM_SLOT_BACK,
@@ -16,7 +16,7 @@
 	desc = "The P-14, produced by Terran Armories. A reliable sidearm that loads 9x19mm Parabellum Auto munitions. Has a good rate of fire and takes 21-round 9mm magazines."
 	ui_icon = "tp14"
 	item_typepath = /obj/item/weapon/gun/pistol/standard_pistol/standard
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/secondary/gun/marine/fc_pistol
 	name = "P-1911A1-C pistol"
@@ -24,15 +24,15 @@
 	Light and easy to use one handed, it suffers from a small magazine size and no auto eject feature. Uses .45 ACP ammunition."
 	ui_icon = "m1911c"
 	item_typepath = /obj/item/weapon/gun/pistol/m1911/custom
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 	jobs_supported = list(FIELD_COMMANDER)
 
 /datum/loadout_item/secondary/gun/marine/so_pistol
 	name = "RT-3 pistol"
-	desc = "TAn RT-3 target pistol, a common sight throughout the bubble and the standard sidearm for noncombat roles in the TGMC. Uses 9mm caseless ammunition."
+	desc = "TAn RT-3 target pistol, a common sight throughout the bubble and the standard sidearm for noncombat roles in the NTF. Uses 9mm caseless ammunition."
 	ui_icon = "rt3"
 	item_typepath = /obj/item/weapon/gun/pistol/rt3
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 	jobs_supported = list(STAFF_OFFICER)
 
 /datum/loadout_item/secondary/gun/marine/smart_pistol
@@ -41,7 +41,7 @@
 	Expensive to manufacture, this sophisticated pistol is only occassionally used by smartgunners, or some higher ranking officers who have the skills to use it. Uses 9x19mm Parabellum ammunition."
 	ui_icon = "sp13"
 	item_typepath = /obj/item/weapon/gun/pistol/smart_pistol
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 	jobs_supported = list(CAPTAIN)
 
 /datum/loadout_item/secondary/gun/marine/standard_heavypistol
@@ -56,7 +56,7 @@
 	Light and easy to use one handed, but still a sidearm. Comes in a holster that fits on your waist or armor. Uses 9mm AP ammunition."
 	ui_icon = "vp70"
 	item_typepath = /obj/item/weapon/gun/pistol/vp70/tactical
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 	jobs_supported = list(SQUAD_LEADER, FIELD_COMMANDER, STAFF_OFFICER, CAPTAIN)
 
 /datum/loadout_item/secondary/gun/marine/standard_revolver
@@ -76,7 +76,7 @@
 
 /datum/loadout_item/secondary/gun/marine/laser_pistol
 	name = "TE-P"
-	desc = "A TerraGov standard issue laser pistol abbreviated as TE-P. It has an integrated charge selector for normal, heat and taser settings. \
+	desc = "A Ninetails standard issue laser pistol abbreviated as TE-P. It has an integrated charge selector for normal, heat and taser settings. \
 	Uses standard Terra Experimental (abbreviated as TE) power cells. \
 	As with all TE Laser weapons, they use a lightweight alloy combined without the need for bullets any longer decreases their weight and aiming speed quite some vs their ballistic counterparts."
 	ui_icon = "default"
@@ -104,7 +104,7 @@
 	item_typepath = /obj/item/weapon/gun/smg/m25/holstered
 	item_whitelist = list(/obj/item/storage/holster/m25 = ITEM_SLOT_BELT)
 	req_desc = "Requires an SMG-25 holster and either a MG-27, FL-84 or MG-100."
-	jobs_supported = list(SQUAD_MARINE)
+	jobs_supported = list(SQUAD_MARINE, VANGUARD, SQUAD_SPECIALIST)
 
 /datum/loadout_item/secondary/gun/marine/standard_smg/item_checks(datum/outfit_holder/outfit_holder)
 	. = ..()
@@ -134,7 +134,7 @@
 
 /datum/loadout_item/secondary/gun/marine/db_shotgun
 	name = "SH-34 shotgun"
-	desc = "A double barreled shotgun of archaic, but sturdy design used by the TGMC, loaded with buckshot. Uncommonly seen as a powerful secondary weapon when serious stopping power is required."
+	desc = "A double barreled shotgun of archaic, but sturdy design used by the NTF, loaded with buckshot. Uncommonly seen as a powerful secondary weapon when serious stopping power is required."
 	ui_icon = "tx34"
 	item_typepath = /obj/item/weapon/gun/shotgun/double/marine
 	item_whitelist = list(/obj/item/storage/holster/belt/ts34 = ITEM_SLOT_BELT)
@@ -149,9 +149,9 @@
 //non-standard
 /datum/loadout_item/secondary/machete
 	name = "Machete"
-	desc = "Latest issue of the TGMC Machete. Great for clearing out jungle or brush on outlying colonies, or cutting open heads. Found commonly in the hands of scouts and trackers, but difficult to carry with the usual kit."
+	desc = "Latest issue of the NTF Machete. Great for clearing out jungle or brush on outlying colonies, or cutting open heads. Found commonly in the hands of scouts and trackers, but difficult to carry with the usual kit."
 	ui_icon = "machete"
-	jobs_supported = list(SQUAD_MARINE, SQUAD_LEADER, SQUAD_SMARTGUNNER)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_LEADER, SQUAD_SMARTGUNNER)
 	item_typepath = /obj/item/weapon/sword/machete
 	item_whitelist = list(/obj/item/storage/holster/blade/machete = ITEM_SLOT_BELT)
 	req_desc = "Requires a scabbard."
@@ -174,7 +174,7 @@
 	name = "Mirage nades"
 	desc = "Three mirage grenades, can provide a handy distraction against unwitting opponents."
 	ui_icon = "grenade"
-	jobs_supported = list(SQUAD_MARINE, SQUAD_CORPSMAN, SQUAD_ENGINEER, SQUAD_LEADER, SQUAD_SMARTGUNNER, FIELD_COMMANDER)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_CORPSMAN, SQUAD_ENGINEER, SQUAD_LEADER, SQUAD_SMARTGUNNER, FIELD_COMMANDER)
 
 /datum/loadout_item/secondary/kit/mirage_nades/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
 	wearer.equip_to_slot_or_del(new /obj/item/explosive/grenade/mirage, SLOT_IN_BACKPACK)
@@ -186,7 +186,7 @@
 	name = "HE nades"
 	desc = "Three HE grenades, for a bit more bang."
 	ui_icon = "grenade"
-	jobs_supported = list(SQUAD_MARINE, SQUAD_CORPSMAN, SQUAD_ENGINEER, SQUAD_LEADER, SQUAD_SMARTGUNNER, FIELD_COMMANDER)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_CORPSMAN, SQUAD_ENGINEER, SQUAD_LEADER, SQUAD_SMARTGUNNER, FIELD_COMMANDER)
 
 /datum/loadout_item/secondary/kit/he_nades/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
 	wearer.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_BACKPACK)
@@ -198,7 +198,7 @@
 	name = "Deployable shield"
 	desc = "Two deployable shields. Can be used as strong, portable barricades, or as a shield in a pinch."
 	ui_icon = "riot_shield"
-	jobs_supported = list(SQUAD_MARINE, SQUAD_CORPSMAN, SQUAD_ENGINEER, SQUAD_LEADER, SQUAD_SMARTGUNNER, FIELD_COMMANDER)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_CORPSMAN, SQUAD_ENGINEER, SQUAD_LEADER, SQUAD_SMARTGUNNER, FIELD_COMMANDER)
 
 /datum/loadout_item/secondary/kit/deploy_shield/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
 	wearer.equip_to_slot_or_del(new /obj/item/weapon/shield/riot/marine/deployable, SLOT_IN_BACKPACK)
@@ -210,10 +210,13 @@
 	desc = "Tactical binoculars, used for scouting positions and calling in fire support, if it's available."
 	ui_icon = "default"
 	purchase_cost = 20
-	jobs_supported = list(SQUAD_MARINE, SQUAD_CORPSMAN, SQUAD_ENGINEER, SQUAD_SMARTGUNNER)
+	jobs_supported = list(SQUAD_MARINE, SQUAD_SLUT, VANGUARD, SQUAD_SPECIALIST, SQUAD_CORPSMAN, SQUAD_ENGINEER, SQUAD_SMARTGUNNER)
 
 /datum/loadout_item/secondary/kit/binoculars/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
-	wearer.equip_to_slot_or_del(new /obj/item/binoculars/fire_support/campaign, SLOT_IN_BACKPACK)
+	if(iscampaigngamemode(SSticker.mode))
+		wearer.equip_to_slot_or_del(new /obj/item/binoculars/fire_support/campaign, SLOT_IN_BACKPACK)
+	else
+		wearer.equip_to_slot_or_del(new /obj/item/binoculars/tactical, SLOT_IN_BACKPACK)
 	wearer.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_BACKPACK)
 	wearer.equip_to_slot_or_del(new /obj/item/tool/crowbar, SLOT_IN_BACKPACK)
 	wearer.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
@@ -222,7 +225,7 @@
 	name = "Cameras"
 	desc = "Two deployable cameras and a hud tablet. Useful for watching things remotely, and your command officers might appreciate it as well."
 	ui_icon = "default"
-	jobs_supported = list(SQUAD_LEADER)
+	jobs_supported = list(SQUAD_LEADER, SQUAD_SPECIALIST)
 
 /datum/loadout_item/secondary/kit/cameras/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
 	wearer.equip_to_slot_or_del(new /obj/item/deployable_camera, SLOT_IN_BACKPACK)
@@ -237,7 +240,7 @@
 	name = "Sentry gun"
 	desc = "A point defence sentry gun, with spare ammo. Because more guns are always better."
 	ui_icon = "sentry"
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
 
 /datum/loadout_item/secondary/kit/tgmc_engineer/sentry/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
 	wearer.equip_to_slot_or_del(new /obj/item/weapon/gun/sentry/mini/combat_patrol, SLOT_IN_BACKPACK)
@@ -299,11 +302,24 @@
 
 /datum/loadout_item/secondary/kit/tgmc_engineer/iguana/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
 	wearer.equip_to_slot_or_del(new /obj/item/deployable_vehicle, SLOT_IN_BACKPACK)
-	wearer.equip_to_slot_or_del(new /obj/item/uav_turret, SLOT_IN_BACKPACK)
+	wearer.equip_to_slot_or_del(new /obj/item/uav_turret/claw, SLOT_IN_BACKPACK)
 	wearer.equip_to_slot_or_del(new /obj/item/unmanned_vehicle_remote, SLOT_IN_BACKPACK)
 
+/datum/loadout_item/secondary/kit/tgmc_engineer/skink
+	name = "Skink"
+	desc = "A deployable Skink remote control vehicle. While lacking any weaponry, this speedy vehicle is perfect for slipping past enemy forces and gathering information. Comes with a spare and remote. \
+	WARNING: exceedingly fragile. Keep away from open flames or explosives."
+	ui_icon = "default"
+	purchase_cost = 15
+
+/datum/loadout_item/secondary/kit/tgmc_engineer/skink/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
+	wearer.equip_to_slot_or_del(new /obj/item/deployable_vehicle/tiny, SLOT_IN_BACKPACK)
+	wearer.equip_to_slot_or_del(new /obj/item/deployable_vehicle/tiny, SLOT_IN_BACKPACK)
+	wearer.equip_to_slot_or_del(new /obj/item/unmanned_vehicle_remote, SLOT_IN_BACKPACK)
+	wearer.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
+
 /datum/loadout_item/secondary/kit/tgmc_corpsman
-	jobs_supported = list(SQUAD_CORPSMAN)
+	jobs_supported = list(SQUAD_CORPSMAN, VANGUARD)
 	req_desc = "Requires a medical backpack."
 
 /datum/loadout_item/secondary/kit/tgmc_corpsman/advanced

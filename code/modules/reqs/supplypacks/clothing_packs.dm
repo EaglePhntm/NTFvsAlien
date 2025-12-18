@@ -105,3 +105,14 @@ CLOTHING
 	name = "KZ Type 9 goggles"
 	contains = list(/obj/item/clothing/glasses/night/m42_night_goggles/upp)
 	cost = 2500
+
+/datum/supply_packs/clothing/hypnogoggles
+	name = "Hypnotic goggles"
+	contains = list(/obj/item/clothing/glasses/hypno)
+	cost = 100
+
+/datum/supply_packs/clothing/insuls
+	name = "Insulated gloves"
+	notes = "For only 10 more points you can get these as part of the Electrical Maintenance crate under engineering"
+	contains = list(/obj/item/clothing/gloves/insulated)
+	cost = 40

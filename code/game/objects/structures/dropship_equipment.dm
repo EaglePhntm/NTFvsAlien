@@ -44,7 +44,7 @@
 	if(!density)
 		for(var/atom/thing_to_check AS in loc)
 			if(thing_to_check.density)
-				balloon_alert(user, "Blocked by [thing_to_check]")
+				balloon_alert(user, "blocked by [thing_to_check]!")
 				return
 	playsound(loc, 'sound/machines/hydraulics_1.ogg', 40, 1)
 	if(!do_after(user, 7 SECONDS, FALSE, src))
@@ -326,10 +326,10 @@
 
 /obj/structure/dropship_equipment/shuttle/nade_launcher/equipment_interact(mob/user)
 	if(!COOLDOWN_FINISHED(src, deploy_cooldown)) //prevents spamming deployment
-		user.balloon_alert(user, "Busy")
+		user.balloon_alert(user, "busy!")
 		return
 	if(length(loaded_grenades) <= 0) //check for inserted flares
-		user.balloon_alert(user, "No grenades left")
+		user.balloon_alert(user, "no grenades left!")
 		return
 	var/turf/target = get_ranged_target_turf(src, dir, 10)
 	var/obj/item/explosive/grenade/nade_to_launch = loaded_grenades[1]
@@ -404,12 +404,12 @@
 	if(!enabled)
 		enabled = TRUE
 		update_appearance()
-		user.balloon_alert(user, "Enabled")
+		user.balloon_alert(user, "enabled")
 		RegisterSignal(linked_shuttle, COMSIG_SHUTTLE_SETMODE, PROC_REF(drop_pellet_to_location))
 		return
 	enabled = FALSE
 	update_appearance()
-	user.balloon_alert(user, "Disabled")
+	user.balloon_alert(user, "disabled")
 	UnregisterSignal(linked_shuttle, COMSIG_SHUTTLE_SETMODE)
 
 /obj/structure/dropship_equipment/shuttle/tangle_emitter/update_equipment()
@@ -417,9 +417,9 @@
 	if(ship_base)
 		setDir(ship_base.dir)
 		if(enabled)
-			balloon_alert_to_viewers("Enabled")
+			balloon_alert_to_viewers("enabled")
 		else
-			balloon_alert_to_viewers("Disabled")
+			balloon_alert_to_viewers("disabled")
 	else
 		setDir(initial(dir))
 	update_appearance()
@@ -459,7 +459,7 @@
 	addtimer(CALLBACK(src, PROC_REF(on_cooldown_end)), cooldown_length + 1 SECONDS)
 	playsound(loc, 'sound/weapons/guns/fire/tank_smokelauncher.ogg', 40, 1)
 	console.say("Emitter system deployed successfully.")
-	landing_spot.balloon_alert_to_viewers("A small pellet falls out of the sky!")
+	landing_spot.balloon_alert_to_viewers("small pellet falls out of the sky!")
 
 /// Special effects for when system cooldown finishes
 /obj/structure/dropship_equipment/shuttle/tangle_emitter/proc/on_cooldown_end()
@@ -659,7 +659,7 @@
 	undeployed_icon_state = "hl_system"
 
 /obj/structure/dropship_equipment/shuttle/weapon_holder/mortar_holder
-	name = "mortar deployment system"
+	name = "double barrel mortar deployment system"
 	desc = "A box that deploys a TA-55DB mortar. Fits on the crewserved weapon attach points of dropships. You need a powerloader to lift it."
 	icon_state = "mortar_system"
 	point_cost = 300
@@ -800,7 +800,7 @@
 		ammo_equipped.ammo_count = max(ammo_equipped.ammo_count-ammo_equipped.ammo_used_per_firing, 0)
 	update_icon()
 
-/obj/structure/dropship_equipment/cas/weapon/proc/open_fire(obj/selected_target, attackdir)
+/obj/structure/dropship_equipment/cas/weapon/proc/open_fire(obj/selected_target, attackdir, faction)
 	var/turf/target_turf = get_turf(selected_target)
 	if(firing_sound)
 		playsound(loc, firing_sound, 70, TRUE)
@@ -825,9 +825,18 @@
 
 	//Marine-only visuals
 	var/predicted_dangerous_turfs = SA.get_turfs_to_impact(target_turf, attackdir)
-	for(var/turf/impact in predicted_dangerous_turfs)
-		effects_to_delete += new /obj/effect/overlay/blinking_laser/marine/lines(impact)
+	if(faction == FACTION_TERRAGOV)
+		for(var/turf/impact in predicted_dangerous_turfs)
+			effects_to_delete += new /obj/effect/overlay/blinking_laser/marine/lines(impact)
+	else
+		for(var/turf/impact in predicted_dangerous_turfs)
+			effects_to_delete += new /obj/effect/overlay/blinking_laser/som/lines(impact)
 
+	var/mob/user = usr
+	if(istype(usr))
+		log_combat(user, selected_target, "shot (CAS)", SA, "(Will land in [ammo_travelling_time/(1 SECONDS)] seconds) (fired from [logdetails(src)], linked console is [logdetails(linked_console)])")
+	else
+		log_attack("???UNKNOWN??? shot (CAS) [logdetails(selected_target)] with [logdetails(SA)] (Will land in [ammo_travelling_time/(1 SECONDS)] seconds) (fired from [logdetails(src)], linked console is [logdetails(linked_console)])")
 	addtimer(CALLBACK(SA, TYPE_PROC_REF(/obj/structure/ship_ammo, detonate_on), target_turf, attackdir), ammo_travelling_time)
 	QDEL_LIST_IN(effects_to_delete, ammo_travelling_time)
 

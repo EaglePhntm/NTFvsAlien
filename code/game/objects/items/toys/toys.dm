@@ -25,7 +25,7 @@
 	throw_range = 20
 	force = 0
 
-/obj/item/toy/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/item/toy/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	attack_hand(xeno_attacker)
 
 
@@ -709,7 +709,7 @@
 				if(isfood(object))
 					qdel(object)
 					playsound(src,'sound/items/eatfood.ogg', 25, 1)
-					balloon_alert_to_viewers("Consumes [object]")
+					visible_message(span_warning("[src] consumes \the [object]."))
 					break
 		if(3)
 			for(var/dirn in shuffle(GLOB.alldirs))
@@ -733,14 +733,13 @@
 			(balloon_alert_to_viewers("stifles a laugh")),
 			(balloon_alert_to_viewers("blinks")),
 			(balloon_alert_to_viewers("squints")),
-			(balloon_alert_to_viewers("glares")),
-			(balloon_alert_to_viewers("[src]'s eyes gleam malevolently")))
+			(balloon_alert_to_viewers("glares malevolently")))
 		if(6)
 			for(var/atom/movable/object AS in targetturf.contents)
 				if(isinjector(object))
 					qdel(object)
 					playsound(src,'sound/items/hypospray.ogg', 25, 1)
-					balloon_alert_to_viewers("Injects [object] into its arm")
+					visible_message(span_warning("[src] injects \the [object] into its arm."))
 					break
 		if(7)
 			flick("gnome_hop", src)

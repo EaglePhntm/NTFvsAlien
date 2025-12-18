@@ -146,11 +146,11 @@
 /obj/item/tool/pickaxe/plasmacutter/proc/fizzle_message(mob/user)
 	playsound(src, 'sound/machines/buzz-two.ogg', 25, 1)
 	if(!cell)
-		balloon_alert(user, "No battery installed")
+		balloon_alert(user, "no battery installed!")
 	else if(!powered)
-		balloon_alert(user, "Turned off")
+		balloon_alert(user, "turned off!")
 	else
-		balloon_alert(user, "Insufficient charge")
+		balloon_alert(user, "insufficient charge!")
 		to_chat(user, span_warning("The plasma cutter has inadequate charge remaining! Give the internal battery time to recharge, or attack a living creature! <b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b>"))
 
 /obj/item/tool/pickaxe/plasmacutter/proc/start_cut(mob/user, name = "", atom/source, charge_amount = PLASMACUTTER_BASE_COST, custom_string, no_string, SFX = TRUE)
@@ -169,7 +169,7 @@
 		if(custom_string)
 			to_chat(user, span_notice(custom_string))
 		else
-			balloon_alert(user, "Starts cutting apart")
+			balloon_alert(user, "cutting apart...")
 	return TRUE
 
 /obj/item/tool/pickaxe/plasmacutter/proc/cut_apart(mob/user, name = "", atom/source, charge_amount = PLASMACUTTER_BASE_COST, custom_string)
@@ -181,7 +181,7 @@
 	spark_system.attach(source)
 	spark_system.start(source)
 	use_charge(user, charge_amount, FALSE)
-	balloon_alert(user, "Charge Remaining: [cell.charge]/[cell.maxcharge]")
+	balloon_alert(user, "charge remaining: [cell.charge]/[cell.maxcharge]")
 	if(custom_string)
 		to_chat(user, span_notice(custom_string))
 
@@ -204,11 +204,15 @@
 /obj/item/tool/pickaxe/plasmacutter/proc/use_charge(mob/user, amount = PLASMACUTTER_BASE_COST, mention_charge = TRUE)
 	cell.charge -= min(cell.charge, amount)
 	if(mention_charge)
-		balloon_alert(user, "Charge Remaining: [cell.charge]/[cell.maxcharge]")
+		balloon_alert(user, "charge remaining: [cell.charge]/[cell.maxcharge]")
 	update_plasmacutter()
 
 /obj/item/tool/pickaxe/plasmacutter/proc/calc_delay(mob/user)
 	. = PLASMACUTTER_CUT_DELAY
+	if(isxeno(user))
+		user.visible_message(span_notice("[user] fumbles around figuring out how to use [src]."),
+		span_notice("You fumble around figuring out how to use [src]."))
+		return . *= 4.5
 	var/skill = user.skills.getRating(SKILL_ENGINEER)
 	if(skill < SKILL_ENGINEER_ENGI) //We don't have proper skills; time to fumble and bumble.
 		user.visible_message(span_notice("[user] fumbles around figuring out how to use [src]."),
@@ -225,7 +229,7 @@
 			powered = FALSE
 			if(!silent)
 				playsound(loc, 'sound/weapons/saberoff.ogg', 25)
-				balloon_alert(user, "Insufficient charge")
+				balloon_alert(user, "insufficient charge!")
 				to_chat(user, span_warning("The plasma cutter abruptly shuts down due to a lack of power!"))
 		force = 5
 		damtype = BRUTE
@@ -241,6 +245,9 @@
 
 
 /obj/item/tool/pickaxe/plasmacutter/attack(mob/living/M, mob/living/user)
+	if(isxeno(user))
+		to_chat(user, span_warning("We stare at \the [src] cluelessly."))
+		return FALSE
 	if(!powered)
 		fizzle_message(user)
 	else

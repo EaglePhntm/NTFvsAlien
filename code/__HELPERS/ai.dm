@@ -105,6 +105,34 @@
 			continue
 		. += nearby_tank
 
+/proc/cheap_get_sentries_near(atom/source, distance)
+	. = list()
+	var/turf/source_turf = get_turf(source)
+	if(!source_turf)
+		return
+	for(var/obj/machinery/deployable/mounted/sentry/nearby_sentry AS in GLOB.sentry_list)
+		if(isnull(nearby_sentry))
+			continue
+		if(source_turf.z != nearby_sentry.z)
+			continue
+		if(get_dist(source_turf, nearby_sentry) > distance)
+			continue
+		. += nearby_sentry
+
+/proc/cheap_get_fhugger_near(atom/source, distance)
+	. = list()
+	var/turf/source_turf = get_turf(source)
+	if(!source_turf)
+		return
+	for(var/obj/item/clothing/mask/facehugger/nearby_fhugger AS in GLOB.alive_hugger_list)
+		if(isnull(nearby_fhugger))
+			continue
+		if(source_turf.z != nearby_fhugger.z)
+			continue
+		if(get_dist(source_turf, nearby_fhugger) > distance)
+			continue
+		. += nearby_fhugger
+
 ///Returns the nearest target that has the right target flag
 /proc/get_nearest_target(atom/source, distance, target_flags, attacker_faction, attacker_hive, need_los = FALSE)
 	if(!source)
@@ -117,6 +145,8 @@
 		for(var/mob/living/nearby_human AS in cheap_get_humans_near(source, distance))
 			if(nearby_human.stat == DEAD || nearby_human.faction == attacker_faction || nearby_human.alpha <= SCOUT_CLOAK_RUN_ALPHA)
 				continue
+			if(GLOB.faction_to_iff[attacker_faction] & nearby_human.get_iff_signal())
+				continue
 			if(source.issamexenohive(nearby_human))
 				continue
 			if(isnestedhost(nearby_human))
@@ -127,9 +157,29 @@
 				nearest_target = nearby_human
 				shorter_distance = get_dist(source, nearby_human) //better to recalculate than to save the var
 	if(target_flags & TARGET_XENO)
+		for(var/obj/item/clothing/mask/facehugger/hugger AS in GLOB.alive_hugger_list)
+			if(hugger.z != source.z)
+				continue
+			if(!isturf(hugger.loc))
+				continue
+			if(attacker_hive == hugger.get_xeno_hivenumber())
+				continue
+			if(attacker_faction in (GLOB.hive_datums[hugger.get_xeno_hivenumber()].allied_factions))
+				continue
+			if(get_dist(source, hugger) >= shorter_distance)
+				continue
+			if(need_los && !line_of_sight(source, hugger))
+				continue
+			nearest_target = hugger
+			shorter_distance = get_dist(source, hugger)
+
 		nearby_xeno_list = cheap_get_xenos_near(source, shorter_distance - 1)
-		for(var/mob/nearby_xeno AS in nearby_xeno_list)
+		for(var/mob/living/carbon/xenomorph/nearby_xeno AS in nearby_xeno_list)
 			if(attacker_hive == nearby_xeno.get_xeno_hivenumber())
+				continue
+			if(attacker_faction in (nearby_xeno.get_hive().allied_factions))
+				continue
+			if(GLOB.faction_to_iff[attacker_faction] & nearby_xeno.get_iff_signal())
 				continue
 			if(nearby_xeno.stat == DEAD || nearby_xeno.alpha <= HUNTER_STEALTH_RUN_ALPHA)
 				continue
@@ -141,13 +191,29 @@
 				continue
 			nearest_target = nearby_xeno
 			shorter_distance = get_dist(source, nearby_xeno)
+
+		for(var/hive in GLOB.xeno_resin_turrets_by_hive) //we could check all xeno structures, but most of them are not shootable
+			for(var/obj/structure/xeno/xeno_turret/xeno_structure AS in GLOB.xeno_resin_turrets_by_hive[hive])
+				if(xeno_structure.z != source.z)
+					continue
+				if(attacker_hive == xeno_structure.get_xeno_hivenumber())
+					continue
+				if(attacker_faction in GLOB.hive_datums[xeno_structure.get_xeno_hivenumber()].allied_factions)
+					continue
+				if(get_dist(source, xeno_structure) >= shorter_distance)
+					continue
+				if(need_los && !line_of_sight(source, xeno_structure))
+					continue
+				nearest_target = xeno_structure
+				shorter_distance = get_dist(source, xeno_structure)
+
 	if(target_flags & TARGET_HUMAN_TURRETS)
 		for(var/obj/machinery/deployable/mounted/sentry/nearby_turret AS in GLOB.marine_turrets)
 			if(source.issamexenohive(nearby_turret))
 				continue
 			if(source.z != nearby_turret.z)
 				continue
-			if((GLOB.faction_to_iff[attacker_faction] == nearby_turret.iff_signal))
+			if((GLOB.faction_to_iff[attacker_faction] & nearby_turret.iff_signal))
 				continue
 			if(nearby_turret.faction == attacker_faction)
 				continue
@@ -159,6 +225,8 @@
 			shorter_distance = get_dist(source, nearby_turret)
 	if(target_flags & TARGET_VEHICLE)
 		for(var/obj/vehicle/sealed/nearby_vehicle AS in (cheap_get_tanks_near(source, distance) + cheap_get_mechs_near(source, distance)))
+			if((GLOB.faction_to_iff[attacker_faction] & GLOB.faction_to_iff[nearby_vehicle.faction]))
+				continue
 			if(nearby_vehicle.faction == attacker_faction)
 				continue
 			if(get_dist(source, nearby_vehicle) >= shorter_distance)
@@ -170,6 +238,8 @@
 	if(target_flags & TARGET_UNMANNED_VEHICLE)
 		for(var/obj/vehicle/unmanned/nearby_unmanned AS in GLOB.unmanned_vehicles)
 			if(source.z != nearby_unmanned.z)
+				continue
+			if((GLOB.faction_to_iff[attacker_faction] & GLOB.faction_to_iff[nearby_unmanned.faction]))
 				continue
 			if(nearby_unmanned.faction == attacker_faction)
 				continue

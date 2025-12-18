@@ -26,10 +26,11 @@
 	creator = _creator
 	RegisterSignal(creator, COMSIG_QDELETING, PROC_REF(clear_creator))
 	update_icon()
-	var/static/list/connections = list(
+	var/static/list/listen_connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_cross),
+		COMSIG_TURF_PRE_SHUTTLE_CRUSH = PROC_REF(pre_shuttle_crush)
 	)
-	AddElement(/datum/element/connect_loc, connections)
+	AddElement(/datum/element/connect_loc, listen_connections)
 
 /obj/structure/xeno/acidwell/Destroy()
 	creator = null
@@ -40,11 +41,10 @@
 	SIGNAL_HANDLER
 	creator = null
 
-///Ensures that no acid gas will be released when the well is crushed by a shuttle
-/obj/structure/xeno/acidwell/proc/shuttle_crush()
+/// Deletes this first before it can get crushed by a shuttle.
+/obj/structure/xeno/acidwell/proc/pre_shuttle_crush(datum/source)
 	SIGNAL_HANDLER
 	qdel(src)
-
 
 /obj/structure/xeno/acidwell/obj_destruction(damage_amount, damage_type, damage_flag, mob/living/blame_mob)
 	if(!QDELETED(creator) && creator.stat == CONSCIOUS && creator.z == z)
@@ -103,7 +103,7 @@
 		return ..()
 	attack_alien(user)
 
-/obj/structure/xeno/acidwell/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/structure/xeno/acidwell/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(!issamexenohive(xeno_attacker))
 		return ..()
 	if(xeno_attacker.a_intent == INTENT_HARM && (xeno_attacker.xeno_flags & XENO_DESTROY_OWN_STRUCTURES)) //If we're on harm and have the toggle active, destroy the structure.

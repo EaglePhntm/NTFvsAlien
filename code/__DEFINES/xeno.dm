@@ -32,6 +32,7 @@
 #define RESIN_MEMBRANE "resin membrane"
 #define WALL_RESIN_NEST "wall resin nest"
 #define LIGHT_TOWER "light tower"
+#define ADVANCED_RESIN_NEST "tentacle breeding nest"
 
 //Special resin defines
 #define BULLETPROOF_WALL "bulletproof resin wall"
@@ -70,6 +71,16 @@ GLOBAL_LIST_INIT(weed_type_list, typecacheof(list(
 	/obj/alien/weeds/node,
 	/obj/alien/weeds/node/sticky,
 	/obj/alien/weeds/node/resting,
+)))
+
+//List of xeno objects immune friendly xeno attacks by default
+GLOBAL_LIST_INIT(xeno_object_list, typecacheof(list(
+	/obj/alien,
+	/obj/structure/xeno,
+	/obj/structure/mineral_door/resin,
+	/obj/structure/bed/nest,
+	/obj/structure/cocoon,
+	/obj/item/clothing/mask/facehugger,
 )))
 
 //List of weeds with probability of spawning
@@ -152,6 +163,7 @@ GLOBAL_LIST_INIT(resin_images_list, list(
 		BULLETPROOF_WALL = image('icons/Xeno/actions/construction.dmi', icon_state = BULLETPROOF_WALL),
 		FIREPROOF_WALL = image('icons/Xeno/actions/construction.dmi', icon_state = FIREPROOF_WALL),
 		HARDY_WALL = image('icons/Xeno/actions/construction.dmi', icon_state = HARDY_WALL),
+		ADVANCED_RESIN_NEST = image('ntf_modular/icons/Xeno/construction.dmi', icon_state = RESIN_NEST),
 		))
 
 /*List of special resin structure images
@@ -176,6 +188,7 @@ GLOBAL_LIST_INIT(puppeteer_phero_images_list, list(
 #define UPGRADE_FLAG_MESSAGE_HIVE (1<<0)
 #define UPGRADE_FLAG_ONETIME (1<<1)
 #define UPGRADE_FLAG_USES_TACTICAL (1<<2)
+#define UPGRADE_FLAG_MUST_BE_HIVE_RULER (1<<3)
 
 GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
 	/mob/living/carbon/xenomorph/beetle/ai,
@@ -244,3 +257,6 @@ GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
 #define XENO_STRUCTURE_DETECTION_COOLDOWN 30 SECONDS
 ///Proxy detection radius
 #define XENO_STRUCTURE_DETECTION_RANGE 10
+
+///Turrets cannot be build closer than this range to another
+#define XENO_TURRET_EXCLUSION_RANGE 6

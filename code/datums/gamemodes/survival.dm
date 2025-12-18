@@ -1,7 +1,7 @@
 /datum/game_mode/infestation/survival
 	name = "Survival"
 	config_tag = "Survival"
-	round_type_flags = MODE_INFESTATION|MODE_DISALLOW_RAILGUN|MODE_PSY_POINTS|MODE_XENO_SPAWN_PROTECT|MODE_SURVIVAL
+	round_type_flags = MODE_INFESTATION|MODE_DISALLOW_RAILGUN|MODE_PSY_POINTS|MODE_XENO_SPAWN_PROTECT|MODE_SURVIVAL|MODE_XENO_GRAB_DEAD_ALLOWED|MODE_MUTATIONS_OBTAINABLE|MODE_BIOMASS_POINTS
 	xeno_abilities_flags = ABILITY_ALL_GAMEMODE
 	factions = list(FACTION_XENO, FACTION_CLF, FACTION_TERRAGOV)
 	human_factions = list(FACTION_TERRAGOV, FACTION_CLF)
@@ -23,6 +23,7 @@
 		/datum/job/survivor/prisoner = 6,
 		/datum/job/survivor/stripper = 4,
 		/datum/job/survivor/maid = 4,
+		/datum/job/survivor/synth = 1,
 		/datum/job/clf/standard = 1,
 		/datum/job/clf/medic = 1,
 		/datum/job/clf/specialist = 1,
@@ -37,6 +38,7 @@
 	whitelist_ground_maps = list(MAP_COLONY1)
 	blacklist_ground_maps = null
 	whitelist_ship_maps = list(MAP_EAGLE) //since it dont have survivor spawns, they should spawn at colony itself. And can be used to spawn marines later. Eagle is a fast dropship for emergency response.
+	whitelist_antag_maps = list(MAP_ANTAGMAP_NOSPAWN)
 	bioscan_interval = 0
 
 /datum/game_mode/infestation/survival/post_setup()
@@ -85,7 +87,7 @@
 	if(world.time < (SSticker.round_start_time + 5 MINUTES))
 		return FALSE
 
-	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_HUMAN_SSD|COUNT_IGNORE_XENO_SSD)
+	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_HUMAN_SSD|COUNT_IGNORE_XENO_SSD| COUNT_CLF_TOWARDS_XENOS | COUNT_GREENOS_TOWARDS_MARINES )
 	var/num_humans = living_player_list[1]
 	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
 	var/num_xenos = xeno_job.total_positions

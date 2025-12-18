@@ -42,13 +42,6 @@
 	width = 8
 	height = 11
 
-/obj/docking_port/mobile/marine_dropship/casplane/som/Initialize(mapload)
-	. = ..()
-	if(faction == FACTION_SOM)
-		cas_mini.minimap_flags = MINIMAP_FLAG_MARINE_SOM
-		cas_mini.marker_flags = MINIMAP_FLAG_MARINE_SOM
-		eyeobj.faction = FACTION_SOM
-
 /obj/docking_port/mobile/marine_dropship/casplane/som/process()
 	#ifndef TESTING
 	fuel_left--
@@ -64,3 +57,49 @@
 		fuel_left = 0
 		turn_off_engines()
 	#endif
+
+/mob/camera/aiEye/remote/hud/som
+	faction = FACTION_SOM
+	hud_possible = list(SQUAD_HUD_SOM)
+
+//desperateness
+/mob/camera/aiEye/remote/hud/som/Initialize(mapload, cameranet, new_faction)
+	parent_cameranet = GLOB.som_cameranet
+	cameranet = GLOB.som_cameranet
+	new_faction = FACTION_SOM
+	. = ..()
+
+//had to make som version here cuz lazy
+//Marine-only visuals. Prediction HUD, etc. Does not show without marine headset
+/obj/effect/overlay/blinking_laser/som
+	name = "prediction matrix"
+	icon = 'icons/effects/lases.dmi'
+	icon_state = "nothing"
+	var/icon_state_on = "nothing"
+	hud_possible = list(SQUAD_HUD_SOM)
+
+/obj/effect/overlay/blinking_laser/som/Initialize(mapload)
+	. = ..()
+	notify_ai_hazard()
+	prepare_huds()
+	var/datum/atom_hud/squad/squad_hud = GLOB.huds[DATA_HUD_SQUAD_SOM]
+	squad_hud.add_to_hud(src)
+	set_visuals()
+
+/obj/effect/overlay/blinking_laser/som/proc/set_visuals()
+	var/image/new_hud_list = hud_list[SQUAD_HUD_SOM]
+	if(!new_hud_list)
+		return
+
+	new_hud_list.icon = 'icons/effects/lases.dmi'
+	new_hud_list.icon_state = icon_state_on
+	hud_list[SQUAD_HUD_SOM] = new_hud_list
+
+//Prediction lines. Those horizontal blue lines you see when CAS fires something
+/obj/effect/overlay/blinking_laser/som/lines
+	layer = WALL_OBJ_LAYER //Above walls/items, not above mobs
+	icon_state_on = "middle"
+
+/obj/effect/overlay/blinking_laser/som/lines/Initialize(mapload)
+	. = ..()
+	dir = pick(CARDINAL_DIRS) //Randomises type, for variation

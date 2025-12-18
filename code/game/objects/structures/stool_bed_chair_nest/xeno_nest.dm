@@ -16,6 +16,7 @@
 	layer = BELOW_OPEN_DOOR_LAYER
 	var/buckleoverlaydir = SOUTH
 	var/unbuckletime = 6 SECONDS
+	var/resist_time = NEST_RESIST_TIME
 
 /obj/structure/bed/nest/ai_should_stay_buckled(mob/living/carbon/npc)
 	return TRUE
@@ -33,17 +34,21 @@
 		user_buckle_mob(M, user)
 
 
-/obj/structure/bed/nest/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/structure/bed/nest/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(xeno_attacker.a_intent != INTENT_HARM)
 		return attack_hand(xeno_attacker)
 	return ..()
 
-/obj/structure/bed/nest/user_buckle_mob(mob/living/buckling_mob, mob/living/user, check_loc = TRUE, silent)
+/obj/structure/bed/nest/user_buckle_mob(mob/living/buckling_mob, mob/living/user, check_loc = TRUE, silent, skip)
+	if(skip)
+		return ..()
 	if(user.incapacitated() || !in_range(user, src) || buckling_mob.buckled)
 		return FALSE
+/*
 	if(!isxeno(user))
 		to_chat(user, span_warning("Gross! You're not touching that stuff."))
 		return FALSE
+*/
 	if(LAZYLEN(buckled_mobs))
 		to_chat(user, span_warning("There's already someone in [src]."))
 		return FALSE
@@ -67,7 +72,8 @@
 		to_chat(user, span_warning("[buckling_mob] is not something we can capture."))
 		return FALSE
 
-	buckling_mob.visible_message(span_xenonotice("[user] secretes a thick, vile resin, securing [buckling_mob] into [src]!"),
+	log_combat(user, buckling_mob, "nested", src)
+	buckling_mob.visible_message(span_xenonotice("[user] applies a thick, vile resin, securing [buckling_mob] into [src]!"),
 		span_xenonotice("[user] drenches you in a foul-smelling resin, trapping you in [src]!"),
 		span_notice("You hear squelching."))
 	playsound(loc, SFX_ALIEN_RESIN_MOVE, 50)
@@ -99,7 +105,7 @@
 		to_chat(buckled_mob, span_warning("You're currently unable to try that."))
 		return FALSE
 	buckled_mob.visible_message(span_warning("\The [buckled_mob] struggles to break free of \the [src]."), span_warning("You struggle to break free from \the [src]."), span_notice("You hear squelching."))
-	if(!do_after(buckled_mob, NEST_RESIST_TIME, FALSE, buckled_mob, BUSY_ICON_DANGER))
+	if(!do_after(buckled_mob, resist_time, FALSE, buckled_mob, BUSY_ICON_DANGER))
 		return FALSE
 	buckled_mob.visible_message(span_danger("\The [buckled_mob] breaks free from \the [src]!"),
 		span_danger("You pull yourself free from \the [src]!"),

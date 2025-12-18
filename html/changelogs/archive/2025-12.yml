@@ -1,0 +1,120 @@
+2025-12-01:
+  Runian:
+  - balance: Sentries now immediately stops shoot when their target dies.
+  blackdav123:
+  - rscadd: New player characters will now be human by default.
+  mudzbe:
+  - balance: Reduce wired barricade damage to zombies
+  - bugfix: Zombies cant strip things anymore
+2025-12-02:
+  Colfer1:
+  - balance: psydrain and cacoon no longer require the target to be dead to use
+2025-12-03:
+  DaTruRiZZoB:
+  - rscadd: Added ERP to EORD
+  - rscadd: Added VSD to EORD
+  - rscadd: Added vets to EORD
+  - rscadd: Added brown and black customization kits to the armor vendors
+  - qol: Face paint is wiped off by aiming head now
+  Neocloudy:
+  - bugfix: Limbs handle fracturing when damage is received instead of on life ticks
+  - bugfix: Brain mobs inside decapitated heads won't deathgasp
+  blackdav123:
+  - rscadd: 'Added a new heavy seasonal: Remote Weapons'
+  mudzbe:
+  - bugfix: Gamemodes cant start on maps with a blacklisted ground map (without bypass)
+2025-12-04:
+  Colfer1:
+  - rscadd: Requisition jelly (ambrosia jelly) now revives humans that are dead
+  - rscadd: Adds synthetic survivors to the game on a few select gamemodes
+  - balance: Gave research survivors & Early gen synths the ability to do research
+  Lewdcifer:
+  - bugfix: Runners and Hunters should get their Pounce ability again.
+  Lumipharon:
+  - rscadd: NPC's will keep track of important items they drop and try pick them up
+      later
+  - bugfix: fixed NPC's trying to pickup things with missing limbs
+2025-12-05:
+  Nokia2Student:
+  - rscadd: KZ Neural Extractor, KZ Neural Imprinter
+  - rscadd: KZ Torture Chamber
+  - balance: Nerfed neurodisks
+2025-12-06:
+  Despong & Lumi:
+  - balance: added the Sambar MRAP - a speedy but unarmed alternative to the APC
+  Lumipharon:
+  - balance: Zombies can no longer be facehugged
+  - bugfix: fixed spiderlings, for real
+  - bugfix: fixed the UV machinegun option in the engineer vendor having the incorrect
+      contents
+  - bugfix: fixed several minor resin weed related bugs
+  - bugfix: fixed sticky weeds applying slowdown to humans that were jumping or on
+      tanks
+  - bugfix: fixed not being able to hit fuel tanks
+  - bugfix: fixed some unneeded fuel tank balloon alerts
+  - qol: chairs layer under objects
+2025-12-07:
+  Colfer1:
+  - balance: The TAV - Nike and THV - Hades are no longer the best vehicles in the
+      game without competition
+2025-12-08:
+  Colfer1:
+  - rscadd: Adds all laser weapons to the various factions, now you can have standardized
+      loadouts!
+  Nokia2Student:
+  - bugfix: L12 Back sprite is no longer missing
+  - balance: CC/67 Rifle -> CC/67 Sniper Rifle (Gun rework)
+  - rscadd: Extended rubber magazine for cc/77
+  - balance: L12 damage increased, ammo capacity reduced
+  - balance: All kz rocket types now share the exact same reload delay
+  - balance: Kz chemical warhead smoke lifetime increased
+  - balance: Xp5 shrap nade now explodes in shrap
+  - rscadd: Added TARP to KZ Vendor
+  - rscadd: Added KPX/47 Spectra for KZ
+2025-12-10:
+  Colfer1:
+  - balance: Lets all factions see excavations on the minimap
+  DrCrawler:
+  - bugfix: fixes many of the visual issues with the dragoon
+  - bugfix: fixes the hybrid specialist class loadout not having ammo for the gun
+      it comes with
+  - balance: reduces the price of dragoon stripper clips in req
+  Nokia2Student:
+  - bugfix: Skill exploit fix
+2025-12-11:
+  mudzbe:
+  - rscadd: Razorwire now hurts zombies
+  - bugfix: Zombies can unbuckle themselves
+2025-12-12:
+  DrCrawler:
+  - bugfix: The dragoon sprites have been finally fixed.
+2025-12-13:
+  Colfer1:
+  - rscadd: Adds regular robot synths, like combat robots, without the combat
+2025-12-14:
+  Lumipharon:
+  - bugfix: fixed limbs losing armour on species change
+  - code_imp: Cleaned up some limb and organ code
+2025-12-15:
+  Lumipharon:
+  - code_imp: Spawners support lists of lists for spawntypes
+  - bugfix: Command radio access from ASL is no longer lost when unequipping or swapping
+      radio keys
+  - imageadd: Updated cell and cell charger sprites, including unique inhands
+  - bugfix: Roundstart empty cells actually show as empty
+  - bugfix: Godmode xenos won't show as full hp when they're not
+  - rscadd: Added a variety of new planet side weapon types
+  - balance: Improved katana, sledge hammer,fire axe and hatchet stats
+  - imageadd: Updates sprites for katanas, sledge hammers, fire axes, hatchet
+  - code_imp: Cleaned up some weapon and two hander code
+  mudzbe:
+  - rscadd: Move silo back in the crashed syndicate shuttle on icy caves
+2025-12-17:
+  Nokia2Student:
+  - rscadd: New helmets and armors added to ac vendors
+  - rscadd: New loadouts for ac gunner, ac specialist and ac sl.
+  - rscadd: New lightpacks for ac loadouts
+  - balance: Antihug protection was removed from ac masks
+  - balance: 'Ac standard slots: 3-> -1'
+  - balance: 'Ac medic slots: 1 -> 2'
+  - balance: 'Ac engineer slots: 1 -> 2'

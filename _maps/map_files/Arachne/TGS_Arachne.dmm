@@ -1100,6 +1100,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
+/obj/effect/ai_node,
 /turf/open/floor/mainship/sterile/side{
 	dir = 9
 	},
@@ -2201,12 +2202,10 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/command/self_destruct)
 "bYm" = (
-/obj/structure/table/reinforced,
-/obj/item/facepaint/green,
-/obj/item/tool/hand_labeler,
 /obj/machinery/firealarm{
 	dir = 4
 	},
+/obj/machinery/loadout_vendor,
 /turf/open/floor/mainship/black{
 	dir = 8
 	},
@@ -4325,9 +4324,7 @@
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/telecomms)
 "dHS" = (
-/obj/structure/table/reinforced,
-/obj/item/facepaint/green,
-/obj/item/tool/hand_labeler,
+/obj/machinery/loadout_vendor,
 /turf/open/floor/mainship/black{
 	dir = 4
 	},
@@ -14023,6 +14020,7 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
 	dir = 8
 	},
+/obj/effect/ai_node,
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/medical_science)
 "luQ" = (
@@ -27378,6 +27376,10 @@
 	},
 /turf/open/floor/mainship/floor,
 /area/mainship/command/cic)
+"wrl" = (
+/obj/structure/dropship_equipment/shuttle/weapon_holder/mortar_holder,
+/turf/open/floor/mainship/cargo,
+/area/mainship/hallways/hangar)
 "wrs" = (
 /obj/machinery/door_control/mainship{
 	id = "AiCoreShutter";
@@ -27862,6 +27864,7 @@
 	},
 /area/mainship/hallways/starboard_hallway)
 "wKW" = (
+/obj/structure/dropship_equipment/electronics/spotlights,
 /obj/structure/dropship_equipment/electronics/spotlights,
 /turf/open/floor/mainship/cargo,
 /area/mainship/hallways/hangar)
@@ -36453,8 +36456,8 @@ ahW
 hIO
 ehy
 dxv
+wrl
 ikw
-wKW
 wKW
 qIG
 cSI

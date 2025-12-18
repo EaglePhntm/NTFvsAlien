@@ -175,7 +175,7 @@
 
 	// *** Queen Abilities *** //
 	///Amount of leaders allowed
-	var/queen_leader_limit = 0
+	var/queen_leader_limit = 3
 
 	// *** Wraith Abilities *** //
 	//Banish - Values for the Wraith's Banish ability
@@ -307,9 +307,9 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	///Hive name define
 	hivenumber = XENO_HIVE_NORMAL
 	///Hive datum we belong to
-	var/datum/hive_status/hive
+	VAR_PROTECTED/datum/hive_status/hive
 	///Xeno mob specific flags
-	var/xeno_flags = NONE
+	var/xeno_flags = XENO_DESTROY_OWN_STRUCTURES | XENO_DESTROY_WEEDS
 
 	///State tracking of hive status toggles
 	var/status_toggle_flags = HIVE_STATUS_DEFAULTS
@@ -336,6 +336,8 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 
 	///A mob the xeno ate
 	var/mob/living/carbon/eaten_mob
+	///A mob the xeno is trying to eat
+	var/mob/living/devouring_mob
 	///How much evolution they have stored
 	var/evolution_stored = 0
 	///How much upgrade points they have stored.
@@ -500,3 +502,7 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 		return
 	SEND_SIGNAL(src, COMSIG_XENO_SELECTED_REAGENT_CHANGED, selected_reagent, new_reagent_typepath)
 	selected_reagent = new_reagent_typepath
+
+/mob/living/carbon/xenomorph/proc/get_hive()
+	RETURN_TYPE(/datum/hive_status)
+	return hive

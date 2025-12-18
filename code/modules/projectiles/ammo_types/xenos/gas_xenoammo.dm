@@ -15,10 +15,11 @@
 	ammo_behavior_flags = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_TARGET_TURF
 	var/danger_message = span_danger("A glob of acid lands with a splat and explodes into noxious fumes!")
 	armor_type = BIO
-	accuracy_var_high = 10
+	accuracy_variation = 10
 	max_range = 16
 	damage = 50
 	damage_type = STAMINA
+	plasma_drain = 13
 	damage_falloff = 0
 	penetration = 50
 	bullet_color = BOILER_LUMINOSITY_AMMO_NEUROTOXIN_COLOR

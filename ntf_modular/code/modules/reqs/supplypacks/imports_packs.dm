@@ -4,7 +4,7 @@
 	cost = 15
 
 /datum/supply_packs/explosives/mortar_ammo_satrapine
-	name = "T-50S mortar sleep smoke shell (x2)"
+	name = "T-50S mortar satrapine smoke shell (x2)"
 	contains = list(/obj/item/mortal_shell/smoke/satrapine, /obj/item/mortal_shell/smoke/satrapine)
 	cost = 15
 
@@ -18,40 +18,65 @@
 	contains = list(/obj/item/mortal_shell/smoke/neuro, /obj/item/mortal_shell/smoke/neuro)
 	cost = 15
 
+/datum/supply_packs/explosives/mortar_ammo_razor
+	name = "T-50S mortar razorburn shell (x2)"
+	contains = list(/obj/item/mortal_shell/razorburn, /obj/item/mortal_shell/razorburn)
+	cost = 20
+
+/datum/supply_packs/explosives/mortar_ammo_metal
+	name = "T-50S mortar metal foam shell (x2)"
+	contains = list(/obj/item/mortal_shell/metalfoam, /obj/item/mortal_shell/metalfoam)
+	cost = 20
+
+/datum/supply_packs/explosives/mlrs_rockets_neuro
+	name = "TA-40L Neurotoxin MLRS Rocket Pack (x16)"
+	contains = list(/obj/item/storage/box/mlrs_rockets/neuro)
+	cost = 100
+
+/datum/supply_packs/explosives/mlrs_rockets_aphro
+	name = "TA-40L Aphrotoxin MLRS Rocket Pack (x16)"
+	contains = list(/obj/item/storage/box/mlrs_rockets/aphro)
+	cost = 100
+
+/datum/supply_packs/explosives/mlrs_rockets_sleep
+	name = "TA-40L Knock-Out MLRS Rocket Pack (x16)"
+	contains = list(/obj/item/storage/box/mlrs_rockets/sleep)
+	cost = 100
+
 /datum/supply_packs/imports/halterex
-	name = "NT Halter extended mag crate (x4)"
-	contains = list(/obj/item/ammo_magazine/rifle/nt_halter/extended, /obj/item/ammo_magazine/rifle/nt_halter/extended, /obj/item/ammo_magazine/rifle/nt_halter/extended, /obj/item/ammo_magazine/rifle/nt_halter/extended)
+	name = "NT Halter extended mag (x1)"
+	contains = list(/obj/item/ammo_magazine/rifle/nt_halter/extended)
 	cost = 5
 
 /datum/supply_packs/imports/halterdrum
-	name = "NT Halter drum mag crate (x4)"
-	contains = list(/obj/item/ammo_magazine/rifle/nt_halter/drum, /obj/item/ammo_magazine/rifle/nt_halter/drum, /obj/item/ammo_magazine/rifle/nt_halter/drum, /obj/item/ammo_magazine/rifle/nt_halter/drum)
+	name = "NT Halter drum mag (x1)"
+	contains = list(/obj/item/ammo_magazine/rifle/nt_halter/drum)
 	cost = 15
 
 /datum/supply_packs/imports/halterexlaser
-	name = "NT Halter extended laser mag crate (x4)"
-	contains = list(/obj/item/ammo_magazine/rifle/nt_halter/laser/extended, /obj/item/ammo_magazine/rifle/nt_halter/laser/extended, /obj/item/ammo_magazine/rifle/nt_halter/laser/extended, /obj/item/ammo_magazine/rifle/nt_halter/laser/extended)
-	cost = 10
+	name = "NT Halter extended laser mag (x1)"
+	contains = list(/obj/item/ammo_magazine/rifle/nt_halter/laser/extended)
+	cost = 5
 
 /datum/supply_packs/imports/halterdrumlaser
-	name = "NT Halter drum laser mag crate (x4)"
-	contains = list(/obj/item/ammo_magazine/rifle/nt_halter/laser/drum, /obj/item/ammo_magazine/rifle/nt_halter/laser/drum, /obj/item/ammo_magazine/rifle/nt_halter/laser/drum, /obj/item/ammo_magazine/rifle/nt_halter/laser/drum)
-	cost = 20
+	name = "NT Halter drum laser mag (x1)"
+	contains = list(/obj/item/ammo_magazine/rifle/nt_halter/laser/drum)
+	cost = 15
 
 /datum/supply_packs/imports/haltercharged
-	name = "NT Halter charged mag crate (x2)"
-	contains = list(/obj/item/ammo_magazine/rifle/nt_halter/charged, /obj/item/ammo_magazine/rifle/nt_halter/charged)
-	cost = 200
+	name = "NT Halter charged mag (x1)"
+	contains = list(/obj/item/ammo_magazine/rifle/nt_halter/charged)
+	cost = 30
 
 /datum/supply_packs/imports/haltersmart
-	name = "NT Halter smart mag crate (x2)"
-	contains = list(/obj/item/ammo_magazine/rifle/nt_halter/smart, /obj/item/ammo_magazine/rifle/nt_halter/smart)
-	cost = 50
+	name = "NT Halter smart mag (x1)"
+	contains = list(/obj/item/ammo_magazine/rifle/nt_halter/smart)
+	cost = 5 //its pretty ass and small cap anyway.
 
 /datum/supply_packs/imports/halterfoxfire
-	name = "NT Halter foxfire mag crate (x2)"
-	contains = list(/obj/item/ammo_magazine/rifle/nt_halter/foxfire, /obj/item/ammo_magazine/rifle/nt_halter/foxfire)
-	cost = 50
+	name = "NT Halter foxfire mag (x1)"
+	contains = list(/obj/item/ammo_magazine/rifle/nt_halter/foxfire)
+	cost = 20
 
 /datum/supply_packs/imports/antienergyshield
 	name = "NTC Anti Energy Shield"
@@ -74,6 +99,12 @@
 		/obj/item/stack/nanopaste = 5
 	)
 	cost = 150
+
+/datum/supply_packs/explosives/explosives_mines_at
+	name = "anti tank mines"
+	notes = "Contains 5 Anti Tank mines"
+	contains = list(/obj/item/storage/box/explosive_mines/antitank)
+	cost = 350
 
 /* save until we got faction specific req
 /datum/supply_packs/imports/unity

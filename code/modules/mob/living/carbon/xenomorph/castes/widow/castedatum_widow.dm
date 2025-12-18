@@ -21,7 +21,7 @@
 	plasma_gain = 55
 
 	// *** Health *** //
-	max_health = 450
+	max_health = 410
 
 	// *** Evolution *** //
 	upgrade_threshold = TIER_THREE_THRESHOLD
@@ -45,7 +45,7 @@
 	queen_leader_limit = 4
 
 	// *** Widow Abilities *** //
-	max_spiderlings = 8
+	max_spiderlings = 5
 
 	// *** Abilities *** ///
 	resin_max_range = 1 // Widow can place resin structures from 1 tile away

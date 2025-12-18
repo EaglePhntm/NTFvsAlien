@@ -8,16 +8,16 @@
 	anchored = TRUE
 	layer = ABOVE_OBJ_LAYER
 	coverage = 5
-	climbable = TRUE
 	resistance_flags = XENO_DAMAGEABLE
 	allow_pass_flags = PASS_DEFENSIVE_STRUCTURE|PASS_GRILLE|PASSABLE
 	obj_flags = parent_type::obj_flags|BLOCK_Z_OUT_DOWN|BLOCK_Z_IN_UP
-	var/list/entangled_list
-	var/sheet_type = /obj/item/stack/barbed_wire
-	var/sheet_type2 = /obj/item/stack/rods
-	var/table_prefix = "" //used in update_icon()
 	max_integrity = RAZORWIRE_MAX_HEALTH
-	var/soak = 5
+	///List of mobs currently stuck in this razor
+	var/list/entangled_list
+	///First drop item type
+	var/sheet_type = /obj/item/stack/barbed_wire
+	///Second drop item type
+	var/sheet_type2 = /obj/item/stack/rods
 
 /obj/structure/razorwire/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	if(disassembled)
@@ -182,12 +182,12 @@
 	deconstruct(TRUE)
 	return TRUE
 
-/obj/structure/razorwire/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/structure/razorwire/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 
 	xeno_attacker.apply_damage(RAZORWIRE_BASE_DAMAGE, blocked = MELEE, updating_health = TRUE) //About a third as damaging as actually entering
-	update_icon()
+	update_appearance(UPDATE_ICON)
 	return ..()
 
 /obj/structure/razorwire/ex_act(severity)

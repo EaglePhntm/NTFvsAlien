@@ -280,7 +280,7 @@
 
 
 //Prying open doors
-/obj/machinery/door/airlock/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/machinery/door/airlock/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 
@@ -344,10 +344,16 @@
 
 /obj/machinery/door/airlock/projectile_hit(atom/movable/projectile/proj, cardinal_move, uncrossing)
 	. = ..()
-	if(. && is_mainship_level(z)) //log shipside greytiders
-		log_attack("[key_name(proj.firer)] shot [src] with [proj] at [AREACOORD(src)]")
-		if(SSmonitor.gamestate != SHIPSIDE)
-			msg_admin_ff("[ADMIN_TPMONTY(proj.firer)] shot [src] with [proj] in [ADMIN_VERBOSEJMP(src)].")
+	if(!.)
+		return
+	if(!is_mainship_level(z))
+		return
+	if(!proj.firer)
+		return
+	//log shipside greytiders
+	log_attack("[key_name(proj.firer)] shot [src] with [proj] at [AREACOORD(src)]")
+	if(SSmonitor.gamestate != SHIPSIDE)
+		msg_admin_ff("[ADMIN_TPMONTY(proj.firer)] shot [src] with [proj] in [ADMIN_VERBOSEJMP(src)].")
 
 /obj/machinery/door/airlock/attacked_by(obj/item/I, mob/living/user, def_zone)
 	. = ..()

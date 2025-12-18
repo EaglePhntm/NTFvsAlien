@@ -26,7 +26,7 @@
 		return
 	var/mob/living/bumper = parent
 	if(!silent_activation)
-		bumper.balloon_alert(bumper, "Will now [should_enable ? "attack" : "push"] enemies in your way.")
+		bumper.balloon_alert(bumper, "[should_enable ? "attacking" : "pushing"] enemies in your way")
 	if(should_enable)
 		active = TRUE
 		RegisterSignal(bumper, COMSIG_MOVABLE_BUMP, bump_action_path)
@@ -74,6 +74,10 @@
 		return
 	var/mob/living/living_target = target
 	if(bumper.faction == living_target.faction)
+		return //FF
+	if(bumper.issamexenohive(living_target))
+		return //FF
+	if(GLOB.faction_to_iff[bumper.faction] & GLOB.faction_to_iff[living_target.faction])
 		return //FF
 	if(ishuman(target) && (bumper.wear_id))
 		var/mob/living/carbon/human/human_target = target

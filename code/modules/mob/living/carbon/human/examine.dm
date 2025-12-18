@@ -534,16 +534,11 @@
 		msg += "[span_deptradio("Triage holo card:")] <a href='byond://?src=[text_ref(src)];medholocard=1'>\[[cardcolor]\]</a> | "
 
 		// scan reports
-		var/datum/data/record/N = null
-		for(var/datum/data/record/R in GLOB.datacore.medical)
-			if (R.fields["name"] == real_name)
-				N = R
-				break
-		if(!isnull(N))
-			if(!(N.fields["last_scan_time"]))
-				msg += "[span_deptradio("No body scan report on record")]\n"
-			else
-				msg += "[span_deptradio("<a href='byond://?src=[text_ref(src)];scanreport=1'>Body scan from [N.fields["last_scan_time"]]</a>")]\n"
+		var/datum/data/record/medical_record = find_medical_record(src)
+		if(!isnull(medical_record?.fields["historic_scan"]))
+			msg += "<a href='byond://?src=[text_ref(src)];scanreport=1'>Body scan from [medical_record.fields["historic_scan_time"]]...</a>\n"
+		else
+			msg += "[span_deptradio("No body scan report on record")]\n"
 
 	if(hasHUD(user,"squadleader"))
 		msg += separator_hr("SL Utilities")
@@ -553,8 +548,12 @@
 				msg += "<a href='byond://?src=[text_ref(src)];squadfireteam=1'>\[Assign to a fireteam.\]</a>\n"
 
 	msg += "\n[span_collapsible("Flavor Text", "[flavor_text]")]"
+	if(pose)
+		msg += "\n[span_collapsible("Temporary Flavor Text", "[pose]")]"
 	if(ooc_notes||ooc_notes_likes||ooc_notes_dislikes||ooc_notes_favs||ooc_notes_maybes)
 		msg += "OOC Notes: <a href='?src=\ref[src];ooc_notes=1'>\[View\]</a> - <a href='?src=\ref[src];print_ooc_notes_to_chat=1'>\[Print\]</a>"
+	else if(user == src)
+		msg += "You have not set your OOC Notes yet! <a href='?src=\ref[src];ooc_notes=1'>\[Edit\]</a>"
 	if(profile_pic && (w_uniform || !nsfwprofile_pic)) //should appear when wearing suit and when no nsfw pic but not wearing suit.
 		msg += "<span class='info'><img src=[profile_pic] width=300 height=350/></span>"
 	if(nsfwprofile_pic && !w_uniform)

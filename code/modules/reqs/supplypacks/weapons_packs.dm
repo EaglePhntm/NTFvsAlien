@@ -324,6 +324,11 @@ WEAPONS
 	contains = list(/obj/item/weapon/gun/rifle/pepperball)
 	cost = 100
 
+/datum/supply_packs/weapons/pepperball/mag
+	name = "PB-12 pepperball gun magazine (x1)"
+	contains = list(/obj/item/ammo_magazine/rifle/pepperball)
+	cost = 3
+
 /datum/supply_packs/weapons/bricks
 	name = "Brick"
 	contains = list(/obj/item/weapon/brick)
@@ -350,7 +355,7 @@ WEAPONS
 /datum/supply_packs/weapons/tx8
 	name = "BR-8 Scout Rifle"
 	contains = list(/obj/item/weapon/gun/rifle/tx8)
-	cost = 400
+	cost = TX8_PRICE
 	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/scout_regular
@@ -386,7 +391,7 @@ WEAPONS
 /datum/supply_packs/weapons/thermobaric_wp
 	name = "RL-57 Thermobaric WP rocket array"
 	contains = list(/obj/item/ammo_magazine/rocket/m57a4)
-	cost = 50
+	cost = 70
 	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/specdemo
@@ -416,19 +421,19 @@ WEAPONS
 /datum/supply_packs/weapons/rpg_wp
 	name = "RL-152 SADAR WP rocket"
 	contains = list(/obj/item/ammo_magazine/rocket/sadar/wp)
-	cost = 125
+	cost = 175
 	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/rpg_wp_unguided
 	name = "RL-152 SADAR WP rocket (Unguided)"
 	contains = list(/obj/item/ammo_magazine/rocket/sadar/wp/unguided)
-	cost = 125
+	cost = 175
 	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/zx76
 	name = "ZX-76 Twin-Barrled Burst Shotgun"
 	contains = list(/obj/item/weapon/gun/shotgun/zx76)
-	cost = 1500
+	cost = ZX_PRICE
 
 /datum/supply_packs/weapons/shotguntracker
 	name = "12 Gauge Tracker Shells"
@@ -463,7 +468,7 @@ WEAPONS
 /datum/supply_packs/weapons/antimaterial
 	name = "SR-26 Antimaterial rifle (AMR) kit"
 	contains = list(/obj/item/weapon/gun/rifle/sniper/antimaterial)
-	cost = 800
+	cost = AMR_PRICE
 	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/antimaterial_ammo
@@ -527,7 +532,7 @@ WEAPONS
 /datum/supply_packs/weapons/napalm_X
 	name = "FL-84 X fuel tank"
 	contains = list(/obj/item/ammo_magazine/flamer_tank/large/X)
-	cost = 300
+	cost = 500
 
 /datum/supply_packs/weapons/back_fuel_tank
 	name = "Standard back fuel tank"
@@ -537,12 +542,12 @@ WEAPONS
 /datum/supply_packs/weapons/back_fuel_tank_x
 	name = "X-fuel backpack"
 	contains = list(/obj/item/ammo_magazine/flamer_tank/backtank/X)
-	cost = 600
+	cost = 1000
 
 /datum/supply_packs/weapons/fueltank
 	name = "X-fuel tank"
 	contains = list(/obj/structure/reagent_dispensers/fueltank/xfuel)
-	cost = 600
+	cost = 1000
 	containertype = null
 
 /datum/supply_packs/weapons/rpgoneuse
@@ -625,3 +630,17 @@ WEAPONS
 	contains = list(/obj/item/ammo_magazine/rifle/chamberedrifle/tranq)
 	cost = 30
 
+/datum/supply_packs/weapons/dragoon
+	name = "Dragoon Mk1 Rapid Engagement Rifle"
+	contains = list(/obj/item/weapon/gun/rifle/dragoon)
+	cost = 650
+
+/datum/supply_packs/weapons/dragoon_ammo
+	name = "Dragoon Mk1 RER stripper clip"
+	contains = list(/obj/item/ammo_magazine/rifle/boltclip/dragoon)
+	cost = 20
+
+/datum/supply_packs/weapons/dragoon_ammo_pox
+	name = "Dragoon Mk1 RER poxomelanin rounds stripper clip"
+	contains = list(/obj/item/ammo_magazine/rifle/boltclip/dragoon/pox)
+	cost = 100

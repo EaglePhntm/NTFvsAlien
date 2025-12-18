@@ -22,10 +22,10 @@
 	sundering = 7.5
 
 /datum/ammo/bullet/shotgun/slug/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
-    if(ishuman(target_mob))
-        staggerstun(target_mob, proj, paralyze = 0, stun = 1 SECONDS, stagger = 2 SECONDS, knockback = 1, slowdown = 2)
-    else
-        staggerstun(target_mob, proj, paralyze = 2 SECONDS, stagger = 2 SECONDS, knockback = 1, slowdown = 2)
+	if(ishuman(target_mob))
+		staggerstun(target_mob, proj, paralyze = 0, stun = 1 SECONDS, stagger = 2 SECONDS, knockback = 1, slowdown = 2)
+	else
+		staggerstun(target_mob, proj, paralyze = 2 SECONDS, stagger = 2 SECONDS, knockback = 1, slowdown = 2)
 
 
 /datum/ammo/bullet/shotgun/beanbag
@@ -40,10 +40,10 @@
 	accuracy = 5
 
 /datum/ammo/bullet/shotgun/beanbag/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
-    if(ishuman(target_mob))
-        staggerstun(target_mob, proj, paralyze = 0, stun = 1 SECONDS, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
-    else
-        staggerstun(target_mob, proj, paralyze = 2 SECONDS, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
+	if(ishuman(target_mob))
+		staggerstun(target_mob, proj, paralyze = 0, stun = 1 SECONDS, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
+	else
+		staggerstun(target_mob, proj, paralyze = 2 SECONDS, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
 
 /datum/ammo/bullet/shotgun/incendiary
 	name = "incendiary slug"
@@ -58,10 +58,10 @@
 	bullet_color = COLOR_TAN_ORANGE
 
 /datum/ammo/bullet/shotgun/incendiary/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
-    if(ishuman(target_mob))
-        staggerstun(target_mob, proj, paralyze = 0, stun = 1 SECONDS, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
-    else
-        staggerstun(target_mob, proj, paralyze = 2 SECONDS, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
+	if(ishuman(target_mob))
+		staggerstun(target_mob, proj, paralyze = 0, stun = 1 SECONDS, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
+	else
+		staggerstun(target_mob, proj, paralyze = 2 SECONDS, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
 
 /datum/ammo/bullet/shotgun/flechette
 	name = "shotgun flechette shell"
@@ -72,8 +72,7 @@
 	bonus_projectiles_type = /datum/ammo/bullet/shotgun/flechette/flechette_spread
 	bonus_projectiles_amount = 2
 	bonus_projectiles_scatter = 3
-	accuracy_var_low = 8
-	accuracy_var_high = 8
+	accuracy_variation = 8
 	max_range = 15
 	damage = 50
 	damage_falloff = 0.5
@@ -85,6 +84,21 @@
 	damage = 40
 	sundering = 5
 
+/datum/ammo/bullet/shotgun/flechette/rubber
+	name = "shotgun rubber pellet shell"
+	bonus_projectiles_type = /datum/ammo/bullet/shotgun/flechette/flechette_spread/rubber
+	damage = 55
+	damage_type = STAMINA
+	shrapnel_chance = 0
+	plasma_drain = 14
+
+/datum/ammo/bullet/shotgun/flechette/flechette_spread/rubber
+	name = "additional rubber pellet"
+	damage = 44
+	damage_type = STAMINA
+	shrapnel_chance = 0
+	plasma_drain = 11
+
 /datum/ammo/bullet/shotgun/buckshot
 	name = "shotgun buckshot shell"
 	handful_icon_state = "shotgun_buckshot"
@@ -93,26 +107,24 @@
 	bonus_projectiles_type = /datum/ammo/bullet/shotgun/spread
 	bonus_projectiles_amount = 5
 	bonus_projectiles_scatter = 4
-	accuracy_var_low = 9
-	accuracy_var_high = 9
+	accuracy_variation = 9
 	accurate_range = 3
 	max_range = 10
 	damage = 40
 	damage_falloff = 4
 
 /datum/ammo/bullet/shotgun/buckshot/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
-    if(ishuman(target_mob))
-        staggerstun(target_mob, proj, paralyze = 0, stun = 1 SECONDS, slowdown = 2, stagger = 3 SECONDS, knockback = 2)
-    else
-        staggerstun(target_mob, proj, paralyze = 2 SECONDS, slowdown = 2, stagger = 3 SECONDS, knockback = 2)
+	if(ishuman(target_mob))
+		staggerstun(target_mob, proj, paralyze = 0, stun = 1 SECONDS, slowdown = 2, stagger = 3 SECONDS, knockback = 2)
+	else
+		staggerstun(target_mob, proj, paralyze = 2 SECONDS, slowdown = 2, stagger = 3 SECONDS, knockback = 2)
 
 /datum/ammo/bullet/hefa_buckshot
 	name = "hefa fragment"
 	handful_icon_state = "shotgun_buckshot"
 	icon_state = "buckshot"
 	hud_state = "shotgun_buckshot"
-	accuracy_var_low = 9
-	accuracy_var_high = 9
+	accuracy_variation = 9
 	accurate_range = 3
 	max_range = 10
 	shrapnel_chance = 15
@@ -125,8 +137,7 @@
 /datum/ammo/bullet/shotgun/spread
 	name = "additional buckshot"
 	icon_state = "buckshot"
-	accuracy_var_low = 9
-	accuracy_var_high = 9
+	accuracy_variation = 9
 	accurate_range = 3
 	max_range = 10
 	damage = 40
@@ -140,8 +151,7 @@
 	bonus_projectiles_type = /datum/ammo/bullet/shotgun/frag/frag_spread
 	bonus_projectiles_amount = 2
 	bonus_projectiles_scatter = 6
-	accuracy_var_low = 8
-	accuracy_var_high = 8
+	accuracy_variation = 8
 	max_range = 15
 	damage = 10
 	damage_falloff = 0.5
@@ -174,8 +184,7 @@
 	bonus_projectiles_type = /datum/ammo/bullet/shotgun/sx16_buckshot/spread
 	bonus_projectiles_amount = 4
 	bonus_projectiles_scatter = 10
-	accuracy_var_low = 10
-	accuracy_var_high = 10
+	accuracy_variation = 10
 	max_range = 10
 	damage = 25
 	damage_falloff = 4
@@ -191,12 +200,20 @@
 	bonus_projectiles_type = /datum/ammo/bullet/shotgun/heavy_spread
 	bonus_projectiles_amount = 5
 	bonus_projectiles_scatter = 4
-	accuracy_var_low = 9
-	accuracy_var_high = 9
+	accuracy_variation = 9
 	accurate_range = 3
-	max_range = 8
+	max_range = 6
 	damage = 55
-	damage_falloff = 5
+	damage_falloff = 7
+
+/datum/ammo/bullet/shotgun/heavy_spread
+	name = "additional buckshot"
+	icon_state = "buckshot"
+	accuracy_variation = 9
+	accurate_range = 3
+	max_range = 6
+	damage = 50
+	damage_falloff = 7
 
 /datum/ammo/bullet/shotgun/heavy_buckshot/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
 	if(iswallturf(target_turf))
@@ -209,10 +226,10 @@
 		affected_door.take_damage(damage * 4, BRUTE, BULLET)
 
 /datum/ammo/bullet/shotgun/heavy_buckshot/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
-    if(ishuman(target_mob))
-        staggerstun(target_mob, proj, paralyze = 0, slowdown = 2, stagger = 3 SECONDS, knockback = 2)
-    else
-        staggerstun(target_mob, proj, paralyze = 2 SECONDS, slowdown = 2, stagger = 3 SECONDS, knockback = 2)
+	if(ishuman(target_mob))
+		staggerstun(target_mob, proj, paralyze = 0, slowdown = 2, stagger = 3 SECONDS, knockback = 2)
+	else
+		staggerstun(target_mob, proj, paralyze = 2 SECONDS, slowdown = 2, stagger = 3 SECONDS, knockback = 2)
 
 /datum/ammo/bullet/shotgun/barrikada_slug
 	name = "heavy metal slug"
@@ -220,12 +237,12 @@
 	hud_state = "shotgun_slug"
 	ammo_behavior_flags = AMMO_BALLISTIC
 	shell_speed = 3
-	max_range = 6
-	damage = 110
+	max_range = 13
+	damage = 120
 	penetration = 25
 	sundering = 9
-	damage_falloff = 10
-	var/vehicle_stun_duration = 2 SECONDS
+	damage_falloff = 1.5
+	var/vehicle_stun_duration = 1.5 SECONDS
 
 /datum/ammo/bullet/shotgun/barrikada/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	staggerstun(target_mob, proj, slowdown = 2, stagger = 3 SECONDS, knockback = 2)
@@ -252,16 +269,6 @@
 		var/turf/closed/wall/affected_turf = target_turf
 		affected_turf.take_damage(damage * 4, BRUTE, BULLET)
 
-/datum/ammo/bullet/shotgun/heavy_spread
-	name = "additional buckshot"
-	icon_state = "buckshot"
-	accuracy_var_low = 9
-	accuracy_var_high = 9
-	accurate_range = 3
-	max_range = 10
-	damage = 60
-	damage_falloff = 4
-
 /datum/ammo/bullet/shotgun/heavy_flechette
 	name = "heavy flechette shell"
 	handful_icon_state = "heavy_shotgun_flechette"
@@ -271,13 +278,15 @@
 	bonus_projectiles_type = /datum/ammo/bullet/shotgun/flechette/heavy_flechette_spread
 	bonus_projectiles_amount = 2
 	bonus_projectiles_scatter = 3
-	accuracy_var_low = 8
-	accuracy_var_high = 8
-	max_range = 15
-	damage = 55
-	damage_falloff = 0.5
+	accuracy_variation = 8
+	max_range = 10
+	damage = 65
 	penetration = 20
 	sundering = 15
+
+/datum/ammo/bullet/shotgun/flechette/heavy_flechette_spread
+	name = "additional flechette"
+	damage = 55
 
 /datum/ammo/bullet/shotgun/heavy_flechette/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
 	if(istype(target_obj, /obj/machinery/door))
@@ -289,11 +298,6 @@
 		var/turf/closed/wall/affected_turf = target_turf
 		affected_turf.take_damage(damage * 4, BRUTE, BULLET)
 
-/datum/ammo/bullet/shotgun/flechette/heavy_flechette_spread
-	name = "additional flechette"
-	damage = 50
-	damage_falloff = 4
-
 /datum/ammo/bullet/shotgun/sx16_flechette
 	name = "shotgun flechette shell"
 	handful_icon_state = "shotgun_flechette"
@@ -302,8 +306,7 @@
 	bonus_projectiles_type = /datum/ammo/bullet/shotgun/sx16_flechette/spread
 	bonus_projectiles_amount = 4
 	bonus_projectiles_scatter = 8
-	accuracy_var_low = 7
-	accuracy_var_high = 7
+	accuracy_variation = 7
 	max_range = 15
 	damage = 15
 	damage_falloff = 0.5
@@ -364,8 +367,7 @@
 	bonus_projectiles_type = /datum/ammo/bullet/shotgun/mbx900_buckshot/spread
 	bonus_projectiles_amount = 2
 	bonus_projectiles_scatter = 10
-	accuracy_var_low = 10
-	accuracy_var_high = 10
+	accuracy_variation = 10
 	max_range = 10
 	damage = 50
 	damage_falloff = 1
@@ -451,12 +453,11 @@
 /datum/ammo/bullet/shotgun/breaching/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
 	proj.proj_max_range -= 5
 
-/// Bring me that server box
 
 /datum/ammo/bullet/shotgun/sh410_ricochet
-	name = "light autoshotgun ricochet shell" /// Single shots. Ricochets are like horrible spaghetti so this is preferrable to buckshots i guess
+	name = "light autoshotgun ricochet shell"
 	handful_icon_state = "light_shotgun_ricochet"
-	icon_state = "shotgun_ricochet"
+	icon_state = "bullet_large_red"
 	hud_state = "shotgun_ricochet"
 	ammo_behavior_flags = AMMO_BALLISTIC
 	shell_speed = 2
@@ -464,30 +465,21 @@
 	damage = 50
 	penetration = 0
 	sundering = 0.5
-
-/datum/ammo/bullet/shotgun/sh410_ricochet
-	bonus_projectiles_type = /datum/ammo/bullet/shotgun/sh410_ricochet/one
 	bonus_projectiles_scatter = 0
-
-/datum/ammo/bullet/shotgun/sh410_ricochet/one
-	bonus_projectiles_type = /datum/ammo/bullet/shotgun/sh410_ricochet/two
-
-/datum/ammo/bullet/shotgun/sh410_ricochet/two /// for now maybe
 
 /datum/ammo/bullet/shotgun/sh410_ricochet/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
 	reflect(target_turf, proj, 20)
 
-/**
- * Trailing gas rounds
- * Might just do like tangle* and tacsmoke (for chamber tech like in BR8 incendiary) since there isn't really much I can think of (atleast in HvX)
- * Will have to make rounds that drop gas on turf
-**/
+/datum/ammo/bullet/shotgun/sh410_ricochet/one
+	bonus_projectiles_type = /datum/ammo/bullet/shotgun/sh410_ricochet
 
+/datum/ammo/bullet/shotgun/sh410_ricochet/two
+	bonus_projectiles_type = /datum/ammo/bullet/shotgun/sh410_ricochet/one
 
 /datum/ammo/bullet/shotgun/sh410_gas
 	name = "light autoshotgun gas shell"
 	handful_icon_state = "light_shotgun_gas"
-	icon_state = "shotgun_gas"
+	icon_state = "bullet_large_green"
 	hud_state = "shotgun_flechette"
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_LEAVE_TURF
 	shell_speed = 2.5
@@ -513,22 +505,18 @@
 	trail_spread_system.set_up(0, target_turf, 3)
 	trail_spread_system.start()
 
-// The MBX has the fucking most dogshit shotgun shell rounds ever so I'm just gonna make my own .410 gauge
-
 /datum/ammo/bullet/shotgun/sh410_buckshot
-	name = "light autoshotgun magnum buckshot shell" //What a fucking mouthful
+	name = "light autoshotgun magnum buckshot shell"
 	handful_icon_state = "light_shotgun_buckshot"
 	icon_state = "buckshot"
 	hud_state = "shotgun_buckshot"
 	bonus_projectiles_type = /datum/ammo/bullet/shotgun/sh410_buckshot/spread
 	bonus_projectiles_amount = 4
 	bonus_projectiles_scatter = 5
-	accuracy_var_low = 10
-	accuracy_var_high = 10
+	accuracy_variation = 10
 	max_range = 10
 	damage = 20
 	damage_falloff = 0.5
-///Yes, it does do more damage than the 35 (on burst) but you'll have to facetank one and a half (ish) seconds of being PB'd and there's no stagger/etc so
 
 /datum/ammo/bullet/shotgun/sh410_buckshot/spread
 	name = "additional buckshot"
@@ -537,7 +525,7 @@
 /datum/ammo/bullet/shotgun/sh410_sabot
 	name = "light autoshotgun sabot shell"
 	handful_icon_state = "light_shotgun_sabot"
-	icon_state = "shotgun_slug"
+	icon_state = "bullet_large"
 	hud_state = "shotgun_sabot"
 	ammo_behavior_flags = AMMO_BALLISTIC
 	shell_speed = 5

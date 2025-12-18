@@ -37,12 +37,12 @@
 	blood_color = "#2d2055" //an oil-like color - a little note, robots cannot shed blood in any way, due to their flags
 	hair_color = "#00000000"
 	has_organ = list()
-
-
 	screams = list(MALE = SFX_ROBOT_SCREAM, FEMALE = SFX_ROBOT_SCREAM, PLURAL = SFX_ROBOT_SCREAM, NEUTER = SFX_ROBOT_SCREAM)
 	paincries = list(MALE = SFX_ROBOT_PAIN, FEMALE = SFX_ROBOT_PAIN, PLURAL = SFX_ROBOT_PAIN, NEUTER = SFX_ROBOT_PAIN)
 	goredcries = list(MALE = SFX_ROBOT_SCREAM, FEMALE = SFX_ROBOT_SCREAM, PLURAL = SFX_ROBOT_SCREAM, NEUTER = SFX_ROBOT_SCREAM)
 	warcries = list(MALE = SFX_ROBOT_WARCRY, FEMALE = SFX_ROBOT_WARCRY, PLURAL = SFX_ROBOT_WARCRY, NEUTER = SFX_ROBOT_WARCRY)
+	robotnoises = list(MALE = SFX_ROBOT_NOISES, FEMALE = SFX_ROBOT_NOISES, PLURAL = SFX_ROBOT_NOISES, NEUTER = SFX_ROBOT_NOISES)
+	robotthreaten = list(MALE = SFX_ROBOT_THREATEN, FEMALE = SFX_ROBOT_THREATEN, PLURAL = SFX_ROBOT_THREATEN, NEUTER = SFX_ROBOT_THREATEN)
 	death_message = "shudders violently whilst spitting out error text before collapsing, their visual sensor darkening..."
 	special_death_message = "You have been shut down.<br><small>But it is not the end of you yet... if you still have your body, wait until somebody can resurrect you...</small>"
 	joinable_roundstart = TRUE
@@ -84,7 +84,7 @@
 		KEYBINDING_NORMAL = COMSIG_KB_ROBOT_AUTOREPAIR,
 	)
 
-/datum/action/repair_self/can_use_action()
+/datum/action/repair_self/can_use_action(silent, override_flags, selecting)
 	. = ..()
 	if(!.)
 		return
@@ -98,7 +98,7 @@
 	if(!howner.getBruteLoss() && !howner.getFireLoss())
 		return
 	howner.apply_status_effect(STATUS_EFFECT_REPAIR_MODE, 10 SECONDS)
-	howner.balloon_alert_to_viewers("Repairing")
+	howner.balloon_alert_to_viewers("repairing...")
 
 /datum/species/robot/alpharii
 	name = "Hammerhead Combat Robot"

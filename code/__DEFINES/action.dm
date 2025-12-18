@@ -15,7 +15,7 @@
 #define VREF_MUTABLE_MAPTEXT "VREF_BIND_TEXT"
 /// A mutable appearance to add a "selected" frame around the edges
 #define VREF_MUTABLE_SELECTED_FRAME "VREF_SELECTED_FRAME"
-/// A misc image holder for stuff thats meant to be added ontop , used by a few actions
+/// A misc image holder for stuff thats meant to be added on top , used by a few actions
 #define VREF_IMAGE_ONTOP "VREF_LAYERED_IMAGE"
 // /datum/action/ability/xeno_action. Additional references
 /// A mutable appearance to add the "empowered" frame around the edges
@@ -40,6 +40,8 @@
 #define VREF_MUTABLE_CORROSIVEGLOB_COUNTER "VREF_CORROSIVEGLOB_COUNTER"
 // extra reference for how many boiler acid globs we have
 #define VREF_MUTABLE_AMMO_COUNTER "VREF_AMMO_COUNTER"
+// extra reference for how many stacks of sizzler steam rush we have
+#define VREF_MUTABLE_STEAMRUSH_STACKS "VREF_STEAMRUSH_STACKS"
 // extra reference for how many globadier acid mines we have
 #define VREF_MUTABLE_ACID_MINES_COUNTER "VREF_ACIDMINE_COUNTER"
 // extra reference for how many globadier grenades we have

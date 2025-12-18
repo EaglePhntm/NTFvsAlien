@@ -5,7 +5,7 @@
 	name = "all-terrain motorbike"
 	desc = "An all-terrain vehicle built for traversing rough terrain with ease. \"NTC CAVALRY\" is stamped on the side of the engine."
 	icon_state = "motorbike"
-	max_integrity = 300
+	max_integrity = 200
 	soft_armor = list(MELEE = 30, BULLET = 30, LASER = 30, ENERGY = 0, BOMB = 30, FIRE = 60, ACID = 60)
 	resistance_flags = XENO_DAMAGEABLE
 	atom_flags = PREVENT_CONTENTS_EXPLOSION
@@ -35,10 +35,14 @@
 	/// A list of potential sounds played when the bike is revved via AltClick
 	var/list/rev_sounds = list(
 		'sound/vehicles/bikerev-1.ogg',
-		'sound/vehicles/bikerev-2.ogg'
+		'sound/vehicles/bikerev-2.ogg',
+		'sound/vehicles/bikerev-3.ogg',
+		'sound/vehicles/bikerev-4.ogg',
 	)
 	/// Cooldown for revving the bike, to prevent spamming
 	COOLDOWN_DECLARE(rev_cooldown)
+	///Cooldown for telling someone they're buckled
+	COOLDOWN_DECLARE(sticky_stuck_cooldown)
 
 /obj/vehicle/ridden/motorbike/Initialize(mapload)
 	. = ..()
@@ -95,6 +99,8 @@
 /obj/vehicle/ridden/motorbike/proc/has_fuel()
 	return fuel_count > 0
 
+//NTF ADDITION START
+//not calling parent cause i want to override this for weed stuck so it cant be reliably used for combat harrassment since they are so fast here
 /obj/vehicle/ridden/motorbike/relaymove(mob/living/user, direction)
 	if(!has_fuel())
 		if(TIMER_COOLDOWN_FINISHED(src, COOLDOWN_BIKE_FUEL_MESSAGE))
@@ -102,6 +108,23 @@
 			TIMER_COOLDOWN_START(src, COOLDOWN_BIKE_FUEL_MESSAGE, 1 SECONDS)
 			idle_sound.stop(src)
 		return FALSE
+	if(is_driver(user))
+		if(COOLDOWN_FINISHED(src, sticky_stuck_cooldown)) //so it does not get caught in spam relaymove triggers constantly
+			var/obj/alien/weeds/sticky/sticky_floor
+			for (var/obj/alien/weeds/sticky/O in loc)
+				sticky_floor = O
+			if(sticky_floor && prob(30))
+				canmove = FALSE
+				playsound(src, pick(rev_sounds), 40, TRUE, falloff = 3)
+				balloon_alert(user, "Your [name] struggles on sticky resin!")
+				fuel_count -= 2
+				if(prob(25))
+					var/datum/effect_system/smoke_spread/smoke = new
+					smoke.set_up(0, src)
+					smoke.start()
+				COOLDOWN_START(src, sticky_stuck_cooldown, 2.5 SECONDS)
+				addtimer(CALLBACK(src, PROC_REF(unstuck_from_resin), user), 2 SECONDS)
+				return FALSE
 	return ..()
 
 /obj/vehicle/ridden/motorbike/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
@@ -214,6 +237,12 @@
 /obj/vehicle/ridden/motorbike/Destroy()
 	STOP_PROCESSING(SSobj,src)
 	return ..()
+
+/obj/vehicle/ridden/motorbike/proc/unstuck_from_resin(mob/living/user)
+	if(is_driver(user))
+		balloon_alert(user, "Your [name] gets unstuck.")
+	canmove = TRUE
+//NTF ADDITION END
 
 //internal storage
 /obj/item/vehicle_module/storage/motorbike

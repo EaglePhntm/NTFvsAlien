@@ -62,6 +62,10 @@
 	/// The amount of armor to grant to friendly xenomorphs
 	var/petrify_armor = 0
 
+/datum/action/ability/xeno_action/petrify/New(Target)
+	. = ..()
+	desc = "After a [PETRIFY_WINDUP_TIME / (1 SECONDS)] second windup, petrifies all humans looking at you for [PETRIFY_DURATION / (1 SECONDS)] seconds. Petrified humans are immune to damage, but also can't attack."
+
 /datum/action/ability/xeno_action/petrify/clean_action()
 	end_effects()
 	return ..()
@@ -283,8 +287,8 @@
 			var/mob/living/carbon/carbon_victim = victim
 			if(carbon_victim.stat == DEAD || isxeno(carbon_victim))
 				continue
-			carbon_victim.apply_damage(SHATTERING_ROAR_DAMAGE * severity, BRUTE, blocked = MELEE)
-			carbon_victim.apply_damage(SHATTERING_ROAR_DAMAGE * severity, STAMINA)
+			carbon_victim.apply_damage(SHATTERING_ROAR_DAMAGE * severity, BRUTE, blocked = MELEE, attacker = owner)
+			carbon_victim.apply_damage(SHATTERING_ROAR_DAMAGE * severity, STAMINA, attacker = owner)
 			carbon_victim.adjust_stagger(6 SECONDS * severity)
 			carbon_victim.add_slowdown(6 * severity)
 			shake_camera(carbon_victim, 3 * severity, 3 * severity)
@@ -297,11 +301,10 @@
 			if(ishitbox(victim))
 				hitbox_penalty = 20
 			obj_victim.take_damage((SHATTERING_ROAR_DAMAGE - hitbox_penalty) * 5 * severity, BRUTE, MELEE)
-		continue
+			continue
 		if(istype(victim, /obj/structure/window))
 			var/obj/structure/window/window_victim = victim
-			if(window_victim.damageable)
-				window_victim.ex_act(EXPLODE_DEVASTATE)
+			window_victim.ex_act(EXPLODE_DEVASTATE)
 			continue
 		if(isfire(victim))
 			var/obj/fire/fire = victim
@@ -381,7 +384,7 @@
 	alpha = 0
 	animate(src, alpha = 255, time = ZEROFORM_CHARGE_TIME)
 
-/datum/action/ability/xeno_action/zero_form_beam/can_use_action(silent, override_flags)
+/datum/action/ability/xeno_action/zero_form_beam/can_use_action(silent, override_flags, selecting)
 	. = ..()
 	if(!.)
 		return
@@ -540,11 +543,11 @@
 	to_chat(owner, span_warning("The hives power swells. We may summon our sisters again."))
 	return ..()
 
-/datum/action/ability/xeno_action/psychic_summon/can_use_action(silent, override_flags)
+/datum/action/ability/xeno_action/psychic_summon/can_use_action(silent, override_flags, selecting)
 	. = ..()
 	if(!.)
 		return
-	if(length(xeno_owner.hive.get_all_xenos()) <= 1)
+	if(length(xeno_owner.get_hive().get_all_xenos()) <= 1)
 		if(!silent)
 			owner.balloon_alert(owner, "noone to call")
 		return FALSE
@@ -554,8 +557,9 @@ GLOBAL_LIST_EMPTY(active_summons)
 /datum/action/ability/xeno_action/psychic_summon/action_activate()
 
 	log_game("[key_name(owner)] has begun summoning hive in [AREACOORD(owner)]")
-	xeno_message("King: \The [owner] has begun a psychic summon in <b>[get_area(owner)]</b>!", hivenumber = xeno_owner.hivenumber)
-	var/list/allxenos = xeno_owner.hive.get_all_xenos()
+	xeno_message("King: \The [owner] has begun a psychic summon in <b>[get_area(owner)]</b>!", hivenumber = xeno_owner.get_xeno_hivenumber())
+	var/datum/hive_status/hive = xeno_owner.get_hive()
+	var/list/allxenos = hive.get_all_xenos()
 	for(var/mob/living/carbon/xenomorph/sister AS in allxenos)
 		if(minions_only && sister.tier != XENO_TIER_MINION)
 			continue
@@ -573,7 +577,7 @@ GLOBAL_LIST_EMPTY(active_summons)
 			sister.remove_filter("summonoutline")
 		return fail_activate()
 
-	allxenos = xeno_owner.hive.get_all_xenos() //refresh the list to account for any changes during the channel
+	allxenos = hive.get_all_xenos() //refresh the list to account for any changes during the channel
 	var/sisters_teleported = 0
 	for(var/mob/living/carbon/xenomorph/sister AS in allxenos)
 		if(minions_only && sister.tier != XENO_TIER_MINION)

@@ -274,7 +274,7 @@
 	var/datum/limb/affecting = user.zone_selected //Find what the player is aiming at
 
 	//apply damage
-	var/paralyze_duration = target.apply_damage(force, BRUTE, affecting, MELEE, updating_health = TRUE)
+	var/paralyze_duration = target.apply_damage(force, BRUTE, affecting, MELEE, updating_health = TRUE, attacker = user)
 
 	if(affecting == "head" && istype(target, /mob/living/carbon/) && !isxeno(target))
 
@@ -304,7 +304,7 @@
 	//Finally, smash the bottle. This kills (del) the bottle.
 	smash(target, user)
 
-/obj/item/reagent_containers/food/drinks/bottle/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/item/reagent_containers/food/drinks/bottle/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	attack_hand(xeno_attacker)
 
 /obj/item/reagent_containers/food/drinks/bottle/gin

@@ -41,11 +41,14 @@
 		/datum/job/survivor/miner = 6,
 		/datum/job/survivor/salesman = 2,
 		/datum/job/survivor/marshal = 2,
+		/datum/job/survivor/synth = 1,
 		/datum/job/xenomorph = FREE_XENO_AT_START,
 		/datum/job/xenomorph/queen = 1
 	)
 	enable_fun_tads = TRUE
 	xenorespawn_time = 15 SECONDS
+	time_between_round_group = 0
+	time_between_round_group_name = "GROUP_Extended"
 
 	/// Time between two bioscan
 	var/bioscan_interval = 15 MINUTES

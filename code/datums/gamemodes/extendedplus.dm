@@ -2,7 +2,7 @@
 	name = "Extended Plus"
 	config_tag = "Extended Plus"
 	silo_scaling = 1
-	round_type_flags = MODE_INFESTATION|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_ALLOW_XENO_QUICKBUILD
+	round_type_flags = MODE_INFESTATION|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_ALLOW_XENO_QUICKBUILD|MODE_XENO_GRAB_DEAD_ALLOWED|MODE_MUTATIONS_OBTAINABLE|MODE_BIOMASS_POINTS
 	shutters_drop_time = 3 MINUTES
 	xeno_abilities_flags = ABILITY_NUCLEARWAR
 	factions = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_XENO, FACTION_CLF, FACTION_ICC, FACTION_VSD)
@@ -56,9 +56,10 @@
 		/datum/job/survivor/prisoner = 2,
 		/datum/job/survivor/stripper = -1,
 		/datum/job/survivor/maid = 3,
+		/datum/job/survivor/synth = 1,
 		/datum/job/other/prisoner = 4,
-		/datum/job/xenomorph = 8,
-		/datum/job/xenomorph/green = 4,
+		/datum/job/xenomorph = FREE_XENO_AT_START,
+		/datum/job/xenomorph/green = FREE_XENO_AT_START_CORRUPT,
 		/datum/job/xenomorph/queen = 1,
 		/datum/job/som/command/commander = 1,
 		/datum/job/som/command/fieldcommander = 1,
@@ -88,9 +89,9 @@
 		/datum/job/mothellian/grenadier = 2,
 		/datum/job/mothellian/leader = 2,
 */
-		/datum/job/pmc/squad/standard = 3,
-		/datum/job/pmc/squad/medic = 1,
-		/datum/job/pmc/squad/engineer = 1,
+		/datum/job/pmc/squad/standard = -1,
+		/datum/job/pmc/squad/medic = 2,
+		/datum/job/pmc/squad/engineer = 2,
 		/datum/job/pmc/squad/gunner = 1,
 		/datum/job/pmc/squad/sniper = 1,
 		/datum/job/pmc/squad/leader = 1,
@@ -112,6 +113,9 @@
 	respawn_time = 5 MINUTES
 	bioscan_interval = 30 MINUTES
 	deploy_time_lock = 15 SECONDS
+	time_between_round_group = 0
+	time_between_round_group_name = "GROUP_Extended"
+	evo_requirements = list()
 
 /datum/game_mode/infestation/can_start(bypass_checks = TRUE)
 	. = ..()
@@ -152,10 +156,10 @@
 		if(prob(75))
 			new /mob/living/carbon/human/species/monkey(i)
 
-	SSpoints.add_strategic_psy_points(XENO_HIVE_NORMAL, 1400)
-	SSpoints.add_tactical_psy_points(XENO_HIVE_NORMAL, 300)
-	SSpoints.add_strategic_psy_points(XENO_HIVE_CORRUPTED, 1400)
-	SSpoints.add_tactical_psy_points(XENO_HIVE_CORRUPTED, 300)
+	for(var/hivenumber in GLOB.hive_datums)
+		SSpoints.add_strategic_psy_points(hivenumber, 1400)
+		SSpoints.add_tactical_psy_points(hivenumber, 300)
+		SSpoints.add_biomass_points(hivenumber, 0) // Solely to make sure it isn't null.
 
 	for(var/obj/effect/landmark/corpsespawner/corpse AS in GLOB.corpse_landmarks_list)
 		corpse.create_mob()
@@ -199,7 +203,7 @@
 	generate_nuke_disk_spawners()
 
 	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_EXPLODED, PROC_REF(on_nuclear_explosion))
-	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_DIFFUSED, PROC_REF(on_nuclear_diffuse))
+	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_DEFUSED, PROC_REF(on_nuclear_defuse))
 	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_START, PROC_REF(on_nuke_started))
 
 /datum/game_mode/infestation/extended_plus/check_finished()
@@ -209,7 +213,7 @@
 	if(world.time < (SSticker.round_start_time + 5 SECONDS))
 		return FALSE
 
-	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_ALIVE_SSD|COUNT_IGNORE_XENO_SPECIAL_AREA)
+	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_ALIVE_SSD|COUNT_IGNORE_XENO_SPECIAL_AREA| COUNT_CLF_TOWARDS_XENOS | COUNT_GREENOS_TOWARDS_MARINES )
 	var/num_xenos = living_player_list[2]
 	var/num_humans_ship = living_player_list[3]
 

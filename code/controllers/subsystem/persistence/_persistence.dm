@@ -42,6 +42,7 @@ SUBSYSTEM_DEF(persistence)
 		/datum/season_datum/weapons/guns/heavy_autorail,
 		/datum/season_datum/weapons/guns/heavy_shock,
 		/datum/season_datum/weapons/guns/heavy_explosions,
+		/datum/season_datum/weapons/guns/heavy_remote,
 		),
 	)
 	///The saved list of custom outfits names
@@ -72,12 +73,18 @@ SUBSYSTEM_DEF(persistence)
 		last_modes_round_date = list()
 		return
 	last_modes_round_date = json_decode(file2text(json_file))
+	for(var/key in last_modes_round_date)
+		if(istext(last_modes_round_date[key]))
+			last_modes_round_date[key] = text2num(last_modes_round_date[key])
 
 ///Save the date of the last gamemode's round
 /datum/controller/subsystem/persistence/proc/save_last_game_mode_round_time()
+	var/list/last_modes_round_date_text = list()
+	for(var/key in last_modes_round_date)
+		last_modes_round_date_text[key] = num2text(last_modes_round_date[key], 20)
 	var/json_file = file("data/last_modes_round_date.json")
 	fdel(json_file)
-	WRITE_FILE(json_file, json_encode(last_modes_round_date))
+	WRITE_FILE(json_file, json_encode(last_modes_round_date_text))
 
 ///Loads the list of custom outfits names
 /datum/controller/subsystem/persistence/proc/load_custom_loadouts_list()
@@ -359,4 +366,18 @@ SUBSYSTEM_DEF(persistence)
 		/obj/item/ammo_magazine/rocket/recoilless/heat = 16,
 		/obj/item/ammo_magazine/rocket/recoilless/cloak = 16,
 		/obj/item/ammo_magazine/rocket/recoilless/smoke = 16,
+	)
+
+/datum/season_datum/weapons/guns/heavy_remote
+	name = "Remote Weapons"
+	description = "Unmanned vehicles and MLRS for roundstart vendors."
+	item_list = list(
+		/obj/item/unmanned_vehicle_remote = 6,
+		/obj/vehicle/unmanned = 1,
+		/obj/vehicle/unmanned/medium = 1,
+		/obj/vehicle/unmanned/heavy = 2,
+		/obj/item/deployable_vehicle/tiny = 3,
+		/obj/item/uav_turret/claw = 4,
+		/obj/structure/closet/crate/mortar_ammo/mlrs_kit = 2,
+		/obj/item/storage/box/mlrs_rockets/gas = 4,
 	)

@@ -232,7 +232,7 @@
 		balloon_alert(user, "doesn't lead anywhere!")
 		return
 	if(going_up ? !up : !down)
-		balloon_alert(user, "can't go any further [going_up ? "up" : "down"]")
+		balloon_alert(user, "can't go any further [going_up ? "up" : "down"]!")
 		return
 	if(user.buckled && user.buckled.anchored)
 		balloon_alert(user, "buckled to something anchored!")
@@ -360,7 +360,7 @@
 	else //goes both ways
 		show_options(user, is_ghost = FALSE)
 
-/obj/structure/ladder/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/structure/ladder/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	. = ..()
 	if(.)
 		return
@@ -398,10 +398,10 @@
 ///throws an item held by a user up or down a ladder
 /obj/structure/ladder/proc/throw_object(obj/item/item, mob/user, going_up=TRUE)
 	if(going_up && !up)
-		balloon_alert(user, "No stair above")
+		balloon_alert(user, "no stairs above!")
 		return
 	if(!going_up && !down)
-		balloon_alert(user, "No stair below")
+		balloon_alert(user, "no stairs below!")
 		return
 	var/turf/destination = going_up ? get_turf(up) : get_turf(down)
 	if(!do_after(user, 1 SECONDS, NONE, src))

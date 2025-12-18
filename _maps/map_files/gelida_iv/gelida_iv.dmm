@@ -2207,6 +2207,7 @@
 /area/gelida/indoors/a_block/kitchen)
 "bxz" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/ai_node,
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/dorms)
 "bxF" = (
@@ -2579,6 +2580,14 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/south_east_street)
+"bMb" = (
+/obj/effect/ai_node,
+/obj/structure/cable,
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/gelida/powergen)
 "bMh" = (
 /obj/structure/rack/nometal,
 /obj/effect/spawner/random/engineering/toolbox,
@@ -4691,6 +4700,13 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/central_streets)
+"djv" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/gelida/powergen)
 "djy" = (
 /obj/structure/table/mainship,
 /obj/effect/spawner/random/misc/paperbin{
@@ -6295,6 +6311,14 @@
 /obj/effect/spawner/random/engineering/metal,
 /turf/open/floor/plating,
 /area/gelida/powergen)
+"eoL" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/structure/cable,
+/obj/effect/ai_node,
+/turf/open/floor/prison/darkpurple{
+	dir = 4
+	},
+/area/gelida/indoors/a_block/dorms)
 "eoN" = (
 /obj/effect/ai_node,
 /turf/open/floor/prison,
@@ -7470,7 +7494,6 @@
 	dir = 1;
 	name = "\improper Mining Control"
 	},
-/obj/effect/ai_node,
 /turf/open/floor/mainship/stripesquare,
 /area/gelida/indoors/c_block/mining)
 "eXW" = (
@@ -7720,6 +7743,11 @@
 /obj/effect/spawner/random/misc/structure/chair_or_metal/west,
 /turf/open/floor/plating/heatinggrate,
 /area/gelida/indoors/a_block/bridges/garden_bridge)
+"fgm" = (
+/obj/structure/cable,
+/obj/machinery/power/smes/buildable/empty/dist,
+/turf/open/floor/plating,
+/area/gelida/powergen)
 "fgn" = (
 /obj/structure/cable,
 /turf/open/floor/prison,
@@ -10933,6 +10961,13 @@
 	dir = 1
 	},
 /area/gelida/indoors/a_block/hallway)
+"huL" = (
+/obj/structure/cable,
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/gelida/powergen)
 "hvo" = (
 /obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/prison/darkbrown/full,
@@ -13432,6 +13467,7 @@
 	},
 /obj/effect/spawner/random/food_or_drink/kitchen,
 /obj/effect/landmark/weed_node,
+/obj/structure/cable,
 /turf/open/floor/mainship/black/full,
 /area/gelida/powergen)
 "jcI" = (
@@ -18844,6 +18880,11 @@
 	},
 /turf/open/floor/prison/darkbrown/full,
 /area/gelida/indoors/c_block/garage)
+"mKP" = (
+/obj/effect/landmark/weed_node,
+/obj/effect/ai_node,
+/turf/open/floor/plating,
+/area/gelida/powergen)
 "mKS" = (
 /obj/structure/window/framed/colony,
 /obj/structure/platform/nondense{
@@ -19424,7 +19465,6 @@
 	dir = 8
 	},
 /obj/effect/landmark/weed_node,
-/obj/structure/cable,
 /turf/open/floor/mainship/black/full,
 /area/gelida/powergen)
 "ngu" = (
@@ -20003,9 +20043,9 @@
 /turf/open/floor/mainship/stripesquare,
 /area/gelida/indoors/a_block/bridges)
 "nBG" = (
-/obj/structure/cable,
 /obj/effect/ai_node,
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/structure/cable,
 /turf/open/floor/mainship/black/full,
 /area/gelida/powergen)
 "nBP" = (
@@ -22165,6 +22205,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/gelida/powergen)
 "oXh" = (
@@ -22390,7 +22431,6 @@
 /area/gelida/caves/central_caves/garbledradio)
 "pdD" = (
 /obj/effect/turf_decal/warning_stripes/thick/corner,
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/gelida/powergen)
 "pdJ" = (
@@ -24036,6 +24076,11 @@
 /obj/item/inflatable/wall,
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/security)
+"qfV" = (
+/obj/structure/cable,
+/obj/effect/ai_node,
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gelida/landing_zone_1)
 "qgh" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /turf/open/floor/plating/plating_catwalk/prison,
@@ -25040,9 +25085,11 @@
 /turf/open/floor/plating,
 /area/gelida/indoors/c_block/cargo)
 "qRh" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/decal/cleanable/dirt,
 /obj/effect/ai_node,
-/turf/closed/mineral/smooth/snowrock,
-/area/gelida/outdoors/rock)
+/turf/open/floor/prison,
+/area/gelida/indoors/c_block/mining)
 "qRn" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
@@ -30648,6 +30695,8 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/cable,
+/obj/machinery/power/smes/buildable/empty/dist,
 /turf/open/floor/plating,
 /area/gelida/powergen)
 "uJf" = (
@@ -39761,7 +39810,7 @@ ndb
 ndb
 ndb
 ndb
-qRh
+ndb
 ndb
 ndb
 sQn
@@ -46590,7 +46639,7 @@ aOd
 gSz
 mur
 hDD
-bML
+eoL
 kMO
 bML
 cNS
@@ -53836,19 +53885,19 @@ eQn
 eQn
 iqm
 cqM
-iJR
-eqT
-vQe
-eqT
-vQe
-gVM
-gVM
+siX
+ogl
+djv
+ogl
+djv
 lID
-gVM
+lID
+lID
+lID
 oXa
-eqT
-vQe
-eqT
+ogl
+djv
+ogl
 oTT
 fPM
 iqm
@@ -54279,16 +54328,16 @@ eQn
 eQn
 lBr
 iqm
-cqM
-fPM
-fPM
-cqM
-rCQ
-lBr
-fPM
-cqM
+huL
+bMb
+huL
 kjv
-peR
+rCQ
+mKP
+fPM
+cqM
+cqM
+ivx
 hXS
 hXS
 hXS
@@ -54501,12 +54550,12 @@ eQn
 fPM
 gZd
 iqm
-cqM
-dwS
+fgm
+fgm
 uIz
-fPM
-cqM
-eqE
+oBU
+kjv
+oBU
 rCQ
 whv
 fPM
@@ -54728,7 +54777,7 @@ iqm
 iqm
 iqm
 hNx
-hNx
+vRt
 iqm
 iqm
 iqm
@@ -54950,7 +54999,7 @@ fPM
 vih
 cqM
 lcg
-etT
+hNw
 cqM
 mgH
 lBr
@@ -55157,7 +55206,7 @@ nsK
 cgS
 eQn
 eQn
-asP
+gfl
 gfl
 qzH
 fPM
@@ -55172,7 +55221,7 @@ elo
 lBr
 fPM
 cqM
-elo
+jkr
 rCQ
 cqM
 elo
@@ -60685,7 +60734,7 @@ cqo
 xEZ
 ezR
 eZd
-siO
+qRh
 kpl
 kpl
 iWw
@@ -60693,7 +60742,7 @@ kpl
 kpl
 kpl
 eXT
-kpl
+pQC
 taY
 xZs
 pxY
@@ -65115,7 +65164,7 @@ jDt
 txG
 apC
 xmm
-nKB
+qfV
 xmm
 xmm
 xmm
@@ -69100,14 +69149,14 @@ uGS
 eWY
 eWY
 iAT
-eWY
+udO
 eWY
 eWY
 eWY
 ngv
 jDt
 txG
-xmm
+nvl
 xmm
 pcI
 jDt
@@ -69322,7 +69371,7 @@ eWY
 eWY
 eWY
 eWY
-eWY
+udO
 eWY
 eWY
 eWY
@@ -69766,7 +69815,7 @@ eWY
 eWY
 iAT
 eWY
-eWY
+udO
 eWY
 eWY
 iAT

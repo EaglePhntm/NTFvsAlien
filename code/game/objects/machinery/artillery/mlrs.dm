@@ -22,6 +22,9 @@
 		/obj/item/mortal_shell/rocket/mlrs/gas,
 		/obj/item/mortal_shell/rocket/mlrs/incendiary,
 		/obj/item/mortal_shell/rocket/mlrs/cloak,
+		/obj/item/mortal_shell/rocket/mlrs/aphro,
+		/obj/item/mortal_shell/rocket/mlrs/neuro,
+		/obj/item/mortal_shell/rocket/mlrs/sleep,
 	)
 	tally_type = TALLY_ROCKET_ARTY
 	cool_off_time = 80 SECONDS
@@ -36,7 +39,7 @@
 //this checks for box of rockets, otherwise will go to normal attackby for mortars
 /obj/machinery/deployable/mortar/mlrs/attackby(obj/item/I, mob/user, params)
 	if(firing)
-		user.balloon_alert(user, "The barrel is steaming hot. Wait till it cools off")
+		user.balloon_alert(user, "barrel too hot—wait a while!")
 		return
 
 	if(!istype(I, /obj/item/storage/box/mlrs_rockets))
@@ -54,20 +57,20 @@
 	while(rocketsloaded < numrockets)
 		//verify it has rockets
 		if(!istype(rocket_box.contents[1], /obj/item/mortal_shell/rocket/mlrs))
-			user.balloon_alert(user, "Out of rockets")
+			user.balloon_alert(user, "out of rocket!s")
 			return
 		var/obj/item/mortal_shell/mortar_shell = rocket_box.contents[1]
 
 		if(length(chamber_items) >= max_rounds)
-			user.balloon_alert(user, "You cannot fit more")
+			user.balloon_alert(user, "you can't fit more!")
 			return
 
 		if(!(mortar_shell.type in allowed_shells))
-			user.balloon_alert(user, "This shell doesn't fit")
+			user.balloon_alert(user, "this shell doesn't fit!")
 			return
 
 		if(busy)
-			user.balloon_alert(user, "Someone else is using this")
+			user.balloon_alert(user, "someone else is using this!")
 			return
 
 		user.visible_message(span_notice("[user] starts loading \a [mortar_shell.name] into [src]."),
@@ -86,7 +89,7 @@
 
 		rocket_box.storage_datum.remove_from_storage(mortar_shell,null,user)
 		rocketsloaded++
-	user.balloon_alert(user, "Right click to fire")
+	user.balloon_alert(user, "right click to fire")
 
 
 /obj/machinery/deployable/mortar/mlrs/AltRightClick(mob/living/user)

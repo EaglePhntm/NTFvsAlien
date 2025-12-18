@@ -77,14 +77,14 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 					keyslot2 = null
 
 			recalculateChannels()
-			balloon_alert_to_viewers("pops out keys")
+			balloon_alert(user, "keys removed")
 
 		else
-			balloon_alert(user, "No keys to remove")
+			balloon_alert(user, "no keys to remove!")
 
 	else if(istype(I, /obj/item/encryptionkey))
 		if(keyslot && keyslot2)
-			balloon_alert(user, "Can't, headset is full")
+			balloon_alert(user, "headset is full!")
 			return
 
 		if(!keyslot)
@@ -152,14 +152,14 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 	if(command)
 		use_command = !use_command
-		balloon_alert(user, "toggles loud mode")
+		balloon_alert(user, "high-volume mode [use_command ? "active" : "inactive"]")
 
 /*
 /obj/item/radio/headset/attack_self(mob/living/user)
 	if(!istype(user) || !Adjacent(user) || user.incapacitated())
 		return
 	channels[RADIO_CHANNEL_REQUISITIONS] = !channels[RADIO_CHANNEL_REQUISITIONS]
-	balloon_alert(user, "toggles supply comms [channels[RADIO_CHANNEL_REQUISITIONS] ? "on" : "off"].")
+	balloon_alert(user, "supply comms [channels[RADIO_CHANNEL_REQUISITIONS] ? "active" : "inactive"]")
 */
 
 /obj/item/radio/headset/vendor_equip(mob/user)
@@ -194,6 +194,10 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	. = ..()
 	if(faction == FACTION_SOM)
 		camera = new /obj/machinery/camera/headset/som(src)
+	else if(faction == FACTION_VSD)
+		camera = new /obj/machinery/camera/headset/kz(src)
+	else if(faction == FACTION_CLF)
+		camera = new /obj/machinery/camera/headset/clf(src)
 	else
 		camera = new(src)
 
@@ -221,7 +225,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 ///Explodes the headset if you put on an enemy's headset
 /obj/item/radio/headset/mainship/proc/safety_protocol(mob/living/carbon/human/user)
-	balloon_alert_to_viewers("Explodes")
+	to_chat(user, span_userdanger("\The [src] explodes as you try to wear it!"))
 	playsound(user, 'sound/effects/explosion/micro1.ogg', 50, 1)
 	if(wearer)
 		wearer.ex_act(EXPLODE_LIGHT)
@@ -266,7 +270,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 		if(wearer.mind && wearer.assigned_squad && !sl_direction)
 			enable_sl_direction()
 	add_minimap()
-	balloon_alert(wearer, "toggles squad HUD on")
+	balloon_alert(wearer, "squad HUD active")
 	playsound(loc, 'sound/machines/click.ogg', 15, 0, 1)
 
 
@@ -279,7 +283,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	if(sl_direction)
 		disable_sl_direction()
 	remove_minimap()
-	balloon_alert(wearer, "toggles squad HUD off")
+	balloon_alert(wearer, "squad HUD inactive")
 	playsound(loc, 'sound/machines/click.ogg', 15, 0, 1)
 
 /obj/item/radio/headset/mainship/proc/add_minimap()
@@ -288,7 +292,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	mini.give_action(wearer)
 	INVOKE_NEXT_TICK(src, PROC_REF(update_minimap_icon)) //Mobs are spawned inside nullspace sometimes so this is to avoid that hijinks
 
-/obj/item/radio/headset/mainship/proc/disable_locator(var/time)
+/obj/item/radio/headset/mainship/proc/disable_locator(time)
 	if(wearer)
 		SSminimaps.remove_marker(wearer)
 	if(locator_disabled_timer)
@@ -312,14 +316,14 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	var/marker_flags = initial(minimap_type.marker_flags)
 	if(wearer.stat == DEAD)
 		if(HAS_TRAIT(wearer, TRAIT_UNDEFIBBABLE))
-			SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "undefibbable", MINIMAP_BLIPS_LAYER))
+			SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "undefibbable", MINIMAP_BLIPS_LAYER_HIGH))
 			return
 		if(!wearer.mind && !wearer.has_ai())
 			var/mob/dead/observer/ghost = wearer.get_ghost(TRUE)
 			if(!ghost?.can_reenter_corpse)
-				SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "undefibbable", MINIMAP_BLIPS_LAYER))
+				SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "undefibbable", MINIMAP_BLIPS_LAYER_HIGH))
 				return
-		SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "defibbable", MINIMAP_LABELS_LAYER))
+		SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "defibbable", MINIMAP_BLIPS_LAYER_EXTRA_HIGH))
 		return
 	if(wearer.assigned_squad)
 		var/image/underlay = image('icons/UI_icons/map_blips.dmi', null, "squad_underlay", MINIMAP_BLIPS_LAYER)
@@ -346,7 +350,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 /obj/item/radio/headset/mainship/proc/enable_sl_direction()
 	if(!headset_hud_on)
-		balloon_alert(wearer, "turn it on first")
+		balloon_alert(wearer, "turn it on first!")
 		return
 
 	if(wearer.mind && wearer.assigned_squad && wearer.hud_used?.SL_locator)
@@ -358,7 +362,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 			SSdirection.start_tracking(wearer.assigned_squad.tracking_id, wearer)
 
 	sl_direction = TRUE
-	balloon_alert(wearer, "toggles SL finder on")
+	balloon_alert(wearer, "SL finder active")
 	playsound(loc, 'sound/machines/click.ogg', 15, 0, 1)
 
 
@@ -376,7 +380,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 		SSdirection.stop_tracking(wearer.assigned_squad.tracking_id, wearer)
 
 	sl_direction = FALSE
-	balloon_alert(wearer, "toggles SL finder off")
+	balloon_alert(wearer, "SL finder inactive")
 	playsound(loc, 'sound/machines/click.ogg', 15, 0, TRUE)
 
 
@@ -474,6 +478,8 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 /obj/item/radio/headset/mainship/marine
 	keyslot = /obj/item/encryptionkey/general
+	///Is designated as the squad leader, ensures correct radio channels
+	var/squad_leader = FALSE
 
 /obj/item/radio/headset/mainship/marine/Initialize(mapload, datum/squad/squad, rank)
 	if(squad)
@@ -496,6 +502,12 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 			keyslot2 = /obj/item/encryptionkey/med
 		name = dat + " radio headset"
 	return ..()
+
+/obj/item/radio/headset/mainship/marine/recalculateChannels()
+	. = ..()
+	if(squad_leader)
+		channels[RADIO_CHANNEL_COMMAND] = TRUE
+		secure_radio_connections[RADIO_CHANNEL_COMMAND] = add_radio(src, GLOB.radiochannels[RADIO_CHANNEL_COMMAND])
 
 /obj/item/radio/headset/mainship/marine/alpha
 	name = "marine alpha radio headset"
@@ -624,11 +636,12 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	keyslot2 = /obj/item/encryptionkey/sec
 
 /obj/item/radio/headset/mainship/marine/pmc
-	name = "pmc radio headset"
+	name = "AC radio headset"
 	icon_state = "headset_marine_generic"
 	keyslot = /obj/item/encryptionkey/PMC
-	keyslot2 = /obj/item/encryptionkey/mcom
+	keyslot2 = /obj/item/encryptionkey/general
 	frequency = FREQ_PMC
+	faction = FACTION_NANOTRASEN
 
 /obj/item/radio/headset/mainship/marine/icc
 	name = "colonial militia headset"

@@ -170,9 +170,11 @@ Redefine as needed.
 
 
 /proc/tkMaxRangeCheck(mob/user, atom/target)
+	if(!get_turf(target))
+		return
 	var/d = get_dist(user, target)
 	if(d > TK_MAXRANGE)
-		target.balloon_alert(user, "It's too far!")
+		target.balloon_alert(user, "it's too far!")
 		return
 	return TRUE
 

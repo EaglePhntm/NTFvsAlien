@@ -2,8 +2,9 @@
 	name = "Nuclear War"
 	config_tag = "Nuclear War"
 	silo_scaling = 2
-	round_type_flags = MODE_INFESTATION|MODE_LATE_OPENING_SHUTTER_TIMER|MODE_XENO_RULER|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_DEAD_GRAB_FORBIDDEN|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_SILOS_SPAWN_MINIONS|MODE_ALLOW_XENO_QUICKBUILD|MODE_FORCE_CUSTOMSQUAD_UI|MODE_MUTATIONS_OBTAINABLE
+	round_type_flags = MODE_INFESTATION|MODE_LATE_OPENING_SHUTTER_TIMER|MODE_XENO_RULER|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_SILOS_SPAWN_MINIONS|MODE_ALLOW_XENO_QUICKBUILD|MODE_FORCE_CUSTOMSQUAD_UI|MODE_MUTATIONS_OBTAINABLE|MODE_BIOMASS_POINTS
 	xeno_abilities_flags = ABILITY_NUCLEARWAR
+	time_between_round = 48 HOURS
 	valid_job_types = list(
 		/datum/job/terragov/command/captain = 1,
 		/datum/job/terragov/command/fieldcommander = 1,
@@ -27,6 +28,7 @@
 		/datum/job/terragov/squad/smartgunner = 1,
 		/datum/job/terragov/squad/leader = 1,
 		/datum/job/terragov/squad/standard = -1,
+		/datum/job/terragov/squad/slut = -1,
 		/datum/job/xenomorph = FREE_XENO_AT_START,
 		/datum/job/xenomorph/queen = 1
 	)
@@ -38,10 +40,13 @@
 	)
 
 	evo_requirements = list(
-/* NTF removal - evolution minimums
 		/datum/xeno_caste/queen = 8,
-NTF removal end*/
+		/datum/xeno_caste/king = 12,
+		/datum/xeno_caste/dragon = 12,
 	)
+
+///Timer used to track the countdown to hive collapse due to lack of silos or corrupted generators
+	var/siloless_hive_timer
 
 /datum/game_mode/infestation/nuclear_war/post_setup()
 	var/client_count = length(GLOB.clients)
@@ -52,8 +57,10 @@ NTF removal end*/
 
 	. = ..()
 
-	SSpoints.add_strategic_psy_points(XENO_HIVE_NORMAL, 1400)
-	SSpoints.add_tactical_psy_points(XENO_HIVE_NORMAL, 300)
+	for(var/hivenumber in GLOB.hive_datums)
+		SSpoints.add_strategic_psy_points(hivenumber, 1400)
+		SSpoints.add_tactical_psy_points(hivenumber, 300)
+		SSpoints.add_biomass_points(hivenumber, 0) // Solely to make sure it isn't null.
 
 	for(var/obj/effect/landmark/corpsespawner/corpse AS in GLOB.corpse_landmarks_list)
 		corpse.create_mob()
@@ -66,29 +73,74 @@ NTF removal end*/
 	generate_nuke_disk_spawners()
 
 	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_EXPLODED, PROC_REF(on_nuclear_explosion))
-	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_DIFFUSED, PROC_REF(on_nuclear_diffuse))
+	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_DEFUSED, PROC_REF(on_nuclear_defuse))
 	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_START, PROC_REF(on_nuke_started))
 
+///Called by [/datum/hive_status/normal/handle_ruler_timer()] after [NUCLEAR_WAR_HIVEMIND_COLLAPSE] elapses to end the round
 /datum/game_mode/infestation/nuclear_war/orphan_hivemind_collapse()
 	if(round_finished)
 		return
 	if(round_stage == INFESTATION_MARINE_CRASHING)
 		round_finished = MODE_INFESTATION_M_MINOR
 		return
-	round_finished = MODE_INFESTATION_M_MAJOR
 
+///Returns the time left before the hivemind collapses due to being orphaned
 /datum/game_mode/infestation/nuclear_war/get_hivemind_collapse_countdown()
 	var/eta = timeleft(orphan_hive_timer) MILLISECONDS
+	return !isnull(eta) ? round(eta) : 0
+
+///Checks if the conditions for silo collapse have been met and starts/stops the countdown timer accordingly
+/datum/game_mode/infestation/nuclear_war/update_silo_death_timer(datum/hive_status/silo_owner)
+	if(!(silo_owner.hive_flags & HIVE_CAN_COLLAPSE_FROM_SILO))
+		return
+
+	//handle potential stopping
+	if(round_stage != INFESTATION_MARINE_DEPLOYMENT)
+		if(siloless_hive_timer)
+			deltimer(siloless_hive_timer)
+			siloless_hive_timer = null
+		return
+	if(length(GLOB.xeno_resin_silos_by_hive[XENO_HIVE_NORMAL]))
+		if(siloless_hive_timer)
+			deltimer(siloless_hive_timer)
+			siloless_hive_timer = null
+		return
+	if(GLOB.corrupted_generators)
+		if(siloless_hive_timer)
+			deltimer(siloless_hive_timer)
+			siloless_hive_timer = null
+		return
+	//handle starting
+	if(siloless_hive_timer)
+		return
+
+	silo_owner.xeno_message("We don't have any silos or corrupted generators! The hive will collapse if nothing is done.", "xenoannounce", 6, TRUE)
+	siloless_hive_timer = addtimer(CALLBACK(src, PROC_REF(siloless_hive_collapse)), NUCLEAR_WAR_SILO_COLLAPSE, TIMER_STOPPABLE)
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_SILOLESS_COLLAPSE)
+
+///Called by [/proc/update_silo_death_timer] after [NUCLEAR_WAR_SILO_COLLAPSE] elapses to end the round
+/datum/game_mode/infestation/nuclear_war/siloless_hive_collapse()
+	if(!(round_type_flags & MODE_INFESTATION))
+		return
+	if(round_finished)
+		return
+	if(round_stage == INFESTATION_MARINE_CRASHING)
+		return
+	round_finished = MODE_INFESTATION_M_MAJOR
+
+///Returns the time left before the hive collapses due to lack of silos or corrupted generators
+/datum/game_mode/infestation/nuclear_war/get_siloless_collapse_countdown()
+	var/eta = timeleft(siloless_hive_timer) MILLISECONDS
 	return !isnull(eta) ? round(eta) : 0
 
 /datum/game_mode/infestation/nuclear_war/check_finished()
 	if(round_finished)
 		return TRUE
 
-	if(world.time < (SSticker.round_start_time + 5 SECONDS))
+	if(world.time < (SSticker.round_start_time + 2 MINUTES))
 		return FALSE
 
-	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_ALIVE_SSD|COUNT_IGNORE_XENO_SPECIAL_AREA)
+	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_ALIVE_SSD|COUNT_IGNORE_XENO_SPECIAL_AREA| COUNT_CLF_TOWARDS_XENOS | COUNT_GREENOS_TOWARDS_MARINES )
 	var/num_humans = living_player_list[1]
 	var/num_xenos = living_player_list[2]
 	var/num_humans_ship = living_player_list[3]

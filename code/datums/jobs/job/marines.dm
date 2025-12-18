@@ -51,7 +51,7 @@ Make your way to the cafeteria for some post-cryosleep chow, and then get equipp
 		<b>You answer to the</b> acting Squad Leader<br /><br />
 		<b>Unlock Requirement</b>: Starting Role<br /><br />
 		<b>Gamemode Availability</b>: Crash, Nuclear War<br /><br /><br />
-		TerraGov’s Squad Operatives make up the bread and butter of Terra's fighting forces. They are fitted with the standard arsenal that the NTC offers, and they can take up a variety of roles, being a sniper, a pyrotechnician, a machinegunner, rifleman and more. They’re often high in numbers and divided into squads, but they’re the lowest ranking individuals, with a low degree of skill, not adapt to engineering or medical roles. Still, they are not limited to the arsenal they can take on the field to deal whatever threat that lurks against Terra.
+		Ninetails' Squad Operatives make up the bread and butter of Ninetails' fighting forces. They are fitted with the standard arsenal that the NTC offers, and they can take up a variety of roles, being a sniper, a pyrotechnician, a machinegunner, rifleman and more. They’re often high in numbers and divided into squads, but they’re the lowest ranking individuals, with a low degree of skill, not adapt to engineering or medical roles. Still, they are not limited to the arsenal they can take on the field to deal whatever threat that lurks against Terra.
 		<br /><br />
 		<b>Duty</b>: Carry out orders made by your acting Squad Leader, deal with any threats that oppose the NTC.
 	"}
@@ -84,6 +84,12 @@ Make your way to the cafeteria for some post-cryosleep chow, and then get equipp
 	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
 	. += "You are a rank-and-file operative of the NTC, and that is your strength. What you lack alone, you gain standing shoulder to shoulder with the men and women of the Nine Tailed Fox PMC. Ooh-rah!"
 
+/datum/job/terragov/squad/standard/npc
+	multiple_outfits = TRUE
+	outfits = list(
+		/datum/outfit/job/npc/tgmc/standard,
+		/datum/outfit/job/npc/tgmc/standard/shotgunner,
+	)
 //Squad Slut
 /datum/job/terragov/squad/slut
 	title = SQUAD_SLUT
@@ -109,7 +115,7 @@ Make your way to the cafeteria for some post-cryosleep chow, and then get equipp
 		<b>You answer to the</b> acting Squad Leader<br /><br />
 		<b>Unlock Requirement</b>: Starting Role<br /><br />
 		<b>Gamemode Availability</b>: Crash, Nuclear War<br /><br /><br />
-		TerraGov’s Squad Operatives make up the bread and butter of Terra's fighting forces. They are fitted with the standard arsenal that the NTC offers, and they can take up a variety of roles, being a sniper, a pyrotechnician, a machinegunner, rifleman and more. They’re often high in numbers and divided into squads, but they’re the lowest ranking individuals, with a low degree of skill, not adapt to engineering or medical roles. Still, they are not limited to the arsenal they can take on the field to deal whatever threat that lurks against Terra.
+		Ninetails' Squad Operatives make up the bread and butter of Ninetails' fighting forces. They are fitted with the standard arsenal that the NTC offers, and they can take up a variety of roles, being a sniper, a pyrotechnician, a machinegunner, rifleman and more. They’re often high in numbers and divided into squads, but they’re the lowest ranking individuals, with a low degree of skill, not adapt to engineering or medical roles. Still, they are not limited to the arsenal they can take on the field to deal whatever threat that lurks against Terra.
 		<br /><br />
 		<b>Duty</b>: Carry out orders made by your acting Squad Leader, deal with any threats that oppose the NTC.
 	"}
@@ -197,6 +203,9 @@ You can use some non lethal ammunition to 'tactically' do things to people, Spre
 			new_human.wear_id.paygrade = "E9A" //If you play way too much TGMC. 1000 hours.
 	new_human.wear_id.update_label()
 
+/datum/job/terragov/squad/engineer/npc
+	outfit = /datum/outfit/job/npc/tgmc/squad_engineer
+
 //Squad Corpsman
 /datum/job/terragov/squad/corpsman
 	title = SQUAD_CORPSMAN
@@ -253,6 +262,9 @@ You can use some non lethal ammunition to 'tactically' do things to people, Spre
 			new_human.wear_id.paygrade = "E9A" //If you play way too much TGMC. 1000 hours.
 	new_human.wear_id.update_label()
 
+/datum/job/terragov/squad/corpsman/npc
+	outfit = /datum/outfit/job/npc/tgmc/corpsman
+
 //Squad Smartgunner
 /datum/job/terragov/squad/smartgunner
 	title = SQUAD_SMARTGUNNER
@@ -306,6 +318,9 @@ You can use some non lethal ammunition to 'tactically' do things to people, Spre
 		if(60001 to INFINITY) // 1000 hrs
 			new_human.wear_id.paygrade = "E9A" //If you play way too much TGMC. 1000 hours.
 	new_human.wear_id.update_label()
+
+/datum/job/terragov/squad/smartgunner/npc
+	outfit = /datum/outfit/job/npc/tgmc/smartgunner
 
 //Squad Specialist
 /datum/job/terragov/squad/specialist
@@ -418,6 +433,10 @@ You can use some non lethal ammunition to 'tactically' do things to people, Spre
 		return
 	if(!ismarineleaderjob(new_human.assigned_squad?.squad_leader?.job)) //If there's no proper SL already in the squad, promote to leader
 		new_human.assigned_squad.promote_leader(new_human)
+
+/datum/job/terragov/squad/leader/npc
+	outfit = /datum/outfit/job/npc/tgmc/squad_leader
+
 
 /datum/job/terragov/squad/vatgrown
 	title = SQUAD_MARINE

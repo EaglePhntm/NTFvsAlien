@@ -4,11 +4,13 @@
 #define CLICK_CD_LOOK_UP 5
 #define CLICK_CD_RANGE 4
 #define CLICK_CD_CLICK_ABILITY 6
+#define CLICK_CD_UNARMED 7
 #define CLICK_CD_MELEE 8
 #define CLICK_CD_THROWING 4
 #define CLICK_CD_HANDCUFFED 10
 #define CLICK_CD_GRABBING 10
 #define CLICK_CD_RESIST 10
+#define CLICK_CD_MELEE_WEAPON_DEFAULT 11
 #define CLICK_CD_LONG 20
 #define CLICK_CD_BREAKOUT 100
 
@@ -74,8 +76,12 @@
 #define AMMO_PASS_THROUGH_MOB (1<<15)
 ///If the projectile ricochet and miss sound is pitched up
 #define AMMO_SOUND_PITCH (1<<16)
-///Is this projectile considered sniper ammo, used for the anti sniper stacking status effect
+///Is this projectile considered sniper ammo.
 #define AMMO_SNIPER (1<<17)
+///Ammo type entirely ignores xenos
+#define AMMO_SKIPS_ZOMBIE (1<<18)
+///for sniper turrets so they cant stack fuck people. Seperate from ammo_sniper.
+#define AMMO_SNIPER_TURRET (1<<18)
 
 //Gun defines for gun related thing. More in the projectile folder.
 //gun_features_flags
@@ -111,6 +117,7 @@
 #define AMMO_RECIEVER_DO_NOT_EMPTY_ROUNDS_AFTER_FIRE (1<<10)
 #define AMMO_RECIEVER_CYCLE_ONLY_BEFORE_FIRE (1<<11) //The ammo stay in the magazine until the last moment
 #define AMMO_RECIEVER_AUTO_EJECT_LOCKED (1<<12) //Not allowed to turn automatic unloading off
+#define AMMO_RECIEVER_MULTICLIP (1<<13) //Able to take multiple stripper clips back-to-back
 
 #define FLAMER_IS_LIT (1<<0)
 #define FLAMER_NO_LIT_OVERLAY (1<<1)
@@ -137,6 +144,7 @@
 #define MAGAZINE_NOT_FABRICABLE (1<<4)
 ///ammo count shown on mag sprite
 #define MAGAZINE_SHOW_AMMO (1<<5)
+#define MAGAZINE_REQUIRES_EMPTY_GUN (1<<6)
 
 //Slowdown from various armors.
 #define SHOES_SLOWDOWN -1.0			// How much shoes slow you down by default. Negative values speed you up
@@ -145,7 +153,7 @@
 #define SLOWDOWN_ARMOR_LIGHT 0.2
 #define SLOWDOWN_ARMOR_MEDIUM 0.5
 #define SLOWDOWN_ARMOR_HEAVY 0.7
-#define SLOWDOWN_ARMOR_VERY_HEAVY 1
+#define SLOWDOWN_ARMOR_VERY_HEAVY 1.25
 
 //Marine armor defines
 #define MARINE_ARMOR_LIGHT list(MELEE = 35, BULLET = 55, LASER = 55, ENERGY = 50, BOMB = 45, BIO = 45, FIRE = 45, ACID = 45)

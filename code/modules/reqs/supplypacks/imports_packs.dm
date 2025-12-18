@@ -145,6 +145,11 @@ Imports
 	contains = list(/obj/item/ammo_magazine/rifle/mpi_km/plum)
 	cost = 3
 
+/datum/supply_packs/imports/mpi_km/ammo/rubber
+	name = "MPi-KM Assault Rifle Rubber Ammo"
+	contains = list(/obj/item/ammo_magazine/rifle/mpi_km/rubber)
+	cost = 3
+
 /datum/supply_packs/imports/mpi_km/ammo_packet
 	name = "7.62x39mm Ammo Box"
 	contains = list(/obj/item/ammo_magazine/packet/pwarsaw)
@@ -296,7 +301,7 @@ Imports
 	cost = 10
 
 /datum/supply_packs/imports/loot_pack
-	name = "TGMC loot pack"
+	name = "NTF loot pack"
 	notes = "Contains a random, but curated set of items, these packs are valued around 150 to 200 points. Some items can only be acquired from these. Spend responsibly."
 	contains = list(/obj/item/loot_box/tgmclootbox)
 	cost = 1000

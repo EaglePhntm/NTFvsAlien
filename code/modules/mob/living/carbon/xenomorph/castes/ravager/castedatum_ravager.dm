@@ -24,7 +24,7 @@
 	plasma_icon_state = "fury"
 
 	// *** Health *** //
-	max_health = 400
+	max_health = 390
 
 	// *** Evolution *** //
 	upgrade_threshold = TIER_THREE_THRESHOLD
@@ -65,8 +65,14 @@
 
 	mutations = list(
 		/datum/mutation_upgrade/shell/little_more,
+		/datum/mutation_upgrade/shell/keep_going,
+		/datum/mutation_upgrade/shell/inward_focus,
 		/datum/mutation_upgrade/spur/deep_slash,
-		/datum/mutation_upgrade/veil/recurring_rage
+		/datum/mutation_upgrade/spur/super_cut,
+		/datum/mutation_upgrade/spur/onslaught,
+		/datum/mutation_upgrade/veil/recurring_rage,
+		/datum/mutation_upgrade/veil/fight_in_flames,
+		/datum/mutation_upgrade/veil/bloody_endure
 	)
 
 /datum/xeno_caste/ravager/on_caste_applied(mob/xenomorph)
@@ -120,7 +126,7 @@
 
 	// *** Plasma *** //
 	plasma_max = 500
-	plasma_gain = 0
+	plasma_regen_limit = 0
 	plasma_icon_state = "fury"
 
 	// *** Abilities *** //

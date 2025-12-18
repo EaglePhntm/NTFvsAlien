@@ -37,16 +37,58 @@
 /mob/living/carbon/human/attack_alien_disarm(mob/living/carbon/xenomorph/X, dam_bonus)
 	var/randn = rand(1, 100)
 	var/stamina_loss = getStaminaLoss()
-	var/disarmdamage = X.xeno_caste.melee_damage * X.xeno_melee_damage_modifier * 3
-	var/damage_to_deal = clamp(disarmdamage, 0, maxHealth - stamina_loss)
-	damage_to_deal += (disarmdamage - damage_to_deal)/12
+	var/damage = X.xeno_caste.melee_damage * X.xeno_melee_damage_modifier * 3
 	var/sound = 'sound/weapons/alien_knockdown.ogg'
+	var/list/damage_mod = list()
+	var/list/armor_mod = list()
+	var/armor_block = 0
+
+	var/signal_return = SEND_SIGNAL(X, COMSIG_XENOMORPH_DISARM_LIVING, src, damage, damage_mod, armor_mod)
+	if(ishuman(src))
+		signal_return &= SEND_SIGNAL(X, COMSIG_XENOMORPH_DISARM_HUMAN, src, damage, damage_mod, armor_mod)
+
+	if(!(signal_return & COMSIG_XENOMORPH_BONUS_APPLIED))
+		damage_mod += dam_bonus
+		//locate() subtypes aswell, whichever the mob has.
+		var/datum/action/ability/xeno_action/stealth/stealth_skill = locate() in X.actions
+		if(stealth_skill)
+			if(stealth_skill.can_sneak_attack)
+				var/datum/action/ability/activable/xeno/hunter_mark/assassin/mark = X.actions_by_path[/datum/action/ability/activable/xeno/hunter_mark/assassin]
+				if(mark?.marked_target == src) //assassin death mark
+					damage *= 2
+
+	var/armor_pen = X.xeno_caste.melee_ap
+
+	if(!(signal_return & COMPONENT_BYPASS_ARMOR))
+		armor_block = X.xeno_caste.melee_damage_armor
+
+	for(var/i in damage_mod)
+		damage += i
+
+	for(var/i in armor_mod)
+		armor_pen += i
+
+	if(!(signal_return & COMPONENT_BYPASS_SHIELDS))
+		damage = check_shields(COMBAT_MELEE_ATTACK, damage, "melee")
+
+	if(!damage)
+		X.visible_message(span_danger("\The [X]'s disarm is blocked by [src]'s shield!"),
+			span_danger("Our disarm is blocked by [src]'s shield!"), null, COMBAT_MESSAGE_RANGE)
+		return FALSE
+
+	if(armor_block)
+		damage = modify_by_armor(damage, armor_block, armor_pen, BODY_ZONE_CHEST)
+		armor_block = 0
+		armor_pen = 0
+
+	var/damage_to_deal = clamp(damage, 0, maxHealth - stamina_loss)
+	damage_to_deal += (damage - damage_to_deal)/12
 
 	if (ishuman(src))
 		if(IsParalyzed())
 			X.do_attack_animation(src, ATTACK_EFFECT_DISARM2)
 			X.visible_message(null, "<span class='info'>We keep holding [src] down.</span>", null)
-			apply_damage(damage_to_deal, STAMINA, BODY_ZONE_CHEST, MELEE)
+			apply_damage(damage_to_deal, STAMINA, BODY_ZONE_CHEST, armor_block, FALSE, FALSE, TRUE, armor_pen, X)
 			sound = 'sound/weapons/thudswoosh.ogg'
 			var/obj/item/radio/headset/mainship/headset = wear_ear
 			if(istype(headset))
@@ -62,7 +104,7 @@
 				X.visible_message("<span class='danger'>[X] has disarmed [src]!</span>",
 				"<span class='danger'>We disarm [src]!</span>", null, 5)
 				sound = 'sound/weapons/thudswoosh.ogg'
-			apply_damage(damage_to_deal, STAMINA, BODY_ZONE_CHEST, MELEE)
+			apply_damage(damage_to_deal, STAMINA, BODY_ZONE_CHEST, armor_block, FALSE, FALSE, TRUE, armor_pen, X)
 			X.visible_message("<span class='danger'>[X] wrestles [src]-!</span>",
 			"<span class='danger'>We wrestle [src]!</span>", null, 5)
 			Stagger(2 SECONDS)
@@ -75,7 +117,6 @@
 					var/obj/item/radio/headset/mainship/headset = wear_ear
 					if(istype(headset))
 						headset.disable_locator(40 SECONDS)
-		SEND_SIGNAL(X, COMSIG_XENOMORPH_DISARM_HUMAN, src, damage_to_deal)
 	else if(!ishuman(src))
 		if(randn <= 40)
 			if(!IsParalyzed())
@@ -200,7 +241,7 @@
 		log_combat(X, src, log)
 
 	record_melee_damage(X, damage)
-	var/damage_done = apply_damage(damage, X.xeno_caste.melee_damage_type, affecting, armor_block, TRUE, TRUE, TRUE, armor_pen) //This should slicey dicey
+	var/damage_done = apply_damage(damage, X.xeno_caste.melee_damage_type, affecting, armor_block, TRUE, TRUE, TRUE, armor_pen, X) //This should slicey dicey
 	new /obj/effect/temp_visual/dir_setting/bloodsplatter(loc, Get_Angle(X, src), get_blood_color())
 	SEND_SIGNAL(X, COMSIG_XENOMORPH_POSTATTACK_LIVING, src, damage_done, damage_mod)
 
@@ -272,7 +313,7 @@
 		return FALSE
 
 //Every other type of nonhuman mob //MARKER OVERRIDE
-/mob/living/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/mob/living/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 

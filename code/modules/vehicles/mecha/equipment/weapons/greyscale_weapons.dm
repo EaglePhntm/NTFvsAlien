@@ -124,7 +124,7 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/assault_rifle
 	name = "\improper Cronus assault rifle"
 	icon = 'icons/mecha/mecha_equipment_64x32.dmi'
-	desc = "The stock-and-standard extra-sized multipurpose rifle for TGMC mech units."
+	desc = "The stock-and-standard extra-sized multipurpose rifle for NTF mech units."
 	icon_state = "assaultrifle"
 	fire_sound = 'sound/mecha/weapons/mech_rifle.ogg'
 	mech_flags = EXOSUIT_MODULE_GREYSCALE|EXOSUIT_MODULE_VENDABLE
@@ -155,7 +155,7 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/shotgun
 	name = "\improper Phoebe shotgun"
 	icon = 'icons/mecha/mecha_equipment_64x32.dmi'
-	desc = "The TGMC classic weapon, but bigger and better! Fires plus-sized buckshot for high damage in close combat."
+	desc = "The NTF classic weapon, but bigger and better! Fires plus-sized buckshot for high damage in close combat."
 	icon_state = "shotgun"
 	fire_sound = 'sound/mecha/weapons/mech_shotgun.ogg'
 	mech_flags = EXOSUIT_MODULE_GREYSCALE|EXOSUIT_MODULE_VENDABLE
@@ -317,6 +317,10 @@
 	hud_icons = list("shell_apcr", "shell_empty")
 	fire_mode = GUN_FIREMODE_SEMIAUTO
 
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/heavy_cannon/apply_weapon_modifiers(atom/movable/projectile/projectile_to_fire, mob/firer)
+	. = ..()
+	projectile_to_fire.def_zone = BODY_ZONE_CHEST //no delimb spam
+
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/minigun
 	name = "\improper Rhea vulcan cannon"
 	icon = 'icons/mecha/mecha_equipment_64x32.dmi'
@@ -369,7 +373,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/heavyrocket
 	name = "\improper Hyperion heavy rocket launcher"
-	desc = "The TGMC's definitive answer to whether a bigger boom is better. Fires heavy AP rockets."
+	desc = "The NTF's definitive answer to whether a bigger boom is better. Fires heavy AP rockets."
 	icon = 'icons/mecha/mecha_equipment_64x32.dmi'
 	icon_state = "rocketlauncher"
 	fire_sound = 'sound/mecha/weapons/mech_rpg.ogg'
@@ -551,6 +555,12 @@
 	chassis.throw_at(target, laser_dash_range, 1)
 	return ..()
 
+/obj/item/mecha_parts/mecha_equipment/laser_sword/attack(mob/living/M, mob/living/user)
+	var/user_target_zone = user.zone_selected //stops 1 hit delimbs
+	user.zone_selected = BODY_ZONE_CHEST
+	. = ..()
+	user.zone_selected = user_target_zone
+
 ///signal handler, drops afterimage every move executed while dashing
 /obj/item/mecha_parts/mecha_equipment/laser_sword/proc/drop_afterimage(datum/source)
 	SIGNAL_HANDLER
@@ -615,7 +625,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser_spear
 	name = "\improper Sunbeam particle piercer"
-	desc = "A spear made of compressed energy for the TGMC Combat Mech. A melee weapon for strong defense at short-to-medium range. Extends a spear of superheated plasma upon activation, piericing everything in its path. A melee core will increase both its range and power. It is a top-of-the-line melee weapon of TGMC's fine line of mecha close-range offensive capability."
+	desc = "A spear made of compressed energy for the NTF Combat Mech. A melee weapon for strong defense at short-to-medium range. Extends a spear of superheated plasma upon activation, piericing everything in its path. A melee core will increase both its range and power. It is a top-of-the-line melee weapon of NTF's fine line of mecha close-range offensive capability."
 	icon = 'icons/mecha/mecha_equipment_64x32.dmi'
 	icon_state = "lance"
 	fire_sound = 'sound/mecha/weapons/laser_sword.ogg'

@@ -1,18 +1,17 @@
 /obj/item/attachable/suppressor
 	name = "suppressor"
-	desc = "A small tube with exhaust ports to expel noise and gas.\nDoes not completely silence a weapon, but does make it much quieter and a little more accurate and stable at the cost of bullet speed."
+	desc = "A small tube with exhaust ports to expel noise and gas.\nDoes not completely silence a weapon, but does make it much quieter and a little more accurate and stable."
 	icon_state = "suppressor"
 	icon = 'icons/obj/items/guns/attachments/muzzle.dmi'
 	slot = ATTACHMENT_SLOT_MUZZLE
 	silence_mod = TRUE
 	pixel_shift_y = 16
-	attach_shell_speed_mod = -1
 	accuracy_mod = 0.1
 	recoil_mod = -2
 	scatter_mod = -2
 	recoil_unwielded_mod = -3
 	scatter_unwielded_mod = -2
-	damage_falloff_mod = 0.1
+	damage_falloff_mod = -0.05
 
 /obj/item/attachable/suppressor/unremovable
 	attach_features_flags = NONE
@@ -25,7 +24,7 @@
 
 /obj/item/attachable/bayonet
 	name = "\improper M-22 bayonet"
-	desc = "A sharp knife that is the standard issue combat knife of the TerraGov Marine Corps can be attached to a variety of weapons at will or used as a standard knife."
+	desc = "A sharp knife that is the standard issue combat knife of the NTF can be attached to a variety of weapons at will or used as a standard knife."
 	icon_state = "bayonetknife"
 	icon = 'icons/obj/items/guns/attachments/muzzle.dmi'
 	worn_icon_list = list(
@@ -92,6 +91,7 @@
 	accuracy_mod = 0.15
 	accuracy_unwielded_mod = 0.1
 	scatter_mod = -1
+	damage_falloff_mod = -0.1
 	size_mod = 1
 	variants_by_parent_type = list(
 		/obj/item/weapon/gun/rifle/som = "ebarrel_big",

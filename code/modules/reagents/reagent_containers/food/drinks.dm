@@ -222,9 +222,10 @@
 
 /obj/item/reagent_containers/food/drinks/shaker/protein
 	name = "protein shake"
-	desc = "A Nanotrasen brand protein shake"
+	desc = "A Ninetails brand protein shake"
 	icon = 'icons/obj/drinks/bottles.dmi'
 	icon_state = "shaker_n"
+	amount_per_transfer_from_this = 120
 	list_reagents = list(
 		/datum/reagent/consumable/nutriment = 60,
 		/datum/reagent/consumable/nutriment/protein = 60

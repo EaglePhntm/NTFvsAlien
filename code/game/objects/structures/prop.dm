@@ -803,6 +803,69 @@
 /obj/structure/prop/mainship/som_scientist/alt
 	icon_state = "SOM_scientist_2"
 
+/obj/structure/prop/tdfcorpse
+	name = "TDF marine"
+	desc = "A Terra Defense Force soldier. They don't seem to be doing very well."
+	icon = 'icons/obj/structures/prop/mainship.dmi'
+	icon_state = "tdfcorpse"
+	allow_pass_flags = PASS_LOW_STRUCTURE|PASSABLE
+	anchored = FALSE
+	layer = ABOVE_OBJ_LAYER
+	max_integrity = 100
+	hit_sound = list('sound/effects/bone_break1.ogg','sound/weapons/wristblades_hit.ogg')
+	coverage = 0
+
+/obj/structure/prop/tdfcorpse/headshot
+	desc = "A Terra Defense Force soldier. This one seems to have lost their mind."
+	icon_state = "tdfcorpseheadshot"
+
+/obj/structure/prop/tdfcorpse/decap
+	desc = "Where's your head at? (Where's yo head at?) (Where's yo head at?)"
+	icon_state = "tdfcorpsedecap"
+
+/obj/structure/prop/manhole
+	name = "manhole"
+	desc = "This would be a hole, except it's got a big piece of metal covering it."
+	icon = 'icons/obj/structures/prop/urban/urbanrandomprops.dmi'
+	icon_state = "wymanhole"
+	allow_pass_flags = PASS_LOW_STRUCTURE|PASSABLE|PASS_WALKOVER
+	resistance_flags = PROJECTILE_IMMUNE
+
+/obj/structure/prop/fueltank
+	name = "\improper jet fuel container"
+	desc = "A container used to store high quantities of fuel."
+	icon = 'icons/obj/structures/prop/mainship_96.dmi'
+	icon_state = "fueltank"
+	bound_width = 96
+	bound_height = 32
+	density = TRUE
+	layer = ABOVE_OBJ_LAYER
+	allow_pass_flags = NONE
+	resistance_flags = UNACIDABLE
+	max_integrity = 500
+
+/obj/structure/prop/fueltank/broken
+	name = "\improper broken jet fuel container"
+	desc = "A container that used to store high quantities of fuel."
+	icon_state = "fueltank_broken"
+	icon = 'icons/obj/structures/prop/mainship_96.dmi'
+
+/obj/structure/prop/flag
+	name = "\improper Terragov flag"
+	desc = "A flag bearing the symbol of Terragov. It doesn't seem as inspirational as other flags might be."
+	icon = 'icons/obj/items/flags/plantable_flag_large.dmi'
+	icon_state = "flag_tgmc_planted"
+	allow_pass_flags = PASS_LOW_STRUCTURE|PASSABLE
+	max_integrity = 100
+	layer = ABOVE_OBJ_LAYER
+	coverage = 0
+
+/obj/structure/prop/flag/som
+	name = "\improper Sons of Mars flag"
+	desc = "A flag bearing the symbol of the Sons of Mars. It doesn't seem as inspirational as other flags might be."
+	icon = 'icons/obj/items/flags/plantable_flag_large.dmi'
+	icon_state = "flag_som_planted"
+
 /obj/structure/prop/templedoor
 	name = "Strange Temple"
 	icon = 'icons/obj/doors/Doorsand.dmi'
@@ -1380,6 +1443,67 @@
 /obj/structure/prop/vehicle/big_truck/enclosed_wrecked_tread
 	icon_state = "truck_enclosed_treads_wrecked"
 
+/obj/structure/prop/vehicle/land_rover
+	name = "land rover"
+	desc = "A light armored all terrain vehicle. Beats walking."
+	icon = 'icons/obj/vehicles/4x4.dmi'
+	icon_state = "land_rover"
+	density = TRUE
+	allow_pass_flags = PASSABLE|PASS_WALKOVER
+	max_integrity = 500
+
+/obj/structure/prop/vehicle/land_rover/Initialize(mapload)
+	. = ..()
+	setDir(dir)
+	var/static/list/connections = list(
+		COMSIG_OBJ_TRY_ALLOW_THROUGH = PROC_REF(can_climb_over),
+	)
+	AddElement(/datum/element/connect_loc, connections)
+
+/obj/structure/prop/vehicle/land_rover/setDir(newdir)
+	. = ..()
+	switch(dir)
+		if(NORTH, SOUTH)
+			bound_width = 64
+			bound_height = 96
+		if(WEST, EAST)
+			bound_width = 96
+			bound_height = 64
+
+/obj/structure/prop/vehicle/land_rover/machinegun
+	name = "armored land rover"
+	desc = "An all terrain vehicle with some armor plating and an attached machinegun. Unfortunately, the machinegun has no ammo, and you don't have your drivers license."
+	icon_state = "land_rover_machinegun"
+	max_integrity = 500
+	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 0, BIO = 0, FIRE = 0, ACID = 50)
+
+/obj/structure/prop/vehicle/apc_new
+	name = "APC - Athena"
+	desc = "An unarmed APC designed to command and transport troops in the battlefield. For some reason, it bears the same name as its predecessor. Its doors are locked, and you probably don't know how to drive this thing anyways."
+	icon = 'icons/obj/armored/3x3/apc.dmi'
+	icon_state = "apc"
+	density = TRUE
+	allow_pass_flags = PASSABLE|PASS_WALKOVER
+	max_integrity = 500
+	soft_armor = list(MELEE = 75, BULLET = 75, LASER = 75, ENERGY = 75, BOMB = 25, BIO = 0, FIRE = 0, ACID = 75)
+
+/obj/structure/prop/vehicle/apc_new/Initialize(mapload)
+	. = ..()
+	setDir(dir)
+	var/static/list/connections = list(
+		COMSIG_OBJ_TRY_ALLOW_THROUGH = PROC_REF(can_climb_over),
+	)
+	AddElement(/datum/element/connect_loc, connections)
+
+/obj/structure/prop/vehicle/apc_new/setDir(newdir)
+	. = ..()
+	switch(dir)
+		if(NORTH, SOUTH)
+			bound_width = 96
+			bound_height = 128
+		if(WEST, EAST)
+			bound_width = 128
+			bound_height = 96
 
 /obj/structure/prop/vehicle/tank
 	name = "Decommissioned TAV - Rhino"
@@ -2349,6 +2473,57 @@
 	icon = 'icons/obj/structures/prop/mainship.dmi'
 	icon_state = "error"
 
+/obj/structure/prop/trashpile
+	name = "trash pile"
+	desc = "A disgusting pile of trash. Maybe you could use this as cover if you were desperate."
+	icon = 'icons/obj/structures/misc.dmi'
+	icon_state = "trashpile"
+	density = TRUE
+	anchored = TRUE
+	climbable = TRUE
+	allow_pass_flags = PASS_LOW_STRUCTURE|PASSABLE|PASS_WALKOVER
+	hit_sound = 'sound/weapons/heavyhit.ogg'
+	coverage = 30
+	max_integrity = 75
+
+/obj/structure/prop/casammo
+	name = "30mm ammo crate"
+	desc = "A crate full of 30mm bullets, standard issue for Terragov fighters. Unfortunately, it is welded to the floor and it doesn't look like you can move it."
+	icon = 'icons/obj/structures/prop/mainship.dmi'
+	icon_state = "30mm_crate"
+	density = TRUE
+	anchored = TRUE
+	climbable = TRUE
+	allow_pass_flags = PASS_LOW_STRUCTURE|PASSABLE|PASS_WALKOVER
+	coverage = 30
+	max_integrity = 150
+
+/obj/structure/prop/casammo/incendiary_minirocket
+	name = "incendiary mini rocket stack"
+	desc = "A pack of laser guided incendiary mini rockets. Unfortunately, it's reaaaaaally heavy, so you can't lift it with a powerloader."
+	icon_state = "minirocket_inc"
+
+/obj/structure/prop/casammo/minirocket
+	name = "mini-rocket stack"
+	desc = "A pack of explosive, laser-guided mini-rockets. Unfortunately, these rockets have set into the ground below, and can't be moved with a powerloader."
+	icon_state = "minirocket"
+
+/obj/structure/prop/casammo/monarch
+
+	name = "\improper PHGM-7 'Monarch'"
+	desc = "The PHGM-7 'Monarch' is a well tried and tested dumb rocket design due to being a mere dumb rocket. Its payload is designed to devastate areas for cheap. Unfortunately, this missile is too slippery to be moved with a powerloader."
+	icon_state = "monarch"
+	icon = 'icons/obj/structures/prop/mainship_64.dmi'
+	bound_width = 64
+	bound_height = 32
+	coverage = 40
+	max_integrity = 300
+
+/obj/structure/prop/casammo/battery
+	name = "high-capacity laser battery"
+	icon_state = "laser_battery"
+	desc = "A high-capacity laser battery used to power laser beam weapons. Unfortunately, you're too dumb to know how to lift this, even if you were in a powerloader."
+
 /obj/prop/mainship/prop/news_tv
 	name = "TV"
 	desc = "Suprisingly still relevant, this one is set to the news channel."
@@ -2373,7 +2548,7 @@
 	say(selected_story)
 
 /obj/prop/mainship/prop/news_tv/tg
-	news_stories = "The peace of the Persatuan system was broken as missiles, lasers and coilguns are fired in a fierce naval battle with TerraGov and the SOM, the navy was able to secure the jump points being used by the SOM cutting off the remaining SOM ships left in the system.;\
+	news_stories = "The peace of the Persatuan system was broken as missiles, lasers and coilguns are fired in a fierce naval battle with Ninetails and the SOM, the navy was able to secure the jump points being used by the SOM cutting off the remaining SOM ships left in the system.;\
 		TDF releases headcam footage being nicknamed 'Martian Bushcutting' showing an infantryman wiping a squad of MMC using only a machete. Ninetails pharmaceutical division used the video as a showcase of their advanced combat cocktail mix.;\
 		In a recent press conference Terrabound Mechanics CEO Korol Smith broke down after a question regarding the recently finished mech program 'Mech program is 154 billion overbudget and should have been canned since the start!', shouted Korol Smith. This is after the Rhino light tank program got cancelled over the more advanced mech program.;\
 		A recent skirmish against the ICCN and the TGN results in a TGN victory. Both sides with 5 ships each are head on in a brachistochrone trajectory TG fires first firing a salvo of 200 torch missiles, the ICCN being primarily a laser star focused fleet makes them very effective in point defense allows them to intercept most, 3 missiles impact killing 2 ships and disabling 1. ICC ships fire off their lasers and a beam is able to focus enough to melt through the armor of a TG ship disabling them then being completely melted down with focused fire before counter fire from the remaining TG ships is able to vaporize the remaining ships.;\
@@ -2396,11 +2571,11 @@
 		New Malay Shipyards advanced casaba drone gets put to the test in it's first real combat engagement against two TG frigates and 3 cargo freighters, MNV Tex class frigate launches 24 drones and the AI sets a course to rendezvous with the targets, with its high amount of thrust they are able to close in to an effective range fast and use their casaba howitzers to intercept incoming missiles, 6 drones are able to get through quickly dispatching the enemy ships as they get in effective casaba range, they use their advanced RCS thrusters to dodge enemy coilgun fire and as they pass the destroyed ships they turn on their engines to irradiate the area leaving no survivors.;\
 		Are you ready to take your Verf warfare to the next level? Introducing the Verf Volkite Caliver toy, simply connect it with the battery backpack and start releasing the full rapid fire of the Verf Volkite Caliver, everything you need to mow down your friends. Helmet sold seperately, batteries not included. VERF.;\
 		The Independent Colonies Trade Admin would like to remind you that moving alien animals and plants without a permit to another star system is illegal and may land you up to 2 years in jail and a 1 million kreto fine, recently we have had issues with cartels trying to ship exotic animals by using unsuspecting passangers, do not accept any offers from anyone for help with carrying.;\
-		TerraGov suffers a massive disaster as a cargo liner goes out of control and collides into an O'Neill cylinder colony with many casualties and billions of dollars in cargo lost, a few ship analysts say that the TerraGov claim that it was a terrorist attack is false, the maint logs of the ship suggested instead it was a mechanical failure.;\
+		Ninetails suffers a massive disaster as a cargo liner goes out of control and collides into an O'Neill cylinder colony with many casualties and billions of dollars in cargo lost, a few ship analysts say that the Ninetails claim that it was a terrorist attack is false, the maint logs of the ship suggested instead it was a mechanical failure.;\
 		We have here Boris Kilo on the frontline of an armed rebellion against TG on the moon of Harvest 'These rebels are sick and tired of the horrible working conditions Ninetails has set and the tariff increases TG has done' 'With our wages were just working from meal to meal with no prospect of advancing and they want to increase the damn import tariffs? No enough is enough!' 'Look at this footage we captured so called TDF peacekeepers executing suspected collaborators and shooting into protestors, show it to the whole damn galaxy that they rule this place with fear'.;\
 		Insmoth ocean planet colony population mysteriously vanishes. Colony Newport-212 known for its export of exotic fish has completely vanished with no conclusive evidence of what happened to the colonists, according to flight logs no shuttle was ever nearby the colony, a few leads are possible cultist activity on the planet as investigators and crews who often carry cargo to the planet report odd behaviour and gold statues of unknown idols littering the colonies.;\
 		Today we remember the battle of Olympus Mons, a day to remind ourselves of the sacrifice our forefathers made to escape from the tyranny and imperialist ambitions of Terra and on that day 25152 brave Martians died to secure our future to assault and capture a prototype bluespace drive leading us to our destiny among the stars and preserving Mars, even if Terra holds our holy land. Mars shall not be forgotten.;\
-		Tonight's execution! A TerraGov spy has been caught and tried today deemed guilty, it shall be a special execution showcasing the MMC's new radiation grenades if everything goes as planned this spy will meet a very painful demise! Execution tonight at 6 on all channels.;\
+		Tonight's execution! A Ninetails spy has been caught and tried today deemed guilty, it shall be a special execution showcasing the MMC's new radiation grenades if everything goes as planned this spy will meet a very painful demise! Execution tonight at 6 on all channels.;\
 		An extinct alien civilization found? An exploratory team had set down on Lakita-984, a very hot Terra like planet with bizzare weather patterns. Scans indicate high amounts of greenhouse gasses and areas with high amounts of radiation perhaps a small scale nuclear conflict along with global warming had been their end? A lot of debris was found in orbit that have damage similar to laser fire, they also found wildly varied technological level and design of machinery seemingly as they were from entirely different worlds. Destroyed and decaying buildings are scattered across the planet with only a few major clusters of them, showing an isolationist culture. The more gruesome discovery was of bones of corpses found in massive piles like a massacre had happened, some say it was a religious ritual.;\
 		Mariner Aerospace M350 SSTO family, the most widely used civilian SSTO family in SOM space. The latest generation hybrid engines, air-breathing hypersonic turbines into a radiation free NTR in a vacuum. 800 carrying capacity with flexible cargo capacity. M350 the technical benchmark in its field.;\
 		Orbital ring construction on Catakan continues smoothly with no major incidents, Phobos Manufacturing plays the biggest part of construction with its massive mobile construction platform able to produce any parts needed locally and housing a good amount of the construction workers, the orbital ring is expected to be finished in 3 years with 9 space elevators and 12 stations connecting to it along with dome gardens and cities along the skyhooks.;\

@@ -62,8 +62,10 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/tablefort)
 "adg" = (
-/obj/structure/cable,
-/obj/machinery/power/apc/hyper,
+/obj/machinery/vending/weapon/clf,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/open/floor/plating/asteroidfloor,
 /area/outpost/brig/gear_room{
 	name = "CLF armoury"
@@ -135,11 +137,12 @@
 /turf/open/floor,
 /area/lv624/ground/caves/central1/garbledradio)
 "afK" = (
-/obj/structure/flora/pottedplant/three,
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 8;
 	on = 1
 	},
+/obj/structure/table/mainship,
+/obj/machinery/faxmachine/som,
 /turf/open/floor/mainship/orange{
 	dir = 4
 	},
@@ -1832,6 +1835,10 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle5)
+"aVm" = (
+/obj/machinery/cryopod,
+/turf/open/floor/tile/vault,
+/area/lv624/lazarus/robotics)
 "aVn" = (
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lv624/ground/river2)
@@ -3710,8 +3717,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle8)
 "cna" = (
-/obj/item/armor_module/storage/uniform/brown_vest,
-/obj/structure/cable,
+/obj/machinery/loadout_vendor/clf,
 /turf/open/floor/plating/asteroidfloor,
 /area/outpost/brig/gear_room{
 	name = "CLF armoury"
@@ -4253,6 +4259,16 @@
 	},
 /turf/open/floor/plating,
 /area/lv624/lazarus/quartstorage)
+"cOY" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/power/apc/hyper,
+/turf/open/floor/plating/asteroidfloor,
+/area/outpost/brig/gear_room{
+	name = "CLF armoury"
+	})
 "cPY" = (
 /turf/open/floor/plating/warning{
 	dir = 4
@@ -6430,6 +6446,12 @@
 	},
 /turf/open/floor/tile/darkish,
 /area/lv624/lazarus/sandtemple)
+"fbt" = (
+/obj/machinery/vending/armor_supply/icc/clf,
+/turf/open/floor/plating/asteroidfloor,
+/area/outpost/brig/gear_room{
+	name = "CLF armoury"
+	})
 "fbM" = (
 /obj/structure/catwalk,
 /turf/open/ground/grass/beach{
@@ -6715,7 +6737,7 @@
 /obj/item/stack/sheet/mineral/phoron{
 	amount = 50
 	},
-/turf/open/space/basic,
+/turf/open/floor/mainship/plate,
 /area/mainship/patrol_base/som)
 "fnB" = (
 /obj/structure/lazarus_sign,
@@ -6991,7 +7013,7 @@
 "fAE" = (
 /obj/structure/cable,
 /obj/machinery/power/geothermal,
-/turf/open/space/basic,
+/turf/open/floor/mainship/plate,
 /area/mainship/patrol_base/som)
 "fAT" = (
 /obj/item/trash/cigbutt/cigarbutt,
@@ -7924,7 +7946,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 10
 	},
-/turf/open/space/basic,
+/turf/open/floor/mainship/plate,
 /area/mainship/patrol_base/som)
 "gCb" = (
 /obj/structure/bedsheetbin,
@@ -8525,10 +8547,6 @@
 /obj/item/tweezers,
 /obj/item/tweezers,
 /obj/item/tweezers,
-/obj/item/tweezers,
-/obj/item/tweezers,
-/obj/item/tweezers,
-/obj/item/tweezers,
 /turf/open/floor/plating/asteroidfloor,
 /area/ice_colony/underground/medical/treatment{
 	name = "CLF clinic"
@@ -8876,10 +8894,10 @@
 	},
 /area/lv624/ground/jungle9)
 "hzX" = (
-/obj/structure/bed/roller,
 /obj/effect/turf_decal/tile/transparent/dark_green/half/contrasted{
 	dir = 8
 	},
+/obj/machinery/vending/MarineMed/icc/clf,
 /turf/open/floor/plating/asteroidfloor,
 /area/ice_colony/underground/medical/treatment{
 	name = "CLF clinic"
@@ -11201,6 +11219,10 @@
 	pixel_y = 9
 	},
 /obj/structure/cable,
+/obj/item/reagent_containers/food/snacks/soup/bisque{
+	pixel_x = -2;
+	pixel_y = 5
+	},
 /turf/open/floor/plating/ground/desertdam/asphalt/edge{
 	dir = 10
 	},
@@ -13129,6 +13151,13 @@
 /obj/item/reagent_containers/glass/bucket,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lv624/lazarus/sandtemple/garbledradio)
+"lIC" = (
+/obj/structure/largecrate/guns/russian,
+/obj/item/armor_module/storage/uniform/brown_vest,
+/turf/open/floor/plating/asteroidfloor,
+/area/outpost/brig/gear_room{
+	name = "CLF armoury"
+	})
 "lIF" = (
 /obj/structure/table/wood,
 /obj/item/trash/candle,
@@ -13355,6 +13384,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/table/mainship,
+/obj/machinery/computer/voucher/som,
+/obj/item/card/id/captains_spare/som,
 /turf/open/floor/mainship/orange{
 	dir = 5
 	},
@@ -14672,7 +14704,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central1/garbledradio)
 "ndS" = (
-/turf/open/space/basic,
+/turf/open/floor/mainship/plate,
 /area/mainship/patrol_base/som)
 "neu" = (
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -14832,6 +14864,16 @@
 "noU" = (
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central4/garbledradio)
+"npY" = (
+/obj/structure/cable,
+/obj/structure/table/mainship,
+/obj/machinery/computer/voucher/clf,
+/turf/open/floor/plating/ground/desertdam/asphalt/cement_sunbleached,
+/area/deltastation/commons/fitness{
+	name = "CLF training";
+	outside = 0;
+	ceiling = 6
+	})
 "nqm" = (
 /obj/machinery/floodlight/colony,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
@@ -15276,11 +15318,8 @@
 /obj/structure/table/reinforced/prison,
 /obj/machinery/light/small,
 /obj/effect/turf_decal/trimline/dark_blue/line,
-/obj/item/reagent_containers/food/snacks/soup/bisque{
-	pixel_x = -2;
-	pixel_y = 5
-	},
 /obj/structure/cable,
+/obj/machinery/faxmachine/clf,
 /turf/open/floor/plating/ground/desertdam/asphalt/threeside{
 	dir = 4
 	},
@@ -15457,7 +15496,10 @@
 /turf/open/liquid/water/river/autosmooth,
 /area/lv624/ground/river3)
 "nZX" = (
-/obj/structure/largecrate/guns/russian,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 16
+	},
 /turf/open/floor/plating/asteroidfloor,
 /area/outpost/brig/gear_room{
 	name = "CLF armoury"
@@ -15718,6 +15760,7 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/engineering)
 "oqC" = (
+/obj/machinery/cryopod,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 6
 	},
@@ -15884,10 +15927,10 @@
 /area/lv624/lazarus/security)
 "ozd" = (
 /obj/effect/spawner/random/decal/blood,
-/obj/structure/bed/roller,
 /obj/effect/turf_decal/tile/transparent/dark_green/anticorner/contrasted{
 	dir = 8
 	},
+/obj/machinery/vending/medical/clf,
 /turf/open/floor/plating/asteroidfloor,
 /area/ice_colony/underground/medical/treatment{
 	name = "CLF clinic"
@@ -19338,9 +19381,7 @@
 	},
 /area/lv624/lazarus/fitness)
 "rXw" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
+/obj/machinery/vending/uniform_supply/icc/clf,
 /turf/open/floor/plating/asteroidfloor,
 /area/outpost/brig/gear_room{
 	name = "CLF armoury"
@@ -20721,7 +20762,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/open/space/basic,
+/turf/open/floor/mainship/plate,
 /area/mainship/patrol_base/som)
 "ttF" = (
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -22907,7 +22948,7 @@
 /turf/open/floor/wood,
 /area/lv624/lazarus/internal_affairs)
 "vzm" = (
-/obj/structure/flora/pottedplant/thirteen,
+/obj/machinery/loadout_vendor/som,
 /turf/open/floor/mainship/orange{
 	dir = 4
 	},
@@ -24307,7 +24348,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 4
 	},
-/turf/open/space/basic,
+/turf/open/floor/mainship/plate,
 /area/mainship/patrol_base/som)
 "wKQ" = (
 /turf/open/floor/marking/warning{
@@ -57287,7 +57328,7 @@ lXD
 mJO
 uzX
 fiu
-mJO
+aVm
 mJO
 qVS
 qlc
@@ -85612,7 +85653,7 @@ plr
 peG
 hdw
 hdw
-mBJ
+npY
 egB
 sDq
 mcN
@@ -87905,8 +87946,8 @@ oFu
 tbO
 tbO
 tbO
-aah
-aah
+tbO
+tbO
 dUK
 aah
 aah
@@ -88230,10 +88271,10 @@ xSG
 gtV
 oFu
 tbO
+cOY
+uRQ
+kBu
 tbO
-tbO
-tbO
-mcN
 aah
 aah
 mcN
@@ -88557,10 +88598,10 @@ xSG
 shO
 vSx
 iEz
-rXw
-nZX
+ein
+sJJ
+lIC
 tbO
-aah
 aah
 aah
 aah
@@ -88885,9 +88926,9 @@ leU
 gtV
 rnL
 kDm
+sJJ
 hkZ
 tbO
-aah
 aah
 aah
 aah
@@ -89211,10 +89252,10 @@ xSG
 iDM
 gtV
 tbO
-ein
+fMs
+sJJ
 eNk
 tbO
-aah
 aah
 aah
 aah
@@ -89539,8 +89580,8 @@ iDM
 tpd
 tbO
 cna
+sJJ
 tLM
-tbO
 tbO
 aah
 mcN
@@ -90192,7 +90233,7 @@ xSG
 iDM
 gtV
 tbO
-fMs
+rXw
 xFG
 uNq
 tbO
@@ -90519,7 +90560,7 @@ xSG
 iDM
 gtV
 tbO
-kBu
+fbt
 sJJ
 bss
 tbO
@@ -90846,7 +90887,7 @@ xSG
 alp
 gtV
 tbO
-uRQ
+nZX
 oAL
 xJx
 tbO

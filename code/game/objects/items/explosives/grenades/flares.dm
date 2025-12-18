@@ -1,7 +1,7 @@
 #define FLARE_FIRE_STACKS 5
 /obj/item/explosive/grenade/flare
 	name = "\improper M40 FLDP grenade"
-	desc = "A TGMC standard issue flare utilizing the standard DP canister chassis. Capable of being loaded in any grenade launcher, or thrown by hand."
+	desc = "A NTF standard issue flare utilizing the standard DP canister chassis. Capable of being loaded in any grenade launcher, or thrown by hand."
 	icon_state = "flare_grenade"
 	worn_icon_state = "flare_grenade"
 	det_time = 0
@@ -10,6 +10,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	hud_state = "grenade_frag"
 	light_system = MOVABLE_LIGHT
+	light_power = 1.5
 	light_range = 6
 	light_color = LIGHT_COLOR_FLARE
 	var/fuel = 0
@@ -132,7 +133,7 @@
 
 /obj/item/explosive/grenade/flare/cas
 	name = "\improper M50 CFDP signal flare"
-	desc = "A TGMC signal flare utilizing the standard DP canister chassis. Capable of being loaded in any grenade launcher, or thrown by hand. When activated, provides a target for CAS pilots."
+	desc = "A NTF signal flare utilizing the standard DP canister chassis. Capable of being loaded in any grenade launcher, or thrown by hand. When activated, provides a target for CAS pilots."
 	icon_state = "cas_flare_grenade"
 	worn_icon_state = "cas_flare_grenade"
 	hud_state = "grenade_frag"

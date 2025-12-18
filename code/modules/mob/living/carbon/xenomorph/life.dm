@@ -53,7 +53,7 @@
 	var/ruler_healing_penalty = 0.5
 	if(hive?.living_xeno_ruler?.loc?.z == T.z || xeno_caste.can_flags & CASTE_CAN_HEAL_WITHOUT_QUEEN || (SSticker?.mode.round_type_flags & MODE_XENO_RULER)) //if the living queen's z-level is the same as ours.
 		ruler_healing_penalty = 1
-	if(loc_weeds_type || xeno_caste.caste_flags & CASTE_INNATE_HEALING) //We regenerate on weeds or can on our own.
+	if(loc_weeds_type || HAS_TRAIT(src, TRAIT_INNATE_HEALING)) //We regenerate on weeds or can on our own.
 		if(lying_angle || resting || xeno_caste.caste_flags & CASTE_QUICK_HEAL_STANDING)
 			heal_wounds(XENO_RESTING_HEAL * ruler_healing_penalty * loc_weeds_type ? initial(loc_weeds_type.resting_buff) : 1, TRUE, seconds_per_tick)
 		else
@@ -94,7 +94,9 @@
 	if(recovery_aura)
 		amount += recovery_aura * maxHealth * 0.01 // +1% max health per recovery level, up to +5%
 	if(scaling)
+		SEND_SIGNAL(src, COMSIG_XENOMORPH_PRE_HEALTH_REGEN_SCALING)
 		var/time_modifier = seconds_per_tick * XENO_PER_SECOND_LIFE_MOD
+		var/previous_regen_power = regen_power
 		if(recovery_aura)
 			regen_power = clamp(regen_power + xeno_caste.regen_ramp_amount * time_modifier * 30, 0, 1) //Ignores the cooldown, and gives a 50% boost.
 		else if(regen_power < 0) // We're not supposed to regenerate yet. Start a countdown for regeneration.
@@ -102,8 +104,9 @@
 			return
 		else
 			regen_power = min(regen_power + xeno_caste.regen_ramp_amount * time_modifier * 20, 1)
+		SEND_SIGNAL(src, COMSIG_XENOMORPH_POST_HEALTH_REGEN_SCALING, regen_power, previous_regen_power)
 		amount *= regen_power
-	amount *= multiplier * GLOB.xeno_stat_multiplicator_buff * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD
+	amount *= multiplier * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD
 
 	var/list/heal_data = list(amount, amount)
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_HEALTH_REGEN, heal_data, seconds_per_tick)
@@ -122,7 +125,7 @@
 		if(plasma_stored < pheromone_cost)
 			use_plasma(plasma_stored, FALSE)
 			QDEL_NULL(current_aura)
-			src.balloon_alert(src, "Stop emitting, no plasma")
+			src.balloon_alert(src, "no plasma, emitting stopped!")
 		else
 			use_plasma(pheromone_cost * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD, FALSE)
 
@@ -160,19 +163,21 @@
 		if(leader_current_aura)
 			leader_current_aura.suppressed = TRUE
 
-	if(frenzy_aura != (received_auras[AURA_XENO_FRENZY] || 0))
-		set_frenzy_aura(received_auras[AURA_XENO_FRENZY] || 0)
+	var/new_frenzy_aura = (received_auras[AURA_XENO_FRENZY] || 0) * hive.aura_multiplier
+	if(frenzy_aura != new_frenzy_aura)
+		set_frenzy_aura(new_frenzy_aura)
 
-	if(warding_aura != (received_auras[AURA_XENO_WARDING] || 0))
+	var/new_warding_aura = (received_auras[AURA_XENO_WARDING] || 0) * hive.aura_multiplier
+	if(warding_aura != new_warding_aura)
 		if(warding_aura) //If either the new or old warding is 0, we can skip adjusting armor for it.
 			soft_armor = soft_armor.modifyAllRatings(-warding_aura * 2.5)
-		warding_aura = received_auras[AURA_XENO_WARDING] || 0
+		warding_aura = new_warding_aura
 		if(warding_aura)
 			soft_armor = soft_armor.modifyAllRatings(warding_aura * 2.5)
 
-	recovery_aura = received_auras[AURA_XENO_RECOVERY] || 0
+	recovery_aura = (received_auras[AURA_XENO_RECOVERY] || 0) * hive.aura_multiplier
 
-	hud_set_pheromone()
+	update_aura_overlay()
 	..()
 
 /mob/living/carbon/xenomorph/handle_regular_hud_updates()
@@ -195,7 +200,6 @@
 	if(!. || QDELING(src)) // For godmode / if they got gibbed via update_stat.
 		return
 	med_hud_set_health() // Todo: Make all damage update health so we can just kill pointless life updates entirely.
-	update_wounds()
 
 /mob/living/carbon/xenomorph/handle_slowdown()
 	if(slowdown)

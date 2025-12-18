@@ -20,11 +20,12 @@
 
 /datum/action/ability/xeno_action/baneling_explode/handle_button_status_visuals()
 	var/mob/living/carbon/xenomorph/baneling = owner
-	button.cut_overlay(visual_references[VREF_MUTABLE_BANE_CHARGES])
 	var/mutable_appearance/number = visual_references[VREF_MUTABLE_BANE_CHARGES]
-	number.maptext = MAPTEXT("[baneling.stored_charge]")
-	visual_references[VREF_MUTABLE_BANE_CHARGES] = number
-	button.add_overlay(visual_references[VREF_MUTABLE_BANE_CHARGES])
+	if(number)
+		button.cut_overlay(visual_references[VREF_MUTABLE_BANE_CHARGES])
+		number.maptext = MAPTEXT("[baneling.stored_charge]")
+		visual_references[VREF_MUTABLE_BANE_CHARGES] = number
+		button.add_overlay(visual_references[VREF_MUTABLE_BANE_CHARGES])
 	return ..()
 
 /datum/action/ability/xeno_action/baneling_explode/give_action(mob/living/L)
@@ -43,6 +44,8 @@
 
 /datum/action/ability/xeno_action/baneling_explode/can_use_action()
 	. = ..()
+	if(!.)
+		return
 	var/mob/living/carbon/xenomorph/X = owner
 	var/datum/action/ability/xeno_action/spawn_pod/pod_action = X.actions_by_path[/datum/action/ability/xeno_action/spawn_pod]
 	if(SSmonitor.gamestate == SHUTTERS_CLOSED && isnull(pod_action.the_pod))
@@ -152,7 +155,7 @@
 /datum/action/ability/xeno_action/spawn_pod/action_activate()
 	. = ..()
 	var/mob/living/carbon/xenomorph/X = owner
-	the_pod = new /obj/structure/xeno/baneling_pod(get_turf(X.loc), X.hivenumber, X, src)
+	the_pod = new /obj/structure/xeno/baneling_pod(get_turf(X.loc), X.get_xeno_hivenumber(), X, src)
 	RegisterSignal(the_pod, COMSIG_QDELETING, PROC_REF(notify_owner))
 	succeed_activate()
 

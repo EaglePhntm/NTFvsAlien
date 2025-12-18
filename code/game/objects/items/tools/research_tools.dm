@@ -53,6 +53,20 @@
 			return
 		unequipper.remove_language(/datum/language/xenocommon)
 
+/obj/item/tool/research/xeno_analyzer/removed_from_inventory(mob/unequipper)
+	. = ..()
+	if(ishuman(unequipper) && !ismarinecommandjob(unequipper) && on)
+		if(knowsxenolang)
+			return
+		unequipper.remove_language(/datum/language/xenocommon)
+
+/obj/item/tool/research/xeno_analyzer/dropped(mob/unequipper)
+	. = ..()
+	if(ishuman(unequipper) && !ismarinecommandjob(unequipper) && on)
+		if(knowsxenolang)
+			return
+		unequipper.remove_language(/datum/language/xenocommon)
+
 /obj/item/tool/research/xeno_analyzer/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
 	. = ..()
 	if(message_language != /datum/language/common && on) //translates all languages to common.
@@ -67,7 +81,7 @@
 /obj/item/tool/research/excavation_tool/unique_action(mob/user)
 	. = ..()
 	if(user.skills.getRating(skill_type) < skill_threshold)
-		balloon_alert(user, "Not skilled enough")
+		balloon_alert(user, "not skilled enough!")
 		return
 
 	if(!do_after(user, 10 SECONDS, NONE, user.loc, BUSY_ICON_FRIENDLY, null, PROGRESS_BRASS))

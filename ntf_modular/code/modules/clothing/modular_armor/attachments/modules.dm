@@ -9,10 +9,9 @@
 	desc = "nomnomnom"
 	slot = ATTACHMENT_SLOT_MODULE
 	var/list/blocked_attack_types = list()
-	var/deflect_projectile = FALSE
 
-	var/overcharge_max_health = 200
-	var/decharge_rate = 5 //danger zone duuu duu dududuu duu
+	max_shield_health = 40 //less than standard e shield by base
+	var/overcharge_max_health = 345
 
 	//pale ass but black-white absorbing/deflect light and shit like that.
 	shield_color_low = COLOR_DARKER_RED
@@ -21,11 +20,9 @@
 	var/shield_color_overmax_full = COLOR_WHITE
 	var/shield_color_overmax_full_danger = COLOR_VIVID_RED
 	var/last_warning_time
-	///how many times the energy converted damage is halved, making shield more durable.
-	var/mitigation_rate = 2
 	var/explode_on_overload = TRUE
 	///percent chance to go off without exploding.
-	var/auto_release_chance = 85
+	var/auto_release_chance = 75
 
 /obj/item/armor_module/module/eshield/absorbant/energy
 	name = "NT Voidwalker Anti-Energy Shield System"
@@ -46,68 +43,49 @@ converting the absorbed energy into shield power, warning: overcharging too much
 			if(damage_fuckening == damage_type)
 				found_type = TRUE
 				break
-		if(found_type && shield_health < overcharge_max_health) //power...
-			START_PROCESSING(SSobj, src)
-			shield_health += incoming_damage/mitigation_rate
+		var/shield_left
+		if(found_type)
+			shield_left = shield_health + incoming_damage
+		else
+			shield_left = shield_health - incoming_damage
+		var/mob/living/affected = parent.loc
+		if(shield_left >= overcharge_max_health)
+			shield_health = 0
+			if((!explode_on_overload) || prob(auto_release_chance)) //chance to save before exploding.
+				balloon_alert_to_viewers("emergency release!")
+				playsound(src.loc, 'sound/effects/airhiss.ogg', 40)
+			else
+				balloon_alert_to_viewers("shield break!")
+				explosion(src.loc,0,0,0,3,0,0,0,smoke = TRUE,explosion_cause = src)
+			affected.remove_filter("eshield")
+			STOP_PROCESSING(SSobj, src)
+			recharge_timer = addtimer(CALLBACK(src, PROC_REF(begin_recharge)), damaged_shield_cooldown * 1.2, TIMER_STOPPABLE|TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT) //Gives it a bunch extra time for the cooldown.
+			return (shield_left - overcharge_max_health)
+		if(shield_left > 0)
+			if(found_type ? (shield_health > max_shield_health) : (shield_health < max_shield_health))
+				STOP_PROCESSING(SSobj, src)
+				recharge_timer = addtimer(CALLBACK(src, PROC_REF(begin_recharge)), damaged_shield_cooldown, TIMER_STOPPABLE|TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT)
+			shield_health = shield_left
+			var/level
+			if(shield_health > max_shield_health)
+				level = 1 + ((shield_health - max_shield_health) / (overcharge_max_health - max_shield_health))
+			else
+				level = shield_health / max_shield_health
+			current_color = gradient(0, shield_color_low, 0.5, shield_color_mid, 1, shield_color_full, 1.5, shield_color_overmax_full, 2, shield_color_overmax_full_danger, space = COLORSPACE_HCY, index = level)
+			affected.add_filter("eshield", 2, outline_filter(1, current_color))
+
 			spark_system.start()
-			if(shield_health > (overcharge_max_health/1.5) && world.time > (last_warning_time + 2 SECONDS))
+			if(shield_health > (max_shield_health + ((overcharge_max_health - max_shield_health)/2)) && world.time > (last_warning_time + 2 SECONDS))
 				last_warning_time = world.time
 				balloon_alert_to_viewers("overloading! [shield_health]/[overcharge_max_health]")
 				playsound(src.loc, 'sound/machines/beepalert.ogg', 40)
-			if(shield_health >= overcharge_max_health && prob(auto_release_chance && explode_on_overload)) //chance to save before exploding.
-				balloon_alert_to_viewers(src, "emergency release!")
-				playsound(src.loc, 'sound/effects/airhiss.ogg', 40)
-				shield_health = 0
-				recharge_timer = addtimer(CALLBACK(src, PROC_REF(begin_recharge)), damaged_shield_cooldown, TIMER_STOPPABLE)
-				return incoming_damage
-			var/mob/living/affected = parent.loc
-			affected.remove_filter("eshield")
-			if(shield_health > 0)
-				switch(shield_health / max_shield_health)
-					if(0 to 0.33)
-						affected.add_filter("eshield", 2, outline_filter(1, shield_color_low))
-					if(0.33 to 0.66)
-						affected.add_filter("eshield", 2, outline_filter(1, shield_color_mid))
-					if(0.66 to 1)
-						affected.add_filter("eshield", 2, outline_filter(1, shield_color_full))
-					if(1 to 2.3)
-						affected.add_filter("eshield", 2, outline_filter(1, shield_color_overmax_full))
-					if(2.3 to INFINITY)
-						affected.add_filter("eshield", 2, outline_filter(1, shield_color_overmax_full_danger))
 			return 0
-		else if(found_type && shield_health > overcharge_max_health)
-			if(explode_on_overload)
-				balloon_alert_to_viewers("shield break!")
-				explosion(src.loc,0,0,0,3,0,1,2, smoke = TRUE)
-			else
-				balloon_alert_to_viewers(src, "overload release!")
-				playsound(src.loc, 'sound/effects/airhiss.ogg', 40)
-			shield_health = 0
-		STOP_PROCESSING(SSobj, src)
-		deltimer(recharge_timer)
-		var/shield_left = shield_health - incoming_damage
-		var/mob/living/affected = parent.loc
-		affected.remove_filter("eshield")
-		if(shield_left > 0)
-			shield_health = shield_left
-			switch(shield_left / max_shield_health)
-				if(0 to 0.33)
-					affected.add_filter("eshield", 2, outline_filter(1, shield_color_low))
-				if(0.33 to 0.66)
-					affected.add_filter("eshield", 2, outline_filter(1, shield_color_mid))
-				if(0.66 to 1)
-					affected.add_filter("eshield", 2, outline_filter(1, shield_color_full))
-				if(1 to 2.3)
-					affected.add_filter("eshield", 2, outline_filter(1, shield_color_overmax_full))
-				if(2.3to INFINITY)
-					affected.add_filter("eshield", 2, outline_filter(1, shield_color_overmax_full_danger))
-			spark_system.start()
 		else
 			shield_health = 0
-			recharge_timer = addtimer(CALLBACK(src, PROC_REF(begin_recharge)), damaged_shield_cooldown + 1, TIMER_STOPPABLE) //Gives it a little extra time for the cooldown.
+			affected.remove_filter("eshield")
+			STOP_PROCESSING(SSobj, src)
+			recharge_timer = addtimer(CALLBACK(src, PROC_REF(begin_recharge)), damaged_shield_cooldown + 1, TIMER_STOPPABLE|TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT) //Gives it a little extra time for the cooldown.
 			return -shield_left
-		recharge_timer = addtimer(CALLBACK(src, PROC_REF(begin_recharge)), damaged_shield_cooldown, TIMER_STOPPABLE)
-		return 0
 	else
 		return incoming_damage
 
@@ -115,28 +93,21 @@ converting the absorbed energy into shield power, warning: overcharging too much
 	if(shield_health < max_shield_health)
 		shield_health = min(shield_health + recharge_rate, max_shield_health)
 	if(shield_health > max_shield_health)
-		shield_health -= decharge_rate
+		shield_health = max(shield_health - recharge_rate, max_shield_health)
+	var/level
+	if(shield_health > max_shield_health)
+		level = 1 + ((shield_health - max_shield_health) / (overcharge_max_health - max_shield_health))
+	else
+		level = shield_health / max_shield_health
+	var/new_color = gradient(0, shield_color_low, 0.5, shield_color_mid, 1, shield_color_full, 1.5, shield_color_overmax_full, 2, shield_color_overmax_full_danger, space = COLORSPACE_HCY, index = level)
+	if(level < 0.2 || level > 1.8)
+		playsound(parent.loc, 'sound/items/eshield_down.ogg', 40)
+	if(new_color != current_color)
+		current_color = new_color
+		var/mob/living/affected = parent.loc
+		affected.add_filter("eshield", 2, outline_filter(1, current_color))
 	if(shield_health == max_shield_health) //Once health is full, we don't need to process until the next time we take damage.
 		STOP_PROCESSING(SSobj, src)
-		return
-	var/new_color
-	switch(shield_health/max_shield_health)
-		if(0 to 0.2)
-			playsound(parent.loc, 'sound/items/eshield_down.ogg', 40)
-			new_color = (shield_color_low != current_color) ? shield_color_low : null
-		if(0.2 to 0.6)
-			new_color = (shield_color_mid != current_color) ? shield_color_mid : null
-		if(0.6 to 1)
-			new_color = (shield_color_full != current_color) ? shield_color_full : null
-		if(1 to 2.3)
-			new_color = (shield_color_overmax_full != current_color) ? shield_color_overmax_full : null
-		if(2.3 to INFINITY)
-			new_color = (shield_color_overmax_full != current_color) ? shield_color_overmax_full_danger : null
-	if(!new_color)
-		return
-	var/mob/living/affected = parent.loc
-	affected.remove_filter("eshield")
-	affected.add_filter("eshield", 2, outline_filter(1, new_color))
 
 //boolet shield
 /obj/item/armor_module/module/eshield/absorbant/ballistic

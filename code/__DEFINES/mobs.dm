@@ -254,6 +254,14 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 
 /// If the limb's total damage percent is higher than this, it can be severed.
 #define LIMB_MAX_DAMAGE_SEVER_RATIO 0.8
+/// Factor for limb blood flow rate
+#define LIMB_FLOW_FACTOR 60
+/// Macro for a limb's blood flow rate based on its brute damage
+#define LIMB_FLOW_RATE(limb_brute) (limb_brute / LIMB_FLOW_FACTOR)
+/// Factor for IB wound flow rate
+#define INTERNAL_BLEEDING_FLOW_FACTOR 30
+/// Macro for an IB wound's blood flow rate based on blood volume and wound severity
+#define INTERNAL_BLEEDING_FLOW_RATE(blood_volume, intensity) (blood_volume - intensity / INTERNAL_BLEEDING_FLOW_FACTOR)
 
 /////////////////MOVE DEFINES//////////////////////
 #define MOVE_INTENT_WALK 0
@@ -407,6 +415,7 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define ROBOTIC_LIMBS (1<<18)
 #define GREYSCALE_BLOOD (1<<19)
 #define IS_INSULATED (1<<20)
+#define SPECIES_NO_HUG (1<<21)
 
 //=================================================
 
@@ -542,6 +551,8 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define XENO_ALLIES_BUMP (1<<5)
 ///ability to destroy your own xeno structures
 #define XENO_DESTROY_OWN_STRUCTURES (1<<6)
+///ability to destroy weeds
+#define XENO_DESTROY_WEEDS (1<<7)
 
 
 #define XENO_DEFAULT_VENT_ENTER_TIME 4.5 SECONDS //Standard time for a xeno to enter a vent.
@@ -552,6 +563,7 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define XENO_ACID_WELL_MAX_CHARGES 5 //Maximum number of charges for the acid well
 
 #define HIVE_CAN_HIJACK (1<<0)
+#define HIVE_CAN_COLLAPSE_FROM_SILO (1<<1)
 
 #define XENO_PULL_CHARGE_TIME 2 SECONDS
 #define XENO_SLOWDOWN_REGEN 0.4
@@ -590,34 +602,34 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 
 // Xenomorph caste_flags:
 // TODO: A lot of caste_flags and can_flags should just be traits using caste_traits instead.
-#define CASTE_INNATE_HEALING (1<<0) // Xenomorphs that heal outside of weeds. Larvas, for example.
-#define CASTE_QUICK_HEAL_STANDING (1<<1) // If standing, should we heal as fast as if we're resting?
-#define CASTE_INNATE_PLASMA_REGEN (1<<2) // Xenomorphs that regenerate plasma outside of weeds.
-#define CASTE_PLASMADRAIN_IMMUNE (1<<3) // Are we immune to plasma drain?
+#define CASTE_QUICK_HEAL_STANDING (1<<0) // If standing, should we heal as fast as if we're resting?
+#define CASTE_INNATE_PLASMA_REGEN (1<<1) // Xenomorphs that regenerate plasma outside of weeds.
+#define CASTE_PLASMADRAIN_IMMUNE (1<<2) // Are we immune to plasma drain?
 
-#define CASTE_IS_INTELLIGENT (1<<4) // Can we use human controls? Typically given to hive leaders for purposes of touching alamo/dropship controls.
-#define CASTE_IS_BUILDER (1<<5) // Whether we are classified as a builder caste. Allows specific construction options (like removing acid wells).
-#define CASTE_IS_A_MINION (1<<6) // Whether we are classified as a minion caste. Minions are not counted toward silo spawn count ratio.
+#define CASTE_IS_INTELLIGENT (1<<3) // Can we use human controls? Typically given to hive leaders for purposes of touching alamo/dropship controls.
+#define CASTE_IS_BUILDER (1<<4) // Whether we are classified as a builder caste. Allows specific construction options (like removing acid wells).
+#define CASTE_IS_A_MINION (1<<5) // Whether we are classified as a minion caste. Minions are not counted toward silo spawn count ratio.
 
-#define CASTE_FIRE_IMMUNE (1<<7) // Are we immune to fire? This includes immunity from getting set on fire and effects of it.
-#define CASTE_ACID_BLOOD (1<<8) // Randomly inflicts burn damage to nearby humans when taking damage.
-#define CASTE_STAGGER_RESISTANT (1<<9) // Resistant to getting staggered from projectiles.
+#define CASTE_FIRE_IMMUNE (1<<6) // Are we immune to fire? This includes immunity from getting set on fire and effects of it.
+#define CASTE_ACID_BLOOD (1<<7) // Randomly inflicts burn damage to nearby humans when taking damage.
+#define CASTE_STAGGER_RESISTANT (1<<8) // Resistant to getting staggered from projectiles.
 
-#define CASTE_DO_NOT_ALERT_LOW_LIFE (1<<10) // When at low life, does not alerts other Xenomorphs (who opt into these low-life alerts). Decreases the font size for the death announcement message.
-#define CASTE_DO_NOT_ANNOUNCE_DEATH (1<<11) // Do not announce to Hive if this Xenomorph died.
-#define CASTE_HIDE_IN_STATUS (1<<12) // Do not count them in the hive status TGUI.
-#define CASTE_NOT_IN_BIOSCAN (1<<13) // Do not count them toward the xenomorph count for the bioscan. Typically given to summoned minions (puppet/spiderling).
-#define CASTE_HAS_WOUND_MASK (1<<14) // Uses an alpha mask for wounded states.
+#define CASTE_DO_NOT_ALERT_LOW_LIFE (1<<9) // When at low life, does not alerts other Xenomorphs (who opt into these low-life alerts). Decreases the font size for the death announcement message.
+#define CASTE_DO_NOT_ANNOUNCE_DEATH (1<<10) // Do not announce to Hive if this Xenomorph died.
+#define CASTE_HIDE_IN_STATUS (1<<11) // Do not count them in the hive status TGUI.
+#define CASTE_NOT_IN_BIOSCAN (1<<12) // Do not count them toward the xenomorph count for the bioscan. Typically given to summoned minions (puppet/spiderling).
+#define CASTE_HAS_WOUND_MASK (1<<13) // Uses an alpha mask for wounded states.
 
 // Xenomorph caste_flags (for evolution):
 // TODO: Consider making a new variable for these.
-#define CASTE_EVOLUTION_ALLOWED (1<<15) // Are we allowed to evolve & do we gain any evolution points?
-#define CASTE_INSTANT_EVOLUTION (1<<16) // Whether we require no evolution progress to evolve to this caste.
-#define CASTE_CANNOT_EVOLVE_IN_CAPTIVITY (1<<17) // Whether we cannot evolve in the research lab.
-#define CASTE_REQUIRES_FREE_TILE (1<<18) // Whether we require a free tile to evolve.
-#define CASTE_LEADER_TYPE (1<<19) // Whether this is a leader type caste (e.g. Queen/Shrike/King/Dragon). Restricts who can play these castes based on: playtime & if banned from Queen.
-#define CASTE_EXCLUDE_STRAINS (1<<20) // Excludes this caste/basetype from strain selection.
-#define CASTE_MUTATIONS_ALLOWED (1<<21) // Whether we are allowed to access, view, and potentially purchase mutations for our caste/strain.
+#define CASTE_EVOLUTION_ALLOWED (1<<14) // Are we allowed to evolve & do we gain any evolution points?
+#define CASTE_INSTANT_EVOLUTION (1<<15) // Whether we require no evolution progress to evolve to this caste.
+#define CASTE_CANNOT_EVOLVE_IN_CAPTIVITY (1<<16) // Whether we cannot evolve in the research lab.
+#define CASTE_REQUIRES_FREE_TILE (1<<17) // Whether we require a free tile to evolve.
+#define CASTE_LEADER_TYPE (1<<18) // Whether this is a leader type caste (e.g. Queen/Shrike/King/Dragon). Restricts who can play these castes based on: playtime & if banned from Queen.
+#define CASTE_EXCLUDE_STRAINS (1<<19) // Excludes this caste/basetype from strain selection.
+#define CASTE_MUTATIONS_ALLOWED (1<<20) // Whether we are allowed to access, view, and potentially purchase mutations for our caste/strain.
+
 // Xenomorph can_flags:
 #define CASTE_CAN_HOLD_FACEHUGGERS (1<<0) // Are we allowed to carry facehuggers in our hands?
 #define CASTE_CAN_BE_GIVEN_PLASMA (1<<1) // Can we receive plasma / have our plasma be taken away?
@@ -651,6 +663,7 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define HUNTER_SNEAK_SLASH_ARMOR_PEN 10 //bonus AP
 #define HUNTER_SNEAK_ATTACK_RUN_DELAY 2 SECONDS
 #define HUNTER_PSYCHIC_TRACE_COOLDOWN 5 SECONDS //Cooldown of the Hunter's Psychic Trace, and duration of its arrow
+#define HUNTER_MIRAGE_ILLUSION_LIFETIME 10 SECONDS
 #define HUNTER_SILENCE_STAGGER_DURATION 1 SECONDS //Silence imposes this much stagger
 #define HUNTER_SILENCE_SENSORY_STACKS 7 //Silence imposes this many eyeblur and deafen stacks.
 #define HUNTER_SILENCE_MUTE_DURATION 10 SECONDS //Silence imposes this many seconds of the mute status effect.
@@ -798,6 +811,8 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define BOILER_BOMBARD_COOLDOWN_REDUCTION 1.5 SECONDS
 /// Amount of stored globs needed to start glowing.
 #define	BOILER_LUMINOSITY_THRESHOLD 2
+/// Charge distance for Sizzler's acid dash
+#define BOILER_CHARGEDISTANCE 5
 
 //Hivelord defines
 #define HIVELORD_TUNNEL_DISMANTLE_TIME 3 SECONDS
@@ -825,6 +840,7 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 
 //Defender defines
 #define DEFENDER_CHARGE_RANGE 4
+#define DEFENDER_REFLECT_TIME 0.6 SECONDS
 
 //Baneling defines
 #define BANELING_CHARGE_MAX 2
@@ -873,9 +889,6 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 //Spiderling defines
 #define TIME_TO_DISSOLVE 5 SECONDS
 #define SPIDERLING_RAGE_RANGE 10 // how close a nearby human has to be in order to be targeted
-
-//Praetorian defines
-#define PRAE_CHARGEDISTANCE 5
 
 //Dancer defines
 #define DANCER_IMPALE_PENETRATION 37 //armor penetration done by impale to marked targets - NTF Buff; Tailstab already exists
@@ -968,6 +981,8 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define IGNORE_TARGET_LOC_CHANGE (1<<1)
 #define IGNORE_HAND (1<<2)
 #define IGNORE_HELD_ITEM (1<<3)
+#define IGNORE_INCAPACITATION (1<<4)
+#define IGNORE_DO_AFTER_COEFFICIENT (1<<5)
 
 #define TIER_ONE_THRESHOLD 300
 
@@ -1053,3 +1068,14 @@ GLOBAL_LIST_INIT(ai_damtype_to_heal_list, list(
 #define DRAGON_BREATH_MELTING "Melting"
 #define DRAGON_BREATH_SHATTERING "Shattering"
 #define DRAGON_BREATH_MELTING_ACID "Melting Acid"
+
+GLOBAL_LIST_INIT(hivenumber_to_job_type, list(
+	XENO_HIVE_NORMAL = /datum/job/xenomorph,
+	XENO_HIVE_CORRUPTED = /datum/job/xenomorph/green,
+	XENO_HIVE_ALPHA = /datum/job/xenomorph/alpha,
+	XENO_HIVE_BETA = /datum/job/xenomorph/beta,
+	XENO_HIVE_ZETA = /datum/job/xenomorph/zeta,
+	XENO_HIVE_FORSAKEN = /datum/job/xenomorph/forsaken,
+	XENO_HIVE_FALLEN = /datum/job/xenomorph/fallen,
+	XENO_HIVE_ADMEME = /datum/job/xenomorph/admeme,
+))

@@ -1,2 +1,6 @@
+#include "code\__DEFINES\dcs\signals\signals.dm"
+#include "code\__DEFINES\dcs\signals\signals_keybinding.dm"
 #include "code\__DEFINES\mapping.dm"
+#include "code\__DEFINES\mode.dm"
+#include "code\__DEFINES\sexcon.dm"
 #include "code\__DEFINES\traits.dm"

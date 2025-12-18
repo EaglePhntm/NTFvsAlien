@@ -10441,9 +10441,6 @@
 /obj/item/roller,
 /obj/item/roller,
 /obj/item/roller,
-/obj/item/tweezers,
-/obj/item/tweezers,
-/obj/item/tweezers,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -19342,7 +19339,7 @@
 	},
 /obj/structure/cable,
 /obj/item/reagent_containers/food/snacks/spacetwinkie,
-/obj/item/storage/box/ntc_mre,
+/obj/item/storage/box/tgmc_mre,
 /obj/item/storage/box/nt_mre,
 /obj/structure/table/reinforced/fabric,
 /turf/open/floor/wood,
@@ -20256,8 +20253,7 @@
 	dir = 8
 	},
 /obj/item/weapon/gun/sentry/premade{
-	dir = 8;
-	sentry_iff_signal = 1
+	dir = 8
 	},
 /obj/structure/barricade/solid{
 	dir = 8

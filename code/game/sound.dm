@@ -120,7 +120,7 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			continue
 
 		if(listener.stat == DEAD)
-			if(CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS) && !check_rights_for(listener.client, R_ADMIN)) // no getting to know what you shouldn't
+			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS)) && !check_rights_for(listener.client, R_ADMIN)) // no getting to know what you shouldn't
 				continue
 		listener.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, channel, S)
 
@@ -229,7 +229,7 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			continue
 
 		if(M.stat == DEAD)
-			if(CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS) && !check_rights_for(M.client, R_ADMIN)) // no getting to know what you shouldn't
+			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS)) && !check_rights_for(M.client, R_ADMIN)) // no getting to know what you shouldn't
 				continue
 
 		if (M.z == z)
@@ -243,7 +243,7 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			continue
 
 		if(H.stat == DEAD)
-			if(CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS) && !check_rights_for(H.client, R_ADMIN)) // no getting to know what you shouldn't
+			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS)) && !check_rights_for(H.client, R_ADMIN)) // no getting to know what you shouldn't
 				continue
 
 		SEND_SOUND(H, soundin)
@@ -259,7 +259,7 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			continue
 
 		if(X.stat == DEAD)
-			if(CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS) && !check_rights_for(X.client, R_ADMIN)) // no getting to know what you shouldn't
+			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS)) && !check_rights_for(X.client, R_ADMIN)) // no getting to know what you shouldn't
 				continue
 
 		SEND_SOUND(X, soundin)
@@ -340,6 +340,8 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			soundin = pick('sound/weapons/guns/fire/silenced_shot1.ogg','sound/weapons/guns/fire/silenced_shot2.ogg')
 		if(SFX_GUN_SMARTGUN)
 			soundin = pick('sound/weapons/guns/fire/smartgun1.ogg', 'sound/weapons/guns/fire/smartgun2.ogg', 'sound/weapons/guns/fire/smartgun3.ogg')
+		if(SFX_GUN_SMARTGPMG)
+			soundin = pick ('sound/weapons/guns/fire/sg60_1.ogg', 'sound/weapons/guns/fire/sg60_2.ogg')
 		if(SFX_GUN_FLAMETHROWER)
 			soundin = pick('sound/weapons/guns/fire/flamethrower1.ogg', 'sound/weapons/guns/fire/flamethrower2.ogg', 'sound/weapons/guns/fire/flamethrower3.ogg')
 		if(SFX_GUN_AR12)
@@ -472,7 +474,9 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			soundin = pick('sound/voice/robot/robot_pain1.ogg', 'sound/voice/robot/robot_pain2.ogg', 'sound/voice/robot/robot_pain3.ogg')
 		if(SFX_ROBOT_WARCRY)
 			soundin = pick('sound/voice/robot/robot_warcry1.ogg', 'sound/voice/robot/robot_warcry2.ogg', 'sound/voice/robot/robot_warcry3.ogg')
+		if(SFX_ROBOT_NOISES)
+			soundin = pick('sound/runtime/drone/drone1.ogg', 'sound/runtime/drone/drone2.ogg', 'sound/runtime/drone/drone3.ogg', 'sound/runtime/drone/drone4.ogg', 'sound/runtime/drone/drone5.ogg', 'sound/runtime/drone/drone6.ogg', 'sound/runtime/drone/drone7.ogg', 'sound/runtime/drone/drone8.ogg', 'sound/runtime/drone/drone9.ogg', 'sound/runtime/drone/drone10.ogg', 'sound/runtime/drone/drone11.ogg', 'sound/runtime/drone/drone12.ogg',)
+		if(SFX_ROBOT_THREATEN)
+			soundin = pick('sound/machines/sound_machines_FireAlarm1.ogg', 'sound/machines/sound_machines_FireAlarm2.ogg', 'sound/machines/sound_machines_FireAlarm3.ogg', 'sound/machines/sound_machines_FireAlarm4.ogg')
 
-		if(SFX_HOVER_TANK)
-			soundin = pick('sound/vehicles/hover_tank/hover_1.ogg', 'sound/vehicles/hover_tank/hover_2.ogg', 'sound/vehicles/hover_tank/hover_3.ogg', 'sound/vehicles/hover_tank/hover_4.ogg')
 	return soundin

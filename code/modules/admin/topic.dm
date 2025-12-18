@@ -193,7 +193,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		var/atom/movable/AM = locate(href_list["observefollow"])
 		var/client/C = usr.client
 
-		if(!ismovableatom(AM))
+		if(!ismovable(AM))
 			return
 
 		if(isnewplayer(C.mob) || isnewplayer(AM))
@@ -748,15 +748,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		log_admin("[key_name(usr)] has sent [key_name(M)] back to the lobby.")
 		message_admins("[ADMIN_TPMONTY(usr)] has sent [key_name_admin(M)] back to the lobby.")
 
-		var/mob/new_player/NP = new()
-		M.client?.screen.Cut()
-		NP.name = M.key
-		NP.key = M.key
-		if(isobserver(M))
-			qdel(M)
-		else
-			M.ghostize()
-
+		M.ghostize(FALSE, FALSE, TRUE)
 
 	else if(href_list["cryo"])
 		if(!check_rights(R_ADMIN))
@@ -764,6 +756,8 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 		var/mob/living/L = locate(href_list["cryo"])
 		if(!istype(L))
+			if(isobserver(L))
+				L.ghostize(FALSE, FALSE, TRUE)
 			return
 
 		if(alert("Cryo [key_name(L)]?", "Cryosleep", "Yes", "No") != "Yes")
@@ -772,6 +766,8 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		var/client/C = L.client
 		if(C && alert("They have a client attached, are you sure?", "Cryosleep", "Yes", "No") != "Yes")
 			return
+		else
+			L.ghostize(FALSE, FALSE, TRUE)
 
 		var/old_name = L.real_name
 		L.despawn()
@@ -779,13 +775,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		var/lobby
 		if(C?.mob?.mind && alert("Do you also want to send them to the lobby?", "Cryosleep", "Yes", "No") == "Yes")
 			lobby = TRUE
-			var/mob/new_player/NP = new()
-			var/mob/N = C.mob
-			NP.name = C.mob.name
-			C.screen.Cut()
-			C.mob.mind.transfer_to(NP, TRUE)
-			if(isobserver(N))
-				qdel(N)
+			C.mob.ghostize(FALSE, FALSE, TRUE)
 
 		log_admin("[key_name(usr)] has cryo'd [C ? key_name(C) : old_name][lobby ? " sending them to the lobby" : ""].")
 		message_admins("[ADMIN_TPMONTY(usr)] has cryo'd [C ? key_name_admin(C) : old_name] [lobby ? " sending them to the lobby" : ""].")
@@ -1474,12 +1464,13 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			usr.client.holder.ban_parse_href(href_list, TRUE)
 
 
-	else if(href_list["searchunbankey"] || href_list["searchunbanadminkey"] || href_list["searchunbanip"] || href_list["searchunbancid"])
+	else if(href_list["searchunbankey"] || href_list["searchunbanadminkey"] || href_list["searchunbanip"] || href_list["searchunbancid"] || href_list["searchunbanbanid"])
 		var/player_key = href_list["searchunbankey"]
 		var/admin_key = href_list["searchunbanadminkey"]
 		var/player_ip = href_list["searchunbanip"]
 		var/player_cid = href_list["searchunbancid"]
-		usr.client.holder.unbanpanel(player_key, admin_key, player_ip, player_cid)
+		var/ban_id = href_list["searchunbanbanid"]
+		usr.client.holder.unbanpanel(player_key, admin_key, player_ip, player_cid, ban_id)
 
 
 	else if(href_list["unbanpagecount"])
@@ -1488,7 +1479,8 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		var/admin_key = href_list["unbanadminkey"]
 		var/player_ip = href_list["unbanip"]
 		var/player_cid = href_list["unbancid"]
-		usr.client.holder.unbanpanel(player_key, admin_key, player_ip, player_cid, page)
+		var/ban_id = href_list["searchunbanbanid"]
+		usr.client.holder.unbanpanel(player_key, admin_key, player_ip, player_cid, ban_id, page = page)
 
 
 	else if(href_list["editbanid"])
@@ -1514,7 +1506,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		var/page = href_list["unbanpage"]
 		var/admin_key = href_list["unbanadminkey"]
 		usr.client.holder.unban(ban_id, player_key, player_ip, player_cid, role, page, admin_key)
-		usr.client.holder.unbanpanel(player_key, admin_key, player_ip, player_cid)
+		usr.client.holder.unbanpanel(player_key, admin_key, player_ip, player_cid, ban_id)
 
 
 	else if(href_list["unbanlog"])
@@ -2077,7 +2069,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 		switch(href_list["xeno"])
 			if("hive")
-				previous = X.hivenumber
+				previous = X.get_xeno_hivenumber()
 
 				var/newhive = input("Select a hive.", "Xeno Panel") as null|anything in GLOB.hive_datums
 				if(!newhive)
@@ -2089,7 +2081,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				if(previous == change)
 					return
 
-				if(!istype(X) || X.hivenumber != previous)
+				if(!istype(X) || X.get_xeno_hivenumber() != previous)
 					to_chat(usr, span_warning("Target is no longer valid."))
 					return
 
@@ -2252,8 +2244,13 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		if(!check_rights(R_SOUND))
 			return
 
+		var/credit = href_list["credit"]
 		var/link_url = href_list["play_internet"]
 		if(!link_url)
 			return
+		web_sound(usr, link_url, credit)
+	else if(href_list["playerpanelextended"])
+		if(!check_rights(R_ADMIN))
+			return
 
-		web_sound(usr, link_url)
+		SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/player_panel_extended)

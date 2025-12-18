@@ -52,7 +52,7 @@
 	set name = "Ghost"
 
 	// Gamemode disallowed handler - START
-	if(CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS))
+	if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS)))
 		if(client && check_rights_for(client, R_ADMIN))
 			switch(tgui_input_list(src, "Ghosting in this game mode would normally send you to the lobby, but since you are an admin you can bypass this.  What do you wish to do?", "Ghost", list("Ghost", "AGhost", "Return to lobby"), "AGhost"))
 				if("Ghost")
@@ -83,7 +83,9 @@
 		return
 	// Gamemode disallowed handler - END
 
-	if(stat == DEAD || isxenohivemind(src))
+	if(stat == DEAD || isxenohivemind(src) || iszombie(src))
+		log_game("[key_name(usr)] has ghosted at [AREACOORD(usr)].")
+		message_admins("[ADMIN_TPMONTY(usr)] has ghosted.")
 		ghostize(TRUE)
 	else
 		to_chat(usr, "Not dead yet.")
@@ -102,6 +104,6 @@
 /mob/living/point_to(atom/pointed_atom as mob|obj|turf in view(client.view, src))
 	if(!..())
 		return FALSE
-	if(incapacitated() || HAS_TRAIT(src, TRAIT_FAKEDEATH))
+	if(HAS_TRAIT(src, TRAIT_FAKEDEATH))
 		return FALSE
 	visible_message(span_infoplain("[span_name("[src]")] points at [pointed_atom]."), span_notice("You point at [pointed_atom]."))

@@ -31,6 +31,10 @@ SUBSYSTEM_DEF(weather)
 		var/datum/weather/W = last_weather_by_zlevel[z]
 		if(!isnull(W) && !initial(W.repeatable))
 			possible_weather -= last_weather_by_zlevel[z]
+		if(!length(possible_weather))
+			if(prob(10))
+				last_weather_by_zlevel[z] = null
+			continue
 		W = pickweight(possible_weather)
 		last_weather_by_zlevel[z] = W
 		run_weather(W, list(text2num(z)))
@@ -87,6 +91,12 @@ SUBSYSTEM_DEF(weather)
 /datum/controller/subsystem/weather/proc/make_eligible(z, possible_weather)
 	eligible_zlevels[z] = possible_weather
 	next_hit_by_zlevel["[z]"] = null
+
+///Removes a z level from the weather SS
+/datum/controller/subsystem/weather/proc/remove_eligible(z)
+	eligible_zlevels -= "[z]"
+	deltimer(next_hit_by_zlevel["[z]"])
+	next_hit_by_zlevel -= "[z]"
 
 /datum/controller/subsystem/weather/proc/get_weather(z, area/active_area)
 	var/datum/weather/A

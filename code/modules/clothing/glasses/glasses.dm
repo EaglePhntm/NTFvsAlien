@@ -70,6 +70,7 @@
 
 ///Toggle the functions of the glasses
 /obj/item/clothing/glasses/proc/activate(mob/user)
+	SIGNAL_HANDLER
 	if(!toggleable)
 		return
 	active = !active
@@ -177,7 +178,7 @@
 
 /obj/item/clothing/glasses/mgoggles
 	name = "marine ballistic goggles"
-	desc = "Standard issue TGMC goggles. Mostly used to decorate one's helmet."
+	desc = "Standard issue NTF goggles. Mostly used to decorate one's helmet."
 	icon_state = "mgoggles"
 	worn_icon_state = "mgoggles"
 	soft_armor = list(MELEE = 40, BULLET = 40, LASER = 0, ENERGY = 15, BOMB = 35, BIO = 10, FIRE = 30, ACID = 30)
@@ -188,7 +189,7 @@
 
 /obj/item/clothing/glasses/mgoggles/prescription
 	name = "prescription marine ballistic goggles"
-	desc = "Standard issue TGMC goggles. Mostly used to decorate one's helmet. Contains prescription lenses in case you weren't sure if they were lame or not."
+	desc = "Standard issue NTF goggles. Mostly used to decorate one's helmet. Contains prescription lenses in case you weren't sure if they were lame or not."
 	prescription = TRUE
 
 /obj/item/clothing/glasses/mgoggles/attackby(obj/item/I, mob/user, params)
@@ -500,7 +501,7 @@
 		return
 
 	if(battery && (battery.charge > battery.maxcharge / 2))
-		balloon_alert(user, "Battery already installed")
+		balloon_alert(user, "battery already installed!")
 		return
 	//Hot swap!
 	eject_battery()
@@ -533,7 +534,7 @@
 	else
 		if(!battery || battery.charge < active_energy_cost)
 			if(user)
-				balloon_alert(user, "No power")
+				balloon_alert(user, "no power!")
 			return FALSE	//Don't activate
 		START_PROCESSING(SSobj, src)
 		active_sound.start(src)

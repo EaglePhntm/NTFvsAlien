@@ -38,6 +38,7 @@
 	max_range = 15
 	accurate_range = 10
 	bullet_color = COLOR_VIVID_YELLOW
+	plasma_drain = 3
 
 /datum/ammo/energy/taser/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	staggerstun(target_mob, proj, stun = 20 SECONDS)
@@ -146,8 +147,7 @@
 	damage = 20
 	penetration = 10
 	max_range = 30
-	accuracy_var_low = 3
-	accuracy_var_high = 3
+	accuracy_variation = 3
 	sundering = 2.5
 
 /datum/ammo/energy/lasgun/M43
@@ -178,8 +178,7 @@
 	bonus_projectiles_type = /datum/ammo/energy/lasgun/M43/spread
 	bonus_projectiles_amount = 2
 	bonus_projectiles_scatter = 10
-	accuracy_var_low = 9
-	accuracy_var_high = 9
+	accuracy_variation = 9
 	accurate_range = 5
 	max_range = 5
 	damage = 42
@@ -191,8 +190,7 @@
 	name = "additional laser blast"
 	icon_state = "laser2"
 	shell_speed = 2
-	accuracy_var_low = 9
-	accuracy_var_high = 9
+	accuracy_variation = 9
 	accurate_range = 5
 	max_range = 5
 	damage = 35
@@ -207,6 +205,7 @@
 	penetration = 0
 	damage_type = STAMINA
 	bullet_color = COLOR_DISABLER_BLUE
+	plasma_drain = 12
 
 /datum/ammo/energy/lasgun/M43/disabler/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	staggerstun(target_mob, proj, stagger = 1 SECONDS, slowdown = 0.75)
@@ -230,6 +229,7 @@
 	damage_type = STAMINA
 	ammo_behavior_flags = AMMO_ENERGY
 	bullet_color = COLOR_DISABLER_BLUE
+	plasma_drain = 12
 
 /datum/ammo/energy/lasgun/M43/practice/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	if(ishuman(target_mob))
@@ -271,15 +271,10 @@
 	hitscan_effect_icon = "blue_beam"
 	bullet_color = COLOR_DISABLER_BLUE
 	///plasma drained per hit
-	var/plasma_drain = 25
+	plasma_drain = 25
 
 /datum/ammo/energy/lasgun/marine/weakening/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	staggerstun(target_mob, proj, max_range = 6, slowdown = 1)
-
-	if(!isxeno(target_mob))
-		return
-	var/mob/living/carbon/xenomorph/xeno_victim = target_mob
-	xeno_victim.use_plasma(plasma_drain * xeno_victim.xeno_caste.plasma_regen_limit)
 
 /datum/ammo/energy/lasgun/marine/microwave
 	name = "microwave laser bolt"
@@ -312,8 +307,7 @@
 	bonus_projectiles_type = /datum/ammo/energy/lasgun/marine/blast/spread
 	bonus_projectiles_amount = 2
 	bonus_projectiles_scatter = 10
-	accuracy_var_low = 9
-	accuracy_var_high = 9
+	accuracy_variation = 9
 	accurate_range = 3
 	max_range = 8
 	damage = 35
@@ -430,7 +424,7 @@
 	icon_state = "microwavelaser"
 	hud_state = "laser_impact"
 	damage = 40
-	penetration = 30
+	penetration = 10
 	accurate_range_min = 5
 	sundering = 10
 	hitscan_effect_icon = "pu_laser"
@@ -453,7 +447,7 @@
 	name = "sniper laser bolt"
 	icon_state = "microwavelaser"
 	hud_state = "laser_disabler"
-	damage = 100
+	damage = 95
 	penetration = 30
 	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN|AMMO_BETTER_COVER_RNG|AMMO_SNIPER
 	sundering = 1
@@ -462,19 +456,19 @@
 	bullet_color = COLOR_DISABLER_BLUE
 
 /datum/ammo/energy/lasgun/marine/ricochet/one
-	damage = 80
+	damage = 75
 	bonus_projectiles_type = /datum/ammo/energy/lasgun/marine/ricochet
 
 /datum/ammo/energy/lasgun/marine/ricochet/two
-	damage = 65
+	damage = 60
 	bonus_projectiles_type = /datum/ammo/energy/lasgun/marine/ricochet/one
 
 /datum/ammo/energy/lasgun/marine/ricochet/three
-	damage = 50
+	damage = 45
 	bonus_projectiles_type = /datum/ammo/energy/lasgun/marine/ricochet/two
 
 /datum/ammo/energy/lasgun/marine/ricochet/four
-	damage = 40
+	damage = 35
 	bonus_projectiles_type = /datum/ammo/energy/lasgun/marine/ricochet/three
 
 /datum/ammo/energy/lasgun/marine/ricochet/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
@@ -501,6 +495,7 @@
 	damage_type = STAMINA
 	hitscan_effect_icon = "beam_stun"
 	bullet_color = LIGHT_COLOR_YELLOW
+	plasma_drain = 30
 
 /datum/ammo/energy/lasgun/marine/pistol/heat
 	name = "microwave heat bolt"
@@ -772,8 +767,7 @@
 	damage = 40
 	penetration = 15
 	max_range = 30
-	accuracy_var_low = 3
-	accuracy_var_high = 3
+	accuracy_variation = 3
 
 /datum/ammo/energy/plasma_pistol
 	name = "ionized plasma bolt"

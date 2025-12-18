@@ -111,7 +111,11 @@
 	spans  // the list of spans applied to the message
 )
 	src.source = source
-	src.frequency = frequency
+	if(isnum(frequency))
+		src.frequency = frequency
+	else
+		stack_trace("Invalid frequency! [logdetails(frequency)][istext(frequency) ? " \[AS TEXT\]" :""]")
+		src.frequency = text2num(frequency) || 0
 	src.language = language
 	virt = speaker
 	var/datum/language/lang_instance = GLOB.language_datum_instances[language]
@@ -134,6 +138,7 @@
 	copy.levels = levels
 	return copy
 
+GLOBAL_VAR_INIT(null_in_hearers_cooldown, 0)
 
 /// This is the meat function for making radios hear vocal transmissions.
 /datum/signal/subspace/vocal/broadcast()
@@ -196,6 +201,7 @@
 	for(var/atom/movable/hearer as anything in receive)
 		if(!hearer)
 			stack_trace("null found in the hearers list returned by the spatial grid. this is bad")
+			COOLDOWN_START(GLOB, null_in_hearers_cooldown, 5 MINUTES)
 			continue
 		hearer.Hear(rendered, virt, language, message, frequency, spans)
 

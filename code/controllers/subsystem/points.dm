@@ -21,6 +21,8 @@ SUBSYSTEM_DEF(points)
 	var/list/xeno_strategic_points_by_hive = list()
 	///Assoc list of xeno tactical points: xeno_tactical_points_by_hive["hivenum"]
 	var/list/xeno_tactical_points_by_hive = list()
+	/// Association list of xeno biomass points: xeno_biomass_points_by_hive["hivenum"]
+	var/list/xeno_biomass_points_by_hive = list()
 
 	var/ordernum = 1					//order number given to next order
 
@@ -91,6 +93,12 @@ SUBSYSTEM_DEF(points)
 	if(!CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_PSY_POINTS))
 		return
 	xeno_tactical_points_by_hive[hivenumber] += amount
+
+/// Add amount of biomass to the selected hive only if the gamemode support biomass.
+/datum/controller/subsystem/points/proc/add_biomass_points(hivenumber, amount)
+	if(!CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_BIOMASS_POINTS))
+		return
+	xeno_biomass_points_by_hive[hivenumber] = min(xeno_biomass_points_by_hive[hivenumber] + amount, MUTATION_BIOMASS_MAXIMUM)
 
 /datum/controller/subsystem/points/proc/approve_request(datum/supply_order/O, mob/living/user)
 	var/cost = 0
@@ -197,7 +205,10 @@ SUBSYSTEM_DEF(points)
 		requestlist["[orders[i].id]"] = orders[i]
 	ckey_shopping_cart.Cut()
 
-/datum/controller/subsystem/points/proc/add_supply_points(faction, amount)
+/datum/controller/subsystem/points/proc/add_supply_points(faction, amount, new_faction = FALSE)
+	if(!new_faction && !(faction in supply_points))
+		stack_trace("adding [faction] to supply_points via add_supply_points without new_faction set")
+		message_admins("added new faction \"[faction]\" to supply points list.  This is okay if you meant to do that but might be a bug.  This faction will now be eligible to recive points from supply point increase events.")
 	var/startingsupplypoints = supply_points[faction]
 	if(startingsupplypoints > HUMAN_FACTION_ABSOLUTE_MAX_POINTS)
 		return
@@ -219,7 +230,10 @@ SUBSYSTEM_DEF(points)
 	else
 		supply_points[faction] = simplenewamount1
 
-/datum/controller/subsystem/points/proc/add_dropship_points(faction, amount)
+/datum/controller/subsystem/points/proc/add_dropship_points(faction, amount, new_faction = FALSE)
+	if(!new_faction && !(faction in dropship_points))
+		stack_trace("adding [faction] to dropship_points via add_dropship_points without new_faction set")
+		message_admins("added new faction \"[faction]\" to dropship points list.  This is okay if you meant to do that but might be a bug.")
 	var/startingdropshippoints = dropship_points[faction]
 	if(startingdropshippoints > HUMAN_FACTION_ABSOLUTE_MAX_DROPSHIP_POINTS)
 		return

@@ -40,6 +40,7 @@
 	damage_type = STAMINA
 	shell_speed = 3.3
 	shrapnel_chance = 0.2
+	plasma_drain = 20
 
 /datum/ammo/bullet/pistol/tranq/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	if(iscarbon(target_mob))
@@ -138,3 +139,17 @@
 	if(!target_mob.stat && !ismonkey(target_mob))
 		proj.visible_message(span_danger("The [src] chimpers furiously!"))
 		new /mob/living/carbon/human/species/monkey(proj.loc)
+
+/datum/ammo/bullet/pistol/gyrojet
+	name = "Micro Rocket"
+	hud_state = "shell_heat"
+	hud_state_empty = "shell_empty"
+	damage = 40
+	penetration = 25
+	sundering = 3.75
+	damage_falloff = 0.15
+	shrapnel_chance = 65
+	shell_speed = 2
+
+/datum/ammo/bullet/pistol/gyrojet/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
+	staggerstun(target_mob, proj, stagger = 0.5 SECONDS, slowdown = 1,)

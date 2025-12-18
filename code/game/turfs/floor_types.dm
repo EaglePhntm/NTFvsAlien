@@ -188,7 +188,7 @@
 //Others
 /turf/open/floor/mainship/terragov
 	icon_state = "logo_central"
-	name = "\improper TerraGov logo"
+	name = "\improper Ninetails logo"
 
 /turf/open/floor/mainship/terragov/west
 	icon_state = "logo_directional_west"
@@ -465,7 +465,7 @@
 		playsound(src, 'sound/items/ratchet.ogg', 25, 1)
 
 		if(LAZYLEN(user.do_actions))
-			balloon_alert(user, "busy")
+			balloon_alert(user, "busy!")
 			return
 		if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_BUILD))
 			return

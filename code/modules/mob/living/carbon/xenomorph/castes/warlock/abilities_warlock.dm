@@ -53,7 +53,7 @@
 
 	action_icon_state = "psy_shield"
 	action_icon = 'icons/Xeno/actions/warlock.dmi'
-	desc = "Channel a psychic shield at your current location that can reflect most projectiles. Activate again while the shield is active to detonate the shield forcibly, producing knockback. Must remain static to use."
+	desc = "Channel a psychic shield at your current location that can reflect most projectiles, the shield can only hold so much though... Activate again while active to detonate the shield forcibly, producing knockback. Must remain stationary to use."
 	cooldown_duration = 10 SECONDS
 	ability_cost = 200
 	keybinding_signals = list(
@@ -461,8 +461,8 @@
 				var/mob/living/carbon/carbon_victim = victim
 				if(isxeno(carbon_victim) || carbon_victim.stat == DEAD)
 					continue
-				carbon_victim.apply_damage(PSY_CRUSH_DAMAGE, BRUTE, blocked = BOMB)
-				carbon_victim.apply_damage(PSY_CRUSH_DAMAGE * 1.5, STAMINA, blocked = BOMB)
+				carbon_victim.apply_damage(PSY_CRUSH_DAMAGE, BRUTE, blocked = BOMB, attacker = owner)
+				carbon_victim.apply_damage(PSY_CRUSH_DAMAGE * 1.5, STAMINA, blocked = BOMB, attacker = owner)
 				carbon_victim.adjust_stagger(5 SECONDS)
 				carbon_victim.add_slowdown(6)
 				continue
@@ -656,7 +656,7 @@
 	var/datum/ammo/energy/xeno/ammo_type = xeno_owner.ammo
 	xeno_owner.update_glow(3, 3, ammo_type.glow_color)
 
-	if(!do_after(xeno_owner, 1 SECONDS, IGNORE_TARGET_LOC_CHANGE, A, BUSY_ICON_DANGER) || !can_use_ability(A, FALSE) || !(A in range(get_screen_size(TRUE), owner)))
+	if(!do_mob(xeno_owner, A, 1 SECONDS, BUSY_ICON_DANGER, ignore_flags = IGNORE_TARGET_LOC_CHANGE) || !can_use_ability(A, FALSE) || !(A in range(get_screen_size(TRUE), owner)))
 		owner.balloon_alert(owner, "Our focus is disrupted")
 		end_channel()
 		return fail_activate()

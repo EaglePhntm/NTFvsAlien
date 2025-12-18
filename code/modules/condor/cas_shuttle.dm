@@ -53,6 +53,7 @@
 	end_cas_mission(chair?.occupant)
 	QDEL_NULL(off_action)
 	QDEL_NULL(cas_mini)
+	QDEL_NULL(jump_action)
 	return ..()
 
 /obj/docking_port/mobile/marine_dropship/casplane/process()
@@ -138,9 +139,15 @@
 		to_chat(user, span_warning("You are currently on your return flight!"))
 		return
 	if(!eyeobj)
-		eyeobj = new()
-		eyeobj.origin = src
-		cas_mini.override_locator(eyeobj)
+		if(user.faction == FACTION_SOM)
+			eyeobj = new /mob/camera/aiEye/remote/hud/som(null, GLOB.som_cameranet)
+		else
+			eyeobj = new()
+		if(eyeobj)
+			eyeobj.origin = src
+	cas_mini.minimap_flags = GLOB.faction_to_minimap_flag[user.faction]
+	cas_mini.marker_flags = GLOB.faction_to_minimap_flag[user.faction]
+	cas_mini.override_locator(eyeobj)
 
 	if(eyeobj.eye_user)
 		to_chat(user, span_warning("CAS mode is already in-use!"))
@@ -148,11 +155,13 @@
 
 	SSmonitor.process_human_positions()
 
+	/*
 	#ifndef TESTING
-	if(SSmonitor.human_on_ground <= 1)
+	if(SSmonitor.human_on_ground < 1)
 		to_chat(user, span_warning("The signal from the area of operations is too weak, you cannot route towards the battlefield."))
 		return
 	#endif
+	*/
 
 	// AT THIS POINT, A FIREMISSION IS READY TO START!
 
@@ -161,9 +170,7 @@
 		starting_point = tgui_input_list(user, "Select a CAS target", "CAS Targeting", GLOB.active_cas_targets)
 
 	else //if we don't have any targets use the minimap to select a starting position
-		var/atom/movable/screen/minimap/map = SSminimaps.fetch_minimap_object(2, MINIMAP_FLAG_MARINE)
-		if(faction == FACTION_SOM)
-			map = SSminimaps.fetch_minimap_object(2, MINIMAP_FLAG_MARINE_SOM)
+		var/atom/movable/screen/minimap/map = SSminimaps.fetch_minimap_object(2, GLOB.faction_to_minimap_flag[user.faction])
 		user.client.screen += map
 		var/list/polled_coords = map.get_coords_from_click(user)
 		user?.client?.screen -= map
@@ -188,11 +195,13 @@
 		return
 
 	SSmonitor.process_human_positions()
+	/*
 	#ifndef TESTING
-	if(SSmonitor.human_on_ground <= 1)
+	if(SSmonitor.human_on_ground < 1)
 		to_chat(user, span_warning("The signal from the area of operations is too weak, you cannot route towards the battlefield."))
 		return
 	#endif
+	*/
 
 	to_chat(user, span_warning("Targets detected, routing to area of operations."))
 	user.playsound_local(chair, 'sound/voice/plane_vws/flightcomputer_hot.ogg', 70, FALSE)
@@ -249,7 +258,7 @@
 	user.unset_interaction()
 
 ///Handles clicking on a target while in CAS mode
-/obj/docking_port/mobile/marine_dropship/casplane/proc/fire_weapons_at(datum/source, atom/target, params)
+/obj/docking_port/mobile/marine_dropship/casplane/proc/fire_weapons_at(mob/living/source, atom/target, params)
 	SIGNAL_HANDLER
 	var/list/modifiers = params2list(params)
 	if	(	(	modifiers["right"] \
@@ -264,8 +273,12 @@
 	if(state != PLANE_STATE_FLYING || is_mainship_level(z))
 		end_cas_mission(source)
 		return
-	if(!GLOB.cameranet.checkTurfVis(get_turf_pixel(target)))
-		return
+	if(source.faction == FACTION_TERRAGOV)
+		if(!GLOB.cameranet.checkTurfVis(get_turf_pixel(target)))
+			return
+	else if(source.faction == FACTION_SOM)
+		if(!GLOB.som_cameranet.checkTurfVis(get_turf_pixel(target)))
+			return
 	if(!active_weapon)
 		to_chat(source, span_warning("No active weapon selected!"))
 		return
@@ -282,7 +295,7 @@
 	if(!COOLDOWN_FINISHED(active_weapon, last_fired))
 		to_chat(source, span_warning("[active_weapon] just fired, wait for it to cool down."))
 		return
-	active_weapon.open_fire(target, attackdir)
+	active_weapon.open_fire(target, attackdir, source.faction)
 	record_cas_activity(active_weapon)
 
 /obj/docking_port/mobile/marine_dropship/casplane/ui_data(mob/user)

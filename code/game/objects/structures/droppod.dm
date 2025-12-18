@@ -47,6 +47,8 @@ GLOBAL_DATUM(droppod_reservation, /datum/turf_reservation/transit/droppod)
 	///after the pod finishes it's travelhow long it spends falling
 	var/falltime = 0.6 SECONDS
 	var/respawns = FALSE
+	///was this pod intercepted and damaged
+	var/explosive_entry = FALSE
 
 /obj/structure/droppod/Initialize(mapload)
 	. = ..()
@@ -54,8 +56,13 @@ GLOBAL_DATUM(droppod_reservation, /datum/turf_reservation/transit/droppod)
 	interaction_actions += new /datum/action/innate/set_drop_target(src)
 	interaction_actions += new /datum/action/innate/launch_droppod(src)
 	RegisterSignals(SSdcs, list(COMSIG_GLOB_DROPSHIP_HIJACKED, COMSIG_GLOB_CAMPAIGN_MISSION_ENDED, COMSIG_GLOB_CAMPAIGN_DISABLE_DROPPODS), PROC_REF(disable_launching))
-	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND, COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_TADPOLE_LAUNCHED, COMSIG_GLOB_CAMPAIGN_ENABLE_DROPPODS), PROC_REF(allow_drop))
+	RegisterSignal(SSdcs, COMSIG_GLOB_GAMESTATE_GROUNDSIDE, PROC_REF(allow_drop))
 	RegisterSignal(SSdcs, COMSIG_GLOB_CAMPAIGN_MISSION_LOADED, PROC_REF(change_targeted_z))
+	//testing only
+	/* NTF edit
+	if(SSticker.mode && istype(SSticker.mode, /datum/game_mode/infestation/sovl_war) && SSmonitor.gamestate != SHUTTERS_CLOSED)
+		disable_sovl_launching()
+	*/
 	GLOB.droppod_list += src
 	update_icon()
 	if((!locate(/obj/structure/drop_pod_launcher) in get_turf(src)) && mapload)
@@ -85,19 +92,29 @@ GLOBAL_DATUM(droppod_reservation, /datum/turf_reservation/transit/droppod)
 	return TRUE
 
 ///Disables launching
-/obj/structure/droppod/proc/disable_launching()
+/obj/structure/droppod/proc/disable_launching(datum/source)
 	SIGNAL_HANDLER
 	launch_allowed = FALSE
 	update_icon()
 	UnregisterSignal(SSdcs, COMSIG_GLOB_DROPSHIP_HIJACKED)
 
 ///Allow this droppod to ignore dropdelay or otherwise reenable its use
-/obj/structure/droppod/proc/allow_drop()
+/obj/structure/droppod/proc/allow_drop(datum/source)
 	SIGNAL_HANDLER
 	operation_started = TRUE
 	launch_allowed = TRUE
 	update_icon()
-	UnregisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND, COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_TADPOLE_LAUNCHED))
+	UnregisterSignal(SSdcs, COMSIG_GLOB_GAMESTATE_GROUNDSIDE)
+
+//testing only
+/obj/structure/droppod/proc/allow_sovl_drop()
+	allow_drop()
+	RegisterSignal(SSdcs, COMSIG_GLOB_GAMESTATE_GROUNDSIDE, PROC_REF(disable_sovl_launching))
+
+/obj/structure/droppod/proc/disable_sovl_launching()
+	launch_allowed = FALSE
+	update_icon()
+	UnregisterSignal(SSdcs, COMSIG_GLOB_GAMESTATE_GROUNDSIDE, COMSIG_GLOB_DROPSHIP_HIJACKED)
 
 /obj/structure/droppod/update_icon()
 	. = ..()
@@ -128,7 +145,7 @@ GLOBAL_DATUM(droppod_reservation, /datum/turf_reservation/transit/droppod)
 /obj/structure/droppod/buckle_mob(mob/living/buckling_mob, force, check_loc, lying_buckle, hands_needed, target_hands_needed, silent)
 	if(drop_state != DROPPOD_READY)
 		if(!silent)
-			balloon_alert(buckling_mob, "Already used")
+			balloon_alert(buckling_mob, "already used!")
 		return FALSE
 	setDir(SOUTH) //this is dirty but supply elevator still tehnically being a shuttle forced my hand TODO: undirty this
 	. = ..()
@@ -151,7 +168,7 @@ GLOBAL_DATUM(droppod_reservation, /datum/turf_reservation/transit/droppod)
 	var/mob/notified_user = LAZYACCESS(buckled_mobs, 1)
 	. = checklanding(notified_user)
 	if(notified_user && .)
-		balloon_alert(notified_user, "Coordinates updated")
+		balloon_alert(notified_user, "coordinates updated")
 
 ///Updates the z-level this pod drops to
 /obj/structure/droppod/proc/change_targeted_z(datum/source, new_z)
@@ -167,35 +184,38 @@ GLOBAL_DATUM(droppod_reservation, /datum/turf_reservation/transit/droppod)
 	var/turf/target = optional_turf ? optional_turf : locate(target_x, target_y, target_z)
 	if(target.density)
 		if(user)
-			balloon_alert(user, "Dense area")
+			balloon_alert(user, "dense area!")
 		return FALSE
 	if(is_type_in_typecache(target, GLOB.blocked_droppod_tiles))
 		if(user)
-			balloon_alert(user, "Hazardous zone")
+			balloon_alert(user, "hazardous zone!")
 		return FALSE
 	var/area/targetarea = get_area(target)
 	if(targetarea.area_flags & NO_DROPPOD) // Thou shall not pass!
 		if(user)
-			balloon_alert(user, "Invalid area")
+			balloon_alert(user, "invalid area!")
 		return FALSE
 	if(!targetarea.outside)
 		if(user)
-			balloon_alert(user, "Roofed area")
+			balloon_alert(user, "roofed area!")
 		return FALSE
 	if(targetarea.ceiling > CEILING_METAL)
 		if(user)
-			balloon_alert(user, "Area underground")
+			balloon_alert(user, "area underground!")
 		return FALSE
 	for(var/atom/movable/object AS in target.contents)
 		if(object.density)
 			if(user)
-				balloon_alert(user, "Dense object detected")
+				balloon_alert(user, "dense object detected!")
 			return FALSE
 	return TRUE
 
 ///attempts to launch the drop pod at it's currently set coordinates. commanded_drop is TRUE when the drop is being requested by a command drop pod
 /obj/structure/droppod/proc/start_launch_pod(mob/user, commanded_drop = FALSE)
 	if(!(LAZYLEN(buckled_mobs) || LAZYLEN(contents)))
+		return
+	if((SSticker?.mode?.round_type_flags & MODE_ALAMO_ONLY) && !(SSmapping.level_trait(z, ZTRAIT_ANTAG_MAIN_SHIP)))
+		to_chat(user, span_warning("Drop pods are not usable in this operation."))
 		return
 	#ifndef TESTING
 	if(!operation_started)
@@ -232,8 +252,10 @@ GLOBAL_DATUM(droppod_reservation, /datum/turf_reservation/transit/droppod)
 		podder.forceMove(src)
 
 	if(user)
+		faction = user.faction
 		log_game("[key_name(user)] launched pod [src] at [AREACOORD(target)]")
-	deadchat_broadcast(" has been launched", src, turf_target = target)
+		message_admins("[key_name_admin(user)][ADMIN_QUE(user)] launched pod [src] at [AREACOORD(target)]")
+	deadchat_broadcast(" has been launched[user ? " by [user][FOLLOW_LINK(null, user)]" : ""] towards [AREACOORD(target)]", src, turf_target = target)
 	for(var/mob/living/silicon/ai/AI AS in GLOB.ai_list)
 		to_chat(AI, span_notice("[user ? user : "unknown"] has launched [src] towards [target.loc] at X:[target_x] Y:[target_y]"))
 	if(!GLOB.droppod_reservation)
@@ -246,8 +268,8 @@ GLOBAL_DATUM(droppod_reservation, /datum/turf_reservation/transit/droppod)
 	addtimer(CALLBACK(src, PROC_REF(launch_pod), user), 2.5 SECONDS)
 
 ///Find a new suitable target turf around the pods initial target
-/obj/structure/droppod/proc/find_new_target(mob/user)
-	var/scatter_radius = DROPPOD_BASE_DISPERSION + GLOB.current_orbit
+/obj/structure/droppod/proc/find_new_target(mob/user, extra_scatter = 0)
+	var/scatter_radius = DROPPOD_BASE_DISPERSION + GLOB.current_orbit + 0
 	var/turf/T0 = locate(target_x + scatter_radius, target_y + scatter_radius, target_z)
 	var/turf/T1 = locate(target_x - scatter_radius, target_y - scatter_radius, target_z)
 	var/list/block = block(T0,T1)
@@ -296,6 +318,14 @@ GLOBAL_DATUM(droppod_reservation, /datum/turf_reservation/transit/droppod)
 /obj/structure/droppod/proc/finish_drop(mob/user, turf/reservedturf)
 	GLOB.droppod_reservation.taken_turfs -= reservedturf
 	var/turf/targetturf = locate(target_x, target_y, target_z)
+	for(var/obj/machinery/deployable/mounted/sentry/ads_system/ads in orange(GLOB.ads_intercept_range,reservedturf))
+		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
+			continue
+		if(ads.try_intercept(reservedturf, src, 1, 10))
+			to_chat(user, span_warning("[icon2html(src, user)] WARNING! DROP POD UNDER FIRE!"))
+			balloon_alert(user, "BRACE FOR IMPACT")
+			reservedturf = find_new_target(user, 15)
+			explosive_entry = TRUE
 	for(var/atom/target AS in targetturf.contents)
 		if(!target.density)
 			continue
@@ -312,16 +342,31 @@ GLOBAL_DATUM(droppod_reservation, /datum/turf_reservation/transit/droppod)
 
 ///Do the stuff when it "hits the ground"
 /obj/structure/droppod/proc/dodrop(turf/targetturf, mob/user)
-	deadchat_broadcast(" has landed at [get_area(targetturf)]!", src, user ? user : null, targetturf)
+	var/turf/user_turf = get_turf(user)
+	deadchat_broadcast(" has landed at [AREACOORD(targetturf)][user ? " (Launched by [user][FOLLOW_OR_TURF_LINK(null, user, user_turf)])":""]!", src, src, targetturf)
 	explosion(targetturf, light_impact_range = 2, explosion_cause=user)
 	playsound(targetturf, 'sound/effects/droppod_impact.ogg', 100)
 	addtimer(CALLBACK(src, PROC_REF(completedrop), user), 7) //dramatic effect
+	if(explosive_entry)
+		explosion(targetturf, 0, 2, 3, 4, protect_epicenter = TRUE, smoke = TRUE, explosion_cause = "damaged pod")
 
 ///completes landing a little delayed for a dramatic effect
 /obj/structure/droppod/proc/completedrop(mob/user)
 	drop_state = DROPPOD_LANDED
 	for(var/atom/movable/deployed AS in contents)
 		deployed.forceMove(loc)
+		if(explosive_entry)
+			take_damage(70, BRUTE)
+			if(isliving(deployed))
+				var/mob/living/livinguser = deployed
+				to_chat(livinguser, span_warning("You are shredded with bullets and broken metal from the violent impact due to your explosive entry."))
+				livinguser.apply_damage(rand(75,150), BRUTE, BODY_ZONE_CHEST, BOMB)
+				livinguser.Unconscious(5 SECONDS)
+				livinguser.Knockdown(8 SECONDS)
+				livinguser.blur_eyes(6)
+			else if(isobj(deployed))
+				var/obj/deployedobj = deployed
+				deployedobj.take_damage(rand(100,150), BRUTE, BOMB)
 	update_icon()
 
 
@@ -333,7 +378,7 @@ GLOBAL_DATUM(droppod_reservation, /datum/turf_reservation/transit/droppod)
 
 /obj/structure/droppod/leader/buckle_mob(mob/living/buckling_mob, force, check_loc, lying_buckle, hands_needed, target_hands_needed, silent)
 	if(buckling_mob.skills.getRating(SKILL_LEADERSHIP) < SKILL_LEAD_TRAINED)
-		balloon_alert(buckling_mob, "Can't use that!") // basically squad lead+ cant touch this
+		balloon_alert(buckling_mob, "can't use that!") // basically squad lead+ cant touch this
 		return FALSE
 	return ..()
 
@@ -467,7 +512,7 @@ GLOBAL_DATUM(droppod_reservation, /datum/turf_reservation/transit/droppod)
 		if(istype(attached_clamp.loaded, /obj/structure/droppod))
 			return //no recursive pods please
 		if(stored_object)
-			balloon_alert(user, "Occupied")
+			balloon_alert(user, "occupied!")
 			return
 		var/obj/structure/closet/clamped_closet = attached_clamp.loaded
 		playsound(src, 'sound/machines/hydraulics_1.ogg', 40, 1)
@@ -556,7 +601,9 @@ GLOBAL_DATUM(droppod_reservation, /datum/turf_reservation/transit/droppod)
 		ejectee.forceMove(loc)
 
 /obj/structure/droppod/nonmob/mech_pod/dodrop(turf/targetturf, mob/user)
-	deadchat_broadcast(" has landed at [get_area(targetturf)]!", src, stored_object ? stored_object : null)
+	var/turf/user_turf = user ? get_turf(user) : null
+	var/turf/mech_turf = stored_object ? get_turf(stored_object) : null
+	deadchat_broadcast(" has landed at [AREACOORD(targetturf)][user ? "(launched by [user][FOLLOW_OR_TURF_LINK(null, user, user_turf)])": ""][stored_object ? "(carrying [stored_object][FOLLOW_OR_TURF_LINK(null, stored_object, mech_turf)])":""]!", src, src, targetturf)
 	explosion(targetturf, 1, 2, explosion_cause=user) //A mech just dropped onto your head from orbit
 	playsound(targetturf, 'sound/effects/droppod_impact.ogg', 100)
 	addtimer(CALLBACK(src, PROC_REF(completedrop), user), 7) //dramatic effect
@@ -578,7 +625,7 @@ GLOBAL_DATUM(droppod_reservation, /datum/turf_reservation/transit/droppod)
 	///Locks activating this action again while choosing to prevent signal shenanigan runtimes.
 	var/choosing = FALSE
 
-/datum/action/innate/set_drop_target/can_use_action()
+/datum/action/innate/set_drop_target/can_use_action(silent, override_flags, selecting)
 	if(choosing)
 		return FALSE
 	return ..()

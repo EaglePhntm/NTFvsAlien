@@ -34,7 +34,7 @@ The Grenade Launchers
 		/obj/item/explosive/grenade/training,
 		/obj/item/explosive/grenade/pmc,
 		/obj/item/explosive/grenade/vsd,
-		/obj/item/explosive/grenade/upp,
+		/obj/item/explosive/grenade/bullet/upp,
 		/obj/item/explosive/grenade/m15,
 		/obj/item/explosive/grenade/stick,
 		/obj/item/explosive/grenade/som,
@@ -57,6 +57,7 @@ The Grenade Launchers
 		/obj/item/explosive/grenade/phosphorus/upp,
 		/obj/item/explosive/grenade/impact,
 		/obj/item/explosive/grenade/sticky,
+		/obj/item/explosive/grenade/sticky/pmc,
 		/obj/item/explosive/grenade/sticky/trailblazer,
 		/obj/item/explosive/grenade/flare,
 		/obj/item/explosive/grenade/flare/cas,
@@ -184,7 +185,7 @@ The Grenade Launchers
 		/obj/item/explosive/grenade/training,
 		/obj/item/explosive/grenade/stick,
 		/obj/item/explosive/grenade/vsd,
-		/obj/item/explosive/grenade/upp,
+		/obj/item/explosive/grenade/bullet/upp,
 		/obj/item/explosive/grenade/som,
 		/obj/item/explosive/grenade/incendiary,
 		/obj/item/explosive/grenade/incendiary/som,
@@ -195,6 +196,8 @@ The Grenade Launchers
 		/obj/item/explosive/grenade/smokebomb/drain,
 		/obj/item/explosive/grenade/smokebomb/antigas,
 		/obj/item/explosive/grenade/smokebomb/neuro,
+		/obj/item/explosive/grenade/smokebomb/aphrotoxin,
+		/obj/item/explosive/grenade/smokebomb/sleep,
 		/obj/item/explosive/grenade/smokebomb/acid,
 		/obj/item/explosive/grenade/smokebomb/satrapine,
 		/obj/item/explosive/grenade/phosphorus,
@@ -203,14 +206,23 @@ The Grenade Launchers
 		/obj/item/explosive/grenade/flare/cas,
 		/obj/item/explosive/grenade/impact,
 		/obj/item/explosive/grenade/sticky,
+		/obj/item/explosive/grenade/sticky/pmc,
 		/obj/item/explosive/grenade/flashbang/stun,
 		/obj/item/explosive/grenade/emp,
+		/obj/item/explosive/grenade/pmc,
+		/obj/item/explosive/grenade/sticky/pmc,
 	)
 
 	wield_delay_mod = 0.2 SECONDS
 
 /obj/item/weapon/gun/grenade_launcher/underslung/invisible
+	name = "integrated underslung grenade launcher"
 	attach_features_flags = NONE
+
+/obj/item/weapon/gun/grenade_launcher/underslung/integrated
+	name = "integrated underslung grenade launcher"
+	attach_features_flags = NONE
+	icon_state = NONE
 
 /obj/item/weapon/gun/grenade_launcher/underslung/battle_rifle
 	name = "\improper BR-64 underslung grenade launcher"
@@ -220,11 +232,13 @@ The Grenade Launchers
 	pixel_shift_y = 15
 
 /obj/item/weapon/gun/grenade_launcher/underslung/mpi
+	name = "integrated underslung grenade launcher"
 	icon_state = "grenade_mpi"
 	attach_features_flags = NONE
 	default_ammo_type = /obj/item/explosive/grenade/som
 
 /obj/item/weapon/gun/grenade_launcher/underslung/mpi/removeable
+	name = "makeshift underslung grenade launcher"
 	attach_features_flags = ATTACH_REMOVABLE
 
 /obj/item/weapon/gun/grenade_launcher/single_shot

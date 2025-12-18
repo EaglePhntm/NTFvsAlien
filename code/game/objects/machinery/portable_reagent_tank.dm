@@ -66,7 +66,7 @@
 	var/obj/item/storage/internal_bag = get_internal_item()
 	internal_bag?.storage_datum.open(user)
 
-/obj/machinery/deployable/reagent_tank/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/machinery/deployable/reagent_tank/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(xeno_attacker.a_intent != INTENT_HARM)
 		return drink_from_nozzle(xeno_attacker, TRUE)
 	return ..()
@@ -74,7 +74,7 @@
 ///Process for drinking reagents directly from the dispenser's nozzle
 /obj/machinery/deployable/reagent_tank/proc/drink_from_nozzle(mob/living/user, is_xeno = FALSE)
 	if(isrobot(user) || issynth(user))
-		balloon_alert(user, "You are incapable of drinking!")
+		balloon_alert(user, "you can't drink!")
 		return FALSE
 	if(reagents?.total_volume)
 		if(!is_xeno)
@@ -89,7 +89,7 @@
 		reagents.reaction(user, INGEST)
 		reagents.trans_to(user, 5)
 		return TRUE
-	balloon_alert(user, "It's empty!")
+	balloon_alert(user, "it's empty!")
 
 /obj/machinery/deployable/reagent_tank/attackby(obj/item/I, mob/user, params)
 	if(I.is_refillable())
@@ -98,11 +98,11 @@
 
 /obj/machinery/deployable/reagent_tank/AltClick(mob/user)
 	if(is_refillable())
-		balloon_alert(user, "Dispense mode!")
+		balloon_alert(user, "dispense mode")
 		reagents.reagent_flags &= ~REFILLABLE
 		reagents.reagent_flags |= DRAINABLE
 	else
-		balloon_alert(user, "Refill mode!")
+		balloon_alert(user, "refill mode")
 		reagents.reagent_flags &= ~DRAINABLE
 		reagents.reagent_flags |= REFILLABLE
 	playsound(src, 'sound/effects/pop.ogg', 100)
@@ -174,7 +174,7 @@
 	return ..()
 
 /obj/item/storage/reagent_tank/do_quick_equip(mob/user)
-	balloon_alert(user, "Not deployed")
+	balloon_alert(user, "not deployed!")
 
 //Preset tanks so you can have these ready for a round and not need to drain the chem master's energy
 /obj/item/storage/reagent_tank/bicaridine

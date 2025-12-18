@@ -26,7 +26,7 @@
 		return
 	if(swirlie)
 		user.visible_message(span_danger("[user] slams the toilet seat onto [swirlie.name]'s head!"), span_notice("You slam the toilet seat onto [swirlie.name]'s head!"), "You hear reverberating porcelain.")
-		swirlie.apply_damage(8, BRUTE, blocked = MELEE, updating_health = TRUE)
+		swirlie.apply_damage(8, BRUTE, blocked = MELEE, updating_health = TRUE, attacker = user)
 		return
 
 	if(cistern && !open)
@@ -211,7 +211,7 @@
 		overlays += image('icons/obj/watercloset.dmi', src, "water", MOB_LAYER + 1, dir)
 
 /obj/machinery/shower/proc/handle_mist()
-    // check if there's no mist, if the shower is on and if it's not freezing
+	// check if there's no mist, if the shower is on and if it's not freezing
 	// if so, add a 5 second timer to make mist
 	if(!mymist && on && watertemp != "freezing")
 		addtimer(CALLBACK(src, PROC_REF(make_mist)), 5 SECONDS)
@@ -332,22 +332,22 @@
 		return
 
 	if(busy)
-		balloon_alert_to_viewers("Someone else is washing")
+		balloon_alert_to_viewers("someone else is washing!")
 		return
 
-	balloon_alert_to_viewers("Starts washing hands")
+	balloon_alert_to_viewers("washing hands...")
 	playsound(loc, 'sound/effects/sink_long.ogg', 25, 1)
 
 	busy = TRUE
 	if(!do_after(user, 4 SECONDS, NONE, src, BUSY_ICON_GENERIC))
 		busy = FALSE
-		balloon_alert_to_viewers("Stops washing")
+		balloon_alert_to_viewers("stops washing")
 		return
 	busy = FALSE
 
 	user.wash()
 	user:update_inv_gloves()
-	balloon_alert_to_viewers("Washes their hands")
+	balloon_alert_to_viewers("washes their hands")
 
 
 /obj/structure/sink/attackby(obj/item/I, mob/user, params)

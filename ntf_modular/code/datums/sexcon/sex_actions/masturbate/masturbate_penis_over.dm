@@ -21,13 +21,13 @@
 	var/chosen_verb = pick(list("jerks [user.p_their()] cock", "strokes [user.p_their()] cock", "masturbates", "jerks off"))
 	if(user.sexcon.do_message_signature("[type]"))
 		user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] [chosen_verb] over [target]"))
-	playsound(user, 'ntf_modular/sound/misc/mat/fingering.ogg', 30, TRUE, -2)
+	playsound(user, 'ntf_modular/sound/misc/mat/fingering.ogg', 30, TRUE, 5, ignore_walls = FALSE)
 
 	user.sexcon.perform_sex_action(user, 2, 4, TRUE)
 
 	if(user.sexcon.check_active_ejaculation())
 		user.visible_message(span_lovebold("[user] cums over [target]'s body!"))
-		user.sexcon.cum_onto()
+		user.sexcon.cum_onto(target)
 		if(isxeno(user))
 			target.adjustFireLoss(5, TRUE)
 

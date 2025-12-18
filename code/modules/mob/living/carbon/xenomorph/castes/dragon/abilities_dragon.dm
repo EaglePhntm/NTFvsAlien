@@ -25,7 +25,7 @@
 /datum/action/ability/activable/xeno/backhand/can_use_ability(atom/A, silent, override_flags)
 	if(xeno_owner.status_flags & INCORPOREAL)
 		if(!silent)
-			xeno_owner.balloon_alert(xeno_owner, "cannot while flying")
+			xeno_owner.balloon_alert(xeno_owner, "cannot while flying!")
 		return FALSE
 	return ..()
 
@@ -69,6 +69,10 @@
 	var/list/mob/living/living_to_knockback = list()
 	var/list/obj/vehicle/hit_vehicles = list()
 	for(var/turf/affected_turf AS in affected_turfs)
+		if(istype(affected_turf, /turf/closed/wall/resin) && !xeno_owner.issamexenohive(affected_turf) )
+			var/turf/closed/wall/affected_wall = affected_turf
+			affected_wall.take_damage(get_damage(), BRUTE, MELEE, blame_mob = xeno_owner)
+			has_hit_anything = TRUE
 		for(var/atom/affected_atom AS in affected_turf)
 			if(isxeno(affected_atom))
 				var/mob/living/carbon/xenomorph/affected_xenomorph = affected_atom
@@ -90,7 +94,9 @@
 				continue
 			var/obj/affected_obj = affected_atom
 			if(ishitbox(affected_obj) || isvehicle(affected_obj))
-				has_hit_anything = handle_affected_vehicle(affected_obj, hit_vehicles)
+				has_hit_anything = handle_affected_vehicle(affected_obj, hit_vehicles) | has_hit_anything
+				continue
+			if(xeno_owner.issamexenohive(affected_obj) && (is_type_in_typecache(affected_obj.type,GLOB.xeno_object_list)))
 				continue
 			affected_obj.take_damage(get_damage(), BRUTE, MELEE, blame_mob = xeno_owner)
 			has_hit_anything = TRUE
@@ -175,7 +181,7 @@
 	if(xeno_owner.status_flags & INCORPOREAL)
 		if(COOLDOWN_TIMELEFT(src, animation_cooldown))
 			if(!silent)
-				xeno_owner.balloon_alert(xeno_owner, "already landing")
+				xeno_owner.balloon_alert(xeno_owner, "already landing!")
 			return FALSE
 	if(xeno_owner.eaten_mob)
 		if(!silent)
@@ -183,7 +189,7 @@
 			return FALSE
 	if(COOLDOWN_TIMELEFT(src, animation_cooldown))
 		if(!silent)
-			xeno_owner.balloon_alert(xeno_owner, "already lifting")
+			xeno_owner.balloon_alert(xeno_owner, "already lifting!")
 		return FALSE
 	return ..()
 
@@ -288,8 +294,13 @@
 			if(ishitbox(affected_obj) || isvehicle(affected_obj))
 				handle_affected_vehicle(affected_obj, hit_vehicles)
 				continue
+			if(xeno_owner.issamexenohive(affected_obj) && (is_type_in_typecache(affected_obj.type,GLOB.xeno_object_list)))
+				continue
 			affected_obj.take_damage(damage, BRUTE, MELEE, blame_mob = xeno_owner)
 			continue
+		if(istype(affected_turf, /turf/closed/wall/resin) && !xeno_owner.issamexenohive(affected_turf) )
+			var/turf/closed/wall/affected_wall = affected_turf
+			affected_wall.take_damage(damage, BRUTE, MELEE, blame_mob = xeno_owner)
 	playsound(xeno_owner, 'sound/effects/alien/behemoth/seismic_fracture_explosion.ogg', 50, 1)
 	xeno_owner.gain_plasma(xeno_owner.xeno_caste.plasma_max)
 	succeed_activate()
@@ -409,7 +420,7 @@
 		xeno_owner.stop_pulling()
 		grabbed_human.emote("scream")
 		grabbed_human.Shake(duration = 0.5 SECONDS) // Must stop pulling first for Shake to work.
-		xeno_owner.visible_message(span_danger("[xeno_owner] exhales a massive fireball right ontop of [grabbed_human]!"))
+		xeno_owner.visible_message(span_danger("[xeno_owner] exhales a massive fireball right on top of [grabbed_human]!"))
 		playsound(get_turf(xeno_owner), 'sound/effects/alien/fireball.ogg', 50, 1)
 		var/obj/effect/temp_visual/dragon/grab_fire/visual_grab_fire = new(get_turf(grabbed_human))
 		var/obj/effect/temp_visual/xeno_fireball_explosion/visual_fireball_explosion = new(get_turf(grabbed_human))
@@ -568,7 +579,7 @@
 /datum/action/ability/activable/xeno/wind_current/can_use_ability(atom/A, silent, override_flags)
 	if(xeno_owner.status_flags & INCORPOREAL)
 		if(!silent)
-			xeno_owner.balloon_alert(xeno_owner, "cannot while flying")
+			xeno_owner.balloon_alert(xeno_owner, "cannot while flying!")
 		return FALSE
 	return ..()
 
@@ -638,8 +649,13 @@
 			if(ismecha(impacted_obj))
 				impacted_obj.take_damage(damage * 3, BRUTE, MELEE, armour_penetration = 50, blame_mob = xeno_owner)
 				continue
+			if(xeno_owner.issamexenohive(impacted_obj) && (is_type_in_typecache(impacted_obj.type,GLOB.xeno_object_list)))
+				continue
 			impacted_obj.take_damage(damage * 2, BRUTE, MELEE, blame_mob = xeno_owner)
 			continue
+		if(istype(impacted_turf, /turf/closed/wall/resin) && !xeno_owner.issamexenohive(impacted_turf) )
+			var/turf/closed/wall/impacted_wall = impacted_turf
+			impacted_wall.take_damage(damage, BRUTE, MELEE, blame_mob = xeno_owner)
 
 	// This is separate because it is possible for them to be pushed into an unprocessed turf which will then do the effects again, causing instant death (or more damage than desired).
 	for(var/mob/living/knockbacked_living AS in living_to_knockback)
@@ -673,11 +689,11 @@
 /datum/action/ability/activable/xeno/grab/can_use_ability(atom/target, silent, override_flags)
 	if(xeno_owner.status_flags & INCORPOREAL)
 		if(!silent)
-			xeno_owner.balloon_alert(xeno_owner, "cannot while flying")
+			xeno_owner.balloon_alert(xeno_owner, "cannot while flying!")
 		return FALSE
 	if(grabbed_human)
 		if(!silent)
-			xeno_owner.balloon_alert(xeno_owner, "already grabbing someone")
+			xeno_owner.balloon_alert(xeno_owner, "already grabbing someone!")
 		return FALSE
 	return ..()
 
@@ -818,7 +834,7 @@
 /datum/action/ability/activable/xeno/scorched_land/can_use_ability(atom/A, silent, override_flags)
 	if(!(xeno_owner.status_flags & INCORPOREAL))
 		if(!silent)
-			xeno_owner.balloon_alert(xeno_owner, "cannot while landed")
+			xeno_owner.balloon_alert(xeno_owner, "cannot while landed!")
 		return FALSE
 	var/list/mob/living/carbon/xenomorph/nearby_xenos = cheap_get_xenos_near(xeno_owner, 7)
 	var/found_los_xenos = FALSE
@@ -834,9 +850,9 @@
 	if(!weeds_found && !found_los_xenos)
 		if(!silent)
 			if(nearby_xenos.len > 1)
-				xeno_owner.balloon_alert(xeno_owner, "no friendlies in sight")
+				xeno_owner.balloon_alert(xeno_owner, "no friendlies in sight!")
 			else
-				xeno_owner.balloon_alert(xeno_owner, "no weeds")
+				xeno_owner.balloon_alert(xeno_owner, "no weeds!")
 		return FALSE
 	return ..()
 

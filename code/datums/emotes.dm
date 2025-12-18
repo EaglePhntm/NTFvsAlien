@@ -8,7 +8,7 @@
 	var/message_monkey = "" //Message displayed if the user is a monkey
 	var/message_simple = "" //Message to display if the user is a simple_animal
 	var/message_param = "" //Message to display if a param was given
-	var/emote_type = EMOTE_VISIBLE //Whether the emote is visible or audible
+	var/emote_type = EMOTE_TYPE_VISIBLE //Whether the emote is visible or audible
 	var/list/mob_type_allowed_typecache = /mob //Types that are allowed to use that emote
 	var/list/mob_type_blacklist_typecache //Types that are NOT allowed to use that emote
 	var/list/mob_type_ignore_stat_typecache
@@ -53,6 +53,10 @@
 	if(!msg)
 		return
 
+	var/end = copytext(msg, length(msg))
+	if(!(end in list("!", ".", "?", ":", "\"", "-")))
+		msg += "."
+
 	if(intentional)
 		user.log_message(msg, LOG_EMOTE)
 	var/dchatmsg = "[prefix]<b>[user]</b> [msg]"
@@ -61,7 +65,7 @@
 	if(tmp_sound && (!(emote_flags & EMOTE_FORCED_AUDIO) || !intentional))
 		playsound(user, tmp_sound, 50, emote_flags & EMOTE_VARY)
 
-	if(user.client)
+	if(user.mind)
 		for(var/mob/M AS in GLOB.dead_mob_list)
 			if(!ismob(M) || isnewplayer(M) || !M.client)
 				continue
@@ -80,12 +84,21 @@
 
 	// Ensure it filters to 'local' within chat tabs
 	msg = span_emote("[msg]")
-
 	// ghost_visible is set to false because the whole thing right above us already displays the message to ghosts. Don't wanna put it in chat twice.
-	if(emote_type == EMOTE_AUDIBLE)
-		user.audible_message(msg, audible_message_flags = EMOTE_MESSAGE, emote_prefix = prefix, hearing_distance = range, ghost_visible = FALSE)
-	else
+	var/effective_type = (type_override || emote_type)
+	if(effective_type == EMOTE_TYPE_AUDIBLE)
+		user.audible_message(msg, "You see how <b>[user]</b> [msg]", audible_message_flags = EMOTE_MESSAGE, emote_prefix = prefix, hearing_distance = range, ghost_visible = FALSE)
+	else if(effective_type == EMOTE_TYPE_VISIBLE)
 		user.visible_message(msg, visible_message_flags = EMOTE_MESSAGE, emote_prefix = prefix, vision_distance = range, ghost_visible = FALSE)
+	else // important emote—will always be visible to viewers!
+		for(var/mob/viewer AS in viewers(user))
+			to_chat(viewer, "<b>[user]</b> [msg]")
+			if(user.rc_vc_msg_prefs_check(viewer, EMOTE_MESSAGE))
+				viewer.create_chat_message(
+					speaker = user,
+					raw_message = msg,
+					runechat_flags = EMOTE_MESSAGE,
+				)
 
 /// For handling emote cooldown, return true to allow the emote to happen
 /datum/emote/proc/check_cooldown(mob/user, intentional)
@@ -112,7 +125,7 @@
 
 /datum/emote/proc/select_message_type(mob/user)
 	. = message
-	if(!(emote_flags & EMOTE_MUZZLE_IGNORE) && user.is_muzzled() && emote_type == EMOTE_AUDIBLE)
+	if(!(emote_flags & EMOTE_MUZZLE_IGNORE) && user.is_muzzled() && emote_type == EMOTE_TYPE_AUDIBLE)
 		return "makes a [pick("strong ", "weak ", "")]noise."
 	if(isxeno(user) && message_alien)
 		. = message_alien
@@ -141,17 +154,18 @@
 
 	if(intentional)
 		if(emote_flags & EMOTE_FORCED_AUDIO)
+			to_chat(user, span_notice("You can't intentionally [key]."))
 			return FALSE
 
 		if(sound || get_sound(user))
-			if(HAS_TRAIT(user, TRAIT_MUTED))
-				user.balloon_alert(user, "You are muted!")
+			if(HAS_TRAIT(user, TRAIT_MUTE))
+				user.balloon_alert(user, "you can't make noise!")
 				return FALSE
 			if(TIMER_COOLDOWN_RUNNING(user, COOLDOWN_EMOTE))
-				user.balloon_alert(user, "You just did an audible emote")
+				user.balloon_alert(user, "used an audible emote too recently!")
 				return FALSE
 			else
-				TIMER_COOLDOWN_START(user, COOLDOWN_EMOTE, 8 SECONDS)
+				TIMER_COOLDOWN_START(user, COOLDOWN_EMOTE, 0.5 SECONDS)
 
 		if(user.client)
 			if(user.client.prefs.muted & MUTE_IC)
@@ -184,7 +198,7 @@
 				if(L.incapacitated())
 					if(!intentional)
 						return FALSE
-					user.balloon_alert(user, "You cannot [key] while stunned")
+					user.balloon_alert(user, "not while stunned!")
 					return FALSE
 
 		if(emote_flags & EMOTE_ARMS_CHECK)
@@ -193,17 +207,17 @@
 			var/datum/limb/left_hand = snapper.get_limb("l_hand")
 			var/datum/limb/right_hand = snapper.get_limb("r_hand")
 			if((!left_hand.is_usable()) && (!right_hand.is_usable()))
-				to_chat(user, span_notice("You cannot [key] without a working hand."))
+				user.balloon_alert(user, "need a working hand!")
 				return FALSE
 
 		if((emote_flags & EMOTE_RESTRAINT_CHECK) && user.restrained())
 			if(!intentional)
 				return FALSE
-			user.balloon_alert(user, "You cannot [key] while restrained")
+			user.balloon_alert(user, "not while restrained!")
 			return FALSE
 
 		if(emote_flags & EMOTE_ACTIVE_ITEM)
 			if(!isnull(user.get_active_held_item()))
 				return TRUE
-			user.balloon_alert(user, "You need to hold an item to [key] it.")
+			user.balloon_alert(user, "need to be holding an item!")
 			return FALSE

@@ -175,7 +175,7 @@
 ///Start the teleportation process to send the hivemind manifestation to the selected turf
 /mob/living/carbon/xenomorph/hivemind/proc/start_teleport(turf/T)
 	if(!isopenturf(T))
-		balloon_alert(src, "Can't teleport into a wall")
+		balloon_alert(src, "can't teleport into a wall!")
 		return
 	TIMER_COOLDOWN_START(src, COOLDOWN_HIVEMIND_MANIFESTATION, TIME_TO_TRANSFORM)
 	flick("Hivemind_materialisation_fast_reverse", src)
@@ -185,9 +185,11 @@
 /mob/living/carbon/xenomorph/hivemind/proc/end_teleport(turf/T)
 	flick("Hivemind_materialisation_fast", src)
 	if(!check_weeds(T, TRUE))
-		balloon_alert(src, "No weeds in destination")
-	else
-		forceMove(T)
+		balloon_alert(src, "no weeds in destination!")
+		return
+	forceMove(T)
+	flick("Hivemind_[initial(loc_weeds_type.color_variant)]_materialisation", src)
+	setDir(SOUTH)
 
 /mob/living/carbon/xenomorph/hivemind/Move(atom/newloc, direction, glide_size_override)
 	if(TIMER_COOLDOWN_RUNNING(src, COOLDOWN_HIVEMIND_MANIFESTATION))
@@ -224,7 +226,7 @@
 /// Jump hivemind's camera to the passed xeno, if they are on/near weeds
 /mob/living/carbon/xenomorph/hivemind/proc/jump(mob/living/carbon/xenomorph/xeno)
 	if(!check_weeds(get_turf(xeno), TRUE))
-		balloon_alert(src, "No nearby weeds")
+		balloon_alert(src, "no nearby weeds!")
 		return
 	if(!(status_flags & INCORPOREAL))
 		start_teleport(get_turf(xeno))
@@ -334,7 +336,7 @@
 		return ..()
 	our_parent.playsound_local(our_parent, SFX_ALIEN_HELP, 30, TRUE)
 	to_chat(our_parent, span_xenouserdanger("Your core has been destroyed!"))
-	xeno_message("A sudden tremor ripples through the hive... \the [our_parent] has been slain!", "xenoannounce", 5, our_parent.hivenumber)
+	xeno_message("A sudden tremor ripples through the hive... \the [our_parent] has been slain!", "xenoannounce", 5, our_parent.get_xeno_hivenumber())
 	GLOB.key_to_time_of_role_death[our_parent.key] = world.time
 	GLOB.key_to_time_of_death[our_parent.key] = world.time
 	our_parent.ghostize()
@@ -344,8 +346,10 @@
 
 //hivemind cores
 
-/obj/structure/xeno/hivemindcore/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
-	if(isxenoqueen(xeno_attacker))
+/obj/structure/xeno/hivemindcore/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+	if(!issamexenohive(xeno_attacker))
+		return ..()
+	if(isxenoqueen(xeno_attacker) || xeno_attacker == GLOB.hive_datums[hivenumber]?.living_xeno_ruler)
 		var/choice = tgui_alert(xeno_attacker, "Are you sure you want to destroy the hivemind?", "Destroy hivemind", list("Yes", "Cancel"))
 		if(choice == "Yes")
 			deconstruct(FALSE)
@@ -392,8 +396,7 @@
 			return
 
 	if(isxeno(hostile))
-		var/mob/living/carbon/xenomorph/X = hostile
-		if(X.hivenumber == hivenumber) //Trigger proxy alert only for hostile xenos
+		if(issamexenohive(hostile)) //Trigger proxy alert only for hostile xenos
 			return
 
 	to_chat(get_parent(), span_xenoannounce("Our [src.name] has detected a nearby hostile [hostile] at [get_area(hostile)] (X: [hostile.x], Y: [hostile.y])."))

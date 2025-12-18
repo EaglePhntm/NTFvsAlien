@@ -53,7 +53,7 @@
 	SEND_SIGNAL(src, COMSIG_SPIDERLING_MOTHER_DEATH)
 
 ///If we're covering our widow, any clicks should be transferred to them
-/mob/living/carbon/xenomorph/spiderling/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/mob/living/carbon/xenomorph/spiderling/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(!get_dist(src, spidermother) && isxeno(x))
 		spidermother.attack_alien(xeno_attacker, damage_amount, damage_type, armor_type, effects, armor_penetration, isrightclick)
 		return
@@ -70,11 +70,13 @@
 	var/datum/weakref/default_escorted_atom
 	//Whether we are currently guarding a crit widow or not
 	var/guarding_status = SPIDERLING_NOT_GUARDING
+	var/should_disarm = FALSE
 
 /datum/ai_behavior/spiderling/New(loc, parent_to_assign, escorted_atom, can_heal = FALSE)
 	. = ..()
 	default_escorted_atom = WEAKREF(escorted_atom)
 	RegisterSignals(escorted_atom, list(COMSIG_XENOMORPH_ATTACK_LIVING, COMSIG_XENOMORPH_ATTACK_OBJ), PROC_REF(go_to_target))
+	RegisterSignal(escorted_atom, COMSIG_XENOMORPH_DISARM_LIVING, PROC_REF(go_to_target_disarm))
 	RegisterSignal(escorted_atom, COMSIG_SPIDERLING_GUARD, PROC_REF(attempt_guard))
 	RegisterSignal(escorted_atom, COMSIG_SPIDERLING_UNGUARD, PROC_REF(attempt_unguard))
 	RegisterSignal(mob_parent, COMSIG_SPIDERLING_MOTHER_DEATH, PROC_REF(spiderling_rage))
@@ -88,6 +90,12 @@
 
 /datum/ai_behavior/spiderling/set_escort()
 	return FALSE //we don't automatically reset our escort
+
+/datum/ai_behavior/spiderling/should_hold()
+	//We don't move if we're riding mum
+	if(current_action == ESCORTING_ATOM && (mob_parent.buckled == escorted_atom))
+		return TRUE
+	return ..()
 
 /// Decides what to do when widow uses spiderling mark ability
 /datum/ai_behavior/spiderling/proc/decide_mark(source, atom/A)
@@ -116,10 +124,22 @@
 /// Signal handler to check if we can attack what our escorted_atom is attacking
 /datum/ai_behavior/spiderling/proc/go_to_target(source, atom/target)
 	SIGNAL_HANDLER
-	if(isliving(target) && mob_parent?.get_xeno_hivenumber() == target.get_xeno_hivenumber())
-		return
+	should_disarm = FALSE
+	mob_parent.a_intent_change(INTENT_HARM)
 	set_combat_target(target)
 	change_action(MOVING_TO_ATOM, target)
+
+/datum/ai_behavior/spiderling/proc/go_to_target_disarm(source, atom/target)
+	SIGNAL_HANDLER
+	should_disarm = TRUE
+	mob_parent.a_intent_change(INTENT_DISARM)
+	set_combat_target(target)
+	change_action(MOVING_TO_ATOM, target)
+
+/datum/ai_behavior/spiderling/change_action(next_action, atom/next_target, list/special_distance_to_maintain)
+	. = ..()
+	if(should_disarm && mob_parent.a_intent == INTENT_HARM)
+		mob_parent.a_intent_change(INTENT_DISARM)
 
 /// Check if escorted_atom moves away from the spiderling while it's attacking something, this is to always keep them close to escorted_atom
 /datum/ai_behavior/spiderling/look_for_new_state()
@@ -219,14 +239,12 @@
 /// rest when widow does
 /datum/ai_behavior/spiderling/proc/start_resting(mob/source)
 	SIGNAL_HANDLER
-	var/mob/living/living = mob_parent
-	living?.set_resting(TRUE)
+	mob_parent?.set_resting(TRUE)
 
 /// stop resting when widow does, plus unbuckle all mobs so the widow won't get stuck
 /datum/ai_behavior/spiderling/proc/stop_resting(mob/source)
 	SIGNAL_HANDLER
-	var/mob/living/living = mob_parent
-	living?.set_resting(FALSE)
+	mob_parent?.set_resting(FALSE)
 	source?.unbuckle_all_mobs()
 
 /// Signal handler to make the spiderling jump when widow does

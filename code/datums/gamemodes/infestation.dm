@@ -18,15 +18,18 @@
 	 * [caste datum] = [amount of xenos needed]
 	 */
 	var/list/evo_requirements = list(
-/* NTF removal - evolution minimums
 		/datum/xeno_caste/queen = 8,
-NTF removal end*/
+		/datum/xeno_caste/king = 12,
+		/datum/xeno_caste/dragon = 12,
 	)
 
 /datum/game_mode/infestation/post_setup()
 	. = ..()
 	if(bioscan_interval)
 		TIMER_COOLDOWN_START(src, COOLDOWN_BIOSCAN, bioscan_interval)
+	if(!(round_type_flags & MODE_INFESTATION))
+		return
+
 	var/weed_type
 	for(var/turf/T in GLOB.xeno_weed_node_turfs)
 		weed_type = pickweight(GLOB.weed_prob_list)
@@ -195,7 +198,7 @@ NTF removal end*/
 	if(world.time < (SSticker.round_start_time + 5 SECONDS))
 		return FALSE
 
-	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_ALIVE_SSD|COUNT_IGNORE_XENO_SPECIAL_AREA)
+	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_ALIVE_SSD|COUNT_IGNORE_XENO_SPECIAL_AREA| COUNT_CLF_TOWARDS_XENOS | COUNT_GREENOS_TOWARDS_MARINES )
 	var/num_humans = living_player_list[1]
 	var/num_xenos = living_player_list[2]
 	var/num_humans_ship = living_player_list[3]
@@ -353,7 +356,7 @@ NTF removal end*/
 	var/datum/hive_status/normal/HS = GLOB.hive_datums[XENO_HIVE_NORMAL]
 	return HS.spawn_larva(xeno_candidate, mother)
 
-/datum/game_mode/infestation/proc/on_nuclear_diffuse(obj/machinery/nuclearbomb/bomb, mob/living/carbon/xenomorph/X)
+/datum/game_mode/infestation/proc/on_nuclear_defuse(obj/machinery/nuclearbomb/bomb, mob/defuser)
 	SIGNAL_HANDLER
 	priority_announce("WARNING. WARNING. Planetary Nuke deactivated. WARNING. WARNING. Self destruct failed. WARNING. WARNING.", "Planetary Warhead Disengaged", type = ANNOUNCEMENT_PRIORITY)
 

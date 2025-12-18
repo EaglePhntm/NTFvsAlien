@@ -26,8 +26,12 @@
 	var/stomp_range = CRUSHER_STOMP_RANGE
 	/// At what point does damage begin to fall off?
 	var/stomp_falloff = CRUSHER_STOMP_FALLOFF
-	/// Should this ability deal additional effects / have more potent effects for victims that the owner is standing ontop of?
+	/// Should this ability deal additional effects / have more potent effects for victims that the owner is standing on top of?
 	var/distance_bonus_allowed = TRUE
+
+/datum/action/ability/activable/xeno/stomp/New(Target)
+	. = ..()
+	desc = "Knocks adjacent targets away and down, targets take increased damage and stun when stomped on. Stuns for [CRUSHER_STOMP_PARALYZE / (1 SECONDS)] seconds, [CRUSHER_STOMP_PARALYZE_LONG / (1 SECONDS)] when stomped on."
 
 /datum/action/ability/activable/xeno/stomp/use_ability(atom/A)
 	succeed_activate()
@@ -121,10 +125,10 @@
 
 	if(!xeno_owner.issamexenohive(A)) //xenos should be able to fling xenos into xeno passable areas!
 		for(var/obj/effect/forcefield/fog/fog in throw_origin)
-			A.balloon_alert(xeno_owner, "Cannot, fog")
+			A.balloon_alert(xeno_owner, "there's fog there!")
 			return fail_activate()
 	if(A.move_resist >= MOVE_FORCE_OVERPOWERING)
-		A.balloon_alert(xeno_owner, "Too heavy!")
+		A.balloon_alert(xeno_owner, "too heavy!")
 		return fail_activate()
 	if(isliving(A))
 		var/mob/living/L = A

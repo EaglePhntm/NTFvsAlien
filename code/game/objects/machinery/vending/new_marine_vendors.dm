@@ -1256,17 +1256,19 @@
 
 /obj/effect/vendor_bundle/vanguard
 	gear_to_spawn = list(
+		/obj/item/weapon/gun/rifle/nt_halter/cqb/elite,
 		/obj/item/tweezers,
-		/obj/item/storage/holster/belt/mateba/officer/full,
+		/obj/item/storage/holster/belt/pistol/smart_pistol/full,
 		/obj/item/reagent_containers/hypospray/advanced/oxycodone,
 		/obj/item/storage/box/MRE,
 		/obj/item/reagent_containers/hypospray/advanced/big/combatmix,
 		/obj/item/storage/firstaid/adv,
 		/obj/item/defibrillator,
-		/obj/item/clothing/suit/modular/xenonauten/light/vanguard,
+		/obj/item/armor_module/module/valkyrie_autodoc,
 		/obj/item/clothing/head/modular/m10x/leader,
 		/obj/item/storage/pouch/medkit/medic,
-		/obj/item/clothing/glasses/hud/health,
+		/obj/item/storage/backpack/lightpack,
+		/obj/item/clothing/gloves/healthanalyzer
 	)
 
 /obj/effect/vendor_bundle/stretcher
@@ -1288,7 +1290,6 @@
 
 /obj/effect/vendor_bundle/smartgunner_pistol
 	gear_to_spawn = list(
-		/obj/item/clothing/glasses/night/m56_goggles,
 		/obj/item/storage/holster/belt/pistol/smart_pistol,
 		/obj/item/weapon/gun/pistol/smart_pistol,
 		/obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol,
@@ -1317,8 +1318,10 @@
 		/obj/item/whistle,
 		/obj/item/compass,
 		/obj/item/binoculars/tactical,
+		/obj/item/binoculars/fire_support/extended/sl,
 		/obj/item/pinpointer,
 		/obj/item/clothing/glasses/hud/health,
+		/obj/item/armor_module/module/valkyrie_autodoc, //som sl gets one so you get one.
 	)
 
 /obj/effect/vendor_bundle/specialist
@@ -1337,6 +1340,7 @@
 		/obj/item/medevac_beacon,
 		/obj/item/whistle,
 		/obj/item/clothing/glasses/hud/health,
+		/obj/item/clothing/under/marine/sneaking,
 	)
 
 /obj/effect/vendor_bundle/synth
@@ -1938,6 +1942,14 @@
 	gear_to_spawn = list(
 		/obj/item/clothing/suit/storage/marine/icc/guard/heavy,
 		/obj/item/clothing/head/helmet/marine/icc/guard/heavy,
+	)
+
+//ntf packs
+/obj/effect/vendor_bundle/engi_flamer
+	gear_to_spawn = list(
+		/obj/item/ammo_magazine/flamer_tank/large,
+		/obj/item/clothing/head/modular/tdf/pyro,
+		/obj/item/clothing/suit/modular/tdf/heavy/surt,
 	)
 
 #undef DEFAULT_TOTAL_BUY_POINTS

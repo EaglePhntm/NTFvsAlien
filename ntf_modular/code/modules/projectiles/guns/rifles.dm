@@ -91,6 +91,7 @@
 	name = "high caliber tranq rifle bullet"
 	hud_state = "sniper_heavy"
 	damage_type = STAMINA
+	plasma_drain = 30
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SNIPER
 	damage = 120
 	penetration = 30
@@ -101,7 +102,7 @@
 /datum/ammo/bullet/sniper/pfc/nl/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	if(iscarbon(target_mob))
 		var/mob/living/carbon/carbon_victim = target_mob
-		carbon_victim.reagents.add_reagent(/datum/reagent/toxin/sleeptoxin, rand(5,8), no_overdose = TRUE)
+		carbon_victim.reagents.add_reagent(/datum/reagent/toxin/sleeptoxin, rand(9,12), no_overdose = TRUE)
 
 /obj/item/ammo_magazine/packet/p86x70mm/tranq
 	name = "box of 8.6x70mm tranq"
@@ -156,7 +157,6 @@
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/foldable/bipod,
-		/obj/item/attachable/burstfire_assembly,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/heavy_barrel,
@@ -180,15 +180,47 @@
 	)
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
-	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST,  GUN_FIREMODE_SEMIAUTO)
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC) //no twink ass firemodes, like god intended
 	attachable_offset = list("muzzle_x" = 51, "muzzle_y" = 19,"rail_x" = 25, "rail_y" = 23, "under_x" = 35, "under_y" = 13, "stock_x" = 0, "stock_y" = 13)
-	fire_delay = 0.2 SECONDS
-	burst_delay = 0.15 SECONDS
-	accuracy_mult = 1.15
+	fire_delay = 0.15 SECONDS
+	burst_amount = 1
+	burst_delay = 0.10 SECONDS
+	accuracy_mult = 1
 	wield_delay = 0.7 SECONDS
-	aim_slowdown = 0.2
-	aim_speed_modifier = 2.5
+	actions_types = list(/datum/action/item_action/aim_mode)
+	aim_slowdown = 0.4
+	akimbo_scatter_mod = 24
+	akimbo_additional_delay = 0.8
+	aim_speed_modifier = 3
 	scatter = 0
+	scatter_unwielded = 18
+	accuracy_mult_unwielded = 0.8
+
+/obj/item/weapon/gun/rifle/nt_halter/cqb
+	name = "\improper NT 'Halter-CQB' carbine"
+	desc = "A variant of Halter series standardized NTC bullpup AR design made into a carbine, Chambered in 7.62x38mm. This one is altered for close combat. The smaller frame make it lighter and easier to handle in close range encounters but it suffers from range reduction and overall accuracy."
+	icon = 'ntf_modular/icons/obj/items/guns/rifles64.dmi'
+	attachable_offset = list("muzzle_x" = 39, "muzzle_y" = 19,"rail_x" = 19, "rail_y" = 23, "under_x" = 29, "under_y" = 13, "stock_x" = 0, "stock_y" = 13)
+	icon_state = "haltercqb"
+	worn_icon_state = "haltercqb"
+	fire_delay = 0.125 SECONDS
+	aim_speed_modifier = 2.5
+	aim_slowdown = 0.3
+	scatter = 9
+	accuracy_mult = 0.9
+	scatter_unwielded = 14
+	wield_delay = 0.4 SECONDS
+	damage_falloff_mult = 0.8
+	akimbo_additional_delay = 1.5
+
+/obj/item/weapon/gun/rifle/nt_halter/cqb/elite
+	name = "\improper NT 'Halter-CQB-E' carbine"
+	desc = "A custom variant of Halter series though not obvious from the outside, Chambered in 7.62x38mm. This one is retrofitted with custom, expensive materials and modifications that allow it to be more accurate with longer effective range yet be even lighter."
+	accuracy_mult = 1
+	scatter = 7
+	aim_speed_modifier = 2
+	wield_delay = 0.3 SECONDS
+	damage_falloff_mult = 0.7
 
 //standard mag
 /obj/item/ammo_magazine/rifle/nt_halter
@@ -229,7 +261,7 @@
 //emp mag
 /obj/item/ammo_magazine/rifle/nt_halter/charged
 	name = "\improper NT 'Halter' charged magazine (7.62x38mm Charged)"
-	desc = "A magazine filled with specialized 7.62x38mm rifle rounds to deliver a supercharged blast but loses overall power, for the Halter series of firearms. Inconsistent effect due being a nightmare to produce."
+	desc = "A magazine filled with specialized 7.62x38mm rifle rounds to deliver a supercharged blast but loses overall power, for the Halter series of firearms. Inconsistent effect per bullet unfortuantely."
 	icon_state = "halter_charged"
 	bonus_overlay = "halter_charged"
 	default_ammo = /datum/ammo/bullet/rifle/heavy/halter/charged
@@ -238,31 +270,30 @@
 	name = "charged heavy rifle bullet"
 	hud_state = "rifle_ap"
 	damage = 20
-	penetration = 10
+	penetration = 5
 	sundering = 2
 	shrapnel_chance = 2
 	bullet_color = COLOR_BRIGHT_BLUE
-	var/emp_chance = 25 //spin the wheel WOOOOO
+	var/emp_chance = 10 //spin the wheel WOOOOO
 
 /datum/ammo/bullet/rifle/heavy/halter/charged/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	. = ..()
 	if(prob(emp_chance))
-		empulse(target_mob, 0, 0, 1, 2)
-	if(ishuman(target_mob))
+		do_sparks(3, TRUE, target_mob)
+		empulse(target_mob, 0, 0, 0, 1)
 		staggerstun(target_mob, proj, stagger = 1 SECONDS, slowdown = 1)
-	else
-		staggerstun(target_mob, proj, stagger = 1 SECONDS, slowdown = 1)
-
 
 /datum/ammo/bullet/rifle/heavy/halter/charged/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
 	. = ..()
 	if(prob(emp_chance))
-		empulse(target_obj, 0, 0, 1, 2)
+		do_sparks(3, TRUE, target_obj)
+		empulse(target_obj, 0, 0, 0, 1)
 
 /datum/ammo/bullet/rifle/heavy/halter/charged/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
 	. = ..()
 	if(prob(emp_chance))
-		empulse(target_turf, 0, 0, 1, 2)
+		do_sparks(3, TRUE, target_turf)
+		empulse(target_turf, 0, 0, 0, 1)
 
 //smart mag
 /obj/item/ammo_magazine/rifle/nt_halter/smart
@@ -293,7 +324,6 @@
 	name = "foxfire rifle bullet"
 	hud_state = "rifle_ap"
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY
-	damage = 20
 	bullet_color = COLOR_RED_LIGHT
 
 //laser mag
@@ -305,10 +335,9 @@
 	default_ammo = /datum/ammo/energy/lasgun/halter
 
 /datum/ammo/energy/lasgun/halter
-	//slightly less damage than regular bullets but except laser standard sundering, also same bullet speed.
+	//slightly less damage than regular bullets but except laser standard sundering and bullet speed.
 	name = "halter laser bolt"
-	shell_speed = 3.5
-	damage = 25
+	damage = 27
 	bullet_color = COLOR_RED_LIGHT
 
 //extended mag

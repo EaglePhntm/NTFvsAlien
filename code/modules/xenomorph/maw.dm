@@ -105,7 +105,7 @@
 
 /datum/maw_ammo/smoke/acid_small/on_impact(turf/target)
 	. = ..()
-	for(var/turf/newspray in view(smokeradius*0.5, target))
+	for(var/turf/newspray AS in generate_cone(target, floor(smokeradius * 0.5), -1, 359, 359, pass_flags_checked = PASS_AIR))
 		xenomorph_spray(newspray, duration*2, XENO_DEFAULT_ACID_PUDDLE_DAMAGE)
 
 /datum/maw_ammo/hugger
@@ -118,18 +118,18 @@
 	/// range_turfs that huggers will be dropped around the target
 	var/drop_range = 10
 	/// how many huggers get dropped at once, does not stack on turfs if theres not enough turfs
-	var/hugger_count = 60
+	var/hugger_count = 30
 	///huggers to choose to spawn
 	var/list/hugger_options = list(
-		/obj/item/clothing/mask/facehugger/combat/slash,
-		/obj/item/clothing/mask/facehugger/combat/resin
+		/obj/item/clothing/mask/facehugger/combat/resin,
+		/obj/item/clothing/mask/facehugger/combat/chem_injector/aphrotoxin,
 	)
 	//Adds support for rare hugger types.
 	var/list/hugger_options_rare = list(
-		/obj/item/clothing/mask/facehugger/combat/acid,
+		/obj/item/clothing/mask/facehugger/combat/chem_injector/neuro,
 		/obj/item/clothing/mask/facehugger/combat/chem_injector/ozelomelyn,
-		/obj/item/clothing/mask/facehugger/combat/chem_injector/aphrotoxin,
-		/obj/item/clothing/mask/facehugger/combat/chem_injector/neuro)
+		/obj/item/clothing/mask/facehugger/combat/slash,
+		/obj/item/clothing/mask/facehugger/combat/acid)
 	/// used to track our spawned huggers for animations and stuff
 	var/list/spawned_huggers = list()
 
@@ -269,7 +269,7 @@
 	animate(icon=null)
 
 /datum/maw_ammo/xeno_fire/on_impact(turf/target)
-	for(var/turf/affecting AS in RANGE_TURFS(4, target))
+	for(var/turf/affecting AS in generate_cone(target, 4, -1, 359, 359, pass_flags_checked = PASS_AIR))
 		new /obj/fire/melting_fire(affecting)
 		for(var/mob/living/carbon/fired in affecting)
 			fired.take_overall_damage(20, BURN, FIRE, FALSE, FALSE, TRUE, 0, , max_limbs = 2)
@@ -298,10 +298,7 @@
 
 /obj/structure/xeno/acid_maw/Initialize(mapload, _hivenumber)
 	. = ..()
-	if(hivenumber != XENO_HIVE_CORRUPTED)
-		SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, minimap_icon, MINIMAP_LABELS_LAYER))
-	if(hivenumber == XENO_HIVE_CORRUPTED)
-		SSminimaps.add_marker(src, MINIMAP_FLAG_MARINE, image('icons/UI_icons/map_blips.dmi', null, minimap_icon, MINIMAP_LABELS_LAYER))
+	SSminimaps.add_marker(src, GLOB.hivenumber_to_minimap_flag[hivenumber], image('icons/UI_icons/map_blips.dmi', null, minimap_icon, MINIMAP_LABELS_LAYER))
 	var/list/parsed_maw_options = list()
 	for(var/datum/maw_ammo/path AS in maw_options)
 		parsed_maw_options[path] = image(icon='icons/mob/radial.dmi', icon_state=path::radial_icon_state)
@@ -352,7 +349,7 @@
 			balloon_alert(xeno_shooter, "cooldown: [timeleft/10] seconds")
 		return FALSE
 
-	var/atom/movable/screen/minimap/map = SSminimaps.fetch_minimap_object(z, MINIMAP_FLAG_XENO)
+	var/atom/movable/screen/minimap/map = SSminimaps.fetch_minimap_object(z, GLOB.hivenumber_to_minimap_flag[hivenumber])
 	xeno_shooter.client.screen += map
 	var/list/polled_coords = map.get_coords_from_click(xeno_shooter)
 	xeno_shooter?.client?.screen -= map

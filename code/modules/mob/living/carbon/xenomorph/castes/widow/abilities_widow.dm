@@ -2,7 +2,6 @@
 // *********** Resin building
 // ***************************************
 /datum/action/ability/activable/xeno/secrete_resin/widow
-	ability_cost = 100
 	buildable_structures = list(
 		/turf/closed/wall/resin/regenerating/thick,
 		/turf/closed/wall/resin/membrane,
@@ -14,6 +13,7 @@
 		/turf/closed/wall/resin/regenerating/special/bulletproof,
 		/turf/closed/wall/resin/regenerating/special/fireproof,
 		/turf/closed/wall/resin/regenerating/special/hardy,
+		/obj/structure/bed/nest/advanced,
 	)
 
 // ***************************************
@@ -128,7 +128,7 @@
 		return COMPONENT_MOVABLE_BLOCK_PRE_MOVE
 
 /// This is so that xenos can remove leash balls
-/obj/structure/xeno/aoe_leash/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/structure/xeno/aoe_leash/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(xeno_attacker.status_flags & INCORPOREAL)
 		return
 	if(HAS_TRAIT(xeno_attacker, TRAIT_WEB_PULLER))
@@ -181,10 +181,10 @@
 
 /datum/action/ability/xeno_action/create_spiderling/give_action(mob/living/L)
 	. = ..()
-	var/max_spiderlings = xeno_owner?.xeno_caste.max_spiderlings ? xeno_owner.xeno_caste.max_spiderlings : 8
+	var/max_spiderlings = xeno_owner?.xeno_caste.max_spiderlings ? xeno_owner.xeno_caste.max_spiderlings : 5
 	desc = "Give birth to a spiderling after a short charge-up. The spiderlings will follow you until death. You can only deploy [max_spiderlings] spiderlings at one time. On alt-use, if any charges of Cannibalise are stored, create a spiderling at no plasma cost or cooldown."
 
-/datum/action/ability/xeno_action/create_spiderling/can_use_action(silent = FALSE, override_flags)
+/datum/action/ability/xeno_action/create_spiderling/can_use_action(silent, override_flags, selecting)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -311,7 +311,7 @@
 	succeed_activate()
 
 /// Burrow code for xenomorphs
-/datum/action/ability/xeno_action/burrow/proc/xeno_burrow()
+/datum/action/ability/xeno_action/burrow/proc/xeno_burrow(datum/source, damage_amount, mob/living/attacker)
 	SIGNAL_HANDLER
 	if(!HAS_TRAIT(xeno_owner, TRAIT_BURROWED))
 		to_chat(xeno_owner, span_xenowarning("We start burrowing into the ground..."))

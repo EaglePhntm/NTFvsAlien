@@ -1,6 +1,6 @@
 #define ALLTIPS (SSstrings.get_list_from_file("tips/marine") + SSstrings.get_list_from_file("tips/xeno") + SSstrings.get_list_from_file("tips/meme") + SSstrings.get_list_from_file("tips/meta") + SSstrings.get_list_from_file("tips/HvH"))
 
-#define SYNTH_TYPES list("Synthetic","Early Synthetic")
+#define SYNTH_TYPES list("Synthetic","Early Synthetic","Robot")
 
 #define ROBOT_TYPES list("Basic","Hammerhead","Chilvaris","Ratcher","Sterling")
 
@@ -60,8 +60,6 @@ GLOBAL_LIST_INIT(poster_designs, subtypesof(/datum/poster))
 		var/list/reaction_ids = list()
 
 		if(length(D.required_reagents))
-			for(var/result in D.results)
-
 			for(var/reaction in D.required_reagents)
 				reaction_ids += reaction
 

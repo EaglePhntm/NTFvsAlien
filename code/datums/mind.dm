@@ -52,9 +52,12 @@
 
 
 /datum/mind/Destroy(force, ...)
+	var/occurences = SSticker.minds.RemoveAll(src)
+	if(occurences > 1)
+		stack_trace("[logdetails(src)][REF(src)] found more than once in SSticker.minds while deleting!")
+	else if (occurences < 1 && !isnewplayer(current))
+		stack_trace("[logdetails(src)][REF(src)] not found in SSticker.minds while deleting!")
 	current = null
-	if(initial_account)
-		QDEL_NULL(initial_account)
 	return ..()
 
 /datum/mind/serialize_list(list/options, list/semvers)
@@ -71,6 +74,8 @@
 	return .
 
 /datum/mind/proc/transfer_to(mob/new_character, force_key_move = FALSE)
+	if(!isnewplayer(new_character))
+		new_character.pose = current.pose
 	if(current)	// remove ourself from our old body's mind variable
 		current.mind = null
 		SStgui.on_transfer(current, new_character)
@@ -129,7 +134,7 @@
 	if(!mind.name)
 		mind.name = real_name
 	mind.current = src
-	SSticker.minds += mind
+	SSticker.minds |= mind
 
 /datum/mind/Topic(href, href_list)
 	if(!check_rights(R_ADMIN))

@@ -29,11 +29,11 @@
 		user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] drops wax on [target]'s body..."))
 
 	user.sexcon.perform_sex_action(target, 0.5, 0, TRUE)
-	target.sexcon.handle_passive_ejaculation()
+	target.sexcon.handle_passive_ejaculation(user)
 
 	if(prob(33))
 		to_chat(target, span_warning("It's hot!"))
-		playsound(src, 'sound/items/cig_snuff.ogg', 20)
+		playsound(src, 'sound/items/cig_snuff.ogg', 20, FALSE, 7, ignore_walls = FALSE)
 
 /datum/sex_action/candle_body/on_finish(mob/living/carbon/user, mob/living/carbon/target)
 	user.visible_message(span_warning("[user] stops dropping wax on [target]'s body..."))

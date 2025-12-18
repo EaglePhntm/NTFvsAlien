@@ -203,6 +203,16 @@
 	..()
 	return INITIALIZE_HINT_QDEL
 
+/obj/effect/landmark/zombie_spawner
+	name = "zombie tunnel spawn landmark"
+	icon = 'icons/Xeno/Effects.dmi'
+	icon_state = "hole"
+
+/obj/effect/landmark/zombie_spawner/Initialize(mapload)
+	GLOB.zombie_spawner_turfs += loc
+	..()
+	return INITIALIZE_HINT_QDEL
+
 /obj/effect/landmark/nuke_spawn
 	name = "nuke spawn landmark"
 	icon_state = "tdome_observer"
@@ -403,9 +413,8 @@
 		/obj/item/weapon/gun/rifle/lmg_d,
 		/obj/item/weapon/gun/rifle/type71/commando,
 		/obj/item/weapon/gun/rifle/m412/elite,
-		/obj/item/weapon/gun/rifle/sniper/elite,
+		/obj/item/weapon/gun/rifle/sniper/pmc_railgun,
 		/obj/item/weapon/gun/smg/m25/elite,
-		/obj/item/weapon/gun/rifle/sniper/elite/xmas,
 		/obj/item/weapon/gun/rifle/sniper/antimaterial,
 		/obj/item/weapon/gun/rifle/railgun,
 		/obj/item/weapon/gun/rifle/icc_coilgun,

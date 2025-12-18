@@ -15,7 +15,7 @@
 
 /datum/sex_action/force_suck_balls/on_start(mob/living/carbon/user, mob/living/carbon/target)
 	user.visible_message(span_warning("[user] forces [target]'s head down to swallow and suck on [user.p_their()] balls!"))
-	playsound(target, pick(list('ntf_modular/sound/misc/mat/insert (1).ogg','ntf_modular/sound/misc/mat/insert (2).ogg')), 20, TRUE)
+	playsound(target, pick(list('ntf_modular/sound/misc/mat/insert (1).ogg','ntf_modular/sound/misc/mat/insert (2).ogg')), 20, TRUE, 7, ignore_walls = FALSE)
 
 /datum/sex_action/force_suck_balls/on_perform(mob/living/carbon/user, mob/living/carbon/target)
 	if(user.sexcon.do_message_signature("[type]"))
@@ -25,7 +25,7 @@
 	user.sexcon.perform_sex_action(user, 2, 4, TRUE)
 	if(user.sexcon.check_active_ejaculation())
 		user.visible_message(span_love("cums on [target]'s head!"))
-		user.sexcon.cum_onto()
+		user.sexcon.cum_onto(target)
 		if(isxeno(user))
 			target.adjustFireLoss(5, TRUE)
 
@@ -35,7 +35,7 @@
 		if(isxeno(user))
 			oxyloss *= 2
 		user.sexcon.perform_deepthroat_oxyloss(target, oxyloss)
-	target.sexcon.handle_passive_ejaculation()
+	target.sexcon.handle_passive_ejaculation(user)
 
 /datum/sex_action/force_suck_balls/on_finish(mob/living/carbon/user, mob/living/carbon/target)
 	user.visible_message(span_warning("[user] pulls [user.p_their()] balls out of [target]'s mouth."))

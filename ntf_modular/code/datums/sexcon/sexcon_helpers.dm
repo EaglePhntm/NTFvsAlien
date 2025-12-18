@@ -2,48 +2,47 @@
 	mid_sounds = list('ntf_modular/sound/vo/female/gen/se/horny1loop (1).ogg')
 	mid_length = 470
 	volume = 20
-
+	range = 7
 
 /datum/looping_sound/femhornylitealt
 	mid_sounds = list('ntf_modular/sound/vo/female/gen/se/horny1loop (2).ogg')
 	mid_length = 360
 	volume = 20
-
+	range = 7
 
 /datum/looping_sound/femhornymed
 	mid_sounds = list('ntf_modular/sound/vo/female/gen/se/horny2loop (1).ogg')
 	mid_length = 420
 	volume = 20
-
+	range = 7
 
 /datum/looping_sound/femhornymedalt
 	mid_sounds = list('ntf_modular/sound/vo/female/gen/se/horny2loop (2).ogg')
 	mid_length = 350
 	volume = 20
-
+	range = 7
 
 /datum/looping_sound/femhornyhvy
 	mid_sounds = list('ntf_modular/sound/vo/female/gen/se/horny3loop (1).ogg')
 	mid_length = 440
 	volume = 20
-
+	range = 7
 
 /datum/looping_sound/femhornyhvyalt
 	mid_sounds = list('ntf_modular/sound/vo/female/gen/se/horny3loop (2).ogg')
 	mid_length = 390
 	volume = 20
+	range = 7
 
-/mob/living/carbon/verb/erp_panel()
+/mob/living/verb/erp_panel()
 	set category = "IC"
 	set name = "ERP Panel"
 	set desc = "Fuck 'em"
 	set src in view(1)
 	erptime(usr, src)
 
-/mob/living/carbon/proc/erptime(mob/living/carbon/user, mob/living/carbon/target)
+/mob/living/proc/erptime(mob/living/user, mob/living/target)
 	if(!istype(target))
-		return
-	if(!iscarbon(target))
 		return
 	var/datum/sex_controller/usersexcon = user.sexcon
 	usersexcon.start(target)
@@ -85,9 +84,9 @@
 
 /mob/living/proc/make_sucking_noise()
 	if(gender == FEMALE)
-		playsound(src, pick('ntf_modular/sound/misc/mat/girlmouth (1).ogg','ntf_modular/sound/misc/mat/girlmouth (2).ogg'), 25, TRUE)
+		playsound(src, pick('ntf_modular/sound/misc/mat/girlmouth (1).ogg','ntf_modular/sound/misc/mat/girlmouth (2).ogg'), 25, TRUE, 7, ignore_walls = FALSE)
 	else
-		playsound(src, pick('ntf_modular/sound/misc/mat/guymouth (1).ogg','ntf_modular/sound/misc/mat/guymouth (2).ogg','ntf_modular/sound/misc/mat/guymouth (3).ogg','ntf_modular/sound/misc/mat/guymouth (4).ogg','ntf_modular/sound/misc/mat/guymouth (5).ogg'), 35, TRUE)
+		playsound(src, pick('ntf_modular/sound/misc/mat/guymouth (1).ogg','ntf_modular/sound/misc/mat/guymouth (2).ogg','ntf_modular/sound/misc/mat/guymouth (3).ogg','ntf_modular/sound/misc/mat/guymouth (4).ogg','ntf_modular/sound/misc/mat/guymouth (5).ogg'), 35, TRUE, 7, ignore_walls = FALSE)
 
 /mob/living/proc/get_highest_grab_state_on(mob/living/victim)
 	if(victim.pulledby == src)
@@ -100,7 +99,9 @@
 	new /obj/effect/decal/cleanable/blood/splatter/cum(turfu)
 
 //adds larva to a host.
-/mob/living/carbon/xenomorph/proc/impregify(mob/living/carbon/human/victim, overrideflavor, maxlarvas = MAX_LARVA_PREGNANCIES, damaging = TRUE, damagemult = 1, damageloc = BODY_ZONE_PRECISE_GROIN)
+/mob/living/carbon/xenomorph/proc/impregify(mob/living/carbon/victim, overrideflavor, maxlarvas = MAX_LARVA_PREGNANCIES, damaging = TRUE, damagemult = 1, damageloc = BODY_ZONE_PRECISE_GROIN)
+	if(!istype(victim))
+		return
 	victim.reagents.remove_reagent(/datum/reagent/toxin/xeno_aphrotoxin, 10)
 	if(damaging)
 		new /obj/effect/decal/cleanable/blood/splatter/xenocum(loc)
@@ -167,10 +168,14 @@
 		var/psy_points_reward = PSY_DRAIN_REWARD_MIN + ((HIGH_PLAYER_POP - SSmonitor.maximum_connected_players_count) / HIGH_PLAYER_POP * (PSY_DRAIN_REWARD_MAX - PSY_DRAIN_REWARD_MIN))
 		psy_points_reward = clamp(psy_points_reward, PSY_DRAIN_REWARD_MIN, PSY_DRAIN_REWARD_MAX)
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_HIVE_TARGET_DRAINED, src, victim)
-		psy_points_reward = psy_points_reward * 3
+		psy_points_reward = psy_points_reward * 5
 		SSpoints.add_strategic_psy_points(hivenumber, psy_points_reward)
 		SSpoints.add_tactical_psy_points(hivenumber, psy_points_reward*0.25)
-		var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+		GLOB.round_statistics.strategic_psypoints_from_hive_target_rewards += psy_points_reward
+		GLOB.round_statistics.hive_target_rewards++
+		GLOB.round_statistics.biomass_from_hive_target_rewards += MUTATION_BIOMASS_PER_HIVE_TARGET_REWARD
+		SSpoints.add_biomass_points(hivenumber, MUTATION_BIOMASS_PER_HIVE_TARGET_REWARD)
+		var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
 		xeno_job.add_job_points(1) //can be made a var if need be.
 		hive.update_tier_limits()
 
@@ -179,13 +184,14 @@
 		to_chat(src, span_alien("We feel a new larva forming within us."))
 		addtimer(CALLBACK(src, PROC_REF(xenobirth)), 5 MINUTES)
 		preggo = TRUE
+		return TRUE
 
 /mob/living/carbon/xenomorph/proc/xenobirth()
 	preggo = FALSE
 	GLOB.round_statistics.total_larva_burst++
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "total_larva_burst")
-	playsound(src, pick('sound/voice/alien/chestburst.ogg','sound/voice/alien/chestburst2.ogg'), 10)
+	playsound(src, pick('sound/voice/alien/chestburst.ogg','sound/voice/alien/chestburst2.ogg'), 10, FALSE, 7, ignore_walls = FALSE)
 	visible_message(span_warning("a larva drops out of [usr]'s cunt and burrows away!"), span_warning("a larva drops out of our cunt and burrows away."), span_warning("You hear a splatter."), 5)
-	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+	var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
 	xeno_job.add_job_points(1) //can be made a var if need be.
 	hive.update_tier_limits()

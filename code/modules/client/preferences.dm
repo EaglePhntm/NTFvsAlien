@@ -133,7 +133,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/nsfwprofile_pic = ""
 	var/xenoprofile_pic = ""
 	var/xenogender = 1
-	var/harmful_sex_allowed = TRUE
+	var/harmful_sex_flags = HARMFUL_SEX_ALL
 	var/burst_screams_enabled = TRUE
 
 	var/list/exp = list()
@@ -263,7 +263,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 
 	// We don't have a savefile or we failed to load them
-	random_character()
+	random_character(/datum/species/human)
 	menuoptions = list()
 	key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key) // give them default keybinds and update their movement keys
 	save_keybinds()

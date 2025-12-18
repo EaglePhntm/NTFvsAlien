@@ -7,6 +7,13 @@
 	static_lighting = 1;
 	ceiling = 2
 	})
+"aaV" = (
+/obj/machinery/power/smes/buildable/empty/backup,
+/obj/structure/cable,
+/turf/open/floor/marking/asteroidwarning{
+	dir = 9
+	},
+/area/lv624/lazarus/armory)
 "abp" = (
 /obj/structure/window/framed/colony/reinforced,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -719,6 +726,10 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
+"aVg" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/lazarus/armory)
 "aWb" = (
 /obj/structure/cable,
 /turf/open/floor/mainship/floor,
@@ -956,6 +967,14 @@
 /obj/structure/mineral_door/wood,
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/hallways/hangar)
+"bnM" = (
+/obj/machinery/door/poddoor/four_tile_hor/secure,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/ground/caves{
+	ceiling = 2;
+	name = "HQ Tunnels";
+	always_unpowered = 0
+	})
 "bnS" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 1
@@ -1654,8 +1673,9 @@
 /area/mainship/engineering/engine_core)
 "cnk" = (
 /obj/structure/rack,
-/turf/open/floor/plating/asteroidwarning{
-	dir = 1
+/obj/structure/cable,
+/turf/open/floor/marking/asteroidwarning{
+	dir = 8
 	},
 /area/lv624/lazarus/armory)
 "cnm" = (
@@ -1698,7 +1718,7 @@
 	outside = 0
 	})
 "cnX" = (
-/obj/machinery/door/poddoor/four_tile_ver,
+/obj/machinery/door/poddoor/four_tile_ver/secure,
 /turf/open/floor/plating/ground/snow/layer1,
 /area/lv624/ground/caves{
 	ceiling = 2;
@@ -2001,6 +2021,10 @@
 "cGN" = (
 /turf/open/floor/wood,
 /area/mainship/groundhq/ntf/living/commandbunks)
+"cHc" = (
+/obj/machinery/vending/armor_supply/icc/clf,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/lazarus/armory)
 "cHf" = (
 /obj/machinery/door/airlock/mainship/generic/pilot,
 /obj/machinery/door/firedoor/mainship,
@@ -2183,7 +2207,6 @@
 "cQZ" = (
 /obj/structure/rack,
 /obj/item/storage/toolbox/electrical,
-/obj/item/storage/holster/belt/pistol/g22/tranq,
 /turf/open/floor/tile/red/redtaupecorner{
 	dir = 4
 	},
@@ -2236,6 +2259,10 @@
 /area/mainship/groundhq/ntf/hallways/stern_hallway{
 	name = "HQ Western hallways"
 	})
+"cVs" = (
+/obj/machinery/vending/uniform_supply/icc/clf,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/lazarus/armory)
 "cVW" = (
 /obj/structure/table/wood,
 /obj/item/storage/fancy/candle_box,
@@ -2424,6 +2451,10 @@
 /obj/machinery/vending/coffee,
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/engineering/engineering_workshop)
+"dhO" = (
+/obj/machinery/chem_dispenser,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/lazarus/armory)
 "diS" = (
 /obj/structure/table/wood,
 /obj/machinery/computer/secure_data{
@@ -3839,6 +3870,14 @@
 	dir = 8
 	},
 /area/mainship/groundhq/ntf/shipboard/brig_cells)
+"fbc" = (
+/obj/effect/landmark/start/job/xenomorph,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/ground/caves{
+	ceiling = 2;
+	name = "HQ Tunnels";
+	always_unpowered = 0
+	})
 "fbl" = (
 /obj/structure/bed/chair/wood/wings{
 	dir = 8
@@ -4789,15 +4828,9 @@
 	},
 /area/mainship/shipboard/sensors)
 "gxH" = (
-/obj/structure/table/black,
-/obj/item/tool/surgery/scalpel/laser3,
-/obj/effect/decal/cleanable/blood,
+/obj/machinery/vending/MarineMed/icc/clf,
 /turf/open/floor/plating/ground/snow/layer0,
-/area/lv624/ground/caves{
-	ceiling = 2;
-	name = "HQ Tunnels";
-	always_unpowered = 0
-	})
+/area/lv624/lazarus/armory)
 "gyo" = (
 /obj/structure/filingcabinet,
 /turf/open/floor/wood,
@@ -4941,6 +4974,10 @@
 /area/mainship/command/corporateliaison{
 	name = "Ground CEO Office"
 	})
+"gLS" = (
+/obj/item/storage/box/crate/minisentry,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/lazarus/armory)
 "gMZ" = (
 /obj/structure/cable,
 /obj/structure/window/framed/mainship,
@@ -5049,13 +5086,9 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/hangar2)
 "gUD" = (
-/obj/item/restraints/handcuffs,
+/obj/machinery/autodoc,
 /turf/open/floor/plating/ground/snow/layer0,
-/area/lv624/ground/caves{
-	ceiling = 2;
-	name = "HQ Tunnels";
-	always_unpowered = 0
-	})
+/area/lv624/lazarus/armory)
 "gUU" = (
 /obj/structure/table/mainship,
 /obj/item/stock_parts/scanning_module,
@@ -5192,11 +5225,7 @@
 /obj/structure/closet/crate/secure/surgery,
 /obj/item/storage/firstaid/adv,
 /turf/open/floor/plating/ground/snow/layer0,
-/area/lv624/ground/caves{
-	ceiling = 2;
-	name = "HQ Tunnels";
-	always_unpowered = 0
-	})
+/area/lv624/lazarus/armory)
 "heS" = (
 /obj/machinery/firealarm,
 /turf/open/floor/plating/plating_catwalk,
@@ -6115,6 +6144,10 @@
 /area/mainship/command/corporateliaison{
 	name = "Ground CEO Office"
 	})
+"ilO" = (
+/obj/item/restraints/handcuffs,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/lazarus/armory)
 "inc" = (
 /obj/effect/ai_node,
 /turf/open/floor/carpet{
@@ -6751,7 +6784,8 @@
 	name = "CC Office"
 	})
 "jcT" = (
-/obj/effect/forcefield/fog,
+/obj/structure/xeno/pherotower,
+/obj/effect/landmark/start/job/xenomorph,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/lv624/ground/caves{
 	ceiling = 2;
@@ -6919,9 +6953,7 @@
 "jnM" = (
 /obj/structure/cable,
 /obj/item/storage/toolbox/mechanical,
-/obj/machinery/power/smes{
-	output_level = 200000
-	},
+/obj/machinery/power/smes/buildable/empty/dist,
 /turf/open/floor/mainship/cargo,
 /area/mainship/groundhq/ntf/engineering/engine_core)
 "jnO" = (
@@ -7018,8 +7050,9 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/living/bridgebunks)
 "juR" = (
-/obj/structure/cable,
-/turf/open/floor/plating/asteroidwarning,
+/turf/open/floor/plating/asteroidwarning{
+	dir = 4
+	},
 /area/lv624/lazarus/armory)
 "jvr" = (
 /obj/structure/closet/crate/mass_produced_crate/construction,
@@ -7354,15 +7387,11 @@
 /area/mainship/groundhq/ntf/hallways/hangar)
 "jQE" = (
 /obj/structure/cable,
-/obj/machinery/power/fusion_engine/random,
-/turf/open/floor/plating/asteroidwarning{
-	dir = 6
+/obj/machinery/power/terminal{
+	dir = 1
 	},
-/area/lv624/ground/caves{
-	ceiling = 2;
-	name = "HQ Tunnels";
-	always_unpowered = 0
-	})
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/groundhq/ntf/engineering/engine_core)
 "jQP" = (
 /obj/machinery/vending/coffee,
 /obj/machinery/light{
@@ -9191,12 +9220,8 @@
 	},
 /area/mainship/groundhq/ntf/shipboard/brig)
 "mCl" = (
-/turf/open/floor/plating/asteroidwarning,
-/area/lv624/ground/caves{
-	ceiling = 2;
-	name = "HQ Tunnels";
-	always_unpowered = 0
-	})
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/lazarus/armory)
 "mCK" = (
 /obj/effect/landmark/itemspawner/sexyclown,
 /turf/open/floor/plating/plating_catwalk,
@@ -10554,6 +10579,10 @@
 /obj/structure/closet/secure_closet/guncabinet/mp_armory,
 /turf/open/floor/mainship/red/full,
 /area/mainship/groundhq/ntf/engineering/engineering_workshop)
+"oxx" = (
+/obj/machinery/loadout_vendor,
+/turf/open/floor/mainship/mono,
+/area/mainship/squads/req)
 "oxF" = (
 /obj/machinery/light{
 	dir = 4
@@ -10605,8 +10634,6 @@
 /obj/item/paper/jobs{
 	info = "We were sent here by the nearby hive's queen to assist the lone masters breed a new hive, we oughta find the xenomorph and assist it kidnapping colonists, Best keep things quiet, lest back up arrives. We need to first confirm this is the place by finding the lone xenomorphs before getting to work."
 	},
-/obj/item/explosive/grenade/smokebomb/sleep,
-/obj/item/explosive/grenade/smokebomb/sleep,
 /obj/item/reagent_containers/hypospray/autoinjector/sleeptoxin,
 /obj/item/reagent_containers/hypospray/autoinjector/sleeptoxin,
 /turf/open/floor/mainship/mono,
@@ -10996,16 +11023,8 @@
 /turf/open/floor/plating/ground/snow/layer3,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "oZE" = (
-/obj/machinery/power/smes/preset,
-/obj/structure/cable,
-/turf/open/floor/plating/asteroidwarning{
-	dir = 1
-	},
-/area/lv624/ground/caves{
-	ceiling = 2;
-	name = "HQ Tunnels";
-	always_unpowered = 0
-	})
+/turf/open/floor/plating/asteroidwarning,
+/area/lv624/lazarus/armory)
 "oZX" = (
 /obj/structure/closet/secure_closet/medical1,
 /turf/open/floor/mainship/sterile/purple,
@@ -11401,6 +11420,10 @@
 	dir = 8
 	},
 /area/mainship/shipboard/sensors)
+"pwK" = (
+/obj/machinery/vending/weapon/clf,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/lazarus/armory)
 "pwP" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -11556,13 +11579,9 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/hallways/hangar)
 "pEp" = (
-/obj/item/storage/toolbox/mechanical,
+/obj/machinery/computer/autodoc_console,
 /turf/open/floor/plating/ground/snow/layer0,
-/area/lv624/ground/caves{
-	ceiling = 2;
-	name = "HQ Tunnels";
-	always_unpowered = 0
-	})
+/area/lv624/lazarus/armory)
 "pGc" = (
 /obj/structure/xeno/evotower,
 /turf/open/floor/plating/ground/snow/layer0,
@@ -12997,6 +13016,13 @@
 /obj/effect/spawner/random/misc/structure/supplycrate,
 /turf/open/floor/plating/ground/snow/layer3,
 /area/desert_dam/exterior/valley/valley_wilderness)
+"rqx" = (
+/obj/structure/table/black,
+/obj/item/tool/surgery/scalpel/laser3,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/lazarus/armory)
 "rqU" = (
 /obj/machinery/vending/dinnerware,
 /turf/open/floor/wood,
@@ -13033,6 +13059,10 @@
 /obj/structure/bed/chair/sofa/right,
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/command/cic)
+"rsE" = (
+/obj/machinery/vending/medical/clf,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/lazarus/armory)
 "rsI" = (
 /turf/open/floor/mainship/mono,
 /area/mainship/living/grunt_rnr)
@@ -13215,9 +13245,7 @@
 "rGR" = (
 /obj/structure/cable,
 /obj/item/clothing/glasses/welding,
-/obj/machinery/power/smes{
-	output_level = 200000
-	},
+/obj/machinery/power/smes/buildable/empty/dist,
 /turf/open/floor/mainship/cargo,
 /area/mainship/groundhq/ntf/engineering/engine_core)
 "rHL" = (
@@ -13443,8 +13471,9 @@
 /obj/structure/rack,
 /obj/item/clothing/glasses/welding,
 /obj/item/tool/weldpack,
-/turf/open/floor/plating/asteroidwarning{
-	dir = 1
+/obj/structure/cable,
+/turf/open/floor/marking/asteroidwarning{
+	dir = 8
 	},
 /area/lv624/lazarus/armory)
 "sam" = (
@@ -13595,6 +13624,13 @@
 /obj/machinery/reagentgrinder,
 /turf/open/floor/wood,
 /area/mainship/living/grunt_rnr)
+"slm" = (
+/obj/machinery/power/fusion_engine/random,
+/obj/structure/cable,
+/turf/open/floor/marking/asteroidwarning{
+	dir = 1
+	},
+/area/lv624/lazarus/armory)
 "smd" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
@@ -13757,7 +13793,7 @@
 /obj/structure/cable,
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/spacetwinkie,
-/obj/item/storage/box/ntc_mre,
+/obj/item/storage/box/tgmc_mre,
 /obj/item/storage/box/nt_mre,
 /turf/open/floor/wood,
 /area/mainship/command/corporateliaison{
@@ -13939,6 +13975,10 @@
 /area/mainship/groundhq/ntf/hallways/starboard_hallway{
 	name = "HQ Central Hallways"
 	})
+"sKN" = (
+/obj/structure/cable,
+/turf/open/floor/asteroidfloor,
+/area/lv624/lazarus/armory)
 "sLe" = (
 /obj/structure/bed/chair/wood/wings,
 /turf/open/floor/wood,
@@ -14098,6 +14138,15 @@
 "sWj" = (
 /turf/open/floor/wood,
 /area/mainship/hallways/ntf/dorm1)
+"sWK" = (
+/obj/alien/weeds/node/resting,
+/obj/effect/landmark/start/job/xenomorph,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/ground/caves{
+	ceiling = 2;
+	name = "HQ Tunnels";
+	always_unpowered = 0
+	})
 "sYg" = (
 /obj/machinery/iv_drip,
 /turf/open/floor/mainship/sterile,
@@ -14389,6 +14438,10 @@
 /area/mainship/groundhq/ntf/hallways/stern_hallway{
 	name = "HQ Western hallways"
 	})
+"ttX" = (
+/obj/machinery/chem_master,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/lazarus/armory)
 "tua" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
@@ -15815,18 +15868,8 @@
 /turf/open/floor/tile/barber,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "vzz" = (
-/obj/structure/cable,
-/obj/machinery/power/terminal{
-	dir = 8
-	},
-/turf/open/floor/plating/asteroidwarning{
-	dir = 5
-	},
-/area/lv624/ground/caves{
-	ceiling = 2;
-	name = "HQ Tunnels";
-	always_unpowered = 0
-	})
+/turf/closed/mineral/smooth,
+/area/lv624/lazarus/armory)
 "vzV" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
@@ -16639,10 +16682,9 @@
 	},
 /area/mainship/groundhq/ntf/medical/medical_science)
 "wBQ" = (
-/turf/open/floor/mainship/cargo/arrow{
-	dir = 4
-	},
-/area/mainship/groundhq/ntf/engineering/engine_core)
+/obj/machinery/loadout_vendor/clf,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/lazarus/armory)
 "wBV" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 1
@@ -17373,16 +17415,14 @@
 	name = "Kitchen"
 	})
 "xEm" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/blood/splatter/cum,
+/obj/item/storage/toolbox/mechanical,
 /turf/open/floor/plating/ground/snow/layer0,
-/area/lv624/ground/caves{
-	ceiling = 2;
-	name = "HQ Tunnels";
-	always_unpowered = 0
-	})
+/area/lv624/lazarus/armory)
+"xEp" = (
+/obj/structure/cable,
+/obj/machinery/power/geothermal,
+/turf/open/floor/mainship/cargo,
+/area/mainship/groundhq/ntf/engineering/engine_core)
 "xEq" = (
 /obj/structure/window_frame,
 /turf/open/floor/plating/plating_catwalk,
@@ -17430,6 +17470,14 @@
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/mainship/hallways/ntf/dorm1)
+"xFv" = (
+/obj/structure/bed/chair{
+	dir = 8;
+	pixel_y = 4
+	},
+/obj/effect/decal/cleanable/blood/splatter/cum,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/lazarus/armory)
 "xGO" = (
 /obj/structure/mineral_door/wood,
 /obj/structure/cable,
@@ -17469,6 +17517,15 @@
 /area/mainship/groundhq/ntf/hallways/starboard_hallway{
 	name = "HQ Central Hallways"
 	})
+"xIG" = (
+/obj/structure/cable,
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/turf/open/floor/plating/asteroidwarning{
+	dir = 1
+	},
+/area/lv624/lazarus/armory)
 "xII" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
 /obj/item/reagent_containers/food/snacks/omelette,
@@ -19840,9 +19897,9 @@ wrI
 jeW
 pkj
 ros
-ros
-wBQ
-ros
+mXc
+iwi
+mXc
 iAX
 doP
 doP
@@ -19947,9 +20004,9 @@ yeP
 qZn
 uhM
 ros
-mXc
-iwi
-mXc
+dGK
+nOT
+dGK
 iAX
 oGw
 doP
@@ -20162,7 +20219,7 @@ kAJ
 uXv
 soH
 dGK
-nOT
+xEp
 dGK
 iAX
 nAw
@@ -20377,7 +20434,7 @@ pkj
 jJo
 dGK
 jnM
-dGK
+jQE
 iAX
 nUZ
 nAw
@@ -20484,7 +20541,7 @@ iAX
 hie
 dGK
 rGR
-dGK
+jQE
 iAX
 oGw
 oGw
@@ -23141,7 +23198,7 @@ iCa
 rXW
 qFg
 qpA
-qFg
+oxx
 qFg
 lQa
 mDb
@@ -27815,7 +27872,7 @@ hKj
 "}
 (94,1,1) = {"
 hKj
-hKj
+xRz
 hKj
 hKj
 hKj
@@ -27922,7 +27979,7 @@ hKj
 "}
 (95,1,1) = {"
 hKj
-hKj
+xRz
 hKj
 hKj
 hKj
@@ -28029,8 +28086,8 @@ hKj
 "}
 (96,1,1) = {"
 hKj
-hKj
-hKj
+xRz
+oGw
 hKj
 hKj
 hKj
@@ -28136,8 +28193,8 @@ hKj
 "}
 (97,1,1) = {"
 hKj
-hKj
-hKj
+bnM
+oGw
 hKj
 hKj
 hKj
@@ -28242,10 +28299,10 @@ hKj
 hKj
 "}
 (98,1,1) = {"
-pVG
-jcT
-oGw
 hKj
+oGw
+oGw
+oGw
 hKj
 hKj
 hKj
@@ -28349,8 +28406,8 @@ hKj
 hKj
 "}
 (99,1,1) = {"
-pVG
-jcT
+hKj
+oGw
 oGw
 oGw
 oGw
@@ -28456,8 +28513,8 @@ hKj
 hKj
 "}
 (100,1,1) = {"
-pVG
-jcT
+hKj
+oGw
 oGw
 oGw
 oGw
@@ -28564,8 +28621,8 @@ hKj
 "}
 (101,1,1) = {"
 hKj
-hKj
-hKj
+xRz
+oGw
 oGw
 oGw
 oGw
@@ -28671,7 +28728,7 @@ hKj
 "}
 (102,1,1) = {"
 hKj
-hKj
+xRz
 hKj
 hKj
 hKj
@@ -28778,7 +28835,7 @@ hKj
 "}
 (103,1,1) = {"
 hKj
-hKj
+xRz
 hKj
 hKj
 hKj
@@ -30830,7 +30887,7 @@ hKj
 hKj
 hKj
 hyC
-mcR
+sWK
 oGw
 hKj
 hKj
@@ -30940,7 +30997,7 @@ oGw
 oGw
 oGw
 oGw
-aRY
+jcT
 hKj
 hKj
 hKj
@@ -31145,7 +31202,7 @@ oGw
 oGw
 hKj
 oGw
-oGw
+fbc
 oGw
 oGw
 oGw
@@ -31255,13 +31312,13 @@ hKj
 hKj
 oGw
 oGw
-mcR
+sWK
 oGw
 oGw
 oGw
 oGw
 oGw
-oGw
+fbc
 hKj
 hKj
 hKj
@@ -31365,7 +31422,7 @@ hKj
 hKj
 oGw
 oGw
-oGw
+fbc
 mcR
 oGw
 aRY
@@ -34199,8 +34256,8 @@ npt
 npt
 npt
 npt
-npt
-npt
+hKj
+hKj
 hKj
 hKj
 doP
@@ -34306,9 +34363,9 @@ npt
 npt
 npt
 npt
-npt
-npt
 hKj
+aaV
+cnk
 rZn
 azO
 vym
@@ -34413,10 +34470,10 @@ npt
 npt
 npt
 npt
-npt
 hKj
-hKj
-cnk
+xIG
+sKN
+juR
 juR
 tZf
 xfa
@@ -34520,11 +34577,11 @@ npt
 npt
 npt
 npt
-npt
 hKj
-doP
 pwY
-juR
+oZE
+vzz
+vzz
 tZf
 tZf
 tZf
@@ -34627,15 +34684,15 @@ npt
 npt
 npt
 npt
-npt
 hKj
-doP
+slm
 oZE
+vym
+gLS
 mCl
-bqP
-oGw
-oGw
-oGw
+mCl
+mCl
+mCl
 bqP
 uYi
 qrd
@@ -34733,15 +34790,15 @@ npt
 npt
 npt
 npt
-npt
 hKj
 hKj
-doP
 vzz
-jQE
-doP
+vzz
+vzz
+mCl
+mCl
 heB
-oGw
+ilO
 gUD
 doP
 oAS
@@ -34840,19 +34897,19 @@ npt
 npt
 npt
 npt
-npt
 hKj
-doP
-doP
-doP
-doP
-doP
+aVg
+mCl
+mCl
+mCl
+mCl
+mCl
 gxH
 xEm
 pEp
 doP
-iaK
-iaK
+ncC
+ncC
 iaK
 iTZ
 iTZ
@@ -34945,21 +35002,21 @@ doP
 doP
 doP
 doP
-doP
 npt
 npt
 hKj
+cVs
+cHc
+pwK
+wBQ
+dhO
+ttX
+rsE
+xFv
+rqx
 doP
-doP
-doP
-doP
-doP
-doP
-doP
-doP
-doP
-doP
-doP
+ncC
+ncC
 doP
 xRz
 xRz

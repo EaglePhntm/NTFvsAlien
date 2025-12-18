@@ -111,7 +111,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 		F.facehugger_register_source(xeno_owner) //Set us as the source
 		F.throw_at(A, CARRIER_HUGGER_THROW_DISTANCE, CARRIER_HUGGER_THROW_SPEED)
 		if(fake_hugger_gradiant_percentage > 0 && !istype(F, /obj/item/clothing/mask/facehugger/combat/harmless))
-			var/obj/item/clothing/mask/facehugger/combat/harmless/fake = new(get_turf(xeno_owner), xeno_owner.hivenumber, xeno_owner)
+			var/obj/item/clothing/mask/facehugger/combat/harmless/fake = new(get_turf(xeno_owner), xeno_owner.get_xeno_hivenumber(), xeno_owner)
 			fake.set_fire_immunity(F.fire_immune)
 			fake.impact_time = F.impact_time
 			fake.activate_time = F.activate_time
@@ -156,8 +156,10 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	/// The amount of huggers that can be stored in the created trap.
 	var/trap_hugger_limit = 1
 
-/datum/action/ability/xeno_action/place_trap/can_use_action(silent = FALSE, override_flags)
+/datum/action/ability/xeno_action/place_trap/can_use_action(silent, override_flags, selecting)
 	. = ..()
+	if(!.)
+		return
 	var/turf/T = get_turf(owner)
 	if(!T || !T.is_weedable() || T.density)
 		if(!silent)
@@ -207,7 +209,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	owner.playsound_local(owner, 'sound/effects/alien/new_larva.ogg', 25, 0, 1)
 	return ..()
 
-/datum/action/ability/xeno_action/spawn_hugger/can_use_action(silent = FALSE, override_flags)
+/datum/action/ability/xeno_action/spawn_hugger/can_use_action(silent, override_flags, selecting)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -258,7 +260,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	SIGNAL_HANDLER
 	INVOKE_ASYNC(src, PROC_REF(action_activate))
 
-/datum/action/ability/xeno_action/carrier_panic/can_use_action(silent = FALSE, override_flags)
+/datum/action/ability/xeno_action/carrier_panic/can_use_action(silent, override_flags, selecting)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -277,7 +279,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 
 	xeno_owner.visible_message(span_xenowarning("A chittering mass of tiny aliens is trying to escape [xeno_owner]!"))
 	while(xeno_owner.huggers > 0)
-		var/obj/item/clothing/mask/facehugger/new_hugger = new /obj/item/clothing/mask/facehugger/larval(get_turf(xeno_owner), xeno_owner.hivenumber, xeno_owner)
+		var/obj/item/clothing/mask/facehugger/new_hugger = new /obj/item/clothing/mask/facehugger/larval(get_turf(xeno_owner), xeno_owner.get_xeno_hivenumber(), xeno_owner)
 		step_away(new_hugger, xeno_owner, 1)
 		addtimer(CALLBACK(new_hugger, TYPE_PROC_REF(/obj/item/clothing/mask/facehugger, go_active), TRUE), new_hugger.jump_cooldown)
 		xeno_owner.huggers--
@@ -353,8 +355,10 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_BUILD_HUGGER_TURRET,
 	)
 
-/datum/action/ability/xeno_action/build_hugger_turret/can_use_action(silent, override_flags)
+/datum/action/ability/xeno_action/build_hugger_turret/can_use_action(silent, override_flags, selecting)
 	. = ..()
+	if(!.)
+		return
 	var/turf/T = get_turf(owner)
 	var/mob/living/carbon/xenomorph/blocker = locate() in T
 	if(blocker && blocker != owner && blocker.stat != DEAD)
@@ -373,8 +377,8 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	if(!T.check_alien_construction(owner, silent, /obj/structure/xeno/xeno_turret) || !T.check_disallow_alien_fortification(owner))
 		return FALSE
 
-	for(var/obj/structure/xeno/xeno_turret/turret AS in GLOB.xeno_resin_turrets_by_hive[blocker.hivenumber])
-		if(get_dist(turret, owner) < 6)
+	for(var/obj/structure/xeno/xeno_turret/turret AS in GLOB.xeno_resin_turrets_by_hive[blocker.get_xeno_hivenumber()])
+		if(get_dist(turret, owner) < XENO_TURRET_EXCLUSION_RANGE)
 			if(!silent)
 				to_chat(owner, span_xenowarning("Another turret is too close!"))
 			return FALSE
@@ -386,8 +390,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	if(!can_use_action())
 		return FALSE
 
-	var/obj/structure/xeno/xeno_turret/hugger_turret/turret = new (get_turf(owner), xeno_owner.hivenumber)
-	turret.ammo = GLOB.ammo_list[GLOB.hugger_to_ammo[xeno_owner.selected_hugger_type]]
+	new /obj/structure/xeno/xeno_turret/hugger_turret(get_turf(owner), xeno_owner.get_xeno_hivenumber(), GLOB.ammo_list[GLOB.hugger_to_ammo[xeno_owner.selected_hugger_type]])
 	succeed_activate()
 	add_cooldown()
 
@@ -399,7 +402,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	name = "Call of Younger"
 	action_icon_state = "call_younger"
 	action_icon = 'icons/Xeno/actions/carrier.dmi'
-	desc = "Appeals to the larva inside the Marine. The Marine loses their balance, and the larva's growth progress accelerates."
+	desc = "Appeals to the larva inside a hugged target. The target loses their balance, gets pulled towards you, and their larva's growth progress accelerates."
 	ability_cost = 150
 	cooldown_duration = 10 SECONDS
 	keybinding_signals = list(
@@ -414,24 +417,24 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 
 	if(!ishuman(A))
 		if(!silent)
-			A.balloon_alert(owner, "Not human")
+			A.balloon_alert(owner, "not human!")
 		return FALSE
 
 	var/mob/living/carbon/human/target = A
 
 	if(!(locate(/obj/item/alien_embryo) in target))
 		if(!silent)
-			target.balloon_alert(owner, "Not infected")
+			target.balloon_alert(owner, "not infected!")
 		return FALSE
 
 	if(target.stat == DEAD)
 		if(!silent)
-			target.balloon_alert(owner, "Dead")
+			target.balloon_alert(owner, "you're dead!")
 		return FALSE
 
 	if(!line_of_sight(owner, target, 9))
 		if(!silent)
-			target.balloon_alert(owner, "Need line of sight")
+			target.balloon_alert(owner, "need line of sight!")
 		return FALSE
 	return TRUE
 
@@ -459,7 +462,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	victim.apply_effects(2 SECONDS, 1 SECONDS)
 	victim.adjust_stagger(debuff SECONDS)
 	victim.adjust_slowdown(debuff)
-	victim.apply_damage(stamina_dmg, STAMINA)
+	victim.apply_damage(stamina_dmg, STAMINA, attacker = owner)
 
 	var/datum/internal_organ/O
 	for(var/i in list(ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_LIVER))

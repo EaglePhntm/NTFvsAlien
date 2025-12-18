@@ -31,7 +31,7 @@
 /obj/item/storage/backpack/equipped(mob/user, slot)
 	if(slot == SLOT_BACK)
 		mouse_opacity = 2 //so it's easier to click when properly equipped.
-		if(storage_datum.use_sound)
+		if(storage_datum?.use_sound)
 			playsound(loc, storage_datum.use_sound, 15, 1, 6)
 	return ..()
 
@@ -198,6 +198,11 @@
 	desc = "An exclusive satchel for officers."
 	icon_state = "satchel-cap"
 
+/obj/item/storage/backpack/satchel/pmc
+	name = "AC chestrig"
+	desc = "A heavy-duty chestrig used by Ninetails PMC contractors."
+	icon_state = "pmc_chestrig"
+
 //ERT backpacks.
 /obj/item/storage/backpack/ert
 	name = "emergency response team backpack"
@@ -330,7 +335,7 @@
 
 /obj/item/storage/backpack/marine/tech
 	name = "\improper NTC technician backpack"
-	desc = "The standard-issue backpack worn by TGMC technicians. Specially equipped to hold sentry gun and HSG-102 emplacement parts."
+	desc = "The standard-issue backpack worn by NTF technicians. Specially equipped to hold sentry gun and HSG-102 emplacement parts."
 	icon_state = "marinepackt"
 	worn_icon_state = "marinepackt"
 	storage_type = /datum/storage/backpack/tech
@@ -374,7 +379,7 @@
 	storage_type = /datum/storage/backpack/satchel
 
 /obj/item/storage/backpack/marine/duffelbag
-	name = "\improper TGMC Duffelbag"
+	name = "\improper NTF Duffelbag"
 	desc = "A hard to reach backpack with no draw delay but is hard to access. \
 	Any squadmates can easily access the storage with right-click."
 	icon = 'icons/obj/items/storage/duffelbag.dmi'
@@ -487,10 +492,35 @@
 	var/camo_last_stealth = null
 	var/camo_last_shimmer = null
 	var/camo_energy = 100
+	var/show_energy = TRUE //enables hud and showing energy on examine.
 	var/mob/living/carbon/human/wearer = null
 	var/shimmer_alpha = 191 //75% Transparency during hostile actions, unless scout is using full auto this quickly recovers.
 	var/stealth_delay = null
 	actions_types = list(/datum/action/item_action/toggle)
+
+/obj/item/storage/backpack/marine/satchel/scout_cloak/equipped(mob/user, slot)
+	. = ..()
+	set_wearer(user)
+
+/obj/item/storage/backpack/marine/satchel/scout_cloak/removed_from_inventory(mob/user)
+	. = ..()
+	set_wearer(null)
+
+/obj/item/storage/backpack/marine/satchel/scout_cloak/proc/set_wearer(mob/living/new_wearer)
+	if(isliving(wearer))
+		if(wearer == new_wearer)
+			return TRUE
+		if(show_energy)
+			wearer.hud_used?.remove_ammo_hud(src)
+			maptext = ""
+	if(!(isliving(new_wearer)))
+		wearer = null
+		return FALSE
+	wearer = new_wearer
+	if(show_energy)
+		wearer.hud_used?.add_ammo_hud(src, list("taser", "battery_empty"), camo_energy)
+		maptext = add_leading("[camo_energy]%",3,"0")
+	return TRUE
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/Destroy()
 	camo_off()
@@ -498,7 +528,7 @@
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/dropped(mob/user)
 	camo_off(user)
-	wearer = null
+	set_wearer(null)
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
@@ -544,6 +574,13 @@
 		source.alpha = SCOUT_CLOAK_RUN_ALPHA
 		camo_adjust_energy(source, SCOUT_CLOAK_RUN_DRAIN)
 
+GLOBAL_LIST_INIT(stealth_greyscale_matrix,\
+	list(0.269,0.119,0.119,0,
+		 0.105,0.255,0.105,0,
+		 0.126,0.126,0.276,0,
+		     0,    0,    0,1,
+		  0.25, 0.25, 0.25,0))
+
 ///Activates the cloak
 /obj/item/storage/backpack/marine/satchel/scout_cloak/proc/camouflage()
 	if (usr.incapacitated(TRUE))
@@ -572,7 +609,7 @@
 
 	camo_active = TRUE
 	camo_last_stealth = world.time
-	wearer = M
+	set_wearer(M)
 
 	M.visible_message("[M] fades into thin air!", span_notice("You activate your CyberGhost's camouflage."))
 	playsound(M.loc,'sound/effects/cloak_scout_on.ogg', 15, 1)
@@ -603,6 +640,8 @@
 	START_PROCESSING(SSprocessing, src)
 	RegisterSignal(wearer, COMSIG_MOVABLE_MOVED, PROC_REF(handle_movement))
 
+	M.add_filter("backpack_cloak_greyscale", 20, color_matrix_filter(GLOB.stealth_greyscale_matrix))
+
 	return TRUE
 
 ///Sig handler for other sources of cloaking
@@ -624,7 +663,7 @@
 		UnregisterSignal(wearer, COMSIG_MOB_ENABLE_STEALTH)
 	if(!user)
 		camo_active = FALSE
-		wearer = null
+		set_wearer(null)
 		STOP_PROCESSING(SSprocessing, src)
 		return FALSE
 
@@ -636,6 +675,7 @@
 	user.visible_message(span_warning("[user.name] shimmers into existence!"), span_danger("Your CyberGhost's camouflage has deactivated!"))
 	playsound(user.loc,'sound/effects/cloak_scout_off.ogg', 15, 1)
 	user.alpha = initial(user.alpha)
+	user.remove_filter("backpack_cloak_greyscale")
 
 	GLOB.huds[DATA_HUD_SECURITY_ADVANCED].add_to_hud(user)
 	GLOB.huds[DATA_HUD_BASIC].add_to_hud(user)
@@ -672,13 +712,16 @@
 	playsound(loc,'sound/effects/EMPulse.ogg', 25, 0, 1)
 	if(wearer)
 		to_chat(wearer, span_danger("Your CyberGhost has recalibrated and is ready to cloak again."))
+		wearer.hud_used?.update_ammo_hud(src, list("taser", "battery_empty"), camo_energy)
+		maptext = add_leading("[camo_energy]%",3,"0")
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/examine(mob/user)
 	. = ..()
 	if(user != wearer) //Only the wearer can see these details.
 		return
 	var/list/details = list()
-	details +=("It has [camo_energy]/[initial(camo_energy)] charge. </br>")
+	if(show_energy)
+		details +=("It has [add_leading("[camo_energy]",1,"0")]/[initial(camo_energy)] charge. </br>")
 
 	if(camo_cooldown_timer)
 		details +=("It will be ready in [(camo_cooldown_timer - world.time) * 0.1] seconds. </br>")
@@ -697,6 +740,9 @@
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/proc/camo_adjust_energy(mob/user, drain = SCOUT_CLOAK_WALK_DRAIN)
 	camo_energy = clamp(camo_energy - drain,0,initial(camo_energy))
+	if(show_energy && wearer)
+		wearer.hud_used?.update_ammo_hud(src, list("taser", "battery_empty"), camo_energy)
+		maptext = add_leading("[camo_energy]%",3,"0")
 
 	if(!camo_energy) //Turn off the camo if we run out of energy.
 		to_chat(user, span_danger("Your CyberGhost lacks sufficient energy to remain active."))
@@ -724,6 +770,11 @@
 	icon = 'icons/obj/items/storage/backpack.dmi'
 	desc = "The M68-B thermal cloak is a variant custom-purposed for snipers, allowing for faster, superior, stationary concealment at the expense of mobile concealment. It is designed to be paired with the lightweight M3 recon battle armor. Serves as a satchel."
 	shimmer_alpha = SCOUT_CLOAK_RUN_ALPHA * 0.5 //Half the normal shimmer transparency.
+	show_energy = FALSE // since it never gets used up
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/equipment/backpacks_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/equipment/backpacks_right.dmi',
+	)
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/sniper/handle_movement(mob/living/carbon/human/source, atom/old_loc, movement_dir, forced, list/old_locs)
 	if(!camo_active)
@@ -753,90 +804,13 @@
 	desc = "A specialized backpack worn by NTC technicians. It carries a fueltank for quick welder refueling."
 	icon_state = "engineerpack"
 	worn_icon_state = "engineerpack"
-	var/max_fuel = 260
 	storage_type = /datum/storage/backpack/satchel
+	///how much fuel we can hold
+	var/max_fuel = 260
 
 /obj/item/storage/backpack/marine/engineerpack/Initialize(mapload, ...)
 	. = ..()
-	var/datum/reagents/R = new/datum/reagents(max_fuel) //Lotsa refills
-	reagents = R
-	R.my_atom = WEAKREF(src)
-	R.add_reagent(/datum/reagent/fuel, max_fuel)
-
-
-/obj/item/storage/backpack/marine/engineerpack/attackby(obj/item/I, mob/user, params)
-	if(iswelder(I))
-		var/obj/item/tool/weldingtool/T = I
-		if(T.welding)
-			to_chat(user, span_warning("That was close! However you realized you had the welder on and prevented disaster."))
-			return
-		if(T.get_fuel() == T.max_fuel || !reagents.total_volume)
-			return ..()
-
-		reagents.trans_to(I, T.max_fuel)
-		to_chat(user, span_notice("Welder refilled!"))
-		playsound(loc, 'sound/effects/refill.ogg', 25, 1, 3)
-
-	else if(istype(I, /obj/item/ammo_magazine/flamer_tank))
-		var/obj/item/ammo_magazine/flamer_tank/FT = I
-		if(FT.default_ammo != /datum/ammo/flamethrower)
-			to_chat(user, span_warning("Not the right kind of fuel!"))
-			return ..()
-		if(FT.current_rounds == FT.max_rounds || !reagents.total_volume)
-			return ..()
-
-		//Reworked and much simpler equation; fuel capacity minus the current amount, with a check for insufficient fuel
-		var/fuel_transfer_amount = min(reagents.total_volume, (FT.max_rounds - FT.current_rounds))
-		reagents.remove_reagent(/datum/reagent/fuel, fuel_transfer_amount)
-		FT.current_rounds += fuel_transfer_amount
-		playsound(loc, 'sound/effects/refill.ogg', 25, 1, 3)
-		FT.caliber = CALIBER_FUEL
-		to_chat(user, span_notice("You refill [FT] with [lowertext(FT.caliber)]."))
-		FT.update_icon()
-
-	else if(istype(I, /obj/item/weapon/twohanded/rocketsledge))
-		var/obj/item/weapon/twohanded/rocketsledge/RS = I
-		if(RS.reagents.get_reagent_amount(/datum/reagent/fuel) == RS.max_fuel || !reagents.total_volume)
-			return ..()
-
-		var/fuel_transfer_amount = min(reagents.total_volume, (RS.max_fuel - RS.reagents.get_reagent_amount(/datum/reagent/fuel)))
-		reagents.remove_reagent(/datum/reagent/fuel, fuel_transfer_amount)
-		RS.reagents.add_reagent(/datum/reagent/fuel, fuel_transfer_amount)
-		playsound(loc, 'sound/effects/refill.ogg', 25, 1, 3)
-		to_chat(user, span_notice("You refill [RS] with fuel."))
-		RS.update_icon()
-
-	else if(istype(I, /obj/item/weapon/twohanded/chainsaw))
-		var/obj/item/weapon/twohanded/chainsaw/saw = I
-		if(saw.reagents.get_reagent_amount(/datum/reagent/fuel) == saw.max_fuel || !reagents.total_volume)
-			return ..()
-
-		var/fuel_transfer_amount = min(reagents.total_volume, (saw.max_fuel - saw.reagents.get_reagent_amount(/datum/reagent/fuel)))
-		reagents.remove_reagent(/datum/reagent/fuel, fuel_transfer_amount)
-		saw.reagents.add_reagent(/datum/reagent/fuel, fuel_transfer_amount)
-		playsound(loc, 'sound/effects/refill.ogg', 25, 1, 3)
-		to_chat(user, span_notice("You refill [saw] with fuel."))
-		saw.update_icon()
-
-	else
-		return ..()
-
-/obj/item/storage/backpack/marine/engineerpack/afterattack(obj/O as obj, mob/user as mob, proximity)
-	if(!proximity) // this replaces and improves the get_dist(src,O) <= 1 checks used previously
-		return
-	if (istype(O, /obj/structure/reagent_dispensers/fueltank) && src.reagents.total_volume < max_fuel)
-		O.reagents.trans_to(src, max_fuel)
-		to_chat(user, span_notice("You crack the cap off the top of the pack and fill it back up again from the tank."))
-		playsound(src.loc, 'sound/effects/refill.ogg', 25, 1, 3)
-		return
-	else if (istype(O, /obj/structure/reagent_dispensers/fueltank) && src.reagents.total_volume == max_fuel)
-		to_chat(user, span_notice("The pack is already full!"))
-		return
-	..()
-
-/obj/item/storage/backpack/marine/engineerpack/examine(mob/user)
-	. = ..()
-	. += "[reagents.total_volume] units of fuel left!"
+	AddComponent(/datum/component/fuel_storage, max_fuel)
 
 /obj/item/storage/backpack/marine/engineerpack/som
 	name = "\improper SOM technician welderpack"
@@ -863,6 +837,11 @@
 	icon_state = "marinepack"
 	storage_type = /datum/storage/backpack/captain
 
+/obj/item/storage/backpack/lightpack/pmc
+	name = "AC bag"
+	desc = "A heavy-duty bag used by Ninetails PMC contractors."
+	icon_state = "pmc_bag"
+
 /obj/item/storage/backpack/lightpack/som
 	name = "mining rucksack"
 	desc = "A rucksack with origins dating back to the mining colonies."
@@ -883,3 +862,14 @@
 	name = "\improper Crasher branded combat backpack"
 	desc = "A backpack design from 21st century still proves to be a good design in the 25th century."
 	icon_state = "vsd_bag0"
+
+/obj/item/storage/backpack/lightpack/freelancer
+	name = "\improper Freelancer lightweight combat pack"
+	desc = "A small lightweight pack for expeditions and short-range operations. This one was made by MAGNUM mercenaries."
+	icon_state = "freelancer_satchel"
+
+/obj/item/storage/backpack/marine/corpsman/freelancer
+	name = "\improper Freelancer corpsman pack"
+	desc = "The backpack worn by MAGNUM corpsmen. It is significantly lighter than its Terran counterpart. You can recharge defibrillators by plugging them in."
+	icon_state = "freelancer_packm"
+	storage_type = /datum/storage/backpack/no_delay

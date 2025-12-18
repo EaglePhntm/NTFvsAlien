@@ -18,7 +18,7 @@
 	///How much supply points you get for completing the terminal
 	var/supply_reward = 500
 	///How much dropship points you get for completing the terminal
-	var/dropship_reward = 200
+	var/dropship_reward = 350
 
 	///How much progress we get every tick, up to 100
 	var/progress_interval = 1
@@ -62,13 +62,14 @@
 	printing = FALSE
 	printing_complete = TRUE
 	//NTF edit. Printing a disk instead of instantly giving the points.
-	new /obj/item/disk/intel_disk(get_turf(src), supply_reward, dropship_reward, faction, get_area(src))
+	var/obj/item/disk/intel_disk/new_disk = new(get_turf(src), supply_reward, dropship_reward, faction, get_area(src))
 	visible_message(span_notice("[src] beeps as it finishes printing the disc."))
 	minor_announce("Classified data extraction has been completed in [get_area(src)].", title = "Intel Division")
 	SStgui.close_uis(src)
 	update_minimap_icon()
 	update_icon()
 	STOP_PROCESSING(SSmachines, src)
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_INTEL_DISK_PRINTED, src, new_disk)
 
 /obj/machinery/computer/intel_computer/Destroy()
 	GLOB.intel_computers -= src
@@ -163,18 +164,20 @@
 	name = "\improper [who_printed] Intelligence diskette ([stationTimestamp("hh:mm", printed_at + duration)])"
 	desc += " According to the label, this disk was printed by [who_printed] in \the [where_printed]. The time stamp suggests that it was printed at [stationTimestamp("hh:mm", printed_at)]. The tactical information within it will cease to have value and soon after self destruct at [stationTimestamp("hh:mm", printed_at + duration)]."
 	addtimer(CALLBACK(src, PROC_REF(disk_warning)), duration, TIMER_STOPPABLE)
+	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('ntf_modular/icons/UI_icons/map_blips.dmi', null, "intel_carried", MINIMAP_BLIPS_LAYER))
 
 /obj/item/disk/intel_disk/proc/disk_warning()
 	SIGNAL_HANDLER
 	visible_message("[src] beeps as it is now obsolete. The disk will self destruct in a minute.")
-	playsound(src, 'sound/machines/beepalert.ogg')
+	playsound(src, 'sound/machines/beepalert.ogg', 25)
 	addtimer(CALLBACK(src, PROC_REF(disk_cleanup)), 1 MINUTES, TIMER_STOPPABLE)
+	SSminimaps.remove_marker(src)
 
 /obj/item/disk/intel_disk/proc/disk_cleanup()
 	SIGNAL_HANDLER
 	visible_message("[src] beeps a few times and explodes into pieces!")
 	explosion(src,0,0,0,1,0,0,0, tiny = TRUE)
-	Destroy()
+	qdel(src)
 
 /obj/item/disk/intel_disk/get_export_value()
 	if(world.time > printed_at + duration)
@@ -188,3 +191,8 @@
 		return FALSE
 
 	minor_announce("Classified data disk extracted by [faction_selling] from area of operations. [supply_reward] supply points and [dropship_reward] dropship points were acquired.", title = "Intel Division")
+	GLOB.round_statistics.points_from_intel += supply_reward
+
+/obj/item/disk/intel_disk/Destroy()
+	SSminimaps.remove_marker(src)
+	. = ..()

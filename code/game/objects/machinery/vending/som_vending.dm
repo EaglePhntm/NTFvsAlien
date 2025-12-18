@@ -12,12 +12,14 @@
 	products = list(
 		"Rifles" = list(
 			/obj/item/weapon/gun/rifle/som_carbine = -1,
-			/obj/item/weapon/gun/rifle/mpi_km = -1,
 			/obj/item/ammo_magazine/rifle/mpi_km/carbine = -1,
 			/obj/item/ammo_magazine/rifle/mpi_km/carbine/black = -1,
+			/obj/item/weapon/gun/rifle/mpi_km = -1,
 			/obj/item/ammo_magazine/rifle/mpi_km/black = -1,
+			/obj/item/ammo_magazine/rifle/mpi_km/rubber = -1,
 			/obj/item/ammo_magazine/rifle/mpi_km/extended = 30,
 			/obj/item/ammo_magazine/rifle/som = -1,
+			/obj/item/ammo_magazine/rifle/som/rubber = -1,
 			/obj/item/ammo_magazine/rifle/som/ap = 25,
 			/obj/item/ammo_magazine/rifle/som/incendiary = 15,
 			/obj/item/weapon/gun/rifle/som = -1,
@@ -44,6 +46,8 @@
 			/obj/item/cell/lasgun/volkite/small = -1,
 			/obj/item/cell/lasgun/volkite = -1,
 			/obj/item/cell/lasgun/lasrifle = -1,
+			/obj/item/cell/lasgun/volkite/powerpack/marine = -1,
+			/obj/item/cell/lasgun/volkite/powerpack/marine/backpack = -1,
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle = -1,
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper = -1,
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine = -1,
@@ -53,9 +57,11 @@
 		"SMGs" = list(
 			/obj/item/weapon/gun/smg/som = -1,
 			/obj/item/ammo_magazine/smg/som = -1,
+			/obj/item/ammo_magazine/smg/som/rubber = -1,
 			/obj/item/ammo_magazine/smg/som/ap = 25,
 			/obj/item/ammo_magazine/smg/som/incendiary = 15,
 			/obj/item/ammo_magazine/smg/som/rad = 5,
+			/obj/item/ammo_magazine/smg/som/squashhead = 5,
 			/obj/item/weapon/gun/smg/uzi = -1,
 			/obj/item/ammo_magazine/smg/uzi = -1,
 			/obj/item/weapon/gun/smg/mp7 = -1,
@@ -85,9 +91,17 @@
 		"Shotgun" = list(
 			/obj/item/ammo_magazine/shotgun/buckshot = -1,
 			/obj/item/ammo_magazine/shotgun = -1,
+			/obj/item/ammo_magazine/shotgun/buckshot = -1,
 			/obj/item/ammo_magazine/shotgun/flechette = -1,
-			/obj/item/ammo_magazine/shotgun/tracker = -1,
+			/obj/item/ammo_magazine/shotgun/tracker = 1,
 			/obj/item/ammo_magazine/shotgun/beanbag = -1,
+			/obj/item/ammo_magazine/shotgun/rubber_pellet = -1,
+			/obj/item/ammo_magazine/handful/slug = -1,
+			/obj/item/ammo_magazine/handful/buckshot = -1,
+			/obj/item/ammo_magazine/handful/flechette = -1,
+			/obj/item/ammo_magazine/handful/tracker = 5,
+			/obj/item/ammo_magazine/handful/beanbag = -1,
+			/obj/item/ammo_magazine/handful/rubber_pellet = -1,
 			/obj/item/ammo_magazine/shotgun/heavy_buckshot = 2,
 			/obj/item/ammo_magazine/shotgun/heavy_flechette = 1,
 			/obj/item/ammo_magazine/shotgun/barrikada = 1,
@@ -157,6 +171,7 @@
 			/obj/item/explosive/grenade/smokebomb/aphrotoxin = 5,
 			/obj/item/explosive/grenade/smokebomb/sleep = 10,
 			/obj/item/storage/box/m94 = 200,
+			/obj/item/storage/box/m94/cas = 30,
 			/obj/item/ammo_magazine/handful/micro_grenade = 30,
 			/obj/item/ammo_magazine/handful/micro_grenade/cluster = 20,
 			/obj/item/ammo_magazine/handful/micro_grenade/smoke_burst = 24,
@@ -249,6 +264,8 @@
 		),
 		"Utility" = list(
 			/obj/item/roller/bedroll = -1,
+			/obj/item/restraints/handcuffs/cable = -1,
+			/obj/item/restraints/handcuffs/zip = -1,
 			/obj/item/flashlight/combat = -1,
 			/obj/item/weapon/gun/grenade_launcher/single_shot/flare/marine = -1,
 			/obj/item/tool/shovel/etool = -1,
@@ -259,7 +276,11 @@
 			/obj/item/compass = -1,
 			/obj/item/tool/hand_labeler = -1,
 			/obj/item/toy/deck/kotahi = -1,
+			/obj/item/toy/deck = -1,
+			/obj/item/toy/dice = -1,
+			/obj/item/toy/dice/d20 = -1,
 			/obj/item/deployable_floodlight = 5,
+			/obj/item/plantable_flag/som = 10,
 		),
 	)
 
@@ -511,7 +532,7 @@
 /obj/machinery/vending/som/armor_supply
 	name = "\improper High Quality Mining Equipment"
 	faction = FACTION_SOM
-	desc = "An automated equipment rack hooked up to a colossal storage of armor and accessories. Nanotrasen designed a new vendor that utilizes bluespace technology to send surplus equipment from outer colonies' sweatshops to your hands! Be grateful."
+	desc = "An automated equipment rack hooked up to a colossal storage of armor and accessories. Ninetails designed a new vendor that utilizes bluespace technology to send surplus equipment from outer colonies' sweatshops to your hands! Be grateful."
 	icon_state = "surplus_armor"
 	icon_vend = "surplus_armor_vend"
 	icon_deny = "surplus_armor_deny"
@@ -543,7 +564,8 @@
 		),
 		"General" = list(
 			/obj/item/facepaint/green = -1,
-			/obj/item/clothing/suit/modular/rownin = -1
+			/obj/item/clothing/suit/modular/rownin = -1,
+			/obj/item/radio/loadout_tool = -1,
 		),
 		"OLD SCHOOL" = list(
 			/obj/item/clothing/head/helmet/marine/som = -1,
@@ -570,6 +592,7 @@
 		),
 		"Hardsuits" = list(
 			/obj/item/clothing/suit/modular/vsd_exoskeleton = -1,
+			/obj/item/clothing/suit/modular/vsd_exoskeleton/nt = -1,
 			/obj/item/armor_module/armor/chest/marine/vsd_hardsuit = -1,
 			/obj/item/armor_module/armor/arms/marine/vsd_hardsuit = -1,
 			/obj/item/armor_module/armor/legs/marine/vsd_hardsuit = -1,
@@ -578,6 +601,7 @@
 			/obj/item/armor_module/armor/arms/marine/vsd_hardsuit/clementia = -1,
 			/obj/item/armor_module/armor/legs/marine/vsd_hardsuit/clementia = -1,
 			/obj/item/clothing/head/modular/marine/vsd_hardsuit/clementia = -1,
+			/obj/item/armor_module/armor/chest/marine/vsd_hardsuit/aphrodite = -1,
 			/obj/item/armor_module/armor/chest/marine/vsd_hardsuit/hephaestus = -1,
 			/obj/item/armor_module/armor/arms/marine/vsd_hardsuit/hephaestus = -1,
 			/obj/item/armor_module/armor/legs/marine/vsd_hardsuit/hephaestus = -1,
@@ -596,6 +620,7 @@
 			/obj/item/armor_module/armor/arms/marine/hardsuit_arms/syndicate_markone = -1,
 			/obj/item/armor_module/armor/legs/marine/hardsuit_legs/syndicate_markone = -1,
 			/obj/item/clothing/suit/modular/vsd_exoskeleton = -1,
+			/obj/item/clothing/suit/modular/vsd_exoskeleton/nt = -1,
 			/obj/item/armor_module/armor/chest/marine/vsd_hardsuit = -1,
 			/obj/item/armor_module/armor/arms/marine/vsd_hardsuit = -1,
 			/obj/item/armor_module/armor/legs/marine/vsd_hardsuit = -1,
@@ -604,6 +629,7 @@
 			/obj/item/armor_module/armor/arms/marine/vsd_hardsuit/clementia = -1,
 			/obj/item/armor_module/armor/legs/marine/vsd_hardsuit/clementia = -1,
 			/obj/item/clothing/head/modular/marine/vsd_hardsuit/clementia = -1,
+			/obj/item/armor_module/armor/chest/marine/vsd_hardsuit/aphrodite = -1,
 			/obj/item/armor_module/armor/chest/marine/vsd_hardsuit/hephaestus = -1,
 			/obj/item/armor_module/armor/arms/marine/vsd_hardsuit/hephaestus = -1,
 			/obj/item/armor_module/armor/legs/marine/vsd_hardsuit/hephaestus = -1,
@@ -616,7 +642,7 @@
 /obj/machinery/vending/som/uniform_supply
 	name = "\improper SOMdrobe"
 	faction = FACTION_SOM
-	desc = "An automated equipment rack hooked up to a colossal storage of clothing and accessories. Nanotrasen designed a new vendor that utilizes bluespace technology to send surplus equipment from outer colonies' sweatshops to your hands! Be grateful."
+	desc = "An automated equipment rack hooked up to a colossal storage of clothing and accessories. Ninetails designed a new vendor that utilizes bluespace technology to send surplus equipment from outer colonies' sweatshops to your hands! Be grateful."
 	icon_state = "surplus_clothes"
 	icon_vend = "surplus_clothes_vend"
 	icon_deny = "surplus_clothes_deny"
@@ -775,6 +801,7 @@
 			/obj/item/clothing/under/lewd/chaps = -1,
 			/obj/item/clothing/under/lewd/corset = -1,
 			/obj/item/clothing/under/lewd/stripper = -1,
+			/obj/item/clothing/under/lewd/stripper/string = -1,
 			/obj/item/clothing/under/lewd/stripper/green = -1,
 			/obj/item/clothing/under/lewd/gear_harness = -1,
 			/obj/item/clothing/under/lewd/keyholesweater = -1,
@@ -784,6 +811,32 @@
 			/obj/item/clothing/under/swimsuit/green = -1,
 			/obj/item/clothing/under/swimsuit/purple = -1,
 			/obj/item/clothing/under/swimsuit/red = -1,
+			/obj/item/clothing/under/rank/nurse = -1,
+			/obj/item/clothing/under/rank/nursesuit = -1,
+			/obj/item/clothing/under/waiter = -1,
+			/obj/item/clothing/under/rank/vice = -1,
+			/obj/item/clothing/under/schoolgirl = -1,
+			/obj/item/clothing/under/syndicate/tacticool = -1,
+			/obj/item/clothing/under/dress/dress_fire = -1,
+			/obj/item/clothing/under/dress/dress_firepink = -1,
+			/obj/item/clothing/under/dress/dress_green = -1,
+			/obj/item/clothing/under/dress/dress_orange = -1,
+			/obj/item/clothing/under/dress/dress_pink = -1,
+			/obj/item/clothing/under/dress/dress_yellow = -1,
+			/obj/item/clothing/under/dress/dress_saloon = -1,
+			/obj/item/clothing/under/dress/plaid_blue = -1,
+			/obj/item/clothing/under/dress/plaid_red = -1,
+			/obj/item/clothing/under/dress/plaid_purple = -1,
+			/obj/item/clothing/under/wedding/bride_orange = -1,
+			/obj/item/clothing/under/wedding/bride_purple = -1,
+			/obj/item/clothing/under/wedding/bride_blue = -1,
+			/obj/item/clothing/under/wedding/bride_red = -1,
+			/obj/item/clothing/under/wedding/bride_white = -1,
+			/obj/item/clothing/under/dress/black_tango = -1,
+			/obj/item/clothing/under/sundress = -1,
+			/obj/item/clothing/under/cheerleader = -1,
+			/obj/item/clothing/under/cheerleader/yellow = -1,
+			/obj/item/clothing/under/cheerleader/purple = -1,
 			/obj/item/clothing/under/sexymime = -1,
 			/obj/item/clothing/mask/gas/sexymime = -1,
 			/obj/item/clothing/under/sexyclown = -1,

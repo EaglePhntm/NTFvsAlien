@@ -1,7 +1,6 @@
 /datum/job/vsd
-	access = ALL_ANTAGONIST_ACCESS
-	minimal_access = ALL_ANTAGONIST_ACCESS
-	skills_type = /datum/skills/crafty
+	access = ALL_VSD_ACCESS
+	minimal_access = ALL_VSD_ACCESS
 	faction = FACTION_VSD
 	minimap_icon = "pmc2"
 
@@ -364,7 +363,7 @@
 /datum/job/vsd/medic
 	title = "KZ Medic"
 	paygrade = "KZ2"
-	skills_type = /datum/skills/combat_medic/crafty
+	skills_type = /datum/skills/combat_medic
 	outfit = /datum/outfit/job/vsd/medic/ksg
 	multiple_outfits = TRUE
 	outfits = list(
@@ -668,9 +667,9 @@
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_L_POUCH)
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_L_POUCH)
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_L_POUCH)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/upp, SLOT_IN_L_POUCH)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/upp, SLOT_IN_L_POUCH)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/upp, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/bullet/upp, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/bullet/upp, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/bullet/upp, SLOT_IN_L_POUCH)
 
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)

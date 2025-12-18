@@ -141,18 +141,12 @@
 	force_activated = 50
 	sword_color = "on"
 
-/obj/item/weapon/energy/sword/som/Initialize(mapload)
-	. = ..()
-	set_light_range_power_color(2, 1, COLOR_ORANGE)
-
 /obj/item/weapon/energy/sword/som/switch_state(datum/source, mob/living/user)
 	. = ..()
 	if(active)
 		flick("som_sword_open", src)
-		set_light_on(TRUE)
 	else
 		flick("som_sword_close", src)
-		set_light_on(FALSE)
 
 /obj/item/weapon/energy/sword/som/apply_custom(mutable_appearance/standing, inhands, icon_used, state_used)
 	. = ..()
@@ -179,5 +173,28 @@
 
 /obj/item/weapon/energy/sword/ntc/apply_custom(mutable_appearance/standing, inhands, icon_used, state_used)
 	. = ..()
-	var/mutable_appearance/emissive_overlay = emissive_appearance(icon_used, "[state_used]_emissive")
+	var/mutable_appearance/emissive_overlay = emissive_appearance(icon_used, "[state_used]_emissive", src)
 	standing.overlays.Add(emissive_overlay)
+
+/obj/item/weapon/twohanded/dualsaber
+	name = "double-bladed energy sword"
+	desc = "Handle with care."
+	icon = 'icons/obj/items/weapons/energy.dmi'
+	icon_state = "dualsaber"
+	worn_icon_state = "dualsaber"
+	force = 3
+	throwforce = 5
+	throw_speed = 1
+	throw_range = 5
+	w_class = WEIGHT_CLASS_SMALL
+	force_activated = 150
+	wieldsound = 'sound/weapons/saberon.ogg'
+	unwieldsound = 'sound/weapons/saberoff.ogg'
+	atom_flags = NOBLOODY
+	attack_verb = list("attacks", "slashes", "stabs", "slices", "tears", "rips", "dices", "cuts")
+	sharp = IS_SHARP_ITEM_BIG
+	edge = 1
+
+/obj/item/weapon/twohanded/dualsaber/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/shield, SHIELD_TOGGLE|SHIELD_PURE_BLOCKING)

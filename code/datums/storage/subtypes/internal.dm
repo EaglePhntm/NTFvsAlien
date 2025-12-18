@@ -271,6 +271,11 @@
 		/obj/item/reagent_containers/food/snacks,
 	))
 
+/datum/storage/internal/satchel
+	storage_slots = null
+	max_storage_space = 15
+	max_w_class = WEIGHT_CLASS_NORMAL
+
 /datum/storage/internal/engineering
 	max_storage_space = 15
 	storage_slots = 5
@@ -308,6 +313,7 @@
 		/obj/item/circuitboard,
 		/obj/item/lightreplacer,
 		/obj/item/minerupgrade,
+		/obj/item/deploy_capsule/barricade,
 	))
 
 /datum/storage/internal/medical

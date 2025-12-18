@@ -132,7 +132,7 @@ As sniper rifles have both and weapon mods can change them as well. ..() deals w
 	to_chat(user, span_notice("You start a tactical reload."))
 	if(length(chamber_items))
 		unload(user)
-	if(!do_after(user, max(0.5 SECONDS, 1.5 SECONDS - user.skills.getRating(SKILL_COMBAT) * 5), IGNORE_USER_LOC_CHANGE, new_magazine) && loc == user)
+	if(!do_mob(user, new_magazine, max(0.5 SECONDS, 1.5 SECONDS - user.skills.getRating(SKILL_COMBAT) * 5), ignore_flags = IGNORE_USER_LOC_CHANGE) && loc == user)
 		return
 	if(new_magazine.item_flags & IN_STORAGE)
 		var/obj/item/storage/S = new_magazine.loc
@@ -140,6 +140,27 @@ As sniper rifles have both and weapon mods can change them as well. ..() deals w
 	if(!CHECK_BITFIELD(get_magazine_features_flags(new_magazine), MAGAZINE_WORN))
 		user.put_in_any_hand_if_possible(new_magazine)
 	reload(new_magazine, user)
+
+/// Occurs whenever the holder of the gun is attempted to be disarmed. Returns true if successful.
+/obj/item/weapon/gun/proc/handle_disarm_misfire(mob/living/carbon/human/disarmed, mob/living/carbon/human/disarmer)
+/*
+	if(disarmer.skills.getRating(SKILL_UNARMED) >= SKILL_UNARMED_MP)
+		return
+*/
+	if(windup_delay) // Must be instant to do anything meaningful.
+		return
+	var/chance = disarmed.get_active_held_item() == src ? 40 : 20
+	chance *= (disarmed.skills.getRating(SKILL_UNARMED) - disarmer.skills.getRating(SKILL_UNARMED))/2
+	chance = clamp(chance, 0, 100)
+	if(!prob(chance))
+		return
+	var/turf/random_nearby_turf = pick(RANGE_TURFS(3, get_turf(src)))
+	. = start_fire(gun_user, random_nearby_turf, random_nearby_turf, bypass_checks = TRUE) // Will return true if it successfully fired.
+	if(!.)
+		return
+	disarmed.visible_message(span_danger("[disarmed]'s [name] goes off during struggle!"), vision_distance = 5)
+	log_combat(disarmer, disarmed, "disarmed", "making their [name] go off")
+	stop_fire() // Otherwise, they will keep firing endlessly.
 
 //----------------------------------------------------------
 				//						 \\

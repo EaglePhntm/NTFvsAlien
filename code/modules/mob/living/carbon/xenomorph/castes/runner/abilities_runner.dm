@@ -7,7 +7,6 @@
 #define RUNNER_SAVAGE_PLASMA_CONVERSION_RATE 0.15
 
 /datum/action/ability/activable/xeno/pounce/runner
-	desc = "Leap at your target, tackling and disarming them. Alternate use toggles Savage off or on."
 	action_icon_state = "pounce_savage_on"
 	action_icon = 'icons/Xeno/actions/runner.dmi'
 	ability_cost = 10
@@ -37,6 +36,10 @@
 	/// Savage's cooldown.
 	COOLDOWN_DECLARE(savage_cooldown)
 
+/datum/action/ability/activable/xeno/pounce/runner/New(Target)
+	. = ..()
+	desc = "Leap at a target up to [pounce_range] tiles away, stunning them for [XENO_POUNCE_STUN_DURATION / (1 SECONDS)] seconds. Alternate use toggles Savage off or on. When on, do an additional slash when pouncing."
+
 /datum/action/ability/activable/xeno/pounce/runner/give_action(mob/living/L)
 	. = ..()
 	var/mutable_appearance/savage_maptext = mutable_appearance(icon = null, icon_state = null, layer = ACTION_LAYER_MAPTEXT)
@@ -64,11 +67,11 @@
 	. = ..()
 	if(starting_turf)
 		if(dim_bonus_multiplier && starting_turf.get_lumcount() <= 0.2)
-			living_target.attack_alien_harm(xeno_owner, xeno_owner.xeno_caste.melee_damage * dim_bonus_multiplier)
+			living_target.attack_alien_harm(xeno_owner, xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier * dim_bonus_multiplier)
 		if(upclose_bonus_multiplier)
 			var/upclose_bonus_multiplier_final = max(0, upclose_bonus_multiplier - (get_dist(starting_turf, living_target) * upclose_bonus_multiplier/5))
 			if(upclose_bonus_multiplier_final)
-				living_target.attack_alien_harm(xeno_owner, xeno_owner.xeno_caste.melee_damage * upclose_bonus_multiplier_final)
+				living_target.attack_alien_harm(xeno_owner, xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier * upclose_bonus_multiplier_final)
 	if(!savage_activated)
 		return
 	if(!COOLDOWN_FINISHED(src, savage_cooldown))
@@ -175,8 +178,10 @@
 	owner.balloon_alert(owner, "Evasion ready")
 	owner.playsound_local(owner, 'sound/effects/alien/new_larva.ogg', 25, 0, 1)
 
-/datum/action/ability/xeno_action/evasion/can_use_action(silent = FALSE, override_flags)
+/datum/action/ability/xeno_action/evasion/can_use_action(silent, override_flags, selecting)
 	. = ..()
+	if(!.)
+		return FALSE
 	if(xeno_owner.on_fire)
 		if(!silent)
 			xeno_owner.balloon_alert(xeno_owner, "Can't while on fire!")
@@ -227,7 +232,7 @@
 		COMSIG_LIVING_IGNITED), PROC_REF(evasion_debuff_check))
 	RegisterSignal(owner, COMSIG_XENO_PROJECTILE_HIT, PROC_REF(evasion_dodge))
 	RegisterSignal(owner, COMSIG_ATOM_BULLET_ACT, PROC_REF(evasion_flamer_hit))
-	RegisterSignal(owner, COMSIG_LIVING_PRE_THROW_IMPACT, PROC_REF(evasion_throw_dodge))
+	RegisterSignal(owner, COMSIG_PRE_MOVABLE_IMPACT, PROC_REF(evasion_throw_dodge))
 	GLOB.round_statistics.runner_evasions++
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "runner_evasions")
 	TIMER_COOLDOWN_START(src, COOLDOWN_EVASION_ACTIVATION, 0.3 SECONDS)
@@ -301,7 +306,7 @@
 		COMSIG_LIVING_STATUS_STAGGER,
 		COMSIG_LIVING_IGNITED,
 		COMSIG_XENO_PROJECTILE_HIT,
-		COMSIG_LIVING_PRE_THROW_IMPACT,
+		COMSIG_PRE_MOVABLE_IMPACT,
 		COMSIG_ATOM_BULLET_ACT
 		))
 	evade_active = FALSE
@@ -317,18 +322,20 @@
 	owner.playsound_local(owner, 'sound/voice/hiss5.ogg', 50)
 	hud_set_evasion(evasion_duration)
 
-/// Determines whether or not a thrown projectile is dodged while the Evasion ability is active
-/datum/action/ability/xeno_action/evasion/proc/evasion_throw_dodge(datum/source, atom/movable/proj)
+/// Determines whether or not a thrown object is dodged while the Evasion ability is active.
+/datum/action/ability/xeno_action/evasion/proc/evasion_throw_dodge(datum/source, atom/movable/thrown_atom)
 	SIGNAL_HANDLER
+	if(!isobj(thrown_atom))
+		return NONE
 	if(!evade_active) //If evasion is not active we don't dodge
 		return NONE
 	if((xeno_owner.last_move_time < (world.time - RUNNER_EVASION_RUN_DELAY))) //Gotta keep moving to benefit from evasion!
 		return NONE
-	if(isitem(proj))
-		var/obj/item/I = proj
-		evasion_stacks += I.throwforce //Add to evasion stacks for the purposes of determining whether or not our cooldown refreshes equal to the thrown force
-	evasion_dodge_fx(proj)
-	return COMPONENT_PRE_THROW_IMPACT_HIT
+	if(isitem(thrown_atom))
+		var/obj/item/thrown_item = thrown_atom
+		evasion_stacks += thrown_item.throwforce //Add to evasion stacks for the purposes of determining whether or not our cooldown refreshes equal to the thrown force
+	evasion_dodge_fx(thrown_atom)
+	return COMPONENT_PRE_MOVABLE_IMPACT_DODGED
 
 /// This is where the dodgy magic happens
 /datum/action/ability/xeno_action/evasion/proc/evasion_dodge(datum/source, atom/movable/projectile/proj, cardinal_move, uncrossing)
@@ -511,6 +518,11 @@
 	)
 	charge_range = 7
 	do_acid_spray_act = FALSE
+	stun_duration = 0.5 SECONDS
+
+/datum/action/ability/activable/xeno/charge/acid_dash/melter/New(Target)
+	. = ..()
+	desc = "Instantly dash for [charge_range] tiles, tackling the first marine in your path. If you manage to tackle someone, gain another cast of the ability."
 
 /datum/action/ability/activable/xeno/melter_shroud
 	name = "Melter Shroud"
@@ -539,7 +551,7 @@
 	if(living_target.stat || isxeno(living_target) || !(iscarbon(living_target)))
 		return
 	var/mob/living/carbon/carbon_victim = living_target
-	carbon_victim.apply_damage(20, BURN, null, ACID)
+	carbon_victim.apply_damage(20, BURN, null, ACID, attacker = owner)
 
 /datum/action/ability/activable/xeno/acidic_missile
 	name = "Acidic Missile"

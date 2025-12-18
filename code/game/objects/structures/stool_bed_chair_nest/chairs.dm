@@ -19,6 +19,7 @@
 	buckle_lying = 0
 	buckling_y = 0
 	max_integrity = 20
+	layer = BELOW_TABLE_LAYER
 	var/propelled = 0 //Check for fire-extinguisher-driven chairs
 
 //directional variants mostly used for random spawners
@@ -48,7 +49,7 @@
 	if(LAZYLEN(buckled_mobs) && dir == NORTH)
 		layer = FLY_LAYER
 	else
-		layer = OBJ_LAYER
+		layer = initial(layer)
 
 
 /obj/structure/bed/chair/post_buckle_mob(mob/buckling_mob)
@@ -127,7 +128,7 @@
 
 /obj/structure/bed/chair/wood
 	buildstacktype = /obj/item/stack/sheet/wood
-	hit_sound = 'sound/effects/woodhit.ogg'
+	hit_sound = 'sound/effects/natural/woodhit.ogg'
 
 /obj/structure/bed/chair/wood/normal
 	icon_state = "wooden_chair"
@@ -368,7 +369,7 @@
 	return // no
 
 
-/obj/structure/bed/chair/dropship/passenger/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/structure/bed/chair/dropship/passenger/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 	if(chair_state != DROPSHIP_CHAIR_BROKEN)
@@ -443,7 +444,7 @@
 
 /obj/structure/bed/chair/dropship/doublewide/welder_act(mob/living/user, obj/item/I)
 	if(LAZYLEN(buckled_mobs))
-		balloon_alert_to_viewers("You cannot repair this chair while someone is sitting in it")
+		balloon_alert(user, "someone's sitting in it!")
 		return
 	welder_repair_act(user, I, 130, 1 SECONDS, 0, SKILL_ENGINEER_METAL, 1)
 	chair_state = DROPSHIP_CHAIR_UNBUCKLED
@@ -462,14 +463,14 @@
 	. = ..()
 	if(LAZYLEN(buckled_mobs) && chair_state == DROPSHIP_CHAIR_BROKEN)
 		unbuckle_mob(buckled_mobs[1])
-		balloon_alert_to_viewers("This chair is too damaged to stay sitting in")
+		balloon_alert_to_viewers("it's too damaged!")
 
 /obj/structure/bed/chair/dropship/doublewide/buckle_mob(mob/living/buckling_mob, force = FALSE, check_loc = TRUE, lying_buckle = FALSE, hands_needed = 0, target_hands_needed = 0, silent)
 	if(chair_state == DROPSHIP_CHAIR_BROKEN)
-		balloon_alert_to_viewers("This chair is too damaged to sit in")
+		balloon_alert_to_viewers("it's too damaged!")
 		return FALSE
 	if(leader_chair && buckling_mob.skills.getRating(SKILL_LEADERSHIP) < SKILL_LEAD_TRAINED)
-		balloon_alert(buckling_mob, "You don't feel worthy enough to sit in this chair")
+		balloon_alert(buckling_mob, "you're not a leader!")
 		return FALSE
 	if(buckling_x)
 		src.pixel_x = buckling_x

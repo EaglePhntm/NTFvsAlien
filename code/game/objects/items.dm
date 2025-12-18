@@ -20,9 +20,9 @@
 	///The icon state used to represent this image in icon_mini. Used in /obj/item/storage/box/visual to display tiny items in the box.
 	var/icon_state_mini = "item"
 	///Byond tick delay between left click attacks
-	var/attack_speed = 11
+	var/attack_speed = CLICK_CD_MELEE_WEAPON_DEFAULT
 	///Byond tick delay between right click alternate attacks
-	var/attack_speed_alternate = 11
+	var/attack_speed_alternate = CLICK_CD_MELEE_WEAPON_DEFAULT
 	///Used in attackby() to say how something was attacked "[x] [z.attack_verb] [y] with their [z]!" Should be in simple present tense!
 	var/list/attack_verb
 
@@ -159,6 +159,8 @@
 	var/list/icon_state_variants = list()
 	///Current variant selected.
 	var/current_variant
+	/// Should [/datum/component/autobalance_monitor] be given? If so, what value should it use?
+	var/autobalance_monitor_value
 
 /obj/item/Initialize(mapload)
 	if(species_exception)
@@ -188,6 +190,9 @@
 
 	if(current_variant)
 		update_icon()
+
+	if(autobalance_monitor_value)
+		AddComponent(/datum/component/autobalance_monitor, autobalance_monitor_value)
 
 /obj/item/Destroy()
 	if(ismob(loc))
@@ -546,12 +551,12 @@
 	if(H.species.hud?.equip_slots)
 		mob_equip = H.species.hud.equip_slots
 
-	if(!H.has_limb_for_slot(slot))
-		return FALSE
-
 	if(bitslot)
 		var/old_slot = slot
 		slot = slotbit2slotdefine(old_slot)
+
+	if(!H.has_limb_for_slot(slot))
+		return FALSE
 
 	if(H.species && !(slot in mob_equip))
 		return FALSE
@@ -758,7 +763,7 @@
 /// Checks whether the item can be unequipped from owner by stripper. Generates a message on failure and returns TRUE/FALSE
 /obj/item/proc/canStrip(mob/stripper, mob/owner)
 	if(HAS_TRAIT(src, TRAIT_NODROP))
-		stripper.balloon_alert(stripper, "[src] is stuck!")
+		stripper.balloon_alert(stripper, "it's stuck!")
 		return FALSE
 	return TRUE
 
@@ -1010,21 +1015,15 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 ///called when zoom is activated.
 /obj/item/proc/onzoom(mob/living/user)
-	if(zoom_allow_movement)
-		RegisterSignal(user, COMSIG_LIVING_SWAPPED_HANDS, PROC_REF(zoom_item_turnoff))
-	else
-		RegisterSignals(user, list(COMSIG_MOVABLE_MOVED, COMSIG_LIVING_SWAPPED_HANDS), PROC_REF(zoom_item_turnoff))
+	if(!zoom_allow_movement)
+		RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(zoom_item_turnoff))
+	RegisterSignals(user, list(COMSIG_LIVING_SWAPPED_HANDS, COMSIG_KTLD_ACTIVATED), PROC_REF(zoom_item_turnoff))
 	RegisterSignal(user, COMSIG_MOB_FACE_DIR, PROC_REF(change_zoom_offset))
 	RegisterSignals(src, list(COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_DROPPED), PROC_REF(zoom_item_turnoff))
 
-
 ///called when zoom is deactivated.
 /obj/item/proc/onunzoom(mob/living/user)
-	if(zoom_allow_movement)
-		UnregisterSignal(user, list(COMSIG_LIVING_SWAPPED_HANDS, COMSIG_MOB_FACE_DIR))
-	else
-		UnregisterSignal(user, list(COMSIG_MOVABLE_MOVED, COMSIG_LIVING_SWAPPED_HANDS, COMSIG_MOB_FACE_DIR))
-
+	UnregisterSignal(user, list(COMSIG_MOVABLE_MOVED, COMSIG_LIVING_SWAPPED_HANDS, COMSIG_MOB_FACE_DIR, COMSIG_KTLD_ACTIVATED))
 	UnregisterSignal(src, list(COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_DROPPED))
 
 
@@ -1064,7 +1063,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 //This proc is here to prevent Xenomorphs from picking up objects (default attack_hand behaviour)
 //Note that this is overriden by every proc concerning a child of obj unless inherited
-/obj/item/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/item/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(xeno_attacker.a_intent != INTENT_HARM)
 		attack_hand(xeno_attacker)
 	return FALSE
@@ -1173,7 +1172,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 // Called when a mob tries to use the item as a tool.
 // Handles most checks.
-/obj/item/proc/use_tool(atom/target, mob/living/user, delay, amount = 0, volume = 0, datum/callback/extra_checks, user_display=PROGRESS_GENERIC)
+/obj/item/proc/use_tool(atom/target, mob/living/user, delay, amount = 0, volume = 0, datum/callback/extra_checks, user_display = BUSY_ICON_GENERIC)
 	// No delay means there is no start message, and no reason to call tool_start_check before use_tool.
 	// Run the start check here so we wouldn't have to call it manually.
 	if(!delay && !tool_start_check(user, amount))
@@ -1256,6 +1255,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	else
 		active = !active
 	SEND_SIGNAL(src, COMSIG_ITEM_TOGGLE_ACTIVE, active)
+	return TRUE
 
 ///Generates worn icon for sprites on-mob.
 /obj/item/proc/make_worn_icon(species_type, slot_name, inhands, default_icon, default_layer)
@@ -1277,6 +1277,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	var/mutable_appearance/standing = mutable_appearance(null, null, layer2use)
 	var/mutable_appearance/standing_colored = mutable_appearance(iconfile2use, state2use, layer2use)
 	standing_colored.color = color
+	standing_colored.filter_data = filter_data
+	standing_colored.update_filters()
 	standing.overlays += standing_colored
 
 	//Apply any special features
@@ -1391,7 +1393,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	else
 		user.visible_message(span_info("<b>[user]</b> fumbles with [src] like a huge idiot!"))
 
-	TIMER_COOLDOWN_START(user, COOLDOWN_ITEM_TRICK, 6)
+	TIMER_COOLDOWN_START(user, COOLDOWN_ITEM_TRICK, 3)
 
 	return TRUE
 
@@ -1469,7 +1471,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/color_item(obj/item/facepaint/paint, mob/user)
 
 	if(paint.uses < 1)
-		balloon_alert(user, "\the [paint] is out of color!")
+		balloon_alert(user, "it's dry!")
 		return
 
 	var/list/selection_list = list()
@@ -1562,9 +1564,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/refill(mob/user)
 	SHOULD_CALL_PARENT(TRUE)
 	if(!(item_flags & CAN_REFILL))
-		user.balloon_alert(user, "Can't refill this")
+		user.balloon_alert(user, "can't be refilled!")
 		return FALSE
-	user.balloon_alert(user, "Refilled") //If all checks passed, it's safe to throw the balloon alert
+	user.balloon_alert(user, "refilled") //If all checks passed, it's safe to throw the balloon alert
 	return TRUE
 
 /// Returns the strip delay of the item.

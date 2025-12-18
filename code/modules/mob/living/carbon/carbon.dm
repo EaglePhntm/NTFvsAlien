@@ -295,6 +295,8 @@
 	return ..()
 
 /mob/living/carbon/update_tracking(mob/living/carbon/C)
+	if(!hud_used?.SL_locator)
+		return
 	var/atom/movable/screen/LL_dir = hud_used.SL_locator
 
 	if(C.z != src.z || get_dist(src, C) < 1 || src == C)
@@ -305,6 +307,8 @@
 		LL_dir.transform = turn(LL_dir.transform, Get_Angle(src, C))
 
 /mob/living/carbon/clear_leader_tracking()
+	if(!hud_used?.SL_locator)
+		return
 	var/atom/movable/screen/LL_dir = hud_used.SL_locator
 	LL_dir.icon_state = "SL_locator_off"
 
@@ -393,6 +397,7 @@
 		adjust_blindness(-1)
 		disabilities &= ~DEAF
 
+/* NTF Edit - allow dragging unconscious people
 /mob/living/carbon/human/set_stat(new_stat) //registers/unregisters critdragging signals
 	. = ..()
 	if(new_stat == UNCONSCIOUS)
@@ -400,6 +405,7 @@
 		return
 	if(. == UNCONSCIOUS)
 		UnregisterSignal(src, COMSIG_MOVABLE_MOVED)
+*/
 
 /// Handles when the player clicks on themself with the grab item
 /mob/living/carbon/proc/grabbed_self_attack(mob/living/user)

@@ -74,7 +74,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 
 	placed_overlay_iconstate = "antimat"
 
-
+	autobalance_monitor_value = AMR_PRICE
 
 /obj/item/weapon/gun/rifle/sniper/antimaterial/Initialize(mapload)
 	. = ..()
@@ -214,28 +214,31 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 		playsound(user,'sound/machines/click.ogg', 25, 1)
 	return TRUE
 
+/obj/item/weapon/gun/rifle/sniper/antimaterial/valhalla
+	autobalance_monitor_value = null
 
-/obj/item/weapon/gun/rifle/sniper/elite
-	name = "\improper SR-42 anti-tank sniper rifle"
-	desc = "A high end mag-rail heavy sniper rifle from Ninetails chambered in the heaviest ammo available, 10x99mm Caseless."
-	icon_state = "m42c"
-	worn_icon_state = "m42c"
+/obj/item/weapon/gun/rifle/sniper/pmc_railgun
+	name = "\improper SRX-42 anti-tank rail rifle"
+	desc = "A high end mag-rail heavy sniper rifle from Ninetails chambered in the heaviest ammo available. Trigger discipline is highly recommended."
+	icon = 'icons/obj/items/guns/special64.dmi'
+	icon_state = "m42r"
+	worn_icon_state = "m42r"
 	worn_icon_list = list(
-		slot_l_hand_str = 'icons/mob/inhands/guns/marksman_left_1.dmi',
-		slot_r_hand_str = 'icons/mob/inhands/guns/marksman_right_1.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/guns/marksman_left_64.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/guns/marksman_right_64.dmi',
 	)
-	max_shells = 6 //codex
-	caliber = CALIBER_10X99
+	inhand_x_dimension = 64
+	inhand_y_dimension = 32
+	max_shells = 4 //codex
+	caliber = CALIBER_RAILGUN
 	fire_sound = 'sound/weapons/guns/fire/sniper_heavy.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/sniper_empty.ogg'
 	unload_sound = 'sound/weapons/guns/interact/sniper_heavy_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/sniper_heavy_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/sniper_heavy_cocked.ogg'
-	default_ammo_type = /obj/item/ammo_magazine/sniper/elite
-	allowed_ammo_types = list(/obj/item/ammo_magazine/sniper/elite)
-	force = 17
-	gun_features_flags = GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_IFF|GUN_SMOKE_PARTICLES
-	attachable_offset = list("muzzle_x" = 32, "muzzle_y" = 18,"rail_x" = 15, "rail_y" = 19, "under_x" = 20, "under_y" = 15, "stock_x" = 20, "stock_y" = 15)
+	default_ammo_type = /obj/item/ammo_magazine/railgun/pmc
+	allowed_ammo_types = list(/obj/item/ammo_magazine/railgun/pmc, /obj/item/ammo_magazine/railgun/pmc/smart, /obj/item/ammo_magazine/railgun/pmc/hvap)
+	force = 35
 	item_map_variant_flags = NONE
 	attachable_allowed = list(
 		/obj/item/attachable/foldable/bipod,
@@ -243,13 +246,22 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 		/obj/item/attachable/scope/antimaterial,
 		/obj/item/attachable/buildasentry,
 		/obj/item/attachable/sniperbarrel,
-		/obj/item/attachable/scope/pmc,
+		/obj/item/attachable/scope/nightvision
 	)
-	starting_attachment_types = list(/obj/item/attachable/scope/pmc, /obj/item/attachable/sniperbarrel)
+	starting_attachment_types = list(/obj/item/attachable/scope/antimaterial, /obj/item/attachable/sniperbarrel)
 
-	fire_delay = 1.5 SECONDS
+	gun_features_flags = GUN_WIELDED_FIRING_ONLY|GUN_WIELDED_STABLE_FIRING_ONLY|GUN_AMMO_COUNTER
+	reciever_flags = AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_AUTO_EJECT|AMMO_RECIEVER_CYCLE_ONLY_BEFORE_FIRE
+	attachable_offset = list("muzzle_x" = 32, "muzzle_y" = 18,"rail_x" = 18, "rail_y" = 25, "under_x" = 32, "under_y" = 14, "stock_x" = 20, "stock_y" = 15)
+	actions_types = list(/datum/action/item_action/aim_mode)
+	aim_fire_delay = 1 SECONDS
+	aim_speed_modifier = 2
+
+	windup_delay = 0.5 SECONDS
+	windup_sound = 'sound/weapons/guns/fire/laser_charge_up.ogg'
+	fire_delay = 2 SECONDS
 	accuracy_mult = 1.2
-	recoil = 5
+	recoil = 3
 	burst_amount = 1
 	movement_acc_penalty_mult = 7
 
@@ -366,12 +378,17 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	accuracy_mult = 1.1
 	scatter = -3
 
+	autobalance_monitor_value = TX8_PRICE
+
 /obj/item/weapon/gun/rifle/tx8/scout
 	starting_attachment_types = list(
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/verticalgrip,
 	)
+
+/obj/item/weapon/gun/rifle/tx8/valhalla
+	autobalance_monitor_value = null
 
 //-------------------------------------------------------
 // MINIGUN
@@ -409,6 +426,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	attachable_allowed = list(/obj/item/attachable/flashlight, /obj/item/attachable/magnetic_harness)
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 19,"rail_x" = 10, "rail_y" = 21, "under_x" = 24, "under_y" = 14, "stock_x" = 24, "stock_y" = 12)
+	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 12
 
@@ -420,23 +438,13 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	damage_falloff_mult = 0.5
 	movement_acc_penalty_mult = 4
 
-	item_flags = TWOHANDED|AUTOBALANCE_CHECK
-
-/obj/item/weapon/gun/minigun/Initialize(mapload)
-	. = ..()
-	if(item_flags & AUTOBALANCE_CHECK)
-		SSmonitor.stats.miniguns_in_use += src
-
-/obj/item/weapon/gun/minigun/Destroy()
-	if(item_flags & AUTOBALANCE_CHECK)
-		SSmonitor.stats.miniguns_in_use -= src
-	return ..()
+	autobalance_monitor_value = MINIGUN_PRICE
 
 /obj/item/weapon/gun/minigun/magharness
 	starting_attachment_types = list(/obj/item/attachable/magnetic_harness)
 
 /obj/item/weapon/gun/minigun/valhalla
-	item_flags = TWOHANDED
+	autobalance_monitor_value = null
 
 //A minigun that requires only one hand. Meant for use with vehicles
 /obj/item/weapon/gun/minigun/one_handed
@@ -459,6 +467,8 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 
 	windup_delay = 0.7 SECONDS
 	movement_acc_penalty_mult = 0
+
+	autobalance_monitor_value = null
 
 //So that it displays the minigun on the mob as if always wielded
 /obj/item/weapon/gun/minigun/one_handed/update_item_state()
@@ -487,7 +497,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	scatter = -5
 	recoil_unwielded = 4
 
-	item_flags = TWOHANDED
+	autobalance_monitor_value = null
 
 /obj/item/weapon/gun/minigun/smart_minigun/motion_detector
 	starting_attachment_types = list(/obj/item/attachable/motiondetector)
@@ -546,12 +556,13 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	starting_attachment_types = list(/obj/item/weapon/gun/flamer/hydro_cannon/pepperball)
 
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 0.1
 
 	gun_features_flags = GUN_AMMO_COUNTER
 
-	fire_delay = 0.35 SECONDS
+	fire_delay = 0.2 SECONDS
 	burst_amount = 1
 	accuracy_mult = 1
 	accuracy_mult_unwielded = 0.75
@@ -583,7 +594,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	actions_types = list()
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	gun_features_flags = GUN_IS_ATTACHMENT | GUN_WIELDED_FIRING_ONLY | GUN_ATTACHMENT_FIRE_ONLY | GUN_AMMO_COUNTER
-	fire_delay = 0.45 SECONDS
+	fire_delay = 0.1 SECONDS
 	attach_delay = 3 SECONDS
 	detach_delay = 3 SECONDS
 	pixel_shift_x = 18
@@ -732,17 +743,9 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	fire_delay = 1 SECONDS
 	scatter = -100
 
-	item_flags = TWOHANDED|AUTOBALANCE_CHECK
+	item_flags = TWOHANDED
 
-/obj/item/weapon/gun/launcher/rocket/sadar/Initialize(mapload, spawn_empty)
-	. = ..()
-	if(item_flags & AUTOBALANCE_CHECK)
-		SSmonitor.stats.sadar_in_use += src
-
-/obj/item/weapon/gun/launcher/rocket/sadar/Destroy()
-	if(item_flags & AUTOBALANCE_CHECK)
-		SSmonitor.stats.sadar_in_use -= src
-	return ..()
+	autobalance_monitor_value = SADAR_PRICE
 
 /obj/item/weapon/gun/launcher/rocket/sadar/do_fire(obj/object_to_fire)
 	. = ..()
@@ -751,7 +754,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	gun_user?.record_war_crime()
 
 /obj/item/weapon/gun/launcher/rocket/sadar/valhalla
-	item_flags = TWOHANDED
+	autobalance_monitor_value = null
 
 //-------------------------------------------------------
 //M5 RPG'S MEAN FUCKING COUSIN
@@ -1029,7 +1032,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	)
 	wield_delay = 1 SECONDS
 	aim_slowdown = 1
-	attachable_allowed = list()
+	attachable_allowed = list(/obj/item/attachable/buildasentry, /obj/item/attachable/magnetic_harness)
 	reload_sound = 'sound/weapons/guns/interact/rpg_load.ogg'
 	unload_sound = 'sound/weapons/guns/interact/rpg_load.ogg'
 	fire_sound = "rpg_fire"
@@ -1150,7 +1153,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 		slot_r_hand_str = 'icons/mob/inhands/guns/special_right_1.dmi',
 	)
 	fire_animation = "at32"
-	max_shells = 30 //codex
+	max_shells = 40 //codex
 	caliber = CALIBER_20 //codex
 	load_method = MAGAZINE //codex
 	fire_sound = 'sound/weapons/guns/fire/autocannon_1.ogg'
@@ -1163,13 +1166,73 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 		/obj/item/ammo_magazine/rifle/vsd_autocannon/explosive,
 		/obj/item/ammo_magazine/rifle/vsd_autocannon/at,
 		)
-	attachable_allowed = list(/obj/item/attachable/flashlight, /obj/item/attachable/magnetic_harness)
+	attachable_allowed = list(/obj/item/attachable/flashlight, /obj/item/attachable/magnetic_harness, /obj/item/attachable/foldable/bipod)
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 19,"rail_x" = 13, "rail_y" = 22, "under_x" = 24, "under_y" = 14, "stock_x" = 24, "stock_y" = 12)
 
 	fire_delay = 0.45 SECONDS
 	wield_delay = 0.85 SECONDS
-	windup_delay = 0 SECONDS
+	windup_delay = 0.1 SECONDS
 	aim_slowdown = 2.75
-	accuracy_mult = 2
+	accuracy_mult = 1
+	accuracy_mult_unwielded = 0.5
 	movement_acc_penalty_mult = 10
 	scatter = 0
+	autobalance_monitor_value = null
+
+//The Dragoon rapid engagement rifle.
+/obj/item/weapon/gun/rifle/dragoon
+	name = "\improper Dragoon Mk1 Rapid Engagement Rifle"
+	desc = "The Dragoon Rapid Engagement rifle is a powerful, above-average capacity and agile rifle designed to be used in situations requiring frequent relocation and short engagements. Triangular casings allow it to hold a greater amount of ammo compared to similar rifles. Unfortunately it has not seen widespread adoption due to the lack of detachable magazine and a complex, delicate feeding mechanism that requires users to put additional care into every reload, lest the newly-loaded cartridges end up pushed right back up into the stripper clip. Fires an exotic 9.8x22mm cartridge with great penetration capabilities."
+	icon = 'icons/obj/items/guns/marksman64.dmi'
+	icon_state = "dragoon"
+	worn_icon_state = "l11"
+	inhand_x_dimension = 64
+	inhand_y_dimension = 32
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/guns/marksman_left_64.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/guns/marksman_right_64.dmi',
+	)
+	gun_crosshair = 'icons/UI_Icons/gun_crosshairs/sniper.dmi'
+	fire_sound = 'sound/weapons/guns/fire/mp38_1.ogg'
+	dry_fire_sound = 'sound/weapons/guns/fire/sniper_empty.ogg'
+	unload_sound = 'sound/weapons/guns/interact/c99_unload.ogg'
+	reload_sound = 'sound/weapons/guns/interact/ml12_reload.ogg'
+	empty_sound = null
+	caliber = CALIBER_98x22 //codex
+	max_chamber_items = 10 //codex
+	default_ammo_type = /datum/ammo/bullet/sniper/dragoon
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/boltclip/dragoon,
+		/obj/item/ammo_magazine/rifle/boltclip/dragoon/pox
+	)
+	attachable_allowed = list(
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/suppressor/unremovable/invisible,
+		/obj/item/attachable/stock/dragoon,
+		/obj/item/attachable/angledgrip,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/motiondetector,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/foldable/bipod
+	)
+	starting_attachment_types = list(/obj/item/attachable/suppressor/unremovable/invisible, /obj/item/attachable/stock/dragoon)
+
+	gun_features_flags = GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
+	reciever_flags = AMMO_RECIEVER_HANDFULS|AMMO_RECIEVER_MULTICLIP
+
+	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO)
+	attachable_offset = list("muzzle_x" = 32, "muzzle_y" = 17,"rail_x" = 22, "rail_y" = 18, "under_x" = 32, "under_y" = 14, "stock_x" = 20, "stock_y" = 14)
+	actions_types = list(/datum/action/item_action/aim_mode)
+	aim_fire_delay = 1.25 SECONDS
+
+	burst_amount = 0
+	fire_delay = 0.5 SECONDS
+	accuracy_mult = 1.15
+	accuracy_mult_unwielded = 0.75
+	scatter = 0
+	scatter_unwielded = 25
+	recoil = 0
+	recoil_unwielded = 4
+	aim_slowdown = 0.60
+	movement_acc_penalty_mult = 3

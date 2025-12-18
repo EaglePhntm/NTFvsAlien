@@ -78,3 +78,20 @@
 	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 35, BOMB = 40, BIO = 5, FIRE = 25, ACID = 30)
 	slowdown = 0.20
 	item_map_variant_flags = NONE
+
+//tdf overwrites.
+/obj/item/clothing/suit/modular/tdf
+	icon = 'ntf_modular/icons/mob/modular/tdf_armor.dmi'
+	worn_icon_list = list(
+		slot_wear_suit_str = 'ntf_modular/icons/mob/modular/tdf_armor.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/clothing/suits_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/clothing/suits_right.dmi',
+	)
+
+/obj/item/clothing/head/modular/tdf
+	icon = 'ntf_modular/icons/mob/modular/tdf_helmets.dmi'
+	worn_icon_list = list(
+		slot_head_str = 'ntf_modular/icons/mob/modular/tdf_helmets.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/clothing/hats_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/clothing/hats_right.dmi',
+	)

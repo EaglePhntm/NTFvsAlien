@@ -1,6 +1,6 @@
 /obj/vehicle/sealed/armored
 	name = "\improper MT - Shortstreet MK4"
-	desc = "An adorable chunk of metal with an alarming amount of firepower designed to crush, immolate, destroy and maim anything that Nanotrasen wants it to. This model contains advanced Bluespace technology which allows a TARDIS-like amount of room on the inside."
+	desc = "An adorable chunk of metal with an alarming amount of firepower designed to crush, immolate, destroy and maim anything that Ninetails wants it to. This model contains advanced Bluespace technology which allows a TARDIS-like amount of room on the inside."
 	icon = 'icons/obj/armored/1x1/tinytank.dmi'
 	icon_state = "tank"
 	pixel_x = -16
@@ -82,6 +82,8 @@
 	var/zoom_mode = FALSE
 	/// damage done by rams
 	var/ram_damage = 20
+	///the timer used for ram cooldown
+	var/ram_cooldown = 0
 	/**
 	 * List for storing all item typepaths that we may "easy load" into the tank by attacking its entrance
 	 * This will be turned into a typeCache on  initialize
@@ -89,8 +91,14 @@
 	var/list/easy_load_list
 	///Wether we are strafing
 	var/strafe = FALSE
+	///How many humans this is worth for silo gen calcs
+	var/larva_value = 5
+	///How close a wrecked vehicle is to being prepared for repair
+	var/wreck_repair_stage = 0
 
 /obj/vehicle/sealed/armored/Initialize(mapload)
+	if(type != /obj/vehicle/sealed/armored/multitile) //TODO: TESTING ONLY, SO MRAP DOESN'T HAVE A VALUE OF 5 IN A SEPARATE PR
+		larva_value = 0
 	easy_load_list = typecacheof(easy_load_list)
 	if(interior)
 		interior = new interior(src, CALLBACK(src, PROC_REF(interior_exit)))
@@ -539,6 +547,9 @@
 	. = ..()
 	if(.)
 		return
+	if((armored_flags & ARMORED_IS_WRECK) && istype(I, /obj/item/stack/sheet/plasteel))
+		start_wreck_prep(user, I)
+		return
 	if(istype(I, /obj/item/armored_weapon))
 		var/obj/item/armored_weapon/gun = I
 		if(!(gun.type in permitted_weapons))
@@ -645,6 +656,9 @@
 
 /obj/vehicle/sealed/armored/wrench_act(mob/living/user, obj/item/I)
 	. = ..()
+	if((armored_flags & ARMORED_WRECK_PREP_STAGE_TWO))
+		prep_wreck(user)
+		return
 	if(user.skills.getRating(SKILL_LARGE_VEHICLE) < required_entry_skill)
 		balloon_alert(user, "not enough skill")
 		return
