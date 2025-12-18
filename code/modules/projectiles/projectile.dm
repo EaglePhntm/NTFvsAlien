@@ -845,7 +845,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 
 	if(hit_chance > hit_roll) //Hit
 		if(hit_roll > (hit_chance-25)) //if you hit by a small margin, you hit a random bodypart instead of what you were aiming for
-			proj.def_zone = pick(GLOB.base_miss_chance)
+			proj.def_zone = BODY_ZONE_CHEST
 		return TRUE
 
 	if(!lying_angle) //Narrow miss!
