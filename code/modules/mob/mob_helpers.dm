@@ -61,17 +61,17 @@
 
 //The base miss chance for the different defence zones
 GLOBAL_LIST_INIT(base_miss_chance, list(
-	"head" = 25,
+	"head" = 20,
 	"chest" = 0,
-	"groin" = 15,
+	"groin" = 5,
 	"l_leg" = 25,
 	"r_leg" = 25,
 	"l_arm" = 25,
 	"r_arm" = 25,
-	"l_hand" = 75,
-	"r_hand" = 75,
-	"l_foot" = 85,
-	"r_foot" = 85,
+	"l_hand" = 50,
+	"r_hand" = 50,
+	"l_foot" = 65,
+	"r_foot" = 65,
 	"eyes" = 200, //Rp shooting mode, miss most of your shots, works against xenos too
 	"mouth" = 40,
 ))
