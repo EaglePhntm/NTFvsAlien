@@ -159,7 +159,7 @@
 	user.visible_message(span_warning("[user] pins [buckling_mob] into [src], preparing the securing tentacles."),
 	span_warning("[user] pins [buckling_mob] into [src], preparing the securing tentacles."))
 
-	if(!do_mob(user, buckling_mob, 2 SECONDS, BUSY_ICON_HOSTILE))
+	if(!do_mob(user, buckling_mob, 1 SECONDS, BUSY_ICON_HOSTILE))
 		return FALSE
 	if(QDELETED(src))
 		return FALSE
