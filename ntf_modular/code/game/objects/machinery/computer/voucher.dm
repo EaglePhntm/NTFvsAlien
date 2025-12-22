@@ -61,11 +61,11 @@
 			return TRUE
 	if(istype(I, /obj/item/disk/intel_disk))
 		I.supply_export(faction)
-		var/obj/item/disk/intel_disk/le_disk
+		var/obj/item/disk/intel_disk/le_disk = I
 		var/datum/game_mode/infestation/extended_plus/secret_of_life/gaymode = SSticker.mode
 		if(gaymode)
 			var/datum/individual_stats/the_stats = gaymode.stat_list[user.faction].get_player_stats(user)
-			the_stats.give_funds(round(le_disk.dropship_reward/3))
+			the_stats.give_funds(round(le_disk.dropship_reward/2))
 		qdel(I)
 		return TRUE
 	if(istype(I, /obj/item/card/credstick))
@@ -149,5 +149,6 @@
 //id make this into voucher console at 1 to 5 ratio but idk how to work that shit -vide
 /obj/item/card/credstick
 	name = "credstick"
+	icon_state = "centcom"
 	desc = "A credstick which can be redeemed at a voucher console for credits used in skillsoft purchases or everyday needs."
 	var/worth = 100

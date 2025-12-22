@@ -11,7 +11,7 @@
 		RegisterSignal(human, COMSIG_QDELETING, PROC_REF(on_affecting_qdel))
 		affecting_list[human] = beam(human, "medbeam", maxdistance = 3)
 		RegisterSignal(affecting_list[human], COMSIG_QDELETING, PROC_REF(on_beam_qdel))
-		human.playsound_local(get_turf(src), 'sound/machines/dispenser/dispenser_heal.ogg', 50)
+		human.playsound_local(get_turf(src), 'sound/machines/dispenser/dispenser_heal.ogg', 30)
 	for(var/turf/turfs AS in RANGE_TURFS(2, src))
 		RegisterSignal(turfs, COMSIG_ATOM_ENTERED, PROC_REF(entered_tiles))
 	active = TRUE
@@ -19,12 +19,12 @@
 
 /obj/machinery/deployable/dispenser/medic/process()
 	for(var/mob/living/carbon/human/affecting AS in affecting_list)
-		if(!line_of_sight(src, affecting, 2))
+		if(!line_of_sight(src, affecting, 3))
 			qdel(affecting_list[affecting])
 			affecting_list -= affecting
 			UnregisterSignal(affecting, COMSIG_QDELETING)
 			continue
-		affecting.heal_overall_damage(2, 2, FALSE, TRUE)
+		affecting.heal_overall_damage(4, 4, FALSE, TRUE)
 		affecting.adjustOxyLoss(-0.5)
 		affecting.adjustToxLoss(-0.5)
 
@@ -38,7 +38,7 @@
 		return
 
 	RegisterSignal(entering, COMSIG_QDELETING, PROC_REF(on_affecting_qdel))
-	entering.playsound_local(get_turf(src), 'sound/machines/dispenser/dispenser_heal.ogg', 50)
+	entering.playsound_local(get_turf(src), 'sound/machines/dispenser/dispenser_heal.ogg', 30)
 	affecting_list[entering] = beam(entering, "medbeam", maxdistance = 3)
 	RegisterSignal(affecting_list[entering], COMSIG_QDELETING, PROC_REF(on_beam_qdel))
 
