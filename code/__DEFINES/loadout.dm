@@ -168,7 +168,7 @@ GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 		/obj/item/weapon/gun/flamer/big_flamer/marinestandard = list(CAT_LEDSUP, "FL-84 flamethrower", 12, "black"),
 		/obj/item/ammo_magazine/flamer_tank/large = list(CAT_LEDSUP, "Flamethrower tank", 4, "black"),
 		/obj/item/storage/backpack/marine/radiopack = list(CAT_LEDSUP, "Radio Pack", 15, "black"),
-		/obj/item/weapon/gun/revolver/standard_magnum = list(CAT_LEDSUP, "R-76 Magnum", 12, "black"),
+		/obj/item/weapon/gun/revolver/standard_magnum = list(CAT_LEDSUP, "R-76 Magnum", 5, "black"),
 		/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = list(CAT_LEDSUP, "Injector (Synaptizine)", 10, "black"),
 		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_LEDSUP, "Injector (Advanced)", 15, "orange"),
 	))
@@ -193,7 +193,7 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 		/obj/item/weapon/gun/flamer/big_flamer/marinestandard = list(CAT_FCSUP, "FL-84 flamethrower", 12, "black"),
 		/obj/item/ammo_magazine/flamer_tank/large = list(CAT_FCSUP, "Flamethrower tank", 4, "black"),
 		/obj/item/storage/backpack/marine/radiopack = list(CAT_FCSUP, "Radio Pack", 15, "black"),
-		/obj/item/weapon/gun/revolver/standard_magnum = list(CAT_FCSUP, "R-76 Magnum", 12, "black"),
+		/obj/item/weapon/gun/revolver/standard_magnum = list(CAT_FCSUP, "R-76 Magnum", 5, "black"),
 		/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = list(CAT_FCSUP, "Injector (Synaptizine)", 10, "black"),
 		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_FCSUP, "Injector (Advanced)", 15, "orange"),
 	))
@@ -253,8 +253,8 @@ GLOBAL_LIST_INIT(vanguard_gear_listed_products, list(
 	/obj/item/clothing/glasses/thermal/m64_thermal_goggles = list(CAT_CDSUP, "M64 Thermal Goggles", 25, "orange"),
 	/obj/item/clothing/glasses/night/m42_night_goggles = list(CAT_CDSUP, "M42 Night Vision Goggles", 20, "orange"),
 	/obj/item/storage/holster/belt/mateba/officer/full = list(CAT_CDSUP, "Mateba Revolver Belt (Full)", 15, "orange"),
-	/obj/item/armor_module/module/ballistic_armor = list(CAT_CDSUP, "Hod Combat Plating", 3,"orange"),
-	/obj/item/armor_module/module/hod_head = list(CAT_CDSUP, "Hod Combat Helmet Plating", 3,"orange"),
+	/obj/item/armor_module/module/tyr_extra_armor = list(CAT_CDSUP, "Tyr mk 2 Armor reinforcement", 5,"orange"),
+	/obj/item/armor_module/module/hlin_explosive_armor = list(CAT_CDSUP, "Hlin Explosive Compensation Module", 5,"orange"),
 	/obj/item/ammo_magazine/packet/mateba = list(CAT_CDSUP, "Mateba .454 casull Packet", 1, "black"),
 	/obj/item/ammo_magazine/rifle/nt_halter/smart = list(CAT_CDSUP, "NT-Halter Smart magazine", 1, "black"),
 	/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_STASUP, "Injector (Advanced)", 3, "orange"),
