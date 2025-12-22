@@ -281,14 +281,14 @@
 	)
 
 /obj/item/clothing/suit/modular/style/barrier/lightbarrier
-	name = "light barrier armor"
+	name = "\improper light barrier armor"
 	icon_state = "barrier_light"
 	worn_icon_state = "barrier_light_worn"
 	desc = "A small, intricate, adjustable collar/pendant fitted with a miniature, highly efficient forcefield projector. It's incredibly light and convenient, the shield coil stable enough to rapidly recharge the protective barrier around the user. Made by Nine Tails Corp."
 	starting_attachments = list(/obj/item/armor_module/module/eshield/barrier/light)
 
 /obj/item/clothing/suit/modular/style/barrier/mediumbarrier
-	name = "medium barrier armor"
+	name = "\improper medium barrier armor"
 	desc = "A chest-mounted shield projector that comes in a package along with a set of capacitor sleeves and thigh bands. It's efficiency is comparable to standard arrowhead modules, though the additional capacitors provide greater durability. Made by Nine Tails Corp."
 	icon_state = "barrier_medium"
 	worn_icon_state = "barrier_medium_worn"
@@ -297,7 +297,7 @@
 
 
 /obj/item/clothing/suit/modular/style/barrier/heavybarrier
-	name = "heavy barrier armor"
+	name = "\improper heavy barrier armor"
 	desc = "A lightweight shield generator that can loosely be considered armor"
 	icon_state = "barrier_heavy"
 	worn_icon_state = "barrier_heavy_worn"
