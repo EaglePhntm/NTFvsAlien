@@ -346,6 +346,9 @@ GLOBAL_LIST_INIT(stim_type_lookup, init_stims())
 
 /datum/stim/speed_increase/end_effects(mob/living/owner)
 	owner.remove_movespeed_modifier(MOVESPEED_ID_STIM_INCREASE)
+	owner.adjust_stagger(5 SECONDS)
+	owner.add_slowdown(10)
+	owner.balloon_alert(owner, "Your adrenaline wears off!")
 	return ..()
 
 /datum/stim/stam_usage_decrease
