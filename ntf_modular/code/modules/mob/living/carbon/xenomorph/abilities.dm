@@ -316,7 +316,10 @@
 		message_admins(span_adminnotice("[owner.key] took control of [new_mob.name] as [new_mob.p_they()] they used the possession ability."))
 		log_admin("[owner.key] took control of [new_mob.name] as [new_mob.p_they()] used the possession ability.")
 		new_mob.transfer_mob(owner)
-		new_mob.possessor = xeno_owner(src)
+		if(!new_mob.actions_by_path[/datum/action/ability/xeno_action/return_to_body])
+		var/datum/action/ability/xeno_action/return_to_body/returning = new /datum/action/ability/xeno_action/return_to_body
+		returning.old_mob = owner
+		returning.give_action(new_mob)
 		ADD_TRAIT(X, TRAIT_POSSESSING, TRAIT_POSSESSING)
 		return
 
@@ -326,14 +329,13 @@
 	action_icon = 'ntf_modular/icons/Xeno/actions.dmi'
 	action_icon_state = "baneling"
 	desc = "Release control of a minion that you have jurisdiction over."
-
 	ability_cost = 0 // Change later
 	cooldown_duration = 0 SECONDS // Same here
 	action_type = ACTION_CLICK
 	target_flags = ABILITY_XENO_TARGET
 
 /datum/action/ability/xeno_action/return_to_body
-	var/mob/living/carbon/xenomorph/old_mob
+	var/mob/living/carbon/xenomorph/old_mob = null
 
 /datum/action/ability/xeno_action/return_to_body/action_activate(xeno_owner)
 	if(!owner || QDELETED(old_mob))
@@ -347,15 +349,6 @@
 	old_mob.transfer_mob(owner)
 	REMOVE_TRAIT(old_mob, TRAIT_POSSESSING, TRAIT_POSSESSING)
 	return TRUE
-
-// Helper procs for possession, so you can come back to your body without dying... Fix this later by making it give the ability to whoever you use it on
-/mob/living/carbon/xenomorph/proc/give_return()
-	if(!actions_by_path[/datum/action/ability/xeno_action/rally_hive])
-		var/datum/action/ability/xeno_action/rally_hive/rally = new /datum/action/ability/xeno_action/rally_hive
-		rally.give_action(src)
-	if(!actions_by_path[/datum/action/ability/xeno_action/rally_minion])
-		var/datum/action/ability/xeno_action/rally_minion/rally = new /datum/action/ability/xeno_action/rally_minion
-		rally.give_action(src)
 
 
 ///Helper proc for removing possession when you return to your body, so people cant return to your body... Fix this later by making it take away the ability when you use it
