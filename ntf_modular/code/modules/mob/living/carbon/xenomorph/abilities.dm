@@ -279,15 +279,16 @@
 		return
 	if (owner.status_flags & INCORPOREAL)
 		return FALSE
+
 /datum/action/ability/activable/xeno/possession/use_ability(atom/movable/A)
 	var/mob/living/carbon/xenomorph/X = owner
 	if(!ismob(A))
 		return FALSE
 	if(X.do_actions)
 		return FALSE
-	if(!xeno_owner.issamexenohive(A))
+	if(!X.issamexenohive(A))
 		return FALSE
-	if(!can_use_ability(target, TRUE))
+	if(!can_use_action(X, TRUE))
 		return FALSE
 	if(!isxeno(A))
 		return FALSE
@@ -315,7 +316,7 @@
 		message_admins(span_adminnotice("[owner.key] took control of [new_mob.name] as [new_mob.p_they()] they used the possession ability."))
 		log_admin("[owner.key] took control of [new_mob.name] as [new_mob.p_they()] used the possession ability.")
 		new_mob.transfer_mob(owner)
-		new_mob.possessor = WEAKREF(owner)
+		new_mob.possessor = xeno_owner(src)
 		ADD_TRAIT(X, TRAIT_POSSESSING, TRAIT_POSSESSING)
 		return
 
@@ -331,10 +332,10 @@
 	action_type = ACTION_CLICK
 	target_flags = ABILITY_XENO_TARGET
 
-/datum/action/ability/xeno_action/return_to_body/action_activate(mob/living/target)
+/datum/action/ability/xeno_action/return_to_body
+	var/mob/living/carbon/xenomorph/old_mob
 
-	var/mob/living/carbon/xenomorph/old_mob = get_possessor()
-
+/datum/action/ability/xeno_action/return_to_body/action_activate(xeno_owner)
 	if(!owner || QDELETED(old_mob))
 		to_chat(src, span_warning("Your old body is gone."))
 		return FALSE

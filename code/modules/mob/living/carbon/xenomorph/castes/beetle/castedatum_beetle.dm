@@ -39,4 +39,5 @@
 		/datum/action/ability/xeno_action/psychic_influence,
 		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/activable/xeno/charge/forward_charge/unprecise,
+		/datum/action/ability/xeno_action/return_to_body, // To do, remove this
 	)
