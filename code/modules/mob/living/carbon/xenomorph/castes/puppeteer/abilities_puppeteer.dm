@@ -206,7 +206,7 @@
 	name = "Stitch Puppet"
 	action_icon_state = "stitch_puppet"
 	action_icon = 'icons/Xeno/actions/puppeteer.dmi'
-	desc = "Uses 125 biomass to create a flesh homunculus to do your bidding, at an adjacent target location."
+	desc = "Uses 125 biomass to create a humanoid replica from your reserves of plasma and resin to do your bidding, at an adjacent target location."
 	ability_cost = 125
 	cooldown_duration = 25 SECONDS
 	target_flags = ABILITY_TURF_TARGET
