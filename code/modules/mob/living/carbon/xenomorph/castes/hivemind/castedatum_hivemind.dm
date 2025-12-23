@@ -66,6 +66,7 @@
 		/datum/action/ability/activable/xeno/place_pattern,
 		/datum/action/ability/xeno_action/create_edible_jelly,
 		/datum/action/ability/xeno_action/place_stew_pod,
+		/datum/action/ability/activable/xeno/possession,
 	)
 
 /datum/xeno_caste/hivemind/on_caste_applied(mob/xenomorph)
@@ -86,3 +87,4 @@
 	aura_strength = 4 //Good pheros
 
 	speed = 1.5
+

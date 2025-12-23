@@ -255,3 +255,116 @@
 				limb_to_fix.add_limb_flags(LIMB_REPAIRED)
 				visible_message("[src]'s broken [limb_to_fix.name] is repaired by the healing!", "Your broken [limb_to_fix.name] is repaired by the healing!")
 				break
+
+///
+/// ******** Possession *****
+/// For taking over mobs as mob makers/hivemind
+/datum/action/ability/activable/xeno/possession
+	name = "Minion Possession"
+	action_icon = 'ntf_modular/icons/Xeno/actions.dmi'
+	action_icon_state = "baneling"
+	desc = "Take control of a minion that you have jurisdiction over."
+
+	ability_cost = 1 // Change later
+	cooldown_duration = 1 SECONDS // Same here
+	action_type = ACTION_SELECT
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_POSSESS,
+	)
+	target_flags = ABILITY_XENO_TARGET
+
+/datum/action/ability/activable/xeno/possession/can_use_action(silent, override_flags, selecting)
+	. = ..()
+	if(!.)
+		return
+	if (owner.status_flags & INCORPOREAL)
+		return FALSE
+/datum/action/ability/activable/xeno/possession/use_ability(atom/movable/A)
+	var/mob/living/carbon/xenomorph/X = owner
+	if(!ismob(A))
+		return FALSE
+	if(X.do_actions)
+		return FALSE
+	if(!xeno_owner.issamexenohive(A))
+		return FALSE
+	if(!can_use_ability(target, TRUE))
+		return FALSE
+	if(!isxeno(A))
+		return FALSE
+
+	A.visible_message(span_xenowarning("[A] lightly shimmers and wakes up."), \
+	span_xenowarning("We feel a controlling chill."))
+	playsound(A, SFX_ALIEN_DROOL, 25)
+	new /obj/effect/temp_visual/telekinesis(get_turf(A))
+	var/mob/living/carbon/xenomorph/new_mob = A
+	succeed_activate()
+	add_cooldown()
+	if(HAS_TRAIT(new_mob, TRAIT_POSSESSING))
+		to_chat(X, span_warning("That mob is currently possessing a different mob."))
+		return FALSE
+
+	if(new_mob.client)
+		to_chat(X, span_warning("That mob has been occupied."))
+		return FALSE
+
+	if(new_mob.stat == DEAD)
+		to_chat(X, span_warning("You cannot join if the mob is dead."))
+		return FALSE
+
+	if(!ishuman(new_mob))
+		message_admins(span_adminnotice("[owner.key] took control of [new_mob.name] as [new_mob.p_they()] they used the possession ability."))
+		log_admin("[owner.key] took control of [new_mob.name] as [new_mob.p_they()] used the possession ability.")
+		new_mob.transfer_mob(owner)
+		new_mob.possessor = WEAKREF(owner)
+		ADD_TRAIT(X, TRAIT_POSSESSING, TRAIT_POSSESSING)
+		return
+
+///****For getting back to your body****
+/datum/action/ability/xeno_action/return_to_body
+	name = "Return to Body"
+	action_icon = 'ntf_modular/icons/Xeno/actions.dmi'
+	action_icon_state = "baneling"
+	desc = "Release control of a minion that you have jurisdiction over."
+
+	ability_cost = 0 // Change later
+	cooldown_duration = 0 SECONDS // Same here
+	action_type = ACTION_CLICK
+	target_flags = ABILITY_XENO_TARGET
+
+/datum/action/ability/xeno_action/return_to_body/action_activate(mob/living/target)
+
+	var/mob/living/carbon/xenomorph/old_mob = get_possessor()
+
+	if(!owner || QDELETED(old_mob))
+		to_chat(src, span_warning("Your old body is gone."))
+		return FALSE
+
+	if(old_mob.key)
+		to_chat(src, span_warning("Another consciousness is in your body...It is resisting you."))
+		return FALSE
+
+	old_mob.transfer_mob(owner)
+	REMOVE_TRAIT(old_mob, TRAIT_POSSESSING, TRAIT_POSSESSING)
+	return TRUE
+
+// Helper procs for possession, so you can come back to your body without dying... Fix this later by making it give the ability to whoever you use it on
+/mob/living/carbon/xenomorph/proc/give_return()
+	if(!actions_by_path[/datum/action/ability/xeno_action/rally_hive])
+		var/datum/action/ability/xeno_action/rally_hive/rally = new /datum/action/ability/xeno_action/rally_hive
+		rally.give_action(src)
+	if(!actions_by_path[/datum/action/ability/xeno_action/rally_minion])
+		var/datum/action/ability/xeno_action/rally_minion/rally = new /datum/action/ability/xeno_action/rally_minion
+		rally.give_action(src)
+
+
+///Helper proc for removing possession when you return to your body, so people cant return to your body... Fix this later by making it take away the ability when you use it
+/mob/living/carbon/xenomorph/proc/remove_return()
+
+	var/datum/action/ability/xeno_action/rally_hive/rally = actions_by_path[/datum/action/ability/xeno_action/rally_hive]
+
+	if(rally)
+		rally.remove_action(src)
+	var/datum/action/ability/xeno_action/rally_minion/rally_minion = actions_by_path[/datum/action/ability/xeno_action/rally_minion]
+
+	if(rally_minion)
+		rally_minion.remove_action(src)
