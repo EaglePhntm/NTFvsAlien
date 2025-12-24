@@ -351,9 +351,11 @@
 
 /datum/action/ability/xeno_action/return_to_body
 	var/mob/living/carbon/xenomorph/old_mob = null
+
 	var/datum/action/ability/xeno_action/return_to_body/leaving = /datum/action/ability/xeno_action/return_to_body
 
 /datum/action/ability/xeno_action/return_to_body/action_activate(xeno_owner)
+	var/mob/living/carbon/xenomorph/X = owner
 	if(!owner || QDELETED(old_mob))
 		to_chat(src, span_warning("Your old body is gone."))
 		return FALSE
@@ -363,7 +365,7 @@
 		return FALSE
 
 	leaving.remove_action(xeno_owner)
-	owner.possessor = null
+	X.possessor = null
 	old_mob.transfer_mob(owner)
 	REMOVE_TRAIT(old_mob, TRAIT_POSSESSING, TRAIT_POSSESSING)
 	return TRUE
