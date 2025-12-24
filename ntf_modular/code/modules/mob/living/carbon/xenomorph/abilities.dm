@@ -293,20 +293,28 @@
 	if(!isxeno(A))
 		return FALSE
 	var/mob/living/carbon/xenomorph/new_mob = A
-	if(istype(xeno_owner.xeno_caste, /datum/xeno_caste/hivemind))
-		if(istype(new_mob.xeno_caste, list(/mob/living/carbon/xenomorph/beetle, /mob/living/carbon/xenomorph/mantis, /mob/living/carbon/xenomorph/scorpion, /mob/living/carbon/xenomorph/nymph,)))
+	if(istype(X.xeno_caste, /datum/xeno_caste/hivemind/hivemind_manifestation))
+		if(!istype(new_mob.xeno_caste, /mob/living/carbon/xenomorph/beetle))
+			return
+/*		if(!istype(new_mob.xeno_caste, /datum/xeno_caste/beetle))
+
+		if(!istype(new_mob.xeno_caste, /datum/xeno_caste/mantis))
+
+		if(!istype(new_mob.xeno_caste, /datum/xeno_caste/scorpion))
+
+		if(!istype(new_mob.xeno_caste, /datum/xeno_caste/nymph))
+			return*/
 
 
-	if(istype(xeno_owner.xeno_caste, /datum/xeno_caste/puppeteer))
-		if(!istype(new_mob.xeno_caste, /datum/xeno_caste/puppet))
-		/*if( /datum/weakref/weak_master)*/
+	if(istype(X.xeno_caste, /mob/living/carbon/xenomorph/puppeteer))
+		if(!istype(new_mob.xeno_caste, /mob/living/carbon/xenomorph/puppet))
+			/*if( /datum/weakref/weak_master < puppytear ref) Allows puppeteers to take over other peoples puppets until this works... nobody plays puppeteer though*/
 			return
 
-	if(istype(xeno_owner.xeno_caste, /mob/living/carbon/xenomorph/widow))
+	if(istype(X.xeno_caste, /mob/living/carbon/xenomorph/widow))
 		if(!istype(new_mob.xeno_caste, /mob/living/carbon/xenomorph/widow))
-			/*if( mob/living/carbon/xenomorph/spidermother)*/
+			/*if( mob/living/carbon/xenomorph/spidermother < widdy ref) Allows widows to take over other peoples spiders until this works... nobody plays widow though*/
 			return
-
 
 
 	A.visible_message(span_xenowarning("[A] lightly shimmers and wakes up."), \
@@ -364,21 +372,8 @@
 		to_chat(src, span_warning("Another consciousness is in your body...It is resisting you."))
 		return FALSE
 
-	leaving.remove_action(xeno_owner)
-	X.possessor = null
 	old_mob.transfer_mob(owner)
+	X.possessor = null
+	leaving.remove_action(xeno_owner)
 	REMOVE_TRAIT(old_mob, TRAIT_POSSESSING, TRAIT_POSSESSING)
 	return TRUE
-
-
-///Helper proc for removing possession when you return to your body, so people cant return to your body... Fix this later by making it take away the ability when you use it
-/mob/living/carbon/xenomorph/proc/remove_return()
-
-	var/datum/action/ability/xeno_action/rally_hive/rally = actions_by_path[/datum/action/ability/xeno_action/rally_hive]
-
-	if(rally)
-		rally.remove_action(src)
-	var/datum/action/ability/xeno_action/rally_minion/rally_minion = actions_by_path[/datum/action/ability/xeno_action/rally_minion]
-
-	if(rally_minion)
-		rally_minion.remove_action(src)
