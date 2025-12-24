@@ -357,6 +357,8 @@
 	var/mob/living/carbon/xenomorph/old_mob = null
 
 	var/datum/action/ability/xeno_action/return_to_body/leaving = /datum/action/ability/xeno_action/return_to_body
+	use_state_flags = ABILITY_USE_INCAP|ABILITY_USE_LYING|ABILITY_USE_BUCKLED|ABILITY_USE_STAGGERED|ABILITY_USE_FORTIFIED|ABILITY_USE_NOTTURF|ABILITY_USE_BUSY|ABILITY_USE_SOLIDOBJECT|ABILITY_USE_BURROWED
+
 
 /datum/action/ability/xeno_action/return_to_body/action_activate(xeno_owner)
 	var/mob/living/carbon/xenomorph/X = owner
@@ -373,3 +375,50 @@
 	leaving.remove_action(xeno_owner)
 	REMOVE_TRAIT(old_mob, TRAIT_POSSESSING, TRAIT_POSSESSING)
 	return TRUE
+
+// For the hivemind to create non-AI driven minions
+/datum/action/ability/activable/xeno/creation
+	name = "Minion Creation"
+	action_icon = 'ntf_modular/icons/Xeno/actions.dmi'
+	action_icon_state = "spawn_pod"
+	desc = "Create a brainless minion to be possessed by you."
+
+	ability_cost = 1 // Change later
+	cooldown_duration = 1 SECONDS // Same here
+	action_type = ACTION_TOGGLE
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CREATE,
+	)
+	target_flags = ABILITY_TURF_TARGET
+
+
+/datum/action/ability/activable/xeno/creation/can_use_action(silent, override_flags, selecting)
+	. = ..()
+	if(!.)
+		return
+	if (owner.status_flags & INCORPOREAL)
+		return FALSE
+
+/datum/action/ability/activable/xeno/creation/action_activate()
+	//Left click on the secrete resin button opens up radial menu (new type of changing structures).
+	if(xeno_owner.selected_ability != src)
+		return ..()
+	. = ..()
+	var/spawn_choice = show_radial_menu(owner, owner, GLOB.spawnable_minion_list, radius = 35)
+	if(!spawn_choice)
+		return
+	set_spawn_type(buildable_structures[GLOB.spawnable_minion_list.Find(spawn_choice)])
+
+	var/mob/living/carbon/xenomorph/spiderling/new_spiderling = new(owner.loc, owner, owner)
+	succeed_activation()
+	add_cooldown()
+
+/datum/action/ability/activable/xeno/creation/proc/set_spawn_type(new_spawn, silent = FALSE)
+	xeno_owner.selected_spawn = new_spawn
+	ability_cost = initial(ability_cost) + GLOB.xeno_resin_costs[new_spawn]
+	name = "[initial(name)] ([ability_cost])"
+	update_button_icon()
+	if(silent)
+		return
+	var/atom/spawn = xeno_owner.selected_spawn
+	xeno_owner.balloon_alert(xeno_owner, lowertext(spawn::name))
