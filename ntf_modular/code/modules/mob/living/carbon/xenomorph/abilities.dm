@@ -332,7 +332,6 @@
 		return FALSE
 
 	if(!ishuman(new_mob))
-		message_admins(span_adminnotice("[owner.key] took control of [new_mob.name] as [new_mob.p_they()] they used the possession ability."))
 		log_admin("[owner.key] took control of [new_mob.name] as [new_mob.p_they()] used the possession ability.")
 		new_mob.transfer_mob(owner)
 		var/datum/action/ability/xeno_action/return_to_body/returning = new /datum/action/ability/xeno_action/return_to_body
