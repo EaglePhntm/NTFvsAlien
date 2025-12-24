@@ -15,7 +15,7 @@
 	plasma_max = 750
 	plasma_gain = 1
 	plasma_regen_limit = 1
-/*	plasma_icon_state = "fury" *///Puppy tears now get plasma passively (just very slowly)
+	plasma_icon_state = "plasma"
 	max_health = 365
 	upgrade_threshold = TIER_TWO_THRESHOLD
 	evolution_threshold = 225

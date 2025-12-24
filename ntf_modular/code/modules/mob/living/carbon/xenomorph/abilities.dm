@@ -292,19 +292,15 @@
 		return FALSE
 	if(!isxeno(A))
 		return FALSE
+
 	var/mob/living/carbon/xenomorph/new_mob = A
-	if(istype(X.xeno_caste, /datum/xeno_caste/hivemind/hivemind_manifestation))
-		if(!istype(new_mob.xeno_caste, /mob/living/carbon/xenomorph/beetle))
+	if(istype(X.xeno_caste, /datum/xeno_caste/hivemind))
+		if(!istype(new_mob.xeno_caste, /datum/xeno_caste/beetle) && \
+			!istype(new_mob.xeno_caste, /datum/xeno_caste/mantis) && \
+			!istype(new_mob.xeno_caste, /datum/xeno_caste/scorpion) && \
+			!istype(new_mob.xeno_caste, /datum/xeno_caste/nymph) \
+		)
 			return
-/*		if(!istype(new_mob.xeno_caste, /datum/xeno_caste/beetle))
-
-		if(!istype(new_mob.xeno_caste, /datum/xeno_caste/mantis))
-
-		if(!istype(new_mob.xeno_caste, /datum/xeno_caste/scorpion))
-
-		if(!istype(new_mob.xeno_caste, /datum/xeno_caste/nymph))
-			return*/
-
 
 	if(istype(X.xeno_caste, /mob/living/carbon/xenomorph/puppeteer))
 		if(!istype(new_mob.xeno_caste, /mob/living/carbon/xenomorph/puppet))
