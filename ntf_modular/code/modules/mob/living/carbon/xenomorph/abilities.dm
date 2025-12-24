@@ -316,10 +316,10 @@
 		message_admins(span_adminnotice("[owner.key] took control of [new_mob.name] as [new_mob.p_they()] they used the possession ability."))
 		log_admin("[owner.key] took control of [new_mob.name] as [new_mob.p_they()] used the possession ability.")
 		new_mob.transfer_mob(owner)
-		if(!new_mob.actions_by_path[/datum/action/ability/xeno_action/return_to_body])
 		var/datum/action/ability/xeno_action/return_to_body/returning = new /datum/action/ability/xeno_action/return_to_body
+		if(!new_mob.actions_by_path[/datum/action/ability/xeno_action/return_to_body])
+			returning.give_action(new_mob)
 		returning.old_mob = owner
-		returning.give_action(new_mob)
 		ADD_TRAIT(X, TRAIT_POSSESSING, TRAIT_POSSESSING)
 		return
 
@@ -336,6 +336,8 @@
 
 /datum/action/ability/xeno_action/return_to_body
 	var/mob/living/carbon/xenomorph/old_mob = null
+	var/mob/living/carbon/xenomorph/X = owner
+	var/datum/action/ability/xeno_action/return_to_body/leaving = /datum/action/ability/xeno_action/return_to_body
 
 /datum/action/ability/xeno_action/return_to_body/action_activate(xeno_owner)
 	if(!owner || QDELETED(old_mob))
@@ -346,6 +348,8 @@
 		to_chat(src, span_warning("Another consciousness is in your body...It is resisting you."))
 		return FALSE
 
+	leaving.remove_action(xeno_owner)
+	X.possessor = null
 	old_mob.transfer_mob(owner)
 	REMOVE_TRAIT(old_mob, TRAIT_POSSESSING, TRAIT_POSSESSING)
 	return TRUE
