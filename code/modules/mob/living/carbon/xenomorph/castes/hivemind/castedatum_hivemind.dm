@@ -67,7 +67,7 @@
 		/datum/action/ability/xeno_action/create_edible_jelly,
 		/datum/action/ability/xeno_action/place_stew_pod,
 		/datum/action/ability/activable/xeno/possession,
-		/datum/action/ability/activable/xeno/creation,
+/*		/datum/action/ability/activable/xeno/creation,*/// Currently non-operational
 	)
 
 /datum/xeno_caste/hivemind/on_caste_applied(mob/xenomorph)

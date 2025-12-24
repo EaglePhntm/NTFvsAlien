@@ -375,8 +375,8 @@
 	REMOVE_TRAIT(old_mob, TRAIT_POSSESSING, TRAIT_POSSESSING)
 	return TRUE
 
-// For the hivemind to create non-AI driven minions
-/datum/action/ability/activable/xeno/creation
+// For the hivemind to create non-AI driven minions, unfortunately this doesn't work right now. Try again later.
+/*/datum/action/ability/activable/xeno/creation
 	name = "Minion Creation"
 	action_icon = 'ntf_modular/icons/Xeno/actions.dmi'
 	action_icon_state = "spawn_pod"
@@ -389,6 +389,11 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CREATE,
 	)
 	target_flags = ABILITY_TURF_TARGET
+	var/list/spawnable_minions = list(
+		/mob/living/carbon/xenomorph/beetle,
+		/mob/living/carbon/xenomorph/nymph,
+		/mob/living/carbon/xenomorph/mantis,
+		/mob/living/carbon/xenomorph/scorpion,)
 
 
 /datum/action/ability/activable/xeno/creation/can_use_action(silent, override_flags, selecting)
@@ -406,18 +411,35 @@
 	var/spawn_choice = show_radial_menu(owner, owner, GLOB.spawnable_minion_list, radius = 35)
 	if(!spawn_choice)
 		return
-	set_spawn_type(buildable_structures[GLOB.spawnable_minion_list.Find(spawn_choice)])
+	set_spawn_type(spawnable_minions[GLOB.spawnable_minion_list.Find(spawn_choice)])
 
-	var/mob/living/carbon/xenomorph/spiderling/new_spiderling = new(owner.loc, owner, owner)
-	succeed_activation()
-	add_cooldown()
+/*	var/mob/living/carbon/xenomorph/spiderling/new_spiderling = new(owner.loc, owner, owner)*/
 
 /datum/action/ability/activable/xeno/creation/proc/set_spawn_type(new_spawn, silent = FALSE)
-	xeno_owner.selected_spawn = new_spawn
-	ability_cost = initial(ability_cost) + GLOB.xeno_resin_costs[new_spawn]
-	name = "[initial(name)] ([ability_cost])"
+	var/mob/living/carbon/xenomorph/xeno_owner = owner
+	xeno_owner.spawn_choice = new_spawn
 	update_button_icon()
 	if(silent)
 		return
-	var/atom/spawn = xeno_owner.selected_spawn
-	xeno_owner.balloon_alert(xeno_owner, lowertext(spawn::name))
+	var/atom/spawnn = xeno_owner.spawn_choice
+	xeno_owner.balloon_alert(xeno_owner, lowertext(spawnn::name))
+
+	/datum/action/ability/activable/xeno/creation/proc/choose_spawn()
+	var/list/available_spawns = list()
+	for(var/obj/alien/weeds/node/minion_type_possible AS in spawnable_minions)
+		var/minion_image = GLOB.spawnable_minion_list[initial(weed_type_possible.name)]
+		if(!minion_image)
+			continue
+		available_spawns[initial(minion_type_possible.name)] = minion_image
+
+	var/weed_choice = show_radial_menu(xeno_owner, xeno_owner, available_weeds, radius = 48)
+	if(!weed_choice)
+		return
+	else
+		for(var/obj/alien/weeds/node/weed_type_possible AS in GLOB.weed_type_list)
+			if(initial(weed_type_possible.name) == weed_choice)
+				weed_type = weed_type_possible
+				update_ability_cost()
+				break
+		to_chat(owner, span_xenonotice("We will now spawn <b>[weed_choice]\s</b> when using the plant weeds ability."))
+	update_button_icon()*/
