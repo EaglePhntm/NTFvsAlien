@@ -292,12 +292,27 @@
 		return FALSE
 	if(!isxeno(A))
 		return FALSE
+	var/mob/living/carbon/xenomorph/new_mob = A
+	if(istype(xeno_owner.xeno_caste, /datum/xeno_caste/hivemind))
+		if(istype(new_mob.xeno_caste, list(/mob/living/carbon/xenomorph/beetle, /mob/living/carbon/xenomorph/mantis, /mob/living/carbon/xenomorph/scorpion, /mob/living/carbon/xenomorph/nymph,)))
+
+
+	if(istype(xeno_owner.xeno_caste, /datum/xeno_caste/puppeteer))
+		if(!istype(new_mob.xeno_caste, /datum/xeno_caste/puppet))
+		/*if( /datum/weakref/weak_master)*/
+			return
+
+	if(istype(xeno_owner.xeno_caste, /mob/living/carbon/xenomorph/widow))
+		if(!istype(new_mob.xeno_caste, /mob/living/carbon/xenomorph/widow))
+			/*if( mob/living/carbon/xenomorph/spidermother)*/
+			return
+
+
 
 	A.visible_message(span_xenowarning("[A] lightly shimmers and wakes up."), \
 	span_xenowarning("We feel a controlling chill."))
 	playsound(A, SFX_ALIEN_DROOL, 25)
 	new /obj/effect/temp_visual/telekinesis(get_turf(A))
-	var/mob/living/carbon/xenomorph/new_mob = A
 	succeed_activate()
 	add_cooldown()
 	if(HAS_TRAIT(new_mob, TRAIT_POSSESSING))
@@ -336,7 +351,6 @@
 
 /datum/action/ability/xeno_action/return_to_body
 	var/mob/living/carbon/xenomorph/old_mob = null
-	var/mob/living/carbon/xenomorph/X = owner
 	var/datum/action/ability/xeno_action/return_to_body/leaving = /datum/action/ability/xeno_action/return_to_body
 
 /datum/action/ability/xeno_action/return_to_body/action_activate(xeno_owner)
@@ -349,7 +363,7 @@
 		return FALSE
 
 	leaving.remove_action(xeno_owner)
-	X.possessor = null
+	owner.possessor = null
 	old_mob.transfer_mob(owner)
 	REMOVE_TRAIT(old_mob, TRAIT_POSSESSING, TRAIT_POSSESSING)
 	return TRUE
