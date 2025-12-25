@@ -128,7 +128,8 @@
 	action_icon_state = "refurbish_husk"
 	action_icon = 'icons/Xeno/actions/puppeteer.dmi'
 	desc = "Stitch a puppet in the likeness of another creature."
-	cooldown_duration = 25 SECONDS
+	ability_cost = 200
+	cooldown_duration = 35 SECONDS
 	target_flags = ABILITY_MOB_TARGET
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_REFURBISHHUSK,
