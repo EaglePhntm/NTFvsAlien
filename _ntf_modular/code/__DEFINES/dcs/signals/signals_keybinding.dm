@@ -23,6 +23,7 @@
 #define COMSIG_XENOABILITY_SPRAY_SHARD "xenoability_spray_shard"
 #define COMSIG_XENOABILITY_LARVAL_GROWTH_STING "xenoability_larval_growth_sting"
 #define COMSIG_XENOABILITY_POSSESS "xenoability_possess"
+#define COMSIG_XENOABILITY_RETURN "xenoability_return"
 #define COMSIG_XENOABILITY_CREATE "xenoability_creation"
 #define COMSIG_XENOABILITY_TAIL_STAB "xenoability_tail_stab"
 #define COMSIG_XENOABILITY_IMPREGNATE "xenoability_impregnate"

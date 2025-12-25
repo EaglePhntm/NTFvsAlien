@@ -273,12 +273,12 @@
 	)
 	target_flags = ABILITY_XENO_TARGET
 
-/datum/action/ability/activable/xeno/possession/can_use_action(silent, override_flags, selecting)
+/*/datum/action/ability/activable/xeno/possession/can_use_action(silent, override_flags, selecting)
 	. = ..()
 	if(!.)
 		return
 	if (owner.status_flags & INCORPOREAL)
-		return FALSE
+		return FALSE*/
 
 /datum/action/ability/activable/xeno/possession/use_ability(atom/movable/A)
 	var/mob/living/carbon/xenomorph/X = owner
@@ -300,18 +300,17 @@
 			!istype(new_mob.xeno_caste, /datum/xeno_caste/scorpion) && \
 			!istype(new_mob.xeno_caste, /datum/xeno_caste/nymph) \
 		)
-			return
+			return FALSE
 
-	if(istype(X.xeno_caste, /mob/living/carbon/xenomorph/puppeteer))
-		if(!istype(new_mob.xeno_caste, /mob/living/carbon/xenomorph/puppet))
+	if(isxenopuppeteer(X))
+		if(!istype(new_mob.xeno_caste, /datum/xeno_caste/puppet))
+			return FALSE
 			/*if( /datum/weakref/weak_master < puppytear ref) Allows puppeteers to take over other peoples puppets until this works... nobody plays puppeteer though*/
-			return
 
-	if(istype(X.xeno_caste, /mob/living/carbon/xenomorph/widow))
-		if(!istype(new_mob.xeno_caste, /mob/living/carbon/xenomorph/widow))
+	if(isxenowidow(X))
+		if(!istype(new_mob.xeno_caste, /datum/xeno_caste/spiderling))
+			return FALSE
 			/*if( mob/living/carbon/xenomorph/spidermother < widdy ref) Allows widows to take over other peoples spiders until this works... nobody plays widow though*/
-			return
-
 
 	A.visible_message(span_xenowarning("[A] lightly shimmers and wakes up."), \
 	span_xenowarning("We feel a controlling chill."))
@@ -351,6 +350,9 @@
 	cooldown_duration = 0 SECONDS // Same here
 	action_type = ACTION_CLICK
 	target_flags = ABILITY_XENO_TARGET
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_RETURN,
+	)
 
 /datum/action/ability/xeno_action/return_to_body
 	var/mob/living/carbon/xenomorph/old_mob = null
@@ -371,7 +373,8 @@
 
 	old_mob.transfer_mob(owner)
 	X.possessor = null
-	leaving.remove_action(xeno_owner)
+	leaving.remove_action(X)
+	src.old_mob = null
 	REMOVE_TRAIT(old_mob, TRAIT_POSSESSING, TRAIT_POSSESSING)
 	return TRUE
 
