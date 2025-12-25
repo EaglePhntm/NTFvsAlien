@@ -40,7 +40,6 @@
 	var/location = get_turf(loc)
 	remove_traits(list(TRAIT_HAULED, TRAIT_IMMOBILE), "t_s_xeno_haul")
 	pixel_y = 0
-	UnregisterSignal(devouring_mob, COMSIG_MOB_DEATH)
 	devouring_mob = null
 	layer = MOB_LAYER
 	//remove_filter("hauled_shadow")
