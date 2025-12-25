@@ -1047,6 +1047,7 @@
 		/obj/item/attachable/foldable/bipod,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/suppressor,
 		/obj/item/attachable/bayonet/converted,
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonet/som,
@@ -2409,7 +2410,7 @@
 	burst_amount = 1
 	fire_delay = 0.15 SECONDS
 	accuracy_mult = 0.75
-	scatter = 15
+	scatter = 16
 	recoil = 1.5
 	wield_delay = 0.6 SECONDS
 	aim_slowdown = 0.4

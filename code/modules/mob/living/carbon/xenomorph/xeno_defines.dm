@@ -309,7 +309,7 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	///Hive datum we belong to
 	VAR_PROTECTED/datum/hive_status/hive
 	///Xeno mob specific flags
-	var/xeno_flags = XENO_DESTROY_OWN_STRUCTURES | XENO_DESTROY_WEEDS
+	var/xeno_flags = XENO_DESTROY_OWN_STRUCTURES
 
 	///State tracking of hive status toggles
 	var/status_toggle_flags = HIVE_STATUS_DEFAULTS
@@ -335,7 +335,7 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	var/xenogender = 1
 
 	///A mob the xeno ate
-	var/mob/living/carbon/eaten_mob
+	var/mob/living/carbon/human/eaten_mob
 	///A mob the xeno is trying to eat
 	var/mob/living/devouring_mob
 	///How much evolution they have stored

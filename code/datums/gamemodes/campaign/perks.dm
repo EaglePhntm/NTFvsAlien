@@ -47,7 +47,7 @@ Needed both for a purchase list and effected list (if one perk impacts multiple 
 		jobs_supported = GLOB.jobs_regular_all
 	if(iscampaigngamemode(SSticker.mode)) //for extended etc
 		return
-	unlock_cost = initial(unlock_cost)*4
+	unlock_cost = initial(unlock_cost)*2
 
 ///Any one off bonuses for unlocking this perk
 /datum/perk/proc/unlock_bonus(mob/living/carbon/owner, datum/individual_stats/owner_stats)
@@ -169,7 +169,7 @@ Needed both for a purchase list and effected list (if one perk impacts multiple 
 	ui_icon = "soft_footed"
 	traits = list(TRAIT_LIGHT_STEP)
 	all_jobs = TRUE
-	unlock_cost = 300
+	unlock_cost = 350
 
 /datum/perk/trait/axe_master
 	name = "Axe master"
@@ -241,8 +241,13 @@ Needed both for a purchase list and effected list (if one perk impacts multiple 
 	desc = "Advanced hand to hand combat training gives you an edge when you need to punch someone in the face. Improved unarmed damage and stun chance."
 	ui_icon = "cqc_1"
 	unarmed = 1
-	all_jobs = TRUE
 	unlock_cost = 250
+
+/datum/perk/skill_mod/unarmed/New()
+	//letting specs etc take this lets em basically one shot limbs off at cqc 7
+	var/list/goofyjobs = GLOB.jobs_regular_all - list(SQUAD_SPECIALIST, SOM_SQUAD_VETERAN, FIELD_COMMANDER, SOM_FIELD_COMMANDER, CHIEF_EXECUTIVE_OFFICER)
+	jobs_supported = goofyjobs
+	. = ..()
 
 /datum/perk/skill_mod/unarmed/two
 	name = "Hand to hand specialisation"

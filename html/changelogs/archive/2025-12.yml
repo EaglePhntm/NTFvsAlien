@@ -134,3 +134,30 @@
   - balance: Bio resistance values were increased massively on ac armors
   - balance: Base resistance values were increased slightly on ac armors
   - balance: Princeps ac armor slowdown value was changed from light to medium
+2025-12-22:
+  Colfer1:
+  - rscadd: All laser weapons now have new modes to play with, including the tesla
+      shock rifle
+  - balance: Combat robots can now repair as long as they aren't dead or already repairing
+  - balance: EMP damage is moderately less effective against robots to make way for
+      dedicated EMP guns (Tesla shock rifle)
+  - bugfix: Fixed combat robot damage screens not showing up
+  - soundadd: Combat robots now play noises when in crit/hard crit
+2025-12-23:
+  Colfer1:
+  - rscadd: Added barrier armor to the style line of armors, try it out and see how
+      you like it
+  - rscadd: Added style line & select armor modules to all armor vendors, now even
+      the CLF can have a medical pouch on their colorable jacket
+  - balance: supersoldier speed stims now have downsides
+  - soundadd: shields play a funny noise when broken
+2025-12-24:
+  Colfer1:
+  - rscadd: Added a new "Alien Pheromones" and "Crit Threshold" stim to supersoldier
+  DrCrawler:
+  - rscadd: You can now use linebreaks in your subtlers, but only subtlers.
+  Nokia2Student:
+  - qol: Xenos don't scoop up weeds by default anymore
+2025-12-25:
+  OrbisAnima:
+  - code_imp: Added Proof of Testing section to the Github PR template.

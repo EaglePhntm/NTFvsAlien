@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 #include "code\_DEFINES\colors.dm"
 #include "code\_DEFINES\ntf_defines.dm"
 #include "code\_DEFINES\sexcon_defines.dm"
@@ -35,6 +28,7 @@
 #include "code\datums\sexcon\sex_actions\deviant\footjob.dm"
 #include "code\datums\sexcon\sex_actions\deviant\force_thighjob.dm"
 #include "code\datums\sexcon\sex_actions\deviant\frotting.dm"
+#include "code\modules\mob\living\carbon\xenomorph\xenomorph.dm"
 #include "code\datums\sexcon\sex_actions\deviant\nipple_sex.dm"
 #include "code\datums\sexcon\sex_actions\deviant\rub_body.dm"
 #include "code\datums\sexcon\sex_actions\deviant\scissoring.dm"
@@ -84,6 +78,8 @@
 #include "code\game\objects\effects\landmarks\marine_spawns.dm"
 #include "code\game\objects\items.dm"
 #include "code\game\objects\items\radio\ntc_listener.dm"
+#include "code\game\objects\items\skillsoft.dm"
+#include "code\game\objects\items\stacks\medical.dm\medical.dm"
 #include "code\game\objects\items\storage\medicdispenser.dm"
 #include "code\game\objects\items\tools\loadout_tool.dm"
 #include "code\game\objects\machinery\artillery\shells.dm"
@@ -123,6 +119,7 @@
 #include "code\modules\language\telepathy.dm"
 #include "code\modules\mob\_pose.dm"
 #include "code\modules\mob\living\carbon\abstract_handcuffs.dm"
+#include "code\modules\mob\living\carbon\human\carbon.dm"
 #include "code\modules\mob\living\carbon\human\fallback_icon_verb.dm"
 #include "code\modules\mob\living\carbon\human\genital_selection.dm"
 #include "code\modules\mob\living\carbon\human\human_defines.dm"
