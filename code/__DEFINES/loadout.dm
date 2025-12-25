@@ -202,14 +202,14 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 GLOBAL_LIST_INIT(smartgunner_gear_listed_products, list(
 	/obj/effect/vendor_bundle/smartgunner_pistol = list(CAT_ESS, "SP-13 smart pistol", 0, "white"),
 	/obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol = list(CAT_SGSUP, "SP-13 smart pistol ammo", 1, "black"),
-	// /obj/item/weapon/gun/rifle/standard_smartmachinegun = list(CAT_SGSUP, "SG-29 Smart Machine Gun", 21, "orange"), //If a smartgunner buys a SG-29, then they will have points to purchase 6 SG-29 drums
+	/obj/item/weapon/gun/rifle/standard_smartmachinegun = list(CAT_SGSUP, "SG-29 Smart Machine Gun", 21, "orange"), //If a smartgunner buys a SG-29, then they will have points to purchase 6 SG-29 drums
 	/obj/item/ammo_magazine/standard_smartmachinegun = list(CAT_SGSUP, "SG-29 Ammo Drum", 4, "black"),
-	// /obj/item/weapon/gun/minigun/smart_minigun = list(CAT_SGSUP, "SG-85 Smart Handheld Gatling Gun", 27, "orange"), //If a smartgunner buys a SG-85, then they should be able to buy only 1 powerpack and 2 ammo bins
+	/obj/item/weapon/gun/minigun/smart_minigun = list(CAT_SGSUP, "SG-85 Smart Handheld Gatling Gun", 27, "orange"), //If a smartgunner buys a SG-85, then they should be able to buy only 1 powerpack and 2 ammo bins
 	/obj/item/ammo_magazine/minigun_powerpack/smartgun = list(CAT_SGSUP, "SG-85 Powerpack", 10, "black"),
 	/obj/item/ammo_magazine/packet/smart_minigun = list(CAT_SGSUP, "SG-85 Ammo Bin", 4, "black"),
-	// /obj/item/storage/box/crate/loot/targetrifle_pack_spec = list(CAT_SGSUP, "SG-62 Target Rifle (and fuckton of ammo)", 15, "orange"), //If a SG buys a SG-62, they'll have 15 points left, should be enough to buy some mags and or extra SR ammo.
-	// /obj/item/ammo_magazine/rifle/standard_smarttargetrifle = list(CAT_SGSUP, "SG-62 Target Rifle Magazine", 1, "orange"),
-	// /obj/item/ammo_magazine/packet/smart_targetrifle = list(CAT_SGSUP, "SG-62 Target Rifle Ammo Bin", 2, "black"),
+	/obj/item/storage/box/crate/loot/targetrifle_pack_spec = list(CAT_SGSUP, "SG-62 Target Rifle (and fuckton of ammo)", 15, "orange"), //If a SG buys a SG-62, they'll have 15 points left, should be enough to buy some mags and or extra SR ammo.
+	/obj/item/ammo_magazine/rifle/standard_smarttargetrifle = list(CAT_SGSUP, "SG-62 Target Rifle Magazine", 1, "orange"),
+	/obj/item/ammo_magazine/packet/smart_targetrifle = list(CAT_SGSUP, "SG-62 Target Rifle Ammo Bin", 2, "black"),
 	/obj/item/ammo_magazine/rifle/standard_spottingrifle = list(CAT_SGSUP, "SG-153 Spotting Rifle Magazine", 1, "black"),
 	/obj/item/ammo_magazine/rifle/standard_spottingrifle/highimpact = list(CAT_SGSUP, "SG-153 Spotting Rifle High Impact Magazine", 1, "black"),
 	/obj/item/ammo_magazine/rifle/standard_spottingrifle/heavyrubber = list(CAT_SGSUP, "SG-153 Spotting Rifle Heavy Rubber Magazine", 1, "black"),
@@ -229,11 +229,11 @@ GLOBAL_LIST_INIT(specialist_gear_listed_products, list(
 
 	/obj/effect/vendor_bundle/specialist = list(CAT_ESS, "Essential Specialist Set", 0, "white"),
 	/obj/item/storage/box/crate/loot/autosniper_lethal_pack_spec = list(CAT_SPSUP, "Recon L Class (SR-81 Autosniper, Mines, Thermals, Sniper cloak)", 25, "black"),
-	/obj/item/storage/box/crate/loot/scoutrifle_pack_spec = list(CAT_SPSUP, "Recon L Class 2 (Scout Rifle, Mines, Thermals)", 25, "black"),
+	/obj/item/storage/box/crate/loot/scoutrifle_pack_spec = list(CAT_SPSUP, "Recon L Class 2 (BR-8 Scout Rifle, Mines, Thermals)", 25, "black"),
 	/obj/item/storage/box/crate/loot/moonbeam_pack_spec = list(CAT_SPSUP, "Recon NL Class (Moonbeam Nonlethal sniper, Mines, Thermals, Sniper cloak)", 25, "black"),
 	/obj/item/storage/box/crate/loot/infiltration_pack_spec = list(CAT_SPSUP, "Infiltrator NL Class (Sneaking suit, G22 Tranq Pistol, Nonlethal Gear, NVG, Scout Cloak)", 25, "black"),
 	/obj/item/storage/box/crate/loot/infiltration_lethal_pack_spec = list(CAT_SPSUP, "Infiltrator L Class (Sneaking suit, M4A3 AP Pistol, Lethal Gear, NVG, Scout Cloak)", 25, "black"),
-	/obj/item/storage/box/crate/loot/gheist_pack_spec = list(CAT_SPSUP, "Hybrid Class (Thermals, Sneaking Boots, Rifle Pamphlet, Dragoon Mk1 RER)", 25, "black"),
+	/obj/item/storage/box/crate/loot/gheist_pack_spec = list(CAT_SPSUP, "Hybrid Class (NVG, Light Footed skillsoft, Rifle Pamphlet, Dragoon Mk1 RER)", 25, "black"),
 	/obj/item/ammo_magazine/pistol/g22tranq = list(CAT_SPSUP, "G22 Tranq Magazine", 1, "black"),
 	/obj/item/ammo_magazine/pistol/m1911/ap = list(CAT_SPSUP, "M4A3 AP Magazine", 1, "black"),
 	/obj/item/ammo_magazine/rifle/autosniper = list(CAT_SPSUP, "SR-81 Autosniper Magazine", 1, "black"),
@@ -242,6 +242,7 @@ GLOBAL_LIST_INIT(specialist_gear_listed_products, list(
 	/obj/item/ammo_magazine/rifle/tx8/impact = list(CAT_SPSUP, "BR-8 High Velocity Impact Magazine", 1, "black"),
 	/obj/item/ammo_magazine/rifle/tx8/incendiary = list(CAT_SPSUP, "BR-8 High Velocity Incendiary Magazine", 1, "black"),
 	/obj/item/ammo_magazine/rifle/chamberedrifle/tranq = list(CAT_SPSUP, "Moonbeam tranq sniper magazine", 1, "black"),
+	/obj/item/ammo_magazine/rifle/chamberedrifle/bluescreen = list(CAT_SPSUP, "Moonbeam bluescreen sniper magazine", 1, "black"),
 	/obj/item/ammo_magazine/rifle/boltclip/dragoon = list(CAT_SPSUP, "Dragoon RER ammunition clip", 1, "black"),
 	/obj/item/ammo_magazine/rifle/boltclip/dragoon/pox = list(CAT_SPSUP, "Dragoon RER poxomelanin ammunition clip", 3, "black"),
 	))

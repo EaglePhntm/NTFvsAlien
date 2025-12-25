@@ -184,13 +184,13 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 		var/datum/job/xenomorph/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[XENO_HIVE_NORMAL])
 		xeno_job.free_xeno_at_start = 0
 
-	addtimer(CALLBACK(src, PROC_REF(give_wages)), 15 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(give_wages)), 20 MINUTES)
 
 /datum/game_mode/proc/give_wages()
 	for(var/faction in stat_list)
 		var/datum/faction_stats/faction_stats = stat_list[faction]
 		faction_stats.apply_cash(250)
-	addtimer(CALLBACK(src, PROC_REF(give_wages)), 15 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(give_wages)), 20 MINUTES)
 /datum/game_mode/proc/new_player_topic(mob/new_player/NP, href, list/href_list)
 	return FALSE
 
@@ -459,6 +459,8 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.strategic_psypoints_from_cocoons] strategic psy points were obtained from [GLOB.round_statistics.cocoons] cocoons, for an average of [GLOB.round_statistics.strategic_psypoints_from_cocoons/GLOB.round_statistics.cocoons] points per cocoon."
 	if(GLOB.round_statistics.strategic_psypoints_from_psydrains)
 		parts += "[GLOB.round_statistics.strategic_psypoints_from_psydrains] strategic psy points were obtained from [GLOB.round_statistics.psydrains] psydrains, for an average of [GLOB.round_statistics.strategic_psypoints_from_psydrains/GLOB.round_statistics.psydrains] points per psydrain."
+	if(GLOB.round_statistics.strategic_psypoints_from_intel)
+		parts += "[GLOB.round_statistics.strategic_psypoints_from_intel] strategic psy points were obtained from intel disks."
 	if(GLOB.round_statistics.biomass_from_hive_target_rewards)
 		parts += "[GLOB.round_statistics.biomass_from_hive_target_rewards] biomass was obtained from [GLOB.round_statistics.hive_target_rewards] hive target rewards, for an average of [GLOB.round_statistics.biomass_from_hive_target_rewards/GLOB.round_statistics.hive_target_rewards] points per hive target reward claimed."
 	if(GLOB.round_statistics.biomass_from_embryos)
@@ -619,6 +621,8 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.larva_from_marine_spawning] larvas came from marine spawning."
 	if(GLOB.round_statistics.larva_from_siloing_body)
 		parts += "[GLOB.round_statistics.larva_from_siloing_body] larvas came from siloing bodies."
+	if(GLOB.round_statistics.larva_from_intel)
+		parts += "[GLOB.round_statistics.larva_from_intel] larvas came from intel disk rewards."
 	if(GLOB.round_statistics.points_from_ambrosia)
 		parts += "[GLOB.round_statistics.points_from_ambrosia] requisitions points gained from ambrosia."
 	if(GLOB.round_statistics.points_from_intel)
