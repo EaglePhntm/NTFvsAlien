@@ -87,6 +87,36 @@
 	damage_to_deal += (damage - damage_to_deal)/12
 
 	if (ishuman(src))
+
+
+
+
+
+		if(istype(X.xeno_caste, /datum/xeno_caste/spiderling))
+			X.do_attack_animation(src, ATTACK_EFFECT_GRAB)
+			visible_message(null, "<span class='danger'>The spiderling is clawing against you and holding you still!</span>")
+			sound = 'sound/weapons/thudswoosh.ogg'
+			X.visible_message("<span class='danger'>The spiderling grasps [src] and holds them still!</span>",
+			"<span class='danger'>We grasp [src] and hold them still!</span>", null, 5)
+			Stagger(6 SECONDS)
+			src.add_slowdown(10, capped = 10)
+			playsound(loc, sound, 25, TRUE, 7)
+			var/obj/item/radio/headset/mainship/headset = wear_ear
+			if(istype(headset))
+				headset.disable_locator(40 SECONDS)
+			return
+
+
+	var/stamina_loss_limit = L.maxHealth * 2
+	var/applied_damage = clamp(power, 0, (stamina_loss_limit - L.getStaminaLoss()))
+	var/damage_overflow = power - applied_damage
+	if((damage_overflow > 0) && COOLDOWN_FINISHED(src, neuro_stun_cd))
+		L.adjustStaminaLoss(power)
+		COOLDOWN_START(src, neuro_stun_cd, 5 MINUTES) //only do the hard stun once every five minutes, unless the reagent is cleared completely
+	else
+		L.adjustStaminaLoss(applied_damage)
+
+
 		if(IsParalyzed())
 			X.do_attack_animation(src, ATTACK_EFFECT_DISARM2)
 			X.visible_message(null, "<span class='info'>We keep holding [src] down.</span>", null)
@@ -128,6 +158,15 @@
 				visible_message(null, "<span class='danger'>You are too weakened to keep resisting [X], you slump to the ground!</span>")
 				X.visible_message("<span class='danger'>[X] slams [src] to the ground!</span>",
 				"<span class='danger'>We slam [src] to the ground!</span>", null, 5)
+			if(istype(X.xeno_caste, /datum/xeno_caste/spiderling))
+				visible_message(null, "<span class='danger'>The spiderlings are clawing against you and holding you still!</span>")
+				X.visible_message("<span class='danger'>[X] grasps [src] and holds them still!</span>",
+					"<span class='danger'>We slam [src] to the ground!</span>", null, 5)
+				Stagger(10 SECONDS)
+				src.add_slowdown(10)
+				var/obj/item/radio/headset/mainship/headset = wear_ear
+				if(istype(headset))
+					headset.disable_locator(40 SECONDS)
 				Paralyze(8 SECONDS)
 			else if(IsParalyzed())
 				X.do_attack_animation(src, ATTACK_EFFECT_DISARM2)
