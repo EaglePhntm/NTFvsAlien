@@ -87,11 +87,6 @@
 	damage_to_deal += (damage - damage_to_deal)/12
 
 	if (ishuman(src))
-
-
-
-
-
 		if(istype(X.xeno_caste, /datum/xeno_caste/spiderling))
 			X.do_attack_animation(src, ATTACK_EFFECT_GRAB)
 			visible_message(null, "<span class='danger'>The spiderling is clawing against you and holding you still!</span>")
@@ -105,17 +100,6 @@
 			if(istype(headset))
 				headset.disable_locator(40 SECONDS)
 			return
-
-
-	var/stamina_loss_limit = L.maxHealth * 2
-	var/applied_damage = clamp(power, 0, (stamina_loss_limit - L.getStaminaLoss()))
-	var/damage_overflow = power - applied_damage
-	if((damage_overflow > 0) && COOLDOWN_FINISHED(src, neuro_stun_cd))
-		L.adjustStaminaLoss(power)
-		COOLDOWN_START(src, neuro_stun_cd, 5 MINUTES) //only do the hard stun once every five minutes, unless the reagent is cleared completely
-	else
-		L.adjustStaminaLoss(applied_damage)
-
 
 		if(IsParalyzed())
 			X.do_attack_animation(src, ATTACK_EFFECT_DISARM2)
@@ -252,6 +236,7 @@
 		damage = check_shields(COMBAT_MELEE_ATTACK, damage, "melee")
 
 	if(!damage)
+		damage *= 3
 		X.visible_message(span_danger("\The [X]'s slash is blocked by [src]'s shield!"),
 			span_danger("Our slash is blocked by [src]'s shield!"), null, COMBAT_MESSAGE_RANGE)
 		return FALSE
