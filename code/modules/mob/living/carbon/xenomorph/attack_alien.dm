@@ -236,7 +236,6 @@
 		damage = check_shields(COMBAT_MELEE_ATTACK, damage, "melee")
 
 	if(!damage)
-		damage *= 3
 		X.visible_message(span_danger("\The [X]'s slash is blocked by [src]'s shield!"),
 			span_danger("Our slash is blocked by [src]'s shield!"), null, COMBAT_MESSAGE_RANGE)
 		return FALSE
