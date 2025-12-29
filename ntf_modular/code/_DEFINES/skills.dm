@@ -1,12 +1,12 @@
-#define SKILL_SEX_DEFAULT 1
-#define SKILL_SEX_TRAINED 2
-#define SKILL_SEX_MASTER 3
+#define SKILL_SEX_DEFAULT 0
+#define SKILL_SEX_TRAINED 1
+#define SKILL_SEX_MASTER 2
 
 /datum/skills
 	var/sex = SKILL_SEX_DEFAULT
 
 /datum/skills/ceo
-	name = CHIEF_EXECUTIVE_OFFICER
+	name = NTC_CHIEF_EXECUTIVE_OFFICER
 	leadership = SKILL_LEAD_MASTER
 	police = SKILL_POLICE_MP
 	medical = SKILL_MEDICAL_MASTER
@@ -20,6 +20,23 @@
 	//wouldnt it be niceeeee aa a a aaa
 	large_vehicle = SKILL_LARGE_VEHICLE_VETERAN
 	mech = SKILL_MECH_TRAINED
+	sex = SKILL_SEX_MASTER
+
+/datum/skills/nm_ceo
+	name = NM_CHIEF_EXECUTIVE_OFFICER
+	leadership = SKILL_LEAD_TRAINED
+	police = SKILL_POLICE_MP
+	medical = SKILL_MEDICAL_MASTER
+	surgery = SKILL_SURGERY_MASTER
+	engineer = SKILL_ENGINEER_PLASTEEL
+	construction = SKILL_CONSTRUCTION_PLASTEEL
+	powerloader = SKILL_POWERLOADER_TRAINED
+	unarmed = SKILL_UNARMED_MP
+	combat = SKILL_COMBAT_TRAINED
+	smartgun = SKILL_SMART_DEFAULT
+	large_vehicle = SKILL_LARGE_VEHICLE_DEFAULT
+	mech = SKILL_MECH_DEFAULT
+	sex = SKILL_SEX_MASTER
 
 /datum/skills/slut
 	name = SQUAD_SLUT

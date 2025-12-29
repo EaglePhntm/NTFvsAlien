@@ -245,7 +245,7 @@ Needed both for a purchase list and effected list (if one perk impacts multiple 
 
 /datum/perk/skill_mod/unarmed/New()
 	//letting specs etc take this lets em basically one shot limbs off at cqc 7
-	var/list/goofyjobs = GLOB.jobs_regular_all - list(SQUAD_SPECIALIST, SOM_SQUAD_VETERAN, FIELD_COMMANDER, SOM_FIELD_COMMANDER, CHIEF_EXECUTIVE_OFFICER, SYNTHETIC, "CLF Synthetic", "SOM Synthetic")
+	var/list/goofyjobs = GLOB.jobs_regular_all - list(SQUAD_SPECIALIST, SOM_SQUAD_VETERAN, FIELD_COMMANDER, SOM_FIELD_COMMANDER, NTC_CHIEF_EXECUTIVE_OFFICER, SYNTHETIC, "CLF Synthetic", "SOM Synthetic")
 	jobs_supported = goofyjobs
 	. = ..()
 
