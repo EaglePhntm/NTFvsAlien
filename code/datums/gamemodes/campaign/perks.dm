@@ -223,6 +223,7 @@ Needed both for a purchase list and effected list (if one perk impacts multiple 
 	var/police
 	var/powerloader
 	var/large_vehicle
+	var/mech
 	var/stamina
 	var/sex
 
@@ -231,11 +232,11 @@ Needed both for a purchase list and effected list (if one perk impacts multiple 
 
 /datum/perk/skill_mod/apply_perk(mob/living/carbon/owner)
 	owner.set_skills(owner.skills.modifyRating(unarmed, melee_weapons, combat, pistols, shotguns, rifles, smgs, heavy_weapons, smartgun, \
-	engineer, construction, leadership, medical, surgery, pilot, police, powerloader, large_vehicle, stamina, sex))
+	engineer, construction, leadership, medical, surgery, pilot, police, powerloader, large_vehicle, mech, stamina, sex))
 
 /datum/perk/skill_mod/remove_perk(mob/living/carbon/owner)
 	owner.set_skills(owner.skills.modifyRating(-unarmed, -melee_weapons, -combat, -pistols, -shotguns, -rifles, -smgs, -heavy_weapons, -smartgun, \
-	-engineer, -construction, -leadership, -medical, -surgery, -pilot, -police, -powerloader, -large_vehicle, -stamina, -sex))
+	-engineer, -construction, -leadership, -medical, -surgery, -pilot, -police, -powerloader, -large_vehicle, -mech, -stamina, -sex))
 
 /datum/perk/skill_mod/unarmed
 	name = "Hand to hand expertise"

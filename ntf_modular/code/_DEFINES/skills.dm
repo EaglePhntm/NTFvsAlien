@@ -1,10 +1,3 @@
-#define SKILL_SEX_DEFAULT 0
-#define SKILL_SEX_TRAINED 1
-#define SKILL_SEX_MASTER 2
-
-/datum/skills
-	var/sex = SKILL_SEX_DEFAULT
-
 /datum/skills/ceo
 	name = NTC_CHIEF_EXECUTIVE_OFFICER
 	leadership = SKILL_LEAD_MASTER
