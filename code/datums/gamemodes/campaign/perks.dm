@@ -224,17 +224,18 @@ Needed both for a purchase list and effected list (if one perk impacts multiple 
 	var/powerloader
 	var/large_vehicle
 	var/stamina
+	var/sex
 
 /datum/perk/skill_mod/New()
 	. = ..()
 
 /datum/perk/skill_mod/apply_perk(mob/living/carbon/owner)
 	owner.set_skills(owner.skills.modifyRating(unarmed, melee_weapons, combat, pistols, shotguns, rifles, smgs, heavy_weapons, smartgun, \
-	engineer, construction, leadership, medical, surgery, pilot, police, powerloader, large_vehicle, stamina))
+	engineer, construction, leadership, medical, surgery, pilot, police, powerloader, large_vehicle, stamina, sex))
 
 /datum/perk/skill_mod/remove_perk(mob/living/carbon/owner)
 	owner.set_skills(owner.skills.modifyRating(-unarmed, -melee_weapons, -combat, -pistols, -shotguns, -rifles, -smgs, -heavy_weapons, -smartgun, \
-	-engineer, -construction, -leadership, -medical, -surgery, -pilot, -police, -powerloader, -large_vehicle, -stamina))
+	-engineer, -construction, -leadership, -medical, -surgery, -pilot, -police, -powerloader, -large_vehicle, -stamina, -sex))
 
 /datum/perk/skill_mod/unarmed
 	name = "Hand to hand expertise"
@@ -503,3 +504,11 @@ Needed both for a purchase list and effected list (if one perk impacts multiple 
 	icon_state = ""
 	pixel_x = 8
 	pixel_y = 32
+
+/datum/perk/skill_mod/sex
+	name = "Morale Upkeep Training"
+	desc = "Additional sex education, additional anatomy knowledge and advanced \"tactics\" implanted directly into the memory, along with additional sensory modifications allow for enchansed experience during sexual intercourse, both for you and your partner."
+	ui_icon = "stamina_1"
+	sex = 1
+	all_jobs = TRUE
+	unlock_cost = 300

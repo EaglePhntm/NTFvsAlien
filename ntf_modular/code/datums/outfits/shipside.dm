@@ -11,6 +11,9 @@
 	r_pocket = /obj/item/storage/pouch/general/large/command
 	l_pocket = /obj/item/hud_tablet/leadership
 	back = /obj/item/storage/backpack/lightpack
+	backpack_contents = list(
+		/obj/item/card/credstick/executive,
+	)
 
 /datum/outfit/job/command/ceo/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()

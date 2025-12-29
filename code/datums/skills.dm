@@ -118,7 +118,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 /// returns/gets a new skills datum with values changed according to the args passed
 /datum/skills/proc/modifyRating(unarmed, melee_weapons,\
 combat, pistols, shotguns, rifles, smgs, heavy_weapons, smartgun,\
-engineer, construction, leadership, medical, surgery, pilot, police, powerloader, large_vehicle, mech, stamina)
+engineer, construction, leadership, medical, surgery, pilot, police, powerloader, large_vehicle, mech, stamina, sex)
 	return getSkills(src.unarmed+unarmed,\
 	src.melee_weapons+melee_weapons,\
 	src.combat+combat,\
@@ -138,7 +138,8 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	src.powerloader+powerloader,\
 	src.large_vehicle+large_vehicle,\
 	src.mech+mech,\
-	src.stamina+stamina)
+	src.stamina+stamina,\
+	src.sex+sex)
 
 /// acts as [/proc/modifyRating] but instead modifies all values rather than several specific ones
 /datum/skills/proc/modifyAllRatings(difference)

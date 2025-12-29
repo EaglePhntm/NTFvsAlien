@@ -46,5 +46,9 @@
 	stamina = SKILL_STAMINA_TRAINED //fucking is hard work
 	sex = SKILL_SEX_TRAINED
 
+/datum/skills/slut/clf
+	name = "CLF Breeder"
+	engineer = SKILL_ENGINEER_METAL
+
 /datum/skills/civilian/mo
 	sex = SKILL_SEX_MASTER //Master at work
