@@ -330,7 +330,7 @@ alt gamemodes
 	human_factions = list(FACTION_TERRAGOV, FACTION_CLF)
 	valid_job_types = list(
 		/datum/job/terragov/command/ceo = 1,
-		/datum/job/terragov/command/nm_ceo,
+		/datum/job/terragov/command/nm_ceo = 1,
 		/datum/job/terragov/command/captain = 1,
 		/datum/job/terragov/command/fieldcommander = 1,
 		/datum/job/terragov/command/corpseccommander = 1,
