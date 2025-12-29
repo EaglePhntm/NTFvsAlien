@@ -335,7 +335,7 @@
 						else
 							user.adjust_blood_volume(-healing_amount/10)
 
-	adjust_arousal(arousal_amt)
+	adjust_arousal(arousal_amt*(1+blame_mob.skills.sex))
 	if((!(user.mind)) || (user.client?.prefs.harmful_sex_flags & HARMFUL_SEX_ROUGH_SEX))
 		damage_from_pain(pain_amt)
 	try_do_moan(arousal_amt, pain_amt, applied_force, giving)
