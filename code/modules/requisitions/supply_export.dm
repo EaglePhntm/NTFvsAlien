@@ -70,13 +70,13 @@
 		if(XENO_TIER_ZERO)
 			. = list(50, 5)
 		if(XENO_TIER_ONE)
-			. = list(75, 10)
+			. = list(300, 40)
 		if(XENO_TIER_TWO)
-			. = list(150, 15)
+			. = list(600, 60)
 		if(XENO_TIER_THREE)
-			. = list(250, 25)
+			. = list(1000, 100)
 		if(XENO_TIER_FOUR)
-			. = list(500, 50)
+			. = list(2000, 200)
 	return
 
 //I hate it but it's how it was so I'm not touching it further than this
