@@ -778,10 +778,6 @@
 			/obj/item/ammo_magazine/rocket/vsd/heat = 10,
 			/obj/item/weapon/gun/rifle/vsd_breaching = 2,
 			/obj/item/ammo_magazine/rifle/cb31 = -1,
-			/obj/item/weapon/gun/minigun/vsd_autocannon = 2,
-			/obj/item/ammo_magazine/rifle/vsd_autocannon = -1,
-			/obj/item/ammo_magazine/rifle/vsd_autocannon/explosive = 8,
-			/obj/item/ammo_magazine/rifle/vsd_autocannon/at = 8,
 			/obj/item/weapon/gun/at45 = 1,
 			/obj/item/ammo_magazine/at45 = 4,
 			/obj/item/weapon/gun/flamer/vsd = 2,
@@ -1621,6 +1617,7 @@
 			/obj/item/clothing/head/modular/style/beanie = -1,
 		),
 		"Masks" = list(
+			/obj/item/clothing/mask/gas = -1,
 			/obj/item/clothing/mask/gas/icc = -1,
 			/obj/item/clothing/mask/gas/tactical/coif = -1,
 			/obj/item/clothing/mask/gas/tactical = -1,
@@ -1998,6 +1995,7 @@
 			/obj/item/clothing/head/modular/style/beanie = -1,
 		),
 		"Masks" = list(
+			/obj/item/clothing/mask/gas = -1,
 			/obj/item/clothing/mask/gas/icc = -1,
 			/obj/item/clothing/mask/gas/tactical/coif = -1,
 			/obj/item/clothing/mask/gas/tactical = -1,
@@ -2414,6 +2412,8 @@
 			/obj/item/ammo_magazine/icc_mg = -1,
 		),
 		"Specialized" = list(
+			/obj/item/weapon/gun/clf_heavyrifle = 2,
+			/obj/item/shotgunbox/clf_heavyrifle = 2,
 			/obj/item/weapon/gun/flamer/big_flamer = 1,
 			/obj/item/ammo_magazine/flamer_tank/backtank = 1,
 		),
