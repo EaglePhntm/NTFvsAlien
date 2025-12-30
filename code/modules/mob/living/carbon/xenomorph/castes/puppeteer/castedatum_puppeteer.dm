@@ -13,7 +13,7 @@
 	speed = -0.8
 	melee_damage = 18
 	plasma_max = 400
-	plasma_gain = 5
+	plasma_gain = 3
 	plasma_regen_limit = 1
 	plasma_icon_state = "plasma"
 	max_health = 365
