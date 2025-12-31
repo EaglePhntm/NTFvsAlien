@@ -2,8 +2,7 @@
 /datum/round_event_control/hive_threat
 	name = "Hive threat"
 	typepath = /datum/round_event/hive_threat
-	weight = 10
-	earliest_start = 30 MINUTES
+	weight = 36
 
 	gamemode_blacklist = list("Crash", "Combat Patrol", "Sensor Capture", "Campaign", "Zombie Crash")
 
@@ -57,7 +56,7 @@
 		var/message = "You sense that [hive_target] is a valuable target for breeding. Fuck or psydrain them for a blessing for your hive!"
 		if(hivenumber == XENO_HIVE_NORMAL)
 			message = "The Queen Mother senses that [hive_target] is the breeding target of the hive. Fuck or psydrain them for the Queen Mother's blessing!"
-		GLOB.hive_datums[hivenumber].xeno_message(message, force=TRUE, target = hive_target, sound = get_sfx(SFX_QUEEN), arrow_color = "ff00b0", report_distance = TRUE)
+		GLOB.hive_datums[hivenumber].xeno_message(message, size = 3, force=TRUE, target = hive_target, sound = get_sfx(SFX_QUEEN), arrow_color = "ff00b0", report_distance = TRUE)
 
 //manages the hive reward and clean up
 /datum/round_event/hive_threat/proc/handle_reward(datum/source, mob/living/carbon/xenomorph/drainer, mob/living/drained)
@@ -67,10 +66,10 @@
 	var/message = "[drainer] has gleaned the secrets from the mind of [hive_target], helping ensure the future of the hive. Our hive is empowered by our success!"
 	if(drainer.get_xeno_hivenumber() == XENO_HIVE_NORMAL)
 		message = "[drainer] has gleaned the secrets from the mind of [hive_target], helping ensure the future of the hive. The Queen Mother empowers us for our success!"
-	drainer.get_hive().xeno_message(message, force = TRUE)
+	drainer.get_hive().xeno_message(message, size = 3, force = TRUE)
 	log_combat(drainer, drained, "obtained a hive target reward from")
 	bless_hive(drainer)
-	REMOVE_TRAIT(hive_target, TRAIT_HIVE_TARGET, TRAIT_HIVE_TARGET)
+	REMOVE_TRAIT(hive_target, TRAIT_HIVE_TARGET, list(TRAIT_HIVE_TARGET, SUPERSOLDIER_TRAIT))
 	hive_target.med_hud_set_status()
 	hive_target = null
 	UnregisterSignal(SSdcs, COMSIG_GLOB_HIVE_TARGET_DRAINED)
@@ -92,7 +91,7 @@
 	var/message = "We feel the hive target blessing fade"
 	if(hive.hivenumber == XENO_HIVE_NORMAL)
 		message = "We feel the Queen Mother's blessing fade"
-	hive.xeno_message(message, force = TRUE)
+	hive.xeno_message(message, size = 3, force = TRUE)
 	for(var/mob/living/carbon/xenomorph/receiving_xeno in GLOB.alive_xeno_list_hive[hive.hivenumber])
 		receiving_xeno.remove_movespeed_modifier(MOVESPEED_ID_BLESSED_HIVE)
 	qdel(src)
@@ -100,7 +99,7 @@
 /datum/round_event/hive_threat/Destroy(force, ...)
 	. = ..()
 	if(hive_target)
-		REMOVE_TRAIT(hive_target, TRAIT_HIVE_TARGET, TRAIT_HIVE_TARGET)
+		REMOVE_TRAIT(hive_target, TRAIT_HIVE_TARGET, list(TRAIT_HIVE_TARGET, SUPERSOLDIER_TRAIT))
 		hive_target.med_hud_set_status()
 		hive_target = null
 

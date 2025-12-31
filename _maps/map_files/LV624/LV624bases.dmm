@@ -7011,8 +7011,8 @@
 	},
 /area/lv624/lazarus/research)
 "fAE" = (
-/obj/structure/cable,
 /obj/machinery/power/geothermal,
+/obj/structure/cable,
 /turf/open/floor/mainship/plate,
 /area/mainship/patrol_base/som)
 "fAT" = (
@@ -9163,6 +9163,7 @@
 	dir = 4
 	},
 /obj/effect/spawner/random/misc/plushie,
+/obj/structure/cable,
 /turf/open/floor/wood,
 /area/lv624/lazarus/captain)
 "hNZ" = (
@@ -14703,9 +14704,6 @@
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central1/garbledradio)
-"ndS" = (
-/turf/open/floor/mainship/plate,
-/area/mainship/patrol_base/som)
 "neu" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
@@ -20757,11 +20755,11 @@
 /turf/open/floor/plating/warning,
 /area/lv624/lazarus/robotics)
 "tsP" = (
-/obj/structure/cable,
-/obj/structure/largecrate/supply/generator,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/largecrate/supply/generator,
+/obj/structure/cable,
 /turf/open/floor/mainship/plate,
 /area/mainship/patrol_base/som)
 "ttF" = (
@@ -97176,7 +97174,7 @@ mOs
 mOs
 qWA
 fAE
-ndS
+txB
 krr
 lRT
 vzm

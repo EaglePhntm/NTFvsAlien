@@ -1,9 +1,3 @@
-
-
-
-
-
-
 #include "code\_DEFINES\colors.dm"
 #include "code\_DEFINES\ntf_defines.dm"
 #include "code\_DEFINES\sexcon_defines.dm"
@@ -81,7 +75,10 @@
 #include "code\game\objects\effects\effect_system\smoke.dm"
 #include "code\game\objects\effects\landmarks\marine_spawns.dm"
 #include "code\game\objects\items.dm"
+#include "code\game\objects\items\plantable_flags.dm"
 #include "code\game\objects\items\radio\ntc_listener.dm"
+#include "code\game\objects\items\skillsoft.dm"
+#include "code\game\objects\items\stacks\medical.dm\medical.dm"
 #include "code\game\objects\items\storage\medicdispenser.dm"
 #include "code\game\objects\items\tools\loadout_tool.dm"
 #include "code\game\objects\machinery\artillery\shells.dm"
@@ -99,6 +96,7 @@
 #include "code\game\objects\structures\prop.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\xeno_nest.dm"
 #include "code\game\objects\structures\teleporter.dm"
+#include "code\modules\admin\admin_verbs.dm"
 #include "code\modules\client\preferences.dm"
 #include "code\modules\clothing\glasses\hypnogoggles.dm"
 #include "code\modules\clothing\head\head.dm"
@@ -120,6 +118,7 @@
 #include "code\modules\language\telepathy.dm"
 #include "code\modules\mob\_pose.dm"
 #include "code\modules\mob\living\carbon\abstract_handcuffs.dm"
+#include "code\modules\mob\living\carbon\human\carbon.dm"
 #include "code\modules\mob\living\carbon\human\fallback_icon_verb.dm"
 #include "code\modules\mob\living\carbon\human\genital_selection.dm"
 #include "code\modules\mob\living\carbon\human\human_defines.dm"
@@ -133,6 +132,7 @@
 #include "code\modules\mob\living\carbon\xenomorph\castes\hunter\hunter.dm"
 #include "code\modules\mob\living\carbon\xenomorph\hive_datum.dm"
 #include "code\modules\mob\living\carbon\xenomorph\xeno_defines.dm"
+#include "code\modules\mob\living\carbon\xenomorph\xenomorph.dm"
 #include "code\modules\mob\living\carbon\xenomorph\xenoprocs.dm"
 #include "code\modules\mob\living\emote.dm"
 #include "code\modules\mob\living\living_verbs.dm"

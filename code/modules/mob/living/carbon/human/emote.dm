@@ -213,19 +213,6 @@
 	message = "sulks down sadly."
 
 
-/datum/emote/living/carbon/human/surrender
-	key = "surrender"
-	key_third_person = "surrenders"
-	message = "puts their hands on their head and falls to the ground, they surrender!"
-	emote_type = EMOTE_TYPE_AUDIBLE
-
-/datum/emote/living/carbon/human/surrender/run_emote(mob/user, params, type_override, intentional)
-	. = ..()
-	if(. && isliving(user))
-		var/mob/living/L = user
-		L.Paralyze(20 SECONDS)
-
-
 /datum/emote/living/carbon/human/sneeze
 	key = "sneeze"
 	key_third_person = "sneezes"
@@ -354,11 +341,13 @@
 	message = "moans!"
 	emote_type = EMOTE_TYPE_AUDIBLE
 
+/* ew
 /datum/emote/living/carbon/human/moan/get_sound(mob/living/user)
 	if(user.gender == FEMALE)
 		return pick('sound/voice/sexymoan_female1.ogg', 'sound/voice/sexymoan_female2.ogg', 'sound/voice/sexymoan_female3.ogg', 'sound/voice/sexymoan_female4.ogg', 'sound/voice/sexymoan_female5.ogg', 'sound/voice/sexymoan_female6.ogg', 'sound/voice/sexymoan_female7.ogg')
 	else
 		return pick('sound/voice/sexymoan_male1.ogg', 'sound/voice/sexymoan_male2.ogg', 'sound/voice/sexymoan_male3.ogg', 'sound/voice/sexymoan_male4.ogg', 'sound/voice/sexymoan_male5.ogg')
+*/
 
 /datum/emote/living/carbon/human/laugh
 	key = "laugh"

@@ -120,8 +120,8 @@
 		if(embryo.affected_mob == affected_mob)
 			embryos_in_host++
 	if(affected_mob.client && (affected_mob.client.inactivity < 10 MINUTES))
-		psypoint_reward += psych_points_output * 5 / embryos_in_host
-		biomass_reward += MUTATION_BIOMASS_PER_EMBRYO_TICK * 5 / embryos_in_host
+		psypoint_reward += psych_points_output * 10 / embryos_in_host
+		biomass_reward += MUTATION_BIOMASS_PER_EMBRYO_TICK * 10 / embryos_in_host
 	else
 		psypoint_reward += psych_points_output / embryos_in_host
 		biomass_reward += MUTATION_BIOMASS_PER_EMBRYO_TICK / embryos_in_host
@@ -278,12 +278,12 @@
 	log_combat(src, null, "was born as a larva.")
 	log_game("[key_name(src)] was born as a larva at [AREACOORD(src)].")
 	if(ismonkey(victim))
-		if(rand(1,3) != 1)
+		if(prob(66)) //1/3 chance
 			var/mob/living/carbon/human/monkey = victim
 			monkey.death()
 			monkey.set_undefibbable()
-		victim.take_overall_damage(80, BRUTE, MELEE)
-		victim.take_overall_damage(80, BURN, MELEE)
+		victim.take_overall_damage(140, BRUTE, MELEE)
+		victim.take_overall_damage(20, BURN, MELEE)
 	if(((locate(/obj/structure/bed/nest) in loc) || loc_weeds_type) && !mind)
 		var/suitablesilo = FALSE
 		for(var/obj/silo in GLOB.xeno_resin_silos_by_hive[hivenumber])

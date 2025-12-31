@@ -115,13 +115,13 @@
 
 /obj/item/armor_module/module/tyr_extra_armor
 	name = "\improper Mark 2 Tyr Armor Reinforcement"
-	desc = "Designed for mounting on modular armor. A substantial amount of additional armor plating designed to grant the user extra protection against threats, ranging from xeno slashes to friendly fire incidents. This newer version has improved protection. Will definitely impact mobility. Made by ArcherCorp."
+	desc = "Designed for mounting on modular armor. A substantial amount of additional armor plating designed to grant the user extra protection against threats, ranging from xeno slashes to friendly fire incidents. This newer version has improved protection. Will impact mobility. Made by ArcherCorp."
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_armor"
 	worn_icon_state = "mod_armor_a"
 	attachment_layer = COLLAR_LAYER
 	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 15, BIO = 15, FIRE = 15, ACID = 15)
-	slowdown = 0.3
+	slowdown = 0.1
 	slot = ATTACHMENT_SLOT_MODULE
 	variants_by_parent_type = list(/obj/item/clothing/suit/modular/xenonauten = "mod_armor_xn", /obj/item/clothing/suit/modular/tdf = "")
 
@@ -135,11 +135,11 @@
 
 /obj/item/armor_module/module/tyr_extra_armor/mark1
 	name = "\improper Mark 1 Tyr Armor Reinforcement"
-	desc = "Designed for mounting on modular armor. A substantial amount of additional armor plating designed to grant the user extra protection against threats, ranging from xeno slashes to friendly fire incidents. This older version has worse protection. Will greatly impact mobility. Made by ArcherCorp."
+	desc = "Designed for mounting on modular armor. A substantial amount of additional armor plating designed to grant the user extra protection against threats, ranging from xeno slashes to friendly fire incidents. This older version has worse protection. Will slightly impact mobility. Made by ArcherCorp."
 	icon_state = "mod_armor_lower"
 	worn_icon_state = "mod_armor_lower_a"
 	soft_armor = list(MELEE = 10, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 10, FIRE = 10, ACID = 10)
-	slowdown = 0.4
+	slowdown = 0.2
 
 /obj/item/armor_module/module/tyr_extra_armor/som
 	name = "\improper Lorica Armor Reinforcement"
@@ -405,7 +405,8 @@
 	var/damaged_shield_cooldown = 10 SECONDS
 	///Holds id for a timer which triggers recharge start. Null if not currently delayed.
 	var/recharge_timer
-
+	///Layer for the shield outline effect.  Also affects which shield takes damage first
+	var/shield_layer = 0
 
 /obj/item/armor_module/module/eshield/Initialize(mapload)
 	. = ..()
@@ -433,7 +434,7 @@
 	if(!isliving(parent.loc))
 		return
 	var/mob/living/affected = parent.loc
-	affected.remove_filter("eshield")
+	affected.remove_filter("eshield[shield_layer]")
 
 	playsound(src, 'sound/magic/lightningshock.ogg', 50, FALSE)
 	spark_system.start()
@@ -445,6 +446,7 @@
 ///Called to give extra info on parent examine.
 /obj/item/armor_module/module/eshield/proc/parent_examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
+	examine_list += span_notice("[src] - Shield stats:")
 	examine_list += span_notice("Recharge Rate: [recharge_rate/2] health per second")
 	examine_list += span_notice("Current Shield Health: [shield_health]")
 	examine_list += span_notice("Maximum Shield Health: [max_shield_health]")
@@ -470,30 +472,32 @@
 		return
 	UnregisterSignal(unequipper, COMSIG_LIVING_SHIELDCALL)
 	STOP_PROCESSING(SSobj, src)
-	unequipper.remove_filter("eshield")
+	unequipper.remove_filter("eshield[shield_layer]")
 	shield_health = 0
 
 ///Adds the correct proc callback to the shield list for intercepting damage.
-/obj/item/armor_module/module/eshield/proc/handle_shield(datum/source, list/affecting_shields, dam_type)
+/obj/item/armor_module/module/eshield/proc/handle_shield(datum/source, list/affecting_shields, dam_type, shield_flags)
 	SIGNAL_HANDLER
 	if(!shield_health)
 		return
-	affecting_shields += CALLBACK(src, PROC_REF(intercept_damage))
+	affecting_shields[CALLBACK(src, PROC_REF(intercept_damage))] = 2-shield_layer
 
 ///Handles the interception of damage.
-/obj/item/armor_module/module/eshield/proc/intercept_damage(attack_type, incoming_damage, damage_type, silent)
+/obj/item/armor_module/module/eshield/proc/intercept_damage(attack_type, incoming_damage, damage_type, silent, shield_flags)
 	if(attack_type == COMBAT_TOUCH_ATTACK) //Touch attack so runners can pounce
 		return incoming_damage
+
 	STOP_PROCESSING(SSobj, src)
 	var/shield_left = shield_health - incoming_damage
 	var/mob/living/affected = parent.loc
-	affected.remove_filter("eshield")
+	affected.remove_filter("eshield[shield_layer]")
 	if(shield_left > 0)
 		shield_health = shield_left
 		current_color = gradient(0, shield_color_low, 0.5, shield_color_mid, 1, shield_color_full, space = COLORSPACE_HCY, index = (shield_health/max_shield_health))
-		affected.add_filter("eshield", 2, outline_filter(1, current_color))
+		affected.add_filter("eshield[shield_layer]", 2-shield_layer, outline_filter(1, current_color))
 		spark_system.start()
 	else
+		playsound(affected, 'sound/weapons/guns/fire/taser_3.ogg', 40)
 		shield_health = 0
 		recharge_timer = addtimer(CALLBACK(src, PROC_REF(begin_recharge)), damaged_shield_cooldown + 1, TIMER_STOPPABLE|TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT) //Gives it a little extra time for the cooldown.
 		return -shield_left
@@ -515,17 +519,17 @@
 /obj/item/armor_module/module/eshield/process()
 	shield_health = min(shield_health + recharge_rate, max_shield_health)
 	var/new_color = gradient(0, shield_color_low, 0.5, shield_color_mid, 1, shield_color_full, space = COLORSPACE_HCY, index = (shield_health/max_shield_health))
-	if(shield_health/max_shield_health < 0.2)
+	if(shield_health/max_shield_health < 0.1)
 		playsound(parent.loc, 'sound/items/eshield_down.ogg', 40)
 	if(new_color != current_color)
 		current_color = new_color
 		var/mob/living/affected = parent.loc
-		affected.add_filter("eshield", 2, outline_filter(1, current_color))
+		affected.add_filter("eshield[shield_layer]", 2-shield_layer, outline_filter(1, current_color))
 	if(shield_health == max_shield_health) //Once health is full, we don't need to process until the next time we take damage.
 		STOP_PROCESSING(SSobj, src)
 
 /obj/item/armor_module/module/eshield/overclocked
-	max_shield_health = 75
+	max_shield_health = 85
 	damaged_shield_cooldown = 5 SECONDS
 	shield_color_low = COLOR_MAROON
 	shield_color_mid = LIGHT_COLOR_RED_ORANGE
@@ -537,7 +541,7 @@
 	desc = "A sophisticated shielding unit, designed to disperse the energy of incoming impacts, rendering them harmless to the user. If it sustains too much it will deactivate, and leave the user vulnerable. It is unclear if this was a purely  SOM designed module, or whether it was reverse engineered from the NTF's 'Svalinn' shield system which was developed around the same time."
 
 /obj/item/armor_module/module/eshield/som/overclocked
-	max_shield_health = 75
+	max_shield_health = 85
 	damaged_shield_cooldown = 5 SECONDS
 	shield_color_low = COLOR_MAROON
 	shield_color_mid = LIGHT_COLOR_RED_ORANGE
@@ -648,21 +652,21 @@
 	icon_state = "style_light"
 	worn_icon_state = "style_light_a"
 	soft_armor = MARINE_ARMOR_LIGHT
-	slowdown = SLOWDOWN_ARMOR_LIGHT
+	slowdown = 0.7
 
 /obj/item/armor_module/module/style/medium_armor
 	name = "\improper Medium Armor Equalizer"
 	icon_state = "style_medium"
 	worn_icon_state = "style_medium_a"
 	soft_armor = MARINE_ARMOR_MEDIUM
-	slowdown = SLOWDOWN_ARMOR_MEDIUM
+	slowdown = 1
 
 /obj/item/armor_module/module/style/heavy_armor
 	name = "\improper Heavy Armor Equalizer"
 	icon_state = "style_heavy"
 	worn_icon_state = "style_heavy_a"
 	soft_armor = MARINE_ARMOR_HEAVY
-	slowdown = SLOWDOWN_ARMOR_HEAVY
+	slowdown = 1.2 //Have to increase these because styles got a speed bonus now
 
 /**
  *   Helmet Modules
@@ -958,3 +962,48 @@
 	QDEL_NULL(attached_goggles)
 	return ..()
 
+//Barrier shields
+//***************
+
+/obj/item/armor_module/module/eshield/barrier
+	shield_color_low = COLOR_MOSTLY_PURE_PINK
+	shield_color_mid = COLOR_VIVID_YELLOW
+	attach_features_flags = ATTACH_ACTIVATION
+	slot = ATTACHMENT_SLOT_KNEE
+	shield_layer = 1
+	var/xeno_multipllier = 1
+
+/obj/item/armor_module/module/eshield/barrier/intercept_damage(attack_type, incoming_damage, damage_type, silent, shield_flags)
+	if(shield_flags & SHIELD_FLAG_XENOMORPH)
+		incoming_damage *= xeno_multipllier
+	. = ..()
+	if(shield_flags & SHIELD_FLAG_XENOMORPH)
+		. /= xeno_multipllier
+
+/obj/item/armor_module/module/eshield/barrier/light
+	name = "Dampener Light Energy Shield"
+	max_shield_health = 40
+	damaged_shield_cooldown = 0.8 SECONDS
+	shield_color_full = COLOR_LIME
+	xeno_multipllier = 1.2
+	recharge_rate = 25
+
+/obj/item/armor_module/module/eshield/barrier/medium
+	name = "Deflector Medium Energy Shield"
+	max_shield_health = 120
+	damaged_shield_cooldown = 8 SECONDS
+	shield_color_full = COLOR_LASER_BLUE
+	slowdown = 0.35 // Somewhat between light/medium
+	recharge_rate = 15
+	xeno_multipllier = 1.6
+	soft_armor = list(MELEE = -20, BULLET = -10, LASER = -10, ENERGY = -10, BOMB = -10, BIO = -15, FIRE = -15, ACID = -15)
+
+/obj/item/armor_module/module/eshield/barrier/heavy
+	name = "Goliath Heavy Energy Shield"
+	max_shield_health = 300
+	damaged_shield_cooldown = 20 SECONDS
+	shield_color_full = COLOR_RED //  Her shields were up and glowing red!! Goodbye, Dawson's christian...
+	slowdown = SLOWDOWN_ARMOR_MEDIUM
+	recharge_rate = 75
+	xeno_multipllier = 1.8
+	soft_armor = list(MELEE = -20, BULLET = -20, LASER = -20, ENERGY = -20, BOMB = -20, BIO = -25, FIRE = -20, ACID = -25)

@@ -1,7 +1,7 @@
 /datum/round_event_control/intel_computer
 	name = "Intel computer activation"
 	typepath = /datum/round_event/intel_computer
-	weight = 25
+	weight = 1
 
 	gamemode_blacklist = list("Crash", "Combat Patrol", "Sensor Capture", "Campaign", "Zombie Crash")
 	/// the intel computer for the next event to activate
@@ -11,7 +11,7 @@
 	. = ..()
 	RegisterSignal(SSdcs, COMSIG_GLOB_INTEL_DISK_PRINTED, PROC_REF(recalculate_weight))
 	RegisterSignal(SSdcs, COMSIG_GLOB_INTEL_COMPUTER_ACTIVATED, PROC_REF(recalculate_weight))
-	weight *= 20
+	weight *= 108
 
 /datum/round_event_control/intel_computer/proc/recalculate_weight(obj/machinery/computer/intel_computer/source_computer, var/obj/item/disk/intel_disk/new_disk)
 	var/active_computers = 0
@@ -20,11 +20,11 @@
 			active_computers++
 	switch(active_computers)
 		if(0)
-			weight = initial(weight)*20
+			weight = initial(weight)*108
 		if(1)
-			weight = initial(weight)*5
+			weight = initial(weight)*12
 		if(2)
-			weight = initial(weight)*2
+			weight = initial(weight)*6
 		else
 			weight = initial(weight)
 
@@ -73,7 +73,7 @@
 			continue
 		break
 	minor_announce("Our data sifting algorithm has detected valuable classified information on a access points in: [english_list(areas_list)]. Should this data be recovered by ground forces, a reward will be given in the form of increased assets. Watch out for hostile forces, this is now a likely conflict zone.", title = "NTC Intel Division")
-	xeno_message("We sense a looming threat from [english_list(areas_list)]. We must keep the hosts away from there.")
+	xeno_message("We sense a looming threat from [english_list(areas_list)]. We must keep the hosts away from there.", size = 3)
 	qdel(src)
 
 ///sets the icon on the map. Toggles it between active and inactive, notifies xenos and marines of the existence of the computer.

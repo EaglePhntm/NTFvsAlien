@@ -17,7 +17,7 @@
 	return TRUE
 
 /mob/living/carbon/human/attack_alien_grab(mob/living/carbon/xenomorph/X)
-	if(check_shields(COMBAT_TOUCH_ATTACK, X.xeno_caste.melee_damage, "melee"))
+	if(check_shields(COMBAT_TOUCH_ATTACK, X.xeno_caste.melee_damage, "melee", shield_flags = SHIELD_FLAG_XENOMORPH))
 		return ..()
 	X.visible_message(span_danger("\The [X]'s grab is blocked by [src]'s shield!"),
 		span_danger("Our grab was blocked by [src]'s shield!"), null, 5)
@@ -37,7 +37,7 @@
 /mob/living/carbon/human/attack_alien_disarm(mob/living/carbon/xenomorph/X, dam_bonus)
 	var/randn = rand(1, 100)
 	var/stamina_loss = getStaminaLoss()
-	var/damage = X.xeno_caste.melee_damage * X.xeno_melee_damage_modifier * 3
+	var/damage = X.xeno_caste.melee_damage * X.xeno_melee_damage_modifier // same as slash here, but a bonus is applied later
 	var/sound = 'sound/weapons/alien_knockdown.ogg'
 	var/list/damage_mod = list()
 	var/list/armor_mod = list()
@@ -69,12 +69,14 @@
 		armor_pen += i
 
 	if(!(signal_return & COMPONENT_BYPASS_SHIELDS))
-		damage = check_shields(COMBAT_MELEE_ATTACK, damage, "melee")
+		damage = check_shields(COMBAT_MELEE_ATTACK, damage, "melee", shield_flags = SHIELD_FLAG_XENOMORPH)
 
 	if(!damage)
 		X.visible_message(span_danger("\The [X]'s disarm is blocked by [src]'s shield!"),
 			span_danger("Our disarm is blocked by [src]'s shield!"), null, COMBAT_MESSAGE_RANGE)
 		return FALSE
+
+	damage *= 3 //apply the bonus for being a disarm instead of slash here so disarms aren't crazy strong against shields
 
 	if(armor_block)
 		damage = modify_by_armor(damage, armor_block, armor_pen, BODY_ZONE_CHEST)
@@ -85,6 +87,20 @@
 	damage_to_deal += (damage - damage_to_deal)/12
 
 	if (ishuman(src))
+		if(istype(X.xeno_caste, /datum/xeno_caste/spiderling))
+			X.do_attack_animation(src, ATTACK_EFFECT_GRAB)
+			visible_message(null, "<span class='danger'>The spiderling is clawing against you and holding you still!</span>")
+			sound = 'sound/weapons/thudswoosh.ogg'
+			X.visible_message("<span class='danger'>The spiderling grasps [src] and holds them still!</span>",
+			"<span class='danger'>We grasp [src] and hold them still!</span>", null, 5)
+			Stagger(6 SECONDS)
+			src.add_slowdown(10, capped = 10)
+			playsound(loc, sound, 25, TRUE, 7)
+			var/obj/item/radio/headset/mainship/headset = wear_ear
+			if(istype(headset))
+				headset.disable_locator(40 SECONDS)
+			return
+
 		if(IsParalyzed())
 			X.do_attack_animation(src, ATTACK_EFFECT_DISARM2)
 			X.visible_message(null, "<span class='info'>We keep holding [src] down.</span>", null)
@@ -126,6 +142,15 @@
 				visible_message(null, "<span class='danger'>You are too weakened to keep resisting [X], you slump to the ground!</span>")
 				X.visible_message("<span class='danger'>[X] slams [src] to the ground!</span>",
 				"<span class='danger'>We slam [src] to the ground!</span>", null, 5)
+			if(istype(X.xeno_caste, /datum/xeno_caste/spiderling))
+				visible_message(null, "<span class='danger'>The spiderlings are clawing against you and holding you still!</span>")
+				X.visible_message("<span class='danger'>[X] grasps [src] and holds them still!</span>",
+					"<span class='danger'>We slam [src] to the ground!</span>", null, 5)
+				Stagger(10 SECONDS)
+				src.add_slowdown(10)
+				var/obj/item/radio/headset/mainship/headset = wear_ear
+				if(istype(headset))
+					headset.disable_locator(40 SECONDS)
 				Paralyze(8 SECONDS)
 			else if(IsParalyzed())
 				X.do_attack_animation(src, ATTACK_EFFECT_DISARM2)
@@ -208,7 +233,7 @@
 		armor_pen += i
 
 	if(!(signal_return & COMPONENT_BYPASS_SHIELDS))
-		damage = check_shields(COMBAT_MELEE_ATTACK, damage, "melee")
+		damage = check_shields(COMBAT_MELEE_ATTACK, damage, "melee", shield_flags = SHIELD_FLAG_XENOMORPH)
 
 	if(!damage)
 		X.visible_message(span_danger("\The [X]'s slash is blocked by [src]'s shield!"),
@@ -282,6 +307,9 @@
 		span_warning("We nibble [src]."), null, 5)
 		X.do_attack_animation(src)
 		return FALSE
+	else
+		if(!no_health_regen_grace_period)
+			apply_status_effect(STATUS_EFFECT_NO_HEALTH_REGEN, 10 SECONDS)
 	return ..()
 
 

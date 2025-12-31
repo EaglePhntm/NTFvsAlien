@@ -29,7 +29,7 @@
 #define SURGERY_PROCEDURE_EXTERNAL_DIALYSIS 15
 #define SURGERY_PROCEDURE_EXTERNAL_BLOOD 16
 
-#define UNNEEDED_DELAY 10 SECONDS // How long to waste if someone queues an unneeded surgery.
+#define UNNEEDED_DELAY 5 SECONDS // How long to waste if someone queues an unneeded surgery.
 
 //Autodoc
 /obj/machinery/autodoc
@@ -847,7 +847,7 @@
 									live_larva.forceMove(get_turf(src))
 								else
 									embyro.forceMove(occupant.loc)
-									occupant.status_flags &= ~XENO_HOST
+									//occupant.status_flags &= ~XENO_HOST //this is handled by /obj/item/alien_embryo/process()
 								qdel(embyro)
 					if(length(limb_ref.implants))
 						for(var/obj/item/implant AS in limb_ref.implants)

@@ -2,9 +2,9 @@
 /datum/round_event_control/supply_drop
 	name = "Supply drop"
 	typepath = /datum/round_event/supply_drop
-	weight = 5
+	weight = 3
 	min_players = 5
-	earliest_start = 5 MINUTES
+	earliest_start = 30 MINUTES
 
 /datum/round_event/supply_drop
 	///How long between the event firing and the supply drop actually landing
@@ -44,7 +44,7 @@
 
 ///deploys the actual supply drop
 /datum/round_event/supply_drop/proc/drop_supplies(turf/target_turf, faction)
-	priority_announce("[faction] supply drop Materialisation detected at [target_turf.loc].", "Bluespace Tactical Scanner Status", sound = 'sound/AI/distressreceived.ogg', receivers = (GLOB.alive_human_list + GLOB.observer_list))
+	priority_announce("[faction] supply drop Materialisation detected at [target_turf.loc].", "Bluespace Tactical Scanner Status", sound = 'sound/AI/distressreceived.ogg', receivers = (GLOB.alive_human_list + GLOB.observer_list + GLOB.alive_xeno_list))
 	new /obj/item/explosive/grenade/flare/on(target_turf)
 	switch(faction)
 		if(FACTION_SOM)

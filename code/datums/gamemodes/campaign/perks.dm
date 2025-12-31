@@ -47,7 +47,7 @@ Needed both for a purchase list and effected list (if one perk impacts multiple 
 		jobs_supported = GLOB.jobs_regular_all
 	if(iscampaigngamemode(SSticker.mode)) //for extended etc
 		return
-	unlock_cost = initial(unlock_cost)*4
+	unlock_cost = initial(unlock_cost)*2
 
 ///Any one off bonuses for unlocking this perk
 /datum/perk/proc/unlock_bonus(mob/living/carbon/owner, datum/individual_stats/owner_stats)
@@ -169,7 +169,7 @@ Needed both for a purchase list and effected list (if one perk impacts multiple 
 	ui_icon = "soft_footed"
 	traits = list(TRAIT_LIGHT_STEP)
 	all_jobs = TRUE
-	unlock_cost = 300
+	unlock_cost = 500
 
 /datum/perk/trait/axe_master
 	name = "Axe master"
@@ -223,26 +223,33 @@ Needed both for a purchase list and effected list (if one perk impacts multiple 
 	var/police
 	var/powerloader
 	var/large_vehicle
+	var/mech
 	var/stamina
+	var/sex
 
 /datum/perk/skill_mod/New()
 	. = ..()
 
 /datum/perk/skill_mod/apply_perk(mob/living/carbon/owner)
 	owner.set_skills(owner.skills.modifyRating(unarmed, melee_weapons, combat, pistols, shotguns, rifles, smgs, heavy_weapons, smartgun, \
-	engineer, construction, leadership, medical, surgery, pilot, police, powerloader, large_vehicle, stamina))
+	engineer, construction, leadership, medical, surgery, pilot, police, powerloader, large_vehicle, mech, stamina, sex))
 
 /datum/perk/skill_mod/remove_perk(mob/living/carbon/owner)
 	owner.set_skills(owner.skills.modifyRating(-unarmed, -melee_weapons, -combat, -pistols, -shotguns, -rifles, -smgs, -heavy_weapons, -smartgun, \
-	-engineer, -construction, -leadership, -medical, -surgery, -pilot, -police, -powerloader, -large_vehicle, -stamina))
+	-engineer, -construction, -leadership, -medical, -surgery, -pilot, -police, -powerloader, -large_vehicle, -mech, -stamina, -sex))
 
 /datum/perk/skill_mod/unarmed
 	name = "Hand to hand expertise"
 	desc = "Advanced hand to hand combat training gives you an edge when you need to punch someone in the face. Improved unarmed damage and stun chance."
 	ui_icon = "cqc_1"
 	unarmed = 1
-	all_jobs = TRUE
 	unlock_cost = 250
+
+/datum/perk/skill_mod/unarmed/New()
+	//letting specs etc take this lets em basically one shot limbs off at cqc 7
+	var/list/goofyjobs = GLOB.jobs_regular_all - list(SQUAD_SPECIALIST, SOM_SQUAD_VETERAN, FIELD_COMMANDER, SOM_FIELD_COMMANDER, NTC_CHIEF_EXECUTIVE_OFFICER, SYNTHETIC, "CLF Synthetic", "SOM Synthetic")
+	jobs_supported = goofyjobs
+	. = ..()
 
 /datum/perk/skill_mod/unarmed/two
 	name = "Hand to hand specialisation"
@@ -498,3 +505,11 @@ Needed both for a purchase list and effected list (if one perk impacts multiple 
 	icon_state = ""
 	pixel_x = 8
 	pixel_y = 32
+
+/datum/perk/skill_mod/sex
+	name = "Morale Upkeep Training"
+	desc = "Additional sex education, additional anatomy knowledge and advanced \"tactics\" implanted directly into the memory, along with additional sensory modifications allow for enchansed experience during sexual intercourse, both for you and your partner."
+	ui_icon = "stamina_1"
+	sex = 1
+	all_jobs = TRUE
+	unlock_cost = 300

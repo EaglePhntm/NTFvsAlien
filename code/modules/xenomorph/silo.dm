@@ -101,6 +101,36 @@
 //Corpse recyclinging and larva force burrow
 //*******************
 /obj/structure/xeno/silo/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/disk/intel_disk))
+		var/obj/item/disk/intel_disk/claimed_disk = I
+		var/ambrosia_amount = floor(claimed_disk.supply_reward/160)
+		var/psy_point_reward = claimed_disk.supply_reward/2
+		QDEL_NULL(I)
+		if(ambrosia_amount)
+			new /obj/item/stack/req_jelly(loc, ambrosia_amount, hivenumber)
+		GLOB.round_statistics.strategic_psypoints_from_intel += psy_point_reward
+		SSpoints.add_strategic_psy_points(hivenumber, psy_point_reward)
+		SSpoints.add_tactical_psy_points(hivenumber, psy_point_reward*0.5)
+		var/job_point_reward = floor(claimed_disk.supply_reward/60)
+		var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
+		xeno_job.add_job_points(job_point_reward)
+		var/datum/hive_status/hive_status = GLOB.hive_datums[hivenumber]
+		hive_status.update_tier_limits()
+		GLOB.round_statistics.larva_from_cocoon += job_point_reward / xeno_job.job_points_needed
+		to_chat(user, "<span class='notice'>The hive blesses us with ambrosia and psy points for claiming this object.</span>")
+		minor_announce("Classified data disk claimed by the [hive_status.name] hive.  [floor(psy_point_reward)] psy points, [ambrosia_amount] ambrosia, and [round(job_point_reward / xeno_job.job_points_needed, 0.01)] larvae were acquired.  It was [claimed_disk.max_chain ? "part of an intel chain of length [claimed_disk.max_chain]" : "not part of an intel chain"].", title = "Intel Division")
+		for(var/announcement_hivenumber in GLOB.hive_datums)
+			GLOB.hive_datums[announcement_hivenumber].xeno_message(
+				"The [hive_status.name] hive claimed a disk for [floor(psy_point_reward)] psy points, [ambrosia_amount] ambrosia, and [round(job_point_reward / xeno_job.job_points_needed, 0.01)] larvae.  It was [claimed_disk.max_chain ? "part of an intel chain of length [claimed_disk.max_chain]" : "not part of an intel chain"].",
+				size = 3,
+				)
+		if(claimed_disk.max_chain > GLOB.round_statistics.intel_max_chain)
+			GLOB.round_statistics.intel_max_chain = claimed_disk.max_chain
+		if(!("[claimed_disk.max_chain]" in GLOB.round_statistics.intel_chain_sold_by_list))
+			GLOB.round_statistics.intel_chain_sold_by_list["[claimed_disk.max_chain]"] = "the [hive_status.name] hive"
+			GLOB.round_statistics.intel_chain_sold_for_list["[claimed_disk.max_chain]"] = "[floor(psy_point_reward)] psy points, [ambrosia_amount] ambrosia, and [round(job_point_reward / xeno_job.job_points_needed, 0.01)] larvae"
+		return TRUE
+
 	. = ..()
 
 	if(!istype(I, /obj/item/grab))

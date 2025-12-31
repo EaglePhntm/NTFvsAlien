@@ -337,7 +337,7 @@
 	bonus_projectiles_amount = 4
 	bonus_projectiles_scatter = 2
 	max_range = 15
-	damage = 17
+	damage = 40
 	damage_falloff = 0.25
 	penetration = 15
 	sundering = 1.5
@@ -352,8 +352,8 @@
 	ammo_behavior_flags = AMMO_BALLISTIC
 	shell_speed = 3
 	max_range = 15
-	damage = 60
-	penetration = 30
+	damage = 80
+	penetration = 20
 	sundering = 3.5
 
 /datum/ammo/bullet/shotgun/tx15_slug/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
@@ -399,7 +399,7 @@
 	penetration = 30
 
 /datum/ammo/bullet/shotgun/mbx900_tracker/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
-	target_mob.AddComponent(/datum/component/dripping, DRIP_ON_TIME, 60 SECONDS, 3 SECONDS)
+	target_mob.AddComponent(/datum/component/dripping, DRIP_ON_TIME, 60 SECONDS, 1 SECONDS)
 
 /datum/ammo/bullet/shotgun/tracker
 	name = "shotgun tracker shell"
@@ -412,7 +412,7 @@
 	penetration = 10
 
 /datum/ammo/bullet/shotgun/tracker/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
-	target_mob.AddComponent(/datum/component/dripping, DRIP_ON_TIME, 60 SECONDS, 3 SECONDS)
+	target_mob.AddComponent(/datum/component/dripping, DRIP_ON_TIME, 60 SECONDS, 1 SECONDS)
 
 //I INSERT THE SHELLS IN AN UNKNOWN ORDER
 /datum/ammo/bullet/shotgun/blank
