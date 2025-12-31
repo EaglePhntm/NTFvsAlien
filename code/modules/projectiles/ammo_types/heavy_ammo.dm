@@ -69,7 +69,7 @@
 	penetration = 50
 	sundering = 12.5
 	shrapnel_chance = 0
-	max_range = 12
+	max_range = 20
 	accurate_range_min = 4
 	///Bonus flat damage to walls, balanced around resin walls.
 	var/autocannon_wall_bonus = 50
