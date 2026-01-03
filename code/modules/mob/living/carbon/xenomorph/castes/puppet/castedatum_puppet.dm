@@ -11,7 +11,7 @@
 	upgrade = XENO_UPGRADE_BASETYPE
 	melee_damage = 12
 	accuracy_malus = 65
-	speed = -1
+	speed = -0.5
 	plasma_max = 100
 	plasma_gain = 3
 	max_health = 150
