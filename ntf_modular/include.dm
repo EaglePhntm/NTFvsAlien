@@ -97,6 +97,7 @@
 #include "code\game\objects\structures\stool_bed_chair_nest\xeno_nest.dm"
 #include "code\game\objects\structures\teleporter.dm"
 #include "code\modules\admin\admin_verbs.dm"
+#include "code\modules\atmospherics\machinery\components\unary_devices\cryo.dm"
 #include "code\modules\client\preferences.dm"
 #include "code\modules\clothing\glasses\hypnogoggles.dm"
 #include "code\modules\clothing\head\head.dm"
