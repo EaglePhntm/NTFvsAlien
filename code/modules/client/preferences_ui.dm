@@ -84,6 +84,7 @@
 			data["species"] = species || "Human"
 			data["good_eyesight"] = good_eyesight
 			data["citizenship"] = citizenship
+			data["blood_type"] = blood_type
 			data["tts_voice"] = tts_voice
 			data["tts_pitch"] = "[tts_pitch]"
 			data["religion"] = religion
@@ -142,7 +143,6 @@
 			data["radio_tts_flags"] = radio_tts_flags
 			data["accessible_tgui_themes"] = accessible_tgui_themes
 			data["allow_being_shown_health_scan"] = allow_being_shown_health_scan
-			data["tgui_fancy"] = tgui_fancy
 			data["tgui_lock"] = tgui_lock
 			data["ui_scale"] = ui_scale
 			data["tgui_input"] = tgui_input
@@ -612,6 +612,12 @@
 				return
 			citizenship = choice
 
+		if("blood_type")
+			var/choice = tgui_input_list(ui.user, "Your favorite blood type.", "Type of Blood", list("O-", "O+", "A-", "A+", "B-", "B+", "AB-", "AB+"))
+			if(!choice)
+				return
+			blood_type = choice
+
 		if("religion")
 			var/choice = tgui_input_list(ui.user, "What religion do you belive in?", "Belief", RELIGION_CHOICES)
 			if(!choice)
@@ -807,9 +813,6 @@
 
 		if("allow_being_shown_health_scan")
 			allow_being_shown_health_scan = !allow_being_shown_health_scan
-
-		if("tgui_fancy")
-			tgui_fancy = !tgui_fancy
 
 		if("tgui_lock")
 			tgui_lock = !tgui_lock

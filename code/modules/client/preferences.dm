@@ -22,7 +22,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/ui_style = "Midnight"
 	var/ui_style_color = "#ffffff"
 	var/ui_style_alpha = 230
-	var/tgui_fancy = TRUE
 	var/tgui_lock = FALSE
 	var/ui_scale = TRUE
 	var/tgui_input = TRUE
@@ -123,6 +122,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	//Lore
 	var/citizenship = "Phantom City (Earth)"
+	var/blood_type = "A+"
 	var/religion = "None"
 	var/flavor_text = ""
 	var/med_record = ""

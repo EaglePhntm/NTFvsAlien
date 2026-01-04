@@ -223,7 +223,7 @@
 	RegisterSignal(xeno_owner, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(on_move_attempt))
 	COOLDOWN_RESET(src, animation_cooldown)
 	animate(xeno_owner, pixel_x = 0, pixel_y = 0, time = 0)
-	xeno_owner.status_flags = GODMODE|INCORPOREAL
+	xeno_owner.status_flags = INCORPOREAL
 	xeno_owner.resistance_flags = RESIST_ALL
 	xeno_owner.add_pass_flags(PASS_LOW_STRUCTURE|PASS_DEFENSIVE_STRUCTURE|PASS_FIRE, DRAGON_ABILITY_TRAIT)
 	xeno_owner.density = FALSE
@@ -335,10 +335,10 @@
 	. = COMPONENT_MOVABLE_BLOCK_PRE_MOVE
 	if(isclosedturf(newloc) && !istype(newloc, /turf/closed/wall/resin))
 		return
+	if(isclosedturf(newloc) && istype(newloc, /turf/closed/wall/resin) && !xeno_owner.issamexenohive(newloc))
+		return
 	for(var/atom/atom_on_turf AS in newloc.contents)
 		if(istype(atom_on_turf, /obj/structure/mineral_door/resin) && xeno_owner.issamexenohive(atom_on_turf))
-			continue
-		if(istype(atom_on_turf, /turf/closed/wall/resin) && xeno_owner.issamexenohive(atom_on_turf))
 			continue
 		if(atom_on_turf.CanPass(xeno_owner, newloc))
 			continue
@@ -643,7 +643,7 @@
 			if(ishitbox(impacted_obj))
 				impacted_obj.take_damage(damage * 1/3, BRUTE, MELEE, blame_mob = xeno_owner) // Adjusted for 3x3 multitile vehicles.
 				continue
-			if(!isvehicle(impacted_obj))
+			if(isvehicle(impacted_obj))
 				impacted_obj.take_damage(damage, BRUTE, MELEE, blame_mob = xeno_owner)
 				continue
 			if(ismecha(impacted_obj))

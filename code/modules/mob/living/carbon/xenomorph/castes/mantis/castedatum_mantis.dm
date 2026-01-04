@@ -40,4 +40,8 @@
 		/datum/action/ability/xeno_action/psychic_influence,
 		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/activable/xeno/ravage/slow,
+		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/watch_xeno,
+		/datum/action/ability/activable/xeno/devour,
+		/datum/action/ability/xeno_action/place_stew_pod,
 	)

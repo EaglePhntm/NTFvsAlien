@@ -161,3 +161,66 @@
 2025-12-25:
   OrbisAnima:
   - code_imp: Added Proof of Testing section to the Github PR template.
+2025-12-26:
+  Colfer1:
+  - rscadd: Added the ability to possess minions for hivemind, puppeteer, widow
+  - rscadd: Puppeteer can now make puppets that sound like people in the world
+  - balance: Puppeteer puppets no longer have a range limit.
+2025-12-28:
+  Colfer1:
+  - balance: Spiderlings no longer deal stamina damage when disarming you, instead
+      they just provide an extremely intense slowdown
+2025-12-29:
+  Colfer1:
+  - balance: barrier armor now has a melee modifier, increasing melee damage done
+      to the shield
+  - bugfix: Most cleanables now layer over weeds, good thing there is soap
+2025-12-30:
+  DrCrawler:
+  - rscadd: Added a new CEO position,
+  - rscadd: Implemented sex skill.
+  - balance: Changed CLF Breeder skills a bit.
+  - spellcheck: Fixes larva being described as popping out of the father's pussy when
+      an impregnated xeno gives birth.
+2025-12-31:
+  Colfer1:
+  - bugfix: puppeteer and widow get possession when primordial too
+  - qol: Puppets and spiderlings now appear on hive status for the purpose of possession
+      ability
+  - balance: Xenos now give ALOT more money when exported, a price hike of 4x. A drone
+      is now worth 300
+  - bugfix: primordial puppeteers can no longer summon 10 billion puppets
+  Ducky-Momo:
+  - rscadd: added transparent gas masks to CLF and CM vendors, adds two PTR anti-mech
+      rifles and ammo boxes to CLF, adds anti-smoke/gas grenades to SOM
+  - balance: gave PTR one more round in the mag, removed autocannon from KZ weapon
+      vendor
+  Nokia2Student:
+  - balance: Buffed xenomorph damage against resin structures
+  - balance: Adjusted xeno regeneration debuff applied in xvx
+  - bugfix: Weed nodes now properly respect destroy weeds toggle
+  - bugfix: Fixed dragon issues related to flying and weed
+2025-12-23:
+  Lumipharon:
+  - bugfix: Fixes extinguishers refueling with the wrong fuel
+  - bugfix: Fixes water tanks not having the fuel component
+  - bugfix: Fixes flame tanks (and water) not being refuelable
+  - bugfix: fixed dropship ammo disappearing in certain scenarios
+  - code_imp: Update ripley dropship equipment interaction code
+  - bugfix: fixed sticky weeds not applying slowdown
+  - qol: fixed some balloon alert for fire support binos being visible to all mobs
+  - bugfix: fixed cooldowns being set for fire support binos later than they should
+      be
+  Neocloudy:
+  - rscdel: TGUI compatibility mode has been removed.
+  mudzbe:
+  - balance: Remove stun attacks from all zombies except tanks
+  - balance: Increased zombie attack damage
+  - rscadd: Adds recommended pop for maps to the groundmap vote like how it is in
+      the admin panel
+  - soundadd: Replace howitzer sound
+  - rscadd: Zombies tip over vending machines
+  - bugfix: Fixes vending machine and space heater cheese
+2025-12-29:
+  mudzbe:
+  - bugfix: Groundmap vote fixed

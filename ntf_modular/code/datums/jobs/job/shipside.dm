@@ -1,6 +1,6 @@
 //CEO
 /datum/job/terragov/command/ceo
-	title = CHIEF_EXECUTIVE_OFFICER
+	title = NTC_CHIEF_EXECUTIVE_OFFICER
 	req_admin_notify = TRUE
 	paygrade = "CEO"
 	comm_title = "CEO"
@@ -23,7 +23,7 @@
 	html_description = {"
 		<b>Difficulty</b>: Hard<br /><br />
 		<b>You answer to</b> NTC High Command<br /><br />
-		<b>Unlock Requirement</b>: Being the CEO in lore.<br /><br />
+		<b>Unlock Requirement</b>: Being the NTC CEO in lore.<br /><br />
 		<b>Gamemode Availability</b>: All<br /><br /><br />
 		<b>Duty</b>: Lead your corporation to ensure the operations go flawlessly
 		"}
@@ -32,6 +32,41 @@
 //ghetto proc usage why not, just to not edit the job shit
 /datum/job/terragov/command/ceo/player_old_enough(client/C)
 	if(check_other_rights(usr.client, R_ADMIN, FALSE) && C.key == "CrimsonQuiver")
+		return TRUE
+	return FALSE
+
+/datum/job/terragov/command/nm_ceo
+	title = NM_CHIEF_EXECUTIVE_OFFICER
+	req_admin_notify = TRUE
+	paygrade = "CEO"
+	comm_title = "NMCEO"
+	supervisors = "Your conscience."
+	total_positions = 1
+	skills_type = /datum/skills/nm_ceo
+	access = ALL_ACCESS
+	minimal_access = ALL_ACCESS
+	display_order = JOB_DISPLAY_ORDER_NM_CHIEF_EXECUTIVE_OFFICER
+	outfit = /datum/outfit/job/command/nm_ceo
+	exp_requirements = XP_REQ_EXPERT
+	exp_type = EXP_TYPE_REGULAR_ALL
+	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
+	jobworth = list(
+		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
+		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
+		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
+	)
+	html_description = {"
+		<b>Difficulty</b>: Hard<br /><br />
+		<b>You answer to</b> NTC High Command<br /><br />
+		<b>Unlock Requirement</b>: Being the NovaMed CEO in lore.<br /><br />
+		<b>Gamemode Availability</b>: All<br /><br /><br />
+		<b>Duty</b>: Oversee the work of contracted out medical personel and functioning of medical equipment to ensure operations go flawlessly.
+		"}
+	minimap_icon = "nm_ceo"
+
+/datum/job/terragov/command/nm_ceo/player_old_enough(client/C)
+	if(check_other_rights(usr.client, R_ADMIN, FALSE) && C.ckey == "drcrawler")
 		return TRUE
 	return FALSE
 
@@ -232,7 +267,7 @@ Archercorp generally takes a more isolationist approach to diplomacy and are gen
 		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
 		<b>Duty</b>: Create good relations and maintain corporation's image, do paperwork, have sex during meetings...? Reply if you’re called.
 	"}
-	skills_type = /datum/skills/civilian
+	skills_type = /datum/skills/doctor
 	display_order = JOB_DISPLAY_ORDER_CORPORATE_LIAISON
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST
 	jobworth = list(
@@ -383,7 +418,7 @@ TRANSCo generally tend to be rather hands off with general matters unless they a
 	)
 	minimap_icon = "cl"
 
-/datum/job/vsd/liaison_kaizoku/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
+/datum/job/vsd_squad/liaison_kaizoku/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
 	if(!ishuman(new_mob))
 		return
@@ -405,7 +440,7 @@ TRANSCo generally tend to be rather hands off with general matters unless they a
 			new_human.wear_id.paygrade = "NT5"
 	new_human.wear_id.update_label()
 
-/datum/job/vsd/liaison_kaizoku/get_spawn_message_information(mob/M)
+/datum/job/vsd_squad/liaison_kaizoku/get_spawn_message_information(mob/M)
 	. = ..()
 	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
 	. += {"As a representative of Kaizoku you are expected to stay professional and loyal to the corporation at all times.
@@ -418,7 +453,7 @@ Your ranking allows you to know your corporation has vital backing from the crim
 
 /datum/outfit/job/civilian/liaison_kaizoku
 	name = "Kaizoku Liaison"
-	jobtype = /datum/job/vsd/liaison_kaizoku
+	jobtype = /datum/job/vsd_squad/liaison_kaizoku
 
 	id = /obj/item/card/id/silver
 	ears = /obj/item/radio/headset/mainship/vsd

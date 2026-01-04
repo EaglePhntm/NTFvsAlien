@@ -20,7 +20,8 @@
 	pixel_y = 32
 	},
 /obj/effect/attach_point/weapon/minidropship{
-	equipment_offset_y = 25
+	equipment_offset_y = 25;
+	ship_tag = "minidropshipsom"
 	},
 /turf/closed/wall/mainship/outer/canterbury,
 /area/shuttle/minidropship)
@@ -29,11 +30,15 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "g" = (
-/obj/effect/attach_point/crew_weapon/minidropship,
+/obj/effect/attach_point/crew_weapon/minidropship{
+	ship_tag = "minidropshipsom"
+	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "i" = (
-/obj/structure/barricade/folding,
+/obj/structure/barricade/folding{
+	faction = "Sons of Mars"
+	},
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing{
 	dir = 1
 	},
@@ -51,9 +56,7 @@
 /area/shuttle/minidropship)
 "m" = (
 /obj/structure/bed/chair/dropship/passenger,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -10
-	},
+/obj/structure/extinguisher_cabinet,
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "n" = (
@@ -67,6 +70,10 @@
 /area/shuttle/minidropship)
 "o" = (
 /obj/docking_port/mobile/marine_dropship/minidropship/som,
+/turf/open/floor/plating/plating_catwalk,
+/area/shuttle/minidropship)
+"p" = (
+/obj/machinery/vending/som/lasgun,
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "q" = (
@@ -146,7 +153,9 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "C" = (
-/obj/structure/barricade/folding,
+/obj/structure/barricade/folding{
+	faction = "Sons of Mars"
+	},
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing{
 	dir = 1
 	},
@@ -165,7 +174,8 @@
 /area/shuttle/minidropship)
 "E" = (
 /obj/structure/barricade/folding{
-	dir = 8
+	dir = 8;
+	faction = "Sons of Mars"
 	},
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
 /obj/machinery/door/poddoor/mainship/open{
@@ -188,7 +198,8 @@
 	dir = 1
 	},
 /obj/effect/attach_point/weapon/minidropship{
-	equipment_offset_y = 25
+	equipment_offset_y = 25;
+	ship_tag = "minidropshipsom"
 	},
 /obj/structure/dropship_piece/two/weapon/leftleft{
 	dir = 1;
@@ -202,6 +213,9 @@
 /area/shuttle/minidropship)
 "K" = (
 /obj/item/storage/toolbox/mechanical,
+/obj/effect/attach_point/crew_weapon/minidropship{
+	ship_tag = "minidropshipsom"
+	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "L" = (
@@ -227,6 +241,10 @@
 	dir = 1
 	},
 /area/shuttle/minidropship)
+"P" = (
+/obj/structure/window/framed/mainship/canterbury/dropship/reinforced,
+/turf/open/floor/mainship/floor,
+/area/shuttle/minidropship)
 "R" = (
 /obj/item/stack/barbed_wire{
 	amount = 8
@@ -235,7 +253,8 @@
 /area/shuttle/minidropship)
 "S" = (
 /obj/structure/barricade/folding{
-	dir = 4
+	dir = 4;
+	faction = "Sons of Mars"
 	},
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
 /obj/machinery/door/poddoor/mainship/open{
@@ -249,7 +268,8 @@
 	pixel_y = 32
 	},
 /obj/effect/attach_point/weapon/minidropship{
-	equipment_offset_y = 25
+	equipment_offset_y = 25;
+	ship_tag = "minidropshipsom"
 	},
 /turf/closed/wall/mainship/outer/canterbury,
 /area/shuttle/minidropship)
@@ -286,7 +306,8 @@
 	pixel_y = 32
 	},
 /obj/effect/attach_point/weapon/minidropship{
-	equipment_offset_y = 25
+	equipment_offset_y = 25;
+	ship_tag = "minidropshipsom"
 	},
 /obj/structure/dropship_piece/tadpole/cockpit/right{
 	dir = 1
@@ -334,18 +355,18 @@ d
 "}
 (3,1,1) = {"
 W
-f
+y
 Z
-b
+P
 s
-c
+p
 k
 n
 i
 "}
 (4,1,1) = {"
 q
-y
+v
 c
 D
 o
@@ -356,9 +377,9 @@ C
 "}
 (5,1,1) = {"
 W
-v
+f
 u
-b
+P
 m
 R
 t

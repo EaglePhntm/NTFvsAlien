@@ -188,7 +188,7 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 	else if(stat == CONSCIOUS && user.can_be_facehugged(src, provoked = TRUE)) // If you try to take a healthy one it will try to hug or attack you.
 		user.visible_message(span_warning("[src] skitters up [user]'s arm as [user.p_they()] try to grab it!"), \
 		span_warning("[src] skitters up your arm as you try to grab it!"))
-		if(!try_attach(user))
+		if(!try_attach(user, no_evade = TRUE))
 			go_idle()
 	return FALSE // Else you can't pick.
 
@@ -204,7 +204,7 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 		if(!do_after(user, hand_attach_time, TRUE, M, BUSY_ICON_DANGER))
 			return
 	user.dropItemToGround(src)
-	if(!try_attach(M))
+	if(!try_attach(M, no_evade = TRUE))
 		go_idle()
 	user.update_icons()
 
@@ -527,7 +527,7 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 //////////////////////////////
 
 /// Try to attach to the mask slot
-/obj/item/clothing/mask/facehugger/proc/try_attach(mob/living/carbon/hugged)
+/obj/item/clothing/mask/facehugger/proc/try_attach(mob/living/carbon/hugged, no_evade)
 	set_throwing(FALSE)
 	leaping = FALSE
 	update_icon()
@@ -552,7 +552,7 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 		X.dropItemToGround(src)
 		X.update_icons()
 
-	if(hugged.dir != dir && !hugged.incapacitated())
+	if(!no_evade && hugged.dir != dir && !hugged.incapacitated())
 		var/catch_chance = 80
 		if(hugged.dir == REVERSE_DIR(dir))
 			catch_chance += 20
@@ -725,12 +725,12 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 				if(3)
 					target.visible_message("<span class='danger'>[src] falls limp after fucking [target.gender==MALE ? "itself on [target]'s cock" : "[target]'s vagina"]!</span>")
 			if(ismonkey(target))
-				damage = target.check_shields(COMBAT_MELEE_ATTACK, damage, MELEE)
+				damage = target.check_shields(COMBAT_MELEE_ATTACK, damage, MELEE, shield_flags = SHIELD_FLAG_XENOMORPH)
 				if(damage)
 					target.apply_damage(damage, BRUTE, BODY_ZONE_PRECISE_GROIN, MELEE, updating_health = TRUE)
 		else //Huggered but not impregnated, deal damage.
 			target.visible_message(span_danger("[src] frantically claws and fucks [target] before falling down!"),span_danger("[src] frantically claws and fucks you before falling down! Auugh!"))
-			damage = target.check_shields(COMBAT_MELEE_ATTACK, damage, MELEE)
+			damage = target.check_shields(COMBAT_MELEE_ATTACK, damage, MELEE, shield_flags = SHIELD_FLAG_XENOMORPH)
 			if(damage)
 				target.apply_damage(damage, BRUTE, BODY_ZONE_PRECISE_GROIN, MELEE, updating_health = TRUE)
 
@@ -987,7 +987,7 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 	var/affecting = ran_zone(null, 0)
 	if(!affecting) //Still nothing??
 		affecting = BODY_ZONE_CHEST //Gotta have a torso?!
-	the_damage = victim.check_shields(COMBAT_MELEE_ATTACK, the_damage, MELEE)
+	the_damage = victim.check_shields(COMBAT_MELEE_ATTACK, the_damage, MELEE, shield_flags = SHIELD_FLAG_XENOMORPH)
 	victim.apply_damage(the_damage, BRUTE, affecting, MELEE) //Crap base damage after armour...
 	victim.visible_message(span_danger("[src] frantically claws at [victim]!"),span_danger("[src] frantically claws at you!"))
 	leaping = FALSE

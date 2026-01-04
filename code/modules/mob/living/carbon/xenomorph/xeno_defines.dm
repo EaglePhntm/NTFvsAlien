@@ -383,6 +383,8 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	///Naming variables
 	var/nicknumber = 0 //The number/name after the xeno type. Saved right here so it transfers between castes.
 
+	var/possessor = null //who is in control of this mob, used exclusively for possessions
+
 	///This list of inherent verbs lets us take any proc basically anywhere and add them.
 	///If they're not a xeno subtype it might crash or do weird things, like using human verb procs
 	///It should add them properly on New() and should reset/readd them on evolves
@@ -468,6 +470,8 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	var/fiery_stab = FALSE
 
 	var/preggo = FALSE
+	///grace period to health regen after being hit by a projectile while fighting a xeno
+	var/no_health_regen_grace_period = FALSE
 
 	//list of active tunnels
 	var/list/tunnels = list()

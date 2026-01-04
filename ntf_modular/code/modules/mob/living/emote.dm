@@ -37,10 +37,11 @@
     sound = 'sound/machines/beepalert.ogg'
 
 /datum/emote/living/carbon/xenomorph/xurrender/run_emote(mob/user, params, type_override, intentional)
-    . = ..()
-    if(. && isliving(user))
-        var/mob/living/L = user
-        L.Paralyze(450 SECONDS)
+	. = ..()
+	if(. && isliving(user))
+		var/mob/living/L = user
+		L.Paralyze(450 SECONDS)
+		L.ExtinguishMob()
 
 /datum/emote/living/carbon/xenomorph/xurrender/run_emote(mob/user, params, type_override, intentional = TRUE, prefix)
 	if(!isxeno(user))
@@ -62,10 +63,11 @@
     sound = 'ntf_modular/sound/misc/mat/end.ogg'
 
 /datum/emote/living/carbon/xenomorph/xubmit/run_emote(mob/user, params, type_override, intentional)
-    . = ..()
-    if(. && isliving(user))
-        var/mob/living/L = user
-        L.Paralyze(450 SECONDS)
+	. = ..()
+	if(. && isliving(user))
+		var/mob/living/L = user
+		L.Paralyze(450 SECONDS)
+		L.ExtinguishMob()
 
 /datum/emote/living/carbon/xenomorph/xubmit/run_emote(mob/user, params, type_override, intentional = TRUE, prefix)
 	if(!isxeno(user))
@@ -75,7 +77,6 @@
 	. = ..()
 	var/image/submitting = image('icons/mob/effects/talk.dmi', user, icon_state = "submit")
 	user.add_emote_overlay(submitting, 90 SECONDS) //Xenos need to be stunned for longer, dont change this
-
 
 /datum/emote/living/carbon/human/surrender
     key = "surrender"
@@ -87,17 +88,25 @@
     sound = 'sound/machines/beepalert.ogg'
 
 /datum/emote/living/carbon/human/surrender/run_emote(mob/user, params, type_override, intentional)
-    . = ..()
-    if(. && isliving(user))
-        var/mob/living/L = user
-        L.Paralyze(90 SECONDS)
+	. = ..()
+	if(. && isliving(user))
+		var/mob/living/L = user
+		ADD_TRAIT(L, TRAIT_SURRENDERING, "surrender")
+		L.Paralyze(90 SECONDS)
+		L.ExtinguishMob()
+		L.status_flags |= GODMODE
+		addtimer(CALLBACK(src, PROC_REF(surrender_end), user), 90 SECONDS, TIMER_STOPPABLE)
+
+/datum/emote/living/carbon/human/surrender/proc/surrender_end(mob/user)
+	user.status_flags &= ~GODMODE
+	REMOVE_TRAIT(user, TRAIT_SURRENDERING, "surrender")
 
 /datum/emote/living/carbon/human/surrender/run_emote(mob/user, params, type_override, intentional = TRUE, prefix)
-    if(!ishuman(user))
-        return
-    . = ..()
-    var/image/surrendering = image('icons/mob/effects/talk.dmi', user, icon_state = "surrendering")
-    user.add_emote_overlay(surrendering, 90 SECONDS)
+	if(!ishuman(user))
+		return
+	. = ..()
+	var/image/surrendering = image('icons/mob/effects/talk.dmi', user, icon_state = "surrendering")
+	user.add_emote_overlay(surrendering, 90 SECONDS)
 // And now for the sexy varient
 
 /datum/emote/living/carbon/human/submit
@@ -110,10 +119,18 @@
     sound = 'ntf_modular/sound/misc/mat/end.ogg'
 
 /datum/emote/living/carbon/human/submit/run_emote(mob/user, params, type_override, intentional)
-    . = ..()
-    if(. && isliving(user))
-        var/mob/living/L = user
-        L.Paralyze(90 SECONDS)
+	. = ..()
+	if(. && isliving(user))
+		var/mob/living/L = user
+		L.Paralyze(90 SECONDS)
+		L.ExtinguishMob()
+		ADD_TRAIT(L, TRAIT_SURRENDERING, "surrender")
+		L.status_flags |= GODMODE
+		addtimer(CALLBACK(src, PROC_REF(surrender_end), user), 90 SECONDS, TIMER_STOPPABLE)
+
+/datum/emote/living/carbon/human/submit/proc/surrender_end(mob/user)
+		REMOVE_TRAIT(user, TRAIT_SURRENDERING, "surrender")
+		user.status_flags &= ~GODMODE
 
 /datum/emote/living/carbon/human/submit/run_emote(mob/user, params, type_override, intentional = TRUE, prefix)
     if(!ishuman(user))

@@ -12,20 +12,20 @@
 	wound_type = "puppeteer"
 	speed = -0.8
 	melee_damage = 18
-	plasma_max = 750
-	plasma_gain = 0
-	plasma_regen_limit = 0
-	plasma_icon_state = "fury"
+	plasma_max = 200
+	plasma_gain = 3
+	plasma_regen_limit = 1
+	plasma_icon_state = "plasma"
 	max_health = 365
 	upgrade_threshold = TIER_TWO_THRESHOLD
 	evolution_threshold = 225
 
 	deevolves_to = /datum/xeno_caste/defender
-	caste_flags = CASTE_INNATE_PLASMA_REGEN|CASTE_PLASMADRAIN_IMMUNE|CASTE_EVOLUTION_ALLOWED|CASTE_MUTATIONS_ALLOWED
+	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_MUTATIONS_ALLOWED
 
 	soft_armor = list(MELEE = 20, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 10, BIO = 20, FIRE = 20, ACID = 20)
 	minimap_icon = "puppeteer"
-	flay_plasma_gain = 100
+	flay_plasma_gain = 50
 	max_puppets = 3
 	aura_strength = 2.8
 
@@ -35,7 +35,7 @@
 		/datum/action/ability/xeno_action/psychic_influence,
 		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
-		/datum/action/ability/activable/xeno/psydrain/free,
+		/datum/action/ability/activable/xeno/psydrain,
 		/datum/action/ability/activable/xeno/devour,
 		/datum/action/ability/activable/xeno/tail_stab,
 		/datum/action/ability/activable/xeno/flay,
@@ -50,6 +50,7 @@
 		/datum/action/ability/activable/xeno/puppet_blessings,
 		/datum/action/ability/xeno_action/create_edible_jelly,
 		/datum/action/ability/xeno_action/place_stew_pod,
+		/datum/action/ability/activable/xeno/possession,
 	)
 
 	mutations = list(
@@ -78,7 +79,7 @@
 		/datum/action/ability/xeno_action/psychic_influence,
 		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
-		/datum/action/ability/activable/xeno/psydrain/free,
+		/datum/action/ability/activable/xeno/psydrain,
 		/datum/action/ability/activable/xeno/devour,
 		/datum/action/ability/activable/xeno/tail_stab,
 		/datum/action/ability/activable/xeno/flay,
@@ -94,6 +95,7 @@
 		/datum/action/ability/activable/xeno/puppet_blessings,
 		/datum/action/ability/xeno_action/create_edible_jelly,
 		/datum/action/ability/xeno_action/place_stew_pod,
+		/datum/action/ability/activable/xeno/possession,
 	)
 
 	aura_strength = 3

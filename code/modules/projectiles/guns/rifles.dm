@@ -2085,7 +2085,7 @@
 	max_shells = 36 //codex
 	wield_delay = 1.2 SECONDS
 	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_carbine
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_carbine)
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_carbine, /obj/item/ammo_magazine/rifle/standard_carbine/ap, /obj/item/ammo_magazine/rifle/standard_carbine/rubber)
 	attachable_allowed = list(
 		/obj/item/attachable/scope/optical,
 		/obj/item/weapon/gun/rifle/tx54/mini,
@@ -2410,7 +2410,7 @@
 	burst_amount = 1
 	fire_delay = 0.15 SECONDS
 	accuracy_mult = 0.75
-	scatter = 16
+	scatter = 13
 	recoil = 1.5
 	wield_delay = 0.6 SECONDS
 	aim_slowdown = 0.4

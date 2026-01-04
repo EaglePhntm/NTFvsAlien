@@ -105,12 +105,12 @@
 	attachable_offset = list("muzzle_x" = 41, "muzzle_y" = 20,"rail_x" = 15, "rail_y" = 20, "under_x" = 23, "under_y" = 12, "stock_x" = 11, "stock_y" = 14)
 	starting_attachment_types = list(/obj/item/attachable/stock/t39stock)
 
-	fire_delay = 1.4 SECONDS
+	fire_delay = 1 SECONDS
 	accuracy_mult = 1.05
 	accuracy_mult_unwielded = 0.65
 	scatter = 3
 	scatter_unwielded = 12
-	damage_mult = 0.7  //30% less damage. Faster firerate.
+	damage_mult = 0.85  //15% less damage. Faster firerate.
 	recoil = 2
 	recoil_unwielded = 4
 	wield_delay = 1 SECONDS
@@ -940,6 +940,7 @@
 	burst_scatter_mult = 2 // 2x4=8
 	accuracy_mult = 1
 	autobalance_monitor_value = ZX_PRICE
+	damage_mult = 0.7
 
 /obj/item/weapon/gun/shotgun/zx76/standard
 	starting_attachment_types = list(/obj/item/attachable/bayonet/converted, /obj/item/attachable/magnetic_harness, /obj/item/attachable/verticalgrip)

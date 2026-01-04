@@ -155,7 +155,7 @@
 		owner.balloon_alert(owner, "resin walk ended, no plasma")
 		resinwalk_off(TRUE)
 		return
-	if(!xeno_owner.loc_weeds_type && weeding_cost > 0 && xeno_owner.plasma_stored >= weeding_cost)
+	if(!xeno_owner.loc_weeds_type && weeding_cost > 0 && xeno_owner.plasma_stored >= (weeding_cost+10))
 		var/obj/alien/weeds/created_weeds = new(xeno_owner.loc)
 		SSweeds_decay.decaying_list += created_weeds // Check if it should go away (no nearby node) or stick around (nearby node).
 		xeno_owner.handle_weeds_on_movement() // loc_weeds_type is changed here.
@@ -263,7 +263,7 @@
 
 	newt.tunnel_desc = "[get_area(newt)] (X: [newt.x], Y: [newt.y])"
 
-	xeno_message("[xeno_owner.name] has built a new tunnel at [newt.tunnel_desc]!", "xenoannounce", 5, xeno_owner.get_xeno_hivenumber())
+	xeno_message("[xeno_owner.name] has built a new tunnel at [newt.tunnel_desc]!", "xenoannounce", 3, xeno_owner.get_xeno_hivenumber())
 
 	if(LAZYLEN(xeno_owner.tunnels) > HIVELORD_TUNNEL_SET_LIMIT) //if we exceed the limit, delete the oldest tunnel set.
 		var/obj/structure/xeno/tunnel/old_tunnel = xeno_owner.tunnels[1]

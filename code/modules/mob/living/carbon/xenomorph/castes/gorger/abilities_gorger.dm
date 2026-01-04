@@ -25,6 +25,14 @@
 		if(!silent)
 			to_chat(owner, span_warning("That wouldn't work."))
 		return FALSE
+	if(ishuman(target))
+		var/mob/living/carbon/human = target
+		if(human.stat == DEAD && !(SSticker.mode.round_type_flags & MODE_XENO_GRAB_DEAD_ALLOWED)) // Can't drag dead human bodies.
+			to_chat(owner,span_xenowarning("We have no reason to do that."))
+			return FALSE
+	if(isxeno(target) && haul_mode)
+		to_chat(owner,span_xenowarning("We cant carry them."))
+		return FALSE
 	var/mob/living/carbon/human/victim = target
 	if(owner.status_flags & INCORPOREAL)
 		if(!silent)
@@ -37,6 +45,10 @@
 	if(HAS_TRAIT(victim, TRAIT_TIME_SHIFTED))
 		to_chat(owner, span_warning("They are anchored in time!"))
 		return FALSE
+	if(isxeno(victim))
+		if(!isxenolarva(victim))
+			to_chat(owner, span_warning("Not a larva, it would be hard to pick this one up"))
+			return FALSE
 	if(victim.buckled)
 		if(!silent)
 			to_chat(owner, span_warning("[victim] is buckled to something."))
@@ -76,6 +88,7 @@
 		owner_xeno.stop_sound_channel(channel)
 		return
 	owner_xeno.eject_victim()
+	owner_xeno.remove_movespeed_modifier("devourer", TRUE)
 	log_combat(owner_xeno, victim, "released", addition="from being devoured")
 	REMOVE_TRAIT(victim, TRAIT_STASIS, TRAIT_STASIS)
 
@@ -83,18 +96,23 @@
 	var/mob/living/carbon/human/victim = target
 	var/mob/living/carbon/xenomorph/owner_xeno = owner
 	owner_xeno.face_atom(victim)
-	if(haul_mode)
+	var/devour_delay = GORGER_DEVOUR_DELAY * 2
+	if(isxenogorger(owner_xeno)) //gorgers balling
+		devour_delay = GORGER_DEVOUR_DELAY
+	if((HAS_TRAIT(victim, TRAIT_UNDEFIBBABLE) || !victim.client || victim.lying_angle || victim.incapacitated()) && !isxeno(victim))
+		devour_delay -= 1 SECONDS
+	if(haul_mode) //easier to do
+		devour_delay -= 1 SECONDS
+	if(haul_mode && devour_delay)
+		if(!do_after(owner_xeno, devour_delay, FALSE, victim, BUSY_ICON_DANGER, extra_checks = CALLBACK(owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = owner_xeno.health))))
+			to_chat(owner, span_warning("We stop trying to pick up \the [victim]."))
+			return
 		haul(target)
 		add_cooldown()
 		return
-	owner_xeno.visible_message(span_danger("[owner_xeno] start devour [victim]!"), span_danger("We start to devour [victim]!"), null, 5)
+	owner_xeno.visible_message(span_danger("[owner_xeno] starts devouring [victim]!"), span_danger("We start to devour [victim]!"), null, 5)
 	log_combat(owner_xeno, victim, "started to devour")
 	var/channel = SSsounds.random_available_channel()
-	var/devour_delay = GORGER_DEVOUR_DELAY
-	if((HAS_TRAIT(victim, TRAIT_UNDEFIBBABLE) || !victim.client) && !isxeno(victim))
-		devour_delay = GORGER_DEVOUR_DELAY*3
-	if(isxenogorger(owner_xeno)) //gorgers balling anyway, kidnappers.
-		devour_delay = GORGER_DEVOUR_DELAY
 	playsound(owner_xeno, 'sound/vore/struggle.ogg', 40, channel = channel)
 	owner_xeno.devouring_mob = victim
 	if(!do_after(owner_xeno, devour_delay, FALSE, victim, BUSY_ICON_DANGER, extra_checks = CALLBACK(owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = owner_xeno.health))))
@@ -108,6 +126,8 @@
 	ADD_TRAIT(victim, TRAIT_STASIS, TRAIT_STASIS)
 	victim.forceMove(owner_xeno)
 	owner_xeno.eaten_mob = victim
+	if(xeno_owner.eaten_mob?.mob_size)
+		xeno_owner.add_movespeed_modifier("devourer", TRUE, 0, NONE, TRUE, xeno_owner.eaten_mob.mob_size)
 	if(ishuman(victim))
 		var/obj/item/radio/headset/mainship/headset = victim.wear_ear
 		if(istype(headset))
@@ -127,17 +147,32 @@
 	action_icon_state = "abduct_[haul_mode? "on" : "off"]"
 	update_button_icon()
 
+/mob/living/carbon/human/Life(seconds_per_tick, times_fired)
+	. = ..()
+	if(HAS_TRAIT(src, TRAIT_HAULED))
+		handle_haul_resist()
+
 /datum/action/ability/activable/xeno/devour/proc/haul(atom/target)
 	if(!xeno_owner.eaten_mob)
 		xeno_owner.visible_message(span_warning("[xeno_owner] restrains [target], hauling them effortlessly!"),
 		span_warning("We fully restrain [target] and start hauling them!"), null, 5)
 		playsound(xeno_owner.loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
 
-		if(xeno_owner.eaten_mob.mob_size) //carrying will slow down the xeno and be more dangerous compared to devouring due to it being instant.
-			xeno_owner.add_movespeed_modifier("hauler", TRUE, 0, NONE, TRUE, xeno_owner.eaten_mob.mob_size)
 		xeno_owner.eaten_mob = target
+		if(xeno_owner.eaten_mob?.mob_size)
+			xeno_owner.add_movespeed_modifier("hauler", TRUE, 0, NONE, TRUE, xeno_owner.eaten_mob.mob_size)
 		xeno_owner.eaten_mob.forceMove(xeno_owner.loc, get_dir(target.loc, xeno_owner.loc))
-		xeno_owner.eaten_mob.handle_haul(src)
+		xeno_owner.eaten_mob.handle_haul(xeno_owner)
+		RegisterSignal(xeno_owner.eaten_mob, COMSIG_MOB_DEATH, PROC_REF(release_dead_haul))
+
+/datum/action/ability/activable/xeno/devour/proc/release_dead_haul()
+	SIGNAL_HANDLER
+	var/mob/living/carbon/human/user = xeno_owner.eaten_mob
+	to_chat(src, span_warning("[user] is dead. No more use for them now."))
+	user.handle_unhaul()
+	UnregisterSignal(user, COMSIG_MOB_DEATH)
+	UnregisterSignal(src, COMSIG_ATOM_DIR_CHANGE)
+	xeno_owner.eaten_mob = null
 
 // Releasing a hauled mob
 /datum/action/ability/activable/xeno/devour/proc/release_haul(stuns = FALSE)

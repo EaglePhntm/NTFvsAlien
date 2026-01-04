@@ -6,7 +6,7 @@
 	icon_state = "Puppeteer Running"
 	health = 250
 	maxHealth = 250
-	plasma_stored = 350
+	plasma_stored = 200
 	pixel_x = -16
 	tier = XENO_TIER_TWO
 	upgrade = XENO_UPGRADE_NORMAL
@@ -15,7 +15,7 @@
 
 /mob/living/carbon/xenomorph/puppeteer/Initialize(mapload)
 	. = ..()
-	GLOB.huds[DATA_HUD_XENO_HEART].add_hud_to(src)
+	/*GLOB.huds[DATA_HUD_XENO_HEART].add_hud_to(src)*/
 	RegisterSignal(src, COMSIG_XENOMORPH_POSTATTACK_LIVING, PROC_REF(postattack))
 
 /mob/living/carbon/xenomorph/puppeteer/proc/postattack(mob/living/source, mob/living/target, damage)

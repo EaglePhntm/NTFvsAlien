@@ -19,3 +19,6 @@
 	var/points_from_ambrosia = 0
 	var/human_orgasms = 0
 	var/xeno_orgasms = 0
+	var/intel_max_chain = 0
+	var/intel_chain_sold_for_list = list()
+	var/intel_chain_sold_by_list = list()
