@@ -1,11 +1,11 @@
 GLOBAL_LIST_INIT(possible_cock_sprites, list(
 	"Default" = null,
-	"Penis" = "cock"
+	"Penis" = "cock",
 ))
 
 GLOBAL_LIST_INIT(possible_cock_sprite_names, list(
 	null = "Default",
-	"cock" = "Penis"
+	"cock" = "Penis",
 ))
 
 GLOBAL_LIST_INIT(possible_ass_sprites, list(
