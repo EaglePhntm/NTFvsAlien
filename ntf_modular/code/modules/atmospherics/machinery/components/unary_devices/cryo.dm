@@ -10,6 +10,7 @@
 	drag_delay = 1 //Pulling something on wheels is easy
 	icon = 'ntf_modular/icons/obj/machines/suit_cycler.dmi'
 	icon_state = "suit_cycler"
+	layer = ABOVE_ALL_MOB_LAYER
 	dir = SOUTH
 	density = FALSE
 	resistance_flags = RESIST_ALL
@@ -65,8 +66,8 @@
 	. = ..()
 	if(!occupant)
 		return
-	. += emissive_appearance(icon, "cap", src, alpha = 150)
-	. += mutable_appearance(icon, "cap", alpha = 150)
+	. += emissive_appearance(icon, "cap", src, alpha = 100)
+	. += mutable_appearance(icon, "cap", alpha = 100)
 
 /obj/structure/bed/chair/stasis/proc/shuttle_crush()
 	SIGNAL_HANDLER
@@ -97,8 +98,7 @@
 		else
 			return
 
-	user_buckle_mob(grabbed_mob, user, FALSE, TRUE)
-
+	move_inside_wrapper(grabbed_mob, user)
 	return TRUE
 
 /obj/structure/bed/chair/stasis/proc/move_inside_wrapper(mob/living/target, mob/user)
@@ -109,7 +109,8 @@
 		to_chat(user, span_warning("[src] is occupied."))
 		return
 
-	user_buckle_mob(target, user, FALSE, TRUE)
+	target.forceMove(loc)
+	user_buckle_mob(target, user, TRUE, TRUE)
 
 /obj/structure/bed/chair/stasis/MouseDrop_T(mob/M, mob/user)
 	. = ..()
@@ -117,6 +118,7 @@
 
 /obj/structure/bed/chair/stasis/user_buckle_mob(mob/living/buckling_mob, mob/living/user, check_loc, silent)
 	. = ..()
+
 	if(user && buckling_mob != user)
 		if(buckling_mob.stat == DEAD)
 			to_chat(user, span_notice("[buckling_mob] is dead!"))
@@ -139,12 +141,71 @@
 	occupant = buckling_mob
 	update_icon()
 
-	//Handle job slot cleanup.
-	if(buckling_mob.job in SSjob.active_joinable_occupations)
-		buckling_mob.job.free_job_positions(1)
+	balloon_alert_to_viewers("Hisses as it starts the cryosleep process...")
+	to_chat(buckling_mob, span_notice("You feel yourself slipping into unconsciousness... You will be stored if you do not unbuckle soon."))
+	playsound(loc, 'sound/machines/hiss.ogg', 25, 1)
+	addtimer(CALLBACK(src, PROC_REF(activate), buckling_mob), 5 SECONDS, TIMER_STOPPABLE)
 
+/obj/structure/bed/chair/stasis/proc/activate(mob/living/buckling_mob)
+	if(QDELETED(occupant) || !(buckling_mob in buckled_mobs))
+		return FALSE
+	buckling_mob.set_resting(TRUE)
 	buckling_mob.ghostize(TRUE, FALSE, TRUE)
 	return TRUE
+
+/obj/structure/bed/chair/stasis/verb/send_away()
+	set name = "Fullcryo Occupant"
+	set desc = "Send the occupant of this cryopod to the deep storage, freeing up the pod, body, items and their job for future use."
+	set category = "IC.Object"
+	set src in view(1)
+
+	if(usr.incapacitated(TRUE))
+		return
+	if(occupant.client)
+		to_chat(usr, span_warning("You cannot send away an awake person."))
+		return
+	if(!occupant)
+		to_chat(usr, span_warning("There is no occupant in [src]."))
+		return
+	playsound(loc, 'sound/machines/hiss.ogg', 25, 1)
+	occupant.despawn()
+	occupant = null
+	update_icon()
+	for(var/obj/item/W in src)
+		W.store_in_cryo()
+
+/obj/structure/bed/chair/stasis/verb/store_items()
+	set name = "Store items"
+	set desc = "Store occupant's items in cryoframe's internal storage for later-retrieval."
+	set category = "IC.Object"
+	set src in view(1)
+
+	if(usr.incapacitated(TRUE))
+		return
+	if(occupant.client)
+		to_chat(usr, span_warning("You cannot do that to an awake person."))
+		return
+	if(!occupant)
+		to_chat(usr, span_warning("There is no occupant in [src]."))
+		return
+	playsound(loc, 'sound/machines/hiss.ogg', 25, 1)
+	for(var/obj/item/W in occupant)
+		occupant.temporarilyRemoveItemFromInventory(W)
+		W.forceMove(src)
+
+/obj/structure/bed/chair/stasis/verb/eject_items()
+	set name = "Eject items"
+	set desc = "Eject occupant's items from cryoframe's internal storage."
+	set category = "IC.Object"
+	set src in view(1)
+
+	if(usr.incapacitated(TRUE))
+		return
+	if(!length(contents))
+		to_chat(usr, span_warning("There are no items stored in [src]."))
+		return
+	for(var/obj/item/W in src)
+		W.forceMove(get_turf(usr))
 
 /obj/structure/bed/chair/stasis/unbuckle_mob(mob/living/buckled_mob, force, can_fall)
 	. = ..()
@@ -156,9 +217,11 @@
 
 	for(var/I in items)
 		var/atom/movable/A = I
-		A.forceMove(get_turf(src))
+		A.forceMove(loc)
 
 	occupant = null
+	eject_items()
+	playsound(loc, 'sound/machines/hiss.ogg', 25, 1)
 	update_icon()
 
 /obj/structure/bed/chair/stasis/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)

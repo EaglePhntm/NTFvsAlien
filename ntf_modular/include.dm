@@ -136,6 +136,7 @@
 #include "code\modules\mob\living\carbon\xenomorph\xenomorph.dm"
 #include "code\modules\mob\living\carbon\xenomorph\xenoprocs.dm"
 #include "code\modules\mob\living\emote.dm"
+#include "code\modules\mob\living\living_defines.dm"
 #include "code\modules\mob\living\living_verbs.dm"
 #include "code\modules\mob\mob.dm"
 #include "code\modules\mob\new_player\sprite_accessories.dm"
