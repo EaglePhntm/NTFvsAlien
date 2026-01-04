@@ -98,25 +98,12 @@
 		else
 			return
 
-	move_inside_wrapper(grabbed_mob, user)
+	user_buckle_mob(grabbed_mob, user, TRUE, FALSE)
 	return TRUE
 
-/obj/structure/bed/chair/stasis/proc/move_inside_wrapper(mob/living/target, mob/user)
-	if(!ishuman(target) || !ishuman(user))
-		return
-
-	if(!QDELETED(occupant))
-		to_chat(user, span_warning("[src] is occupied."))
-		return
-
-	target.forceMove(loc)
-	user_buckle_mob(target, user, TRUE, TRUE)
-
-/obj/structure/bed/chair/stasis/MouseDrop_T(mob/M, mob/user)
-	. = ..()
-	move_inside_wrapper(M, user)
 
 /obj/structure/bed/chair/stasis/user_buckle_mob(mob/living/buckling_mob, mob/living/user, check_loc, silent)
+	buckling_mob.forceMove(loc)
 	. = ..()
 
 	if(user && buckling_mob != user)
