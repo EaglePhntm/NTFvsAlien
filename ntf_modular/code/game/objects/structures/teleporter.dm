@@ -94,6 +94,8 @@ GLOBAL_LIST_INIT(remotely_linked_teleporter_pairs, list())
 	. = ..()
 	log_combat(proj.firer, src, "shot", proj, " linked teleporter is \[[logdetails(linked_teleporter)]\]")
 
+GLOBAL_LIST_EMPTY(indestructible_teleporters)
+
 /obj/item/teleporter_kit/indestructible
 	name = "\improper ASRS Reinforced Bluespace teleporter"
 	resistance_flags = RESIST_ALL
@@ -101,6 +103,11 @@ GLOBAL_LIST_INIT(remotely_linked_teleporter_pairs, list())
 /obj/item/teleporter_kit/indestructible/Initialize(mapload)
 	. = ..()
 	name = "\improper ASRS Reinforced Bluespace teleporter #[self_tele_tag]"
+	GLOB.indestructible_teleporters += src
+
+/obj/item/teleporter_kit/indestructible/Destroy()
+	. = ..()
+	GLOB.indestructible_teleporters -= src
 
 /obj/item/teleporter_kit/indestructible/toggle_deployment_flag(deployed)
 	. = ..()
