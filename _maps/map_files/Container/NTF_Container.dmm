@@ -2171,6 +2171,7 @@
 	dir = 10;
 	layer = 2.5
 	},
+/obj/machinery/computer/cloning_console/vats,
 /turf/open/floor/plating/mainship,
 /area/mainship/medical/lower_medical)
 "cii" = (
@@ -6351,6 +6352,7 @@
 "fWd" = (
 /obj/effect/turf_decal/warning_stripes/thin,
 /obj/machinery/air_alarm,
+/obj/machinery/cloning/vats,
 /turf/open/floor/plating/mainship,
 /area/mainship/medical/lower_medical)
 "fWh" = (
@@ -10779,6 +10781,7 @@
 "kwd" = (
 /obj/effect/turf_decal/warning_stripes/thin,
 /obj/machinery/camera/autoname/mainship,
+/obj/machinery/computer/cloning_console/vats,
 /turf/open/floor/plating/mainship,
 /area/mainship/medical/lower_medical)
 "kwD" = (
@@ -18743,10 +18746,10 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
-/obj/structure/largecrate/supply/medicine,
 /obj/machinery/light/mainship{
 	dir = 4
 	},
+/obj/structure/largecrate/supply/medicine/iv,
 /turf/open/floor/plating/mainship,
 /area/mainship/medical/surgery_hallway)
 "sfX" = (
@@ -19200,6 +19203,10 @@
 	},
 /turf/open/floor/plating/mainship,
 /area/mainship/command/cic)
+"szt" = (
+/obj/machinery/gibber,
+/turf/open/floor/mainship/floor,
+/area/mainship/medical/morgue)
 "szN" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
@@ -22820,11 +22827,13 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/starboard_hull)
 "vTI" = (
+/obj/structure/table/mainship/nometal,
+/obj/item/healthanalyzer,
+/obj/item/reagent_containers/glass/beaker/biomass,
+/obj/item/storage/box/ids/dogtag,
+/obj/item/reagent_containers/glass/beaker/biomass,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 9
-	},
-/obj/machinery/light/mainship{
-	dir = 4
 	},
 /turf/open/floor/plating/mainship,
 /area/mainship/medical/lower_medical)
@@ -24767,6 +24776,7 @@
 	dir = 6;
 	pixel_x = 1
 	},
+/obj/machinery/cloning/vats,
 /turf/open/floor/plating/mainship/striped{
 	dir = 8
 	},
@@ -55141,7 +55151,7 @@ iFA
 uef
 wUY
 vqw
-xfm
+szt
 xfm
 xfm
 xfm

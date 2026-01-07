@@ -9639,10 +9639,10 @@
 /turf/open/floor/wood,
 /area/mainship/hallways/dorm2)
 "ihe" = (
-/obj/machinery/cryopod/right,
 /obj/machinery/camera/autoname/mainship{
 	dir = 1
 	},
+/obj/structure/largecrate/supply/medicine/medkits,
 /turf/open/floor/mainship/sterile/corner{
 	dir = 8
 	},
@@ -10244,6 +10244,12 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/port_umbilical{
 	name = "Ship Floor 2 Hallways"
+	})
+"iGC" = (
+/obj/structure/largecrate/supply/medicine/iv,
+/turf/open/floor/mainship/sterile/dark,
+/area/mainship/medical/surgery_hallway{
+	name = "Research"
 	})
 "iGE" = (
 /obj/effect/turf_decal/warning_stripes/thick{
@@ -19757,6 +19763,7 @@
 /turf/open/floor/wood,
 /area/mainship/living/tankerbunks)
 "qDK" = (
+/obj/structure/largecrate/supply/medicine/blood,
 /turf/open/floor/mainship/sterile/corner{
 	dir = 4
 	},
@@ -23770,6 +23777,12 @@
 	},
 /turf/open/floor/wood,
 /area/mainship/hallways/dorm3)
+"uax" = (
+/obj/machinery/gibber,
+/turf/open/floor/mainship/mono,
+/area/mainship/medical/surgery_hallway{
+	name = "Research"
+	})
 "ubs" = (
 /obj/machinery/light,
 /turf/open/floor/wood,
@@ -37270,7 +37283,7 @@ xHV
 xHV
 xHV
 xHV
-jxm
+iGC
 mVu
 lji
 ixY
@@ -37633,8 +37646,8 @@ wgw
 ouw
 qFC
 aDF
-wgw
-wgw
+tCP
+uax
 xHV
 mkz
 cEY
