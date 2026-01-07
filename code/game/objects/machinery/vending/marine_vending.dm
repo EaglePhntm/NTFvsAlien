@@ -256,6 +256,7 @@
 			/obj/item/ammo_magazine/packet/p10x26mm = -1,
 			/obj/item/ammo_magazine/packet/p10x265mm = -1,
 			/obj/item/ammo_magazine/packet/halter = -1,
+			/obj/item/ammo_magazine/packet/halter/laser = -1,
 			/obj/item/ammo_magazine/packet/p10x27mm = -1,
 			/obj/item/ammo_magazine/packet/p492x34mm = -1,
 			/obj/item/ammo_magazine/packet/p86x70mm = -1,
@@ -926,6 +927,7 @@
 			/obj/item/ammo_magazine/shotgun/mbx900 = 2,
 			/obj/item/explosive/plastique = 5,
 			/obj/item/fulton_extraction_pack = 2,
+			/obj/item/fulton_extraction_pack/adminbus/advanced = 2,
 			/obj/item/radio/headset/mainship/marine/alpha = -1,
 			/obj/item/radio/headset/mainship/marine/bravo = -1,
 			/obj/item/radio/headset/mainship/marine/charlie = -1,
@@ -1568,6 +1570,7 @@
 			/obj/item/clothing/mask/gas = -1,
 			/obj/item/clothing/mask/gas/tactical = -1,
 			/obj/item/clothing/mask/gas/tactical/coif = -1,
+			/obj/item/clothing/mask/muzzle = -1,
 		),
 		"Backpacks" = list(
 			/obj/item/storage/backpack/marine/standard = -1,

@@ -52,7 +52,7 @@
 
 /obj/item/clothing/suit/modular/tdf/hodgrenades
 	starting_attachments = list(
-		/obj/item/armor_module/module/ballistic_armor,
+//		/obj/item/armor_module/module/ballistic_armor,
 		/obj/item/armor_module/storage/grenade,
 	)
 
@@ -315,7 +315,9 @@
 	visorless_offset_y = 0
 
 /obj/item/clothing/head/modular/tdf/hod
-	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/module/hod_head)
+	starting_attachments = list(/obj/item/armor_module/storage/helmet,
+	// /obj/item/armor_module/module/hod_head
+	)
 
 /obj/item/clothing/head/modular/tdf/freyr
 	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/module/artemis)

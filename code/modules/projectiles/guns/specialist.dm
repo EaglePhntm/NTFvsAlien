@@ -582,7 +582,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 
 	gun_features_flags = GUN_AMMO_COUNTER
 
-	fire_delay = 0.2 SECONDS
+	fire_delay = 0.4 SECONDS
 	burst_amount = 1
 	accuracy_mult = 1
 	accuracy_mult_unwielded = 0.75
@@ -614,7 +614,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	actions_types = list()
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	gun_features_flags = GUN_IS_ATTACHMENT | GUN_WIELDED_FIRING_ONLY | GUN_ATTACHMENT_FIRE_ONLY | GUN_AMMO_COUNTER
-	fire_delay = 0.1 SECONDS
+	fire_delay = 0.2 SECONDS
 	attach_delay = 3 SECONDS
 	detach_delay = 3 SECONDS
 	pixel_shift_x = 18

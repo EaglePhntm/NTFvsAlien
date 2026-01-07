@@ -770,9 +770,11 @@
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/antag_ship/clf_base/kitchen)
 "eD" = (
-/obj/structure/table/reinforced,
 /obj/machinery/light/mainship{
 	dir = 4
+	},
+/obj/structure/bed/chair/stasis{
+	anchored = 1
 	},
 /turf/open/floor/prison/whitegreen{
 	dir = 6
@@ -1013,6 +1015,12 @@
 /obj/structure/cable,
 /turf/open/floor/wood/darker,
 /area/antag_ship/pmc_ntf/port/quarters)
+"fJ" = (
+/obj/structure/bed/chair/stasis{
+	anchored = 1
+	},
+/turf/open/floor/plating/kutjevo,
+/area/space)
 "fM" = (
 /obj/machinery/vending/engivend/pmc,
 /turf/open/floor/mainship/sterile/plain,
@@ -2356,9 +2364,11 @@
 /turf/open/floor/prison/redfloor,
 /area/antag_ship/vsd/bridge)
 "mi" = (
-/obj/machinery/cryopod/right,
 /obj/machinery/camera/autoname/mainship/somship{
 	dir = 4
+	},
+/obj/structure/bed/chair/stasis/indust{
+	anchored = 1
 	},
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/preparation)
@@ -2888,6 +2898,7 @@
 /turf/open/floor/prison/plate,
 /area/antag_ship/vsd/engi)
 "on" = (
+/obj/structure/bed/chair/stasis/engi,
 /turf/open/floor/prison/darkpurple,
 /area/antag_ship/vsd/hall)
 "oq" = (
@@ -3365,8 +3376,8 @@
 /area/antag_ship/som/bridge)
 "qy" = (
 /obj/effect/urban/decal/warning/redandwhite_W,
-/obj/machinery/cryopod{
-	dir = 8
+/obj/structure/bed/chair/stasis/engi{
+	anchored = 1
 	},
 /turf/open/floor/grayscale/darkblue,
 /area/antag_ship/vsd/med)
@@ -3421,6 +3432,15 @@
 "qM" = (
 /turf/closed/shuttle/dropship_regular/backwall,
 /area/shuttle/transport)
+"qN" = (
+/obj/structure/cable,
+/obj/structure/bed/chair/stasis/explo{
+	anchored = 1
+	},
+/turf/open/floor/plating/asteroidwarning{
+	dir = 1
+	},
+/area/antag_ship/clf_base/sleeproom)
 "qO" = (
 /turf/open/floor/plating/plating_catwalk,
 /area/antag_ship/icc/generator_room)
@@ -3783,6 +3803,12 @@
 "sz" = (
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/antag_ship/vsd/hall)
+"sA" = (
+/obj/machinery/cryopod/right{
+	dir = 1
+	},
+/turf/open/floor/plating/kutjevo,
+/area/space)
 "sB" = (
 /obj/machinery/door/airlock/mainship/secure{
 	name = "\improper KZ Education Chamber Airlock";
@@ -3821,6 +3847,9 @@
 /obj/item/newspaper,
 /turf/open/floor/plating/ground/concrete,
 /area/antag_ship/icc/hangar/east)
+"sO" = (
+/turf/open/floor/plating/kutjevo,
+/area/antag_ship)
 "sQ" = (
 /obj/structure/prop/mainship/invincibleshutter,
 /obj/structure/prop/mainship/doorblocker/command,
@@ -3945,7 +3974,9 @@
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/requisition)
 "tt" = (
-/obj/machinery/cryopod/right,
+/obj/structure/bed/chair/stasis/indust{
+	anchored = 1
+	},
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/preparation)
 "tu" = (
@@ -4073,9 +4104,11 @@
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/barracks)
 "ub" = (
-/obj/machinery/cryopod/right,
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/structure/bed/chair/stasis/indust{
+	anchored = 1
 	},
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/preparation)
@@ -5122,7 +5155,9 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/antag_ship/som/engi)
 "zq" = (
-/obj/structure/table/reinforced,
+/obj/structure/bed/chair/stasis{
+	anchored = 1
+	},
 /turf/open/floor/prison/whitegreen{
 	dir = 4
 	},
@@ -5367,6 +5402,9 @@
 /area/antag_ship/icc/warehouse)
 "AS" = (
 /obj/effect/ai_node,
+/obj/structure/bed/chair/stasis/indust{
+	anchored = 1
+	},
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/barracks)
 "AV" = (
@@ -6754,12 +6792,8 @@
 /turf/open/floor/plating/ground/desertdam/asphalt/cement_sunbleached,
 /area/antag_ship/clf_base/lounge)
 "Hd" = (
-/obj/machinery/door/airlock/mainship/maint{
-	req_one_access = list(208);
-	dir = 2
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/antag_ship)
+/turf/open/floor/plating/kutjevo,
+/area/space)
 "He" = (
 /obj/effect/ai_node,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -7706,6 +7740,9 @@
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/dark_blue,
 /obj/machinery/power/apc,
+/obj/structure/bed/chair/stasis/explo{
+	anchored = 1
+	},
 /turf/open/floor/plating/asteroidwarning{
 	dir = 1
 	},
@@ -7798,6 +7835,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/bed/chair/stasis/indust{
+	anchored = 1
+	},
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/barracks)
 "Ma" = (
@@ -7809,6 +7849,7 @@
 /area/antag_ship/icc/hangar/west)
 "Mc" = (
 /obj/machinery/light/red,
+/obj/structure/bed/chair/stasis/engi,
 /turf/open/floor/prison/darkpurple,
 /area/antag_ship/vsd/hall)
 "Md" = (
@@ -7953,6 +7994,13 @@
 /obj/machinery/vending/som/armor_supply,
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/preparation)
+"MY" = (
+/obj/effect/spawner/random/misc/trash,
+/obj/structure/bed/chair/stasis/indust{
+	anchored = 1
+	},
+/turf/open/floor/mainship/mono,
+/area/antag_ship/som/barracks)
 "MZ" = (
 /obj/effect/ai_node,
 /obj/structure/cable,
@@ -8598,6 +8646,12 @@
 	dir = 1
 	},
 /area/antag_ship/clf_base/hallways/inside)
+"PS" = (
+/obj/machinery/cryopod,
+/turf/open/floor/prison/whitegreen{
+	dir = 4
+	},
+/area/antag_ship/pmc_ntf/starboard/medbay)
 "PT" = (
 /obj/structure/cable,
 /obj/structure/rack,
@@ -10038,8 +10092,8 @@
 "Wg" = (
 /obj/effect/urban/decal/warning/redandwhite_W,
 /obj/effect/urban/decal/warning/redandwhite_S,
-/obj/machinery/cryopod{
-	dir = 8
+/obj/structure/bed/chair/stasis/engi{
+	anchored = 1
 	},
 /turf/open/floor/grayscale/darkblue,
 /area/antag_ship/vsd/med)
@@ -10741,6 +10795,13 @@
 	dir = 8
 	},
 /area/antag_ship/som/requisition)
+"Zu" = (
+/obj/machinery/door/airlock/mainship/maint{
+	req_one_access = list(208);
+	dir = 2
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/antag_ship/som/barracks)
 "Zy" = (
 /obj/structure/bed/chair/kz/extractor,
 /turf/open/floor/prison/darkpurple{
@@ -12541,7 +12602,7 @@ CN
 Cc
 Cc
 RZ
-zq
+PS
 zq
 eD
 Cc
@@ -16594,9 +16655,9 @@ VK
 CN
 Dk
 wk
-Hd
+bb
 AS
-ua
+MY
 LZ
 xx
 HX
@@ -16689,7 +16750,7 @@ VK
 CN
 Dk
 wk
-cH
+Zu
 Yo
 Yo
 Yo
@@ -18999,10 +19060,10 @@ CN
 VK
 zb
 zb
-zb
-zb
-zb
-zb
+sA
+sA
+sA
+sA
 zb
 la
 Cc
@@ -19094,10 +19155,10 @@ CN
 VK
 zb
 zb
-zb
-zb
-zb
-zb
+Hd
+Hd
+Hd
+Hd
 la
 Cc
 Cc
@@ -19189,12 +19250,12 @@ CN
 VK
 zb
 zb
-zb
-zb
-zb
-zb
-la
-Cc
+fJ
+fJ
+fJ
+Hd
+sO
+sO
 aS
 Cp
 hg
@@ -19284,10 +19345,10 @@ CN
 VK
 zb
 zb
-zb
-zb
-zb
-zb
+fJ
+fJ
+fJ
+Hd
 la
 Cc
 Up
@@ -19379,10 +19440,10 @@ CN
 VK
 zb
 zb
-zb
-zb
-zb
-zb
+Hd
+Hd
+Hd
+Hd
 la
 Cc
 Cc
@@ -19474,10 +19535,10 @@ CN
 VK
 zb
 zb
-zb
-zb
-zb
-zb
+sA
+sA
+sA
+sA
 zb
 la
 Cc
@@ -20963,7 +21024,7 @@ CN
 tT
 HU
 Ur
-Vx
+qN
 lb
 rL
 Ur

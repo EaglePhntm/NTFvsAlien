@@ -56,6 +56,16 @@
 		Move(mafaka.loc) //go beneath people
 
 /obj/item/explosive/grenade/cagenade/prime()
+	if(ishuman(loc))
+		var/mob/living/carbon/human/idiot = loc
+		var/in_hand = FALSE
+		if(idiot.l_hand == src)
+			in_hand = TRUE
+		else if(idiot.r_hand == src)
+			in_hand = TRUE
+		if(in_hand) //it blowing in hand makes a really fucky reverse vore situation somehow.
+			idiot.dropItemToGround(src, TRUE)
+			loc = idiot.loc
 	explosion(loc, weak_impact_range = 1, explosion_cause=src)
 	var/obj/structure/closet/secure_closet/xeno_cage/cockcage = new /obj/structure/closet/secure_closet/xeno_cage(loc)
 	cockcage.locked = FALSE

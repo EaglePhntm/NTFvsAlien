@@ -562,9 +562,9 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 		else
 			catch_chance -= max(hugged.getStaminaLoss() * 0.25)
 		if(hugged.get_inactive_held_item())
-			catch_chance  *= 0.8
+			catch_chance  *= 0.7
 		if(hugged.get_active_held_item())
-			catch_chance *= 0.65
+			catch_chance *= 0.45
 		if(implanted_embryos)
 			catch_chance = 100 * (catch_chance*3 / (catch_chance*2 + 100))
 
@@ -711,6 +711,20 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 		if(source?.client)
 			var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[source.ckey]
 			personal_statistics.impregnations++
+			if(HAS_TRAIT(target, TRAIT_HIVE_TARGET) && isxeno(source) && issamexenohive(source))
+				var/psy_points_reward = PSY_DRAIN_REWARD_MIN + ((HIGH_PLAYER_POP - SSmonitor.maximum_connected_players_count) / HIGH_PLAYER_POP * (PSY_DRAIN_REWARD_MAX - PSY_DRAIN_REWARD_MIN))
+				psy_points_reward = clamp(psy_points_reward, PSY_DRAIN_REWARD_MIN, PSY_DRAIN_REWARD_MAX)
+				SEND_GLOBAL_SIGNAL(COMSIG_GLOB_HIVE_TARGET_DRAINED, source, target)
+				psy_points_reward = psy_points_reward * 5
+				SSpoints.add_strategic_psy_points(hivenumber, psy_points_reward)
+				SSpoints.add_tactical_psy_points(hivenumber, psy_points_reward*0.25)
+				GLOB.round_statistics.strategic_psypoints_from_hive_target_rewards += psy_points_reward
+				GLOB.round_statistics.hive_target_rewards++
+				GLOB.round_statistics.biomass_from_hive_target_rewards += MUTATION_BIOMASS_PER_HIVE_TARGET_REWARD
+				SSpoints.add_biomass_points(hivenumber, MUTATION_BIOMASS_PER_HIVE_TARGET_REWARD)
+				var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
+				xeno_job.add_job_points(1) //can be made a var if need be.
+				source.get_hive().update_tier_limits()
 		sterile = TRUE
 		kill_hugger()
 	else

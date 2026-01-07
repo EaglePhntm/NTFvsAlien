@@ -12,7 +12,7 @@
 	if(istype(get_active_held_item(), /obj/item))
 		var/obj/item/item = get_active_held_item()
 		if(item?.force)
-			var/damage_of_item = rand(item.force, floor(item.force * 4))
+			var/damage_of_item = rand(item.force, floor(item.force * 2))
 			xeno.apply_damage(damage_of_item, BRUTE, zone_selected, MELEE, attacker = src)
 			visible_message(span_danger("<B>[src] attacks the gap in [xeno]'s carapace with the [item.name]!"))
 			if(item.sharp)

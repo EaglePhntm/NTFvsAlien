@@ -869,7 +869,7 @@
 	webbing_contents = list(
 		/obj/item/explosive/grenade/sticky = 2,
 		/obj/item/explosive/grenade = 2,
-		/obj/item/binoculars/fire_support/campaign = 1,
+		/obj/item/binoculars/fire_support/extended/sl = 1,
 	)
 
 /datum/outfit/quick/tgmc/leader/standard_assaultrifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -898,7 +898,7 @@
 		/obj/item/explosive/grenade = 2,
 		/obj/item/explosive/grenade/m15 = 1,
 		/obj/item/explosive/grenade/incendiary = 1,
-		/obj/item/binoculars/fire_support/campaign = 1,
+		/obj/item/binoculars/fire_support/extended/sl = 1,
 	)
 
 
@@ -924,7 +924,7 @@
 		/obj/item/explosive/grenade = 2,
 		/obj/item/explosive/grenade/m15 = 1,
 		/obj/item/explosive/grenade/incendiary = 1,
-		/obj/item/binoculars/fire_support/campaign = 1,
+		/obj/item/binoculars/fire_support/extended/sl = 1,
 	)
 
 /datum/outfit/quick/tgmc/leader/combat_rifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -952,7 +952,7 @@
 	webbing_contents = list(
 		/obj/item/explosive/grenade = 2,
 		/obj/item/explosive/grenade/sticky = 2,
-		/obj/item/binoculars/fire_support/campaign = 1,
+		/obj/item/binoculars/fire_support/extended/sl = 1,
 	)
 
 
@@ -978,7 +978,7 @@
 		/obj/item/explosive/grenade/m15 = 2,
 		/obj/item/explosive/grenade/incendiary = 1,
 		/obj/item/explosive/grenade/smokebomb/cloak = 1,
-		/obj/item/binoculars/fire_support/campaign = 1,
+		/obj/item/binoculars/fire_support/extended/sl = 1,
 	)
 
 
@@ -1003,7 +1003,7 @@
 	webbing_contents = list(
 		/obj/item/ammo_magazine/flamer_tank/mini = 2,
 		/obj/item/explosive/grenade = 2,
-		/obj/item/binoculars/fire_support/campaign = 1,
+		/obj/item/binoculars/fire_support/extended/sl = 1,
 	)
 
 /datum/outfit/quick/tgmc/leader/standard_laserrifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -1030,7 +1030,7 @@
 		/obj/item/ammo_magazine/pistol/vp70 = 2,
 		/obj/item/storage/box/MRE = 1,
 		/obj/item/explosive/plastique = 1,
-		/obj/item/binoculars/fire_support/campaign = 1,
+		/obj/item/binoculars/fire_support/extended/sl = 1,
 	)
 
 

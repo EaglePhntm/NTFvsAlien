@@ -116,6 +116,7 @@
 	respawn_time = 5 MINUTES
 	bioscan_interval = 30 MINUTES
 	deploy_time_lock = 15 SECONDS
+	custom_dnr_time = 2400 //40 minutes till DNR
 	var/list/datum/job/stat_restricted_jobs = list(/datum/job/survivor/prisoner,/datum/job/other/prisoner,/datum/job/other/prisonersom,/datum/job/other/prisonerclf)
 
 	var/pop_lock = FALSE //turns false post setup
@@ -142,6 +143,7 @@
 /datum/game_mode/infestation/extended_plus/secret_of_life/proc/toggle_pop_locks()
 	// Apply Evolution Xeno Population Locks:
 	pop_lock = !pop_lock
+	var/sound_to_play = pop_lock ? pick('ntf_modular/sound/music/war_mode/hell_march_noearrape.ogg') : pick('ntf_modular/sound/music/war_mode/conflicttensionaltnoearrape.ogg', 'ntf_modular/sound/music/war_mode/konami-intro-metal-gear-solid.ogg')
 	if(pop_lock)
 		evo_requirements = list(
 			/datum/xeno_caste/queen = 8,
@@ -152,14 +154,14 @@
 		xenorespawn_time = 5 MINUTES
 		bioscan_interval = 15 MINUTES
 		round_type_flags &= ~MODE_XENO_GRAB_DEAD_ALLOWED
-		GLOB.time_before_dnr = 150
+		GLOB.time_before_dnr = initial(GLOB.time_before_dnr)
 	else
 		evo_requirements = list(
 			/datum/xeno_caste/queen = 0,
 			/datum/xeno_caste/king = 0,
 			/datum/xeno_caste/dragon = 0,
 		)
-		GLOB.time_before_dnr = 1300
+		GLOB.time_before_dnr = 2400 // 40 minutes
 		respawn_time = initial(respawn_time)
 		xenorespawn_time = initial(xenorespawn_time)
 		bioscan_interval = initial(bioscan_interval)
@@ -171,7 +173,7 @@
 		sender_override = "[pop_lock ? "Heats of conflict are rising." : "Heat of conflict is likely dying out."]",
 		title = "[pop_lock ? "It's so over." : "Back to typefucking."]",
 		text = "Pop locks for xeno castes, DNR time, recloning rate, dead dragging, respawn timers, bioscans and possibly other things will be affected.",
-		play_sound = FALSE,
+		sound_override = sound_to_play,
 		style = OOC_ALERT_GAME,
 	)
 	SSvote.initiate_vote()

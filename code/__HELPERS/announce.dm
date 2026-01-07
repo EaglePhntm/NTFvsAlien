@@ -171,7 +171,11 @@
 	if(!message)
 		return
 
-	var/sound/S = alert ? sound('sound/misc/notice1.ogg') : sound('sound/misc/notice2.ogg')
+	var/sound/S
+	if(istype(alert, /sound))
+		S = alert
+	else
+		S = alert ? sound('sound/misc/notice1.ogg') : sound('sound/misc/notice2.ogg')
 	S.channel = CHANNEL_ANNOUNCEMENTS
 	for(var/mob/M AS in receivers)
 		if(!isnewplayer(M) && !isdeaf(M))
