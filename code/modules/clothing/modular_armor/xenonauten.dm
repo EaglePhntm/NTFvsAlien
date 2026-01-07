@@ -53,7 +53,7 @@
 
 /obj/item/clothing/suit/modular/xenonauten/hodgrenades
 	starting_attachments = list(
-		/obj/item/armor_module/module/ballistic_armor,
+//		/obj/item/armor_module/module/ballistic_armor,
 		/obj/item/armor_module/storage/grenade,
 	)
 
@@ -211,7 +211,7 @@
 
 /obj/item/clothing/suit/modular/xenonauten/heavy/grenadier //Literally grenades
 	starting_attachments = list(
-		/obj/item/armor_module/module/ballistic_armor,
+//		/obj/item/armor_module/module/ballistic_armor,
 		/obj/item/armor_module/storage/grenade,
 	)
 

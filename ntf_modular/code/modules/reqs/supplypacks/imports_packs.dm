@@ -201,7 +201,7 @@
 
 /datum/supply_packs/imports/moonbeam
 	name = "NTC 'Moonbeam' tranq sniper rifle"
-	contains = list(/obj/item/weapon/gun/rifle/chambered/nonlethal)
+	contains = list(/obj/item/weapon/gun/rifle/chambered/nonlethal/fitted)
 	faction_lock = FACTION_TERRAGOV
 	cost = 400
 

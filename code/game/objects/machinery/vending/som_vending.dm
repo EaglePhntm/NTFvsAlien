@@ -757,6 +757,7 @@
 			/obj/item/clothing/mask/gas/tactical = -1,
 			/obj/item/clothing/mask/gas/tactical/coif = -1,
 			/obj/item/clothing/mask/gas/icc = -1,
+			/obj/item/clothing/mask/muzzle = -1,
 		),
 		"Backpacks" = list(
 			/obj/item/storage/backpack/satchel/som = -1,

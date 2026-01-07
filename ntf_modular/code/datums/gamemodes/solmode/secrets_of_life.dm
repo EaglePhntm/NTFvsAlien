@@ -116,6 +116,7 @@
 	respawn_time = 5 MINUTES
 	bioscan_interval = 30 MINUTES
 	deploy_time_lock = 15 SECONDS
+	custom_dnr_time = 2400 //40 minutes till DNR
 	var/list/datum/job/stat_restricted_jobs = list(/datum/job/survivor/prisoner,/datum/job/other/prisoner,/datum/job/other/prisonersom,/datum/job/other/prisonerclf)
 
 	var/pop_lock = FALSE //turns false post setup
@@ -155,7 +156,7 @@
 		xenorespawn_time = 5 MINUTES
 		bioscan_interval = 15 MINUTES
 		round_type_flags &= ~MODE_XENO_GRAB_DEAD_ALLOWED
-		GLOB.time_before_dnr = 150
+		GLOB.time_before_dnr = initial(GLOB.time_before_dnr)
 	else
 		evo_requirements = list(
 			/datum/xeno_caste/queen = 0,
@@ -164,7 +165,7 @@
 		)
 		for(var/obj/item/teleporter_kit/indestructible/teles in GLOB.indestructible_teleporters)
 			teles.resistance_flags = initial(teles.resistance_flags)
-		GLOB.time_before_dnr = 1300
+		GLOB.time_before_dnr = 2400 // 40 minutes
 		respawn_time = initial(respawn_time)
 		xenorespawn_time = initial(xenorespawn_time)
 		bioscan_interval = initial(bioscan_interval)

@@ -323,6 +323,7 @@
 			/obj/item/clothing/mask/gas = -1,
 			/obj/item/clothing/mask/gas/tactical = -1,
 			/obj/item/clothing/mask/gas/tactical/coif = -1,
+			/obj/item/clothing/mask/muzzle = -1,
 		),
 		"Backpacks" = list(
 			/obj/item/storage/backpack/satchel/pmc = -1,
@@ -975,6 +976,7 @@
 		"Masks" = list(
 			/obj/item/clothing/mask/gas/icc = -1,
 			/obj/item/clothing/mask/gas/vsd = -1,
+			/obj/item/clothing/mask/muzzle = -1,
 		),
 		"Backpacks" = list(
 			/obj/item/storage/backpack/lightpack/vsd = -1,
@@ -1650,6 +1652,7 @@
 			/obj/item/clothing/mask/gas/icc = -1,
 			/obj/item/clothing/mask/gas/tactical/coif = -1,
 			/obj/item/clothing/mask/gas/tactical = -1,
+			/obj/item/clothing/mask/muzzle = -1,
 		),
 		"Backpacks" = list(
 			/obj/item/storage/backpack/lightpack/icc = -1,
@@ -2046,6 +2049,7 @@
 			/obj/item/clothing/mask/gas/icc = -1,
 			/obj/item/clothing/mask/gas/tactical/coif = -1,
 			/obj/item/clothing/mask/gas/tactical = -1,
+			/obj/item/clothing/mask/muzzle = -1,
 		),
 		"Backpacks" = list(
 			/obj/item/storage/backpack/lightpack = -1,
