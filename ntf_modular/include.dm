@@ -10,7 +10,7 @@
 #include "code\datums\gamemodes\extendedmini.dm"
 #include "code\datums\gamemodes\extendedplus.dm"
 #include "code\datums\gamemodes\extendedsurv.dm"
-#include "code\datums\gamemodes\secrets_of_life.dm"
+#include "code\datums\gamemodes\solmode\secrets_of_life.dm"
 #include "code\datums\gamemodes\solmode\solmode_procs.dm"
 #include "code\datums\gamemodes\sovl_war.dm"
 #include "code\datums\gamemodes\sovl_war_plus.dm"

@@ -67,7 +67,7 @@
 
 /obj/item/weapon/gun/rifle/chambered/nonlethal/fitted
 	starting_attachment_types = list(
-		/obj/item/attachable/scope/nightvision
+		/obj/item/attachable/scope/nightvision,
 		/obj/item/attachable/stock/tl127stock/moonbeam,
 	)
 
