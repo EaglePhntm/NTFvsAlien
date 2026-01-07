@@ -233,14 +233,8 @@
 		if(isxeno(L))
 			var/drain_multiplier = 0.30
 			var/mob/living/carbon/xenomorph/X = M
-			if(!(X.xeno_caste.caste_flags & CASTE_PLASMADRAIN_IMMUNE))
-				X.use_plasma(drain_multiplier * X.xeno_caste.plasma_max * X.xeno_caste.plasma_regen_limit)
-				//X.use_plasma(plasma_drain)
-			else
-				X.do_jitter_animation(25, 3 SECONDS)
-				X.ParalyzeNoChain(4 SECONDS)
-				to_chat(X, span_xenowarning("We feel our energy zapped out of us, maybe it's best we stop to talk?"))
-			if(X.plasma_stored <= 1)
+			X.use_stun_health(drain_multiplier * X.xeno_caste.max_health)
+			if(X.stun_health_damage >= X.health)
 				X.do_jitter_animation(50, 11 SECONDS)
 				X.ParalyzeNoChain(12 SECONDS)//can now be used to riot control xenos when they abuse the hospitality of NTC
 				to_chat(X, span_xenowarning("We feel our energy zapped out of us, maybe it's best we stop to talk?"))

@@ -111,6 +111,7 @@
 	if(restore_health_and_plasma)
 		// xenos that manage plasma through special means shouldn't gain it for free on aging
 		set_plasma(max(plasma_stored, xeno_caste.plasma_max * xeno_caste.plasma_regen_limit))
+		stun_health_damage = 0
 		health = maxHealth
 	setXenoCasteSpeed(xeno_caste.speed)
 
@@ -360,7 +361,7 @@
 	return ..()
 
 /mob/living/carbon/xenomorph/pull_response(mob/puller)
-	if(incapacitated() || HAS_TRAIT(src, TRAIT_FLOORED)) // If the Xeno is incapacitated, don't fight back against a grab/pull
+	if(incapacitated() || HAS_TRAIT(src, TRAIT_FLOORED || HAS_TRAIT(src, TRAIT_XENOCUFFED))) // If the Xeno is incapacitated, don't fight back against a grab/pull
 		return TRUE
 	if(!ishuman(puller))
 		return TRUE

@@ -108,7 +108,6 @@
 	if(!modifiers["catcher"] && A.IsObscured())
 		return
 
-
 	if(restrained())
 		changeNext_move(CLICK_CD_HANDCUFFED)
 		RestrainedClickOn(A)

@@ -521,6 +521,8 @@
 	holder.overlays += xeno_caste.plasma_icon_state? "[xeno_caste.plasma_icon_state][plasma_amount]" : null
 	var/wrath_amount = xeno_caste.wrath_max? round(wrath_stored * 100 / xeno_caste.wrath_max, 10) : 0
 	holder.overlays += "wrath[wrath_amount]"
+	var/stun_health_amount = stun_health_damage? round((health - stun_health_damage) * 100 / health, 10) : 100
+	holder.overlays += "stun_health[stun_health_amount]"
 
 /mob/living/carbon/xenomorph/update_aura_overlay()
 	var/image/holder = hud_list[PHEROMONE_HUD]
