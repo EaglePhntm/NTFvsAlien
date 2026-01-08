@@ -239,6 +239,8 @@
 		return
 	if(xeno_attacker.status_flags & INCORPOREAL || xeno_attacker.do_actions)
 		return
+	if(xeno_attacker.handcuffed)
+		return
 	visible_message(span_warning("[xeno_attacker] begins to take from [src]!"), 3)
 	playsound(loc, 'sound/effects/metal_creaking.ogg', 25, 1)
 	unbuckle_all_mobs()

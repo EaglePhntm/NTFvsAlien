@@ -369,6 +369,8 @@
 /obj/machinery/miner/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(xeno_attacker.status_flags & INCORPOREAL) //Incorporeal xenos cannot attack physically.
 		return
+	if(xeno_attacker.handcuffed)
+		return
 	if(miner_upgrade_type == MINER_RESISTANT && !HAS_TRAIT(xeno_attacker, TRAIT_CAN_DISABLE_MINER))
 		xeno_attacker.visible_message(span_notice("[xeno_attacker]'s claws bounce off of [src]'s reinforced plating."),
 		span_notice("We can't slash through [src]'s reinforced plating!"))

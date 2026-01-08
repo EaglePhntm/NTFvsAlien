@@ -71,6 +71,8 @@
 		return
 	if(xeno_attacker.status_flags & INCORPOREAL || xeno_attacker.do_actions)
 		return
+	if(xeno_attacker.handcuffed)
+		return
 	start_emergency_eject(xeno_attacker)
 
 ///This proc acts as a heads up to the doctors/engineers about the patient exiting the cradle for whatever reason. Takes CRADLE_NOTICE defines as arguments

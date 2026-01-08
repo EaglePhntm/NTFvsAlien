@@ -427,6 +427,8 @@
 		return
 	if(xeno_attacker.status_flags & INCORPOREAL || xeno_attacker.do_actions)
 		return
+	if(xeno_attacker.handcuffed)
+		return
 	visible_message(span_warning("[xeno_attacker] begins to pry the [src]'s cover!"), 3)
 	playsound(src,'sound/effects/metal_creaking.ogg', 25, 1)
 	if(!do_after(xeno_attacker, 2 SECONDS))

@@ -1,4 +1,6 @@
 /mob/living/carbon/xenomorph/Bump(atom/A)
+	if(handcuffed)
+		return
 	if(ismecha(A))
 		var/obj/vehicle/sealed/mecha/mecha = A
 		var/mob_swap_mode = NO_SWAP

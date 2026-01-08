@@ -25,13 +25,14 @@
 #define MACHINE_HEALTH_HUD "machine_health_hud" // displays machine health; part of /datum/atom_hud/squad
 #define MACHINE_AMMO_HUD "machine_ammo_hud" // displays machine ammo; part of /datum/atom_hud/squad
 #define XENO_DEBUFF_HUD "xeno_debuff_hud" // displays xeno debuffs; part of /datum/atom_hud/xeno_debuff
+#define XENO_HUMAN_SHARED_HUD "xeno_human_shared_hud" // displays statuses both for humans and xenos
 #define HEART_STATUS_HUD "heart_status_hud" // display if revivable, along with blood level
 #define XENO_FIRE_HUD "xeno_fire_hud" // displays how many fire stacks a xeno has
 #define XENO_BLESSING_HUD "xeno_blessing_hud" //indicates what blessings the xeno has
 #define XENO_EVASION_HUD "xeno_extra_hud" // displays anything extra or additional such as runner's evasion duration
 
 /// huds that layer on a higher plane in an attempt to ALWAYS show
-#define HUDS_LAYERING_HIGH list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD, XENO_RANK_HUD, ARMOR_SUNDER_HUD, XENO_DEBUFF_HUD, XENO_FIRE_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD)
+#define HUDS_LAYERING_HIGH list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD, XENO_RANK_HUD, ARMOR_SUNDER_HUD, XENO_DEBUFF_HUD, XENO_HUMAN_SHARED_HUD, XENO_FIRE_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD)
 
 #define ADD_HUD_TO_COOLDOWN 20 //cooldown for being shown the images for any particular data hud
 
@@ -56,11 +57,12 @@
 #define DATA_HUD_XENO_TACTICAL 13
 #define DATA_HUD_SQUAD_SOM 14
 #define DATA_HUD_XENO_DEBUFF 15
-#define DATA_HUD_XENO_HEART 16
-#define DATA_HUD_SQUAD_CLF 17
-#define DATA_HUD_SQUAD_VSD 18
-#define DATA_HUD_SQUAD_ICC 19
-#define MAX_DATA_HUD 19 //should be last and equal to highest data hud
+#define DATA_HUD_XENO_HUMAN_SHARED 16
+#define DATA_HUD_XENO_HEART 17
+#define DATA_HUD_SQUAD_CLF 18
+#define DATA_HUD_SQUAD_VSD 19
+#define DATA_HUD_SQUAD_ICC 20
+#define MAX_DATA_HUD 20 //should be last and equal to highest data hud
 
 
 // Notification action types

@@ -263,6 +263,9 @@
 	. += xeno_caste.caste_desc
 	. += "<span class='notice'>"
 
+	if(handcuffed)
+		. += "\n[span_info("[p_they(TRUE)] is restrained! Use your <b>right</b> hand to <b>help</b> them free.")]"
+
 	if(xeno_desc)
 		. += "\n<span class='info'>[span_collapsible("Flavor Text", "[xeno_desc]")]</span>"
 
@@ -361,7 +364,7 @@
 	return ..()
 
 /mob/living/carbon/xenomorph/pull_response(mob/puller)
-	if(incapacitated() || HAS_TRAIT(src, TRAIT_FLOORED || HAS_TRAIT(src, TRAIT_XENOCUFFED))) // If the Xeno is incapacitated, don't fight back against a grab/pull
+	if(incapacitated() || HAS_TRAIT(src, TRAIT_FLOORED) || handcuffed) // If the Xeno is incapacitated, don't fight back against a grab/pull
 		return TRUE
 	if(!ishuman(puller))
 		return TRUE
@@ -396,6 +399,8 @@
 	hud_to_add = GLOB.huds[DATA_HUD_MEDICAL_PAIN]
 	hud_to_add.add_hud_to(src)
 	hud_to_add = GLOB.huds[DATA_HUD_XENO_DEBUFF]
+	hud_to_add.add_hud_to(src)
+	hud_to_add = GLOB.huds[DATA_HUD_XENO_HUMAN_SHARED]
 	hud_to_add.add_hud_to(src)
 
 /mob/living/carbon/xenomorph/get_permeability_protection()

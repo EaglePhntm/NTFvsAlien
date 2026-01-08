@@ -354,6 +354,10 @@
 			//the puller can always swap with its victim if on grab intent
 			if(L.pulledby == src && a_intent == INTENT_GRAB)
 				mob_swap_mode = SWAPPING
+			if(isxeno(L))
+				var/mob/living/carbon/xenomorph/xeno = L
+				if(xeno.handcuffed)
+					mob_swap_mode = SWAPPING
 			//restrained people act if they were on 'help' intent to prevent a person being pulled from being seperated from their puller
 			else if((L.restrained() || L.a_intent == INTENT_HELP) && (restrained() || a_intent == INTENT_HELP) && L.move_force < MOVE_FORCE_VERY_STRONG)
 				mob_swap_mode = SWAPPING
@@ -555,6 +559,7 @@
 	GLOB.huds[DATA_HUD_XENO_INFECTION].remove_from_hud(src)
 	GLOB.huds[DATA_HUD_XENO_REAGENTS].remove_from_hud(src)
 	GLOB.huds[DATA_HUD_XENO_DEBUFF].remove_from_hud(src)
+	GLOB.huds[DATA_HUD_XENO_HUMAN_SHARED].remove_from_hud(src)
 	GLOB.huds[DATA_HUD_XENO_HEART].remove_from_hud(src)
 
 	smokecloaked = TRUE
@@ -570,6 +575,7 @@
 	GLOB.huds[DATA_HUD_XENO_INFECTION].add_to_hud(src)
 	GLOB.huds[DATA_HUD_XENO_REAGENTS].add_to_hud(src)
 	GLOB.huds[DATA_HUD_XENO_DEBUFF].add_to_hud(src)
+	GLOB.huds[DATA_HUD_XENO_HUMAN_SHARED].add_to_hud(src)
 	GLOB.huds[DATA_HUD_XENO_HEART].add_to_hud(src)
 
 	smokecloaked = FALSE

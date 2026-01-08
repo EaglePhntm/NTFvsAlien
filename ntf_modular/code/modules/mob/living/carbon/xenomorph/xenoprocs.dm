@@ -115,3 +115,5 @@
 			user.forceMove(src)
 		else
 			user.forceMove(loc)
+
+/mob/living/carbon/xenomorrph/relaymove()
