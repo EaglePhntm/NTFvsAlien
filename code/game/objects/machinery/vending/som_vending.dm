@@ -599,7 +599,8 @@
 			/obj/item/armor_module/module/artemis = -1,
 			/obj/item/armor_module/module/antenna = -1,
 			/obj/item/armor_module/module/welding/som = 2,
-			/obj/item/armor_module/module/fire_proof/som = 3,
+			/obj/item/armor_module/module/fire_proof/som = 2,
+			/obj/item/armor_module/module/fire_proof_helmet = 2,
 			/obj/item/armor_module/module/mimir_environment_protection/som = -1,
 			/obj/item/armor_module/module/tyr_extra_armor/som = -1,
 			/obj/item/armor_module/module/knight/som = -1,
@@ -757,6 +758,7 @@
 			/obj/item/clothing/mask/gas/tactical = -1,
 			/obj/item/clothing/mask/gas/tactical/coif = -1,
 			/obj/item/clothing/mask/gas/icc = -1,
+			/obj/item/clothing/mask/muzzle = -1,
 		),
 		"Backpacks" = list(
 			/obj/item/storage/backpack/satchel/som = -1,

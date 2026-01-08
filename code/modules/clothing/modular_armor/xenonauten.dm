@@ -51,9 +51,17 @@
 
 	allowed_uniform_type = /obj/item/clothing/under
 
+/*
 /obj/item/clothing/suit/modular/xenonauten/hodgrenades
 	starting_attachments = list(
 		/obj/item/armor_module/module/ballistic_armor,
+		/obj/item/armor_module/storage/grenade,
+	)
+*/
+
+/obj/item/clothing/suit/modular/xenonauten/svalgrenades
+	starting_attachments = list(
+		/obj/item/armor_module/module/eshield,
 		/obj/item/armor_module/storage/grenade,
 	)
 
@@ -209,11 +217,14 @@
 		/obj/item/armor_module/storage/engineering,
 	)
 
+
 /obj/item/clothing/suit/modular/xenonauten/heavy/grenadier //Literally grenades
 	starting_attachments = list(
-		/obj/item/armor_module/module/ballistic_armor,
+//		/obj/item/armor_module/module/ballistic_armor,
+		/obj/item/armor_module/module/eshield, //no hod, so give them a shield intead
 		/obj/item/armor_module/storage/grenade,
 	)
+
 
 /obj/item/clothing/suit/modular/xenonauten/heavy/surt
 	starting_attachments = list(

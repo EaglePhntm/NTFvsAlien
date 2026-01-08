@@ -1715,6 +1715,7 @@
 	name = "Research"
 	})
 "bvb" = (
+/obj/structure/bed/roller/hospital_empty/bigrollerempty3,
 /turf/open/floor/mainship/sterile,
 /area/mainship/medical/upper_medical{
 	name = "Shipside Medbay"
@@ -3794,7 +3795,6 @@
 "dbI" = (
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/spray/cleaner,
-/obj/item/storage/surgical_tray,
 /obj/structure/sink,
 /obj/machinery/camera/autoname/mainship,
 /turf/open/floor/mainship/sterile/side{
@@ -5447,7 +5447,8 @@
 	},
 /obj/effect/remote_teleporter_linker/pair2,
 /obj/item/teleporter_kit/premade,
-/turf/open/floor/mainship/mono,
+/obj/effect/turf_decal/warning_stripes,
+/turf/open/floor/mainship/tcomms,
 /area/mainship/hallways/port_umbilical{
 	name = "Ship Floor 2 Hallways"
 	})
@@ -6744,6 +6745,9 @@
 /obj/machinery/light/mainship{
 	dir = 1
 	},
+/obj/structure/table/reinforced,
+/obj/item/storage/surgical_tray,
+/obj/item/reagent_containers/spray/cleaner,
 /turf/open/floor/mainship/sterile/side{
 	dir = 1
 	},
@@ -7190,10 +7194,6 @@
 "gbB" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/firstaid/adv,
-/obj/item/reagent_containers/spray/surgery{
-	pixel_x = 12;
-	pixel_y = 2
-	},
 /obj/machinery/light/mainship{
 	dir = 1
 	},
@@ -8787,8 +8787,6 @@
 /area/mainship/hallways/hangar)
 "hrA" = (
 /obj/structure/table/reinforced,
-/obj/item/reagent_containers/spray/cleaner,
-/obj/item/storage/surgical_tray,
 /turf/open/floor/mainship/sterile/side,
 /area/mainship/medical/operating_room_four)
 "hrY" = (
@@ -9639,10 +9637,10 @@
 /turf/open/floor/wood,
 /area/mainship/hallways/dorm2)
 "ihe" = (
-/obj/machinery/cryopod/right,
 /obj/machinery/camera/autoname/mainship{
 	dir = 1
 	},
+/obj/structure/largecrate/supply/medicine/medkits,
 /turf/open/floor/mainship/sterile/corner{
 	dir = 8
 	},
@@ -9700,9 +9698,9 @@
 	name = "CEO Office"
 	})
 "iix" = (
-/obj/machinery/optable,
 /obj/item/tank/anesthetic,
 /obj/item/clothing/mask/breath/medical,
+/obj/machinery/optable/stasis,
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/operating_room_one)
 "iiz" = (
@@ -10244,6 +10242,12 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/port_umbilical{
 	name = "Ship Floor 2 Hallways"
+	})
+"iGC" = (
+/obj/structure/largecrate/supply/medicine/iv,
+/turf/open/floor/mainship/sterile/dark,
+/area/mainship/medical/surgery_hallway{
+	name = "Research"
 	})
 "iGE" = (
 /obj/effect/turf_decal/warning_stripes/thick{
@@ -12859,7 +12863,8 @@
 	name = "Teleporter Shutters"
 	},
 /obj/item/teleporter_kit/premade,
-/turf/open/floor/mainship/mono,
+/obj/effect/turf_decal/warning_stripes,
+/turf/open/floor/mainship/tcomms,
 /area/mainship/hallways/bow_hallway{
 	name = "Ship Floor 1 Hallways"
 	})
@@ -12899,6 +12904,7 @@
 /obj/machinery/firealarm{
 	dir = 4
 	},
+/obj/structure/table/reinforced,
 /turf/open/floor/mainship/sterile/corner{
 	dir = 8
 	},
@@ -15799,7 +15805,8 @@
 	dir = 8
 	},
 /obj/item/teleporter_kit/premade,
-/turf/open/floor/mainship/mono,
+/obj/effect/turf_decal/warning_stripes,
+/turf/open/floor/mainship/tcomms,
 /area/mainship/hallways/port_umbilical{
 	name = "Ship Floor 2 Hallways"
 	})
@@ -16048,6 +16055,7 @@
 	dir = 4
 	},
 /obj/machinery/air_alarm,
+/obj/structure/table/reinforced,
 /turf/open/floor/mainship/sterile/corner{
 	dir = 1
 	},
@@ -16370,6 +16378,12 @@
 	},
 /turf/open/floor/wood,
 /area/mainship/hallways/dorm3)
+"nHY" = (
+/obj/structure/fulton_extraction_point{
+	pixel_x = -1
+	},
+/turf/open/floor/prison,
+/area/mainship/groundhq/ntf/shipboard/brig_cells)
 "nIJ" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
@@ -16784,6 +16798,7 @@
 /obj/structure/fulton_extraction_point{
 	pixel_x = -1
 	},
+/obj/structure/bed/roller/hospital_empty/bigrollerempty3,
 /turf/open/floor/mainship/sterile,
 /area/mainship/medical/upper_medical{
 	name = "Shipside Medbay"
@@ -18187,7 +18202,8 @@
 /obj/structure/sign/engie,
 /obj/effect/remote_teleporter_linker/pair4,
 /obj/item/teleporter_kit/premade,
-/turf/open/floor/mainship_hull,
+/obj/effect/turf_decal/warning_stripes,
+/turf/open/floor/mainship/tcomms,
 /area/mainship/groundhq/ntf/hallways/gardens)
 "pij" = (
 /obj/machinery/power/apc/mainship{
@@ -18403,7 +18419,8 @@
 	},
 /obj/effect/remote_teleporter_linker/pair3,
 /obj/item/teleporter_kit/premade,
-/turf/open/floor/mainship/mono,
+/obj/effect/turf_decal/warning_stripes,
+/turf/open/floor/mainship/tcomms,
 /area/mainship/hallways/port_umbilical{
 	name = "Ship Floor 2 Hallways"
 	})
@@ -19177,7 +19194,8 @@
 /area/mainship/squads/general)
 "qgO" = (
 /obj/effect/teleporter_linker/indestructible,
-/turf/open/floor/mainship/mono,
+/obj/effect/turf_decal/warning_stripes,
+/turf/open/floor/mainship/tcomms,
 /area/mainship/hallways/port_umbilical{
 	name = "Ship Floor 2 Hallways"
 	})
@@ -19502,7 +19520,8 @@
 	pixel_y = 14
 	},
 /obj/item/teleporter_kit/premade,
-/turf/open/floor/mainship/mono,
+/obj/effect/turf_decal/warning_stripes,
+/turf/open/floor/mainship/tcomms,
 /area/mainship/hallways/port_umbilical{
 	name = "Ship Floor 2 Hallways"
 	})
@@ -19757,6 +19776,7 @@
 /turf/open/floor/wood,
 /area/mainship/living/tankerbunks)
 "qDK" = (
+/obj/structure/largecrate/supply/medicine/blood,
 /turf/open/floor/mainship/sterile/corner{
 	dir = 4
 	},
@@ -21243,6 +21263,8 @@
 /area/mainship/ntf/fcroom)
 "rXn" = (
 /obj/machinery/camera/autoname/mainship,
+/obj/machinery/computer/operating,
+/obj/structure/table/reinforced,
 /turf/open/floor/mainship/sterile/side{
 	dir = 1
 	},
@@ -23770,6 +23792,12 @@
 	},
 /turf/open/floor/wood,
 /area/mainship/hallways/dorm3)
+"uax" = (
+/obj/machinery/gibber,
+/turf/open/floor/mainship/mono,
+/area/mainship/medical/surgery_hallway{
+	name = "Research"
+	})
 "ubs" = (
 /obj/machinery/light,
 /turf/open/floor/wood,
@@ -24807,7 +24835,8 @@
 	},
 /obj/effect/remote_teleporter_linker/pair3,
 /obj/item/teleporter_kit/premade,
-/turf/open/floor/mainship/mono,
+/obj/effect/turf_decal/warning_stripes,
+/turf/open/floor/mainship/tcomms,
 /area/outpost/cargo{
 	outside = 1
 	})
@@ -25067,7 +25096,8 @@
 	},
 /obj/effect/remote_teleporter_linker/pair2,
 /obj/item/teleporter_kit/premade,
-/turf/open/floor/mainship/mono,
+/obj/effect/turf_decal/warning_stripes,
+/turf/open/floor/mainship/tcomms,
 /area/mainship/groundhq/ntf/shipboard/brig)
 "vjQ" = (
 /obj/effect/spawner/random/misc/structure/flavorvending/coffeeweighted,
@@ -26106,6 +26136,10 @@
 /obj/machinery/camera/autoname/mainship{
 	dir = 1
 	},
+/obj/machinery/computer/operating{
+	dir = 1
+	},
+/obj/structure/table/reinforced,
 /turf/open/floor/mainship/sterile/side,
 /area/mainship/medical/operating_room_one)
 "wfn" = (
@@ -27452,6 +27486,12 @@
 "xiM" = (
 /obj/machinery/air_alarm{
 	dir = 1
+	},
+/obj/structure/table/reinforced,
+/obj/item/storage/surgical_tray,
+/obj/item/reagent_containers/spray/surgery{
+	pixel_x = 12;
+	pixel_y = 2
 	},
 /turf/open/floor/mainship/sterile/side,
 /area/mainship/medical/operating_room_one)
@@ -37270,7 +37310,7 @@ xHV
 xHV
 xHV
 xHV
-jxm
+iGC
 mVu
 lji
 ixY
@@ -37633,8 +37673,8 @@ wgw
 ouw
 qFC
 aDF
-wgw
-wgw
+tCP
+uax
 xHV
 mkz
 cEY
@@ -56323,7 +56363,7 @@ ihL
 tXd
 tXd
 ihL
-tXd
+nHY
 tXd
 tXd
 ihL

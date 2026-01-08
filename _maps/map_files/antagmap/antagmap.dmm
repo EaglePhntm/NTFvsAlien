@@ -5060,6 +5060,9 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 8
 	},
+/obj/structure/fulton_extraction_point{
+	pixel_x = -1
+	},
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/security/cell)
 "yF" = (
@@ -7630,6 +7633,9 @@
 	},
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 4
+	},
+/obj/structure/fulton_extraction_point{
+	pixel_x = -1
 	},
 /turf/open/floor/iron/dark,
 /area/antag_ship/vsd/hall)
@@ -10754,6 +10760,13 @@
 	},
 /turf/open/floor/prison/whitegreen/full,
 /area/antag_ship/pmc_ntf/starboard/medbay)
+"Zn" = (
+/obj/effect/landmark/weed_node,
+/obj/structure/fulton_extraction_point{
+	pixel_x = -1
+	},
+/turf/open/floor/plating/ground/desertdam/asphalt/cement_sunbleached,
+/area/antag_ship/clf_base/prison)
 "Zo" = (
 /obj/structure/stairs/seamless/edge{
 	dir = 8
@@ -22445,7 +22458,7 @@ qQ
 WR
 ho
 vz
-qQ
+Zn
 WR
 ho
 SP

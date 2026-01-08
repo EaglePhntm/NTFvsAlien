@@ -2171,6 +2171,7 @@
 	dir = 10;
 	layer = 2.5
 	},
+/obj/machinery/computer/cloning_console/vats,
 /turf/open/floor/plating/mainship,
 /area/mainship/medical/lower_medical)
 "cii" = (
@@ -2980,6 +2981,8 @@
 "cRT" = (
 /obj/machinery/optable,
 /obj/structure/cable,
+/obj/item/tank/anesthetic,
+/obj/item/clothing/mask/breath/medical,
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/operating_room_one)
 "cSp" = (
@@ -6351,6 +6354,7 @@
 "fWd" = (
 /obj/effect/turf_decal/warning_stripes/thin,
 /obj/machinery/air_alarm,
+/obj/machinery/cloning/vats,
 /turf/open/floor/plating/mainship,
 /area/mainship/medical/lower_medical)
 "fWh" = (
@@ -8724,7 +8728,9 @@
 /obj/machinery/air_alarm{
 	dir = 8
 	},
-/obj/machinery/computer/operating,
+/obj/machinery/computer/operating{
+	dir = 4
+	},
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/operating_room_two)
 "ixt" = (
@@ -9120,7 +9126,7 @@
 /obj/machinery/light{
 	light_color = "#da2f1b"
 	},
-/obj/structure/prop/tgbrokenvendor/colablack,
+/obj/machinery/vending/cola,
 /turf/open/floor/wood,
 /area/mainship/hull/starboard_hull)
 "iTF" = (
@@ -9425,6 +9431,12 @@
 /obj/effect/decal/cleanable/blood/splatter/cum,
 /turf/open/floor/mainship/floor,
 /area/mainship/shipboard/starboard_point_defense)
+"jkm" = (
+/obj/structure/fulton_extraction_point{
+	pixel_x = -1
+	},
+/turf/open/floor/mainship/floor,
+/area/mainship/shipboard/brig_cells)
 "jku" = (
 /obj/structure/bed/chair/sofa{
 	dir = 1
@@ -10370,7 +10382,9 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
-/obj/machinery/computer/operating,
+/obj/machinery/computer/operating{
+	dir = 4
+	},
 /turf/open/floor/mainship/sterile/side{
 	dir = 4
 	},
@@ -10779,6 +10793,7 @@
 "kwd" = (
 /obj/effect/turf_decal/warning_stripes/thin,
 /obj/machinery/camera/autoname/mainship,
+/obj/machinery/computer/cloning_console/vats,
 /turf/open/floor/plating/mainship,
 /area/mainship/medical/lower_medical)
 "kwD" = (
@@ -11873,8 +11888,10 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/hangar)
 "ltC" = (
-/obj/machinery/optable,
 /obj/structure/cable,
+/obj/machinery/optable/stasis,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/tank/anesthetic,
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/operating_room_two)
 "ltM" = (
@@ -18743,10 +18760,10 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
-/obj/structure/largecrate/supply/medicine,
 /obj/machinery/light/mainship{
 	dir = 4
 	},
+/obj/structure/largecrate/supply/medicine/iv,
 /turf/open/floor/plating/mainship,
 /area/mainship/medical/surgery_hallway)
 "sfX" = (
@@ -19200,6 +19217,10 @@
 	},
 /turf/open/floor/plating/mainship,
 /area/mainship/command/cic)
+"szt" = (
+/obj/machinery/gibber,
+/turf/open/floor/mainship/floor,
+/area/mainship/medical/morgue)
 "szN" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
@@ -21757,7 +21778,7 @@
 	},
 /area/mainship/hallways/starboard_hallway)
 "uVE" = (
-/obj/structure/prop/tgbrokenvendor/coffee,
+/obj/machinery/vending/coffee,
 /turf/open/floor/wood,
 /area/mainship/hull/starboard_hull)
 "uVR" = (
@@ -21801,7 +21822,7 @@
 /turf/open/floor/plating,
 /area/mainship/hallways/hangar)
 "uWU" = (
-/obj/structure/prop/tgbrokenvendor/snackbrokebed,
+/obj/machinery/vending/snack,
 /turf/open/floor/wood,
 /area/mainship/hull/starboard_hull)
 "uXy" = (
@@ -22820,11 +22841,13 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/starboard_hull)
 "vTI" = (
+/obj/structure/table/mainship/nometal,
+/obj/item/healthanalyzer,
+/obj/item/reagent_containers/glass/beaker/biomass,
+/obj/item/storage/box/ids/dogtag,
+/obj/item/reagent_containers/glass/beaker/biomass,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 9
-	},
-/obj/machinery/light/mainship{
-	dir = 4
 	},
 /turf/open/floor/plating/mainship,
 /area/mainship/medical/lower_medical)
@@ -24767,6 +24790,7 @@
 	dir = 6;
 	pixel_x = 1
 	},
+/obj/machinery/cloning/vats,
 /turf/open/floor/plating/mainship/striped{
 	dir = 8
 	},
@@ -39008,7 +39032,7 @@ oWr
 oWr
 oWr
 oWr
-oWr
+jkm
 hoc
 oWr
 pAM
@@ -55141,7 +55165,7 @@ iFA
 uef
 wUY
 vqw
-xfm
+szt
 xfm
 xfm
 xfm

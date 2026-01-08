@@ -126,6 +126,14 @@ MEDICAL
 	)
 	cost = 50
 
+/datum/supply_packs/medical/emergency_autoinjector
+	name = "Emergency Autoinjector"
+	notes = "Contains 20 units of Russian Red and 10 units of Oxycodone."
+	contains = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/russian_red,
+	)
+	cost = 350
+
 /datum/supply_packs/medical/earmuffs
 	name = "Earmuffs"
 	notes = "Good for ear damage."

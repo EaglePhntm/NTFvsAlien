@@ -1028,6 +1028,8 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 				return /mob/living/carbon/human/species/robot/deltad
 			if("Sterling")
 				return /mob/living/carbon/human/species/robot/bravada
+			if("Synskin")
+				return /mob/living/carbon/human/species/robot/synskin
 	return /mob/living/carbon/human/species/synthetic
 
 /datum/job/terragov/silicon/synthetic/return_skills_type(datum/preferences/prefs)

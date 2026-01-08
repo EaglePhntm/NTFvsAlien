@@ -323,6 +323,7 @@
 			/obj/item/clothing/mask/gas = -1,
 			/obj/item/clothing/mask/gas/tactical = -1,
 			/obj/item/clothing/mask/gas/tactical/coif = -1,
+			/obj/item/clothing/mask/muzzle = -1,
 		),
 		"Backpacks" = list(
 			/obj/item/storage/backpack/satchel/pmc = -1,
@@ -975,6 +976,7 @@
 		"Masks" = list(
 			/obj/item/clothing/mask/gas/icc = -1,
 			/obj/item/clothing/mask/gas/vsd = -1,
+			/obj/item/clothing/mask/muzzle = -1,
 		),
 		"Backpacks" = list(
 			/obj/item/storage/backpack/lightpack/vsd = -1,
@@ -1316,7 +1318,8 @@
 //			/obj/item/armor_module/module/ballistic_armor = -1,
 //			/obj/item/armor_module/module/hod_head = -1,
 			/obj/item/armor_module/module/better_shoulder_lamp = -1,
-			/obj/item/armor_module/module/fire_proof = 4,
+			/obj/item/armor_module/module/fire_proof = 2,
+			/obj/item/armor_module/module/fire_proof_helmet = 2,
 			/obj/item/armor_module/module/chemsystem = -1,
 			/obj/item/armor_module/module/knight = -1,
 			/obj/item/armor_module/module/eshield = -1,
@@ -1650,6 +1653,7 @@
 			/obj/item/clothing/mask/gas/icc = -1,
 			/obj/item/clothing/mask/gas/tactical/coif = -1,
 			/obj/item/clothing/mask/gas/tactical = -1,
+			/obj/item/clothing/mask/muzzle = -1,
 		),
 		"Backpacks" = list(
 			/obj/item/storage/backpack/lightpack/icc = -1,
@@ -2046,6 +2050,7 @@
 			/obj/item/clothing/mask/gas/icc = -1,
 			/obj/item/clothing/mask/gas/tactical/coif = -1,
 			/obj/item/clothing/mask/gas/tactical = -1,
+			/obj/item/clothing/mask/muzzle = -1,
 		),
 		"Backpacks" = list(
 			/obj/item/storage/backpack/lightpack = -1,

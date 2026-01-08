@@ -170,6 +170,11 @@
 	results = list(/datum/reagent/toxin/xeno_aphrotoxin = 5)
 	required_reagents = list(/datum/reagent/medicine/quickclot = 1, /datum/reagent/toxin/phoron = 1, /datum/reagent/iron = 1, /datum/reagent/medicine/tramadol = 1, /datum/reagent/consumable/sugar = 1)
 
+/datum/chemical_reaction/russian_red
+	name = "Russian Red"
+	results = list(/datum/reagent/medicine/russian_red = 10)
+	required_reagents = list(/datum/reagent/medicine/quickclotplus = 3, /datum/reagent/medicine/oxycodone = 1, /datum/reagent/mercury = 1, /datum/reagent/medicine/lemoline = 5)
+
 /datum/chemical_reaction/neuraline
 	name = "Neuraline"
 	results = list(/datum/reagent/medicine/neuraline = 4, /datum/reagent/toxin/huskpowder = 1)

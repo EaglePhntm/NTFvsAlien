@@ -14,6 +14,8 @@
 	if((faction in SSpoints.supply_points) && !(SSpoints.supply_points[faction] >= 3000))
 		return TRUE
 	for(var/possible_faction in shuffle(SSpoints.supply_points))
+		if(possible_faction == FACTION_NEUTRAL)
+			continue
 		if(SSpoints.supply_points[possible_faction] >= 3000)
 			continue
 		faction = possible_faction
@@ -37,8 +39,8 @@
 		points_to_be_added = 1250
 	SSpoints.add_supply_points(faction, points_to_be_added)
 	if(faction == FACTION_TERRAGOV || faction == FACTION_VSD || faction == FACTION_NANOTRASEN)
-		priority_announce("Due to an increase in [faction] quarterly revenues, their supply allotment has increased by [points_to_be_added] points.")
+		minor_announce("Due to an increase in [faction] quarterly revenues, their supply allotment has increased by [points_to_be_added] points.", should_play_sound = FALSE)
 	else
-		priority_announce("Due to an increase in anonymous donations to [faction], their supply allotment has increased by [points_to_be_added] points.")
+		minor_announce("Due to an increase in anonymous donations to [faction], their supply allotment has increased by [points_to_be_added] points.", should_play_sound = FALSE)
 
 	qdel(src)

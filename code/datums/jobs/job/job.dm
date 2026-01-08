@@ -384,6 +384,8 @@ GLOBAL_PROTECT(exp_specialmap)
 						return /mob/living/carbon/human/species/robot/deltad
 					if("Sterling")
 						return /mob/living/carbon/human/species/robot/bravada
+					if("Synskin")
+						return /mob/living/carbon/human/species/robot/synskin
 			to_chat(prefs.parent, span_danger("nonhuman joins are currently disabled, your species has been defaulted to Human"))
 			return /mob/living/carbon/human
 		if("Mothellian")

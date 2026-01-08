@@ -520,14 +520,16 @@
 		to_chat(src, span_warning("You died too recently to be able to take a new mob."))
 		return
 
-
-	var/list/mob/living/free_ssd_mobs = GLOB.offered_mob_list
+	var/list/mob/living/free_ssd_mobs = list()
+	var/list/mob/living/mobs_to_check = GLOB.ssd_living_mobs
+	mobs_to_check += GLOB.offered_mob_list
 	if(GLOB.ssd_posses_allowed)
-		for(var/mob/living/ssd_mob AS in GLOB.ssd_living_mobs)
+		for(var/mob/living/ssd_mob AS in mobs_to_check)
 			if(is_centcom_level(ssd_mob.z) || ssd_mob.afk_status == MOB_RECENTLY_DISCONNECTED)
 				continue
-			if(ishuman(ssd_mob) && !(key in ssd_mob.ckey_history)) //can only take your own human characters' control.
-				continue
+			if(ishuman(ssd_mob))
+				if(length(ssd_mob.ckey_history) && !(key in ssd_mob.ckey_history)) //can only take your own human characters' control unless they are empty mobs from the get go.
+					continue
 			free_ssd_mobs += ssd_mob
 
 	if(!length(free_ssd_mobs))

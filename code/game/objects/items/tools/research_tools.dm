@@ -20,7 +20,7 @@
 		add_filter("translator_on", 4, outline_filter(1, COLOR_CYAN))
 		to_chat(user, span_notice("I turn on the translator, translating xeno language straight to my neural implant."))
 		balloon_alert(user, "turns on")
-		if(ishuman(user) && !ismarinecommandjob(user) && on)
+		if(ishuman(user) && !ismarinecommandjob(user))
 			if(user.has_language(/datum/language/xenocommon))//failsafe
 				knowsxenolang = TRUE
 				return
@@ -30,7 +30,7 @@
 	else
 		remove_filter("translator_on")
 		balloon_alert(user, "turns off")
-		if(ishuman(user) && !ismarinecommandjob(user) && on)
+		if(ishuman(user) && !ismarinecommandjob(user))
 			if(knowsxenolang)
 				return
 			user.remove_language(/datum/language/xenocommon)

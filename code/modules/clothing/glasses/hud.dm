@@ -87,7 +87,8 @@
 		"Sterling Combat Robot" = 'icons/mob/species/robot/glasses_bravada.dmi',
 		"Chilvaris Combat Robot" = 'icons/mob/species/robot/glasses_charlit.dmi',
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
-		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
+		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi',
+		"Synskin Combat Robot" = 'icons/mob/species/robot/glasses.dmi')
 	prescription = TRUE
 
 /obj/item/clothing/glasses/hud/medgoggles
@@ -105,7 +106,8 @@
 		"Sterling Combat Robot" = 'icons/mob/species/robot/glasses_bravada.dmi',
 		"Chilvaris Combat Robot" = 'icons/mob/species/robot/glasses_charlit.dmi',
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
-		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
+		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi',
+		"Synskin Combat Robot" = 'icons/mob/species/robot/glasses.dmi')
 	soft_armor = list(MELEE = 40, BULLET = 40, LASER = 0, ENERGY = 15, BOMB = 35, BIO = 10, FIRE = 30, ACID = 30)
 	equip_slot_flags = ITEM_SLOT_EYES
 	goggles = TRUE
@@ -126,7 +128,8 @@
 		"Sterling Combat Robot" = 'icons/mob/species/robot/glasses_bravada.dmi',
 		"Chilvaris Combat Robot" = 'icons/mob/species/robot/glasses_charlit.dmi',
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
-		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
+		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi',
+		"Synskin Combat Robot" = 'icons/mob/species/robot/glasses.dmi')
 	toggleable = TRUE
 	hud_type = DATA_HUD_MEDICAL_ADVANCED
 	actions_types = list(/datum/action/item_action/toggle)
@@ -143,7 +146,8 @@
 		"Sterling Combat Robot" = 'icons/mob/species/robot/glasses_bravada.dmi',
 		"Chilvaris Combat Robot" = 'icons/mob/species/robot/glasses_charlit.dmi',
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
-		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
+		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi',
+		"Synskin Combat Robot" = 'icons/mob/species/robot/glasses.dmi')
 	prescription = TRUE
 	toggleable = TRUE
 	hud_type = DATA_HUD_MEDICAL_ADVANCED
@@ -161,7 +165,8 @@
 		"Sterling Combat Robot" = 'icons/mob/species/robot/glasses_bravada.dmi',
 		"Chilvaris Combat Robot" = 'icons/mob/species/robot/glasses_charlit.dmi',
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
-		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
+		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi',
+		"Synskin Combat Robot" = 'icons/mob/species/robot/glasses.dmi')
 	prescription = TRUE
 	toggleable = TRUE
 	hud_type = DATA_HUD_MEDICAL_ADVANCED
@@ -176,7 +181,8 @@
 		"Sterling Combat Robot" = 'icons/mob/species/robot/glasses_bravada.dmi',
 		"Chilvaris Combat Robot" = 'icons/mob/species/robot/glasses_charlit.dmi',
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
-		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
+		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi',
+		"Synskin Combat Robot" = 'icons/mob/species/robot/glasses.dmi')
 	icon_state = "securityhud"
 	deactive_state = "degoggles_sec"
 	toggleable = 1
@@ -205,7 +211,8 @@
 		"Sterling Combat Robot" = 'icons/mob/species/robot/glasses_bravada.dmi',
 		"Chilvaris Combat Robot" = 'icons/mob/species/robot/glasses_charlit.dmi',
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
-		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
+		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi',
+		"Synskin Combat Robot" = 'icons/mob/species/robot/glasses.dmi')
 	armor_protection_flags = NONE
 	toggleable = TRUE
 	hud_type = DATA_HUD_XENO_STATUS
@@ -222,7 +229,8 @@
 		"Sterling Combat Robot" = 'icons/mob/species/robot/glasses_bravada.dmi',
 		"Chilvaris Combat Robot" = 'icons/mob/species/robot/glasses_charlit.dmi',
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
-		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
+		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi',
+		"Synskin Combat Robot" = 'icons/mob/species/robot/glasses.dmi')
 	toggleable = TRUE
 	hud_type = DATA_HUD_MEDICAL_PAIN
 	actions_types = list(/datum/action/item_action/toggle)

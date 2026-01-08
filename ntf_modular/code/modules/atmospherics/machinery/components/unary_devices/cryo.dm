@@ -67,8 +67,8 @@
 	. = ..()
 	if(!occupant)
 		return
-	. += emissive_appearance(icon, "cap", src, alpha = 100)
-	. += mutable_appearance(icon, "cap", alpha = 100)
+	. += emissive_appearance(icon, "cap", src, layer = BELOW_MOB_LAYER, alpha = 100)
+	. += mutable_appearance(icon, "cap", layer = BELOW_MOB_LAYER, alpha = 100)
 
 /obj/structure/bed/chair/stasis/AltClick(mob/user)
 	. = ..()
@@ -116,28 +116,29 @@
 
 
 /obj/structure/bed/chair/stasis/user_buckle_mob(mob/living/buckling_mob, mob/living/user, check_loc, silent)
-	buckling_mob.forceMove(loc)
-	. = ..()
+	if(buckling_mob.stat == DEAD)
+		to_chat(user, span_notice("[buckling_mob] is dead!"))
+		return FALSE
+
+	var/mob/initiator = user ? user : buckling_mob
+	if(!QDELETED(occupant))
+		to_chat(initiator, span_warning("[src] is occupied."))
+		return FALSE
 
 	if(user && buckling_mob != user)
-		if(buckling_mob.stat == DEAD)
-			to_chat(user, span_notice("[buckling_mob] is dead!"))
-			return FALSE
-
 		user.visible_message(span_notice("[user] starts putting [buckling_mob] into [src]."),
 		span_notice("You start putting [buckling_mob] into [src]."))
 	else
 		buckling_mob.visible_message(span_notice("[buckling_mob] starts climbing into [src]."),
 		span_notice("You start climbing into [src]."))
 
-	var/mob/initiator = user ? user : buckling_mob
 	if(!do_after(initiator, 20, TRUE, user, BUSY_ICON_GENERIC))
 		return FALSE
 
-	if(!QDELETED(occupant))
-		to_chat(initiator, span_warning("[src] is occupied."))
-		return FALSE
+	buckling_mob.forceMove(loc)
+	. = ..()
 
+	buckling_mob.add_filter("stasis_filter", 1, color_matrix_filter(rgb(0, 132, 255)))
 	ADD_TRAIT(buckling_mob, TRAIT_STASIS, type)
 	occupant = buckling_mob
 	update_icon()
@@ -169,7 +170,7 @@
 
 	if(usr.incapacitated(TRUE))
 		return
-	if(occupant.client)
+	if(occupant.client && occupant != usr)
 		to_chat(usr, span_warning("You cannot send away an awake person."))
 		return
 	if(!occupant)
@@ -227,6 +228,7 @@
 		var/atom/movable/A = I
 		A.forceMove(loc)
 
+	occupant.remove_filter("stasis_filter")
 	REMOVE_TRAIT(occupant, TRAIT_STASIS, type)
 	occupant = null
 	eject_items()

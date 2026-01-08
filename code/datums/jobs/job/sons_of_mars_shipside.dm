@@ -674,6 +674,8 @@ You are also an expert when it comes to botany and hydroponics. If you do not kn
 				return /mob/living/carbon/human/species/robot/deltad
 			if("Sterling")
 				return /mob/living/carbon/human/species/robot/bravada
+			if("Synskin")
+				return /mob/living/carbon/human/species/robot/synskin
 	return /mob/living/carbon/human/species/synthetic
 
 /datum/job/som/silicon/synthetic/som/return_skills_type(datum/preferences/prefs)

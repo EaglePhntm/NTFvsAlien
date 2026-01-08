@@ -84,5 +84,8 @@
 /mob/living/carbon/human/species/robot/bravada
 	race = "Sterling Combat Robot"
 
+/mob/living/carbon/human/species/robot/synskin
+	race = "Synskin Combat Robot"
+
 /mob/living/carbon/human/species/prototype_supersoldier
 	race = "Prototype Supersoldier"

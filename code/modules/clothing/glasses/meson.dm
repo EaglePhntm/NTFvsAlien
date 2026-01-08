@@ -13,7 +13,8 @@
 		"Sterling Combat Robot" = 'icons/mob/species/robot/glasses_bravada.dmi',
 		"Chilvaris Combat Robot" = 'icons/mob/species/robot/glasses_charlit.dmi',
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
-		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
+		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi',
+		"Synskin Combat Robot" = 'icons/mob/species/robot/glasses.dmi')
 	actions_types = list(/datum/action/item_action/toggle)
 	toggleable = 1
 	vision_flags = SEE_TURFS // todo replace with tgs TRAIT_MESON_VISION
@@ -49,7 +50,8 @@
 		"Sterling Combat Robot" = 'icons/mob/species/robot/glasses_bravada.dmi',
 		"Chilvaris Combat Robot" = 'icons/mob/species/robot/glasses_charlit.dmi',
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
-		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
+		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi',
+		"Synskin Combat Robot" = 'icons/mob/species/robot/glasses.dmi')
 	toggleable = TRUE
 	actions_types = list(/datum/action/item_action/toggle)
 

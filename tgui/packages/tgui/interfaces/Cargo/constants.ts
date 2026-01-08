@@ -39,6 +39,7 @@ export const SupplyPacks = createContext<SupplyPackData | undefined>({
     },
     container_name: 'Default Container',
     available_against_xeno_only: false,
+    faction_lock: undefined,
   },
 });
 

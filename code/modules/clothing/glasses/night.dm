@@ -10,7 +10,8 @@
 		"Sterling Combat Robot" = 'icons/mob/species/robot/glasses_bravada.dmi',
 		"Chilvaris Combat Robot" = 'icons/mob/species/robot/glasses_charlit.dmi',
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
-		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
+		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi',
+		"Synskin Combat Robot" = 'icons/mob/species/robot/glasses.dmi')
 	icon_state = "night"
 	worn_icon_state = "glasses"
 	lighting_cutoff = LIGHTING_CUTOFF_MEDIUM
@@ -115,7 +116,8 @@
 		"Sterling Combat Robot" = 'icons/mob/species/robot/glasses_bravada.dmi',
 		"Chilvaris Combat Robot" = 'icons/mob/species/robot/glasses_charlit.dmi',
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
-		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
+		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi',
+		"Synskin Combat Robot" = 'icons/mob/species/robot/glasses.dmi')
 	equip_slot_flags = ITEM_SLOT_EYES
 	goggles = TRUE
 

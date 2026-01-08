@@ -37,7 +37,7 @@
 	combat = SKILL_COMBAT_DEFAULT //can still use guns
 	construction = SKILL_CONSTRUCTION_METAL //build a cum shack
 	stamina = SKILL_STAMINA_TRAINED //fucking is hard work
-	sex = SKILL_SEX_TRAINED
+	sex = SKILL_SEX_EXPERT
 
 /datum/skills/slut/clf
 	name = "CLF Breeder"

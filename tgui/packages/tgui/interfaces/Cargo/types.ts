@@ -12,6 +12,7 @@ export type SupplyPackData = {
     };
     container_name?: string;
     available_against_xeno_only: BooleanLike;
+    faction_lock?: string;
   };
 };
 
