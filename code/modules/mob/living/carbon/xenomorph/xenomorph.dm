@@ -264,7 +264,7 @@
 	. += "<span class='notice'>"
 
 	if(handcuffed)
-		. += "\n[span_info("[p_they(TRUE)] is restrained! Use your <b>right</b> hand to <b>help</b> them free.")]"
+		. += "\n[span_info("[p_they(TRUE)] is restrained! Use your <b>left</b> hand to <b>help</b> them free.")]"
 
 	if(xeno_desc)
 		. += "\n<span class='info'>[span_collapsible("Flavor Text", "[xeno_desc]")]</span>"
