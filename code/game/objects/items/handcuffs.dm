@@ -166,7 +166,8 @@
 
 	user.visible_message(span_notice("[user] tries to put \The [src] on [X]."))
 	if(do_mob(user, X, cuff_delay, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE, extra_checks = CALLBACK(user, TYPE_PROC_REF(/datum, Adjacent), X)) && !X.handcuffed)
-		X.update_handcuffed(src)
-		X.update_handcuffed_overlay()
-		qdel(src)
-		return TRUE
+		if(!X.handcuffed)
+			X.update_handcuffed(src)
+			X.update_handcuffed_overlay()
+			qdel(src)
+			return TRUE
