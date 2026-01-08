@@ -25,6 +25,10 @@ GLOBAL_LIST_INIT(ventcrawl_machinery, typecacheof(list(
 	if(stat)
 		to_chat(src, "You must be conscious to do this!")
 		return
+	if(isxeno(src))
+		var/mob/living/carbon/xenomorph/xeno = src
+		if(xeno.handcuffed)
+			return
 
 	var/obj/machinery/atmospherics/components/unary/vent_found
 

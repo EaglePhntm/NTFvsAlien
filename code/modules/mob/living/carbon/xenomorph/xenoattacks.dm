@@ -35,14 +35,14 @@
 	switch(H.a_intent)
 
 		if(INTENT_HELP)
-			if(handcuffed)
+			if(handcuffed && !H.do_actions)
 				H.visible_message(span_warning("\The [H] starts working on the shackles binding \the [src]."), \
 					span_warning("You start working on the shackles binding \the [src]."), null, 5)
-				if(do_mob(H, src, 15 SECONDS, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE, extra_checks = CALLBACK(src, TYPE_PROC_REF(/datum, Adjacent), H)) && !H.handcuffed && !H.do_actions)
+				if(do_mob(H, src, 15 SECONDS, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE, extra_checks = CALLBACK(src, TYPE_PROC_REF(/datum, Adjacent), H)))
 					if(handcuffed)
 						H.visible_message(span_warning("\The [H] carefully removes the shackles from \the [src]."), \
 							span_warning("You carefully remove the shackles from \the [src]."), null, 5)
-						src.update_handcuffed(null)
+						src.update_handcuffed()
 						src.update_handcuffed_overlay()
 						new /obj/item/restraints/handcuffs/shackles(src.loc)
 				return
@@ -102,14 +102,14 @@
 						span_notice("We extinguished the fire on [src]."), null, 5)
 					ExtinguishMob()
 				return TRUE
-			if(handcuffed)
+			if(handcuffed && !xeno_attacker.do_actions)
 				xeno_attacker.visible_message(span_warning("\The [xeno_attacker] starts working on the shackles binding \the [src]."), \
 					span_warning("You start working on the shackles binding \the [src]."), null, 5)
-				if(do_mob(xeno_attacker, src, 15 SECONDS, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE, extra_checks = CALLBACK(src, TYPE_PROC_REF(/datum, Adjacent), xeno_attacker)) && !xeno_attacker.do_actions)
+				if(do_mob(xeno_attacker, src, 15 SECONDS, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE, extra_checks = CALLBACK(src, TYPE_PROC_REF(/datum, Adjacent), xeno_attacker)))
 					if(handcuffed)
 						xeno_attacker.visible_message(span_warning("\The [xeno_attacker] carefully removes the shackles from \the [src]."), \
 							span_warning("You carefully remove the shackles from \the [src]."), null, 5)
-						src.update_handcuffed(null)
+						src.update_handcuffed()
 						src.update_handcuffed_overlay()
 						new /obj/item/restraints/handcuffs/shackles(src.loc)
 			xeno_attacker.visible_message(span_notice("\The [xeno_attacker] caresses \the [src] with[ p_their()] scythe-like arm."), \
