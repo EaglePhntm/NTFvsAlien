@@ -141,6 +141,11 @@
 /obj/item/restraints/handcuffs/shackles
 	name = "xenomorph suppression shackles"
 	desc = "Oversized alloy shackles used to restrain alien lifeforms and nullify their psionic abilities."
+	icon_state = "xeno_cuffs"
+	throwforce = 15 // Heavy as fuck
+	w_class = WEIGHT_CLASS_HUGE
+	throw_speed = 2
+	throw_range = 2
 
 /obj/item/restraints/handcuffs/shackles/attack(mob/living/carbon/C, mob/user)
 	if(!istype(C))
