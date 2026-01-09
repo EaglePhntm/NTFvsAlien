@@ -32,6 +32,13 @@
 	unequipped(wearer)
 	qdel()
 
+/obj/item/clothing/suit/resin_bodysuit/welder_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(iswelder(I))
+		var/obj/item/tool/weldingtool/welder = I
+		if(welder.welding)
+			unequipped(wearer)
+
 /* not meant to fuck apparently
 /obj/item/clothing/suit/resin_bodysuit/Initialize(mapload)
 	. = ..()
