@@ -111,7 +111,7 @@
 	var/list/heal_data = list(amount, amount)
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_HEALTH_REGEN, heal_data, seconds_per_tick)
 	HEAL_XENO_DAMAGE(src, heal_data[1], TRUE)
-	gain_stun_health(heal_data[2] * (CHECK_BITFIELD(xeno_caste.caste_flags, CASTE_PLASMADRAIN_IMMUNE) ? (health / maxHealth) : (plasma_stored / (xeno_caste.plasma_max))))
+	gain_stun_health(heal_data[2]) // * (CHECK_BITFIELD(xeno_caste.caste_flags, CASTE_PLASMADRAIN_IMMUNE) ? (health / maxHealth) : (plasma_stored / (xeno_caste.plasma_max))))
 	return heal_data // [1] = amount of unused healing, [2] = raw healing
 
 /mob/living/carbon/xenomorph/proc/handle_living_plasma_updates(seconds_per_tick)
