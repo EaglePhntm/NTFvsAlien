@@ -25,3 +25,10 @@
 		frame++
 	mob.dir = init_dir
 	DIRECT_OUTPUT(src, ftp(icon, "[mob.name].dmi"))
+
+/client/verb/stop_midis()
+	set name = "Stop Music/Midis"
+	set desc = "Stops midis or admin music usually."
+	set category = "OOC"
+
+	mob.stop_sound_channel(CHANNEL_MIDI)

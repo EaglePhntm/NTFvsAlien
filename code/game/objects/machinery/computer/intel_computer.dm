@@ -6,11 +6,14 @@
 /obj/machinery/computer/intel_computer
 	name = "Intelligence computer"
 	desc = "A computer used to access the colonies central database. NTC Intel division will occasionally request remote data retrieval from these computers"
+	icon = 'ntf_modular/icons/obj/machines/computer.dmi'
 	icon_state = "intel_computer"
 	screen_overlay = "intel_computer_screen"
 	circuit = /obj/item/circuitboard/computer/intel_computer
 
-	resistance_flags = RESIST_ALL
+	max_integrity = 500
+	integrity_failure = 250
+	resistance_flags = DROPSHIP_IMMUNE|XENO_DAMAGEABLE|PORTAL_IMMUNE|BANISH_IMMUNE|PLASMACUTTER_IMMUNE|CRUSHER_IMMUNE
 	interaction_flags = INTERACT_MACHINE_TGUI
 
 	///Whether this computer is activated by the event yet
@@ -48,7 +51,7 @@
 	if(!printing)
 		STOP_PROCESSING(SSmachines, src)
 		return
-	if (machine_stat & NOPOWER)
+	if (machine_stat & NOPOWER||DISABLED||BROKEN)
 		printing = FALSE
 		update_minimap_icon()
 		visible_message("<b>[src]</b> shuts down as it loses power. Any running programs will now exit.")
@@ -91,6 +94,9 @@
 	return ..()
 
 /obj/machinery/computer/intel_computer/interact(mob/user)
+	if(machine_stat & BROKEN||DISABLED)
+		to_chat(user, span_warning("The terminal is currently broken and cannot be used."))
+		return
 	if(!active)
 		to_chat(user, span_notice("This terminal has nothing of use on it."))
 		return

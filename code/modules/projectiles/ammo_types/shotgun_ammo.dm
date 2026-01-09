@@ -90,14 +90,12 @@
 	damage = 55
 	damage_type = STAMINA
 	shrapnel_chance = 0
-	plasma_drain = 14
 
 /datum/ammo/bullet/shotgun/flechette/flechette_spread/rubber
 	name = "additional rubber pellet"
 	damage = 44
 	damage_type = STAMINA
 	shrapnel_chance = 0
-	plasma_drain = 11
 
 /datum/ammo/bullet/shotgun/buckshot
 	name = "shotgun buckshot shell"

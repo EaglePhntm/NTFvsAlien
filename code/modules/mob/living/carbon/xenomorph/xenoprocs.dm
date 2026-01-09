@@ -1,4 +1,6 @@
 /mob/living/carbon/xenomorph/Bump(atom/A)
+	if(handcuffed)
+		return
 	if(ismecha(A))
 		var/obj/vehicle/sealed/mecha/mecha = A
 		var/mob_swap_mode = NO_SWAP
@@ -176,6 +178,9 @@
 
 	. += "Health: [health]/[maxHealth][overheal ? " + [overheal]": ""]" //Changes with balance scalar, can't just use the caste
 
+	if(stun_health_damage > 0)
+		. += "Stun Health Damage: [stun_health_damage]/[health]"
+
 	if(xeno_caste.caste_flags & CASTE_MUTATIONS_ALLOWED)
 		. += "Biomass: [!isnull(SSpoints.xeno_biomass_points_by_hive[hivenumber]) ? SSpoints.xeno_biomass_points_by_hive[hivenumber] : 0]/[MUTATION_BIOMASS_MAXIMUM]"
 
@@ -258,7 +263,6 @@
 	plasma_stored = plasma_stored - value
 	if(plasma_stored < 0)
 		plasma_stored = 0
-		Paralyze(45 SECONDS) // 15 seconds after xeno paralyze resistance applied
 	update_action_button_icons()
 	if(!update_plasma)
 		return
@@ -270,6 +274,45 @@
 	if(!update_plasma)
 		return
 	hud_set_plasma()
+
+/mob/living/carbon/xenomorph/proc/set_stun_health(value, update_stun_health = TRUE)
+	stun_health_damage = clamp(value, 0, health)
+	if(value == 0 && stun_health_crit)
+		stun_health_crit = FALSE
+		SetParalyzed(0)
+		if(stun_health_crit_timer)
+			deltimer(stun_health_crit_timer)
+			stun_health_crit_timer = null
+	if(!update_stun_health)
+		return
+	hud_set_plasma()
+
+/mob/living/carbon/xenomorph/proc/use_stun_health(value, update_stun_health = TRUE)
+	if(stun_health_crit)
+		return
+	stun_health_damage = clamp(stun_health_damage + value, 0, health)
+	if(stun_health_damage >= health && !stun_health_crit)
+		stun_health_crit = TRUE
+		Paralyze(45 SECONDS)
+		if(!stun_health_crit_timer)
+			stun_health_crit_timer = addtimer(CALLBACK(src, PROC_REF(stun_health_crit_end)), 9 SECONDS, TIMER_STOPPABLE)
+	update_action_button_icons()
+	if(!update_stun_health)
+		return
+	hud_set_plasma()
+
+/mob/living/carbon/xenomorph/proc/gain_stun_health(value, update_stun_health = TRUE)
+	stun_health_damage = clamp(stun_health_damage - value, 0, health)
+	update_action_button_icons()
+	if(!update_stun_health)
+		return
+	hud_set_plasma()
+
+/mob/living/carbon/xenomorph/proc/stun_health_crit_end()
+	stun_health_crit = FALSE
+	if(stun_health_crit_timer)
+		deltimer(stun_health_crit_timer)
+		stun_health_crit_timer = null
 
 //Strip all inherent xeno verbs from your caste. Used in evolution.
 /mob/living/carbon/xenomorph/proc/remove_inherent_verbs()

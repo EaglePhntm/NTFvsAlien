@@ -25,8 +25,10 @@
 	)
 	///The type of disk we're printing
 	var/disk_type
-	obj_integrity = 1500
-	integrity_failure = 1000
+	max_integrity = 1000
+	integrity_failure = 250
+	resistance_flags = DROPSHIP_IMMUNE|XENO_DAMAGEABLE|PORTAL_IMMUNE|BANISH_IMMUNE|PLASMACUTTER_IMMUNE|CRUSHER_IMMUNE
+
 
 /obj/machinery/computer/code_generator/nuke/Initialize(mapload)
 	. = ..()
@@ -38,10 +40,13 @@
 	GLOB.nuke_disk_generators += src
 	RegisterSignal(SSdcs, COMSIG_GLOB_DROPSHIP_HIJACKED, PROC_REF(set_broken))
 
-/obj/machinery/computer/code_generator/nuke/Destroy()
+/obj/machinery/computer/code_generator/nuke/Destroy(force)
+	if(!force)
+		set_broken()
+		return
 	GLOB.nuke_disk_generators -= src
+	message_admins("([src]) Nuke disk generator destroyed!")
 	. = ..()
-	stack_trace("Nuke disk generator destroyed!")
 
 /obj/machinery/computer/code_generator/nuke/complete_segment()
 	playsound(src, 'sound/machines/ping.ogg', 25, 1)
@@ -96,9 +101,31 @@
 	visible_message(span_notice("[src] beeps, and spits out a [key_color] floppy disk!"))
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_DISK_GENERATED, src)
 	busy = FALSE
+	// Self destruct for sol gamemode
+	if(SSticker.mode.round_type_flags & MODE_SINGLE_USE_NUKE_DISK_GENERATOR)
+		visible_message(span_danger("\the [src] emits a high-pitched whine before sparking violently! It's starting to self-destruct due to security measures! Clear the area immediately!"))
+		priority_announce("\The [src] was printed by [user.faction] and begun a self-destruct sequence!", "Warning!")
+		animate(src, color = COLOR_RED, time = 8 SECONDS)
+		playsound(src, 'sound/machines/alarm.ogg', 50)
+		set_broken()
+		do_sparks(5, TRUE, src)
+		Shake(duration = 8 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(self_destruct)), 9 SECONDS)
 
-/obj/machinery/computer/code_generator/nuke/set_broken()
-	set_disabled()
+/obj/machinery/computer/code_generator/nuke/proc/self_destruct()
+	explosion(src, 1, 2, 3, 4, 1, 2, 2)
+	var/obj/machinery/computer/intel_computer/intcomp = new /obj/machinery/computer/intel_computer(loc) //its an intel computer now
+	intcomp.set_disabled()
+	message_admins("[ADMIN_COORDJMP(src)] [src] self-destructed!")
+	Destroy(TRUE)
+
+/obj/machinery/computer/code_generator/nuke/set_disabled()
+	. = ..()
+	message_admins("[ADMIN_COORDJMP(src)] [src] was broken!")
+
+/obj/machinery/computer/code_generator/nuke/repair()
+	. = ..()
+	priority_announce("\The [src] was brought back online.", "Warning!")
 
 /obj/machinery/computer/code_generator/nuke/ex_act(severity)
 	switch(severity)

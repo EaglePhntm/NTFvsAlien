@@ -323,6 +323,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	leadership = SKILL_LEAD_BEGINNER
 	medical = SKILL_MEDICAL_COMPETENT
 	surgery = SKILL_SURGERY_PROFESSIONAL
+	sex = SKILL_SEX_TRAINED //Healslut
 
 /datum/skills/combat_medic/crafty
 	name = "Crafty Combat Medic"

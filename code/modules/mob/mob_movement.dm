@@ -119,6 +119,12 @@
 	if(L.pulledby)
 		if(L.incapacitated(TRUE))
 			return
+		else if(isxeno(L))
+			var/mob/living/carbon/xenomorph/xeno = L
+			if(xeno.handcuffed)
+				move_delay = world.time + 1 SECONDS //to reduce the spam
+				to_chat(src, span_warning("You're restrained! You can't move!"))
+				return
 		else if(L.restrained(RESTRAINED_NECKGRAB))
 			move_delay = world.time + 1 SECONDS //to reduce the spam
 			to_chat(src, span_warning("You're restrained! You can't move!"))

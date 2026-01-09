@@ -99,6 +99,11 @@
 			carbon_owner.balloon_alert(carbon_owner, "burrowed!")
 		return FALSE
 
+	if(!(to_check_flags & ABILITY_USE_HANDCUFFED) && carbon_owner.handcuffed)
+		if(!silent)
+			carbon_owner.balloon_alert(carbon_owner, "restrained!")
+		return FALSE
+
 	if(!(to_check_flags & ABILITY_USE_SOLIDOBJECT))
 		var/turf/current_turf = get_turf(carbon_owner)
 		if(!current_turf) //we are in nullspace when first spawning in

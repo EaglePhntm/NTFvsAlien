@@ -38,7 +38,6 @@
 	max_range = 15
 	accurate_range = 10
 	bullet_color = COLOR_VIVID_YELLOW
-	plasma_drain = 3
 
 /datum/ammo/energy/taser/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	staggerstun(target_mob, proj, stun = 20 SECONDS)
@@ -85,7 +84,6 @@
 	icon_state = "disablershot"
 	hitscan_effect_icon = "beam_stun"
 	bullet_color = COLOR_LIGHT_ORANGE
-	plasma_drain = 5
 	max_range = 5
 
 /datum/ammo/energy/lasgun/marine/shocking/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
@@ -93,9 +91,7 @@
 	do_sparks(3, TRUE, target_mob)
 	if(isxeno(target_mob)) //need 1 second more than the actual effect time
 		var/mob/living/carbon/xenomorph/X = target_mob
-		if(X.xeno_caste.caste_flags & CASTE_PLASMADRAIN_IMMUNE)
-			return
-		X.use_plasma(0.015 * X.xeno_caste.plasma_max * X.xeno_caste.plasma_regen_limit)
+		X.use_stun_health(0.015 * X.xeno_caste.max_health)
 
 /datum/ammo/energy/tesla/emp
 	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN
@@ -257,7 +253,6 @@
 	penetration = 0
 	damage_type = STAMINA
 	bullet_color = COLOR_DISABLER_BLUE
-	plasma_drain = 12
 
 /datum/ammo/energy/lasgun/M43/disabler/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	staggerstun(target_mob, proj, stagger = 1 SECONDS, slowdown = 0.75)
@@ -281,7 +276,6 @@
 	damage_type = STAMINA
 	ammo_behavior_flags = AMMO_ENERGY
 	bullet_color = COLOR_DISABLER_BLUE
-	plasma_drain = 12
 
 /datum/ammo/energy/lasgun/M43/practice/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	if(ishuman(target_mob))
@@ -575,7 +569,6 @@
 	damage_type = STAMINA
 	hitscan_effect_icon = "beam_stun"
 	bullet_color = LIGHT_COLOR_YELLOW
-	plasma_drain = 30
 
 /datum/ammo/energy/lasgun/marine/pistol/heat
 	name = "microwave heat bolt"

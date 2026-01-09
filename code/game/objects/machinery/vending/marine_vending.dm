@@ -573,7 +573,7 @@
 			/obj/item/toy/dice = -1,
 			/obj/item/toy/dice/d20 = -1,
 			/obj/item/deployable_floodlight = 5,
-			/obj/item/plantable_flag = 10,
+			/obj/item/plantable_flag/ntc = 10,
 			/obj/item/campaign_beacon/npc_beacon/tgmc = 1,
 			/obj/item/campaign_beacon/npc_beacon/tgmc/big = 1,
 			/obj/item/explosive/plastique = 12,

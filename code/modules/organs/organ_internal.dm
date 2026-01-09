@@ -299,10 +299,14 @@
 	if(!old_overflow)
 		to_chat(owner, span_warning("All the different drugs in you are starting to make you feel off..."))
 		old_overflow = TRUE
+	else
+		old_overflow++
 
 	owner.set_drugginess(3)
 	if(prob(overflow * (organ_status + 1) * 10))
 		owner.Confused(2 SECONDS * (organ_status + 1))
+	if(old_overflow > 10 && owner.getStaminaLoss() < (owner.maxHealth * 1.75) && prob((old_overflow-10)/10))
+		owner.adjustStaminaLoss(5)
 
 /datum/internal_organ/kidneys/prosthetic
 	robotic = ORGAN_ROBOT

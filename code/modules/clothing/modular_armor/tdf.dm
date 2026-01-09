@@ -50,11 +50,13 @@
 	allowed_uniform_type = /obj/item/clothing/under
 	starting_attachments = list(/obj/item/armor_module/storage/helmet)
 
+/*
 /obj/item/clothing/suit/modular/tdf/hodgrenades
 	starting_attachments = list(
-//		/obj/item/armor_module/module/ballistic_armor,
+		/obj/item/armor_module/module/ballistic_armor,
 		/obj/item/armor_module/storage/grenade,
 	)
+*/
 
 /obj/item/clothing/suit/modular/tdf/engineer
 	starting_attachments = list(
@@ -204,11 +206,13 @@
 		/obj/item/armor_module/storage/engineering,
 	)
 
+/*
 /obj/item/clothing/suit/modular/tdf/heavy/grenadier //Literally grenades
 	starting_attachments = list(
 		/obj/item/armor_module/module/ballistic_armor,
 		/obj/item/armor_module/storage/grenade,
 	)
+*/
 
 /obj/item/clothing/suit/modular/tdf/heavy/surt
 	starting_attachments = list(

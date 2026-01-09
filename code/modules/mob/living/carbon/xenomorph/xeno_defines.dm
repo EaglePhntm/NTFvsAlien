@@ -296,7 +296,7 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER|LONG_GLIDE
 	see_infrared = TRUE
 	hud_type = /datum/hud/alien
-	hud_possible = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, XENO_RANK_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_DEBUFF_HUD, XENO_FIRE_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD)
+	hud_possible = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, XENO_RANK_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_DEBUFF_HUD, XENO_HUMAN_SHARED_HUD, XENO_FIRE_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD)
 	buckle_flags = NONE
 	faction = FACTION_XENO
 	initial_language_holder = /datum/language_holder/xeno
@@ -398,6 +398,14 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 
 	/// Visual effect that appears when doing a normal attack.
 	var/attack_effect = ATTACK_EFFECT_REDSLASH
+
+	// Stun health related vars
+	/// How much stun damage a mob has
+	var/stun_health_damage = 0
+	/// When true the xeno is in the crit from stun damage
+	var/stun_health_crit = FALSE
+	/// Timer which's created when xeno is critted from stun damage
+	var/stun_health_crit_timer = null
 
 	//Charge vars
 	///Will the mob charge when moving ? You need the charge verb to change this

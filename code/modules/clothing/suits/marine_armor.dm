@@ -863,6 +863,7 @@
 	name = "\improper Modelle/22 'Cuirassier' combat armor"
 	desc = "A piece of ICCGF body armor, worn by specialized infantry. Most Infantry actions in the ICC forces are done by adhoc personnel due to constant shortages of manpower, however most real Infantry divisions are of high quality, and are better known as 'Guardsmen'.  Protects well from most sources, and will entirely protect from explosions."
 	icon_state = "icc_guard_heavy"
+	slowdown = SLOWDOWN_ARMOR_HEAVY
 	soft_armor = list(MELEE = 70, BULLET = 75, LASER = 40, ENERGY = 60, BOMB = 90, BIO = 10, FIRE = 55, ACID = 40)
 
 //===========================SPEC OPS================================

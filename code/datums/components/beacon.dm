@@ -63,6 +63,9 @@
 	if(!ishuman(user))
 		return
 
+	if(!user.get_active_held_item(source))
+		return
+
 	if(length(user.do_actions))
 		user.balloon_alert(user, "busy!")
 		return
@@ -164,7 +167,7 @@
 ///Adds an extra line of instructions to the examine
 /datum/component/beacon/proc/on_examine(atom/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
-	examine_list += span_notice("Activate in hand to create a supply beacon signal.")
+	examine_list += span_notice(anchor ? "Activate in hand to create a supply beacon signal." : "Toss this to activate a supply beacon signal.")
 
 ///If the signal source dies, the beacon datum should as well
 /datum/component/beacon/proc/clean_beacon_datum()

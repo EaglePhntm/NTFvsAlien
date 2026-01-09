@@ -73,6 +73,7 @@
 
 	GLOB.huds[DATA_HUD_BASIC].add_hud_to(src)
 	GLOB.huds[DATA_HUD_XENO_HEART].add_to_hud(src)
+	GLOB.huds[DATA_HUD_XENO_HUMAN_SHARED].add_hud_to(src)
 
 /mob/living/carbon/human/register_init_signals()
 	. = ..()

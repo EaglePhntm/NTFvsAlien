@@ -8,7 +8,7 @@
 	///The mine we have attached to this roomba
 	var/obj/item/explosive/mine/claymore //Claymore roomb
 	///Admins can let it have a claymore
-	var/allow_claymore = FALSE
+	var/allow_claymore = TRUE
 	sentences = list(
 		"Clean up your bloody mess you ANIMAL!",
 		"Who teached you to leave your trash behind you? Your mom should be ashamed!",

@@ -44,7 +44,7 @@
 	if(health < 0)
 		handle_critical_health_updates(seconds_per_tick)
 		return
-	if((health >= maxHealth) || on_fire) //can't regenerate.
+	if((health >= maxHealth && stun_health_damage <= 0) || on_fire) //can't regenerate.
 		return
 	var/turf/T = loc
 	if(!istype(T))
@@ -111,6 +111,7 @@
 	var/list/heal_data = list(amount, amount)
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_HEALTH_REGEN, heal_data, seconds_per_tick)
 	HEAL_XENO_DAMAGE(src, heal_data[1], TRUE)
+	gain_stun_health(heal_data[2]) // * (CHECK_BITFIELD(xeno_caste.caste_flags, CASTE_PLASMADRAIN_IMMUNE) ? (health / maxHealth) : (plasma_stored / (xeno_caste.plasma_max))))
 	return heal_data // [1] = amount of unused healing, [2] = raw healing
 
 /mob/living/carbon/xenomorph/proc/handle_living_plasma_updates(seconds_per_tick)

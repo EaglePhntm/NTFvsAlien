@@ -216,12 +216,13 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/antag_ship/som/maintenance/north)
 "bA" = (
-/obj/structure/prop/mainship/prop_so/icc_three{
-	dir = 4
+/obj/structure/table/black,
+/obj/structure/transmitter/kz_net/rotary{
+	phone_category = "Combat Information Center";
+	phone_id = "KZ CIC"
 	},
-/obj/structure/cable,
-/turf/open/floor/plating/ground/concrete,
-/area/antag_ship/icc/commcenter)
+/turf/open/floor/prison/redfloor,
+/area/antag_ship/vsd/bridge)
 "bD" = (
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/preparation)
@@ -1020,7 +1021,7 @@
 	anchored = 1
 	},
 /turf/open/floor/plating/kutjevo,
-/area/space)
+/area/antag_ship/icc/hangar/center)
 "fM" = (
 /obj/machinery/vending/engivend/pmc,
 /turf/open/floor/mainship/sterile/plain,
@@ -1616,6 +1617,12 @@
 /obj/machinery/camera/autoname/mainship/somship{
 	dir = 10
 	},
+/obj/structure/transmitter/som_net{
+	phone_category = "Prison";
+	phone_id = "Prison";
+	dir = 1;
+	pixel_y = -25
+	},
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/security/cell)
 "iQ" = (
@@ -2048,9 +2055,15 @@
 	},
 /area/antag_ship/vsd/hall)
 "kP" = (
-/obj/structure/prop/mainship/prop_so/icc_one,
-/turf/open/floor/plating/ground/concrete,
-/area/antag_ship/icc/commcenter)
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/structure/transmitter/som_net{
+	phone_category = "Medbay";
+	phone_id = "Medbay";
+	dir = 4;
+	pixel_x = -15
+	},
+/turf/open/floor/mainship/sterile/white,
+/area/antag_ship/som/medbay)
 "kQ" = (
 /obj/structure/table/mainship,
 /obj/item/storage/surgical_tray,
@@ -3064,6 +3077,10 @@
 /area/antag_ship/som/hangar)
 "pe" = (
 /obj/structure/table/reinforced,
+/obj/structure/transmitter/colony_net/rotary{
+	phone_category = "Diplomacy";
+	phone_id = "SOM"
+	},
 /turf/open/floor/mainship/office,
 /area/antag_ship/som/bridge)
 "pf" = (
@@ -3158,7 +3175,10 @@
 /area/antag_ship/som/requisition)
 "pz" = (
 /obj/structure/table/reinforced/prison,
-/obj/item/reagent_containers/food/snacks/sliceable/sandwiches/tofubread,
+/obj/structure/transmitter/clf_net/rotary{
+	phone_category = "CLF Base";
+	phone_id = "Base"
+	},
 /turf/open/floor/plating/ground/desertdam/asphalt/threeside{
 	dir = 8
 	},
@@ -3546,6 +3566,10 @@
 /area/antag_ship/som/hangar)
 "rl" = (
 /obj/structure/table/reinforced/prison,
+/obj/structure/transmitter/colony_net/rotary{
+	phone_category = "Diplomacy";
+	phone_id = "CLF"
+	},
 /turf/open/floor/plating/ground/desertdam/asphalt/twoside{
 	dir = 4
 	},
@@ -3640,7 +3664,17 @@
 	},
 /area/antag_ship/vsd/hall)
 "rK" = (
-/obj/machinery/prop/computer/aiupload,
+/obj/structure/transmitter/cm_net/rotary{
+	phone_category = "Combat Information Center";
+	phone_id = "CM CIC";
+	pixel_x = -6
+	},
+/obj/structure/table/mainship,
+/obj/structure/transmitter/colony_net/rotary{
+	phone_category = "Diplomacy";
+	phone_id = "CM";
+	pixel_x = 6
+	},
 /turf/open/floor/plating/ground/concrete,
 /area/antag_ship/icc/commcenter)
 "rL" = (
@@ -3808,7 +3842,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/kutjevo,
-/area/space)
+/area/antag_ship/icc/hangar/center)
 "sB" = (
 /obj/machinery/door/airlock/mainship/secure{
 	name = "\improper KZ Education Chamber Airlock";
@@ -3848,8 +3882,12 @@
 /turf/open/floor/plating/ground/concrete,
 /area/antag_ship/icc/hangar/east)
 "sO" = (
-/turf/open/floor/plating/kutjevo,
-/area/antag_ship)
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 9
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/antag_ship/som/requisition)
 "sQ" = (
 /obj/structure/prop/mainship/invincibleshutter,
 /obj/structure/prop/mainship/doorblocker/command,
@@ -3894,8 +3932,8 @@
 /area/antag_ship/som/office/commander/field)
 "sW" = (
 /obj/structure/cable,
-/obj/structure/prop/mainship/doorblocker/patrol_base{
-	dir = 4
+/obj/machinery/door/airlock/glass_command{
+	name = "\improper KZ Command Airlock"
 	},
 /turf/open/floor/plating/ground/concrete,
 /area/antag_ship/icc/commcenter)
@@ -4441,6 +4479,7 @@
 /obj/effect/turf_decal/trimline/brown/warning{
 	dir = 10
 	},
+/obj/item/storage/backpack/marine/radiopack/cm_net,
 /turf/open/floor/plating/ground/concrete,
 /area/antag_ship/icc/warehouse)
 "vJ" = (
@@ -4854,7 +4893,6 @@
 /obj/structure/cable,
 /obj/machinery/door/airlock/glass_command{
 	name = "\improper KZ Command Airlock";
-	req_access = list(240);
 	dir = 2
 	},
 /turf/open/floor/prison/blackfloor,
@@ -5060,6 +5098,9 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 8
 	},
+/obj/structure/fulton_extraction_point{
+	pixel_x = -1
+	},
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/security/cell)
 "yF" = (
@@ -5148,7 +5189,7 @@
 "zn" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/maint{
-	req_one_access = list(208);
+	req_one_access = null;
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -5306,9 +5347,16 @@
 /turf/open/floor/mainship/sterile/plain,
 /area/antag_ship/pmc_ntf/fore/restroom)
 "Al" = (
-/obj/structure/prop/mainship/prop_iccinf/guard/armed,
-/turf/open/floor/plating/ground/concrete,
-/area/antag_ship/icc/commcenter)
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/structure/transmitter/som_net{
+	phone_category = "Requisitions";
+	phone_id = "Requisitions";
+	pixel_x = 15;
+	dir = 8
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/antag_ship/som/requisition)
 "Am" = (
 /obj/structure/ship_ammo/cas/rocket/keeper,
 /turf/open/floor/mainship/cargo,
@@ -5674,6 +5722,10 @@
 /area/antag_ship/som/bridge)
 "Cg" = (
 /obj/structure/table/wood/fancy,
+/obj/structure/transmitter/som_net/rotary{
+	phone_category = "Command";
+	phone_id = "FC Office"
+	},
 /turf/open/floor/iron/grimy,
 /area/antag_ship/som/office/commander/field)
 "Ch" = (
@@ -6225,6 +6277,10 @@
 "EC" = (
 /obj/structure/table/reinforced,
 /obj/item/circuitboard/airlock,
+/obj/structure/transmitter/som_net/rotary{
+	phone_category = "Command";
+	phone_id = "Mech Bay"
+	},
 /turf/open/floor/grayscale/edge/black{
 	dir = 4
 	},
@@ -6735,6 +6791,7 @@
 /area/antag_ship/pmc_ntf/port/quarters)
 "GQ" = (
 /obj/structure/table/black,
+/obj/item/storage/backpack/marine/radiopack/kz_net,
 /turf/open/floor/iron/dark/side,
 /area/antag_ship/vsd/armory)
 "GR" = (
@@ -6792,8 +6849,13 @@
 /turf/open/floor/plating/ground/desertdam/asphalt/cement_sunbleached,
 /area/antag_ship/clf_base/lounge)
 "Hd" = (
-/turf/open/floor/plating/kutjevo,
-/area/space)
+/obj/structure/table/black,
+/obj/structure/transmitter/colony_net/rotary{
+	phone_category = "Diplomacy";
+	phone_id = "KZ"
+	},
+/turf/open/floor/prison/redfloor,
+/area/antag_ship/vsd/bridge)
 "He" = (
 /obj/effect/ai_node,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -6969,6 +7031,14 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/barracks)
+"HY" = (
+/obj/structure/table/reinforced,
+/obj/structure/transmitter/som_net/rotary{
+	phone_category = "Combat Information Center";
+	phone_id = "SOM CIC"
+	},
+/turf/open/floor/mainship/office,
+/area/antag_ship/som/bridge)
 "HZ" = (
 /obj/machinery/door/poddoor/shutters/mainship/open{
 	id = "KZLockdown";
@@ -7192,6 +7262,12 @@
 /obj/machinery/camera/autoname/mainship/somship{
 	dir = 10
 	},
+/obj/structure/transmitter/som_net{
+	phone_category = "Engineering";
+	phone_id = "Engineering";
+	dir = 1;
+	pixel_y = -25
+	},
 /turf/open/floor/plating/plating_catwalk,
 /area/antag_ship/som/engi)
 "IT" = (
@@ -7367,9 +7443,8 @@
 /turf/open/floor/mainship/cargo,
 /area/antag_ship/som/requisition)
 "JF" = (
-/obj/structure/prop/mainship/prop_iccinf/guard_specialist/armed,
-/turf/open/floor/plating/ground/concrete,
-/area/antag_ship/icc/commcenter)
+/turf/closed/mineral/smooth/desertdamrockwall/indestructible,
+/area/antag_ship/icc/hangar/center)
 "JH" = (
 /turf/open/floor/plating/ground/desertdam/asphalt/open,
 /area/antag_ship/icc/hangar/west)
@@ -7630,6 +7705,9 @@
 	},
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 4
+	},
+/obj/structure/fulton_extraction_point{
+	pixel_x = -1
 	},
 /turf/open/floor/iron/dark,
 /area/antag_ship/vsd/hall)
@@ -7919,6 +7997,12 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 8;
 	on = 1
+	},
+/obj/structure/transmitter/som_net/rotary{
+	phone_category = "Command";
+	phone_id = "Commander Office";
+	pixel_x = 10;
+	pixel_y = 10
 	},
 /turf/open/floor/iron/grimy,
 /area/antag_ship/som/office/commander)
@@ -8680,6 +8764,15 @@
 /obj/machinery/chem_master,
 /turf/open/floor/mainship/sterile,
 /area/antag_ship/som/medbay)
+"Qc" = (
+/obj/effect/turf_decal/trimline/dark_blue/line{
+	dir = 8
+	},
+/obj/item/storage/backpack/marine/radiopack/clf_net,
+/turf/open/floor/plating/ground/desertdam/asphalt/edge{
+	dir = 8
+	},
+/area/antag_ship/clf_base/hallways/inside)
 "Qe" = (
 /obj/machinery/power/geothermal/reinforced,
 /obj/structure/cable,
@@ -8780,12 +8873,9 @@
 	},
 /area/antag_ship/pmc_ntf/center/armory)
 "QD" = (
-/obj/structure/prop/mainship/prop_so/icc_two{
-	dir = 8
-	},
-/obj/structure/cable,
-/turf/open/floor/plating/ground/concrete,
-/area/antag_ship/icc/commcenter)
+/obj/item/storage/backpack/marine/radiopack/som_net,
+/turf/open/floor/mainship/mono,
+/area/antag_ship/som/hangar)
 "QE" = (
 /turf/closed/shuttle/ert{
 	icon_state = "leftengine_2";
@@ -9533,6 +9623,11 @@
 /obj/structure/table/mainship/nometal,
 /obj/item/tool/pen,
 /obj/structure/paper_bin,
+/obj/structure/transmitter/colony_net/rotary{
+	phone_category = "Diplomacy";
+	phone_id = "ACAP";
+	pixel_y = 10
+	},
 /turf/open/floor/mainship/black/full,
 /area/antag_ship/pmc_ntf/center/armory)
 "TQ" = (
@@ -10418,6 +10513,15 @@
 /obj/item/clothing/under/lewd/panties,
 /turf/open/floor/plating/ground/dirt,
 /area/antag_ship/clf_base/hallways/outside)
+"XN" = (
+/obj/structure/transmitter/som_net{
+	phone_category = "Dormitories";
+	phone_id = "Dormitories";
+	dir = 1;
+	pixel_y = -25
+	},
+/turf/open/floor/mainship/mono,
+/area/antag_ship/som/barracks)
 "XP" = (
 /obj/effect/turf_decal/warning_stripes/thin,
 /obj/machinery/cryopod/right,
@@ -10754,6 +10858,13 @@
 	},
 /turf/open/floor/prison/whitegreen/full,
 /area/antag_ship/pmc_ntf/starboard/medbay)
+"Zn" = (
+/obj/effect/landmark/weed_node,
+/obj/structure/fulton_extraction_point{
+	pixel_x = -1
+	},
+/turf/open/floor/plating/ground/desertdam/asphalt/cement_sunbleached,
+/area/antag_ship/clf_base/prison)
 "Zo" = (
 /obj/structure/stairs/seamless/edge{
 	dir = 8
@@ -11151,7 +11262,7 @@ fx
 Dk
 Dk
 FJ
-pe
+HY
 aY
 pt
 qx
@@ -13149,7 +13260,7 @@ ad
 wW
 ly
 fS
-ad
+QD
 ad
 ad
 ad
@@ -14879,7 +14990,7 @@ VK
 (43,1,1) = {"
 VK
 LH
-tS
+bA
 FG
 On
 FG
@@ -14974,7 +15085,7 @@ VK
 (44,1,1) = {"
 VK
 LH
-tS
+Hd
 FG
 pJ
 pJ
@@ -15055,8 +15166,8 @@ Ni
 qX
 wU
 FE
-Ni
-qu
+Al
+sO
 qu
 vX
 BR
@@ -15244,7 +15355,7 @@ GC
 jq
 jq
 or
-qg
+kP
 kv
 iZ
 nL
@@ -16944,7 +17055,7 @@ Dk
 cH
 cH
 cH
-Yo
+XN
 cH
 cH
 cH
@@ -19058,13 +19169,13 @@ CN
 "}
 (87,1,1) = {"
 VK
-zb
-zb
+la
+la
 sA
 sA
 sA
 sA
-zb
+JF
 la
 Cc
 Cp
@@ -19153,12 +19264,12 @@ CN
 "}
 (88,1,1) = {"
 VK
-zb
-zb
-Hd
-Hd
-Hd
-Hd
+la
+la
+Lq
+Lq
+Lq
+Lq
 la
 Cc
 Cc
@@ -19248,14 +19359,14 @@ CN
 "}
 (89,1,1) = {"
 VK
-zb
-zb
+la
+la
 fJ
 fJ
 fJ
-Hd
-sO
-sO
+Lq
+Lq
+Lq
 aS
 Cp
 hg
@@ -19343,12 +19454,12 @@ CN
 "}
 (90,1,1) = {"
 VK
-zb
-zb
+la
+la
 fJ
 fJ
 fJ
-Hd
+Lq
 la
 Cc
 Up
@@ -19438,12 +19549,12 @@ CN
 "}
 (91,1,1) = {"
 VK
-zb
-zb
-Hd
-Hd
-Hd
-Hd
+la
+la
+Lq
+Lq
+Lq
+Lq
 la
 Cc
 Cc
@@ -19533,13 +19644,13 @@ CN
 "}
 (92,1,1) = {"
 VK
-zb
-zb
+la
+la
 sA
 sA
 sA
 sA
-zb
+JF
 la
 Cc
 Cp
@@ -19628,8 +19739,8 @@ CN
 "}
 (93,1,1) = {"
 VK
-zb
-zb
+la
+la
 la
 la
 la
@@ -19723,7 +19834,7 @@ CN
 "}
 (94,1,1) = {"
 VK
-zb
+la
 la
 la
 la
@@ -20391,8 +20502,8 @@ VK
 Yc
 Yc
 rK
-bA
-Al
+kg
+ss
 ES
 Ka
 Ri
@@ -20580,7 +20691,7 @@ tT
 VK
 Yc
 iC
-kP
+ss
 rT
 ss
 ES
@@ -20771,8 +20882,8 @@ VK
 Yc
 Yc
 Gm
-QD
-JF
+kg
+ss
 ES
 Ls
 nd
@@ -22260,7 +22371,7 @@ Oy
 ho
 SP
 lS
-tD
+Qc
 tD
 yu
 Jc
@@ -22445,7 +22556,7 @@ qQ
 WR
 ho
 vz
-qQ
+Zn
 WR
 ho
 SP

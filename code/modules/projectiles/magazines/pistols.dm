@@ -106,15 +106,6 @@
 	max_rounds = 15
 	default_ammo = /datum/ammo/bullet/pistol
 
-/obj/item/ammo_magazine/pistol/g22tranq
-	name = "\improper P-22 Custom tranq magazine (9mm)"
-	caliber = CALIBER_9X19_TRANQUILIZER
-	icon_state = "g22"
-	icon_state_mini = "mag_pistol_normal"
-	max_rounds = 12
-	default_ammo = /datum/ammo/bullet/pistol/tranq
-
-
 //-------------------------------------------------------
 //DEAGLE //DEAGLE BRAND DEAGLE
 
@@ -129,14 +120,6 @@
 
 //-------------------------------------------------------
 //MAUSER MERC PISTOL //Inspired by the Makarov.
-
-/obj/item/ammo_magazine/pistol/c99t
-	name = "\improper PK-9 tranq magazine (.22)"
-	default_ammo = /datum/ammo/bullet/pistol/tranq
-	caliber = CALIBER_22LR
-	icon_state = "pk-9_tranq"
-	max_rounds = 8
-	icon_state_mini = "mag_pistol_green"
 
 /obj/item/ammo_magazine/pistol/c99
 	name = "\improper PK-9 hollowpoint magazine (.22)"

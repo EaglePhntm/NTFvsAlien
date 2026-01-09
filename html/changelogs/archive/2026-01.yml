@@ -15,3 +15,15 @@
   - bugfix: Xenos can no longer devour eachother
   OrbisAnima:
   - qol: Removes repetition of Sex messages unless the intents are changed.
+2026-01-09:
+  Nokia2Student:
+  - balance: Xurrender/xumbit applies godmode to xenos.
+  - balance: Surrender/sumbit/xurrender/xumbit no longer applies godmode in war modes.
+  - balance: Nonlethals no longer damage xeno's plasma. They fill up their stun bar
+      instead.
+  - rscadd: Stun bar added for xenos, which paralyzes them for 9 seconds if it gets
+      filled up. It regenerates the same way health does, and its maximum depends
+      on xeno's current health. The more damaged xeno is, the easier it is to take
+      them down.
+  - rscadd: Added new shackles item to req, which can be used to restrain xenomorphs
+      and block their abilities.

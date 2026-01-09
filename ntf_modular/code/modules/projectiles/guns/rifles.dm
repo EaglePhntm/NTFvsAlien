@@ -67,7 +67,7 @@
 
 /obj/item/weapon/gun/rifle/chambered/nonlethal/fitted
 	starting_attachment_types = list(
-		/obj/item/attachable/scope/nightvision
+		/obj/item/attachable/scope/nightvision,
 		/obj/item/attachable/stock/tl127stock/moonbeam,
 	)
 
@@ -108,12 +108,11 @@
 	name = "high caliber tranq rifle bullet"
 	hud_state = "sniper_heavy"
 	damage_type = STAMINA
-	plasma_drain = 30
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SNIPER
-	damage = 120
+	damage = 50
 	penetration = 30
 	sundering = 3.5
-	damage_falloff = 0.25
+	damage_falloff = 0.1
 	shrapnel_chance = 2
 
 /datum/ammo/bullet/sniper/pfc/nl/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
@@ -125,7 +124,6 @@
 	name = "high caliber bluescreen rifle bullet"
 	hud_state = "sniper_heavy"
 	damage_type = BRUTE
-	plasma_drain = 20
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SNIPER
 	damage = 50
 	penetration = 10

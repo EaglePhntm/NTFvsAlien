@@ -21,7 +21,6 @@
 	damage = 27
 	damage_type = STAMINA
 	shrapnel_chance = 0
-	plasma_drain = 7
 
 /datum/ammo/bullet/rifle/ap
 	name = "armor-piercing rifle bullet"
@@ -42,7 +41,6 @@
 	damage = 22
 	damage_type = STAMINA
 	shrapnel_chance = 0
-	plasma_drain = 6
 
 /datum/ammo/bullet/rifle/heavy
 	name = "heavy rifle bullet"
@@ -70,7 +68,6 @@
 	damage = 33
 	damage_type = STAMINA
 	shrapnel_chance = 0
-	plasma_drain = 9
 
 /datum/ammo/bullet/rifle/repeater
 	name = "heavy impact rifle bullet"
@@ -206,7 +203,6 @@
 	damage = 33
 	damage_type = STAMINA
 	shrapnel_chance = 0
-	plasma_drain = 9
 
 /datum/ammo/bullet/rifle/standard_dmr
 	name = "marksman bullet"
@@ -252,7 +248,6 @@
 	damage = 55
 	damage_type = STAMINA
 	shrapnel_chance = 0
-	plasma_drain = 14
 
 /datum/ammo/bullet/rifle/vsd_rifle
 	name = "heavy battle rifle bullet"

@@ -20,7 +20,6 @@
 	weight *= 108
 
 /datum/round_event_control/intel_computer/proc/recalculate_weight(datum/controller/subsystem/processing/dcs/dcs, obj/machinery/computer/intel_computer/source_computer, obj/item/disk/intel_disk/new_disk)
-	log_world("round_event_control/intel_computer : source computer = [logdetails(source_computer)], new disk = [logdetails(new_disk)]")
 	if(istype(source_computer))
 		if(istype(new_disk))
 			active_computers.RemoveAll(source_computer)
@@ -42,6 +41,7 @@
 				if(!istype(disk))
 					stack_trace("non-disk [logdetails(disk)] found in active_disks of [logdetails(src)]!")
 					active_disks.RemoveAll(disk)
+				continue
 				longest_chain = max(longest_chain, disk.max_chain)
 			if(prob(100*(2+weighted_computers)/(2+longest_chain+weighted_computers)))
 				minor_announce("Intel overharvesting has caused an intel drought.  Intel will be much less common for 15 minutes.", title = "Intel Drought")

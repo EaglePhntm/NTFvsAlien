@@ -747,6 +747,8 @@
 	var/leftover_healing = total_heal_amount
 	HEAL_XENO_DAMAGE(patient, leftover_healing, FALSE)
 	GLOB.round_statistics.hivelord_healing_infusion += (total_heal_amount - leftover_healing)
+	heal_data[1] += leftover_healing
+	heal_data[2] += total_heal_amount
 
 ///Called when the target xeno regains Sunder via heal_wounds in life.dm
 /datum/status_effect/healing_infusion/proc/healing_infusion_sunder_regeneration(mob/living/carbon/xenomorph/patient, seconds_per_tick)

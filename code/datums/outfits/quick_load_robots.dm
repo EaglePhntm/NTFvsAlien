@@ -45,7 +45,7 @@
 	Also carries the strong P-23 sidearm and flares."
 
 	w_uniform = /obj/item/clothing/under/marine/robotic/holster
-	wear_suit = /obj/item/clothing/suit/modular/xenonauten/hodgrenades
+	wear_suit = /obj/item/clothing/suit/modular/xenonauten/svalgrenades
 	head = /obj/item/clothing/head/modular/m10x/hod
 
 	l_pocket = /obj/item/storage/holster/flarepouch/full

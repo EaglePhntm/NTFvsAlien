@@ -1064,6 +1064,11 @@
 /obj/item/clipboard{
 	pixel_x = 6
 	},
+/obj/structure/transmitter/rotary{
+	phone_category = "Engineering";
+	phone_id = "CSE Office";
+	pixel_x = -5
+	},
 /turf/open/floor/urban/wood,
 /area/mainship/groundhq/ntf/engineering/ce_room)
 "biW" = (
@@ -2171,6 +2176,7 @@
 	dir = 10;
 	layer = 2.5
 	},
+/obj/machinery/computer/cloning_console/vats,
 /turf/open/floor/plating/mainship,
 /area/mainship/medical/lower_medical)
 "cii" = (
@@ -2980,6 +2986,8 @@
 "cRT" = (
 /obj/machinery/optable,
 /obj/structure/cable,
+/obj/item/tank/anesthetic,
+/obj/item/clothing/mask/breath/medical,
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/operating_room_one)
 "cSp" = (
@@ -4594,6 +4602,17 @@
 	dir = 8
 	},
 /area/mainship/hallways/ntf/dorm1)
+"exf" = (
+/obj/structure/transmitter{
+	phone_category = "Command";
+	phone_id = "Self Destruct Room";
+	dir = 8;
+	pixel_x = 15
+	},
+/turf/open/floor/mainship/black{
+	dir = 4
+	},
+/area/mainship/command/self_destruct)
 "exh" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/disposalpipe/segment,
@@ -4830,6 +4849,12 @@
 "eFR" = (
 /obj/structure/table/mainship/nometal,
 /obj/machinery/camera/autoname/mainship,
+/obj/structure/transmitter/rotary{
+	pixel_x = 6;
+	pixel_y = 6;
+	phone_id = "CMO";
+	phone_category = "Medical"
+	},
 /turf/open/floor/mainship/sterile/corner,
 /area/mainship/medical/cmo_office)
 "eFU" = (
@@ -4890,6 +4915,11 @@
 /obj/item/folder/red,
 /obj/item/folder/red,
 /obj/item/tool/stamp/hos,
+/obj/structure/transmitter/rotary{
+	phone_category = "Corpsec";
+	phone_id = "Corpsec Commander";
+	pixel_x = -5
+	},
 /turf/open/floor/carpet{
 	dir = 9;
 	icon_state = "carpetside"
@@ -5875,6 +5905,14 @@
 /obj/structure/cable,
 /turf/open/floor/urban/wood,
 /area/mainship/living/mechpilotquarters)
+"fya" = (
+/obj/structure/table/black,
+/obj/structure/transmitter/colony_net/rotary{
+	phone_category = "Diplomacy";
+	phone_id = "NTC"
+	},
+/turf/open/floor/plating/mainship,
+/area/mainship/command/cic)
 "fyf" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
@@ -6300,6 +6338,12 @@
 "fTi" = (
 /obj/structure/table/mainship,
 /obj/machinery/keycard_auth,
+/obj/structure/transmitter/rotary{
+	pixel_x = 10;
+	pixel_y = 6;
+	phone_category = "Combat Information Center";
+	phone_id = "Charlie SO"
+	},
 /turf/open/floor/mainship/emerald{
 	dir = 4
 	},
@@ -6351,6 +6395,7 @@
 "fWd" = (
 /obj/effect/turf_decal/warning_stripes/thin,
 /obj/machinery/air_alarm,
+/obj/machinery/cloning/vats,
 /turf/open/floor/plating/mainship,
 /area/mainship/medical/lower_medical)
 "fWh" = (
@@ -6711,6 +6756,12 @@
 /obj/structure/table/mainship/nometal,
 /obj/effect/spawner/random/misc/paperbin,
 /obj/item/tool/pen/blue,
+/obj/structure/transmitter/rotary{
+	pixel_x = 6;
+	pixel_y = 6;
+	phone_id = "FC Office";
+	phone_category = "Command"
+	},
 /turf/open/floor/mainship/floor,
 /area/mainship/command/fcroom)
 "gry" = (
@@ -7157,6 +7208,16 @@
 	dir = 1
 	},
 /area/mainship/hull/port_hull)
+"gOR" = (
+/obj/structure/table/mainship/nometal,
+/obj/effect/urban/decal/dirt,
+/obj/structure/transmitter/rotary{
+	phone_category = "Engineering";
+	phone_id = "Monitoring";
+	pixel_y = 6
+	},
+/turf/open/floor/mainship/floor,
+/area/mainship/engineering/lower_engine_monitoring)
 "gPk" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -7846,6 +7907,17 @@
 /obj/effect/landmark/start/job/nm_ceo,
 /turf/open/floor/grayscale/darkgray,
 /area/mainship/hull/starboard_hull)
+"hBT" = (
+/obj/structure/transmitter{
+	phone_category = "Corpsec";
+	phone_id = "Prison";
+	pixel_y = 25;
+	max_integrity = 50
+	},
+/turf/open/floor/mainship/red{
+	dir = 1
+	},
+/area/mainship/shipboard/brig_cells)
 "hBX" = (
 /obj/effect/urban/decal/dirt,
 /obj/effect/urban/decal/dirt,
@@ -8682,6 +8754,12 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 10
 	},
+/obj/structure/transmitter{
+	phone_category = "Engineering";
+	phone_id = "Telecommunications";
+	pixel_x = 15;
+	dir = 8
+	},
 /turf/open/floor/mainship/floor,
 /area/mainship/command/telecomms)
 "ivS" = (
@@ -8724,7 +8802,9 @@
 /obj/machinery/air_alarm{
 	dir = 8
 	},
-/obj/machinery/computer/operating,
+/obj/machinery/computer/operating{
+	dir = 4
+	},
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/operating_room_two)
 "ixt" = (
@@ -9061,6 +9141,12 @@
 /area/mainship/living/cafeteria)
 "iQc" = (
 /obj/structure/table/mainship/nometal,
+/obj/structure/transmitter/rotary{
+	pixel_x = 6;
+	pixel_y = 6;
+	phone_id = "Chemistry";
+	phone_category = "Medical"
+	},
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/chemistry)
 "iRg" = (
@@ -9120,7 +9206,7 @@
 /obj/machinery/light{
 	light_color = "#da2f1b"
 	},
-/obj/structure/prop/tgbrokenvendor/colablack,
+/obj/machinery/vending/cola,
 /turf/open/floor/wood,
 /area/mainship/hull/starboard_hull)
 "iTF" = (
@@ -9425,6 +9511,12 @@
 /obj/effect/decal/cleanable/blood/splatter/cum,
 /turf/open/floor/mainship/floor,
 /area/mainship/shipboard/starboard_point_defense)
+"jkm" = (
+/obj/structure/fulton_extraction_point{
+	pixel_x = -1
+	},
+/turf/open/floor/mainship/floor,
+/area/mainship/shipboard/brig_cells)
 "jku" = (
 /obj/structure/bed/chair/sofa{
 	dir = 1
@@ -9720,6 +9812,11 @@
 	dir = 8
 	},
 /obj/item/tool/hand_labeler,
+/obj/structure/transmitter/rotary{
+	phone_category = "Command";
+	phone_id = "OO Office";
+	pixel_y = 10
+	},
 /turf/open/floor/mainship/floor,
 /area/mainship/shipboard/brig)
 "juS" = (
@@ -10097,6 +10194,12 @@
 /obj/structure/table/mainship/nometal,
 /obj/effect/spawner/random/misc/paperbin,
 /obj/item/tool/pen/blue,
+/obj/structure/transmitter/rotary{
+	pixel_x = 6;
+	pixel_y = 6;
+	phone_category = "Command";
+	phone_id = "Commander's Office"
+	},
 /turf/open/floor/mainship/floor,
 /area/mainship/living/commandbunks)
 "jPP" = (
@@ -10370,7 +10473,9 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
-/obj/machinery/computer/operating,
+/obj/machinery/computer/operating{
+	dir = 4
+	},
 /turf/open/floor/mainship/sterile/side{
 	dir = 4
 	},
@@ -10779,6 +10884,7 @@
 "kwd" = (
 /obj/effect/turf_decal/warning_stripes/thin,
 /obj/machinery/camera/autoname/mainship,
+/obj/machinery/computer/cloning_console/vats,
 /turf/open/floor/plating/mainship,
 /area/mainship/medical/lower_medical)
 "kwD" = (
@@ -11873,8 +11979,10 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/hangar)
 "ltC" = (
-/obj/machinery/optable,
 /obj/structure/cable,
+/obj/machinery/optable/stasis,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/tank/anesthetic,
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/operating_room_two)
 "ltM" = (
@@ -12044,6 +12152,12 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/medical/morgue)
 "lBx" = (
+/obj/structure/transmitter{
+	phone_category = "Medbay";
+	phone_id = "Infirmary";
+	dir = 4;
+	pixel_x = -15
+	},
 /turf/open/floor/mainship/sterile/corner{
 	dir = 1
 	},
@@ -13716,6 +13830,11 @@
 	name = "Prison Lockdown";
 	pixel_y = 8
 	},
+/obj/structure/transmitter/rotary{
+	phone_category = "Corpsec";
+	phone_id = "Prisoner Processing";
+	pixel_x = -5
+	},
 /turf/open/floor/mainship/red{
 	dir = 4
 	},
@@ -15224,6 +15343,12 @@
 	pixel_y = 3;
 	pixel_x = -5
 	},
+/obj/structure/transmitter/rotary{
+	phone_category = "Command";
+	phone_id = "NM CEO Office";
+	pixel_y = 10;
+	pixel_x = 10
+	},
 /turf/open/floor/grayscale/darkgray,
 /area/mainship/hull/starboard_hull)
 "oBT" = (
@@ -15399,6 +15524,12 @@
 /obj/machinery/computer/security/marinemainship{
 	dir = 8;
 	pixel_x = -17
+	},
+/obj/structure/transmitter/rotary{
+	pixel_x = 10;
+	pixel_y = 6;
+	phone_category = "Combat Information Center";
+	phone_id = "Delta SO"
 	},
 /turf/open/floor/mainship/blue{
 	dir = 9
@@ -15712,6 +15843,11 @@
 	})
 "oWX" = (
 /obj/structure/table/black,
+/obj/structure/transmitter/rotary{
+	pixel_y = 6;
+	phone_category = "Combat Information Center";
+	phone_id = "CIC"
+	},
 /turf/open/floor/plating/mainship,
 /area/mainship/command/cic)
 "oXA" = (
@@ -16087,6 +16223,12 @@
 	dir = 4;
 	pixel_x = 17
 	},
+/obj/structure/transmitter/rotary{
+	pixel_x = -10;
+	pixel_y = 6;
+	phone_category = "Combat Information Center";
+	phone_id = "Alpha SO"
+	},
 /turf/open/floor/mainship/red{
 	dir = 5
 	},
@@ -16295,6 +16437,14 @@
 	},
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/surgery_hallway)
+"pEG" = (
+/obj/structure/transmitter{
+	phone_category = "Command";
+	phone_id = "Orbital Cannon";
+	pixel_y = 25
+	},
+/turf/open/floor/mainship/floor,
+/area/mainship/shipboard/starboard_point_defense)
 "pFL" = (
 /obj/structure/window/framed/mainship,
 /turf/open/floor/plating,
@@ -17446,6 +17596,12 @@
 "qTB" = (
 /obj/structure/table/mainship,
 /obj/machinery/keycard_auth,
+/obj/structure/transmitter/rotary{
+	pixel_x = -10;
+	pixel_y = 6;
+	phone_category = "Combat Information Center";
+	phone_id = "Bravo SO"
+	},
 /turf/open/floor/mainship/orange{
 	dir = 8
 	},
@@ -18630,6 +18786,12 @@
 	},
 /obj/item/tool/hand_labeler,
 /obj/structure/table/mainship/nometal,
+/obj/structure/transmitter/rotary{
+	pixel_x = 6;
+	pixel_y = 6;
+	phone_id = "Requisitions";
+	phone_category = "Logistics"
+	},
 /turf/open/floor/mainship/floor,
 /area/mainship/squads/req)
 "rYk" = (
@@ -18743,10 +18905,10 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
-/obj/structure/largecrate/supply/medicine,
 /obj/machinery/light/mainship{
 	dir = 4
 	},
+/obj/structure/largecrate/supply/medicine/iv,
 /turf/open/floor/plating/mainship,
 /area/mainship/medical/surgery_hallway)
 "sfX" = (
@@ -18921,6 +19083,14 @@
 /area/mainship/hallways/port_hallway)
 "sln" = (
 /obj/structure/table/mainship/nometal,
+/obj/structure/transmitter/rotary{
+	pixel_x = 6;
+	pixel_y = 6;
+	phone_category = "Medical";
+	phone_id = "Research"
+	},
+/obj/effect/spawner/random/engineering/extinguisher/regularweighted,
+/obj/item/storage/box/monkeycubes,
 /turf/open/floor/mainship/sterile/corner{
 	dir = 8
 	},
@@ -19198,8 +19368,18 @@
 /obj/machinery/computer/marine_card{
 	dir = 8
 	},
+/obj/structure/transmitter/rotary{
+	pixel_x = 10;
+	pixel_y = 10;
+	phone_category = "Combat Information Center";
+	phone_id = "Comms Decryption Desk"
+	},
 /turf/open/floor/plating/mainship,
 /area/mainship/command/cic)
+"szt" = (
+/obj/machinery/gibber,
+/turf/open/floor/mainship/floor,
+/area/mainship/medical/morgue)
 "szN" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
@@ -20403,6 +20583,15 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/starboard_hull)
+"tKh" = (
+/obj/structure/cable,
+/obj/structure/transmitter{
+	pixel_y = 24;
+	phone_category = "Medbay";
+	phone_id = "Morgue"
+	},
+/turf/open/floor/mainship/floor,
+/area/mainship/medical/morgue)
 "tKq" = (
 /obj/machinery/vending/tool,
 /turf/open/floor/mainship/floor,
@@ -20971,6 +21160,11 @@
 /obj/item/flashlight/lamp{
 	pixel_y = 10
 	},
+/obj/structure/transmitter/rotary{
+	phone_category = "Corpsec";
+	phone_id = "Interrogation";
+	pixel_y = -6
+	},
 /turf/open/floor/mainship/red,
 /area/mainship/shipboard/brig)
 "ulD" = (
@@ -21067,6 +21261,10 @@
 	},
 /obj/item/reagent_containers/hypospray/autoinjector/spacedrugs,
 /obj/item/reagent_containers/hypospray/autoinjector/spacedrugs,
+/obj/structure/transmitter/rotary{
+	phone_category = "Command";
+	phone_id = "NT CEO Office"
+	},
 /turf/open/floor/carpet{
 	dir = 5;
 	icon_state = "carpetside"
@@ -21757,7 +21955,7 @@
 	},
 /area/mainship/hallways/starboard_hallway)
 "uVE" = (
-/obj/structure/prop/tgbrokenvendor/coffee,
+/obj/machinery/vending/coffee,
 /turf/open/floor/wood,
 /area/mainship/hull/starboard_hull)
 "uVR" = (
@@ -21801,7 +21999,7 @@
 /turf/open/floor/plating,
 /area/mainship/hallways/hangar)
 "uWU" = (
-/obj/structure/prop/tgbrokenvendor/snackbrokebed,
+/obj/machinery/vending/snack,
 /turf/open/floor/wood,
 /area/mainship/hull/starboard_hull)
 "uXy" = (
@@ -22231,6 +22429,15 @@
 "vqi" = (
 /turf/open/floor/urban/wood,
 /area/mainship/squads/specialist)
+"vqr" = (
+/obj/structure/transmitter{
+	phone_category = "Command";
+	phone_id = "Pilot Office";
+	dir = 4;
+	pixel_x = -15
+	},
+/turf/open/floor/mainship/mono,
+/area/mainship/living/pilotbunks)
 "vqw" = (
 /turf/closed/wall/mainship/white,
 /area/mainship/medical/morgue)
@@ -22820,11 +23027,13 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/starboard_hull)
 "vTI" = (
+/obj/structure/table/mainship/nometal,
+/obj/item/healthanalyzer,
+/obj/item/reagent_containers/glass/beaker/biomass,
+/obj/item/storage/box/ids/dogtag,
+/obj/item/reagent_containers/glass/beaker/biomass,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 9
-	},
-/obj/machinery/light/mainship{
-	dir = 4
 	},
 /turf/open/floor/plating/mainship,
 /area/mainship/medical/lower_medical)
@@ -24667,6 +24876,12 @@
 /obj/item/reagent_containers/glass/beaker/cryomix,
 /obj/item/reagent_containers/glass/beaker/cryomix,
 /obj/item/reagent_containers/glass/beaker/cryomix,
+/obj/structure/transmitter/rotary{
+	pixel_x = 6;
+	pixel_y = 6;
+	phone_id = "Medbay";
+	phone_category = "Medical"
+	},
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/surgery_hallway)
 "xGF" = (
@@ -24767,6 +24982,7 @@
 	dir = 6;
 	pixel_x = 1
 	},
+/obj/machinery/cloning/vats,
 /turf/open/floor/plating/mainship/striped{
 	dir = 8
 	},
@@ -27681,7 +27897,7 @@ mWX
 mWX
 eMk
 ejS
-oWX
+fya
 hyg
 hjN
 hQG
@@ -28872,7 +29088,7 @@ yeg
 ops
 csR
 lUh
-cOr
+pEG
 cOr
 cOr
 cOr
@@ -38195,7 +38411,7 @@ ygO
 vCU
 uug
 cwp
-eLB
+hBT
 oWr
 oWr
 oWr
@@ -39008,7 +39224,7 @@ oWr
 oWr
 oWr
 oWr
-oWr
+jkm
 hoc
 oWr
 pAM
@@ -47256,7 +47472,7 @@ rff
 tCl
 aOr
 bbz
-tCl
+vqr
 gEP
 bbz
 dpT
@@ -55141,7 +55357,7 @@ iFA
 uef
 wUY
 vqw
-xfm
+szt
 xfm
 xfm
 xfm
@@ -55752,7 +55968,7 @@ nqJ
 nqJ
 nqJ
 nqJ
-sig
+tKh
 hOi
 qGs
 pOP
@@ -67874,7 +68090,7 @@ leC
 leC
 enx
 leC
-fuC
+gOR
 qJT
 fuC
 leC
@@ -71307,7 +71523,7 @@ xQr
 wFr
 vaZ
 nLk
-nLk
+exf
 nLk
 nLk
 nLk

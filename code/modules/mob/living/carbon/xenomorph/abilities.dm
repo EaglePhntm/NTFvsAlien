@@ -6,7 +6,7 @@
 	name = "Rest"
 	action_icon_state = "resting"
 	desc = "Rest on weeds to regenerate health and plasma."
-	use_state_flags = ABILITY_USE_LYING|ABILITY_USE_CRESTED|ABILITY_USE_SOLIDOBJECT|ABILITY_USE_STAGGERED
+	use_state_flags = ABILITY_USE_LYING|ABILITY_USE_CRESTED|ABILITY_USE_SOLIDOBJECT|ABILITY_USE_STAGGERED|ABILITY_USE_HANDCUFFED
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_REST,
 	)
@@ -1815,13 +1815,13 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 			selectedlimb = carbon_victim.get_limb(BODY_ZONE_CHEST)
 		if(xeno.blunt_stab)
 			//not as sharp but macey penetration.
-			penetration *= 1.4
-			damage *= 0.9
+			penetration *= 1.2
+			damage *= 0.8
 			apply_damage(damage, BRUTE, selectedlimb, MELEE, IS_NOT_SHARP_ITEM, FALSE, TRUE, penetration)
 		else
 			if(xeno.fiery_stab)
 				//fire tail burns but not much penetration
-				penetration *= 0.7
+				penetration *= 0.6
 				var/datum/status_effect/stacking/melting_fire/debuff = carbon_victim.has_status_effect(STATUS_EFFECT_MELTING_FIRE)
 				if(debuff)
 					debuff.add_stacks(PYROGEN_TORNADO_MELTING_FIRE_STACKS)

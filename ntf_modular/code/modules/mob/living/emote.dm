@@ -41,7 +41,22 @@
 	if(. && isliving(user))
 		var/mob/living/L = user
 		L.Paralyze(450 SECONDS)
+		var/list/modes = list(
+			/datum/game_mode/infestation/nuclear_war,
+			/datum/game_mode/infestation/sovl_war,
+			/datum/game_mode/infestation/crash
+		)
+		for(var/mode in modes)
+			if(istype(SSticker.mode, mode))
+				return
+		if(istype(SSticker.mode, /datum/game_mode/infestation/extended_plus/secret_of_life))
+			var/datum/game_mode/infestation/extended_plus/secret_of_life/sol = SSticker.mode
+			if(sol.pop_lock)
+				return
 		L.ExtinguishMob()
+		L.status_flags |= GODMODE
+		ADD_TRAIT(L, TRAIT_SURRENDERING, "surrender")
+		addtimer(CALLBACK(src, PROC_REF(surrender_end), user), 90 SECONDS, TIMER_STOPPABLE)
 
 /datum/emote/living/carbon/xenomorph/xurrender/run_emote(mob/user, params, type_override, intentional = TRUE, prefix)
 	if(!isxeno(user))
@@ -51,8 +66,12 @@
 	. = ..()
 	var/image/surrendering = image('icons/mob/effects/talk.dmi', user, icon_state = "surrendering")
 	user.add_emote_overlay(surrendering, 90 SECONDS) // Xenos got para resist, dont change this
-// And the sexy version here
 
+/datum/emote/living/carbon/xenomorph/xurrender/proc/surrender_end(mob/user)
+	user.status_flags &= ~GODMODE
+	REMOVE_TRAIT(user, TRAIT_SURRENDERING, "surrender")
+
+// And the sexy version here
 /datum/emote/living/carbon/xenomorph/xubmit
     key = "xubmit"
     key_third_person = "xubmits"
@@ -67,7 +86,22 @@
 	if(. && isliving(user))
 		var/mob/living/L = user
 		L.Paralyze(450 SECONDS)
+		var/list/modes = list(
+			/datum/game_mode/infestation/nuclear_war,
+			/datum/game_mode/infestation/sovl_war,
+			/datum/game_mode/infestation/crash
+		)
+		for(var/mode in modes)
+			if(istype(SSticker.mode, mode))
+				return
+		if(istype(SSticker.mode, /datum/game_mode/infestation/extended_plus/secret_of_life))
+			var/datum/game_mode/infestation/extended_plus/secret_of_life/sol = SSticker.mode
+			if(sol.pop_lock)
+				return
 		L.ExtinguishMob()
+		L.status_flags |= GODMODE
+		ADD_TRAIT(L, TRAIT_SURRENDERING, "surrender")
+		addtimer(CALLBACK(src, PROC_REF(surrender_end), user), 90 SECONDS, TIMER_STOPPABLE)
 
 /datum/emote/living/carbon/xenomorph/xubmit/run_emote(mob/user, params, type_override, intentional = TRUE, prefix)
 	if(!isxeno(user))
@@ -77,6 +111,10 @@
 	. = ..()
 	var/image/submitting = image('icons/mob/effects/talk.dmi', user, icon_state = "submit")
 	user.add_emote_overlay(submitting, 90 SECONDS) //Xenos need to be stunned for longer, dont change this
+
+/datum/emote/living/carbon/xenomorph/xubmit/proc/surrender_end(mob/user)
+	user.status_flags &= ~GODMODE
+	REMOVE_TRAIT(user, TRAIT_SURRENDERING, "surrender")
 
 /datum/emote/living/carbon/human/surrender
     key = "surrender"
@@ -91,10 +129,22 @@
 	. = ..()
 	if(. && isliving(user))
 		var/mob/living/L = user
-		ADD_TRAIT(L, TRAIT_SURRENDERING, "surrender")
 		L.Paralyze(90 SECONDS)
+		var/list/modes = list(
+			/datum/game_mode/infestation/nuclear_war,
+			/datum/game_mode/infestation/sovl_war,
+			/datum/game_mode/infestation/crash
+		)
+		for(var/mode in modes)
+			if(istype(SSticker.mode, mode))
+				return
+		if(istype(SSticker.mode, /datum/game_mode/infestation/extended_plus/secret_of_life))
+			var/datum/game_mode/infestation/extended_plus/secret_of_life/sol = SSticker.mode
+			if(sol.pop_lock)
+				return
 		L.ExtinguishMob()
 		L.status_flags |= GODMODE
+		ADD_TRAIT(L, TRAIT_SURRENDERING, "surrender")
 		addtimer(CALLBACK(src, PROC_REF(surrender_end), user), 90 SECONDS, TIMER_STOPPABLE)
 
 /datum/emote/living/carbon/human/surrender/proc/surrender_end(mob/user)
@@ -123,14 +173,26 @@
 	if(. && isliving(user))
 		var/mob/living/L = user
 		L.Paralyze(90 SECONDS)
+		var/list/modes = list(
+			/datum/game_mode/infestation/nuclear_war,
+			/datum/game_mode/infestation/sovl_war,
+			/datum/game_mode/infestation/crash
+		)
+		for(var/mode in modes)
+			if(istype(SSticker.mode, mode))
+				return
+		if(istype(SSticker.mode, /datum/game_mode/infestation/extended_plus/secret_of_life))
+			var/datum/game_mode/infestation/extended_plus/secret_of_life/sol = SSticker.mode
+			if(sol.pop_lock)
+				return
 		L.ExtinguishMob()
-		ADD_TRAIT(L, TRAIT_SURRENDERING, "surrender")
 		L.status_flags |= GODMODE
+		ADD_TRAIT(L, TRAIT_SURRENDERING, "surrender")
 		addtimer(CALLBACK(src, PROC_REF(surrender_end), user), 90 SECONDS, TIMER_STOPPABLE)
 
 /datum/emote/living/carbon/human/submit/proc/surrender_end(mob/user)
-		REMOVE_TRAIT(user, TRAIT_SURRENDERING, "surrender")
-		user.status_flags &= ~GODMODE
+	user.status_flags &= ~GODMODE
+	REMOVE_TRAIT(user, TRAIT_SURRENDERING, "surrender")
 
 /datum/emote/living/carbon/human/submit/run_emote(mob/user, params, type_override, intentional = TRUE, prefix)
     if(!ishuman(user))

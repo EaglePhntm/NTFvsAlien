@@ -19,7 +19,7 @@
 
 /mob/living/carbon/xenomorph/add_to_all_mob_huds()
 	for(var/h in GLOB.huds)
-		if(!istype(h, /datum/atom_hud/xeno))
+		if(!istype(h, /datum/atom_hud/xeno) && !istype(h, /datum/atom_hud/xeno_human_shared))
 			continue
 		var/datum/atom_hud/hud = h
 		hud.add_to_hud(src)
@@ -36,7 +36,7 @@
 
 /mob/living/carbon/xenomorph/remove_from_all_mob_huds()
 	for(var/h in GLOB.huds)
-		if(!istype(h, /datum/atom_hud/xeno))
+		if(!istype(h, /datum/atom_hud/xeno) && !istype(h, /datum/atom_hud/xeno_human_shared))
 			continue
 		var/datum/atom_hud/hud = h
 		hud.remove_from_hud(src)
@@ -82,7 +82,7 @@
 
 //medical hud used by ghosts
 /datum/atom_hud/medical/observer
-	hud_icons = list(HEALTH_HUD, XENO_EMBRYO_HUD, XENO_REAGENT_HUD, XENO_DEBUFF_HUD, STATUS_HUD, MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD)
+	hud_icons = list(HEALTH_HUD, XENO_EMBRYO_HUD, XENO_REAGENT_HUD, XENO_DEBUFF_HUD, XENO_HUMAN_SHARED_HUD, STATUS_HUD, MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD)
 
 /datum/atom_hud/medical/pain
 	hud_icons = list(PAIN_HUD)
@@ -167,6 +167,7 @@
 
 /mob/living/carbon/xenomorph/med_hud_set_status()
 	update_aura_overlay()
+	update_handcuffed_overlay()
 
 /mob/living/carbon/human/med_hud_set_status()
 	var/image/status_hud = hud_list[STATUS_HUD] //Status for med-hud.
@@ -447,6 +448,9 @@
 /datum/atom_hud/xeno_debuff
 	hud_icons = list(XENO_DEBUFF_HUD)
 
+/datum/atom_hud/xeno_human_shared
+	hud_icons = list(XENO_HUMAN_SHARED_HUD)
+
 //Xeno status hud, for xenos
 /datum/atom_hud/xeno
 	hud_icons = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_FIRE_HUD, XENO_RANK_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD)
@@ -521,6 +525,8 @@
 	holder.overlays += xeno_caste.plasma_icon_state? "[xeno_caste.plasma_icon_state][plasma_amount]" : null
 	var/wrath_amount = xeno_caste.wrath_max? round(wrath_stored * 100 / xeno_caste.wrath_max, 10) : 0
 	holder.overlays += "wrath[wrath_amount]"
+	var/stun_health_amount = stun_health_damage? round((health - stun_health_damage) * 100 / health, 10) : 100
+	holder.overlays += "stun_health[stun_health_amount]"
 
 /mob/living/carbon/xenomorph/update_aura_overlay()
 	var/image/holder = hud_list[PHEROMONE_HUD]
@@ -553,6 +559,16 @@
 				phero_label = "vstrong"
 
 		holder.overlays += image('icons/mob/hud/aura.dmi', src, "[aura_type]_[phero_label]")
+
+/mob/living/carbon/xenomorph/proc/update_handcuffed_overlay()
+	var/image/holder = hud_list[XENO_HUMAN_SHARED_HUD]
+	holder.icon_state = ""
+	if(handcuffed)
+		holder.icon = 'icons/mob/hud/xeno.dmi'
+		holder.icon_state = "xeno_cuffed"
+
+	hud_list[XENO_HUMAN_SHARED_HUD] = holder
+
 
 /mob/living/carbon/xenomorph/proc/hud_set_queen_overwatch()
 	var/image/holder = hud_list[QUEEN_OVERWATCH_HUD]

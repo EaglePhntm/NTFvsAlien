@@ -56,11 +56,13 @@
 		return FALSE
 
 //---- Medium armor with attachments
+/*
 /obj/item/clothing/suit/modular/robot/hodgrenades
 	starting_attachments = list(
-//		/obj/item/armor_module/module/ballistic_armor,
+		/obj/item/armor_module/module/ballistic_armor,
 		/obj/item/armor_module/storage/grenade,
 	)
+*/
 
 /obj/item/clothing/suit/modular/robot/lightgeneral
 	starting_attachments = list(

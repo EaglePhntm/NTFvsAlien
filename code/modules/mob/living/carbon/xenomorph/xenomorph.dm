@@ -111,6 +111,7 @@
 	if(restore_health_and_plasma)
 		// xenos that manage plasma through special means shouldn't gain it for free on aging
 		set_plasma(max(plasma_stored, xeno_caste.plasma_max * xeno_caste.plasma_regen_limit))
+		stun_health_damage = 0
 		health = maxHealth
 	setXenoCasteSpeed(xeno_caste.speed)
 
@@ -262,6 +263,9 @@
 	. += xeno_caste.caste_desc
 	. += "<span class='notice'>"
 
+	if(handcuffed)
+		. += "\n[span_info("[p_they(TRUE)] is restrained! Use your <b>left</b> hand to <b>help</b> them free.")]"
+
 	if(xeno_desc)
 		. += "\n<span class='info'>[span_collapsible("Flavor Text", "[xeno_desc]")]</span>"
 
@@ -337,6 +341,8 @@
 		return FALSE //The target we're trying to pull must be adjacent and anchored.
 	if(status_flags & INCORPOREAL || AM.status_flags & INCORPOREAL)
 		return FALSE //Incorporeal things can't grab or be grabbed.
+	if(handcuffed)
+		return FALSE
 	if(AM.anchored)
 		return FALSE //We cannot grab anchored items.
 	if(!isliving(AM) && !SSresinshaping.active && AM.drag_windup && !do_after(src, AM.drag_windup, NONE, AM, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE, extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = src.health))))
@@ -360,7 +366,7 @@
 	return ..()
 
 /mob/living/carbon/xenomorph/pull_response(mob/puller)
-	if(incapacitated() || HAS_TRAIT(src, TRAIT_FLOORED)) // If the Xeno is incapacitated, don't fight back against a grab/pull
+	if(incapacitated() || HAS_TRAIT(src, TRAIT_FLOORED) || handcuffed) // If the Xeno is incapacitated, don't fight back against a grab/pull
 		return TRUE
 	if(!ishuman(puller))
 		return TRUE
@@ -395,6 +401,8 @@
 	hud_to_add = GLOB.huds[DATA_HUD_MEDICAL_PAIN]
 	hud_to_add.add_hud_to(src)
 	hud_to_add = GLOB.huds[DATA_HUD_XENO_DEBUFF]
+	hud_to_add.add_hud_to(src)
+	hud_to_add = GLOB.huds[DATA_HUD_XENO_HUMAN_SHARED]
 	hud_to_add.add_hud_to(src)
 
 /mob/living/carbon/xenomorph/get_permeability_protection()

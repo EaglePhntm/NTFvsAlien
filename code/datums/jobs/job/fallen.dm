@@ -17,6 +17,8 @@
 					return /mob/living/carbon/human/species/robot/deltad
 				if("Sterling")
 					return /mob/living/carbon/human/species/robot/bravada
+				if("Synskin")
+					return /mob/living/carbon/human/species/robot/synskin
 		if("Mothellian")
 			if(!(SSticker.mode?.round_type_flags & MODE_HUMAN_ONLY))
 				return /mob/living/carbon/human/species/moth
@@ -122,6 +124,8 @@
 				return /mob/living/carbon/human/species/robot/deltad
 			if("Sterling")
 				return /mob/living/carbon/human/species/robot/bravada
+			if("Synskin")
+				return /mob/living/carbon/human/species/robot/synskin
 	return /mob/living/carbon/human/species/synthetic
 
 /datum/job/fallen/marine/synthetic/return_skills_type(datum/preferences/prefs)

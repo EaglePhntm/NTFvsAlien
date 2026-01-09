@@ -1,0 +1,5 @@
+author: "Nokia2Student"
+delete-after: True
+changes:
+  - balance: "All nonlethals no longer drain both plasma and stun bar, only some target both."
+  - balance: "Stun bar regeneration penalty was removed when low on health/plasma."

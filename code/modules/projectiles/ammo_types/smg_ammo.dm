@@ -22,7 +22,6 @@
 	damage = 22
 	damage_type = STAMINA
 	shrapnel_chance = 0
-	plasma_drain = 6
 
 /datum/ammo/bullet/smg/ap
 	name = "armor-piercing submachinegun bullet"
@@ -100,7 +99,6 @@
 	damage = 31
 	damage_type = STAMINA
 	shrapnel_chance = 0
-	plasma_drain = 8
 
 /datum/ammo/bullet/smg/val
 	name = "heavy submachinegun bullet"

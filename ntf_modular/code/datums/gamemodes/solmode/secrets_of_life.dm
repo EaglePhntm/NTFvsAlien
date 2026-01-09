@@ -2,9 +2,9 @@
 	name = "Secret of Life - Main"
 	config_tag = "Secret of Life - Main"
 	silo_scaling = 1
-	round_type_flags = MODE_INFESTATION|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_ALLOW_XENO_QUICKBUILD|MODE_MUTATIONS_OBTAINABLE|MODE_BIOMASS_POINTS|MODE_XENO_GRAB_DEAD_ALLOWED
+	round_type_flags = MODE_INFESTATION|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_ALLOW_XENO_QUICKBUILD|MODE_MUTATIONS_OBTAINABLE|MODE_BIOMASS_POINTS|MODE_XENO_GRAB_DEAD_ALLOWED|MODE_SINGLE_USE_NUKE_DISK_GENERATOR
 	shutters_drop_time = 15 MINUTES
-	xeno_abilities_flags = ABILITY_NUCLEARWAR
+	xeno_abilities_flags = ABILITY_ALL_GAMEMODE
 	factions = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_XENO, FACTION_CLF, FACTION_ICC, FACTION_VSD, FACTION_NANOTRASEN)
 	human_factions = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_CLF, FACTION_ICC, FACTION_VSD, FACTION_NANOTRASEN)
 	valid_job_types = list(
@@ -58,7 +58,7 @@
 		/datum/job/survivor/maid = 3,
 		/datum/job/other/prisoner = 4,
 		/datum/job/survivor/synth = 2,
-		/datum/job/xenomorph = FREE_XENO_AT_START,
+		/datum/job/xenomorph = 5,
 		/datum/job/xenomorph/green = FREE_XENO_AT_START_CORRUPT,
 		/datum/job/xenomorph/queen = 1,
 		/datum/job/som/silicon/synthetic/som = 1,
@@ -150,7 +150,9 @@
 			/datum/xeno_caste/king = 12,
 			/datum/xeno_caste/dragon = 12,
 		)
-		respawn_time = 10 MINUTES //we have cloning here so its not 30 minutes.
+		for(var/obj/item/teleporter_kit/indestructible/teles in GLOB.indestructible_teleporters)
+			teles.resistance_flags = XENO_DAMAGEABLE
+		respawn_time = 10 MINUTES //we have cloning here and small pop so its not 30 minutes.
 		xenorespawn_time = 5 MINUTES
 		bioscan_interval = 15 MINUTES
 		round_type_flags &= ~MODE_XENO_GRAB_DEAD_ALLOWED
@@ -161,6 +163,8 @@
 			/datum/xeno_caste/king = 0,
 			/datum/xeno_caste/dragon = 0,
 		)
+		for(var/obj/item/teleporter_kit/indestructible/teles in GLOB.indestructible_teleporters)
+			teles.resistance_flags = initial(teles.resistance_flags)
 		GLOB.time_before_dnr = 2400 // 40 minutes
 		respawn_time = initial(respawn_time)
 		xenorespawn_time = initial(xenorespawn_time)
@@ -172,7 +176,7 @@
 	send_ooc_announcement(
 		sender_override = "[pop_lock ? "Heats of conflict are rising." : "Heat of conflict is likely dying out."]",
 		title = "[pop_lock ? "It's so over." : "Back to typefucking."]",
-		text = "Pop locks for xeno castes, DNR time, recloning rate, dead dragging, respawn timers, bioscans and possibly other things will be affected.",
+		text = "Pop locks for xeno castes, DNR time, recloning rate, dead dragging, respawn timers, bioscans, destructability of teleporters and possibly other things will be affected.",
 		sound_override = sound_to_play,
 		style = OOC_ALERT_GAME,
 	)
@@ -219,7 +223,7 @@ alt gamemodes
 		/datum/job/moraleofficer = -1,
 		/datum/job/worker = -1,
 		/datum/job/other/prisoner = 4,
-		/datum/job/xenomorph = FREE_XENO_AT_START,
+		/datum/job/xenomorph = 5,
 		/datum/job/xenomorph/queen = 1,
 		/datum/job/clf/leader = 2,
 		/datum/job/clf/specialist = 2,
@@ -293,7 +297,7 @@ alt gamemodes
 		/datum/job/moraleofficer = -1,
 		/datum/job/worker = -1,
 		/datum/job/other/prisoner = 4,
-		/datum/job/xenomorph =  FREE_XENO_AT_START,
+		/datum/job/xenomorph = 5,
 		/datum/job/xenomorph/queen = 1,
 		/datum/job/clf/leader = 2,
 		/datum/job/clf/specialist = 2,
@@ -362,7 +366,7 @@ alt gamemodes
 		/datum/job/moraleofficer = -1,
 		/datum/job/worker = -1,
 		/datum/job/other/prisoner = 4,
-		/datum/job/xenomorph = FREE_XENO_AT_START,
+		/datum/job/xenomorph = 5,
 		/datum/job/xenomorph/queen = 1,
 		/datum/job/terragov/civilian/liaison_archercorp = 1,
 		/datum/job/terragov/civilian/liaison_novamed = 1,
@@ -425,7 +429,7 @@ alt gamemodes
 		/datum/job/survivor/maid = 4,
 		/datum/job/survivor/synth = 1,
 		/datum/job/other/prisoner = 4,
-		/datum/job/xenomorph = FREE_XENO_AT_START,
+		/datum/job/xenomorph = 5,
 		/datum/job/xenomorph/green = FREE_XENO_AT_START_CORRUPT,
 		/datum/job/xenomorph/queen = 1,
 		/datum/job/clf/breeder = -1,
