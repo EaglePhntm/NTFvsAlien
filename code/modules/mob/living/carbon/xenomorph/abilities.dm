@@ -218,6 +218,7 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 		/obj/structure/bed/nest/wall = 50,
 		/obj/structure/xeno/lighttower = 50,
 		/obj/structure/bed/nest/advanced = 60,
+		/obj/structure/bed/nest/advanced/special = 150,
 	))
 
 // Secrete Resin

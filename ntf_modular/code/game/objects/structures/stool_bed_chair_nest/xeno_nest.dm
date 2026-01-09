@@ -1,12 +1,13 @@
 /obj/structure/bed/nest/advanced
 	name = "tentacle breeding nest"
-	desc = "It's a gruesome pile of thick, sticky resin-covered tentacles shaped like a nest. It will cum acid into talls who stay stuck too long. Best watch out."
+	desc = "A trap nest, It's a gruesome pile of thick, sticky resin-covered tentacles shaped like a nest. It will quickly capture who stay on it and cum acid and larva inside if given opportunity. It is rather easy to escape from."
 	var/hivenumber = XENO_HIVE_NORMAL
 	var/targethole = 1
 	var/settings_locked = FALSE
 	var/list/mob/living/carbon/human/grabbing = null
 	COOLDOWN_DECLARE(tentacle_cooldown)
-	resist_time = 30 SECONDS
+	resist_time = 4 SECONDS //gotta be able to resist quick in case this is used in combat, with the quick capture power, you WILL die so fast.
+	var/capture_time = 2 SECONDS
 
 /obj/structure/bed/nest/advanced/Initialize(mapload, _hivenumber)
 	. = ..()
@@ -20,6 +21,13 @@
 		COMSIG_ATOM_ENTERED = PROC_REF(on_cross),
 	)
 	AddElement(/datum/element/connect_loc, listen_connections)
+	addtimer(CALLBACK(src, PROC_REF(mature)), 30 SECONDS)
+
+/obj/structure/bed/nest/advanced/proc/mature()
+	name = "mature [initial(name)]"
+	visible_message(span_notice("[src] shudders as its tentacles thicken and harden, becoming more effective at capturing prey!"))
+	resist_time *= 2
+	capture_time *= 0.5
 
 /obj/structure/bed/nest/advanced/examine(mob/user)
 	. = ..()
@@ -46,7 +54,8 @@
 
 /obj/structure/bed/nest/advanced/post_unbuckle_mob(mob/living/buckled_mob)
 	. = ..()
-	try_suit_up(buckled_mob)
+	if(istype(src, /obj/structure/bed/nest/advanced/special))
+		try_suit_up(buckled_mob)
 	settings_locked = FALSE
 	COOLDOWN_START(src, tentacle_cooldown, 29.9 SECONDS)
 
@@ -84,7 +93,7 @@
 		span_notice("You hear squelching."))
 	LAZYADD(grabbing, target)
 	ASYNC
-		if(!do_mob(target, src, 1 SECONDS, null, BUSY_ICON_DANGER, PROGRESS_GENERIC, IGNORE_HAND | IGNORE_HELD_ITEM | IGNORE_DO_AFTER_COEFFICIENT | IGNORE_INCAPACITATION))
+		if(!do_mob(target, src, capture_time, null, BUSY_ICON_DANGER, PROGRESS_GENERIC, IGNORE_HAND | IGNORE_HELD_ITEM | IGNORE_DO_AFTER_COEFFICIENT | IGNORE_INCAPACITATION))
 			LAZYREMOVE(grabbing, target)
 			return
 		if(!buckle_mob(target))
@@ -269,17 +278,16 @@
 			span_love("[src] tentacle pumps globs of sizzling acidic cum into your [targetholename]!"),
 			span_love("You hear spurting."))
 			playsound(victim, 'ntf_modular/sound/misc/mat/endin.ogg', 50, TRUE, 7, ignore_walls = FALSE)
-		/* no more help, those need to be watched over instead of left alone in a room to rot forever.
-		//same medicines as larval growth sting, but no larva jelly
-		if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/tricordrazine) < 5)
-			victim.reagents.add_reagent(/datum/reagent/medicine/tricordrazine, 10)
-		if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/inaprovaline) < 5)
-			victim.reagents.add_reagent(/datum/reagent/medicine/inaprovaline, 10)
-		if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/dexalin) < 5)
-			victim.reagents.add_reagent(/datum/reagent/medicine/dexalin, 10)
-		*/
-		if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/spaceacillin) < 5)
-			victim.reagents.add_reagent(/datum/reagent/medicine/spaceacillin, 2)
+		if(istype(src, /obj/structure/bed/nest/advanced/special))
+			//same medicines as larval growth sting, but no larva jelly
+			if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/tricordrazine) < 5)
+				victim.reagents.add_reagent(/datum/reagent/medicine/tricordrazine, 10)
+			if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/inaprovaline) < 5)
+				victim.reagents.add_reagent(/datum/reagent/medicine/inaprovaline, 10)
+			if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/dexalin) < 5)
+				victim.reagents.add_reagent(/datum/reagent/medicine/dexalin, 10)
+			if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/spaceacillin) < 5)
+				victim.reagents.add_reagent(/datum/reagent/medicine/spaceacillin, 2)
 		victim.reagents.add_reagent(/datum/reagent/consumable/nutriment, 3)
 		victim.reagents.add_reagent(/datum/reagent/toxin/acid, 2) //need to make xenos not leave people in here unattended instead of using regular nests.
 	else
@@ -312,3 +320,10 @@
 				span_green("Remaining acidic cum spills out of your holes!"),
 				span_notice("You hear splashing."))
 	Destroy()
+
+/obj/structure/bed/nest/advanced/special
+	name = "sentient tentacle breeding nest"
+	desc = "An utility nest, It's a gruesome pile of thick, sticky resin-covered tentacles shaped like a nest. It will cum acid into talls who stay stuck too long. Best watch out. This one is less prominent in catching people but it will be harder to escape and will tend to them. Uupon escape it will cling to them until burned off.."
+	color = COLOR_VIOLET
+	resist_time = 15 SECONDS
+	capture_time = 4 SECONDS
