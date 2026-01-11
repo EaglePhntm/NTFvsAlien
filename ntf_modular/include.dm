@@ -168,6 +168,7 @@
 #include "code\modules\reqs\supplypacks\imports_packs.dm"
 #include "code\modules\reqs\supplypacks\operations_packs.dm"
 #include "code\modules\reqs\supplypacks\weapons_packs.dm"
+#include "code\modules\tents\deployed_tents.dm"
 #include "code\modules\tgui\states\genital_menu.dm"
 #include "code\modules\xenomorph\reqjellypod.dm"
 #include "modules\underwear\human_defines.dm"
