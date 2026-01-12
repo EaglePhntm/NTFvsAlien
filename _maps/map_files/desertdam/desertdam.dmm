@@ -285,7 +285,6 @@
 /area/desert_dam/exterior/valley/valley_labs)
 "acd" = (
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	id = null;
 	name = "Shutters"
 	},
 /turf/open/liquid/water/river/desertdam/clean/deep_water_clean,
@@ -452,9 +451,7 @@
 /area/desert_dam/interior/lab_northeast/east_lab_west_entrance)
 "adi" = (
 /obj/structure/table,
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /turf/open/floor/prison,
 /area/desert_dam/exterior/valley/south_valley_dam)
 "adk" = (
@@ -612,8 +609,7 @@
 /area/desert_dam/exterior/valley/valley_wilderness)
 "aei" = (
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /obj/structure/cable,
 /turf/open/floor/prison/blue{
@@ -672,9 +668,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt/tile,
 /area/desert_dam/exterior/valley/valley_civilian)
 "aeD" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /obj/machinery/computer/intel_computer,
 /turf/open/floor/wood,
@@ -1428,9 +1422,7 @@
 	},
 /area/desert_dam/interior/lab_northeast/east_lab_excavation)
 "akm" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/darkpurple{
 	dir = 1
@@ -1456,7 +1448,6 @@
 /area/desert_dam/building/bar/bar)
 "akw" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	name = "\improper Containment Lock"
 	},
 /turf/open/floor/tile/dark2,
@@ -1482,7 +1473,6 @@
 /area/desert_dam/exterior/valley/valley_wilderness)
 "akD" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	name = "\improper Containment Lock"
 	},
 /turf/open/floor/prison/bright_clean,
@@ -1788,9 +1778,7 @@
 /turf/open/floor/prison,
 /area/desert_dam/interior/lab_northeast/east_lab_excavation)
 "alS" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /turf/open/floor/prison/whitepurple{
 	dir = 1
 	},
@@ -1969,9 +1957,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "amR" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison,
 /area/desert_dam/interior/lab_northeast/east_lab_containment)
@@ -2047,9 +2033,7 @@
 	},
 /area/desert_dam/interior/lab_northeast/east_lab_east_hallway)
 "anr" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/plate,
 /area/desert_dam/interior/dam_interior/west_tunnel)
@@ -2067,7 +2051,6 @@
 /area/desert_dam/interior/lab_northeast/east_lab_east_hallway)
 "anx" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "dam_checkpoint_northeast";
 	name = "\improper Checkpoint Lock"
 	},
@@ -2097,7 +2080,6 @@
 /area/desert_dam/exterior/valley/valley_labs)
 "anC" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "dam_checkpoint_northeast";
 	name = "\improper Checkpoint Lock"
 	},
@@ -2169,9 +2151,7 @@
 	},
 /area/desert_dam/interior/lab_northeast/east_lab_central_hallway)
 "anY" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/whitepurple{
 	dir = 1
@@ -2431,7 +2411,6 @@
 /area/desert_dam/interior/lab_northeast/east_lab_biology)
 "apr" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	name = "\improper Containment Lock"
 	},
 /turf/open/floor/plating,
@@ -2451,7 +2430,6 @@
 /area/desert_dam/interior/lab_northeast/east_lab_biology)
 "apx" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "dam_checkpoint_north";
 	name = "\improper Checkpoint Lock"
 	},
@@ -2561,8 +2539,7 @@
 "aqe" = (
 /obj/machinery/power/apc/drained{
 	dir = 4;
-	pixel_x = -24;
-	start_charge = 0
+	pixel_x = -24
 	},
 /obj/structure/cable,
 /turf/open/floor/prison/darkred{
@@ -2785,7 +2762,6 @@
 /area/desert_dam/interior/caves/east_caves)
 "aqZ" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "dam_checkpoint_northeast";
 	name = "\improper Checkpoint Lock"
 	},
@@ -2812,7 +2788,6 @@
 /area/desert_dam/exterior/river/riverside_central_north)
 "arf" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "dam_checkpoint_north";
 	name = "\improper Checkpoint Lock"
 	},
@@ -3100,7 +3075,6 @@
 /area/desert_dam/exterior/river/riverside_central_north)
 "asz" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "dam_checkpoint_north";
 	name = "\improper Checkpoint Lock"
 	},
@@ -3366,9 +3340,7 @@
 	},
 /area/desert_dam/interior/lab_northeast/east_lab_east_entrance)
 "atK" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/red{
 	dir = 1
@@ -3424,9 +3396,7 @@
 /turf/open/floor/prison,
 /area/desert_dam/building/water_treatment_two/floodgate_control)
 "atZ" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison,
 /area/desert_dam/building/water_treatment_two/floodgate_control)
@@ -3444,9 +3414,7 @@
 /turf/open/floor/tile/dark2,
 /area/desert_dam/interior/lab_northeast/east_lab_west_entrance)
 "aue" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/red{
 	dir = 1
@@ -3499,9 +3467,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt/cement,
 /area/desert_dam/interior/dam_interior/west_tunnel)
 "auw" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /obj/machinery/computer/intel_computer,
 /turf/open/floor/prison/darkpurple{
@@ -3573,9 +3539,7 @@
 	},
 /area/desert_dam/interior/lab_northeast/east_lab_workshop)
 "auM" = (
-/obj/machinery/vending/phoronresearch{
-	req_one_access = null
-	},
+/obj/machinery/vending/phoronresearch,
 /turf/open/floor/prison/darkpurple{
 	dir = 8
 	},
@@ -3595,9 +3559,7 @@
 	},
 /area/desert_dam/interior/lab_northeast/east_lab_lobby)
 "auR" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 1
@@ -4113,8 +4075,7 @@
 /obj/machinery/door_control{
 	dir = 8;
 	id = "dam_checkpoint_northeast";
-	name = "Checkpoint Lockdown";
-	req_access = null
+	name = "Checkpoint Lockdown"
 	},
 /turf/open/floor/prison/red{
 	dir = 4
@@ -4602,9 +4563,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/desert_dam/interior/caves/central_caves)
 "azX" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "aAb" = (
@@ -5116,8 +5075,7 @@
 /area/desert_dam/interior/dam_interior/east_tunnel_entrance)
 "aDR" = (
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /obj/structure/cable,
 /turf/open/floor/plating/ground/desertdam/asphalt/edge/regular{
@@ -5299,9 +5257,7 @@
 	},
 /area/desert_dam/exterior/valley/valley_crashsite)
 "aGe" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /obj/structure/prop/vehicle/van,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/interior/dam_interior/south_tunnel_entrance)
@@ -6051,9 +6007,7 @@
 	},
 /area/desert_dam/building/substation/northeast)
 "aMB" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/darkyellow{
 	dir = 1
@@ -6498,8 +6452,7 @@
 /area/desert_dam/interior/east_engineering)
 "aQk" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/prison/darkbrown{
@@ -6685,9 +6638,7 @@
 	},
 /area/desert_dam/exterior/valley/valley_wilderness)
 "aRO" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/plating/ground/desertdam/asphalt/twoside{
 	dir = 4
@@ -6716,8 +6667,7 @@
 /obj/machinery/door_control{
 	dir = 8;
 	id = "dam_checkpoint_north";
-	name = "Checkpoint Lockdown";
-	req_access = null
+	name = "Checkpoint Lockdown"
 	},
 /turf/open/floor/prison/red,
 /area/desert_dam/interior/lab_northeast/east_lab_west_entrance)
@@ -7128,9 +7078,7 @@
 /area/desert_dam/building/security/interrogation)
 "aVz" = (
 /obj/structure/flora/pottedplant,
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/red{
 	dir = 5
@@ -7189,16 +7137,13 @@
 "aVP" = (
 /obj/structure/table/reinforced,
 /obj/machinery/faxmachine{
-	density = 0;
-	req_one_access = null
+	density = 0
 	},
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/desert_dam/building/administration/office)
 "aVQ" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/broken_apc/highchance,
 /turf/open/floor/wood,
@@ -7319,9 +7264,7 @@
 	},
 /area/desert_dam/building/administration/control_room)
 "aWQ" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/desert_dam/building/security/office)
@@ -7833,8 +7776,7 @@
 /area/desert_dam/building/administration/hallway)
 "aZB" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/prison/blue{
@@ -7901,9 +7843,7 @@
 /turf/open/floor/tile/dark2,
 /area/desert_dam/building/administration/archives)
 "aZX" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /obj/machinery/computer/intel_computer,
 /turf/open/floor/tile/dark2,
@@ -7987,9 +7927,7 @@
 	},
 /area/desert_dam/building/administration/lobby)
 "bar" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/tile/dark/red2{
 	dir = 5
@@ -8055,7 +7993,6 @@
 	name = "Security Desk"
 	},
 /obj/machinery/door/window{
-	dir = 4;
 	name = "Security Desk"
 	},
 /obj/structure/paper_bin,
@@ -8107,9 +8044,7 @@
 /turf/open/floor/prison,
 /area/desert_dam/building/water_treatment_two/hallway)
 "baN" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/table,
 /obj/item/storage/donut_box,
 /obj/structure/cable,
@@ -8277,8 +8212,7 @@
 /obj/structure/cable,
 /obj/machinery/door_control{
 	id = "dam_stormlock_central";
-	name = "Storm Shutter Lockdown";
-	req_access = null
+	name = "Storm Shutter Lockdown"
 	},
 /turf/open/floor/prison/plate,
 /area/desert_dam/interior/dam_interior/west_tunnel)
@@ -8390,15 +8324,13 @@
 /area/desert_dam/exterior/river/riverside_central_north)
 "bcS" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "cargo_hangar1";
 	name = "\improper Cargo Bay Hangar"
 	},
 /obj/structure/cable,
 /obj/machinery/door_control{
 	id = "cargo_hangar1";
-	name = "Warehouse Shutters";
-	req_access = null
+	name = "Warehouse Shutters"
 	},
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/building/warehouse/warehouse)
@@ -8483,9 +8415,7 @@
 /turf/open/floor/wood,
 /area/desert_dam/building/administration/meetingrooom)
 "bdm" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/desert_dam/building/administration/meetingrooom)
@@ -8826,8 +8756,7 @@
 "bfy" = (
 /obj/structure/table/reinforced,
 /obj/machinery/faxmachine{
-	density = 0;
-	req_one_access = null
+	density = 0
 	},
 /turf/open/floor/wood,
 /area/desert_dam/building/administration/overseer_office)
@@ -9187,9 +9116,7 @@
 	},
 /area/desert_dam/exterior/valley/valley_crashsite)
 "bhI" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison,
 /area/desert_dam/building/water_treatment_two/lobby)
@@ -9554,7 +9481,6 @@
 	name = "Security Desk"
 	},
 /obj/machinery/door/window{
-	dir = 4;
 	name = "Security Desk"
 	},
 /obj/structure/paper_bin,
@@ -9737,9 +9663,7 @@
 	},
 /area/desert_dam/exterior/valley/north_valley_dam)
 "blh" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/exterior/valley/north_valley_dam)
 "bli" = (
@@ -9897,9 +9821,7 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /turf/open/floor/tile/dark,
 /area/desert_dam/building/security/observation)
 "bml" = (
@@ -10033,8 +9955,7 @@
 /area/desert_dam/building/security/interrogation)
 "bmW" = (
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /obj/structure/cable,
 /turf/open/floor/wood,
@@ -10047,8 +9968,7 @@
 /area/desert_dam/building/security/marshals_office)
 "bnb" = (
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /obj/structure/cable,
 /turf/open/floor/wood,
@@ -10181,8 +10101,7 @@
 /area/desert_dam/interior/dam_interior/auxilary_tool_storage)
 "bnP" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/prison/blue{
@@ -10319,9 +10238,7 @@
 /turf/open/floor/prison/bright_clean,
 /area/desert_dam/building/security/detective)
 "box" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/desert_dam/building/security/interrogation)
@@ -10438,9 +10355,7 @@
 	},
 /area/desert_dam/building/security/northern_hallway)
 "bph" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/red/corner{
 	dir = 1
@@ -10825,9 +10740,7 @@
 /turf/open/floor/prison,
 /area/desert_dam/exterior/landing/landing_pad_two_external)
 "brE" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison,
 /area/desert_dam/interior/dam_interior/hanger)
@@ -11126,9 +11039,7 @@
 	},
 /area/desert_dam/interior/dam_interior/auxilary_tool_storage)
 "btr" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/darkbrown{
 	dir = 1
@@ -11249,9 +11160,7 @@
 /turf/open/floor/plating,
 /area/desert_dam/exterior/valley/valley_telecoms)
 "bue" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/darkred{
 	dir = 1
@@ -11320,8 +11229,7 @@
 /obj/machinery/door_control{
 	dir = 1;
 	id = "dam_shutter_hangar";
-	name = "Hangar Shutters";
-	req_access = null
+	name = "Hangar Shutters"
 	},
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
 /area/desert_dam/interior/dam_interior/hanger)
@@ -11330,9 +11238,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/desert_dam/exterior/valley/valley_labs)
 "buR" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/interior/dam_interior/northeastern_tunnel)
 "buS" = (
@@ -11657,8 +11563,7 @@
 /area/desert_dam/building/security/interrogation)
 "bwM" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/prison/plate,
@@ -11767,8 +11672,7 @@
 /area/desert_dam/interior/dam_interior/engine_west_wing)
 "bxz" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/prison/darkyellow{
@@ -11887,8 +11791,7 @@
 "byr" = (
 /obj/machinery/door_control{
 	id = "dam_stormlock_east";
-	name = "Storm Shutter Lockdown";
-	req_access = null
+	name = "Storm Shutter Lockdown"
 	},
 /turf/open/floor/plating/ground/desertdam/asphalt/cement,
 /area/desert_dam/interior/dam_interior/east_tunnel_entrance)
@@ -12039,9 +11942,7 @@
 /turf/open/floor/prison,
 /area/desert_dam/interior/dam_interior/hangar_storage)
 "bzj" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison,
 /area/desert_dam/interior/dam_interior/hangar_storage)
@@ -12134,8 +12035,7 @@
 /area/desert_dam/interior/dam_interior/engine_west_wing)
 "bzK" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /turf/open/floor/prison/plate,
 /area/desert_dam/interior/dam_interior/north_tunnel_entrance)
@@ -12210,9 +12110,7 @@
 /turf/open/floor/prison/plate,
 /area/desert_dam/building/security/evidence)
 "bAa" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/darkred{
 	dir = 1
@@ -12238,9 +12136,7 @@
 /turf/open/floor/prison,
 /area/desert_dam/building/dorms/hallway_westwing)
 "bAp" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/sterilewhite,
 /area/desert_dam/interior/dam_interior/northwestern_tunnel)
@@ -12406,8 +12302,7 @@
 /area/desert_dam/interior/dam_interior/north_tunnel)
 "bBv" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/prison/darkyellow{
@@ -12418,8 +12313,7 @@
 /obj/structure/table/reinforced,
 /obj/machinery/door_control{
 	id = "dam_checkpoint_northwest";
-	name = "Checkpoint Lockdown";
-	req_access = null
+	name = "Checkpoint Lockdown"
 	},
 /turf/open/floor/prison/darkred{
 	dir = 9
@@ -12475,8 +12369,7 @@
 /area/desert_dam/building/security/courtroom)
 "bBU" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/prison/darkred{
@@ -12516,9 +12409,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt/edge,
 /area/desert_dam/interior/dam_interior/north_tunnel)
 "bCm" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/sterilewhite,
 /area/desert_dam/interior/dam_interior/north_tunnel)
@@ -12708,17 +12599,14 @@
 /turf/open/floor/prison,
 /area/desert_dam/exterior/landing/landing_pad_two_external)
 "bDu" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/tile/neutral,
 /area/desert_dam/interior/dam_interior/engine_room)
 "bDw" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /turf/open/floor/prison/darkyellow/corner{
 	dir = 1
@@ -12749,9 +12637,7 @@
 	},
 /area/desert_dam/interior/dam_interior/atmos_storage)
 "bDB" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1,
 /turf/open/floor/prison/green{
@@ -13236,8 +13122,7 @@
 /area/desert_dam/building/security/southern_hallway)
 "bGG" = (
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /obj/structure/cable,
 /turf/open/floor/wood,
@@ -13335,8 +13220,7 @@
 /area/desert_dam/interior/dam_interior/lobby)
 "bHi" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/structure/cable,
 /obj/machinery/light{
@@ -13572,9 +13456,7 @@
 	},
 /area/desert_dam/interior/dam_interior/lobby)
 "bIm" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/darkyellow{
 	dir = 9
@@ -14334,8 +14216,7 @@
 /obj/machinery/door_control{
 	dir = 8;
 	id = "warehouse_dam_2";
-	name = "Warehouse Shutters";
-	req_access = null
+	name = "Warehouse Shutters"
 	},
 /turf/open/floor/prison,
 /area/desert_dam/building/cafeteria/loading)
@@ -14353,9 +14234,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/interior/dam_interior/north_tunnel)
 "bNl" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/interior/dam_interior/north_tunnel)
 "bNm" = (
@@ -14593,9 +14472,7 @@
 	},
 /area/desert_dam/building/security/prison)
 "bOK" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/darkred{
 	dir = 4
@@ -14672,8 +14549,7 @@
 /area/desert_dam/interior/dam_interior/CE_office)
 "bPg" = (
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /obj/structure/cable,
 /turf/open/floor/prison/darkyellow{
@@ -14796,9 +14672,7 @@
 /turf/open/floor/prison/sterilewhite,
 /area/desert_dam/interior/dam_interior/workshop)
 "bPR" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/sterilewhite,
 /area/desert_dam/interior/dam_interior/workshop)
@@ -14905,9 +14779,7 @@
 /turf/open/floor/prison/marked,
 /area/desert_dam/building/security/armory)
 "bQy" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/darkyellow/corner{
 	dir = 4
@@ -14976,9 +14848,7 @@
 	},
 /area/desert_dam/exterior/valley/valley_telecoms)
 "bQR" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/sterilewhite,
 /area/desert_dam/interior/dam_interior/western_dam_cave)
@@ -15000,8 +14870,7 @@
 /area/desert_dam/building/substation/central)
 "bQZ" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
@@ -15050,7 +14919,6 @@
 /area/desert_dam/interior/dam_interior/primary_tool_storage)
 "bRp" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "cargo_hangar2";
 	name = "\improper Cargo Bay Hangar"
 	},
@@ -15264,9 +15132,7 @@
 	},
 /area/desert_dam/building/security/prison)
 "bSs" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/tile/dark/yellow2/corner{
 	dir = 1
@@ -15605,9 +15471,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/exterior/valley/south_valley_dam)
 "bUJ" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -15691,9 +15555,7 @@
 /turf/open/floor/plating/ground/desertdam/grate/alternate,
 /area/desert_dam/exterior/river_mouth/southern)
 "bVl" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/prison/darkpurple{
@@ -15705,9 +15567,7 @@
 /turf/open/floor/tile/white,
 /area/desert_dam/building/lab_northwest/west_lab_xenoflora)
 "bVn" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/sterilewhite,
 /area/desert_dam/interior/dam_interior/central_tunnel)
@@ -15762,8 +15622,7 @@
 "bVI" = (
 /obj/machinery/power/apc/drained{
 	dir = 8;
-	pixel_x = -15;
-	start_charge = 0
+	pixel_x = -15
 	},
 /obj/structure/cable,
 /turf/open/floor/prison/darkred{
@@ -16447,9 +16306,7 @@
 	},
 /area/desert_dam/interior/dam_interior/break_room)
 "bZg" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/tile/whiteyellow{
 	dir = 9
@@ -16583,9 +16440,7 @@
 	},
 /area/desert_dam/exterior/valley/valley_telecoms)
 "bZL" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison,
 /area/desert_dam/building/security/execution_chamber)
@@ -17101,9 +16956,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/exterior/valley/valley_medical)
 "cdd" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/darkred{
 	dir = 1
@@ -17130,9 +16983,7 @@
 /turf/open/floor,
 /area/desert_dam/exterior/valley/valley_telecoms)
 "cdm" = (
-/obj/structure/platform{
-	dir = 2
-	},
+/obj/structure/platform,
 /turf/closed/wall/r_wall/chigusa,
 /area/desert_dam/interior/dam_interior/break_room)
 "cdp" = (
@@ -17721,9 +17572,7 @@
 /turf/open/floor/freezer,
 /area/desert_dam/building/security/prison)
 "chg" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/interior/dam_interior/south_tunnel)
 "chh" = (
@@ -17742,9 +17591,7 @@
 	},
 /area/desert_dam/interior/dam_interior/office)
 "chq" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/exterior/valley/valley_medical)
 "chr" = (
@@ -18129,9 +17976,7 @@
 	},
 /area/desert_dam/building/medical/break_room)
 "cjE" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/desert_dam/building/medical/break_room)
@@ -18215,9 +18060,7 @@
 /turf/open/floor/prison/bright_clean/two,
 /area/desert_dam/building/medical/morgue)
 "ckf" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/bright_clean/two,
 /area/desert_dam/building/medical/morgue)
@@ -18286,8 +18129,7 @@
 /area/desert_dam/building/medical/chemistry)
 "ckE" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/white,
@@ -18957,9 +18799,7 @@
 /area/desert_dam/building/medical/chemistry)
 "coS" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window{
-	dir = 4
-	},
+/obj/machinery/door/window,
 /turf/open/floor/tile/white,
 /area/desert_dam/building/medical/chemistry)
 "coT" = (
@@ -19005,9 +18845,7 @@
 	},
 /area/desert_dam/building/warehouse/warehouse)
 "cpg" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/darkbrown/corner{
 	dir = 4
@@ -19134,9 +18972,7 @@
 	},
 /area/desert_dam/building/medical/north_wing_hallway)
 "cpN" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/whitegreen{
 	dir = 1
@@ -19205,7 +19041,6 @@
 /area/desert_dam/building/security/warden)
 "cql" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "dam_checkpoint_north";
 	name = "\improper Checkpoint Lock"
 	},
@@ -19369,9 +19204,7 @@
 	},
 /area/desert_dam/building/medical/lobby)
 "crG" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/whitegreen{
 	dir = 1
@@ -19453,8 +19286,7 @@
 /area/desert_dam/building/security/execution_chamber)
 "csp" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/prison/darkyellow{
@@ -19475,9 +19307,7 @@
 	},
 /area/desert_dam/building/telecommunication)
 "csw" = (
-/obj/machinery/computer/telecomms/monitor{
-	req_one_access = null
-	},
+/obj/machinery/computer/telecomms/monitor,
 /turf/open/floor/prison/darkyellow{
 	dir = 9
 	},
@@ -19500,9 +19330,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/interior/dam_interior/south_tunnel_entrance)
 "csF" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/exterior/valley/valley_cargo)
 "csG" = (
@@ -19576,9 +19404,7 @@
 /turf/open/floor/freezer,
 /area/desert_dam/building/cafeteria/cold_room)
 "cte" = (
-/obj/machinery/computer/telecomms/server{
-	req_one_access = null
-	},
+/obj/machinery/computer/telecomms/server,
 /turf/open/floor/prison/darkyellow{
 	dir = 1
 	},
@@ -19597,9 +19423,7 @@
 	},
 /area/desert_dam/interior/dam_interior/west_tunnel)
 "cth" = (
-/obj/machinery/computer/telecomms/monitor{
-	req_one_access = null
-	},
+/obj/machinery/computer/telecomms/monitor,
 /turf/open/floor/prison/darkyellow{
 	dir = 1
 	},
@@ -19675,8 +19499,7 @@
 /obj/item/healthanalyzer,
 /obj/item/healthanalyzer,
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /obj/structure/cable,
 /turf/open/floor/prison/whitegreen{
@@ -19844,9 +19667,7 @@
 /turf/open/floor/prison/bright_clean/two,
 /area/desert_dam/building/medical/surgery_observation)
 "cvd" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/bright_clean/two,
 /area/desert_dam/building/medical/surgery_observation)
@@ -20188,8 +20009,7 @@
 /area/desert_dam/building/medical/CMO)
 "cxb" = (
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /obj/structure/cable,
 /turf/open/floor/wood,
@@ -20666,7 +20486,6 @@
 	dir = 1
 	},
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "dam_stormlock_east";
 	name = "\improper Storm Lock"
 	},
@@ -20711,7 +20530,6 @@
 	dir = 4
 	},
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "dam_stormlock_east";
 	name = "\improper Storm Lock"
 	},
@@ -20797,8 +20615,7 @@
 /area/desert_dam/building/medical/surgery_room_two)
 "cAv" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/prison/darkyellow{
@@ -20831,8 +20648,7 @@
 /area/desert_dam/building/medical/office2)
 "cAH" = (
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /obj/structure/table/reinforced,
 /obj/structure/cable,
@@ -20878,7 +20694,6 @@
 /area/desert_dam/interior/dam_interior/east_tunnel_entrance)
 "cAO" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "dam_stormlock_east";
 	name = "\improper Storm Lock"
 	},
@@ -20938,7 +20753,6 @@
 "cBc" = (
 /obj/structure/desertdam/decals/road,
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "dam_stormlock_east";
 	name = "\improper Storm Lock"
 	},
@@ -20961,8 +20775,7 @@
 /area/desert_dam/building/medical/primary_storage)
 "cBm" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/red/whitered{
@@ -20980,8 +20793,7 @@
 /area/desert_dam/building/medical/surgery_room_one)
 "cBq" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/red/whitered{
@@ -21186,8 +20998,7 @@
 "cCC" = (
 /obj/structure/bed,
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/red/whitered{
@@ -21197,8 +21008,7 @@
 "cCE" = (
 /obj/structure/bed,
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/red/whitered{
@@ -21543,9 +21353,7 @@
 /area/desert_dam/building/medical/treatment_room)
 "cEA" = (
 /obj/effect/spawner/random/medical/structure/ivdrip,
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/whitegreen{
 	dir = 9
@@ -21812,8 +21620,7 @@
 "cGN" = (
 /obj/machinery/door_control{
 	id = "warehouse_dam_2";
-	name = "Warehouse Shutters";
-	req_access = null
+	name = "Warehouse Shutters"
 	},
 /turf/open/floor/prison,
 /area/desert_dam/building/water_treatment_one/garage)
@@ -22196,7 +22003,6 @@
 /area/desert_dam/building/medical/east_wing_hallway)
 "cIZ" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "cargo_hangar1";
 	name = "\improper Cargo Bay Hangar"
 	},
@@ -22325,9 +22131,7 @@
 /turf/closed/wall,
 /area/desert_dam/building/medical/virology_isolation)
 "cJH" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/desert_dam/building/medical/east_wing_hallway)
@@ -22503,8 +22307,7 @@
 /area/desert_dam/building/medical/virology_wing)
 "cKI" = (
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /obj/structure/cable,
 /turf/open/floor/prison/whitegreen{
@@ -22976,8 +22779,7 @@
 /area/desert_dam/building/church)
 "cOe" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
@@ -23057,8 +22859,7 @@
 /area/desert_dam/building/medical/virology_isolation)
 "cOJ" = (
 /obj/machinery/power/apc/drained{
-	dir = 1;
-	start_charge = 0
+	dir = 1
 	},
 /obj/structure/cable,
 /turf/open/floor/prison/whitegreen,
@@ -23154,9 +22955,7 @@
 /turf/open/floor/prison/darkred/full,
 /area/desert_dam/building/security/deathrow)
 "cPH" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/darkyellow{
 	dir = 9
@@ -23255,7 +23054,6 @@
 /area/desert_dam/building/bar/bar)
 "cQb" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "cargo_hangar3";
 	name = "\improper Cargo Bay Hangar"
 	},
@@ -23380,9 +23178,7 @@
 /turf/open/floor/prison/sterilewhite,
 /area/desert_dam/building/bar/bar_restroom)
 "cQN" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/sterilewhite,
 /area/desert_dam/building/bar/bar_restroom)
@@ -23578,8 +23374,7 @@
 "cSg" = (
 /obj/machinery/door_control{
 	id = "dam_checkpoint_west";
-	name = "Checkpoint Lockdown";
-	req_access = null
+	name = "Checkpoint Lockdown"
 	},
 /obj/structure/table/reinforced,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -23587,8 +23382,7 @@
 /area/desert_dam/interior/dam_interior/south_tunnel_entrance)
 "cSh" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/prison/plate,
@@ -23707,7 +23501,6 @@
 /area/desert_dam/exterior/valley/valley_cargo)
 "cTa" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "cargo_hangar2";
 	name = "\improper Cargo Bay Hangar"
 	},
@@ -23787,9 +23580,7 @@
 /turf/open/floor/prison/sterilewhite,
 /area/desert_dam/building/hydroponics/hydroponics_breakroom)
 "cTM" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/sterilewhite,
 /area/desert_dam/building/hydroponics/hydroponics_breakroom)
@@ -24166,9 +23957,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/green/corner{
 	dir = 4
@@ -24738,8 +24527,7 @@
 /area/desert_dam/building/cafeteria/cold_room)
 "ddu" = (
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /obj/structure/cable,
 /turf/open/floor/freezer,
@@ -24816,9 +24604,7 @@
 /turf/open/floor/prison/marked,
 /area/desert_dam/building/hydroponics/hydroponics_loading)
 "ddZ" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison,
 /area/desert_dam/building/hydroponics/hydroponics_loading)
@@ -24922,8 +24708,7 @@
 /area/desert_dam/exterior/river/riverside_south)
 "dfe" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/prison,
@@ -24964,9 +24749,7 @@
 /turf/open/floor/prison,
 /area/desert_dam/building/cafeteria/loading)
 "dfv" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison,
 /area/desert_dam/building/cafeteria/loading)
@@ -25888,9 +25671,7 @@
 /area/desert_dam/building/water_treatment_one/lobby)
 "dqS" = (
 /obj/structure/bed/chair,
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison,
 /area/desert_dam/building/water_treatment_one/lobby)
@@ -25980,7 +25761,6 @@
 	name = "Security Desk"
 	},
 /obj/machinery/door/window{
-	dir = 4;
 	name = "Security Desk"
 	},
 /obj/structure/paper_bin,
@@ -26102,9 +25882,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/building/water_treatment_one/garage)
 "dtt" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison,
 /area/desert_dam/building/water_treatment_one/garage)
@@ -26191,9 +25969,7 @@
 /turf/open/floor/prison/bright_clean,
 /area/desert_dam/building/water_treatment_one/hallway)
 "duu" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison,
 /area/desert_dam/building/water_treatment_one/hallway)
@@ -26686,9 +26462,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt/cement_sunbleached,
 /area/desert_dam/exterior/valley/valley_telecoms)
 "dzi" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/freezer,
 /area/desert_dam/building/water_treatment_one/equipment)
@@ -26845,8 +26619,7 @@
 /area/desert_dam/building/water_treatment_one/breakroom)
 "dBj" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/whiteyellow/corner{
@@ -27212,9 +26985,7 @@
 /turf/closed/wall/r_wall/chigusa,
 /area/desert_dam/interior/dam_interior/central_tunnel)
 "dEn" = (
-/obj/structure/platform{
-	dir = 2
-	},
+/obj/structure/platform,
 /turf/closed/wall/r_wall/chigusa,
 /area/desert_dam/interior/dam_interior/central_tunnel)
 "dEo" = (
@@ -27233,8 +27004,7 @@
 /area/desert_dam/building/dorms/hallway_westwing)
 "dEu" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/prison/green{
@@ -27262,9 +27032,7 @@
 	},
 /area/desert_dam/building/security/southern_hallway)
 "dEW" = (
-/obj/structure/platform{
-	dir = 2
-	},
+/obj/structure/platform,
 /turf/closed/wall{
 	name = "reinforced metal wall"
 	},
@@ -27277,9 +27045,7 @@
 /area/desert_dam/exterior/river/riverside_east)
 "dEZ" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
-/obj/structure/platform{
-	dir = 2
-	},
+/obj/structure/platform,
 /turf/open/floor/plating,
 /area/desert_dam/interior/dam_interior/break_room)
 "dFd" = (
@@ -27302,8 +27068,7 @@
 /area/desert_dam/building/dorms/restroom)
 "dFj" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/prison/bright_clean/two,
@@ -27410,15 +27175,11 @@
 /area/desert_dam/exterior/valley/tradeship)
 "dGv" = (
 /obj/structure/cable,
-/obj/structure/platform{
-	dir = 2
-	},
+/obj/structure/platform,
 /turf/open/floor/prison/sterilewhite,
 /area/desert_dam/interior/dam_interior/central_tunnel)
 "dGA" = (
-/obj/structure/platform{
-	dir = 2
-	},
+/obj/structure/platform,
 /turf/open/floor/prison/sterilewhite,
 /area/desert_dam/interior/dam_interior/central_tunnel)
 "dGB" = (
@@ -27711,9 +27472,7 @@
 	},
 /area/desert_dam/building/dorms/pool)
 "dIR" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -28955,7 +28714,6 @@
 /area/desert_dam/building/cafeteria/loading)
 "eeS" = (
 /obj/machinery/door/poddoor/shutters/mainship{
-	dir = 4;
 	id = "warehouse_dam_2";
 	name = "\improper Warehouse Shutters"
 	},
@@ -29673,8 +29431,7 @@
 /area/desert_dam/interior/dam_interior/south_tunnel)
 "eBT" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
@@ -30181,9 +29938,7 @@
 /turf/open/floor/prison/whitegreen/corner,
 /area/desert_dam/building/medical/west_wing_hallway)
 "eSH" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/exterior/valley/valley_medical)
@@ -30795,7 +30550,6 @@
 /area/desert_dam/interior/dam_interior/tech_storage)
 "fmc" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "cargo_hangar3";
 	name = "\improper Cargo Bay Hangar"
 	},
@@ -30804,8 +30558,7 @@
 	},
 /obj/machinery/door_control{
 	id = "cargo_hangar3";
-	name = "Warehouse Shutters";
-	req_access = null
+	name = "Warehouse Shutters"
 	},
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/building/warehouse/loading)
@@ -30999,8 +30752,7 @@
 /obj/item/clothing/head/warning_cone,
 /obj/machinery/door_control{
 	id = "hangar_dam_1";
-	name = "Hangar Shutters";
-	req_access = null
+	name = "Hangar Shutters"
 	},
 /turf/open/floor/prison/darkyellow{
 	dir = 4
@@ -32701,7 +32453,6 @@
 /area/desert_dam/building/security/southern_hallway)
 "gzd" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "dam_checkpoint_northeast";
 	name = "\improper Checkpoint Lock"
 	},
@@ -33955,9 +33706,7 @@
 /turf/open/floor/tile/blue/whiteblue,
 /area/desert_dam/building/medical/medsecure)
 "hqm" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /turf/open/floor/tile/dark/brown2{
@@ -34710,7 +34459,6 @@
 	dir = 1
 	},
 /obj/machinery/door/poddoor/shutters/mainship{
-	dir = 4;
 	id = "warehouse_dam_2";
 	name = "\improper Warehouse Shutters"
 	},
@@ -34819,8 +34567,7 @@
 "hQg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /obj/structure/cable,
 /turf/open/floor/wood,
@@ -36085,9 +35832,7 @@
 /area/desert_dam/exterior/valley/valley_medical)
 "iHZ" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window{
-	dir = 4
-	},
+/obj/machinery/door/window,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/whiteyellow{
 	dir = 4
@@ -36450,8 +36195,7 @@
 /area/desert_dam/interior/lab_northeast/east_lab_central_hallway)
 "iUq" = (
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/medical_decals/doc/stripe,
@@ -37720,9 +37464,7 @@
 /turf/open/floor/prison,
 /area/desert_dam/interior/dam_interior/hangar_storage)
 "jHR" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/exterior/valley/bar_valley_dam)
 "jIc" = (
@@ -38239,9 +37981,7 @@
 	},
 /area/desert_dam/exterior/landing/landing_pad_three_external)
 "jYV" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/ground/desertdam/asphalt,
@@ -38798,7 +38538,6 @@
 /area/desert_dam/interior/caves/east_caves)
 "kqV" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "cargo_hangar1";
 	name = "\improper Cargo Bay Hangar"
 	},
@@ -39008,8 +38747,7 @@
 /area/desert_dam/exterior/valley/valley_medical)
 "kwU" = (
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /obj/structure/sink{
 	dir = 4;
@@ -39416,9 +39154,7 @@
 /area/desert_dam/building/security/southern_hallway)
 "kLk" = (
 /obj/structure/cable,
-/obj/machinery/door/window{
-	dir = 4
-	},
+/obj/machinery/door/window,
 /turf/open/floor/mainship/mono,
 /area/desert_dam/exterior/valley/tradeship)
 "kLr" = (
@@ -40454,9 +40190,7 @@
 /turf/open/floor/plating,
 /area/desert_dam/exterior/valley/valley_crashsite)
 "lsQ" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/exterior/valley/valley_medical)
@@ -41889,9 +41623,7 @@
 	desc = "A large red statue dawned in ancient armor, it stares into your soul.";
 	name = "The Titan"
 	},
-/obj/structure/platform{
-	dir = 2
-	},
+/obj/structure/platform,
 /turf/open/floor/plating/asteroidplating,
 /area/desert_dam/interior/caves/temple)
 "mtj" = (
@@ -42723,7 +42455,6 @@
 /area/desert_dam/exterior/valley/valley_labs)
 "mUP" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "dam_checkpoint_northeast";
 	name = "\improper Checkpoint Lock"
 	},
@@ -42773,9 +42504,7 @@
 /area/desert_dam/interior/lab_northeast/east_lab_workshop)
 "mVz" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /turf/open/floor/prison/sterilewhite,
 /area/desert_dam/interior/dam_interior/northeastern_tunnel)
 "mVJ" = (
@@ -42975,9 +42704,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt/cement,
 /area/desert_dam/interior/dam_interior/east_tunnel_entrance)
 "ncv" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/exterior/valley/valley_civilian)
@@ -44082,9 +43809,7 @@
 /turf/open/floor/wood,
 /area/desert_dam/interior/lab_northeast/east_lab_west_hallway)
 "nRG" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/plate,
 /area/desert_dam/exterior/valley/valley_northwest)
@@ -44250,8 +43975,7 @@
 /area/desert_dam/interior/lab_northeast/east_lab_containment)
 "nXg" = (
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /obj/structure/cable,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -44595,9 +44319,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/exterior/valley/valley_hydro)
 "ogq" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/exterior/valley/valley_medical)
@@ -44630,8 +44352,7 @@
 /area/desert_dam/building/dorms/hallway_northwing)
 "ogS" = (
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /obj/effect/spawner/random/engineering/toolbox,
 /obj/structure/cable,
@@ -44718,9 +44439,7 @@
 	},
 /area/desert_dam/exterior/valley/valley_civilian)
 "ojI" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/effect/decal/cleanable/blood/xeno,
 /obj/structure/cable,
 /turf/open/floor/prison,
@@ -45344,8 +45063,7 @@
 /area/desert_dam/building/security/warden)
 "oIa" = (
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /obj/effect/ai_node,
 /turf/open/floor/prison/plate,
@@ -45529,9 +45247,7 @@
 /turf/open/floor/prison,
 /area/desert_dam/interior/dam_interior/tech_storage)
 "oMO" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/exterior/landing/landing_pad_one_external)
 "oMW" = (
@@ -46325,8 +46041,7 @@
 "pib" = (
 /obj/structure/table,
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /obj/effect/spawner/random/engineering/toolbox,
 /obj/structure/cable,
@@ -46867,9 +46582,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt/edge/regular,
 /area/desert_dam/interior/dam_interior/northwestern_tunnel)
 "pzv" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/exterior/valley/valley_hydro)
 "pzD" = (
@@ -48020,9 +47733,7 @@
 /obj/structure/table,
 /obj/item/assembly/infra,
 /obj/item/assembly/voice,
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison/darkyellow{
 	dir = 1
@@ -48064,12 +47775,9 @@
 /turf/open/floor/prison/sterilewhite,
 /area/desert_dam/building/medical/north_wing_hallway)
 "qhw" = (
-/obj/structure/cable,
-/obj/structure/platform{
-	dir = 2
-	},
-/turf/open/floor/plating/ground/desertdam/asphalt/tile,
-/area/desert_dam/exterior/river/riverside_south)
+/obj/effect/landmark/static_comms/net_two,
+/turf/open/floor/plating/ground/mars/random/sand,
+/area/desert_dam/exterior/valley/valley_cargo)
 "qhF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/weed_node,
@@ -48649,7 +48357,6 @@
 	dir = 4
 	},
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "cargo_hangar3";
 	name = "\improper Cargo Bay Hangar"
 	},
@@ -49286,9 +48993,7 @@
 /turf/open/floor/mainship/mono,
 /area/desert_dam/exterior/valley/tradeship)
 "qWN" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/exterior/valley/valley_labs)
@@ -50679,7 +50384,6 @@
 /area/desert_dam/exterior/valley/tradeship)
 "rQo" = (
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	id = null;
 	name = "Shutters"
 	},
 /turf/open/liquid/water/river/desertdam/clean/shallow_edge/corner2{
@@ -51823,8 +51527,7 @@
 /area/desert_dam/interior/dam_interior/workshop)
 "stW" = (
 /obj/machinery/power/apc/drained{
-	dir = 1;
-	start_charge = 0
+	dir = 1
 	},
 /obj/item/storage/firstaid/fire,
 /obj/structure/cable,
@@ -52267,9 +51970,7 @@
 /turf/open/floor/prison/bright_clean/two,
 /area/desert_dam/interior/lab_northeast/east_lab_workshop)
 "sJv" = (
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/green/whitegreen{
@@ -52509,9 +52210,7 @@
 	},
 /area/desert_dam/interior/dam_interior/north_tunnel)
 "sVd" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/exterior/valley/valley_hydro)
@@ -52977,7 +52676,6 @@
 /area/desert_dam/exterior/valley/south_valley_dam)
 "tiW" = (
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	id = null;
 	name = "Shutters"
 	},
 /obj/effect/ai_node,
@@ -53021,7 +52719,6 @@
 /area/desert_dam/building/warehouse/loading)
 "tkT" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "cargo_hangar3";
 	name = "\improper Cargo Bay Hangar"
 	},
@@ -53570,9 +53267,7 @@
 /turf/open/floor/prison,
 /area/desert_dam/interior/dam_interior/engine_east_wing)
 "tBD" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/exterior/valley/valley_labs)
 "tBR" = (
@@ -54651,8 +54346,7 @@
 /area/desert_dam/interior/lab_northeast/east_lab_biology)
 "ujv" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -55293,8 +54987,7 @@
 /obj/machinery/door_control{
 	dir = 4;
 	id = "dam_stormlock_north2";
-	name = "Storm Shutter Lockdown";
-	req_access = null
+	name = "Storm Shutter Lockdown"
 	},
 /turf/open/floor/plating/ground/desertdam/asphalt/twoside/regular,
 /area/desert_dam/interior/dam_interior/south_tunnel)
@@ -56107,10 +55800,6 @@
 	dir = 10
 	},
 /area/desert_dam/building/security/southern_hallway)
-"veC" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/open/floor,
-/area/storage/testroom)
 "veH" = (
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
@@ -56118,7 +55807,6 @@
 /area/desert_dam/building/security/deathrow)
 "veI" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "cargo_hangar2";
 	name = "\improper Cargo Bay Hangar"
 	},
@@ -57150,9 +56838,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/prison/darkyellow{
@@ -57932,8 +57618,7 @@
 /obj/structure/cable,
 /obj/machinery/door_control{
 	id = "hangar_dam_2";
-	name = "Hangar Shutters";
-	req_access = null
+	name = "Hangar Shutters"
 	},
 /turf/open/floor/prison/darkyellow{
 	dir = 8
@@ -58140,7 +57825,6 @@
 "wnQ" = (
 /obj/structure/desertdam/decals/loose_sand_overlay,
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "dam_checkpoint_northeast";
 	name = "\improper Checkpoint Lock"
 	},
@@ -59466,7 +59150,6 @@
 "xer" = (
 /obj/effect/turf_decal/warning_stripes/thin,
 /obj/machinery/door/poddoor/shutters/mainship{
-	dir = 4;
 	id = "warehouse_dam_2";
 	name = "\improper Warehouse Shutters"
 	},
@@ -59584,9 +59267,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/desert_dam/exterior/landing/landing_pad_two_external)
 "xhZ" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/exterior/valley/south_valley_dam)
 "xia" = (
@@ -59893,6 +59574,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
+/obj/effect/landmark/static_comms/net_one,
 /turf/open/floor/prison/bright_clean/two,
 /area/desert_dam/building/administration/lobby)
 "xtV" = (
@@ -60398,9 +60080,7 @@
 /obj/structure/table,
 /obj/structure/paper_bin,
 /obj/item/tool/pen,
-/obj/machinery/power/apc/drained{
-	start_charge = 0
-	},
+/obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /turf/open/floor/prison,
 /area/desert_dam/building/water_treatment_one/floodgate_control)
@@ -60971,8 +60651,7 @@
 /area/desert_dam/exterior/landing/landing_pad_two_external)
 "ycE" = (
 /obj/machinery/power/apc/drained{
-	dir = 4;
-	start_charge = 0
+	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -60988,9 +60667,7 @@
 /turf/open/floor/prison/sterilewhite,
 /area/desert_dam/interior/dam_interior/western_dam_cave)
 "ydn" = (
-/obj/structure/desertdam/decals/road/edge{
-	dir = 2
-	},
+/obj/structure/desertdam/decals/road/edge,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/desertdam/asphalt,
@@ -61154,8 +60831,7 @@
 /area/desert_dam/building/medical/virology_wing)
 "ygO" = (
 /obj/machinery/power/apc/drained{
-	dir = 8;
-	start_charge = 0
+	dir = 8
 	},
 /obj/structure/cable,
 /obj/structure/table,
@@ -76060,7 +75736,7 @@ mmh
 doE
 doE
 doE
-doE
+qhw
 doE
 cQm
 doE
@@ -96654,7 +96330,7 @@ dfc
 bcc
 diQ
 dTH
-qhw
+rdd
 dEo
 ghQ
 ghQ
@@ -96888,7 +96564,7 @@ jXc
 jXc
 vrM
 jXc
-qhw
+rdd
 ghQ
 ghQ
 ghQ
@@ -98058,7 +97734,7 @@ jXc
 jXc
 jXc
 jXc
-qhw
+rdd
 qSO
 qSO
 qSO
@@ -98292,7 +97968,7 @@ jXc
 jXc
 ghQ
 jXc
-qhw
+rdd
 djw
 djw
 cAl
@@ -98526,7 +98202,7 @@ dfc
 dgF
 hmg
 dTH
-qhw
+rdd
 czS
 cAZ
 cgr
@@ -118049,7 +117725,7 @@ gpx
 gpx
 gpx
 lmf
-veC
+lmf
 lmf
 gpx
 gpx

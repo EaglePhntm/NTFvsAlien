@@ -1185,6 +1185,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating,
 /area/icy_caves/outpost/refinery)
+"fz" = (
+/obj/effect/landmark/static_comms/net_two,
+/turf/open/floor/tile/dark,
+/area/icy_caves/outpost/LZ2)
 "fA" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -8604,9 +8608,9 @@
 /turf/open/floor/plating,
 /area/icy_caves/outpost/garage)
 "Qb" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/closed/mineral/smooth/darkfrostwall/indestructible,
-/area/lv624/lazarus/console)
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/floor/tile/dark,
+/area/icy_caves/outpost/garage)
 "Qc" = (
 /obj/structure/table,
 /obj/item/storage/kitchen_tray,
@@ -8722,7 +8726,6 @@
 /area/icy_caves/caves/northwestmonorail)
 "QE" = (
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
-	dir = 4;
 	name = "\improper Cave Cafeteria"
 	},
 /turf/open/floor/wood,
@@ -11033,7 +11036,7 @@ EM
 (3,1,1) = {"
 EM
 MN
-Qb
+MN
 MN
 EM
 EM
@@ -16472,8 +16475,8 @@ QF
 tC
 Wa
 tN
-KZ
-KZ
+xR
+Qb
 qF
 SM
 Qa
@@ -16628,8 +16631,8 @@ Dk
 QM
 tQ
 MS
-KZ
-KZ
+xR
+xR
 qF
 Qa
 tQ
@@ -30639,7 +30642,7 @@ Kt
 yk
 IT
 IT
-IT
+fz
 nl
 Wm
 oP

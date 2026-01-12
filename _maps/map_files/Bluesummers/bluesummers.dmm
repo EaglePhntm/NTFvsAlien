@@ -4290,9 +4290,7 @@
 "dNj" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
-/turf/open/floor/mainship/orange/corner{
-	dir = 2
-	},
+/turf/open/floor/mainship/orange/corner,
 /area/bluesummers/inside/engineering)
 "dOa" = (
 /obj/structure/bed/chair/comfy{
@@ -5164,9 +5162,7 @@
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 4
 	},
-/turf/open/floor/mainship/orange/corner{
-	dir = 2
-	},
+/turf/open/floor/mainship/orange/corner,
 /area/bluesummers/inside/engineering)
 "eGb" = (
 /turf/closed/wall/mainship,
@@ -5918,9 +5914,7 @@
 /turf/open/floor/mainship/orange,
 /area/bluesummers/inside/engineering/office)
 "feN" = (
-/turf/open/floor/mainship/orange/corner{
-	dir = 2
-	},
+/turf/open/floor/mainship/orange/corner,
 /area/bluesummers/inside/engineering/office)
 "feT" = (
 /obj/structure/cable,
@@ -6507,6 +6501,10 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/floor,
 /area/bluesummers/inside/engineering/plant/control)
+"fGE" = (
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/floor/plating/ground/drought,
+/area/bluesummers/outside/south)
 "fGH" = (
 /obj/structure/table/wood/fancy,
 /obj/item/storage/fancy/candle_box,
@@ -7053,7 +7051,6 @@
 	},
 /area/bluesummers/caves/mining)
 "ghN" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
 /turf/closed/mineral/smooth/desertdamrockwall/indestructible,
 /area/bluesummers/inside/telecomms)
 "gik" = (
@@ -7492,9 +7489,7 @@
 /area/bluesummers/inside/industrial)
 "gDJ" = (
 /obj/effect/ai_node,
-/turf/open/floor/mainship/orange/corner{
-	dir = 2
-	},
+/turf/open/floor/mainship/orange/corner,
 /area/bluesummers/inside/engineering)
 "gEC" = (
 /obj/effect/ai_node,
@@ -8120,9 +8115,7 @@
 /turf/open/floor/plating/mainship,
 /area/bluesummers/inside/garage)
 "hgS" = (
-/turf/open/floor/mainship/orange/corner{
-	dir = 2
-	},
+/turf/open/floor/mainship/orange/corner,
 /area/bluesummers/inside/engineering)
 "hgW" = (
 /obj/structure/rack,
@@ -8700,9 +8693,7 @@
 /area/bluesummers/inside/engineering/plant/control)
 "hBQ" = (
 /obj/effect/turf_decal/warning_stripes/thick,
-/turf/open/floor/mainship/orange/corner{
-	dir = 2
-	},
+/turf/open/floor/mainship/orange/corner,
 /area/bluesummers/inside/engineering)
 "hBX" = (
 /obj/structure/table/reinforced,
@@ -9864,6 +9855,10 @@
 	},
 /turf/closed/wall/mainship/gray/outer,
 /area/bluesummers/caves/mining/drill)
+"iBR" = (
+/obj/effect/landmark/static_comms/net_two,
+/turf/open/floor/plating/ground/drought,
+/area/bluesummers/outside/south)
 "iBT" = (
 /obj/structure/table/mainship,
 /obj/item/paper{
@@ -11504,9 +11499,7 @@
 /area/bluesummers/outside/southeast)
 "jOB" = (
 /obj/effect/landmark/weed_node,
-/turf/open/floor/mainship/orange/corner{
-	dir = 2
-	},
+/turf/open/floor/mainship/orange/corner,
 /area/bluesummers/inside/engineering)
 "jOH" = (
 /obj/structure/prop/mainship/vat/broken{
@@ -41108,7 +41101,7 @@ tmP
 atq
 apm
 tmP
-tmP
+iBR
 tmP
 rOc
 rOc
@@ -51095,7 +51088,7 @@ sip
 atq
 tmP
 tmP
-tmP
+fGE
 joK
 apm
 eKn

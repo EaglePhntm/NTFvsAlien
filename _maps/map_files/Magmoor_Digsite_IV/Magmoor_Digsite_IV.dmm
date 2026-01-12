@@ -11301,9 +11301,7 @@
 /area/magmoor/compound/east)
 "hSR" = (
 /obj/structure/flora/pottedplant/twentytwo,
-/turf/open/floor/tile/red/redtaupecorner{
-	dir = 2
-	},
+/turf/open/floor/tile/red/redtaupecorner,
 /area/magmoor/security/lobby)
 "hTt" = (
 /obj/structure/cable,
@@ -11793,7 +11791,6 @@
 "ijT" = (
 /obj/effect/decal/cleanable/blood/splatter/animated,
 /obj/structure/table/reinforced/flipped{
-	dir = 2;
 	pixel_y = 4
 	},
 /obj/item/ammo_casing,
@@ -14982,9 +14979,9 @@
 /turf/open/floor/mainship/cargo,
 /area/magmoor/cargo/processing/south)
 "ksR" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/closed/mineral/smooth/lavawall/indestructible,
-/area/storage/testroom)
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/floor/plating/ground/mars/random/dirt,
+/area/magmoor/compound/south)
 "ksX" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 6
@@ -24459,6 +24456,10 @@
 	},
 /turf/open/floor/tile/white,
 /area/magmoor/civilian/pool)
+"rgI" = (
+/obj/effect/landmark/static_comms/net_two,
+/turf/open/floor/plating/ground/mars/random/dirt,
+/area/magmoor/compound/east)
 "rgK" = (
 /obj/machinery/light{
 	dir = 4
@@ -35553,7 +35554,7 @@ iLH
 iLH
 ube
 ube
-ksR
+ube
 ube
 ube
 "}
@@ -54375,7 +54376,7 @@ eTo
 ngM
 eTo
 eTo
-eTo
+ksR
 eTo
 tvj
 sEo
@@ -62513,7 +62514,7 @@ vqD
 vWA
 cOx
 cOx
-cOx
+rgI
 cVH
 vqD
 xsB

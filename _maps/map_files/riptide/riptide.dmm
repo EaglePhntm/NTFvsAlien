@@ -9335,6 +9335,10 @@
 	},
 /turf/open/ground,
 /area/riptide/outside/volcano)
+"gtL" = (
+/obj/effect/landmark/static_comms/net_two,
+/turf/open/ground,
+/area/riptide/outside/beachlzone)
 "gtN" = (
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -15701,7 +15705,6 @@
 /turf/open/floor/tile/bar,
 /area/riptide/inside/medical/offices)
 "kVA" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/riptide/inside/telecomms)
 "kVD" = (
@@ -15907,9 +15910,7 @@
 /turf/open/floor/iron/herringbone,
 /area/riptide/caves/pmc/rnd)
 "laA" = (
-/obj/machinery/vending/phoronresearch{
-	req_one_access = null
-	},
+/obj/machinery/vending/phoronresearch,
 /turf/open/floor/iron/smooth_large,
 /area/riptide/caves/pmc/toxins)
 "laB" = (
@@ -18926,9 +18927,7 @@
 /area/riptide/inside/engineering/bridge)
 "nhq" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window{
-	dir = 4
-	},
+/obj/machinery/door/window,
 /obj/machinery/door/window{
 	dir = 8
 	},
@@ -21150,9 +21149,7 @@
 /area/riptide/outside/northbeach)
 "oFD" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/medevac_beacon{
-	faction = null
-	},
+/obj/item/medevac_beacon,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 8
 	},
@@ -34774,6 +34771,10 @@
 	dir = 1
 	},
 /area/riptide/caves/north)
+"xGV" = (
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/ground,
+/area/riptide/outside/beachlzone)
 "xHB" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -38491,7 +38492,7 @@ rgK
 rgK
 sTP
 xke
-xke
+gtL
 koq
 hoq
 eoT
@@ -43279,7 +43280,7 @@ rHT
 mvK
 xke
 xke
-xke
+xGV
 xke
 fJs
 hWe

@@ -201,9 +201,10 @@
 /turf/closed/mineral/smooth/basalt,
 /area/lavaland/engie/engine)
 "cb" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/open/floor,
-/area/storage/testroom)
+/obj/effect/landmark/weed_node,
+/obj/effect/landmark/static_comms/net_two,
+/turf/open/lavaland/basalt,
+/area/lavaland/cave/west)
 "cc" = (
 /obj/structure/bed,
 /turf/open/floor/tile/dark,
@@ -307,9 +308,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/shuttle/drop2/lz2)
 "dC" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/tile/dark,
 /area/lavaland/security/nuke)
 "dE" = (
@@ -445,6 +444,10 @@
 	},
 /turf/open/floor/tile/white,
 /area/lavaland/medical)
+"fD" = (
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/floor/plating/asteroidfloor,
+/area/lavaland/cave/northeast)
 "fE" = (
 /obj/structure/closet/secure_closet/engineering_welding,
 /turf/open/floor/tile/dark2,
@@ -1621,9 +1624,7 @@
 "qY" = (
 /obj/machinery/landinglight/lz2,
 /obj/effect/ai_node,
-/turf/open/floor/plating/asteroidwarning{
-	dir = 2
-	},
+/turf/open/floor/plating/asteroidwarning,
 /area/shuttle/drop2/lz2)
 "ra" = (
 /obj/machinery/portable_atmospherics/scrubber,
@@ -2119,9 +2120,7 @@
 /area/lavaland/civilian/cargo)
 "vS" = (
 /obj/machinery/landinglight/lz2,
-/turf/open/floor/plating/asteroidwarning{
-	dir = 2
-	},
+/turf/open/floor/plating/asteroidwarning,
 /area/shuttle/drop2/lz2)
 "vT" = (
 /obj/structure/largecrate/random/barrel,
@@ -3128,9 +3127,7 @@
 "FE" = (
 /obj/machinery/landinglight/lz1,
 /obj/effect/ai_node,
-/turf/open/floor/plating/asteroidwarning{
-	dir = 2
-	},
+/turf/open/floor/plating/asteroidwarning,
 /area/shuttle/drop1/lz1)
 "FF" = (
 /obj/machinery/light{
@@ -3270,9 +3267,7 @@
 /area/lavaland/cave/central)
 "GQ" = (
 /obj/machinery/landinglight/lz1,
-/turf/open/floor/plating/asteroidwarning{
-	dir = 2
-	},
+/turf/open/floor/plating/asteroidwarning,
 /area/shuttle/drop1/lz1)
 "GS" = (
 /turf/closed/mineral/smooth/indestructible,
@@ -4161,9 +4156,7 @@
 /turf/open/floor/plating,
 /area/lavaland/engie/one)
 "QX" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
 	},
@@ -18817,7 +18810,7 @@ ZN
 ZN
 ZN
 ZN
-BD
+cb
 ZN
 BD
 ZN
@@ -44999,7 +44992,7 @@ Dc
 TW
 TW
 TW
-TW
+fD
 TW
 Dc
 TW
@@ -65131,7 +65124,7 @@ aI
 aI
 RN
 Zm
-cb
+Zm
 Zm
 RN
 aI

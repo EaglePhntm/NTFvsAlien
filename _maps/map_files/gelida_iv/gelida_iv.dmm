@@ -27,9 +27,7 @@
 /turf/open/floor/prison/darkred/full,
 /area/gelida/indoors/a_block/security)
 "aaz" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
 	},
@@ -40,11 +38,7 @@
 /turf/open/floor/plating,
 /area/gelida/indoors/c_block/mining)
 "aaS" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/structure/cable,
 /turf/open/floor/prison,
 /area/gelida/indoors/b_block/hydro)
@@ -86,7 +80,6 @@
 /area/gelida/indoors/a_block/bridges)
 "abN" = (
 /obj/machinery/suit_storage_unit{
-	name = "Suit Storage Unit";
 	pixel_x = 3
 	},
 /turf/open/floor/prison/whitepurple/full{
@@ -145,11 +138,7 @@
 /turf/open/floor/prison,
 /area/gelida/outdoors/colony_streets/central_streets)
 "adF" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
@@ -1037,11 +1026,7 @@
 /area/gelida/indoors/a_block/executive)
 "aMR" = (
 /obj/effect/spawner/random/misc/structure/chair_or_metal/west,
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison,
 /area/gelida/landing_zone_2)
 "aMT" = (
@@ -1268,9 +1253,7 @@
 /area/gelida/landing_zone_2)
 "aTH" = (
 /obj/structure/window/reinforced,
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
 	},
@@ -1387,11 +1370,7 @@
 	pixel_x = 11;
 	pixel_y = 16
 	},
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/darkred/full,
 /area/gelida/indoors/a_block/kitchen)
 "aYv" = (
@@ -1506,9 +1485,7 @@
 /turf/open/floor/prison/sterilewhite/full,
 /area/gelida/indoors/a_block/corpo)
 "bbT" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/structure/cargo_container/gorg{
 	dir = 4
 	},
@@ -2360,11 +2337,7 @@
 	},
 /area/gelida/indoors/a_block/bridges/corpo)
 "bEv" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/darkpurple{
 	dir = 4
 	},
@@ -2434,9 +2407,7 @@
 /turf/open/floor/prison/darkbrown/full,
 /area/gelida/indoors/c_block/mining)
 "bGC" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/garden)
 "bGJ" = (
@@ -2654,11 +2625,7 @@
 /turf/open/floor/mainship/stripesquare,
 /area/gelida/indoors/a_block/security)
 "bNN" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/prison,
@@ -2743,12 +2710,6 @@
 	},
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/dorms)
-"bQE" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
-/turf/open/floor/plating/ground/snow/layer0,
-/area/gelida/outdoors/colony_streets/central_streets)
 "bQY" = (
 /obj/effect/turf_decal/warning_stripes/thick,
 /turf/open/floor/plating/ground/snow/layer0,
@@ -2902,11 +2863,7 @@
 /turf/open/floor/plating/ground/snow/layer2,
 /area/gelida/outdoors/w_rockies)
 "bYk" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/dorms)
@@ -2996,11 +2953,7 @@
 /turf/open/floor/wood,
 /area/gelida/indoors/b_block/bar)
 "cbI" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison,
 /area/gelida/outdoors/colony_streets/north_west_street)
 "cbQ" = (
@@ -3104,9 +3057,7 @@
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/dorm_north)
 "cfj" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/wood,
 /area/gelida/indoors/a_block/fitness)
 "cfr" = (
@@ -3301,11 +3252,7 @@
 /turf/open/floor/prison,
 /area/gelida/outdoors/colony_streets/south_east_street)
 "cnG" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/security)
 "cot" = (
@@ -3540,11 +3487,7 @@
 /turf/open/floor/plating,
 /area/gelida/indoors/a_block/security)
 "cxJ" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison,
 /area/gelida/landing_zone_2)
 "cxK" = (
@@ -4303,11 +4246,7 @@
 /area/gelida/indoors/c_block/bridge)
 "cVR" = (
 /obj/effect/spawner/random/misc/structure/chair_or_metal,
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/whitepurple/full{
 	dir = 4
 	},
@@ -4459,17 +4398,11 @@
 /turf/open/floor/prison,
 /area/gelida/cavestructuretwo)
 "daV" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/prison,
 /area/gelida/outdoors/colony_streets/north_east_street)
 "daX" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/dorm_north)
 "dbd" = (
@@ -4674,9 +4607,7 @@
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/dorms)
 "diw" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
@@ -5100,11 +5031,7 @@
 /turf/open/floor/wood,
 /area/gelida/indoors/c_block/casino)
 "dys" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/sterilewhite/full,
 /area/gelida/indoors/a_block/medical)
 "dzB" = (
@@ -5244,11 +5171,7 @@
 	},
 /area/gelida/outdoors/colony_streets/north_east_street)
 "dDG" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/wood,
 /area/gelida/indoors/b_block/bar)
 "dEF" = (
@@ -5411,11 +5334,8 @@
 	pixel_y = -5
 	},
 /obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
 	pixel_x = -17;
-	pixel_y = -8;
-	stat = 2
+	pixel_y = -8
 	},
 /turf/open/floor/carpet,
 /area/gelida/indoors/a_block/executive)
@@ -5520,7 +5440,6 @@
 	},
 /obj/machinery/door_control{
 	id = "Sec-Kitchen-Lockdown";
-	name = "remote door-control";
 	pixel_x = -7;
 	pixel_y = 9
 	},
@@ -5940,11 +5859,7 @@
 	pixel_x = 10;
 	pixel_y = -3
 	},
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/dorm_north)
@@ -6023,11 +5938,7 @@
 /area/gelida/indoors/a_block/dorm_north)
 "edm" = (
 /obj/effect/spawner/random/misc/structure/chair_or_metal,
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/whitegreenfull2,
 /area/gelida/indoors/a_block/fitness)
 "edn" = (
@@ -6062,11 +5973,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/central_streets)
 "edJ" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/kitchen)
 "eea" = (
@@ -6142,11 +6049,7 @@
 "efC" = (
 /obj/structure/table/mainship,
 /obj/item/trash/plate,
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/dorms)
 "efT" = (
@@ -6207,18 +6110,12 @@
 	},
 /area/gelida/indoors/a_block/dorms)
 "ehl" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/gelida/indoors/b_block/bar)
 "eii" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/prison,
 /area/gelida/outdoors/colony_streets/east_central_street)
 "eiQ" = (
@@ -6259,11 +6156,7 @@
 /turf/open/floor/mainship/stripesquare,
 /area/gelida/indoors/c_block/casino)
 "emD" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison,
 /area/gelida/indoors/b_block/bar)
 "enh" = (
@@ -6782,11 +6675,8 @@
 /area/gelida/indoors/a_block/hallway)
 "eCC" = (
 /obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
 	pixel_x = 5;
-	pixel_y = 12;
-	stat = 2
+	pixel_y = 12
 	},
 /obj/item/tool/wirecutters,
 /turf/open/floor/prison/whitepurple/full{
@@ -7379,8 +7269,7 @@
 	pixel_y = 12
 	},
 /obj/machinery/door_control{
-	id = "Secure_Master_Armoury_2";
-	name = "remote door-control"
+	id = "Secure_Master_Armoury_2"
 	},
 /obj/structure/table/mainship,
 /turf/open/floor/tile/dark2,
@@ -7799,7 +7688,6 @@
 /area/gelida/indoors/a_block/admin)
 "fhI" = (
 /obj/machinery/door/poddoor/shutters/mainship{
-	dir = 4;
 	id = "Sec-Kitchen-Lockdown"
 	},
 /obj/structure/window/framed/colony,
@@ -8012,9 +7900,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/prison/plate,
 /area/gelida/outdoors/colony_streets/central_streets)
 "fqR" = (
@@ -8251,11 +8137,7 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/gelida/indoors/b_block/bridge)
 "fDv" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/whitepurple/full{
 	dir = 4
 	},
@@ -8425,11 +8307,7 @@
 /turf/open/floor/prison,
 /area/gelida/indoors/c_block/cargo)
 "fMQ" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/south_east_street)
 "fNo" = (
@@ -8579,11 +8457,7 @@
 /turf/open/floor/prison/plate,
 /area/gelida/outdoors/colony_streets/north_west_street)
 "fSN" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/dorm_north)
@@ -8950,7 +8824,6 @@
 /area/gelida/indoors/a_block/bridges)
 "ggZ" = (
 /obj/machinery/door/poddoor/shutters/mainship{
-	dir = 4;
 	id = "fitness_dorm_bridge"
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -8980,7 +8853,6 @@
 	dir = 4
 	},
 /obj/machinery/door/poddoor/shutters/mainship{
-	dir = 4;
 	id = "Sec-Kitchen-Lockdown"
 	},
 /turf/open/floor/mainship/stripesquare,
@@ -9482,11 +9354,7 @@
 	},
 /area/gelida/outdoors/colony_streets/north_west_street)
 "gwP" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison,
 /area/gelida/indoors/c_block/cargo)
 "gwY" = (
@@ -9560,11 +9428,7 @@
 /area/gelida/indoors/a_block/dorm_north)
 "gyJ" = (
 /obj/structure/bed/stool,
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/carpet,
 /area/gelida/indoors/b_block/bar)
 "gyM" = (
@@ -9656,11 +9520,7 @@
 /turf/open/floor/plating,
 /area/gelida/indoors/a_block/corpo)
 "gBG" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/gelida/indoors/a_block/admin)
@@ -9675,11 +9535,7 @@
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/hallway)
 "gCI" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/whitegreen/full,
 /area/gelida/indoors/a_block/fitness)
 "gCK" = (
@@ -9882,11 +9738,7 @@
 /area/gelida/indoors/c_block/bridge)
 "gJD" = (
 /obj/structure/bed,
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/whitepurple/full{
 	dir = 4
 	},
@@ -9909,11 +9761,7 @@
 /obj/structure/bed/chair/comfy{
 	dir = 4
 	},
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/effect/landmark/corpsespawner/security,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/wood,
@@ -9956,11 +9804,7 @@
 /turf/open/floor/carpet,
 /area/gelida/indoors/b_block/bar)
 "gLl" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/darkred/full,
 /area/gelida/indoors/a_block/security)
 "gLz" = (
@@ -9997,11 +9841,8 @@
 /area/gelida/outdoors/colony_streets/north_street)
 "gMi" = (
 /obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
 	pixel_x = -1;
-	pixel_y = -9;
-	stat = 2
+	pixel_y = -9
 	},
 /turf/open/floor/prison,
 /area/gelida/cavestructuretwo)
@@ -10334,9 +10175,7 @@
 /turf/open/floor/mainship/black/full,
 /area/gelida/powergen)
 "gZo" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/plating/ground/desertdam/asphalt/edge/regular{
 	dir = 1
 	},
@@ -10818,11 +10657,7 @@
 /turf/open/floor/wood,
 /area/gelida/indoors/c_block/casino)
 "hqy" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/whitepurple/full{
 	dir = 4
 	},
@@ -11180,9 +11015,7 @@
 /area/gelida/indoors/a_block/kitchen)
 "hBJ" = (
 /obj/structure/window/reinforced,
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
@@ -11247,9 +11080,7 @@
 /turf/open/liquid/water/river,
 /area/gelida/indoors/a_block/fitness)
 "hDw" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/prison,
 /area/gelida/outdoors/colony_streets/south_east_street)
 "hDD" = (
@@ -11849,11 +11680,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/south_east_street)
 "hZT" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/darkbrown/full,
 /area/gelida/landing_zone_1)
 "hZX" = (
@@ -12216,9 +12043,7 @@
 /turf/open/floor/prison/whitegreenfull2,
 /area/gelida/indoors/a_block/fitness)
 "ikW" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
@@ -12596,9 +12421,7 @@
 /turf/open/floor/prison/sterilewhite,
 /area/gelida/indoors/lone_buildings/chunk)
 "iyf" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
 	},
@@ -12786,9 +12609,7 @@
 /turf/open/floor/wood,
 /area/gelida/indoors/c_block/casino)
 "iES" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/prison/whitepurple/full{
 	dir = 4
 	},
@@ -13346,7 +13167,6 @@
 /area/gelida/indoors/a_block/corpo)
 "iZz" = (
 /obj/machinery/suit_storage_unit{
-	name = "Suit Storage Unit";
 	pixel_x = 3
 	},
 /turf/open/floor/prison/blue/plate{
@@ -13375,11 +13195,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/north_street)
 "jaw" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison,
 /area/gelida/indoors/c_block/garage)
 "jaz" = (
@@ -13636,11 +13452,7 @@
 /area/gelida/landing_zone_forecon/UD6_Tornado)
 "jkK" = (
 /obj/effect/decal/cleanable/blood,
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/effect/ai_node,
 /turf/open/floor/prison/whitegreen/full,
 /area/gelida/indoors/a_block/medical)
@@ -13674,11 +13486,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/north_street)
 "jlP" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/south_east_street)
@@ -14047,9 +13855,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
 	},
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/wood,
 /area/gelida/indoors/a_block/fitness)
 "jxI" = (
@@ -14312,10 +14118,7 @@
 	pixel_y = -4
 	},
 /obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	pixel_x = -9;
-	stat = 2
+	pixel_x = -9
 	},
 /obj/structure/bed/chair/sofa/corsat,
 /turf/open/floor/wood,
@@ -14327,11 +14130,7 @@
 /obj/structure/bed{
 	pixel_y = 25
 	},
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/whitepurple/full{
 	dir = 4
 	},
@@ -14547,7 +14346,6 @@
 /area/gelida/powergen)
 "jQe" = (
 /obj/machinery/door/poddoor/shutters/mainship{
-	dir = 4;
 	id = "fitness_dorm_bridge"
 	},
 /turf/open/floor/mainship/stripesquare,
@@ -14825,11 +14623,7 @@
 	},
 /area/gelida/indoors/a_block/dorm_north)
 "jXi" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 1
 	},
@@ -14959,9 +14753,7 @@
 /turf/open/floor/plating/heatinggrate,
 /area/gelida/indoors/a_block/bridges/corpo)
 "kcX" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/prison/darkred/full,
 /area/gelida/outdoors/colony_streets/central_streets)
@@ -15242,9 +15034,7 @@
 /turf/open/floor/prison,
 /area/gelida/indoors/c_block/mining)
 "knc" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
@@ -15380,9 +15170,7 @@
 /area/gelida/indoors/a_block/dorms)
 "krK" = (
 /obj/structure/fence,
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
@@ -15960,11 +15748,7 @@
 	},
 /area/gelida/outdoors/colony_streets/north_street)
 "kMO" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/machinery/atmospherics/pipe/manifold4w/green/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -16279,9 +16063,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/south_east_street)
 "kZA" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
@@ -16299,11 +16081,7 @@
 /turf/open/floor/prison,
 /area/gelida/indoors/c_block/mining)
 "lar" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/structure/table/mainship,
 /turf/open/floor/prison,
 /area/gelida/indoors/b_block/bar)
@@ -16541,11 +16319,7 @@
 /area/gelida/indoors/a_block/security)
 "lhJ" = (
 /obj/effect/spawner/random/misc/structure/chair_or_metal/west,
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/whitepurple/full{
 	dir = 4
 	},
@@ -16844,11 +16618,7 @@
 /obj/structure/toilet{
 	dir = 4
 	},
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/freezer,
 /area/gelida/indoors/a_block/dorms)
@@ -17340,11 +17110,7 @@
 /obj/item/reagent_containers/food/snacks/sandwiches/tofubreadslice{
 	pixel_x = -7
 	},
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/whitepurple/full{
 	dir = 4
 	},
@@ -17399,11 +17165,7 @@
 /turf/open/floor/plating/ground/snow/layer1,
 /area/gelida/outdoors/colony_streets/south_east_street)
 "lLt" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/machinery/light,
 /turf/open/floor/prison/whitepurple/full{
 	dir = 4
@@ -17552,11 +17314,7 @@
 /turf/open/shuttle/dropship/three,
 /area/gelida/landing_zone_forecon/UD6_Tornado)
 "lQW" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/effect/ai_node,
 /turf/open/floor/prison,
 /area/gelida/indoors/b_block/bar)
@@ -17684,11 +17442,7 @@
 /area/gelida/indoors/lone_buildings/storage_blocks)
 "lVs" = (
 /obj/effect/spawner/random/misc/structure/chair_or_metal/west,
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 5
 	},
@@ -17821,11 +17575,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison,
 /area/gelida/indoors/c_block/cargo)
 "lZZ" = (
@@ -17866,9 +17616,7 @@
 /turf/open/floor/prison/darkred/full,
 /area/gelida/indoors/a_block/security)
 "maT" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/docking_port/stationary/crashmode,
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/garden)
@@ -18647,11 +18395,7 @@
 /turf/open/floor/prison/whitegreenfull2,
 /area/gelida/landing_zone_2)
 "mAF" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/structure/platform/nondense{
 	dir = 8
 	},
@@ -18801,11 +18545,7 @@
 /turf/open/floor/tile/yellow/patch,
 /area/gelida/indoors/a_block/corpo)
 "mIG" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/liquid/water/river,
 /area/gelida/indoors/a_block/fitness)
 "mIM" = (
@@ -18818,11 +18558,7 @@
 /obj/structure/toilet{
 	pixel_y = 16
 	},
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/freezer,
 /area/gelida/indoors/a_block/dorms)
 "mJc" = (
@@ -18985,11 +18721,7 @@
 /turf/open/floor/plating,
 /area/gelida/indoors/a_block/kitchen)
 "mOy" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/darkpurple{
 	dir = 1
 	},
@@ -20006,11 +19738,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 4
 	},
@@ -20345,10 +20073,7 @@
 	pixel_y = 6
 	},
 /obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	pixel_y = -11;
-	stat = 2
+	pixel_y = -11
 	},
 /turf/open/floor/plating/ground/snow/layer1,
 /area/gelida/landing_zone_1)
@@ -20678,11 +20403,7 @@
 /obj/structure/bed/chair/comfy{
 	dir = 8
 	},
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/security)
 "nWR" = (
@@ -20786,9 +20507,7 @@
 /turf/open/floor/prison,
 /area/gelida/indoors/c_block/mining)
 "nZH" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
@@ -21339,8 +21058,7 @@
 /area/gelida/landing_zone_2)
 "ovj" = (
 /obj/machinery/power/apc/drained{
-	name = "Mining APC";
-	start_charge = 0
+	name = "Mining APC"
 	},
 /obj/structure/cable,
 /turf/open/floor/prison/darkbrown/full,
@@ -21378,8 +21096,7 @@
 "owm" = (
 /obj/machinery/door/airlock/mainship/medical/glass{
 	dir = 1;
-	name = "\improper Chunk 'N Dump";
-	req_access = null
+	name = "\improper Chunk 'N Dump"
 	},
 /turf/open/floor/tile/dark2,
 /area/gelida/indoors/lone_buildings/chunk)
@@ -21474,11 +21191,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/landing_zone_1)
 "oAR" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/item/clothing/head/helmet/riot,
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/kitchen)
@@ -22440,11 +22153,7 @@
 /turf/open/floor/mainship/stripesquare,
 /area/gelida/outdoors/rock)
 "pdM" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/plating/heatinggrate,
 /area/gelida/indoors/a_block/bridges/garden_bridge)
 "pdT" = (
@@ -22452,11 +22161,7 @@
 /turf/open/floor/plating,
 /area/gelida/indoors/c_block/cargo)
 "ped" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
@@ -22485,15 +22190,6 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/black/full,
 /area/gelida/powergen)
-"pfk" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 4
-	},
-/turf/open/floor/prison,
-/area/gelida/outdoors/colony_streets/south_west_street)
 "pfm" = (
 /obj/effect/landmark/xeno_silo_spawn,
 /turf/open/floor/mainship/black/full,
@@ -22586,9 +22282,7 @@
 /area/gelida/outdoors/colony_streets/north_east_street)
 "pht" = (
 /obj/structure/window/reinforced,
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/wood,
 /area/gelida/indoors/a_block/fitness)
 "phw" = (
@@ -22646,9 +22340,7 @@
 	},
 /area/gelida/indoors/b_block/bridge)
 "piS" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
@@ -22867,11 +22559,7 @@
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/dorms)
 "prU" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
@@ -22911,11 +22599,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/south_street)
 "pum" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
 	},
@@ -23094,11 +22778,7 @@
 /area/gelida/outdoors/colony_streets/north_west_street)
 "pzT" = (
 /obj/structure/table/mainship,
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -23191,13 +22871,8 @@
 /turf/open/floor/tile/yellow/patch,
 /area/gelida/indoors/a_block/corpo)
 "pEA" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 8
-	},
-/turf/open/floor/prison,
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/south_west_street)
 "pEB" = (
 /obj/effect/ai_node,
@@ -23626,9 +23301,7 @@
 /turf/open/floor/plating/ground/snow/layer1,
 /area/gelida/outdoors/colony_streets/central_streets)
 "pRb" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
 	},
@@ -23928,11 +23601,7 @@
 /turf/open/floor/mainship/black/full,
 /area/gelida/powergen)
 "qba" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/prison/sterilewhite,
 /area/gelida/indoors/a_block/medical)
@@ -24002,11 +23671,7 @@
 /turf/open/floor/carpet,
 /area/gelida/indoors/c_block/casino)
 "qdK" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison,
 /area/gelida/landing_zone_1)
 "qeb" = (
@@ -24042,11 +23707,7 @@
 /turf/open/floor/tile/dark2,
 /area/gelida/outdoors/rock)
 "qft" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/blue/plate{
 	dir = 1
 	},
@@ -24237,7 +23898,6 @@
 	dir = 4
 	},
 /obj/machinery/suit_storage_unit{
-	name = "Suit Storage Unit";
 	pixel_x = 3
 	},
 /turf/open/floor/prison,
@@ -24306,9 +23966,7 @@
 /turf/open/floor/prison/cleanmarked,
 /area/gelida/indoors/lone_buildings/storage_blocks)
 "qnR" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
@@ -24497,11 +24155,7 @@
 	},
 /area/gelida/outdoors/colony_streets/central_streets)
 "qxc" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/green/full{
 	dir = 4
 	},
@@ -24976,7 +24630,6 @@
 	dir = 1
 	},
 /obj/machinery/suit_storage_unit{
-	name = "Suit Storage Unit";
 	pixel_x = 3
 	},
 /turf/open/floor/prison/darkbrown/full,
@@ -25315,11 +24968,7 @@
 	name = "synthethic potted plant";
 	pixel_y = 14
 	},
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/whitepurple/full{
 	dir = 4
 	},
@@ -25459,11 +25108,7 @@
 	pixel_y = 13
 	},
 /obj/item/bedsheet/brown,
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/whitepurple/full{
 	dir = 4
 	},
@@ -25526,11 +25171,7 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/gelida/landing_zone_1)
 "res" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison,
 /area/gelida/cavestructuretwo)
 "rez" = (
@@ -25542,11 +25183,7 @@
 /turf/open/floor/mainship/stripesquare,
 /area/gelida/indoors/a_block/security)
 "reV" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 8
 	},
@@ -25603,10 +25240,7 @@
 	pixel_y = -8
 	},
 /obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	pixel_x = -9;
-	stat = 2
+	pixel_x = -9
 	},
 /obj/effect/turf_decal/tracks/wheels/bloody{
 	dir = 4
@@ -25714,11 +25348,7 @@
 /turf/open/floor/mainship/stripesquare,
 /area/gelida/indoors/a_block/dorms)
 "riC" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/cleanmarked,
 /area/gelida/landing_zone_1)
 "riW" = (
@@ -25956,9 +25586,7 @@
 /turf/open/floor/prison/plate,
 /area/gelida/indoors/lone_buildings/storage_blocks)
 "rqw" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
@@ -26532,11 +26160,7 @@
 	dir = 8;
 	pixel_y = 4
 	},
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/whitepurple/full{
 	dir = 4
 	},
@@ -26681,11 +26305,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/south_east_street)
 "rQw" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk/prison,
@@ -26802,11 +26422,7 @@
 	},
 /area/gelida/outdoors/colony_streets/central_streets)
 "rVR" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/structure/table/mainship,
 /turf/open/floor/prison/whitepurple/full{
 	dir = 4
@@ -26920,11 +26536,7 @@
 /turf/open/floor/prison,
 /area/gelida/indoors/c_block/casino)
 "saB" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/effect/landmark/xeno_tunnel_spawn,
 /turf/open/floor/prison/whitepurple/full{
 	dir = 4
@@ -27111,11 +26723,7 @@
 /turf/open/floor/prison,
 /area/gelida/indoors/c_block/mining)
 "shI" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/gelida/indoors/a_block/security)
@@ -27372,11 +26980,7 @@
 /turf/open/floor/prison/whitegreen/corner,
 /area/gelida/indoors/a_block/medical)
 "srs" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/blue/plate{
 	dir = 1
 	},
@@ -27993,9 +27597,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/prison/plate,
 /area/gelida/outdoors/colony_streets/central_streets)
 "sKE" = (
@@ -28159,9 +27761,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /turf/closed/mineral/smooth/snowrock,
 /area/gelida/outdoors/rock)
 "sQp" = (
@@ -28263,11 +27863,7 @@
 /area/gelida/indoors/c_block/cargo)
 "sUi" = (
 /obj/structure/table/mainship,
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/item/reagent_containers/food/drinks/coffee{
 	pixel_x = -4;
 	pixel_y = 9
@@ -28821,9 +28417,7 @@
 /turf/open/floor/mainship/black/full,
 /area/gelida/indoors/c_block/mining)
 "tmH" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
 	},
@@ -29174,9 +28768,7 @@
 	},
 /area/gelida/landing_zone_forecon/landing_zone_4)
 "tCc" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/prison/whitepurple/full{
 	dir = 4
@@ -29224,11 +28816,7 @@
 /turf/open/floor/prison/whitegreenfull2,
 /area/gelida/indoors/a_block/bridges/dorms_fitness)
 "tCZ" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/gelida/indoors/c_block/cargo)
@@ -29405,11 +28993,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/south_east_street)
 "tMb" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /turf/open/floor/prison,
 /area/gelida/indoors/c_block/mining)
@@ -29603,11 +29187,7 @@
 /turf/open/floor/prison,
 /area/gelida/landing_zone_forecon/landing_zone_4)
 "tTF" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/structure/cable,
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/security)
@@ -30060,11 +29640,7 @@
 /turf/open/floor/wood,
 /area/gelida/indoors/a_block/executive)
 "ukR" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/plate,
 /area/gelida/landing_zone_1)
 "ukV" = (
@@ -30395,11 +29971,7 @@
 /area/gelida/caves/west_caves)
 "uzv" = (
 /obj/effect/spawner/random/misc/structure/chair_or_metal/east,
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/whitepurple/full{
 	dir = 4
 	},
@@ -30686,7 +30258,6 @@
 /area/gelida/indoors/a_block/security)
 "uIl" = (
 /obj/machinery/suit_storage_unit{
-	name = "Suit Storage Unit";
 	pixel_x = 3
 	},
 /turf/open/floor/prison,
@@ -31352,11 +30923,7 @@
 /obj/structure/bed/chair/comfy{
 	dir = 4
 	},
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/whitepurple/full{
 	dir = 4
 	},
@@ -31406,11 +30973,7 @@
 /turf/open/floor/tile/dark2,
 /area/gelida/indoors/c_block/mining)
 "vib" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/prison{
 	dir = 9
@@ -31455,11 +31018,7 @@
 /turf/open/floor/plating/ground/snow/layer1,
 /area/gelida/outdoors/colony_streets/north_west_street)
 "vjl" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
@@ -31946,11 +31505,7 @@
 /area/gelida/indoors/a_block/kitchen)
 "vBF" = (
 /obj/structure/bed/roller,
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/prison/sterilewhite/full,
 /area/gelida/indoors/a_block/medical)
 "vCg" = (
@@ -32209,9 +31764,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/north_east_street)
 "vLL" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
 	},
@@ -32584,11 +32137,8 @@
 /area/gelida/indoors/a_block/fitness)
 "wbj" = (
 /obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
 	pixel_x = 3;
-	pixel_y = -3;
-	stat = 2
+	pixel_y = -3
 	},
 /obj/item/weapon/gun/pistol/highpower{
 	pixel_x = -11;
@@ -32614,9 +32164,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/ai_node,
 /turf/open/floor/prison/plate,
 /area/gelida/outdoors/colony_streets/central_streets)
@@ -33167,11 +32715,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/south_east_street)
 "wxm" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/gelida/indoors/b_block/hydro)
 "wxn" = (
@@ -33756,11 +33300,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/south_east_street)
 "wUn" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -33792,11 +33332,9 @@
 	},
 /area/gelida/landing_zone_2)
 "wVC" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
-/turf/open/floor/prison,
-/area/gelida/outdoors/colony_streets/south_west_street)
+/obj/effect/landmark/static_comms/net_two,
+/turf/open/floor/mainship/black/full,
+/area/gelida/indoors/c_block/mining)
 "wVF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/prop/mainship/gelida/railbumper{
@@ -34593,7 +34131,6 @@
 	},
 /obj/effect/decal/cleanable/blood/oil,
 /obj/machinery/suit_storage_unit{
-	name = "Suit Storage Unit";
 	pixel_x = 3
 	},
 /turf/open/floor/prison/darkbrown/full,
@@ -35144,11 +34681,7 @@
 	},
 /area/gelida/indoors/a_block/medical)
 "xST" = (
-/obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	stat = 2
-	},
+/obj/item/clothing/mask/facehugger/dead,
 /obj/effect/ai_node,
 /obj/effect/landmark/corpsespawner/chef,
 /turf/open/floor/prison/sterilewhite,
@@ -35413,10 +34946,6 @@
 /obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/prison/plate,
 /area/gelida/landing_zone_2)
-"ybs" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/closed/mineral/smooth/snowrock/indestructible,
-/area/storage/testroom)
 "ybx" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -35436,9 +34965,7 @@
 "ych" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/window/reinforced,
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/wood,
 /area/gelida/indoors/a_block/fitness)
 "yco" = (
@@ -35452,9 +34979,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/south_east_street)
 "ycD" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/prison/darkred/full,
 /area/gelida/outdoors/colony_streets/central_streets)
 "ycN" = (
@@ -36219,7 +35744,7 @@ nsK
 nsK
 nsK
 qbZ
-ybs
+qbZ
 qbZ
 nsK
 nsK
@@ -40684,7 +40209,7 @@ mXx
 sVj
 ueY
 hHY
-bQE
+fxu
 nhz
 nhz
 ewj
@@ -40906,7 +40431,7 @@ wjf
 wjf
 ueY
 hoS
-bQE
+fxu
 ewj
 ewj
 ewj
@@ -41128,7 +40653,7 @@ daK
 wjf
 ueY
 hoS
-bQE
+fxu
 ewj
 ewj
 wrn
@@ -41350,7 +40875,7 @@ nHQ
 rpT
 ueY
 hoS
-bQE
+fxu
 sjU
 ewj
 wrn
@@ -41820,7 +41345,7 @@ mMH
 tqi
 dqv
 nAi
-pEA
+sWt
 qOV
 tqF
 tqF
@@ -42042,7 +41567,7 @@ tqi
 tqi
 wcb
 cek
-wVC
+sJg
 tqF
 tqF
 tqF
@@ -42264,7 +41789,7 @@ tqi
 tqi
 qRn
 oUg
-pfk
+ada
 tqF
 gsB
 tqF
@@ -47601,7 +47126,7 @@ tqi
 tqi
 tqi
 rMs
-tqi
+pEA
 tqi
 tqi
 tqi
@@ -59629,7 +59154,7 @@ qkJ
 fKH
 wvE
 fKH
-fKH
+wVC
 fKH
 qmp
 pPX

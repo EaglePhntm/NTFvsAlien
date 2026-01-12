@@ -13015,6 +13015,13 @@
 	name = "CLF Bunks";
 	outside = 0
 	})
+"lBF" = (
+/obj/item/stack/sheet/wood{
+	amount = 50
+	},
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/floor/plating,
+/area/lv624/lazarus/quartstorage/dome)
 "lBK" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /obj/machinery/door/poddoor/mainship/open{
@@ -19597,6 +19604,10 @@
 "sgN" = (
 /turf/open/ground/grass,
 /area/lv624/lazarus/research)
+"sgU" = (
+/obj/effect/landmark/static_comms/net_two,
+/turf/open/ground/grass,
+/area/lv624/ground/jungle9)
 "sgY" = (
 /obj/machinery/smartfridge/seeds,
 /turf/open/floor/tile/green/whitegreen{
@@ -60608,7 +60619,7 @@ mOs
 mOs
 xRH
 aES
-aES
+sgU
 aES
 mOs
 mOs
@@ -89690,7 +89701,7 @@ rdQ
 ngA
 kau
 tSV
-tSV
+lBF
 kop
 ixW
 dLo

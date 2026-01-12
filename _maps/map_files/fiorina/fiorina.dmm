@@ -343,8 +343,7 @@
 /area/fiorina/station/research_cells)
 "akQ" = (
 /obj/machinery/door/poddoor/shutters/mainship{
-	density = 0;
-	dir = 4
+	density = 0
 	},
 /turf/open/floor/plating/kutjevo,
 /area/fiorina/station/security)
@@ -1216,9 +1215,7 @@
 /obj/effect/spawner/random/food_or_drink/drink_cans{
 	pixel_x = -8
 	},
-/obj/effect/spawner/random/food_or_drink/drink_cans{
-	anchored = 1
-	},
+/obj/effect/spawner/random/food_or_drink/drink_cans,
 /obj/effect/spawner/random/food_or_drink/drink_cans{
 	pixel_x = 4;
 	pixel_y = 18
@@ -4735,9 +4732,7 @@
 	},
 /area/fiorina/station/power_ring)
 "cKs" = (
-/obj/machinery/door/poddoor/shutters/mainship{
-	dir = 4
-	},
+/obj/machinery/door/poddoor/shutters/mainship,
 /turf/open/floor/prison,
 /area/fiorina/station/security)
 "cKv" = (
@@ -5280,9 +5275,7 @@
 /turf/open/floor/plating/kutjevo,
 /area/fiorina/station/park)
 "cZs" = (
-/obj/machinery/door/poddoor/shutters/mainship{
-	dir = 4
-	},
+/obj/machinery/door/poddoor/shutters/mainship,
 /turf/open/floor/plating/kutjevo,
 /area/fiorina/station/security)
 "cZB" = (
@@ -6561,9 +6554,7 @@
 /area/fiorina/station/flight_deck)
 "dHa" = (
 /obj/structure/table/reinforced/prison,
-/obj/effect/spawner/random/food_or_drink/drink_cans{
-	anchored = 1
-	},
+/obj/effect/spawner/random/food_or_drink/drink_cans,
 /obj/effect/spawner/random/food_or_drink/drink_cans{
 	pixel_x = -8
 	},
@@ -9941,8 +9932,7 @@
 /area/fiorina/lz/near_lzII)
 "fzp" = (
 /obj/machinery/door/poddoor/shutters/mainship{
-	density = 0;
-	dir = 4
+	density = 0
 	},
 /turf/open/floor/plating/kutjevo,
 /area/fiorina/tumor/fiberbush)
@@ -11802,9 +11792,7 @@
 /obj/effect/spawner/random/food_or_drink/drink_cans{
 	pixel_x = -8
 	},
-/obj/effect/spawner/random/food_or_drink/drink_cans{
-	anchored = 1
-	},
+/obj/effect/spawner/random/food_or_drink/drink_cans,
 /obj/effect/spawner/random/food_or_drink/drink_cans{
 	pixel_x = 8
 	},
@@ -12441,8 +12429,7 @@
 /area/fiorina/maintenance)
 "gUT" = (
 /obj/machinery/door/poddoor/mainship{
-	density = 0;
-	dir = 4
+	density = 0
 	},
 /turf/open/floor/plating/kutjevo,
 /area/fiorina/station/botany)
@@ -15461,8 +15448,7 @@
 /area/fiorina/station/civres_blue)
 "iEd" = (
 /obj/machinery/door/poddoor/mainship{
-	density = 0;
-	dir = 4
+	density = 0
 	},
 /turf/open/floor/plating/kutjevo,
 /area/fiorina/tumor/aux_engi)
@@ -16256,9 +16242,7 @@
 /area/fiorina/tumor/ice_lab)
 "iYg" = (
 /obj/structure/table/reinforced/prison,
-/obj/effect/spawner/random/food_or_drink/drink_cans{
-	anchored = 1
-	},
+/obj/effect/spawner/random/food_or_drink/drink_cans,
 /obj/effect/spawner/random/food_or_drink/drink_cans{
 	pixel_x = 8
 	},
@@ -18779,6 +18763,12 @@
 /obj/effect/spawner/gibspawner/human,
 /turf/open/liquid/water/river/deep,
 /area/fiorina/station/park)
+"kny" = (
+/obj/effect/landmark/static_comms/net_two,
+/turf/open/floor/prison/blue{
+	dir = 1
+	},
+/area/fiorina/station/flight_deck)
 "knJ" = (
 /obj/item/tool/wet_sign,
 /obj/item/tool/mop{
@@ -21529,9 +21519,7 @@
 /area/fiorina/oob)
 "lIx" = (
 /obj/structure/table/reinforced/prison,
-/obj/effect/spawner/random/food_or_drink/drink_cans{
-	anchored = 1
-	},
+/obj/effect/spawner/random/food_or_drink/drink_cans,
 /obj/effect/spawner/random/food_or_drink/drink_cans{
 	pixel_x = -8
 	},
@@ -21810,8 +21798,7 @@
 /area/fiorina/station/power_ring)
 "lPy" = (
 /obj/machinery/door/poddoor/mainship{
-	density = 0;
-	dir = 4
+	density = 0
 	},
 /obj/effect/landmark/weed_node,
 /turf/open/floor/prison,
@@ -23637,8 +23624,7 @@
 /area/fiorina/station/flight_deck)
 "mPM" = (
 /obj/machinery/door/poddoor/mainship{
-	density = 0;
-	dir = 4
+	density = 0
 	},
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/kutjevo,
@@ -26140,8 +26126,7 @@
 /area/fiorina/station/disco)
 "olj" = (
 /obj/machinery/door/poddoor/mainship{
-	density = 0;
-	dir = 4
+	density = 0
 	},
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/kutjevo,
@@ -26409,8 +26394,7 @@
 /area/fiorina/station/medbay)
 "osu" = (
 /obj/machinery/door/poddoor/shutters/mainship{
-	density = 0;
-	dir = 4
+	density = 0
 	},
 /turf/open/floor/prison,
 /area/fiorina/station/security)
@@ -28848,8 +28832,7 @@
 /area/fiorina/station/flight_deck)
 "pJc" = (
 /obj/machinery/door/poddoor/mainship{
-	density = 0;
-	dir = 4
+	density = 0
 	},
 /turf/open/floor/prison/plate,
 /area/fiorina/station/park)
@@ -35031,7 +35014,6 @@
 	pixel_x = -11;
 	pixel_y = 10
 	},
-/obj/machinery/telecomms/relay/preset/telecomms,
 /turf/open/floor/plating/kutjevo,
 /area/storage/testroom)
 "tdZ" = (
@@ -36071,6 +36053,12 @@
 	dir = 9
 	},
 /area/fiorina/station/telecomm/lz1_tram)
+"tIp" = (
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/floor/prison/plate{
+	dir = 10
+	},
+/area/fiorina/station/telecomm/lz1_cargo)
 "tIs" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/effect/landmark/weed_node,
@@ -36477,8 +36465,7 @@
 /area/fiorina/station/disco)
 "tTa" = (
 /obj/machinery/door/poddoor/mainship{
-	density = 0;
-	dir = 4
+	density = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -37840,8 +37827,7 @@
 "uIk" = (
 /obj/item/stack/rods,
 /obj/machinery/door/poddoor/shutters/mainship{
-	density = 0;
-	dir = 4
+	density = 0
 	},
 /turf/open/floor/tile/damaged/three,
 /area/fiorina/station/security)
@@ -39220,8 +39206,7 @@
 /area/fiorina/tumor/civres)
 "vsv" = (
 /obj/machinery/door/poddoor/mainship{
-	density = 0;
-	dir = 4
+	density = 0
 	},
 /turf/open/floor/prison,
 /area/fiorina/station/medbay)
@@ -39398,8 +39383,7 @@
 /area/fiorina/station/transit_hub)
 "vxC" = (
 /obj/machinery/door/poddoor/shutters/mainship{
-	density = 0;
-	dir = 4
+	density = 0
 	},
 /obj/effect/landmark/weed_node,
 /turf/open/floor/prison,
@@ -42130,9 +42114,7 @@
 /area/fiorina/tumor/servers)
 "wTt" = (
 /obj/structure/table/reinforced/prison,
-/obj/effect/spawner/random/food_or_drink/drink_cans{
-	anchored = 1
-	},
+/obj/effect/spawner/random/food_or_drink/drink_cans,
 /obj/effect/spawner/random/food_or_drink/drink_cans{
 	pixel_x = 8
 	},
@@ -42482,9 +42464,7 @@
 /turf/open/floor/plating/kutjevo,
 /area/fiorina/station/civres_blue)
 "xby" = (
-/obj/machinery/door/window{
-	dir = 4
-	},
+/obj/machinery/door/window,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
@@ -43304,10 +43284,7 @@
 	pixel_y = -8
 	},
 /obj/item/clothing/mask/facehugger/dead{
-	desc = "It has some sort of a tube at the end of its tail. What the hell is this thing?";
-	name = "????";
-	pixel_x = -9;
-	stat = 2
+	pixel_x = -9
 	},
 /obj/effect/turf_decal/tracks/wheels/bloody{
 	dir = 4
@@ -87488,7 +87465,7 @@ ewh
 raD
 vNd
 hiz
-aIB
+tIp
 gwP
 lAk
 fRu
@@ -87699,7 +87676,7 @@ vJh
 ouI
 uYD
 vgj
-lou
+raD
 das
 aIq
 das
@@ -93039,7 +93016,7 @@ qmN
 qmN
 yjX
 nUE
-oIG
+kny
 kHc
 nYV
 eBJ

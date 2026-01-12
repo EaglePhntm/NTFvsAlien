@@ -115,9 +115,7 @@
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/breakroom)
 "aU" = (
-/obj/structure/flora/grass/tallgrass{
-	color = "#7a8c54"
-	},
+/obj/structure/flora/grass/tallgrass,
 /obj/structure/flora/tree/joshua,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outposte)
@@ -283,7 +281,6 @@
 /area/orion_outpost/ground/underground/caveE)
 "bG" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 9
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -548,9 +545,7 @@
 /turf/open/floor/mainship/black/full,
 /area/orion_outpost/surface/building/ammodepot)
 "da" = (
-/obj/structure/cargo_container/horizontal{
-	dir = 2
-	},
+/obj/structure/cargo_container/horizontal,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/cargo)
 "db" = (
@@ -597,9 +592,7 @@
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outposts)
 "dm" = (
-/obj/structure/flora/grass/tallgrass{
-	color = "#7a8c54"
-	},
+/obj/structure/flora/grass/tallgrass,
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outpostnw)
 "dn" = (
@@ -608,7 +601,6 @@
 /area/orion_outpost/surface/building/tadpolepad)
 "do" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 9
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -632,7 +624,6 @@
 /area/orion_outpost/ground/outpostcent)
 "dv" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 1
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -646,7 +637,6 @@
 /area/orion_outpost/ground/outpostw)
 "dx" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 9
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -675,7 +665,6 @@
 /area/orion_outpost/ground/outpostn)
 "dB" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 1
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -704,9 +693,7 @@
 /turf/open/floor/plating/scorched,
 /area/orion_outpost/ground/underground/caveS/garbledradio)
 "dI" = (
-/obj/structure/platform{
-	dir = 2
-	},
+/obj/structure/platform,
 /turf/open/floor/plating,
 /area/orion_outpost/surface/building/tadpolepad)
 "dJ" = (
@@ -801,7 +788,6 @@
 /area/orion_outpost/surface/building/monitor)
 "ef" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 10
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -888,9 +874,7 @@
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/surface/building/vehicledepot)
 "ey" = (
-/obj/structure/flora/grass/tallgrass{
-	color = "#7a8c54"
-	},
+/obj/structure/flora/grass/tallgrass,
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outpostcent)
 "eC" = (
@@ -1345,7 +1329,6 @@
 /area/orion_outpost/ground/underground/caveE)
 "gH" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -1531,9 +1514,7 @@
 /turf/open/floor/plating/ground/concrete/lines,
 /area/orion_outpost/ground/outpostse)
 "hQ" = (
-/obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54"
-	},
+/obj/structure/flora/grass/tallgrass/tallgrasscorner,
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outpostn)
 "hS" = (
@@ -1744,7 +1725,6 @@
 /area/orion_outpost/surface/building/tadpolepad)
 "iV" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 4
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -1878,7 +1858,6 @@
 /area/orion_outpost/ground/outpostcent)
 "jx" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 4
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -1919,7 +1898,6 @@
 /area/orion_outpost/surface/building/administration)
 "jI" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 6
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -1949,7 +1927,6 @@
 /area/orion_outpost/surface/building/engineering)
 "jP" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 5
 	},
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -1985,7 +1962,6 @@
 /area/orion_outpost/ground/outposte)
 "jW" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 10
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -2102,9 +2078,7 @@
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outposte)
 "kz" = (
-/obj/structure/flora/grass/tallgrass{
-	color = "#7a8c54"
-	},
+/obj/structure/flora/grass/tallgrass,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outposte)
 "kA" = (
@@ -2162,7 +2136,6 @@
 /area/orion_outpost/ground/underground/caveS)
 "kO" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 9
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -2254,7 +2227,6 @@
 /area/orion_outpost/surface/building/administration)
 "lo" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 5
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -2426,7 +2398,6 @@
 /area/orion_outpost/surface/building/brig)
 "mf" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 6
 	},
 /obj/structure/flora/ausbushes/fullgrass,
@@ -2456,7 +2427,6 @@
 /area/orion_outpost/surface/building/cargo)
 "mn" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 5
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -2508,7 +2478,6 @@
 /area/orion_outpost/surface/building/cargo)
 "mz" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 8
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -2687,7 +2656,6 @@
 /area/orion_outpost/surface/building/prep)
 "nm" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 6
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -2716,7 +2684,6 @@
 /area/orion_outpost/surface/building/engineering)
 "ns" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 9
 	},
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -2936,7 +2903,6 @@
 /area/orion_outpost/ground/outposte)
 "os" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 9
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -3398,7 +3364,6 @@
 /area/orion_outpost/ground/outpostsw)
 "qw" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 1
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -3463,7 +3428,6 @@
 /area/orion_outpost/surface/building/administration)
 "qJ" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 10
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -3515,9 +3479,7 @@
 /area/orion_outpost/surface/building/cargo)
 "qY" = (
 /obj/machinery/vending/security,
-/turf/open/floor/mainship/red{
-	dir = 2
-	},
+/turf/open/floor/mainship/red,
 /area/orion_outpost/surface/building/administration)
 "rb" = (
 /obj/structure/prop/brokenvendor/surplusarmor,
@@ -3545,7 +3507,6 @@
 /area/orion_outpost/ground/outpostcent)
 "rg" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 9
 	},
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -3823,7 +3784,6 @@
 /area/orion_outpost/surface/building/cargo)
 "sz" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 9
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -3852,7 +3812,6 @@
 /area/orion_outpost/surface/building/administration)
 "sF" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 1
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -3932,7 +3891,6 @@
 /area/orion_outpost/ground/underground/caveS)
 "sU" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 10
 	},
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
@@ -4027,9 +3985,7 @@
 /area/orion_outpost/surface/landing_pad_external)
 "tq" = (
 /obj/item/storage/toolbox/mechanical,
-/obj/structure/platform{
-	dir = 2
-	},
+/obj/structure/platform,
 /turf/open/floor/plating,
 /area/orion_outpost/surface/building/tadpolepad)
 "tr" = (
@@ -4071,9 +4027,7 @@
 	},
 /area/orion_outpost/surface/building/command)
 "tD" = (
-/obj/structure/flora/grass/tallgrass{
-	color = "#7a8c54"
-	},
+/obj/structure/flora/grass/tallgrass,
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outpostw)
 "tE" = (
@@ -4130,7 +4084,6 @@
 /area/orion_outpost/ground/outpostw)
 "tV" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 5
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -4287,9 +4240,7 @@
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostw)
 "uQ" = (
-/obj/structure/flora/grass/tallgrass{
-	color = "#7a8c54"
-	},
+/obj/structure/flora/grass/tallgrass,
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outpostsw)
 "uR" = (
@@ -4298,9 +4249,7 @@
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/tadpolepad)
 "uS" = (
-/obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54"
-	},
+/obj/structure/flora/grass/tallgrass/tallgrasscorner,
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outpostcent)
 "uT" = (
@@ -4377,7 +4326,6 @@
 /area/orion_outpost/surface/building/administration)
 "vm" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 10
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -4473,9 +4421,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/orion_outpost/ground/outpostsw)
 "vK" = (
-/obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54"
-	},
+/obj/structure/flora/grass/tallgrass/tallgrasscorner,
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outpostsw)
 "vL" = (
@@ -4513,7 +4459,6 @@
 /area/orion_outpost/ground/outposts)
 "vV" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 8
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -4610,7 +4555,6 @@
 /area/orion_outpost/surface/building/vehicledepot)
 "wq" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 8
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -4709,16 +4653,13 @@
 /area/orion_outpost/ground/outpostcent)
 "wP" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 9
 	},
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/underground/caveS)
 "wR" = (
-/obj/structure/flora/grass/tallgrass{
-	color = "#7a8c54"
-	},
+/obj/structure/flora/grass/tallgrass,
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outposte)
 "wS" = (
@@ -4743,7 +4684,6 @@
 /area/orion_outpost/ground/outposts)
 "wV" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 9
 	},
 /obj/effect/ai_node,
@@ -4757,7 +4697,6 @@
 /area/orion_outpost/surface/building/prep)
 "wX" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 5
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -5215,9 +5154,9 @@
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/engineering)
 "zf" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/closed/mineral/smooth/indestructible,
-/area/storage/testroom)
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/outpostsw)
 "zh" = (
 /turf/open/floor/plating/icefloor/warnplate{
 	dir = 5
@@ -5506,9 +5445,7 @@
 /turf/open/floor/prison,
 /area/orion_outpost/surface/building/engineering)
 "Az" = (
-/obj/structure/flora/grass/tallgrass{
-	color = "#7a8c54"
-	},
+/obj/structure/flora/grass/tallgrass,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outpostcent)
 "AA" = (
@@ -5587,14 +5524,12 @@
 /area/orion_outpost/ground/underground/caveS)
 "AS" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 10
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/underground/caveN/garbledradio)
 "AT" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 10
 	},
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
@@ -5878,9 +5813,7 @@
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/cargo)
 "Co" = (
-/obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54"
-	},
+/obj/structure/flora/grass/tallgrass/tallgrasscorner,
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outposts)
 "Cp" = (
@@ -5915,7 +5848,6 @@
 /area/orion_outpost/ground/outpostse)
 "Cx" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 4
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -6095,7 +6027,6 @@
 /area/orion_outpost/ground/outpostw)
 "Dl" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 8
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -6148,7 +6079,6 @@
 /area/orion_outpost/ground/outpostsw)
 "Du" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 6
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -6281,7 +6211,6 @@
 /area/orion_outpost/surface/building/engineering)
 "Ef" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 9
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -6484,10 +6413,12 @@
 "Fn" = (
 /turf/closed/wall/mainship/gray,
 /area/orion_outpost/surface/building/brig)
+"Fp" = (
+/obj/effect/landmark/static_comms/net_two,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/outpostnw)
 "Fq" = (
-/obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54"
-	},
+/obj/structure/flora/grass/tallgrass/tallgrasscorner,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outposte)
 "Fr" = (
@@ -6545,7 +6476,6 @@
 /area/orion_outpost/ground/outposte)
 "FF" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 6
 	},
 /obj/effect/ai_node,
@@ -6668,14 +6598,12 @@
 /area/orion_outpost/surface/building/nebuilding)
 "Gp" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 5
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outposts)
 "Gq" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 6
 	},
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -6769,14 +6697,12 @@
 /area/orion_outpost/ground/underground/caveS/garbledradio)
 "GO" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 4
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outpostw)
 "GP" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 10
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -6855,7 +6781,6 @@
 /area/orion_outpost/ground/outpostsw)
 "Hh" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 8
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -6913,7 +6838,6 @@
 /area/orion_outpost/surface/building/cargo)
 "Hw" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 8
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -7019,7 +6943,6 @@
 /area/orion_outpost/surface/building/canteen)
 "HY" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 10
 	},
 /turf/open/floor/plating/ground/desertdam/asphalt,
@@ -7310,7 +7233,6 @@
 /area/orion_outpost/ground/outpostcent)
 "JB" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 9
 	},
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -7339,7 +7261,6 @@
 /area/orion_outpost/surface/building/administration)
 "JI" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -7745,7 +7666,6 @@
 /area/orion_outpost/ground/outpostcent)
 "Lz" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 8
 	},
 /obj/effect/ai_node,
@@ -8180,7 +8100,6 @@
 /area/orion_outpost/ground/underground/caveN)
 "Nv" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 1
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -8481,7 +8400,6 @@
 /area/orion_outpost/surface/landing_pad)
 "OV" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 6
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -8562,7 +8480,6 @@
 /area/orion_outpost/ground/outpostcent)
 "Po" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 8
 	},
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -8770,7 +8687,6 @@
 /area/orion_outpost/ground/outpostsw)
 "Qs" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 6
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -8817,7 +8733,6 @@
 /area/orion_outpost/surface/building/prep)
 "QC" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 9
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -8907,7 +8822,6 @@
 /area/orion_outpost/ground/underground/caveN/garbledradio)
 "Rd" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 6
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -8949,7 +8863,6 @@
 /area/orion_outpost/surface/building/dorms)
 "Rm" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -8990,9 +8903,7 @@
 	},
 /area/orion_outpost/ground/outpostcent)
 "Ru" = (
-/obj/structure/flora/grass/tallgrass{
-	color = "#7a8c54"
-	},
+/obj/structure/flora/grass/tallgrass,
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outposts)
 "Rv" = (
@@ -9149,7 +9060,6 @@
 /area/orion_outpost/ground/outpostw)
 "Sj" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 10
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -9204,7 +9114,6 @@
 /area/orion_outpost/ground/outposts)
 "Sx" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 5
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -9295,7 +9204,6 @@
 /area/orion_outpost/surface/building/engineering)
 "SW" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 10
 	},
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -9359,9 +9267,7 @@
 /turf/open/floor/mech_bay_recharge_floor,
 /area/orion_outpost/ground/underground/caveN)
 "Tk" = (
-/obj/structure/flora/grass/tallgrass{
-	color = "#7a8c54"
-	},
+/obj/structure/flora/grass/tallgrass,
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/underground/caveN/garbledradio)
 "Tl" = (
@@ -9406,9 +9312,7 @@
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostsw)
 "Tu" = (
-/obj/structure/flora/grass/tallgrass{
-	color = "#7a8c54"
-	},
+/obj/structure/flora/grass/tallgrass,
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/underground/caveS)
 "Tv" = (
@@ -9817,7 +9721,6 @@
 /area/orion_outpost/surface/building/engineering)
 "Vr" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 10
 	},
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -10033,7 +9936,6 @@
 /area/orion_outpost/surface/building/nebuilding)
 "Ws" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 6
 	},
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -10176,7 +10078,6 @@
 /area/orion_outpost/ground/outpostse)
 "Xd" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 1
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -10267,7 +10168,6 @@
 /area/orion_outpost/ground/outpostn)
 "Xz" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 6
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -10500,7 +10400,6 @@
 /area/orion_outpost/ground/outpostsw)
 "YA" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 9
 	},
 /obj/effect/ai_node,
@@ -10530,7 +10429,6 @@
 /area/orion_outpost/ground/underground/caveS)
 "YK" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 10
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -10541,7 +10439,6 @@
 /area/orion_outpost/ground/underground/caveE)
 "YM" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 5
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -10567,7 +10464,6 @@
 /area/orion_outpost/surface/building/atc)
 "YS" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 6
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -10713,7 +10609,6 @@
 /area/orion_outpost/surface/building/bunker)
 "ZB" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 9
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -10724,7 +10619,6 @@
 /area/orion_outpost/ground/outpostnw)
 "ZD" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -10763,7 +10657,6 @@
 /area/orion_outpost/surface/building/engineering)
 "ZQ" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54";
 	dir = 5
 	},
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -16108,7 +16001,7 @@ wq
 Ef
 rE
 lW
-lW
+Fp
 lW
 jJ
 mh
@@ -17767,7 +17660,7 @@ hZ
 il
 XU
 ve
-ve
+zf
 JW
 ve
 ve
@@ -27707,7 +27600,7 @@ YX
 "}
 (129,1,1) = {"
 pt
-zf
+pt
 pt
 oq
 oq

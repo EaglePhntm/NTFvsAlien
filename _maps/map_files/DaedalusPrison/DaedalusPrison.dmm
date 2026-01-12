@@ -168,9 +168,7 @@
 /area/daedalusprison/caves/northwest/garbledradio)
 "agH" = (
 /obj/effect/turf_decal/warning_stripes/box,
-/obj/structure/cargo_container/horizontal{
-	dir = 2
-	},
+/obj/structure/cargo_container/horizontal,
 /turf/open/floor/tile/dark2,
 /area/daedalusprison/inside/colonyauxstorage)
 "agT" = (
@@ -1484,9 +1482,7 @@
 /turf/open/floor/tile/dark2,
 /area/daedalusprison/inside/seccheckpoint)
 "boi" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber{
-	dir = 2
-	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber,
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/prison/darkred{
 	dir = 1
@@ -3414,13 +3410,9 @@
 /turf/open/floor/prison/sterilewhite,
 /area/daedalusprison/inside/medical/chemistry)
 "cRu" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber{
-	dir = 2
-	},
-/turf/open/floor/prison/darkred{
-	dir = 1
-	},
-/area/daedalusprison/inside/centralhalls)
+/obj/effect/landmark/static_comms/net_two,
+/turf/open/floor/plating/ground/snow/layer2,
+/area/daedalusprison/outside/southeast)
 "cRx" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/plating,
@@ -4242,7 +4234,6 @@
 /area/daedalusprison/inside/habitationsouth)
 "dyU" = (
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
-	dir = 4;
 	name = "\improper Bar Storage"
 	},
 /turf/open/floor/tile/dark2,
@@ -4571,13 +4562,9 @@
 /turf/open/floor/prison/bright_clean/two,
 /area/daedalusprison/inside/gym)
 "dNJ" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber{
-	dir = 2
-	},
-/turf/open/floor/tile/dark/green2{
-	dir = 1
-	},
-/area/daedalusprison/inside/colonydorms)
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/floor/plating/ground/snow/layer2,
+/area/daedalusprison/outside/southeast)
 "dNP" = (
 /obj/machinery/space_heater,
 /obj/machinery/light{
@@ -13054,9 +13041,7 @@
 /turf/closed/wall/r_wall/prison,
 /area/daedalusprison/inside/library)
 "kJE" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber{
-	dir = 2
-	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber,
 /turf/open/floor/prison/plate,
 /area/daedalusprison/inside/staffbreakroom)
 "kJF" = (
@@ -16085,9 +16070,7 @@
 	},
 /area/daedalusprison/inside/easternhalls)
 "ncX" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber{
-	dir = 2
-	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber,
 /turf/open/floor/prison/red{
 	dir = 1
 	},
@@ -19723,9 +19706,7 @@
 /turf/open/floor/prison,
 /area/daedalusprison/inside/security/office)
 "pWv" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber{
-	dir = 2
-	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber,
 /turf/open/floor/prison/plate,
 /area/daedalusprison/inside/easternhalls)
 "pWF" = (
@@ -21545,7 +21526,6 @@
 	},
 /area/daedalusprison/inside/barracks)
 "rxG" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
 /turf/closed/mineral/smooth/darkfrostwall/indestructible,
 /area/daedalusprison/inside/telecomms)
 "rxH" = (
@@ -24212,9 +24192,7 @@
 /turf/open/floor/wood,
 /area/daedalusprison/inside/chapel)
 "tAA" = (
-/turf/open/floor/mainship/orange{
-	dir = 2
-	},
+/turf/open/floor/mainship/orange,
 /area/daedalusprison/caves/research)
 "tAH" = (
 /obj/structure/table/mainship,
@@ -46018,7 +45996,7 @@ gPP
 pZh
 erA
 aok
-dNJ
+hQW
 job
 aXz
 aok
@@ -52757,7 +52735,7 @@ paM
 eos
 uNW
 luz
-cRu
+elT
 waV
 tYQ
 kSX
@@ -62981,7 +62959,7 @@ liI
 liI
 ewq
 ewq
-ewq
+cRu
 ewq
 ewq
 liI
@@ -71019,7 +70997,7 @@ sLx
 sLx
 sLx
 ewq
-ewq
+dNJ
 ewq
 ewq
 wmt

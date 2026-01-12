@@ -4455,9 +4455,9 @@
 	},
 /area/outpost/hallway/east)
 "uR" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/closed/mineral/smooth/bigred/indestructible,
-/area/lv624/lazarus/console)
+/obj/effect/landmark/static_comms/net_two,
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/outpost/caves/south)
 "uS" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 8
@@ -8104,6 +8104,10 @@
 	dir = 9
 	},
 /area/outpost/medbay/storage)
+"Mk" = (
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/floor/plating/ground/mars/random/sand,
+/area/outpost/yard/central)
 "Mm" = (
 /turf/open/floor/plating/ground/mars/dirttosand{
 	dir = 6
@@ -18594,7 +18598,7 @@ EA
 PW
 EA
 EA
-EA
+Mk
 EA
 Xl
 yW
@@ -25082,7 +25086,7 @@ hK
 hK
 hK
 hK
-hK
+uR
 hK
 hK
 hK
@@ -29491,7 +29495,7 @@ Kv
 Kv
 gw
 gP
-uR
+gP
 gP
 yW
 yW

@@ -6205,13 +6205,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/living/officer_study)
-"isU" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/groundhq/ntf/living/chapel)
 "isV" = (
 /obj/machinery/light{
 	dir = 1
@@ -8418,7 +8411,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "lti" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
+/obj/machinery/telecomms/allinone,
 /turf/open/floor/mainship/tcomms,
 /area/mainship/groundhq/ntf/command/telecomms)
 "ltx" = (
@@ -11233,12 +11226,6 @@
 /obj/structure/table/mainship,
 /turf/open/floor/wood,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
-"ppc" = (
-/obj/structure/cable,
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/groundhq/ntf/hallways/starboard_hallway{
-	name = "HQ Central Hallways"
-	})
 "ppO" = (
 /obj/machinery/computer/shuttle/shuttle_control/dropship/two{
 	possible_destinations = "lz1;lz2;hqlz1;hqlz2;alamo;normandy"
@@ -11254,16 +11241,6 @@
 	base_lighting_alpha = 0;
 	static_lighting = 1
 	})
-"pqb" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/squads/req)
 "pqM" = (
 /obj/machinery/door/airlock/mainship/medical/morgue{
 	dir = 2
@@ -12100,10 +12077,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/command/cic)
-"qrT" = (
-/obj/structure/cable,
-/turf/open/floor/mainship,
-/area/mainship/groundhq/ntf/hallways/hangar)
 "qrZ" = (
 /obj/item/toy/beach_ball,
 /turf/open/liquid/water/river/autosmooth,
@@ -12195,13 +12168,6 @@
 	base_lighting_alpha = 0;
 	static_lighting = 1
 	})
-"qyb" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/obj/structure/cable,
-/turf/open/floor/mainship/orange,
-/area/mainship/groundhq/ntf/engineering/upper_engineering)
 "qyd" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -12642,16 +12608,6 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/squads/req)
-"qZO" = (
-/obj/structure/mineral_door/wood,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 1
-	},
-/turf/open/floor/mainship/mono,
-/area/mainship/groundhq/ntf/hallways/stern_hallway{
-	name = "HQ Western hallways"
-	})
 "qZS" = (
 /obj/machinery/door/airlock/multi_tile/mainship/generic,
 /obj/structure/cable,
@@ -14847,11 +14803,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/wood,
 /area/mainship/hallways/ntf/dorm1)
-"uhM" = (
-/obj/structure/window/framed/mainship,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/mainship/groundhq/ntf/engineering/engine_core)
 "uhO" = (
 /obj/structure/table/mainship,
 /obj/item/binoculars,
@@ -17635,10 +17586,6 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/groundhq/ntf/engineering/engineering_workshop)
-"xVs" = (
-/obj/structure/cable,
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/groundhq/ntf/hallways/hangar)
 "xVC" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -19976,7 +19923,7 @@ jVd
 neG
 yeP
 qZn
-uhM
+rfq
 ros
 dGK
 nOT
@@ -21047,7 +20994,7 @@ ixh
 uPF
 kTO
 kTO
-qyb
+cPt
 kTO
 dKw
 vWy
@@ -22736,7 +22683,7 @@ saW
 iHo
 gfR
 adO
-pqb
+auW
 phZ
 gYd
 ctG
@@ -23374,8 +23321,8 @@ hKj
 hKj
 saW
 lrz
-xVs
-xVs
+xus
+xus
 xus
 ygm
 eXS
@@ -24565,7 +24512,7 @@ hKj
 oyC
 oyC
 tiq
-xVs
+xus
 aYh
 fav
 fav
@@ -24672,7 +24619,7 @@ hKj
 doP
 oyC
 oyC
-xVs
+xus
 mLh
 fav
 xRz
@@ -25206,7 +25153,7 @@ hKj
 hKj
 doP
 doP
-qrT
+wRn
 fTV
 xRz
 xRz
@@ -25313,7 +25260,7 @@ doP
 doP
 doP
 doP
-qrT
+wRn
 fTV
 bim
 iTZ
@@ -25740,7 +25687,7 @@ doP
 doP
 doP
 fav
-xVs
+xus
 oyC
 fTV
 iTZ
@@ -25847,7 +25794,7 @@ doP
 doP
 doP
 fav
-xVs
+xus
 oyC
 fav
 vik
@@ -25954,7 +25901,7 @@ doP
 doP
 doP
 fav
-xVs
+xus
 wRn
 uRC
 iTZ
@@ -26840,8 +26787,8 @@ qAp
 tfV
 sMT
 hAS
-ppc
-ppc
+aeo
+aeo
 rrE
 xUr
 mOp
@@ -26854,8 +26801,8 @@ xUr
 xUr
 xUr
 wGV
-ppc
-ppc
+aeo
+aeo
 nNu
 pnq
 oGw
@@ -26946,7 +26893,7 @@ tfV
 tfV
 tfV
 nEb
-ppc
+aeo
 vaB
 frD
 dBF
@@ -27053,7 +27000,7 @@ nqm
 ted
 aUF
 aUF
-ppc
+aeo
 frD
 lxp
 vhg
@@ -27153,14 +27100,14 @@ vNz
 kzw
 nxD
 afY
-ppc
-ppc
-hAS
-ppc
-ppc
 aeo
-ppc
-ppc
+aeo
+hAS
+aeo
+aeo
+aeo
+aeo
+aeo
 frD
 lxp
 vhg
@@ -27267,7 +27214,7 @@ cJQ
 sMk
 vMf
 aUF
-ppc
+aeo
 frD
 lxp
 vhg
@@ -27374,7 +27321,7 @@ gNj
 gNj
 gNj
 aUF
-ppc
+aeo
 frD
 lxp
 vhg
@@ -27481,7 +27428,7 @@ shv
 mNK
 gNj
 aUF
-ppc
+aeo
 frD
 lxp
 vhg
@@ -27588,7 +27535,7 @@ eRG
 pbA
 gNj
 aUF
-ppc
+aeo
 frD
 lxp
 vhg
@@ -27694,7 +27641,7 @@ wXM
 hFT
 lRV
 bKv
-ppc
+aeo
 hAS
 frD
 frD
@@ -27912,7 +27859,7 @@ lIU
 rVw
 mIT
 akp
-isU
+rnl
 akp
 wmQ
 czE
@@ -28019,7 +27966,7 @@ lWm
 qne
 mIT
 akp
-isU
+rnl
 akp
 agt
 gGH
@@ -28126,7 +28073,7 @@ shU
 oVM
 mIT
 akp
-isU
+rnl
 akp
 wmQ
 aID
@@ -28340,7 +28287,7 @@ mGA
 mGA
 mGA
 akp
-isU
+rnl
 akp
 agt
 tbr
@@ -28447,7 +28394,7 @@ dRI
 hDZ
 mGA
 akp
-isU
+rnl
 akp
 agt
 vxV
@@ -28554,7 +28501,7 @@ npa
 oxV
 mGA
 xpO
-isU
+rnl
 akp
 agt
 vxV
@@ -33445,7 +33392,7 @@ uAC
 oHV
 fEK
 fGy
-qZO
+ciN
 rCj
 rCj
 rCj

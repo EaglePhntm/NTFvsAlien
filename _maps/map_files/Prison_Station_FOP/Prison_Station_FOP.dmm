@@ -40381,6 +40381,10 @@
 	},
 /turf/open/floor/prison/bluefloor,
 /area/prison/pirate)
+"fjT" = (
+/obj/effect/landmark/static_comms/net_two,
+/turf/open/floor/prison,
+/area/prison/security/monitoring/highsec)
 "fkw" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -45437,9 +45441,9 @@
 /turf/open/floor/prison,
 /area/prison/engineering)
 "pIl" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/closed/wall/r_wall/prison_unmeltable,
-/area/storage/testroom)
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/floor/prison/marked,
+/area/prison/hallway/east)
 "pIp" = (
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/misc/paperbin{
@@ -66807,8 +66811,8 @@ baa
 aYx
 bhB
 aXK
-aXK
-aXK
+lnA
+fjT
 ixq
 bhB
 oie
@@ -67064,8 +67068,8 @@ baa
 bjR
 bhB
 aXK
-aXK
-aXK
+lnA
+lnA
 lnA
 bhB
 oie
@@ -103837,7 +103841,7 @@ oAY
 oAY
 hYR
 bHR
-bHR
+pIl
 bIM
 hYR
 qtN
@@ -114465,7 +114469,7 @@ aab
 aab
 bKg
 bKg
-pIl
+bKg
 bKg
 bKg
 acD

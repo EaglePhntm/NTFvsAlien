@@ -3546,9 +3546,7 @@
 /area/lv624/ground/jungle10)
 "ss" = (
 /obj/effect/landmark/corpsespawner/pmc,
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
+/turf/open/floor/engine/cult,
 /area/lv624/ground/caves/west1/garbledradio)
 "st" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -4866,10 +4864,9 @@
 	},
 /area/lv624/lazarus/sleep_male)
 "zg" = (
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
-/area/lv624/ground/caves/west1/garbledradio)
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/ground/grass/weedable,
+/area/lv624/ground/jungle9)
 "zi" = (
 /obj/structure/window_frame/wood,
 /obj/item/shard,
@@ -5176,9 +5173,9 @@
 /turf/open/floor,
 /area/lv624/lazarus/spaceport)
 "Ay" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/closed/mineral/smooth/indestructible,
-/area/storage/testroom)
+/obj/effect/landmark/static_comms/net_two,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/jungle10)
 "Az" = (
 /obj/effect/landmark/zombie_spawner,
 /turf/open/floor/plating/ground/dirt,
@@ -6545,9 +6542,7 @@
 	dir = 1
 	},
 /obj/item/clothing/shoes/cult,
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
+/turf/open/floor/engine/cult,
 /area/lv624/ground/caves/west1/garbledradio)
 "HL" = (
 /obj/machinery/door/airlock/mainship/secure/free_access,
@@ -7856,9 +7851,7 @@
 /obj/machinery/computer3{
 	name = "Family Guy Reruns TV"
 	},
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
+/turf/open/floor/engine/cult,
 /area/lv624/ground/caves/west1/garbledradio)
 "NW" = (
 /obj/effect/turf_decal/siding{
@@ -7967,9 +7960,7 @@
 	dir = 1
 	},
 /obj/item/storage/backpack/cultpack,
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
+/turf/open/floor/engine/cult,
 /area/lv624/ground/caves/west1/garbledradio)
 "Oz" = (
 /obj/structure/bed/chair{
@@ -9843,9 +9834,7 @@
 /area/lv624/ground/jungle10)
 "XM" = (
 /obj/machinery/floodlight/colony,
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
+/turf/open/floor/engine/cult,
 /area/lv624/ground/caves/west1/garbledradio)
 "XO" = (
 /turf/closed/wall,
@@ -10491,7 +10480,7 @@ wh
 (3,1,1) = {"
 wh
 hD
-Ay
+hD
 hD
 FC
 FC
@@ -11794,7 +11783,7 @@ mu
 mu
 mu
 wM
-wM
+Ay
 wM
 wM
 wM
@@ -12078,8 +12067,8 @@ Tq
 pb
 sR
 sR
-zg
-zg
+Sh
+Sh
 sR
 sR
 Tq
@@ -12182,9 +12171,9 @@ Tq
 Tq
 sR
 XM
-zg
-zg
-zg
+Sh
+Sh
+Sh
 sR
 PF
 Tq
@@ -12284,12 +12273,12 @@ ae
 Tq
 PF
 Tq
-zg
-zg
+Sh
+Sh
 ss
 tM
-zg
-zg
+Sh
+Sh
 Tq
 Tq
 oN
@@ -12388,12 +12377,12 @@ ae
 pb
 Tq
 Tq
-zg
-zg
-zg
+Sh
+Sh
+Sh
 Jc
-zg
-zg
+Sh
+Sh
 Tq
 Tq
 FC
@@ -12494,7 +12483,7 @@ Tq
 Tq
 sR
 NV
-zg
+Sh
 Oy
 XM
 sR
@@ -12598,7 +12587,7 @@ Tq
 Tq
 sR
 QO
-zg
+Sh
 HK
 sR
 sR
@@ -16293,7 +16282,7 @@ tq
 Ha
 qE
 Zp
-Zp
+zg
 EH
 EH
 EH

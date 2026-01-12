@@ -961,6 +961,11 @@
 	dir = 1
 	},
 /area/vapor_processing/cargo2)
+"fS" = (
+/obj/effect/ai_node,
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/floor,
+/area/storage/tools)
 "fT" = (
 /turf/closed/wall,
 /area/lv624/lazarus/quart)
@@ -1088,9 +1093,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/lv624/lazarus/medbay)
 "hg" = (
-/obj/structure/computerframe{
-	anchored = 1
-	},
+/obj/structure/computerframe,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -2939,6 +2942,10 @@
 /obj/structure/cable,
 /turf/open/ground/grass/grass2,
 /area/vapor_processing/south_compound)
+"rg" = (
+/obj/effect/landmark/static_comms/net_two,
+/turf/open/floor/prison/sterilewhite,
+/area/lv624/lazarus/fitness)
 "rh" = (
 /obj/machinery/door/poddoor/mainship{
 	id = "secure_blast";
@@ -5641,7 +5648,6 @@
 	dir = 1
 	},
 /obj/effect/landmark/corpsespawner/security{
-	corpsebelt = null;
 	corpsesuit = /obj/item/clothing/suit/storage/CMB;
 	corpseuniform = /obj/item/clothing/under/CM_uniform;
 	name = "Deputy Edgar Nogi"
@@ -9148,7 +9154,7 @@ kn
 vb
 cx
 cx
-cF
+cx
 cx
 cx
 bQ
@@ -9250,7 +9256,7 @@ kE
 cx
 vb
 cx
-cx
+rg
 cx
 cx
 cx
@@ -9454,7 +9460,7 @@ kn
 cC
 cC
 cC
-kE
+cC
 cC
 cC
 jM
@@ -9602,7 +9608,7 @@ le
 lH
 lQ
 lQ
-PZ
+fS
 sQ
 lQ
 lQ

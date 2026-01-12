@@ -15,7 +15,6 @@
 /turf/closed/wall/r_wall/unmeltable,
 /area/storage/testroom)
 "aaG" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
 /turf/open/floor/asteroidfloor,
 /area/storage/testroom)
 "aaX" = (
@@ -431,7 +430,6 @@
 /area/corsat/gamma/hangar/monorail/railcart)
 "amu" = (
 /obj/machinery/door/poddoor/mainship{
-	dir = 4;
 	id = "RemoteGate";
 	name = "Gate Shutters";
 	use_power = 0
@@ -460,7 +458,6 @@
 "amR" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /obj/machinery/door/poddoor/shutters/mainship{
-	dir = 4;
 	id = "SigmaCheckpointC";
 	name = "Security Shutters"
 	},
@@ -619,11 +616,6 @@
 "aqN" = (
 /turf/open/floor/grayscale/black,
 /area/corsat/gamma/hangar/monorail/control)
-"ard" = (
-/obj/structure/cargo_container/hd_blue,
-/obj/effect/turf_decal/warning_stripes/box/empty,
-/turf/open/floor/grayscale/black,
-/area/corsat/gamma/cargo)
 "arl" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/fancy/cigarettes,
@@ -5553,7 +5545,6 @@
 	name = "Administration Office"
 	},
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "OmegaOffice";
 	name = "Privacy Shutters"
 	},
@@ -8327,15 +8318,6 @@
 /obj/effect/turf_decal/tile/full/black,
 /turf/open/floor/grayscale/black,
 /area/corsat/omega/complex)
-"dIW" = (
-/obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
-/obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
-	id = "OmegaSecC";
-	name = "Security Shutters"
-	},
-/turf/open/floor/plating,
-/area/corsat/omega/security)
 "dJi" = (
 /obj/machinery/power/apc/hyper,
 /obj/effect/turf_decal/tile/corsatstraight/red,
@@ -8627,7 +8609,6 @@
 	name = "Identification Desk"
 	},
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "SigmaHangarC-N";
 	name = "Security Shutters"
 	},
@@ -8803,7 +8784,6 @@
 /area/corsat/sigma/cafe)
 "dUX" = (
 /obj/machinery/door/poddoor/shutters{
-	dir = 4;
 	id = "OmegaO";
 	name = "Omega Lockdown";
 	use_power = 0
@@ -8977,7 +8957,6 @@
 	name = "Identification Desk"
 	},
 /obj/machinery/door/poddoor/shutters/mainship{
-	dir = 4;
 	id = "GammaSecC";
 	name = "Security Shutters"
 	},
@@ -9736,7 +9715,6 @@
 /area/corsat/omega/biodome/two)
 "eqx" = (
 /obj/machinery/door/poddoor/mainship{
-	dir = 4;
 	id = "RemoteGate";
 	name = "Gate Shutters";
 	use_power = 0
@@ -11777,16 +11755,6 @@
 "fmo" = (
 /turf/closed/wall/r_wall/unmeltable,
 /area/corsat/gamma/cargo/disposal)
-"fmq" = (
-/obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
-/obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
-	id = "OmegaControl";
-	name = "Observation Shutters";
-	use_power = 0
-	},
-/turf/open/floor/plating,
-/area/corsat/omega/control)
 "fms" = (
 /obj/structure/flora/tree/jungle,
 /turf/open/floor/plating/ground/dirt,
@@ -12742,7 +12710,6 @@
 "fHT" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "OmegaOffice";
 	name = "Privacy Shutters"
 	},
@@ -13819,7 +13786,6 @@
 /area/corsat/sigma/south/security)
 "gig" = (
 /obj/machinery/door/poddoor/mainship{
-	dir = 4;
 	id = "OmegaCargoN";
 	name = "Omega Cargo Room";
 	use_power = 0
@@ -13866,7 +13832,6 @@
 "giR" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "SigmaHolding2";
 	name = "Holding Cell 2"
 	},
@@ -14975,7 +14940,6 @@
 "gIm" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /obj/machinery/door/poddoor/shutters{
-	dir = 4;
 	id = "OmegaO";
 	name = "Omega Lockdown";
 	use_power = 0
@@ -15606,7 +15570,6 @@
 /area/corsat/omega/complex)
 "gXg" = (
 /obj/machinery/door/poddoor/shutters{
-	dir = 4;
 	id = "OmegaO";
 	name = "Omega Lockdown";
 	use_power = 0
@@ -17118,7 +17081,6 @@
 "hIx" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /obj/machinery/door/poddoor/shutters/mainship{
-	dir = 4;
 	id = "GammaSecC";
 	name = "Security Shutters"
 	},
@@ -18422,7 +18384,6 @@
 /area/corsat/sigma/hangar/id)
 "ims" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "GammaHCargoW";
 	name = "Gamma Cargo Checkpoint";
 	use_power = 0
@@ -19070,7 +19031,6 @@
 /area/corsat/omega/offices)
 "iFi" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "GammaHCargoW";
 	name = "Gamma Cargo Checkpoint";
 	use_power = 0
@@ -19660,7 +19620,6 @@
 /area/corsat/gamma/foyer)
 "iSa" = (
 /obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
 	id = "GammaHCargoW";
 	name = "Gamma Cargo Checkpoint";
 	use_power = 0
@@ -20661,7 +20620,6 @@
 "jqj" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "SigmaIDSC2";
 	name = "Security Shutters"
 	},
@@ -20823,7 +20781,6 @@
 "jtP" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /obj/machinery/door/poddoor/shutters/mainship{
-	dir = 4;
 	id = "GammaHangarCargoC";
 	name = "Security Shutters"
 	},
@@ -22128,16 +22085,6 @@
 	},
 /turf/open/floor/grayscale/darkred,
 /area/corsat/gamma/rnr/arcade)
-"jWc" = (
-/obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
-/obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
-	id = "OmegaControl";
-	name = "Observation Shutters";
-	use_power = 0
-	},
-/turf/open/floor/plating,
-/area/corsat/omega/biodome/two)
 "jWd" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 4
@@ -22942,7 +22889,6 @@
 /area/corsat/omega/maint)
 "kos" = (
 /obj/machinery/door/poddoor/mainship{
-	dir = 4;
 	id = "SigmaGate";
 	name = "Gate Shutters";
 	use_power = 0
@@ -23501,10 +23447,8 @@
 	},
 /area/corsat/gamma/cargo)
 "kyE" = (
-/obj/structure/cargo_container/hd_blue{
-	dir = 1
-	},
 /obj/effect/turf_decal/warning_stripes/box/empty,
+/obj/effect/landmark/static_comms/net_two,
 /turf/open/floor/grayscale/black,
 /area/corsat/gamma/cargo)
 "kyF" = (
@@ -23513,13 +23457,6 @@
 /obj/effect/turf_decal/tile/corsatstraight/red,
 /turf/open/floor/grayscale/black,
 /area/corsat/omega/hangar/security)
-"kzc" = (
-/obj/structure/cargo_container/hd_blue{
-	dir = 4
-	},
-/obj/effect/turf_decal/warning_stripes/box/empty,
-/turf/open/floor/grayscale/black,
-/area/corsat/gamma/cargo)
 "kzf" = (
 /obj/structure/bed/chair/comfy/beige,
 /turf/open/floor/grayscale/round/black,
@@ -23823,15 +23760,6 @@
 /obj/structure/cable,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/corsat/gamma/residential/showers)
-"kHj" = (
-/obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
-/obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
-	id = "OmegaAccessC";
-	name = "Security Shutters"
-	},
-/turf/open/floor/plating,
-/area/corsat/omega/checkpoint)
 "kHt" = (
 /obj/effect/decal/cleanable/blood/xeno,
 /obj/structure/cable,
@@ -24218,7 +24146,6 @@
 "kPX" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "SigmaHCargoC";
 	name = "Security Shutters"
 	},
@@ -24431,7 +24358,6 @@
 /area/corsat/sigma/southeast/generator)
 "kTP" = (
 /obj/machinery/door/poddoor/shutters{
-	dir = 4;
 	id = "OmegaO";
 	name = "Omega Lockdown";
 	use_power = 0
@@ -24940,9 +24866,7 @@
 	dir = 4
 	},
 /obj/machinery/light/small,
-/obj/machinery/door/window{
-	dir = 4
-	},
+/obj/machinery/door/window,
 /obj/item/tool/soap,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/corsat/gamma/residential/showers)
@@ -25515,7 +25439,6 @@
 	name = "Identification Desk"
 	},
 /obj/machinery/door/poddoor/shutters/mainship{
-	dir = 4;
 	id = "GammaHangarCargoC";
 	name = "Security Shutters"
 	},
@@ -25747,9 +25670,7 @@
 	dir = 4
 	},
 /obj/machinery/light/small,
-/obj/machinery/door/window{
-	dir = 4
-	},
+/obj/machinery/door/window,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/corsat/gamma/residential/showers)
 "lwA" = (
@@ -26202,7 +26123,6 @@
 	name = "Identification Desk"
 	},
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "SigmaHCargoC";
 	name = "Security Shutters"
 	},
@@ -27476,7 +27396,6 @@
 /area/corsat/sigma/south)
 "miB" = (
 /obj/machinery/door/poddoor/mainship{
-	dir = 4;
 	id = "RemoteGateO";
 	name = "Gate Shutters";
 	use_power = 0
@@ -27933,7 +27852,6 @@
 "mrU" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /obj/machinery/door/poddoor/shutters/mainship{
-	dir = 4;
 	id = "GammaHangarCargoC";
 	name = "Security Shutters"
 	},
@@ -28543,7 +28461,6 @@
 	name = "Airlock Security"
 	},
 /obj/machinery/door/poddoor/shutters{
-	dir = 4;
 	id = "OmegaO";
 	name = "Omega Lockdown";
 	use_power = 0
@@ -34144,7 +34061,6 @@
 	name = "Identification Desk"
 	},
 /obj/machinery/door/poddoor/shutters{
-	dir = 4;
 	id = "OmegaO";
 	name = "Omega Lockdown";
 	use_power = 0
@@ -34651,7 +34567,6 @@
 "pmy" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "SigmaHangarC-E";
 	name = "Security Shutters"
 	},
@@ -35281,7 +35196,6 @@
 "pzp" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "SigmaSecC";
 	name = "Security Shutters"
 	},
@@ -35656,7 +35570,6 @@
 	name = "Identification Desk"
 	},
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "SigmaHangarC-S";
 	name = "Security Shutters"
 	},
@@ -40594,7 +40507,6 @@
 "rQQ" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "GammaSouthAirlockC";
 	name = "Security Shutters"
 	},
@@ -41087,9 +40999,7 @@
 /turf/open/floor/grayscale/round/black,
 /area/corsat/dropzone/landingzonethree)
 "sbW" = (
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 2
-	},
+/obj/effect/turf_decal/warning_stripes/thick,
 /turf/open/floor/plating,
 /area/corsat/sigma/south/complex/teleporter)
 "scc" = (
@@ -41995,7 +41905,6 @@
 	name = "Holding Cell 2"
 	},
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "SigmaHolding2";
 	name = "Holding Cell 2"
 	},
@@ -43942,15 +43851,9 @@
 /turf/open/floor/grayscale/round/lightgray,
 /area/corsat/gamma/medbay)
 "tkK" = (
-/obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
-/obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
-	id = "OmegaControl";
-	name = "Observation Shutters";
-	use_power = 0
-	},
-/turf/open/floor/plating,
-/area/corsat/omega/biodome/three)
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/floor/plating/ground/dirt,
+/area/corsat/dropzone/landingzonethree)
 "tkZ" = (
 /obj/effect/turf_decal/tile/corsatstraight/green{
 	dir = 4
@@ -45393,7 +45296,6 @@
 	name = "Identification Desk"
 	},
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "OmegaAccessC";
 	name = "Security Shutters"
 	},
@@ -45876,7 +45778,6 @@
 	name = "Identification Desk"
 	},
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "OmegaAccessC";
 	name = "Security Shutters"
 	},
@@ -46999,7 +46900,6 @@
 /area/corsat/sigma/hangar)
 "uua" = (
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "SigmaHangarC-N";
 	name = "Security Shutters"
 	},
@@ -49131,7 +49031,6 @@
 "voy" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "GammaSouthAirlockC";
 	name = "Security Shutters"
 	},
@@ -49172,7 +49071,6 @@
 "vpb" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "GammaSouthID";
 	name = "Security Shutters"
 	},
@@ -49725,7 +49623,6 @@
 /area/corsat/omega/offices)
 "vAX" = (
 /obj/machinery/door/poddoor/shutters{
-	dir = 4;
 	id = "OmegaO";
 	name = "Omega Lockdown";
 	use_power = 0
@@ -49735,7 +49632,6 @@
 /area/corsat/omega/airlocknorth)
 "vBa" = (
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "SigmaHangarC-S";
 	name = "Security Shutters"
 	},
@@ -49939,7 +49835,6 @@
 	name = "Identification Desk"
 	},
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "GammaSouthID";
 	name = "Security Shutters"
 	},
@@ -50456,7 +50351,6 @@
 /area/corsat/omega/biodome/two)
 "vRF" = (
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "OmegaOffice";
 	name = "Privacy Shutters"
 	},
@@ -51684,16 +51578,6 @@
 /obj/effect/turf_decal/tile/full/black,
 /turf/open/floor/grayscale/black,
 /area/corsat/gamma/freezer)
-"wvD" = (
-/obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
-/obj/machinery/door/poddoor/mainship/open{
-	dir = 4;
-	id = "OmegaControl";
-	name = "Observation Shutters";
-	use_power = 0
-	},
-/turf/open/floor/plating,
-/area/corsat/omega/biodome/one)
 "wvS" = (
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 8
@@ -52661,7 +52545,6 @@
 "wQl" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /obj/machinery/door/poddoor/shutters{
-	dir = 4;
 	id = "OmegaO";
 	name = "Omega Lockdown";
 	use_power = 0
@@ -54164,7 +54047,6 @@
 /area/corsat/omega/complex)
 "xtY" = (
 /obj/machinery/door/poddoor/shutters{
-	dir = 4;
 	id = "OmegaO";
 	name = "Omega Lockdown";
 	use_power = 0
@@ -54771,7 +54653,6 @@
 "xFT" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /obj/machinery/door/poddoor/shutters{
-	dir = 4;
 	id = "OmegaO";
 	name = "Omega Lockdown";
 	use_power = 0
@@ -55588,7 +55469,6 @@
 	name = "Identification Desk"
 	},
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "SigmaHangarC";
 	name = "Security Shutters"
 	},
@@ -55853,7 +55733,6 @@
 "xYM" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /obj/machinery/door/poddoor/shutters/mainship/open{
-	dir = 4;
 	id = "GammaDSC2";
 	name = "Security Shutters"
 	},
@@ -63606,12 +63485,12 @@ muL
 vyx
 vyx
 kUt
-tkK
-tkK
-tkK
-tkK
-tkK
-tkK
+xDn
+xDn
+xDn
+xDn
+xDn
+xDn
 kUt
 vyx
 qLT
@@ -66735,12 +66614,12 @@ bnA
 bQE
 dEM
 otG
-wvD
-wvD
-wvD
-wvD
-wvD
-wvD
+oPR
+oPR
+oPR
+oPR
+oPR
+oPR
 otG
 dEM
 dEM
@@ -68695,13 +68574,13 @@ uzr
 uzr
 uzr
 oYg
-dIW
-dIW
+eUI
+eUI
 oYg
 oYg
 oYg
-dIW
-dIW
+eUI
+eUI
 oYg
 oYg
 rpo
@@ -75118,9 +74997,9 @@ hdM
 hXA
 hdM
 hdM
-kHj
-kHj
-kHj
+pbX
+pbX
+pbX
 hdM
 hdM
 hdM
@@ -75473,12 +75352,12 @@ wZb
 xHo
 xHo
 iPz
-jWc
-jWc
-jWc
-jWc
-jWc
-jWc
+iYn
+iYn
+iYn
+iYn
+iYn
+iYn
 gQA
 xHo
 xHo
@@ -76902,10 +76781,10 @@ oPf
 oPf
 oPf
 ejw
-kHj
+pbX
 tNJ
 tWP
-kHj
+pbX
 hdM
 vir
 vmb
@@ -94847,7 +94726,7 @@ bAR
 vlw
 rvL
 vlw
-ard
+vlw
 mYG
 dCV
 fQf
@@ -95361,7 +95240,7 @@ vlw
 xLu
 rvL
 vlw
-kzc
+vlw
 uVP
 dCV
 kZH
@@ -102979,12 +102858,12 @@ mad
 xjW
 xjW
 rRa
-fmq
-fmq
-fmq
-fmq
-fmq
-fmq
+bHC
+bHC
+bHC
+bHC
+bHC
+bHC
 oRG
 xjW
 xjW
@@ -104089,7 +103968,7 @@ bxd
 bxd
 dNf
 dNf
-dNf
+tkK
 dne
 dNf
 dNf

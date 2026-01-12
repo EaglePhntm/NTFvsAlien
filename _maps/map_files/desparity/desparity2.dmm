@@ -769,9 +769,7 @@
 /area/lv624/ground/jungle5)
 "dW" = (
 /obj/structure/stripper_pole,
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
+/turf/open/floor/engine/cult,
 /area/lv624/ground/caves/west1)
 "dX" = (
 /obj/machinery/miner/damaged/platinum,
@@ -813,9 +811,7 @@
 /obj/structure/bed/chair/sofa/right{
 	dir = 1
 	},
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
+/turf/open/floor/engine/cult,
 /area/lv624/ground/caves/west1)
 "ej" = (
 /obj/effect/decal/cleanable/dirt,
@@ -915,9 +911,7 @@
 /obj/structure/bed/chair/sofa{
 	dir = 1
 	},
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
+/turf/open/floor/engine/cult,
 /area/lv624/ground/caves/west1)
 "eG" = (
 /obj/structure/cable,
@@ -1010,9 +1004,7 @@
 /obj/structure/bed/chair/sofa/left{
 	dir = 1
 	},
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
+/turf/open/floor/engine/cult,
 /area/lv624/ground/caves/west1)
 "eX" = (
 /obj/structure/flora/ausbushes/grassybush{
@@ -5270,10 +5262,9 @@
 	},
 /area/lv624/lazarus/sleep_male)
 "zg" = (
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
-/area/lv624/ground/caves/west1)
+/obj/effect/landmark/static_comms/net_two,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/jungle10)
 "zi" = (
 /obj/item/shard,
 /turf/open/ground/grass/weedable,
@@ -6511,9 +6502,9 @@
 	},
 /area/lv624/lazarus/research/caves)
 "Fd" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/closed/mineral/smooth/indestructible,
-/area/storage/testroom)
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/ground/grass/weedable,
+/area/lv624/ground/jungle9)
 "Fe" = (
 /obj/structure/table,
 /obj/item/trash/barcaridine,
@@ -10733,9 +10724,7 @@
 /area/lv624/ground/jungle10)
 "XM" = (
 /obj/machinery/floodlight/colony,
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
+/turf/open/floor/engine/cult,
 /area/lv624/ground/caves/west1)
 "XO" = (
 /turf/closed/wall,
@@ -11519,7 +11508,7 @@ Om
 Om
 Om
 wT
-Fd
+wT
 wT
 wh
 "}
@@ -12785,7 +12774,7 @@ mu
 mu
 mu
 wM
-wM
+zg
 wM
 wM
 LX
@@ -13084,8 +13073,8 @@ vt
 vX
 sR
 sR
-zg
-zg
+Sh
+Sh
 sR
 sR
 vt
@@ -13193,9 +13182,9 @@ vt
 vt
 sR
 XM
-zg
-zg
-zg
+Sh
+Sh
+Sh
 sR
 lD
 vt
@@ -13300,12 +13289,12 @@ Lt
 vt
 lD
 vt
-zg
-zg
-zg
+Sh
+Sh
+Sh
 tM
 ei
-zg
+Sh
 vt
 vt
 dw
@@ -13409,12 +13398,12 @@ Lt
 vX
 vt
 vt
-zg
-zg
+Sh
+Sh
 dW
 Jc
 eF
-zg
+Sh
 vt
 vt
 FC
@@ -13518,12 +13507,12 @@ FC
 vt
 vt
 vt
-zg
-zg
-zg
-zg
+Sh
+Sh
+Sh
+Sh
 eV
-zg
+Sh
 vt
 vt
 FC
@@ -13629,9 +13618,9 @@ vt
 vt
 sR
 XM
-zg
-zg
-zg
+Sh
+Sh
+Sh
 sR
 lD
 vt
@@ -17499,7 +17488,7 @@ tq
 Ha
 qE
 Zp
-Zp
+Fd
 EH
 EH
 EH

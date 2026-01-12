@@ -7819,9 +7819,9 @@
 /turf/open/floor/wood,
 /area/bluemoon/caves/facility/lambda/s)
 "iWa" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/closed/mineral/smooth/darkfrostwall/indestructible,
-/area/lv624/lazarus/console)
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/floor/plating,
+/area/bluemoon/outside/building/cargo/outpost)
 "iWv" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
@@ -14052,6 +14052,12 @@
 /obj/effect/landmark/corpsespawner/scientist,
 /turf/open/floor/prison,
 /area/bluemoon/caves/facility/lambda/n)
+"qkh" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/bluemoon/outside/building/cargo/outpost)
 "qkX" = (
 /obj/machinery/hydroponics,
 /turf/open/floor/cyantwo,
@@ -19135,6 +19141,10 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/dark,
 /area/bluemoon/caves/facility/eta)
+"whf" = (
+/obj/effect/landmark/static_comms/net_two,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/bluemoon/outside/c)
 "whu" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/dark,
@@ -21572,7 +21582,7 @@ ldL
 ldL
 ldL
 uPz
-iWa
+uPz
 uPz
 ldL
 kwo
@@ -25745,8 +25755,8 @@ sIG
 sIG
 inh
 pBW
-ugz
-ugz
+dkX
+iWa
 ohH
 dkX
 dkX
@@ -25892,8 +25902,8 @@ blp
 sIG
 sIG
 pBW
-ugz
-pFr
+dkX
+qkh
 gjr
 pFr
 ugz
@@ -31775,7 +31785,7 @@ rHv
 mmH
 ggR
 mmH
-mmH
+whf
 vPH
 vPH
 vPH
