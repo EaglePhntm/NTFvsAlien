@@ -4179,6 +4179,11 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/preparation)
+"uc" = (
+/obj/item/storage/box/crate/loot/telecomm_tower_pack/cm,
+/obj/item/storage/backpack/marine/radiopack/cm_net,
+/turf/open/floor/plating/ground/concrete,
+/area/antag_ship/icc/warehouse)
 "uf" = (
 /obj/machinery/door/poddoor/shutters/mainship{
 	dir = 2;
@@ -4515,7 +4520,6 @@
 /obj/effect/turf_decal/trimline/brown/warning{
 	dir = 10
 	},
-/obj/item/storage/backpack/marine/radiopack/cm_net,
 /turf/open/floor/plating/ground/concrete,
 /area/antag_ship/icc/warehouse)
 "vJ" = (
@@ -6143,6 +6147,25 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/preparation)
+"DD" = (
+/obj/machinery/telecomms/processor/preset_one/pmc,
+/obj/machinery/telecomms/processor/preset_one/kz,
+/obj/machinery/telecomms/processor/preset_one/cm,
+/obj/machinery/telecomms/processor/preset_one/clf,
+/obj/machinery/telecomms/processor/preset_four/pmc,
+/obj/machinery/telecomms/processor/preset_four/kz,
+/obj/machinery/telecomms/processor/preset_four/cm,
+/obj/machinery/telecomms/processor/preset_four/clf,
+/obj/machinery/telecomms/processor/preset_three/pmc,
+/obj/machinery/telecomms/processor/preset_three/kz,
+/obj/machinery/telecomms/processor/preset_three/cm,
+/obj/machinery/telecomms/processor/preset_three/clf,
+/obj/machinery/telecomms/processor/preset_two/pmc,
+/obj/machinery/telecomms/processor/preset_two/kz,
+/obj/machinery/telecomms/processor/preset_two/cm,
+/obj/machinery/telecomms/processor/preset_two/clf,
+/turf/open/space/basic,
+/area/testroom)
 "DH" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/item/reagent_containers/jerrycan,
@@ -6859,6 +6882,7 @@
 "GQ" = (
 /obj/structure/table/black,
 /obj/item/storage/backpack/marine/radiopack/kz_net,
+/obj/item/storage/box/crate/loot/telecomm_tower_pack/kz,
 /turf/open/floor/iron/dark/side,
 /area/antag_ship/vsd/armory)
 "GR" = (
@@ -8844,14 +8868,10 @@
 /turf/open/floor/mainship/sterile,
 /area/antag_ship/som/medbay)
 "Qc" = (
-/obj/effect/turf_decal/trimline/dark_blue/line{
-	dir = 8
-	},
+/obj/item/storage/box/crate/loot/telecomm_tower_pack/clf,
 /obj/item/storage/backpack/marine/radiopack/clf_net,
-/turf/open/floor/plating/ground/desertdam/asphalt/edge{
-	dir = 8
-	},
-/area/antag_ship/clf_base/hallways/inside)
+/turf/open/floor/plating/asteroidfloor,
+/area/antag_ship/clf_base/armory)
 "Qe" = (
 /obj/structure/cable,
 /obj/structure/prop/mainship/brokengen,
@@ -8953,6 +8973,7 @@
 /area/antag_ship/pmc_ntf/center/armory)
 "QD" = (
 /obj/item/storage/backpack/marine/radiopack/som_net,
+/obj/item/storage/box/crate/loot/telecomm_tower_pack/som,
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/hangar)
 "QE" = (
@@ -17438,7 +17459,7 @@ Dk
 Dk
 Dk
 CN
-CN
+DD
 CN
 Dk
 Dk
@@ -21370,7 +21391,7 @@ bb
 Oo
 uT
 hT
-LO
+uc
 yn
 eh
 cI
@@ -21811,7 +21832,7 @@ Nj
 vR
 Hv
 AN
-Sk
+Qc
 Ga
 AN
 AN
@@ -22463,7 +22484,7 @@ Oy
 ho
 SP
 lS
-Qc
+tD
 tD
 yu
 Jc

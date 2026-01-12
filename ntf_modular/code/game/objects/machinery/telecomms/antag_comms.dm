@@ -2,11 +2,26 @@
 /obj/machinery/telecomms/bus/preset_four/cm
 	id = "Bus cm"
 	freq_listening = list(FREQ_ICC)
-	autolinkers = list("processor_cm", "common_cm")
+	autolinkers = list("processor4_cm", "common_cm")
+
+/obj/machinery/telecomms/processor/preset_one/cm
+	id = "Processor 1 cm"
+	network = "tcommsat"
+	autolinkers = list("processor1_cm")
+
+/obj/machinery/telecomms/processor/preset_two/cm
+	id = "Processor cm 2"
+	network = "tcommsat"
+	autolinkers = list("processor2_cm")
+
+/obj/machinery/telecomms/processor/preset_three/cm
+	id = "Processor cm 3"
+	network = "tcommsat"
+	autolinkers = list("processor3_cm")
 
 /obj/machinery/telecomms/processor/preset_four/cm
-	id = "Processor cm"
-	autolinkers = list("processor_cm")
+	id = "Processor cm 4"
+	autolinkers = list("processor4_cm")
 
 /obj/machinery/telecomms/server/presets/common/cm
 	id = "Common Server CM"
@@ -15,7 +30,7 @@
 
 /obj/machinery/telecomms/hub/preset/cm
 	id = "Hub CM"
-	autolinkers = list("hub_cm", "relay", "s_relay", "command_cm", "common_cm",
+	autolinkers = list("hub_cm", "relay", "s_relay", "common_cm",
 	"receiverA_cm", "receiverB_cm", "broadcasterA_cm")
 
 /obj/machinery/telecomms/receiver/preset_right/cm
@@ -33,11 +48,26 @@
 /obj/machinery/telecomms/bus/preset_four/kz
 	id = "Bus kz"
 	freq_listening = list(FREQ_VSD)
-	autolinkers = list("processor_kz", "common_kz")
+	autolinkers = list("processor4_kz", "common_kz")
+
+/obj/machinery/telecomms/processor/preset_one/kz
+	id = "Processor 1 kz"
+	network = "tcommsat"
+	autolinkers = list("processor1_kz")
+
+/obj/machinery/telecomms/processor/preset_two/kz
+	id = "Processor kz 2"
+	network = "tcommsat"
+	autolinkers = list("processor2_kz")
+
+/obj/machinery/telecomms/processor/preset_three/kz
+	id = "Processor kz 3"
+	network = "tcommsat"
+	autolinkers = list("processor3_kz")
 
 /obj/machinery/telecomms/processor/preset_four/kz
-	id = "Processor kz"
-	autolinkers = list("processor_kz")
+	id = "Processor kz 4"
+	autolinkers = list("processor4_kz")
 
 /obj/machinery/telecomms/server/presets/common/kz
 	id = "Common Server KZ"
@@ -46,7 +76,7 @@
 
 /obj/machinery/telecomms/hub/preset/kz
 	id = "Hub KZ"
-	autolinkers = list("hub_kz", "relay", "s_relay", "command_kz", "common_kz",
+	autolinkers = list("hub_kz", "relay", "s_relay", "common_kz",
 	"receiverA_kz", "receiverB_kz", "broadcasterA_kz")
 
 /obj/machinery/telecomms/receiver/preset_right/kz
@@ -64,11 +94,26 @@
 /obj/machinery/telecomms/bus/preset_four/clf
 	id = "Bus clf"
 	freq_listening = list(FREQ_COLONIST)
-	autolinkers = list("processor_clf", "common_clf")
+	autolinkers = list("processor4_clf", "common_clf")
+
+/obj/machinery/telecomms/processor/preset_one/clf
+	id = "Processor 1 clf"
+	network = "tcommsat"
+	autolinkers = list("processor1_clf")
+
+/obj/machinery/telecomms/processor/preset_two/clf
+	id = "Processor clf 2"
+	network = "tcommsat"
+	autolinkers = list("processor2_clf")
+
+/obj/machinery/telecomms/processor/preset_three/clf
+	id = "Processor clf 3"
+	network = "tcommsat"
+	autolinkers = list("processor3_clf")
 
 /obj/machinery/telecomms/processor/preset_four/clf
-	id = "Processor clf"
-	autolinkers = list("processor_clf")
+	id = "Processor clf 4"
+	autolinkers = list("processor4_clf")
 
 /obj/machinery/telecomms/server/presets/common/clf
 	id = "Common Server CLF"
@@ -77,7 +122,7 @@
 
 /obj/machinery/telecomms/hub/preset/clf
 	id = "Hub CLF"
-	autolinkers = list("hub_clf", "relay", "s_relay", "command_clf", "common_clf",
+	autolinkers = list("hub_clf", "relay", "s_relay", "common_clf",
 	"receiverA_clf", "receiverB_clf", "broadcasterA_clf")
 
 /obj/machinery/telecomms/receiver/preset_right/clf
@@ -95,11 +140,26 @@
 /obj/machinery/telecomms/bus/preset_four/pmc
 	id = "Bus pmc"
 	freq_listening = list(FREQ_PMC)
-	autolinkers = list("processor_pmc", "common_pmc")
+	autolinkers = list("processor4_pmc", "common_pmc")
+
+/obj/machinery/telecomms/processor/preset_one/pmc
+	id = "Processor 1 pmc"
+	network = "tcommsat"
+	autolinkers = list("processor1_pmc")
+
+/obj/machinery/telecomms/processor/preset_two/pmc
+	id = "Processor pmc 2"
+	network = "tcommsat"
+	autolinkers = list("processor2_pmc")
+
+/obj/machinery/telecomms/processor/preset_three/pmc
+	id = "Processor pmc 3"
+	network = "tcommsat"
+	autolinkers = list("processor3_pmc")
 
 /obj/machinery/telecomms/processor/preset_four/pmc
-	id = "Processor pmc"
-	autolinkers = list("processor_pmc")
+	id = "Processor pmc 4"
+	autolinkers = list("processor4_pmc")
 
 /obj/machinery/telecomms/server/presets/common/pmc
 	id = "Common Server PMC"
@@ -108,7 +168,7 @@
 
 /obj/machinery/telecomms/hub/preset/pmc
 	id = "Hub PMC"
-	autolinkers = list("hub_pmc", "relay", "s_relay", "command_pmc", "common_pmc",
+	autolinkers = list("hub_pmc", "relay", "s_relay", "common_pmc",
 	"receiverA_pmc", "receiverB_pmc", "broadcasterA_pmc")
 
 /obj/machinery/telecomms/receiver/preset_right/pmc

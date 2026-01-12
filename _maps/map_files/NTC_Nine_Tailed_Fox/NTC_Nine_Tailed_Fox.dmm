@@ -4231,6 +4231,8 @@
 	pixel_x = 1;
 	pixel_y = -3
 	},
+/obj/item/storage/box/crate/loot/telecomm_tower_pack/ntc,
+/obj/item/storage/backpack/marine/radiopack,
 /turf/open/floor/mainship/mono,
 /area/mainship/command/telecomms)
 "dAZ" = (
