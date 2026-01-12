@@ -191,9 +191,9 @@
 	"Take Own Chestburster" = BE_ALIEN_UNREVIVABLE,\
 	"End of Round Deathmatch" = BE_DEATHMATCH,\
 	"Eligible for Hive Target" = BE_HIVE_TARGET,\
-	"Prefer Squad over Role" = BE_SQUAD_STRICT,\
-	"Use random name when taking SSD mobs" = BE_SSD_RANDOM_NAME\
+	"Prefer Squad over Role" = BE_SQUAD_STRICT\
 	)
+	//"Use random name when taking SSD mobs" = BE_SSD_RANDOM_NAME
 
 #define HIVE_STATUS_SHOW_EMPTY (1<<0)
 #define HIVE_STATUS_COMPACT_MODE (1<<1)

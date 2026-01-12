@@ -114,7 +114,7 @@
 		new_human.transfer_mob(owner)
 		return
 	new_human.transfer_mob(owner)
-	new_human.on_transformation()
+	// new_human.on_transformation()
 	o.handle_id(new_human)
 
 //respawn button for campaign gamemode

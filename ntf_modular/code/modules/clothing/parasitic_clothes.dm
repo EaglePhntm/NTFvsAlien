@@ -11,34 +11,31 @@
 	icon_state = "resin_suit"
 	color = COLOR_PURPLE
 	equip_slot_flags = ITEM_SLOT_UNDERWEAR|ITEM_SLOT_ICLOTHING|ITEM_SLOT_OCLOTHING
-	var/mob/wearer
 
 /obj/item/clothing/suit/resin_bodysuit/equipped(mob/user, slot)
+	if(!ishuman(user))
+		return
 	. = ..()
 	if(slot != SLOT_L_HAND && slot != SLOT_R_HAND)
+		RegisterSignal(user, COMSIG_LIVING_IGNITED, PROC_REF(burn_moment))
 		user.visible_message(span_warning("[src] attaches itself to [user]!"),
 				span_warning("[src] attaches itself to you!"),
 				span_notice("You hear rustling."))
-		wearer = user
 		ADD_TRAIT(src, TRAIT_NODROP, "parasite_trait")
 
-/obj/item/clothing/suit/resin_bodysuit/unequipped(mob/unequipper, slot)
-	. = ..()
+/obj/item/clothing/suit/resin_bodysuit/proc/burn_moment(datum/source, fire_stacks)
+	SIGNAL_HANDLER
+	if(!ishuman(source))
+		return
+	var/mob/living/carbon/human/wearer = source
+	wearer.visible_message(span_notice("The [src] writhes and melts away under the flames!"),
+			span_notice("Your [src] writhes and melts away under the flames!"),
+			span_notice("You hear sizzling."))
 	REMOVE_TRAIT(src, TRAIT_NODROP, "parasite_trait")
-	unequipper.dropItemToGround(src)
+	wearer.dropItemToGround(src)
+	UnregisterSignal(wearer, COMSIG_LIVING_IGNITED, PROC_REF(burn_moment))
 	if(!QDELETED(src))
 		qdel(src)
-
-/obj/item/clothing/suit/resin_bodysuit/fire_act(burn_level)
-	. = ..()
-	unequipped(wearer)
-
-/obj/item/clothing/suit/resin_bodysuit/welder_act(mob/living/user, obj/item/I)
-	. = ..()
-	if(iswelder(I))
-		var/obj/item/tool/weldingtool/welder = I
-		if(welder.welding)
-			unequipped(wearer)
 
 /* not meant to fuck apparently
 /obj/item/clothing/suit/resin_bodysuit/Initialize(mapload)

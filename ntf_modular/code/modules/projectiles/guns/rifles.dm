@@ -248,9 +248,9 @@
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC) //no twink ass firemodes, like god intended
 	attachable_offset = list("muzzle_x" = 51, "muzzle_y" = 19,"rail_x" = 25, "rail_y" = 23, "under_x" = 35, "under_y" = 13, "stock_x" = 0, "stock_y" = 13)
-	fire_delay = 0.15 SECONDS
+	fire_delay = 0.18 SECONDS
 	burst_amount = 1
-	burst_delay = 0.10 SECONDS
+	burst_delay = 0.15 SECONDS
 	wield_delay = 0.7 SECONDS
 	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_slowdown = 0.4
@@ -268,7 +268,7 @@
 	attachable_offset = list("muzzle_x" = 39, "muzzle_y" = 19,"rail_x" = 19, "rail_y" = 23, "under_x" = 29, "under_y" = 13, "stock_x" = 0, "stock_y" = 13)
 	icon_state = "haltercqb"
 	worn_icon_state = "haltercqb"
-	fire_delay = 0.1 SECONDS
+	fire_delay = 0.15 SECONDS
 	aim_speed_modifier = 2.5
 	aim_slowdown = 0.3
 	scatter = 8

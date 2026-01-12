@@ -22,8 +22,6 @@
 				playsound(loc, hit_sound, 25, 1)
 			if(prob(max(4*(100*xeno.getBruteLoss()/xeno.maxHealth - 75),0))) //4% at 24% health, 80% at 5% health
 				xeno.gib()
-		else
-			visible_message(span_danger("You hear [src] struggling against [xeno]'s grip..."), vision_distance = 4)
 	return
 
 // Adding traits, etc after xeno restrains and hauls us

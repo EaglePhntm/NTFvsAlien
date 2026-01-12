@@ -586,5 +586,5 @@
 	var/mob/living/carbon/human/H = new_mob
 	var/datum/job/j = H.job
 	var/datum/outfit/job/o = j.outfit
-	H.on_transformation()
+	//H.on_transformation()
 	o.handle_id(H)

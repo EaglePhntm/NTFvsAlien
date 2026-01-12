@@ -7,7 +7,7 @@
 	silence_mod = TRUE
 	pixel_shift_y = 16
 	accuracy_mod = 0.1
-	recoil_mod = -2
+	recoil_mod = -1
 	scatter_mod = -2
 	recoil_unwielded_mod = -3
 	scatter_unwielded_mod = -2
@@ -90,7 +90,8 @@
 	attach_shell_speed_mod = 1
 	accuracy_mod = 0.15
 	accuracy_unwielded_mod = 0.1
-	scatter_mod = -1
+	recoil_mod = -1
+	scatter_mod = -2
 	damage_falloff_mod = -0.1
 	size_mod = 1
 	variants_by_parent_type = list(

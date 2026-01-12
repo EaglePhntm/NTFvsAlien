@@ -1,5 +1,6 @@
 /obj/structure/bed/nest/advanced
 	name = "tentacle breeding nest"
+	icon = 'icons/Xeno/Effects.dmi'
 	desc = "A trap nest, It's a gruesome pile of thick, sticky resin-covered tentacles shaped like a nest. It will quickly capture who stay on it and cum acid and larva inside if given opportunity. It is rather easy to escape from."
 	var/hivenumber = XENO_HIVE_NORMAL
 	var/targethole = 1
@@ -8,6 +9,7 @@
 	COOLDOWN_DECLARE(tentacle_cooldown)
 	resist_time = 4 SECONDS //gotta be able to resist quick in case this is used in combat, with the quick capture power, you WILL die so fast.
 	var/capture_time = 2 SECONDS
+	var/cooldown_time = 5 SECONDS
 
 /obj/structure/bed/nest/advanced/Initialize(mapload, _hivenumber)
 	. = ..()
@@ -21,14 +23,16 @@
 		COMSIG_ATOM_ENTERED = PROC_REF(on_cross),
 	)
 	AddElement(/datum/element/connect_loc, listen_connections)
-	addtimer(CALLBACK(src, PROC_REF(mature)), 30 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(mature)), 2 MINUTES)
 
 /obj/structure/bed/nest/advanced/proc/mature()
 	var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
+	Shake(duration = 3 SECONDS)
 	name = "mature [hive.prefix][name]"
 	visible_message(span_notice("[src] shudders as its tentacles thicken and harden, becoming more effective at capturing prey!"))
 	resist_time *= 2
 	capture_time *= 0.5
+	cooldown_time *= 0.5
 	max_integrity += 150
 	obj_integrity += 150
 
@@ -60,7 +64,7 @@
 	if(istype(src, /obj/structure/bed/nest/advanced/special))
 		try_suit_up(buckled_mob)
 	settings_locked = FALSE
-	COOLDOWN_START(src, tentacle_cooldown, 29.9 SECONDS)
+	COOLDOWN_START(src, tentacle_cooldown, 15 SECONDS)
 
 /obj/structure/bed/nest/advanced/proc/on_cross(datum/source, atom/movable/A, oldloc, oldlocs)
 	SIGNAL_HANDLER
@@ -90,7 +94,7 @@
 		span_userdanger("Tentacles suddenly grab your legs and secure you into [src]!"),
 		span_notice("You hear squelching."))
 		return
-	COOLDOWN_START(src, tentacle_cooldown, 29.9 SECONDS)
+	COOLDOWN_START(src, tentacle_cooldown, cooldown_time)
 	target.visible_message(span_danger("Tentacles start grabbing at [target]'s legs to try to secure [target.p_them()] into [src]!"),
 		span_userdanger("Tentacles suddenly grab your legs to try to secure you into [src]!"),
 		span_notice("You hear squelching."))
@@ -187,7 +191,7 @@
 		span_xenonotice("[user] coaxes [src]'s tentacles into trapping you in it and starting to breed you!"),
 		span_notice("You hear squelching."))
 	playsound(loc, SFX_ALIEN_RESIN_MOVE, 50)
-	COOLDOWN_START(src, tentacle_cooldown, 29.9 SECONDS)
+	COOLDOWN_START(src, tentacle_cooldown, 15 SECONDS)
 
 	silent = TRUE
 	skip = TRUE
@@ -212,7 +216,7 @@
 				continue
 				//could maybe make it silo the corpse here instead
 			else
-				COOLDOWN_START(src, tentacle_cooldown, 29.9 SECONDS)
+				COOLDOWN_START(src, tentacle_cooldown, 30 SECONDS)
 				src.visible_message(span_xenonotice("[src] starts using its tentacles to spin a cocoon around [target]!"))
 				ASYNC
 
@@ -266,7 +270,7 @@
 	do_thrust_animate(victim, src)
 	do_thrust_animate(src, victim)
 	if(COOLDOWN_FINISHED(src, tentacle_cooldown))
-		COOLDOWN_START(src, tentacle_cooldown, 29.9 SECONDS)
+		COOLDOWN_START(src, tentacle_cooldown, cooldown_time)
 		if(!(victim.status_flags & XENO_HOST))
 			victim.visible_message(span_xenonotice("[src] roughly thrusts a tentacle into [victim]'s [targetholename], a round bulge visibly sliding through it as it inserts an egg into [victim]!"),
 			span_xenonotice("[src] roughly thrusts a tentacle into your [targetholename], a round bulge visibly sliding through it as it inserts an egg into you!"),
@@ -330,3 +334,4 @@
 	color = COLOR_VIOLET
 	resist_time = 15 SECONDS
 	capture_time = 4 SECONDS
+	cooldown_time = 6 SECONDS

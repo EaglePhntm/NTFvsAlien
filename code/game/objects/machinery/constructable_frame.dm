@@ -65,18 +65,19 @@
 			if(istype(I, /obj/item/circuitboard/machine))
 				playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
 				to_chat(user, span_notice("You add the circuit board to the frame."))
-				var/obj/item/circuitboard/machine/circuit = I
+				var/obj/item/circuitboard/machine/mcircuit = I
+				circuit = I
 				if(!user.transferItemToLoc(I, src))
 					return
 
 				icon_state = "box_2"
 				state = 3
 				components = list()
-				req_components = circuit.req_components.Copy()
-				for(var/A in circuit.req_components)
-					req_components[A] = circuit.req_components[A]
-				if(circuit.frame_desc)
-					desc = circuit.frame_desc
+				req_components = mcircuit.req_components.Copy()
+				for(var/A in mcircuit.req_components)
+					req_components[A] = mcircuit.req_components[A]
+				if(mcircuit.frame_desc)
+					desc = mcircuit.frame_desc
 				else
 					update_desc()
 				to_chat(user, desc)

@@ -92,13 +92,10 @@ GLOBAL_LIST_EMPTY_TYPED(custom_updating_encryptkeys, /obj/item/encryptionkey)
 /obj/item/encryptionkey/dutch
 	name = "\improper Colonist encryption key"
 	channels = list(RADIO_CHANNEL_COLONIST = TRUE)
-	independent = TRUE
-
 
 /obj/item/encryptionkey/PMC
 	name = "\improper Ninetails encryption key"
 	channels = list(RADIO_CHANNEL_COMMON = TRUE, RADIO_CHANNEL_PMC = TRUE)
-	independent = TRUE
 
 
 /obj/item/encryptionkey/usl
@@ -122,12 +119,10 @@ GLOBAL_LIST_EMPTY_TYPED(custom_updating_encryptkeys, /obj/item/encryptionkey)
 /obj/item/encryptionkey/som
 	name = "\improper Sons of Mars encryption key"
 	channels = list(RADIO_CHANNEL_SOM = TRUE)
-	independent = TRUE
 
 /obj/item/encryptionkey/icc
 	name = "\improper ICC encryption key"
 	channels = list(RADIO_CHANNEL_ICC = TRUE)
-	independent = TRUE
 
 /obj/item/encryptionkey/retired
 	name = "\improper retirement home encryption key"
@@ -145,9 +140,8 @@ GLOBAL_LIST_EMPTY_TYPED(custom_updating_encryptkeys, /obj/item/encryptionkey)
 	independent = TRUE
 
 /obj/item/encryptionkey/vsd
-	name = "\improper Kaizoku's encryption key"
+	name = "\improper Kaizoku encryption key"
 	channels = list(RADIO_CHANNEL_VSD = TRUE)
-	independent = TRUE
 
 /obj/item/encryptionkey/erp
 	name = "\improper Pranksters encryption key"
@@ -204,5 +198,5 @@ GLOBAL_LIST_EMPTY_TYPED(custom_updating_encryptkeys, /obj/item/encryptionkey)
 /obj/item/encryptionkey/commai
 	icon_state = "syn_cypherkey"
 	name = "\improper comm code decryption AI chip"
-	channels = list(RADIO_CHANNEL_DEATHSQUAD = TRUE, RADIO_CHANNEL_ERP = TRUE, RADIO_CHANNEL_VSD = TRUE, RADIO_CHANNEL_SOM = TRUE, RADIO_CHANNEL_ZULU = TRUE, RADIO_CHANNEL_YANKEE = TRUE, RADIO_CHANNEL_XRAY = TRUE, RADIO_CHANNEL_WHISKEY = TRUE, RADIO_CHANNEL_ENGINEERING_SOM = TRUE, RADIO_CHANNEL_MEDICAL_SOM = TRUE)
+	channels = list(RADIO_CHANNEL_COLONIST = TRUE, RADIO_CHANNEL_DEATHSQUAD = TRUE, RADIO_CHANNEL_ERP = TRUE, RADIO_CHANNEL_VSD = TRUE, RADIO_CHANNEL_SOM = TRUE, RADIO_CHANNEL_ZULU = TRUE, RADIO_CHANNEL_YANKEE = TRUE, RADIO_CHANNEL_XRAY = TRUE, RADIO_CHANNEL_WHISKEY = TRUE, RADIO_CHANNEL_ENGINEERING_SOM = TRUE, RADIO_CHANNEL_MEDICAL_SOM = TRUE)
 	independent = TRUE

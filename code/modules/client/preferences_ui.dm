@@ -248,7 +248,7 @@
 				"End of Round Deathmatch" = BE_DEATHMATCH,
 				"Eligible for Hive Target" = BE_HIVE_TARGET,
 				"Prefer Squad over Role" = BE_SQUAD_STRICT,
-				"Use random name when taking SSD mobs" = BE_SSD_RANDOM_NAME
+				//"Use random name when taking SSD mobs" = BE_SSD_RANDOM_NAME
 			)
 		if(KEYBIND_SETTINGS)
 			.["all_keybindings"] = list()

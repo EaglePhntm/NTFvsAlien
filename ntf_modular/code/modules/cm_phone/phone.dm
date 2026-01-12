@@ -214,7 +214,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	T.update_icon()
 
 	to_chat(user, span_purple("[icon2html(src, user)] Dialing [calling_phone_id].."))
-	playsound(get_turf(user), pickup_sound)
+	playsound(get_turf(user), pickup_sound, 100)
 	timeout_timer_id = addtimer(CALLBACK(src, PROC_REF(reset_call), TRUE), timeout_duration, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE)
 	outring_loop.start(attached_to)
 
@@ -263,7 +263,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 		T.timeout_timer_id = null
 
 	to_chat(user, span_purple("[icon2html(src, user)] Picked up a call from [T.phone_id]."))
-	playsound(get_turf(user), pickup_sound)
+	playsound(get_turf(user), pickup_sound, 100)
 
 	T.outring_loop.stop(attached_to)
 	user.put_in_active_hand(attached_to)
@@ -319,19 +319,28 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 			T.timeout_timer_id = null
 
 		T.update_icon()
+		addtimer(CALLBACK(T), PROC_REF(post_stop_cleanup), 5 SECONDS) //this is necessary because FUCKING sound loops are unreliable.
 		STOP_PROCESSING(SSobj, T)
 
 	outring_loop.stop(attached_to)
 
+	addtimer(CALLBACK(src), PROC_REF(post_stop_cleanup), 5 SECONDS)
 	STOP_PROCESSING(SSobj, src)
 
 /obj/structure/transmitter/process()
+	if(!timeout_timer_id)
+		outring_loop.stop(attached_to)
+	if(attached_to.loc == attached_to.attached_to)
+		outring_loop.stop(attached_to)
+		busy_loop.stop(attached_to)
+		hangup_loop.stop(attached_to)
 	if(inbound_call)
 		if(!attached_to)
+			addtimer(CALLBACK(src), PROC_REF(post_stop_cleanup), 5 SECONDS)
 			STOP_PROCESSING(SSobj, src)
 			return
 
-		if(attached_to.loc == src)
+		if(attached_to.loc == attached_to.attached_to)
 			if(next_ring < world.time)
 				playsound(loc, call_sound, 75)
 				visible_message(span_warning("[src] rings vigorously!"))
@@ -340,6 +349,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	else if(outbound_call)
 		var/obj/structure/transmitter/T = get_calling_phone()
 		if(!T)
+			addtimer(CALLBACK(src), PROC_REF(post_stop_cleanup), 5 SECONDS)
 			STOP_PROCESSING(SSobj, src)
 			return
 
@@ -351,9 +361,18 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 			next_ring = world.time + 3 SECONDS
 
 	else
+		addtimer(CALLBACK(src), PROC_REF(post_stop_cleanup), 5 SECONDS)
 		STOP_PROCESSING(SSobj, src)
 		return
 
+
+/obj/structure/transmitter/proc/post_stop_cleanup()
+	if(!timeout_timer_id)
+		outring_loop.stop(attached_to)
+	if(attached_to.loc == attached_to.attached_to)
+		outring_loop.stop(attached_to)
+		busy_loop.stop(attached_to)
+		hangup_loop.stop(attached_to)
 
 /obj/structure/transmitter/proc/recall_phone()
 	if(ismob(attached_to.loc))
@@ -366,6 +385,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	busy_loop.stop(attached_to)
 	outring_loop.stop(attached_to)
 	hangup_loop.stop(attached_to)
+	attached_to.lose_hearing_sensitivity(INNATE_TRAIT)
 
 	update_icon()
 
@@ -377,7 +397,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 
 	return
 
-/obj/structure/transmitter/proc/handle_speak(datum/source, list/speech_args)
+/obj/structure/transmitter/proc/handle_speak(atom/movable/speaker, message)
 //	if(L.flags & SIGNLANG)
 //		return
 
@@ -390,10 +410,10 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	if(!P || !attached_to)
 		return
 
-	P.handle_hear(source, speech_args)
-	attached_to.handle_hear(source, speech_args)
-	playsound(P, "talk_phone", 5)
-	log_say("TELEPHONE: [key_name(source)] on Phone '[phone_id]' to '[T.phone_id]' said '[speech_args[SPEECH_MESSAGE]]'")
+	P.handle_hear(speaker, message)
+	if(P.loc != P.attached_to)
+		playsound(P, "talk_phone", 5)
+	log_say("TELEPHONE: [key_name(speaker)] on Phone '[phone_id]' to '[T.phone_id]' said '[message]'")
 
 /obj/structure/transmitter/attackby(obj/item/W, mob/user)
 	if(W == attached_to)
@@ -442,28 +462,30 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 
 	icon_state = "rpb_phone"
 
-/obj/item/phone/functional/equipped(mob/user, slot)
-	. = ..()
-
 /obj/item/phone/functional/Initialize(mapload)
 	. = ..()
 	if(istype(loc, /obj/structure/transmitter))
 		attach_to(loc)
 
+/obj/item/phone/functional/equipped(mob/user, slot)
+	. = ..()
+	become_hearing_sensitive(INNATE_TRAIT)
+
 /obj/item/phone/functional/Destroy()
 	remove_attached()
 	return ..()
 
-/obj/item/phone/functional/proc/handle_speak(datum/source, list/speech_args)
-	SIGNAL_HANDLER
+/obj/item/phone/functional/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
+	. = ..()
+	if(radio_freq || get_dist(src, speaker) > 0)
+		return FALSE
 
-	if(!attached_to || loc == attached_to)
-		UnregisterSignal(source, COMSIG_MOB_SAY)
-		return
+	if((message_mode == MODE_WHISPER || message_mode == MODE_WHISPER_CRIT) && (!raised || !ismob(loc)))
+		raw_message = stars(raw_message)
 
-	attached_to.handle_speak(source, speech_args)
+	attached_to.handle_speak(speaker, raw_message)
 
-/obj/item/phone/functional/proc/handle_hear(datum/source, list/speech_args)
+/obj/item/phone/functional/proc/handle_hear(atom/movable/speaker, message)
 	if(!attached_to)
 		return
 
@@ -476,13 +498,10 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 		return
 	var/mob/M = loc
 
-	if(M == source) //you are speaking to yourself
-		return
-
 	if(!raised)
-		to_chat(M, span_lightpurple("[icon2html(src, M)] You hear muffled, unintelligible speech through \the [src] in your hand."))
-		return
-	to_chat(M, span_lightpurple("[icon2html(src, M)] [T.phone_id]: \"[speech_args[SPEECH_MESSAGE]]\"")) //i didnt include name cause I guess it makes sense not to.
+		//to_chat(M, span_lightpurple("[icon2html(src, M)] You hear muffled, unintelligible speech through \the [src] in your hand."))
+		message = stars(message)
+	to_chat(M, span_lightpurple("[icon2html(src, M)] [T.phone_id]: \"[message]\"")) //i didnt include name cause I guess it makes sense not to.
 
 /obj/item/phone/functional/proc/attach_to(obj/structure/transmitter/to_attach)
 	if(!istype(to_attach))
@@ -565,35 +584,35 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	if(!to_raise)
 		raised = FALSE
 		icon_state = initial(icon_state)
-
+		/* we dont need disabled radio
 		var/obj/item/radio/R = H.wear_ear
 		if(R)
 			R?.set_on(TRUE)
+		*/
 	else
 		raised = TRUE
 		icon_state = "[initial(icon_state)]_ear"
 
+		/* we dont need disabled radio
 		var/obj/item/radio/R = H.wear_ear
 		if(R)
 			R?.set_on(FALSE)
+		*/
 
 	H.update_inv_r_hand()
 	H.update_inv_l_hand()
 
 /obj/item/phone/functional/dropped(mob/user)
 	. = ..()
-	UnregisterSignal(user, COMSIG_MOB_SAY)
-
 	set_raised(FALSE, user)
 
 /obj/item/phone/functional/on_enter_storage(obj/item/storage/S)
 	. = ..()
 	if(attached_to)
 		attached_to.recall_phone()
-
-/obj/item/phone/functional/pickup(mob/user)
-	. = ..()
-	RegisterSignal(user, COMSIG_MOB_SAY, PROC_REF(handle_speak))
+		attached_to.outring_loop.stop(src)
+		attached_to.busy_loop.stop(src)
+		attached_to.hangup_loop.stop(src)
 
 /obj/item/phone/functional/forceMove(atom/dest)
 	. = ..()

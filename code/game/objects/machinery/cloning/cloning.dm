@@ -77,9 +77,11 @@ These act as a respawn mechanic growning a body and offering it up to ghosts.
 		visible_message("[icon2html(src, viewers(src))] <span><b>[src]</b> beeps as its boots up and connects to \the [linked_machine].</span>")
 		return TRUE
 
-	if(linked_machine.occupant || linked_machine.timerid)
+	if(linked_machine.occupant && linked_machine.timerid)
 		visible_message("[icon2html(src, viewers(src))] <span><b>[src]</b> beeps in error, 'Already processing clone'.</span>")
 		return TRUE
+	else if(linked_machine.occupant)
+		linked_machine.eject_user()
 
 	if(!linked_machine.beaker || linked_machine.beaker.reagents.total_volume < linked_machine.biomass_required)
 		visible_message("[icon2html(src, viewers(src))] <span><b>[src]</b> beeps in error, 'Not enough biomass'.</span>")
@@ -221,8 +223,11 @@ These act as a respawn mechanic growning a body and offering it up to ghosts.
 	if(!beaker)
 		icon_state = "cell_0"
 		return
-	if(occupant || timerid)
+	if(occupant && timerid)
 		icon_state = "cell_growing"
+		return
+	else if(occupant)
+		icon_state = "cell_grown"
 		return
 	var/amount = clamp(round(beaker.reagents.total_volume / biomass_required, 0.25) * 100, 0, 100)
 	icon_state = "cell_[amount]"
@@ -267,6 +272,7 @@ These act as a respawn mechanic growning a body and offering it up to ghosts.
 	// Cleanup the timers
 	deltimer(timerid)
 	timerid = null
+	update_icon_state()
 
 /// Pop the grown human out
 /obj/machinery/cloning/vats/proc/eject_user(silent = FALSE)
@@ -286,6 +292,7 @@ You remember nothing of your past life.
 
 You are weak, best rest up and get your strength before fighting.</span>"})
 	occupant.vomit()
+	occupant.set_resting(TRUE)
 	linked_console.radio.talk_into(src, "<b>New clone: [occupant] has been grown in [src] at: [get_area(src)].</b>", RADIO_CHANNEL_MEDICAL)
 	linked_console.radio.talk_into(src, "<b>New clone: [occupant] has been grown in [src] at: [get_area(src)]. Please move the fresh clone to a squad using the squad distribution console.</b>", RADIO_CHANNEL_COMMAND)
 	occupant = null
