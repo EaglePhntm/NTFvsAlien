@@ -99,6 +99,7 @@
 #include "code\game\objects\machinery\computer\voucher.dm"
 #include "code\game\objects\machinery\deployable.dm"
 #include "code\game\objects\machinery\telecomms\cm_comm_tower.dm"
+#include "code\game\objects\machinery\telecomms\antag_comms.dm"
 #include "code\game\objects\machinery\vending\marine_vending.dm"
 #include "code\game\objects\structures\crates_lockers\closets.dm"
 #include "code\game\objects\structures\crates_lockers\largecrate_supplies.dm"
