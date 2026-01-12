@@ -4,21 +4,6 @@
 	freq_listening = list(FREQ_ICC)
 	autolinkers = list("processor4_cm", "common_cm")
 
-/obj/machinery/telecomms/processor/preset_one/cm
-	id = "Processor 1 cm"
-	network = "tcommsat"
-	autolinkers = list("processor1_cm")
-
-/obj/machinery/telecomms/processor/preset_two/cm
-	id = "Processor cm 2"
-	network = "tcommsat"
-	autolinkers = list("processor2_cm")
-
-/obj/machinery/telecomms/processor/preset_three/cm
-	id = "Processor cm 3"
-	network = "tcommsat"
-	autolinkers = list("processor3_cm")
-
 /obj/machinery/telecomms/processor/preset_four/cm
 	id = "Processor cm 4"
 	autolinkers = list("processor4_cm")
@@ -49,21 +34,6 @@
 	id = "Bus kz"
 	freq_listening = list(FREQ_VSD)
 	autolinkers = list("processor4_kz", "common_kz")
-
-/obj/machinery/telecomms/processor/preset_one/kz
-	id = "Processor 1 kz"
-	network = "tcommsat"
-	autolinkers = list("processor1_kz")
-
-/obj/machinery/telecomms/processor/preset_two/kz
-	id = "Processor kz 2"
-	network = "tcommsat"
-	autolinkers = list("processor2_kz")
-
-/obj/machinery/telecomms/processor/preset_three/kz
-	id = "Processor kz 3"
-	network = "tcommsat"
-	autolinkers = list("processor3_kz")
 
 /obj/machinery/telecomms/processor/preset_four/kz
 	id = "Processor kz 4"
@@ -96,21 +66,6 @@
 	freq_listening = list(FREQ_COLONIST)
 	autolinkers = list("processor4_clf", "common_clf")
 
-/obj/machinery/telecomms/processor/preset_one/clf
-	id = "Processor 1 clf"
-	network = "tcommsat"
-	autolinkers = list("processor1_clf")
-
-/obj/machinery/telecomms/processor/preset_two/clf
-	id = "Processor clf 2"
-	network = "tcommsat"
-	autolinkers = list("processor2_clf")
-
-/obj/machinery/telecomms/processor/preset_three/clf
-	id = "Processor clf 3"
-	network = "tcommsat"
-	autolinkers = list("processor3_clf")
-
 /obj/machinery/telecomms/processor/preset_four/clf
 	id = "Processor clf 4"
 	autolinkers = list("processor4_clf")
@@ -141,21 +96,6 @@
 	id = "Bus pmc"
 	freq_listening = list(FREQ_PMC)
 	autolinkers = list("processor4_pmc", "common_pmc")
-
-/obj/machinery/telecomms/processor/preset_one/pmc
-	id = "Processor 1 pmc"
-	network = "tcommsat"
-	autolinkers = list("processor1_pmc")
-
-/obj/machinery/telecomms/processor/preset_two/pmc
-	id = "Processor pmc 2"
-	network = "tcommsat"
-	autolinkers = list("processor2_pmc")
-
-/obj/machinery/telecomms/processor/preset_three/pmc
-	id = "Processor pmc 3"
-	network = "tcommsat"
-	autolinkers = list("processor3_pmc")
 
 /obj/machinery/telecomms/processor/preset_four/pmc
 	id = "Processor pmc 4"

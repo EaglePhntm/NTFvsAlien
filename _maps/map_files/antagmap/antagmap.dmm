@@ -2006,6 +2006,10 @@
 /obj/structure/window/framed/prison/reinforced,
 /turf/open/floor/prison/blackfloor,
 /area/antag_ship/vsd/bridge)
+"kz" = (
+/obj/machinery/telecomms/relay/preset/telecomms,
+/turf/open/space/basic,
+/area/testroom)
 "kA" = (
 /obj/structure/sign/prop3,
 /obj/effect/turf_decal/stripes/asteroid/corner{
@@ -6147,25 +6151,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/preparation)
-"DD" = (
-/obj/machinery/telecomms/processor/preset_one/pmc,
-/obj/machinery/telecomms/processor/preset_one/kz,
-/obj/machinery/telecomms/processor/preset_one/cm,
-/obj/machinery/telecomms/processor/preset_one/clf,
-/obj/machinery/telecomms/processor/preset_four/pmc,
-/obj/machinery/telecomms/processor/preset_four/kz,
-/obj/machinery/telecomms/processor/preset_four/cm,
-/obj/machinery/telecomms/processor/preset_four/clf,
-/obj/machinery/telecomms/processor/preset_three/pmc,
-/obj/machinery/telecomms/processor/preset_three/kz,
-/obj/machinery/telecomms/processor/preset_three/cm,
-/obj/machinery/telecomms/processor/preset_three/clf,
-/obj/machinery/telecomms/processor/preset_two/pmc,
-/obj/machinery/telecomms/processor/preset_two/kz,
-/obj/machinery/telecomms/processor/preset_two/cm,
-/obj/machinery/telecomms/processor/preset_two/clf,
-/turf/open/space/basic,
-/area/testroom)
 "DH" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/item/reagent_containers/jerrycan,
@@ -17459,7 +17444,7 @@ Dk
 Dk
 Dk
 CN
-DD
+kz
 CN
 Dk
 Dk
