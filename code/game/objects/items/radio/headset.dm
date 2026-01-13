@@ -652,7 +652,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	minimap_type = /datum/action/minimap/icc
 
 /obj/item/radio/headset/mainship/vsd
-	name = "kaizoku headset"
+	name = "kaizoku corporation headset"
 	icon_state = "headset_marine_generic"
 	keyslot = /obj/item/encryptionkey/vsd
 	frequency = FREQ_VSD
@@ -722,11 +722,6 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	name = "retirement home headset"
 	keyslot = /obj/item/encryptionkey/retired
 	frequency = FREQ_RETIRED
-
-/obj/item/radio/headset/mainship/vsd
-	name = "kaizoku corporation headset"
-	keyslot = /obj/item/encryptionkey/vsd
-	frequency = FREQ_VSD
 
 /obj/item/radio/headset/distress/erp
 	name = "prankster headset"

@@ -8,7 +8,7 @@
 /obj/effect/landmark/static_comms/proc/spawn_tower()
 	var/obj/machinery/telecomms/relay/preset/tower/mapcomms/commstower = new (loc)
 	if(broken_on_spawn)
-		commstower.update_health(damage = commstower.obj_integrity) //fuck it up
+		commstower.update_health(damage = commstower.health) //fuck it up
 	qdel(src)
 
 /obj/effect/landmark/static_comms/net_one

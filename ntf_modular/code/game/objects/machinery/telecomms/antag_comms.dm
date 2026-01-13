@@ -1,3 +1,5 @@
+//i give up, this dont work, except clf for some fucking reason
+
 //CM/ICC
 /obj/machinery/telecomms/bus/preset_four/cm
 	id = "Bus cm"
@@ -27,6 +29,10 @@
 	id = "Broadcaster A cm"
 	network = "tcommsat"
 	autolinkers = list("broadcasterA_cm")
+
+/obj/machinery/telecomms/allinone/cm
+	freq_listening = list(FREQ_ICC)
+
 
 //KZ
 
@@ -59,6 +65,9 @@
 	network = "tcommsat"
 	autolinkers = list("broadcasterA_kz")
 
+/obj/machinery/telecomms/allinone/kz
+	freq_listening = list(FREQ_VSD)
+
 //CLF
 
 /obj/machinery/telecomms/bus/preset_four/clf
@@ -90,6 +99,9 @@
 	network = "tcommsat"
 	autolinkers = list("broadcasterA_clf")
 
+/obj/machinery/telecomms/allinone/clf
+	freq_listening = list(FREQ_COLONIST)
+
 //PMC
 
 /obj/machinery/telecomms/bus/preset_four/pmc
@@ -120,3 +132,6 @@
 	id = "Broadcaster A pmc"
 	network = "tcommsat"
 	autolinkers = list("broadcasterA_pmc")
+
+/obj/machinery/telecomms/allinone/pmc
+	freq_listening = list(FREQ_PMC)

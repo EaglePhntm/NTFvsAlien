@@ -6,7 +6,7 @@ GLOBAL_LIST_EMPTY(all_static_telecomms_towers)
 	var/zombies_regrow_limbs = FALSE
 	var/zombie_rebirth = FALSE
 	var/zombie_ids = FALSE
-	var/static_comms_amount = 1
+	var/static_comms_amount = 2
 
 /datum/game_mode/pre_setup()
 	. = ..()

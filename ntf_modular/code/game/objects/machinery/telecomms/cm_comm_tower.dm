@@ -85,7 +85,7 @@
 	idle_power_usage = 0
 	netspeed = 40
 	resistance_flags = UNACIDABLE|XENO_DAMAGEABLE|CAN_BE_HIT|PORTAL_IMMUNE|BANISH_IMMUNE
-	max_integrity = 450
+	var/health = 450 //we use this seperate var so shit dont delete I guess.
 	freq_listening = NTC_SIDED_FREQS
 
 /obj/machinery/telecomms/relay/preset/tower/Initialize()
@@ -99,22 +99,31 @@
 	GLOB.all_static_telecomms_towers -= src
 	. = ..()
 
-// doesn't need power, instead uses obj_integrity
+// doesn't need power, instead uses health
 /obj/machinery/telecomms/relay/preset/tower/is_operational()
 	. = ..()
 	if(machine_stat & BROKEN)
 		return FALSE
-	if(obj_integrity <= 0)
+	if(health <= 0)
 		return FALSE
 	return TRUE
 
 /obj/machinery/telecomms/relay/preset/tower/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, armor_type, effects, armor_penetration, isrightclick)
-	. = ..()
+	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
+	playsound(loc, SFX_ALIEN_CLAW_METAL, 25)
 	update_health(damage_amount)
 
 /obj/machinery/telecomms/relay/preset/tower/tail_stab_act(mob/living/carbon/xenomorph/xeno, damage, target_zone, penetration, structure_damage_multiplier, stab_description, disorientamount, can_hit_turf)
-	. = ..()
+	if(!xeno.blunt_stab)
+		xeno.do_attack_animation(src, ATTACK_EFFECT_REDSTAB)
+		xeno.do_attack_animation(src, ATTACK_EFFECT_PUNCH)
+	else
+		xeno.do_attack_animation(src, ATTACK_EFFECT_SMASH)
+	playsound(src, "alien_tail_swipe", 50, TRUE)
+	playsound(src, pick('sound/effects/bang.ogg','sound/effects/metal_crash.ogg','sound/effects/meteorimpact.ogg'), 25, 1)
+	Shake(duration = 0.5 SECONDS)
 	update_health(damage * structure_damage_multiplier)
+	return TRUE
 
 /obj/machinery/telecomms/relay/preset/tower/bullet_act(atom/movable/projectile/P)
 	..()
@@ -127,15 +136,15 @@
 /obj/machinery/telecomms/relay/preset/tower/proc/update_health(damage = 0)
 	if(!damage)
 		return
-	if(damage > 0 && obj_integrity <= 0)
+	if(damage > 0 && health <= 0)
 		return // Leave the poor thing alone
 
-	obj_integrity -= damage
-	obj_integrity = clamp(obj_integrity, 0, max_integrity)
+	health -= damage
+	health = clamp(health, 0, initial(health))
 
-	if(obj_integrity <= 0)
+	if(health <= 0)
 		toggled = FALSE // requires flipping on again once repaired
-	if(obj_integrity < max_integrity)
+	if(health < initial(health))
 		desc = "[initial(desc)] [span_warning(" It is damaged and needs a welder for repairs!")]"
 	else
 		desc = initial(desc)
@@ -143,20 +152,20 @@
 
 // In any case that might warrant reevaluating working state
 /obj/machinery/telecomms/relay/preset/tower/proc/update_state()
-	if(!toggled || !is_operational() || obj_integrity <= 0)
+	if(!toggled || !is_operational() || health <= 0)
 		if(on)
-			playsound(src, 'ntf_modular/sound/machines/tcomms_on.ogg', vol = 80, vary = FALSE, sound_range = 16, falloff = 0.5)
-			message_admins("Portable communication relay started for Z-Level [src.z] [ADMIN_JMP(src)]")
+			message_admins("Portable communication relay shut down for Z-Level [src.z] [ADMIN_JMP(src)]")
 			on = FALSE
 	else if(!on)
-		message_admins("Portable communication relay shut down for Z-Level [src.z] [ADMIN_JMP(src)]")
+		playsound(src, 'ntf_modular/sound/machines/tcomms_on.ogg', vol = 80, vary = FALSE, sound_range = 16, falloff = 0.5)
+		message_admins("Portable communication relay started for Z-Level [src.z] [ADMIN_JMP(src)]")
 		on = TRUE
 	update_icon()
 	return on
 
 // When an operator attempts to flip the switch
 /obj/machinery/telecomms/relay/preset/tower/proc/toggle_state(mob/user)
-	if(!toggled && (!is_operational() || (obj_integrity <= max_integrity / 2)))
+	if(!toggled && (!is_operational() || (health <= initial(health) / 2)))
 		to_chat(user, span_warning("\The [src.name] needs repairs to be turned back on!"))
 		return
 	toggled = !toggled
@@ -164,7 +173,7 @@
 
 /obj/machinery/telecomms/relay/preset/tower/update_icon_state()
 	. = ..()
-	if(obj_integrity <= 0)
+	if(health <= 0)
 		icon_state = "[initial(icon_state)]_broken"
 	else if(on)
 		icon_state = initial(icon_state)
@@ -181,7 +190,7 @@
 			return
 		var/obj/item/tool/weldingtool/WT = I
 
-		if(obj_integrity >= max_integrity)
+		if(health >= initial(health))
 			to_chat(user, span_warning("[src] doesn't need repairs."))
 			return
 
@@ -262,7 +271,7 @@
 	id = "TC-3T relay"
 	autolinkers = list("relay")
 	toggled = FALSE
-	max_integrity = 1000
+	health = 1000
 	bound_height = 64
 	bound_width = 64
 	freq_listening = NTC_SIDED_FREQS
@@ -325,7 +334,7 @@
 
 /obj/machinery/telecomms/relay/preset/tower/mapcomms/attackby(obj/item/I, mob/user)
 	if(ismultitool(I))
-		if(!is_operational() || (obj_integrity <= max_integrity * 0.5))
+		if(!is_operational() || (health <= initial(health) * 0.5))
 			to_chat(user, span_warning("\The [src.name] needs repairs to have frequencies added to its software!"))
 			return
 		var/choice = tgui_input_list(user, "What do you wish to do?", "TC-3T comms tower", list("Wipe communication frequencies", "Add your faction's frequencies"))
@@ -371,8 +380,6 @@
 
 /// Handles xenos corrupting the tower when weeds touch the turf it is located on
 /obj/machinery/telecomms/relay/preset/tower/mapcomms/proc/handle_xeno_acquisition(turf/weeded_turf)
-	SIGNAL_HANDLER
-
 	if(corrupted)
 		return
 
