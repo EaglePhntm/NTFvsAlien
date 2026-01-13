@@ -19,9 +19,9 @@
 	///Whether this computer is activated by the event yet
 	var/active = FALSE
 	///How much supply points you get for completing the terminal
-	var/supply_reward = 450
+	var/supply_reward = 350
 	///How much dropship points you get for completing the terminal
-	var/dropship_reward = 350
+	var/dropship_reward = 275
 	///length of intel disk chain
 	var/max_chain = 0
 
@@ -74,7 +74,7 @@
 	for(var/hivenumber in GLOB.hive_datums)
 		var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
 		GLOB.hive_datums[hivenumber].xeno_message(
-			"A disk has been produced at [get_area(src)] that is worth [floor(supply_reward/160)] ambrosia, [round(supply_reward/2, 0.1)] psypoints and [round(floor(supply_reward/60)/xeno_job.job_points_needed, 0.01)] burrowed larvae. It is [max_chain ? "part of an intel chain of length [max_chain]" : "not part of an intel chain"].",
+			"A disk has been produced at [get_area(src)] that is worth [floor(supply_reward * INTEL_AMBROSIA_PER_SUPPLY_POINT)] ambrosia, [round(supply_reward/2, 0.1)] psypoints and [round(floor(supply_reward/60)/xeno_job.job_points_needed, 0.01)] burrowed larvae. It is [max_chain ? "part of an intel chain of length [max_chain]" : "not part of an intel chain"].",
 			size = 3,
 			target = new_disk,
 			sound = printed_ding,
@@ -187,7 +187,7 @@
 	. += span_notice("The next disk this computer produces will be worth [supply_reward] supply points, [dropship_reward] dropship points, [round(dropship_reward/2)] credits, and [max_chain ? "be part of an intel chain of length [max_chain]" : "not be part of an intel chain"].")
 	if(isxeno(user))
 		var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[user.get_xeno_hivenumber()])
-		. += span_notice("You could redeem it at a silo for [floor(supply_reward/160)] ambrosia, [round(supply_reward/2, 0.1)] psypoints and [round(floor(supply_reward/60)/xeno_job.job_points_needed, 0.01)] burrowed larvae.")
+		. += span_notice("You could redeem it at a silo for [floor(supply_reward * INTEL_AMBROSIA_PER_SUPPLY_POINT)] ambrosia, [round(supply_reward/2, 0.1)] psypoints and [round(floor(supply_reward/60)/xeno_job.job_points_needed, 0.01)] burrowed larvae.")
 	. += span_notice("[active ? "Y":"Once it is active, y"]ou could insert an intel disk to increase these rewards. [max_chain ? "This will extend its intel chain if it is already part of a chain of length [max_chain] or more" : "This will also start an intel chain"].")
 
 /obj/machinery/computer/intel_computer/ex_act(severity)
@@ -305,5 +305,5 @@
 	. += span_notice("It is worth [supply_reward] supply points, [dropship_reward] dropship points, [round(dropship_reward/2)] credits, and is [max_chain ? "part of an intel chain of length [max_chain]":"not part of an intel chain"].")
 	if(isxeno(user))
 		var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[user.get_xeno_hivenumber()])
-		. += span_notice("You could redeem it at a silo for [floor(supply_reward/160)] ambrosia, [round(supply_reward/2, 0.1)] psypoints and [round(floor(supply_reward/60)/xeno_job.job_points_needed, 0.01)] burrowed larvae.")
+		. += span_notice("You could redeem it at a silo for [floor(supply_reward * INTEL_AMBROSIA_PER_SUPPLY_POINT)] ambrosia, [round(supply_reward/2, 0.1)] psypoints and [round(floor(supply_reward/60)/xeno_job.job_points_needed, 0.01)] burrowed larvae.")
 	. += span_notice("You could insert it into an active intel computer to increase these rewards and [max_chain?"extend its intel chain to length [max_chain+1]":"start an intel chain"].")

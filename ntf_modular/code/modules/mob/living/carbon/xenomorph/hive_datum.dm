@@ -1,5 +1,5 @@
 /datum/hive_status
-	var/req_jelly_progress_required = 110 // 550 seconds =  9.17 minutes per pod
+	var/req_jelly_progress_required = 74 // 370 seconds =  6.25 minutes per globule
 	var/list/req_jelly_pods = list()
 	var/health_mulitiplier = 1
 	var/melee_multiplier = 1
@@ -33,7 +33,7 @@
 /datum/hive_status/corrupted
 	health_mulitiplier = 0.8
 	aura_multiplier = 0.95
-	req_jelly_progress_required = 220 // 1100 seconds = 18.3 minutes per pod
+	req_jelly_progress_required = 148 // 750 seconds = 12.5 minutes per globule
 	queueable = TRUE
 
 /datum/hive_status/corrupted/fallen

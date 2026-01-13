@@ -16,7 +16,7 @@
 	///How many actual jellies the pod has stored
 	var/chargesleft = 0
 	///Max amount of jellies the pod can hold
-	var/maxcharges = 100
+	var/maxcharges = 200
 	///Slowprocess ticks of progress towards next jelly
 	var/jelly_progress = 0
 	///info to add to desc, updated by process()
