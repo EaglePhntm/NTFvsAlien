@@ -102,4 +102,4 @@
 			return TRUE
 
 /obj/item/stack/req_jelly/get_export_value()
-	return list(100 * amount, 25 * amount)
+	return list(75 * amount, 25 * amount)

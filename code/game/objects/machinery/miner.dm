@@ -10,10 +10,10 @@
 #define MINER_RESISTANT "reinforced components"
 #define MINER_OVERCLOCKED "high-efficiency drill"
 
-#define PHORON_CRATE_SELL_AMOUNT 25
-#define PLATINUM_CRATE_SELL_AMOUNT 75
-#define PHORON_DROPSHIP_BONUS_AMOUNT 25
-#define PLATINUM_DROPSHIP_BONUS_AMOUNT 75
+#define PHORON_CRATE_SELL_AMOUNT 20
+#define PLATINUM_CRATE_SELL_AMOUNT 80
+#define PHORON_DROPSHIP_BONUS_AMOUNT 20
+#define PLATINUM_DROPSHIP_BONUS_AMOUNT 80
 ///Resource generator that produces a certain material that can be repaired by marines and attacked by xenos, Intended as an objective for marines to play towards to get more req gear
 /obj/machinery/miner
 	name = "\improper Ninetails phoron Mining Well"
@@ -33,7 +33,7 @@
 	///Tracks how many ticks have passed since we last added a sheet of material
 	var/add_tick = 0
 	///How many times we neeed to tick for a resource to be created, in this case this is 2* the specified amount
-	var/required_ticks = 70  //make one crate every 140 seconds
+	var/required_ticks = 75  //make one crate every 150 seconds
 	///The mineral type that's produced
 	var/mineral_value = PHORON_CRATE_SELL_AMOUNT
 	///Applies the actual bonus points for the dropship for each sale

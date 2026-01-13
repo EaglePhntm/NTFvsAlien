@@ -250,7 +250,7 @@ WEAPONS
 /datum/supply_packs/weapons/tx54_airburst
 	name = "GL-54 airburst grenade magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/tx54)
-	cost = 20
+	cost = 25
 
 /datum/supply_packs/weapons/tx54_he
 	name = "GL-54 HE grenade magazine"
@@ -260,7 +260,7 @@ WEAPONS
 /datum/supply_packs/weapons/tx54_incendiary
 	name = "GL-54 incendiary grenade magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/tx54/incendiary)
-	cost = 60
+	cost = 75
 
 /datum/supply_packs/weapons/tx54_smoke
 	name = "GL-54 tactical smoke grenade magazine"
