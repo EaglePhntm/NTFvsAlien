@@ -51,7 +51,6 @@
 		/datum/xeno_caste/dragon = 18,
 		/datum/xeno_caste/king = 14,
 		/datum/xeno_caste/queen = 10,
-		/datum/xeno_caste/hivelord = 5,
 	)
 
 /datum/game_mode/infestation/crash/pre_setup()
