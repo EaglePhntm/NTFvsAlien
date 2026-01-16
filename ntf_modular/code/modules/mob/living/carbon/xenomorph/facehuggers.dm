@@ -2,7 +2,6 @@
 /obj/item/clothing/mask/facehugger/latching
 	name = "evolved larval facehugger"
 	desc = "It has some sort of weird pulsating gigantic (for it's size) alien cock with bountiful massive balls and a strong boney tail."
-	strip_delay = 8 SECONDS
 	face_tint = TINT_5
 	var/filter_color
 	var/datum/reagent/injected_chemical_type
@@ -11,7 +10,7 @@
 	var/mob/living/carbon/human/wearer
 	var/cock_flavor = "girthy cock"
 	var/harmless = FALSE
-	strip_delay = 8 SECONDS //actually if you get facehugged you lose 10 seconds as is
+	strip_delay = 6 SECONDS //actually if you get facehugged you lose 10 seconds as is, crotch hugs are less disadvantageous for you tho.
 	can_self_remove = TRUE
 	COOLDOWN_DECLARE(implant_cooldown)
 
@@ -152,7 +151,7 @@
 	injected_chemical_type = /datum/reagent/toxin/acid
 	filter_color = COLOR_GREEN
 	special_effect_delay = 20 SECONDS
-	strip_delay = 8 SECONDS
+	strip_delay = 6 SECONDS
 	//not all are used but helpful
 	var/static/list/hugger_smoke_list = list(
 		/datum/reagent/toxin/xeno_neurotoxin = /datum/effect_system/smoke_spread/xeno/neuro/light,
@@ -228,7 +227,7 @@
 	jump_cooldown = 1.5 SECONDS
 	proximity_time = 0.5 SECONDS
 	special_effect_delay = 20 SECONDS
-	strip_delay = 8 SECONDS
+	strip_delay = 6 SECONDS
 
 /obj/item/clothing/mask/facehugger/latching/chemical/acid/special_effect()
 	wearer.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno, 4)
@@ -251,7 +250,7 @@
 	jump_cooldown = 1.5 SECONDS
 	proximity_time = 0.5 SECONDS
 	special_effect_delay = 20 SECONDS
-	strip_delay = 8 SECONDS
+	strip_delay = 6 SECONDS
 
 /obj/item/clothing/mask/facehugger/latching/chemical/resin/special_effect()
 	wearer.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno/resin, 4)

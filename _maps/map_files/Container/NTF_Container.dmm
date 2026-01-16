@@ -4926,6 +4926,7 @@
 "eHR" = (
 /obj/structure/table/mainship/nometal,
 /obj/item/tool/hand_labeler,
+/obj/item/clothing/mask/facehugger/latching/chemical/medical,
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/chemistry)
 "eHX" = (
@@ -11989,6 +11990,11 @@
 	dir = 8
 	},
 /area/mainship/command/cic)
+"ltN" = (
+/obj/structure/table/black,
+/obj/item/clothing/mask/facehugger/latching/friendly,
+/turf/open/floor/mainship/floor,
+/area/mainship/living/cafeteria)
 "ltQ" = (
 /obj/structure/closet/emcloset,
 /obj/machinery/light/mainship,
@@ -52957,7 +52963,7 @@ ags
 cJL
 nSW
 pnd
-rys
+ltN
 aQt
 jpV
 mHp

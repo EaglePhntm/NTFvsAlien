@@ -15292,6 +15292,7 @@
 "mwg" = (
 /obj/structure/table/mainship/nometal,
 /obj/item/tool/hand_labeler,
+/obj/item/clothing/mask/facehugger/latching/chemical/medical,
 /turf/open/floor/mainship/sterile/side,
 /area/mainship/medical/upper_medical{
 	name = "Shipside Medbay"
@@ -26331,6 +26332,7 @@
 "vVP" = (
 /obj/structure/table/mainship/nometal,
 /obj/effect/spawner/random/food_or_drink/bread,
+/obj/item/clothing/mask/facehugger/latching/friendly,
 /turf/open/floor/mainship,
 /area/mainship/living/cafeteria_starboard)
 "vWu" = (
