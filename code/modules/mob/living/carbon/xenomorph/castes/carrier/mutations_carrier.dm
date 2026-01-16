@@ -278,6 +278,7 @@
 	egg_ability.use_selected_hugger = TRUE
 	egg_ability.can_use_adv_huggers = TRUE
 	egg_ability.action_icon_state = "lay_egg_adv_off"
+	egg_ability.update_button_icon()
 	egg_ability.cooldown_duration -= initial(egg_ability.cooldown_duration) * 0.5
 	egg_ability.ability_cost += initial(egg_ability.ability_cost) * get_multiplier(0)
 	return ..()

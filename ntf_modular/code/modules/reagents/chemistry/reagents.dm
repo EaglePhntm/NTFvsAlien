@@ -8,6 +8,14 @@
 	burn_heal = 0.5
 	blood_gain = 0.2
 
+/datum/reagent/toxin/acid/xeno_cum
+	name = "Acidic Semen"
+	description = "The acidic semen supposed to be nutrition source for xenomorph sperm, now burning pain inside, thankfully it's not potent as regular acid."
+	nutriment_factor = 4
+	color = "#9bd19a"
+	toxpwr = 0.5
+	meltprob = 0
+
 /datum/reagent/consumable/nutriment/cum/xeno
 	name = "Xenomorphic Sperm"
 	description = "Xeno cum, not directly harmful when not ejected alongside acid like most xenomorphs do, it is otherwise better than human cum in most ways."

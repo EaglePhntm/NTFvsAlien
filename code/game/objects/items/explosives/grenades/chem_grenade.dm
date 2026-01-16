@@ -231,7 +231,7 @@
 
 	B1.reagents.add_reagent(/datum/reagent/aluminum, 30)
 	B2.reagents.add_reagent(/datum/reagent/foaming_agent, 10)
-	B2.reagents.add_reagent(/datum/reagent/toxin/acid/polyacid, 10)
+	B2.reagents.add_reagent(/datum/reagent/toxin/acid/xeno_cum/polyacid, 10)
 
 	beakers += B1
 	beakers += B2
@@ -296,7 +296,7 @@
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
 
 	B1.reagents.add_reagent(/datum/reagent/aluminum, 30)
-	B1.reagents.add_reagent(/datum/reagent/toxin/acid,30)
+	B1.reagents.add_reagent(/datum/reagent/toxin/acid/xeno_cum,30)
 	B2.reagents.add_reagent(/datum/reagent/toxin/phoron, 60)
 
 	beakers += B1

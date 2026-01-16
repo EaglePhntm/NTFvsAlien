@@ -93,7 +93,7 @@
 			span_love("You hear spurting."))
 			playsound(wearer, 'ntf_modular/sound/misc/mat/endin.ogg', 50, TRUE, 7, ignore_walls = FALSE)
 		wearer.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno, 3)
-		wearer.reagents.add_reagent(/datum/reagent/toxin/acid, 1)
+		wearer.reagents.add_reagent(/datum/reagent/toxin/acid/xeno_cum, 1)
 		if(wearer.reagents.get_reagent_amount(/datum/reagent/medicine/tricordrazine) < 4)
 			wearer.reagents.add_reagent(/datum/reagent/medicine/tricordrazine, 2)
 		if(wearer.reagents.get_reagent_amount(/datum/reagent/medicine/spaceacillin) < 2)
