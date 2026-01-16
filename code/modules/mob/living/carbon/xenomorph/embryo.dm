@@ -16,8 +16,7 @@
 	var/boost_timer = 0
 	var/hivenumber = XENO_HIVE_NORMAL
 	var/admin = FALSE
-	var/emerge_target = HOLE_MOUTH
-	var/emerge_target_flavor = null
+	var/target_hole = HOLE_MOUTH
 	var/mob/living/carbon/xenomorph/larva/new_xeno = null
 	var/psypoint_reward = 0
 	var/biomass_reward = 0
@@ -232,13 +231,13 @@
 		return
 
 	to_chat(src, span_danger("We start slithering out of [victim]!"))
-	if(!embryo || embryo.emerge_target == HOLE_MOUTH)
+	if(!embryo || embryo.target_hole == HOLE_MOUTH)
 		playsound(victim, 'modular_skyrat/sound/weapons/gagging.ogg', 15, TRUE)
 	else
 		victim.emote_burstscream()
 	victim.Paralyze(15 SECONDS)
 	victim.visible_message("<span class='danger'>\The [victim] starts shaking uncontrollably!</span>", \
-								"<span class='danger'>You feel something wiggling in your [embryo?.emerge_target_flavor]!</span>")
+								"<span class='danger'>You feel something wiggling in your [embryo?.target_hole]!</span>")
 	victim.jitter(150)
 
 	burst_timer = addtimer(CALLBACK(src, PROC_REF(burst), victim, embryo), 3 SECONDS, TIMER_STOPPABLE)
@@ -256,7 +255,7 @@
 	else
 		forceMove(get_turf(victim)) //moved to the turf directly so we don't get stuck inside a cryopod or another mob container.
 	playsound(src, pick('sound/voice/alien/chestburst.ogg','sound/voice/alien/chestburst2.ogg'), 10)
-	victim.visible_message("<span class='danger'>The Larva forces its way out of [victim]'s [embryo?.emerge_target_flavor]!</span>")
+	victim.visible_message("<span class='danger'>The Larva forces its way out of [victim]'s [embryo?.target_hole]!</span>")
 	GLOB.round_statistics.total_larva_burst++
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "total_larva_burst")
 	if(istype(embryo))

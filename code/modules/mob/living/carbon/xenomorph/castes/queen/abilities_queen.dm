@@ -137,7 +137,7 @@
 /datum/action/ability/activable/xeno/impregnatequeen/use_ability(mob/living/A)
 	var/channel = SSsounds.random_available_channel()
 	var/mob/living/carbon/xenomorph/X = owner
-	var/victimhole = "[A.gender == MALE ? "ass" : "pussy"]"
+	var/victimhole = "[A.gender == MALE ? HOLE_ASS : HOLE_VAGINA]"
 	if(ishuman(A))
 		switch(X.a_intent)
 			if(INTENT_HARM)
@@ -187,23 +187,13 @@
 					A.apply_damage((damageperlarva/damagescaledivisor)*implanted_embryos, D, BODY_ZONE_PRECISE_GROIN, updating_health = TRUE) //It'll get worse!
 					A.apply_damage(1, CLONE, BODY_ZONE_PRECISE_GROIN, updating_health = TRUE) //REALLY ripping that womb
 	if(prob(chancebunch)) //Queen has a higher chance to lay in batches.
-		for(var/lcount=0, lcount<larvalbunch, lcount++)
-			var/obj/item/alien_embryo/larba = new(A)
-			larba.hivenumber = X.get_xeno_hivenumber()
-			larba.emerge_target_flavor = victimhole
+		implant_embryo(A, victimhole, 2, source = X)
 		to_chat(owner, span_danger("You lay multiple larva at once!"))
 		to_chat(A, span_danger("You feel multiple larva being inserted at once!"))
 		if(ismonkey(A))
 			A.apply_damage(larvalbunch*10, CLONE, BODY_ZONE_PRECISE_GROIN, updating_health = TRUE)
 	else
-		var/obj/item/alien_embryo/embryo = new(A)
-		embryo.hivenumber = X.get_xeno_hivenumber()
-		embryo.emerge_target_flavor = victimhole
-		GLOB.round_statistics.now_pregnant++
-		SSblackbox.record_feedback("tally", "round_statistics", 1, "now_pregnant") //Only counts once to give Xenomorphs a fair chance.
-		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[X.ckey]
-		personal_statistics.impregnations++
-
+		implant_embryo(A, victimhole, source = X)
 	if(A.stat == DEAD)
 		owner.visible_message(span_danger("[X] causes [A]'s belly to blow up in a gorey mess!"), span_danger("We make [A]'s belly explode into a gorey mess!"), span_warning("You hear a gorey explosion."), 5, A)
 		for(var/obj/item/alien_embryo/implanted in A.contents)

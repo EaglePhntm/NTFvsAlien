@@ -67,11 +67,14 @@
 
 #define VIOLATED_ALLOWED_TIME (10 MINUTES)
 
-///hole numbers
-#define HOLE_MOUTH 1
-#define HOLE_ASS 2
-#define HOLE_VAGINA 3
-#define HOLE_NIPPLE 4
-#define HOLE_EAR 5
-#define HOLE_CUSTOM 6
+///hole defines
+#define HOLE_MOUTH "mouth"
+#define HOLE_ASS "ass"
+#define HOLE_VAGINA "pussy"
+#define HOLE_NIPPLE "nipple"
+#define HOLE_EAR "ear"
 
+#define HOLE_LIST list(HOLE_MOUTH,HOLE_ASS,HOLE_VAGINA,HOLE_NIPPLE,HOLE_EAR)
+
+///how long egg huggers live when out
+#define EGG_HUGGER_LIFETIME 5 MINUTES

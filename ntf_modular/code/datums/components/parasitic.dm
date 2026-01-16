@@ -76,50 +76,31 @@
 	if(wearer.stat == DEAD)
 		return
 	//wheel of fuck
-	var/targethole = rand(5)
-	var/targetholename = "mouth"
-	switch(targethole)
-		if(HOLE_MOUTH)
-			targetholename = "mouth"
-		if(HOLE_ASS)
-			targetholename = "ass"
-		if(HOLE_VAGINA)
-			targetholename = "pussy"
-		if(HOLE_NIPPLE)
-			targetholename = "nipples"
-		if(HOLE_EAR)
-			targetholename = "ears"
+	var/target_hole = pick(HOLE_LIST)
 	if(fixed_hole)
-		targethole = fixed_hole
-	if(targethole == HOLE_VAGINA || targethole == HOLE_NIPPLE)
-		if(wearer.gender != FEMALE)
-			targethole = HOLE_ASS
-			targetholename = "ass"
+		target_hole = fixed_hole
 	if(COOLDOWN_FINISHED(src, implant_cooldown))
 		COOLDOWN_START(src, implant_cooldown, implant_delay)
 		if(!(wearer.status_flags & XENO_HOST))
-			wearer.visible_message(span_xenonotice("[parent] roughly thrusts a tentacle into [wearer]'s [targetholename], a round bulge visibly sliding through it as it inserts an egg into [wearer]!"),
-			span_xenonotice("[parent] roughly thrusts a tentacle into your [targetholename], a round bulge visibly sliding through it as it inserts an egg into you!"),
+			wearer.visible_message(span_xenonotice("[parent] roughly thrusts a tentacle into [wearer]'s [target_hole], a round bulge visibly sliding through it as it inserts an egg into [wearer]!"),
+			span_xenonotice("[parent] roughly thrusts a tentacle into your [target_hole], a round bulge visibly sliding through it as it inserts an egg into you!"),
 			span_notice("You hear squelching."))
 			playsound(wearer, 'ntf_modular/sound/misc/mat/endin.ogg', 50, TRUE, 7, ignore_walls = FALSE)
-			var/obj/item/alien_embryo/embryo = new(wearer)
-			embryo.hivenumber = hivenumber
-			embryo.emerge_target = targethole
-			embryo.emerge_target_flavor = targetholename
+			implant_embryo(wearer, target_hole, force_xenohive = hivenumber)
 		else
-			wearer.visible_message(span_love("[parent]'s tentacle pumps globs slightly acidic cum into [wearer]'s [targetholename]!"),
-			span_love("[parent] tentacle pumps globs of slightly acidic cum into your [targetholename]!"),
+			wearer.visible_message(span_love("[parent]'s tentacle pumps globs slightly acidic cum into [wearer]'s [target_hole]!"),
+			span_love("[parent] tentacle pumps globs of slightly acidic cum into your [target_hole]!"),
 			span_love("You hear spurting."))
 			playsound(wearer, 'ntf_modular/sound/misc/mat/endin.ogg', 50, TRUE, 7, ignore_walls = FALSE)
-		wearer.reagents.add_reagent(/datum/reagent/consumable/nutriment, 1)
+		wearer.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno, 3)
 		wearer.reagents.add_reagent(/datum/reagent/toxin/acid, 1)
 		if(wearer.reagents.get_reagent_amount(/datum/reagent/medicine/tricordrazine) < 4)
 			wearer.reagents.add_reagent(/datum/reagent/medicine/tricordrazine, 2)
 		if(wearer.reagents.get_reagent_amount(/datum/reagent/medicine/spaceacillin) < 2)
 			wearer.reagents.add_reagent(/datum/reagent/medicine/spaceacillin, 2)
 	else
-		wearer.visible_message(span_love("[parent] roughly thrusts a tentacle into [wearer]'s [targetholename]!"),
-		span_love("[parent] roughly thrusts a tentacle into your [targetholename]!"),
+		wearer.visible_message(span_love("[parent] roughly thrusts a tentacle into [wearer]'s [target_hole]!"),
+		span_love("[parent] roughly thrusts a tentacle into your [target_hole]!"),
 		span_love("You hear squelching."))
 		wearer.adjustStaminaLoss(2)
 		playsound(wearer, 'ntf_modular/sound/misc/mat/segso.ogg', 50, TRUE, 5, ignore_walls = FALSE)

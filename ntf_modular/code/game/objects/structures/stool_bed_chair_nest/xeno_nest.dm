@@ -3,7 +3,7 @@
 	icon = 'icons/Xeno/Effects.dmi'
 	desc = "A trap nest, It's a gruesome pile of thick, sticky resin-covered tentacles shaped like a nest. It will quickly capture who stay on it and cum acid and larva inside if given opportunity. It is rather easy to escape from."
 	var/hivenumber = XENO_HIVE_NORMAL
-	var/targethole = 1
+	var/target_hole = HOLE_MOUTH
 	var/settings_locked = FALSE
 	var/list/mob/living/carbon/human/grabbing = null
 	COOLDOWN_DECLARE(tentacle_cooldown)
@@ -38,19 +38,7 @@
 
 /obj/structure/bed/nest/advanced/examine(mob/user)
 	. = ..()
-	var/targetholename = "!!ERROR!!"
-	switch(targethole)
-		if(HOLE_MOUTH)
-			targetholename = "mouth"
-		if(HOLE_ASS)
-			targetholename = "ass"
-		if(HOLE_VAGINA)
-			targetholename = "pussy"
-		if(HOLE_NIPPLE)
-			targetholename = "nipples"
-		if(HOLE_EAR)
-			targetholename = "ears"
-	. += span_notice("It is currently set to use its victim's [targetholename].")
+	. += span_notice("It is currently set to use its victim's [target_hole].")
 	if(settings_locked)
 		if(user.buckled == src)
 			. += span_notice("Set to: <a href=byond://?src=[REF(src)];sethole=1>\[mouth\]</a> <a href=byond://?src=[REF(src)];sethole=2>\[ass\]</a> <a href=byond://?src=[REF(src)];sethole=3>\[pussy\]</a> <a href=byond://?src=[REF(src)];sethole=4>\[nipples\]</a> <a href=byond://?src=[REF(src)];sethole=5>\[ears\]</a> <a href=byond://?src=[REF(src)];lock=2>\[unlock settings\]</a>")
@@ -128,19 +116,19 @@
 			return
 		switch(href_list["sethole"])
 			if("1")
-				targethole = 1
+				target_hole = HOLE_MOUTH
 				to_chat(usr, span_notice("You set [src] to use its victim's mouth."))
 			if("2")
-				targethole = 2
+				target_hole = HOLE_ASS
 				to_chat(usr, span_notice("You set [src] to use its victim's ass."))
 			if("3")
-				targethole = 3
+				target_hole = HOLE_VAGINA
 				to_chat(usr, span_notice("You set [src] to use its victim's pussy."))
 			if("4")
-				targethole = 4
+				target_hole = HOLE_NIPPLE
 				to_chat(usr, span_notice("You set [src] to use its victim's nipples."))
 			if("5")
-				targethole = 4
+				target_hole = HOLE_EAR
 				to_chat(usr, span_notice("You set [src] to use its victim's ears."))
 			else
 				to_chat(usr, span_warning("Attempted to set [src]'s target hole to an invalid value."))
@@ -255,34 +243,19 @@
 	if(victim.stat == DEAD)
 		unbuckle_mob(victim)
 		return
-	var/targetholename = "mouth"
-	switch(targethole)
-		if(HOLE_MOUTH)
-			targetholename = "mouth"
-		if(HOLE_ASS)
-			targetholename = "ass"
-		if(HOLE_VAGINA)
-			targetholename = "pussy"
-		if(HOLE_NIPPLE)
-			targetholename = "nipples"
-		if(HOLE_EAR)
-			targetholename = "ears"
 	do_thrust_animate(victim, src)
 	do_thrust_animate(src, victim)
 	if(COOLDOWN_FINISHED(src, tentacle_cooldown))
 		COOLDOWN_START(src, tentacle_cooldown, cooldown_time)
 		if(!(victim.status_flags & XENO_HOST))
-			victim.visible_message(span_xenonotice("[src] roughly thrusts a tentacle into [victim]'s [targetholename], a round bulge visibly sliding through it as it inserts an egg into [victim]!"),
-			span_xenonotice("[src] roughly thrusts a tentacle into your [targetholename], a round bulge visibly sliding through it as it inserts an egg into you!"),
+			victim.visible_message(span_xenonotice("[src] roughly thrusts a tentacle into [victim]'s [target_hole], a round bulge visibly sliding through it as it inserts an egg into [victim]!"),
+			span_xenonotice("[src] roughly thrusts a tentacle into your [target_hole], a round bulge visibly sliding through it as it inserts an egg into you!"),
 			span_notice("You hear squelching."))
 			playsound(victim, 'ntf_modular/sound/misc/mat/endin.ogg', 50, TRUE, 7, ignore_walls = FALSE)
-			var/obj/item/alien_embryo/embryo = new(victim)
-			embryo.hivenumber = hivenumber
-			embryo.emerge_target = targethole
-			embryo.emerge_target_flavor = targetholename
+			implant_embryo(victim, target_hole, force_xenohive = hivenumber)
 		else
-			victim.visible_message(span_love("[src]'s tentacle pumps globs of sizzling acidic cum into [victim]'s [targetholename]!"),
-			span_love("[src] tentacle pumps globs of sizzling acidic cum into your [targetholename]!"),
+			victim.visible_message(span_love("[src]'s tentacle pumps globs of sizzling acidic cum into [victim]'s [target_hole]!"),
+			span_love("[src] tentacle pumps globs of sizzling acidic cum into your [target_hole]!"),
 			span_love("You hear spurting."))
 			playsound(victim, 'ntf_modular/sound/misc/mat/endin.ogg', 50, TRUE, 7, ignore_walls = FALSE)
 		if(istype(src, /obj/structure/bed/nest/advanced/special))
@@ -295,11 +268,11 @@
 				victim.reagents.add_reagent(/datum/reagent/medicine/dexalin, 10)
 			if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/spaceacillin) < 5)
 				victim.reagents.add_reagent(/datum/reagent/medicine/spaceacillin, 2)
-		victim.reagents.add_reagent(/datum/reagent/consumable/nutriment, 3)
+		victim.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno, 5)
 		victim.reagents.add_reagent(/datum/reagent/toxin/acid, 2) //need to make xenos not leave people in here unattended instead of using regular nests.
 	else
-		victim.visible_message(span_love("[src] roughly thrusts a tentacle into [victim]'s [targetholename]!"),
-		span_love("[src] roughly thrusts a tentacle into your [targetholename]!"),
+		victim.visible_message(span_love("[src] roughly thrusts a tentacle into [victim]'s [target_hole]!"),
+		span_love("[src] roughly thrusts a tentacle into your [target_hole]!"),
 		span_love("You hear squelching."))
 		playsound(victim, 'ntf_modular/sound/misc/mat/segso.ogg', 50, TRUE, 5, ignore_walls = FALSE)
 		victim.adjustStaminaLoss(5)

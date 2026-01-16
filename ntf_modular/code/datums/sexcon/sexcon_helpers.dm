@@ -103,6 +103,7 @@
 	if(!istype(victim))
 		return
 	victim.reagents.remove_reagent(/datum/reagent/toxin/xeno_aphrotoxin, 10)
+	victim.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno, 10)
 	if(damaging)
 		new /obj/effect/decal/cleanable/blood/splatter/xenocum(loc)
 		var/aciddamagetodeal = 5
@@ -114,57 +115,17 @@
 		victim.apply_damage(impregdamagetodeal, BRUTE, damageloc, updating_health = TRUE)
 		if(ismonkey(victim))
 			victim.apply_damage(impregdamagetodeal, BRUTE, damageloc, updating_health = TRUE)
-	var/implanted_embryos = 0
-	for(var/obj/item/alien_embryo/implanted in victim.contents)
-		implanted_embryos++
-		if(implanted_embryos >= maxlarvas)
-			to_chat(src, span_warning("We came but this host is already full of young ones."))
-			return
+	if(!can_implant_embryo(victim))
+		to_chat(src, span_warning("We came but this host is already full of young ones."))
+		return
 	if(victim.stat == DEAD)
 		to_chat(src, span_warning("We impregnate \the [victim] with a dormant larva."))
-	var/obj/item/alien_embryo/embryo = new(victim)
+	implant_embryo(victim, HOLE_VAGINA, source = src)
 	if(prob(5))
 		to_chat(src, span_warning("We sense we impregnated \the [victim] with TWINS!."))
-		var/obj/item/alien_embryo/embryo2 = new(victim)
-		embryo2.hivenumber = hivenumber
-		if(overrideflavor == "mouth")
-			embryo2.emerge_target = HOLE_MOUTH
-			embryo2.emerge_target_flavor = "mouth"
-		else
-			if(!overrideflavor)
-				if(victim.gender==FEMALE)
-					embryo2.emerge_target = HOLE_VAGINA
-					embryo2.emerge_target_flavor = "pussy"
-				else
-					embryo2.emerge_target = HOLE_ASS
-					embryo2.emerge_target_flavor = "ass"
-			else
-				embryo2.emerge_target = HOLE_CUSTOM
-				embryo2.emerge_target_flavor = overrideflavor
-		GLOB.round_statistics.now_pregnant++
-		SSblackbox.record_feedback("tally", "round_statistics", 1, "now_pregnant")
-		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[ckey]
-		personal_statistics.impregnations++
-	embryo.hivenumber = hivenumber
-	if(overrideflavor == "mouth")
-		embryo.emerge_target = HOLE_MOUTH
-		embryo.emerge_target_flavor = "mouth"
+		implant_embryo(victim, HOLE_VAGINA, 2, source = src)
 	else
-		if(!overrideflavor)
-			if(victim.gender==FEMALE)
-				embryo.emerge_target = HOLE_VAGINA
-				embryo.emerge_target_flavor = "pussy"
-			else
-				embryo.emerge_target = HOLE_ASS
-				embryo.emerge_target_flavor = "ass"
-		else
-			embryo.emerge_target = HOLE_CUSTOM
-			embryo.emerge_target_flavor = overrideflavor
-	GLOB.round_statistics.now_pregnant++
-	SSblackbox.record_feedback("tally", "round_statistics", 1, "now_pregnant")
-	var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[ckey]
-	personal_statistics.impregnations++
-	claim_hive_target_reward(victim)
+		implant_embryo(victim, HOLE_VAGINA, source = src)
 
 /mob/living/carbon/xenomorph/proc/xenoimpregify()
 	if(!preggo)
@@ -182,3 +143,33 @@
 	var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
 	xeno_job.add_job_points(1) //can be made a var if need be.
 	hive.update_tier_limits()
+
+/proc/can_implant_embryo(mob/living/victim, limit = MAX_LARVA_PREGNANCIES)
+	var/implanted_embryos = 0
+	for(var/obj/item/alien_embryo/implanted in victim.contents)
+		implanted_embryos++
+	if(implanted_embryos < limit)
+		return TRUE
+	return FALSE
+
+/proc/implant_embryo(mob/living/victim, target_hole, times = 1, mob/living/carbon/xenomorph/source, force_xenohive)
+	if(!target_hole)
+		target_hole = pick(HOLE_LIST)
+	for(var/index in 1 to times)
+		if(can_implant_embryo(victim))
+			var/obj/item/alien_embryo/embryo = new(victim)
+			if(source)
+				embryo.hivenumber = source.get_xeno_hivenumber()
+			if(force_xenohive)
+				embryo.hivenumber = force_xenohive
+			embryo.target_hole = target_hole
+			if(traget_hole == HOLE_VAGINA)
+				if(victim.gender != FEMALE)
+					embryo.target_hole = HOLE_ASS
+			GLOB.round_statistics.now_pregnant++
+			SSblackbox.record_feedback("tally", "round_statistics", 1, "now_pregnant")
+	if(source?.client)
+		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[source.ckey]
+		personal_statistics.impregnations++
+		if(isxeno(source))
+			source.claim_hive_target_reward(victim)

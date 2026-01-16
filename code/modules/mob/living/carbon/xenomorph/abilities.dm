@@ -1348,13 +1348,9 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 	if(!.)
 		return FALSE
 	var/mob/living/carbon/xenomorph/X = owner
-	var/mob/living/victim = A
-	var/implanted_embryos = 0
-	for(var/obj/item/alien_embryo/implanted in A.contents)
-		implanted_embryos++
-		if(implanted_embryos >= MAX_LARVA_PREGNANCIES)
-			to_chat(owner, span_warning("This host is already full of young ones."))
-			return FALSE
+	if(can_implant_embryo(A))
+		to_chat(owner, span_warning("This host is already full of young ones."))
+		return FALSE
 	if(owner.do_actions) //can't use if busy
 		return FALSE
 	if(!owner.Adjacent(A)) //checks if owner next to target
@@ -1366,9 +1362,9 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 		if(!silent)
 			to_chat(X, span_warning("We're too busy being on fire to do this!"))
 		return FALSE
-	log_combat(X, victim, "started to use their impregnate ability on")
-	X.visible_message(span_danger("[X] starts to fuck [victim]!"), \
-	span_danger("We start to fuck [victim]!"), null, 5)
+	log_combat(X, A, "started to use their impregnate ability on")
+	X.visible_message(span_danger("[X] starts to fuck [A]!"), \
+	span_danger("We start to fuck [A]!"), null, 5)
 
 /datum/action/ability/activable/xeno/impregnate/use_ability(mob/living/A)
 	var/channel = SSsounds.random_available_channel()
