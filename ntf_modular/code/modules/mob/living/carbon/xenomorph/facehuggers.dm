@@ -3,16 +3,15 @@
 	name = "evolved larval facehugger"
 	desc = "It has some sort of weird pulsating gigantic (for it's size) alien cock with bountiful massive balls and a strong boney tail."
 	strip_delay = 8 SECONDS
-	face_tint = TINT_4
+	face_tint = TINT_5
 	var/filter_color
 	var/datum/reagent/injected_chemical_type
 	var/amount_injected = 5
 	var/special_effect_delay = 20 SECONDS
 	var/mob/living/carbon/human/wearer
-	var/max_ejaculates = 3
 	var/cock_flavor = "girthy cock"
 	var/harmless = FALSE
-	strip_delay = 8 SECONDS
+	strip_delay = 12 SECONDS
 	can_self_remove = TRUE
 	COOLDOWN_DECLARE(implant_cooldown)
 
@@ -111,7 +110,7 @@
 	filter_color = COLOR_RED
 	special_effect_delay = 15 SECONDS
 	cock_flavor = "ribbed cock"
-	strip_delay = 2 SECONDS
+	strip_delay = 3 SECONDS
 
 /obj/item/clothing/mask/facehugger/latching/clawer/special_effect()
 	wearer.emote("scream")
