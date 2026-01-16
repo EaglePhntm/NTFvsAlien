@@ -84,3 +84,20 @@
 /obj/item/clothing/head/head_sack/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/clothing_tint, TINT_BLIND)
+
+/obj/item/clothing/head/kitty
+	name = "kitty ears"
+	desc = "A pair of kitty ears. Meow!"
+	icon_state = "kitty"
+	color = "#999999"
+	icon = 'ntf_modular/icons/obj/clothing/headwear/head.dmi'
+	worn_icon_list = list(
+		slot_head_str = 'ntf_modular/icons/mob/clothing/headwear/head.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/items/items_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items/items_right.dmi',
+	)
+
+/obj/item/clothing/head/kitty/equipped(mob/living/carbon/human/user, slot)
+	. = ..()
+	if(slot == SLOT_HEAD && ishuman(user))
+		color = rgb(user.r_hair, user.g_hair, user.b_hair)
