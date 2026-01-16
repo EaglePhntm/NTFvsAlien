@@ -1,5 +1,5 @@
-///After how much time of being active we die
-#define FACEHUGGER_DEATH 10 SECONDS
+///when facehuggers die
+#define FACEHUGGER_DEATH 30 SECONDS
 ///Time it takes to impregnate someone
 #define IMPREGNATION_TIME 10 SECONDS
 ///List of all living face huggers
@@ -76,6 +76,7 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 	///NTF addition - chosen hole to use by hugger, just flavor for now
 	var/target_hole = HOLE_MOUTH
 	var/face_tint = TINT_BLIND
+	var/can_self_remove = FALSE
 
 /obj/item/clothing/mask/facehugger/Initialize(mapload)
 	. = ..()
@@ -193,6 +194,9 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 			return ..() // These can pick up huggers.
 	if(stat == DEAD || (sterile && !combat_hugger))
 		return ..() // Dead or sterile (lamarr) can be picked.
+	else if(can_self_remove)
+		if(!user.do_actions && do_after(user, strip_delay, NONE, src, BUSY_ICON_FRIENDLY))
+			return ..()
 	else if(stat == CONSCIOUS && user.can_be_facehugged(src, provoked = TRUE)) // If you try to take a healthy one it will try to hug or attack you.
 		user.visible_message(span_warning("[src] skitters up [user]'s arm as [user.p_they()] try to grab it!"), \
 		span_warning("[src] skitters up your arm as you try to grab it!"))
@@ -554,26 +558,29 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 		X.dropItemToGround(src)
 		X.update_icons()
 
-	if(!no_evade && hugged.dir != dir && !hugged.incapacitated())
-		var/catch_chance = 80
-		if(hugged.dir == REVERSE_DIR(dir))
-			catch_chance += 20
-		var/mob/living/carbon/carbon_hugged = hugged
-		if(istype(carbon_hugged))
-			catch_chance -= max(carbon_hugged.shock_stage * 0.3, hugged.getStaminaLoss() * 0.25)
-		else
-			catch_chance -= max(hugged.getStaminaLoss() * 0.25)
-		if(hugged.get_inactive_held_item())
-			catch_chance  *= 0.7
-		if(hugged.get_active_held_item())
-			catch_chance *= 0.45
-		if(hugged.status_flags & XENO_HOST)
-			catch_chance = 100 * (catch_chance*3 / (catch_chance*2 + 100))
+	if(iscarbon(hugged))
+		var/mob/living/carbon/huggedc = hugged
+		if(!no_evade && huggedc.dir != dir && !huggedc.incapacitated() && huggedc.in_throw_mode)
+			var/catch_chance = 80
+			if(huggedc.dir == REVERSE_DIR(dir))
+				catch_chance += 20
+			var/mob/living/carbon/carbon_huggedc = huggedc
+			if(istype(carbon_huggedc))
+				catch_chance -= max(carbon_huggedc.shock_stage * 0.3, huggedc.getStaminaLoss() * 0.25)
+			else
+				catch_chance -= max(huggedc.getStaminaLoss() * 0.25)
+			if(huggedc.get_inactive_held_item())
+				catch_chance  *= 0.7
+			if(huggedc.get_active_held_item())
+				catch_chance *= 0.45
+			if(huggedc.status_flags & XENO_HOST)
+				catch_chance *= 0.25
 
-		if(prob(catch_chance))
-			hugged.visible_message("<span class='notice'>[hugged] snatches [src] out of the air and [pickweight(list("clobbers" = 30, "kills" = 30, "squashes" = 25, "dunks" = 10, "dribbles" = 5))] it!")
-			kill_hugger()
-			return TRUE
+			if(prob(catch_chance))
+				huggedc.visible_message("<span class='notice'>[huggedc] snatches [src] out of the air and [pickweight(list("clobbers" = 30, "kills" = 30, "squashes" = 25, "dunks" = 10, "dribbles" = 5))] it!")
+				kill_hugger()
+				huggedc.throw_mode_off()
+				return TRUE
 
 	var/blocked = null //To determine if the hugger just rips off the protection or can infect.
 	if(ishuman(hugged))
@@ -666,7 +673,7 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 	if(slot != SLOT_WEAR_MASK && slot != SLOT_UNDERWEAR || stat == DEAD)
 		reset_attach_status(FALSE)
 		return
-	if(!sterile && !issynth(user))
+	if(!sterile)
 		var/stamina_dmg = user.maxHealth + user.max_stamina
 		user.apply_damage(stamina_dmg, STAMINA) // complete winds the target
 	playsound(src, 'sound/effects/alien_plapping.ogg', 5)
@@ -680,11 +687,12 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 		user.ParalyzeNoChain(3 SECONDS)
 	attached = TRUE
 	go_idle(FALSE, TRUE)
-	addtimer(CALLBACK(src, PROC_REF(try_impregnate), user), IMPREGNATION_TIME)
+	if(!sterile)
+		addtimer(CALLBACK(src, PROC_REF(try_impregnate), user), IMPREGNATION_TIME)
 
 /// Try to put an embryo into the target mob
 /obj/item/clothing/mask/facehugger/proc/try_impregnate(mob/living/carbon/human/target)
-	// ADD_TRAIT(src, TRAIT_NODROP, HUGGER_TRAIT)
+	//ADD_TRAIT(src, TRAIT_NODROP, HUGGER_TRAIT)
 	var/as_planned = target?.wear_mask == src  || target?.w_underwear == src
 	if((target.can_be_facehugged(src, FALSE, FALSE, TRUE)) && !sterile && as_planned) //is hugger still on face and can they still be impregnated
 		implant_embryo(target, force_xenohive = hivenumber)
@@ -998,5 +1006,4 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 		return FALSE
 	return TRUE
 
-#undef FACEHUGGER_DEATH
 #undef IMPREGNATION_TIME

@@ -75,6 +75,3 @@
 #define HOLE_EAR "ear"
 
 #define HOLE_LIST list(HOLE_MOUTH,HOLE_ASS,HOLE_VAGINA,HOLE_NIPPLE,HOLE_EAR)
-
-///how long egg huggers live when out
-#define EGG_HUGGER_LIFETIME 5 MINUTES

@@ -163,7 +163,7 @@
 			if(force_xenohive)
 				embryo.hivenumber = force_xenohive
 			embryo.target_hole = target_hole
-			if(traget_hole == HOLE_VAGINA)
+			if(target_hole == HOLE_VAGINA)
 				if(victim.gender != FEMALE)
 					embryo.target_hole = HOLE_ASS
 			GLOB.round_statistics.now_pregnant++

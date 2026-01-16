@@ -1,3 +1,6 @@
+///how long egg huggers live when out
+#define EGG_HUGGER_LIFETIME 4 MINUTES
+
 /obj/alien/egg
 	name = "theoretical egg"
 	density = FALSE

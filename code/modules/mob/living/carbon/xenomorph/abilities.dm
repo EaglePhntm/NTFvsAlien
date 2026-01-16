@@ -1110,7 +1110,10 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 	if(!xeno.loc_weeds_type)
 		return fail_activate()
 
-	new /obj/alien/egg/hugger(current_turf, xeno.get_xeno_hivenumber(), use_selected_hugger ? xeno_owner.selected_hugger_type : null, hand_attach_time_multiplier)
+	if(!use_advanced_huggers)
+		new /obj/alien/egg/hugger(current_turf, xeno.get_xeno_hivenumber(), use_selected_hugger ? xeno_owner.selected_hugger_type : null, hand_attach_time_multiplier)
+	else
+		advanced_plant_egg(current_turf, xeno, user)
 
 	playsound(current_turf, 'sound/effects/splat.ogg', 15, 1)
 
