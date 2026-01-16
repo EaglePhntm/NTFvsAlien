@@ -100,7 +100,7 @@ SUBSYSTEM_DEF(points)
 
 /// Add amount of biomass to the selected hive only if the gamemode support biomass.
 /datum/controller/subsystem/points/proc/add_biomass_points(hivenumber, amount)
-	if(!CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_BIOMASS_POINTS))
+	if(!CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_MUTATIONS_OBTAINABLE))
 		//convert to amount/190 job points, or amount/1520 burrowed larva.
 		//Fractional job points are already used in some places so this should be fine
 		var/datum/job/xenomorph/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])

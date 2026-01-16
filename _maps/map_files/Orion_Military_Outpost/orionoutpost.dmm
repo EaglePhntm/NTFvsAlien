@@ -38,6 +38,7 @@
 /area/orion_outpost/ground/outpostsw)
 "av" = (
 /obj/effect/landmark/corpsespawner/marine,
+/obj/effect/ai_node,
 /turf/open/floor/mainship/sterile/dark,
 /area/orion_outpost/surface/building/medbay)
 "ax" = (
@@ -1280,6 +1281,11 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/canteen)
+"gu" = (
+/obj/structure/cable,
+/obj/effect/ai_node,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/administration)
 "gw" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -4824,6 +4830,14 @@
 "xF" = (
 /turf/open/floor/mainship/terragov/north,
 /area/orion_outpost/surface/building/administration)
+"xG" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 1
+	},
+/obj/effect/ai_node,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/nebuilding)
 "xH" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
 	dir = 2
@@ -7378,6 +7392,11 @@
 /obj/effect/ai_node,
 /turf/open/floor/mainship/floor,
 /area/orion_outpost/surface/building/tadpolepad)
+"Kl" = (
+/obj/effect/spawner/random/misc/structure/supplycrate/normalweighted,
+/obj/effect/ai_node,
+/turf/open/floor/plating/ground/concrete,
+/area/orion_outpost/surface/building/tadpolepad)
 "Km" = (
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 4
@@ -7998,6 +8017,7 @@
 /obj/structure/bed/chair/office/dark{
 	dir = 4
 	},
+/obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/administration)
 "Nd" = (
@@ -14852,7 +14872,7 @@ Fj
 mt
 mo
 vl
-zC
+gu
 zC
 Kr
 Zv
@@ -15770,7 +15790,7 @@ RU
 oz
 oz
 Ly
-pj
+hu
 AO
 pj
 DX
@@ -19319,7 +19339,7 @@ dF
 rt
 dF
 rt
-dc
+qR
 dc
 nW
 rt
@@ -19979,7 +19999,7 @@ kq
 mp
 fa
 fy
-Fl
+aR
 Su
 Su
 Fl
@@ -21695,13 +21715,13 @@ OD
 OD
 OD
 Vm
-OD
-sd
+xG
+mI
 Wr
 mI
 mI
 mI
-mI
+sd
 ul
 fv
 mI
@@ -23337,11 +23357,11 @@ oq
 TD
 uB
 Xl
-qT
+dn
 qT
 HP
 AM
-SB
+Kl
 Pl
 AM
 SB

@@ -11,7 +11,7 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PLACE_STEW_POD,
 	)
 
-	gamemode_flags = ABILITY_SOLMODE
+	gamemode_flags = ABILITY_ALL_GAMEMODE
 	use_state_flags = ABILITY_USE_LYING
 
 /datum/action/ability/xeno_action/place_stew_pod/can_use_action(silent = FALSE, override_flags)

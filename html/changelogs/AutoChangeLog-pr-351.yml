@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscadd: "Adds automatic color changing cat ears and tails to the clothing vendors under the 'other' tab."

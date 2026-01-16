@@ -3,7 +3,6 @@ SUBSYSTEM_DEF(silo)
 	wait = 1 MINUTES
 	priority = FIRE_PRIORITY_SILO
 	can_fire = FALSE
-	init_order = INIT_ORDER_SPAWNING_POOL
 	///How many larva points are added every minutes in total, associative list by hivenumber
 	var/current_larva_spawn_rate = list()
 
