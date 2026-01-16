@@ -688,7 +688,7 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 	else
 		if(!issamexenohive(user))
 			user.emote("scream")
-			user.ParalyzeNoChain(3 SECONDS)
+			user.ParalyzeNoChain(4 SECONDS)
 			user.apply_damage(100, STAMINA)
 	attached = TRUE
 	go_idle(FALSE, TRUE)

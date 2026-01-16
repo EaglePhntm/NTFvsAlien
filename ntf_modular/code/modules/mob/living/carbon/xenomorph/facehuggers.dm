@@ -11,7 +11,7 @@
 	var/mob/living/carbon/human/wearer
 	var/cock_flavor = "girthy cock"
 	var/harmless = FALSE
-	strip_delay = 10 SECONDS
+	strip_delay = 8 SECONDS //actually if you get facehugged you lose 10 seconds as is
 	can_self_remove = TRUE
 	COOLDOWN_DECLARE(implant_cooldown)
 
