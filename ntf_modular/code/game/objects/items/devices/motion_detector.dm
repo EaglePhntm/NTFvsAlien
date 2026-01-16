@@ -92,7 +92,7 @@
 
 /obj/effect/temp_visual/minimap_pulse
 	icon = null
-	duration = 0.75 SECONDS
+	duration = 0.7 SECONDS
 
 /obj/effect/temp_visual/minimap_pulse/Initialize(mapload, minimap_flag = MINIMAP_FLAG_ALL, range)
 	. = ..()

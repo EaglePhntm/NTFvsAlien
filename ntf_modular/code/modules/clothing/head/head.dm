@@ -70,7 +70,7 @@
 //black bag
 /obj/item/clothing/head/head_sack
 	name = "head sack"
-	desc = "Legendary kidnapping equipment, Covers the eyes, preventing sight."
+	desc = "Legendary kidnapping equipment, Covers the head, preventing sight."
 	icon = 'ntf_modular/icons/obj/clothing/headwear/head.dmi'
 	worn_icon_list = list(
 		slot_head_str = 'ntf_modular/icons/mob/clothing/headwear/head.dmi',
@@ -80,7 +80,13 @@
 	icon_state = "blackbag"
 	worn_icon_state = "blackbag"
 	eye_protection = 2
+	var/tint_value = TINT_BLIND
 
 /obj/item/clothing/head/head_sack/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/clothing_tint, TINT_BLIND)
+
+/obj/item/clothing/head/head_sack/light
+	name = "light head sack"
+	desc = "Epic kidnapping equipment, Covers the head, preventing sight... Mostly. (allows seeing emotes but lets more sight.)"
+	tint_value = TINT_5

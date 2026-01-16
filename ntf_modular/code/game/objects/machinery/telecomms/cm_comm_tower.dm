@@ -96,9 +96,18 @@
 /obj/machinery/telecomms/relay/preset/tower/Initialize()
 	GLOB.all_static_telecomms_towers += src
 	. = ..()
-	if(z)
-		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, "supply"))
+	update_minimap_marker()
 	START_PROCESSING(SSslowprocess, src)
+
+/obj/machinery/telecomms/relay/preset/tower/proc/update_minimap_marker()
+	if(!z)
+		return
+	var/miniflag
+	if(faction)
+		miniflag = GLOB.faction_to_minimap_flag[faction]
+	if(!miniflag)
+		miniflag = MINIMAP_FLAG_ALL
+	SSminimaps.add_marker(src, miniflag, image('ntf_modular/icons/UI_icons/map_blips.dmi', null, "telecomm_[toggled ? "on" : "off"]"))
 
 /obj/machinery/telecomms/relay/preset/tower/Destroy()
 	GLOB.all_static_telecomms_towers -= src
@@ -180,6 +189,7 @@
 	toggled = !toggled
 	if(user)
 		user.visible_message("[user] turns [src] [toggled  ? "on" : "off"].", "You turn [src] [toggled  ? "on" : "off"].")
+	update_minimap_marker()
 	update_state()
 
 /obj/machinery/telecomms/relay/preset/tower/update_icon_state()
@@ -288,7 +298,7 @@
 	name = "TC-3T static telecommunications tower"
 	desc = "A static heavy-duty TC-3T telecommunications tower. Used to set up subspace communications lines between planetary and extra-planetary locations. Will need to have extra communication frequencies programmed into it by multitool."
 	use_power = NO_POWER_USE
-	idle_power_usage = 10000
+	idle_power_usage = 500
 	icon = 'ntf_modular/icons/obj/structures/machinery/comm_tower3.dmi'
 	icon_state = "static1"
 	id = "TC-3T relay"

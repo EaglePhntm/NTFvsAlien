@@ -330,10 +330,16 @@
 	icon_state = "blindfold"
 	worn_icon_state = "blindfold"
 	eye_protection = 2
+	var/tint_value = TINT_BLIND
 
 /obj/item/clothing/glasses/sunglasses/blindfold/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/clothing_tint, TINT_BLIND)
+	AddComponent(/datum/component/clothing_tint, tint_value)
+
+/obj/item/clothing/glasses/sunglasses/blindfold/light
+	name = "light blindfold"
+	desc = "Covers the eyes, preventing sight vaguely. (allows seeing emotes but lets more sight.)"
+	tint_value = TINT_5
 
 /obj/item/clothing/glasses/sunglasses/prescription
 	name = "prescription sunglasses"

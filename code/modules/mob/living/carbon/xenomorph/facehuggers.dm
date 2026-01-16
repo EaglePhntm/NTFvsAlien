@@ -194,7 +194,7 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 			return ..() // These can pick up huggers.
 	if(stat == DEAD || (sterile && !combat_hugger))
 		return ..() // Dead or sterile (lamarr) can be picked.
-	else if(can_self_remove && wearer)
+	else if(can_self_remove && attached)
 		if(!user.do_actions && do_after(user, strip_delay, NONE, src, BUSY_ICON_FRIENDLY))
 			return ..()
 	else if(stat == CONSCIOUS && user.can_be_facehugged(src, provoked = TRUE)) // If you try to take a healthy one it will try to hug or attack you.
@@ -313,6 +313,8 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 
 	if(ishuman(loc)) //Having an angry xeno in your hand is a bad idea.
 		var/mob/living/holder = loc
+		if(issamexenohive(holder))
+			return
 		holder.visible_message(span_warning("The facehugger [holder] is carrying leaps at [holder.p_them()]!") , "<span class ='danger'>The facehugger you're carrying leaps at you!</span>")
 		if(!try_attach(holder))
 			go_idle()
@@ -673,18 +675,21 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 	if(slot != SLOT_WEAR_MASK && slot != SLOT_UNDERWEAR || stat == DEAD)
 		reset_attach_status(FALSE)
 		return
-	if(!sterile)
-		var/stamina_dmg = user.maxHealth + user.max_stamina
-		user.apply_damage(stamina_dmg, STAMINA) // complete winds the target
+	if(slot == SLOT_WEAR_MASK && target_hole != HOLE_MOUTH) //ensure in case of something fucking up or manual wearing
+		target_hole = HOLE_MOUTH
 	playsound(src, 'sound/effects/alien_plapping.ogg', 5)
 	if(target_hole == HOLE_MOUTH)
-		user.ParalyzeNoChain(10 SECONDS)
+		if(!issamexenohive(user))
+			user.ParalyzeNoChain(10 SECONDS)
+			user.apply_damage(100, STAMINA)
 		if(ishuman(user))
 			var/hugsound = user.gender == FEMALE ? SFX_FEMALE_HUGGED : SFX_MALE_HUGGED
 			playsound(loc, hugsound, 25, 0)
 	else
-		user.emote("scream")
-		user.ParalyzeNoChain(3 SECONDS)
+		if(!issamexenohive(user))
+			user.emote("scream")
+			user.ParalyzeNoChain(3 SECONDS)
+			user.apply_damage(100, STAMINA)
 	attached = TRUE
 	go_idle(FALSE, TRUE)
 	if(!sterile)
@@ -751,6 +756,7 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 /obj/item/clothing/mask/facehugger/proc/reset_attach_status(forcedrop = TRUE)
 	//REMOVE_TRAIT(src, TRAIT_NODROP, HUGGER_TRAIT)
 	attached = FALSE
+	SEND_SIGNAL(src, COMSIG_ITEM_DROPPED)
 	if(isliving(loc) && forcedrop)
 		var/mob/living/M = loc
 		M.dropItemToGround(src)

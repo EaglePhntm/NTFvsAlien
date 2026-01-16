@@ -23,6 +23,10 @@
 		COOLDOWN_START(src, implant_cooldown, special_effect_delay)
 		RegisterSignal(wearer, COMSIG_LIVING_IGNITED, PROC_REF(burn_moment))
 		START_PROCESSING(SSobj, src)
+	else
+		wearer = null
+		SEND_SIGNAL(src, COMSIG_ITEM_EQUIPPED_NOT_IN_SLOT)
+		UnregisterSignal(wearer, COMSIG_LIVING_IGNITED)
 
 /obj/item/clothing/mask/facehugger/latching/proc/burn_moment(datum/source, fire_stacks)
 	SIGNAL_HANDLER
@@ -95,8 +99,8 @@
 		thrust_effect()
 
 /obj/item/clothing/mask/facehugger/latching/dropped(mob/user)
+	UnregisterSignal(wearer, COMSIG_LIVING_IGNITED)
 	reset_attach_status()
-	playsound(loc, 'sound/voice/alien/facehugger_dies.ogg', 25, 1)
 	activetimer = addtimer(CALLBACK(src, PROC_REF(go_active)), activate_time*2, TIMER_STOPPABLE|TIMER_UNIQUE)
 	update_icon()
 
@@ -104,6 +108,7 @@
 /obj/item/clothing/mask/facehugger/latching/clawer
 	name = "evolved clawed facehugger"
 	desc = "It has some sort of horrifying ribbed alien cock with small balls... And has sharp claws too. Fortunately it is easy to remove since most of its legs would be clawing at you."
+	filter_color = COLOR_RED
 	special_effect_delay = 15 SECONDS
 	cock_flavor = "ribbed cock"
 	strip_delay = 2 SECONDS
@@ -238,7 +243,7 @@
 		wearer.reagents.add_reagent(injected_chemical_type, amount_injected, no_overdose = TRUE)
 //resin
 /obj/item/clothing/mask/facehugger/latching/chemical/resin
-	name = "resin hugger"
+	name = "evolved resin facehugger"
 	desc = "This truly bizzare creature has MASSIVE, purple, bloated balls and it's sticky massive cock drips with purple, viscous resin."
 	cock_flavor = "resin-coated cock"
 	filter_color = COLOR_STRONG_VIOLET
@@ -315,18 +320,107 @@
 		the_hugger = hugger_to_latching[xeno_owner.selected_hugger_type]
 	new /obj/alien/egg/hugger(current_turf, xeno.get_xeno_hivenumber(), the_hugger, hand_attach_time_multiplier)
 
-//harmless larval, a pet?
+//harmless corrupted special pet huggers
 /obj/item/clothing/mask/facehugger/latching/friendly
-	name = "evolved larval facehugger"
-	desc = "It has some sort of weird pulsating gigantic (for it's size) alien cock with bountiful massive balls and a strong boney tail."
+	name = "Jamal"
+	desc = "It has some sort of weird pulsating gigantic (for his size) alien cock with bountiful massive balls and a strong boney tail. This one seems to not have acid cum and does not expire. Friend shaped? doubt."
+	filter_color = COLOR_RED_LIGHT
 	hivenumber = XENO_HIVE_CORRUPTED
 	harmless = TRUE
 	strip_delay = 2 SECONDS
 	special_effect_delay = 30 SECONDS
 
-/obj/item/clothing/mask/facehugger/latching/friendly/update_icon_state()
-	return
+//immortal
+/obj/item/clothing/mask/facehugger/latching/friendly/check_lifecycle()
+	return FALSE
+
+
+/obj/item/clothing/mask/facehugger/latching/chemical/medical
+	name = "medi-hugger"
+	desc = "This truly bizzare creature has MASSIVE, bloated balls and his slippery, massive cock drips with strange reagents... \
+	This one has the Novamed and Ninetails Corp logo tattooed on his left and right ballsack seperately. Looks like it can reproduce <b>injected</b> chemicals given \
+	time and inject people in his own way or can be removed by drawing from it using a syringe perhaps."
+	cock_flavor = "medicine-coated cock"
+	hivenumber = XENO_HIVE_CORRUPTED
+	filter_color = COLOR_CYAN
+	strip_delay = 2 SECONDS
+	special_effect_delay = 30 SECONDS
+	amount_injected = 15
+	harmless = TRUE
+	leap_range = 2 //carrying all that balls must be hard
+	var/datum/reagent/producing_reagent = /datum/reagent/medicine/tricordrazine
+
+
+/obj/item/clothing/mask/facehugger/latching/chemical/medical/examine(mob/user)
+	. = ..()
+	if(producing_reagent)
+		. += span_notice("His balls <span style='color: [producing_reagent.color]'><b>glow</b></span> with a <span style='color: [producing_reagent.color]'>faint hue</span>.")
+	else
+		. += span_notice("His balls are sad and empty... Waiting something to be injected to replicate it.</span>.")
+	if(!reagents.total_volume)
+		. += span_notice("\The [src]'s balls are empty!")
+	else if (reagents.total_volume<= reagents.maximum_volume*0.3)
+		. += span_notice("\The [src]'s balls are almost empty!")
+	else if (reagents.total_volume<= reagents.maximum_volume*0.6)
+		. += span_notice("\The [src]'s balls are moderately full.")
+	else if (reagents.total_volume<= reagents.maximum_volume*0.9)
+		. += span_notice("\The [src]'s balls are almost full!")
+	else
+		. += span_notice("\The [src]'s balls are full!")
+
+/obj/item/clothing/mask/facehugger/latching/chemical/medical/Initialize(mapload, ...)
+	. = ..()
+	create_reagents(60, INJECTABLE|DRAWABLE)
+	STOP_PROCESSING(SSobj, src)
+	START_PROCESSING(SSslowprocess, src)
+
+/obj/item/clothing/mask/facehugger/latching/chemical/medical/process()
+	if(producing_reagent && reagents.total_volume < reagents.maximum_volume && prob(25) && !attached) //cant fuck and produce
+		playsound(get_turf(wearer), 'sound/effects/bubbles.ogg', 10, 1)
+		reagents.add_reagent(producing_reagent, 1)
+	. = ..()
+
+/obj/item/clothing/mask/facehugger/latching/chemical/medical/sex_process()
+	if(!producing_reagent)
+		visible_message("[src]'s [cock_flavor] is limp and the balls are empty, they can't perform without a chemical introduced to them.")
+		reset_attach_status()
+		return
+	. = ..()
+	if(reagents.total_volume < 2)
+		visible_message("[src]'s [cock_flavor] pops out of [wearer]'s [target_hole] as the balls are finally empty and he is satisfied.")
+		reset_attach_status()
+		return
+
+/obj/item/clothing/mask/facehugger/latching/chemical/medical/on_reagent_change()
+	if(reagents.has_reagent(/datum/reagent/hypervene))
+		Shake(duration = 3 SECONDS)
+		visible_message("[src] shakes violently and spurts all of his balls' contents onto the floor, though it looks painful, the glow on his balls change <span style='color: [producing_reagent.color]'>color</span> afterwards.")
+		playsound(loc, 'sound/voice/alien/facehugger_dies.ogg', 25, 1)
+		playsound(loc, 'sound/items/hypospray.ogg', 50, 1)
+		reagents.clear_reagents()
+	if(!producing_reagent)
+		producing_reagent = reagents.reagent_list[1] //take first thing when injected with anything
+	. = ..()
+
+/obj/item/clothing/mask/facehugger/latching/chemical/medical/special_effect()
+	wearer.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno, 2)
+	wearer.visible_message(span_loveextreme("[src] slams it's [cock_flavor] ballsdeep into [wearer]'s [target_hole] and it's balls start to throb strongly, pumping thick globs of something inside!"),span_loveextreme("[src] slams it's [cock_flavor] ballsdeep into your [target_hole] and it's balls start to throb strongly, pumping thick globs of something inside!"))
+	wearer.visible_message(span_lovebold("[producing_reagent.name] gas explodes out of [wearer]'s [target_hole], around [src]'s [cock_flavor]!"),span_lovebold("[producing_reagent.name] gas explodes out of your [target_hole], around [src]'s [cock_flavor]!"))
+	var/datum/effect_system/smoke_spread/chem/smoke = new(get_turf(wearer))
+	reagents.trans_to(smoke.chemholder, amount_injected/2)
+	smoke.set_up(smoke.chemholder.reagents, 1, get_turf(wearer), 2)
+	playsound(src, 'sound/effects/airhiss.ogg', 25)
+	smoke.start()
+	reagents.trans_to(wearer, amount_injected/2)
+
+/obj/item/clothing/mask/facehugger/latching/chemical/medical/thrust_effect()
+	if(prob(15))
+		wearer.visible_message(span_love("[src] slams it's [cock_flavor] ballsdeep into [wearer]'s [target_hole]! Leaking slightly..!"),span_love("[src] slams it's [cock_flavor] ballsdeep into your [target_hole]! Leaking slightly..!"))
+		reagents.trans_to(wearer, 2)
+		wearer.sexcon.adjust_arousal(5)
+	wearer.sexcon.adjust_arousal(5)
+
 
 //immortal
-/obj/item/clothing/mask/facehugger/proc/check_lifecycle()
+/obj/item/clothing/mask/facehugger/latching/chemical/medical/check_lifecycle()
 	return FALSE

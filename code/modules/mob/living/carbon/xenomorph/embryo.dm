@@ -110,7 +110,7 @@
 		return FALSE
 
 	if(ishuman(affected_mob) && (SSticker.mode.round_type_flags & MODE_FREE_LARVABURST))
-		if(affected_mob.getCloneLoss() >= 40) //I guess they remain dormant
+		if(affected_mob.getCloneLoss() >= 30) //I guess they remain dormant
 			return FALSE
 
 	hive_target_bonus = hive_target_bonus || HAS_TRAIT(affected_mob, TRAIT_HIVE_TARGET)
@@ -297,8 +297,8 @@
 		victim.take_overall_damage(140, BRUTE, MELEE)
 		victim.take_overall_damage(20, BURN, MELEE)
 	if(ishuman(victim) && !(SSticker.mode.round_type_flags & MODE_FREE_LARVABURST))
-		if(victim.getCloneLoss() < 40)
-			victim.take_overall_damage(60, CLONE, NONE)
+		if(victim.getCloneLoss() < 30)
+			victim.take_overall_damage(45, CLONE, NONE)
 			victim.visible_message(span_warning("[victim]'s body and genitals are too devastated from this to perform another larva burst without treatment."))
 
 	if(((locate(/obj/structure/bed/nest) in loc) || loc_weeds_type) && !mind)
