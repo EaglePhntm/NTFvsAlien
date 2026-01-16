@@ -276,7 +276,7 @@
 		span_love("You hear squelching."))
 		playsound(victim, 'ntf_modular/sound/misc/mat/segso.ogg', 50, TRUE, 5, ignore_walls = FALSE)
 		victim.adjustStaminaLoss(5)
-		victim.sexcon.adjust_arousal(2)
+		victim.sexcon.adjust_arousal(5)
 
 /obj/structure/bed/nest/advanced/proc/try_suit_up(mob/living/carbon/human/victim)
 	if(!(victim.status_flags & XENO_HOST))
@@ -294,8 +294,8 @@
 	victim.visible_message(span_warning("[src] attaches to [victim] as a resin sack!"),
 			span_warning("[src] attaches to you as a resin sack!"),
 			span_notice("You hear rustling."))
-	if(victim.reagents.get_reagent_amount(/datum/reagent/toxin/acid) >= 1)
-		victim.reagents.remove_all_type(/datum/reagent/toxin/acid, 100)
+	if(victim.reagents.get_reagent_amount(/datum/reagent/toxin/acid/xeno_cum) >= 1)
+		victim.reagents.remove_all_type(/datum/reagent/toxin/acid/xeno_cum, 100)
 		victim.visible_message(span_green("Remaining acidic cum spills out from [victim]'s holes!"),
 				span_green("Remaining acidic cum spills out of your holes!"),
 				span_notice("You hear splashing."))

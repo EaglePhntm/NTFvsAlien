@@ -231,7 +231,7 @@
 
 	B1.reagents.add_reagent(/datum/reagent/aluminum, 30)
 	B2.reagents.add_reagent(/datum/reagent/foaming_agent, 10)
-	B2.reagents.add_reagent(/datum/reagent/toxin/acid/xeno_cum/polyacid, 10)
+	B2.reagents.add_reagent(/datum/reagent/toxin/acid/polyacid, 10)
 
 	beakers += B1
 	beakers += B2

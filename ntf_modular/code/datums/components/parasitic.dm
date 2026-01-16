@@ -104,5 +104,5 @@
 		span_love("You hear squelching."))
 		wearer.adjustStaminaLoss(2)
 		playsound(wearer, 'ntf_modular/sound/misc/mat/segso.ogg', 50, TRUE, 5, ignore_walls = FALSE)
-		wearer.sexcon.adjust_arousal(2)
+		wearer.sexcon.adjust_arousal(5)
 

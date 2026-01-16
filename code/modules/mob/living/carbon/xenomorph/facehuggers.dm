@@ -85,7 +85,7 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 
 /obj/item/clothing/mask/facehugger/Initialize(mapload, input_hivenumber, input_source, new_fire_immunity)
 	. = ..()
-	if(stat == CONSCIOUS)
+	if(stat == CONSCIOUS && !attached)
 		lifetimer = addtimer(CALLBACK(src, PROC_REF(check_lifecycle)), FACEHUGGER_DEATH, TIMER_STOPPABLE)
 
 	if(input_hivenumber)
@@ -194,7 +194,7 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 			return ..() // These can pick up huggers.
 	if(stat == DEAD || (sterile && !combat_hugger))
 		return ..() // Dead or sterile (lamarr) can be picked.
-	else if(can_self_remove)
+	else if(can_self_remove && wearer)
 		if(!user.do_actions && do_after(user, strip_delay, NONE, src, BUSY_ICON_FRIENDLY))
 			return ..()
 	else if(stat == CONSCIOUS && user.can_be_facehugged(src, provoked = TRUE)) // If you try to take a healthy one it will try to hug or attack you.

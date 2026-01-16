@@ -10,9 +10,8 @@
 
 /datum/reagent/toxin/acid/xeno_cum
 	name = "Acidic Semen"
-	description = "The acidic semen supposed to be nutrition source for xenomorph sperm, now burning pain inside, thankfully it's not potent as regular acid."
-	nutriment_factor = 4
-	color = "#9bd19a"
+	description = "The acidic semen supposed to be nutrition source for xenomorph sperm, now burning pain inside people, thankfully it's not potent as regular acid."
+	color = "#9bd19aff"
 	toxpwr = 0.5
 	meltprob = 0
 
