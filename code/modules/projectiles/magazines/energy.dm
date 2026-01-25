@@ -203,8 +203,10 @@
 	w_class = WEIGHT_CLASS_BULKY
 	slowdown = 0
 	maxcharge = 2400
+	self_recharge = TRUE // Eats up a whole pocket slot
+	charge_amount = 12 //balanced around recharging 1 standard laser rifle shot per second
 	cell_type = /obj/item/cell/lasgun/lasrifle
-	self_recharge = FALSE
+
 
 /obj/item/cell/lasgun/volkite/powerpack/marine/backpack
 	name = "\improper TE powerbackpack"
@@ -214,3 +216,4 @@
 	equip_slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_HUGE
 	maxcharge = 12000
+	charge_amount = 24 //balanced around recharging 2 standard laser rifle shot per second, it takes up your whole backpack

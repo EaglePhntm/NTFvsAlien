@@ -639,3 +639,21 @@ WEAPONS
 	name = "TX13 smart machinepistol ammo"
 	contains = list(/obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol)
 	cost = 10
+
+/datum/supply_packs/weapons/laserweapons
+	name = "Standard laser weapon bundle" // Since we can buy an xray laser rifle but not regular ones?
+	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine,
+/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine,
+/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
+/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
+/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle,
+/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle,
+/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper,
+/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper,
+/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_mlaser,
+/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_mlaser,
+/obj/item/cell/lasgun/volkite/powerpack/marine,
+/obj/item/cell/lasgun/volkite/powerpack/marine,
+/obj/item/cell/lasgun/volkite/powerpack/marine/backpack,
+/obj/item/cell/lasgun/volkite/powerpack/marine/backpack,)
+	cost = 250
