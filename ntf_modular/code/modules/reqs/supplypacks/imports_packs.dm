@@ -96,7 +96,11 @@
 /datum/supply_packs/medical/nanopaste
 	name = "Nanopaste (x5)"
 	contains = list(
-		/obj/item/stack/nanopaste = 5
+		/obj/item/stack/nanopaste,
+		/obj/item/stack/nanopaste,
+		/obj/item/stack/nanopaste,
+		/obj/item/stack/nanopaste,
+		/obj/item/stack/nanopaste,
 	)
 	cost = 150
 
