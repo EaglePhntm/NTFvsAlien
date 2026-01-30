@@ -1,0 +1,4 @@
+author: "Colfer1"
+delete-after: True
+changes:
+  - bugfix: "Nanopaste crate now actually contains 5 nanopaste as advertised"
