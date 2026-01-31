@@ -239,6 +239,10 @@
 		RES_TIER_RARE = 0,
 	)
 
+/obj/item/research_resource/Initialize(mapload)
+	. = ..()
+	SSminimaps.add_marker(src, ((MINIMAP_FLAG_ALL) ^ (MINIMAP_FLAG_SURVIVOR)), image('ntf_modular/icons/UI_icons/map_blips.dmi', null, "sample", MINIMAP_LABELS_LAYER))
+
 /obj/item/research_resource/money
 	desc = "Unidentified substance. The random data it provides could probably secure some funding."
 	research_type = RES_MONEY
