@@ -386,23 +386,23 @@
 	if(!.)
 		return
 
-	if(!isxeno(target))
+	if(!iscarbon(target))
 		if(!silent)
-			target.balloon_alert(owner, "can only heal xenos!")
+			target.balloon_alert(owner, "can only heal living targets!")
 		return FALSE
-	var/mob/living/carbon/xenomorph/patient = target
+	var/mob/living/carbon/patient = target
 
-	if(!CHECK_BITFIELD(use_state_flags|override_flags, ABILITY_IGNORE_DEAD_TARGET) && patient.stat == DEAD)
+/*	if(!CHECK_BITFIELD(use_state_flags|override_flags, ABILITY_IGNORE_DEAD_TARGET) && patient.stat == DEAD)
 		if(!silent)
-			target.balloon_alert(owner, "she's dead!")
+			target.balloon_alert(owner, "it's dead!")
+		return FALSE */
+
+	if(!check_distance(patient, silent))
 		return FALSE
 
-	if(!check_distance(target, silent))
-		return FALSE
-
-	if(HAS_TRAIT(target, TRAIT_HEALING_INFUSION))
+	if(HAS_TRAIT(patient, TRAIT_HEALING_INFUSION))
 		if(!silent)
-			target.balloon_alert(owner, "already infused!")
+			patient.balloon_alert(owner, "already infused!")
 		return FALSE
 
 
@@ -436,7 +436,7 @@
 	new /obj/effect/temp_visual/telekinesis(get_turf(target))
 	to_chat(target, span_xenodanger("Our wounds begin to knit and heal rapidly as [owner]'s healing energies infuse us.")) //Let the target know.
 
-	var/mob/living/carbon/xenomorph/patient = target
+	var/mob/living/carbon/patient = target
 
 	patient.apply_status_effect(STATUS_EFFECT_HEALING_INFUSION, HIVELORD_HEALING_INFUSION_DURATION * status_multiplier, HIVELORD_HEALING_INFUSION_TICKS * status_multiplier, innate_healing) //per debuffs.dm
 	if(resin_jelly_duration)
