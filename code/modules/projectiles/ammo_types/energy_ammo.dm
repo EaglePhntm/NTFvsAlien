@@ -95,7 +95,7 @@
 
 /datum/ammo/energy/tesla/emp
 	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN
-	damage = 90
+	damage = 80
 	penetration = 100
 	damage_type = STAMINA
 	icon_state = "disablershot"
@@ -108,20 +108,32 @@
 	. = ..()
 	if(prob(emp_chance))
 		do_sparks(3, TRUE, target_mob)
-		empulse(target_mob, 0, 0, 0, 1)
+		empulse(target_mob, 0, 1, 1, 2)
 		staggerstun(target_mob, proj, stun = 0.5 SECONDS)
+	var/mob/living/carbon/human/human_victim = target_mob
+	if(human_victim.species.species_flags & ROBOTIC_LIMBS)
+		human_victim.adjustStaminaLoss(proj.damage*1.5)
+		human_victim.add_slowdown(2,2)
+		human_victim.AdjustStun(0.8 SECONDS)
+		if(human_victim.getStaminaLoss() > 20)
+			human_victim.overlay_fullscreen_timer(human_victim.getStaminaLoss(), 10, "glitch", /atom/movable/screen/fullscreen/robot_glitch)
+		if((human_victim.getStaminaLoss() >= human_victim.maxHealth*2) && !human_victim.IsUnconscious())
+			human_victim.ParalyzeNoChain(15 SECONDS) //fake unconscious basically
+			human_victim.AdjustMute(15 SECONDS)
+			human_victim.overlay_fullscreen_timer(15 SECONDS, 10, "bluescreen", /atom/movable/screen/fullscreen/dead/robot)
+			human_victim.visible_message(span_warning("[human_victim] shudders violently whilst spitting out error text before collapsing, flailing on the ground randomly."), span_tip("You are bluescreening, but you should be able to recover from this by rebooting automatically in about 15s."), span_notice("You hear a clanker glitching."))
 
 /datum/ammo/energy/tesla/emp/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
 	. = ..()
 	if(prob(emp_chance))
 		do_sparks(3, TRUE, target_obj)
-		empulse(target_obj, 0, 0, 0, 1)
+		empulse(target_obj, 0, 0, 1, 2)
 
 /datum/ammo/energy/tesla/emp/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
 	. = ..()
 	if(prob(emp_chance))
 		do_sparks(3, TRUE, target_turf)
-		empulse(target_turf, 0, 0, 0, 1)
+		empulse(target_turf, 0, 0, 1, 2)
 
 #define BFG_SOUND_DELAY_SECONDS 1
 /datum/ammo/energy/bfg

@@ -326,40 +326,49 @@
 
 //emp mag
 /obj/item/ammo_magazine/rifle/nt_halter/charged
-	name = "\improper NT 'Halter' charged magazine (7.62x38mm Charged)"
-	desc = "A magazine filled with specialized 7.62x38mm rifle rounds to deliver a supercharged blast but loses overall power, for the Halter series of firearms. Inconsistent effect per bullet unfortuantely."
+	name = "\improper NT 'Halter' taser magazine (7.62x38mm Taser)"
+	desc = "A magazine filled with specialized 7.62x38mm rifle rounds to deliver a powerful shock ontop of blunt force, for the Halter series of firearms."
 	icon_state = "halter_charged"
 	bonus_overlay = "halter_charged"
+	max_rounds = 24
 	default_ammo = /datum/ammo/bullet/rifle/heavy/halter/charged
 
 /datum/ammo/bullet/rifle/heavy/halter/charged
-	name = "charged heavy rifle bullet"
+	name = "heavy shocking rifle bullet"
 	hud_state = "rifle_ap"
 	damage = 20
 	penetration = 5
+	damage_type = BRUTE
 	sundering = 2
 	shrapnel_chance = 2
 	bullet_color = COLOR_BRIGHT_BLUE
-	var/emp_chance = 10 //spin the wheel WOOOOO
+	var/emp_chance = 15
 
 /datum/ammo/bullet/rifle/heavy/halter/charged/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	. = ..()
-	if(prob(emp_chance))
-		do_sparks(3, TRUE, target_mob)
-		empulse(target_mob, 0, 0, 0, 1)
-		staggerstun(target_mob, proj, stagger = 1 SECONDS, slowdown = 1)
-
-/datum/ammo/bullet/rifle/heavy/halter/charged/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
-	. = ..()
-	if(prob(emp_chance))
-		do_sparks(3, TRUE, target_obj)
-		empulse(target_obj, 0, 0, 0, 1)
-
-/datum/ammo/bullet/rifle/heavy/halter/charged/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
-	. = ..()
-	if(prob(emp_chance))
-		do_sparks(3, TRUE, target_turf)
-		empulse(target_turf, 0, 0, 0, 1)
+	do_sparks(3, TRUE, target_mob)
+	if(!ishuman(target_mob))
+		return
+	var/mob/living/carbon/human/human_victim = target_mob
+	if(human_victim.species.species_flags & ROBOTIC_LIMBS)
+		human_victim.adjustStaminaLoss(proj.damage*1.5)
+		human_victim.add_slowdown(0.3,1)
+		human_victim.AdjustStun(0.1 SECONDS)
+		if(human_victim.getStaminaLoss() > 20)
+			human_victim.overlay_fullscreen_timer(human_victim.getStaminaLoss(), 10, "glitch", /atom/movable/screen/fullscreen/robot_glitch)
+		if((human_victim.getStaminaLoss() >= human_victim.maxHealth*2) && !human_victim.IsUnconscious())
+			human_victim.ParalyzeNoChain(15 SECONDS) //fake unconscious basically
+			human_victim.AdjustMute(15 SECONDS)
+			human_victim.overlay_fullscreen_timer(15 SECONDS, 10, "bluescreen", /atom/movable/screen/fullscreen/dead/robot)
+			human_victim.visible_message(span_warning("[human_victim] shudders violently whilst spitting out error text before collapsing, flailing on the ground randomly."), span_blue("You are bluescreening, but you should be able to recover from this by rebooting automatically in about 15s."), span_notice("You hear a clanker glitching."))
+	else
+		if(prob(emp_chance))
+			empulse(target_mob.loc, 0,0,0,1)
+		human_victim.adjustStaminaLoss(proj.damage*1.5)
+		human_victim.AdjustStun(0.1 SECONDS)
+		human_victim.jitter(3)
+		human_victim.add_slowdown(0.2,1)
+		human_victim.visible_message(span_warning("[human_victim] shakes with an electric shock!"), span_warning("You feel lightning mess up your nerves, locking your body!"), span_notice("You hear a clanker glitching."))
 
 //smart mag
 /obj/item/ammo_magazine/rifle/nt_halter/smart

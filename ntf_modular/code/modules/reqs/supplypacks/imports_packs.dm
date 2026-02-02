@@ -64,9 +64,9 @@
 	cost = 15
 
 /datum/supply_packs/imports/haltercharged
-	name = "NT Halter charged mag (x1)"
+	name = "NT Halter taser mag (x1)"
 	contains = list(/obj/item/ammo_magazine/rifle/nt_halter/charged)
-	cost = 30
+	cost = 60
 
 /datum/supply_packs/imports/haltersmart
 	name = "NT Halter smart mag (x1)"

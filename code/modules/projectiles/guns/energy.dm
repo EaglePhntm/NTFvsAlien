@@ -428,10 +428,10 @@
 	description = "Fires an sophisticated IFF tesla ball, but with reduces shock range."
 
 /datum/lasrifle/tesla_mode/emp // Combat robots beware
-	rounds_per_shot = 200
+	rounds_per_shot = 100
 	ammo_datum_type = /datum/ammo/energy/tesla/emp
-	fire_delay = 4 SECONDS
-	windup_delay = 0.8 SECONDS
+	fire_delay = 2 SECONDS
+	windup_delay = 0.4 SECONDS
 	fire_sound = 'sound/weapons/guns/fire/tesla.ogg'
 	message_to_user = "You set the tesla shock rifle's power mode mode to EMP."
 	fire_mode = GUN_FIREMODE_SEMIAUTO
