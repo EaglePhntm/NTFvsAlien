@@ -1,3 +1,8 @@
 2026-02-01:
   Colfer1:
   - balance: samples now have an icon on the map, so you can find those pesky researchers
+2026-02-02:
+  Nokia2Student:
+  - rscadd: Healing infusion can be used on humans
+  - rscadd: Plasma transfer can be used on humans. It regenerates stamina instead
+      of plasma.

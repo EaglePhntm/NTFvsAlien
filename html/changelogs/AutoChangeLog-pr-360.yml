@@ -1,5 +1,0 @@
-author: "Nokia2Student"
-delete-after: True
-changes:
-  - rscadd: "Healing infusion can be used on humans"
-  - rscadd: "Plasma transfer can be used on humans. It regenerates stamina instead of plasma."
