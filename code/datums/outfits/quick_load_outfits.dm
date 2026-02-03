@@ -2600,10 +2600,10 @@
 //juggernaut outfits
 /datum/outfit/quick/vsd/juggernaut
 	name = "CC/B/31 'Ares' KZ Squad Leader"
-	desc = "You're in charge and look the part. Equipped with Crasher MT-H/43 'Ares' powered ballistic armor and CC/B/31 breaching shotgun."
+	desc = "You're in charge and look the part. Equipped with Crasher MT-H/43 'Ares' powered ballistic armor, the Type 73 Commando and the CC/B/31 breaching shotgun."
 	jobtype = "KZ Squad Leader"
 	glasses = /obj/item/clothing/glasses/night/vsd/alt
-	w_uniform = /obj/item/clothing/under/vsd/juggernaut
+	w_uniform = /obj/item/clothing/under/vsd/webbing
 	shoes = /obj/item/clothing/shoes/marine/vsd/full
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/juggernaut
 	suit_store = /obj/item/weapon/gun/rifle/vsd_breaching
@@ -2611,33 +2611,38 @@
 	head = /obj/item/clothing/head/helmet/marine/vsd/juggernaut
 	mask = /obj/item/clothing/mask/gas/vsd
 	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
-	l_pocket = /obj/item/storage/pouch/magazine
-	back = /obj/item/storage/backpack/lightpack/vsd
+	l_pocket = /obj/item/storage/pouch/general/large
+	back = /obj/item/weapon/gun/rifle/type71/commando
 	ears = /obj/item/radio/headset/mainship/vsd
+	belt = /obj/item/storage/belt/marine
 
 /datum/outfit/quick/vsd/juggernaut/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
 
 	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/cb31, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/cb31, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/cb31, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/cb31, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/cb31, SLOT_IN_BACKPACK)
 
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_SUIT)
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_SUIT)
 
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/cb31, SLOT_IN_L_POUCH)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/cb31, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/cb31, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/cb31, SLOT_IN_BELT)
+
+	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_L_POUCH)
 
 	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/advanced/bruise_pack, SLOT_IN_ACCESSORY)
 	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/advanced/burn_pack, SLOT_IN_ACCESSORY)
@@ -2650,7 +2655,7 @@
 	desc = "You're in charge and look the part. Equipped with Crasher MT-H/43 'Zeus' powered explosive-defensive armor and a C153 shoulder launcher."
 	jobtype = "KZ Squad Leader"
 	glasses = /obj/item/clothing/glasses/night/vsd/alt
-	w_uniform = /obj/item/clothing/under/vsd/juggernaut
+	w_uniform = /obj/item/clothing/under/vsd/webbing
 	shoes = /obj/item/clothing/shoes/marine/vsd/full
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/eod
 	suit_store = /obj/item/weapon/gun/launcher/rocket/vsd
