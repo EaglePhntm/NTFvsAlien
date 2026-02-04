@@ -692,7 +692,9 @@
 			/obj/item/ammo_magazine/rifle/vsd_carbine/extended = 20,
 			/obj/item/ammo_magazine/rifle/vsd_carbine/ap = 20,
 			/obj/item/weapon/gun/rifle/mpi_km/black = -1,
+			/obj/item/weapon/gun/rifle/som_carbine/black/standard = -1,
 			/obj/item/ammo_magazine/rifle/mpi_km/black = -1,
+			/obj/item/ammo_magazine/rifle/mpi_km/extended = 10,
 			/obj/item/ammo_magazine/rifle/mpi_km/rubber = -1,
 			/obj/item/weapon/gun/rifle/type71 = -1,
 			/obj/item/ammo_magazine/rifle/type71 = -1,
@@ -742,6 +744,8 @@
 			/obj/item/ammo_magazine/rifle/vsd_mg_main = -1,
 			/obj/item/weapon/gun/rifle/vsd_lmg_main = -1,
 			/obj/item/ammo_magazine/rifle/vsd_mg = -1,
+			/obj/item/weapon/gun/rifle/lmg_d = -1,
+			/obj/item/ammo_magazine/rifle/lmg_d = -1,
 		),
 		"Melee" = list(
 			/obj/item/weapon/combat_knife = -1,
