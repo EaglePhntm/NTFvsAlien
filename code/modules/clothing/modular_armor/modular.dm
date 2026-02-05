@@ -267,6 +267,7 @@
 		/obj/item/armor_module/module/eshield,
 		/obj/item/armor_module/module/eshield/absorbant/energy,
 		/obj/item/armor_module/module/eshield/absorbant/ballistic,
+		/obj/item/armor_module/module/eshield/overclocked,
 		/obj/item/armor_module/module/mirage,
 		/obj/item/armor_module/module/armorlock,
 		/obj/item/armor_module/module/knight,
@@ -297,6 +298,20 @@
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
 
 	allowed_uniform_type = /obj/item/clothing/under/rank/clown/erp
+	
+/obj/item/clothing/suit/modular/rownin/vsdelite
+	name = "\improper Rownin Skeleton"
+	starting_attachments = list(
+		/obj/item/armor_module/module/valkyrie_autodoc,
+		/obj/item/armor_module/storage/ammo_mag,
+	)
+	
+/obj/item/clothing/suit/modular/rownin/vsdelitealt
+	name = "\improper Rownin Skeleton"
+	starting_attachments = list(
+		/obj/item/armor_module/module/eshield/overclocked,
+		/obj/item/armor_module/storage/ammo_mag,
+	)
 
 /obj/item/clothing/suit/modular/hardsuit_exoskeleton
 	name = "\improper FleckTex WY-01 modular exoskeleton"
