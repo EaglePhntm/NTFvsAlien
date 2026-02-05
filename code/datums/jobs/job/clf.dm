@@ -250,16 +250,15 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
 
-/datum/job/clf/cmo
-	title = CLF_MEDICAL_OFFICER
-	req_admin_notify = TRUE
+/datum/job/clf/mo
+	title = "CLF_MEDICAL_OFFICER"
 	paygrade = "MO"
 	comm_title = "CLFMO"
 	minimap_icon = "CLF2"
 	supervisors = "The Hive."
 	total_positions = 1
 	skills_type = /datum/skills/cmo
-	outfit = /datum/outfit/job/survivor/clfmo
+	outfit = /datum/outfit/job/clf/mo
 	exp_requirements = XP_REQ_EXPERT
 	exp_type = EXP_TYPE_REGULAR_ALL
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD
