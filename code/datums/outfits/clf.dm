@@ -426,7 +426,7 @@
 	l_pocket = /obj/item/storage/pouch/general/medium
 
 /datum/outfit/job/clf/tech
-	name = "CLF Base Technician"
+	name = "CLF Combat Technician"
 	jobtype = /datum/job/clf/tech
 
 	id = /obj/item/card/id/dogtag/clf
@@ -449,4 +449,29 @@
 	r_pocket_contents = list(
 		/obj/item/ammo_magazine/handful/buckshot = 2,
 		/obj/item/ammo_magazine/handful/flechette = 2,
+	)
+/datum/outfit/job/clf/mo
+	name = "CLF Medical Officer"
+	jobtype = /datum/job/clf/mo
+
+	id = /obj/item/card/id/dogtag/clf
+	w_uniform = /obj/item/clothing/under/rank/medical/blue
+	wear_suit = /obj/item/clothing/suit/storage/labcoat
+	shoes = /obj/item/clothing/shoes/black
+	back = /obj/item/storage/backpack/lightpack
+	gloves = /obj/item/clothing/gloves/latex
+	glasses = /obj/item/clothing/glasses/hud/health
+	r_pocket = /obj/item/storage/pouch/surgery
+	l_pocket = /obj/item/storage/pouch/medical_injectors/icc/medic
+	belt = /obj/item/storage/belt/lifesaver/icc/full
+	mask = /obj/item/clothing/mask/surgical
+	ears = /obj/item/radio/headset/distress/dutch
+
+	backpack_contents = list(
+		/obj/item/defibrillator = 1,
+		/obj/item/roller = 1,
+		/obj/item/storage/box/MRE = 1,
+		/obj/item/radio = 1,
+		/obj/item/tool/crowbar/red = 1,
+		/obj/item/tweezers = 1,
 	)
