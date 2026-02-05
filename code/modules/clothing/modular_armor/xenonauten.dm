@@ -391,6 +391,30 @@
 	)
 	colorable_allowed = ICON_STATE_VARIANTS_ALLOWED
 	current_variant = "USL"
+	
+/obj/item/clothing/suit/storage/marine/usl_squadul5urban
+	name = "UL5 personal armor"
+	desc = "Standard body armor of the USL operatives, now in service with KZ. The UL5 (United Light MK5) is a set of light body armor, roughly on par with the venerable Xenonauten in service with the NTC."
+	icon = 'icons/mob/clothing/suits/marine_armor.dmi'
+	worn_icon_list = list(
+		slot_wear_suit_str = 'icons/mob/clothing/suits/marine_armor.dmi',
+	)
+	slowdown = SLOWDOWN_ARMOR_LIGHT
+	icon_state = "main_vest"
+	worn_icon_state = "main_vest"
+	soft_armor = list(MELEE = 55, BULLET = 60, LASER = 60, ENERGY = 60, BOMB = 55, BIO = 10, FIRE = 60, ACID = 60)
+	item_map_variant_flags = NONE
+	armor_features_flags = NONE
+
+	icon_state_variants = list(
+		"USL",
+		"urban",
+		"jungle",
+		"desert",
+		"snow",
+	)
+	colorable_allowed = ICON_STATE_VARIANTS_ALLOWED
+	current_variant = "urban"
 
 /obj/item/clothing/suit/storage/marine/usl_squad/larmor_two
 	name = "UL5 stealth armor"
