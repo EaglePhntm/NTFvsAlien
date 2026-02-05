@@ -125,35 +125,35 @@
 					hud_used.healths.icon_state = "health3"
 				if(80 to 85)
 					hud_used.healths.icon_state = "health4"
-				if(70 to 75)
+				if(75 to 80)
 					hud_used.healths.icon_state = "health5"
-				if(65 to 70)
+				if(70 to 75)
 					hud_used.healths.icon_state = "health6"
-				if(60 to 65)
+				if(65 to 70)
 					hud_used.healths.icon_state = "health7"
-				if(55 to 60)
+				if(60 to 65)
 					hud_used.healths.icon_state = "health8"
-				if(50 to 55)
+				if(55 to 60)
 					hud_used.healths.icon_state = "health9"
-				if(45 to 50)
+				if(50 to 55)
 					hud_used.healths.icon_state = "health10"
-				if(40 to 45)
+				if(45 to 50)
 					hud_used.healths.icon_state = "health11"
-				if(35 to 40)
+				if(40 to 45)
 					hud_used.healths.icon_state = "health12"
-				if(30 to 35)
+				if(35 to 40)
 					hud_used.healths.icon_state = "health13"
-				if(25 to 30)
+				if(30 to 35)
 					hud_used.healths.icon_state = "health14"
-				if(20 to 25)
+				if(25 to 30)
 					hud_used.healths.icon_state = "health15"
-				if(15 to 20)
+				if(20 to 25)
 					hud_used.healths.icon_state = "health16"
-				if(10 to 15)
+				if(15 to 20)
 					hud_used.healths.icon_state = "health17"
-				if(5 to 10)
+				if(10 to 15)
 					hud_used.healths.icon_state = "health18"
-				if(0 to 5)
+				if(5 to 10)
 					hud_used.healths.icon_state = "health19"
 				else
 					hud_used.healths.icon_state = "health20"
