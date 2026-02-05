@@ -344,6 +344,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	if(!. || can_reenter_corpse || aghosting)
 		return
 	var/mob/ghost = .
+	ghost.lighting_cutoff = LIGHTING_CUTOFF_MEDIUM //xeno ghosts can see in dark a bit.
 	if(tier != XENO_TIER_MINION)
 		GLOB.key_to_time_of_xeno_death[ghost.key] = world.time //If you ghost as a xeno that is not a minion, sets respawn timer
 

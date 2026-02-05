@@ -129,6 +129,9 @@
 		to_chat(user, span_notice("[buckling_mob] is dead!"))
 		return FALSE
 
+	if(isxeno(buckling_mob))
+		return FALSE
+
 	var/mob/initiator = user ? user : buckling_mob
 	if(!QDELETED(occupant))
 		to_chat(initiator, span_warning("[src] is occupied."))

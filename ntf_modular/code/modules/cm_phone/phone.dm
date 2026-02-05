@@ -45,6 +45,8 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	//since antenna module etc does no apply for close enough.
 	var/bypass_tgui_range = FALSE
 
+	var/call_sound_range = 14
+
 /datum/looping_sound/telephone/ring
 	start_sound = 'ntf_modular/sound/machines/telephone/dial.ogg'
 	start_length = 3.2 SECONDS
@@ -221,7 +223,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	T.update_icon()
 
 	to_chat(user, span_purple("[icon2html(src, user)] Dialing [calling_phone_id].."))
-	playsound(get_turf(user), pickup_sound, 100)
+	playsound(get_turf(user), pickup_sound, 100, 1)
 	timeout_timer_id = addtimer(CALLBACK(src, PROC_REF(reset_call), TRUE), timeout_duration, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE)
 	outring_loop.start(attached_to)
 
@@ -349,7 +351,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 
 		if(attached_to.loc == attached_to.attached_to)
 			if(next_ring < world.time)
-				playsound(loc, call_sound, 75)
+				playsound(loc, call_sound, 75, FALSE, call_sound_range)
 				visible_message(span_warning("[src] rings vigorously!"))
 				next_ring = world.time + 3 SECONDS
 
@@ -363,7 +365,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 		var/obj/item/phone/functional/P = T.attached_to
 
 		if(P && attached_to.loc == src && P.loc == T && next_ring < world.time)
-			playsound(get_turf(attached_to), call_sound, 20, FALSE, 14)
+			playsound(get_turf(attached_to), call_sound, 20, FALSE, call_sound_range)
 			visible_message(span_warning("[src] rings vigorously!"))
 			next_ring = world.time + 3 SECONDS
 
@@ -385,7 +387,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	if(ismob(attached_to.loc))
 		var/mob/M = attached_to.loc
 		M.drop_held_item(attached_to)
-		playsound(get_turf(M), putdown_sound, 100, FALSE, 7)
+		playsound(get_turf(M), putdown_sound, 100, FALSE, 1)
 
 	attached_to.forceMove(src)
 	reset_call()

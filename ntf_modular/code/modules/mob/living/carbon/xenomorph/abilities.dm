@@ -542,7 +542,8 @@
 		owner_xeno.stop_sound_channel(channel)
 		return
 	owner_xeno.eject_victim()
-	owner_xeno.remove_movespeed_modifier("devourer", TRUE)
+	if(!isxenogorger(owner_xeno))
+		owner_xeno.remove_movespeed_modifier("devourer", TRUE)
 	log_combat(owner_xeno, victim, "released", addition="from being devoured")
 	REMOVE_TRAIT(victim, TRAIT_STASIS, "devour")
 	victim.ParalyzeNoChain(2 SECONDS)
@@ -582,7 +583,7 @@
 	ADD_TRAIT(victim, TRAIT_STASIS, "devour")
 	victim.forceMove(owner_xeno)
 	owner_xeno.eaten_mob = victim
-	if(xeno_owner.eaten_mob?.mob_size && !ismonkey(xeno_owner.eaten_mob) && !isxenolarva(xeno_owner.eaten_mob))
+	if(xeno_owner.eaten_mob?.mob_size && !ismonkey(xeno_owner.eaten_mob) && !isxenolarva(xeno_owner.eaten_mob) && !isxenogorger(xeno_owner))
 		xeno_owner.add_movespeed_modifier("devourer", TRUE, 0, NONE, TRUE, xeno_owner.eaten_mob.mob_size)
 	if(ishuman(victim))
 		var/obj/item/radio/headset/mainship/headset = victim.wear_ear
@@ -627,7 +628,8 @@
 	if(!user)
 		to_chat(src, span_warning("We are not hauling anyone."))
 		return
-	xeno_owner.remove_movespeed_modifier("hauler", TRUE)
+	if(!isxenogorger(xeno_owner))
+		xeno_owner.remove_movespeed_modifier("hauler", TRUE)
 	user.handle_unhaul()
 	xeno_owner.visible_message(span_xenowarning("[src] releases [user] from their grip!"),
 	span_xenowarning("We release [user] from our grip!"), null, 5)

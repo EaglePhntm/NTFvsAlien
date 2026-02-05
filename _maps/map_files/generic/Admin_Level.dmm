@@ -4237,6 +4237,11 @@
 	},
 /turf/open/floor/tile/neutral/corner,
 /area/centcom/valhalla)
+"fGE" = (
+/obj/structure/cryofeed/right,
+/obj/structure/catwalk,
+/turf/open/floor/plating,
+/area/mainship/squads/req)
 "fHt" = (
 /turf/open/floor/tile/neutral/corner{
 	dir = 8
@@ -4351,6 +4356,13 @@
 	dir = 5
 	},
 /area/centcom/valhalla)
+"fNu" = (
+/obj/structure/cryofeed,
+/obj/structure/catwalk,
+/obj/structure/bed/roller/hospital_empty/bigrollerempty3,
+/obj/effect/landmark/reclone_tp,
+/turf/open/floor/plating,
+/area/mainship/squads/req)
 "fNM" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -5102,6 +5114,16 @@
 /obj/effect/ai_node,
 /turf/open/floor/freezer,
 /area/centcom/valhalla)
+"gKz" = (
+/obj/structure/cryofeed/right,
+/obj/structure/catwalk,
+/obj/effect/landmark/reclone_tp,
+/obj/structure/bed/roller/hospital_empty/bigrollerempty3,
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/mainship/squads/req)
 "gMd" = (
 /obj/structure/closet/crate,
 /obj/machinery/status_display{
@@ -5186,6 +5208,13 @@
 	},
 /turf/open/floor/mainship/hexagon,
 /area/centcom/valhalla)
+"gRv" = (
+/obj/structure/bed/roller/hospital_empty/bigrollerempty3,
+/obj/effect/landmark/reclone_tp,
+/turf/open/floor/mainship/sterile/corner{
+	dir = 8
+	},
+/area/mainship/squads/req)
 "gUo" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -5415,6 +5444,11 @@
 	dir = 1
 	},
 /area/centcom/valhalla)
+"hmU" = (
+/obj/structure/cryofeed,
+/obj/structure/catwalk,
+/turf/open/floor/plating,
+/area/mainship/squads/req)
 "hng" = (
 /obj/machinery/door/poddoor/shutters/mainship{
 	dir = 2;
@@ -5572,6 +5606,12 @@
 /obj/effect/ai_node,
 /turf/open/floor/carpet,
 /area/centcom/valhalla)
+"hyi" = (
+/obj/structure/catwalk,
+/obj/structure/cryofeed/middle,
+/obj/structure/window/framed/mainship/hull,
+/turf/open/floor/plating,
+/area/mainship/squads/req)
 "hzZ" = (
 /obj/machinery/firealarm{
 	dir = 1
@@ -5774,6 +5814,12 @@
 /obj/effect/turf_decal/tile/red,
 /turf/open/floor/tile/dark/gray,
 /area/centcom/valhalla)
+"hMw" = (
+/obj/structure/prop/mainship/dnascanner{
+	name = "\improper Cloner"
+	},
+/turf/open/floor/mainship/sterile/corner,
+/area/mainship/squads/req)
 "hMy" = (
 /obj/structure/table,
 /obj/effect/spawner/random/misc/paperbin,
@@ -6357,6 +6403,13 @@
 	dir = 6
 	},
 /area/centcom/valhalla)
+"iGF" = (
+/obj/structure/cryofeed/middle,
+/obj/structure/catwalk,
+/obj/structure/window/framed/mainship/hull,
+/obj/structure/window/framed/mainship/hull,
+/turf/open/floor/plating,
+/area/mainship/squads/req)
 "iHX" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on,
 /obj/effect/turf_decal/tile/pink{
@@ -6439,6 +6492,11 @@
 "iNX" = (
 /obj/structure/largecrate/random/mini,
 /turf/open/floor/mainship/cargo,
+/area/mainship/squads/req)
+"iOp" = (
+/turf/open/floor/mainship/sterile/side{
+	dir = 4
+	},
 /area/mainship/squads/req)
 "iPA" = (
 /obj/machinery/conveyor/centcom_auto{
@@ -7635,6 +7693,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/dark/gray,
 /area/centcom/valhalla)
+"kqk" = (
+/obj/structure/cryofeed/middle,
+/obj/structure/catwalk,
+/turf/open/floor/plating,
+/area/mainship/squads/req)
 "kql" = (
 /obj/machinery/door/firedoor{
 	dir = 2
@@ -8207,6 +8270,13 @@
 	},
 /turf/open/floor/tile/cafe,
 /area/centcom/valhalla)
+"lmE" = (
+/obj/structure/bed/roller/hospital_empty/bigrollerempty3,
+/obj/effect/landmark/reclone_tp,
+/turf/open/floor/mainship/sterile/side{
+	dir = 8
+	},
+/area/mainship/squads/req)
 "lmF" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/machinery/status_display{
@@ -8569,6 +8639,12 @@
 	},
 /turf/open/floor/tile/dark/gray,
 /area/centcom/valhalla)
+"lQr" = (
+/obj/structure/sign/safety/cryogenic{
+	dir = 1
+	},
+/turf/open/floor/mainship,
+/area/mainship/squads/req)
 "lRu" = (
 /obj/structure/bed/roller,
 /obj/machinery/iv_drip,
@@ -8823,6 +8899,12 @@
 /obj/effect/turf_decal/warning_stripes/box/empty,
 /turf/open/floor/tile/dark/gray,
 /area/centcom/valhalla)
+"mke" = (
+/obj/structure/cryofeed/middle,
+/obj/structure/window/framed/mainship/hull,
+/obj/structure/catwalk,
+/turf/open/space/basic,
+/area/mainship/squads/req)
 "mln" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -9865,6 +9947,13 @@
 "nKi" = (
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/squads/req)
+"nKp" = (
+/obj/structure/catwalk,
+/obj/structure/cryofeed,
+/obj/structure/bed/roller/hospital_empty/bigrollerempty3,
+/obj/effect/landmark/reclone_tp,
+/turf/open/floor/plating,
+/area/mainship/squads/req)
 "nKz" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on,
 /turf/open/floor/tile/dark/gray,
@@ -10360,6 +10449,12 @@
 	},
 /turf/open/floor/plating,
 /area/centcom/valhalla)
+"owG" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1
+	},
+/turf/open/floor/mainship/sterile/dark,
+/area/mainship/squads/req)
 "oAl" = (
 /obj/structure/table,
 /obj/item/storage/pill_bottle,
@@ -10443,6 +10538,12 @@
 /obj/effect/turf_decal/warning_stripes/box,
 /turf/open/floor/tile/dark/gray,
 /area/centcom/valhalla)
+"oJM" = (
+/obj/machinery/door/airlock/mainship/medical/glass{
+	dir = 2
+	},
+/turf/open/floor/mainship/sterile/dark,
+/area/mainship/squads/req)
 "oLe" = (
 /obj/machinery/air_alarm{
 	dir = 1
@@ -10537,6 +10638,16 @@
 /obj/item/tool/pen,
 /turf/open/floor/plating,
 /area/centcom/valhalla)
+"oRI" = (
+/obj/structure/bed/roller/hospital_empty/bigrollerempty3,
+/obj/effect/landmark/reclone_tp,
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/mainship/sterile/corner{
+	dir = 8
+	},
+/area/mainship/squads/req)
 "oSc" = (
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/warning_stripes/thick{
@@ -11032,6 +11143,12 @@
 	},
 /turf/open/space/basic,
 /area/mainship/squads/req)
+"pCx" = (
+/obj/structure/cryofeed/right,
+/turf/closed/wall/mainship/outer{
+	name = "reinforced hull"
+	},
+/area/mainship/squads/req)
 "pEk" = (
 /turf/open/floor/tile/chapel{
 	dir = 8
@@ -11097,6 +11214,16 @@
 /obj/effect/ai_node,
 /turf/open/floor/tile/neutral/full,
 /area/centcom/valhalla)
+"pJJ" = (
+/obj/structure/bed/roller/hospital_empty/bigrollerempty3,
+/obj/effect/landmark/reclone_tp,
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/mainship/sterile/corner{
+	dir = 4
+	},
+/area/mainship/squads/req)
 "pLH" = (
 /obj/machinery/vending/MarineMed/valhalla,
 /turf/open/floor/tile/dark/gray,
@@ -11429,6 +11556,13 @@
 /obj/structure/bookcase,
 /turf/open/floor/tile/dark,
 /area/centcom/valhalla)
+"qlu" = (
+/obj/structure/catwalk,
+/obj/structure/cryofeed/right,
+/obj/structure/bed/roller/hospital_empty/bigrollerempty3,
+/obj/effect/landmark/reclone_tp,
+/turf/open/floor/plating,
+/area/mainship/squads/req)
 "qlP" = (
 /obj/machinery/vending/tool/nopower/valhalla,
 /obj/effect/turf_decal/warning_stripes/thick{
@@ -11835,6 +11969,9 @@
 "qPB" = (
 /turf/open/floor/tile/neutral/corner,
 /area/centcom/valhalla)
+"qPR" = (
+/turf/open/floor/mainship/sterile/dark,
+/area/mainship/squads/req)
 "qQt" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -12337,6 +12474,14 @@
 	},
 /turf/open/floor/tile/dark/gray,
 /area/centcom/valhalla)
+"ryr" = (
+/obj/structure/prop/mainship/dnascanner{
+	name = "\improper Cloner"
+	},
+/turf/open/floor/mainship/sterile/corner{
+	dir = 1
+	},
+/area/mainship/squads/req)
 "rzm" = (
 /obj/structure/table/reinforced,
 /obj/item/folder/yellow,
@@ -12550,6 +12695,17 @@
 	},
 /turf/open/floor/plating,
 /area/centcom/valhalla)
+"rSp" = (
+/obj/structure/prop/mainship/dnascanner{
+	name = "\improper Cloner"
+	},
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/mainship/sterile/side{
+	dir = 1
+	},
+/area/mainship/squads/req)
 "rSA" = (
 /obj/structure/girder,
 /obj/structure/sign/atmosplaque,
@@ -12655,6 +12811,13 @@
 	},
 /turf/open/floor/tile/dark/gray,
 /area/centcom/valhalla)
+"sbq" = (
+/obj/structure/bed/roller/hospital_empty/bigrollerempty3,
+/obj/effect/landmark/reclone_tp,
+/turf/open/floor/mainship/sterile/side{
+	dir = 4
+	},
+/area/mainship/squads/req)
 "sbu" = (
 /obj/structure/table,
 /obj/item/camera,
@@ -12951,6 +13114,16 @@
 /obj/machinery/firealarm,
 /turf/open/floor/grimy,
 /area/centcom/valhalla)
+"suv" = (
+/obj/structure/cryofeed,
+/obj/structure/catwalk,
+/obj/effect/landmark/reclone_tp,
+/obj/structure/bed/roller/hospital_empty/bigrollerempty3,
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/mainship/squads/req)
 "suw" = (
 /obj/structure/toilet{
 	dir = 4
@@ -13390,6 +13563,11 @@
 /obj/machinery/air_alarm,
 /turf/open/floor/tile/neutral,
 /area/centcom/valhalla)
+"tbM" = (
+/obj/structure/window/framed/mainship/hull,
+/obj/structure/catwalk,
+/turf/open/space/basic,
+/area/mainship/squads/req)
 "tcA" = (
 /obj/structure/window/reinforced{
 	dir = 1;
@@ -14017,6 +14195,11 @@
 	dir = 5
 	},
 /area/centcom/valhalla)
+"tVH" = (
+/turf/open/floor/mainship/sterile/side{
+	dir = 8
+	},
+/area/mainship/squads/req)
 "tVS" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/belt/utility,
@@ -14859,6 +15042,12 @@
 	},
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
+"vnN" = (
+/obj/structure/cryofeed,
+/turf/closed/wall/mainship/outer{
+	name = "reinforced hull"
+	},
+/area/mainship/squads/req)
 "vor" = (
 /obj/machinery/light/mainship{
 	dir = 8
@@ -14984,6 +15173,14 @@
 	},
 /turf/open/floor/tile/dark,
 /area/centcom/valhalla)
+"vyR" = (
+/obj/structure/prop/mainship/dnascanner{
+	name = "\improper Cloner"
+	},
+/turf/open/floor/mainship/sterile/side{
+	dir = 1
+	},
+/area/mainship/squads/req)
 "vzA" = (
 /obj/structure/closet/secure_closet/medical2,
 /obj/machinery/air_alarm{
@@ -15166,6 +15363,12 @@
 	dir = 5
 	},
 /area/centcom/valhalla)
+"vJR" = (
+/obj/structure/cryofeed/middle,
+/obj/structure/catwalk,
+/obj/structure/window/framed/mainship/hull,
+/turf/open/floor/plating,
+/area/mainship/squads/req)
 "vKE" = (
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 8
@@ -16455,6 +16658,10 @@
 /obj/machinery/door/poddoor/mainship/indestructible,
 /turf/open/floor/plating,
 /area/centcom/valhalla)
+"xlO" = (
+/obj/effect/turf_decal/medical_decals/cryo,
+/turf/open/floor/mainship,
+/area/mainship/squads/req)
 "xmh" = (
 /obj/effect/turf_decal/warning_stripes/thick,
 /turf/open/floor/mainship/tcomms,
@@ -17030,6 +17237,13 @@
 	},
 /turf/open/floor/tile/cafe,
 /area/centcom/valhalla)
+"xYe" = (
+/obj/structure/cryofeed/right,
+/obj/structure/catwalk,
+/obj/structure/bed/roller/hospital_empty/bigrollerempty3,
+/obj/effect/landmark/reclone_tp,
+/turf/open/floor/plating,
+/area/mainship/squads/req)
 "xYu" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -19243,14 +19457,14 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+pCb
+pCb
+pCb
+pCb
+pCb
+pCb
+pCb
+pCb
 pCb
 eRU
 eRU
@@ -19500,15 +19714,15 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
 pCb
+eRU
+eRU
+eRU
+eRU
+eRU
+eRU
+eRU
+eRU
 eRU
 iVF
 iVF
@@ -19757,17 +19971,17 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
 pCb
 eRU
-iVF
+ryr
+tVH
+eRU
+lmE
+lmE
+gRv
+oRI
+eRU
+lQr
 hau
 jmY
 dSy
@@ -20014,17 +20228,17 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
 pCb
 eRU
-iVF
+rSp
+qPR
+oJM
+qPR
+qPR
+qPR
+qPR
+owG
+xlO
 jmY
 tHl
 iVF
@@ -20271,15 +20485,15 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
 pCb
+eRU
+vyR
+fGE
+pCx
+gKz
+xYe
+xYe
+qlu
 eRU
 iVF
 bmk
@@ -20528,16 +20742,16 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
 pCb
 eRU
+vyR
+kqk
+mke
+vJR
+vJR
+iGF
+hyi
+tbM
 dje
 eRU
 iVF
@@ -20785,15 +20999,15 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
 pCb
+eRU
+vyR
+hmU
+vnN
+suv
+fNu
+fNu
+nKp
 eRU
 iVF
 hau
@@ -21042,17 +21256,17 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
 pCb
 eRU
-mGl
+rSp
+qPR
+oJM
+qPR
+qPR
+qPR
+qPR
+owG
+xlO
 hau
 seE
 iVF
@@ -21299,17 +21513,17 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
 pCb
 eRU
-vtg
+hMw
+iOp
+eRU
+sbq
+sbq
+sbq
+pJJ
+eRU
+lQr
 hau
 jsH
 iVF
@@ -21556,19 +21770,19 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
 pCb
 eRU
+eRU
+eRU
+eRU
+eRU
+eRU
+eRU
+eRU
+eRU
 iVF
-iVF
-iVF
+vtg
+mGl
 iVF
 oBf
 sMc
@@ -21813,14 +22027,14 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
-xrI
+pCb
+pCb
+pCb
+pCb
+pCb
+pCb
+pCb
+pCb
 pCb
 eRU
 iVF

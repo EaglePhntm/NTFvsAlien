@@ -1,6 +1,7 @@
 GLOBAL_LIST_EMPTY(comm_tower_landmarks_net_one)
 GLOBAL_LIST_EMPTY(comm_tower_landmarks_net_two)
 GLOBAL_LIST_EMPTY(all_static_telecomms_towers)
+GLOBAL_LIST_EMPTY(reclone_tp_spots)
 
 /datum/game_mode
 	var/zombies_regrow_limbs = FALSE

@@ -13,7 +13,7 @@
 /datum/mutation_upgrade/shell/lone_lurker/get_desc_for_alert(new_amount)
 	if(!new_amount)
 		return ..()
-	return "You will gain the ability to regenerate health, sunder and plasma off weeds as if on weeds but your benefit from pheromones is reduced by [0.7 + get_multiplier(new_amount)]x"
+	return "You will gain the ability to regenerate health, sunder and plasma off weeds as if on weeds but your benefit from pheromones is reduced to [get_multiplier(new_amount)]x"
 
 /datum/mutation_upgrade/shell/lone_lurker/on_mutation_enabled()
 	. = ..()

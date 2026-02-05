@@ -1,3 +1,35 @@
+#define NESTED_RECLONE_TIME 8 MINUTES
+
+//nest overrides
+/obj/structure/bed/nest/post_buckle_mob(mob/living/buckling_mob)
+	. = ..()
+	var/area/the_area = get_area(src)
+	if(buckling_mob.client && the_area.ceiling >= CEILING_UNDERGROUND)
+		if(!buckling_mob.client.nested_time || buckling_mob.client.nested_time > world.time + NESTED_RECLONE_TIME) //keep progress until its over.
+			buckling_mob.client.nested_time = world.time
+		INVOKE_ASYNC(buckling_mob.client, TYPE_PROC_REF(/client, ask_reclone)) //pops up the prompt
+
+/obj/structure/bed/nest/welder_act(mob/living/user, obj/item/I)
+	if(!welder_needed_unbuckle)
+		return FALSE
+	if(!length(buckled_mobs))
+		return FALSE
+	if(user.do_actions)
+		return FALSE
+	var/obj/item/tool/weldingtool/welder = I
+	if(!welder.tool_use_check(user, 5))
+		return FALSE
+	user.visible_message(span_notice("[user] starts to burn off the resin of \the [src]"))
+	if(!do_after(user, 5 SECONDS, IGNORE_HELD_ITEM, src, BUSY_ICON_FRIENDLY))
+		return FALSE
+	if(!welder.remove_fuel(5, user))
+		to_chat(user, span_warning("Not enough fuel to finish the task."))
+		return TRUE
+	user.visible_message(span_notice("[user] burns off the resin restraints on \the [src]"))
+	unbuckle_all_mobs()
+
+
+//----- advanced nests
 /obj/structure/bed/nest/advanced
 	name = "tentacle breeding nest"
 	icon = 'icons/Xeno/Effects.dmi'
@@ -436,10 +468,10 @@
 	buckle_lying = 0
 	layer = ABOVE_MOB_LAYER
 	var/mutable_appearance/resin_stuff_overlay
-	resist_time = WALL_NEST_RESIST_TIME
 	var/list/buckle_x
 	var/list/buckle_y
 	var/buckled_mob_density
+	welder_needed_unbuckle = TRUE
 
 /obj/structure/bed/nest/wall/Initialize(mapload)
 	. = ..()
@@ -447,7 +479,6 @@
 	buckle_y = list("[SOUTH]" = 27, "[NORTH]" = -19, "[WEST]" = 3, "[EAST]" = 3)
 
 /obj/structure/bed/nest/wall/user_buckle_mob(mob/living/buckling_mob, mob/user, check_loc = TRUE, silent)
-
 
 /obj/structure/bed/nest/wall/buckle_mob(mob/living/buckling_mob, force, check_loc, lying_buckle, hands_needed, target_hands_needed, silent)
 	. = ..()

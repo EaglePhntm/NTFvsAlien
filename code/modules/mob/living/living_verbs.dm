@@ -85,6 +85,9 @@
 		return
 	// Gamemode disallowed handler - END
 
+	if(client && (restrained_flags & RESTRAINED_XENO_NEST))
+		INVOKE_ASYNC(client, TYPE_PROC_REF(/client, ask_reclone))
+		return
 	if(stat == DEAD || isxenohivemind(src) || iszombie(src))
 		log_game("[key_name(usr)] has ghosted at [AREACOORD(usr)].")
 		message_admins("[ADMIN_TPMONTY(usr)] has ghosted.")

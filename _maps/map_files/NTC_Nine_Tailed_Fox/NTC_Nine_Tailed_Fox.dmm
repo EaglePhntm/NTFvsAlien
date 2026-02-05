@@ -5835,6 +5835,14 @@
 	dir = 8
 	},
 /area/mainship/hallways/hangar)
+"eXp" = (
+/obj/machinery/light/mainship/small,
+/obj/structure/toilet{
+	dir = 1
+	},
+/obj/effect/landmark/reclone_tp,
+/turf/open/floor/mainship/floor,
+/area/campaign/jungle_outpost/outpost/living/bathroom)
 "eXw" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -11515,6 +11523,10 @@
 "jDy" = (
 /turf/open/floor/mainship/ntlogo/nt3,
 /area/mainship/squads/general)
+"jDC" = (
+/obj/effect/landmark/reclone_tp,
+/turf/open/floor/grass,
+/area/mainship/living/port_garden)
 "jDO" = (
 /obj/structure/platform/metalplatform/nondense{
 	dir = 4
@@ -15540,6 +15552,7 @@
 	},
 /obj/structure/cable,
 /obj/structure/bed/roller/hospital_empty/bigrollerempty,
+/obj/effect/landmark/reclone_tp,
 /turf/open/floor/mainship/sterile/side{
 	dir = 1
 	},
@@ -23057,6 +23070,10 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/workerprep)
+"sYu" = (
+/obj/effect/landmark/reclone_tp,
+/turf/open/ground/grass,
+/area/mainship/groundhq/ntf/hallways/gardens)
 "sYw" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk,
@@ -23873,6 +23890,7 @@
 	dir = 8
 	},
 /obj/effect/spawner/random/misc/soap/regularweighted,
+/obj/effect/landmark/reclone_tp,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/medical/upper_medical{
 	name = "Shipside Medbay"
@@ -28005,6 +28023,14 @@
 /obj/structure/ship_ammo/cas/minirocket,
 /turf/open/floor/plating,
 /area/mainship/hallways/hangar)
+"xbj" = (
+/obj/structure/toilet,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/effect/landmark/reclone_tp,
+/turf/open/floor/mainship,
+/area/mainship/living/port_emb)
 "xbB" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/mainship,
@@ -34548,7 +34574,7 @@ gkJ
 bfy
 rUZ
 sfV
-kbD
+eXp
 gkJ
 kyS
 tKP
@@ -45265,7 +45291,7 @@ hXu
 lWk
 hXu
 hgm
-xvH
+xbj
 gcd
 xPO
 hYa
@@ -45512,7 +45538,7 @@ mkE
 tZT
 tZT
 tZT
-nsr
+jDC
 vYW
 tqz
 rtT
@@ -57664,7 +57690,7 @@ cqi
 cqi
 iaz
 gHw
-iaz
+sYu
 iaz
 sTI
 eVh

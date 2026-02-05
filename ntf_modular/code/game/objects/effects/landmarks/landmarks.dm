@@ -48,3 +48,15 @@
 	var/datum/job/xenomorph/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
 	if(xeno_job.total_positions) //if this gamemode even has any corrupted
 		new /obj/structure/xeno/silo(loc, hivenumber)
+
+/obj/effect/landmark/reclone_tp
+	icon = 'icons/mob/landmarks.dmi'
+	icon_state = "x"
+
+/obj/effect/landmark/reclone_tp/Initialize(mapload)
+	. = ..()
+	GLOB.reclone_tp_spots += src
+
+/obj/effect/landmark/reclone_tp/Destroy()
+	. = ..()
+	GLOB.reclone_tp_spots += src

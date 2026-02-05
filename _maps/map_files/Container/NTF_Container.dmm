@@ -3848,6 +3848,7 @@
 	pixel_x = 4;
 	pixel_y = 2
 	},
+/obj/effect/landmark/reclone_tp,
 /turf/open/floor/urban/wood,
 /area/mainship/living/grunt_rnr/two{
 	name = "Sauna"
@@ -4897,6 +4898,7 @@
 /area/mainship/command/self_destruct)
 "eGG" = (
 /obj/structure/bed/roller/hospital_empty/bigrollerempty3,
+/obj/effect/landmark/reclone_tp,
 /turf/open/floor/mainship/sterile/corner{
 	dir = 4
 	},
@@ -11479,6 +11481,7 @@
 	pixel_x = -1;
 	pixel_y = -3
 	},
+/obj/effect/landmark/reclone_tp,
 /turf/open/floor/urban/wood,
 /area/mainship/living/grunt_rnr/two{
 	name = "Sauna"
@@ -21756,6 +21759,7 @@
 "uKl" = (
 /obj/structure/bed/roller/hospital_empty/bigrollerempty3,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/landmark/reclone_tp,
 /turf/open/floor/mainship/sterile/side,
 /area/mainship/medical/surgery_hallway)
 "uKO" = (
@@ -22680,6 +22684,7 @@
 	pixel_x = -1;
 	pixel_y = 1
 	},
+/obj/effect/landmark/reclone_tp,
 /turf/open/floor/plating/mainship,
 /area/mainship/medical/lower_medical)
 "vyz" = (

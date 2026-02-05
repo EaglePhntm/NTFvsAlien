@@ -281,6 +281,7 @@ GLOBAL_LIST_EMPTY(radio_packs)
 	internal_transmitter.putdown_sound = 'ntf_modular/sound/machines/telephone/scout_hang_up.ogg'
 	internal_transmitter.attached_to.can_be_raised = FALSE
 	internal_transmitter.bypass_tgui_range = TRUE
+	internal_transmitter.call_sound_range = 1
 	RegisterSignal(internal_transmitter, "COMSIG_TRANSMITTER_UPDATE_ICON", PROC_REF(check_for_ringing))
 	GLOB.radio_packs += src
 
