@@ -1,6 +1,7 @@
-/datum/game_mode/infestation/extended_plus/extended_surv
+/datum/game_mode/infestation/secret_of_life/extended_plus/extended_surv
 	name = "Extended - Survivor-Heavy"
 	config_tag = "Extended - Survivor-Heavy"
+	round_type_flags = MODE_INFESTATION|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_ALLOW_XENO_QUICKBUILD|MODE_MUTATIONS_OBTAINABLE|MODE_XENO_GRAB_DEAD_ALLOWED|MODE_SINGLE_USE_NUKE_DISK_GENERATOR|MODE_CHILL_RULES|MODE_SURVIVAL
 	valid_job_types = list(
 		/datum/job/terragov/squad/leader = 1,
 		/datum/job/terragov/squad/engineer = 1,

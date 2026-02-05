@@ -277,7 +277,7 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	var/datum/game_mode/infestation/extended_plus/secret_of_life/gaymode = SSticker.mode
+	var/datum/game_mode/infestation/secret_of_life/gaymode = SSticker.mode
 	var/datum/individual_stats/the_stats
 	if(gaymode && user)
 		the_stats = gaymode.stat_list[user.faction].get_player_stats(user)

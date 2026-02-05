@@ -205,7 +205,7 @@
 
 /datum/mutation_upgrade/spur/ambush
 	name = "Ambush"
-	desc = "Stealth's movement cost is 300% of its original value. While at the maximum stealth power, your next sneak attack has an additional 15/22.5/30 AP."
+	desc = "Stealth's movement cost is 300% of its original value. While at the high stealth power, your next sneak attack has an additional 15/22.5/30 AP."
 	/// For the first structure, the amount of AP that a maximum powered stealth will get.
 	var/ap_initial = 7.5
 	/// For each structure, the additional amount of AP that a maximum powered stealth will get.
@@ -214,7 +214,7 @@
 /datum/mutation_upgrade/spur/ambush/get_desc_for_alert(new_amount)
 	if(!new_amount)
 		return ..()
-	return  "Stealth's movement cost is 300% of its original value. While at the maximum stealth power, your next sneak attack has an additional [get_ap(new_amount)] AP."
+	return  "Stealth's movement cost is 300% of its original value. While at the high stealth power, your next sneak attack has an additional [get_ap(new_amount)] AP."
 
 /datum/mutation_upgrade/spur/ambush/on_mutation_enabled()
 	. = ..()
@@ -249,7 +249,7 @@
 
 /datum/mutation_upgrade/spur/maul
 	name = "Maul"
-	desc = "Pounce no longer stuns, but now slashes your target which can trigger sneak attack. Pounce's cooldown is set to 60/50/40% of its original value."
+	desc = "Pounce stuns for 40/50/60% of its original value, but now slashes your target which can trigger sneak attack. Pounce's cooldown is set to 60/50/40% of its original value."
 	/// For the first structure, the multiplier of Pounce's cooldown duration to add to it.
 	var/multiplier_initial = -0.3
 	/// For each structure, the additional multiplier of Pounce's cooldown duration to add to it.
@@ -261,8 +261,8 @@
 	if(!pounce_ability)
 		return
 	pounce_ability.cooldown_duration += initial(pounce_ability.cooldown_duration) * get_multiplier(0)
-	pounce_ability.stun_duration -= initial(pounce_ability.stun_duration)
-	pounce_ability.self_immobilize_duration -= initial(pounce_ability.self_immobilize_duration)
+	pounce_ability.stun_duration -= initial(pounce_ability.stun_duration) * (get_multiplier(0) * -1)
+	pounce_ability.self_immobilize_duration -= initial(pounce_ability.self_immobilize_duration) * (get_multiplier(0) * -1)
 	pounce_ability.attack_on_pounce = TRUE
 
 /datum/mutation_upgrade/spur/maul/on_mutation_disabled()
@@ -271,8 +271,8 @@
 	if(!pounce_ability)
 		return
 	pounce_ability.cooldown_duration -= initial(pounce_ability.cooldown_duration) * get_multiplier(0)
-	pounce_ability.stun_duration += initial(pounce_ability.stun_duration)
-	pounce_ability.self_immobilize_duration += initial(pounce_ability.self_immobilize_duration)
+	pounce_ability.stun_duration += initial(pounce_ability.stun_duration) * (get_multiplier(0) * -1)
+	pounce_ability.self_immobilize_duration += initial(pounce_ability.self_immobilize_duration) * (get_multiplier(0) * -1)
 	pounce_ability.attack_on_pounce = FALSE
 
 /datum/mutation_upgrade/spur/maul/on_structure_update(previous_amount, new_amount)
@@ -281,6 +281,8 @@
 	if(!pounce_ability)
 		return
 	pounce_ability.cooldown_duration += initial(pounce_ability.cooldown_duration) * get_multiplier(new_amount - previous_amount, FALSE)
+	pounce_ability.stun_duration += initial(pounce_ability.stun_duration) * (get_multiplier(new_amount - previous_amount, FALSE) * -1)
+	pounce_ability.self_immobilize_duration += initial(pounce_ability.self_immobilize_duration) * (get_multiplier(new_amount - previous_amount, FALSE) * -1)
 
 /// Returns the amount of AP that a maximum powered stealth will get.
 /datum/mutation_upgrade/spur/maul/proc/get_multiplier(structure_count, include_initial = TRUE)

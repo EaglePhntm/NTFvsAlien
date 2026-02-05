@@ -22,11 +22,11 @@
 	icon_state = "[xeno_caste.caste_name] Running"
 	return TRUE
 
-/mob/living/carbon/xenomorph/puppet/Initialize(mapload, mob/living/carbon/xenomorph/puppeteer)
+/mob/living/carbon/xenomorph/puppet/Initialize(mapload, do_not_set_as_ruler, _hivenumber, mob/living/carbon/xenomorph/puppeteer)
 	. = ..()
 	if(puppeteer)
 		weak_master = WEAKREF(puppeteer)
-		transfer_to_hive(puppeteer.hivenumber)
+		transfer_to_hive(puppeteer.get_xeno_hivenumber())
 		RegisterSignal(puppeteer, COMSIG_MOB_DEATH, PROC_REF(on_puppeteer_death))
 	AddComponent(/datum/component/ai_controller, /datum/ai_behavior/puppet, puppeteer)
 

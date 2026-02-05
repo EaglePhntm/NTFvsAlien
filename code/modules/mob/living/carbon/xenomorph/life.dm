@@ -20,7 +20,7 @@
 		if(xeno_flags & XENO_ZOOMED)
 			zoom_out()
 	else
-		if(xeno_flags & XENO_ZOOMED && loc != zoom_turf)
+		if(xeno_flags & XENO_ZOOMED && loc != zoom_turf && !(xeno_flags & XENO_CAN_MOVE_ZOOMED))
 			zoom_out()
 		update_progression(seconds_per_tick)
 		update_evolving(seconds_per_tick)

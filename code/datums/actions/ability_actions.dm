@@ -251,6 +251,9 @@
 	. = can_use_action(silent, override_flags)
 	if(!CHECK_BITFIELD(to_check_flags, ABILITY_TARGET_SELF) && A == owner)
 		return FALSE
+	//ntf addition
+	if(HAS_TRAIT(A, TRAIT_HAULED))
+		return FALSE
 
 ///the thing to do when the selected action ability is selected and triggered by middle_click
 /datum/action/ability/activable/proc/use_ability(atom/A)

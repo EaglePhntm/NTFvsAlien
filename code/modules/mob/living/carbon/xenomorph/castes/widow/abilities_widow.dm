@@ -3,6 +3,8 @@
 // ***************************************
 /datum/action/ability/activable/xeno/secrete_resin/widow
 	buildable_structures = list(
+		//Each entry corresponds to an entry in the global resin_images_list, in order.
+		//Make sure to keep them synced up.
 		/turf/closed/wall/resin/regenerating/thick,
 		/turf/closed/wall/resin/membrane,
 		/obj/alien/resin/sticky,
@@ -10,6 +12,7 @@
 		/obj/structure/bed/nest,
 		/obj/structure/xeno/lighttower,
 		/obj/structure/bed/nest/advanced,
+		/obj/structure/bed/nest/advanced/special,
 		/turf/closed/wall/resin/regenerating/special/bulletproof,
 		/turf/closed/wall/resin/regenerating/special/fireproof,
 		/turf/closed/wall/resin/regenerating/special/hardy,
@@ -230,7 +233,7 @@
 /// Adds spiderlings to spiderling list and registers them for death so we can remove them later
 /datum/action/ability/xeno_action/create_spiderling/proc/add_spiderling()
 	/// This creates and stores the spiderling so we can reassign the owner for spider swarm and cap how many spiderlings you can have at once
-	var/mob/living/carbon/xenomorph/spiderling/new_spiderling = new(owner.loc, owner, owner)
+	var/mob/living/carbon/xenomorph/spiderling/new_spiderling = new(owner.loc, TRUE, owner.get_xeno_hivenumber(), owner)
 	RegisterSignals(new_spiderling, list(COMSIG_MOB_DEATH, COMSIG_QDELETING), PROC_REF(remove_spiderling))
 	spiderlings += new_spiderling
 	new_spiderling.pixel_x = rand(-8, 8)

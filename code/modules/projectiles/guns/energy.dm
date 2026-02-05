@@ -428,10 +428,10 @@
 	description = "Fires an sophisticated IFF tesla ball, but with reduces shock range."
 
 /datum/lasrifle/tesla_mode/emp // Combat robots beware
-	rounds_per_shot = 200
+	rounds_per_shot = 100
 	ammo_datum_type = /datum/ammo/energy/tesla/emp
-	fire_delay = 4 SECONDS
-	windup_delay = 0.8 SECONDS
+	fire_delay = 2 SECONDS
+	windup_delay = 0.4 SECONDS
 	fire_sound = 'sound/weapons/guns/fire/tesla.ogg'
 	message_to_user = "You set the tesla shock rifle's power mode mode to EMP."
 	fire_mode = GUN_FIREMODE_SEMIAUTO
@@ -1023,13 +1023,13 @@
 /datum/lasrifle/energy_mg_mode/standard/minigun
 	rounds_per_shot = 2
 	ammo_datum_type = /datum/ammo/energy/lasgun/marine/autolaser/mini
-	fire_delay = 0.08 SECONDS
+	fire_delay = 0.1 SECONDS
 	fire_sound = 'sound/weapons/guns/fire/Laser Pistol Standard.ogg'
 	message_to_user = "You set the machine laser's charge mode to standard fire."
 	fire_mode = GUN_FIREMODE_AUTOMATIC
 	icon_state = "tem"
 	radial_icon_state = "laser_disabler"
-	description = "Fires a rapid laser pulse with moderately reduced damage, but vastly improved energy efficiency."
+	description = "Fires a rapid laser pulse with greatly reduced damage, but vastly improved energy efficiency."
 
 // TE X-Ray
 

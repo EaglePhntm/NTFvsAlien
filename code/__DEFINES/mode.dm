@@ -77,7 +77,7 @@
 #define MODE_SURVIVAL (1<<20)
 #define MODE_NO_GHOSTS (1<<21)
 #define MODE_SINGLE_USE_NUKE_DISK_GENERATOR (1<<22)
-/// This flag being present makes things such as larva bursting cloneloss and relevant limits NOT happen. It must not be used in PVP modes. 
+/// This flag being present makes things such as larva bursting cloneloss and relevant limits NOT happen. It must not be used in PVP modes.
 #define MODE_CHILL_RULES (1<<23)
 
 #define MODE_INFESTATION_X_MAJOR "Xenomorph Major Victory"
@@ -208,6 +208,6 @@
 #define SENSOR_CAP_ADDITION_TIME_BONUS 3 MINUTES //additional time granted by capturing a sensor tower
 #define SENSOR_CAP_TIMER_PAUSED "paused"
 
-#define NUCLEAR_WAR_MECH_MINIMUM_POP_REQUIRED 15 // This amount of clients must be connected at gamemode setup to get the first mech pilot slot.
-#define NUCLEAR_WAR_MECH_INTERVAL_PER_SLOT 10 // After meeting NUCLEAR_WAR_MECH_MINIMUM_POP_REQUIRED, a mech pilot slot is open for each set of X clients.
-#define NUCLEAR_WAR_TANK_MINIMUM_POP_REQUIRED 20 // This amount of clients must be connected at gamemode setup to get two assault crewman jobs (and thus tank).
+#define NUCLEAR_WAR_MECH_MINIMUM_POP_REQUIRED 19 // This amount of clients must be connected at gamemode setup to get the first mech pilot slot.
+#define NUCLEAR_WAR_MECH_INTERVAL_PER_SLOT 15 // After meeting NUCLEAR_WAR_MECH_MINIMUM_POP_REQUIRED, a mech pilot slot is open for each set of X clients.
+#define NUCLEAR_WAR_TANK_MINIMUM_POP_REQUIRED 29 // This amount of clients must be connected at gamemode setup to get two assault crewman jobs (and thus tank).

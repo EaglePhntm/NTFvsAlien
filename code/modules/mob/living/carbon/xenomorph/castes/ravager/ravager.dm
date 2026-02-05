@@ -16,7 +16,7 @@
 	/// The amount of plasma to be gained for being on fire.
 	var/plasma_gain_from_fire = 50
 
-/mob/living/carbon/xenomorph/ravager/Initialize(mapload)
+/mob/living/carbon/xenomorph/ravager/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_LIGHT_STEP, XENO_TRAIT)
 

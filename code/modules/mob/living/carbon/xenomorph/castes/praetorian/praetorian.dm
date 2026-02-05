@@ -17,7 +17,7 @@
 /mob/living/carbon/xenomorph/praetorian/dancer
 	caste_base_type = /datum/xeno_caste/praetorian/dancer
 
-/mob/living/carbon/xenomorph/praetorian/dancer/Initialize(mapload)
+/mob/living/carbon/xenomorph/praetorian/dancer/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	RegisterSignal(src, COMSIG_XENOMORPH_POSTATTACK_LIVING, PROC_REF(on_postattack))
 

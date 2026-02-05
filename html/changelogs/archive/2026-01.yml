@@ -70,3 +70,7 @@
       mode
   - balance: Gives laser pack/backpack self charging abilities, so theres a point
       to using them over recharger cells
+2026-01-31:
+  Colfer1:
+  - qol: Nanopaste now behaves similarly to other healpacks/repair methods for robots
+  - bugfix: Nanopaste crate now actually contains 5 nanopaste as advertised

@@ -1,0 +1,16 @@
+2026-02-01:
+  Colfer1:
+  - balance: samples now have an icon on the map, so you can find those pesky researchers
+2026-02-02:
+  Nokia2Student:
+  - rscadd: Healing infusion can be used on humans
+  - rscadd: Plasma transfer can be used on humans. It regenerates stamina instead
+      of plasma.
+2026-02-03:
+  Colfer1:
+  - balance: Halter charged rounds now does bluescreener effects to combat robots
+      rather than EMP
+  - balance: Combat robots now take D.O.T. when below 0 health, but their repair methods
+      are faster
+  - balance: Combat robots become paralyzed when at -80% health, rather than continuing
+      until death

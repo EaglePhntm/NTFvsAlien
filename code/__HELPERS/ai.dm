@@ -153,6 +153,17 @@
 				continue
 			if(need_los && !line_of_sight(source, nearby_human))
 				continue
+			//ntf addition for ai bs
+			if(ismonkey(nearby_human))
+				continue
+			if(nearby_human.status_flags & GODMODE|INCORPOREAL)
+				continue
+			if((nearby_human.status_flags & XENO_HOST && nearby_human.buckled\
+			&& (istype(nearby_human.buckled, /obj/structure/bed/nest) || istype(nearby_human.buckled, /obj/structure/bed/nest/wall)\
+			|| istype(nearby_human.buckled, /obj/structure/bed/nest/advanced)\
+			|| istype(nearby_human.buckled, /obj/structure/bed/nest/advanced/special))) || HAS_TRAIT(nearby_human, TRAIT_HAULED))
+				continue
+			//ntf addition end
 			if(get_dist(source, nearby_human) < shorter_distance)
 				nearest_target = nearby_human
 				shorter_distance = get_dist(source, nearby_human) //better to recalculate than to save the var

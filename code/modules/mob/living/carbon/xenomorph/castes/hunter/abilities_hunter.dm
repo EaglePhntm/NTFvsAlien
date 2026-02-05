@@ -25,6 +25,7 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_STEALTH,
 	)
 	cooldown_duration = HUNTER_STEALTH_COOLDOWN
+	use_state_flags = ABILITY_USE_LYING
 	///last stealthed time.
 	var/last_stealth = null
 	///if stealthed.
@@ -228,10 +229,10 @@
 		if(mark?.marked_target == M)
 			to_chat(owner, span_xenodanger("We strike our death mark with a calculated pounce."))
 			M.adjust_stagger(6 SECONDS)
-			M.add_slowdown(2)
+			M.add_slowdown(3)
 		else
 			M.adjust_stagger(3 SECONDS)
-			M.add_slowdown(1)
+			M.add_slowdown(2)
 		to_chat(owner, span_xenodanger("Pouncing from the shadows, we stagger our victim."))
 	if(stealth_flags & DIS_POUNCE_SLASH)
 		cancel_stealth()
@@ -255,7 +256,7 @@
 	else
 		armor_mod += sneak_attack_armor_pen
 		flavour = "deadly"
-	if(bonus_maximum_stealth_ap && xeno_owner.alpha_sources[ALPHA_SOURCE_HUNTER_STEALTH] == HUNTER_STEALTH_STILL_ALPHA)
+	if(bonus_maximum_stealth_ap && xeno_owner.alpha_sources[ALPHA_SOURCE_HUNTER_STEALTH] == HUNTER_STEALTH_WALK_ALPHA)
 		armor_mod += bonus_maximum_stealth_ap
 	if(bonus_stealth_damage_multiplier)
 		damage_mod += xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier * bonus_stealth_damage_multiplier
@@ -427,7 +428,8 @@
 /datum/action/ability/activable/xeno/pounce/proc/mob_hit(datum/source, mob/living/living_target)
 	SIGNAL_HANDLER
 	. = TRUE
-	if(living_target.stat || isxeno(living_target)) //we leap past xenos
+	if(living_target.stat == DEAD|| isxeno(living_target)) //we leap past xenos
+		pounce_complete()
 		return
 
 	if(ishuman(living_target) && (angle_to_dir(Get_Angle(xeno_owner.throw_source, living_target)) in reverse_nearby_direction(living_target.dir)))

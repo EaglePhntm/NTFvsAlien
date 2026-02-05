@@ -179,7 +179,7 @@
 
 /*	ADD_TRAIT(victim, TRAIT_HOLLOW, TRAIT_GENERIC)
 	victim.spawn_gibs()*/
-	var/mob/living/carbon/xenomorph/puppet/puppet = new(victim_turf, owner)
+	var/mob/living/carbon/xenomorph/puppet/puppet = new(victim_turf, TRUE, owner.get_xeno_hivenumber(), owner)
 	puppet.voice = victim.name
 	puppet.name = victim.name
 	add_puppet(puppet)

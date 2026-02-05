@@ -3848,6 +3848,7 @@
 	pixel_x = 4;
 	pixel_y = 2
 	},
+/obj/effect/landmark/reclone_tp,
 /turf/open/floor/urban/wood,
 /area/mainship/living/grunt_rnr/two{
 	name = "Sauna"
@@ -4897,6 +4898,7 @@
 /area/mainship/command/self_destruct)
 "eGG" = (
 /obj/structure/bed/roller/hospital_empty/bigrollerempty3,
+/obj/effect/landmark/reclone_tp,
 /turf/open/floor/mainship/sterile/corner{
 	dir = 4
 	},
@@ -7404,9 +7406,9 @@
 /turf/open/floor/mainship/research/containment/floor1,
 /area/mainship/medical/medical_science)
 "gWh" = (
-/turf/open/floor/mainship/sterile/corner{
-	dir = 4
-	},
+/obj/structure/sign/science,
+/obj/machinery/door/airlock/mainship/research/glass,
+/turf/open/floor/mainship/sterile/side,
 /area/mainship/medical/medical_science)
 "gWO" = (
 /obj/structure/table/mainship,
@@ -11479,6 +11481,7 @@
 	pixel_x = -1;
 	pixel_y = -3
 	},
+/obj/effect/landmark/reclone_tp,
 /turf/open/floor/urban/wood,
 /area/mainship/living/grunt_rnr/two{
 	name = "Sauna"
@@ -19159,8 +19162,8 @@
 	phone_category = "Medical";
 	phone_id = "Research"
 	},
-/obj/effect/spawner/random/engineering/extinguisher/regularweighted,
 /obj/item/storage/box/monkeycubes,
+/obj/item/tool/extinguisher,
 /turf/open/floor/mainship/sterile/corner{
 	dir = 8
 	},
@@ -21756,6 +21759,7 @@
 "uKl" = (
 /obj/structure/bed/roller/hospital_empty/bigrollerempty3,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/landmark/reclone_tp,
 /turf/open/floor/mainship/sterile/side,
 /area/mainship/medical/surgery_hallway)
 "uKO" = (
@@ -22680,6 +22684,7 @@
 	pixel_x = -1;
 	pixel_y = 1
 	},
+/obj/effect/landmark/reclone_tp,
 /turf/open/floor/plating/mainship,
 /area/mainship/medical/lower_medical)
 "vyz" = (
@@ -41415,7 +41420,7 @@ xzN
 rBR
 qGs
 wlB
-gWh
+oij
 qGs
 qGs
 qGN
@@ -41518,7 +41523,7 @@ vqw
 vqw
 qGs
 qGs
-qGs
+gWh
 qGs
 qGs
 qGs

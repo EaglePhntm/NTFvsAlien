@@ -20,7 +20,7 @@
 // ***************************************
 // *********** Init
 // ***************************************
-/mob/living/carbon/xenomorph/queen/Initialize(mapload)
+/mob/living/carbon/xenomorph/queen/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	playsound(loc, 'sound/voice/alien/queen_command.ogg', 75, 0)
 

@@ -63,7 +63,7 @@
 	var/properkey = "[speed][force][sigkey]"
 	if(prob(10))
 		user.balloon_alert_to_viewers(pick("*plap*","*plop*","*slap*","*pap*","*slick*",))
-	if(properkey == msg_signature && last_msg_signature + 10 SECONDS >= world.time)
+	if(properkey == msg_signature && last_msg_signature + 20 SECONDS >= world.time)
 		return FALSE
 	msg_signature = properkey
 	last_msg_signature = world.time
@@ -155,7 +155,12 @@
 	if(istype(blame_mob) && blame_mob.sexcon && blame_mob != user)
 		switch(blame_mob.sexcon.drain_style)
 			if(SEX_DRAIN_STYLE_HEAL_TARGET)
-				user.heal_overall_damage(rand(15, 30)+(20*blame_mob.skills.sex), rand(15, 30)+(20*blame_mob.skills.sex), TRUE, TRUE)
+				if(ishuman(user))
+					user.heal_overall_damage(rand(10, 20)+(20*blame_mob.skills.sex), rand(10, 20)+(20*blame_mob.skills.sex), TRUE, TRUE)
+				else if(isxeno(user))
+					var/mob/living/carbon/xenomorph/xeno_user = user
+					var/heal_amount = rand(10, 20) + (20*blame_mob.skills.sex) + (xeno_user.recovery_aura * xeno_user.maxHealth * 0.01)
+					HEAL_XENO_DAMAGE(xeno_user, heal_amount, FALSE)
 				if(!isxeno(blame_mob) || SSticker.mode.round_type_flags & MODE_CHILL_RULES)
 					user.adjustCloneLoss(-(rand(5,10)+(5*blame_mob.skills.sex)))
 			if(SEX_DRAIN_STYLE_DRAIN_STAMINA)
@@ -339,11 +344,14 @@
 			switch(blame_mob.sexcon.drain_style)
 				if(SEX_DRAIN_STYLE_HEAL_TARGET)
 					if(user.buckled || user.lying_angle) //gooder resting
-						healing_amount *= 4
-					user.heal_overall_damage(healing_amount*(1+blame_mob.skills.sex), healing_amount*(1+blame_mob.skills.sex), TRUE, TRUE)
+						healing_amount *= 2
+					if(ishuman(user))
+						user.heal_overall_damage(healing_amount*(1+blame_mob.skills.sex), healing_amount*(1+blame_mob.skills.sex), TRUE, TRUE)
 					if(isxeno(user))
 						var/mob/living/carbon/xenomorph/xeno_user = user
 						xeno_user.gain_stun_health(5*(1+blame_mob.skills.sex), TRUE)
+						var/heal_amount = (healing_amount*2)*(1+blame_mob.skills.sex) + (xeno_user.recovery_aura * xeno_user.maxHealth * 0.01)
+						HEAL_XENO_DAMAGE(xeno_user, heal_amount, FALSE)
 				if(SEX_DRAIN_STYLE_DRAIN_STAMINA)
 					if((!(user.mind)) || (user.client?.prefs.harmful_sex_flags & HARMFUL_SEX_STAMINA_DRAIN))
 						blame_mob.heal_overall_damage((healing_amount*0.5)+(3*blame_mob.skills.sex), (healing_amount*0.3)+(3*blame_mob.skills.sex), TRUE, TRUE)

@@ -37,8 +37,11 @@
 					span_notice("You extinguished the fire on [src]."), null, 5)
 				return TRUE
 
-			if(istype(wear_mask, /obj/item/clothing/mask/facehugger) && human_user != src)
-				human_user.stripPanelUnequip(wear_mask, src, SLOT_WEAR_MASK)
+			if(istype(wear_mask, /obj/item/clothing/mask/facehugger) || istype(w_underwear, /obj/item/clothing/mask/facehugger) && human_user != src)
+				if(istype(wear_mask, /obj/item/clothing/mask/facehugger))
+					human_user.stripPanelUnequip(wear_mask, src, SLOT_WEAR_MASK)
+				if(istype(w_underwear, /obj/item/clothing/mask/facehugger))
+					human_user.stripPanelUnequip(w_underwear, src, SLOT_UNDERWEAR)
 				return TRUE
 
 			if(health >= get_crit_threshold())

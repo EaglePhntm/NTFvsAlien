@@ -21,7 +21,7 @@
 // ***************************************
 // *********** Init
 // ***************************************
-/mob/living/carbon/xenomorph/boiler/Initialize(mapload)
+/mob/living/carbon/xenomorph/boiler/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	ammo = GLOB.ammo_list[/datum/ammo/xeno/boiler_gas]
 

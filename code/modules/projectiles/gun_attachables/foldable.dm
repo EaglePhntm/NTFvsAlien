@@ -166,13 +166,13 @@
 	. = ..()
 
 	if(folded)
-		UnregisterSignal(master_gun, list(COMSIG_ITEM_DROPPED, COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_UNWIELD, COMSIG_ATOM_DIR_CHANGE))
+		UnregisterSignal(master_gun, list(COMSIG_ITEM_DROPPED, COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_UNWIELD))
 		UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
 		to_chat(user, span_notice("You retract [src]."))
 		return
 
 	if(user)
-		RegisterSignals(master_gun, list(COMSIG_ITEM_DROPPED, COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_UNWIELD, COMSIG_ATOM_DIR_CHANGE), PROC_REF(retract_bipod))
+		RegisterSignals(master_gun, list(COMSIG_ITEM_DROPPED, COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_UNWIELD), PROC_REF(retract_bipod))
 		RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(retract_bipod))
 		to_chat(user, span_notice("You deploy [src]."))
 

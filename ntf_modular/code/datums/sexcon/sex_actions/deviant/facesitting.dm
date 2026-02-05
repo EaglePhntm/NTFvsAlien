@@ -58,7 +58,7 @@
 		return FALSE
 	if(isxeno(user))
 		var/mob/living/carbon/xenomorph/userxeno = user
-		if(userxeno.client?.prefs?.xenogender != 2 || userxeno.client?.prefs?.xenogender != 4)
+		if(userxeno.client?.prefs?.xenogender != 2 && userxeno.client?.prefs?.xenogender != 4)
 			return FALSE
 	else
 		if(user.gender != FEMALE)
@@ -71,7 +71,7 @@
 
 	if(isxeno(user))
 		var/mob/living/carbon/xenomorph/userxeno = user
-		if(userxeno.client?.prefs?.xenogender != 2 || userxeno.client?.prefs?.xenogender != 4)
+		if(userxeno.client?.prefs?.xenogender != 2 && userxeno.client?.prefs?.xenogender != 4)
 			return FALSE
 	else
 		if(user.gender != FEMALE)

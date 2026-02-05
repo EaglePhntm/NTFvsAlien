@@ -136,7 +136,6 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/spiderling,
 	/mob/living/carbon/xenomorph/pyrogen,
 	/mob/living/carbon/xenomorph/pyrogen/primordial,
-	/mob/living/carbon/xenomorph/baneling,
 	/mob/living/carbon/xenomorph/dragon,
 	/mob/living/carbon/xenomorph/dragon/primordial,
 	))

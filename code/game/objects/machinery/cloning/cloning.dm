@@ -92,7 +92,6 @@ These act as a respawn mechanic growning a body and offering it up to ghosts.
 
 	linked_machine.grow_human()
 
-
 /obj/machinery/cloning/vats
 	name = "clone vat"
 	icon = 'icons/obj/machines/cloning.dmi'

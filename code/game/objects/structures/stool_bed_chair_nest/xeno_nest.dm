@@ -1,5 +1,4 @@
 #define NEST_RESIST_TIME 60 SECONDS
-#define WALL_NEST_RESIST_TIME 180 SECONDS
 #define NEST_UNBUCKLED_COOLDOWN 5 SECONDS
 
 ///Alium nests. Essentially beds with an unbuckle delay that only aliums can buckle mobs to.
@@ -13,10 +12,13 @@
 	buckling_x = 0
 	buildstacktype = null //can't be disassembled and doesn't drop anything when destroyed
 	resistance_flags = UNACIDABLE|XENO_DAMAGEABLE
+	//obj_flags = parent_type::obj_flags|PROJ_IGNORE_DENSITY
 	max_integrity = 50
 	layer = BELOW_OPEN_DOOR_LAYER
 	var/unbuckletime = 6 SECONDS
 	var/resist_time = NEST_RESIST_TIME
+	///deep cave made ones need a welder to save people from.
+	var/welder_needed_unbuckle = FALSE
 
 /obj/structure/bed/nest/ai_should_stay_buckled(mob/living/carbon/npc)
 	return TRUE
@@ -84,8 +86,14 @@
 
 
 /obj/structure/bed/nest/user_unbuckle_mob(mob/living/buckled_mob, mob/user, silent)
+	if(user.do_actions)
+		return FALSE
 	if(buckled_mob != user)
 		if(user.incapacitated())
+			return FALSE
+		var/area/the_area = get_area(src)
+		if(the_area.ceiling >= CEILING_UNDERGROUND && !isxeno(user) && welder_needed_unbuckle)
+			to_chat(user, span_warning("You need to use a welder to get through this thick resin."))
 			return FALSE
 		buckled_mob.visible_message(span_notice("\The [user] begins to pull \the [buckled_mob] free from \the [src]!"),
 			span_notice("\The [user] begins to pull you free from \the [src]."),
@@ -102,6 +110,10 @@
 		silent = TRUE
 		return ..()
 
+	var/area/the_area = get_area(src)
+	if(the_area.ceiling >= CEILING_UNDERGROUND && welder_needed_unbuckle)
+		to_chat(buckled_mob, span_warning("The resin here is too strong to break free on your own..."))
+		return FALSE
 	if(buckled_mob.incapacitated(TRUE))
 		to_chat(buckled_mob, span_warning("You're currently unable to try that."))
 		return FALSE

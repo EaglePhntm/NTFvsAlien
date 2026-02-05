@@ -12,7 +12,8 @@
 	wound_type = "queen" //used to match appropriate wound overlays
 
 	// *** Melee Attacks *** //
-	melee_damage = 25
+	melee_damage = 28
+	attack_delay = 9
 
 	// *** Speed *** //
 	speed = -0.3
@@ -31,7 +32,7 @@
 	upgrade_threshold = TIER_THREE_THRESHOLD
 	maximum_active_caste = 1
 	death_evolution_delay = 10 MINUTES
-	deevolves_to = /mob/living/carbon/xenomorph/drone
+	deevolves_to = /datum/xeno_caste/drone
 
 	// *** Flags *** //
 /* NTF edit - allow evolution
@@ -47,7 +48,7 @@
 
 	// *** Ranged Attack *** //
 	spit_delay = 1.1 SECONDS
-	spit_types = list(/datum/ammo/xeno/sticky, /datum/ammo/xeno/acid, /datum/ammo/xeno/toxin/aphrotoxin/upgrade3, /datum/ammo/xeno/toxin/upgrade3)
+	spit_types = list(/datum/ammo/xeno/sticky, /datum/ammo/xeno/acid/medium, /datum/ammo/xeno/toxin/aphrotoxin/upgrade3, /datum/ammo/xeno/toxin/upgrade3)
 
 	// *** Pheromones *** //
 	aura_strength = 5 //The Queen's aura is strong and stays so, and gets devastating late game. Climbs by 1 to 5
@@ -59,7 +60,6 @@
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
-		/datum/action/ability/xeno_action/psychic_whisper,
 		/datum/action/ability/xeno_action/psychic_influence,
 		/datum/action/ability/xeno_action/psychic_radiance,
 		/datum/action/ability/activable/xeno/impregnate,
@@ -117,7 +117,6 @@
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
-		/datum/action/ability/xeno_action/psychic_whisper,
 		/datum/action/ability/xeno_action/psychic_influence,
 		/datum/action/ability/xeno_action/psychic_radiance,
 		/datum/action/ability/activable/xeno/impregnate,

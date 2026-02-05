@@ -585,7 +585,6 @@
 			/obj/item/toy/dice/d20 = -1,
 			/obj/item/deployable_floodlight = 5,
 			/obj/item/plantable_flag/ntc = 10,
-			/obj/item/campaign_beacon/npc_beacon/tgmc = 1,
 			/obj/item/explosive/plastique = 12,
 			/obj/item/xeno_iff_tag = -1,
 			/obj/structure/closet/secure_closet/xeno_cage = 10,

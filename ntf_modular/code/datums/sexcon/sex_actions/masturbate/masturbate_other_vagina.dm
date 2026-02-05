@@ -1,14 +1,13 @@
 /datum/sex_action/masturbate_other_vagina
 	name = "Stroke their clit"
 	check_same_tile = FALSE
-	heal_sex = FALSE
 
 /datum/sex_action/masturbate_other_vagina/shows_on_menu(mob/living/carbon/user, mob/living/carbon/target)
 	if(user == target)
 		return FALSE
 	if(isxeno(target))
 		var/mob/living/carbon/xenomorph/targetxeno = target
-		if(targetxeno.client?.prefs?.xenogender != 2 || targetxeno.client?.prefs?.xenogender != 4)
+		if(targetxeno.client?.prefs?.xenogender != 2 && targetxeno.client?.prefs?.xenogender != 4)
 			return FALSE
 	else
 		if(target.gender != FEMALE)
@@ -21,7 +20,7 @@
 
 	if(isxeno(target))
 		var/mob/living/carbon/xenomorph/targetxeno = target
-		if(targetxeno.client?.prefs?.xenogender != 2 || targetxeno.client?.prefs?.xenogender != 4)
+		if(targetxeno.client?.prefs?.xenogender != 2 && targetxeno.client?.prefs?.xenogender != 4)
 			return FALSE
 	else
 		if(target.gender != FEMALE)

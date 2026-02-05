@@ -7,7 +7,7 @@
 		return FALSE
 	if(isxeno(target))
 		var/mob/living/carbon/xenomorph/targetxeno = target
-		if(targetxeno.client?.prefs?.xenogender != 2 || targetxeno.client?.prefs?.xenogender != 4)
+		if(targetxeno.client?.prefs?.xenogender != 2 && targetxeno.client?.prefs?.xenogender != 4)
 			return FALSE
 	else
 		if(target.gender != FEMALE && !target.sexcon.can_use_breasts())
@@ -23,7 +23,7 @@
 
 	if(isxeno(target))
 		var/mob/living/carbon/xenomorph/targetxeno = target
-		if(targetxeno.client?.prefs?.xenogender != 2 || targetxeno.client?.prefs?.xenogender != 4)
+		if(targetxeno.client?.prefs?.xenogender != 2 && targetxeno.client?.prefs?.xenogender != 4)
 			return FALSE
 	else
 		if(target.gender != FEMALE && !target.sexcon.can_use_breasts())

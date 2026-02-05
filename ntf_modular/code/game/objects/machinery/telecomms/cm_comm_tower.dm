@@ -88,7 +88,7 @@
 	use_power = NO_POWER_USE
 	idle_power_usage = 50
 	netspeed = 40
-	resistance_flags = INDESTRUCTIBLE
+	resistance_flags = INDESTRUCTIBLE|TAIL_STABABLE
 	var/destructible = TRUE
 	var/health = 450 //we use this seperate var so shit dont delete I guess.
 	freq_listening = NTC_SIDED_FREQS
@@ -131,6 +131,7 @@
 	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
 	playsound(loc, SFX_ALIEN_CLAW_METAL, 25)
 	update_health(damage_amount)
+	return TRUE
 
 /obj/machinery/telecomms/relay/preset/tower/tail_stab_act(mob/living/carbon/xenomorph/xeno, damage, target_zone, penetration, structure_damage_multiplier, stab_description, disorientamount, can_hit_turf)
 	if(!xeno.blunt_stab)
@@ -361,14 +362,13 @@
 		to_chat(user, span_warning("\The [src]'s processors are still cooling! Wait before trying to flip the switch again."))
 		return
 	toggle_state(user) // just flip dat switch
-	var/turf/commloc = get_turf(src)
 	var/area/commarea = get_area(src)
 	if(on) //now, if it went on it now uses power
 		use_power = IDLE_POWER_USE
-		message_admins("[key_name(user)] turned \the [src] in [commarea] ON. [ADMIN_JMP(commloc.loc)]")
+		message_admins("[key_name(user)] turned \the [src] in [commarea] ON. [ADMIN_JMP(src)]")
 	else
 		use_power = NO_POWER_USE
-		message_admins("[key_name(user)] turned \the [src] in [commarea] OFF. [ADMIN_JMP(commloc.loc)]")
+		message_admins("[key_name(user)] turned \the [src] in [commarea] OFF. [ADMIN_JMP(src)]")
 	toggle_cooldown = world.time + 4 SECONDS
 	update_icon_state()
 
@@ -388,10 +388,10 @@
 			if(!do_after(user, 10, IGNORE_HAND|IGNORE_HELD_ITEM, BUSY_ICON_BUILD))
 				return
 			if(user.faction in GLOB.faction_to_radio)
-				switch(faction)
+				switch(user.faction)
 					if(FACTION_TERRAGOV,FACTION_NANOTRASEN,FACTION_ICC)
-						freq_listening -=  NTC_SIDED_FREQS
-						freq_listening +=  NTC_SIDED_FREQS
+						freq_listening -= NTC_SIDED_FREQS
+						freq_listening += NTC_SIDED_FREQS
 					if(FACTION_SOM)
 						freq_listening -= SOM_FREQS
 						freq_listening += SOM_FREQS

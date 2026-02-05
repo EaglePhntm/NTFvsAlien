@@ -13,7 +13,7 @@
 	drag_delay = 5 //pulling a big dead xeno is hard
 	bubble_icon = "alien"
 
-/mob/living/carbon/xenomorph/puppeteer/Initialize(mapload)
+/mob/living/carbon/xenomorph/puppeteer/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	/*GLOB.huds[DATA_HUD_XENO_HEART].add_hud_to(src)*/
 	RegisterSignal(src, COMSIG_XENOMORPH_POSTATTACK_LIVING, PROC_REF(postattack))

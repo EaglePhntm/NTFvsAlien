@@ -24,7 +24,7 @@
 	/// What sprite state this - normal, enraged, guarding? Used for update_icons()
 	var/spiderling_state = SPIDERLING_NORMAL
 
-/mob/living/carbon/xenomorph/spiderling/Initialize(mapload, mob/living/carbon/xenomorph/mother)
+/mob/living/carbon/xenomorph/spiderling/Initialize(mapload, do_not_set_as_ruler, _hivenumber, mob/living/carbon/xenomorph/mother)
 	. = ..()
 	spidermother = mother
 	if(spidermother)
@@ -33,6 +33,12 @@
 		RegisterSignal(spidermother, COMSIG_MOB_DEATH, PROC_REF(on_mother_death))
 	else
 		AddComponent(/datum/component/ai_controller, /datum/ai_behavior/xeno)
+
+/mob/living/carbon/xenomorph/spiderling/Destroy()
+	if(spidermother)
+		UnregisterSignal(spidermother, COMSIG_MOB_DEATH)
+	remove_component(/datum/component/ai_controller)
+	. = ..()
 
 /mob/living/carbon/xenomorph/spiderling/update_icons(state_change = TRUE)
 	. = ..()
@@ -197,7 +203,7 @@
 	var/mob/living/carbon/xenomorph/spiderling/x = mob_parent
 	if(QDELETED(x))
 		return
-	var/list/mob/living/carbon/human/possible_victims = list()
+	var/list/mob/living/possible_victims = list()
 	for(var/mob/living/victim in get_nearest_target(x, SPIDERLING_RAGE_RANGE))
 		if(victim.stat == DEAD)
 			continue

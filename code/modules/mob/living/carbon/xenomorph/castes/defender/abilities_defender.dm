@@ -52,6 +52,8 @@
 	for (var/mob/living/carbon/human/H in L)
 		if(H.stat == DEAD || !xeno_owner.Adjacent(H))
 			continue
+		if(HAS_TRAIT(H, TRAIT_HAULED) || (H.status_flags & (INCORPOREAL|GODMODE)))
+			continue
 		H.add_filter("defender_tail_sweep", 2, gauss_blur_filter(1)) //Add cool SFX; motion blur
 		addtimer(CALLBACK(H, TYPE_PROC_REF(/datum, remove_filter), "defender_tail_sweep"), 0.5 SECONDS) //Remove cool SFX
 		var/damage = xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier

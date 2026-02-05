@@ -17,7 +17,7 @@
 		/mob/living/carbon/xenomorph/proc/hijack,
 	)
 
-/mob/living/carbon/xenomorph/king/Initialize(mapload)
+/mob/living/carbon/xenomorph/king/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	spawn_cry()
 

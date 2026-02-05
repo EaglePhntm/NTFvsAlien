@@ -77,9 +77,9 @@
 	SIGNAL_HANDLER
 	if(COOLDOWN_FINISHED(src, sex_boost_cd))
 		for(var/mob/living/person in affecting_list)
-			affecting_list[person] = beam(person, "plasmabeam", maxdistance = 3, time = 1.5 SECONDS)
-		do_healing(2) //additive with being carried usually since it runs independently from process
-		COOLDOWN_START(src, sex_boost_cd, 1 SECONDS)
+			affecting_list[person] = beam(person, "plasmabeam", maxdistance = 3, time = 1.9 SECONDS)
+		do_healing(1) //additive with being carried usually since it runs independently from process
+		COOLDOWN_START(src, sex_boost_cd, 1.9 SECONDS)
 
 /obj/machinery/deployable/dispenser/medic/post_unbuckle_mob(mob/living/buckled_mob)
 	. = ..()
@@ -95,17 +95,17 @@
 /obj/machinery/deployable/dispenser/medic/process()
 	do_healing()
 
-//it should go from 4 base to 6 mounted, and 8 when fucked while mounted, all values scale same way.
-/obj/machinery/deployable/dispenser/medic/proc/do_healing(healing_rate = 4, misc_healing = 0.25, internal_healing = 0.2)
+//it should go from 2 base to 4 mounted, and 6 (total) when fucked while mounted.
+/obj/machinery/deployable/dispenser/medic/proc/do_healing(healing_rate = 2, misc_healing = 0.10, internal_healing = 0.10)
 	if(climbed_mob)
 		if(climbed_mob in loc)
-			healing_rate *= 1.5
-			misc_healing *= 1.5
-			internal_healing *= 1.5
+			healing_rate *= 2
+			misc_healing *= 2
+			internal_healing *= 2
 			do_thrust_animate(src, climbed_mob)
 			do_thrust_animate(climbed_mob,src) //carries them up with the machine
 			for(var/mob/living/person in affecting_list)
-				affecting_list[person] = beam(person, "bsa_beam", maxdistance = 3, time = 1 SECONDS)
+				affecting_list[person] = beam(person, "bsa_beam", maxdistance = 3, time = 1.9 SECONDS)
 			climbed_mob.visible_message(span_loveextreme("[src] roughly thrusts it's 'mana-uplink' [climbed_mob.gender == MALE ? "around [climbed_mob]'s cock!" : "into [climbed_mob]'s cunt!"]!"))
 			playsound(climbed_mob, 'ntf_modular/sound/misc/mat/segso.ogg', 50, TRUE, 5, ignore_walls = FALSE)
 			climbed_mob.sexcon.adjust_arousal(5)

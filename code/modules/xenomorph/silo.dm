@@ -178,7 +178,7 @@
 
 		victim.despawn() //basically gore cryo
 
-		Shake(4 SECONDS)
+		Shake(1,1, 4 SECONDS)
 		playsound(src, pick('sound/machines/blender.ogg', 'sound/machines/juicer.ogg'), 20, TRUE)
 
 		var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
@@ -208,7 +208,7 @@
 
 			larba.ghostize(FALSE, FALSE, TRUE)
 			larba.burrow()
-			Shake(4 SECONDS)
+			Shake(1,1, 2 SECONDS)
 
 /// Stop the shaking animation
 /obj/structure/xeno/silo/proc/stop_shake(old_px)
@@ -257,7 +257,7 @@
 
 				larba.ghostize(FALSE, FALSE, TRUE)
 				larba.burrow()
-				Shake(4 SECONDS)
+				Shake(1, 1, 2 SECONDS)
 
 			else
 				to_chat(user, span_xenonotice("We need to be a larva to fit there."))

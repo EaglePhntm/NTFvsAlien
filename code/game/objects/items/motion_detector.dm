@@ -17,6 +17,7 @@
 	src.identifier = identifier
 	setDir(direction)
 	update_icon()
+	addtimer(CALLBACK(src, PROC_REF(qdel)), 3 SECONDS, TIMER_DELETE_ME) //incase
 
 ///Remove the blip from the operator screen
 /obj/effect/blip/edge_blip/remove_blip(mob/operator)
@@ -117,6 +118,11 @@
 	SIGNAL_HANDLER
 	if(operator && (operator.l_hand == src || operator.r_hand == src || operator.l_hand == loc || operator.r_hand == loc))
 		return
+	// NTF CODE ADDITION START
+	var/e_slot = operator ? operator.get_equipped_slot(src) : null
+	if (e_slot && (e_slot == SLOT_L_STORE || e_slot == SLOT_R_STORE))
+		return
+	// NTF CODE ADDITION END
 	STOP_PROCESSING(SSobj, src)
 	clean_blips()
 	if(operator)

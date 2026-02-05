@@ -506,9 +506,9 @@ GLOBAL_LIST(cable_radial_layer_list)
 		balloon_alert(user, "Already busy!")
 		return TRUE
 
-	var/repair_time = 1 SECONDS
-	if(H == user)
-		repair_time *= 3
+	var/repair_time = 1.5 SECONDS // Robots can now bleedout and need this
+/*	if(H == user)
+		repair_time *= 3*/
 
 	user.visible_message(span_notice("[user] starts to fix some of the wires in [H]'s [affecting.display_name]."),\
 		span_notice("You start fixing some of the wires in [H == user ? "your" : "[H]'s"] [affecting.display_name]."))

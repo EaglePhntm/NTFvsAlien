@@ -1,43 +1,41 @@
 /mob/living/carbon/xenomorph/Destroy()
 	var/mob/living/carbon/human/user = eaten_mob
-	if(user)
+	if(istype(user))
 		user.handle_unhaul()
-		eaten_mob = null
 	. = ..()
 
 /mob/living/carbon/xenomorph/Paralyze(amount, updating, ignore_canstun)
 	. = ..()
 	var/mob/living/carbon/human/user = eaten_mob
-	if(user)
+	if(istype(user))
 		user.handle_unhaul()
-		eaten_mob = null
 
 /mob/living/carbon/xenomorph/Knockdown(amount, ignore_canstun)
 	. = ..()
 	var/mob/living/carbon/human/user = eaten_mob
-	if(user)
+	if(istype(user))
 		user.handle_unhaul()
-		eaten_mob = null
 
 /mob/living/carbon/xenomorph/knockback(source, distance, speed, dir, knockback_force)
 	. = ..()
 	var/mob/living/carbon/human/user = eaten_mob
-	if(user)
+	if(istype(user))
 		user.handle_unhaul()
-		eaten_mob = null
 
 /mob/living/carbon/xenomorph/death(gibbing, deathmessage, silent)
 	var/mob/living/carbon/human/user = eaten_mob
-	if(user)
+	if(istype(user))
 		user.handle_unhaul()
-		eaten_mob = null
+	eject_victim()
+	if(GetComponent(/datum/component/ai_controller) && xeno_caste.tier != XENO_TIER_MINION)
+		gibbing = TRUE
+		remove_component(/datum/component/ai_controller) //incase, cleanup.
 	. = ..()
 
 /mob/living/carbon/xenomorph/on_crit()
 	var/mob/living/carbon/human/user = eaten_mob
-	if(user)
+	if(istype(user))
 		user.handle_unhaul()
-		eaten_mob = null
 	. = ..()
 
 /mob/living/carbon/human/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, armor_type, effects, armor_penetration, isrightclick)
@@ -53,4 +51,13 @@
 		if(is_type_in_list(src, XENO_GRAB_DISALLOWMENT_LIST))
 			to_chat(xeno_attacker, span_xenonotice("<i>(War mode)</i> We have no reason to grab that."))
 			return FALSE
+	. = ..()
+
+/mob/living/carbon/xenomorph/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, armor_type, effects, armor_penetration, isrightclick)
+	if(xeno_attacker == src)
+		for(var/mob/living/under_me in loc)
+			if(issamexenohive(under_me))
+				continue
+			UnarmedAttack(under_me)
+			break
 	. = ..()

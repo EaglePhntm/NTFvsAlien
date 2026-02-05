@@ -12,6 +12,13 @@
 	color = COLOR_PURPLE
 	equip_slot_flags = ITEM_SLOT_UNDERWEAR|ITEM_SLOT_ICLOTHING|ITEM_SLOT_OCLOTHING
 
+//others can remove it
+/obj/item/clothing/suit/resin_bodysuit/canStrip(mob/stripper, mob/owner)
+	if(!do_mob(stripper, owner, 2.5 SECONDS, BUSY_ICON_FRIENDLY))
+		return FALSE
+	REMOVE_TRAIT(src, TRAIT_NODROP, "parasite_trait")
+	return TRUE
+
 /obj/item/clothing/suit/resin_bodysuit/equipped(mob/user, slot)
 	if(!ishuman(user))
 		return
@@ -63,6 +70,13 @@
 	var/evolve_timer
 	COOLDOWN_DECLARE(egg_cooldown_timer)
 
+//others can remove it
+/obj/item/clothing/resin_sack/canStrip(mob/stripper, mob/owner)
+	if(!do_mob(stripper, owner, 2.5 SECONDS, BUSY_ICON_FRIENDLY))
+		return FALSE
+	REMOVE_TRAIT(src, TRAIT_NODROP, "parasite_trait")
+	return TRUE
+
 /obj/item/clothing/resin_sack/setDir(newdir)
 	. = ..()
 	dir = NORTH
@@ -72,6 +86,10 @@
 /obj/item/clothing/resin_sack/attack_self(mob/user)
 	. = ..()
 	var/turf/current_turf = get_turf(user)
+	if(iscarbon(user))
+		var/mob/living/carbon/cuser = user
+		if(cuser.back != src || cuser.back != loc)
+			return
 	if(!COOLDOWN_FINISHED(src, egg_cooldown_timer))
 		balloon_alert(user, "On cooldown: [round((egg_cooldown_timer - world.time)/10)]s")
 		return

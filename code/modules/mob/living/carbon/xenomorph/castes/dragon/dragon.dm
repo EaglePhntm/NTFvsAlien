@@ -21,7 +21,7 @@
 	)
 	attack_effect = list("dragonslash","dragonslash2")
 
-/mob/living/carbon/xenomorph/dragon/Initialize(mapload)
+/mob/living/carbon/xenomorph/dragon/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	playsound(loc, 'sound/voice/alien/xenos_roaring.ogg', 75, 0)
 

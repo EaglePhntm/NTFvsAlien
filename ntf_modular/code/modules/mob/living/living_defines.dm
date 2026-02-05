@@ -5,3 +5,4 @@
 
 	var/can_restore_skills = FALSE
 	var/extract_count = 0
+	var/inherent_accesses = list()

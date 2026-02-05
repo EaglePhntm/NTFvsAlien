@@ -21,6 +21,9 @@
 	if(user.do_actions)
 		return
 
+	if(isxeno(user))
+		return
+
 	if(!isxeno(target))
 		return
 

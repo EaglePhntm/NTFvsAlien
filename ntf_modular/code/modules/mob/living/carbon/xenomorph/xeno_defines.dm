@@ -6,4 +6,4 @@
 	var/aphro_ammo = 0
 	var/phero_efficency_mult = 1
 	var/weedless_regen = FALSE
-	var/gender_swap_cooldown
+	COOLDOWN_DECLARE(gender_swap_cooldown)

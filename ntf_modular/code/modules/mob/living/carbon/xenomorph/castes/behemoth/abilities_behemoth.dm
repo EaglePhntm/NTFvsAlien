@@ -69,7 +69,6 @@
 	name = "siege pillar"
 
 /obj/structure/earth_pillar/siege/tail_stab_act(mob/living/carbon/xenomorph/xeno, damage, target_zone, penetration, structure_damage_multiplier, stab_description, disorientamount, can_hit_turf)
-	. = ..()
 	if(xeno.blunt_stab)
 		stab_description = "strong tail-whip"
 		var/the_direction = xeno.dir

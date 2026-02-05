@@ -20,7 +20,7 @@
 // ***************************************
 // *********** Life overrides
 // ***************************************
-/mob/living/carbon/xenomorph/carrier/Initialize(mapload)
+/mob/living/carbon/xenomorph/carrier/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	hugger_overlays_icon = mutable_appearance('icons/Xeno/castes/carrier.dmi',"empty")
 

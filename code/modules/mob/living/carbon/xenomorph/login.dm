@@ -11,7 +11,6 @@
 	if(client.prefs)
 		xeno_desc = client.prefs.xeno_desc
 		xenoprofile_pic = client.prefs.xenoprofile_pic
-		xenogender = client.prefs.xenogender
 		ooc_notes = client.prefs.metadata
 		ooc_notes_likes = client.prefs.metadata_likes
 		ooc_notes_dislikes = client.prefs.metadata_dislikes

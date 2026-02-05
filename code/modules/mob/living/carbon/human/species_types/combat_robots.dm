@@ -22,8 +22,8 @@
 
 	body_temperature = 350
 
-	inherent_traits = list(TRAIT_IMMEDIATE_DEFIB, TRAIT_CRIT_IS_DEATH)
-	species_flags = NO_BREATHE|NO_BLOOD|NO_POISON|NO_PAIN|NO_CHEM_METABOLIZATION|DETACHABLE_HEAD|HAS_NO_HAIR|ROBOTIC_LIMBS|IS_INSULATED
+	inherent_traits = list(TRAIT_IMMEDIATE_DEFIB)
+	species_flags = NO_BREATHE|NO_BLOOD|NO_POISON|NO_PAIN|NO_CHEM_METABOLIZATION|DETACHABLE_HEAD|ROBOTIC_LIMBS|IS_INSULATED
 	stamina_mod = 0.75
 	max_stamina = 0
 
@@ -37,7 +37,6 @@
 //		SLOT_GLASSES,
 	)
 	blood_color = "#2d2055" //an oil-like color - a little note, robots cannot shed blood in any way, due to their flags
-	hair_color = "#00000000"
 	has_organ = list()
 	screams = list(MALE = SFX_ROBOT_SCREAM, FEMALE = SFX_ROBOT_SCREAM, PLURAL = SFX_ROBOT_SCREAM, NEUTER = SFX_ROBOT_SCREAM)
 	paincries = list(MALE = SFX_ROBOT_PAIN, FEMALE = SFX_ROBOT_PAIN, PLURAL = SFX_ROBOT_PAIN, NEUTER = SFX_ROBOT_PAIN)
@@ -70,25 +69,36 @@
 	COOLDOWN_DECLARE(hard_crit_emote_cooldown)
 
 /datum/species/robot/handle_unique_behavior(mob/living/carbon/human/H)
+	if(H.health <= -0 && H.health > -90) // Doesn't kill, purely for sex/capture reasons
+		H.take_overall_damage(rand(2, 6), BURN, updating_health = TRUE, max_limbs = 1) // Melting!!!
 	if(H.health <= 0 && H.health > -50)
 		H.clear_fullscreen("robotlow")
 		H.overlay_fullscreen("robothalf", /atom/movable/screen/fullscreen/robot/machine/robothalf)
 		if(COOLDOWN_FINISHED(H, soft_crit_emote_cooldown))
 			COOLDOWN_START(H, soft_crit_emote_cooldown, 40 SECONDS)
 			H.emote("damaged")
+			to_chat(H, span_warning("Critical damage sustained. Repair damage immediately. <b>Integrity: [round(H.health)]%.</b>"))
+		if(prob(25))
+			do_sparks(4, TRUE, H)
 	else if(H.health <= -50)
 		H.clear_fullscreen("robothalf")
 		H.overlay_fullscreen("robotlow", /atom/movable/screen/fullscreen/robot/machine/robotlow)
 		if(COOLDOWN_FINISHED(H, hard_crit_emote_cooldown))
 			COOLDOWN_START(H, hard_crit_emote_cooldown, 40 SECONDS)
 			H.emote("critical")
+			to_chat(H, span_warning("Critical damage sustained. Total system failure imminent. <b>Integrity: [round(H.health)]%.</b>"))
+		if(prob(25))
+			do_sparks(4, TRUE, H)
 	else
 		H.clear_fullscreen("robothalf")
 		H.clear_fullscreen("robotlow")
 	if(H.health > -25) //Staggerslowed if below crit threshold
 		return
+	H.apply_effect(4 SECONDS, EFFECT_STUTTER) // Added flavor
 	H.Stagger(2 SECONDS)
 	H.adjust_slowdown(1)
+	if(H.health <= -80) //Paralyzes when near death
+		H.Paralyze(6 SECONDS)
 
 ///Lets a robot repair itself over time at the cost of being stunned and blind
 /datum/action/repair_self

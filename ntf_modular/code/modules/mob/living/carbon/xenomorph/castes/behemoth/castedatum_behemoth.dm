@@ -22,7 +22,6 @@
 	// *** Abilities *** ///
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
-		/datum/action/ability/xeno_action/psychic_whisper,
 		/datum/action/ability/xeno_action/psychic_influence,
 		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
@@ -39,7 +38,7 @@
 	mutations = list(
 		/datum/mutation_upgrade/shell/rocky_layers,
 		/datum/mutation_upgrade/spur/refined_palate,
-		/datum/mutation_upgrade/veil/avalanche
+		/datum/mutation_upgrade/veil/cannonballs
 	)
 
 /datum/xeno_caste/behemoth/sieger/normal
@@ -56,7 +55,6 @@
 	// *** Abilities *** ///
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
-		/datum/action/ability/xeno_action/psychic_whisper,
 		/datum/action/ability/xeno_action/psychic_influence,
 		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,

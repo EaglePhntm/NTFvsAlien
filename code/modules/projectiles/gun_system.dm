@@ -1852,6 +1852,7 @@
 		if(living_firer.IsStaggered())
 			projectile_to_fire.damage *= STAGGER_DAMAGE_MULTIPLIER
 			projectile_to_fire.accuracy *= STAGGER_ACCURACY_MULTIPLIER
+			projectile_to_fire.point_blank_range = 0 //no point blank bonus when staggered
 
 ///Sets the projectile accuracy and scatter
 /obj/item/weapon/gun/proc/setup_bullet_accuracy()

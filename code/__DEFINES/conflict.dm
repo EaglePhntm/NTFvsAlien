@@ -177,7 +177,7 @@
 #define ENERGY_OVERCHARGE_FIRE_DELAY 10
 
 //Define stagger damage multipliers
-#define STAGGER_DAMAGE_MULTIPLIER 1 //-50% damage dealt by the staggered target after all other mods. (ntf edit to 1 than 0.5 to make it not effective.)
+#define STAGGER_DAMAGE_MULTIPLIER 1 //-25% damage dealt by the staggered target after all other mods. (ntf edit from 0.5 to 1 so it dont work)
 
 //Define smoke effects
 #define SMOKE_COUGH (1<<0)
@@ -253,4 +253,4 @@
 #define ANTENNA_SYNCING_TIME 10 SECONDS //! Time needed to initially configure an antenna module after equipping.
 
 //NTF ADDITIONS
-#define STAGGER_ACCURACY_MULTIPLIER 0.4
+#define STAGGER_ACCURACY_MULTIPLIER 0.5 //-50% accuracy by the staggered target after all other mods.

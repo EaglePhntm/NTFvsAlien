@@ -96,7 +96,7 @@
 	var/message = "We feel the hive target blessing fade"
 	if(hive.hivenumber == XENO_HIVE_NORMAL)
 		message = "We feel the Queen Mother's blessing fade"
-	if(hive.hivenumber == XENO_HIVE_NORMAL)
+	if(hive.hivenumber == XENO_HIVE_CORRUPTED)
 		message = "We feel the Metal Queen Mother's blessing fade"
 	hive.xeno_message(message, size = 3, force = TRUE)
 	for(var/mob/living/carbon/xenomorph/receiving_xeno in GLOB.alive_xeno_list_hive[hive.hivenumber])

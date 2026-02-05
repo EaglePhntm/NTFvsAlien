@@ -185,7 +185,7 @@
 		explosion(plant_target, flash_range = 1) //todo: place as abuse of explosion
 		qdel(src)
 		return
-	explosion(plant_target, 0, 0, 1, 0, 0, 0, 1, 0, 1, explosion_cause=src)
+	explosion(plant_target, 0, 1, 2, 3, 0, 0, 3, 0, 1, explosion_cause=src)
 	playsound(plant_target, SFX_EXPLOSION_SMALL, 100, FALSE, 25)
 	var/datum/effect_system/smoke_spread/smoke = new smoketype()
 	smoke.set_up(smokeradius, plant_target, 2)

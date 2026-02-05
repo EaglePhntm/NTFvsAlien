@@ -15,12 +15,12 @@
 
 	if (istype(M,/mob/living/carbon/human))		//Repairing robolimbs
 		var/mob/living/carbon/human/H = M
-		var/datum/limb/S = H.get_limb(user.zone_selected)
+		var/datum/limb/S = user?.client?.prefs?.toggles_gameplay & RADIAL_MEDICAL ? radial_medical(M, user) : M.get_limb(user.zone_selected)
 
 		if(H.species.species_flags & IS_SYNTHETIC)
 			H.set_blood_volume(BLOOD_VOLUME_NORMAL)
 
-		if(S.surgery_open_stage == 0)
+		while(S.surgery_open_stage == 0)
 			if (S && (S.limb_status & LIMB_ROBOT))
 				if(user.do_actions || !do_after(user, 1 SECONDS, TRUE, src, BUSY_ICON_MEDICAL))
 					return
@@ -31,9 +31,10 @@
 					span_notice("You apply some nanite paste at [user == M ? "your" : "[M]'s"] [S.display_name]."))
 				else
 					to_chat(user, span_notice("Nothing to fix here."))
-		else
-			if (H.can_be_operated_on())
-				if (do_surgery(H,user,src))
-					return
+					break
+
+		if (H.can_be_operated_on())
+			if (do_surgery(H,user,src))
+				return
 			else
 				to_chat(user, span_notice("Nothing to fix in here."))

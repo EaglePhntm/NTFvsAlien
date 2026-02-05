@@ -37,9 +37,9 @@
 	remove_overlay(GENITAL_LAYER)
 	if(QDELETED(user)||QDELETED(src))
 		return
-	var/xgen = user?.client?.prefs?.xenogender
+	var/xgen = client?.prefs?.xenogender
 	if(swapping)
-		if(!TIMER_COOLDOWN_FINISHED(src, gender_swap_cooldown))
+		if(!COOLDOWN_FINISHED(src, gender_swap_cooldown))
 			to_chat(src, span_xenonotice("You need to wait [DisplayTimeText(COOLDOWN_TIMELEFT(src, gender_swap_cooldown))] more."))
 			return
 		var/gchoice = tgui_input_list(src, "Select a new role to take.", "Gender Selection", list(
@@ -56,7 +56,7 @@
 		do_jitter_animation()
 		xgen = gchoice
 		if(!(SSticker.mode.round_type_flags & MODE_CHILL_RULES))
-			TIMER_COOLDOWN_START(src, gender_swap_cooldown, 5 MINUTES)
+			COOLDOWN_START(src, gender_swap_cooldown, 5 MINUTES)
 	switch(xgen) //convert string to number
 		if(NEUTER)
 			xgen = 1
@@ -93,8 +93,11 @@
 			if(swapping)
 				user.balloon_alert(user, "Futa")
 	user.client?.prefs?.xenogender = xgen
+	if(swapping)
+		user.client.prefs.save_character()
+		user.client.prefs.save_preferences()
 
-	if(xeno_caste.caste_flags & CASTE_HAS_WOUND_MASK) //ig if u cant see wounds u shouldnt see tiddies too maybe for things like being ethereal
+	if(xeno_caste.caste_flags & CASTE_HAS_WOUND_MASK && !HAS_TRAIT(src, TRAIT_XENOMORPH_INVISIBLE_BLOOD)) //ig if u cant see wounds u shouldnt see tiddies too maybe for things like being ethereal
 		apply_overlay(GENITAL_LAYER)
 	genital_overlay.vis_flags &= ~VIS_HIDE // Show the overlay
 
@@ -127,9 +130,10 @@
 
 /mob/living/carbon/xenomorph/Move(atom/newloc, direction, glide_size_override)
 	. = ..()
-	var/mob/user = eaten_mob
+	var/mob/living/carbon/human/user = eaten_mob
 	if(user && HAS_TRAIT(user, TRAIT_HAULED)) //this trait lets us know if they are devoured or carried in a real lazy shitcode way, it just works.
 		user.forceMove(loc)
+		user.haul_dir_check()
 
 /mob/living/carbon/xenomorph/forceMove(atom/destination)
 	. = ..()

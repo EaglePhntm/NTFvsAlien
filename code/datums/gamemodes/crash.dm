@@ -29,7 +29,7 @@
 	/*
 	restricted_castes = list(/datum/xeno_caste/wraith, /datum/xeno_caste/hivemind)
 	*/
-	time_between_round = 15 HOURS
+	time_between_round = 1 HOURS
 	silo_scaling = 0.3
 
 	// Round end conditions

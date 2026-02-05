@@ -93,7 +93,7 @@ SUBSYSTEM_DEF(weeds)
 			if(istype(O, /obj/alien/weeds/node))
 				return
 			var/obj/alien/weeds/weed = O
-			if(weed.parent_node && weed.parent_node != node && get_dist_euclidean_square(node, weed) >= get_dist_euclidean_square(weed.parent_node, weed) || (!(node.issamexenohive(weed))))
+			if(weed.parent_node && weed.parent_node != node && get_dist_euclidean_square(node, weed) >= get_dist_euclidean_square(weed.parent_node, weed))
 				return
 			if((weed.type == weed_to_spawn) && (weed.color_variant == node.color_variant))
 				weed.set_parent_node(node)

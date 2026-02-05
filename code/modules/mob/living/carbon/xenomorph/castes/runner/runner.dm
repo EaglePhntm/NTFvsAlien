@@ -16,7 +16,7 @@
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 	)
 
-/mob/living/carbon/xenomorph/runner/Initialize(mapload)
+/mob/living/carbon/xenomorph/runner/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_LIGHT_STEP, XENO_TRAIT)
 
@@ -74,7 +74,7 @@
 
 	icon = 'icons/xeno/castes/runner.dmi' //NTF EDIT - no tiddies until someone sprites em in.
 
-/mob/living/carbon/xenomorph/runner/melter/Initialize(mapload)
+/mob/living/carbon/xenomorph/runner/melter/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	RegisterSignal(src, COMSIG_XENOMORPH_ATTACK_OBJ, PROC_REF(on_attack_obj))
 	RegisterSignal(src, COMSIG_XENOMORPH_POSTATTACK_LIVING, PROC_REF(on_postattack_living))

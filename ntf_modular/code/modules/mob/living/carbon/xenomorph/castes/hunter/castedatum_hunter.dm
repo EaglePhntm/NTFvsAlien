@@ -1,4 +1,5 @@
 // Assassin strain
+//sacrifices armor, pounce stun, plasma and health for greater killing power and speed.
 /datum/xeno_caste/hunter/assassin
 	caste_type_path = /mob/living/carbon/xenomorph/hunter/assassin
 	display_name = "Assassin"
@@ -7,10 +8,13 @@
 	gib_anim = "Assassin Hunter Gibs"
 	gib_flick = "Assassin Hunter Gibbed"
 	upgrade = XENO_UPGRADE_BASETYPE
-	caste_desc = "A fast, creeping death, light faintly shimmers on it's strange, light-bending carapace."
+	caste_desc = "A fast, less armored but sharper clawed creeping death, light faintly shimmers on it's strange, light-bending carapace."
+
+	// *** Melee Attacks *** //
+	melee_ap = 15 //literally ravager now
 
 	// *** Speed *** //
-	speed = -1.6
+	speed = -1.5
 
 	// *** Plasma *** //
 	plasma_max = 250
@@ -22,11 +26,10 @@
 	stealth_break_threshold = 18
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 40, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 0, BIO = 20, FIRE = 30, ACID = 20)
+	soft_armor = list(MELEE = 35, BULLET = 25, LASER = 25, ENERGY = 25, BOMB = 0, BIO = 20, FIRE = 30, ACID = 20)
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
-		/datum/action/ability/xeno_action/psychic_whisper,
 		/datum/action/ability/xeno_action/psychic_influence,
 		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
@@ -53,7 +56,8 @@
 		/datum/mutation_upgrade/spur/debilitating_strike,
 		/datum/mutation_upgrade/veil/death_trail,
 		/datum/mutation_upgrade/veil/mirage_flood,
-		/datum/mutation_upgrade/veil/faceblind
+		/datum/mutation_upgrade/veil/faceblind,
+		/datum/mutation_upgrade/veil/lights_out,
 	)
 
 /datum/xeno_caste/hunter/assassin/primordial
@@ -64,7 +68,6 @@
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
-		/datum/action/ability/xeno_action/psychic_whisper,
 		/datum/action/ability/xeno_action/psychic_influence,
 		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,

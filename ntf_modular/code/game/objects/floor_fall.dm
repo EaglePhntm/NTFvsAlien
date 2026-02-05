@@ -45,6 +45,14 @@
 
 /turf/open/floor/step_trigger/supply_fall/Trigger(atom/movable/A)
 	set waitfor = 0
+	//we make this a var for the proc cause shuttle can replace the src we are using and fuck things up when tryinna find vars from the src
+	var/f_teleport_x = teleport_x
+	var/f_teleport_y = teleport_y
+	var/f_teleport_z = teleport_z
+
+	var/fn_teleport_x = final_teleport_x
+	var/fn_teleport_y = final_teleport_y
+	var/fn_teleport_z = final_teleport_z
 
 	if(!istype(A,/obj) && !istype(A,/mob)) //mobs and objects only.
 		return
@@ -55,12 +63,13 @@
 	if(A.throwing) //if its in the air still, ignore
 		return
 
-	if(teleport_x && teleport_y && teleport_z && final_teleport_x && final_teleport_y && final_teleport_z)
+	if(f_teleport_x && f_teleport_y && f_teleport_z && fn_teleport_x && fn_teleport_y && fn_teleport_z)
 
 		if(A?.loc)
-			A.x = teleport_x
-			A.y = teleport_y
-			A.z = teleport_z
+
+			A.x = f_teleport_x
+			A.y = f_teleport_y
+			A.z = f_teleport_z
 
 			if(isliving(A))
 				var/mob/living/aliving = A
@@ -68,11 +77,9 @@
 				aliving.animation_spin(speed = 25, loop_amount = 2)
 				aliving.playsound_local(aliving.loc, 'sound/effects/bomb_fall.ogg', 100, FALSE)
 				aliving.emote("scream")
-			sleep(50)
-
-			A.x = final_teleport_x
-			A.y = final_teleport_y
-			A.z = final_teleport_z
+			A.x = fn_teleport_x
+			A.y = fn_teleport_y
+			A.z = fn_teleport_z
 			A.pixel_y = 255
 			A.alpha = 0
 			animate(A, time = 5, alpha = initial(A.alpha), easing = LINEAR_EASING|EASE_OUT)

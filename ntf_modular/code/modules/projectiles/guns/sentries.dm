@@ -56,6 +56,7 @@
 /datum/ammo/bullet/rifle/nut
 	damage = 10
 	penetration = 5
+	accurate_range_min = 2
 
 /obj/item/weapon/gun/rifle/drone/attack_self(mob/user)
 	if(active)
@@ -144,6 +145,13 @@
 	atom_flags = BUMP_ATTACKABLE
 	var/movement_delay = 0.7 SECONDS
 
+/obj/machinery/deployable/mounted/sentry/nut/tail_stab_act(mob/living/carbon/xenomorph/xeno, damage, target_zone, penetration, structure_damage_multiplier, stab_description, disorientamount, can_hit_turf)
+	if(!(CHECK_BITFIELD(machine_stat, KNOCKED_DOWN)))
+		knock_down()
+		take_damage(10, BRUTE, MELEE, TRUE, get_dir(src, xeno), xeno.xeno_caste.melee_ap, xeno)
+		return TRUE
+	return ..()
+
 /obj/machinery/deployable/mounted/sentry/nut/lava_act()
 	return
 
@@ -179,7 +187,8 @@
 				return
 			notice = "<b>ALERT! [src] detected Hostile/Unknown: [mob.name] at: [AREACOORD_NO_Z(src)].</b>"
 			last_alert = world.time
-			walk_towards(src, get_adjacent_open_turfs(mob), movement_delay, 1)
+			if(!(CHECK_BITFIELD(machine_stat, KNOCKED_DOWN)))
+				walk_towards(src, get_adjacent_open_turfs(mob), movement_delay, 1)
 			/*
 			if(HAS_TRAIT(src, TRAIT_WARPED_INVISIBLE))
 				playsound(loc, 'sound/effects/pred_cloakoff.ogg', 25, TRUE)
@@ -191,7 +200,8 @@
 			var/atom/target = get_target()
 			if(target)
 				notice = "<b>ALERT! [src] at [AREACOORD_NO_Z(src)] attempting to kamikaze [target.name] due running out of ammo.</b>"
-				walk_towards(src, target, movement_delay, 1) //suicide bomb les go
+				if(!(CHECK_BITFIELD(machine_stat, KNOCKED_DOWN)))
+					walk_towards(src, target, movement_delay, 1) //suicide bomb les go
 				addtimer(CALLBACK(src, PROC_REF(self_destruct)), 3 SECONDS, TIMER_STOPPABLE)
 				last_damage_alert = world.time
 			else

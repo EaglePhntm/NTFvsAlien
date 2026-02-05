@@ -456,7 +456,7 @@
 
 
 /mob/living/carbon/xenomorph/Moved(atom/old_loc, movement_dir)
-	if(xeno_flags & XENO_ZOOMED)
+	if((xeno_flags & XENO_ZOOMED) && !(xeno_flags & XENO_CAN_MOVE_ZOOMED))
 		zoom_out()
 	handle_weeds_on_movement()
 	return ..()

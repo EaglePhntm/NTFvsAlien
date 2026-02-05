@@ -64,9 +64,9 @@
 	cost = 15
 
 /datum/supply_packs/imports/haltercharged
-	name = "NT Halter charged mag (x1)"
+	name = "NT Halter taser mag (x1)"
 	contains = list(/obj/item/ammo_magazine/rifle/nt_halter/charged)
-	cost = 30
+	cost = 60
 
 /datum/supply_packs/imports/haltersmart
 	name = "NT Halter smart mag (x1)"
@@ -96,7 +96,11 @@
 /datum/supply_packs/medical/nanopaste
 	name = "Nanopaste (x5)"
 	contains = list(
-		/obj/item/stack/nanopaste = 5
+		/obj/item/stack/nanopaste,
+		/obj/item/stack/nanopaste,
+		/obj/item/stack/nanopaste,
+		/obj/item/stack/nanopaste,
+		/obj/item/stack/nanopaste,
 	)
 	cost = 150
 

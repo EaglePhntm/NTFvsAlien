@@ -127,13 +127,13 @@
 		implant_embryo(victim, hole_target, source = src)
 
 /mob/living/carbon/xenomorph/proc/xenoimpregify()
-	if(!preggo && ((SSticker.mode.round_type_flags & MODE_CHILL_RULES) || (xenogender == 2)))
-		if((SSticker.mode.round_type_flags & MODE_CHILL_RULES) && xenogender == 4) //futa
+	if(!preggo && ((SSticker.mode.round_type_flags & MODE_CHILL_RULES) || (client?.prefs?.xenogender == 2)))
+		if((SSticker.mode.round_type_flags & MODE_CHILL_RULES) && client?.prefs?.xenogender == 4) //futa
 			to_chat(src, span_alien("We can't bear larvas during war times, our mixed physiology makes it difficult."))
 			return FALSE
 		to_chat(src, span_alien("We feel a new larva forming within us."))
 		addtimer(CALLBACK(src, PROC_REF(xenobirth)), 5 MINUTES)
-		Shake(3 SECONDS)
+		Shake(duration = 3 SECONDS)
 		preggo = TRUE
 		return TRUE
 	return FALSE
@@ -159,6 +159,8 @@
 /proc/can_implant_embryo(mob/living/victim, limit = MAX_LARVA_PREGNANCIES)
 	var/implanted_embryos = 0
 	for(var/obj/item/alien_embryo/implanted in victim.contents)
+		implanted_embryos++
+	for(var/mob/living/carbon/xenomorph/larva/implanted in victim.contents)
 		implanted_embryos++
 	if(implanted_embryos < limit)
 		return TRUE

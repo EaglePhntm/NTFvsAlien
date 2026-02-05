@@ -83,12 +83,20 @@
 		return fail_activate()
 
 	var/obj/alien/weeds/existing_weed = locate() in T
+	/*
 	if(existing_weed && (!existing_weed.issamexenohive(xeno_owner)))
 		to_chat(owner, span_warning("You cannot build on another hive's weeds!"))
 		return fail_activate()
-	if(existing_weed && existing_weed.type == weed_type)
+	*/
+	if(existing_weed && existing_weed.type == weed_type && existing_weed.issamexenohive(xeno_owner))
 		to_chat(owner, span_warning("There's a pod here already!"))
 		return fail_activate()
+
+	if(existing_weed && !existing_weed.issamexenohive(xeno_owner))
+		owner.visible_message(span_xenonotice("\The [owner] starts to place an invasive node..."), \
+			span_xenonotice("We prepare to place an invasive node!"), null, 5)
+		if(!do_after(owner, 2 SECONDS, IGNORE_HELD_ITEM, A, BUSY_ICON_BUILD))
+			return fail_activate()
 
 	owner.visible_message(span_xenonotice("\The [owner] regurgitates a pulsating node and plants it on the ground!"), \
 		span_xenonotice("We regurgitate a pulsating node and plant it on the ground!"), null, 5)
@@ -567,27 +575,31 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 	if(!.)
 		return FALSE
 
-	if(!isxeno(A) || A == owner || !owner.issamexenohive(A))
+	if(!iscarbon(A) || A == owner)
 		return FALSE
 
-	var/mob/living/carbon/xenomorph/target = A
+	var/mob/living/carbon/target = A
 
-	if(!(target.xeno_caste.can_flags & CASTE_CAN_BE_GIVEN_PLASMA))
-		if(!silent)
-			to_chat(owner, span_warning("We can't give that caste plasma."))
-			return FALSE
+	if(isxeno(target))
+		var/mob/living/carbon/xenomorph/xeno_target = target
+		if(!(xeno_target.xeno_caste.can_flags & CASTE_CAN_BE_GIVEN_PLASMA))
+			if(!silent)
+				to_chat(owner, span_warning("We can't give that caste plasma."))
+				return FALSE
 
 	if(get_dist(owner, target) > max_range)
 		if(!silent)
 			to_chat(owner, span_warning("We need to be closer to [target]."))
 		return FALSE
 
-	if(target.plasma_stored >= target.xeno_caste.plasma_max) //We can't select targets that won't benefit
-		to_chat(owner, span_xenowarning("[target] already has full plasma."))
-		return FALSE
+	if(isxeno(target))
+		var/mob/living/carbon/xenomorph/xeno_target = target
+		if(xeno_target.plasma_stored >= xeno_target.xeno_caste.plasma_max) //We can't select targets that won't benefit
+			to_chat(owner, span_xenowarning("[xeno_target] already has full plasma."))
+			return FALSE
 
 /datum/action/ability/activable/xeno/transfer_plasma/use_ability(atom/A)
-	var/mob/living/carbon/xenomorph/target = A
+	var/mob/living/carbon/target = A
 
 	to_chat(xeno_owner, span_notice("We start focusing our plasma towards [target]."))
 	new /obj/effect/temp_visual/transfer_plasma(get_turf(xeno_owner)) //Cool SFX that confirms our source and our target
@@ -611,11 +623,21 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 		amount = xeno_owner.plasma_stored //Just use all of it
 
 	else //Otherwise transfer as much as the target can use
-		amount = clamp(target.xeno_caste.plasma_max - target.plasma_stored, 0, plasma_transfer_amount)
+		if(isxeno(target))
+			var/mob/living/carbon/xenomorph/xeno_target = target
+			amount = clamp(xeno_target.xeno_caste.plasma_max - xeno_target.plasma_stored, 0, plasma_transfer_amount)
 
 	xeno_owner.use_plasma(amount)
-	target.gain_plasma(amount)
-	to_chat(target, span_xenodanger("[xeno_owner] has transfered [amount] units of plasma to us. We now have [target.plasma_stored]/[target.xeno_caste.plasma_max]."))
+	if(isxeno(target))
+		var/mob/living/carbon/xenomorph/xeno_target = target
+		xeno_target.gain_plasma(amount)
+		to_chat(xeno_target, span_xenodanger("[xeno_owner] has transfered [amount] units of plasma to us. We now have [xeno_target.plasma_stored]/[xeno_target.xeno_caste.plasma_max]."))
+	else if(ishuman(target))
+		target.adjustStaminaLoss(-amount/5, TRUE)
+		target.AdjustUnconscious(-6 SECONDS) //The exact same amount of unc/stun/para gets removed on help act. Works on humans only, too.
+		target.AdjustStun(-6 SECONDS)
+		target.AdjustParalyzed(-6 SECONDS)
+		to_chat(target, span_notice("Your body tenses as alien plasma restores some of your stamina."))
 	to_chat(xeno_owner, span_xenodanger("We have transferred [amount] units of plasma to [target]. We now have [xeno_owner.plasma_stored]/[xeno_owner.xeno_caste.plasma_max]."))
 	playsound(xeno_owner, SFX_ALIEN_DROOL, 25)
 
@@ -1372,7 +1394,7 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 		if(!silent)
 			to_chat(X, span_warning("We're too busy being on fire to do this!"))
 		return FALSE
-	if(A.gender == X.gender)
+	if(A.gender == X.gender && X.client?.prefs?.xenogender != 4)
 		to_chat(X, span_xenonotice("We can't get anywhere [A.gender == FEMALE ? "clam mashing." : "sword fighting."]."))
 		return FALSE
 	log_combat(X, A, "started to use their impregnate ability on")
@@ -1396,7 +1418,7 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 		owner.visible_message(span_warning("[X] fucks [victim]!"), span_warning("We fuck [victim]!"), span_warning("You hear slapping."), 5, victim)
 		if(victim.stat == CONSCIOUS)
 			to_chat(victim, span_warning("[X] fucks you!"))
-		if(X.client?.prefs?.xenogender < 3)
+		if(X.client?.prefs?.xenogender > 2)
 			X.impregify(victim, HOLE_VAGINA, damagemult = 3)
 			log_combat(X, victim, "impregnated", addition="with their impregnate ability")
 		else

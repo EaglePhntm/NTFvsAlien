@@ -60,8 +60,10 @@
 
 /datum/action/ability/activable/weapon_skill/sword_lunge/use_ability(atom/A)
 	var/mob/living/carbon/carbon_owner = owner
-	var/dash_distance = round(6 - owner.cached_multiplicative_slowdown)
-	var/dash_speed = ROUND_UP(4 - owner.cached_multiplicative_slowdown)
+	var/dash_distance = max(1, round(6 - owner.cached_multiplicative_slowdown))
+	var/dash_speed = max(0.1, ROUND_UP(4 - owner.cached_multiplicative_slowdown))
+	if(!dash_speed || !dash_distance)
+		return //incase
 
 	RegisterSignal(carbon_owner, COMSIG_MOVABLE_MOVED, PROC_REF(movement_fx))
 	RegisterSignal(carbon_owner, COMSIG_MOVABLE_BUMP, PROC_REF(lunge_impact))

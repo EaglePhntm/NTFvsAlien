@@ -105,7 +105,7 @@
 		spirited_away_human.ParalyzeNoChain(6.2 SECONDS)
 		if(spirited_away_human.stat == CONSCIOUS)
 			spirited_away_human.visible_message(span_notice("[spirited_away_human] lets out a yelp as they are suddenly lifted off the air!"), span_warning("You let out a yelp as you are suddenly lifted off the air!"), null, 5)
-			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), get_turf(holder_obj), 'ntf_modular/sound/misc/kirby_scream_meme.ogg', 100, FALSE), 6.2 SECONDS)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), get_turf(holder_obj), 'ntf_modular/sound/misc/kirby_scream_meme.ogg', 60, FALSE), 6.25 SECONDS)
 
 	flick("fulton_expand", baloon)
 	baloon.icon_state = "fulton_balloon"
@@ -123,9 +123,10 @@
 	holder_obj.pixel_z = initial(pixel_z)
 	holder_obj.vis_contents -= baloon
 	baloon.icon_state = initial(baloon.icon_state)
+	active = FALSE
+	sleep(2 SECONDS) //to ensure it dont get qdeld early
 	if(uses < 1)
 		qdel(src)
-	active = FALSE
 
 /obj/item/fulton_extraction_pack/tank
 	name = "heavy tank fulton"

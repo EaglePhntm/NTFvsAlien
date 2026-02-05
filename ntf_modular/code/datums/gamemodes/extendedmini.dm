@@ -1,10 +1,9 @@
-/datum/game_mode/infestation/extended_plus/extended_mini
+/datum/game_mode/infestation/secret_of_life/extended_plus/extended_mini
 	name = "Extended Mini"
 	config_tag = "Extended Mini"
 	silo_scaling = 1
 	round_type_flags = MODE_INFESTATION|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_ALLOW_XENO_QUICKBUILD|MODE_XENO_GRAB_DEAD_ALLOWED|MODE_MUTATIONS_OBTAINABLE
 	shutters_drop_time = 3 MINUTES
-	xeno_abilities_flags = ABILITY_NUCLEARWAR
 	factions = list(FACTION_TERRAGOV, FACTION_XENO)
 	human_factions = list(FACTION_TERRAGOV)
 	valid_job_types = list(

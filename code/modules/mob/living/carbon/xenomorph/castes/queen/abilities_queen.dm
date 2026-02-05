@@ -100,6 +100,8 @@
 	var/implanted_embryos = 0
 	for(var/obj/item/alien_embryo/implanted in A.contents)
 		implanted_embryos++
+	for(var/mob/living/carbon/xenomorph/larva/implanted in A.contents)
+		implanted_embryos++
 	if(implanted_embryos >= MAX_LARVA_PREGNANCIES)
 		if(X.a_intent == INTENT_HARM)
 			to_chat(X, span_warning("This host is already full of young ones... But you ignore it against your better judgement! Gripping the host tight, you continue..."))
@@ -156,6 +158,8 @@
 	var/implanted_embryos = 0
 	for(var/obj/item/alien_embryo/implanted in A.contents)
 		implanted_embryos++
+	for(var/mob/living/carbon/xenomorph/larva/implanted in A.contents)
+		implanted_embryos++
 	if(implanted_embryos >= MAX_LARVA_PREGNANCIES)
 		to_chat(owner, span_danger("This Host's belly looks like they are about to burst!.."))
 	playsound(X, 'sound/effects/alien_plapping.ogg', 40, channel = channel)
@@ -182,6 +186,8 @@
 				owner.visible_message(span_danger("[X] causes [A] to blow up in a gorey mess!"), span_danger("We make [A] explode into a gorey mess!"), span_warning("You hear a gorey explosion."), 5, A)
 				for(var/obj/item/alien_embryo/implanted in A.contents)
 					new /obj/item/alien_embryo(A.loc)
+				for(var/mob/living/carbon/xenomorph/larva/implanted in A.contents)
+					new /mob/living/carbon/xenomorph/larva(A.loc)
 				explosion(A.loc,0,0,0,1,1,0,1)
 				A.gib()
 		if(A.stat == CONSCIOUS)
@@ -202,6 +208,8 @@
 		owner.visible_message(span_danger("[X] causes [A]'s belly to blow up in a gorey mess!"), span_danger("We make [A]'s belly explode into a gorey mess!"), span_warning("You hear a gorey explosion."), 5, A)
 		for(var/obj/item/alien_embryo/implanted in A.contents)
 			new /obj/item/alien_embryo(A.loc)
+		for(var/mob/living/carbon/xenomorph/larva/implanted in A.contents)
+			new /mob/living/carbon/xenomorph/larva(A.loc)
 		explosion(A.loc,0,0,0,1,1,0,1)
 
 	add_cooldown()

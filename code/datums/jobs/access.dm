@@ -3,6 +3,9 @@
 	if(check_access())
 		return TRUE
 
+	if(check_inherent_access(M))
+		return TRUE
+
 	if(issilicon(M))
 		return TRUE //Silicons can access whatever they want
 
@@ -12,7 +15,6 @@
 	var/obj/item/card/id/I = M.get_idcard() //if they are holding or wearing a card that has access, that works.
 	if(check_access(I))
 		return TRUE
-
 
 /obj/proc/check_access(obj/item/card/id/ID)
 	if(!LAZYLEN(req_access) && !LAZYLEN(req_one_access))

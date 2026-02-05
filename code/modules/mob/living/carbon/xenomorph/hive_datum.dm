@@ -670,6 +670,9 @@
 	if(!target.xeno_caste.deevolves_to)
 		to_chat(devolver, span_xenonotice("Cannot deevolve [target]."))
 		return
+	if(!GLOB.xeno_caste_datums[target.xeno_caste.deevolves_to])
+		to_chat(devolver, span_xenonotice("Cannot deevolve [target]."))
+		return
 	var/datum/xeno_caste/new_caste = GLOB.xeno_caste_datums[target.xeno_caste.deevolves_to][XENO_UPGRADE_BASETYPE]
 	var/confirm = tgui_alert(devolver, "Are you sure you want to deevolve [target] from [target.xeno_caste.caste_name] to [new_caste.caste_name]?", null, list("Yes", "No"))
 	if(confirm != "Yes")
@@ -993,6 +996,8 @@ to_chat will check for valid clients itself already so no need to double check f
 /datum/hive_status/burrow_larva(mob/living/carbon/xenomorph/larva/L)
 	if(!is_ground_level(L.z) && !L.get_xeno_hivenumber() == XENO_HIVE_CORRUPTED)
 		return
+	if(L.stat)
+		return
 	L.visible_message(span_xenodanger("[L] quickly burrows into the ground."))
 	var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
 	xeno_job.add_job_positions(1)
@@ -1306,12 +1311,15 @@ to_chat will check for valid clients itself already so no need to double check f
 // Make sure they can understand english
 /datum/hive_status/corrupted/post_add(mob/living/carbon/xenomorph/X)
 	. = ..()
+	X.inherent_accesses += ALL_MARINE_ACCESS
 	X.grant_language(/datum/language/common)
 	X.AddComponent(/datum/component/xeno_iff, TGMC_LOYALIST_IFF)
 
 /datum/hive_status/corrupted/post_removal(mob/living/carbon/xenomorph/X)
 	. = ..()
+	X.inherent_accesses = initial(X.inherent_accesses)
 	X.remove_language(/datum/language/common)
+	X.remove_component(/datum/component/xeno_iff)
 
 /datum/hive_status/corrupted/can_xeno_message()
 	return TRUE // can always talk in hivemind

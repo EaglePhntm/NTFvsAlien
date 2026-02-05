@@ -22,7 +22,7 @@
 	base_icon_state = "Larva"
 	speaking_noise = SFX_LARVA_TALK
 
-/mob/living/carbon/xenomorph/larva/Initialize(mapload)
+/mob/living/carbon/xenomorph/larva/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SILENT_FOOTSTEPS, XENO_TRAIT)
 	if(!mind)

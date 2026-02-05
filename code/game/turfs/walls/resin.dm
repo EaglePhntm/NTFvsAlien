@@ -33,7 +33,8 @@
 	var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
 	name = "[hive.prefix][name]"
 	if(hive.color)
-		add_filter("hive_color", 10, outline_filter(2, hive.color))
+		color = gradient(COLOR_BLACK, hive.color, 0.5)
+		add_filter("hive_color", 10, outline_filter(1, hive.color))
 	return INITIALIZE_HINT_LATELOAD
 
 /turf/closed/wall/resin/AfterChange(flags)

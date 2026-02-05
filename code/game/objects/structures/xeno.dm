@@ -23,7 +23,8 @@
 		hivenumber = _hivenumber
 	var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
 	name = "[hive.prefix][name]"
-	color = hive.color
+	if(hive.color)
+		color = gradient(COLOR_BLACK, hive.color, 0.5)
 	if(!ignore_weed_destruction)
 		RegisterSignal(loc, COMSIG_TURF_WEED_REMOVED, PROC_REF(weed_removed))
 
@@ -31,7 +32,8 @@
 	.=..()
 	var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
 	if(istype(hive))
-		color = hive.color
+		if(hive.color)
+			color = gradient(COLOR_BLACK, hive.color, 0.5)
 
 /// Destroy the alien effect when the weed it was on is destroyed
 /obj/alien/proc/weed_removed()
@@ -216,7 +218,8 @@
 		hivenumber = _hivenumber
 	var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
 	name = "[hive.prefix][name]"
-	color = hive.color
+	if(hive.color)
+		color = gradient(COLOR_BLACK, hive.color, 0.5)
 	if(!locate(/obj/alien/weeds) in loc)
 		new /obj/alien/weeds(loc)
 
@@ -350,7 +353,8 @@
 		hivenumber = _hivenumber
 	var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
 	name = "[hive.prefix][name]"
-	color = hive.color
+	if(hive.color)
+		color = hive.color
 
 /obj/item/resin_jelly/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(xeno_attacker.status_flags & INCORPOREAL)

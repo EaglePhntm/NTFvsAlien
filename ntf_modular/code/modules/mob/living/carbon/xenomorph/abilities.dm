@@ -11,7 +11,7 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PLACE_STEW_POD,
 	)
 
-	gamemode_flags = ABILITY_SOLMODE
+	gamemode_flags = ABILITY_ALL_GAMEMODE
 	use_state_flags = ABILITY_USE_LYING
 
 /datum/action/ability/xeno_action/place_stew_pod/can_use_action(silent = FALSE, override_flags)
@@ -542,9 +542,11 @@
 		owner_xeno.stop_sound_channel(channel)
 		return
 	owner_xeno.eject_victim()
-	owner_xeno.remove_movespeed_modifier("devourer", TRUE)
+	if(!isxenogorger(owner_xeno))
+		owner_xeno.remove_movespeed_modifier("devourer", TRUE)
 	log_combat(owner_xeno, victim, "released", addition="from being devoured")
-	REMOVE_TRAIT(victim, TRAIT_STASIS, TRAIT_STASIS)
+	REMOVE_TRAIT(victim, TRAIT_STASIS, "devour")
+	victim.ParalyzeNoChain(2 SECONDS)
 
 /datum/action/ability/activable/xeno/devour/use_ability(atom/target)
 	var/mob/living/carbon/human/victim = target
@@ -578,10 +580,10 @@
 	owner_xeno.devouring_mob = null
 	log_combat(owner_xeno, victim, "devoured")
 	owner.visible_message(span_warning("[owner_xeno] devour [victim]!"), span_warning("We devour [victim]!"), null, 5)
-	ADD_TRAIT(victim, TRAIT_STASIS, TRAIT_STASIS)
+	ADD_TRAIT(victim, TRAIT_STASIS, "devour")
 	victim.forceMove(owner_xeno)
 	owner_xeno.eaten_mob = victim
-	if(xeno_owner.eaten_mob?.mob_size && !ismonkey(xeno_owner.eaten_mob) && !isxenolarva(xeno_owner.eaten_mob))
+	if(xeno_owner.eaten_mob?.mob_size && !ismonkey(xeno_owner.eaten_mob) && !isxenolarva(xeno_owner.eaten_mob) && !isxenogorger(xeno_owner))
 		xeno_owner.add_movespeed_modifier("devourer", TRUE, 0, NONE, TRUE, xeno_owner.eaten_mob.mob_size)
 	if(ishuman(victim))
 		var/obj/item/radio/headset/mainship/headset = victim.wear_ear
@@ -615,19 +617,9 @@
 
 		xeno_owner.eaten_mob = target
 		if(xeno_owner.eaten_mob?.mob_size && !ismonkey(xeno_owner.eaten_mob) && !isxenolarva(xeno_owner.eaten_mob))
-			xeno_owner.add_movespeed_modifier("hauler", TRUE, 0, NONE, TRUE, xeno_owner.eaten_mob.mob_size/2)
+			xeno_owner.add_movespeed_modifier("hauler", TRUE, 0, NONE, TRUE, xeno_owner.eaten_mob.mob_size/1.5)
 		xeno_owner.eaten_mob.forceMove(xeno_owner.loc, get_dir(target.loc, xeno_owner.loc))
 		xeno_owner.eaten_mob.handle_haul(xeno_owner)
-		RegisterSignal(xeno_owner.eaten_mob, COMSIG_MOB_DEATH, PROC_REF(release_dead_haul))
-
-/datum/action/ability/activable/xeno/devour/proc/release_dead_haul()
-	SIGNAL_HANDLER
-	var/mob/living/carbon/human/user = xeno_owner.eaten_mob
-	to_chat(src, span_warning("[user] is dead. No more use for them now."))
-	user.handle_unhaul()
-	UnregisterSignal(user, COMSIG_MOB_DEATH)
-	UnregisterSignal(src, COMSIG_ATOM_DIR_CHANGE)
-	xeno_owner.eaten_mob = null
 
 // Releasing a hauled mob
 /datum/action/ability/activable/xeno/devour/proc/release_haul(stuns = FALSE)
@@ -636,7 +628,8 @@
 	if(!user)
 		to_chat(src, span_warning("We are not hauling anyone."))
 		return
-	xeno_owner.remove_movespeed_modifier("hauler", TRUE)
+	if(!isxenogorger(xeno_owner))
+		xeno_owner.remove_movespeed_modifier("hauler", TRUE)
 	user.handle_unhaul()
 	xeno_owner.visible_message(span_xenowarning("[src] releases [user] from their grip!"),
 	span_xenowarning("We release [user] from our grip!"), null, 5)
@@ -644,7 +637,6 @@
 	if(stuns)
 		user.AdjustStun(2)
 	UnregisterSignal(user, COMSIG_MOB_DEATH)
-	UnregisterSignal(src, COMSIG_ATOM_DIR_CHANGE)
 	xeno_owner.eaten_mob = null
 
 // ***************************************
@@ -680,7 +672,9 @@
 		/obj/alien/weeds/resting,
 		/obj/alien/weeds/sticky,
 		/obj/alien/weeds/node/resting,
-		/obj/alien/weeds/node/sticky
+		/obj/alien/weeds/node/sticky,
+		/obj/alien/weeds/weedwall,
+		/obj/structure/bed/nest/wall,
 		)
 
 /datum/action/ability/activable/xeno/tail_stab/on_cooldown_finish()
@@ -699,20 +693,34 @@
 	//i could not make it so the mob turns away if at range here, for some reason, the xeno one for example or empty tile.
 	if(HAS_TRAIT(A, TRAIT_HAULED))
 		return FALSE
+	if(xeno.handcuffed)
+		return FALSE
 	if(!(get_dist(owner,A) <= range))
 		if(!silent)
 			to_chat(owner, span_xenodanger("Our target must be closer!"))
 		return FALSE
 
-	if(get_turf(A) != check_path(owner, A, PASS_LOW_STRUCTURE|PASS_MOB|PASS_THROW|PASS_PROJECTILE|PASS_WALKOVER|PASS_TANK))
+	if(get_dist(owner,A) > 1 && get_turf(A) != check_path(owner, A, PASS_LOW_STRUCTURE|PASS_MOB|PASS_THROW|PASS_PROJECTILE|PASS_WALKOVER|PASS_TANK))
 		if(!A.pixel_y && !A.pixel_x) //exclude shit that are usually in the walls by being pixel shifted
 			if(!silent)
+				if(isstructure(A))
+					to_chat(owner, span_xenodanger("We will need to get closer to deliver a proper blow to this!"))
+					return FALSE
 				to_chat(owner, span_xenodanger("Path to target blocked!"))
 			return FALSE
 
-	if(A.resistance_flags & (INDESTRUCTIBLE|CRUSHER_IMMUNE)) //no bolting down indestructible airlocks.
+	if(xeno.blunt_stab)
+		owner.do_attack_animation(A, ATTACK_EFFECT_SMASH)
+	else if(xeno.fiery_stab)
+		owner.do_attack_animation(A, ATTACK_EFFECT_LASERSWORD)
+	else
+		owner.do_attack_animation(A, ATTACK_EFFECT_REDSTAB)
+
+	if(A.resistance_flags & (INDESTRUCTIBLE|CRUSHER_IMMUNE) && !(A.resistance_flags & TAIL_STABABLE))
 		if(!silent)
 			to_chat(owner, span_xenodanger("We cannot damage this target!"))
+			add_cooldown(1 SECONDS)
+			playsound(owner, "alien_tail_swipe", 50, TRUE)
 		return FALSE
 
 	if(isxeno(A) && A.issamexenohive(owner))
@@ -720,12 +728,6 @@
 			owner.visible_message(span_xenowarning("\The [owner] swipes their tail through the air!"), span_xenowarning("We swipe our tail through the air!"))
 		add_cooldown(1 SECONDS)
 		playsound(owner, "alien_tail_swipe", 50, TRUE)
-		if(xeno.blunt_stab)
-			owner.do_attack_animation(A, ATTACK_EFFECT_SMASH)
-		else if(xeno.fiery_stab)
-			owner.do_attack_animation(A, ATTACK_EFFECT_LASERSWORD)
-		else
-			owner.do_attack_animation(A, ATTACK_EFFECT_REDSTAB)
 		return FALSE
 
 	if(!isliving(A) && !isstructure(A) && !ismachinery(A) && !isvehicle(A) && ((isturf(A) || (A.type in ignored_things)) && !can_hit_turf))
@@ -733,12 +735,6 @@
 			owner.visible_message(span_xenowarning("\The [owner] swipes their tail through the air!"), span_xenowarning("We swipe our tail through the air!"))
 		add_cooldown(1 SECONDS)
 		playsound(owner, "alien_tail_swipe", 50, TRUE)
-		if(xeno.blunt_stab)
-			owner.do_attack_animation(A, ATTACK_EFFECT_SMASH)
-		else if(xeno.fiery_stab)
-			owner.do_attack_animation(A, ATTACK_EFFECT_LASERSWORD)
-		else
-			owner.do_attack_animation(A, ATTACK_EFFECT_REDSTAB)
 		return FALSE
 
 	if(isturf(A) && !can_hit_turf)
@@ -746,12 +742,6 @@
 		if(!silent)
 			owner.visible_message(span_xenowarning("\The [owner] swipes their tail through the air!"), span_xenowarning("We swipe our tail through the air!"))
 		playsound(owner, "alien_tail_swipe", 50, TRUE)
-		if(xeno.blunt_stab)
-			owner.do_attack_animation(A, ATTACK_EFFECT_SMASH)
-		else if(xeno.fiery_stab)
-			owner.do_attack_animation(A, ATTACK_EFFECT_LASERSWORD)
-		else
-			owner.do_attack_animation(A, ATTACK_EFFECT_REDSTAB)
 		return FALSE
 
 	if(isliving(A))
@@ -786,36 +776,21 @@
 	return TRUE
 
 /obj/machinery/tail_stab_act(mob/living/carbon/xenomorph/xeno, damage, target_zone, penetration, structure_damage_multiplier, stab_description = "swift tail-stab!", disorientamount, can_hit_turf) //Break open the machine
-	if(line_of_sight(xeno, src, 1))
-		xeno.face_atom(src) //Face the target if adjacent so you dont look dumb.
-	else
-		xeno.face_away_from_atom(src) //Face away from the target so your tail may reach if not adjacent
-	if(!xeno.blunt_stab)
-		xeno.do_attack_animation(src, ATTACK_EFFECT_REDSTAB)
-		xeno.do_attack_animation(src, ATTACK_EFFECT_PUNCH)
-	else
-		xeno.do_attack_animation(src, ATTACK_EFFECT_SMASH)
-	if(!CHECK_BITFIELD(resistance_flags, UNACIDABLE) || resistance_flags == (UNACIDABLE|XENO_DAMAGEABLE)) //If it's acidable or we can't acid it but it has the xeno damagable flag, we can damage it
-		attack_generic(xeno, damage * structure_damage_multiplier, BRUTE, "", FALSE)
+	attack_generic(xeno, damage * structure_damage_multiplier, BRUTE, MELEE, FALSE, penetration)
 	xeno.visible_message(span_xenodanger("\The [xeno] pierces [src] with a [stab_description]"), \
 		span_xenodanger("We pierce [src] with a [stab_description]"), visible_message_flags = COMBAT_MESSAGE)
 	playsound(src, "alien_tail_swipe", 50, TRUE)
 	playsound(src, pick('sound/effects/bang.ogg','sound/effects/metal_crash.ogg','sound/effects/meteorimpact.ogg'), 25, 1)
 	Shake(duration = 0.5 SECONDS)
 
-	if(!istype(src, /obj/machinery/light))
-		attack_alien(xeno, damage * structure_damage_multiplier, BRUTE)
+	if(!CHECK_BITFIELD(machine_stat, PANEL_OPEN))
+		ENABLE_BITFIELD(machine_stat, PANEL_OPEN)
 
-	if(!istype(src, /obj/machinery/power/apc))
-		if(!CHECK_BITFIELD(machine_stat, PANEL_OPEN))
-			ENABLE_BITFIELD(machine_stat, PANEL_OPEN)
-
-	if(!istype(src, /obj/machinery/power/apc))
-		if(wires) //If it has wires, break em except APCs cause they got beenhit count.
-			var/allcut = wires.is_all_cut()
-			if(!allcut)
-				wires.cut_all()
-				visible_message(span_danger("\The [src]'s wires snap apart in a rain of sparks!"), null, null, 5)
+	if(wires) //If it has wires, break em except APCs cause they got beenhit count.
+		var/allcut = wires.is_all_cut()
+		if(!allcut)
+			wires.cut_all()
+			visible_message(span_danger("\The [src]'s wires snap apart in a rain of sparks!"), null, null, 5)
 	update_icon()
 	return TRUE
 
@@ -825,10 +800,10 @@
 	return ..()
 
 /obj/machinery/light/tail_stab_act(mob/living/carbon/xenomorph/xeno, damage, target_zone, penetration, structure_damage_multiplier, stab_description = "swift tail-stab!", disorientamount, can_hit_turf)
-	. = ..()
-	if(!(resistance_flags & XENO_DAMAGEABLE))
+	if(status == LIGHT_BROKEN)
 		return FALSE
-	attack_alien(xeno) //Smash it
+	broken()
+	return TRUE
 
 /obj/machinery/camera/tail_stab_act(mob/living/carbon/xenomorph/xeno, damage, target_zone, penetration, structure_damage_multiplier, stab_description = "swift tail-stab!", disorientamount, can_hit_turf)
 	. = ..()
@@ -839,9 +814,15 @@
 
 	deactivate()
 	visible_message(span_danger("\The [src]'s wires snap apart in a rain of sparks!")) //Smash it
+	return TRUE
 
 /obj/machinery/power/apc/tail_stab_act(mob/living/carbon/xenomorph/xeno, damage, target_zone, penetration, structure_damage_multiplier,  stab_description = "swift tail-stab!", disorientamount, can_hit_turf)
-	. = ..()
+	attack_generic(xeno, damage * structure_damage_multiplier, BRUTE, MELEE, FALSE, penetration)
+	xeno.visible_message(span_xenodanger("\The [xeno] pierces [src] with a [stab_description]"), \
+		span_xenodanger("We pierce [src] with a [stab_description]"), visible_message_flags = COMBAT_MESSAGE)
+	playsound(src, "alien_tail_swipe", 50, TRUE)
+	playsound(src, pick('sound/effects/bang.ogg','sound/effects/metal_crash.ogg','sound/effects/meteorimpact.ogg'), 25, 1)
+	Shake(duration = 0.5 SECONDS)
 	var/allcut = wires.is_all_cut()
 	if(beenhit >= pick(3, 4)) //wow it is actually be a challenge to kill apcs from afar with a tail, compared to woyer.
 		if(!CHECK_BITFIELD(machine_stat, PANEL_OPEN))
@@ -866,6 +847,7 @@
 		beenhit += structure_damage_multiplier
 	xeno.changeNext_move(CLICK_CD_MELEE)
 	update_icon()
+	return TRUE
 
 /obj/machinery/vending/tail_stab_act(mob/living/carbon/xenomorph/xeno, damage, target_zone, penetration, structure_damage_multiplier,  stab_description = "swift tail-stab!", disorientamount, can_hit_turf)
 	. = ..()
@@ -873,40 +855,18 @@
 		xeno.visible_message(span_danger("\The [xeno] pulls \the [src] down while retracting it's tail!"), \
 			span_danger("You pull \the [src] down with your tail!"), null, 5)
 		tip_over()
+	return TRUE
 
 /obj/structure/tail_stab_act(mob/living/carbon/xenomorph/xeno, damage, target_zone, penetration, structure_damage_multiplier,  stab_description = "devastating tail-jab!", disorientamount, can_hit_turf) //Smash structures
-	. = ..()
-	if(!(resistance_flags & XENO_DAMAGEABLE))
-		return FALSE
-	if(line_of_sight(xeno, src, 1))
-		xeno.face_atom(src) //Face the target if adjacent so you dont look dumb.
-	else
-		xeno.face_away_from_atom(src) //Face away from the target so your tail may reach if not adjacent
-	if(!xeno.blunt_stab)
-		xeno.do_attack_animation(src, ATTACK_EFFECT_REDSTAB)
-		xeno.do_attack_animation(src, ATTACK_EFFECT_PUNCH)
-	else
-		xeno.do_attack_animation(src, ATTACK_EFFECT_SMASH)
-	attack_alien(xeno, damage * structure_damage_multiplier, BRUTE, "", FALSE)
+	take_damage(damage * structure_damage_multiplier, BRUTE, MELEE, TRUE, get_dir(src, xeno), penetration, xeno)
 	xeno.visible_message(span_xenodanger("\The [xeno] stab [src] with a [stab_description]"), \
 		span_xenodanger("We stab [src] with a [stab_description]"), visible_message_flags = COMBAT_MESSAGE)
 	playsound(src, "alien_tail_swipe", 50, TRUE)
 	playsound(src, pick('sound/effects/bang.ogg','sound/effects/metal_crash.ogg','sound/effects/meteorimpact.ogg'), 25, 1)
 	Shake(duration = 0.5 SECONDS)
+	return TRUE
 
 /obj/vehicle/tail_stab_act(mob/living/carbon/xenomorph/xeno, damage, target_zone, penetration, structure_damage_multiplier, stab_description = "devastating tail-jab!", disorientamount, can_hit_turf)
-	. = ..()
-	if(!(resistance_flags & XENO_DAMAGEABLE))
-		return FALSE
-	if(line_of_sight(xeno, src, 1))
-		xeno.face_atom(src) //Face the target if adjacent so you dont look dumb.
-	else
-		xeno.face_away_from_atom(src) //Face away from the target so your tail may reach if not adjacent
-	if(!xeno.blunt_stab)
-		xeno.do_attack_animation(src, ATTACK_EFFECT_REDSTAB)
-		xeno.do_attack_animation(src, ATTACK_EFFECT_PUNCH)
-	else
-		xeno.do_attack_animation(src, ATTACK_EFFECT_SMASH)
 	attack_generic(xeno, damage * structure_damage_multiplier, BRUTE, "", FALSE)
 	xeno.visible_message(span_xenodanger("\The [xeno] stabs [src] with a [stab_description]"), \
 		span_xenodanger("We stab [src] with a [stab_description]"), visible_message_flags = COMBAT_MESSAGE)
@@ -916,7 +876,6 @@
 	return TRUE
 
 /mob/living/tail_stab_act(mob/living/carbon/xenomorph/xeno, damage, target_zone, penetration, structure_damage_multiplier, stab_description = "swift tail-stab!", disorientamount, can_hit_turf)
-	. = ..()
 	if(status_flags & (GODMODE|INCORPOREAL))
 		return FALSE
 
@@ -997,7 +956,7 @@
 
 	adjust_stagger(disorientamount SECONDS)
 	add_slowdown(disorientamount)
-	adjust_blurriness(disorientamount) //Cosmetic eye blur SFX
+	adjust_blurriness(disorientamount)
 
 	shake_camera(src, 2, 1)
 	Shake(duration = 0.5 SECONDS)
@@ -1007,6 +966,7 @@
 		personal_statistics.tail_stabs++
 		GLOB.round_statistics.tail_stabs++
 		SSblackbox.record_feedback("tally", "round_statistics", 1, "tail_stabs")
+	return TRUE
 
 /datum/action/ability/activable/xeno/tail_stab/ai_should_start_consider()
 	return TRUE
@@ -1014,11 +974,9 @@
 /datum/action/ability/activable/xeno/tail_stab/ai_should_use(atom/A)
 	if(!iscarbon(A))
 		return FALSE
-	if(!(get_dist(owner,A) <= range))
+	if(owner.issamexenohive(A))
 		return FALSE
-	if(!can_use_ability(A, override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
-		return FALSE
-	if(A.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
+	if(!can_use_ability(A, silent = TRUE, override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
 		return FALSE
 	return TRUE
 
@@ -1036,5 +994,43 @@ GLOBAL_LIST_INIT(xeno_resin_keys, list(
 		/obj/structure/bed/nest = RESIN_NEST,
 		/obj/structure/xeno/lighttower = LIGHT_TOWER,
 		/obj/structure/bed/nest/advanced = ADVANCED_RESIN_NEST,
-		/obj/structure/bed/nest/advanced/special = ADVANCED_RESIN_NEST,
+		/obj/structure/bed/nest/advanced/special = SPECIAL_RESIN_NEST,
 	))
+
+// ***************************************
+// *********** Rouny Zoom
+// ***************************************
+/datum/action/ability/xeno_action/runner_zoom
+	name = "Toggle Zoom"
+	action_icon_state = "toggle_queen_zoom"
+	action_icon = 'icons/Xeno/actions/queen.dmi'
+	desc = "Zoom out for a larger view around wherever you are looking."
+	ability_cost = 0
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_QUEEN_ZOOM,
+	)
+	use_state_flags = ABILITY_USE_LYING
+
+/datum/action/ability/xeno_action/runner_zoom/action_activate()
+	if(xeno_owner.do_actions)
+		return
+	if(xeno_owner.xeno_flags & XENO_ZOOMED)
+		zoom_xeno_out(xeno_owner.observed_xeno ? FALSE : TRUE)
+		return
+	if(!do_after(xeno_owner, 1 SECONDS, IGNORE_HELD_ITEM, null, BUSY_ICON_GENERIC) || (xeno_owner.xeno_flags & XENO_ZOOMED))
+		return
+	zoom_xeno_in(xeno_owner.observed_xeno ? FALSE : TRUE) //No need for feedback message if our eye is elsewhere.
+
+/datum/action/ability/xeno_action/runner_zoom/proc/zoom_xeno_in(message = TRUE)
+	if(message)
+		xeno_owner.visible_message(span_notice("[xeno_owner] perks up, focusing further away."),
+		span_notice("We start focusing to expand the reach of our senses."), null, 5)
+	xeno_owner.xeno_flags |= XENO_CAN_MOVE_ZOOMED
+	xeno_owner.zoom_in(0, 12)
+
+/datum/action/ability/xeno_action/runner_zoom/proc/zoom_xeno_out(message = TRUE)
+	if(message)
+		xeno_owner.visible_message(span_notice("[xeno_owner] lowers down and stops focusing further off."),
+		span_notice("We stop the effort of expanding our senses."), null, 5)
+	xeno_owner.xeno_flags &= ~XENO_CAN_MOVE_ZOOMED
+	xeno_owner.zoom_out()

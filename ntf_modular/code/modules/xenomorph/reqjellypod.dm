@@ -131,7 +131,8 @@
 	. = ..()
 	var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
 	name = "[hive.prefix][name]"
-	color = hive.color
+	if(hive.color)
+		color = hive.color
 
 /obj/item/stack/req_jelly/merge(obj/item/stack/S)
 	if(!issamexenohive(S))

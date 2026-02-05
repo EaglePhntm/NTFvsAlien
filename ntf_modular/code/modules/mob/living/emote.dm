@@ -49,8 +49,8 @@
 		for(var/mode in modes)
 			if(istype(SSticker.mode, mode))
 				return
-		if(istype(SSticker.mode, /datum/game_mode/infestation/extended_plus/secret_of_life))
-			var/datum/game_mode/infestation/extended_plus/secret_of_life/sol = SSticker.mode
+		if(istype(SSticker.mode, /datum/game_mode/infestation/secret_of_life))
+			var/datum/game_mode/infestation/secret_of_life/sol = SSticker.mode
 			if(sol.pop_lock)
 				return
 		L.ExtinguishMob()
@@ -95,8 +95,8 @@
 		for(var/mode in modes)
 			if(istype(SSticker.mode, mode))
 				return
-		if(istype(SSticker.mode, /datum/game_mode/infestation/extended_plus/secret_of_life))
-			var/datum/game_mode/infestation/extended_plus/secret_of_life/sol = SSticker.mode
+		if(istype(SSticker.mode, /datum/game_mode/infestation/secret_of_life))
+			var/datum/game_mode/infestation/secret_of_life/sol = SSticker.mode
 			if(sol.pop_lock)
 				return
 		L.ExtinguishMob()
@@ -140,8 +140,8 @@
 		for(var/mode in modes)
 			if(istype(SSticker.mode, mode))
 				return
-		if(istype(SSticker.mode, /datum/game_mode/infestation/extended_plus/secret_of_life))
-			var/datum/game_mode/infestation/extended_plus/secret_of_life/sol = SSticker.mode
+		if(istype(SSticker.mode, /datum/game_mode/infestation/secret_of_life))
+			var/datum/game_mode/infestation/secret_of_life/sol = SSticker.mode
 			if(sol.pop_lock)
 				return
 		L.ExtinguishMob()
@@ -184,8 +184,8 @@
 		for(var/mode in modes)
 			if(istype(SSticker.mode, mode))
 				return
-		if(istype(SSticker.mode, /datum/game_mode/infestation/extended_plus/secret_of_life))
-			var/datum/game_mode/infestation/extended_plus/secret_of_life/sol = SSticker.mode
+		if(istype(SSticker.mode, /datum/game_mode/infestation/secret_of_life))
+			var/datum/game_mode/infestation/secret_of_life/sol = SSticker.mode
 			if(sol.pop_lock)
 				return
 		L.ExtinguishMob()

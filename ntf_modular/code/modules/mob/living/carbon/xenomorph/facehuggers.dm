@@ -15,9 +15,14 @@
 	COOLDOWN_DECLARE(implant_cooldown)
 	var/last_came = 0
 
+/obj/item/clothing/mask/facehugger/latching/check_lifecycle()
+	if(attached) //we got a timer that adds check lifecycle for being dropped anyway.
+		return
+	. = ..()
+
 /obj/item/clothing/mask/facehugger/latching/equipped(mob/living/user, slot)
 	. = ..()
-	if(slot == SLOT_UNDERWEAR || slot == SLOT_WEAR_MASK)
+	if(slot == SLOT_UNDERWEAR || slot == SLOT_SHIRT || slot == SLOT_WEAR_MASK)
 		if(user.gender == MALE && target_hole == HOLE_VAGINA)
 			target_hole = HOLE_ASS //i aint writing fem hugger on male messages for allat plus their descs have cock and balls
 		wearer = user
@@ -69,7 +74,7 @@
 	remove_danger_overlay() //Remove the danger overlay
 	if(stat == CONSCIOUS)
 		update_icon()
-	else if(!attached && !(stasis || no_activate))
+	if(!attached && !(stasis || no_activate))
 		activetimer = addtimer(CALLBACK(src, PROC_REF(go_active)), activate_time, TIMER_STOPPABLE|TIMER_UNIQUE)
 		lifetimer = addtimer(CALLBACK(src, PROC_REF(check_lifecycle)), FACEHUGGER_DEATH, TIMER_STOPPABLE|TIMER_UNIQUE)
 
@@ -88,11 +93,17 @@
 	if(!wearer)
 		reset_attach_status()
 		return
-	var/as_planned = wearer?.wear_mask == src  || wearer?.w_underwear == src
+	if(wearer.stat == DEAD)
+		reset_attach_status()
+		return
+	if(wearer.key && (wearer.afk_status == MOB_RECENTLY_DISCONNECTED || wearer.afk_status == MOB_DISCONNECTED))
+		wearer.visible_message(span_loveextreme("[src] loses interest in [wearer] as they are SSD."))
+		reset_attach_status()
+		return
+	var/as_planned = wearer?.wear_mask == src || wearer?.w_underwear == src  || wearer?.w_undershirt == src
 	if(!as_planned)
 		reset_attach_status()
 		return
-	Shake(duration = 0.5 SECONDS)
 	if(COOLDOWN_FINISHED(src, implant_cooldown))
 		COOLDOWN_START(src, implant_cooldown, special_effect_delay)
 		last_came = world.time
@@ -333,12 +344,18 @@
 //harmless corrupted special pet huggers
 /obj/item/clothing/mask/facehugger/latching/friendly
 	name = "Jamal"
-	desc = "It has some sort of weird pulsating gigantic (for his size) alien cock with bountiful massive balls and a strong boney tail. This one seems to be modified to not have acidic-enough cum to hurt anyone and does not expire in a short time unlike usual huggers. Friend shaped? doubt."
+	desc = "It has some sort of weird pulsating gigantic (for his size) alien cock with bountiful massive balls and a strong boney tail. This one seems to be modified to not have acidic-enough cum to hurt anyone and does not expire in a short time unlike usual huggers. Friend shaped? doubt. It's non-expirity cost it, it's fertility."
 	filter_color = COLOR_RED_LIGHT
 	hivenumber = XENO_HIVE_CORRUPTED
 	harmless = TRUE
 	strip_delay = 2 SECONDS
 	special_effect_delay = 30 SECONDS
+
+/obj/item/clothing/mask/facehugger/latching/friendly/special_effect()
+	wearer.visible_message(span_lovebold("[src]'s [cock_flavor] cums thick globs of acidic cum into [wearer]'s [target_hole]!"),
+	span_lovebold("[src]'s [cock_flavor] pumps thick globs of acidic cum into your [target_hole]!"),
+	span_notice("You hear spurting."), vision_distance = 5)
+	wearer.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno, 10)
 
 //immortal
 /obj/item/clothing/mask/facehugger/latching/friendly/check_lifecycle()

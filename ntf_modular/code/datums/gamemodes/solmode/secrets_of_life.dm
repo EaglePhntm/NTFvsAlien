@@ -1,4 +1,4 @@
-/datum/game_mode/infestation/extended_plus/secret_of_life
+/datum/game_mode/infestation/secret_of_life
 	name = "Secret of Life - Main"
 	config_tag = "Secret of Life - Main"
 	silo_scaling = 1
@@ -126,12 +126,14 @@
 		/datum/xeno_caste/dragon = 0,
 	)
 	max_larva_preg_at_once = MAX_LARVA_PREGNANCIES_SOL
+	time_between_round_group = 0
+	time_between_round_group_name = "GROUP_Extended"
 
-/datum/game_mode/infestation/extended_plus/secret_of_life/pre_setup()
+/datum/game_mode/infestation/secret_of_life/pre_setup()
 	. = ..()
 	RegisterSignals(SSdcs, list(COMSIG_GLOB_PLAYER_ROUNDSTART_SPAWNED, COMSIG_GLOB_PLAYER_LATE_SPAWNED), PROC_REF(things_after_spawn))
 
-/datum/game_mode/infestation/extended_plus/secret_of_life/proc/things_after_spawn(datum/source, mob/living/carbon/human/new_member)
+/datum/game_mode/infestation/secret_of_life/proc/things_after_spawn(datum/source, mob/living/carbon/human/new_member)
 	SIGNAL_HANDLER
 	//no prisoner guns.
 	if(new_member.job in stat_restricted_jobs)
@@ -141,7 +143,7 @@
 	if(loadout)
 		loadout.remove_action(new_member)
 
-/datum/game_mode/infestation/extended_plus/secret_of_life/proc/toggle_pop_locks()
+/datum/game_mode/infestation/secret_of_life/proc/toggle_pop_locks()
 	// Apply Evolution Xeno Population Locks:
 	pop_lock = !pop_lock
 	var/sound_to_play = pop_lock ? pick('ntf_modular/sound/music/war_mode/hell_march_noearrape.ogg') : pick('ntf_modular/sound/music/war_mode/conflicttensionaltnoearrape.ogg', 'ntf_modular/sound/music/war_mode/konami-intro-metal-gear-solid.ogg')
@@ -197,12 +199,135 @@
 	)
 	SSvote.initiate_vote()
 
+
+//sets NTC and SOM squads
+/datum/game_mode/infestation/secret_of_life/set_valid_squads()
+	SSjob.active_squads[FACTION_TERRAGOV] = list()
+	SSjob.active_squads[FACTION_SOM] = list()
+	for(var/key in SSjob.squads)
+		var/datum/squad/squad = SSjob.squads[key]
+		if(squad.faction == FACTION_TERRAGOV || squad.faction == FACTION_SOM) //We only want Marine and SOM squads, future proofs if more faction squads are added
+			SSjob.active_squads[squad.faction] += squad
+	return TRUE
+
+/datum/game_mode/infestation/secret_of_life/announce()
+	to_chat(world, "<b>The current game mode is - Extended Role-Playing!</b>")
+	to_chat(world, "<b>Just have fun and role-play!</b>")
+
+/datum/game_mode/infestation/secret_of_life/declare_completion()
+	. = ..()
+	to_chat(world, span_round_header("|[round_finished]|"))
+	var/sound/S = sound(pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
+	SEND_SOUND(world, S)
+
+	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.clients)]\nTotal xenos spawned: [GLOB.round_statistics.total_xenos_created]\nTotal humans spawned: [GLOB.round_statistics.total_humans_created]")
+
+/datum/game_mode/infestation/secret_of_life/post_setup()
+	. = ..()
+	for(var/i in GLOB.xeno_resin_silo_turfs)
+		new /obj/structure/xeno/pherotower(i)
+		if(prob(75))
+			new /mob/living/carbon/human/species/monkey(i)
+
+	for(var/hivenumber in GLOB.hive_datums)
+		SSpoints.add_strategic_psy_points(hivenumber, 1400)
+		SSpoints.add_tactical_psy_points(hivenumber, 300)
+		SSpoints.add_biomass_points(hivenumber, 0) // Solely to make sure it isn't null.
+
+	for(var/obj/effect/landmark/corpsespawner/corpse AS in GLOB.corpse_landmarks_list)
+		corpse.create_mob()
+
+//NTF addition start
+	if(length(GLOB.miner_list) > MINIMUM_MINERS)
+		var/list/obj/machinery/miner/platinum_list = list()
+		var/list/obj/machinery/miner/phoron_list = list()
+		for(var/obj/machinery/miner/miner in GLOB.miner_list)
+			if(miner.is_platinum())
+				platinum_list += miner
+			else
+				phoron_list += miner
+		var/miners_kept = 0
+		if(length(platinum_list) < MINIMUM_PLATINUM_MINERS)
+			log_mapping("Only [length(platinum_list)] platinum miners found, less than minimum of [MINIMUM_PLATINUM_MINERS]!")
+			miners_kept = length(platinum_list)
+			platinum_list.Cut()
+		else
+			shuffle_inplace(platinum_list)
+			#if (MINIMUM_PLATINUM_MINERS > 0)
+			while(miners_kept < MINIMUM_PLATINUM_MINERS)
+				miners_kept++
+				platinum_list -= platinum_list[1]
+			#endif
+		var/list/obj/machinery/miner/shuffled_miners = platinum_list + phoron_list
+		shuffle_inplace(shuffled_miners)
+		var/miners_to_keep = miners_kept + rand((MINIMUM_MINERS - miners_kept), length(shuffled_miners))
+		while(miners_kept < miners_to_keep)
+			miners_kept++
+			shuffled_miners -= shuffled_miners[1]
+		QDEL_LIST(shuffled_miners)
+	else
+		if(length(GLOB.miner_list) < MINIMUM_MINERS)
+			log_mapping("Only [length(GLOB.miner_list)] miners found, less than minimum of [MINIMUM_MINERS]!")
+//NTF addition end
+
+	for(var/mob/living/carbon/xenomorph/larva/xeno in GLOB.alive_xeno_list)
+		xeno.evolution_stored = xeno.xeno_caste.evolution_threshold //Immediate roundstart evo for larva.
+
+	generate_nuke_disk_spawners()
+
+	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_EXPLODED, PROC_REF(on_nuclear_explosion))
+	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_DEFUSED, PROC_REF(on_nuclear_defuse))
+	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_START, PROC_REF(on_nuke_started))
+
+/datum/game_mode/infestation/secret_of_life/check_finished()
+	if(round_finished)
+		return TRUE
+
+	if(world.time < (SSticker.round_start_time + 5 SECONDS))
+		return FALSE
+
+	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_ALIVE_SSD|COUNT_IGNORE_XENO_SPECIAL_AREA| COUNT_CLF_TOWARDS_XENOS | COUNT_GREENOS_TOWARDS_MARINES )
+	var/num_xenos = living_player_list[2]
+	var/num_humans_ship = living_player_list[3]
+
+	if(SSevacuation.dest_status == NUKE_EXPLOSION_FINISHED)
+		message_admins("Round finished: [MODE_GENERIC_DRAW_NUKE]") //ship blows, no one wins
+		round_finished = MODE_GENERIC_DRAW_NUKE
+		return TRUE
+
+	switch(planet_nuked)
+		if(INFESTATION_NUKE_COMPLETED)
+			message_admins("Round finished: [MODE_INFESTATION_M_MINOR]") //marines managed to nuke the colony
+			round_finished = MODE_INFESTATION_M_MINOR
+			return TRUE
+		if(INFESTATION_NUKE_COMPLETED_SHIPSIDE)
+			message_admins("Round finished: [MODE_INFESTATION_X_MAJOR]") //marines managed to nuke their own ship
+			round_finished = MODE_INFESTATION_X_MAJOR
+			return TRUE
+		if(INFESTATION_NUKE_COMPLETED_OTHER)
+			message_admins("Round finished: [MODE_INFESTATION_X_MINOR]") //marines managed to nuke transit or something
+			round_finished = MODE_INFESTATION_X_MINOR
+			return TRUE
+
+	if(!num_xenos)
+		if(round_stage == INFESTATION_MARINE_CRASHING)
+			message_admins("Round finished: [MODE_INFESTATION_M_MINOR]") //marines lost the ground operation but managed to wipe out Xenos on the ship at a greater cost, minor victory
+			round_finished = MODE_INFESTATION_M_MINOR
+			return TRUE
+	if(round_stage == INFESTATION_MARINE_CRASHING && !num_humans_ship)
+		if(SSevacuation.human_escaped > SSevacuation.initial_human_on_ship * 0.5)
+			message_admins("Round finished: [MODE_INFESTATION_X_MINOR]") //xenos have control of the ship, but most marines managed to flee
+			round_finished = MODE_INFESTATION_X_MINOR
+			return
+	return FALSE
+
+
 /*
 
 alt gamemodes
 
 */
-/datum/game_mode/infestation/extended_plus/secret_of_life/nosub
+/datum/game_mode/infestation/secret_of_life/nosub
 	name = "Secret of Life - No subfactions"
 	config_tag = "Secret of Life - No Subfactions"
 	factions = list(FACTION_TERRAGOV, FACTION_SOM,FACTION_XENO, FACTION_CLF)
@@ -273,7 +398,7 @@ alt gamemodes
 	)
 
 //old school mode, no ship, one map with bases in it, no subfactions.
-/datum/game_mode/infestation/extended_plus/secret_of_life/classic
+/datum/game_mode/infestation/secret_of_life/classic
 	name = "Secret of Life - Classic"
 	config_tag = "Secret of Life - Classic"
 	factions = list(FACTION_TERRAGOV, FACTION_SOM,FACTION_XENO, FACTION_CLF)
@@ -345,7 +470,7 @@ alt gamemodes
 		/datum/job/som/civilian/liaison_som = 1,
 	)
 
-/datum/game_mode/infestation/extended_plus/secret_of_life/alienonly
+/datum/game_mode/infestation/secret_of_life/alienonly
 	name = "Secret of Life - NTF vs Alien only"
 	config_tag = "Secret of Life - Alien only"
 	factions = list(FACTION_TERRAGOV, FACTION_XENO)
@@ -388,7 +513,7 @@ alt gamemodes
 		/datum/job/terragov/civilian/liaison_transco = 1,
 	)
 
-/datum/game_mode/infestation/extended_plus/secret_of_life/ntf_vs_clf
+/datum/game_mode/infestation/secret_of_life/ntf_vs_clf
 	name = "Secret of Life - NTF vs CLF"
 	config_tag = "Secret of Life - NTF vs CLF"
 	factions = list(FACTION_TERRAGOV, FACTION_XENO, FACTION_CLF)

@@ -58,7 +58,8 @@
 		if("purchase")
 			try_purchase_mutation(usr, text2path(params["upgrade_type"]))
 
-	SStgui.close_user_uis(usr, src)
+	//SStgui.close_user_uis(usr, src)
+	SStgui.update_user_uis(usr, src)
 
 /// Returns the cost of purchasing a mutation. Cost is based on their caste tier and how many mutations they have so far.
 /datum/mutation_datum/proc/get_mutation_cost(mob/living/carbon/xenomorph/xenomorph_target)

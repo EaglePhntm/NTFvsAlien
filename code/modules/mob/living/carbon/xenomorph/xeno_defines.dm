@@ -331,8 +331,6 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	var/xeno_desc = ""
 	///Profile picture set by player
 	var/xenoprofile_pic = ""
-	///fake gender var for xeno sprite
-	var/xenogender = 1
 
 	///A mob the xeno ate
 	var/mob/living/carbon/human/eaten_mob

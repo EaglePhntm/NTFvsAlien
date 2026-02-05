@@ -188,7 +188,7 @@
 			if(prob(2))
 				to_chat(affected_mob, span_warning("[pick("You feel something squirming inside you!.", "It becomes a bit difficult to breathe.")]."))
 		if(5)
-			var/mob/living/carbon/xenomorph/larva/waiting_larva = locate() in src
+			var/mob/living/carbon/xenomorph/larva/waiting_larva = locate() in affected_mob
 			if(!waiting_larva)
 				become_larva()
 		if(6)
