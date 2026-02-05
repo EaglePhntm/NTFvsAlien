@@ -305,3 +305,11 @@
 	worn_icon_state = "barrier_heavy_worn"
 	starting_attachments = list(/obj/item/armor_module/module/eshield/barrier/heavy)
 	icon = 'ntf_modular/icons/obj/clothing/suits/barrier_armor.dmi'
+
+/obj/item/clothing/suit/modular/style/barrier/heavybarrier/vsdeng
+	name = "\improper heavy barrier armor"
+	starting_attachments = list(
+		/obj/item/armor_module/module/eshield/barrier/heavy,
+		/obj/item/armor_module/module/mirage,
+		/obj/item/armor_module/storage/ammo_mag,
+	)
