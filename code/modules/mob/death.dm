@@ -71,7 +71,7 @@
 	drop_l_hand()
 
 	if(hud_used?.healths)
-		hud_used.healths.icon_state = "health7"
+		hud_used.healths.icon_state = "health21"
 
 	timeofdeath = world.time
 	if(mind)
