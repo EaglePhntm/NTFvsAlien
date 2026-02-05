@@ -3384,7 +3384,7 @@
 
 /datum/outfit/quick/vsd/eod
 	name = "C153 'Zeus' KZ Squad Leader"
-	desc = "You're in charge and look the part, blast a way through. Equipped with Crasher MT-H/43 'Zeus' powered explosive-defensive armor, a C153 shoulder launcher, and a Type 71 with an underslung flamerhrower."
+	desc = "You're in charge and look the part, blast a way through. Equipped with Crasher MT-H/43 'Zeus' powered explosive-defensive armor, a C153 shoulder launcher, and a Type 71 with an underslung flamethrower."
 	jobtype = "KZ Squad Leader"
 	glasses = /obj/item/clothing/glasses/night/vsd/alt
 	w_uniform = /obj/item/clothing/under/vsd/webbing
