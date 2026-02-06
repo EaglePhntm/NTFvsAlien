@@ -336,7 +336,7 @@ GLOBAL_LIST_INIT(stim_type_lookup, init_stims())
 	desc = "Increases your speed of movement, making you walk and move passively faster."
 	cast_say = "Administering adrenaline..."
 	stim_uid = "speedincrease"
-	stim_flags = STIM_ALLOW_DUPE
+	stim_flags = NONE
 	particles = /particles/stims/speed
 
 /datum/stim/speed_increase/finish_cast(mob/living/owner)
@@ -395,7 +395,6 @@ GLOBAL_LIST_INIT(stim_type_lookup, init_stims())
 	stim_uid = "hivetarget"
 	stim_flags = NONE
 	trait_type = TRAIT_HIVE_TARGET
-	cast_delay = 15 SECONDS
 
 /datum/stim/stamina_regen
 	name = "Stamina Recovery"
