@@ -1,32 +1,40 @@
 /obj/item/clothing/mask/facehugger/equipped(mob/living/user, slot)
 	. = ..()
-	if(isxenofacehugger(source))
+	if(isxenofacehugger(source) && slot != SLOT_L_HAND && slot != SLOT_R_HAND)
 		source.status_flags |= GODMODE
 		ADD_TRAIT(source, TRAIT_HANDS_BLOCKED, REF(src))
+		source.forceMove(user)
 
-/obj/item/clothing/mask/facehugger/dropped(mob/user)
+/obj/item/clothing/mask/facehugger/reset_attach_status(forcedrop)
 	. = ..()
 	//If hugger sentient, then we drop player's hugger
 	if(isxenofacehugger(source) && isturf(loc))
-		var/mob/living/M = user
-		var/mob/living/carbon/xenomorph/facehugger/phugger = source
 		source.status_flags &= ~GODMODE
 		REMOVE_TRAIT(source, TRAIT_HANDS_BLOCKED, REF(src))
-		source.forceMove(get_turf(M))
-		if(source in M.client_mobs_in_contents)
-			M.client_mobs_in_contents -= source
+		source.forceMove(get_turf(src))
 
 /obj/item/clothing/mask/facehugger/kill_hugger(melt_timer)
 	. = ..()
 	if(isxenofacehugger(source))
 		qdel(src)
 
-/mob/living/carbon/human/relaymove(mob/user, direction)
-	if(user.incapacitated(TRUE))
-		return
-	if(!isxenofacehugger(user))
-		var/mob/living/carbon/xenomorph/facehugger/fhug = user
-		fhug.forceMove(loc)
-		if(fhug.mask)
-			fhug.mask.dropped()
-			qdel(fhug.mask)
+/mob/living/carbon/xenomorph/facehugger/do_resist()
+	if(next_move > world.time)
+		return FALSE
+
+	if(incapacitated(TRUE) || HAS_TRAIT(src, TRAIT_HAULED))
+		to_chat(src, span_warning("You can't resist in your current state."))
+		return FALSE
+
+	if(sexcon)
+		sexcon.try_stop_current_action()
+
+	changeNext_move(CLICK_CD_RESIST)
+
+	SEND_SIGNAL(src, COMSIG_LIVING_DO_RESIST)
+	if(!isturf(loc))
+		forceMove(mask.loc)
+		if(mask)
+			mask.dropped()
+			qdel(mask)
+	return TRUE

@@ -14,7 +14,7 @@
 	allow_pass_flags = PASS_AIR
 	COOLDOWN_DECLARE(cooldown_vehicle_move)
 	///mob = bitflags of their control level.
-	var/list/mob/occupants
+	var/list/list/mob/occupants
 	///Maximum amount of passengers plus drivers
 	var/max_occupants = 1
 	////Maximum amount of drivers

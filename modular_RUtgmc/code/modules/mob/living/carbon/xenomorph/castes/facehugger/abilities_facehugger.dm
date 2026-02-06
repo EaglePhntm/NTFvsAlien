@@ -26,17 +26,20 @@
 // TODO: merge this ability into runner pounce (can't do it right now - the runner's pounce has too many unnecessary sounds/messages)
 /datum/action/ability/activable/xeno/pounce/hugger/pounce_complete()
 	. = ..()
-	var/mob/living/carbon/xenomorph/caster = owner
+	var/mob/living/carbon/xenomorph/facehugger/caster = owner
 	caster.icon_state = "[caster.xeno_caste.caste_name] Walking"
+	if(get_dist(start_turf, caster.loc) <= caster.hug_range)
+		for(var/mob/living/carbon/human/H in caster.loc)
+			caster.try_attach(H)
+			break
 
-/datum/action/ability/activable/xeno/pounce/hugger/trigger_pounce_effect(mob/living/living_target)
+/datum/action/ability/activable/xeno/pounce/hugger/mob_hit(datum/source, mob/living/living_target)
 	. = ..()
 	var/mob/living/carbon/xenomorph/facehugger/caster = owner
 	if(ishuman(living_target))
 		var/mob/living/carbon/human/H = living_target
 		if(get_dist(start_turf, H) <= caster.hug_range) //Check whether we hugged the target or just knocked it down
-			INVOKE_ASYNC(caster, TYPE_PROC_REF(/mob/living/carbon/xenomorph/facehugger, try_attach), H)
-			caster.special_pounce()
+			caster.special_pounce(H)
 
 /datum/action/ability/activable/xeno/pounce/hugger/proc/prepare_to_pounce()
 	if(owner.layer == BELOW_TABLE_LAYER) //Xeno is currently hiding, unhide him

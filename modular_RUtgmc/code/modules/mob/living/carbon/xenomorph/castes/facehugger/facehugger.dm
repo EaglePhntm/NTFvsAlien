@@ -39,8 +39,8 @@
 	ADD_TRAIT(src, TRAIT_SILENT_FOOTSTEPS, XENO_TRAIT)
 	if(!mind)
 		LAZYOR(GLOB.ssd_living_mobs, src)
-	if(filtercolor)
-		add_filter("base_color", -10, color_matrix_filter(filtercolor))
+	if(hugger_type.filter_color)
+		add_filter("base_color", -20, color_matrix_filter(hugger_type.filter_color))
 
 // ***************************************
 // *********** Mob overrides
@@ -80,7 +80,6 @@
 	mask = new hugger_type(host, src.hivenumber, src)
 	if(host.can_be_facehugged(mask, provoked = TRUE))
 		if(mask.try_attach(host, no_evade = TRUE)) //Attach hugger-mask
-			src.forceMove(host) //Moving sentient hugger inside host
 			return TRUE
 		else
 			qdel(mask)
@@ -95,7 +94,7 @@
 	hug_range = 3
 
 /mob/living/carbon/xenomorph/facehugger/combat/slash/special_pounce(mob/living/carbon/human/host)
-	attack_alien_harm(host)
+	host.attack_alien_harm(src)
 
 /mob/living/carbon/xenomorph/facehugger/chemical
 	///The type of chemical we inject
