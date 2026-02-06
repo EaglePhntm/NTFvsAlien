@@ -13,6 +13,7 @@
 	tier = XENO_TIER_ZERO  //Larva's don't count towards Pop limits
 	upgrade = XENO_UPGRADE_INVALID
 	density = FALSE
+	mob_size = MOB_SIZE_SMALL
 	gib_chance = 25
 	hud_type = /datum/hud/larva
 	inherent_verbs = list(

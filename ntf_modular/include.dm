@@ -115,6 +115,7 @@
 #include "code\game\objects\structures\droppod.dm"
 #include "code\game\objects\structures\dropship_ammo.dm"
 #include "code\game\objects\structures\dropship_equipment.dm"
+#include "code\game\objects\structures\kz_stuff.dm"
 #include "code\game\objects\structures\lewd_construction.dm"
 #include "code\game\objects\structures\lewd_structures.dm"
 #include "code\game\objects\structures\prop.dm"

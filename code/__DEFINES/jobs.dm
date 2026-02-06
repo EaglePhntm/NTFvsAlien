@@ -151,6 +151,10 @@
 #define ROLE_ERT "Emergency Response Team"
 #define ROLE_VALHALLA "Valhalla"
 
+//ntf addition start
+#define ROLE_XENO_HUGGER "Xeno Facehugger"
+//ntf addition end
+
 #define ROLE_FALLEN(role) ("Fallen " + ##role)
 
 GLOBAL_LIST_EMPTY(jobs_command)
@@ -172,7 +176,7 @@ PMC_MEDIC, PMC_ENGINEER, PMC_GUNNER, PMC_STANDARD, PMC_SNIPER, PMC_LEADER,\
 "Prisoner", "SOM Prisoner", "CLF Prisoner",\
 "Morale Officer", "Worker", "Archercorp Liaison", "Novamed Liaison", "TRANSCo Liaison", "Kaizoku Liaison", "Colonial Militia Representative", "CLF Representative", "Sons of Mars Representative"))
 
-GLOBAL_LIST_INIT(jobs_xenos, list(ROLE_XENOMORPH, ROLE_XENO_QUEEN))
+GLOBAL_LIST_INIT(jobs_xenos, list(ROLE_XENOMORPH, ROLE_XENO_QUEEN, ROLE_XENO_HUGGER))
 GLOBAL_LIST_INIT(jobs_fallen_marine, typecacheof(list(/datum/job/fallen/marine), TRUE))
 ///Squad type role, regardless of faction
 GLOBAL_LIST_INIT(jobs_squad_roles, list(SQUAD_LEADER, SQUAD_SMARTGUNNER, SQUAD_CORPSMAN, SQUAD_ENGINEER, SQUAD_MARINE, SOM_SQUAD_MARINE, SOM_SQUAD_VETERAN, SOM_SQUAD_ENGINEER, SOM_SQUAD_CORPSMAN, SOM_SQUAD_LEADER))
