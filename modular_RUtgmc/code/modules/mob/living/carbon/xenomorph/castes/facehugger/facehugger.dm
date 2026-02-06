@@ -39,8 +39,10 @@
 	ADD_TRAIT(src, TRAIT_SILENT_FOOTSTEPS, XENO_TRAIT)
 	if(!mind)
 		LAZYOR(GLOB.ssd_living_mobs, src)
+	if(hive.color)
+		color = hive.color
 	if(hugger_type.filter_color)
-		add_filter("base_color", -20, color_matrix_filter(hugger_type.filter_color))
+		add_filter("base_color", -10, color_matrix_filter(hugger_type.filter_color))
 
 // ***************************************
 // *********** Mob overrides

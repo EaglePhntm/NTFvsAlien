@@ -41,7 +41,6 @@
 /obj/item/clothing/mask/facehugger/latching/Initialize(mapload, ...)
 	. = ..()
 	if(filter_color)
-		color = filter_color
 		add_filter("base_color", -10, color_matrix_filter(filter_color))
 
 /obj/item/clothing/mask/facehugger/latching/proc/special_effect()

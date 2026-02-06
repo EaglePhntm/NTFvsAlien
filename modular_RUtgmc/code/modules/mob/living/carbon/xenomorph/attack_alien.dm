@@ -21,5 +21,6 @@
 				span_notice("We stare at [src]."), null, 5)
 			return FALSE
 		if(INTENT_HARM, INTENT_DISARM)
+			F.special_pounce(src)
 			return attack_alien_harm(F)
 	return FALSE

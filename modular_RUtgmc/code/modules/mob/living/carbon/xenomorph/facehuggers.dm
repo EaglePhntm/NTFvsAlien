@@ -12,6 +12,8 @@
 		source.status_flags &= ~GODMODE
 		REMOVE_TRAIT(source, TRAIT_HANDS_BLOCKED, REF(src))
 		source.forceMove(get_turf(src))
+		if(!QDELETED(src))
+			qdel(src)
 
 /obj/item/clothing/mask/facehugger/kill_hugger(melt_timer)
 	. = ..()
