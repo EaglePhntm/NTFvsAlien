@@ -340,7 +340,7 @@ GLOBAL_LIST_INIT(stim_type_lookup, init_stims())
 	particles = /particles/stims/speed
 
 /datum/stim/speed_increase/finish_cast(mob/living/owner)
-	owner.add_movespeed_modifier(MOVESPEED_ID_STIM_INCREASE, TRUE, 0, NONE, TRUE, -0.1)
+	owner.add_movespeed_modifier(MOVESPEED_ID_STIM_INCREASE, TRUE, 0, NONE, TRUE, -0.2)
 	return ..()
 
 /datum/stim/speed_increase/end_effects(mob/living/owner)
