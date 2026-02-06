@@ -18,6 +18,9 @@
 /obj/item/clothing/mask/facehugger/kill_hugger(melt_timer)
 	. = ..()
 	if(isxenofacehugger(source))
+		if(!isturf(source.loc))
+			source.forceMove(loc)
+		source.on_death() //you and mask are one, goofy ass
 		qdel(src)
 
 /mob/living/carbon/xenomorph/facehugger/do_resist()

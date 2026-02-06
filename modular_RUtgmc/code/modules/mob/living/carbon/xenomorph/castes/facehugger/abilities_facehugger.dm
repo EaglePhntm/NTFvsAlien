@@ -29,6 +29,13 @@
 	var/mob/living/carbon/xenomorph/facehugger/caster = owner
 	caster.icon_state = "[caster.xeno_caste.caste_name] Walking"
 	for(var/mob/living/carbon/human/H in caster.loc.contents)
+		if(H.in_throw_mode && !H.get_active_held_item() && prob(75))
+			playsound(loc, 'sound/weapons/punch1.ogg', 30, TRUE)
+			H.do_attack_animation(caster, ATTACK_EFFECT_PUNCH)
+			H.visible_message(span_warning("[H] smacks [caster] down mid air!"))
+			caster.Paralyze(self_immobilize_duration)
+			caster.apply_damage(caster.xeno_caste.max_health/3, BRUTE, blocked = MELEE)
+			return
 		if(get_dist(start_turf, caster.loc) <= caster.hug_range)
 			caster.forceMove(get_turf(H))
 			caster.special_pounce(H)
