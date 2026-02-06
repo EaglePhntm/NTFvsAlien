@@ -5,7 +5,7 @@
 
 /datum/action/observer_action/find_facehugger_spawn/action_activate()
 	var/mob/dead/observer/dead_owner = owner
-	if(GLOB.key_to_time_of_death[owner.key] + TIME_BEFORE_TAKING_BODY > world.time && !dead_owner.started_as_observer)
+	if(GLOB.key_to_time_of_death[owner.key] + (TIME_BEFORE_TAKING_BODY/2) > world.time && !dead_owner.started_as_observer)
 		to_chat(owner, span_warning("You died too recently to be able to take a new mob."))
 		return
 

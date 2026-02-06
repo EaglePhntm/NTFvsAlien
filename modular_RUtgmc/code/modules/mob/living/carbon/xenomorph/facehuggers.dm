@@ -7,18 +7,26 @@
 /obj/item/clothing/mask/facehugger/dropped(mob/user)
 	. = ..()
 	//If hugger sentient, then we drop player's hugger
-	if(isxenofacehugger(source))
+	if(isxenofacehugger(source) && isturf(loc))
 		var/mob/living/M = user
+		var/mob/living/carbon/xenomorph/facehugger/phugger = source
 		source.status_flags &= ~GODMODE
 		REMOVE_TRAIT(source, TRAIT_HANDS_BLOCKED, REF(src))
 		source.forceMove(get_turf(M))
 		if(source in M.client_mobs_in_contents)
 			M.client_mobs_in_contents -= source
-		if(sterile || M.status_flags & XENO_HOST)
-			source.death()
-		kill_hugger()
 
 /obj/item/clothing/mask/facehugger/kill_hugger(melt_timer)
 	. = ..()
 	if(isxenofacehugger(source))
 		qdel(src)
+
+/mob/living/carbon/human/relaymove(mob/user, direction)
+	if(user.incapacitated(TRUE))
+		return
+	if(!isxenofacehugger(user))
+		var/mob/living/carbon/xenomorph/facehugger/fhug = user
+		fhug.forceMove(loc)
+		if(fhug.mask)
+			fhug.mask.dropped()
+			qdel(fhug.mask)

@@ -27,7 +27,7 @@
 	crit_health = -25
 
 	// *** Flags *** //
-	caste_flags = CASTE_NOT_IN_BIOSCAN|CASTE_DO_NOT_ANNOUNCE_DEATH|CASTE_DO_NOT_ALERT_LOW_LIFE|CASTE_CAN_RIDE_CRUSHER|CASTE_CAN_BE_GIVEN_PLASMA
+	caste_flags = CASTE_NOT_IN_BIOSCAN|CASTE_DO_NOT_ANNOUNCE_DEATH|CASTE_DO_NOT_ALERT_LOW_LIFE|CASTE_CAN_RIDE_CRUSHER|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_IS_A_MINION
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 
 	// *** Defense *** //
@@ -54,9 +54,9 @@
 	caste_name = "Clawed Facehugger"
 	caste_desc = "This one looks much more active than its fellows. This nasty little creature is a nightmarish scrabble of muscle and sharp, long claws."
 	caste_type_path = /mob/living/carbon/xenomorph/facehugger/combat/slash
-	melee_damage = 35
+	melee_damage = 25
 	attack_delay = 7
-	speed = -1.3
+	speed = -1.5
 
 /datum/xeno_caste/facehugger/neuro
 	display_name = "Neurotoxin Facehugger"

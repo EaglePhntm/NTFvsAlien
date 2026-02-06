@@ -138,6 +138,13 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/pyrogen/primordial,
 	/mob/living/carbon/xenomorph/dragon,
 	/mob/living/carbon/xenomorph/dragon/primordial,
+	/mob/living/carbon/xenomorph/facehugger,
+	/mob/living/carbon/xenomorph/facehugger/combat/slash,
+	/mob/living/carbon/xenomorph/facehugger/chemical/neurotoxin,
+	/mob/living/carbon/xenomorph/facehugger/chemical/aphrotoxin,
+	/mob/living/carbon/xenomorph/facehugger/chemical/ozelomelyn,
+	/mob/living/carbon/xenomorph/facehugger/combat/acid,
+	/mob/living/carbon/xenomorph/facehugger/combat/resin,
 	))
 
 GLOBAL_LIST_INIT(xeno_types_tier_one, list(/datum/xeno_caste/runner, /datum/xeno_caste/drone, /datum/xeno_caste/sentinel, /datum/xeno_caste/defender))
