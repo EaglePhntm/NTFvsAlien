@@ -49,40 +49,40 @@
 	silent_vent_crawl = TRUE
 
 //strains
-/datum/xeno_caste/facehugger/combat/slash
+/datum/xeno_caste/facehugger/slash
 	display_name = "Clawed Facehugger"
 	caste_desc = "This one looks much more active than its fellows. This nasty little creature is a nightmarish scrabble of muscle and sharp, long claws."
 	caste_type_path = /mob/living/carbon/xenomorph/facehugger/combat/slash
 	melee_damage = 35
 	attack_delay = 7
-	actions = list(
-		/datum/action/ability/xeno_action/xeno_resting,
-		/datum/action/ability/xeno_action/watch_xeno,
-		/datum/action/ability/xeno_action/xenohide,
-		/datum/action/ability/activable/xeno/pounce/hugger,
-	)
+	speed = -1.3
 
-/datum/xeno_caste/facehugger/chemical/neuro
+/datum/xeno_caste/facehugger/neuro
 	display_name = "Neurotoxin Facehugger"
 	caste_desc = "This one looks much more active than its fellows. This strange creature has a single prominent sharp proboscis."
 	caste_type_path = /mob/living/carbon/xenomorph/facehugger/chemical/neurotoxin
+	speed = -1.3
 
-/datum/xeno_caste/facehugger/chemical/aphro
+/datum/xeno_caste/facehugger/aphro
 	display_name = "Aphrotoxin Facehugger"
 	caste_desc = "This one looks much more active than its fellows. This strange creature has a single prominent sharp proboscis."
 	caste_type_path = /mob/living/carbon/xenomorph/facehugger/chemical/aphrotoxin
+	speed = -1.3
 
-/datum/xeno_caste/facehugger/chemical/ozelomelyn
+/datum/xeno_caste/facehugger/ozelomelyn
 	display_name = "Ozelomelyn Facehugger"
 	caste_desc = "This one looks much more active than its fellows. This strange creature has a single prominent sharp proboscis."
 	caste_type_path = /mob/living/carbon/xenomorph/facehugger/chemical/ozelomelyn
+	speed = -1.3
 
-/datum/xeno_caste/facehugger/combat/acid
+/datum/xeno_caste/facehugger/acid
 	display_name = "Acid Facehugger"
 	caste_desc = "This one looks much more active than its fellows. This repulsive looking thing is bloated with throbbing, putrescent green sacks of flesh."
 	caste_type_path = /mob/living/carbon/xenomorph/facehugger/combat/acid
+	speed = -1.1
 
-/datum/xeno_caste/facehugger/combat/resin
+/datum/xeno_caste/facehugger/resin
 	display_name = "Resin Facehugger"
 	caste_desc = "This one looks much more active than its fellows. This truly bizzare, bloated creature drips with purple, viscous resin."
 	caste_type_path = /mob/living/carbon/xenomorph/facehugger/combat/resin
+	speed = -1.1

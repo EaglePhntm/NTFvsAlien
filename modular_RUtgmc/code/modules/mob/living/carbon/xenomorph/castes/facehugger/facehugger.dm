@@ -29,7 +29,7 @@
 	bubble_icon = "alien"
 	speaking_noise = SFX_LARVA_TALK
 	var/hugger_type = /obj/item/clothing/mask/facehugger/larval
-	var/hug_range = 1
+	var/hug_range = 2
 	var/filtercolor
 
 /mob/living/carbon/xenomorph/facehugger/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
