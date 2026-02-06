@@ -9,7 +9,7 @@
 	base_strain_type = /mob/living/carbon/xenomorph/facehugger
 
 	tier = XENO_TIER_MINION
-	upgrade = XENO_UPGRADE_INVALID
+	upgrade = XENO_UPGRADE_BASETYPE
 
 	// *** Melee Attacks *** //
 	melee_damage = 5
@@ -47,42 +47,3 @@
 	vent_enter_speed = LARVA_VENT_CRAWL_TIME
 	vent_exit_speed = LARVA_VENT_CRAWL_TIME
 	silent_vent_crawl = TRUE
-
-//strains
-/datum/xeno_caste/facehugger/slash
-	display_name = "Clawed Facehugger"
-	caste_desc = "This one looks much more active than its fellows. This nasty little creature is a nightmarish scrabble of muscle and sharp, long claws."
-	caste_type_path = /mob/living/carbon/xenomorph/facehugger/combat/slash
-	melee_damage = 35
-	attack_delay = 7
-	speed = -1.3
-
-/datum/xeno_caste/facehugger/neuro
-	display_name = "Neurotoxin Facehugger"
-	caste_desc = "This one looks much more active than its fellows. This strange creature has a single prominent sharp proboscis."
-	caste_type_path = /mob/living/carbon/xenomorph/facehugger/chemical/neurotoxin
-	speed = -1.3
-
-/datum/xeno_caste/facehugger/aphro
-	display_name = "Aphrotoxin Facehugger"
-	caste_desc = "This one looks much more active than its fellows. This strange creature has a single prominent sharp proboscis."
-	caste_type_path = /mob/living/carbon/xenomorph/facehugger/chemical/aphrotoxin
-	speed = -1.3
-
-/datum/xeno_caste/facehugger/ozelomelyn
-	display_name = "Ozelomelyn Facehugger"
-	caste_desc = "This one looks much more active than its fellows. This strange creature has a single prominent sharp proboscis."
-	caste_type_path = /mob/living/carbon/xenomorph/facehugger/chemical/ozelomelyn
-	speed = -1.3
-
-/datum/xeno_caste/facehugger/acid
-	display_name = "Acid Facehugger"
-	caste_desc = "This one looks much more active than its fellows. This repulsive looking thing is bloated with throbbing, putrescent green sacks of flesh."
-	caste_type_path = /mob/living/carbon/xenomorph/facehugger/combat/acid
-	speed = -1.1
-
-/datum/xeno_caste/facehugger/resin
-	display_name = "Resin Facehugger"
-	caste_desc = "This one looks much more active than its fellows. This truly bizzare, bloated creature drips with purple, viscous resin."
-	caste_type_path = /mob/living/carbon/xenomorph/facehugger/combat/resin
-	speed = -1.1
