@@ -2,7 +2,9 @@
 	if(F.status_flags & INCORPOREAL)
 		return FALSE
 	if(!Adjacent(src, F))
-		return
+		return FALSE
+	if(throwing)
+		return FALSE
 	switch(F.a_intent)
 		if(INTENT_HELP, INTENT_GRAB) //Try to hug target if this is a human
 			if(ishuman(src))

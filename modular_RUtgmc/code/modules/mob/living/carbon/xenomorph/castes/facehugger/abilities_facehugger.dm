@@ -30,22 +30,22 @@
 	caster.icon_state = "[caster.xeno_caste.caste_name] Walking"
 	if(get_dist(start_turf, caster.loc) <= caster.hug_range)
 		for(var/mob/living/carbon/human/H in caster.loc)
-			caster.try_attach(H)
+			caster.special_pounce(H)
+			if(caster.try_attach(H))
+				caster.forceMove(H)
 			break
+	owner.pass_flags = initial(owner.pass_flags)
 
 /datum/action/ability/activable/xeno/pounce/hugger/mob_hit(datum/source, mob/living/living_target)
+	owner.forceMove(get_turf(living_target))
 	. = ..()
-	var/mob/living/carbon/xenomorph/facehugger/caster = owner
-	if(ishuman(living_target))
-		var/mob/living/carbon/human/H = living_target
-		if(get_dist(start_turf, H) <= caster.hug_range) //Check whether we hugged the target or just knocked it down
-			caster.special_pounce(H)
 
 /datum/action/ability/activable/xeno/pounce/hugger/proc/prepare_to_pounce()
 	if(owner.layer == BELOW_TABLE_LAYER) //Xeno is currently hiding, unhide him
 		owner.layer = MOB_LAYER
 		var/datum/action/ability/xeno_action/xenohide/hide_action = owner.actions_by_path[/datum/action/ability/xeno_action/xenohide]
 		hide_action?.button?.cut_overlay(mutable_appearance('icons/Xeno/actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE)) // Removes Hide action icon border
+	owner.pass_flags &= ~PASS_MOB
 	if(owner.buckled)
 		owner.buckled.unbuckle_mob(owner)
 

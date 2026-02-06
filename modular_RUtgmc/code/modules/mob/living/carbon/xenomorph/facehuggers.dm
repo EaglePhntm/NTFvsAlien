@@ -35,6 +35,6 @@
 	if(!isturf(loc))
 		forceMove(mask.loc)
 		if(mask)
-			mask.dropped()
+			mask.reset_attach_status()
 			qdel(mask)
 	return TRUE

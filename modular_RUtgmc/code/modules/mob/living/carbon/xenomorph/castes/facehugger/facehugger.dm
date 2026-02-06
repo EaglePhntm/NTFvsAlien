@@ -18,7 +18,7 @@
 	mob_size = MOB_SIZE_SMALL
 	pull_speed = -2
 	allow_pass_flags = PASS_MOB|PASS_XENO
-	pass_flags = PASS_LOW_STRUCTURE|PASS_XENO
+	pass_flags = PASS_LOW_STRUCTURE|PASS_MOB|PASS_XENO
 	density = FALSE
 
 	inherent_verbs = list(

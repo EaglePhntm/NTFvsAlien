@@ -34,7 +34,8 @@
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 
 	// *** Minimap Icon *** //
-	minimap_icon = "facehugger"
+	//minimap_icon = "facehugger"
+	minimap_icon = "xenominion"
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
@@ -57,6 +58,7 @@
 	melee_damage = 25
 	attack_delay = 7
 	speed = -1.5
+	plasma_max = 50
 
 /datum/xeno_caste/facehugger/neuro
 	display_name = "Neurotoxin Facehugger"
@@ -85,9 +87,11 @@
 	caste_desc = "This one looks much more active than its fellows. This repulsive looking thing is bloated with throbbing, putrescent green sacks of flesh."
 	caste_type_path = /mob/living/carbon/xenomorph/facehugger/combat/acid
 	speed = -1.1
+	plasma_max = 40 //very deadly
 
 /datum/xeno_caste/facehugger/resin
 	display_name = "Resin Facehugger"
 	caste_desc = "This one looks much more active than its fellows. This truly bizzare, bloated creature drips with purple, viscous resin."
 	caste_type_path = /mob/living/carbon/xenomorph/facehugger/combat/resin
 	speed = -1.1
+	plasma_max = 50
