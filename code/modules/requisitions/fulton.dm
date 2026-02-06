@@ -124,9 +124,6 @@
 	holder_obj.vis_contents -= baloon
 	baloon.icon_state = initial(baloon.icon_state)
 	active = FALSE
-	sleep(2 SECONDS) //to ensure it dont get qdeld early
-	if(uses < 1)
-		qdel(src)
 
 /obj/item/fulton_extraction_pack/tank
 	name = "heavy tank fulton"
@@ -290,6 +287,7 @@
 	if(uses < 1)
 		user.temporarilyRemoveItemFromInventory(src) //Removes the item without qdeling it, qdeling it this early will break the rest of the procs
 		moveToNullspace()
+
 	do_extract(target, user)
 
 	if(linked_extraction_point)
@@ -314,14 +312,18 @@
 			REMOVE_TRAIT(movable_target, TRAIT_IMMOBILE, type)
 	else
 		qdel(target)
+		if(uses < 1)
+			qdel(src)
 
 /// handles cleanup of post-animation stuff (ie just after it lands)
 /obj/item/fulton_extraction_pack/adminbus/proc/clean_fultondrop(mob/living/carbon/human/movable_target, list/anim_overlays)
 	movable_target.cut_overlay(anim_overlays)
 	var/image/fulton_image = image('icons/obj/items/fulton_balloon.dmi', src, "fulton_retract")
 	movable_target.add_overlay(list(fulton_image))
-	sleep(4 SECONDS)
+	sleep(4)
 	movable_target.cut_overlay(list(fulton_image))
+	if(uses < 1)
+		QDEL_IN(src, 3 SECONDS)
 
 
 /obj/vehicle/sealed/armored/fulton_act(mob/living/user, obj/item/I)
