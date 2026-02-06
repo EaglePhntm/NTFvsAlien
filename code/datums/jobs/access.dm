@@ -378,7 +378,7 @@
 		if("CLF4")
 			. = size ? "CLFS" : "CLF Specialist"
 		if("CLF5")
-			. = size ? "CLFT" : "CLF Base Technician"
+			. = size ? "CLFT" : "CLF Combat Technician"
 		if("SOM_E1")
 			. = size ? "PTE" : "SOM Private"
 		if("SOM_E2")

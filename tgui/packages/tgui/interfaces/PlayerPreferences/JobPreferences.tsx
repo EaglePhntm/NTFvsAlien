@@ -95,7 +95,7 @@ export const JobPreferences = (props) => {
     'CLF Specialist',
     'CLF Synthetic',
     'CLF Leader',
-    'CLF Base Technician',
+    'CLF Combat Technician',
     'CLF Representative',
   ];
   const cmJobs = [
