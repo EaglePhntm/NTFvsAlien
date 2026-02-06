@@ -123,8 +123,8 @@
 	for(var/obj/item/alien_embryo/embryo in affected_mob.contents)
 		if(embryo.affected_mob == affected_mob)
 			embryos_in_host++
-	var/current_psypoint_reward = psych_points_output * (1/3) / embryos_in_host
-	var/current_biomass_reward =  MUTATION_BIOMASS_PER_EMBRYO_TICK * (1/3) / embryos_in_host
+	var/current_psypoint_reward = psych_points_output * EMBRYO_REWARD_IMMEDIATE_FRACTION / embryos_in_host
+	var/current_biomass_reward =  MUTATION_BIOMASS_PER_EMBRYO_TICK * EMBRYO_REWARD_IMMEDIATE_FRACTION / embryos_in_host
 	if(affected_mob.client && (affected_mob.client.inactivity < 10 MINUTES))
 		current_psypoint_reward *= 10
 		current_biomass_reward *= 10
@@ -143,8 +143,8 @@
 		SSpoints.add_tactical_psy_points(hivenumber, current_psypoint_reward*0.25)
 		SSpoints.add_biomass_points(hivenumber, current_biomass_reward)
 
-	psypoint_reward += current_psypoint_reward * 2
-	biomass_reward += current_psypoint_reward * 2
+	psypoint_reward += current_psypoint_reward * EMBRYO_REWARD_DELAYED_MULTIPLIER
+	biomass_reward += current_psypoint_reward * EMBRYO_REWARD_DELAYED_MULTIPLIER
 	if(!first_reward_claimed)
 		first_reward_claimed = TRUE
 		GLOB.round_statistics.total_embryos_rewarding++
