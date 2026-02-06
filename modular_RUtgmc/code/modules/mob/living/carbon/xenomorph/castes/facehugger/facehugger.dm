@@ -30,12 +30,15 @@
 	speaking_noise = SFX_LARVA_TALK
 	var/hugger_type = /obj/item/clothing/mask/facehugger/larval
 	var/hug_range = 2
+	var/filtercolor
 
 /mob/living/carbon/xenomorph/facehugger/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SILENT_FOOTSTEPS, XENO_TRAIT)
 	if(!mind)
 		LAZYOR(GLOB.ssd_living_mobs, src)
+	if(filtercolor)
+		add_filter("base_color", -10, color_matrix_filter(filtercolor))
 
 // ***************************************
 // *********** Mob overrides
@@ -83,3 +86,28 @@
 	else
 		qdel(mask)
 		return FALSE
+
+//strains
+/mob/living/carbon/xenomorph/facehugger/combat/slash
+	hugger_type = /obj/item/clothing/mask/facehugger/combat/slash
+	hug_range = 4
+
+/mob/living/carbon/xenomorph/facehugger/chemical/neurotoxin
+	hugger_type = /obj/item/clothing/mask/facehugger/combat/chem_injector/neuro
+	hug_range = 4
+
+/mob/living/carbon/xenomorph/facehugger/chemical/aphrotoxin
+	hugger_type = /obj/item/clothing/mask/facehugger/combat/chem_injector/aphrotoxin
+	hug_range = 4
+
+/mob/living/carbon/xenomorph/facehugger/chemical/ozelomelyn
+	hugger_type = /obj/item/clothing/mask/facehugger/combat/chem_injector/ozelomelyn
+	hug_range = 4
+
+/mob/living/carbon/xenomorph/facehugger/combat/acid
+	hugger_type = /obj/item/clothing/mask/facehugger/combat/acid
+	hug_range = 4
+
+/mob/living/carbon/xenomorph/facehugger/combat/resin
+	hugger_type = /obj/item/clothing/mask/facehugger/combat/resin
+	hug_range = 4

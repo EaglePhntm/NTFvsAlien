@@ -22,12 +22,18 @@
 	self_immobilize_duration = 1 SECONDS
 	leap_pass_flags = PASS_LOW_STRUCTURE|PASS_FIRE
 
+
+/datum/action/ability/activable/xeno/pounce/hugger/movement_fx()
+	. = ..()
+
 // TODO: merge this ability into runner pounce (can't do it right now - the runner's pounce has too many unnecessary sounds/messages)
 /datum/action/ability/activable/xeno/pounce/hugger/pounce_complete()
+	. = ..()
 	var/mob/living/carbon/xenomorph/caster = owner
 	caster.icon_state = "[caster.xeno_caste.caste_name] Walking"
 
 /datum/action/ability/activable/xeno/pounce/hugger/object_hit(datum/source, obj/target, speed)
+	. = ..()
 	target.hitby(owner, speed)
 	pounce_complete()
 
