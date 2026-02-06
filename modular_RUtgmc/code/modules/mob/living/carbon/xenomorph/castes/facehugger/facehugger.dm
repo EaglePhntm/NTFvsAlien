@@ -28,11 +28,13 @@
 	bubble_icon = "alien"
 	speaking_noise = SFX_LARVA_TALK
 	var/obj/item/clothing/mask/facehugger/latching/hugger_type = /obj/item/clothing/mask/facehugger/latching
-	var/hug_range = 2
+	var/hug_range = 3
 	var/filtercolor
 	var/obj/item/clothing/mask/facehugger/mask
 
 /mob/living/carbon/xenomorph/facehugger/proc/special_pounce(mob/living/carbon/human/host)
+
+/mob/living/carbon/xenomorph/facehugger/proc/melee_effects(mob/living/carbon/human/host)
 
 /mob/living/carbon/xenomorph/facehugger/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
@@ -92,8 +94,9 @@
 
 //strains
 /mob/living/carbon/xenomorph/facehugger/combat/slash
+	name = "Clawed Facehugger"
 	hugger_type = /obj/item/clothing/mask/facehugger/latching/clawer
-	hug_range = 3
+	hug_range = 5
 
 /mob/living/carbon/xenomorph/facehugger/combat/slash/special_pounce(mob/living/carbon/human/host)
 	host.attack_alien_harm(src)
@@ -113,9 +116,13 @@
 	playsound(host, 'sound/effects/spray3.ogg', 25, 1)
 	host.visible_message(span_danger("[src] penetrates [host] with its sharp probscius!"), span_danger("[src] penetrates you with a sharp probscius before falling down!"))
 
+/mob/living/carbon/xenomorph/facehugger/chemical/melee_effects(mob/living/carbon/human/host)
+	special_pounce(host)
+
 /mob/living/carbon/xenomorph/facehugger/chemical/neurotoxin
+	name = "Neurotoxin Facehugger"
 	hugger_type = /obj/item/clothing/mask/facehugger/latching/chemical/neuro
-	hug_range = 3
+	hug_range = 4
 	injected_chemical_type = /datum/reagent/toxin/xeno_neurotoxin
 	amount_injected = 12
 
@@ -128,18 +135,21 @@
 	host.apply_damage(damage, STAMINA, BODY_ZONE_HEAD, updating_health = TRUE) //This should prevent sprinting
 
 /mob/living/carbon/xenomorph/facehugger/chemical/aphrotoxin
+	name = "Aphrotoxin Facehugger"
 	hugger_type = /obj/item/clothing/mask/facehugger/latching/chemical/aphrotox
-	hug_range = 3
+	hug_range = 4
 	injected_chemical_type = /datum/reagent/toxin/xeno_aphrotoxin
 
 /mob/living/carbon/xenomorph/facehugger/chemical/ozelomelyn
+	name = "Ozelomelyn Facehugger"
 	hugger_type = /obj/item/clothing/mask/facehugger/latching/chemical/ozelomelyn
-	hug_range = 3
+	hug_range = 4
 	injected_chemical_type = /datum/reagent/toxin/xeno_ozelomelyn
 
 /mob/living/carbon/xenomorph/facehugger/combat/acid
+	name = "Acid Facehugger"
 	hugger_type = /obj/item/clothing/mask/facehugger/latching/chemical/acid
-	hug_range = 2
+	hug_range = 3
 
 /mob/living/carbon/xenomorph/facehugger/combat/acid/special_pounce(mob/living/carbon/human/host)
 	set_plasma(0, TRUE)
@@ -154,8 +164,9 @@
 	A.start()
 
 /mob/living/carbon/xenomorph/facehugger/combat/resin
+	name = "Resin Facehugger"
 	hugger_type = /obj/item/clothing/mask/facehugger/latching/chemical/resin
-	hug_range = 2
+	hug_range = 3
 
 /mob/living/carbon/xenomorph/facehugger/combat/resin/special_pounce(mob/living/carbon/human/host)
 	set_plasma(0, TRUE)

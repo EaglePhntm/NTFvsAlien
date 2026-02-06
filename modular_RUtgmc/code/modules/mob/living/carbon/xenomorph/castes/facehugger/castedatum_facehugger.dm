@@ -27,7 +27,7 @@
 	crit_health = -25
 
 	// *** Flags *** //
-	caste_flags = CASTE_NOT_IN_BIOSCAN|CASTE_DO_NOT_ANNOUNCE_DEATH|CASTE_DO_NOT_ALERT_LOW_LIFE|CASTE_CAN_RIDE_CRUSHER|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_IS_A_MINION
+	caste_flags = CASTE_NOT_IN_BIOSCAN|CASTE_DO_NOT_ANNOUNCE_DEATH|CASTE_DO_NOT_ALERT_LOW_LIFE|CASTE_CAN_RIDE_CRUSHER|CASTE_CAN_BE_GIVEN_PLASMA
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 
 	// *** Defense *** //
@@ -66,6 +66,7 @@
 	caste_desc = "This one looks much more active than its fellows. This strange creature has a single prominent sharp proboscis."
 	caste_type_path = /mob/living/carbon/xenomorph/facehugger/chemical/neurotoxin
 	speed = -1.3
+	attack_delay = 9
 
 /datum/xeno_caste/facehugger/aphro
 	display_name = "Aphrotoxin Facehugger"
@@ -73,6 +74,7 @@
 	caste_desc = "This one looks much more active than its fellows. This strange creature has a single prominent sharp proboscis."
 	caste_type_path = /mob/living/carbon/xenomorph/facehugger/chemical/aphrotoxin
 	speed = -1.3
+	attack_delay = 9
 
 /datum/xeno_caste/facehugger/ozelomelyn
 	display_name = "Ozelomelyn Facehugger"
@@ -80,6 +82,7 @@
 	caste_desc = "This one looks much more active than its fellows. This strange creature has a single prominent sharp proboscis."
 	caste_type_path = /mob/living/carbon/xenomorph/facehugger/chemical/ozelomelyn
 	speed = -1.3
+	attack_delay = 9
 
 /datum/xeno_caste/facehugger/acid
 	display_name = "Acid Facehugger"

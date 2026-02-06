@@ -23,6 +23,13 @@
 	leap_pass_flags = PASS_LOW_STRUCTURE|PASS_FIRE
 	pounce_sound = null
 
+/datum/action/ability/activable/xeno/pounce/hugger/give_action(mob/living/L)
+	. = ..()
+	var/mob/living/carbon/xenomorph/facehugger/caster = owner
+	if(!caster)
+		return
+	desc = "Leap at your target and knock them down, if you jump within [caster.hug_range] tiles, you will hug the target and apply any other effects depending on your type."
+
 // TODO: merge this ability into runner pounce (can't do it right now - the runner's pounce has too many unnecessary sounds/messages)
 /datum/action/ability/activable/xeno/pounce/hugger/pounce_complete()
 	. = ..()
@@ -30,7 +37,7 @@
 	caster.icon_state = "[caster.xeno_caste.caste_name] Walking"
 	for(var/mob/living/carbon/human/H in caster.loc.contents)
 		if(H.in_throw_mode && !H.get_active_held_item() && prob(75))
-			playsound(loc, 'sound/weapons/punch1.ogg', 30, TRUE)
+			playsound(caster.loc, 'sound/weapons/punch1.ogg', 30, TRUE)
 			H.do_attack_animation(caster, ATTACK_EFFECT_PUNCH)
 			H.visible_message(span_warning("[H] smacks [caster] down mid air!"))
 			caster.Paralyze(self_immobilize_duration)
