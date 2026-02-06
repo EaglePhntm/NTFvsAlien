@@ -1,4 +1,0 @@
-author: "OrbisAnima"
-delete-after: True
-changes:
-  - bugfix: "Tactical Sensors no longer turn off when a weapon is stashed, as long as they are in a pocket."

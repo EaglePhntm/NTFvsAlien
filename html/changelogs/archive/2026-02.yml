@@ -14,3 +14,28 @@
       are faster
   - balance: Combat robots become paralyzed when at -80% health, rather than continuing
       until death
+2026-02-06:
+  CaputCapital:
+  - rscadd: KZ loadouts have been fixed
+  - rscadd: New KZ loadouts have been added to all KZ roles
+  - rscadd: lMG-D, lMG-D drum mags, V-34 black pattern, and 10 extended magazines
+      have been added to KZ's weapon vendors
+  Colfer1:
+  - qol: The health EKG has been changed to a healthbar for carbon mobs
+  Joe13413:
+  - bugfix: replaced rogue space tiles in tgmc airfield map
+  Lumipharon:
+  - code_imp: Map votes will now choose a random valid map if no one votes
+  OrbisAnima:
+  - bugfix: Tactical Sensors no longer turn off when a weapon is stashed, as long
+      as they are in a pocket.
+  Runian:
+  - rscadd: Mosin Nagant clips can now be obtained in no longer exclusive to Nuclear
+      War's weapon vendor. It can now be obtained in the weapon vendor for Crash &
+      Valhalla as well.
+  destrucktoid:
+  - rscadd: New generic skillbook for usage in adding more skillbooks in the future.
+  - balance: FC gets -1 to engineering skills but their loadout vendor will give them
+      a book which lets them choose between +1 engineering or +1 to surgery.
+  mudzbe:
+  - bugfix: Cleanup mech removal queen evo oversight

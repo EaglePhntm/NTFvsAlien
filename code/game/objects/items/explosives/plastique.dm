@@ -216,3 +216,7 @@
 
 /turf/open/can_plastique(mob/user, obj/plastique)
 	return FALSE
+
+/obj/machinery/power/apc/can_plastique(mob/user, obj/plastique)
+	return FALSE
+

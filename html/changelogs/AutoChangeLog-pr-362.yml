@@ -1,5 +1,0 @@
-author: "destrucktoid"
-delete-after: True
-changes:
-  - rscadd: "New generic skillbook for usage in adding more skillbooks in the future."
-  - balance: "FC gets -1 to engineering skills but their loadout vendor will give them a book which lets them choose between +1 engineering or +1 to surgery."
