@@ -762,6 +762,8 @@
 			/obj/item/ammo_magazine/pistol/xmdivider/ap = -1,
 			/obj/item/weapon/gun/pistol/vp70 = -1,
 			/obj/item/ammo_magazine/pistol/vp70 = -1,
+			/obj/item/weapon/gun/pistol/c99 = -1, 
+			/obj/item/ammo_magazine/pistol/c99 = -1,
 		),
 		"Grenades" = list(
 			/obj/item/explosive/grenade/vsd = 200,
