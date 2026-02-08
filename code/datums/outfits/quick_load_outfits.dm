@@ -3128,7 +3128,7 @@
 
 /datum/outfit/quick/vsd/spec/scout
 	name = "T73 'Spetsnaz' KZ Specialist"
-	desc = "Comb the forests with covert intent. Equipped with the rownin skeleton, supplied with valkyrie beta, an overclocked ehield, a Type 73 Commando, smoke grenades, and a UV-T skink for safe scouting."
+	desc = "Comb the forests with covert intent. Equipped with the rownin skeleton, supplied with valkyrie beta, an overclocked eshield, a Type 73 Commando, smoke grenades, and a UV-T skink for remote scouting."
 	glasses = /obj/item/clothing/glasses/night/vsd/alt
 	w_uniform = /obj/item/clothing/under/vsd/webbing
 	shoes = /obj/item/clothing/shoes/marine/vsd/full
@@ -3374,7 +3374,7 @@
 
 /datum/outfit/quick/vsd/recon
 	name = "T73 'Komandir' KZ Squad Leader"
-	desc = "You're in charge and look the part, infiltrate and disrupt. Equipped with the rownin skeleton, supplied with valkyrie beta, an overclocked ehield, a Type 73 Commando, GL-81 grenade launcher, smoke and EMP grenades."
+	desc = "You're in charge and look the part, infiltrate and disrupt. Equipped with the rownin skeleton, supplied with valkyrie beta, an overclocked eshield, a Type 73 Commando, GL-81 grenade launcher, smoke and EMP grenades."
 	jobtype = "KZ Squad Leader"
 	glasses = /obj/item/clothing/glasses/night/vsd/alt
 	w_uniform = /obj/item/clothing/under/vsd/webbing
