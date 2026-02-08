@@ -228,12 +228,37 @@
 
 /obj/item/ammo_magazine/rifle/m16
 	name = "\improper M16 magazine (5.56x45mm)"
-	desc = "A 5.56x45mm magazine for the M16 assault rifle platform."
+	desc = "A thirty round 5.56x45mm magazine for the M16 assault rifle platform."
 	caliber = CALIBER_556X45
-	icon_state = "m16" //PLACEHOLDER
-	icon_state_mini = "mag_rifle_big"
+	icon_state = "m16"
+	icon_state_mini = "mag_rifle"
+	bonus_overlay = "m16_mag"
 	default_ammo = /datum/ammo/bullet/rifle
-	max_rounds = 30 //Also comes in 30 and 100 round Beta-C mag.
+	max_rounds = 30 //Other variants include a quad stacked 60 mag and 100 round Beta-C mag.
+
+/obj/item/ammo_magazine/rifle/m16_quadstack
+	name = "\improper M16 quad stacked magazine (5.56x45mm)"
+	desc = "A sixty round 5.56x45mm quad stacked magazine for the M16 assault rifle platform."
+	caliber = CALIBER_556X45
+	icon_state = "m16quad"
+	icon_state_mini = "mag_rifle_big"
+	bonus_overlay = "m16_quadmag"
+	default_ammo = /datum/ammo/bullet/rifle
+	max_rounds = 60 //Also comes in 30 and 100 round Beta-C mag.
+	aim_speed_mod = 0.2
+	wield_delay_mod = 0.2 SECONDS
+
+/obj/item/ammo_magazine/rifle/m16_cmag
+	name = "\improper M16 beta c-mag (5.56x45mm)"
+	desc = "A hundred round 5.56x45mm beta-c mag for the M16 assault rifle platform."
+	caliber = CALIBER_556X45
+	icon_state = "m16cmag"
+	icon_state_mini = "mag_drum"
+	bonus_overlay = "m16_cmag"
+	default_ammo = /datum/ammo/bullet/rifle
+	max_rounds = 100 //Also comes in 30 and 100 round Beta-C mag.
+	aim_speed_mod = 0.4
+	wield_delay_mod = 0.4 SECONDS
 
 //-------------------------------------------------------
 //FAMAS RIFLE
