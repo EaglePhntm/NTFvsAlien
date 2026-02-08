@@ -629,7 +629,7 @@
 			balloon_alert(user, "no gunner utility module")
 			return
 		balloon_alert(user, "detaching gunner utility")
-		if(!do_after(user, 2 SECONDS, NONE, src))
+		if(!do_after(user, 40 SECONDS, NONE, src))
 			return
 		gunner_utility_module.on_unequip(user)
 		balloon_alert(user, "detached")
@@ -647,7 +647,7 @@
 		balloon_alert(user, "no primary weapon")
 		return
 	balloon_alert(user, "detaching primary")
-	if(!do_after(user, 2 SECONDS, NONE, src))
+	if(!do_after(user, 40 SECONDS, NONE, src))
 		return
 	var/obj/item/armored_weapon/gun = primary_weapon
 	primary_weapon.detach(loc)
@@ -666,7 +666,7 @@
 		balloon_alert(user, "no secondary weapon")
 		return
 	balloon_alert(user, "detaching secondary")
-	if(!do_after(user, 2 SECONDS, NONE, src))
+	if(!do_after(user, 40 SECONDS, NONE, src))
 		return
 	var/obj/item/armored_weapon/gun = secondary_weapon
 	secondary_weapon.detach(loc)
@@ -682,7 +682,7 @@
 		balloon_alert(user, "no driver utility module")
 		return
 	balloon_alert(user, "detaching driver utility")
-	if(!do_after(user, 2 SECONDS, NONE, src))
+	if(!do_after(user, 40 SECONDS, NONE, src))
 		return
 	driver_utility_module.on_unequip(user)
 	balloon_alert(user, "detached")
