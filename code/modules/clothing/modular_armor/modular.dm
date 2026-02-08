@@ -301,9 +301,37 @@
 	allowed_uniform_type = /obj/item/clothing/under/rank/clown/erp
 
 /obj/item/clothing/suit/modular/rownin/vsdelite
-	name = "\improper Rownin Skeleton"
+	name = "VSD Rownin Skeleton"
+	desc = "An experimental Rownin Skeleton developed for the former VSD operatives now operating for KZ. Reserved for Lieutenants and above. Outfitted with both the valkyrie autodoc beta and an overclocked eshield for improved odds of survival. The armor supports only the core modules it arrived with, but can be outfitted with any storage module. Only the valkyrie autodoc beta and overclocked eshield can fit on the specialized skeleton. Due to complex rigging, they cannot be applied to most forms of modular armor. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
+	attachments_by_slot = list(
+		ATTACHMENT_SLOT_CHESTPLATE,
+		ATTACHMENT_SLOT_SHOULDER,
+		ATTACHMENT_SLOT_KNEE,
+		ATTACHMENT_SLOT_MODULE,
+		ATTACHMENT_SLOT_STORAGE,
+		ATTACHMENT_SLOT_BADGE,
+		ATTACHMENT_SLOT_BELT,
+	)
+	attachments_allowed = list(
+// Armor Modules
+		/obj/item/armor_module/module/valkyrie_autodoc_beta,
+		/obj/item/armor_module/module/eshield/vsd/overclocked,
+// Storage Modules
+		/obj/item/armor_module/storage/general,
+		/obj/item/armor_module/storage/ammo_mag,
+		/obj/item/armor_module/storage/engineering,
+		/obj/item/armor_module/storage/medical,
+		/obj/item/armor_module/storage/general/som,
+		/obj/item/armor_module/storage/engineering/som,
+		/obj/item/armor_module/storage/medical/som,
+		/obj/item/armor_module/storage/injector,
+		/obj/item/armor_module/storage/grenade,
+		/obj/item/armor_module/storage/integrated,
+		/obj/item/armor_module/armor/badge,
+		)
 	starting_attachments = list(
-		/obj/item/armor_module/module/valkyrie_autodoc,
+		/obj/item/armor_module/module/eshield/vsd/overclocked,
+		/obj/item/armor_module/module/valkyrie_autodoc_beta,
 		/obj/item/armor_module/storage/ammo_mag,
 	)
 
