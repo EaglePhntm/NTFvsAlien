@@ -531,6 +531,7 @@
 	worn_icon_state = "uzi"
 	caliber = CALIBER_9X19 //codex
 	max_shells = 32 //codex
+	w_class = WEIGHT_CLASS_NORMAL
 	fire_sound = 'sound/weapons/guns/fire/uzi.ogg'
 	unload_sound = 'sound/weapons/guns/interact/uzi_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/uzi_reload.ogg'
