@@ -607,6 +607,7 @@
 		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/foldable/bipod,
 		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/scope,
 		/obj/item/attachable/scope/mini,
 		/obj/item/weapon/gun/pistol/plasma_pistol,
@@ -628,8 +629,8 @@
 	force = 20
 
 	burst_amount = 1
-	fire_delay = 0.25 SECONDS
-	scatter = 0
+	fire_delay = 0.225 SECONDS
+	scatter = 1
 	wield_delay = 0.9 SECONDS
 
 	placed_overlay_iconstate = "ak47"
@@ -661,6 +662,7 @@
 		/obj/item/attachable/bayonet/som,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/buildasentry,
 		/obj/item/attachable/stock/mpi_km/black,
 		/obj/item/attachable/shoulder_mount,
@@ -672,6 +674,8 @@
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
 		/obj/item/weapon/gun/grenade_launcher/underslung/mpi, //alt sprite, unremovable
 		/obj/item/attachable/reddot,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/mini,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight/under,
 	)
@@ -696,7 +700,7 @@
 
 /obj/item/weapon/gun/rifle/lmg_d
 	name = "\improper lMG-D light machinegun"
-	desc = "A cheap and robust machinegun, sometimes better known as an 'RPD'. Chambers 7.62x39mm. Despite lacking attachment points beyond its underbarrel, remains a popular product on the black market with its cheap cost, high capacity and higher than usual caliber rounds."
+	desc = "A cheap and robust machinegun, sometimes better known as an 'RPD'. Chambers 7.62x39mm. Despite lacking an attachment point at the muzzle, remains a popular product on the black market with its cheap cost, high capacity and higher than usual caliber rounds."
 	icon = 'icons/obj/items/guns/machineguns64.dmi'
 	icon_state = "rpd"
 	worn_icon_state = "rpd"
@@ -723,6 +727,7 @@
 		/obj/item/attachable/bayonet/som,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/buildasentry,
 		/obj/item/attachable/stock/lmg_d,
 		/obj/item/attachable/shoulder_mount,
@@ -745,8 +750,8 @@
 	attachable_offset = list("muzzle_x" = 35, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 20, "under_x" = 19, "under_y" = 14, "stock_x" = 6, "stock_y" = 14)
 	starting_attachment_types = list(/obj/item/attachable/stock/lmg_d)
 
-	fire_delay = 0.25 SECONDS
-	scatter = 2
+	fire_delay = 0.2 SECONDS
+	scatter = 5
 	burst_amount = 1
 	movement_acc_penalty_mult = 6
 
@@ -820,7 +825,7 @@
 	reload_sound = 'sound/weapons/guns/interact/m16_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/m16_cocked.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/rifle/m16
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/m16)
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/m16, /obj/item/ammo_magazine/rifle/m16_quadstack, /obj/item/ammo_magazine/rifle/m16_cmag)
 	aim_slowdown = 0.4
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
@@ -838,6 +843,7 @@
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/compensator,
 		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/m16sight,
 		/obj/item/attachable/scope,
 		/obj/item/attachable/scope/mini,
@@ -851,7 +857,7 @@
 	)
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
-	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE)
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
 	attachable_offset = list("muzzle_x" = 47, "muzzle_y" = 19,"rail_x" = 18, "rail_y" = 24, "under_x" = 29, "under_y" = 15, "stock_x" = 19, "stock_y" = 13)
 	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.2 SECONDS
@@ -1915,6 +1921,7 @@
 		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/heavy_barrel,
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/bayonet/converted,
@@ -2393,6 +2400,7 @@
 		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/foldable/bipod,
 		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/scope,
 		/obj/item/attachable/scope/mini,
 		/obj/item/weapon/gun/pistol/plasma_pistol,
@@ -2447,6 +2455,7 @@
 		/obj/item/attachable/foldable/bipod,
 		/obj/item/attachable/burstfire_assembly,
 		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/scope,
 		/obj/item/attachable/scope/mini,
 		/obj/item/weapon/gun/pistol/plasma_pistol,
@@ -2722,6 +2731,7 @@
 		/obj/item/attachable/heavy_barrel,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/mini,
 		/obj/item/attachable/scope/marine,
 		/obj/item/attachable/motiondetector,
 		/obj/item/weapon/gun/pistol/plasma_pistol,
@@ -2933,6 +2943,7 @@
 		/obj/item/attachable/foldable/bipod,
 		/obj/item/attachable/burstfire_assembly,
 		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/scope,
 		/obj/item/attachable/scope/mini,
 		/obj/item/weapon/gun/pistol/plasma_pistol,
@@ -3106,8 +3117,8 @@
 // CC/67, the new C550!
 
 /obj/item/weapon/gun/rifle/vsd_rifle
-	name = "\improper CC/67 marksman rifle"
-	desc = "Crash Core's next-gen marksman rifle, chambered in 10x27mm. Combat and Support worthy, this will pack a kick to anyone standing infront of you."
+	name = "\improper CC/67 combat rifle"
+	desc = "Crash Core's next-gen combat rifle, chambered in 10x27mm. The KZ SOP manual recommends using the CC/67 at medium range to maximize stopping power and accuracy. The CC/67 has a few caveats for being difficult to handle in close quarters and loses effectiveness at longer distances due to falloff. This Crash Core combat rifle is still hard hitting and suppression worthy, it will pack a kick to anyone standing in front of you."
 	icon = 'icons/obj/items/guns/rifles64.dmi'
 	icon_state = "c550"
 	worn_icon_state = "c550"
@@ -3121,7 +3132,7 @@
 	dry_fire_sound = 'sound/weapons/guns/fire/deagle_empty.ogg'
 	unload_sound = 'sound/weapons/guns/interact/m41a_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/m41a_reload.ogg'
-	aim_slowdown = 0.5
+	aim_slowdown = 0.6
 	wield_delay =  1.2 SECONDS
 	max_shells = 30 //codex
 	default_ammo_type = /obj/item/ammo_magazine/rifle/vsd_rifle
@@ -3158,15 +3169,18 @@
 	)
 
 	attachable_offset = list("muzzle_x" = 63, "muzzle_y" = 19,"rail_x" = 27, "rail_y" = 23, "under_x" = 40, "under_y" = 15, "stock_x" = 8, "stock_y" = 13)
-	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
 	aim_fire_delay = 0.2 SECONDS
 	aim_speed_modifier = 2
 
-	fire_delay = 0.5 SECONDS
-	accuracy_mult = 1.15
-	scatter = -4
-	burst_amount = 1
+	fire_delay = 0.3 SECONDS
+	burst_delay = 0.125 SECONDS
+	extra_delay = 0.225 SECONDS
+	accuracy_mult = 1.1
+	scatter = 0
+	burst_amount = 3
 	movement_acc_penalty_mult = 6
+	damage_falloff_mult = 2.5
 
 /obj/item/weapon/gun/rifle/vsd_rifle/standard
 	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/verticalgrip, /obj/item/attachable/extended_barrel)
