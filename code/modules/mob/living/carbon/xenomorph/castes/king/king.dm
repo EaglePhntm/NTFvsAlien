@@ -25,7 +25,7 @@
 	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
 	var/prefix = "[hive.prefix][xeno_caste.upgrade_name ? "[xeno_caste.upgrade_name] " : ""]"
 	if(!client?.prefs.show_xeno_rank || !client)
-		name = prefix + "King"
+		name = "[prefix]King[src == hive.living_xeno_ruler ? " Regnant" :""] ([nicknumber])"
 		real_name = name
 		if(mind)
 			mind.name = name
@@ -68,12 +68,6 @@
 	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
 	var/rank_name
 	var/prefix = "[hive.prefix][xeno_caste.upgrade_name ? "[xeno_caste.upgrade_name] " : ""]"
-	if(!client?.prefs.show_xeno_rank || !client)
-		name = prefix + "[xeno_caste.display_name] ([nicknumber])"
-		real_name = name
-		if(mind)
-			mind.name = name
-		return
 	switch(playtime_mins)
 		if(601 to 1500) //10 hours
 			rank_name = "Mature"
@@ -85,6 +79,8 @@
 			rank_name = "Exalted"
 		else
 			rank_name = "Young"
+	if(!client?.prefs.show_xeno_rank || !client)
+		rank_name = ""
 	name = prefix + "[rank_name ? "[rank_name] " : ""][xeno_caste.display_name][src == hive.living_xeno_ruler ? " Regnant" :""] ([nicknumber])"
 	real_name = name
 	if(mind)

@@ -162,6 +162,7 @@
 	///Uniform type that is allowed to be worn with this.
 	var/allowed_uniform_type = /obj/item/clothing/under
 
+	shows_butt = TRUE
 	shows_bottom_genital = TRUE
 	shows_top_genital = TRUE
 
@@ -298,14 +299,14 @@
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
 
 	allowed_uniform_type = /obj/item/clothing/under/rank/clown/erp
-	
+
 /obj/item/clothing/suit/modular/rownin/vsdelite
 	name = "\improper Rownin Skeleton"
 	starting_attachments = list(
 		/obj/item/armor_module/module/valkyrie_autodoc,
 		/obj/item/armor_module/storage/ammo_mag,
 	)
-	
+
 /obj/item/clothing/suit/modular/rownin/vsdelitealt
 	name = "\improper Rownin Skeleton"
 	starting_attachments = list(

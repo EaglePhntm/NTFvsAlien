@@ -10,7 +10,7 @@
 	greyscale_config = /datum/greyscale_config/xenonaut/bikini
 	slowdown = SLOWDOWN_ARMOR_VERY_LIGHT
 	soft_armor = list(MELEE = 35, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 40, BIO = 40, FIRE = 50, ACID = 40)
-	shows_bottom_genital = TRUE
+	shows_butt = TRUE
 
 /datum/greyscale_config/xenonaut/bulletproof
 	icon_file = 'ntf_modular/icons/mob/modular/xenonauten.dmi'

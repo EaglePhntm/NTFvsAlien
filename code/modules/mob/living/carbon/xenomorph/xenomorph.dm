@@ -171,12 +171,6 @@
 	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
 	var/rank_name
 	var/prefix = "[hive.prefix][xeno_caste.upgrade_name ? "[xeno_caste.upgrade_name] " : ""]"
-	if(!client?.prefs.show_xeno_rank || !client)
-		name = prefix + "[xeno_caste.display_name] ([nicknumber])"
-		real_name = name
-		if(mind)
-			mind.name = name
-		return
 	switch(playtime_mins)
 		if(0 to 600)
 			rank_name = "Young"
@@ -190,6 +184,8 @@
 			rank_name = "Prime"
 		else
 			rank_name = "Young"
+	if(!client?.prefs.show_xeno_rank || !client)
+		rank_name = ""
 	name = prefix + "[rank_name ? "[rank_name] " : ""][xeno_caste.display_name][src == hive.living_xeno_ruler ? " Regnant" :""] ([nicknumber])"
 
 	//Update linked data so they show up properly

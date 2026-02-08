@@ -251,7 +251,7 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 	)
 
 /datum/job/clf/mo
-	title = "CLF_MEDICAL_OFFICER"
+	title = "CLF Medical Officer"
 	paygrade = "MO"
 	comm_title = "CLFMO"
 	minimap_icon = "CLF2"

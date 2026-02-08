@@ -2,7 +2,7 @@
 	name = "Secret of Life - Main"
 	config_tag = "Secret of Life - Main"
 	silo_scaling = 1
-	round_type_flags = MODE_INFESTATION|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_ALLOW_XENO_QUICKBUILD|MODE_MUTATIONS_OBTAINABLE|MODE_XENO_GRAB_DEAD_ALLOWED|MODE_SINGLE_USE_NUKE_DISK_GENERATOR|MODE_CHILL_RULES
+	round_type_flags = MODE_INFESTATION|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_ALLOW_XENO_QUICKBUILD|MODE_MUTATIONS_OBTAINABLE|MODE_XENO_GRAB_DEAD_ALLOWED|MODE_SINGLE_USE_NUKE_DISK_GENERATOR|MODE_CHILL_RULES|MODE_CAMPAIGN_LITE_SUPPORT
 	shutters_drop_time = 15 MINUTES
 	xeno_abilities_flags = ABILITY_ALL_GAMEMODE
 	factions = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_XENO, FACTION_CLF, FACTION_ICC, FACTION_VSD, FACTION_NANOTRASEN)
@@ -86,6 +86,7 @@
 		/datum/job/clf/tech = 3,
 		/datum/job/clf/leader = 2,
 		/datum/job/clf/silicon/synthetic/clf = 1,
+		/datum/job/clf/mo = 1,
 		/datum/job/other/prisonerclf = 2,
 		/datum/job/vsd_squad/standard = -1,
 		/datum/job/vsd_squad/medic = 1,
@@ -369,6 +370,7 @@ alt gamemodes
 		/datum/job/clf/specialist = 2,
 		/datum/job/clf/tech = 2,
 		/datum/job/clf/medic = 4,
+		/datum/job/clf/mo = 1,
 		/datum/job/clf/standard = -1,
 		/datum/job/clf/breeder = -1,
 		/datum/job/other/prisonerclf = 2,
@@ -444,6 +446,7 @@ alt gamemodes
 		/datum/job/clf/tech = 2,
 		/datum/job/clf/medic = 4,
 		/datum/job/clf/standard = -1,
+		/datum/job/clf/mo = 1,
 		/datum/job/clf/breeder = -1,
 		/datum/job/som/silicon/synthetic/som = 1,
 		/datum/job/som/command/commander = 1,
@@ -577,6 +580,7 @@ alt gamemodes
 		/datum/job/clf/medic = 6,
 		/datum/job/clf/tech = 6,
 		/datum/job/clf/specialist = 4,
+		/datum/job/clf/mo = 1,
 		/datum/job/clf/leader = 2,
 		/datum/job/clf/silicon/synthetic/clf = 1,
 		/datum/job/other/prisonerclf = 2,

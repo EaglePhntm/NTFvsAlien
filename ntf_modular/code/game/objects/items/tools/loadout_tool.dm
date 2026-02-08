@@ -40,6 +40,8 @@
 /obj/item/radio/loadout_tool/on_enter_storage(obj/item/storage/S)
 	. = ..()
 	active = FALSE
+	turn_light(null, active)
+	set_light_on(active)
 	playsound(loc, 'sound/machines/terminal_button01.ogg', 50, TRUE)
 	update_appearance(UPDATE_OVERLAYS)
 

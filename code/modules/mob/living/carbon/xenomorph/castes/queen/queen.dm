@@ -45,7 +45,7 @@
 	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
 	var/prefix = "[hive.prefix][xeno_caste.upgrade_name ? "[xeno_caste.upgrade_name] " : ""]"
 	if(!client?.prefs.show_xeno_rank || !client)
-		name = prefix + "Queen"
+		name = "[prefix]Queen[src == hive.living_xeno_ruler ? " Regnant" :""] ([nicknumber])"
 		real_name = name
 		if(mind)
 			mind.name = name

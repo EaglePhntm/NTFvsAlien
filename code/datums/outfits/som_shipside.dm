@@ -43,6 +43,8 @@
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/quickclot, SLOT_IN_SUIT)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_SUIT)
 	H.equip_to_slot_or_hand(new /obj/item/binoculars/fire_support/extended/som, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_hand(new /obj/item/generic_skillbook/somfcskill, SLOT_IN_BACKPACK)
+
 
 /datum/outfit/job/som/command/staffofficer
 	name = SOM_STAFF_OFFICER

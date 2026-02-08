@@ -91,5 +91,16 @@
 	/// Is this a exclusive skillbook (IE, corpsman uses a skill book they get given for +1 surgery, meaning they cannot use another of that same skillbook, if another corpsman drops it to them.)
 	exclusive = TRUE
 
-
+/obj/item/generic_skillbook/somfcskill
+	name = "SOM Field Commander's Diploma"
+	desc = "The diploma of the SOM Field Commander; showing the batchelors in which they specialised and achieved a degree in at the university of Olympus Mons."
+	skills = list("surgery", "engineering")
+	role = /datum/job/som/command/fieldcommander
+	title = "Sons of Mars Field Commander Specialisation."
+	description = "What did I get my degree in?"
+	increase_amount = 1
+	/// Do we want to delete the skillbook when it's used?
+	del_done = FALSE
+	/// Is this a exclusive skillbook?
+	exclusive = TRUE
 

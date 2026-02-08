@@ -27,6 +27,7 @@
 	worn_icon_list = list(slot_w_uniform_str = 'ntf_modular/icons/mob/clothing/uniforms/marine_uniforms.dmi')
 	variant ++
 	shows_top_genital = FALSE
+	shows_butt = FALSE
 	shows_bottom_genital = FALSE
 	if(variant == 7)
 		variant = 1
@@ -39,12 +40,12 @@
 			name = "NTC Spec-Ops Tactical T-Back Leotard"
 			desc = "An extremely expensive sneaking leotard with extra skin-showing properties created by an Ninetails Corporation for high risk missions with high risk clothes, made with several layers of a nano-fiber that, while light, molds to the wearer's body shape and hardens protecting them. Only provided rarely to most successful Senior Operatives or higher. This leotard allows you to walk quietly and crawl through vents with ALT-CLICK"
 			icon_state = "sneak_leotard"
-			shows_bottom_genital = TRUE
+			shows_butt = TRUE
 		if(3)
 			name = "NTC Spec-Ops Tactical String bikini"
 			desc = "An extremely expensive sneaking... string bikini? with ultra-extra skin-showing properties created by an Ninetails Corporation for high risk missions with highest risk clothes, made with several layers of a nano-fiber that, while light-- It doesn't even matter, it practically doesn't exist, guess the sneakiest suit of all so far. This bikini allows you to walk quietly and crawl through vents with ALT-CLICK"
 			icon_state = "sneak_kini"
-			shows_bottom_genital = TRUE
+			shows_butt = TRUE
 		if(4)
 			name = "executive suit"
 			desc = "An extremely expensive looking formal uniform that seems to have toughened, kevlar or maybe another material fabric... Reminds you of john wick's suit but nowhere near as bulletproof."
@@ -61,6 +62,7 @@
 			worn_icon_list = list(slot_w_uniform_str = 'ntf_modular/icons/mob/clothing/uniforms/lewdclothes.dmi')
 			worn_icon_state = "gear_harness"
 			shows_top_genital = TRUE
+			shows_butt = TRUE
 			shows_bottom_genital = TRUE
 	update_icon()
 	update_clothing_icon()

@@ -21,12 +21,13 @@ GLOBAL_LIST_EMPTY(human_genitals_cache)
 				GLOB.human_genitals_cache[boobicon] = icon('icons/mob/human_races/r_human_genitals.dmi', "[ethnoicon]_[boobs]")
 			genilist += GLOB.human_genitals_cache[boobicon]
 
-	if(!w_uniform || w_uniform.shows_bottom_genital && (!worn_suit || worn_suit.shows_bottom_genital))
+	if(!w_uniform || w_uniform.shows_butt && (!worn_suit || worn_suit.shows_butt))
 		if(ass)
 			var/assicon = "[ethnoicon]_ass"
 			if(!GLOB.human_genitals_cache[assicon])
 				GLOB.human_genitals_cache[assicon] = icon('icons/mob/human_races/r_human_genitals.dmi', "[ethnoicon]_ass")
 			genilist += GLOB.human_genitals_cache[assicon]
+	if(!w_uniform || w_uniform.shows_bottom_genital && (!worn_suit || worn_suit.shows_bottom_genital))
 		if(cock)
 			var/cockicon = "[ethnoicon]_cock"
 			if(!GLOB.human_genitals_cache[cockicon])

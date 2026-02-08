@@ -79,6 +79,7 @@
 #define MODE_SINGLE_USE_NUKE_DISK_GENERATOR (1<<22)
 /// This flag being present makes things such as larva bursting cloneloss and relevant limits NOT happen. It must not be used in PVP modes.
 #define MODE_CHILL_RULES (1<<23)
+#define MODE_CAMPAIGN_LITE_SUPPORT (1<<24)
 
 #define MODE_INFESTATION_X_MAJOR "Xenomorph Major Victory"
 #define MODE_INFESTATION_M_MAJOR "Ninetails Major Victory"
@@ -197,7 +198,7 @@
 #define INFESTATION_MARINE_CRASHING 1
 #define INFESTATION_DROPSHIP_CAPTURED_XENOS 2
 
-#define NUCLEAR_WAR_LARVA_POINTS_NEEDED 10
+#define NUCLEAR_WAR_LARVA_POINTS_NEEDED 8
 #define CRASH_LARVA_POINTS_NEEDED 8
 
 #define FREE_XENO_AT_START 6

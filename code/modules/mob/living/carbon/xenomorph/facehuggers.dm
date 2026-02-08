@@ -698,20 +698,13 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 	if(slot == SLOT_WEAR_MASK && target_hole != HOLE_MOUTH) //ensure in case of something fucking up or manual wearing
 		target_hole = HOLE_MOUTH
 	if(target_hole == HOLE_MOUTH)
-		if(!issamexenohive(user))
-			user.ParalyzeNoChain(10 SECONDS)
-			user.apply_damage(100, STAMINA)
 		if(ishuman(user))
 			var/hugsound = user.gender == FEMALE ? SFX_FEMALE_HUGGED : SFX_MALE_HUGGED
 			playsound(loc, hugsound, 25, 0)
-	else
-		if(!issamexenohive(user))
-			user.emote("scream")
-			if(!user.IsStaggered())
-				user.adjust_stagger(4 SECONDS)
-				user.add_slowdown(6)
-				strip_delay *= 2
-			user.apply_damage(50, STAMINA)
+	if(!issamexenohive(user))
+		user.ParalyzeNoChain(10 SECONDS)
+		user.apply_damage(100, STAMINA)
+
 	attached = TRUE
 	go_idle(FALSE, TRUE)
 	if(!sterile)

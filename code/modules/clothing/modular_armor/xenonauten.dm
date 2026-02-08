@@ -9,6 +9,7 @@
 	icon = null
 	worn_icon_list = list(slot_wear_suit_str = 'icons/mob/modular/modular_armor.dmi')
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
+	shows_butt = TRUE
 	shows_bottom_genital = TRUE
 
 	attachments_allowed = list(
@@ -391,7 +392,7 @@
 	)
 	colorable_allowed = ICON_STATE_VARIANTS_ALLOWED
 	current_variant = "USL"
-	
+
 /obj/item/clothing/suit/storage/marine/usl_squadul5urban
 	name = "UL5 personal armor"
 	desc = "Standard body armor of the USL operatives, now in service with KZ. The UL5 (United Light MK5) is a set of light body armor, roughly on par with the venerable Xenonauten in service with the NTC."

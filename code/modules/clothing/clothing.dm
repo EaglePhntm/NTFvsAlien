@@ -28,6 +28,7 @@
 	///Increases your stamina regen by 100*this%.  Can be negative.
 	var/stamina_regen_mod = 0
 
+	var/shows_butt = FALSE
 	var/shows_bottom_genital = FALSE
 	var/shows_top_genital = FALSE
 

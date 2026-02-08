@@ -22,6 +22,7 @@
 	)
 	respawn_time = 15 MINUTES
 	xenorespawn_time = 3 MINUTES
+	whitelist_ship_maps = list(MAP_EAGLE_CLASSIC)
 	blacklist_ground_maps = list(MAP_COLONY1, MAP_BIG_RED, MAP_DELTA_STATION, MAP_PRISON_STATION, MAP_LV_624, MAP_LV_624BASES, MAP_WHISKEY_OUTPOST, MAP_OSCAR_OUTPOST, MAP_FORT_PHOBOS, MAP_CHIGUSA, MAP_LAVA_OUTPOST, MAP_CORSAT, MAP_KUTJEVO_REFINERY, MAP_BLUESUMMERS)
 	tier_three_penalty = 1
 	tier_three_inclusion = TRUE
@@ -43,7 +44,7 @@
 	// Round start info
 	var/starting_squad = "Alpha"
 	///How long between two larva check
-	var/larva_check_interval = 2 MINUTES
+	var/larva_check_interval = 9.9 SECONDS
 	///Last time larva balance was checked
 	var/last_larva_check
 	var/last_larva_calculation_result = 0
@@ -216,20 +217,27 @@
 	var/datum/hive_status/normal/xeno_hive = GLOB.hive_datums[XENO_HIVE_NORMAL]
 	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
 	// Spawn more xenos to help maintain the ratio.
-	var/xenomorphs_below_ratio = get_jobpoint_difference() / xeno_job.job_points_needed
+	var/jobpoint_difference = get_jobpoint_difference()
+	var/xenomorphs_below_ratio = jobpoint_difference / xeno_job.job_points_needed
 	log_game("Crash autobalance estimates [xenomorphs_below_ratio] extra xenos needed for balance.")
-	if(xenomorphs_below_ratio >= 1)
-		log_game("Adding 1 Xenomorph larva due to low xenos per marine on crash.")
-		GLOB.round_statistics.larva_from_crash_autobalance++
-		xeno_job.add_job_positions(1)
-		xeno_hive.update_tier_limits()
+	if(jobpoint_difference > xeno_job.job_points)
+		if(SSmonitor.gamestate == SHUTTERS_CLOSED)
+			log_game("Adding 1 Xenomorph larva due to low xenos per marine before ship landing on crash.")
+			GLOB.round_statistics.larva_from_crash_autobalance++
+			xeno_job.add_job_positions(1)
+			xeno_hive.update_tier_limits()
+		else
+			log_game("Adding 0.125 Xenomorph larva due to low xenos per marine on crash.")
+			GLOB.round_statistics.larva_from_crash_autobalance += 0.125
+			xeno_job.add_job_points(xeno_job.job_points_needed * 0.125)
+			xeno_hive.update_tier_limits()
 		return
 	// Make sure there is at least two xenos regardless of ratio.
 	var/total_xenos = xeno_hive.get_total_xeno_number() + (xeno_job.total_positions - xeno_job.current_positions)
 	if(total_xenos < 2)
-		log_game("Adding 1 Xenomorph larva due to low xeno pop on crash.")
-		GLOB.round_statistics.larva_from_crash_autobalance++
-		xeno_job.add_job_positions(1)
+		log_game("Adding 0.125 Xenomorph larva due to low xeno pop on crash.")
+		GLOB.round_statistics.larva_from_crash_autobalance += 0.125
+		xeno_job.add_job_points(xeno_job.job_points_needed * 0.125)
 		xeno_hive.update_tier_limits()
 
 /// Gets the difference of job points between humans and xenos. Negative means too many xenos. Positive means too many humans.
