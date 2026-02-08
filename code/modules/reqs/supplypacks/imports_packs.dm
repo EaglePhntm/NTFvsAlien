@@ -365,6 +365,36 @@ Imports
 	contains = list(/obj/item/ammo_magazine/pistol/m1911)
 	cost = 3
 
+/datum/supply_packs/imports/lassniper
+	name = "Terra Experimental laser sniper rifle"
+	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper)
+	cost = 25
+
+/datum/supply_packs/imports/lasrifle
+	name = "Terra Experimental laser rifle"
+	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle)
+	cost = 20
+
+/datum/supply_packs/imports/lasmachinegun
+	name = "Terra Experimental laser machine gun"
+	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_mlaser)
+	cost = 20
+
+/datum/supply_packs/imports/lascarbine
+	name = "Terra Experimental laser carbine"
+	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine)
+	cost = 10
+
+/datum/supply_packs/imports/laspistol
+	name = "Terra Experimental laser pistol"
+	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol)
+	cost = 5
+
+/datum/supply_packs/imports/lasguncell
+	name = "Terra Experimental standard battery"
+	contains = list(/obj/item/cell/lasgun/lasrifle)
+	cost = 3
+
 /datum/supply_packs/imports/strawhat
 	name = "Straw hat"
 	contains = list(/obj/item/clothing/head/strawhat)
