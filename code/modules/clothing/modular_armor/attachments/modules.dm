@@ -69,6 +69,28 @@
 	variants_by_parent_type = list(/obj/item/clothing/suit/modular/som/heavy/leader = "")
 
 /**
+ * Mini autodoc-lite module
+ */
+/obj/item/armor_module/module/valkyrie_autodoc_beta
+	name = "\improper Valkyrie Beta automedical system"
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
+	desc = "Designed for mounting on modular armor. The beta variant lacks health analysis and systems which autoinject tricordrazine and tramadol based on the user's needs. It does automatically secure the bones and body of the wearer, effectively splinting them until professional medical attention can be admistered. This is the prototype NovaMed produced prior to completing project valkyrie with ArcherCorp's cooperation."
+	icon_state = "mod_autodoc"
+	worn_icon_state = "mod_autodoc_a"
+	slowdown = 0
+	slot = ATTACHMENT_SLOT_MODULE
+	variants_by_parent_type = list(/obj/item/clothing/suit/modular/xenonauten = "mod_autodoc_xn", /obj/item/clothing/suit/modular/tdf = "", /obj/item/clothing/suit/modular/goon = "", /obj/item/clothing/suit/modular/rownin = "", /obj/item/clothing/suit/storage/marine/freelancer = "")
+
+/obj/item/armor_module/module/valkyrie_autodoc_beta/on_attach(obj/item/attaching_to, mob/user)
+	. = ..()
+	/// This will do nothing without the autodoc update
+	parent.AddElement(/datum/element/limb_support)
+
+/obj/item/armor_module/module/valkyrie_autodoc_beta/on_detach(obj/item/detaching_from, mob/user)
+	detaching_from.RemoveElement(/datum/element/limb_support)
+	return ..()
+
+/**
  * Fire poof module
 */
 /obj/item/armor_module/module/fire_proof
@@ -531,6 +553,14 @@
 
 /obj/item/armor_module/module/eshield/som/overclocked
 	max_shield_health = 85
+	damaged_shield_cooldown = 5 SECONDS
+	shield_color_low = COLOR_MAROON
+	shield_color_mid = LIGHT_COLOR_RED_ORANGE
+	shield_color_full = LIGHT_COLOR_ELECTRIC_CYAN
+
+/obj/item/armor_module/module/eshield/vsd/overclocked
+	slot = ATTACHMENT_SLOT_KNEE
+	max_shield_health = 90
 	damaged_shield_cooldown = 5 SECONDS
 	shield_color_low = COLOR_MAROON
 	shield_color_mid = LIGHT_COLOR_RED_ORANGE
