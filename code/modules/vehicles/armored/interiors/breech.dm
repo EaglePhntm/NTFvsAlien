@@ -203,11 +203,18 @@
 	ammo_overlay = new()
 	ammo_overlay.icon = icon
 	vis_contents += ammo_overlay
+	addtimer(CALLBACK(src, PROC_REF(post_init_fix)), 5 SECONDS)
 
 /obj/structure/gun_breech/som/Destroy()
 	weapon_type = null
 	QDEL_NULL(barrel_overlay)
 	return ..()
+
+/obj/structure/gun_breech/som/proc/post_init_fix()
+	update_icon_state()
+	update_overlays()
+	update_gun_appearance(weapon_type)
+
 
 /obj/structure/gun_breech/som/update_icon_state()
 	. = ..()

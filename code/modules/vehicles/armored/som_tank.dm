@@ -42,6 +42,12 @@
 	RegisterSignal(src, COMSIG_MOVABLE_PATROL_DEPLOYED, PROC_REF(animate_hover))
 	var/obj/item/tank_module/module = new /obj/item/tank_module/ability/smoke_launcher()
 	module.on_equip(src)
+	addtimer(CALLBACK(src, PROC_REF(post_init_fix)), 5 SECONDS)
+
+/obj/vehicle/sealed/armored/multitile/som_tank/proc/post_init_fix()
+	var/obj/item/armored_weapon/gun = primary_weapon
+	primary_weapon.detach(loc)
+	gun.attach(src, TRUE)
 
 /obj/vehicle/sealed/armored/multitile/som_tank/generate_actions()
 	. = ..()
