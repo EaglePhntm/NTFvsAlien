@@ -71,7 +71,7 @@
 			expected_cost = MUTATION_BIOMASS_THRESHOLD_T2
 		if(XENO_TIER_THREE)
 			expected_cost = MUTATION_BIOMASS_THRESHOLD_T3
-	expected_cost += (expected_cost * length(xenomorph_target.owned_mutations))
+	expected_cost += (expected_cost * (length(xenomorph_target.owned_mutations)-1)) // NTF CODE CHANGE - ORIGINAL: expected_cost += (expected_cost * length(xenomorph_target.owned_mutations))
 	return expected_cost
 
 /// Returns TRUE if the xenomorph has a mutation based on a typepath.
