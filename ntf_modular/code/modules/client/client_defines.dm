@@ -1,2 +1,3 @@
 /client
-	var/nested_time
+	var/reclone_start_time
+	var/reclone_time

@@ -1,13 +1,7 @@
-#define NESTED_RECLONE_TIME 8 MINUTES
-
 //nest overrides
 /obj/structure/bed/nest/post_buckle_mob(mob/living/buckling_mob)
 	. = ..()
-	var/area/the_area = get_area(src)
-	if(buckling_mob.client && the_area.ceiling >= CEILING_UNDERGROUND)
-		if(!buckling_mob.client.nested_time || buckling_mob.client.nested_time > world.time + NESTED_RECLONE_TIME) //keep progress until its over.
-			buckling_mob.client.nested_time = world.time
-		INVOKE_ASYNC(buckling_mob.client, TYPE_PROC_REF(/client, ask_reclone)) //pops up the prompt
+	INVOKE_ASYNC(buckling_mob.client, TYPE_PROC_REF(/client, ask_reclone)) //pops up the prompt
 
 /obj/structure/bed/nest/welder_act(mob/living/user, obj/item/I)
 	if(!welder_needed_unbuckle)

@@ -387,7 +387,7 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define LIMB_METAL_AMOUNT 125
 #define LIMB_MATTER_AMOUNT 100
 
-#define STANDARD_DNR_TIME 300 //10 minutes
+#define STANDARD_DNR_TIME 150 //5 minutes
 #define SOL_DNR_TIME 2400 //80 minutes
 
 //How long it takes for a human to become undefibbable

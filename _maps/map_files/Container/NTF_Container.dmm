@@ -500,6 +500,13 @@
 "aDJ" = (
 /turf/open/floor/step_trigger/supply_fall/row_one/three,
 /area/mainship/squads/req)
+"aDS" = (
+/obj/effect/turf_decal/warning_stripes/thin,
+/obj/structure/barricade/folding{
+	dir = 8
+	},
+/turf/open/floor/prison/bright_clean,
+/area/mainship/command/self_destruct)
 "aEk" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -520,6 +527,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 8
+	},
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/mainship/black{
@@ -633,6 +643,13 @@
 	},
 /turf/open/floor/mainship/floor,
 /area/mainship/living/cafeteria_port)
+"aKt" = (
+/obj/structure/barricade/solid{
+	dir = 8
+	},
+/obj/structure/barricade/solid,
+/turf/open/shuttle/escapepod,
+/area/mainship/engineering/engine_core)
 "aKx" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 1;
@@ -3120,6 +3137,13 @@
 /obj/effect/urban/decal/dirt,
 /turf/open/floor/mainship/floor,
 /area/mainship/command/cic)
+"cXx" = (
+/obj/structure/cable,
+/obj/structure/barricade/folding{
+	dir = 1
+	},
+/turf/open/shuttle/escapepod,
+/area/mainship/engineering/engine_core)
 "cXD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -5168,6 +5192,14 @@
 	},
 /turf/open/floor/mainship/floor,
 /area/mainship/command/cic)
+"eNa" = (
+/obj/structure/barricade/folding{
+	dir = 8
+	},
+/turf/open/floor/mainship/black{
+	dir = 8
+	},
+/area/mainship/command/self_destruct)
 "eNw" = (
 /obj/machinery/door_control{
 	id = poolshutters
@@ -5889,6 +5921,9 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/light/mainship{
 	dir = 4
+	},
+/obj/structure/barricade/solid/plasteel{
+	dir = 1
 	},
 /turf/open/shuttle/escapepod,
 /area/mainship/engineering/engine_core)
@@ -8847,8 +8882,6 @@
 "ivS" = (
 /obj/structure/rack,
 /obj/structure/ob_ammo/warhead/incendiary,
-/obj/structure/ob_ammo/warhead/incendiary,
-/obj/structure/ob_ammo/warhead/incendiary,
 /obj/machinery/light/mainship{
 	dir = 1
 	},
@@ -9312,6 +9345,10 @@
 /obj/effect/landmark/start/latejoin,
 /turf/open/floor/mainship/cargo,
 /area/mainship/living/cryo_cells)
+"iVm" = (
+/obj/structure/barricade/solid/plasteel,
+/turf/open/shuttle/escapepod,
+/area/mainship/engineering/engine_core)
 "iVN" = (
 /obj/structure/table/black,
 /obj/machinery/chem_dispenser/soda,
@@ -9865,7 +9902,6 @@
 /area/mainship/shipboard/brig_cells)
 "jud" = (
 /obj/structure/rack,
-/obj/structure/ob_ammo/warhead/explosive,
 /obj/structure/ob_ammo/warhead/explosive,
 /obj/structure/ob_ammo/warhead/explosive,
 /turf/open/floor/mainship/cargo,
@@ -13010,7 +13046,6 @@
 /obj/structure/rack,
 /obj/structure/ob_ammo/warhead/plasmaloss,
 /obj/structure/ob_ammo/warhead/plasmaloss,
-/obj/structure/ob_ammo/warhead/plasmaloss,
 /turf/open/floor/mainship/cargo,
 /area/mainship/shipboard/starboard_point_defense)
 "mhQ" = (
@@ -14718,6 +14753,7 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
+/obj/structure/barricade/solid/plasteel,
 /turf/open/shuttle/escapepod,
 /area/mainship/engineering/engine_core)
 "nNx" = (
@@ -16120,6 +16156,9 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 1;
 	on = 1
+	},
+/obj/structure/barricade/solid{
+	dir = 8
 	},
 /turf/open/shuttle/escapepod,
 /area/mainship/engineering/engine_core)
@@ -18964,8 +19003,6 @@
 /area/mainship/hallways/hangar)
 "rZk" = (
 /obj/structure/rack,
-/obj/structure/ob_ammo/warhead/cluster,
-/obj/structure/ob_ammo/warhead/cluster,
 /obj/structure/ob_ammo/warhead/cluster,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
@@ -22318,6 +22355,12 @@
 	dir = 1
 	},
 /area/mainship/command/fcroom)
+"vdi" = (
+/obj/structure/barricade/solid{
+	dir = 8
+	},
+/turf/open/shuttle/escapepod,
+/area/mainship/engineering/engine_core)
 "vdD" = (
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 6
@@ -24155,6 +24198,11 @@
 /obj/effect/landmark/start/job/squadslut,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/living/cryo_cells)
+"wMp" = (
+/obj/structure/cable,
+/obj/structure/barricade/folding,
+/turf/open/shuttle/escapepod,
+/area/mainship/engineering/engine_core)
 "wMt" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -25227,6 +25275,15 @@
 	dir = 9
 	},
 /area/mainship/medical/medical_science)
+"xSa" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 1
+	},
+/obj/structure/barricade/folding{
+	dir = 8
+	},
+/turf/open/floor/prison/bright_clean,
+/area/mainship/command/self_destruct)
 "xSJ" = (
 /obj/machinery/camera/autoname/mainship{
 	dir = 4
@@ -25413,6 +25470,12 @@
 	},
 /turf/open/floor/mainship/floor,
 /area/mainship/command/corporateliaison)
+"ybc" = (
+/obj/structure/barricade/solid/plasteel{
+	dir = 1
+	},
+/turf/open/shuttle/escapepod,
+/area/mainship/engineering/engine_core)
 "ybB" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 8
@@ -25483,6 +25546,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
+	},
+/obj/structure/barricade/solid{
+	dir = 1
+	},
+/obj/structure/barricade/solid{
+	dir = 8
 	},
 /turf/open/shuttle/escapepod,
 /area/mainship/engineering/engine_core)
@@ -47778,7 +47847,7 @@ ijJ
 lLF
 eZl
 lLY
-lLY
+iVm
 lLY
 tSL
 chO
@@ -47788,7 +47857,7 @@ mZz
 lLY
 chX
 lLY
-lLY
+ybc
 lLY
 qOZ
 tUk
@@ -47881,7 +47950,7 @@ ijJ
 tUk
 eal
 tSL
-tSL
+wMp
 tSL
 tSL
 tSL
@@ -47891,7 +47960,7 @@ nWV
 sNj
 wKW
 tSL
-tSL
+cXx
 tSL
 tSL
 tUk
@@ -47984,9 +48053,9 @@ ijJ
 fjR
 uOS
 chO
-lLY
-lLY
-lLY
+iVm
+vdi
+aKt
 lLY
 sQH
 lLY
@@ -47994,7 +48063,7 @@ swY
 lLY
 yeS
 peN
-lLY
+ybc
 tCw
 lLz
 qEr
@@ -48297,7 +48366,7 @@ wFr
 crF
 vXR
 kzu
-vXR
+eNa
 nbN
 aEV
 kzu
@@ -49324,7 +49393,7 @@ rOo
 rOo
 liH
 wAW
-kBC
+aDS
 xfI
 liH
 liH
@@ -49332,7 +49401,7 @@ liH
 fyU
 liH
 xfI
-naL
+xSa
 ldW
 liH
 rOo

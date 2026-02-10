@@ -85,7 +85,7 @@
 		return
 	// Gamemode disallowed handler - END
 
-	if(client && (restrained_flags & RESTRAINED_XENO_NEST))
+	if(client) //ask on death first time.
 		INVOKE_ASYNC(client, TYPE_PROC_REF(/client, ask_reclone))
 		return
 	if(stat == DEAD || isxenohivemind(src) || iszombie(src))
