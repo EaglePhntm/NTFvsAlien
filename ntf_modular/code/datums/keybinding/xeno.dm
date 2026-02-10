@@ -150,3 +150,38 @@
 	description = ""
 	keybind_signal = COMSIG_XENOABILITY_TOGGLE_ROUNY_ZOOM
 	hotkey_keys = list("C")
+
+/datum/keybinding/xeno/tearing_tail
+	name = "Tearing Tail"
+	full_name = "Panther: Tearing Tail"
+	description = "Hit all adjacent units around you, poisoning them toxin for their mind."
+	keybind_signal = COMSIG_XENOABILITY_TEARING_TAIL
+	hotkey_keys = list("R")
+
+/datum/keybinding/xeno/panther_pounce
+	name = "panther_pounce"
+	full_name = "Panther: Pounce"
+	description = ""
+	keybind_signal = COMSIG_XENOABILITY_PANTHER_POUNCE
+	hotkey_keys = list("E")
+
+/datum/keybinding/xeno/adrenaline_jump
+	name = "Adrenaline Jump"
+	full_name = "Panther: Adrenaline Jump"
+	description = "Jump from some distance to target, knocking them down."
+	keybind_signal = COMSIG_XENOABILITY_ADRENALINE_JUMP
+	hotkey_keys = list("F")
+
+/datum/keybinding/xeno/adrenaline_rush
+	name = "Adrenaline rush"
+	full_name = "Panther: Adrenaline Rush"
+	description = "Move faster."
+	keybind_signal = COMSIG_XENOABILITY_ADRENALINE_RUSH
+	hotkey_keys = list("V")
+
+/datum/keybinding/xeno/panther_select_reagent
+	name = "Select Reagent"
+	full_name = "Panther: Select Reagent"
+	description = "Cycles through reagents to choose one for Defiler abilities."
+	keybind_signal = COMSIG_XENOABILITY_PANTHER_SELECT_REAGENT
+	hotkey_keys = list("V")

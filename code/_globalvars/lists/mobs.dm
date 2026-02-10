@@ -66,6 +66,8 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/runner/primordial,
 	/mob/living/carbon/xenomorph/runner/melter,
 	/mob/living/carbon/xenomorph/runner/melter/primordial,
+	/mob/living/carbon/xenomorph/runner/panther,
+	/mob/living/carbon/xenomorph/runner/panther/primordial,
 	/mob/living/carbon/xenomorph/drone,
 	/mob/living/carbon/xenomorph/drone/primordial,
 	/mob/living/carbon/xenomorph/sentinel,

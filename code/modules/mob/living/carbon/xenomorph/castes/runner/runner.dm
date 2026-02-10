@@ -72,8 +72,6 @@
 	/// The amount of melting acid stacks to be applied.
 	var/applied_acid_stacks = 2
 
-	icon = 'icons/xeno/castes/runner.dmi' //NTF EDIT - no tiddies until someone sprites em in.
-
 /mob/living/carbon/xenomorph/runner/melter/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	RegisterSignal(src, COMSIG_XENOMORPH_ATTACK_OBJ, PROC_REF(on_attack_obj))

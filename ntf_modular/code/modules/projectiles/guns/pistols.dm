@@ -164,7 +164,7 @@
 
 /obj/item/weapon/gun/pistol/m1911/custom/specops
 	name = "\improper P-1911SO custom pistol"
-	desc = "A handgun that has received an unholy amount of modifications. It seems to have been lovingly taken care of and passed down for generations. Lacks an auto magazine eject feature."
+	desc = "A handgun that has received an unholy amount of modifications. Lacks an auto magazine eject feature."
 	default_ammo_type = /obj/item/ammo_magazine/pistol/m1911/ap
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
