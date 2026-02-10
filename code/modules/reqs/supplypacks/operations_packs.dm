@@ -184,3 +184,9 @@ OPERATIONS
 	)
 	access = ACCESS_MARINE_BRIDGE //Better be safe.
 	cost = 50
+
+/datum/supply_packs/operations/cas_voucher
+	name = "100 dropship fabricator points"
+	contains = list(/obj/item/dropship_points_voucher)
+	cost = 40
+	containertype = null
