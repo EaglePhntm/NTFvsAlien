@@ -479,6 +479,7 @@ ADMIN_VERB_ONLY_CONTEXT_MENU(show_player_panel, R_ADMIN, "Show Player Panel", mo
 		<a href='byond://?src=[ref];transform=gorger;mob=[REF(M)]'>Gorger</a>
 		<a href='byond://?src=[ref];transform=warlock;mob=[REF(M)]'>Warlock</a>
 		<a href='byond://?src=[ref];transform=behemoth;mob=[REF(M)]'>Behemoth</a>
+		<a href='byond://?src=[ref];transform=chimera;mob=[REF(M)]'>Chimera</a> |
 		<br> Alien Tier 4:
 		<a href='byond://?src=[ref];transform=queen;mob=[REF(M)]'>Queen</a> |
 		<a href='byond://?src=[ref];transform=shrike;mob=[REF(M)]'>Shrike</a> |

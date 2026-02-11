@@ -460,3 +460,9 @@
 
 //----BEHEMOTH END----//
 //============//
+
+//================//
+//----CHIMERA START----//
+/mob/living/carbon/xenomorph/chimera/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+//----CHIMERA END----//

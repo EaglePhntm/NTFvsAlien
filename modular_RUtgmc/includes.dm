@@ -15,3 +15,6 @@
 #include "code\modules\mob\living\carbon\xenomorph\egg.dm"
 #include "code\modules\mob\living\carbon\xenomorph\facehuggers.dm"
 #include "code\modules\mob\living\carbon\xenomorph\hive_datum.dm"
+#include "code\modules\mob\living\carbon\xenomorph\castes\chimera\abilities_chimera.dm"
+#include "code\modules\mob\living\carbon\xenomorph\castes\chimera\chimera.dm"
+#include "code\modules\mob\living\carbon\xenomorph\castes\chimera\castedatum_chimera.dm"
