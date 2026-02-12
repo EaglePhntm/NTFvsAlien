@@ -61,15 +61,15 @@
 			};\
 		}\
 	} while (0)
-#define HAS_TRAIT(target, trait) (target._status_traits ? (target._status_traits[trait] ? TRUE : FALSE) : FALSE)
-#define HAS_TRAIT_FROM(target, trait, source) (target._status_traits ? (target._status_traits[trait] ? (source in target._status_traits[trait]) : FALSE) : FALSE)
+#define HAS_TRAIT(target, trait) (target && target._status_traits ? (target._status_traits[trait] ? TRUE : FALSE) : FALSE)
+#define HAS_TRAIT_FROM(target, trait, source) (target && target._status_traits ? (target._status_traits[trait] ? (source in target._status_traits[trait]) : FALSE) : FALSE)
 #define HAS_TRAIT_FROM_ONLY(target, trait, source) (\
-	target._status_traits ?\
+	target && target._status_traits ?\
 		(target._status_traits[trait] ?\
 			((source in target._status_traits[trait]) && (length(target._status_traits) == 1))\
 			: FALSE)\
 		: FALSE)
-#define HAS_TRAIT_NOT_FROM(target, trait, source) (target._status_traits ? (target._status_traits[trait] ? (length(target._status_traits[trait] - source) > 0) : FALSE) : FALSE)
+#define HAS_TRAIT_NOT_FROM(target, trait, source) (target && target._status_traits ? (target._status_traits[trait] ? (length(target._status_traits[trait] - source) > 0) : FALSE) : FALSE)
 
 // common trait
 #define TRAIT_GENERIC "generic"
