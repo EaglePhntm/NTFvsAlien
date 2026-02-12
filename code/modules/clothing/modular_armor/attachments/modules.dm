@@ -671,21 +671,21 @@
 	icon_state = "style_light"
 	worn_icon_state = "style_light_a"
 	soft_armor = MARINE_ARMOR_LIGHT
-	slowdown = SLOWDOWN_ARMOR_LIGHT
+	slowdown = SLOWDOWN_ARMOR_LIGHT + 0.5
 
 /obj/item/armor_module/module/style/medium_armor
 	name = "\improper Medium Armor Equalizer"
 	icon_state = "style_medium"
 	worn_icon_state = "style_medium_a"
 	soft_armor = MARINE_ARMOR_MEDIUM
-	slowdown = SLOWDOWN_ARMOR_MEDIUM
+	slowdown = SLOWDOWN_ARMOR_MEDIUM + 0.5
 
 /obj/item/armor_module/module/style/heavy_armor
 	name = "\improper Heavy Armor Equalizer"
 	icon_state = "style_heavy"
 	worn_icon_state = "style_heavy_a"
 	soft_armor = MARINE_ARMOR_HEAVY
-	slowdown = SLOWDOWN_ARMOR_HEAVY
+	slowdown = SLOWDOWN_ARMOR_HEAVY + 0.5
 
 /**
  *   Helmet Modules

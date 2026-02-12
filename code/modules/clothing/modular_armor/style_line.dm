@@ -6,7 +6,7 @@
 	desc = "They got that drip, doe."
 	item_map_variant_flags = NONE
 	allowed_uniform_type = /obj/item/clothing/under
-	slowdown = 0
+	slowdown = - 0.5
 	icon = 'icons/obj/clothing/suits/marine_suits.dmi'
 	worn_icon_list = list(
 		slot_wear_suit_str = 'icons/mob/clothing/suits/marine_suits.dmi',
@@ -27,8 +27,6 @@
 		/obj/item/armor_module/module/chemsystem,
 		/obj/item/armor_module/module/knight,
 		/obj/item/armor_module/module/eshield,
-		/obj/item/armor_module/module/eshield/absorbant/energy,
-		/obj/item/armor_module/module/eshield/absorbant/ballistic,
 		/obj/item/armor_module/module/eshield/som,
 		/obj/item/armor_module/module/eshield/som/overclocked,
 		/obj/item/armor_module/module/mimir_environment_protection/som,
