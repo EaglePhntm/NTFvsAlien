@@ -105,7 +105,7 @@
 	attachable_offset = list("muzzle_x" = 41, "muzzle_y" = 20,"rail_x" = 15, "rail_y" = 20, "under_x" = 23, "under_y" = 12, "stock_x" = 11, "stock_y" = 14)
 	starting_attachment_types = list(/obj/item/attachable/stock/t39stock)
 
-	fire_delay = 1 SECONDS
+	fire_delay = 1.2 SECONDS
 	accuracy_mult = 1.05
 	accuracy_mult_unwielded = 0.65
 	scatter = 3
