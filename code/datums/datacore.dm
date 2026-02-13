@@ -109,6 +109,8 @@ GLOBAL_DATUM_INIT(datacore, /datum/datacore, new)
 	//Xenomorphs
 	if(ooc || viewfaction == FACTION_CLF || viewfaction == FACTION_TERRAGOV)
 		for(var/mob/living/carbon/xenomorph/X in GLOB.xeno_mob_list)
+			if(X.tier == XENO_TIER_MINION)
+				break
 			if(!ooc)
 				if((viewfaction == FACTION_CLF) == (X.get_xeno_hivenumber() == XENO_HIVE_CORRUPTED)) //clf can see everyone but corrupted, NTC can only see corrupted
 					break
