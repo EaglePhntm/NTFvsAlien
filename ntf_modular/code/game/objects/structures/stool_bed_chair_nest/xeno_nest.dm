@@ -466,6 +466,7 @@
 	var/list/buckle_y
 	var/buckled_mob_density
 	welder_needed_unbuckle = TRUE
+	resistance_flags = UNACIDABLE
 
 /obj/structure/bed/nest/wall/Initialize(mapload)
 	. = ..()

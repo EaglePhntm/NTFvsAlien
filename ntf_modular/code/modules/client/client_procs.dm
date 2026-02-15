@@ -1,12 +1,24 @@
-/client/proc/ask_reclone()
+/client/proc/ask_reclone(state_change = TRUE)
 	if(!ishuman(mob))
+		return
+	var/mob/living/carbon/human/hmob = mob
+	if(!hmob) //how
 		return
 	var/area/the_area = get_area(mob)
 	var/the_cost = 300
-	if(reclone_start_time == null) //keep progress until its over.
+	var/embryo_present = FALSE
+	for(var/obj/item/alien_embryo/embryos in mob.contents)
+		if(embryos.stage < 3)
+			continue
+		embryo_present = TRUE
+		break
+	for(var/mob/living/carbon/xenomorph/larva/larba in mob.contents)
+		embryo_present = TRUE
+		break
+	if(state_change) //not ghosting popup but force.
 		reclone_start_time = world.time
 		reclone_time = SSticker.mode.respawn_time
-		if(the_area.ceiling >= CEILING_UNDERGROUND)
+		if(the_area.ceiling >= CEILING_UNDERGROUND || embryo_present || hmob.getCloneLoss() >= 40)
 			reclone_time /= 2
 		var/All[] = SSticker.mode.count_humans_and_xenos(null, COUNT_CLF_TOWARDS_XENOS | COUNT_GREENOS_TOWARDS_MARINES | COUNT_IGNORE_ALIVE_SSD)
 		var/AllMarines[] = All[1]
@@ -22,17 +34,14 @@
 		var/mob/living/carbon/human/hum = mob
 		if(hum.dead_ticks > GLOB.time_before_dnr || SSticker.mode.round_type_flags & MODE_CHILL_RULES)
 			the_cost /= 2
-	var/the_question = "You can now reclone for [the_cost] supply points cost, All your equipment will be with you if you do. If you choose to stay, you can pop this up again by trying to ghost from your body, whether you are alive and nested or dead-dead. You can still freely ghost around and return to your body."
+	var/the_question = "You can now reclone for [the_cost] supply points cost, All your equipment will be with you if you do. If you choose to stay, you can pop this up again by using the 'ghost' verb from your body, whether you are alive and nested or dead-dead. You can still freely ghost around and return to your body."
 	if(world.time < (reclone_start_time + reclone_time))
-		the_question = "A new body is growing, You will be able to reclone in [DisplayTimeText((reclone_start_time + reclone_time) - world.time)], keeping your equipment, You can choose to stay for now or ghost and re-enter your body freely... You can pop this up again by trying to ghost."
+		the_question = "A new body is growing, You will be able to reclone in [DisplayTimeText((reclone_start_time + reclone_time) - world.time)], keeping your equipment, You can choose to stay for now or ghost and re-enter your body freely... You can pop this up again by using the 'ghost' verb."
 	var/choice = tgui_input_list(src, the_question, "Recloning", list("Reclone","Ghost","Stay in body"), "Stay in body")
 	switch(choice)
 		if("Reclone")
 			if(world.time < (reclone_start_time + reclone_time))
 				to_chat(src, span_warning("You need to wait [DisplayTimeText((reclone_start_time + reclone_time) - world.time)]."))
-				return
-			for(var/mob/living/carbon/xenomorph/larva/implanted in mob.contents && mob.stat != DEAD)
-				to_chat(src, span_warning("(N-UI) ALERT: Developed foreign body and psychic interference detected, can not proceed... Try again later."))
 				return
 
 			if(!length(GLOB.reclone_tp_spots))
@@ -46,6 +55,19 @@
 			var/mob/living/doppleganger = new mob.type(mob.loc)
 			prefs.copy_to(doppleganger)
 			doppleganger.name = mob.name
+
+			//transfer our larba and shit to body
+			for(var/obj/item/alien_embryo/embryos in mob.contents)
+				embryos.forceMove(doppleganger)
+				embryos.affected_mob = doppleganger
+				doppleganger.status_flags |= XENO_HOST
+			for(var/mob/living/carbon/xenomorph/larva/larba in mob.contents)
+				larba.forceMove(doppleganger)
+				doppleganger.status_flags |= XENO_HOST
+
+			hmob.status_flags &= ~XENO_HOST
+			doppleganger.med_hud_set_status()
+			hmob.med_hud_set_status()
 
 			for(var/obj/item/clothing/cloth in mob.contents) //duplicate outfit, only clothes tho.
 				var/lecloth = new cloth.type(doppleganger.loc)

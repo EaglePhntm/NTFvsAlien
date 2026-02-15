@@ -67,7 +67,7 @@
 		qdel(src)
 		return PROCESS_KILL
 
-	if(affected_mob.stat == DEAD) //No more corpsefucking for infinite larva, thanks
+	if(affected_mob.stat == DEAD && stage < 3) //No more corpsefucking for infinite larva, thanks
 		return FALSE
 
 	if(loc != affected_mob)
@@ -88,12 +88,6 @@
 		affected_mob = null
 		return PROCESS_KILL
 
-	if(affected_mob.stat == DEAD) //Runs after the first proc, which should entirely null the need for the check in initiate_burst, but to be safe...
-		for(var/mob/living/carbon/xenomorph/larva/L in affected_mob.contents)
-			L?.initiate_burst(affected_mob, src)
-			if(!L)
-				return PROCESS_KILL
-
 	if(HAS_TRAIT(affected_mob, TRAIT_STASIS))
 		return //If they are in cryo, bag or cell, the embryo won't grow.
 
@@ -107,7 +101,7 @@
 	*/
 
 /obj/item/alien_embryo/proc/process_growth()
-	if(affected_mob.stat == DEAD) //No more corpsefucking for infinite larva, thanks
+	if(affected_mob.stat == DEAD && stage < 3) //No more corpsefucking for infinite larva, thanks
 		return FALSE
 
 	if(ishuman(affected_mob) && !(SSticker.mode.round_type_flags & MODE_CHILL_RULES))
@@ -125,10 +119,12 @@
 			embryos_in_host++
 	var/current_psypoint_reward = psych_points_output * EMBRYO_REWARD_IMMEDIATE_FRACTION / embryos_in_host
 	var/current_biomass_reward =  MUTATION_BIOMASS_PER_EMBRYO_TICK * EMBRYO_REWARD_IMMEDIATE_FRACTION / embryos_in_host
-	if(affected_mob.client && (affected_mob.client.inactivity < 10 MINUTES))
-		current_psypoint_reward *= 10
-		current_biomass_reward *= 10
-
+	if(!affected_mob.client || (affected_mob.client.inactivity > AFK_TIMER))
+		current_psypoint_reward *= 0.1
+		current_biomass_reward *= 0.1
+	if(isnestedhost(affected_mob))
+		current_psypoint_reward *= 5
+		current_biomass_reward *= 5
 
 	GLOB.round_statistics.strategic_psypoints_from_embryos += current_psypoint_reward
 	GLOB.round_statistics.biomass_from_embryos += current_biomass_reward
@@ -173,12 +169,12 @@
 	switch(stage)
 		if(2)
 			if(prob(2))
-				to_chat(affected_mob, span_warning("[pick("You feel something in your belly.", "You feel something in your stomach.")]."))
+				to_chat(affected_mob, span_warning("[pick("You feel something in your [target_hole].", "You feel something in your [target_hole].")]."))
 		if(3)
 			if(prob(2))
-				to_chat(affected_mob, span_warning("[pick("You feel something move inside your belly.", "You feel something move in your stomach.")]."))
+				to_chat(affected_mob, span_warning("[pick("You feel something move inside your [target_hole].", "You feel something move in your [target_hole].")]."))
 			else if(prob(1))
-				to_chat(affected_mob, span_warning("Your belly aches a little."))
+				to_chat(affected_mob, span_warning("Your [target_hole] aches a little."))
 		if(4)
 			if(prob(1))
 				if(!affected_mob.IsParalyzed())
@@ -186,7 +182,7 @@
 												span_danger("You start shaking uncontrollably!"))
 					affected_mob.jitter(105)
 			if(prob(2))
-				to_chat(affected_mob, span_warning("[pick("You feel something squirming inside you!.", "It becomes a bit difficult to breathe.")]."))
+				to_chat(affected_mob, span_warning("[pick("You feel something squirming inside your [target_hole]!.", "It becomes a bit difficult to breathe.")]."))
 		if(5)
 			var/mob/living/carbon/xenomorph/larva/waiting_larva = locate() in affected_mob
 			if(!waiting_larva)
@@ -312,7 +308,9 @@
 	if(ishuman(victim) && !(SSticker.mode.round_type_flags & MODE_CHILL_RULES))
 		if(victim.getCloneLoss() < 30)
 			victim.adjustCloneLoss(45)
-			victim.visible_message(span_warning("[victim]'s body and genitals are too devastated from this to perform another larva burst without treatment."))
+			if(!(CHECK_BITFIELD(victim.restrained_flags, RESTRAINED_XENO_NEST)))
+				victim.death(FALSE)
+			victim.visible_message(span_warning("[victim]'s body and hole are devastated by the birth."))
 
 	if(((locate(/obj/structure/bed/nest) in loc) || loc_weeds_type) && !mind)
 		var/suitablesilo = FALSE

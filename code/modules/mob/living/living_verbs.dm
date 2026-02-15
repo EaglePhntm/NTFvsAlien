@@ -86,7 +86,7 @@
 	// Gamemode disallowed handler - END
 
 	if(client && ishuman(src)) //ask on death first time.
-		INVOKE_ASYNC(client, TYPE_PROC_REF(/client, ask_reclone))
+		INVOKE_ASYNC(client, TYPE_PROC_REF(/client, ask_reclone), FALSE)
 		return
 	if(stat == DEAD || isxenohivemind(src) || iszombie(src))
 		log_game("[key_name(usr)] has ghosted at [AREACOORD(usr)].")

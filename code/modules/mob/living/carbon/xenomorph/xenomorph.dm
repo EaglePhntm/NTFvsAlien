@@ -350,8 +350,17 @@
 		return FALSE //to stop xeno from pulling marines on roller beds.
 	if(ishuman(L))
 		if(L.stat == DEAD && !(SSticker.mode.round_type_flags & MODE_XENO_GRAB_DEAD_ALLOWED)) // Can't drag dead human bodies.
-			to_chat(usr,span_xenowarning("We have no reason to do that."))
-			return FALSE
+			var/embryo_draggable = FALSE
+			for(var/obj/item/alien_embryo/embryos in L.contents)
+				if(embryos.stage < 3)
+					continue
+				embryo_draggable = TRUE
+			for(var/mob/living/carbon/xenomorph/larva/larba in L.contents)
+				embryo_draggable = TRUE
+				break
+			if(!embryo_draggable)
+				to_chat(usr,span_xenowarning("We have nothing to do with the dead."))
+				return FALSE
 		if(pulling != L)
 			pull_speed += XENO_DEADHUMAN_DRAG_SLOWDOWN
 	do_attack_animation(L, ATTACK_EFFECT_GRAB)

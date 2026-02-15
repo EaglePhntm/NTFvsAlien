@@ -15,7 +15,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	invisibility = INVISIBILITY_OBSERVER
 	sight = SEE_SELF
 	hud_type = /datum/hud/ghost
-	//lighting_cutoff = LIGHTING_CUTOFF_HIGH
+	lighting_cutoff = LIGHTING_CUTOFF_LOW
 	dextrous = TRUE
 	status_flags = GODMODE | INCORPOREAL
 

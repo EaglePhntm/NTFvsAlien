@@ -649,6 +649,10 @@
 				continue
 			if(H.faction == FACTION_XENO)
 				continue
+			if(isnestedhost(H))
+				continue
+			if(CHECK_BITFIELD(H.restrained_flags, RESTRAINED_XENO_NEST)) //incase not pregger
+				continue
 			humans_on_ground++
 	if(length(GLOB.alive_human_list) && ((humans_on_ground / length(GLOB.alive_human_list)) > ALIVE_HUMANS_FOR_CALLDOWN))
 		to_chat(user, span_warning("There's too many tallhosts still on the ground. They interfere with our psychic field. We must dispatch them before we are able to do this."))
@@ -894,6 +898,9 @@
 				return
 			if(infestation_mode.round_stage == INFESTATION_MARINE_CRASHING)
 				message_admins("[usr] tried to capture the shuttle after it was already hijacked, possible use of exploits.")
+				return
+			if(infestation_mode.round_type_flags2 & MODE_NO_ABDUCT)
+				to_chat(usr, span_xenowarning("No! We need to finish the fight!"))
 				return
 			var/groundside_humans = length(GLOB.humans_by_zlevel["[z]"])
 			if(groundside_humans > 5)

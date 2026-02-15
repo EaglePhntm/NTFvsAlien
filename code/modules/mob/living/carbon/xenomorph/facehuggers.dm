@@ -715,7 +715,7 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 /obj/item/clothing/mask/facehugger/proc/try_impregnate(mob/living/carbon/human/target)
 	//ADD_TRAIT(src, TRAIT_NODROP, HUGGER_TRAIT)
 	var/as_planned = target?.wear_mask == src  || target?.w_underwear == src || target?.w_undershirt == src
-	if((target.can_be_facehugged(src, FALSE, FALSE, TRUE)) && !sterile && as_planned) //is hugger still on face and can they still be impregnated
+	if((target.can_be_facehugged(src, FALSE, FALSE, TRUE)) && !sterile && as_planned && can_implant_embryo(target)) //is hugger still on face and can they still be impregnated
 		if(source && (hivenumber == source.get_xeno_hivenumber()))
 			implant_embryo(target, source = source)
 		else

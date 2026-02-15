@@ -81,6 +81,7 @@
 		/datum/action/ability/xeno_action/place_jelly_pod,
 		/datum/action/ability/xeno_action/create_edible_jelly,
 		/datum/action/ability/xeno_action/place_stew_pod,
+		/datum/action/ability/xeno_action/place_recovery_pylon,
 		/datum/action/ability/activable/xeno/recycle,
 		/datum/action/ability/activable/xeno/place_pattern,
 	)
@@ -136,6 +137,7 @@
 		/datum/action/ability/xeno_action/place_jelly_pod,
 		/datum/action/ability/xeno_action/create_edible_jelly,
 		/datum/action/ability/xeno_action/place_stew_pod,
+		/datum/action/ability/xeno_action/place_recovery_pylon,
 		/datum/action/ability/activable/xeno/recycle,
 		/datum/action/ability/activable/xeno/place_pattern,
 	)

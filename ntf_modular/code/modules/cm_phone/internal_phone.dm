@@ -213,13 +213,23 @@ GLOBAL_LIST_EMPTY(radio_packs)
 	var/list/networks_receive = list(FACTION_TERRAGOV)
 	var/list/networks_transmit = list(FACTION_TERRAGOV)
 
+/obj/item/armor_module/module/antenna/on_attach(obj/item/attaching_to, mob/user)
+	. = ..()
+	var/datum/action/item_action = actions[1]
+	item_action.button.overlays.Cut()
+
+	var/image/IMG = image('ntf_modular/icons/obj/structures/phone.dmi', item_action.button, "scout_microphone")
+	item_action.button.overlays += IMG
+
 /obj/item/armor_module/module/antenna/activate(mob/living/user)
 	playsound(loc, 'sound/machines/terminal_button01.ogg', 50, 1)
-	switch(tgui_alert(user, "Use which interface?", "Antenna Module", list("Cancel","Beacon","Microphone")))
+	use_phone(user)
+	/*
+	switch(tgui_alert(user, "Use which interface?", "Antenna Module", list("Cancel","Coords","Microphone")))
 		if("Microphone")
 			use_phone(user)
 			update_button(FALSE)
-		if("Beacon")
+		if("Coords")
 			update_button(TRUE)
 			if(comms_setup == COMMS_SETTING)
 				to_chat(user, span_notice("Your Antenna module is still in the process of starting up!"))
@@ -230,6 +240,7 @@ GLOBAL_LIST_EMPTY(radio_packs)
 				return
 		if("Cancel")
 			return
+	*/
 
 /obj/item/armor_module/module/antenna/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
@@ -285,6 +296,7 @@ GLOBAL_LIST_EMPTY(radio_packs)
 	RegisterSignal(internal_transmitter, "COMSIG_TRANSMITTER_UPDATE_ICON", PROC_REF(check_for_ringing))
 	GLOB.radio_packs += src
 
+/*
 /obj/item/armor_module/module/antenna/proc/update_button(mode)
 	var/datum/action/item_action = actions[1]
 	item_action.button.overlays.Cut()
@@ -293,6 +305,7 @@ GLOBAL_LIST_EMPTY(radio_packs)
 	else
 		var/image/IMG = image('ntf_modular/icons/obj/structures/phone.dmi', item_action.button, "scout_microphone")
 		item_action.button.overlays += IMG
+*/
 
 /obj/item/armor_module/module/antenna/proc/check_for_ringing()
 	SIGNAL_HANDLER

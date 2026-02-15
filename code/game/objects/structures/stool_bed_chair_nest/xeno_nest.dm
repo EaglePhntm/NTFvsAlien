@@ -95,6 +95,11 @@
 		if(the_area.ceiling >= CEILING_UNDERGROUND && !isxeno(user) && welder_needed_unbuckle)
 			to_chat(user, span_warning("You need to use a welder to get through this thick resin."))
 			return FALSE
+		if(isxeno(user))
+			var/mob/living/carbon/xenomorph/xuser = user
+			if(!(xuser.xeno_caste.caste_flags & CASTE_IS_BUILDER) && !(SSticker.mode.round_type_flags & MODE_CHILL_RULES))
+				to_chat(xuser, span_xenowarning("We should not meddle with the nested hosts, best leave that to the drones."))
+				return FALSE
 		buckled_mob.visible_message(span_notice("\The [user] begins to pull \the [buckled_mob] free from \the [src]!"),
 			span_notice("\The [user] begins to pull you free from \the [src]."),
 			span_notice("You hear squelching."))
