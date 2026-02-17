@@ -67,7 +67,7 @@
 		qdel(src)
 		return PROCESS_KILL
 
-	if(affected_mob.stat == DEAD && stage < 3) //No more corpsefucking for infinite larva, thanks
+	if(affected_mob.stat == DEAD) //No more corpsefucking for infinite larva, thanks
 		return FALSE
 
 	if(loc != affected_mob)
@@ -101,11 +101,11 @@
 	*/
 
 /obj/item/alien_embryo/proc/process_growth()
-	if(affected_mob.stat == DEAD && stage < 3) //No more corpsefucking for infinite larva, thanks
+	if(affected_mob.stat == DEAD) //No more corpsefucking for infinite larva, thanks
 		return FALSE
 
 	if(ishuman(affected_mob) && !(SSticker.mode.round_type_flags & MODE_CHILL_RULES))
-		if(affected_mob.getCloneLoss() >= 30) //I guess they remain dormant
+		if(affected_mob.getCloneLoss() >= 30 || HAS_TRAIT(affected_mob, TRAIT_PSY_DRAINED)) //I guess they remain dormant
 			return FALSE
 
 	hive_target_bonus = hive_target_bonus || HAS_TRAIT(affected_mob, TRAIT_HIVE_TARGET)
