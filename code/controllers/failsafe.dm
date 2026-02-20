@@ -98,6 +98,8 @@ GLOBAL_REAL(Failsafe, /datum/controller/failsafe)
 							log_game_world("FailSafe: DEFCON [defcon_pretty()]. The Master Controller has still not fired within the last [(5-defcon) * processing_interval] ticks. Killing and restarting...")
 							to_chat(GLOB.admins, span_boldannounce("Warning: DEFCON [defcon_pretty()]. The Master Controller has still not fired within the last [(5-defcon) * processing_interval] ticks. Killing and restarting..."))
 							--defcon
+							log_game_world("Current MC perf monitor at the time of DEFCON 1:")
+							logperf()
 							var/rtn = Recreate_MC()
 							if(rtn > 0)
 								defcon = 4

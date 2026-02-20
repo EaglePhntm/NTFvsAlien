@@ -1,0 +1,7 @@
+proc/logperf()
+	log_game_world("===PERFLOG===")
+	log_game_world("CPU: [world.cpu]")
+	log_game_world("Master Controller:" + Master.stat_entry())
+	for(var/datum/controller/subsystem/sub_system as anything in Master.subsystems)
+		log_game_world("\[[sub_system.state_letter()]][sub_system.name]:" + sub_system.stat_entry())
+	log_game_world("===PERFLOG END===")
