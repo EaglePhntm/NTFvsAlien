@@ -3,6 +3,7 @@
 
 $include dbconfig.txt
 $include resources.txt
+$include amia.txt
 
 ## Server name: This appears at the top of the screen in-game.
 SERVER_NAME SoL|NTF vs Alien M/ERP +18
