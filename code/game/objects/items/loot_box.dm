@@ -635,5 +635,5 @@
 /obj/item/storage/box/crate/loot/sadarclassic_pack/PopulateContents()
 	. = ..()
 	new /obj/item/weapon/gun/launcher/rocket/sadar(src)
-	new /obj/item/storage/backpack/marine/satchel/scout_cloak(src)
+	new /obj/item/storage/backpack/marine/satchel/scout_cloak/sniper(src)
 	new /obj/item/ammo_magazine/rocket/sadar/ap(src)

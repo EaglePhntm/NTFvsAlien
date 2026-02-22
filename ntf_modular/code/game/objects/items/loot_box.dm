@@ -68,7 +68,7 @@
 	. = ..()
 	new /obj/item/clothing/glasses/night/m42_night_goggles(src)
 	new /obj/item/clothing/gloves/marine/insulated(src)
-	new /obj/item/storage/backpack/marine/satchel/scout_cloak(src)
+	new /obj/item/storage/backpack/marine/satchel/scout_cloak/sniper(src)
 	if(SSmapping.configs[GROUND_MAP].environment_traits[MAP_COLD])
 		new /obj/item/bodybag/tarp/snow(src)
 	else
@@ -111,7 +111,7 @@
 	new /obj/item/ammo_magazine/pistol/m1911/ap(src)
 	new /obj/item/clothing/glasses/night/m42_night_goggles(src)
 	new /obj/item/clothing/gloves/marine/insulated(src)
-	new /obj/item/storage/backpack/marine/satchel/scout_cloak(src)
+	new /obj/item/storage/backpack/marine/satchel/scout_cloak/sniper(src)
 	if(SSmapping.configs[GROUND_MAP].environment_traits[MAP_COLD])
 		new /obj/item/bodybag/tarp/snow(src)
 	else
