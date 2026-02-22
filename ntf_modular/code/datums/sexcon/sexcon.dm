@@ -264,7 +264,9 @@
 
 /datum/sex_controller/proc/after_ejaculation()
 	set_arousal(40)
-	user.reagents.remove_reagent(/datum/reagent/toxin/xeno_aphrotoxin, 25) //rids of aphrotox greatly
+	var/aphrotoxin_amount =  user.reagents.get_reagent_amount(/datum/reagent/toxin/xeno_aphrotoxin)
+	if(aphrotoxin_amount)
+		user.reagents.remove_reagent(/datum/reagent/toxin/xeno_aphrotoxin, (aphrotoxin_amount * 0.4) + 10) 
 	user.emote("sexmoanhvy")
 	playsound(user, 'ntf_modular/sound/misc/mat/end.ogg', 100, FALSE, 7, ignore_walls = FALSE)
 	last_ejaculation_time = world.time
