@@ -13,10 +13,9 @@
 		"Synskin Combat Robot" = 'icons/mob/species/robot/glasses.dmi')
 	icon_state = "night"
 	worn_icon_state = "glasses"
-	lighting_cutoff = LIGHTING_CUTOFF_MEDIUM
 	toggleable = TRUE
 	// deactive_state = "night_vision_off" // gonna test what it does without a deactive_state
-	color_cutoffs = list(10, 40, 10)
+	color_cutoffs = list(5, 30, 5)
 	vision_flags = SEE_TURFS
 	goggles = TRUE
 	active = FALSE
@@ -177,6 +176,7 @@
 	toggleable = FALSE
 	active = TRUE
 	active_energy_cost = 0 // They are supposed to be alien and magical.
+	color_cutoffs = list(30, 30, 30) // magic
 
 /obj/item/clothing/glasses/night/sectoid/Initialize(mapload)
 	. = ..()
@@ -257,7 +257,7 @@
 	deactive_state = "vsd_nvg_off"
 	toggleable = TRUE
 	actions_types = list(/datum/action/item_action/toggle)
-	tint = COLOR_VERY_SOFT_YELLOW
+	color_cutoffs = list(20, 20, 5)
 	worn_layer = COLLAR_LAYER
 
 /obj/item/clothing/glasses/night/vsd/alt
@@ -266,4 +266,3 @@
 	icon_state = "vsd_alt"
 	worn_icon_state = "vsd_alt"
 	deactive_state = "vsd_alt_off"
-	tint = COLOR_VERY_SOFT_YELLOW

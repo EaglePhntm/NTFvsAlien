@@ -451,7 +451,7 @@
 	worn_layer = COLLAR_LAYER	//The sprites are designed to render over helmets
 	worn_item_state_slots = list()
 	// green
-	color_cutoffs = list(10, 40, 10)
+	color_cutoffs = list(0, 15, 0)
 	vision_flags = SEE_TURFS
 	toggleable = TRUE
 	goggles = TRUE
@@ -462,7 +462,7 @@
 	///The battery inside
 	var/obj/item/cell/night_vision_battery/battery
 	///How much energy this module needs when activated
-	var/active_energy_cost = 1
+	var/active_energy_cost = 1.2
 	///Looping sound to play
 	var/datum/looping_sound/active_sound = /datum/looping_sound/scan_pulse
 	///How loud the looping sound should be
