@@ -16,7 +16,6 @@
 	toggleable = TRUE
 	// deactive_state = "night_vision_off" // gonna test what it does without a deactive_state
 	color_cutoffs = list(30, 30, 30)
-	vision_flags = SEE_TURFS
 	goggles = TRUE
 	active = FALSE
 	actions_types = list(/datum/action/item_action/toggle)
@@ -144,7 +143,6 @@
 	icon = 'icons/obj/clothing/glasses.dmi'
 	icon_state = "m56_goggles"
 	deactive_state = "m56_goggles_0"
-	vision_flags = SEE_TURFS
 	toggleable = 1
 	actions_types = list(/datum/action/item_action/toggle)
 
@@ -155,7 +153,6 @@
 	icon = 'icons/obj/clothing/glasses.dmi'
 	icon_state = "m56_goggles"
 	deactive_state = "m56_goggles_0"
-	vision_flags = SEE_TURFS
 	toggleable = 1
 	actions_types = list(/datum/action/item_action/toggle)
 
@@ -190,7 +187,6 @@
 	deactive_state = "m56_goggles_0"
 	toggleable = TRUE
 	actions_types = list(/datum/action/item_action/toggle)
-	vision_flags = SEE_TURFS
 
 /obj/item/clothing/glasses/night/m56_goggles/activate(mob/user)
 	. = ..()
@@ -221,7 +217,6 @@
 	deactive_state = "degoggles_mesonsunglasses"
 	toggleable = TRUE
 	actions_types = list(/datum/action/item_action/toggle)
-	vision_flags = SEE_TURFS
 	prescription = TRUE
 
 /obj/item/clothing/glasses/night/optgoggles
