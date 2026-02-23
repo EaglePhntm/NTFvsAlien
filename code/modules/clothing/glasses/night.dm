@@ -15,7 +15,7 @@
 	worn_icon_state = "glasses"
 	toggleable = TRUE
 	// deactive_state = "night_vision_off" // gonna test what it does without a deactive_state
-	color_cutoffs = list(5, 30, 5)
+	color_cutoffs = list(30, 30, 30)
 	vision_flags = SEE_TURFS
 	goggles = TRUE
 	active = FALSE
@@ -257,7 +257,7 @@
 	deactive_state = "vsd_nvg_off"
 	toggleable = TRUE
 	actions_types = list(/datum/action/item_action/toggle)
-	color_cutoffs = list(20, 20, 5)
+	color_cutoffs = list(30, 30, 0)
 	worn_layer = COLLAR_LAYER
 
 /obj/item/clothing/glasses/night/vsd/alt
