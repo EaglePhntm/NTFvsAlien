@@ -15,7 +15,7 @@
 	worn_icon_state = "glasses"
 	toggleable = TRUE
 	// deactive_state = "night_vision_off" // gonna test what it does without a deactive_state
-	color_cutoffs = list(30, 30, 30)
+	color_cutoffs = list(10, 30, 10)
 	goggles = TRUE
 	active = FALSE
 	actions_types = list(/datum/action/item_action/toggle)
@@ -29,6 +29,8 @@
 	var/datum/looping_sound/active_sound = /datum/looping_sound/scan_pulse
 	///How loud the looping sound should be
 	var/looping_sound_volume = 25
+	static_severity = 3
+	activation_volume = 100
 
 /obj/item/clothing/glasses/night/Initialize(mapload)
 	. = ..()
@@ -137,25 +139,16 @@
 
 // Start of the Variants.
 
-/obj/item/clothing/glasses/night/tx8
-	name = "\improper BR-8 battle sight"
-	desc = "A headset and night vision goggles system for the BR-8 Battle Rifle. Allows highlighted imaging of surroundings. Click it to toggle."
-	icon = 'icons/obj/clothing/glasses.dmi'
-	icon_state = "m56_goggles"
-	deactive_state = "m56_goggles_0"
-	toggleable = 1
-	actions_types = list(/datum/action/item_action/toggle)
-
-
 /obj/item/clothing/glasses/night/m42_night_goggles
-	name = "\improper M42 scout sight"
-	desc = "A headset and night vision goggles system for the M42 Scout Rifle. Allows highlighted imaging of surroundings. Click it to toggle."
+	name = "\improper BR-8 scout sight"
+	desc = "A headset and night vision goggles system developed for the BR-8 Scout Rifle but the package was discontinued due cost of the goggles being higher than the rifle itself, but it can be used alone just fine. Allows highlighted imaging of surroundings. Click it to toggle."
 	icon = 'icons/obj/clothing/glasses.dmi'
+	color_cutoffs = list(0, 30, 40)
 	icon_state = "m56_goggles"
 	deactive_state = "m56_goggles_0"
 	toggleable = 1
 	actions_types = list(/datum/action/item_action/toggle)
-
+	static_severity = 1
 
 /obj/item/clothing/glasses/night/m42_night_goggles/upp
 	name = "\improper Type 9 elite goggles"
@@ -183,9 +176,11 @@
 	name = "\improper KTLD head mounted sight"
 	desc = "A headset and goggles system made to pair with any KTLD weapon, such as the SG type weapons. Has a low-res short range imager, allowing for view of terrain."
 	icon = 'icons/obj/clothing/glasses.dmi'
+	color_cutoffs = list(10, 20, 40)
 	icon_state = "m56_goggles"
 	deactive_state = "m56_goggles_0"
 	toggleable = TRUE
+	static_severity = 2
 	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/clothing/glasses/night/m56_goggles/activate(mob/user)

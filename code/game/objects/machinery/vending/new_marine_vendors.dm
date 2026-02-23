@@ -1846,13 +1846,13 @@
 
 /obj/effect/vendor_bundle/pmc/sniper
 	gear_to_spawn = list(
-		/obj/item/clothing/glasses/night/m42_night_goggles,
+		/obj/item/clothing/glasses/night/m56_goggles,
 		/obj/item/binoculars/tactical/range,
 	)
 
 /obj/effect/vendor_bundle/pmc/leader
 	gear_to_spawn = list(
-		/obj/item/clothing/glasses/night/m42_night_goggles,
+		/obj/item/clothing/glasses/night/m56_goggles,
 		/obj/item/binoculars/tactical/range,
 		/obj/item/explosive/plastique,
 		/obj/item/pinpointer,
