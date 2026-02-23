@@ -1,0 +1,6 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - balance: "makes all night vision googles need a batery."
+  - balance: "Removes mesons effect (ie, see turfts) from the nvg googles."
+  - code_imp: "Changes the name of Specialist Operatives to Squad Specialist for consistency sake."

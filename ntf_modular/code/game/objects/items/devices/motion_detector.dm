@@ -13,6 +13,9 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	wield_delay_mod = 0.2 SECONDS
 	pixel_shift_y = 20
+	base_sensitivity = 2.8 SECONDS
+	distance_multiplier = 1.1
+	minimum_sensitivity = 0.6 SECONDS
 	var/ping_count = 0
 	var/ping_overlay
 	var/quiet = FALSE
@@ -36,6 +39,9 @@
 	equip_slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_SUITSTORE|ITEM_SLOT_POCKET
 	w_class = WEIGHT_CLASS_SMALL
 	wield_delay_mod = 0.1 SECONDS
+	base_sensitivity = 2.4 SECONDS
+	distance_multiplier = 1.3
+	minimum_sensitivity = 0.6 SECONDS
 
 /obj/item/attachable/motiondetector/advanced/covert
 	name = "NTAC covert motion tracker"
@@ -65,19 +71,25 @@
 	for (var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(operator, range))
 		if(nearby_human == operator)
 			continue
-		if(nearby_human.last_move_time + move_sensitivity < world.time)
-			continue
 		if(HAS_TRAIT(nearby_human, TRAIT_TURRET_HIDDEN))
+			continue
+		var/target_distance = get_dist(operator, nearby_human)
+		var/effective_sensitivity = base_sensitivity - (target_distance * distance_multiplier)
+		effective_sensitivity = clamp(effective_sensitivity, minimum_sensitivity, base_sensitivity)
+		if(nearby_human.last_move_time + effective_sensitivity < world.time)
 			continue
 		if(!(nearby_human.get_iff_signal() & operator.get_iff_signal()))
 			ping_count++
 		prepare_blip(nearby_human, nearby_human.wear_id?.iff_signal & operator.get_iff_signal() ? MOTION_DETECTOR_FRIENDLY : MOTION_DETECTOR_HOSTILE)
 	for (var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(operator, range))
-		if(nearby_xeno.last_move_time + move_sensitivity < world.time )
-			continue
 		if(HAS_TRAIT(nearby_xeno, TRAIT_TURRET_HIDDEN))
 			continue
 			//turret trait is for the xeno variant of the turret, and turret_hidden is for the xenos that are hiding in walls and such, both should be undetectable by motion sensors.
+		var/target_distance = get_dist(operator, nearby_xeno)
+		var/effective_sensitivity = base_sensitivity - (target_distance * distance_multiplier)
+		effective_sensitivity = clamp(effective_sensitivity, minimum_sensitivity, base_sensitivity)
+		if(nearby_xeno.last_move_time + effective_sensitivity < world.time )
+			continue
 		if(!(nearby_xeno.get_iff_signal() & operator.get_iff_signal()))
 			ping_count++
 		prepare_blip(nearby_xeno, nearby_xeno.get_iff_signal() & operator.get_iff_signal() ?  MOTION_DETECTOR_FRIENDLY : MOTION_DETECTOR_HOSTILE)

@@ -1,0 +1,8 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - code_imp: "Added a new proc for xenos to return a number based on their tier. I use it to simulate their sex skill."
+  - code_imp: "Added a new proc to sexcon to calculate how much of a sex reagent is extracted, based on the sex skill of the user, and the one being milked of race (xenos make more)."
+  - bugfix: "Fixed cum into a container to produce cum for force ejaculation."
+  - qol: "Added the ability to use glasses and bottles or cups in addition to beakers for milking and force eyaculation."
+  - balance: "Changed the ejaculation code to reduce Aphrotoxin by 40% plus ten, that means if you have 1k aphro it takes 7 climaxes to reduce it to 0, but otherwise you need 2 if you got 50, to keep the balance of how we have it without having breaking numbers for it."

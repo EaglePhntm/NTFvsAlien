@@ -1,0 +1,6 @@
+author: "Ldip999"
+delete-after: True
+changes:
+  - config: "AMIA config files (Included by default, but disabled by default)"
+  - admin: "AMIA ahelp relay"
+  - server: "AMIA interface for integration"

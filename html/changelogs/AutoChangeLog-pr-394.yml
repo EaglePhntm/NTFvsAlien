@@ -1,0 +1,5 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscdel: "Temporarily removes the Ghost cloak and replaces it with the sniper cloak."
+  - balance: "Makes motion sensors more sensitive when the opposing ones are near, but less sensitive when they are further away."

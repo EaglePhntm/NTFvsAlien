@@ -46,11 +46,6 @@ ARMOR
 	)
 	cost = B17_PRICE
 
-/datum/supply_packs/armor/scout_cloak
-	name = "NT-Cyberghost"
-	contains = list(/obj/item/storage/backpack/marine/satchel/scout_cloak)
-	cost = 500
-
 /datum/supply_packs/armor/sniper_cloak
 	name = "Sniper Cloak"
 	contains = list(/obj/item/storage/backpack/marine/satchel/scout_cloak/sniper)
