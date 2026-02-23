@@ -609,7 +609,7 @@
 	new /obj/item/ammo_magazine/rifle(src)
 	new /obj/item/ammo_magazine/rifle(src)
 	new /obj/item/ammo_magazine/rifle(src)
-	new /obj/item/clothing/glasses/night/m42_night_goggles(src)
+	new /obj/item/clothing/glasses/night/m56_goggles(src)
 
 /obj/item/storage/box/crate/loot/b18classic_pack/Initialize(mapload)
 	. = ..()

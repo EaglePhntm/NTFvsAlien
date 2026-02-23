@@ -2084,7 +2084,7 @@
 	belt = /obj/item/storage/belt/marine/som
 	suit_store = /obj/item/weapon/gun/rifle/dragoon
 	back = /obj/item/storage/backpack/lightpack/icc
-	glasses = /obj/item/clothing/glasses/night/m42_night_goggles
+	glasses = /obj/item/clothing/glasses/night/m56_goggles
 	r_hand = /obj/item/pamphlet/rifleman
 
 /datum/outfit/quick/som/veteran/dragoon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -3679,7 +3679,7 @@
 	shoes = /obj/item/clothing/shoes/marine/pmc/full
 	gloves = /obj/item/clothing/gloves/marine/veteran/pmc_elite
 	mask = /obj/item/clothing/mask/gas/pmc/leader
-	glasses = /obj/item/clothing/glasses/night/m42_night_goggles
+	glasses = /obj/item/clothing/glasses/night/m56_goggles
 	back = /obj/item/storage/backpack/lightpack/pmc
 
 /datum/outfit/quick/pmc/sniper/sniper_rifle
@@ -3761,7 +3761,7 @@
 	gloves = /obj/item/clothing/gloves/marine/veteran/pmc_elite
 	head = /obj/item/clothing/head/helmet/marine/veteran/pmc/leader
 	mask = /obj/item/clothing/mask/gas/pmc/leader
-	glasses = /obj/item/clothing/glasses/night/m42_night_goggles
+	glasses = /obj/item/clothing/glasses/night/m56_goggles
 	r_pocket = /obj/item/storage/pouch/grenade
 	l_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
 	back = /obj/item/storage/backpack/lightpack/pmc
