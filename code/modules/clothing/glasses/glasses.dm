@@ -232,7 +232,6 @@
 	icon = 'icons/obj/clothing/glasses.dmi'
 	icon_state = "m56_goggles"
 	deactive_state = "m56_goggles_0"
-	vision_flags = SEE_TURFS
 	toggleable = 1
 	actions_types = list(/datum/action/item_action/toggle)
 
@@ -452,7 +451,6 @@
 	worn_item_state_slots = list()
 	// green
 	color_cutoffs = list(10, 40, 10)
-	vision_flags = SEE_TURFS
 	toggleable = TRUE
 	goggles = TRUE
 	active = FALSE
