@@ -67,7 +67,7 @@
 		qdel(src)
 		return PROCESS_KILL
 
-	if(affected_mob.stat == DEAD) //No more corpsefucking for infinite larva, thanks
+	if(affected_mob.stat == DEAD && stage < 3) //No more corpsefucking for infinite larva, thanks
 		return FALSE
 
 	if(loc != affected_mob)
@@ -101,7 +101,7 @@
 	*/
 
 /obj/item/alien_embryo/proc/process_growth()
-	if(affected_mob.stat == DEAD) //No more corpsefucking for infinite larva, thanks
+	if(affected_mob.stat == DEAD && stage < 3) //No more corpsefucking for infinite larva, thanks
 		return FALSE
 
 	if(ishuman(affected_mob) && !(SSticker.mode.round_type_flags & MODE_CHILL_RULES))
