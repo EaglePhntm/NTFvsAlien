@@ -3,7 +3,7 @@
 	desc = "An incredibly expensive night vision goggle for high definition imagery in the dark. You can tell them you saw red when you do murder. Click it to toggle."
 	icon_state = "night_vision"	//i got too lazy to make a sprite
 	deactive_state = "night_vision_off"
-	color_cutoffs = list(40, 0, 0) //seemingly red makes things harder to see when mixed somehow
+	color_cutoffs = list(40, 10, 10) //seemingly red makes things harder to see when mixed somehow
 
 /obj/item/clothing/glasses/night/m42_night_goggles/ntc_g
 	name = "\improper NT 'Stalker-G' HD night-vision goggles"

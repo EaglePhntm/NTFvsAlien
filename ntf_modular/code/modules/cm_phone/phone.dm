@@ -46,6 +46,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	var/bypass_tgui_range = FALSE
 
 	var/call_sound_range = 14
+	var/pickup_sound_range = 7
 
 /datum/looping_sound/telephone/ring
 	start_sound = 'ntf_modular/sound/machines/telephone/dial.ogg'
@@ -223,7 +224,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	T.update_icon()
 
 	to_chat(user, span_purple("[icon2html(src, user)] Dialing [calling_phone_id].."))
-	playsound(get_turf(user), pickup_sound, 100, 1)
+	playsound(get_turf(user), pickup_sound, 100, 1, pickup_sound_range)
 	timeout_timer_id = addtimer(CALLBACK(src, PROC_REF(reset_call), TRUE), timeout_duration, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE)
 	outring_loop.start(attached_to)
 
@@ -272,7 +273,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 		T.timeout_timer_id = null
 
 	to_chat(user, span_purple("[icon2html(src, user)] Picked up a call from [T.phone_id]."))
-	playsound(get_turf(user), pickup_sound, 100)
+	playsound(get_turf(user), pickup_sound, 100, sound_range = pickup_sound_range)
 
 	T.outring_loop.stop(attached_to)
 	user.put_in_active_hand(attached_to)
