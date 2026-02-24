@@ -1302,7 +1302,7 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 		if(!silent)
 			to_chat(xeno_owner, span_warning("You can't do this while flying!"))
 		return FALSE
-	if((xeno_owner.hivenumber == XENO_HIVE_CORRUPTED && ALIGNEMENT_FRIENDLY == GLOB.faction_to_alignement[victim.faction]) || (xeno_owner.hivenumber == XENO_HIVE_NORMAL && FACTION_CLF == victim.faction) ) //So xenos can't psydrain their allies (Corrupted psydraining a marine for example)
+	if((xeno_owner.get_xeno_hivenumber() == XENO_HIVE_CORRUPTED && ALIGNEMENT_FRIENDLY == GLOB.faction_to_alignement[victim.faction]) || (xeno_owner.get_xeno_hivenumber() == XENO_HIVE_NORMAL && FACTION_CLF == victim.faction) ) //So xenos can't psydrain their allies (Corrupted psydraining a marine for example)
 		if(!silent)
 			to_chat(xeno_owner, span_warning("We cannot psydrain our allies!"))
 		return FALSE
