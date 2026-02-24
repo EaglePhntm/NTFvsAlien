@@ -49,9 +49,22 @@
 	hud_used?.rest_icon?.update_icon()
 
 
+/mob/living/human/verb/rclone()
+	set category = "OOC"
+	set name = "Reclone"
+
+	if(client && (stat == DEAD || CHECK_BITFIELD(restrained_flags, RESTRAINED_XENO_NEST))) //ask on death first time.
+		INVOKE_ASYNC(client, TYPE_PROC_REF(/client, ask_reclone), FALSE)
+		return
+	to_chat(src, span_notice("You must be dead or nested to use this."))
+
 /mob/living/verb/ghost()
 	set category = "OOC"
 	set name = "Ghost"
+
+	if(client && ishuman(src) && (stat == DEAD || CHECK_BITFIELD(restrained_flags, RESTRAINED_XENO_NEST))) //ask on death first time.
+		INVOKE_ASYNC(client, TYPE_PROC_REF(/client, ask_reclone), FALSE)
+		return
 
 	// Gamemode disallowed handler - START
 	if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS_STRICT)))
@@ -85,9 +98,6 @@
 		return
 	// Gamemode disallowed handler - END
 
-	if(client && ishuman(src) && (stat == DEAD || CHECK_BITFIELD(restrained_flags, RESTRAINED_XENO_NEST))) //ask on death first time.
-		INVOKE_ASYNC(client, TYPE_PROC_REF(/client, ask_reclone), FALSE)
-		return
 	if(stat == DEAD || isxenohivemind(src) || iszombie(src))
 		log_game("[key_name(usr)] has ghosted at [AREACOORD(usr)].")
 		message_admins("[ADMIN_TPMONTY(usr)] has ghosted.")
