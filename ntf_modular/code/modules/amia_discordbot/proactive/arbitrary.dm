@@ -1,7 +1,7 @@
 
 /proc/amia_arbitrary_status_update(msg, pingid)
 	if(CONFIG_GET(flag/amia_enabled)) //Yes I know we had a check, but what about a second check?
-		var/encodedckey = url_encode(msg)
+		var/encodedmsg = url_encode(msg)
 		var/constring
 		if(pingid){
 			constring =  amia_constring() + "arbitrarystatusupdate?pingid=[pingid]&msg=[encodedmsg]"
