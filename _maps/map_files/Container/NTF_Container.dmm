@@ -1640,6 +1640,18 @@
 	},
 /turf/open/floor/urban/wood,
 /area/mainship/command/corporateliaison)
+"bFa" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 1
+	},
+/obj/item/reagent_containers/jerrycan{
+	pixel_x = 7
+	},
+/obj/item/ammo_magazine/bike_autocannon,
+/obj/item/ammo_magazine/bike_autocannon,
+/obj/item/ammo_magazine/bike_autocannon,
+/turf/open/floor/mainship/mono,
+/area/mainship/hallways/hangar)
 "bFf" = (
 /obj/machinery/atmospherics/pipe/simple/general/visible{
 	dir = 6
@@ -4774,6 +4786,16 @@
 /obj/machinery/power/apc/mainship,
 /turf/open/floor/mainship/floor,
 /area/mainship/hallways/starboard_hallway)
+"eyO" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 1
+	},
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 8
+	},
+/obj/vehicle/ridden/big_bike,
+/turf/open/floor/mainship/mono,
+/area/mainship/hallways/hangar)
 "ezD" = (
 /obj/machinery/air_alarm,
 /obj/item/radio/intercom/general,
@@ -36325,7 +36347,7 @@ uAJ
 plT
 mLy
 oyF
-rXh
+eyO
 fJC
 kPy
 dpT
@@ -36427,7 +36449,7 @@ jJj
 uAJ
 bLC
 dHU
-oyF
+bFa
 oyF
 hjy
 ylh

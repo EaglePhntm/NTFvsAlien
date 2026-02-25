@@ -1,6 +1,6 @@
 /obj/vehicle/ridden/big_bike
 	name = "big bike"
-	desc = "A TGMC heavy motorbike. Used to swiftly carry up to 2 soldiers over the roughest of terrain, at high speed and with respectable survivibility. Is typically armed with a pair of forwarded mounted weapons. Favoured for rapid assaults."
+	desc = "A AC heavy motorbike. Used to swiftly carry up to 2 soldiers over the roughest of terrain, at high speed and with respectable survivibility. Is typically armed with a pair of forwarded mounted weapons. Favoured for rapid assaults."
 	icon = 'icons/obj/vehicles/big_bike.dmi'
 	icon_state = "big_bike"
 	max_integrity = 425
