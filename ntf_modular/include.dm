@@ -204,6 +204,7 @@
 #include "code\modules\reqs\supplypacks\imports_packs.dm"
 #include "code\modules\reqs\supplypacks\operations_packs.dm"
 #include "code\modules\reqs\supplypacks\weapons_packs.dm"
+#include "code\modules\status_updates\status_updates.dm"
 #include "code\modules\tgui\states\genital_menu.dm"
 #include "code\modules\xenomorph\acidwell.dm"
 #include "code\modules\xenomorph\reqjellypod.dm"
