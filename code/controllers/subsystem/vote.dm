@@ -88,48 +88,59 @@ SUBSYSTEM_DEF(vote)
 /datum/controller/subsystem/vote/proc/announce_result()
 	var/list/winners = get_result()
 	var/text
+	var/discord_text = ""
 
 	if(!length(winners))
 		if(mode != "shipmap" && mode != "groundmap")
 			text += "<b>Vote Result: Inconclusive - No Votes!</b>"
-			cleanup_vote(text)
+			discord_text += "**Vote Result: Inconclusive - No Votes!**\n"
+			cleanup_vote(text, discord_text)
 			return
 		//We randomly choose a valid map to avoid restarting with invalid maps for the gamemode, bricking the round and requiring a restart
 		var/random_map = pick(choices)
 		winners += random_map
 		text += "<b>Vote Result: Inconclusive - No Votes! Random valid map selected: [random_map]</b>"
+		discord_text += "**Vote Result: Inconclusive - No Votes! Random valid map selected: [random_map]**\n"
 		. = random_map
-		cleanup_vote(text)
+		cleanup_vote(text,discord_text)
 		return
 
 	if(question)
 		text += "<big><b><i>[question]</i></b></big>"
+		discord_text += "# **[question]**\n"
 	else
 		text += "<b>[capitalize(mode)] Vote</b>"
+		discord_text += "## **[capitalize(mode)] Vote**\n"
 	for(var/i = 1 to length(choices))
 		var/votes = choices[choices[i]] * (voteweights_by_choice[choices[i]] || 1)
 		if(!votes)
 			votes = 0
 		text += "\n<b>[choices[i]]:</b> [votes]"
+		discord_text += "**[choices[i]]:** [votes]\n"
 	if(mode != "custom")
 		if(length(winners) > 1)
 			text = "<hr><b>Vote Tied Between:</b>"
+			discord_text = "---\n**Vote Tied Between:**\n"
 			for(var/option in winners)
 				text += "\n\t[option]"
+				discord_text += "---[option]\n"
 		. = pick(winners)
 		text += "<hr><b>Vote Result: [.]</b>"
+		discord_text += "---\n**Vote Result: [.]**\n"
 	else
 		text += "<hr><b>Did not vote:</b> [length(GLOB.clients) - length(voted)]"
-	cleanup_vote(text)
+		discord_text += "---\n**Did not vote:** [length(GLOB.clients) - length(voted)]\n"
+	cleanup_vote(text, discord_text)
 
 ///Cleans up after a vote is successfully concluded
-/datum/controller/subsystem/vote/proc/cleanup_vote(result_text)
+/datum/controller/subsystem/vote/proc/cleanup_vote(result_text, discord_text)
 	vote_happening = FALSE
 	remove_action_buttons()
 	if(!result_text)
 		return
 	log_vote(result_text)
 	to_chat(world, custom_boxed_message("purple_box", result_text))
+	status_update_vote_ended(discord_text)
 
 /// Apply the result of the vote if it's possible
 /datum/controller/subsystem/vote/proc/result(default_result)

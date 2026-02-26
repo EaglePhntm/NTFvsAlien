@@ -63,4 +63,18 @@ GLOBAL_VAR_INIT(round_end_ping_done, FALSE)
 		stats.Cut(1,1)
 	amia_arbitrary_status_update(msg, pingid)
 
+/proc/status_update_vote_started()
+
+/proc/status_update_vote_ended(list/result_text, continuing = FALSE)
+	if(!continuing)
+		result_text = splittext(result_text, "\n")
+	var/msg = ""
+	while(length(result_text))
+		if(length(msg) + length(result_text[1]) > MAXIMUM_DISCORD_MESSAGE_LENGTH)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(status_update_vote_ended), result_text, TRUE), 1.5 SECONDS)
+			break
+		msg += "[result_text[1]]\n"
+		result_text.Cut(1,1)
+	amia_arbitrary_status_update(msg)
+
 
