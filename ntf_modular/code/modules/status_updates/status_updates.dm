@@ -44,18 +44,11 @@
 	GLOB.maps_loaded_data += "Mode: [GLOB.master_mode]\n"
 	amia_arbitrary_status_update(GLOB.maps_loaded_data)
 
-GLOBAL_VAR_INIT(round_end_ping_done, FALSE)
-
 /proc/status_update_round_end(list/stats)
-	var/pingid = null
-	var/msg = ""
-	if(!GLOB.round_end_ping_done)
-		pingid = PINGID_NEW_ROUND_PING
-		GLOB.round_end_ping_done = TRUE
-		msg += "Round [replacetext(GLOB.log_directory, "data/logs/", "")] has ended!\nMode:[SSticker.mode.name]\nResult:[SSticker.mode.round_finished]\n"
+	var/msg = "Round [replacetext(GLOB.log_directory, "data/logs/", "")] has ended!\nMode:[SSticker.mode.name]\nResult:[SSticker.mode.round_finished]\n"
 	msg += replacetext(stats.Join("\n"),"<br>","\n")
 	msg = splittext(msg, "\n")
-	send_long_status_update(msg, pingid)
+	send_long_status_update(msg, PINGID_NEW_ROUND_PING)
 
 /proc/status_update_vote_started(initiator)
 	var/lines = list()
