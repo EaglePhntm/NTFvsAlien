@@ -306,6 +306,7 @@ GLOBAL_VAR(restart_counter)
 		if(length(msg))
 			send2chat(msg.Join(" | "), CONFIG_GET(string/end_of_round_channel))
 
+	status_update_next_gamemode(trim(file2text("data/mode.txt")), TRUE)
 	to_chat(world, span_boldannounce("Rebooting world..."))
 	Master.Shutdown()
 

@@ -193,6 +193,8 @@ SUBSYSTEM_DEF(vote)
 						var/datum/map_config/next_antag = pick(maps)
 						log_game("changing antag map to [next_antag.map_name]")
 						SSmapping.changemap(next_antag, ANTAG_MAP)
+			if(timeleft(shipmap_timer_id))
+				status_update_next_gamemode(.)
 			if(GLOB.master_mode == .)
 				return
 			if(SSticker.current_state == GAME_STATE_PLAYING)

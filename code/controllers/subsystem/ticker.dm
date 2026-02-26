@@ -159,6 +159,8 @@ SUBSYSTEM_DEF(ticker)
 		return FALSE
 
 	CHECK_TICK
+	status_update_next_gamemode(mode.name)
+	GLOB.next_gamemode_pinged = null
 	mode.announce()
 
 	if(CONFIG_GET(flag/autooocmute))
@@ -285,6 +287,7 @@ SUBSYSTEM_DEF(ticker)
 		GLOB.master_mode = mode
 	else
 		GLOB.master_mode = "Extended"
+	GLOB.next_gamemode_pinged = GLOB.master_mode
 	log_game("Saved mode is '[GLOB.master_mode]'")
 
 

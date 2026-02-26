@@ -331,7 +331,7 @@ alt gamemodes
 
 */
 /datum/game_mode/infestation/secret_of_life/nosub
-	name = "Secret of Life - No subfactions"
+	name = "Secret of Life - No Subfactions"
 	config_tag = "Secret of Life - No Subfactions"
 	factions = list(FACTION_TERRAGOV, FACTION_SOM,FACTION_XENO, FACTION_CLF)
 	human_factions = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_CLF)
@@ -479,7 +479,7 @@ alt gamemodes
 
 /datum/game_mode/infestation/secret_of_life/alienonly
 	name = "Secret of Life - NTF vs Alien only"
-	config_tag = "Secret of Life - Alien only"
+	config_tag = "Secret of Life - NTF vs Alien only"
 	factions = list(FACTION_TERRAGOV, FACTION_XENO)
 	human_factions = list(FACTION_TERRAGOV)
 	valid_job_types = list(

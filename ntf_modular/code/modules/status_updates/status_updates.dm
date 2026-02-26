@@ -1,12 +1,36 @@
 #define PINGID_SERVER_UPDATE_NOTIFICATIONS "1476636729757663365"
 #define PINGID_NEW_ROUND_PING "1177233820639035432"
 
+#define PINGID_CRASH_ROUND_PING "1469068799469818049"
+#define PINGID_ZOMBIE_CRASH_ROUND_PING "1476701184785125499
+#define PINGID_NUCLEAR_WAR_VARIANT_PING "1476701614025871382
+#define PINGID_SURVIVAL_PING "1476701856175755364
+#define PINGID_SURVIVOR_HEAVY_PING "1476702539440324720
+#define PINGID_CLASSIC_MODE_PING "1476702696697237567
+#define PINGID_SOL_MODE_PING "1476703075640283408
+
+GLOBAL_LIST_INIT(mode_to_pingid, list(
+	"Crash" = PINGID_CRASH_ROUND_PING,
+	"Zombie Crash" = PINGID_ZOMBIE_CRASH_ROUND_PING,
+	"Nuclear War" = PINGID_NUCLEAR_WAR_VARIANT_PING,
+	"Nuclear War Plus" = PINGID_NUCLEAR_WAR_VARIANT_PING,
+	"Sovl War" = PINGID_NUCLEAR_WAR_VARIANT_PING,
+	"Sovl War Plus" = PINGID_NUCLEAR_WAR_VARIANT_PING,
+	"Survival" = PINGID_SURVIVAL_PING,
+	"Extended - Survivor-Heavy" = PINGID_SURVIVOR_HEAVY_PING,
+	"Secret of Life - Classic" = PINGID_CLASSIC_MODE_PING,
+	"Secret of Life - Main" = PINGID_SOL_MODE_PING,
+	"Secret of Life - No Subfactions" = PINGID_SOL_MODE_PING,
+	"Secret of Life - NTF vs Alien only" = PINGID_SOL_MODE_PING,
+	"Secret of Life - NTF vs CLF" = PINGID_SOL_MODE_PING,
+))
+
 #define MAXIMUM_DISCORD_MESSAGE_LENGTH 1800 // actually 2000 but let's leave 10% safety buffer
 
 /proc/status_update_server_start()
 	var/datum/getrev/revdata = GLOB?.revdata
-	var/compile_date = "[revdata.date]"
-	var/commit = "[revdata.commit]"
+	var/compile_date = "[revdata?.date]"
+	var/commit = "[revdata?.commit]"
 	var/rev_data_file = file("data/revision.json")
 	var/round_id = replacetext(GLOB.log_directory, "data/logs/", "")
 	var/msg = "Server starting...\nRound ID : [round_id]\n**Server revision compiled on:** [compile_date]\nLocal commit: [commit]\n"
@@ -61,6 +85,19 @@
 
 /proc/status_update_vote_ended(result_text)
 	send_long_status_update(splittext(result_text, "\n"))
+
+GLOBAL_VAR(next_gamemode_pinged)
+
+/proc/status_update_next_gamemode(mode, restarting = FALSE)
+	var/msg = ""
+	if(restarting)
+		msg += "Server restarting.\n"
+	else
+		if(GLOB.next_gamemode_pinged == mode)
+			return
+	GLOB.next_gamemode_pinged = mode
+	msg += "Next gamemode: [mode]"
+	amia_arbitrary_status_update(msg, GLOB.mode_to_pingid[mode])
 
 /proc/send_long_status_update(list/lines, ping_id)
 	var/msg = ""
