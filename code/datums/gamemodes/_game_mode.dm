@@ -687,6 +687,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 			var/last = GLOB.round_statistics.req_items_produced[length(GLOB.round_statistics.req_items_produced)]
 			parts += "[GLOB.round_statistics.req_items_produced[path]] [initial(path.name)][last ? "." : ","]"
 
+	status_update_round_end(parts)
 	if(length(parts))
 		return "<div class='panel stationborder'>[parts.Join("<br>")]</div>"
 	else

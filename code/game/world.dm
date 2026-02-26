@@ -197,7 +197,10 @@ GLOBAL_VAR(restart_counter)
 	// This was printed early in startup to the world log and config_error.log,
 	// but those are both private, so let's put the commit info in the runtime
 	// log which is ultimately public.
+	/*NTF edit - status_update_server_start() handles this
 	log_runtime(GLOB.revdata.get_log_message())
+	*/
+	status_update_server_start()
 
 #ifndef USE_CUSTOM_ERROR_HANDLER
 	world.log = file("[GLOB.log_directory]/dd.log")
