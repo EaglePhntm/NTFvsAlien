@@ -59,6 +59,7 @@ GLOBAL_VAR_INIT(round_end_ping_done, FALSE)
 
 /proc/status_update_vote_started()
 
+
 /proc/status_update_vote_ended(result_text)
 	send_long_status_update(splittext(result_text, "\n"))
 
@@ -66,7 +67,7 @@ GLOBAL_VAR_INIT(round_end_ping_done, FALSE)
 	var/msg = ""
 	while(length(lines))
 		if(length(msg) + length(lines[1]) > MAXIMUM_DISCORD_MESSAGE_LENGTH)
-			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(status_update_round_end), lines), 1.5 SECONDS)// we do not include ping_id here to avoid duplicate pings
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(send_long_status_update), lines), 1.5 SECONDS)// we do not include ping_id here to avoid duplicate pings
 			break
 		msg += "[lines[1]]\n"
 		lines.Cut(1,1)
