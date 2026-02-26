@@ -455,6 +455,7 @@ SUBSYSTEM_DEF(vote)
 			V.give_action(C.mob)
 			if(forced_popup)
 				SSvote.ui_interact(C.mob)
+		status_update_vote_started(initiator ? (lower_admin ? "admin" : "user") : "server")
 		return TRUE
 	return FALSE
 

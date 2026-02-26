@@ -57,8 +57,14 @@ GLOBAL_VAR_INIT(round_end_ping_done, FALSE)
 	msg = splittext(msg, "\n")
 	send_long_status_update(msg, pingid)
 
-/proc/status_update_vote_started()
-
+/proc/status_update_vote_started(initiator)
+	var/lines = list()
+	lines += "[capitalize(SSvote.mode)] vote started by [initiator]."
+	if(SSvote.mode == "custom")
+		lines += "--*[SSvote.question]*"
+	for(var/choice in SSvote.choices)
+		lines += "- [choice]"
+	send_long_status_update(lines)
 
 /proc/status_update_vote_ended(result_text)
 	send_long_status_update(splittext(result_text, "\n"))
