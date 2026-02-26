@@ -40347,7 +40347,7 @@
 "lyk" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/tech_supply,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/prison/blue{
 	dir = 1
 	},

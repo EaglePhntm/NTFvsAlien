@@ -300,3 +300,6 @@
 		stacks++
 	decay_time = initial(decay_time)
 	update_button_icon()
+
+/datum/action/ability/activable/xeno/blink/chimera
+	ability_cost = 75

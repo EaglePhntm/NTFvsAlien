@@ -17,8 +17,8 @@
 	speed = -1
 
 	// *** Plasma *** //
-	plasma_max = 500
-	plasma_gain = 25
+	plasma_max = 400
+	plasma_gain = 35
 
 	// *** Health *** //
 	max_health = 350
@@ -47,7 +47,7 @@
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/devour,
 		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/activable/xeno/blink,
+		/datum/action/ability/activable/xeno/blink/chimera,
 		/datum/action/ability/xeno_action/phantom,
 		/datum/action/ability/activable/xeno/pounce/abduction,
 		/datum/action/ability/activable/xeno/body_swap,
@@ -71,7 +71,7 @@
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/devour,
 		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/activable/xeno/blink,
+		/datum/action/ability/activable/xeno/blink/chimera,
 		/datum/action/ability/xeno_action/phantom,
 		/datum/action/ability/activable/xeno/pounce/abduction,
 		/datum/action/ability/activable/xeno/body_swap,

@@ -15,12 +15,11 @@
 	melee_damage = 5
 
 	// *** Speed *** //
-	speed = -1.5
+	speed = -1.3
 	weeds_speed_mod = -0.2
 
 	// *** Plasma *** //
 	plasma_max = 100
-	plasma_gain = 2
 
 	// *** Health *** //
 	max_health = 30
@@ -59,7 +58,7 @@
 	caste_type_path = /mob/living/carbon/xenomorph/facehugger/combat/slash
 	melee_damage = 25
 	attack_delay = 7
-	speed = -1.5
+	speed = -1.3
 	max_health = 50
 	plasma_max = 50
 
@@ -67,33 +66,35 @@
 	display_name = "Neurotoxin Facehugger"
 	caste_desc = "This one looks much more active than its fellows. This strange creature has a single prominent sharp proboscis."
 	caste_type_path = /mob/living/carbon/xenomorph/facehugger/chemical/neurotoxin
-	speed = -1.3
+	speed = -1.2
 	attack_delay = 9
 
 /datum/xeno_caste/facehugger/aphro
 	display_name = "Aphrotoxin Facehugger"
 	caste_desc = "This one looks much more active than its fellows. This strange creature has a single prominent sharp proboscis."
 	caste_type_path = /mob/living/carbon/xenomorph/facehugger/chemical/aphrotoxin
-	speed = -1.3
+	speed = -1.2
 	attack_delay = 9
 
 /datum/xeno_caste/facehugger/ozelomelyn
 	display_name = "Ozelomelyn Facehugger"
 	caste_desc = "This one looks much more active than its fellows. This strange creature has a single prominent sharp proboscis."
 	caste_type_path = /mob/living/carbon/xenomorph/facehugger/chemical/ozelomelyn
-	speed = -1.3
+	speed = -1.2
 	attack_delay = 9
 
 /datum/xeno_caste/facehugger/acid
 	display_name = "Acid Facehugger"
 	caste_desc = "This one looks much more active than its fellows. This repulsive looking thing is bloated with throbbing, putrescent green sacks of flesh."
 	caste_type_path = /mob/living/carbon/xenomorph/facehugger/combat/acid
-	speed = -1.1
+	speed = -0.9
 	plasma_max = 40 //very deadly
+	plasma_gain = 2
 
 /datum/xeno_caste/facehugger/resin
 	display_name = "Resin Facehugger"
 	caste_desc = "This one looks much more active than its fellows. This truly bizzare, bloated creature drips with purple, viscous resin."
 	caste_type_path = /mob/living/carbon/xenomorph/facehugger/combat/resin
-	speed = -1.1
+	speed = -0.9
 	plasma_max = 50
+	plasma_gain = 2

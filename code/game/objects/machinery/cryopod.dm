@@ -458,8 +458,10 @@
 		span_notice("You start climbing into [src]."))
 
 	var/mob/initiator = helper ? helper : user
+	log_combat(initiator, user, "begun to cryo", src)
 	if(!do_after(initiator, 20, TRUE, user, BUSY_ICON_GENERIC))
 		return FALSE
+	log_combat(initiator, user, "cryoed", src)
 
 	if(!QDELETED(occupant))
 		to_chat(initiator, span_warning("[src] is occupied."))

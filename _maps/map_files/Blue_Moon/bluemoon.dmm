@@ -560,7 +560,7 @@
 /area/bluemoon/outside/building/engi)
 "aAu" = (
 /obj/structure/table,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/prison/sterilewhite,
 /area/bluemoon/caves/facility/lambda/s)
 "aAP" = (
@@ -683,7 +683,7 @@
 /turf/open/floor/wood,
 /area/bluemoon/outside/building/dorms/bar)
 "aHV" = (
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/structure/table,
 /turf/open/floor/tile/dark/red2{
 	dir = 1
@@ -3090,7 +3090,7 @@
 /area/bluemoon/outside/building/cargo)
 "dxx" = (
 /obj/structure/table,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/prison/blue{
 	dir = 10
 	},
@@ -14492,7 +14492,7 @@
 /area/bluemoon/outside/building/engi)
 "qQQ" = (
 /obj/structure/table,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/prison/red,
 /area/bluemoon/caves/facility/lambda/sec)
 "qRp" = (
@@ -15278,7 +15278,7 @@
 /turf/closed/wall,
 /area/bluemoon/outside/building/dorms)
 "rIn" = (
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/structure/table,
 /turf/open/floor/tile/green/whitegreen{
 	dir = 4
@@ -17144,7 +17144,7 @@
 /area/bluemoon/caves/facility/lambda/n)
 "tWk" = (
 /obj/structure/table,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/dark/blue2{
 	dir = 1
 	},
@@ -18167,7 +18167,7 @@
 /area/bluemoon/outside/building/marshal)
 "vah" = (
 /obj/structure/table,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/prison/plate,
 /area/bluemoon/caves/facility/lambda/n)
 "vak" = (
@@ -20167,7 +20167,7 @@
 /area/bluemoon/outside/building/cargo/shop)
 "xvO" = (
 /obj/structure/table,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -20788,7 +20788,7 @@
 /area/bluemoon/outside/building/virology)
 "xZn" = (
 /obj/structure/table,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/prison/darkpurple{
 	dir = 5
 	},

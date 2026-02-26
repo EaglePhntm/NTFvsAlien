@@ -224,7 +224,7 @@
 /area/bigredv2/outside/admin_building)
 "jj" = (
 /obj/structure/table,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/machinery/light,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/admin_building)

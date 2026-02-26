@@ -187,7 +187,7 @@
 	if(.)
 		return
 
-	if(isscrewdriver(I) && circuit)
+	if(isscrewdriver(I) && circuit && !(atom_flags & NODECONSTRUCT))
 		if(user.skills.getRating(SKILL_ENGINEER) < SKILL_ENGINEER_EXPERT)
 			user.visible_message(span_notice("[user] fumbles around figuring out how to deconstruct [src]."),
 			span_notice("You fumble around figuring out how to deconstruct [src]."))

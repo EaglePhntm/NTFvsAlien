@@ -105,6 +105,8 @@
 			DEATHTIME_MESSAGE(usr)
 			return
 
+	if(tgui_alert(usr, "This will return you to the lobby so you can rejoin.  You will not be able to reclone.  Are you sure you wish to continue?", "Return to lobby", list("Yes", "No")) != "Yes")
+		return
 	var/mob/living/carbon/human/humancorpse = src
 	var/mob/dead/observer/ghost = src
 	if(isobserver(ghost))

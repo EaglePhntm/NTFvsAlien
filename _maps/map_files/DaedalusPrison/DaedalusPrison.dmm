@@ -1833,7 +1833,7 @@
 /area/daedalusprison/inside/library)
 "bAQ" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/prison/sterilewhite,
 /area/daedalusprison/inside/medical)
@@ -7419,7 +7419,7 @@
 /area/daedalusprison/inside/security/easternbooth)
 "gdj" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/prison/whitegreen/full,
 /area/daedalusprison/inside/medical)
 "gdW" = (
@@ -12683,7 +12683,7 @@
 /area/daedalusprison/inside/medical)
 "ktc" = (
 /obj/structure/table/reinforced/weak,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/prison/sterilewhite,
 /area/daedalusprison/inside/medical)
 "ktd" = (
@@ -16585,7 +16585,7 @@
 /area/daedalusprison/inside/centralhalls)
 "nyk" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/prison/darkred{
 	dir = 4
 	},

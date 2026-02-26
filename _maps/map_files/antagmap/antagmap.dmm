@@ -1628,7 +1628,7 @@
 	dir = 10
 	},
 /obj/structure/transmitter/som_net{
-	phone_category = "Prison";
+	phone_category = "SOM Prison";
 	phone_id = "Prison";
 	dir = 1;
 	pixel_y = -25
@@ -1892,6 +1892,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/warning_stripes/thin,
+/obj/vehicle/ridden/powerloader,
 /turf/open/floor/mainship/floor,
 /area/antag_ship/som/hangar)
 "ka" = (
@@ -4052,8 +4053,7 @@
 	},
 /area/antag_ship/vsd/hall)
 "tv" = (
-/obj/item/reagent_containers/jerrycan,
-/obj/item/reagent_containers/jerrycan,
+/obj/vehicle/ridden/hover_bike,
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/hangar)
 "tw" = (
@@ -5018,7 +5018,10 @@
 /area/antag_ship/clf_base/techroom)
 "xS" = (
 /obj/structure/drop_pod_launcher,
-/obj/structure/droppod,
+/obj/structure/droppod{
+	faction = "Sons of Mars";
+	name = "\improper SOM orbital drop pod"
+	},
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/hangar)
 "xT" = (
@@ -6148,11 +6151,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/preparation)
-"DH" = (
-/obj/structure/reagent_dispensers/fueltank,
-/obj/item/reagent_containers/jerrycan,
-/turf/open/floor/mainship/mono,
-/area/antag_ship/som/hangar)
 "DI" = (
 /turf/closed/wall/mainship/gray,
 /area/antag_ship/som/bathroom)
@@ -6301,6 +6299,13 @@
 /area/antag_ship/som/maintenance/north)
 "Eu" = (
 /obj/structure/dropship_equipment/cas/weapon/minirocket_pod,
+/turf/open/floor/mainship/mono,
+/area/antag_ship/som/hangar)
+"Ew" = (
+/obj/item/vehicle_module/mounted_gun/minigun,
+/obj/item/ammo_magazine/bike_minigun,
+/obj/item/ammo_magazine/bike_minigun,
+/obj/item/ammo_magazine/bike_minigun,
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/hangar)
 "Ex" = (
@@ -7741,7 +7746,7 @@
 /turf/open/floor/prison/plate,
 /area/antag_ship/vsd/engi)
 "KR" = (
-/obj/vehicle/ridden/powerloader,
+/obj/item/reagent_containers/jerrycan,
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/hangar)
 "KS" = (
@@ -9972,10 +9977,13 @@
 /turf/open/floor/prison/blackfloor,
 /area/antag_ship/vsd/hall)
 "UW" = (
-/obj/vehicle/ridden/motorbike{
-	dir = 4
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 1
 	},
-/turf/open/floor/mainship/mono,
+/obj/effect/turf_decal/warning_stripes/thin,
+/obj/structure/reagent_dispensers/fueltank,
+/obj/item/reagent_containers/jerrycan,
+/turf/open/floor/mainship/floor,
 /area/antag_ship/som/hangar)
 "UX" = (
 /obj/effect/turf_decal/tile/transparent/dark_green/fourcorners,
@@ -13369,7 +13377,7 @@ AB
 AB
 AB
 Dk
-CN
+Dk
 CN
 VK
 "}
@@ -13454,7 +13462,7 @@ ad
 ad
 ad
 ad
-ad
+tv
 ad
 ad
 ad
@@ -13549,8 +13557,8 @@ ad
 ad
 ad
 ad
-ad
-ad
+KR
+Ew
 ad
 ad
 ad
@@ -13732,7 +13740,7 @@ jc
 jc
 SW
 rS
-DH
+ad
 Gd
 YD
 YD
@@ -13825,7 +13833,7 @@ CN
 AB
 vj
 jc
-Si
+UW
 rS
 ad
 YD
@@ -14302,7 +14310,7 @@ qn
 qn
 Si
 rS
-KR
+ad
 Gd
 YD
 YD
@@ -14406,7 +14414,7 @@ GI
 GI
 Ug
 Ug
-UW
+ad
 ad
 rS
 xS
@@ -14501,7 +14509,7 @@ ad
 ad
 ad
 ad
-tv
+ad
 ad
 rS
 Mr

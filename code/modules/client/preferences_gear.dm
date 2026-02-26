@@ -262,31 +262,31 @@ GLOBAL_LIST_INIT(gear_datums, populate_gear_list())
 	slot = SLOT_R_HAND
 
 /datum/gear/phone/white
-	display_name = "Holophone (White)"
+	display_name = "Personal Agent (White)"
 	path = /obj/item/radio/loadout_tool
 	cost = 1
 	slot = SLOT_L_HAND
 
 /datum/gear/phone/red
-	display_name = "Holophone (Red)"
+	display_name = "Personal Agent (Red)"
 	path = /obj/item/radio/loadout_tool/red
 	cost = 1
 	slot = SLOT_L_HAND
 
 /datum/gear/phone/green
-	display_name = "Holophone (Green)"
+	display_name = "Personal Agent (Green)"
 	path = /obj/item/radio/loadout_tool/green
 	cost = 1
 	slot = SLOT_L_HAND
 
 /datum/gear/phone/blue
-	display_name = "Holophone (Blue)"
+	display_name = "Personal Agent (Blue)"
 	path = /obj/item/radio/loadout_tool/blue
 	cost = 1
 	slot = SLOT_L_HAND
 
 /datum/gear/phone/purple
-	display_name = "Holophone (Purple)"
+	display_name = "Personal Agent (Purple)"
 	path = /obj/item/radio/loadout_tool/purple
 	cost = 1
 	slot = SLOT_L_HAND

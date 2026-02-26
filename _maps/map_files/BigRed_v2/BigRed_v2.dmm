@@ -7848,7 +7848,7 @@
 "cCz" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/tech_supply,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/dark/blue2{
 	dir = 1
 	},
@@ -15077,7 +15077,7 @@
 "syZ" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/coffee,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/carpet/side{
 	dir = 6
 	},

@@ -889,7 +889,7 @@
 /area/corsat/sigma/hangar/id)
 "awq" = (
 /obj/structure/table/reinforced,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/effect/turf_decal/tile/corsatsemi/red{
 	dir = 1
 	},
@@ -5688,7 +5688,7 @@
 /area/corsat/gamma/sigmaremote)
 "cBF" = (
 /obj/structure/table/reinforced,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/effect/turf_decal/tile/corsatstraight/lightpurple{
 	dir = 8
 	},
@@ -12819,7 +12819,7 @@
 /area/corsat/sigma/cafe)
 "fLh" = (
 /obj/structure/table/reinforced,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/effect/turf_decal/tile/corsatstraight/red{
 	dir = 4
 	},
@@ -17780,7 +17780,7 @@
 /area/corsat/dropzone/landingzonethree)
 "hZx" = (
 /obj/structure/table/reinforced,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/item/tool/lighter/random,
 /turf/open/floor/grayscale/round/black,
 /area/corsat/omega/hangar/office)
@@ -30196,7 +30196,7 @@
 /obj/item/ashtray/plastic{
 	pixel_x = 4
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = -4;
 	pixel_y = 4
 	},
@@ -37416,7 +37416,7 @@
 /area/corsat/theta/airlock/east/id)
 "qyW" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/effect/spawner/random/engineering/powercell,
 /turf/open/floor/grayscale/darkgray,
 /area/corsat/sigma/southeast/datalab)
@@ -41188,7 +41188,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/effect/turf_decal/tile/corsatstraight/blue{
 	dir = 1
 	},
@@ -43782,7 +43782,7 @@
 /area/corsat/sigma/north)
 "tjw" = (
 /obj/structure/table/reinforced,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/effect/turf_decal/tile/corsatstraight/lightpurple{
 	dir = 1
 	},
@@ -51300,7 +51300,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/corsat/dropzone/landingzonethree)
 "wpl" = (
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/carpet,
 /area/corsat/omega/offices)
 "wpo" = (
@@ -51862,7 +51862,7 @@
 "wCJ" = (
 /obj/effect/turf_decal/tile/corsatstraight/red,
 /obj/structure/table/reinforced,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/grayscale/round/black,
 /area/corsat/omega/hangar/office)
 "wCM" = (

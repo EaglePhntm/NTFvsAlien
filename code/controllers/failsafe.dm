@@ -57,6 +57,8 @@ GLOBAL_REAL(Failsafe, /datum/controller/failsafe)
 	..()
 	. = QDEL_HINT_HARDDEL_NOW
 
+GLOBAL_VAR_INIT(soft_failed_mc_restarts, 0)
+
 /datum/controller/failsafe/proc/Loop()
 	while(running)
 		lasttick = world.time
@@ -85,19 +87,26 @@ GLOBAL_REAL(Failsafe, /datum/controller/failsafe)
 							--defcon
 
 						if(3)
-							log_game_world("FailSafe: DEFCON [defcon_pretty()]. The Master Controller has not fired in the last [(5-defcon) * processing_interval] ticks.")
+							log_game_world("FailSafe: DEFCON [defcon_pretty()]. The Master Controller has not fired in the last [(5-defcon) * processing_interval] ticks. (MC stats: [Master.stat_entry()] [logdetails(Master)] last_type_processed = [logdetails(Master.last_type_processed)])")
 							message_admins(span_adminnotice("Notice: DEFCON [defcon_pretty()]. The Master Controller has not fired in the last [(5-defcon) * processing_interval] ticks."))
 							--defcon
 
 						if(2)
-							log_game_world("FailSafe: DEFCON [defcon_pretty()]. The Master Controller has not fired in the last [(5-defcon) * processing_interval] ticks. Automatic restart in [processing_interval] ticks.")
+							log_game_world("FailSafe: DEFCON [defcon_pretty()]. The Master Controller has not fired in the last [(5-defcon) * processing_interval] ticks. Automatic restart in [processing_interval] ticks. (MC stats: [Master.stat_entry()] [logdetails(Master)] last_type_processed = [logdetails(Master.last_type_processed)])")
 							to_chat(GLOB.admins, span_boldannounce("Warning: DEFCON [defcon_pretty()]. The Master Controller has not fired in the last [(5-defcon) * processing_interval] ticks. Automatic restart in [processing_interval] ticks."))
 							--defcon
 
 						if(1)
-							log_game_world("FailSafe: DEFCON [defcon_pretty()]. The Master Controller has still not fired within the last [(5-defcon) * processing_interval] ticks. Killing and restarting...")
+							log_game_world("FailSafe: DEFCON [defcon_pretty()]. The Master Controller has still not fired within the last [(5-defcon) * processing_interval] ticks. Killing and restarting... (MC stats: [Master.stat_entry()] [logdetails(Master)] last_type_processed = [logdetails(Master.last_type_processed)])")
 							to_chat(GLOB.admins, span_boldannounce("Warning: DEFCON [defcon_pretty()]. The Master Controller has still not fired within the last [(5-defcon) * processing_interval] ticks. Killing and restarting..."))
 							--defcon
+							log_game_world("Current MC perf monitor at the time of DEFCON 1:")
+							logperf()
+							if(Master.iteration < 2)
+								GLOB.soft_failed_mc_restarts++
+								if(GLOB.soft_failed_mc_restarts > 2)
+									log_game_world("FailSafe: MC has failed to get past its first iteration 3 different times.  Giving up and rebooting.")
+									world.Reboot()
 							var/rtn = Recreate_MC()
 							if(rtn > 0)
 								defcon = 4

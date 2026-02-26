@@ -144,6 +144,17 @@
 		else
 			user.forceMove(loc)
 
+/mob/living/carbon/xenomorph/proc/get_tier_bonus()
+	if(tier == XENO_TIER_ONE)
+		return 1
+	if(tier == XENO_TIER_TWO)
+		return 2
+	if(tier == XENO_TIER_THREE)
+		return 3
+	if(tier == XENO_TIER_FOUR)
+		return 4
+	return 0
+
 /mob/living/carbon/xenomorph/proc/claim_hive_target_reward(mob/living/carbon/human/target)
 	if(!istype(target) || !HAS_TRAIT(target, TRAIT_HIVE_TARGET))
 		return

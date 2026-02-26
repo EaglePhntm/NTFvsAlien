@@ -2766,7 +2766,7 @@
 /area/lawankaoutpost/colony/southdorms)
 "cmp" = (
 /obj/structure/table,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/engineering)
 "cms" = (
@@ -7229,7 +7229,7 @@
 /area/lawankaoutpost/colony/marshalls)
 "fVN" = (
 /obj/structure/table/reinforced,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/darkgreen/darkgreen2/corner{
 	dir = 8
@@ -10162,7 +10162,7 @@
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "iAU" = (
 /obj/structure/table/reinforced,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/green/whitegreenfull,
 /area/lawankaoutpost/colony/marshalls)
 "iBn" = (
@@ -15164,7 +15164,7 @@
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "mHY" = (
 /obj/structure/table/reinforced,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/green/whitegreenfull,
 /area/lawankaoutpost/colony/medbay)
 "mIx" = (
@@ -19006,7 +19006,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 1
 	},

@@ -360,6 +360,7 @@
 	icon_state = "extraction_point"
 	anchored = TRUE
 	density = FALSE
+	drag_delay = 0
 
 /obj/structure/fulton_extraction_point/wrench_act(mob/living/user, obj/item/I)
 	if(!user.Adjacent(src))

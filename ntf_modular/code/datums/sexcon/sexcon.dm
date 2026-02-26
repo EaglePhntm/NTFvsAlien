@@ -238,33 +238,58 @@
 		new /obj/effect/decal/cleanable/blood/splatter/robotcum(user.loc)
 	after_ejaculation()
 
-/datum/sex_controller/proc/ejaculate_container(obj/item/reagent_containers/glass/C, mob/blame_mob)
+/datum/sex_controller/proc/ejaculate_container(obj/item/reagent_containers/C, mob/blame_mob)
+	if(!istype(C, /obj/item/reagent_containers/glass) && !istype(C, /obj/item/reagent_containers/cup))
+		return
 	if(istype(blame_mob))
 		log_combat(blame_mob, user, "caused an ejaculation into a container ([logdetails(C)]) from")
 	else
 		log_combat(user, blame_mob, "was made to ejaculate into a container ([logdetails(C)]) by")
 	user.visible_message(span_lovebold("[user] spills into [C]!"))
+	if(ishuman(user))
+		C.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum, reagent_amount(blame_mob))
+	else if(isxeno(user))
+		C.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno, reagent_amount(blame_mob))
 	handle_ejaculation_drain(blame_mob)
 	playsound(user, 'ntf_modular/sound/misc/mat/endout.ogg', 50, TRUE, 7, ignore_walls = FALSE)
 	after_ejaculation()
 
-/datum/sex_controller/proc/milk_container(obj/item/reagent_containers/glass/C, mob/blame_mob)
+/datum/sex_controller/proc/milk_container(obj/item/reagent_containers/C, mob/blame_mob)
+	if(!istype(C, /obj/item/reagent_containers/glass) && !istype(C, /obj/item/reagent_containers/cup))
+		return
 	if(istype(blame_mob))
 		log_combat(blame_mob, user, "milked into a container ([logdetails(C)])")
 	else
 		log_combat(user, blame_mob, "was milked into a container ([logdetails(C)]) by")
 	user.visible_message(span_lovebold("[user] lactates into [C]!"))
-	if(ishuman(user) || ismonkey(user)) //this makes me unhappy, need proper genitals and organs for this shit...
-		C.reagents.add_reagent(/datum/reagent/consumable/milk, 5)
+	if(ishuman(user))
+		C.reagents.add_reagent(/datum/reagent/consumable/milk, reagent_amount(blame_mob))
 	else if(isxeno(user))
-		C.reagents.add_reagent(/datum/reagent/consumable/milk/xeno, 5)
+		C.reagents.add_reagent(/datum/reagent/consumable/milk/xeno, reagent_amount(blame_mob))
 	handle_ejaculation_drain(blame_mob)
 	playsound(user, 'ntf_modular/sound/misc/mat/endout.ogg', 50, TRUE, 7, ignore_walls = FALSE)
 	after_ejaculation()
 
+/datum/sex_controller/proc/reagent_amount(mob/blame_mob)
+	var/skill_bonus = 0
+	var/production_bonus = 0
+	if(ishuman(user))
+		production_bonus = user.skills?.sex * 5
+	else if(isxeno(user))
+		var/mob/living/carbon/xenomorph/xeno_user = user
+		production_bonus = xeno_user.get_tier_bonus() * 10
+	if(ishuman(blame_mob))
+		skill_bonus = blame_mob.skills?.sex * 5
+	else if(isxeno(blame_mob))
+		var/mob/living/carbon/xenomorph/xeno_blame = blame_mob
+		skill_bonus = xeno_blame.get_tier_bonus() * 5
+	return (rand(5, 10) + skill_bonus + production_bonus)
+
 /datum/sex_controller/proc/after_ejaculation()
 	set_arousal(40)
-	user.reagents.remove_reagent(/datum/reagent/toxin/xeno_aphrotoxin, 25) //rids of aphrotox greatly
+	var/aphrotoxin_amount =  user.reagents.get_reagent_amount(/datum/reagent/toxin/xeno_aphrotoxin)
+	if(aphrotoxin_amount)
+		user.reagents.remove_reagent(/datum/reagent/toxin/xeno_aphrotoxin, (aphrotoxin_amount * 0.4) + 10) 
 	user.emote("sexmoanhvy")
 	playsound(user, 'ntf_modular/sound/misc/mat/end.ogg', 100, FALSE, 7, ignore_walls = FALSE)
 	last_ejaculation_time = world.time

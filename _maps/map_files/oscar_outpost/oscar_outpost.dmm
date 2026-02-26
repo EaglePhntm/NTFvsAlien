@@ -2330,7 +2330,7 @@
 /area/oscar_outpost/outside/road)
 "qw" = (
 /obj/structure/table/reinforced/prison,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/mainship/sterile,
 /area/oscar_outpost/base)
 "qx" = (
@@ -3346,7 +3346,7 @@
 "xa" = (
 /obj/structure/table/mainship,
 /obj/structure/window,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/item/megaphone,
 /turf/open/floor/tile/dark,
 /area/oscar_outpost/base)
@@ -5662,7 +5662,7 @@
 /obj/structure/window{
 	dir = 4
 	},
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/item/megaphone,
 /turf/open/floor/tile/dark,
 /area/oscar_outpost/base)
@@ -6902,7 +6902,7 @@
 /area/oscar_outpost/village/central)
 "MM" = (
 /obj/structure/table/wood/rustic,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/mainship/sterile/dark,
 /area/oscar_outpost/village)
 "MO" = (
@@ -8546,7 +8546,7 @@
 /area/oscar_outpost)
 "TU" = (
 /obj/structure/table/wood/rustic,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/dark,
 /area/oscar_outpost/base)
 "TV" = (

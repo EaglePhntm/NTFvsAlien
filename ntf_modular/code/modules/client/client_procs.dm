@@ -37,6 +37,7 @@
 	var/the_question = "You can now reclone for [the_cost] supply points cost, All your equipment will be with you if you do. If you choose to stay, you can pop this up again by using the 'ghost' verb from your body, whether you are alive and nested or dead-dead. You can still freely ghost around and return to your body."
 	if(world.time < (reclone_start_time + reclone_time))
 		the_question = "A new body is growing, You will be able to reclone in [DisplayTimeText((reclone_start_time + reclone_time) - world.time)], keeping your equipment, You can choose to stay for now or ghost and re-enter your body freely... You can pop this up again by using the 'ghost' verb."
+	to_chat(src, span_notice(replacetext(the_question, "'ghost' verb", "'[span_bold("ghost")]' verb")))
 	var/choice = tgui_input_list(src, the_question, "Recloning", list("Reclone","Ghost","Stay in body"), "Stay in body")
 	switch(choice)
 		if("Reclone")

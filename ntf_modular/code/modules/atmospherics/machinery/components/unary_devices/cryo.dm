@@ -144,8 +144,10 @@
 		buckling_mob.visible_message(span_notice("[buckling_mob] starts climbing into [src]."),
 		span_notice("You start climbing into [src]."))
 
+	log_combat(initiator, buckling_mob, "begun to buckle", src)
 	if(!do_after(initiator, 20, TRUE, user, BUSY_ICON_GENERIC))
 		return FALSE
+	log_combat(initiator, buckling_mob, "buckled", src)
 
 	buckling_mob.forceMove(loc)
 	. = ..()
@@ -295,6 +297,7 @@
 
 	if(usr.incapacitated(TRUE))
 		return
+	log_combat(usr, occupant, "attempted to fullcryo", src)
 	if(occupant.client && occupant != usr)
 		to_chat(usr, span_warning("You cannot send away an awake person."))
 		return
@@ -303,6 +306,7 @@
 		return
 	playsound(loc, 'sound/machines/hiss.ogg', 25, 1)
 	UnregisterSignal(occupant, list(COMSIG_STARTED_SEX_UPON,COMSIG_RECEIVED_SEX,COMSIG_CAME_INTO,COMSIG_CAME_INTO_BY,COMSIG_CAME_ONTO,COMSIG_CAME_ONTO_BY))
+	log_combat(usr, occupant, "fullcryoed", src)
 	occupant.despawn()
 	occupant = null
 	update_icon()
@@ -347,6 +351,7 @@
 	if(QDELETED(occupant))
 		return
 
+	log_combat(usr, buckled_mob, "unbuckled", src)
 	//Eject any items that aren't meant to be in the pod.
 	var/list/items = contents
 

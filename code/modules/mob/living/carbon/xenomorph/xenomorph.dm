@@ -348,7 +348,7 @@
 	var/mob/living/L = AM
 	if(L.buckled)
 		return FALSE //to stop xeno from pulling marines on roller beds.
-	if(ishuman(L))
+	if(ishuman(L) && !ismonkey(L))
 		if(L.stat == DEAD && !(SSticker.mode.round_type_flags & MODE_XENO_GRAB_DEAD_ALLOWED)) // Can't drag dead human bodies.
 			to_chat(usr,span_xenowarning("We have no reason to do that."))
 			return FALSE

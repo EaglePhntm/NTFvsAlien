@@ -63,8 +63,12 @@
 	var/mob/living/carbon/human/operator
 	///If a hostile was detected
 	var/hostile_detected = FALSE
-	///The time needed after the last move to not be detected by this motion detector
-	var/move_sensitivity = 1 SECONDS
+	/// Maximum age of movement (in time) that can still be detected at distance 0. Higher values make the detector more forgiving to recent movement.
+	var/base_sensitivity = 2 SECONDS
+	/// Controls how quickly detection sensitivity decreases with distance. Higher values make long-range detection less reliable.
+	var/distance_multiplier = 1.5
+	/// Minimum detectable movement age. Prevents the detector from becoming completely ineffective at long range.
+	var/minimum_sensitivity = 0.4 SECONDS
 	///The range of this motion detector
 	var/range = 16
 	///The list of all the blips
@@ -144,11 +148,17 @@
 	for (var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(operator, range))
 		if(nearby_human == operator)
 			continue
-		if(nearby_human.last_move_time + move_sensitivity < world.time)
+		var/target_distance = get_dist(operator, nearby_human)
+		var/effective_sensitivity = base_sensitivity - (target_distance * distance_multiplier)
+		effective_sensitivity = clamp(effective_sensitivity, minimum_sensitivity, base_sensitivity)
+		if(nearby_human.last_move_time + effective_sensitivity < world.time)
 			continue
 		prepare_blip(nearby_human, nearby_human.wear_id?.iff_signal & operator.get_iff_signal() ? MOTION_DETECTOR_FRIENDLY : MOTION_DETECTOR_HOSTILE)
 	for (var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(operator, range))
-		if(nearby_xeno.last_move_time + move_sensitivity < world.time )
+		var/target_distance = get_dist(operator, nearby_xeno)
+		var/effective_sensitivity = base_sensitivity - (target_distance * distance_multiplier)
+		effective_sensitivity = clamp(effective_sensitivity, minimum_sensitivity, base_sensitivity)
+		if(nearby_xeno.last_move_time + effective_sensitivity < world.time )
 			continue
 		prepare_blip(nearby_xeno, nearby_xeno.get_iff_signal() & operator.get_iff_signal() ?  MOTION_DETECTOR_FRIENDLY : MOTION_DETECTOR_HOSTILE)
 	if(hostile_detected)

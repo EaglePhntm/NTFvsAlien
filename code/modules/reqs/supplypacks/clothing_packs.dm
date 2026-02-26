@@ -72,7 +72,7 @@ CLOTHING
 	cost = 1000 //requires batteries and not great vis range
 
 /datum/supply_packs/clothing/night_vision_mounted
-	name = "BE-35 Night Vision Module (Requires nvg batteries to operate)"
+	name = "BE-35 Night Vision Helmet Module (Requires nvg batteries to operate)"
 	contains = list(/obj/item/armor_module/module/night_vision)
 	cost = 800
 
@@ -92,19 +92,19 @@ CLOTHING
 	cost = 2000
 
 /datum/supply_packs/clothing/cm12nvg
-	name = "CM-12 night vision goggles"
+	name = "CM-12 KZ night vision goggles"
 	contains = list(/obj/item/clothing/glasses/night/vsd)
-	cost = 1500
+	cost = 1000
 
 /datum/supply_packs/clothing/m42nvg
-	name = "M42 scout sight"
+	name = "BR-8 scout sight"
 	contains = list(/obj/item/clothing/glasses/night/m42_night_goggles)
-	cost = 2500
+	cost = 3000
 
 /datum/supply_packs/clothing/night_visionvsd
 	name = "KZ Type 9 goggles"
 	contains = list(/obj/item/clothing/glasses/night/m42_night_goggles/upp)
-	cost = 2500
+	cost = 3000
 
 /datum/supply_packs/clothing/hypnogoggles
 	name = "Hypnotic goggles"

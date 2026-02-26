@@ -19599,7 +19599,7 @@
 /area/slumbridge/inside/pmcdome)
 "orv" = (
 /obj/structure/table,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/machinery/light{
 	dir = 8
 	},

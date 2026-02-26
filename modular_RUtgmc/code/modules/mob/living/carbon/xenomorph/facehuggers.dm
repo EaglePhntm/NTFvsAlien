@@ -23,7 +23,7 @@
 	if(isxenofacehugger(source))
 		if(!isturf(source.loc))
 			source.forceMove(loc)
-		source.on_death() //you and mask are one, goofy ass
+		source.death(FALSE)
 		qdel(src)
 
 /mob/living/carbon/xenomorph/facehugger/do_resist()

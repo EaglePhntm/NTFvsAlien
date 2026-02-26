@@ -26770,7 +26770,7 @@
 /area/metnal/inside/meddesk)
 "rSh" = (
 /obj/structure/table/black,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/wood/variable/mosaic,
 /area/metnal/inside/northmeetingroom)
 "rSN" = (

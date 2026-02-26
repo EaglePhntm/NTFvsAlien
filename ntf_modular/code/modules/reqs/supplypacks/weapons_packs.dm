@@ -83,3 +83,15 @@
 	contains = list(/obj/item/ammo_magazine/rifle/chamberedrifle/bluescreen)
 	faction_lock = list(FACTION_TERRAGOV)
 	cost = 60
+
+/datum/supply_packs/weapons/bikeautocannonammo
+	name = "heavy motorbike AC-32 autocannon ammo rack (x2)"
+	contains = list(/obj/item/ammo_magazine/bike_autocannon, /obj/item/ammo_magazine/bike_autocannon)
+	faction_lock = list(FACTION_TERRAGOV)
+	cost = 30
+
+/datum/supply_packs/weapons/bikeminigunammo
+	name = "hoverbike MG-100 Vindicator ammo rack"
+	contains = list(/obj/item/ammo_magazine/bike_minigun, /obj/item/ammo_magazine/bike_minigun)
+	faction_lock = list(FACTION_SOM)
+	cost = 30

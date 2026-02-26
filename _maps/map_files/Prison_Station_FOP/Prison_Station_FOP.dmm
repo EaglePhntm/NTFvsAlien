@@ -16173,7 +16173,7 @@
 /turf/open/floor/prison/plate,
 /area/prison/cellblock/lowsec/ne)
 "aZi" = (
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/structure/table/reinforced,
 /turf/open/floor/prison/green/full,
 /area/prison/cellblock/lowsec/nw)
@@ -16487,7 +16487,7 @@
 	},
 /area/prison/security/checkpoint/highsec/n)
 "bag" = (
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/structure/table/reinforced,
 /turf/open/floor/prison,
 /area/prison/hallway/central)
@@ -19726,7 +19726,7 @@
 /turf/open/floor/prison/cellstripe,
 /area/prison/cellblock/vip)
 "bkd" = (
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/structure/table/reinforced,
 /turf/open/floor/prison/cellstripe,
 /area/prison/cellblock/vip)
@@ -21874,7 +21874,7 @@
 	},
 /area/prison/cellblock/vip)
 "bqW" = (
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/structure/table/reinforced,
 /turf/open/floor/prison/cellstripe{
 	dir = 1
@@ -23092,7 +23092,7 @@
 /turf/open/floor/prison/bright_clean,
 /area/prison/store)
 "bvc" = (
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/structure/table/reinforced,
 /turf/open/floor/prison/darkred/full,
 /area/prison/hallway/central)
@@ -34359,7 +34359,7 @@
 /turf/open/floor/prison,
 /area/prison/recreation/medsec)
 "ciC" = (
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/structure/table/reinforced,
 /turf/open/floor/prison,
 /area/prison/recreation/medsec)

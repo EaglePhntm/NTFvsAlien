@@ -49,15 +49,14 @@
 // ***************************************
 // *********** Mob overrides
 // ***************************************
-	/*
+/*
 /mob/living/carbon/xenomorph/facehugger/handle_living_health_updates()
 	. = ..()
 	//We lose health if we go off the weed
-	if(!loc_weeds_type && !is_ventcrawling && !(lying_angle || resting) && !(status_flags & GODMODE))
-		adjustBruteLoss(2, TRUE)
+	if((isturf(loc) && !loc_weeds_type) && !is_ventcrawling && !(lying_angle || resting) && !(status_flags & GODMODE))
+		adjustBruteLoss(1, TRUE)
 		return
-	*/
-
+*/
 /mob/living/carbon/xenomorph/facehugger/update_progression()
 	return
 
@@ -85,6 +84,7 @@
 	mask = new hugger_type(host, src.hivenumber, src)
 	if(host.can_be_facehugged(mask, provoked = TRUE))
 		if(mask.try_attach(host, no_evade = TRUE)) //Attach hugger-mask
+			set_plasma(0, TRUE)
 			if(!client) //delete if no sauce and keep the mask attached foreva
 				mask.clear_hugger_source()
 				qdel(src)

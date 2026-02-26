@@ -54,7 +54,7 @@ export const JobPreferences = (props) => {
     'Squad Engineer',
     'Squad Corpsman',
     'Squad Smartgunner',
-    'Specialist Operative',
+    'Squad Specialist',
     'Squad Leader',
   ];
   const somJobs = [

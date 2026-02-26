@@ -427,7 +427,7 @@
 	belt = /obj/item/storage/belt/marine/alf_machinecarbine
 	l_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
 	r_pocket = /obj/item/flashlight/combat
-	glasses = /obj/item/clothing/glasses/m42_goggles
+	glasses = /obj/item/clothing/glasses/night_vision
 	head = /obj/item/clothing/head/headband
 	ears = /obj/item/radio/headset/survivor
 	backpack_contents = list()

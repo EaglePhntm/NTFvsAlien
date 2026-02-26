@@ -48,6 +48,9 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 
 GLOBAL_LIST_INIT_TYPED(xeno_caste_datums, /list/datum/xeno_caste, init_xeno_caste_list())
 
+//ntf
+GLOBAL_LIST_EMPTY(bunker_passthrough)
+
 /proc/init_xeno_caste_list()
 	. = list()
 	var/list/typelist = subtypesof(/datum/xeno_caste)

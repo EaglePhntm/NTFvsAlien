@@ -79,3 +79,73 @@ ADMIN_VERB(change_dnr_time, R_ADMIN, "Change Global DNR Time", "Change the time 
 		return
 	GLOB.time_before_dnr = new_dnr_time
 	to_chat(usr, span_notice("The new DNR timer is [new_dnr_time] ticks, about [new_dnr_time/60] minutes."))
+
+/proc/daysSince(realtimev)
+	return round((world.realtime - realtimev) / (24 HOURS))
+
+ADMIN_VERB(add_bunker_bypass, R_ADMIN, "Add Bunker Bypass", "Allows a ckey to connect despite the panic bunker for a given round.", ADMIN_CATEGORY_SERVER)
+	if(!check_rights(R_ADMIN))
+		return
+
+	if(!CONFIG_GET(flag/sql_enabled))
+		to_chat(usr, "<span class='adminnotice'>The Database is not enabled!</span>")
+		return
+	var/ckeytobypass = tgui_input_text(usr, "Enter ckey", "CKEY", null)
+	if(!ckeytobypass)
+		return
+
+	GLOB.bunker_passthrough |= ckey(ckeytobypass)
+	GLOB.bunker_passthrough[ckey(ckeytobypass)] = world.realtime
+	SSpersistence.SavePanicBunker() //we can do this every time, it's okay
+	log_admin("[key_name(usr)] has added [ckeytobypass] to the current round's bunker bypass list.")
+	message_admins("[key_name_admin(usr)] has added [ckeytobypass] to the current round's bunker bypass list.")
+
+
+/datum/controller/subsystem/persistence/proc/SavePanicBunker()
+	var/json_file = file("data/bunker_passthrough.json")
+	var/list/file_data = list()
+	file_data["data"] = GLOB.bunker_passthrough
+	var/encoded_data = json_encode(file_data)
+	fdel(json_file)
+	WRITE_FILE(json_file, encoded_data)
+	log_game("Saved bunker_passthrough: [encoded_data]")
+
+/datum/controller/subsystem/persistence/proc/LoadPanicBunker()
+	var/bunker_path = file("data/bunker_passthrough.json")
+	if(fexists(bunker_path))
+		var/list/json = json_decode(file2text(bunker_path))
+		GLOB.bunker_passthrough = json["data"]
+		log_game("loaded bunker_passthrough: [json_encode(GLOB.bunker_passthrough)]")
+		for(var/ckey in GLOB.bunker_passthrough)
+			if(daysSince(GLOB.bunker_passthrough[ckey]) >= 7)
+				GLOB.bunker_passthrough -= ckey
+				log_game("Removed [ckey] from bunker_passthrough for being added too long ago.")
+
+
+///Loads data at the start of the round
+/datum/controller/subsystem/persistence/Initialize()
+	LoadSeasonalItems()
+	LoadPanicBunker()
+	return ..()
+
+///Stores data at the end of the round
+/datum/controller/subsystem/persistence/CollectData()
+	SavePanicBunker()
+	. = ..()
+
+ADMIN_VERB(remove_bunker_bypass, R_ADMIN, "Remove Bunker Bypass", "Revokes a ckey's permission to bypass the panic bunker for a given round.", ADMIN_CATEGORY_SERVER)
+	if(!check_rights(R_ADMIN))
+		return
+
+	if(!CONFIG_GET(flag/sql_enabled))
+		to_chat(usr, "<span class='adminnotice'>The Database is not enabled!</span>")
+		return
+
+	var/ckeytobypass = tgui_input_text(usr, "Enter ckey", "CKEY", null)
+	if(!ckeytobypass)
+		return
+
+	GLOB.bunker_passthrough -= ckey(ckeytobypass)
+	SSpersistence.SavePanicBunker()
+	log_admin("[key_name(usr)] has removed [ckeytobypass] from the current round's bunker bypass list.")
+	message_admins("[key_name_admin(usr)] has removed [ckeytobypass] from the current round's bunker bypass list.")

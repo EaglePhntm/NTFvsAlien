@@ -180,14 +180,14 @@
 /datum/supply_packs/imports/antienergyshieldfs
 	name = "NTC Anti Energy Shield (Faction Supply)"
 	contains = list(/obj/item/armor_module/module/eshield/absorbant/energy)
-	faction_lock = list(FACTION_TERRAGOV) //novamed
-	cost = 300
+	faction_lock = list(FACTION_TERRAGOV)
+	cost = 350
 
 /datum/supply_packs/imports/antiballisticshieldfs
 	name = "KZ Anti Ballsitic Shield (Faction Supply)"
 	contains = list(/obj/item/armor_module/module/eshield/absorbant/ballistic)
-	faction_lock = list(FACTION_TERRAGOV) //novamed
-	cost = 300
+	faction_lock = list(FACTION_VSD)
+	cost = 350
 
 /datum/supply_packs/medical/carpotoxin
 	name = "Carpotoxin Bottle"

@@ -2987,7 +2987,7 @@
 /area/bluesummers/inside/engineering/plant)
 "cMa" = (
 /obj/structure/table/mainship,
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = -5
 	},
 /turf/open/floor/tile/darkgreen/darkgreen2{
@@ -3830,7 +3830,7 @@
 /area/bluesummers/caves/mining)
 "dvz" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/plating/mainship,
 /area/bluesummers/caves/mining/drill)
 "dvG" = (
@@ -4486,7 +4486,7 @@
 /area/bluesummers/inside/engineering/office)
 "dWX" = (
 /obj/structure/table/mainship,
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = 10;
 	pixel_y = 11
 	},
@@ -4701,7 +4701,7 @@
 /area/bluesummers/inside/engineering)
 "ehw" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/mainship/orange{
 	dir = 4
 	},
@@ -5802,7 +5802,7 @@
 	pixel_x = 8;
 	pixel_y = 3
 	},
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/mainship/green/full,
 /area/bluesummers/inside/hydroponics/south)
 "fbL" = (
@@ -6222,14 +6222,14 @@
 /area/bluesummers/inside/luxury)
 "fur" = (
 /obj/structure/table/mainship,
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = -9
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = 1;
 	pixel_y = 11
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = 6
 	},
 /turf/open/floor/mainship/floor,
@@ -8923,7 +8923,7 @@
 /area/bluesummers/inside/recreation)
 "hNP" = (
 /obj/structure/table/mainship,
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = -4;
 	pixel_y = 5
 	},
@@ -9164,7 +9164,7 @@
 	pixel_x = 4;
 	pixel_y = -3
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = -7;
 	pixel_y = -3
 	},
@@ -10601,7 +10601,7 @@
 	pixel_x = 8;
 	pixel_y = 6
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = -5
 	},
 /obj/structure/table/wood/fancy,
@@ -12843,7 +12843,7 @@
 /area/bluesummers/inside/observation_deck)
 "kNn" = (
 /obj/structure/table/mainship,
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_y = -1;
 	pixel_x = -2
 	},
@@ -15962,7 +15962,7 @@
 /area/bluesummers/caves/mining/south)
 "neR" = (
 /obj/structure/table/mainship,
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = 6
 	},
 /turf/open/floor/tile/dark/brown2{
@@ -16993,7 +16993,7 @@
 /area/bluesummers/inside/space_port)
 "oaX" = (
 /obj/structure/table/mainship,
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = 6
 	},
 /turf/open/floor/mainship/floor,
@@ -17196,7 +17196,7 @@
 /area/bluesummers/inside/hydroponics)
 "ohn" = (
 /obj/structure/table/mainship,
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_y = -13
 	},
 /obj/machinery/cell_charger,
@@ -20506,7 +20506,7 @@
 /area/bluesummers/caves/north)
 "qIP" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/item/blueprints{
 	pixel_x = -6
 	},
@@ -21780,7 +21780,7 @@
 /area/bluesummers/caves/northeast/garbledradio)
 "rKv" = (
 /obj/structure/table/mainship,
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = 6
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -22871,7 +22871,7 @@
 /area/bluesummers/caves/north)
 "sEX" = (
 /obj/structure/table/mainship,
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = 6
 	},
 /turf/open/floor/tile/dark/green2/corner{
@@ -24377,7 +24377,7 @@
 	pixel_x = 4;
 	pixel_y = 10
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = 1;
 	pixel_y = -3
 	},
@@ -26017,7 +26017,7 @@
 "vgW" = (
 /obj/structure/table/mainship,
 /obj/item/clipboard,
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = 6
 	},
 /turf/open/floor/tile/dark/brown2/corner{
@@ -26122,7 +26122,7 @@
 /area/bluesummers/caves/northeast)
 "vok" = (
 /obj/structure/table/mainship,
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = 6
 	},
 /turf/open/floor/plating/plating_catwalk,

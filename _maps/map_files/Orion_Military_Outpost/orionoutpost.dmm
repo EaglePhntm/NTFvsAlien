@@ -3967,8 +3967,8 @@
 /area/orion_outpost/ground/outpostse)
 "tm" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/administration)
 "tn" = (

@@ -10676,7 +10676,7 @@
 /area/fiorina/lz/near_lzII)
 "fWV" = (
 /obj/structure/table/reinforced/prison,
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_y = 7
 	},
 /turf/open/floor/prison/darkred/full,
@@ -12123,7 +12123,7 @@
 	},
 /area/fiorina/station/research_cells)
 "gMf" = (
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = 9;
 	pixel_y = -10
 	},
@@ -18088,11 +18088,11 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = -3;
 	pixel_y = 10
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = 9;
 	pixel_y = -10
 	},
@@ -32093,11 +32093,11 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = 7;
 	pixel_y = -16
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = -3;
 	pixel_y = 16
 	},
@@ -34179,11 +34179,11 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = 6;
 	pixel_y = -15
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_y = 7
 	},
 /turf/open/floor/prison/plate,
@@ -35916,10 +35916,10 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_y = -4
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = 7;
 	pixel_y = 10
 	},
@@ -37944,7 +37944,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = 8;
 	pixel_y = 6
 	},
@@ -40302,7 +40302,7 @@
 /area/fiorina/station/chapel)
 "vWg" = (
 /obj/structure/table/reinforced/prison,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/prison/sterilewhite{
 	dir = 10
 	},
@@ -44232,7 +44232,7 @@
 /turf/open/floor/prison/plate,
 /area/fiorina/tumor/civres)
 "xVi" = (
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_y = 7
 	},
 /obj/effect/forcefield,
@@ -44588,7 +44588,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = -3;
 	pixel_y = 13
 	},

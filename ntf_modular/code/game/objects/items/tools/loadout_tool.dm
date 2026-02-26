@@ -1,6 +1,6 @@
 /obj/item/radio/loadout_tool
-	name = "Personal Holophone"
-	desc = "A holophone used for radio communication and other personal things, duh. Also used to download miniskillsofts into your neural implant RAM, temporary and less effective than actual skillsofts that are chip based. ALT+CLICK to view loadout and skillsoft menu. RCLICK to turn it on/off."
+	name = "Personal Agent"
+	desc = "A Personal Agent used for radio communication and other personal things, duh. Also used to download miniskillsofts into your neural implant RAM, temporary and less effective than actual skillsofts that are chip based. ALT+CLICK to view loadout and skillsoft menu. RCLICK to turn it on/off."
 	icon = 'ntf_modular/icons/obj/items/pda.dmi'
 	icon_state = "pda_white"
 	var/screen_overlay = "pda_on"

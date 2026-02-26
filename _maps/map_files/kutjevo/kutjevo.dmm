@@ -4193,7 +4193,7 @@
 /turf/open/floor/kutjevo/colors/orange,
 /area/kutjevo/interior/filtration)
 "ewF" = (
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = 1;
 	pixel_y = 4
 	},
@@ -6448,7 +6448,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/table/reinforced/prison,
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = 5;
 	pixel_y = -4
 	},

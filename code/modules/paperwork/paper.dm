@@ -82,6 +82,14 @@
 	set src in usr
 
 	var/n_name = stripped_input(usr, "What would you like to label the paper?", "Paper Labelling")
+	n_name = replacetext(n_name, "autoplay>", "")
+	n_name = replacetext(n_name, "loop>", "")
+	n_name = replacetext(n_name, "<embed", "")
+	n_name = replacetext(n_name, "<", "")
+	n_name = replacetext(n_name, ">", "")
+	n_name = replacetext(n_name, "byond://", "byond;//")
+	n_name = replacetext(n_name, "https://", "https;//")
+	n_name = replacetext(n_name, "<video", "")
 	if((loc == usr && usr.stat == 0))
 		name = "[(n_name ? "[n_name]" : "paper")]"
 
@@ -273,6 +281,16 @@
 			return
 
 		t = replacetext(t, "\n", "<BR>")
+		//injection protection
+		t = replacetext(t, "autoplay>", "")
+		t = replacetext(t, "loop>", "")
+		t = replacetext(t, "<embed", "")
+		t = replacetext(t, "<", "")
+		t = replacetext(t, ">", "")
+		t = replacetext(t, "byond://", "byond;//")
+		t = replacetext(t, "https://", "https;//")
+		t = replacetext(t, "<video", "")
+		//injection protection end
 		t = parsepencode(t, i, usr, iscrayon) // Encode everything from pencode to html
 
 		if(id!="end")

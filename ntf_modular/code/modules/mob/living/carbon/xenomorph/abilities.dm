@@ -479,7 +479,7 @@
 		if(!silent)
 			to_chat(owner, span_warning("We can only carry humanoids."))
 		return FALSE
-	if(ishuman(target))
+	if(ishuman(target) && !ismonkey(target))
 		var/mob/living/carbon/human = target
 		if(human.stat == DEAD && !(SSticker.mode.round_type_flags & MODE_XENO_GRAB_DEAD_ALLOWED)) // Can't drag dead human bodies.
 			to_chat(owner,span_xenowarning("We have no reason to do that."))

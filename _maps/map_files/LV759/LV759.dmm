@@ -2225,7 +2225,7 @@
 "auC" = (
 /obj/structure/table/reinforced/prison,
 /obj/structure/window/reinforced/toughened,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/item/reagent_containers/food/drinks/coffee{
 	pixel_x = 16;
 	pixel_y = 8
@@ -7158,7 +7158,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = 9;
 	pixel_y = -10
 	},
@@ -37019,11 +37019,11 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = -3;
 	pixel_y = 10
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = 9;
 	pixel_y = -10
 	},
@@ -39564,11 +39564,11 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = 6;
 	pixel_y = -15
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/food/drinks/coffee{
@@ -52581,7 +52581,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_y = 7
 	},
 /obj/structure/table/wood/fancy,
@@ -61384,7 +61384,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_y = 7
 	},
 /obj/structure/table/wood/fancy,
@@ -108996,7 +108996,7 @@
 	},
 /area/lv759/indoors/hospital/central_hallway)
 "tzj" = (
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/item/reagent_containers/syringe/drugs,
 /obj/effect/urban/decal/trash/nine{
 	pixel_x = -8;
@@ -119730,7 +119730,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = -3;
 	pixel_y = 10
 	},
