@@ -53,28 +53,21 @@ GLOBAL_VAR_INIT(round_end_ping_done, FALSE)
 		pingid = PINGID_NEW_ROUND_PING
 		GLOB.round_end_ping_done = TRUE
 		msg += "Round [replacetext(GLOB.log_directory, "data/logs/", "")] has ended!\nMode:[SSticker.mode.name]\nResult:[SSticker.mode.round_finished]\n"
-	stats = replacetext(stats.Join("\n"),"<br>","\n")
-	stats = splittext(stats,"\n")
-	while(length(stats))
-		if(length(msg) + length(stats[1]) > MAXIMUM_DISCORD_MESSAGE_LENGTH)
-			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(status_update_round_end), stats), 1.5 SECONDS)
-			break
-		msg += "[stats[1]]\n"
-		stats.Cut(1,1)
-	amia_arbitrary_status_update(msg, pingid)
+	msg += replacetext(stats.Join("\n"),"<br>","\n")
+	msg = splittext(msg, "\n")
+	send_long_status_update(msg, pingid)
 
 /proc/status_update_vote_started()
 
-/proc/status_update_vote_ended(list/result_text, continuing = FALSE)
-	if(!continuing)
-		result_text = splittext(result_text, "\n")
+/proc/status_update_vote_ended(result_text)
+	send_long_status_update(splittext(result_text, "\n"))
+
+/proc/send_long_status_update(list/lines, ping_id)
 	var/msg = ""
-	while(length(result_text))
-		if(length(msg) + length(result_text[1]) > MAXIMUM_DISCORD_MESSAGE_LENGTH)
-			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(status_update_vote_ended), result_text, TRUE), 1.5 SECONDS)
+	while(length(lines))
+		if(length(msg) + length(lines[1]) > MAXIMUM_DISCORD_MESSAGE_LENGTH)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(status_update_round_end), lines), 1.5 SECONDS)// we do not include ping_id here to avoid duplicate pings
 			break
-		msg += "[result_text[1]]\n"
-		result_text.Cut(1,1)
-	amia_arbitrary_status_update(msg)
-
-
+		msg += "[lines[1]]\n"
+		lines.Cut(1,1)
+	amia_arbitrary_status_update(msg, ping_id)
