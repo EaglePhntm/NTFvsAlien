@@ -159,8 +159,7 @@ SUBSYSTEM_DEF(ticker)
 		return FALSE
 
 	CHECK_TICK
-	status_update_next_gamemode(mode.name)
-	GLOB.next_gamemode_pinged = null
+	status_update_next_gamemode(mode.name, FALSE, TRUE)
 	mode.announce()
 
 	if(CONFIG_GET(flag/autooocmute))

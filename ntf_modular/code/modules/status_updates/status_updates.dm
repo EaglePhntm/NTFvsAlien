@@ -33,7 +33,7 @@ GLOBAL_LIST_INIT(mode_to_pingid, list(
 	var/commit = "[revdata?.commit]"
 	var/rev_data_file = file("data/revision.json")
 	var/round_id = replacetext(GLOB.log_directory, "data/logs/", "")
-	var/msg = "Server starting...\nRound ID : [round_id]\n**Server revision compiled on:** [compile_date]\nLocal commit: [commit]\n"
+	var/msg = "Server starting...\nRound ID : [round_id]\nPlayers online: [length(GLOB.clients)]\n**Server revision compiled on:** [compile_date]\nLocal commit: [commit]\n"
 	var/pingid = null
 	var/json = ""
 	var/list/file_data = list()
@@ -66,10 +66,11 @@ GLOBAL_LIST_INIT(mode_to_pingid, list(
 
 /proc/status_update_maps_loaded()
 	GLOB.maps_loaded_data += "Mode: [GLOB.master_mode]\n"
+	GLOB.maps_loaded_data += "Players online: [length(GLOB.clients)]\n"
 	amia_arbitrary_status_update(GLOB.maps_loaded_data)
 
 /proc/status_update_round_end(list/stats)
-	var/msg = "Round [replacetext(GLOB.log_directory, "data/logs/", "")] has ended!\nMode:[SSticker.mode.name]\nResult:[SSticker.mode.round_finished]\n"
+	var/msg = "Round [replacetext(GLOB.log_directory, "data/logs/", "")] has ended!\nMode:[SSticker.mode.name]\nResult:[SSticker.mode.round_finished]\nPlayers online: [length(GLOB.clients)]\n"
 	msg += stats.Join("\n")
 	msg = replacetext(msg, "<br>", "\n")
 	msg = replacetext(msg, "<span class='span_round_body'>", "")
@@ -84,6 +85,7 @@ GLOBAL_LIST_INIT(mode_to_pingid, list(
 		lines += "--*[SSvote.question]*"
 	for(var/choice in SSvote.choices)
 		lines += "- [choice]"
+	lines += "Players online: [length(GLOB.clients)]"
 	send_long_status_update(lines)
 
 /proc/status_update_vote_ended(result_text)
@@ -91,18 +93,26 @@ GLOBAL_LIST_INIT(mode_to_pingid, list(
 
 GLOBAL_VAR(next_gamemode_pinged)
 
-/proc/status_update_next_gamemode(mode, restarting = FALSE)
+/proc/status_update_next_gamemode(mode, restarting = FALSE, starting = FALSE)
 	var/msg = ""
 	var/pingid = null
-	if(restarting)
-		msg += "Server restarting.\n"
+	if(restarting || starting)
+		if(restarting)
+			msg += "Server restarting.\n"
+		else
+			msg += "Round starting.\n"
 	else
 		if(GLOB.next_gamemode_pinged == mode)
 			return
 	if(GLOB.next_gamemode_pinged != mode)
 		pingid = GLOB.mode_to_pingid[mode]
-	GLOB.next_gamemode_pinged = mode
-	msg += "Next gamemode: [mode]"
+	if(starting)
+		msg += "Current gamemode: [mode]\n"
+		GLOB.next_gamemode_pinged = null
+	else
+		msg += "Next gamemode: [mode]\n"
+		GLOB.next_gamemode_pinged = mode
+	msg += "Players online: [length(GLOB.clients)]"
 	amia_arbitrary_status_update(msg, pingid)
 
 /proc/send_long_status_update(list/lines, ping_id)

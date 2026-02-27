@@ -244,7 +244,7 @@ GLOBAL_VAR(runtimes_restarting_mc)
 //	-1 if we encountered a runtime trying to recreate it
 /proc/Recreate_MC()
 	. = -1 //so if we runtime, things know we failed
-	amia_arbitrary_status_update("Master Controller Fault.  Attempting to recreate MC.")
+	amia_arbitrary_status_update("Master Controller Fault.  Attempting to recreate MC.\nPlayers online: [length(GLOB.clients)]")
 	if (world.time < Master.restart_timeout)
 		return 0
 	if (world.time < Master.restart_clear)
