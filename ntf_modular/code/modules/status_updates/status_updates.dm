@@ -70,7 +70,10 @@ GLOBAL_LIST_INIT(mode_to_pingid, list(
 
 /proc/status_update_round_end(list/stats)
 	var/msg = "Round [replacetext(GLOB.log_directory, "data/logs/", "")] has ended!\nMode:[SSticker.mode.name]\nResult:[SSticker.mode.round_finished]\n"
-	msg += replacetext(stats.Join("\n"),"<br>","\n")
+	msg += stats.Join("\n")
+	msg = replacetext(msg, "<br>", "\n")
+	msg = replacetext(msg, "<span class='span_round_body'>", "")
+	msg = replacetext(msg, "</span>", "")
 	msg = splittext(msg, "\n")
 	send_long_status_update(msg, PINGID_NEW_ROUND_PING)
 
@@ -90,14 +93,17 @@ GLOBAL_VAR(next_gamemode_pinged)
 
 /proc/status_update_next_gamemode(mode, restarting = FALSE)
 	var/msg = ""
+	var/pingid = null
 	if(restarting)
 		msg += "Server restarting.\n"
 	else
 		if(GLOB.next_gamemode_pinged == mode)
 			return
+	if(GLOB.next_gamemode_pinged != mode)
+		pingid = GLOB.mode_to_pingid[mode]
 	GLOB.next_gamemode_pinged = mode
 	msg += "Next gamemode: [mode]"
-	amia_arbitrary_status_update(msg, GLOB.mode_to_pingid[mode])
+	amia_arbitrary_status_update(msg, pingid)
 
 /proc/send_long_status_update(list/lines, ping_id)
 	var/msg = ""
