@@ -106,5 +106,5 @@ GLOBAL_VAR(next_gamemode_pinged)
 			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(send_long_status_update), lines), 1.5 SECONDS)// we do not include ping_id here to avoid duplicate pings
 			break
 		msg += "[lines[1]]\n"
-		lines.Cut(1,1)
+		lines.Cut(1,2)
 	amia_arbitrary_status_update(msg, ping_id)
