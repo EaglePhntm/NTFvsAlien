@@ -69,9 +69,9 @@
 		// Check for a malformed history object
 		if (!row || length(row) < 3 || (!row["ckey"] || !row["address"] || !row["computer_id"]))
 			continue
-		if (world.IsBanned(row["ckey"], row["address"], row["computer_id"], real_bans_only = TRUE))
+		var/list/ban_details = is_banned_from_with_details(row["ckey"], row["address"], row["computer_id"], "Server")
+		if(length(ban_details))
 			found += "(key: [row["ckey"]], ip:[row["address"]], cid:[row["computer_id"]]) matched bans:"
-			var/list/ban_details = is_banned_from_with_details(row["ckey"], row["address"], row["computer_id"], "Server")
 			for(var/j in ban_details)
 				found += "(BanID #[j["id"]]) applied by [j["admin_key"]] on [j["bantime"]] during round ID [j["round_id"]] for (key:[j["key"]], ip: [j["ip"]], cid:[j["computerid"]])."
 		CHECK_TICK
