@@ -984,7 +984,9 @@ GLOBAL_VAR(runtimes_restarting_mc)
 			if(iteration < 3)
 				log_world("MC: RunQueue() completed processing a subsystem, queued [logdetails(queue_node)], MC iteration = [iteration].")
 		if(iteration < 3)
-			log_world("MC: RunQueue() exited innner loop, queue_node = [logdetails(queue_node)], MC iteration = [iteration].")
+			log_world("MC: RunQueue() exited inner loop, queue_node = [logdetails(queue_node)], MC iteration = [iteration].")
+	if(iteration < 3)
+		log_world("MC: RunQueue() exited outer loop, ran = [ran], queue_head = [logdetails(queue_head)], tick_usage = [TICK_USAGE], MC iteration = [iteration].")
 	if (. == 0)
 		. = 1
 
