@@ -128,3 +128,14 @@
   - rscdel: Temporarily removes the Ghost cloak and replaces it with the sniper cloak.
   - balance: Makes motion sensors more sensitive when the opposing ones are near,
       but less sensitive when they are further away.
+2026-02-27:
+  Destrucktoid:
+  - rscadd: Adds a new check to larval growth that the person who it's growing within
+      hasn't been psydrained whilst alive already.
+  - balance: Psydrain can no longer be used on allies
+  - balance: Psydrain deals 20 cloneloss again
+  - balance: Reverted larva growing in dead marines and allowing xenos to drag dead
+      marines if the larva exceeds stage 3 upon death.
+  - bugfix: Xenos can no longer drain a marine, then impregnate them.
+  Ldip999:
+  - code_imp: Added way to send arbitrary messages to the discord bot
