@@ -31,7 +31,7 @@
 	if(GLOB.admin_datums[ckey] || GLOB.deadmins[ckey])
 		admin = TRUE
 
-	if(!amia_whitelistcheck(ckey))
+	if(!admin && !real_bans_only && !amia_whitelistcheck(ckey))
 		return list("reason"="Unverified","desc"="Your ckey is not associated with an active member account on our discord. Please verify by opening a ticket. If you are already verified, please let us know!")
 	//Whitelist
 	if(!real_bans_only && !C && CONFIG_GET(flag/usewhitelist))
