@@ -119,8 +119,8 @@ SUBSYSTEM_DEF(vote)
 		discord_text += "**[choices[i]]:** [votes]\n"
 	if(mode != "custom")
 		if(length(winners) > 1)
-			text = "<hr><b>Vote Tied Between:</b>"
-			discord_text = "---\n**Vote Tied Between:**\n"
+			text += "<hr><b>Vote Tied Between:</b>"
+			discord_text += "---\n**Vote Tied Between:**\n"
 			for(var/option in winners)
 				text += "\n\t[option]"
 				discord_text += "---[option]\n"
