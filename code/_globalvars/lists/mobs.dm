@@ -49,7 +49,8 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 GLOBAL_LIST_INIT_TYPED(xeno_caste_datums, /list/datum/xeno_caste, init_xeno_caste_list())
 
 //ntf
-GLOBAL_LIST_EMPTY(bunker_passthrough)
+GLOBAL_LIST_EMPTY(bunker_passthrough) //for adding exceptions to the panic bunker
+GLOBAL_LIST_EMPTY(amia_bypass) //for adding exceptions to the amia whitelist
 
 /proc/init_xeno_caste_list()
 	. = list()
