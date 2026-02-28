@@ -32,6 +32,7 @@
 		admin = TRUE
 
 	var/whitelisted = check_whitelist(ckey)
+	/*
 	var/logmsg
 
 	if(!real_bans_only)
@@ -64,6 +65,7 @@
 			else
 				log_access("Failed Login: [key] - Not on whitelist")
 				return list("reason"="whitelist", "desc" = "\nReason: You are not on the white list for this server")
+	*/
 
 	//Guest Checking
 	if(!real_bans_only && !C && IsGuestKey(key))

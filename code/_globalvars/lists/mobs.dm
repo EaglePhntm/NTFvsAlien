@@ -1,4 +1,5 @@
 GLOBAL_LIST_EMPTY(clients)							//all clients
+GLOBAL_LIST_EMPTY(whitelisted_clients)				//all clients that are on some kind of whitelist, associative values are which kind
 GLOBAL_LIST_EMPTY(admins)							//all clients whom are admins
 GLOBAL_PROTECT(admins)
 GLOBAL_LIST_EMPTY(deadmins)							//all ckeys who have used the de-admin verb.

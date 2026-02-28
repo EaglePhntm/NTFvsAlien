@@ -53,7 +53,9 @@
 	if(!target || (!html && !text))
 		return
 	if(target == world)
-		target = GLOB.clients
+		target = GLOB.whitelisted_clients
+	if(target == "all")
+		target - GLOB.clients
 	// Build a message
 	var/message = list()
 	if(type) message["type"] = type
