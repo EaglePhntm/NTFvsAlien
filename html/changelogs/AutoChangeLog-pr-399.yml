@@ -1,0 +1,4 @@
+author: "obvious650-source"
+delete-after: True
+changes:
+  - balance: "SH-39 fire delay back to 1.2"
