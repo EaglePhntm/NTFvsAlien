@@ -13,6 +13,9 @@
 	if(IsGuestKey(key))
 		to_chat(src, "Guests may not use OOC.")
 		return
+	if(!WHITELIST_CHECK(src))
+		WHITELIST_MESSAGE(src)
+		return
 
 	if(!msg)
 		msg = tgui_input_text(usr, "Send an out-of-character message to all players.  Shows your key(byond username) and not your character's name.", "OOC", "", MAX_MESSAGE_LEN, multiline = TRUE, encode = FALSE)
@@ -149,6 +152,9 @@
 	if(IsGuestKey(key))
 		to_chat(src, "Guests may not use XOOC.")
 		return
+	if(!WHITELIST_CHECK(src))
+		WHITELIST_MESSAGE(src)
+		return
 	if(mob.stat == DEAD && !admin)
 		to_chat(src, span_warning("You must be alive to use XOOC."))
 		return
@@ -264,6 +270,9 @@
 		return
 	if(IsGuestKey(key))
 		to_chat(src, "Guests may not use MOOC.")
+		return
+	if(!WHITELIST_CHECK(src))
+		WHITELIST_MESSAGE(src)
 		return
 	if(mob.stat == DEAD && !admin)
 		to_chat(src, span_warning("You must be alive to use MOOC."))
@@ -381,6 +390,9 @@
 		return
 	if(IsGuestKey(key))
 		to_chat(src, "Guests may not use XMOOC.")
+		return
+	if(!WHITELIST_CHECK(src))
+		WHITELIST_MESSAGE(src)
 		return
 	var/mob/living/original_corpse
 	var/mob/dead/observer/ghost
@@ -516,6 +528,9 @@
 
 	if(IsGuestKey(key))
 		to_chat(src, "Guests may not use LOOC.")
+		return
+	if(!WHITELIST_CHECK(src))
+		WHITELIST_MESSAGE(src)
 		return
 
 	if(!msg)
@@ -868,6 +883,9 @@
 
 	if  (IsGuestKey(ckey))
 		to_chat(src, span_danger("Guests can not link accounts."))
+		return
+	if(!WHITELIST_CHECK(src))
+		WHITELIST_MESSAGE(src)
 		return
 
 	var/token = generate_account_link_token()

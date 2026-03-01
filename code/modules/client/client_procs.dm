@@ -470,6 +470,7 @@
 	GLOB.ahelp_tickets.ClientLogout(src)
 	GLOB.directory -= ckey
 	GLOB.clients -= src
+	GLOB.whitelisted_clients -= src
 	QDEL_NULL(view_size)
 	QDEL_NULL(parallax_rock)
 	QDEL_LIST(parallax_layers_cached)

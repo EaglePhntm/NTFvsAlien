@@ -38,6 +38,10 @@
 /datum/action/observer_action/take_ssd_mob/action_activate()
 	var/mob/dead/observer/dead_owner = owner
 
+	if(!WHITELIST_CHECK(owner.client))
+		WHITELIST_MESSAGE(owner.client)
+		return
+
 	if(!GLOB.ssd_posses_allowed)
 		to_chat(owner, span_warning("Taking over SSD mobs is currently disabled."))
 		return

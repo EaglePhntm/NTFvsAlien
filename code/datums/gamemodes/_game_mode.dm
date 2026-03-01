@@ -798,6 +798,9 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	return FALSE
 
 /datum/game_mode/proc/CanLateSpawn(mob/new_player/NP, datum/job/job)
+	if(!WHITELIST_CHECK(NP.client))
+		WHITELIST_MESSAGE(NP.client)
+		return FALSE
 	if(!isnewplayer(NP))
 		return FALSE
 	if(!NP.IsJobAvailable(job, TRUE))

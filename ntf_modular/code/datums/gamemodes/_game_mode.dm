@@ -29,6 +29,9 @@ GLOBAL_LIST_EMPTY(reclone_tp_spots)
 	QDEL_LIST(GLOB.comm_tower_landmarks_net_two)
 
 /datum/game_mode/LateSpawn(mob/new_player/player)
+	if(!WHITELIST_CHECK(player.client))
+		WHITELIST_MESSAGE(player.client)
+		return
 	for(var/mob/living/carbon/human/foundfucko in GLOB.ssd_living_mobs)
 		if(foundfucko.real_name == player.client.prefs.real_name && length(foundfucko.ckey_history) && (player.key in foundfucko.ckey_history))
 			to_chat(player, span_warning("This character already exists in round waiting in SSD, Use take SSD mob instead."))
