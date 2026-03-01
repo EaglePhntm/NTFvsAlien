@@ -369,7 +369,7 @@ Though you are an officer, your authority is limited to the dropship and the Con
 		return
 	if((!istype(SSticker.mode, /datum/game_mode/infestation/nuclear_war)) && (!istype(SSticker.mode, /datum/game_mode/infestation/sovl_war)))
 		return
-	var/client_count = length(GLOB.clients)
+	var/client_count = length(GLOB.whitelisted_clients)
 	if(client_count >= NUCLEAR_WAR_MECH_MINIMUM_POP_REQUIRED)
 		client_count = 1 + FLOOR((client_count - NUCLEAR_WAR_MECH_MINIMUM_POP_REQUIRED) / NUCLEAR_WAR_MECH_INTERVAL_PER_SLOT, 1)
 		add_job_positions(client_count)
@@ -436,7 +436,7 @@ Though you are an officer, your authority is limited to the dropship and the Con
 /datum/job/terragov/command/assault_crewman/on_pre_setup()
 	if(total_positions)
 		return
-	if(length(GLOB.clients) >= NUCLEAR_WAR_TANK_MINIMUM_POP_REQUIRED)
+	if(length(GLOB.whitelisted_clients) >= NUCLEAR_WAR_TANK_MINIMUM_POP_REQUIRED)
 		add_job_positions(2) //always 2 there are, a master and an apprentice
 
 /datum/job/terragov/command/assault_crewman/get_spawn_message_information(mob/M)

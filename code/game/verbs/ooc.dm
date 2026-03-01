@@ -108,7 +108,7 @@
 		if(CONFIG_GET(flag/allow_admin_ooccolor) && check_rights(R_COLOR, FALSE))
 			display_colour = prefs.ooccolor
 
-	for(var/client/recv_client AS in GLOB.clients)
+	for(var/client/recv_client AS in GLOB.whitelisted_clients)
 		if(!(recv_client.prefs.toggles_chat & CHAT_OOC))
 			continue
 		if(holder?.fakekey in recv_client.prefs.ignoring)
@@ -210,7 +210,7 @@
 	mob.log_talk(msg, LOG_XOOC)
 
 	// Send chat message to non-admins
-	for(var/client/recv_client AS in GLOB.clients)
+	for(var/client/recv_client AS in GLOB.whitelisted_clients)
 		if(!(recv_client.prefs.toggles_chat & CHAT_OOC))
 			continue
 		if(!(recv_client.mob in GLOB.xeno_mob_list) && !(recv_client.mob in GLOB.observer_list) || check_other_rights(recv_client, R_ADMIN|R_MENTOR, FALSE)) // If the client is a xeno, an observer, and not staff.
@@ -326,7 +326,7 @@
 	mob.log_talk(msg, LOG_MOOC)
 
 	// Send chat message to non-admins
-	for(var/client/recv_client AS in GLOB.clients)
+	for(var/client/recv_client AS in GLOB.whitelisted_clients)
 		if(!(recv_client.prefs.toggles_chat & CHAT_OOC))
 			continue
 		if(!(recv_client.mob in GLOB.human_mob_list) && !(recv_client.mob in GLOB.observer_list) && !(recv_client.mob in GLOB.ai_list) || check_other_rights(recv_client, R_ADMIN|R_MENTOR, FALSE)) // If the client is a human, an observer, and not staff.
@@ -451,7 +451,7 @@
 	mob.log_talk(msg, LOG_MOOC)
 
 	// Send chat message to non-admins
-	for(var/client/recv_client AS in GLOB.clients)
+	for(var/client/recv_client AS in GLOB.whitelisted_clients)
 		if(!(recv_client.prefs.toggles_chat & CHAT_OOC))
 			continue
 		if(!(recv_client.mob in GLOB.human_mob_list) && !(recv_client.mob in GLOB.xeno_mob_list) && !(recv_client.mob in GLOB.observer_list) && !(recv_client.mob in GLOB.ai_list) || check_other_rights(recv_client, R_ADMIN|R_MENTOR, FALSE)) // If the client is a human, a xeno, an observer, and not staff.
@@ -789,7 +789,7 @@
 	// Use keys and fakekeys for the same purpose
 	var/displayed_key = ""
 
-	for(var/client/C in GLOB.clients)
+	for(var/client/C in GLOB.whitelisted_clients)
 		if(C == src)
 			continue
 		if((C.key in prefs.ignoring) && !C.holder?.fakekey)

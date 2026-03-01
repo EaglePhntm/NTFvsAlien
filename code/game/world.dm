@@ -300,8 +300,8 @@ GLOBAL_VAR(restart_counter)
 			msg += "Game Mode: [SSticker.mode.name]"
 			msg += "Round End State: [SSticker.mode.round_finished]"
 
-		if(length(GLOB.clients))
-			msg += "Players: [length(GLOB.clients)]"
+		if(length(GLOB.whitelisted_clients))
+			msg += "Players: [length(GLOB.whitelisted_clients)]"
 
 		if(length(msg))
 			send2chat(msg.Join(" | "), CONFIG_GET(string/end_of_round_channel))
