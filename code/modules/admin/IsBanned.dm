@@ -54,6 +54,7 @@
 		else
 			log_access("Failed Login: [key] - Not on amia whitelist")
 			return list("reason"="Unverified","desc"="Your ckey is not associated with an active member account on our discord. Please verify by opening a ticket. If you are already verified, please let us know!")
+	*/
 	//Whitelist
 	if(!real_bans_only && !C && CONFIG_GET(flag/usewhitelist))
 		if(!whitelisted)
@@ -65,7 +66,7 @@
 			else
 				log_access("Failed Login: [key] - Not on whitelist")
 				return list("reason"="whitelist", "desc" = "\nReason: You are not on the white list for this server")
-	*/
+
 
 	//Guest Checking
 	if(!real_bans_only && !C && IsGuestKey(key))

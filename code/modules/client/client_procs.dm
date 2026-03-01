@@ -397,7 +397,7 @@
 		GLOB.whitelisted_clients += src
 		GLOB.whitelisted_clients[src] = "Admin"
 	else
-		if(whitelisted)
+		if(check_whitelist(ckey))
 			log_admin("Skipped amia whitelist check for [key] because they are in the TGMC-style whitelist.")
 			GLOB.whitelisted_clients += src
 			GLOB.whitelisted_clients[src] = "WL"
@@ -416,7 +416,7 @@
 	if(src in GLOB.whitelisted_clients)
 		to_chat(src, span_notice("Whitelist check passed.  Welcome."))
 	else
-		to_chat(src, span_userdanger("You are not whitelisted and have been restricted from most actions.  Please join the discord to get whitelisted ([DISCORDURL]).  If this is not possible for you, you can apply for an exception via ahelp(F1)."))
+		to_chat(src, span_userdanger("You are not whitelisted and have been restricted from most actions.  Please join the discord to get whitelisted ([CONFIG_GET(string/discordurl)]).  If this is not possible for you, you can apply for an exception via ahelp(F1)."))
 
 //////////////////
 //  DISCONNECT  //

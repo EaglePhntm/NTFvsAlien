@@ -55,7 +55,7 @@
 	if(target == world)
 		target = GLOB.whitelisted_clients
 	if(target == "all")
-		target - GLOB.clients
+		target = GLOB.clients
 	// Build a message
 	var/message = list()
 	if(type) message["type"] = type
