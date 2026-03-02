@@ -899,7 +899,7 @@
 			if(infestation_mode.round_stage == INFESTATION_MARINE_CRASHING)
 				message_admins("[usr] tried to capture the shuttle after it was already hijacked, possible use of exploits.")
 				return
-			if(infestation_mode.round_type_flags2 & MODE_NO_ABDUCT)
+			if(infestation_mode.round_type_flags2 & MODE_2_NO_ABDUCT)
 				to_chat(usr, span_xenowarning("No! We need to finish the fight!"))
 				return
 			var/groundside_humans = length(GLOB.humans_by_zlevel["[z]"])

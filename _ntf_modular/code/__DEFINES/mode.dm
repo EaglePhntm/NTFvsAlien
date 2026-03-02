@@ -13,8 +13,8 @@
 #define MAX_FACEHUGGERS 8
 
 ///extra round type flags
-#define MODE_CAMPAIGN_LITE_SUPPORT (1<<0)
+#define MODE_2_CAMPAIGN_LITE_SUPPORT (1<<0)
 ///Only disables joining as an observer.
-#define MODE_NO_GHOSTS (1<<1)
+#define MODE_2_NO_GHOSTS (1<<1)
 ///makes it not possible to cap the alamo.
-#define MODE_NO_ABDUCT (1<<2)
+#define MODE_2_NO_ABDUCT (1<<2)

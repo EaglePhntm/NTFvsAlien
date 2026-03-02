@@ -405,7 +405,7 @@
 	if(client?.observe_used)
 		to_chat(src,  span_warning("You seen enough, time to play."))
 		return FALSE
-	if(!check_other_rights(client, R_ADMIN, FALSE) && SSticker.mode.round_type_flags2 & MODE_NO_GHOSTS)
+	if(!check_other_rights(client, R_ADMIN, FALSE) && SSticker.mode.round_type_flags2 & MODE_2_NO_GHOSTS)
 		log_game("[key_name(src)] failed to join as a ghost due to the observe disable.")
 		to_chat(src, span_boldannounce("Observing is currently disabled.  Please do not get around this by joining just to ghost."))
 		spawn()
