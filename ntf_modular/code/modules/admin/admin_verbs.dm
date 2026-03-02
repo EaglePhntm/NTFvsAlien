@@ -180,6 +180,11 @@ ADMIN_VERB(add_amia_bypass, R_ADMIN, "Add Amia Bypass", "Allows a ckey to connec
 	GLOB.amia_bypass[ckeytobypass]["Round Added"] = replacetext(GLOB.log_directory, "data/logs/", "")
 	GLOB.amia_bypass[ckeytobypass]["Added by"] = "[usr.ckey]"
 	SSpersistence.SaveAmiaBypass() //we can do this every time, it's okay
+	var/client/client_bypassed = GLOB.directory[ckeytobypass]
+	if(istype(client_bypassed))
+		GLOB.whitelisted_clients += client_bypassed
+		GLOB.whitelisted_clients[client_bypassed] = "amia bypass"
+		to_chat(client_bypassed, "Whitelist check passed.  Welcome.")
 	log_admin("[key_name(usr)] has added [ckeytobypass] to the persistent amia whitelist bypass list.")
 	message_admins("[key_name_admin(usr)] has added [ckeytobypass] to the persistent amia whitelist bypass list.")
 
@@ -193,5 +198,9 @@ ADMIN_VERB(remove_amia_bypass, R_ADMIN, "Remove Amia Bypass", "Revokes a ckey's 
 
 	GLOB.amia_bypass -= ckeytobypass
 	SSpersistence.SaveAmiaBypass()
+	var/client/client_bypassed = GLOB.directory[ckeytobypass]
+	if(istype(client_bypassed))
+		message_admins("[ckeytobypass] has been removed from the persistent amia whitelist bypass list, but they will still be treated as whitelisted until they reconnect.")
+		to_chat(usr, span_admin("If you need to refresh their whitelist status you can kick them."))
 	log_admin("[key_name(usr)] has removed [ckeytobypass] from the persistent amia whitelist bypass list.")
 	message_admins("[key_name_admin(usr)] has removed [ckeytobypass] from the persistent amia whitelist bypass list.")
