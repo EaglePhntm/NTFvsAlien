@@ -1165,6 +1165,9 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 				forced_disks += candidate
 			else
 				viable_disks += candidate
+		else
+			new /obj/machinery/computer/intel_computer(get_turf(candidate))
+			qdel(candidate)
 	if((length(viable_disks) + length(forced_disks)) < length(GLOB.nuke_disk_generator_types)) //Lets in maps with > 3 disks for a given set and just behaves like the previous rng in that case.
 		CRASH("Warning: Current map has too few nuke disk generators to correctly generate disks for set \">[chosen_disk_set]<\". Make sure both generators and json are set up correctly.")
 	if(length(forced_disks) > length(GLOB.nuke_disk_generator_types))
@@ -1177,6 +1180,9 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 			spawn_loc = pick_n_take(viable_disks)
 		new disk_generator(get_turf(spawn_loc))
 		qdel(spawn_loc)
+	for(var/obj/structure/nuke_disk_candidate/candidate AS in GLOB.nuke_disk_spawn_locs)
+		new /obj/machinery/computer/intel_computer(get_turf(candidate))
+		qdel(candidate)
 
 /// Add gamemode related items to statpanel
 /datum/game_mode/proc/get_status_tab_items(datum/dcs, mob/source, list/items)
