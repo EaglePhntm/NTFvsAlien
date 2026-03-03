@@ -10,12 +10,12 @@
 	if(revinfo)
 		commit = revinfo.commit
 		originmastercommit = revinfo.origin_commit
+		date = revinfo.timestamp
 	else
-		commit = rustg_git_revparse("HEAD")
-		if(commit)
-			date = rustg_git_commit_date(commit)
+		commit = rustg_git_revparse("HEAD") || file2text("data/revision.txt")
 		originmastercommit = rustg_git_revparse("origin/master")
-
+	if(commit)
+		date = date || file2text("data/compile_date.txt") || rustg_git_commit_date(commit)
 	// goes to DD log and config_error.txt
 	log_world(get_log_message())
 
@@ -23,9 +23,9 @@
 	testmerge = world.TgsTestMerges()
 	var/datum/tgs_revision_information/revinfo = world.TgsRevision()
 	if(revinfo)
-		commit = revinfo.commit
+		commit = revinfo.commit || commit || rustg_git_revparse("HEAD")
 		originmastercommit = revinfo.origin_commit
-		date = revinfo.timestamp || rustg_git_commit_date(commit)
+		date = revinfo.timestamp || date || file2text("data/compile_date.txt") || rustg_git_commit_date(commit)
 
 	// goes to DD log and config_error.txt
 	log_world(get_log_message())
