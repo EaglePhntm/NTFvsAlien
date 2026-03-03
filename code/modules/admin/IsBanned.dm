@@ -31,11 +31,33 @@
 	if(GLOB.admin_datums[ckey] || GLOB.deadmins[ckey])
 		admin = TRUE
 
-	if(!amia_whitelistcheck(ckey))
-		return list("reason"="Unverified","desc"="Your ckey is not associated with an active member account on our discord. Please verify by opening a ticket. If you are already verified, please let us know!")
+	var/whitelisted = check_whitelist(ckey)
+	/*
+	var/logmsg
+
+	if(!real_bans_only)
+		if(admin)
+			logmsg = "Skipped amia whitelist check for [key] because they are an admin."
+		else
+			if(whitelisted)
+				logmsg = "Skipped amia whitelist check for [key] because they are in the TGMC-style whitelist."
+			else
+				if(ckey in GLOB.amia_bypass)
+					logmsg = "Skipped amia whitelist check for [key] because of a matching amia bypass entry for them:[json_encode(list(ckey = GLOB.amia_bypass[ckey]))]."
+				else
+					if(amia_whitelistcheck(ckey))
+						logmsg = "Looking up [key] in the amia whitelist... passed."
+		if(logmsg)
+			log_admin(logmsg)
+			if(message)
+				message_admins(logmsg)
+		else
+			log_access("Failed Login: [key] - Not on amia whitelist")
+			return list("reason"="Unverified","desc"="Your ckey is not associated with an active member account on our discord. Please verify by opening a ticket. If you are already verified, please let us know!")
+	*/
 	//Whitelist
 	if(!real_bans_only && !C && CONFIG_GET(flag/usewhitelist))
-		if(!check_whitelist(ckey))
+		if(!whitelisted)
 			if (admin)
 				log_admin("The admin [key] has been allowed to bypass the whitelist")
 				if (message)
@@ -44,6 +66,7 @@
 			else
 				log_access("Failed Login: [key] - Not on whitelist")
 				return list("reason"="whitelist", "desc" = "\nReason: You are not on the white list for this server")
+
 
 	//Guest Checking
 	if(!real_bans_only && !C && IsGuestKey(key))
@@ -226,9 +249,9 @@
 			return null
 
 		if (C) //user is already connected!.
-			to_chat(C, span_redtext("You are about to get disconnected for matching a sticky ban after you connected. If this turns out to be the ban evasion detection system going haywire, we will automatically detect this and revert the matches. if you feel that this is the case, please wait EABILITYLY 6 seconds then reconnect using file -> reconnect to see if the match was automatically reversed."))
+			to_chat(C, span_redtext("You are about to get disconnected for matching a sticky ban after you connected. If this turns out to be the ban evasion detection system going haywire, we will automatically detect this and revert the matches. if you feel that this is the case, please wait EXACTLY 6 seconds then reconnect using file -> reconnect to see if the match was automatically reversed."))
 
-		var/desc = "\nReason:(StickyBan) You, or another user of this computer or connection ([bannedckey]) is banned from playing here. The ban reason is:\n[ban["message"]]\nThis ban was applied by [ban["admin"]]\nThis is a BanEvasion Detection System ban, if you think this ban is a mistake, please wait EABILITYLY 6 seconds, then try again before filing an appeal.\n"
+		var/desc = "\nReason:(StickyBan) You, or another user of this computer or connection ([bannedckey]) is banned from playing here. The ban reason is:\n[ban["message"]]\nThis ban was applied by [ban["admin"]]\nThis is a BanEvasion Detection System ban, if you think this ban is a mistake, please wait EXACTLY 6 seconds, then try again before filing an appeal.\n"
 		. = list("reason" = "Stickyban", "desc" = desc)
 		log_access("Failed Login: [key] [computer_id] [address] - StickyBanned [ban["message"]] Target Username: [bannedckey] Placed by [ban["admin"]]")
 

@@ -279,7 +279,7 @@ GLOBAL_LIST_INIT(campaign_mission_pool, list(
 /datum/faction_stats/proc/mission_end(datum/source, datum/campaign_mission/completed_mission, winning_faction)
 	SIGNAL_HANDLER
 	stats_flags &= ~CAMPAIGN_TEAM_HAS_SET_ATTRITION
-	total_attrition_points += round(length(GLOB.clients) * 0.5 * (attrition_gain_multiplier + loss_bonus))
+	total_attrition_points += round(length(GLOB.whitelisted_clients) * 0.5 * (attrition_gain_multiplier + loss_bonus))
 	if(faction == winning_faction)
 		stats_flags |= CAMPAIGN_TEAM_MISSION_SELECT_ALLOWED
 		loss_bonus = 0

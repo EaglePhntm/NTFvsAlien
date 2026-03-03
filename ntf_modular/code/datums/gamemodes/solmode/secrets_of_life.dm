@@ -2,8 +2,8 @@
 	name = "Secret of Life - Main"
 	config_tag = "Secret of Life - Main"
 	silo_scaling = 1
-	round_type_flags = MODE_INFESTATION|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_ALLOW_XENO_QUICKBUILD|MODE_MUTATIONS_OBTAINABLE|MODE_XENO_GRAB_DEAD_ALLOWED|MODE_SINGLE_USE_NUKE_DISK_GENERATOR|MODE_CHILL_RULES
-	round_type_flags2 = MODE_CAMPAIGN_LITE_SUPPORT|MODE_NO_GHOSTS|MODE_NO_ABDUCT
+	round_type_flags = MODE_INFESTATION|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_ALLOW_XENO_QUICKBUILD|MODE_MUTATIONS_OBTAINABLE|MODE_XENO_GRAB_DEAD_ALLOWED|MODE_SINGLE_USE_NUKE_DISK_GENERATOR|MODE_CHILL_RULES|MODE_ALLOW_MARINE_QUICKBUILD
+	round_type_flags2 = MODE_2_CAMPAIGN_LITE_SUPPORT|MODE_2_NO_GHOSTS|MODE_2_NO_ABDUCT
 	shutters_drop_time = 15 MINUTES
 	xeno_abilities_flags = ABILITY_ALL_GAMEMODE
 	factions = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_XENO, FACTION_CLF, FACTION_ICC, FACTION_VSD, FACTION_NANOTRASEN)
@@ -223,7 +223,7 @@
 	var/sound/S = sound(pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
 	SEND_SOUND(world, S)
 
-	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.clients)]\nTotal xenos spawned: [GLOB.round_statistics.total_xenos_created]\nTotal humans spawned: [GLOB.round_statistics.total_humans_created]")
+	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.whitelisted_clients)]\nTotal xenos spawned: [GLOB.round_statistics.total_xenos_created]\nTotal humans spawned: [GLOB.round_statistics.total_humans_created]")
 
 /datum/game_mode/infestation/secret_of_life/post_setup()
 	. = ..()
@@ -331,7 +331,7 @@ alt gamemodes
 
 */
 /datum/game_mode/infestation/secret_of_life/nosub
-	name = "Secret of Life - No subfactions"
+	name = "Secret of Life - No Subfactions"
 	config_tag = "Secret of Life - No Subfactions"
 	factions = list(FACTION_TERRAGOV, FACTION_SOM,FACTION_XENO, FACTION_CLF)
 	human_factions = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_CLF)
@@ -479,7 +479,7 @@ alt gamemodes
 
 /datum/game_mode/infestation/secret_of_life/alienonly
 	name = "Secret of Life - NTF vs Alien only"
-	config_tag = "Secret of Life - Alien only"
+	config_tag = "Secret of Life - NTF vs Alien only"
 	factions = list(FACTION_TERRAGOV, FACTION_XENO)
 	human_factions = list(FACTION_TERRAGOV)
 	valid_job_types = list(

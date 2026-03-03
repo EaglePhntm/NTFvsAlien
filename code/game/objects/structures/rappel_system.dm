@@ -230,7 +230,7 @@
 	var/minimapflag = usr ? (GLOB.faction_to_minimap_flag[usr.faction] || MINIMAP_FLAG_MARINE) : MINIMAP_FLAG_MARINE
 	SSminimaps.add_marker(rope, minimapflag, image('icons/UI_icons/map_blips.dmi', null, "rappel, MINIMAP_BLIPS_LAYER"))
 	var/area/rappel_area = get_area(target)
-	if(!(rappel_area.area_flags & MARINE_BASE))
+	if(!(rappel_area.area_flags & MARINE_BASE) && linked_dropship?.shuttleId == SHUTTLE_TADPOLE)
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_TADPOLE_RAPPEL_DEPLOYED_OUT_LZ)
 
 	playsound(target, 'sound/effects/tadpolehovering.ogg', 100, TRUE, falloff = 2.5)

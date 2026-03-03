@@ -244,7 +244,9 @@ SUBSYSTEM_DEF(mapping)
 	multiz_levels = SSmapping.multiz_levels
 	loaded_lazy_templates = SSmapping.loaded_lazy_templates
 
-#define INIT_ANNOUNCE(X) to_chat(world, span_alert("<b>[X]</b>")); log_world(X)
+GLOBAL_VAR_INIT(maps_loaded_data, "")
+
+#define INIT_ANNOUNCE(X) to_chat(world, span_alert("<b>[X]</b>")); log_world(X); GLOB.maps_loaded_data += "[X]\n"
 /datum/controller/subsystem/mapping/proc/LoadGroup(list/errorList, name, path, files, list/traits, list/default_traits, silent = FALSE, height_autosetup = TRUE)
 	. = list()
 	var/start_time = REALTIMEOFDAY
@@ -315,21 +317,21 @@ SUBSYSTEM_DEF(mapping)
 	ground_start = world.maxz + 1
 
 	var/datum/map_config/ground_map = configs[GROUND_MAP]
-	INIT_ANNOUNCE("Loading [ground_map.map_name]...")
+	INIT_ANNOUNCE("Loading Ground Map : [ground_map.map_name]...")
 	LoadGroup(FailedZs, ground_map.map_name, ground_map.map_path, ground_map.map_file, ground_map.traits, ZTRAITS_GROUND, height_autosetup = ground_map.height_autosetup)
 	// Also saving this as a feedback var as we don't have ship_name in the round table.
 	SSblackbox.record_feedback("text", "ground_map", 1, ground_map.map_name)
 
 	#if !(defined(CIBUILDING) && !defined(ALL_MAPS))
 	var/datum/map_config/ship_map = configs[SHIP_MAP]
-	INIT_ANNOUNCE("Loading [ship_map.map_name]...")
+	INIT_ANNOUNCE("Loading Ship Map : [ship_map.map_name]...")
 	LoadGroup(FailedZs, ship_map.map_name, ship_map.map_path, ship_map.map_file, ship_map.traits, ZTRAITS_MAIN_SHIP, height_autosetup = ship_map.height_autosetup)
 	// Also saving this as a feedback var as we don't have ship_name in the round table.
 	SSblackbox.record_feedback("text", "ship_map", 1, ship_map.map_name)
 	#endif
 
 	var/datum/map_config/antag_map = configs[ANTAG_MAP]
-	INIT_ANNOUNCE("Loading [antag_map.map_name]...")
+	INIT_ANNOUNCE("Loading Antag Map : [antag_map.map_name]...")
 	LoadGroup(FailedZs, antag_map.map_name, antag_map.map_path, antag_map.map_file, antag_map.traits, ZTRAITS_ANTAG_SHIP)
 
 	if(SSdbcore.Connect())
@@ -347,6 +349,7 @@ SUBSYSTEM_DEF(mapping)
 		msg += ". Yell at your server host!"
 		INIT_ANNOUNCE(msg)
 #undef INIT_ANNOUNCE
+	status_update_maps_loaded()
 
 /datum/controller/subsystem/mapping/proc/changemap(datum/map_config/VM, maptype = GROUND_MAP)
 	LAZYINITLIST(next_map_configs)

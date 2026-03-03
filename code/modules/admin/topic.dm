@@ -1056,7 +1056,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			dat += "<a href='byond://?src=[REF(usr.client.holder)];[HrefToken()];changemode=[mode]'>[mode.name]</a><br>"
 		dat += "<br>"
 		dat += "Now: [GLOB.master_mode]<br>"
-		dat += "Next Round: [trim(file2text("data/mode.txt"))]"
+		dat += "Next Round: [GLOB.next_gamemode]"
 
 		var/datum/browser/browser = new(usr, "change_mode", "<div align='center'>Change Gamemode</div>")
 		browser.set_content(dat)

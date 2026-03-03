@@ -209,7 +209,7 @@
 /obj/item/binoculars/fire_support/extended/acquire_target(atom/target, mob/living/carbon/human/user)
 	set waitfor = 0
 	//had issues with parent so fuck it
-	if(!(SSticker.mode.round_type_flags2 & MODE_CAMPAIGN_LITE_SUPPORT))
+	if(!(SSticker.mode.round_type_flags2 & MODE_2_CAMPAIGN_LITE_SUPPORT))
 		if(mode && !mode.always_available)
 			user.balloon_alert(user, "This fire-support is not available for this mission.")
 			return

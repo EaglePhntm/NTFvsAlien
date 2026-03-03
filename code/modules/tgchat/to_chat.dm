@@ -18,6 +18,8 @@
 	if(!target || (!html && !text))
 		return
 	if(target == world)
+		target = GLOB.whitelisted_clients
+	if(target == "all")
 		target = GLOB.clients
 	// Build a message
 	var/message = list()
@@ -53,6 +55,8 @@
 	if(!target || (!html && !text))
 		return
 	if(target == world)
+		target = GLOB.whitelisted_clients
+	if(target == "all")
 		target = GLOB.clients
 	// Build a message
 	var/message = list()

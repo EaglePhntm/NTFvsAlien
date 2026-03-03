@@ -150,6 +150,9 @@
 #define XENODEATHTIME_CHECK(M) ((M.key in GLOB.key_to_time_of_xeno_death)  && ((world.time - (GLOB.key_to_time_of_xeno_death[M.key] ? GLOB.key_to_time_of_xeno_death[M.key] : -INFINITY) < SSticker.mode?.xenorespawn_time)))
 #define XENODEATHTIME_MESSAGE(M) to_chat(M, span_warning("You have been dead for [(world.time - GLOB.key_to_time_of_xeno_death[M.key]) * 0.1] second\s.</span><br><span class ='warning'>You must wait [SSticker.mode?.xenorespawn_time * 0.1] seconds before rejoining the game as a Xenomorph! You can take a SSD minion without resetting your timer."))
 
+#define WHITELIST_CHECK(C) (C in GLOB.whitelisted_clients)
+#define WHITELIST_MESSAGE(C) (to_chat(C, span_danger("<hr>You were unable to do that because you are not whitelisted.  Please join the discord to get whitelisted ([CONFIG_GET(string/discordurl)]).  If this is not possible for you, you can apply for an exception via ahelp(F1).  If you were whitelisted since you connected, please try reconnecting.  If you connected less than a second ago, please wait a second and try again.  If this does not help, please open a ticket on our discord or ahelp for assistance.\n")))
+
 #define COUNT_IGNORE_HUMAN_SSD (1<<0)
 #define COUNT_IGNORE_XENO_SSD (1<<1)
 #define COUNT_IGNORE_XENO_SPECIAL_AREA (1<<2)

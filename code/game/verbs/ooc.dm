@@ -13,6 +13,9 @@
 	if(IsGuestKey(key))
 		to_chat(src, "Guests may not use OOC.")
 		return
+	if(!WHITELIST_CHECK(src))
+		WHITELIST_MESSAGE(src)
+		return
 
 	if(!msg)
 		msg = tgui_input_text(usr, "Send an out-of-character message to all players.  Shows your key(byond username) and not your character's name.", "OOC", "", MAX_MESSAGE_LEN, multiline = TRUE, encode = FALSE)
@@ -108,7 +111,7 @@
 		if(CONFIG_GET(flag/allow_admin_ooccolor) && check_rights(R_COLOR, FALSE))
 			display_colour = prefs.ooccolor
 
-	for(var/client/recv_client AS in GLOB.clients)
+	for(var/client/recv_client AS in GLOB.whitelisted_clients)
 		if(!(recv_client.prefs.toggles_chat & CHAT_OOC))
 			continue
 		if(holder?.fakekey in recv_client.prefs.ignoring)
@@ -148,6 +151,9 @@
 		return
 	if(IsGuestKey(key))
 		to_chat(src, "Guests may not use XOOC.")
+		return
+	if(!WHITELIST_CHECK(src))
+		WHITELIST_MESSAGE(src)
 		return
 	if(mob.stat == DEAD && !admin)
 		to_chat(src, span_warning("You must be alive to use XOOC."))
@@ -210,7 +216,7 @@
 	mob.log_talk(msg, LOG_XOOC)
 
 	// Send chat message to non-admins
-	for(var/client/recv_client AS in GLOB.clients)
+	for(var/client/recv_client AS in GLOB.whitelisted_clients)
 		if(!(recv_client.prefs.toggles_chat & CHAT_OOC))
 			continue
 		if(!(recv_client.mob in GLOB.xeno_mob_list) && !(recv_client.mob in GLOB.observer_list) || check_other_rights(recv_client, R_ADMIN|R_MENTOR, FALSE)) // If the client is a xeno, an observer, and not staff.
@@ -264,6 +270,9 @@
 		return
 	if(IsGuestKey(key))
 		to_chat(src, "Guests may not use MOOC.")
+		return
+	if(!WHITELIST_CHECK(src))
+		WHITELIST_MESSAGE(src)
 		return
 	if(mob.stat == DEAD && !admin)
 		to_chat(src, span_warning("You must be alive to use MOOC."))
@@ -326,7 +335,7 @@
 	mob.log_talk(msg, LOG_MOOC)
 
 	// Send chat message to non-admins
-	for(var/client/recv_client AS in GLOB.clients)
+	for(var/client/recv_client AS in GLOB.whitelisted_clients)
 		if(!(recv_client.prefs.toggles_chat & CHAT_OOC))
 			continue
 		if(!(recv_client.mob in GLOB.human_mob_list) && !(recv_client.mob in GLOB.observer_list) && !(recv_client.mob in GLOB.ai_list) || check_other_rights(recv_client, R_ADMIN|R_MENTOR, FALSE)) // If the client is a human, an observer, and not staff.
@@ -381,6 +390,9 @@
 		return
 	if(IsGuestKey(key))
 		to_chat(src, "Guests may not use XMOOC.")
+		return
+	if(!WHITELIST_CHECK(src))
+		WHITELIST_MESSAGE(src)
 		return
 	var/mob/living/original_corpse
 	var/mob/dead/observer/ghost
@@ -451,7 +463,7 @@
 	mob.log_talk(msg, LOG_MOOC)
 
 	// Send chat message to non-admins
-	for(var/client/recv_client AS in GLOB.clients)
+	for(var/client/recv_client AS in GLOB.whitelisted_clients)
 		if(!(recv_client.prefs.toggles_chat & CHAT_OOC))
 			continue
 		if(!(recv_client.mob in GLOB.human_mob_list) && !(recv_client.mob in GLOB.xeno_mob_list) && !(recv_client.mob in GLOB.observer_list) && !(recv_client.mob in GLOB.ai_list) || check_other_rights(recv_client, R_ADMIN|R_MENTOR, FALSE)) // If the client is a human, a xeno, an observer, and not staff.
@@ -516,6 +528,9 @@
 
 	if(IsGuestKey(key))
 		to_chat(src, "Guests may not use LOOC.")
+		return
+	if(!WHITELIST_CHECK(src))
+		WHITELIST_MESSAGE(src)
 		return
 
 	if(!msg)
@@ -789,7 +804,7 @@
 	// Use keys and fakekeys for the same purpose
 	var/displayed_key = ""
 
-	for(var/client/C in GLOB.clients)
+	for(var/client/C in GLOB.whitelisted_clients)
 		if(C == src)
 			continue
 		if((C.key in prefs.ignoring) && !C.holder?.fakekey)
@@ -868,6 +883,9 @@
 
 	if  (IsGuestKey(ckey))
 		to_chat(src, span_danger("Guests can not link accounts."))
+		return
+	if(!WHITELIST_CHECK(src))
+		WHITELIST_MESSAGE(src)
 		return
 
 	var/token = generate_account_link_token()

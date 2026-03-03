@@ -135,7 +135,7 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 		L.after_round_start()
 
 	// Determine roundstart player count, used for population locks.
-	SSticker.mode.roundstart_players = length(GLOB.clients)
+	SSticker.mode.roundstart_players = length(GLOB.whitelisted_clients)
 	to_chat(world, "Round initialized with a Population of [SSticker.mode.roundstart_players]")
 	SSblackbox.record_feedback("text", "initial_players", 1, SSticker.mode.roundstart_players)
 	for(var/datum/job/job AS in valid_job_types)
@@ -309,7 +309,7 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 
 	msg += "<hr>"
 
-	for(var/i in GLOB.clients)
+	for(var/i in GLOB.whitelisted_clients)
 		var/client/C = i
 		if(!check_other_rights(C, R_ADMIN, FALSE))
 			continue
@@ -687,6 +687,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 			var/last = GLOB.round_statistics.req_items_produced[length(GLOB.round_statistics.req_items_produced)]
 			parts += "[GLOB.round_statistics.req_items_produced[path]] [initial(path.name)][last ? "." : ","]"
 
+	status_update_round_end(parts)
 	if(length(parts))
 		return "<div class='panel stationborder'>[parts.Join("<br>")]</div>"
 	else
@@ -797,6 +798,9 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	return FALSE
 
 /datum/game_mode/proc/CanLateSpawn(mob/new_player/NP, datum/job/job)
+	if(!WHITELIST_CHECK(NP.client))
+		WHITELIST_MESSAGE(NP.client)
+		return FALSE
 	if(!isnewplayer(NP))
 		return FALSE
 	if(!NP.IsJobAvailable(job, TRUE))
@@ -946,7 +950,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 /datum/game_mode/proc/display_report()
 	GLOB.common_report = build_roundend_report()
 	log_roundend_report()
-	for(var/client/C in GLOB.clients)
+	for(var/client/C in GLOB.whitelisted_clients)
 		show_roundend_report(C)
 		give_show_report_button(C)
 		CHECK_TICK
@@ -1164,6 +1168,9 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 				forced_disks += candidate
 			else
 				viable_disks += candidate
+		else
+			new /obj/machinery/computer/intel_computer(get_turf(candidate))
+			qdel(candidate)
 	if((length(viable_disks) + length(forced_disks)) < length(GLOB.nuke_disk_generator_types)) //Lets in maps with > 3 disks for a given set and just behaves like the previous rng in that case.
 		CRASH("Warning: Current map has too few nuke disk generators to correctly generate disks for set \">[chosen_disk_set]<\". Make sure both generators and json are set up correctly.")
 	if(length(forced_disks) > length(GLOB.nuke_disk_generator_types))
@@ -1176,6 +1183,9 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 			spawn_loc = pick_n_take(viable_disks)
 		new disk_generator(get_turf(spawn_loc))
 		qdel(spawn_loc)
+	for(var/obj/structure/nuke_disk_candidate/candidate AS in GLOB.nuke_disk_spawn_locs)
+		new /obj/machinery/computer/intel_computer(get_turf(candidate))
+		qdel(candidate)
 
 /// Add gamemode related items to statpanel
 /datum/game_mode/proc/get_status_tab_items(datum/dcs, mob/source, list/items)

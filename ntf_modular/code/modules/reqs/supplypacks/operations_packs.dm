@@ -64,3 +64,17 @@
 	contains = list(/obj/item/attachable/motiondetector/advanced/pocket/covert)
 	cost = 500
 	faction_lock = list(FACTION_TERRAGOV)
+
+/datum/supply_packs/vehicles/heavybike
+	name = "AC Heavy Weaponized Motorbike"
+	contains = list(/obj/vehicle/ridden/big_bike)
+	cost = 500
+	containertype = null
+	faction_lock = list(FACTION_TERRAGOV)
+
+/datum/supply_packs/vehicles/hoverbike
+	name = "SOM Weaponiezed hoverbike"
+	contains = list(/obj/vehicle/ridden/hover_bike)
+	cost = 500
+	containertype = null
+	faction_lock = list(FACTION_SOM)

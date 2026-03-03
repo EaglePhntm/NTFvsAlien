@@ -88,48 +88,59 @@ SUBSYSTEM_DEF(vote)
 /datum/controller/subsystem/vote/proc/announce_result()
 	var/list/winners = get_result()
 	var/text
+	var/discord_text = ""
 
 	if(!length(winners))
 		if(mode != "shipmap" && mode != "groundmap")
 			text += "<b>Vote Result: Inconclusive - No Votes!</b>"
-			cleanup_vote(text)
+			discord_text += "**Vote Result: Inconclusive - No Votes!**\n"
+			cleanup_vote(text, discord_text)
 			return
 		//We randomly choose a valid map to avoid restarting with invalid maps for the gamemode, bricking the round and requiring a restart
 		var/random_map = pick(choices)
 		winners += random_map
 		text += "<b>Vote Result: Inconclusive - No Votes! Random valid map selected: [random_map]</b>"
+		discord_text += "**Vote Result: Inconclusive - No Votes! Random valid map selected: [random_map]**\n"
 		. = random_map
-		cleanup_vote(text)
+		cleanup_vote(text,discord_text)
 		return
 
 	if(question)
 		text += "<big><b><i>[question]</i></b></big>"
+		discord_text += "# **[question]**\n"
 	else
 		text += "<b>[capitalize(mode)] Vote</b>"
+		discord_text += "## **[capitalize(mode)] Vote**\n"
 	for(var/i = 1 to length(choices))
 		var/votes = choices[choices[i]] * (voteweights_by_choice[choices[i]] || 1)
 		if(!votes)
 			votes = 0
 		text += "\n<b>[choices[i]]:</b> [votes]"
+		discord_text += "**[choices[i]]:** [votes]\n"
 	if(mode != "custom")
 		if(length(winners) > 1)
-			text = "<hr><b>Vote Tied Between:</b>"
+			text += "<hr><b>Vote Tied Between:</b>"
+			discord_text += "---\n**Vote Tied Between:**\n"
 			for(var/option in winners)
 				text += "\n\t[option]"
+				discord_text += "---[option]\n"
 		. = pick(winners)
 		text += "<hr><b>Vote Result: [.]</b>"
+		discord_text += "---\n**Vote Result: [.]**\n"
 	else
-		text += "<hr><b>Did not vote:</b> [length(GLOB.clients) - length(voted)]"
-	cleanup_vote(text)
+		text += "<hr><b>Did not vote:</b> [length(GLOB.whitelisted_clients) - length(voted)]"
+		discord_text += "---\n**Did not vote:** [length(GLOB.whitelisted_clients) - length(voted)]\n"
+	cleanup_vote(text, discord_text)
 
 ///Cleans up after a vote is successfully concluded
-/datum/controller/subsystem/vote/proc/cleanup_vote(result_text)
+/datum/controller/subsystem/vote/proc/cleanup_vote(result_text, discord_text)
 	vote_happening = FALSE
 	remove_action_buttons()
 	if(!result_text)
 		return
 	log_vote(result_text)
 	to_chat(world, custom_boxed_message("purple_box", result_text))
+	status_update_vote_ended(discord_text)
 
 /// Apply the result of the vote if it's possible
 /datum/controller/subsystem/vote/proc/result(default_result)
@@ -182,6 +193,8 @@ SUBSYSTEM_DEF(vote)
 						var/datum/map_config/next_antag = pick(maps)
 						log_game("changing antag map to [next_antag.map_name]")
 						SSmapping.changemap(next_antag, ANTAG_MAP)
+			if(timeleft(shipmap_timer_id))
+				status_update_next_gamemode(.)
 			if(GLOB.master_mode == .)
 				return
 			if(SSticker.current_state == GAME_STATE_PLAYING)
@@ -304,7 +317,7 @@ SUBSYSTEM_DEF(vote)
 				return FALSE
 
 		reset()
-		var/datum/game_mode/next_gamemode = config.pick_mode(trim(file2text("data/mode.txt")))
+		var/datum/game_mode/next_gamemode = config.pick_mode(GLOB.next_gamemode)
 		var/list/maps = list()
 		var/list/voteweights_by_map_name = list()
 		switch(vote_type)
@@ -321,7 +334,7 @@ SUBSYSTEM_DEF(vote)
 			if("gamemode")
 				multiple_vote = TRUE
 				for(var/datum/game_mode/mode AS in config.votable_modes)
-					var/players = length(GLOB.clients)
+					var/players = length(GLOB.whitelisted_clients)
 					var/timeleft = 0
 					timeleft = max(timeleft, mode.time_between_round - (world.realtime - SSpersistence.last_modes_round_date[mode.name]))
 					timeleft = max(timeleft, mode.time_between_round_group - (world.realtime - SSpersistence.last_modes_round_date[mode.time_between_round_group_name]))
@@ -358,7 +371,7 @@ SUBSYSTEM_DEF(vote)
 						if(VM.map_name in next_gamemode.blacklist_ground_maps)
 							continue
 					if(VM.config_max_users || VM.config_min_users)
-						var/players = length(GLOB.clients)
+						var/players = length(GLOB.whitelisted_clients)
 						if(VM.config_max_users && players > VM.config_max_users)
 							continue
 						if(VM.config_min_users && players < VM.config_min_users)
@@ -387,7 +400,7 @@ SUBSYSTEM_DEF(vote)
 						if(VM.map_name in next_gamemode.blacklist_ship_maps)
 							continue
 					if(VM.config_max_users || VM.config_min_users)
-						var/players = length(GLOB.clients)
+						var/players = length(GLOB.whitelisted_clients)
 						if(VM.config_max_users && players > VM.config_max_users)
 							continue
 						if(VM.config_min_users && players < VM.config_min_users)
@@ -433,7 +446,7 @@ SUBSYSTEM_DEF(vote)
 		to_chat(world, custom_boxed_message("purple_box", "<big><b>[text]</b></big><hr>Type <b>vote</b> in the command bar or click on vote action (top left) to place your votes.<hr>You have [DisplayTimeText(vp)] to vote.</font>"))
 		time_remaining = round(vp/10)
 		vote_happening = TRUE
-		for(var/c in GLOB.clients)
+		for(var/c in GLOB.whitelisted_clients)
 			var/client/C = c
 			if(is_banned_from(C.ckey, "Voting"))
 				continue
@@ -444,6 +457,7 @@ SUBSYSTEM_DEF(vote)
 			V.give_action(C.mob)
 			if(forced_popup)
 				SSvote.ui_interact(C.mob)
+		status_update_vote_started(initiator ? (lower_admin ? "admin" : "user") : "server")
 		return TRUE
 	return FALSE
 

@@ -197,7 +197,10 @@ GLOBAL_VAR(restart_counter)
 	// This was printed early in startup to the world log and config_error.log,
 	// but those are both private, so let's put the commit info in the runtime
 	// log which is ultimately public.
+	/*NTF edit - status_update_server_start() handles this
 	log_runtime(GLOB.revdata.get_log_message())
+	*/
+	status_update_server_start()
 
 #ifndef USE_CUSTOM_ERROR_HANDLER
 	world.log = file("[GLOB.log_directory]/dd.log")
@@ -297,12 +300,13 @@ GLOBAL_VAR(restart_counter)
 			msg += "Game Mode: [SSticker.mode.name]"
 			msg += "Round End State: [SSticker.mode.round_finished]"
 
-		if(length(GLOB.clients))
-			msg += "Players: [length(GLOB.clients)]"
+		if(length(GLOB.whitelisted_clients))
+			msg += "Players: [length(GLOB.whitelisted_clients)]"
 
 		if(length(msg))
 			send2chat(msg.Join(" | "), CONFIG_GET(string/end_of_round_channel))
 
+	status_update_next_gamemode(GLOB.next_gamemode, TRUE)
 	to_chat(world, span_boldannounce("Rebooting world..."))
 	Master.Shutdown()
 
@@ -332,12 +336,14 @@ GLOBAL_VAR(restart_counter)
 		if(Lines[1])
 			GLOB.master_mode = Lines[1]
 			log_config("Saved mode is '[GLOB.master_mode]'")
+			GLOB.next_gamemode = GLOB.master_mode
 
 
 /world/proc/save_mode(the_mode)
 	var/F = file("data/mode.txt")
 	fdel(F)
 	WRITE_FILE(F, the_mode)
+	GLOB.next_gamemode = the_mode
 
 
 /world/proc/update_status()
