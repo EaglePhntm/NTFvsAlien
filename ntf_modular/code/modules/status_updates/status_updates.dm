@@ -92,6 +92,7 @@ GLOBAL_LIST_INIT(mode_to_pingid, list(
 	send_long_status_update(splittext(result_text, "\n"))
 
 GLOBAL_VAR(next_gamemode_pinged)
+GLOBAL_VAR(next_gamemode)
 
 /proc/status_update_next_gamemode(mode, restarting = FALSE, starting = FALSE)
 	var/msg = ""

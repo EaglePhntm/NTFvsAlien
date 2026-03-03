@@ -287,6 +287,7 @@ SUBSYSTEM_DEF(ticker)
 	else
 		GLOB.master_mode = "Extended"
 	GLOB.next_gamemode_pinged = GLOB.master_mode
+	GLOB.next_gamemode = GLOB.master_mode
 	log_game("Saved mode is '[GLOB.master_mode]'")
 
 
@@ -294,6 +295,7 @@ SUBSYSTEM_DEF(ticker)
 	var/F = file("data/mode.txt")
 	fdel(F)
 	WRITE_FILE(F, the_mode)
+	GLOB.next_gamemode = the_mode
 
 
 /datum/controller/subsystem/ticker/proc/Reboot(reason, delay)

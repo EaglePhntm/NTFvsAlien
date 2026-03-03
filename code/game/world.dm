@@ -306,7 +306,7 @@ GLOBAL_VAR(restart_counter)
 		if(length(msg))
 			send2chat(msg.Join(" | "), CONFIG_GET(string/end_of_round_channel))
 
-	status_update_next_gamemode(trim(file2text("data/mode.txt")), TRUE)
+	status_update_next_gamemode(GLOB.next_gamemode, TRUE)
 	to_chat(world, span_boldannounce("Rebooting world..."))
 	Master.Shutdown()
 
@@ -336,12 +336,14 @@ GLOBAL_VAR(restart_counter)
 		if(Lines[1])
 			GLOB.master_mode = Lines[1]
 			log_config("Saved mode is '[GLOB.master_mode]'")
+			GLOB.next_gamemode = GLOB.master_mode
 
 
 /world/proc/save_mode(the_mode)
 	var/F = file("data/mode.txt")
 	fdel(F)
 	WRITE_FILE(F, the_mode)
+	GLOB.next_gamemode = the_mode
 
 
 /world/proc/update_status()

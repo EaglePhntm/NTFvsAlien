@@ -317,7 +317,7 @@ SUBSYSTEM_DEF(vote)
 				return FALSE
 
 		reset()
-		var/datum/game_mode/next_gamemode = config.pick_mode(trim(file2text("data/mode.txt")))
+		var/datum/game_mode/next_gamemode = config.pick_mode(GLOB.next_gamemode)
 		var/list/maps = list()
 		var/list/voteweights_by_map_name = list()
 		switch(vote_type)
