@@ -128,8 +128,8 @@ SUBSYSTEM_DEF(vote)
 		text += "<hr><b>Vote Result: [.]</b>"
 		discord_text += "---\n**Vote Result: [.]**\n"
 	else
-		text += "<hr><b>Did not vote:</b> [length(GLOB.clients) - length(voted)]"
-		discord_text += "---\n**Did not vote:** [length(GLOB.clients) - length(voted)]\n"
+		text += "<hr><b>Did not vote:</b> [length(GLOB.whitelisted_clients) - length(voted)]"
+		discord_text += "---\n**Did not vote:** [length(GLOB.whitelisted_clients) - length(voted)]\n"
 	cleanup_vote(text, discord_text)
 
 ///Cleans up after a vote is successfully concluded
@@ -334,7 +334,7 @@ SUBSYSTEM_DEF(vote)
 			if("gamemode")
 				multiple_vote = TRUE
 				for(var/datum/game_mode/mode AS in config.votable_modes)
-					var/players = length(GLOB.clients)
+					var/players = length(GLOB.whitelisted_clients)
 					var/timeleft = 0
 					timeleft = max(timeleft, mode.time_between_round - (world.realtime - SSpersistence.last_modes_round_date[mode.name]))
 					timeleft = max(timeleft, mode.time_between_round_group - (world.realtime - SSpersistence.last_modes_round_date[mode.time_between_round_group_name]))
@@ -371,7 +371,7 @@ SUBSYSTEM_DEF(vote)
 						if(VM.map_name in next_gamemode.blacklist_ground_maps)
 							continue
 					if(VM.config_max_users || VM.config_min_users)
-						var/players = length(GLOB.clients)
+						var/players = length(GLOB.whitelisted_clients)
 						if(VM.config_max_users && players > VM.config_max_users)
 							continue
 						if(VM.config_min_users && players < VM.config_min_users)
@@ -400,7 +400,7 @@ SUBSYSTEM_DEF(vote)
 						if(VM.map_name in next_gamemode.blacklist_ship_maps)
 							continue
 					if(VM.config_max_users || VM.config_min_users)
-						var/players = length(GLOB.clients)
+						var/players = length(GLOB.whitelisted_clients)
 						if(VM.config_max_users && players > VM.config_max_users)
 							continue
 						if(VM.config_min_users && players < VM.config_min_users)
@@ -446,7 +446,7 @@ SUBSYSTEM_DEF(vote)
 		to_chat(world, custom_boxed_message("purple_box", "<big><b>[text]</b></big><hr>Type <b>vote</b> in the command bar or click on vote action (top left) to place your votes.<hr>You have [DisplayTimeText(vp)] to vote.</font>"))
 		time_remaining = round(vp/10)
 		vote_happening = TRUE
-		for(var/c in GLOB.clients)
+		for(var/c in GLOB.whitelisted_clients)
 			var/client/C = c
 			if(is_banned_from(C.ckey, "Voting"))
 				continue

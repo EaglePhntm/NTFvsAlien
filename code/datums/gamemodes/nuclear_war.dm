@@ -54,7 +54,7 @@
 	var/siloless_hive_timer
 
 /datum/game_mode/infestation/nuclear_war/post_setup()
-	var/client_count = length(GLOB.clients)
+	var/client_count = length(GLOB.whitelisted_clients)
 	if(client_count >= NUCLEAR_WAR_MECH_MINIMUM_POP_REQUIRED)
 		evo_requirements[/datum/xeno_caste/queen] -= 1
 	if(client_count >= NUCLEAR_WAR_TANK_MINIMUM_POP_REQUIRED)

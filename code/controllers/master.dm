@@ -244,7 +244,7 @@ GLOBAL_VAR(runtimes_restarting_mc)
 //	-1 if we encountered a runtime trying to recreate it
 /proc/Recreate_MC()
 	. = -1 //so if we runtime, things know we failed
-	amia_arbitrary_status_update("Master Controller Fault.  Attempting to recreate MC.\nPlayers online: [length(GLOB.clients)]")
+	amia_arbitrary_status_update("Master Controller Fault.  Attempting to recreate MC.\nPlayers online: [length(GLOB.whitelisted_clients)]")
 	if (world.time < Master.restart_timeout)
 		return 0
 	if (world.time < Master.restart_clear)
@@ -1062,7 +1062,7 @@ GLOBAL_VAR(runtimes_restarting_mc)
 /datum/controller/master/proc/UpdateTickRate()
 	if (!processing)
 		return
-	var/client_count = length(GLOB.clients)
+	var/client_count = length(GLOB.whitelisted_clients)
 	if (client_count < CONFIG_GET(number/mc_tick_rate/disable_high_pop_mc_mode_amount))
 		processing = CONFIG_GET(number/mc_tick_rate/base_mc_tick_rate)
 	else if (client_count > CONFIG_GET(number/mc_tick_rate/high_pop_mc_mode_amount))

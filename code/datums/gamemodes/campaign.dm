@@ -116,7 +116,7 @@
 
 /datum/game_mode/hvh/campaign/declare_completion()
 	. = ..()
-	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.clients)]\nTotal NTF spawned: [GLOB.round_statistics.total_humans_created[FACTION_TERRAGOV]]\nTotal SOM spawned: [GLOB.round_statistics.total_humans_created[FACTION_SOM]]")
+	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.whitelisted_clients)]\nTotal NTF spawned: [GLOB.round_statistics.total_humans_created[FACTION_TERRAGOV]]\nTotal SOM spawned: [GLOB.round_statistics.total_humans_created[FACTION_SOM]]")
 
 /datum/game_mode/hvh/campaign/end_round_fluff()
 	var/announcement_body = ""
@@ -320,7 +320,7 @@
 ///Limited loadout quantities scale by pop
 /datum/game_mode/hvh/campaign/proc/scale_loadouts(pop_override)
 	if(!isnum(pop_override))
-		pop_override = length(GLOB.clients)
+		pop_override = length(GLOB.whitelisted_clients)
 	var/loadout_ratio = clamp((pop_override - CAMPAIGN_LOADOUT_POP_MIN) / (CAMPAIGN_LOADOUT_POP_MAX - CAMPAIGN_LOADOUT_POP_MIN), 0, 1)
 	for(var/job in GLOB.campaign_loadout_items_by_role)
 		for(var/datum/loadout_item/loadout_item AS in GLOB.campaign_loadout_items_by_role[job])

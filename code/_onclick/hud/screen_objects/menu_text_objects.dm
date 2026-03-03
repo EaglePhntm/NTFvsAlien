@@ -111,6 +111,9 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 /atom/movable/screen/text/lobby/clickable/join_game/Click()
 	. = ..()
 	var/mob/new_player/player = hud.mymob
+	if(!WHITELIST_CHECK(player.client))
+		WHITELIST_MESSAGE(player.client)
+		return
 	if(SSticker?.current_state > GAME_STATE_PREGAME)
 		player.attempt_late_join()
 		return
@@ -125,6 +128,9 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 /atom/movable/screen/text/lobby/clickable/observe/Click()
 	. = ..()
 	var/mob/new_player/player = hud.mymob
+	if(!WHITELIST_CHECK(player.client))
+		WHITELIST_MESSAGE(player.client)
+		return
 	player.try_to_observe()
 
 /atom/movable/screen/text/lobby/clickable/take_ssd_mob
@@ -134,6 +140,9 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 /atom/movable/screen/text/lobby/clickable/take_ssd_mob/Click()
 	. = ..()
 	var/mob/new_player/player = hud.mymob
+	if(!WHITELIST_CHECK(player.client))
+		WHITELIST_MESSAGE(player.client)
+		return
 	player.take_ssd_mob()
 
 /atom/movable/screen/text/lobby/clickable/manifest
@@ -143,6 +152,9 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 /atom/movable/screen/text/lobby/clickable/manifest/Click()
 	. = ..()
 	var/mob/new_player/player = hud.mymob
+	if(!WHITELIST_CHECK(player.client))
+		WHITELIST_MESSAGE(player.client)
+		return
 	player.view_manifest()
 
 /atom/movable/screen/text/lobby/clickable/xenomanifest
@@ -152,6 +164,9 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 /atom/movable/screen/text/lobby/clickable/xenomanifest/Click()
 	. = ..()
 	var/mob/new_player/player = hud.mymob
+	if(!WHITELIST_CHECK(player.client))
+		WHITELIST_MESSAGE(player.client)
+		return
 	player.view_xeno_manifest()
 
 /atom/movable/screen/text/lobby/clickable/background

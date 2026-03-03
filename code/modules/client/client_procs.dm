@@ -392,6 +392,31 @@
 	fully_created = TRUE
 
 
+	if(GLOB.admin_datums[ckey] || GLOB.deadmins[ckey])
+		log_admin("Skipped amia whitelist check for [key] because they are an admin.")
+		GLOB.whitelisted_clients += src
+		GLOB.whitelisted_clients[src] = "Admin"
+	else
+		if(check_whitelist(ckey))
+			log_admin("Skipped amia whitelist check for [key] because they are in the TGMC-style whitelist.")
+			GLOB.whitelisted_clients += src
+			GLOB.whitelisted_clients[src] = "WL"
+		else
+			if(ckey in GLOB.amia_bypass)
+				log_admin("Skipped amia whitelist check for [key] because of a matching amia bypass entry for them:[json_encode(list(ckey = GLOB.amia_bypass[ckey]))].")
+				GLOB.whitelisted_clients += src
+				GLOB.whitelisted_clients[src] = "amia bypass"
+			else
+				if(amia_whitelistcheck(ckey))
+					GLOB.whitelisted_clients += src
+					GLOB.whitelisted_clients[src] = "amia"
+					log_admin("Looking up [key] in the amia whitelist... passed.")
+				else
+					log_admin("Looking up [key] in the amia whitelist... failed. This user is not whitelisted and has been restricted from most actions.")
+	if(src in GLOB.whitelisted_clients)
+		to_chat(src, span_notice("Whitelist check passed.  Welcome."))
+	else
+		to_chat(src, span_userdanger("You are not whitelisted and have been restricted from most actions.  Please join the discord to get whitelisted ([CONFIG_GET(string/discordurl)]).  If this is not possible for you, you can apply for an exception via ahelp(F1)."))
 
 //////////////////
 //  DISCONNECT  //
@@ -445,6 +470,7 @@
 	GLOB.ahelp_tickets.ClientLogout(src)
 	GLOB.directory -= ckey
 	GLOB.clients -= src
+	GLOB.whitelisted_clients -= src
 	QDEL_NULL(view_size)
 	QDEL_NULL(parallax_rock)
 	QDEL_LIST(parallax_layers_cached)

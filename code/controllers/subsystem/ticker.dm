@@ -50,7 +50,7 @@ SUBSYSTEM_DEF(ticker)
 
 	start_at = world.time + (CONFIG_GET(number/lobby_countdown) * 1 SECONDS)
 	login_music = choose_lobby_song()
-	for(var/client/player AS in GLOB.clients)
+	for(var/client/player AS in GLOB.whitelisted_clients)
 		player.play_title_music()
 
 	return SS_INIT_SUCCESS
@@ -72,7 +72,7 @@ SUBSYSTEM_DEF(ticker)
 		if(GAME_STATE_STARTUP)
 			if(Master.initializations_finished_with_no_players_logged_in && !length(GLOB.clients))
 				start_at = world.time + (CONFIG_GET(number/lobby_countdown) * 1 SECONDS)
-			for(var/client/C in GLOB.clients)
+			for(var/client/C in GLOB.whitelisted_clients)
 				window_flash(C)
 			to_chat(world,
 				custom_boxed_message("red_box",
@@ -276,7 +276,7 @@ SUBSYSTEM_DEF(ticker)
 	set waitfor = FALSE
 	round_end_sound_sent = FALSE
 	round_end_sound = fcopy_rsc(the_sound)
-	for(var/client/cli AS in GLOB.clients)
+	for(var/client/cli AS in GLOB.whitelisted_clients)
 		cli.Export("##action=load_rsc", round_end_sound)
 	round_end_sound_sent = TRUE
 
