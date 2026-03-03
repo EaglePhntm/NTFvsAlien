@@ -10,7 +10,7 @@
 		var/encodedckey = url_encode(initckey)
 		var/encodedmsg = url_encode(msg)
 		var/constring =  amia_constring() + "ahelprelay?roundid=[roundid]&roundtime=[roundtime]&ticketid=[ticketid]&ckey=[encodedckey]&msg=[encodedmsg]"
-		var/list/response = world.Export(constring)
-		if(!islist(response))
-			log_runtime("Can't reach AMIA")
-			return FALSE
+		ASYNC
+			var/list/response = world.Export(constring)
+			if(!islist(response))
+				log_runtime("Can't reach AMIA")
