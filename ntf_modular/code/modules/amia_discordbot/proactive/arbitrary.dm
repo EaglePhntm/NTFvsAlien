@@ -8,7 +8,7 @@
 		}else{
 			constring =  amia_constring() + "arbitrarystatusupdate?msg=[encodedmsg]"
 		}
-		var/list/response = world.Export(constring)
-		if(!islist(response))
-			log_runtime("Can't reach AMIA")
-			return FALSE
+		ASYNC
+			var/list/response = world.Export(constring)
+			if(!islist(response))
+				log_runtime("Can't reach AMIA")
