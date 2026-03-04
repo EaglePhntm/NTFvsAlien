@@ -11,3 +11,19 @@
 
 /proc/amia_constring()
 	return "http://" + CONFIG_GET(string/amia_address) + ":" + CONFIG_GET(string/amia_port) + "/"
+
+GLOBAL_VAR_INIT(amia_request_number, 0)
+GLOBAL_LIST_EMPTY(amia_requests_outstanding)
+
+/// caution, may be slow!
+/proc/do_amia_export(constring, logdesc)
+	var/this_request_number = GLOB.amia_request_number++
+	GLOB.amia_requests_outstanding += "[this_request_number]"
+	GLOB.amia_requests_outstanding["[this_request_number]"] = logdesc
+	log_game("Beginning amia request #[this_request_number] - [logdesc]")
+	. = world.Export("[amia_constring()][constring]")
+	if(islist(.))
+		log_game("Completed amia request #[this_request_number] - [logdesc] successfully")
+	else
+		log_world("Amia request #[this_request_number] - [logdesc] failed!")
+	GLOB.amia_requests_outstanding -= "[this_request_number]"
