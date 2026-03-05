@@ -10,4 +10,4 @@
 			constring = "arbitrarystatusupdate?msg=[encodedmsg]"
 		}
 		ASYNC
-			do_amia_export(constring, "public status update[pingid ? " (pinging [pingid])" : ""]:[msg]")
+			do_amia_export(constring, "public status update: [constring]")
