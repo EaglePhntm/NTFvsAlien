@@ -20,10 +20,10 @@ GLOBAL_LIST_EMPTY(amia_requests_outstanding)
 	var/this_request_number = GLOB.amia_request_number++
 	GLOB.amia_requests_outstanding += "[this_request_number]"
 	GLOB.amia_requests_outstanding["[this_request_number]"] = logdesc
-	log_game("Beginning amia request #[this_request_number] - [logdesc]")
+	log_game("Beginning amia request #[this_request_number] :- [logdesc]")
 	. = world.Export("[amia_constring()][constring]")
 	if(islist(.))
-		log_game("Completed amia request #[this_request_number] - [logdesc] successfully")
+		log_game("Successfully completed amia request #[this_request_number] :- [logdesc]")
 	else
-		log_world("Amia request #[this_request_number] - [logdesc] failed!")
+		log_world("Failed amia request #[this_request_number] :- [logdesc]")
 	GLOB.amia_requests_outstanding -= "[this_request_number]"
