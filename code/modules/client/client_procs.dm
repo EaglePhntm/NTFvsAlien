@@ -134,6 +134,8 @@
 
 	return ..()	//redirect to hsrc.Topic()
 
+GLOBAL_DATUM_INIT(new_client_amia_whitelist_callback, /datum/callback, CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(new_client_whitelist_check_callback)))
+GLOBAL_PROTECT(new_client_amia_whitelist_callback)
 
 /client/New(TopicData)
 	var/tdata = TopicData //save this for later use
@@ -407,16 +409,33 @@
 				GLOB.whitelisted_clients += src
 				GLOB.whitelisted_clients[src] = "amia bypass"
 			else
-				if(amia_whitelistcheck(ckey))
-					GLOB.whitelisted_clients += src
-					GLOB.whitelisted_clients[src] = "amia"
-					log_admin("Looking up [key] in the amia whitelist... passed.")
-				else
-					log_admin("Looking up [key] in the amia whitelist... failed. This user is not whitelisted and has been restricted from most actions.")
+				if(CONFIG_GET(flag/amia_enabled))
+					log_admin("Looking up [key] in the amia whitelist...")
+					to_chat(src, span_notice("Attempting to look up your ckey ([ckey]) in the amia whitelist."))
+					amia_whitelistcheck(ckey, GLOB.new_client_amia_whitelist_callback)
 	if(src in GLOB.whitelisted_clients)
 		to_chat(src, span_notice("Whitelist check passed.  Welcome."))
-	else
-		to_chat(src, span_userdanger("You are not whitelisted and have been restricted from most actions.  Please join the discord to get whitelisted ([CONFIG_GET(string/discordurl)]).  If this is not possible for you, you can apply for an exception via ahelp(F1)."))
+
+/proc/new_client_whitelist_check_callback(ckey, result)
+	var/client/client_checked = GLOB.directory[ckey]
+	if(!istype(client_checked))
+		//They already logged out
+		return
+	if((client_checked in GLOB.whitelisted_clients))
+		log_admin("ckey:[ckey] was already marked as whitelisted (reason: [GLOB.whitelisted_clients[client_checked]]) when a whitelist lookup for them [result].")
+	switch(result)
+		if("Passed")
+			to_chat(client_checked, span_notice("Whitelist check passed.  You are registered in the amia whitelist and should now have access to play on the server."))
+			if(!(client_checked in GLOB.whitelisted_clients))
+				GLOB.whitelisted_clients += client_checked
+				GLOB.whitelisted_clients[client_checked] = "amia"
+		if("Failed")
+			to_chat(client_checked, span_notice("Whitelist check failed.  You are not registered in the amia whitelist."))
+		if("Errored")
+			to_chat(client_checked, span_notice("There was an error while checking if you are registered in the amia whitelist.  Try reconnecting, and if this keeps happening, inform admins."))
+		if("Skipped")
+			to_chat(client_checked, span_notice("Unable to check if you are registered in the amia whitelist because the bot is currently down or turned off."))
+	return
 
 //////////////////
 //  DISCONNECT  //

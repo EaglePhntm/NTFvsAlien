@@ -12,7 +12,7 @@
 /proc/amia_constring()
 	return "http://" + CONFIG_GET(string/amia_address) + ":" + CONFIG_GET(string/amia_port) + "/"
 
-GLOBAL_VAR_INIT(amia_request_number, 0)
+GLOBAL_VAR_INIT(amia_request_number, 1)
 GLOBAL_LIST_EMPTY(amia_requests_outstanding)
 
 /// caution, may be slow!
