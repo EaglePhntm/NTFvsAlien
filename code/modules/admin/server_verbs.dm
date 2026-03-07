@@ -393,6 +393,13 @@ ADMIN_VERB(change_ship_map, R_SERVER, "Change Ship Map", "Change Ship Map for th
 	log_admin("[key_name(user)] changed the ship map to [VM.map_name].")
 	message_admins("[ADMIN_TPMONTY(user.mob)] changed the ship map to [VM.map_name].")
 
+ADMIN_VERB(toggle_amia, R_SERVER, "Toggle Amia Bot", "Toggle all attempts to use the amia bot.", ADMIN_CATEGORY_SERVER)
+
+	CONFIG_SET(flag/amia_enabled, !CONFIG_GET(flag/amia_enabled))
+
+	log_admin("[key_name(user)] has [CONFIG_GET(flag/amia_enabled) ? "enabled" : "disabled"] the amia bot.")
+	message_admins("[ADMIN_TPMONTY(user.mob)] has [CONFIG_GET(flag/panic_bunker) ? "enabled" : "disabled"] the amia bot.")
+
 ADMIN_VERB(panic_bunker, R_SERVER, "Toggle Panic Bunker", "Toggle new players being permitted to join the server.", ADMIN_CATEGORY_SERVER)
 	if(!CONFIG_GET(flag/sql_enabled))
 		to_chat(user, span_adminnotice("The Database is not enabled!"))
