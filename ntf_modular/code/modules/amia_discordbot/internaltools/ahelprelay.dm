@@ -1,5 +1,6 @@
 
 /proc/amia_ahelprelay(ticketid, initckey, msg)
+	SHOULD_NOT_SLEEP(TRUE)
 	if(CONFIG_GET(flag/amia_enabled)) //Yes I know we had a check, but what about a second check?
 		var/roundid = url_encode(GLOB.round_id)
 		var/roundtime
@@ -9,8 +10,5 @@
 			roundtime = "Pregame"
 		var/encodedckey = url_encode(initckey)
 		var/encodedmsg = url_encode(msg)
-		var/constring =  amia_constring() + "ahelprelay?roundid=[roundid]&roundtime=[roundtime]&ticketid=[ticketid]&ckey=[encodedckey]&msg=[encodedmsg]"
 		ASYNC
-			var/list/response = world.Export(constring)
-			if(!islist(response))
-				log_runtime("Can't reach AMIA")
+			do_amia_export("ahelprelay?roundid=[roundid]&roundtime=[roundtime]&ticketid=[ticketid]&ckey=[encodedckey]&msg=[encodedmsg]", "ahelp relay of ticket #[ticketid]")

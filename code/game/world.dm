@@ -315,6 +315,7 @@ GLOBAL_VAR(restart_counter)
 	return
 	#endif
 
+	log_world("World rebooting with [length(GLOB.amia_requests_outstanding)] outstanding amia requests")
 	if(check_hard_reboot())
 		log_world("World hard rebooted at [time_stamp()]")
 		shutdown_logging() // See comment below.

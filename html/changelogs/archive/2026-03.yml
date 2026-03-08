@@ -1,3 +1,7 @@
 2026-03-01:
   obvious650-source:
   - balance: SH-39 fire delay back to 1.2
+2026-03-05:
+  OrbisAnima:
+  - balance: Puts a cap on miners per type per faction unless its war. You can only
+      capture new miners if you have less than 40% of each type of miner per faction.

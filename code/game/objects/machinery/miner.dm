@@ -10,6 +10,8 @@
 #define MINER_RESISTANT "reinforced components"
 #define MINER_OVERCLOCKED "high-efficiency drill"
 
+#define MAX_PHORON_MINERS_PER_FACTION 40 // this is in %
+#define MAX_PLATINUM_MINERS_PER_FACTION 40 // this is in %
 #define PHORON_CRATE_SELL_AMOUNT 20
 #define PLATINUM_CRATE_SELL_AMOUNT 80
 #define PHORON_DROPSHIP_BONUS_AMOUNT 20
@@ -250,10 +252,37 @@
 	record_miner_repair(user)
 	return TRUE
 
+/obj/machinery/miner/proc/can_capture(var/mob/user)
+	var/phoron_total = 0
+	var/phoron_faction = 0
+	var/platinum_total = 0
+	var/platinum_faction = 0
+
+	for(var/obj/machinery/miner/M in GLOB.miner_list)
+		if(M.type == /obj/machinery/miner/damaged/platinum)
+			platinum_total++
+			if(M.faction == user.faction && M.miner_status == MINER_RUNNING)
+				platinum_faction++
+		else
+			phoron_total++
+			if(M.faction == user.faction && M.miner_status == MINER_RUNNING)
+				phoron_faction++
+
+	if(src.type == /obj/machinery/miner/damaged/platinum && platinum_total > 0)
+		if((platinum_faction / platinum_total) * 100 >= MAX_PLATINUM_MINERS_PER_FACTION)
+			return FALSE
+	else if((src.type == /obj/machinery/miner/damaged) && phoron_total > 0)
+		if((phoron_faction / phoron_total) * 100 >= MAX_PHORON_MINERS_PER_FACTION)
+			return FALSE
+	return TRUE
+
 /obj/machinery/miner/wrench_act(mob/living/user, obj/item/I)
 	var/area/cavezone = get_area(src)
 	if(user.faction == FACTION_CLF && ((cavezone && cavezone.ceiling > CEILING_UNDERGROUND) || is_platinum()))
 		user.visible_message(span_warning("Repairing this would go against your masters' wishes and wellbeing."))
+		return FALSE
+	if ((SSticker.mode.round_type_flags & MODE_CHILL_RULES) && (user.faction != FACTION_CLF) && !can_capture(user))
+		user.visible_message(span_warning("Under the current truce, your faction is forbidden from seizing additional miners of this type. Only when war is declared may this restriction be lifted."))
 		return FALSE
 	if(miner_status != MINER_SMALL_DAMAGE)
 		return

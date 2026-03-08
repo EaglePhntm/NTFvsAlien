@@ -1,14 +1,13 @@
 
 /proc/amia_arbitrary_status_update(msg, pingid)
+	SHOULD_NOT_SLEEP(TRUE)
 	if(CONFIG_GET(flag/amia_enabled)) //Yes I know we had a check, but what about a second check?
 		var/encodedmsg = url_encode(msg)
 		var/constring
 		if(pingid){
-			constring =  amia_constring() + "arbitrarystatusupdate?pingid=[pingid]&msg=[encodedmsg]"
+			constring = "arbitrarystatusupdate?pingid=[pingid]&msg=[encodedmsg]"
 		}else{
-			constring =  amia_constring() + "arbitrarystatusupdate?msg=[encodedmsg]"
+			constring = "arbitrarystatusupdate?msg=[encodedmsg]"
 		}
 		ASYNC
-			var/list/response = world.Export(constring)
-			if(!islist(response))
-				log_runtime("Can't reach AMIA")
+			do_amia_export(constring, "public status update: [constring]")
