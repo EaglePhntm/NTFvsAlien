@@ -2523,10 +2523,10 @@
 	},
 /area/shuttle/transport)
 "mJ" = (
+/obj/structure/cable,
 /obj/machinery/power/apc{
 	dir = 8
 	},
-/obj/structure/cable,
 /turf/open/floor/iron/dark/small,
 /area/antag_ship/vsd/hall)
 "mK" = (
@@ -3781,6 +3781,8 @@
 /area/shuttle/transport)
 "sf" = (
 /obj/effect/decal/cleanable/cobweb2,
+/obj/machinery/power/smes/buildable,
+/obj/structure/cable,
 /turf/open/floor/prison/darkpurple{
 	dir = 5
 	},
@@ -4740,6 +4742,14 @@
 /obj/effect/decal/cleanable/blood/splatter/xenocum,
 /turf/open/floor/plating/ground/dirt,
 /area/antag_ship/clf_base/reedroom)
+"wN" = (
+/obj/machinery/power/geothermal/reinforced,
+/obj/structure/cable,
+/obj/structure/prop/mainship/gelida/powerconnector{
+	dir = 1
+	},
+/turf/open/floor/plating/heatinggrate,
+/area/antag_ship/vsd/engi)
 "wO" = (
 /turf/open/floor/plating/icefloor/warnplate{
 	dir = 6
@@ -5956,11 +5966,14 @@
 /turf/open/floor/plating/ground/concrete,
 /area/antag_ship/icc/hangar/west)
 "CL" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/caution/red,
+/obj/machinery/power/terminal{
+	dir = 4
+	},
 /obj/structure/prop/mainship/gelida/powercconnectorthreeside{
 	dir = 4
 	},
-/obj/structure/cable,
-/obj/effect/turf_decal/caution/red,
 /turf/open/floor/plating/heatinggrate,
 /area/antag_ship/vsd/engi)
 "CN" = (
@@ -6966,10 +6979,13 @@
 /turf/open/floor/iron/dark/small,
 /area/antag_ship/vsd/med)
 "Ho" = (
-/obj/machinery/power/apc/mainship{
+/obj/structure/cable,
+/obj/machinery/power/apc{
 	dir = 8
 	},
-/obj/structure/cable,
+/obj/machinery/power/terminal{
+	dir = 1
+	},
 /turf/open/floor/prison/darkpurple{
 	dir = 4
 	},
@@ -7659,7 +7675,7 @@
 /area/antag_ship/clf_base/hallways/inside)
 "Ks" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/mainship{
+/obj/machinery/power/apc{
 	dir = 8
 	},
 /turf/open/floor/iron/dark/smooth_edge{
@@ -14541,7 +14557,7 @@ mg
 mg
 fc
 CL
-Ux
+wN
 XQ
 yZ
 OY
