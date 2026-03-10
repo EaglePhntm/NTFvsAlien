@@ -15,7 +15,7 @@
 	results = null
 	required_reagents = list(/datum/reagent/consumable/soymilk = 2, /datum/reagent/consumable/coco = 2, /datum/reagent/consumable/sugar = 2)
 
-/datum/chemical_reaction/chocolate_bar/on_reaction(datum/reagents/holder, created_volume)
+/datum/chemical_reaction/chocolate_barrecipe/on_reaction(datum/reagents/holder, created_volume)
 	var/location = get_turf(holder.get_holder())
 	for(var/i = 1, i <= created_volume, i++)
 		new /obj/item/reagent_containers/food/snacks/chocolatebar(location)
