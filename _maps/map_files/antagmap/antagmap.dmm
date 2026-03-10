@@ -398,6 +398,7 @@
 "cB" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/machinery/power/smes/buildable,
+/obj/structure/cable,
 /turf/open/floor/prison/darkpurple{
 	dir = 1
 	},
@@ -4742,14 +4743,6 @@
 /obj/effect/decal/cleanable/blood/splatter/xenocum,
 /turf/open/floor/plating/ground/dirt,
 /area/antag_ship/clf_base/reedroom)
-"wN" = (
-/obj/machinery/power/geothermal/reinforced,
-/obj/structure/cable,
-/obj/structure/prop/mainship/gelida/powerconnector{
-	dir = 1
-	},
-/turf/open/floor/plating/heatinggrate,
-/area/antag_ship/vsd/engi)
 "wO" = (
 /turf/open/floor/plating/icefloor/warnplate{
 	dir = 6
@@ -6724,6 +6717,7 @@
 /area/antag_ship/icc/generator_room)
 "Gj" = (
 /obj/structure/mecha_wreckage/mauler,
+/obj/structure/cable,
 /turf/open/floor/plating/platebot,
 /area/antag_ship/vsd/engi)
 "Gk" = (
@@ -14557,7 +14551,7 @@ mg
 mg
 fc
 CL
-wN
+Ux
 XQ
 yZ
 OY
