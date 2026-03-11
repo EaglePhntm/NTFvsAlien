@@ -78,6 +78,8 @@
 		effective_sensitivity = clamp(effective_sensitivity, minimum_sensitivity, base_sensitivity)
 		if(nearby_human.last_move_time + effective_sensitivity < world.time)
 			continue
+		if(nearby_human.lying_angle)
+			continue
 		if(!(nearby_human.get_iff_signal() & operator.get_iff_signal()))
 			ping_count++
 		prepare_blip(nearby_human, nearby_human.wear_id?.iff_signal & operator.get_iff_signal() ? MOTION_DETECTOR_FRIENDLY : MOTION_DETECTOR_HOSTILE)
@@ -89,6 +91,8 @@
 		var/effective_sensitivity = base_sensitivity - (target_distance * distance_multiplier)
 		effective_sensitivity = clamp(effective_sensitivity, minimum_sensitivity, base_sensitivity)
 		if(nearby_xeno.last_move_time + effective_sensitivity < world.time )
+			continue
+		if(nearby_xeno.lying_angle)
 			continue
 		if(!(nearby_xeno.get_iff_signal() & operator.get_iff_signal()))
 			ping_count++
