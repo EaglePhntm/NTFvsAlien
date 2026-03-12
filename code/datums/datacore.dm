@@ -113,7 +113,7 @@ GLOBAL_DATUM_INIT(datacore, /datum/datacore, new)
 				continue
 			if(!ooc)
 				if((viewfaction == FACTION_CLF) == (X.get_xeno_hivenumber() == XENO_HIVE_CORRUPTED)) //clf can see everyone but corrupted, NTC can only see corrupted
-					break
+					continue
 			var/name = X.real_name
 			var/rank = X.xeno_caste.caste_name
 			//var/squad_name = "N/A"
