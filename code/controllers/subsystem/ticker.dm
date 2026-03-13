@@ -124,11 +124,12 @@ SUBSYSTEM_DEF(ticker)
 				GLOB.round_statistics.round_length = (world.time - SSticker.round_start_time)
 				mode.declare_completion(force_ending)
 				world.TgsTriggerEvent("tg-Roundend", wait_for_completion = TRUE)
-				addtimer(CALLBACK(SSvote, TYPE_PROC_REF(/datum/controller/subsystem/vote, automatic_vote)), 2 SECONDS)
-				addtimer(CALLBACK(src, PROC_REF(Reboot)), CONFIG_GET(number/vote_period) * 3 + 9 SECONDS)
+				addtimer(CALLBACK(SSvote, TYPE_PROC_REF(/datum/controller/subsystem/vote, automatic_vote)), (2 + CONFIG_GET(number/mission_end_countdown)) SECONDS)
+				addtimer(CALLBACK(src, PROC_REF(Reboot), "Round ended.", 30 SECONDS), (CONFIG_GET(number/vote_period) * 3 + (9 + CONFIG_GET(number/mission_end_countdown)) SECONDS))
 				Master.SetRunLevel(RUNLEVEL_POSTGAME)
 				for(var/client/C AS in GLOB.clients)
 					C.mob?.update_sight() // To reveal ghosts
+				to_chat(world, span_boldnotice("Automatic gamemode vote starting in [CONFIG_GET(number/mission_end_countdown) SECONDS] seconds"))
 
 
 /datum/controller/subsystem/ticker/proc/setup()
