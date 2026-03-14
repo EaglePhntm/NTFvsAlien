@@ -187,17 +187,16 @@
 		qdel(bundle)
 	else
 		vended_items += new idx(loc)
-
-			/* makes specs etc unable to buy their shit, who cares about smartgunner dupe tho nobody else can use their shit due skill.
-			if(!(user_id.id_flags & CAN_BUY_LOADOUT)) //If you use the quick-e-quip, you cannot also use the GHMMEs
-				to_chat(usr, span_warning("Access denied. You have already vended a loadout."))
-				return FALSE
-			*/
-			if(use_points && (item_category in user_id.marine_points) && user_id.marine_points[item_category] < cost)
-				to_chat(usr, span_warning("Not enough points."))
-				if(icon_deny)
-					flick(icon_deny, src)
-				return
+		/* makes specs etc unable to buy their shit, who cares about smartgunner dupe tho nobody else can use their shit due skill.
+		if(!(user_id.id_flags & CAN_BUY_LOADOUT)) //If you use the quick-e-quip, you cannot also use the GHMMEs
+			to_chat(usr, span_warning("Access denied. You have already vended a loadout."))
+			return FALSE
+		*/
+		if(use_points && (item_category in user_id.marine_points) && user_id.marine_points[item_category] < cost)
+			to_chat(usr, span_warning("Not enough points."))
+			if(icon_deny)
+				flick(icon_deny, src)
+			return
 	playsound(src, SFX_VENDING, 25, 0)
 
 	if(icon_vend)
@@ -216,28 +215,25 @@
 	for (var/obj/item/vended_item in vended_items)
 		vended_item.on_vend(usr, faction, auto_equip = TRUE)
 
-			playsound(src, SFX_VENDING, 25, 0)
+		playsound(src, SFX_VENDING, 25, 0)
 
-			if(icon_vend)
-				flick(icon_vend, src)
+		if(icon_vend)
+			flick(icon_vend, src)
 
-			use_power(active_power_usage)
+		use_power(active_power_usage)
 
-			if(item_category == CAT_STD && !issynth(usr))
-				var/mob/living/carbon/human/H = usr
-				if(!istype(H.job, /datum/job/terragov/command/fieldcommander))
-					give_free_headset(usr, faction)
-				if(istype(H.job, /datum/job/terragov/squad/leader))
-					vended_items += new /obj/item/hud_tablet(loc, vendor_role, H.assigned_squad)
-					vended_items += new /obj/item/squad_transfer_tablet(loc)
+		if(item_category == CAT_STD && !issynth(usr))
+			var/mob/living/carbon/human/H = usr
+			if(!istype(H.job, /datum/job/terragov/command/fieldcommander))
+				give_free_headset(usr, faction)
+			if(istype(H.job, /datum/job/terragov/squad/leader))
+				vended_items += new /obj/item/hud_tablet(loc, vendor_role, H.assigned_squad)
+				vended_items += new /obj/item/squad_transfer_tablet(loc)
 
-			for (var/obj/item/vended_item in vended_items)
-				vended_item.on_vend(usr, faction, auto_equip = TRUE)
-
-			if(use_points && (item_category in user_id.marine_points))
-				user_id.marine_points[item_category] -= cost
-			. = TRUE
-			user_id.id_flags |= USED_GHMME
+		if(use_points && (item_category in user_id.marine_points))
+			user_id.marine_points[item_category] -= cost
+		. = TRUE
+		user_id.id_flags |= USED_GHMME
 
 /obj/machinery/marine_selector/clothes
 	name = "\improper GHMME Automated Closet"
@@ -377,7 +373,6 @@
 	req_access = list(ACCESS_MARINE_SPECPREP)
 	vendor_role = /datum/job/terragov/squad/specialist
 	lock_flags = JOB_LOCK
-	gives_webbing = FALSE
 
 /obj/machinery/marine_selector/clothes/specialist/Initialize(mapload)
 	. = ..()
@@ -548,7 +543,6 @@
 	desc = "An automated closet hooked up to a colossal storage unit of SOM-issue uniform and armor."
 	req_access = list(ACCESS_SOM_DEFAULT)
 	vendor_role = /datum/job/som/squad/standard
-	gives_webbing = FALSE
 	faction = FACTION_SOM
 
 /obj/machinery/marine_selector/clothes/som/standard
@@ -613,7 +607,6 @@
 	name = "GHMME Automated KZ Closet"
 	req_access = list(ACCESS_VSD_PREP)
 	vendor_role = /datum/job/vsd_squad/standard
-	gives_webbing = FALSE
 	faction = FACTION_VSD
 	lock_flags = JOB_LOCK
 
@@ -667,7 +660,6 @@
 	name = "GHMME Automated PMC Closet"
 	req_access = list(ACCESS_NT_PMC_COMMON)
 	vendor_role = /datum/job/pmc/squad/standard
-	gives_webbing = FALSE
 	faction = FACTION_NANOTRASEN
 	lock_flags = JOB_LOCK
 
@@ -725,7 +717,6 @@
 	name = "GHMME Automated ICC Closet"
 	req_access = list(ACCESS_ICC_PREP)
 	vendor_role = /datum/job/icc_squad/standard
-	gives_webbing = FALSE
 	faction = FACTION_ICC
 	lock_flags = JOB_LOCK
 
@@ -1036,7 +1027,6 @@
 	use_points = TRUE
 	req_access = list(ACCESS_NT_PMC_COMMON)
 	vendor_role = /datum/job/pmc/squad/standard
-	gives_webbing = FALSE
 	faction = FACTION_NANOTRASEN
 	lock_flags = JOB_LOCK
 
