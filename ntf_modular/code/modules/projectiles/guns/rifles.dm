@@ -442,7 +442,7 @@
 	desc = "A box containing 120 rounds of 7.62x38mm."
 	caliber = CALIBER_762X38
 	icon_state = "7.62"
-	default_ammo = /datum/ammo/bullet/rifle
+	default_ammo = /datum/ammo/bullet/rifle/heavy/halter
 	current_rounds = 120
 	max_rounds = 120
 
