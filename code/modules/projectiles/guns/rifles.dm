@@ -418,7 +418,7 @@
 	starting_attachment_types = list(/obj/item/weapon/gun/grenade_launcher/underslung)
 	attachable_offset = list("muzzle_x" = 44, "muzzle_y" = 19,"rail_x" = 15, "rail_y" = 21, "under_x" = 25, "under_y" = 16, "stock_x" = 18, "stock_y" = 15)
 
-	fire_delay = 0.15 SECONDS //faster than halter CQB now, but does less damage because 10x24 slop
+	fire_delay = 0.175 SECONDS
 	burst_delay = 0.15 SECONDS
 	accuracy_mult = 1.1
 	scatter = -1
