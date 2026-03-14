@@ -18,7 +18,7 @@
 	contains = list(/obj/item/ammo_magazine/rifle/ap)
 	cost = 25
 
-/datum/supply_packs/weapons/10x24apbox
+/datum/supply_packs/weapons/apbox10x24
 	name = "\improper Big ammo box (10x24mm AP)"
 	contains = list(/obj/item/big_ammo_box/ap)
 	cost = 200
