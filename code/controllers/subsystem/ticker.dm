@@ -129,7 +129,7 @@ SUBSYSTEM_DEF(ticker)
 				Master.SetRunLevel(RUNLEVEL_POSTGAME)
 				for(var/client/C AS in GLOB.clients)
 					C.mob?.update_sight() // To reveal ghosts
-				to_chat(world, span_boldnotice("Automatic gamemode vote starting in [CONFIG_GET(number/mission_end_countdown) SECONDS] seconds"))
+				to_chat(world, span_boldnotice("Automatic gamemode vote starting in [CONFIG_GET(number/mission_end_countdown)] seconds"))
 
 
 /datum/controller/subsystem/ticker/proc/setup()
