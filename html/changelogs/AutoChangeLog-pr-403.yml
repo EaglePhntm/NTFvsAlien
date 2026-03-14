@@ -1,0 +1,5 @@
+author: "obvious650-source"
+delete-after: True
+changes:
+  - balance: "PR-412 ap mags to req"
+  - balance: "10x24 ap bullet box to req"
