@@ -301,7 +301,7 @@
 
 /datum/ammo/bullet/rifle/heavy/halter
 	name = "heavy rifle bullet"
-	damage = 20
+	damage = 25
 	penetration = 10
 	damage_type = BRUTE
 	sundering = 0.75
@@ -416,7 +416,7 @@
 /datum/ammo/energy/lasgun/halter
 	//slightly less damage than regular bullets but except laser standard sundering and bullet speed.
 	name = "halter laser bolt"
-	damage = 27
+	damage = 22.5
 	sundering = 0.75
 	bullet_color = COLOR_RED_LIGHT
 
