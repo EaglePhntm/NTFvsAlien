@@ -265,7 +265,7 @@
 	attachable_offset = list("muzzle_x" = 39, "muzzle_y" = 19,"rail_x" = 19, "rail_y" = 23, "under_x" = 29, "under_y" = 13, "stock_x" = 0, "stock_y" = 13)
 	icon_state = "haltercqb"
 	worn_icon_state = "haltercqb"
-	fire_delay = 0.15 SECONDS
+	fire_delay = 0.175 SECONDS
 	aim_speed_modifier = 2.5
 	aim_slowdown = 0.3
 	scatter = 8
@@ -301,6 +301,10 @@
 
 /datum/ammo/bullet/rifle/heavy/halter
 	name = "heavy rifle bullet"
+	damage = 20
+	penetration = 10
+	damage_type = BRUTE
+	sundering = 0.75
 
 //extended mag
 /obj/item/ammo_magazine/rifle/nt_halter/extended
@@ -337,7 +341,7 @@
 	damage = 20
 	penetration = 5
 	damage_type = BRUTE
-	sundering = 2
+	sundering = 1.5 //sunder can be kept because of how poo this round is in practice
 	shrapnel_chance = 2
 	bullet_color = COLOR_BRIGHT_BLUE
 	var/emp_chance = 15
@@ -397,7 +401,7 @@
 	//bit less crazy than actual heavy ap
 	damage = 20
 	penetration = 20
-	sundering = 3
+	sundering = 1.25
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY
 	bullet_color = COLOR_RED_LIGHT
 
@@ -413,6 +417,7 @@
 	//slightly less damage than regular bullets but except laser standard sundering and bullet speed.
 	name = "halter laser bolt"
 	damage = 27
+	sundering = 0.75
 	bullet_color = COLOR_RED_LIGHT
 
 //extended mag
@@ -437,7 +442,7 @@
 	desc = "A box containing 120 rounds of 7.62x38mm."
 	caliber = CALIBER_762X38
 	icon_state = "7.62"
-	default_ammo = /datum/ammo/bullet/rifle/heavy/halter
+	default_ammo = /datum/ammo/bullet/rifle
 	current_rounds = 120
 	max_rounds = 120
 
@@ -487,7 +492,7 @@
 	reload_sound = 'sound/weapons/guns/interact/ml12_reload.ogg'
 	empty_sound = null
 	caliber = CALIBER_98x22 //codex
-	max_chamber_items = 10 //codex
+	max_chamber_items = 15 //codex
 	default_ammo_type = /datum/ammo/bullet/dragoon
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/boltclip/dragoon,
@@ -512,17 +517,17 @@
 	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO)
 	attachable_offset = list("muzzle_x" = 32, "muzzle_y" = 17,"rail_x" = 22, "rail_y" = 18, "under_x" = 32, "under_y" = 14, "stock_x" = 20, "stock_y" = 14)
 	actions_types = list(/datum/action/item_action/aim_mode)
-	aim_fire_delay = 1.25 SECONDS
+	aim_fire_delay = 0.90 SECONDS
 
 	burst_amount = 0
-	fire_delay = 0.5 SECONDS
+	fire_delay = 0.45 SECONDS
 	accuracy_mult = 1.15
 	accuracy_mult_unwielded = 0.75
 	scatter = 0
 	scatter_unwielded = 25
 	recoil = 0
 	recoil_unwielded = 4
-	aim_slowdown = 0.60
+	aim_slowdown = 0.35
 	movement_acc_penalty_mult = 3
 
 /datum/ammo/bullet/dragoon
@@ -533,8 +538,8 @@
 	shell_speed = 4
 	max_range = 30
 	handful_amount = 4
-	damage = 45
-	penetration = 17.5
+	damage = 47.5
+	penetration = 20
 	sundering = 2
 	accurate_range_min = 4
 

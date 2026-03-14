@@ -11,7 +11,17 @@
 /datum/supply_packs/weapons/ar18_ap
 	name = "AR-18 AP magazine (10x24mm)"
 	contains = list(/obj/item/ammo_magazine/rifle/standard_carbine/ap)
-	cost = 50
+	cost = 25 //50? lmao that shit is too expensive
+
+/datum/supply_packs/weapons/m412_ap
+	name = "\improper PR-412 AP magazine (10x24mm)"
+	contains = list(/obj/item/ammo_magazine/rifle/ap)
+	cost = 25
+
+/datum/supply_packs/weapons/10x24apbox
+	name = "\improper Big ammo box (10x24mm AP)"
+	contains = list(/obj/item/big_ammo_box/ap)
+	cost = 200
 
 /datum/supply_packs/weapons/dragoon
 	name = "Dragoon Mk1 Rapid Engagement Rifle"
@@ -21,7 +31,7 @@
 /datum/supply_packs/weapons/dragoon_ammo
 	name = "Dragoon Mk1 RER stripper clip"
 	contains = list(/obj/item/ammo_magazine/rifle/boltclip/dragoon)
-	cost = 20
+	cost = 10
 
 /datum/supply_packs/weapons/dragoon_ammo_pox
 	name = "Dragoon Mk1 RER poxomelanin rounds stripper clip"

@@ -418,13 +418,13 @@
 	starting_attachment_types = list(/obj/item/weapon/gun/grenade_launcher/underslung)
 	attachable_offset = list("muzzle_x" = 44, "muzzle_y" = 19,"rail_x" = 15, "rail_y" = 21, "under_x" = 25, "under_y" = 16, "stock_x" = 18, "stock_y" = 15)
 
-	fire_delay = 0.2 SECONDS
+	fire_delay = 0.175 SECONDS
 	burst_delay = 0.15 SECONDS
 	accuracy_mult = 1.1
 	scatter = -1
 	wield_delay = 0.9 SECONDS
 	burst_amount = 3
-	aim_slowdown = 0.4
+	aim_slowdown = 0.325 //lighter than AR-12, heavier than AR-18 with less DPS than the latter in theory
 	damage_mult = 1.05 //Has smaller magazines
 
 /obj/item/weapon/gun/rifle/m412/freelancer

@@ -13,8 +13,8 @@
 	accurate_range = 12
 	shell_speed = 3.5
 	damage = 25
-	penetration = 5
-	sundering = 0.5
+	penetration = 7.5
+	sundering = 0.75
 
 /datum/ammo/bullet/rifle/rubber
 	name = "rifle rubber bullet"
