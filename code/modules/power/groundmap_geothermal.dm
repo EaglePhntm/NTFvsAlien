@@ -40,7 +40,9 @@ GLOBAL_VAR_INIT(corrupted_generators, 0)
 	else
 		corrupted = 0
 	if(corrupted)
-		corrupt(corrupted)
+		var/temp_corrupted = corrupted
+		corrupted = 0
+		corrupt(temp_corrupted)
 	update_icon()
 
 /obj/machinery/power/geothermal/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
