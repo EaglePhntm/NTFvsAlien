@@ -155,9 +155,11 @@
 	var/item_category = L[1]
 	var/cost = L[3]
 
+	/*NTF EDIT makes specs etc unable to buy their shit, who cares about smartgunner dupe tho nobody else can use their shit due skill.
 	if(!(user_id.id_flags & CAN_BUY_LOADOUT)) //If you use the quick-e-quip, you cannot also use the GHMMEs
 		to_chat(user, span_warning("Access denied. You have already vended a loadout."))
 		return FALSE
+	*/
 	if(use_points && (item_category in user_id.marine_points) && user_id.marine_points[item_category] < cost)
 		to_chat(user, span_warning("Not enough points."))
 		if(icon_deny)
