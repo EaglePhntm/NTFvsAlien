@@ -215,25 +215,10 @@
 	for (var/obj/item/vended_item in vended_items)
 		vended_item.on_vend(usr, faction, auto_equip = TRUE)
 
-		playsound(src, SFX_VENDING, 25, 0)
-
-		if(icon_vend)
-			flick(icon_vend, src)
-
-		use_power(active_power_usage)
-
-		if(item_category == CAT_STD && !issynth(usr))
-			var/mob/living/carbon/human/H = usr
-			if(!istype(H.job, /datum/job/terragov/command/fieldcommander))
-				give_free_headset(usr, faction)
-			if(istype(H.job, /datum/job/terragov/squad/leader))
-				vended_items += new /obj/item/hud_tablet(loc, vendor_role, H.assigned_squad)
-				vended_items += new /obj/item/squad_transfer_tablet(loc)
-
-		if(use_points && (item_category in user_id.marine_points))
-			user_id.marine_points[item_category] -= cost
-		. = TRUE
-		user_id.id_flags |= USED_GHMME
+	if(use_points && (item_category in user_id.marine_points))
+		user_id.marine_points[item_category] -= cost
+	. = TRUE
+	user_id.id_flags |= USED_GHMME
 
 /obj/machinery/marine_selector/clothes
 	name = "\improper GHMME Automated Closet"
