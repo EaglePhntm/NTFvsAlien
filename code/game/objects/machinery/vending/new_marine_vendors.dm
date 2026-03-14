@@ -15,16 +15,21 @@
 	light_power = 0.5
 	light_color = LIGHT_COLOR_BLUE
 
-	var/gives_webbing = FALSE
-	var/vendor_role //to be compared with job.type to only allow those to use that machine.
-	var/squad_tag = ""
-	var/use_points = FALSE
+	/// Bitflags that regulates who can access this machine.
 	var/lock_flags = SQUAD_LOCK|JOB_LOCK
-
+	/// Enabled by JOB_LOCK, only allows people with this particular /datum/job to use this machine if this is not empty.
+	var/vendor_role
+	/// Enabled by SQUAD_LOCK, only allows people with this particular squad tag (e.g. "Alpha") to use this machine if this is not empty.
+	var/squad_tag = ""
+	/// Should points be displayed and consumed upon vending an item?
+	var/use_points = FALSE
+	/// The icon to `flick` when an item was vended.
 	var/icon_vend
+	/// The icon to `flick` when an item was denied.
 	var/icon_deny
-
+	/// A list of all category names.
 	var/list/categories
+	/// An associative list of: [typepath] = list(category_name, product_name, product_cost, product_color)
 	var/list/listed_products
 
 /obj/machinery/marine_selector/Initialize(mapload)
@@ -33,17 +38,11 @@
 
 /obj/machinery/marine_selector/update_icon()
 	. = ..()
-	if(is_operational())
-		set_light(initial(light_range))
-	else
-		set_light(0)
+	set_light(is_operational() ? initial(light_range) : 0)
 
 /obj/machinery/marine_selector/update_icon_state()
 	. = ..()
-	if(is_operational())
-		icon_state = initial(icon_state)
-	else
-		icon_state = "[initial(icon_state)]-off"
+	icon_state = is_operational() ? initial(icon_state) : "[initial(icon_state)]-off"
 
 /obj/machinery/marine_selector/update_overlays()
 	. = ..()
@@ -55,28 +54,23 @@
 	. = ..()
 	if(!.)
 		return FALSE
-
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(!allowed(H))
-			to_chat(user, span_warning("Access denied. Your assigned role doesn't have access to this machinery."))
-			return FALSE
-
-		var/obj/item/card/id/user_id = H.get_idcard()
-		if(!istype(user_id)) //not wearing an ID
-			return FALSE
-
-		if(user_id.registered_name != H.real_name)
-			return FALSE
-
-		if(lock_flags & JOB_LOCK && vendor_role && !istype(H.job, vendor_role))
-			to_chat(user, span_warning("Access denied. This vendor is heavily restricted."))
-			return FALSE
-
-		if(lock_flags & SQUAD_LOCK && (!H.assigned_squad || (squad_tag && H.assigned_squad.name != squad_tag)))
-			to_chat(user, span_warning("Access denied. Your assigned squad isn't allowed to access this machinery."))
-			return FALSE
-
+	if(!ishuman(user))
+		return TRUE
+	var/mob/living/carbon/human/human_user = user
+	if(!allowed(human_user))
+		to_chat(human_user, span_warning("Access denied. Your assigned role doesn't have access to this machinery."))
+		return FALSE
+	var/obj/item/card/id/user_id = human_user.get_idcard()
+	if(!istype(user_id))
+		return FALSE
+	if(user_id.registered_name != human_user.real_name)
+		return FALSE
+	if(lock_flags & JOB_LOCK && vendor_role && !istype(human_user.job, vendor_role))
+		to_chat(human_user, span_warning("Access denied. This vendor is heavily restricted."))
+		return FALSE
+	if(lock_flags & SQUAD_LOCK && (!human_user.assigned_squad || (squad_tag && human_user.assigned_squad.name != squad_tag)))
+		to_chat(human_user, span_warning("Access denied. Your assigned squad isn't allowed to access this machinery."))
+		return FALSE
 	return TRUE
 
 /obj/machinery/marine_selector/ui_interact(mob/user, datum/tgui/ui)
@@ -88,23 +82,18 @@
 
 /obj/machinery/marine_selector/ui_static_data(mob/user)
 	. = list()
-	.["displayed_records"] = list()
-
-	for(var/c in categories)
-		.["displayed_records"][c] = list()
-
 	.["vendor_name"] = name
 	.["show_points"] = use_points
-
-
-	for(var/i in listed_products)
-		var/list/myprod = listed_products[i]
-		var/category = myprod[1]
-		var/p_name = myprod[2]
-		var/p_cost = myprod[3]
-		var/atom/productpath = i
-
-		LAZYADD(.["displayed_records"][category], list(list("prod_index" = i, "prod_name" = p_name, "prod_color" = myprod[4], "prod_cost" = p_cost, "prod_desc" = initial(productpath.desc))))
+	.["displayed_products"] = list()
+	for(var/category_name in categories)
+		.["displayed_products"][category_name] = list()
+	for(var/typepath in listed_products)
+		var/list/product_information = listed_products[typepath]
+		var/category_name = product_information[1]
+		var/product_name = product_information[2]
+		var/product_cost = product_information[3]
+		var/atom/product_typepath = typepath
+		LAZYADD(.["displayed_products"][category_name], list(list("product_index" = typepath, "product_name" = product_name, "product_color" = product_information[4], "product_cost" = product_cost, "product_desc" = initial(product_typepath.desc))))
 
 /obj/machinery/marine_selector/ui_data(mob/user)
 	. = list()
@@ -147,78 +136,104 @@
 	. = ..()
 	if(.)
 		return
-	switch(action)
-		if("vend")
-			if(!allowed(usr))
-				to_chat(usr, span_warning("Access denied."))
-				if(icon_deny)
-					flick(icon_deny, src)
+	if(action != "vend")
+		return
+	on_vend(usr, params)
+
+/// Happens when the user vends something.
+/obj/machinery/marine_selector/proc/on_vend(mob/user, list/params)
+	if(!allowed(user))
+		to_chat(user, span_warning("Access denied."))
+		if(icon_deny)
+			flick(icon_deny, src)
+		return
+
+	var/idx = text2path(params["vend"])
+	var/obj/item/card/id/user_id = user.get_idcard()
+
+	var/list/L = listed_products[idx]
+	var/item_category = L[1]
+	var/cost = L[3]
+
+	if(!(user_id.id_flags & CAN_BUY_LOADOUT)) //If you use the quick-e-quip, you cannot also use the GHMMEs
+		to_chat(user, span_warning("Access denied. You have already vended a loadout."))
+		return FALSE
+	if(use_points && (item_category in user_id.marine_points) && user_id.marine_points[item_category] < cost)
+		to_chat(user, span_warning("Not enough points."))
+		if(icon_deny)
+			flick(icon_deny, src)
+		return
+
+	var/turf/T = loc
+	if(length(T.contents) > 25)
+		to_chat(user, span_warning("The floor is too cluttered, make some space."))
+		if(icon_deny)
+			flick(icon_deny, src)
+		return
+
+	if(item_category in user_id.marine_buy_choices)
+		if(user_id.marine_buy_choices[item_category] && GLOB.marine_selector_cats[item_category])
+			user_id.marine_buy_choices[item_category] -= 1
+		else
+			if(cost == 0)
+				to_chat(user, span_warning("You can't buy things from this category anymore."))
 				return
 
-			var/idx = text2path(params["vend"])
-			var/obj/item/card/id/user_id = usr.get_idcard()
+	var/list/vended_items = list()
 
-			var/list/L = listed_products[idx]
-			var/item_category = L[1]
-			var/cost = L[3]
+	if (ispath(idx, /obj/effect/vendor_bundle))
+		var/obj/effect/vendor_bundle/bundle = new idx(loc, FALSE)
+		vended_items += bundle.spawned_gear
+		qdel(bundle)
+	else
+		vended_items += new idx(loc)
+		/* makes specs etc unable to buy their shit, who cares about smartgunner dupe tho nobody else can use their shit due skill.
+		if(!(user_id.id_flags & CAN_BUY_LOADOUT)) //If you use the quick-e-quip, you cannot also use the GHMMEs
+			to_chat(usr, span_warning("Access denied. You have already vended a loadout."))
+			return FALSE
+		*/
+		if(use_points && (item_category in user_id.marine_points) && user_id.marine_points[item_category] < cost)
+			to_chat(usr, span_warning("Not enough points."))
+			if(icon_deny)
+				flick(icon_deny, src)
+			return
+	playsound(src, SFX_VENDING, 25, 0)
 
-			/* makes specs etc unable to buy their shit, who cares about smartgunner dupe tho nobody else can use their shit due skill.
-			if(!(user_id.id_flags & CAN_BUY_LOADOUT)) //If you use the quick-e-quip, you cannot also use the GHMMEs
-				to_chat(usr, span_warning("Access denied. You have already vended a loadout."))
-				return FALSE
-			*/
-			if(use_points && (item_category in user_id.marine_points) && user_id.marine_points[item_category] < cost)
-				to_chat(usr, span_warning("Not enough points."))
-				if(icon_deny)
-					flick(icon_deny, src)
-				return
+	if(icon_vend)
+		flick(icon_vend, src)
 
-			var/turf/T = loc
-			if(length(T.contents) > 25)
-				to_chat(usr, span_warning("The floor is too cluttered, make some space."))
-				if(icon_deny)
-					flick(icon_deny, src)
-				return
+	use_power(active_power_usage)
 
-			if(item_category in user_id.marine_buy_choices)
-				if(user_id.marine_buy_choices[item_category] && GLOB.marine_selector_cats[item_category])
-					user_id.marine_buy_choices[item_category] -= 1
-				else
-					if(cost == 0)
-						to_chat(usr, span_warning("You can't buy things from this category anymore."))
-						return
+	if(item_category == CAT_STD && !issynth(usr))
+		var/mob/living/carbon/human/H = usr
+		if(!istype(H.job, /datum/job/terragov/command/fieldcommander))
+			vended_items += new /obj/item/radio/headset/mainship/marine(loc, H.assigned_squad, vendor_role)
+			if(istype(H.job, /datum/job/terragov/squad/leader))
+				vended_items += new /obj/item/hud_tablet(loc, vendor_role, H.assigned_squad)
+				vended_items += new /obj/item/squad_transfer_tablet(loc)
 
-			var/list/vended_items = list()
+	for (var/obj/item/vended_item in vended_items)
+		vended_item.on_vend(usr, faction, auto_equip = TRUE)
 
-			if (ispath(idx, /obj/effect/vendor_bundle))
-				var/obj/effect/vendor_bundle/bundle = new idx(loc, FALSE)
-				vended_items += bundle.spawned_gear
-				qdel(bundle)
-			else
-				vended_items += new idx(loc)
+		playsound(src, SFX_VENDING, 25, 0)
 
-			playsound(src, SFX_VENDING, 25, 0)
+		if(icon_vend)
+			flick(icon_vend, src)
 
-			if(icon_vend)
-				flick(icon_vend, src)
+		use_power(active_power_usage)
 
-			use_power(active_power_usage)
+		if(item_category == CAT_STD && !issynth(usr))
+			var/mob/living/carbon/human/H = usr
+			if(!istype(H.job, /datum/job/terragov/command/fieldcommander))
+				give_free_headset(usr, faction)
+			if(istype(H.job, /datum/job/terragov/squad/leader))
+				vended_items += new /obj/item/hud_tablet(loc, vendor_role, H.assigned_squad)
+				vended_items += new /obj/item/squad_transfer_tablet(loc)
 
-			if(item_category == CAT_STD && !issynth(usr))
-				var/mob/living/carbon/human/H = usr
-				if(!istype(H.job, /datum/job/terragov/command/fieldcommander))
-					give_free_headset(usr, faction)
-				if(istype(H.job, /datum/job/terragov/squad/leader))
-					vended_items += new /obj/item/hud_tablet(loc, vendor_role, H.assigned_squad)
-					vended_items += new /obj/item/squad_transfer_tablet(loc)
-
-			for (var/obj/item/vended_item in vended_items)
-				vended_item.on_vend(usr, faction, auto_equip = TRUE)
-
-			if(use_points && (item_category in user_id.marine_points))
-				user_id.marine_points[item_category] -= cost
-			. = TRUE
-			user_id.id_flags |= USED_GHMME
+		if(use_points && (item_category in user_id.marine_points))
+			user_id.marine_points[item_category] -= cost
+		. = TRUE
+		user_id.id_flags |= USED_GHMME
 
 /obj/machinery/marine_selector/clothes
 	name = "\improper GHMME Automated Closet"
@@ -267,7 +282,6 @@
 	name = "\improper GHMME Automated Engineer Closet"
 	req_access = list(ACCESS_MARINE_ENGPREP)
 	vendor_role = /datum/job/terragov/squad/engineer
-	gives_webbing = FALSE
 
 /obj/machinery/marine_selector/clothes/engi/Initialize(mapload)
 	. = ..()
@@ -298,8 +312,6 @@
 	name = "\improper GHMME Automated Corpsman Closet"
 	req_access = list(ACCESS_MARINE_MEDPREP)
 	vendor_role = /datum/job/terragov/squad/corpsman
-	gives_webbing = FALSE
-
 
 /obj/machinery/marine_selector/clothes/medic/Initialize(mapload)
 	. = ..()
@@ -330,7 +342,6 @@
 	name = "\improper GHMME Automated Smartgunner Closet"
 	req_access = list(ACCESS_MARINE_SMARTPREP)
 	vendor_role = /datum/job/terragov/squad/smartgunner
-	gives_webbing = FALSE
 
 /obj/machinery/marine_selector/clothes/smartgun/Initialize(mapload)
 	. = ..()
@@ -362,7 +373,6 @@
 	req_access = list(ACCESS_MARINE_SPECPREP)
 	vendor_role = /datum/job/terragov/squad/specialist
 	lock_flags = JOB_LOCK
-	gives_webbing = FALSE
 
 /obj/machinery/marine_selector/clothes/specialist/Initialize(mapload)
 	. = ..()
@@ -388,7 +398,6 @@
 	name = "\improper GHMME Automated Leader Closet"
 	req_access = list(ACCESS_MARINE_LEADER)
 	vendor_role = /datum/job/terragov/squad/leader
-	gives_webbing = FALSE
 
 /obj/machinery/marine_selector/clothes/leader/Initialize(mapload)
 	. = ..()
@@ -425,7 +434,6 @@
 	req_access = list(ACCESS_MARINE_COMMANDER)
 	vendor_role = /datum/job/terragov/command/fieldcommander
 	lock_flags = JOB_LOCK
-	gives_webbing = FALSE
 
 /obj/machinery/marine_selector/clothes/commander/valhalla
 	vendor_role = /datum/job/fallen/marine/fieldcommander
@@ -535,7 +543,6 @@
 	desc = "An automated closet hooked up to a colossal storage unit of SOM-issue uniform and armor."
 	req_access = list(ACCESS_SOM_DEFAULT)
 	vendor_role = /datum/job/som/squad/standard
-	gives_webbing = FALSE
 	faction = FACTION_SOM
 
 /obj/machinery/marine_selector/clothes/som/standard
@@ -600,7 +607,6 @@
 	name = "GHMME Automated KZ Closet"
 	req_access = list(ACCESS_VSD_PREP)
 	vendor_role = /datum/job/vsd_squad/standard
-	gives_webbing = FALSE
 	faction = FACTION_VSD
 	lock_flags = JOB_LOCK
 
@@ -654,7 +660,6 @@
 	name = "GHMME Automated PMC Closet"
 	req_access = list(ACCESS_NT_PMC_COMMON)
 	vendor_role = /datum/job/pmc/squad/standard
-	gives_webbing = FALSE
 	faction = FACTION_NANOTRASEN
 	lock_flags = JOB_LOCK
 
@@ -712,7 +717,6 @@
 	name = "GHMME Automated ICC Closet"
 	req_access = list(ACCESS_ICC_PREP)
 	vendor_role = /datum/job/icc_squad/standard
-	gives_webbing = FALSE
 	faction = FACTION_ICC
 	lock_flags = JOB_LOCK
 
@@ -1023,7 +1027,6 @@
 	use_points = TRUE
 	req_access = list(ACCESS_NT_PMC_COMMON)
 	vendor_role = /datum/job/pmc/squad/standard
-	gives_webbing = FALSE
 	faction = FACTION_NANOTRASEN
 	lock_flags = JOB_LOCK
 
@@ -1751,7 +1754,6 @@
 		/obj/item/clothing/gloves/marine/veteran/pmc,
 		/obj/item/storage/box/MRE/som,
 	)
-
 
 /obj/effect/vendor_bundle/vsd/basic_medic
 	gear_to_spawn = list(
