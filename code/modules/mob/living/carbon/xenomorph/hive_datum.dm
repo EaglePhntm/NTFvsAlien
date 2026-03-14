@@ -980,8 +980,10 @@ to_chat will check for valid clients itself already so no need to double check f
 		return
 	if(!(SSticker.mode?.round_type_flags & MODE_XENO_RULER))
 		return
+	/*
 	if(SSmonitor.gamestate != SHIPSIDE) //orphan hivemind will only happen during shipside.
 		return
+	*/
 	var/datum/game_mode/infestation/D = SSticker.mode
 
 	if(living_xeno_ruler)
