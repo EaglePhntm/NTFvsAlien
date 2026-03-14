@@ -198,7 +198,7 @@
 
 /datum/storage/belt/shotgun/New(atom/parent)
 	. = ..()
-	set_holdable(list(/obj/item/ammo_magazine/handful))
+	set_holdable(list(/obj/item/ammo_magazine/handful, /obj/item/ammo_magazine/rifle/boltclip/dragoon, /obj/item/ammo_magazine/rifle/boltclip/dragoon/pox,))
 
 /datum/storage/belt/shotgun/martini
 	storage_slots = 12
