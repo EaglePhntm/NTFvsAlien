@@ -226,6 +226,11 @@ export const CharacterCustomization = (props) => {
                 action={'citizenship'}
               />
               <SelectFieldPreference
+                label={'Blood Type'}
+                value={'blood_type'}
+                action={'blood_type'}
+              />
+              <SelectFieldPreference
                 label={'Religion'}
                 value={'religion'}
                 action={'religion'}
@@ -234,6 +239,11 @@ export const CharacterCustomization = (props) => {
                 label={'TTS voice'}
                 value={'tts_voice'}
                 action={'tts_voice'}
+              />
+              <SelectFieldPreference
+                label={'Moth wings'}
+                value={'moth_wings'}
+                action={'moth_wings'}
               />
               <TextFieldPreference label={'TTS pitch'} value={'tts_pitch'} />
             </LabeledList>

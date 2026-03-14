@@ -56,16 +56,24 @@ ADMIN_VERB(rouny_all, R_FUN, "Toggle Glob Xeno Rouny", "Toggle all living xenos 
 	for(var/mob/living/carbon/xenomorph/xenotorouny in GLOB.xeno_mob_list)
 		if(!isliving(xenotorouny))
 			return
-		xenotorouny.xeno_flags ^= XENO_ROUNY
-	log_admin("[key_name(user)] toggled global rounification")
-	message_admins("[ADMIN_TPMONTY(user.mob)] toggled global rounification.")
+		xenotorouny.is_a_rouny = !xenotorouny.is_a_rouny
 
+ADMIN_VERB(toggle_observer_freedom, R_FUN, "Toggle Observer Freedom", "Makes observer able to orbit other factions' members etc, bad for pvp.", ADMIN_CATEGORY_FUN)
+	GLOB.observer_freedom = !GLOB.observer_freedom
+
+	if(GLOB.observer_freedom)
+		to_chat(world, span_boldnotice("observer freedom has been enabled!"))
+	else
+		to_chat(world, span_boldnotice("observer freedom has been disabled!"))
+
+	log_admin("[key_name(user)] [GLOB.observer_freedom ? "enabled" : "disabled"] observer freedom.")
+	message_admins("[ADMIN_TPMONTY(user.mob)] [GLOB.observer_freedom ? "enabled" : "disabled"] observer freedom.")
 
 ADMIN_VERB(hive_status, R_FUN, "Check Hive Status", "Check the status of the hive.", ADMIN_CATEGORY_FUN)
 	if(!SSticker)
 		return
 
-	check_hive_status(user.mob)
+	check_hive_status(user.mob, force_choose_hive = TRUE)
 
 	log_admin("[key_name(user)] checked the hive status.")
 	message_admins("[key_name_admin(user)] checked the hive status.")
@@ -94,7 +102,7 @@ ADMIN_VERB(ai_report, R_FUN, "AI Report", "Create an AI report to players", ADMI
 	message_admins("[ADMIN_TPMONTY(user.mob)] has created an AI report: [input]")
 
 ADMIN_VERB(command_report, R_FUN, "Command Report", "Create a custom command report", ADMIN_CATEGORY_FUN)
-	var/customname = tgui_input_text(user, "Pick a title for the report.", "Title", "TGMC Update", encode = FALSE)
+	var/customname = tgui_input_text(user, "Pick a title for the report.", "Title", "NTC Update", encode = FALSE)
 	if(!customname)
 		return
 	var/customsubtitle = tgui_input_text(user, "Pick a subtitle for the report.", "Subtitle", "", encode = FALSE)
@@ -209,7 +217,7 @@ ADMIN_VERB(sound_file, R_SOUND, "Play Imported Sound", "Play a sound imported fr
 	var/style = tgui_alert(user, "Play sound globally or locally?", "Play Imported Sound", list("Global", "Local", "Cancel"))
 	switch(style)
 		if("Global")
-			for(var/i in GLOB.clients)
+			for(var/i in GLOB.whitelisted_clients)
 				var/client/C = i
 				if(C.prefs.toggles_sound & SOUND_MIDI)
 					SEND_SOUND(C, uploaded_sound)
@@ -221,8 +229,8 @@ ADMIN_VERB(sound_file, R_SOUND, "Play Imported Sound", "Play a sound imported fr
 		else
 			return
 
-	log_admin("[key_name(user)] played sound '[S]' for [heard_midi] player(s). [length(GLOB.clients) - heard_midi] player(s) [style == "Global" ? "have disabled admin midis" : "were out of view"].")
-	message_admins("[ADMIN_TPMONTY(user.mob)] played sound '[S]' for [heard_midi] player(s). [length(GLOB.clients) - heard_midi] player(s) [style == "Global" ? "have disabled admin midis" : "were out of view"].")
+	log_admin("[key_name(user)] played sound '[S]' for [heard_midi] player(s). [length(GLOB.whitelisted_clients) - heard_midi] player(s) [style == "Global" ? "have disabled admin midis" : "were out of view"].")
+	message_admins("[ADMIN_TPMONTY(user.mob)] played sound '[S]' for [heard_midi] player(s). [length(GLOB.whitelisted_clients) - heard_midi] player(s) [style == "Global" ? "have disabled admin midis" : "were out of view"].")
 
 
 GLOBAL_VAR_INIT(web_sound_cooldown, 0)
@@ -633,7 +641,7 @@ ADMIN_VERB_ONLY_CONTEXT_MENU(xeno_panel, R_FUN, "Xeno Panel", mob/living/carbon/
 
 	var/dat = "<br>"
 
-	dat += "Hive: [X.hive.hivenumber] <a href='byond://?src=[REF(user.holder)];[HrefToken()];xeno=hive;mob=[REF(X)]'>Edit</a><br>"
+	dat += "Hive: [X.get_xeno_hivenumber()] <a href='byond://?src=[REF(user.holder)];[HrefToken()];xeno=hive;mob=[REF(X)]'>Edit</a><br>"
 	dat += "Nicknumber: [X.nicknumber] <a href='byond://?src=[REF(user.holder)];[HrefToken()];xeno=nicknumber;mob=[REF(X)]'>Edit</a><br>"
 	dat += "Upgrade Tier: [X.xeno_caste.upgrade_name] <a href='byond://?src=[REF(user.holder)];[HrefToken()];xeno=upgrade;mob=[REF(X)]'>Edit</a><br>"
 

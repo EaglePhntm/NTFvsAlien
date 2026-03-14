@@ -1,7 +1,7 @@
 
 /obj/vehicle/unmanned
 	name = "UV-L Iguana"
-	desc = "A small remote-controllable vehicle, usually owned by the TGMC and other major armies."
+	desc = "A small remote-controllable vehicle, usually owned by the NTC and other major armies."
 	icon = 'icons/obj/unmanned_vehicles.dmi'
 	icon_state = "light_uv"
 	anchored = FALSE
@@ -161,7 +161,7 @@
 		to_chat(user,"<span class='warning'>There is nothing to remove from [src]!</span>")
 		return
 	user.visible_message(span_notice("[user] starts to remove [initial(turret_path.name)] from [src]"),	span_notice("You start to remove [initial(turret_path.name)] from [src]"))
-	if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_BUILD))
+	if(!do_after(user, 3 SECONDS, TRUE, src, BUSY_ICON_BUILD))
 		return
 	var/obj/item/equipment = new turret_path
 	user.visible_message(span_notice("[user] removes [equipment] from [src]."),
@@ -187,7 +187,7 @@
 		to_chat(user, span_warning("The [src] ammo storage is already full!"))
 		return
 	user.visible_message(span_notice("[user] starts to reload [src] with [reload_ammo]."), span_notice("You start to reload [src] with [reload_ammo]."))
-	if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_GENERIC))
+	if(!do_after(user, 3 SECONDS, TRUE, src, BUSY_ICON_GENERIC))
 		return
 	current_rounds = current_rounds + reload_ammo.current_rounds
 	if(current_rounds > max_rounds)
@@ -213,7 +213,7 @@
 			return
 	user.visible_message(span_notice("[user] starts to attach [I] to [src]."),
 	span_notice("You start to attach [I] to [src]."))
-	if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_BUILD))
+	if(!do_after(user, 3 SECONDS, TRUE, src, BUSY_ICON_BUILD))
 		return
 	turret_path = I.type
 	if(istype(I, /obj/item/uav_turret))
@@ -258,6 +258,8 @@
 			ADD_TRAIT(user, TRAIT_SEE_IN_DARK, UNMANNED_VEHICLE)
 		else
 			REMOVE_TRAIT(user, TRAIT_SEE_IN_DARK, UNMANNED_VEHICLE)
+	iff_signal = user.get_iff_signal()
+	faction = user.faction
 
 ///Checks if we can or already have a bullet loaded that we can shoot
 /obj/vehicle/unmanned/proc/load_into_chamber()
@@ -401,7 +403,7 @@
 /obj/structure/closet/crate/uav_crate/PopulateContents()
 	new /obj/vehicle/unmanned(src)
 	new /obj/item/unmanned_vehicle_remote(src)
-
+/* NTF edit - UVs with turrets are annoying to fight
 /obj/structure/closet/crate/uav_crate/turret
 	name = "\improper Light UV Machinegun Crate"
 	desc = "A crate containing a light unmanned vehicle machinegun and some spare ammo."
@@ -411,4 +413,4 @@
 	new /obj/item/ammo_magazine/box11x35mm(src)
 	new /obj/item/ammo_magazine/box11x35mm(src)
 	new /obj/item/ammo_magazine/box11x35mm(src)
-
+*/

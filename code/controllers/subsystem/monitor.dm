@@ -18,6 +18,10 @@ SUBSYSTEM_DEF(monitor)
 	var/human_in_FOB = 0
 	///The number of humans on the ship
 	var/human_on_ship = 0
+	///The number of clf on ground
+	var/clf_on_ground = 0
+	///The number of clf on the ship
+	var/clf_on_ship = 0
 	///The number of time most of humans are in FOB consecutively
 	var/humans_all_in_FOB_counter = 0
 	///TRUE if we detect a state of FOB hugging
@@ -38,14 +42,13 @@ SUBSYSTEM_DEF(monitor)
 		COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ,
 		COMSIG_GLOB_TADPOLE_RAPPEL_DEPLOYED_OUT_LZ,
 		COMSIG_GLOB_CRASH_SHIP_LANDED,
-		COMSIG_GLOB_DROPPOD_LANDED,
 	), PROC_REF(set_groundside_calculation))
 	RegisterSignal(SSdcs, COMSIG_GLOB_DROPSHIP_HIJACKED, PROC_REF(set_shipside_calculation))
 	is_automatic_balance_on = CONFIG_GET(flag/is_automatic_balance_on)
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/monitor/fire(resumed = 0)
-	var/total_living_players = length(GLOB.alive_human_list_faction[FACTION_TERRAGOV]) + length(GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])
+	var/total_living_players = length(GLOB.alive_human_list) + length(GLOB.alive_xeno_list)
 	raw_points = calculate_state_points()
 	current_points = raw_points / max(total_living_players, 10)//having less than 10 players gives bad results
 	maximum_connected_players_count = max(get_active_player_count(), maximum_connected_players_count)
@@ -80,7 +83,6 @@ SUBSYSTEM_DEF(monitor)
 		COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ,
 		COMSIG_GLOB_TADPOLE_RAPPEL_DEPLOYED_OUT_LZ,
 		COMSIG_GLOB_CRASH_SHIP_LANDED,
-		COMSIG_GLOB_DROPPOD_LANDED,
 	))
 	gamestate = GROUNDSIDE
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_GAMESTATE_GROUNDSIDE)
@@ -93,18 +95,21 @@ SUBSYSTEM_DEF(monitor)
 /// Calculate the points used to determine which side is winning at the moment.
 /datum/controller/subsystem/monitor/proc/calculate_state_points()
 	// Humans
+	var/alive_human_list_ntf = (GLOB.alive_human_list_faction[FACTION_TERRAGOV] | GLOB.alive_human_list_faction[FACTION_NANOTRASEN])
 	switch(gamestate)
 		if(SHUTTERS_CLOSED)
-			. += length(GLOB.alive_human_list_faction[FACTION_TERRAGOV]) * SHIPSIDE_HUMAN_LIFE_WEIGHT
-			. += SSpoints.supply_points[FACTION_TERRAGOV] * REQ_POINTS_WEIGHT
+			. += length(alive_human_list_ntf) * SHIPSIDE_HUMAN_LIFE_WEIGHT
+			. += (SSpoints.supply_points[FACTION_TERRAGOV] + SSpoints.supply_points[FACTION_NANOTRASEN]) * REQ_POINTS_WEIGHT
 		if(GROUNDSIDE)
 			. += human_on_ground * GROUNDSIDE_HUMAN_LIFE_ON_GROUND_WEIGHT
-			. += (length(GLOB.alive_human_list_faction[FACTION_TERRAGOV]) - human_on_ground) * GROUNDSIDE_HUMAN_LIFE_ON_SHIP_WEIGHT
-			. += SSpoints.supply_points[FACTION_TERRAGOV] * REQ_POINTS_WEIGHT
+			. += (length(alive_human_list_ntf) - human_on_ground) * GROUNDSIDE_HUMAN_LIFE_ON_SHIP_WEIGHT
+			. += (SSpoints.supply_points[FACTION_TERRAGOV] + SSpoints.supply_points[FACTION_NANOTRASEN]) * REQ_POINTS_WEIGHT
 		if(SHIPSIDE)
-			. += length(GLOB.alive_human_list_faction[FACTION_TERRAGOV]) * SHIPSIDE_HUMAN_LIFE_WEIGHT
+			. += length(alive_human_list_ntf) * SHIPSIDE_HUMAN_LIFE_WEIGHT
 			// Unspent supply points during hijack aren't important as they are likely to stay unspent.
-	for(var/item_key in requisition_item_keys)
+	for(var/atom/movable/item_key in requisition_item_keys)
+		if(item_key.faction != FACTION_TERRAGOV && item_key.faction != FACTION_NANOTRASEN)
+			continue
 		. += requisition_item_keys[item_key] * REQ_POINTS_WEIGHT
 	// Xenomorphs
 	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
@@ -146,18 +151,87 @@ SUBSYSTEM_DEF(monitor)
 		if(istype(xeno_turret, /obj/structure/xeno/xeno_turret/sticky))
 			. += XENO_RESIN_TURRET_WEIGHT
 
+	switch(gamestate)
+		if(SHUTTERS_CLOSED)
+			. -= length(GLOB.alive_human_list_faction[FACTION_CLF]) * SHIPSIDE_HUMAN_LIFE_WEIGHT
+			. -= SSpoints.supply_points[FACTION_CLF] * REQ_POINTS_WEIGHT
+		if(GROUNDSIDE)
+			. -= clf_on_ground * GROUNDSIDE_HUMAN_LIFE_ON_GROUND_WEIGHT
+			. -= (length(GLOB.alive_human_list_faction[FACTION_CLF]) - clf_on_ground) * GROUNDSIDE_HUMAN_LIFE_ON_SHIP_WEIGHT
+			. -= SSpoints.supply_points[FACTION_CLF] * REQ_POINTS_WEIGHT
+		if(SHIPSIDE)
+			. -= length(GLOB.alive_human_list_faction[FACTION_CLF]) * SHIPSIDE_HUMAN_LIFE_WEIGHT
+			// Unspent supply points during hijack aren't important as they are likely to stay unspent.
+	for(var/atom/movable/item_key in requisition_item_keys)
+		if(item_key.faction != FACTION_CLF)
+			continue
+		. -= requisition_item_keys[item_key] * REQ_POINTS_WEIGHT
+	// Xenomorphs
+	xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+	. -= (xeno_job.total_positions - xeno_job.current_positions) * BURROWED_LARVA_WEIGHT
+	for(var/mob/living/carbon/xenomorph/normal_xenomorph in GLOB.alive_xeno_list_hive[XENO_HIVE_CORRUPTED])
+		if(normal_xenomorph.xeno_caste.caste_flags & CASTE_IS_A_MINION)
+			. -= MINION_XENO_LIFE_WEIGHT
+			continue
+		switch(normal_xenomorph.tier)
+			if(XENO_TIER_MINION)
+				. -= MINION_XENO_LIFE_WEIGHT
+				continue // Shouldn't ever happen, but you never know.
+			if(XENO_TIER_ZERO)
+				. -= T0_XENO_LIFE_WEIGHT
+				continue // Shouldn't have access to primos.
+			if(XENO_TIER_ONE)
+				. -= T1_XENO_LIFE_WEIGHT
+			if(XENO_TIER_TWO)
+				. -= T2_XENO_LIFE_WEIGHT
+			if(XENO_TIER_THREE)
+				. -= T3_XENO_LIFE_WEIGHT
+			if(XENO_TIER_FOUR)
+				. -= T4_XENO_LIFE_WEIGHT
+		if(normal_xenomorph.upgrade == XENO_UPGRADE_PRIMO)
+			. -= PRIMO_XENO_BONUS_WEIGHT
+	. -= SSpoints.xeno_strategic_points_by_hive[XENO_HIVE_CORRUPTED] * PSY_STRATEGIC_POINT_WEIGHT
+	. -= SSpoints.xeno_tactical_points_by_hive[XENO_HIVE_CORRUPTED] * PSY_TACTICAL_POINT_WEIGHT
+	. -= length(GLOB.xeno_resin_silos_by_hive[XENO_HIVE_CORRUPTED]) * RESIN_SILO_WEIGHT
+	. -= length(GLOB.hive_datums[XENO_HIVE_CORRUPTED].evotowers) * EVOLUTION_TOWER_WEIGHT
+	. -= length(GLOB.hive_datums[XENO_HIVE_CORRUPTED].psychictowers) * PSYCHIC_RELAY_WEIGHT
+	. -= length(GLOB.hive_datums[XENO_HIVE_CORRUPTED].pherotowers) * PHEROMONE_TOWER_WEIGHT
+	. -= length(GLOB.xeno_spawners_by_hive[XENO_HIVE_CORRUPTED]) * SPAWNER_WEIGHT
+	. -= length(GLOB.xeno_acid_pools_by_hive[XENO_HIVE_CORRUPTED]) * ACID_POOL_WEIGHT
+	. -= length(GLOB.xeno_acid_jaws_by_hive[XENO_HIVE_CORRUPTED]) * ACID_JAWS_WEIGHT
+	for(var/obj/structure/xeno/xeno_turret/xeno_turret AS in GLOB.xeno_resin_turrets_by_hive[XENO_HIVE_CORRUPTED])
+		if(xeno_turret.type == /obj/structure/xeno/xeno_turret) // Strict because we want the base acid turret.
+			. -= XENO_ACID_TURRET_WEIGHT
+			continue
+		if(istype(xeno_turret, /obj/structure/xeno/xeno_turret/sticky))
+			. -= XENO_RESIN_TURRET_WEIGHT
+
 ///Keep the monitor informed about the position of humans
 /datum/controller/subsystem/monitor/proc/process_human_positions()
 	human_on_ground = 0
 	human_in_FOB = 0
 	human_on_ship = 0
-	for(var/human in GLOB.alive_human_list_faction[FACTION_TERRAGOV])
+	clf_on_ground = 0
+	clf_on_ship = 0
+	for(var/human in (GLOB.alive_human_list_faction[FACTION_TERRAGOV] | GLOB.alive_human_list_faction[FACTION_NANOTRASEN]))
 		var/turf/TU = get_turf(human)
+		if(!istype(TU))
+			continue
 		var/area/myarea = TU.loc
+		if(!myarea)
+			continue
 		if(is_ground_level(TU.z))
 			human_on_ground++
 			if(myarea.area_flags & NEAR_FOB)
 				human_in_FOB++
+		else if(is_mainship_level(TU.z))
+			human_on_ship++
+	for(var/human in GLOB.alive_human_list_faction[FACTION_CLF])
+		var/turf/TU = get_turf(human)
+		if(!istype(TU))
+			continue
+		if(is_ground_level(TU.z))
+			human_on_ground++
 		else if(is_mainship_level(TU.z))
 			human_on_ship++
 
@@ -190,13 +264,17 @@ SUBSYSTEM_DEF(monitor)
  * Return the proposed xeno buff calculated with the number of burrowed, and the state of the game
  */
 /datum/controller/subsystem/monitor/proc/balance_xeno_team()
-	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
-	if(current_state >= STATE_BALANCED || ((xeno_job.total_positions - xeno_job.current_positions) <= (length(GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL]) * TOO_MUCH_BURROWED_PROPORTION)) || length(GLOB.xeno_resin_silos_by_hive[XENO_HIVE_NORMAL]) == 0)
+	var/datum/job/xenomorph/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+	if(current_state >= STATE_BALANCED || length(GLOB.xeno_resin_silos_by_hive[XENO_HIVE_NORMAL]) == 0)
 		return 1
+	var/burrowed = xeno_job.total_positions - xeno_job.current_positions
 	var/datum/hive_status/normal/HN = GLOB.hive_datums[XENO_HIVE_NORMAL]
 	var/xeno_alive_plus_burrowed = HN.total_xenos_for_evolving()
-	var/buff_needed_estimation = min( MAXIMUM_XENO_BUFF_POSSIBLE , 1 + (xeno_job.total_positions-xeno_job.current_positions) / (xeno_alive_plus_burrowed ? xeno_alive_plus_burrowed : 1))
+	var/xeno_alive_excl_burrowed = xeno_alive_plus_burrowed - burrowed
+	var/buff_needed_estimation = min(MAXIMUM_XENO_BUFF_POSSIBLE, max(1, xeno_alive_plus_burrowed/((xeno_alive_excl_burrowed + xeno_job.free_xeno_at_start)*2)))
 	// No need to ask admins every time
+	if(buff_needed_estimation == 1)
+		return buff_needed_estimation
 	if(GLOB.xeno_stat_multiplicator_buff != 1)
 		return buff_needed_estimation
 	var/admin_response = admin_approval("<span color='prefix'>AUTO BALANCE SYSTEM:</span> An excessive amount of burrowed was detected, while the balance system consider that marines are winning. [span_boldnotice("Considering the amount of burrowed larvas, a stat buff of [buff_needed_estimation * 100]% will be applied to health, health recovery, and melee damages.")]",
@@ -213,9 +291,5 @@ SUBSYSTEM_DEF(monitor)
  * Will multiply every base health, regen and melee damage stat on all xeno by GLOB.xeno_stat_multiplicator_buff
  */
 /datum/controller/subsystem/monitor/proc/apply_balance_changes()
-	for(var/mob/living/carbon/xenomorph/xeno AS in GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])
-		xeno.apply_health_stat_buff()
-	for(var/xeno_caste_typepath in GLOB.xeno_caste_datums)
-		for(var/upgrade in GLOB.xeno_caste_datums[xeno_caste_typepath])
-			var/datum/xeno_caste/caste = GLOB.xeno_caste_datums[xeno_caste_typepath][upgrade]
-			caste.melee_damage = initial(caste.melee_damage) * GLOB.xeno_stat_multiplicator_buff
+	GLOB.hive_datums[XENO_HIVE_NORMAL].set_health_multiplier(GLOB.xeno_stat_multiplicator_buff)
+	GLOB.hive_datums[XENO_HIVE_NORMAL].set_melee_multiplier(GLOB.xeno_stat_multiplicator_buff)

@@ -17,7 +17,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 6
 	movement_acc_penalty_mult = 2
-	wield_delay = 0.4 SECONDS
+	wield_delay = 0.2 SECONDS
 	type_of_casings = "bullet"
 	gun_skill_category = SKILL_PISTOLS
 	attachable_allowed = list(
@@ -50,7 +50,7 @@
 
 /obj/item/weapon/gun/pistol/standard_pistol
 	name = "\improper P-14 pistol"
-	desc = "The P-14, produced by Terran Armories. A reliable sidearm that loads 9x19mm Parabellum Auto munitions. Capable of mounting a limited amount of attachments, and firing at a respectable rate of fire, often as fast as you can pull the trigger. Takes 21-round 9mm magazines."
+	desc = "The P-14, produced by Archercorp. A reliable sidearm that loads 9x19mm Parabellum Auto munitions. Capable of mounting a limited amount of attachments, and firing at a respectable rate of fire, often as fast as you can pull the trigger. Takes 21-round 9mm magazines."
 	icon_state = "tp14"
 	worn_icon_state = "tp14"
 	caliber = CALIBER_9X19 //codex
@@ -100,15 +100,15 @@
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/lace,
 		/obj/item/attachable/buildasentry,
+		/obj/item/attachable/shoulder_mount,
 		/obj/item/attachable/scope/marine,
-		/obj/item/weapon/gun/shotgun/combat/masterkey,
 	)
 
 	muzzleflash_iconstate = "muzzle_flash_laser"
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_ENERGY|GUN_AMMO_COUNTER|GUN_IS_ATTACHMENT|GUN_SMOKE_PARTICLES
 	reciever_flags = AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_AUTO_EJECT|AMMO_RECIEVER_DO_NOT_EJECT_HANDFULS|AMMO_RECIEVER_CYCLE_ONLY_BEFORE_FIRE
 	actions_types = list()
-	wield_delay = 0.7 SECONDS
+	wield_delay = 0.5 SECONDS
 	muzzle_flash_color = COLOR_GREEN
 
 	fire_delay = 1.5 SECONDS
@@ -127,7 +127,8 @@
 	placed_overlay_iconstate = "tx7"
 
 /obj/item/weapon/gun/pistol/plasma_pistol/beginner
-	starting_attachment_types = list(/obj/item/weapon/gun/shotgun/combat/masterkey, /obj/item/attachable/reddot, /obj/item/attachable/lasersight)
+	starting_attachment_types = list(/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/pistol/g22/tranq, /obj/item/attachable/reddot, /obj/item/attachable/lasersight)
 
 /obj/item/weapon/gun/pistol/plasma_pistol/can_attach(obj/item/attaching_to, mob/attacher)
 	if(!attachments_by_slot[ATTACHMENT_SLOT_RAIL])
@@ -141,6 +142,7 @@
 
 /obj/item/weapon/gun/pistol/plasma_pistol/on_detach(obj/item/attached_to, mob/user)
 	gun_features_flags &= ~(GUN_WIELDED_STABLE_FIRING_ONLY|GUN_WIELDED_FIRING_ONLY)
+	set_gun_user(user)
 	return ..()
 
 /obj/item/weapon/gun/pistol/plasma_pistol/guardsman_pistol
@@ -199,6 +201,8 @@
 		/obj/item/attachable/heavy_barrel,
 		/obj/item/attachable/lace,
 		/obj/item/attachable/buildasentry,
+		/obj/item/attachable/shoulder_mount,
+		/obj/item/attachable/gyro,
 	)
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
@@ -237,7 +241,7 @@
 	reload_sound = 'sound/weapons/guns/interact/colt_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/colt_cocked.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/pistol/m1911
-	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/m1911)
+	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/m1911, /obj/item/ammo_magazine/pistol/m1911/ap)
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 21,"rail_x" = 17, "rail_y" = 22, "under_x" = 21, "under_y" = 15, "stock_x" = 21, "stock_y" = 17)
 	reciever_flags = AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_AUTO_EJECT_LOCKED
 	fire_delay = 0.2 SECONDS
@@ -258,6 +262,8 @@
 		/obj/item/attachable/quickfire,
 		/obj/item/attachable/lace,
 		/obj/item/attachable/buildasentry,
+		/obj/item/attachable/shoulder_mount,
+		/obj/item/attachable/gyro,
 	)
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	fire_delay = 0.15 SECONDS
@@ -271,6 +277,7 @@
 	desc = "A popular police firearm in the modern day. Chambered in 9x19mm."
 	icon_state = "g22"
 	worn_icon_state = "g22"
+	fire_animation = "g22_fire"
 	caliber = CALIBER_9X19 //codex
 	max_shells = 15 //codex
 	fire_sound = 'sound/weapons/guns/fire/beretta.ogg'
@@ -279,33 +286,14 @@
 	reload_sound = 'sound/weapons/guns/interact/beretta_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/beretta_cocked.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/pistol/g22
-	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/g22, /obj/item/ammo_magazine/pistol/g22tranq)
+	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/g22)
 	attachable_offset = list("muzzle_x" = 28, "muzzle_y" = 20,"rail_x" = 10, "rail_y" = 22, "under_x" = 21, "under_y" = 17, "stock_x" = 21, "stock_y" = 17)
 	burst_amount = 3
 	accuracy_mult = 1.15
 	scatter_unwielded = 0
 	aim_slowdown = 0.2
 	fire_delay = 0.2 SECONDS
-
-/obj/item/weapon/gun/pistol/g22/tranq
-	name = "\improper P-22 custom pistol"
-	desc = "A 20th century military firearm customized for special forces use, fires tranq darts to take down enemies nonlethally. It does not seem to accept any other attachments."
-	icon_state = "g22"
-	worn_icon_state = "g22"
-	caliber = CALIBER_9X19_TRANQUILIZER //codex
-	max_shells = 12 //codex
-	default_ammo_type = /obj/item/ammo_magazine/pistol/g22tranq
-	attachable_offset = list("muzzle_x" = 29, "muzzle_y" = 20,"rail_x" = 10, "rail_y" = 21, "under_x" = 21, "under_y" = 15, "stock_x" = 21, "stock_y" = 17)
-	starting_attachment_types = list(
-		/obj/item/attachable/lasersight,
-		/obj/item/attachable/suppressor,
-	)
-
-	fire_delay = 0.6 SECONDS
-	accuracy_mult = 1.2
-	accuracy_mult_unwielded = 1.15
-	damage_mult = 0.5
-
+	holstered_underlay_icon = 'ntf_modular/icons/obj/items/storage/holster.dmi'
 
 //-------------------------------------------------------
 //DEAGLE //Deagle Brand Deagle
@@ -336,6 +324,7 @@
 		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/lace,
 		/obj/item/attachable/buildasentry,
+		/obj/item/attachable/shoulder_mount,
 	)
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
@@ -384,6 +373,7 @@
 		/obj/item/attachable/buildasentry,
 		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/suppressor/unremovable/invisible,
+		/obj/item/attachable/shoulder_mount,
 	)
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
@@ -400,6 +390,7 @@
 /obj/item/weapon/gun/pistol/c99/tranq
 	desc = "An updated variant of an old eastern design, dating back to from the 20th century. Features an integrated silencer, and chambered in the razor small .22 rounds. This one is usually loaded with special low-recoil .22 dart rounds, which act as a dangerous tranquilizer."
 	default_ammo_type = /obj/item/ammo_magazine/pistol/c99t
+	fire_delay = 3 SECONDS
 
 //-------------------------------------------------------
 //PIZZACHIMP PROTECTION
@@ -436,7 +427,7 @@
 
 /obj/item/weapon/gun/pistol/standard_pocketpistol
 	name = "\improper P-17 pocket pistol"
-	desc = "A tiny pistol used by the TGMC as an emergency handgun meant to be stored about anywhere. Fits in boots. Uses .380 ACP stored in an eight round magazine."
+	desc = "A tiny pistol used by the NTC as an emergency handgun meant to be stored about anywhere. Fits in boots. Uses .380 ACP stored in an eight round magazine."
 	icon_state = "tp17"
 	worn_icon_state = "tp17"
 	fire_animation = "tp17_fire"
@@ -526,6 +517,7 @@
 		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/burstfire_assembly,
 		/obj/item/attachable/lace,
+		/obj/item/attachable/gyro,
 	)
 
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
@@ -553,7 +545,7 @@
 
 /obj/item/weapon/gun/pistol/vp78
 	name = "\improper VP78 combat pistol"
-	desc = "A massive, formidable automatic handgun chambered in 9mm squash-head rounds. Commonly seen in the hands of wealthy Nanotrasen members."
+	desc = "A massive, formidable automatic handgun chambered in 9mm squash-head rounds. Commonly seen in the hands of wealthy Ninetails members."
 	icon_state = "vp78"
 	worn_icon_state = "vp78"
 	caliber = CALIBER_9X19 //codex
@@ -583,7 +575,7 @@
 
 /obj/item/weapon/gun/pistol/mk90
 	name = "\improper MK90 Mod 4 combat pistol"
-	desc = "Standard issue pistol for Nanotrasen Contractors, based on MK88. Has inbuilt barrel charger. Lost it's inbuilt burst fire mode, but in exchange got much heavier punch. Fires 9mm armor piercing rounds."
+	desc = "Standard issue pistol for Ninetails Contractors, based on MK88. Has inbuilt barrel charger. Lost it's inbuilt burst fire mode, but in exchange got much heavier punch. Fires 9mm armor piercing rounds."
 	icon_state = "90m4"
 	worn_icon_state = "90m4"
 	caliber = CALIBER_9X19 //codex
@@ -634,7 +626,7 @@
 
 /obj/item/weapon/gun/pistol/mk100_gyrojet
 	name = "\improper MK100 mod 5 'Suppresor' gyrojet pistol"
-	desc = "A massive, formidable automatic handgun chambered with 15x50mm rocket propelled rounds. Commonly seen in the hands of wealthy Nanotrasen members, not because this weapon is expensive, but because you better have a power armor on, to not break your arm while firing this thing. Due to shell's rupture in target's body, high chance of causing shrapnel."
+	desc = "A massive, formidable automatic handgun chambered with 15x50mm rocket propelled rounds. Commonly seen in the hands of wealthy Ninetails members, not because this weapon is expensive, but because you better have a power armor on, to not break your arm while firing this thing. Due to shell's rupture in target's body, high chance of causing shrapnel."
 	icon_state = "100m5"
 	worn_icon_state = "100m5"
 	caliber = CALIBER_15X50 //codex
@@ -724,11 +716,11 @@
 
 /obj/item/weapon/gun/pistol/vsd_pistol
 	name = "\improper C96 pistol"
-	desc = "A 'riot control' weapon used by the protectors of colonies. Now adopted by the V.S.D, it is the standard side arm for all members. Firing armor piercing 9x19mm parabellum with a capacity of 15 rounds."
+	desc = "A 'riot control' weapon used by the protectors of colonies. Now adopted by the KZ, it is the standard side arm for all members. Firing armor piercing 9x19mm parabellum with a capacity of 22 rounds."
 	icon_state = "c96"
 	worn_icon_state = "c96"
 	caliber = CALIBER_9X19
-	max_shells = 15
+	max_shells = 17
 	fire_sound = 'sound/weapons/guns/fire/tp23.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/vp70_empty.ogg'
 	unload_sound = 'sound/weapons/guns/interact/uzi_unload.ogg'
@@ -746,34 +738,39 @@
 		/obj/item/attachable/heavy_barrel,
 		/obj/item/attachable/burstfire_assembly,
 		/obj/item/attachable/lace,
+		/obj/item/attachable/gyro,
 	)
 	attachable_offset = list("muzzle_x" = 29, "muzzle_y" = 21,"rail_x" = 2, "rail_y" = 23, "under_x" = 22, "under_y" = 15, "stock_x" = 23, "stock_y" = 13)
 
 	fire_delay = 0.2 SECONDS
-	accuracy_mult = 1.0
-	accuracy_mult_unwielded = 0.75
-	recoil = -2
-	aim_slowdown = 0.1
-	scatter = -1
+	accuracy_mult = 1.1
+	accuracy_mult_unwielded = 0.95
 	scatter_unwielded = 4
+	recoil = -2
+	recoil_unwielded = 0
+	akimbo_additional_delay = 1.1
+	akimbo_scatter_mod = 8
+	holstered_underlay_icon = 'ntf_modular/icons/obj/items/storage/holster.dmi'
 
 /obj/item/weapon/gun/pistol/vsd_pistol/standard
 	starting_attachment_types = list(/obj/item/attachable/reddot,/obj/item/attachable/compensator,/obj/item/attachable/lasersight,)
 
 /obj/item/weapon/gun/pistol/xmdivider
 	name = "\improper CC/104 'Divider' Revolver"
-	desc = "Intertech's one of a kind revolver. Fires custom incendiary .357 rounds, has firemode switch of single action and burst fire. Kicks like a fucking mule. You remember High Command saying: 'Don't let this get into enemy hands'."
-	icon = 'icons/obj/items/guns/pistols.dmi'
+	desc = "Intertech's one of a kind revolver. Fires specialized .357 rounds, has firemode switch of single action and burst fire. Kicks like a fucking mule. You remember High Command saying: 'Don't let this get into enemy hands'."
+	icon = 'ntf_modular/icons/obj/items/guns/pistols.dmi'
 	icon_state = "c104"
 	worn_icon_state = "c104"
 	caliber = CALIBER_357 //codex
 	max_shells = 6
 	default_ammo_type = /obj/item/ammo_magazine/pistol/xmdivider
-	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/xmdivider)
+	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/xmdivider, /obj/item/ammo_magazine/pistol/xmdivider/ap)
 	force = 8
 	actions_types = null
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet/converted,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonet/som,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/compensator,
@@ -781,22 +778,26 @@
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/lace,
+		/obj/item/attachable/gyro,
 	)
 	attachable_offset = list("muzzle_x" = 32, "muzzle_y" = 20, "rail_x" = 17, "rail_y" = 22, "under_x" = 29, "under_y" = 15, "stock_x" = 10, "stock_y" = 18)
 	windup_delay = 0.5 SECONDS
 	aim_slowdown = 0.1
 	burst_amount = 3
-	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE)
+	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO, GUN_FIREMODE_BURSTFIRE)
 	windup_sound = 'sound/weapons/guns/fire/t76_start.ogg'
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_r76.ogg'
-	fire_delay = 0.75 SECONDS
-	akimbo_additional_delay = 0.6
-	accuracy_mult_unwielded = 0.85
+	fire_delay = 0.5 SECONDS
+	akimbo_additional_delay = 1
+	accuracy_mult_unwielded = 0.5
 	accuracy_mult = 1
-	scatter_unwielded = 5
+	scatter_unwielded = 25
 	scatter = 2
 	recoil = 4
-	recoil_unwielded = 3
+	recoil_unwielded = 12
+	burst_scatter_mult = 1.2
+	akimbo_scatter_mod = 6 //fuck you
+	holstered_underlay_icon = 'ntf_modular/icons/obj/items/storage/holster.dmi'
 
 /obj/item/weapon/gun/pistol/xmdivider/gunslinger
 	starting_attachment_types = list(
@@ -822,7 +823,24 @@ It is a modified Beretta 93R, and can fire three round burst or single fire. Whe
 	default_ammo_type = /obj/item/ammo_magazine/pistol/auto9
 	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/auto9)
 	force = 15
-	attachable_allowed = list()
+	attachable_allowed = list(
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet/converted,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonet/som,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/angledgrip,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/burstfire_assembly,
+		/obj/item/attachable/lace,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/shoulder_mount,)
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
 
 
@@ -884,7 +902,7 @@ It is a modified Beretta 93R, and can fire three round burst or single fire. Whe
 
 /obj/item/weapon/gun/pistol/knife
 	name = "\improper M6 'Eclipse Raider' ballistic knife"
-	desc = "The back issue survival knife issued to a few TerraGov Marine Corps marines. There are a surprisingly large amount of attachment points on this... knife."
+	desc = "The back issue survival knife issued to a few Nine Tailed Fox operatives. There are a surprisingly large amount of attachment points on this... knife."
 	icon = 'icons/obj/items/weapons/knives.dmi'
 	icon_state = "elite_knife"
 	reload_sound = 'sound/weapons/flipblade.ogg'
@@ -923,10 +941,15 @@ It is a modified Beretta 93R, and can fire three round burst or single fire. Whe
 		/obj/item/attachable/lace,
 	)
 
+/obj/item/weapon/gun/pistol/knife/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/scalping)
+	AddElement(/datum/element/shrapnel_removal, 15 SECONDS)
+
 // Smart pistol, based on the MP-9.
 /obj/item/weapon/gun/pistol/smart_pistol
 	name = "\improper SP-13 smart machinepistol"
-	desc = "The SP-13 is a IFF-capable sidearm used by the TerraGov Marine Corps. Cutting edge advancements in cost cutting allows for anyone to use this pistol without training due to the simplified KTLD system used at the cost of the barrel muzzle device. Uses 9mm."
+	desc = "The SP-13 is a IFF-capable sidearm used by the Nine-Tailed Fox. Cutting edge advancements in cost cutting allows for anyone to use this pistol without training due to the simplified KTLD system used at the cost of the barrel muzzle device. Uses 9mm."
 	icon_state = "sp13"
 	worn_icon_state = "sp13"
 	caliber = CALIBER_9X19 //codex
@@ -940,6 +963,8 @@ It is a modified Beretta 93R, and can fire three round burst or single fire. Whe
 		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/flashlight,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/motiondetector/advanced/pocket,
 	)
 
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_IFF|GUN_SMOKE_PARTICLES
@@ -949,7 +974,7 @@ It is a modified Beretta 93R, and can fire three round burst or single fire. Whe
 	attachable_offset = list("muzzle_x" = 29, "muzzle_y" = 20,"rail_x" = 13, "rail_y" = 23, "under_x" = 19, "under_y" = 13, "stock_x" = 21, "stock_y" = 17)
 
 	aim_slowdown = 0.35
-	wield_delay = 0.65 SECONDS
+	wield_delay = 0.45 SECONDS
 	fire_delay = 0.2 SECONDS
 	accuracy_mult = 1.2
 	accuracy_mult_unwielded = 0.85
@@ -961,4 +986,5 @@ It is a modified Beretta 93R, and can fire three round burst or single fire. Whe
 /obj/item/weapon/gun/pistol/smart_pistol/pmc
 	starting_attachment_types = list(
 		/obj/item/attachable/reddot,
+		/obj/item/attachable/motiondetector/advanced/sg,
 	)

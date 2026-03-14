@@ -114,6 +114,9 @@ GLOBAL_REAL(Master, /datum/controller/master)
 					_subsystems += existing_subsystem
 				else
 					_subsystems += new I
+					if(GLOB.runtimes_restarting_mc)
+						log_world("Encountered runtime creating [I] while attmpting to restart MC, aborting")
+						return
 
 	if(!GLOB)
 		new /datum/controller/global_vars
@@ -121,7 +124,7 @@ GLOBAL_REAL(Master, /datum/controller/master)
 /datum/controller/master/Destroy()
 	..()
 	// Tell qdel() to Del() this object.
-	return QDEL_HINT_HARDDEL_NOW
+	. = QDEL_HINT_HARDDEL_NOW
 
 /datum/controller/master/Shutdown()
 	processing = FALSE
@@ -235,10 +238,13 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 	SStgui.update_uis(src)
 	already_updating = FALSE
 
+GLOBAL_VAR(runtimes_restarting_mc)
+
 // Returns 1 if we created a new mc, 0 if we couldn't due to a recent restart,
 //	-1 if we encountered a runtime trying to recreate it
 /proc/Recreate_MC()
 	. = -1 //so if we runtime, things know we failed
+	amia_arbitrary_status_update("Master Controller Fault.  Attempting to recreate MC.\nPlayers online: [length(GLOB.whitelisted_clients)]")
 	if (world.time < Master.restart_timeout)
 		return 0
 	if (world.time < Master.restart_clear)
@@ -249,10 +255,14 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 	Master.restart_clear = world.time + (delay * 2)
 	if(Master) //Can only do this if master hasn't been deleted
 		Master.processing = FALSE //stop ticking this one
-	try
-		new/datum/controller/master()
-	catch
+	GLOB.runtimes_restarting_mc = 0
+	log_world("Recreating MC.  Runtimes after this may cause failure:")
+	new/datum/controller/master()
+	if(GLOB.runtimes_restarting_mc)
+		log_world("[GLOB.runtimes_restarting_mc] runtimes caused MC restart failure!")
+		GLOB.runtimes_restarting_mc = null
 		return -1
+	log_world("MC recreated with no runtimes")
 	return 1
 
 
@@ -271,22 +281,47 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 		var/varval = master_attributes[varname]
 		if (isdatum(varval)) // Check if it has a type var.
 			var/datum/D = varval
-			msg += "\t [varname] = [D]([D.type])\n"
+			msg += "\t [varname] = [logdetails(D)]([D.ref_search_details()])\n"
 		else
-			msg += "\t [varname] = [varval]\n"
+			if(islist(varval))
+				msg += "\t [varname] = list("
+				for(var/datum/item AS in varval)
+					if(isdatum(item))
+						msg += "{[logdetails(item)]([item.ref_search_details()])},"
+					else
+						if(islist(item))
+							msg += "{list([json_encode(item)])},"
+						else
+							msg +="{[logdetails(item)]},"
+				msg += ")\n"
+			else
+				msg += "\t [varname] = [logdetails(varval)]\n"
 	log_world(msg)
 
 	var/datum/controller/subsystem/BadBoy = Master.last_type_processed
+	var/datum/controller/subsystem/processing/BadBoy_processing = BadBoy
 	var/FireHim = FALSE
 	if(istype(BadBoy))
 		msg = null
 		LAZYINITLIST(BadBoy.failure_strikes)
 		switch(++BadBoy.failure_strikes[BadBoy.type])
+			if(1)
+				if(istype(BadBoy_processing))
+					msg = "The subsystem [logdetails(BadBoy)]([BadBoy.ref_search_details()]) was the last to fire for a controller restart while processing [logdetails(BadBoy_processing.currently_processing)][isdatum(BadBoy_processing.currently_processing) ? "([BadBoy_processing.currently_processing.ref_search_details()])" : ""].  Attempting to stop processing this item:"
+					if(BadBoy_processing.currently_processing)
+						if(BadBoy_processing.currently_processing.datum_flags & DF_ISPROCESSING)
+							STOP_PROCESSING(BadBoy_processing, BadBoy_processing.currently_processing)
+							msg += "Done."
+						else
+							msg += "Failed, already stopped."
+					else
+						msg += "Failed, item nulled."
+
 			if(2)
-				msg = "The [BadBoy.name] subsystem was the last to fire for 2 controller restarts. It will be recovered now and disabled if it happens again."
+				msg = "The subsystem [logdetails(BadBoy)]([BadBoy.ref_search_details()]) was the last to fire for 2 controller restarts. It will be recovered now and disabled if it happens again."
 				FireHim = TRUE
 			if(3)
-				msg = "The [BadBoy.name] subsystem seems to be destabilizing the MC and will be offlined."
+				msg = "The subsystem [logdetails(BadBoy)]([BadBoy.ref_search_details()]) seems to be destabilizing the MC and will be offlined."
 				BadBoy.flags |= SS_NO_FIRE
 		if(msg)
 			to_chat(GLOB.admins, span_boldannounce("[msg]"))
@@ -297,8 +332,10 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 			Master.subsystems += new BadBoy.type	//NEW_SS_GLOBAL will remove the old one
 		subsystems = Master.subsystems
 		current_runlevel = Master.current_runlevel
+		log_world("About to start processing new Master, in Recover()")
 		StartProcessing(10)
 	else
+		log_world("The Master Controller is having some issues, we will need to re-initialize EVERYTHING")
 		to_chat(world, span_boldannounce("The Master Controller is having some issues, we will need to re-initialize EVERYTHING"))
 		Initialize(20, TRUE)
 
@@ -320,6 +357,7 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 	init_stage_completed = 0
 	var/mc_started = FALSE
 
+	log_world("Initializing subsystems...")
 	to_chat(world, span_boldannounce("Initializing subsystems..."), MESSAGE_TYPE_DEBUG)
 
 	var/list/stage_sorted_subsystems = new(INITSTAGE_MAX)
@@ -550,12 +588,13 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 	set waitfor = 0
 	if(delay)
 		sleep(delay)
-	testing("Master starting processing")
+	log_world("MC: StartProcessing() starting")
 	var/started_stage
 	var/rtn = -2
 	do
 		started_stage = init_stage_completed
 		rtn = Loop(started_stage)
+		log_world("MC: StartProcessing() - Loop finished, rtn = [rtn], processing = [processing], started_stage = [started_stage], init_stage_completed = [init_stage_completed]")
 	while (rtn == MC_LOOP_RTN_NEWSTAGES && processing > 0 && started_stage < init_stage_completed)
 
 	if (rtn >= MC_LOOP_RTN_GRACEFUL_EXIT || processing < 0)
@@ -650,6 +689,8 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 			if (starting_tick_usage > TICK_LIMIT_MC) //if there isn't enough time to bother doing anything this tick, sleep a bit.
 				sleep_delta *= 2
 				current_ticklimit = TICK_LIMIT_RUNNING * 0.5
+				if(iteration < 3)
+					log_world("MC: High tick contention on iteration [iteration].  sleep_delta increased from [sleep_delta/2] to [sleep_delta].  current_ticklimit decreased from [current_ticklimit * 2] to current_ticklimit.  world.tick_lag = [world.tick_lag].  processing = [processing].  Master loop will now sleep for [world.tick_lag * (processing * sleep_delta)] deciseconds")
 				sleep(world.tick_lag * (processing * sleep_delta))
 				continue
 
@@ -685,8 +726,12 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 				for(var/datum/controller/subsystem/SS as anything in current_runlevel_subsystems)
 					//we only want to offset it if it's new and also behind
 					if(SS.next_fire > world.time || (SS in old_subsystems))
+						if(iteration < 3)
+							log_world("MC: Loop() skipping [logdetails(SS)], SS.next_fire = [SS.next_fire], world.time = [world.time], world.tick_lag = [world.tick_lag]")
 						continue
 					SS.next_fire = world.time + world.tick_lag * rand(0, DS2TICKS(min(SS.wait, 2 SECONDS)))
+					if(iteration < 3)
+						log_world("MC: Loop() just set next_fire of [logdetails(SS)] to = [SS.next_fire], world.time = [world.time], world.tick_lag = [world.tick_lag]")
 
 			subsystems_to_check = current_runlevel_subsystems
 		else
@@ -763,12 +808,15 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 // This is what decides if something should run.
 /datum/controller/master/proc/CheckQueue(list/subsystemstocheck)
 	. = 0 //so the mc knows if we runtimed
-
+	if(iteration < 3)
+		log_world("MC: entering CheckQueue() on MC iteration [iteration], subsystemstocheck = [json_encode(subsystemstocheck)]")
 	//we create our variables outside of the loops to save on overhead
 	var/datum/controller/subsystem/SS
 	var/SS_flags
 
 	for (var/thing in subsystemstocheck)
+		if(iteration < 3)
+			log_world("MC: CheckQueue() considering whether to enqueue [logdetails(thing)] on MC iteration [iteration]")
 		if (!thing)
 			subsystemstocheck -= thing
 		SS = thing
@@ -784,6 +832,8 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 			continue
 		if ((SS_flags & (SS_TICKER|SS_KEEP_TIMING)) == SS_KEEP_TIMING && SS.last_fire + (SS.wait * 0.75) > world.time)
 			continue
+		if(iteration < 3)
+			log_world("MC: CheckQueue() about to enqueue [logdetails(SS)] on MC iteration [iteration]")
 		SS.enqueue()
 	. = 1
 
@@ -792,6 +842,8 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 /// Returns 0 if runtimed, a negitive number for logic errors, and a positive number if the operation completed without errors
 /datum/controller/master/proc/RunQueue()
 	. = 0
+	if(iteration < 3)
+		log_world("MC: entering RunQueue() on MC iteration [iteration]")
 	var/datum/controller/subsystem/queue_node
 	var/queue_node_flags
 	var/queue_node_priority
@@ -811,6 +863,8 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 		bg_calc = FALSE
 		current_tick_budget = queue_priority_count
 		queue_node = queue_head
+		if(iteration < 3)
+			log_world("MC: RunQueue() starting queue at [logdetails(queue_node)], MC iteration = [iteration].")
 		while (queue_node)
 			if (ran && TICK_USAGE > TICK_LIMIT_RUNNING)
 				break
@@ -861,8 +915,12 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 				world.Profile(PROFILE_START)
 
 			tick_usage = TICK_USAGE
+			if(iteration < 3)
+				log_world("MC: RunQueue() About to ignite [logdetails(queue_node)], tick_usage = [tick_usage], MC iteration = [iteration].")
 			var/state = queue_node.ignite(queue_node_paused)
 			tick_usage = TICK_USAGE - tick_usage
+			if(iteration < 3)
+				log_world("MC: RunQueue() Just ignited [logdetails(queue_node)], tick_usage = [tick_usage], MC iteration = [iteration].")
 
 			if(use_rolling_usage)
 				queue_node.prune_rolling_usage()
@@ -881,6 +939,8 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 			if (tick_usage < 0)
 				tick_usage = 0
 			queue_node.tick_overrun = max(0, MC_AVG_FAST_UP_SLOW_DOWN(queue_node.tick_overrun, tick_usage-tick_precentage))
+			if(iteration < 3)
+				log_world("MC: RunQueue() Setting new tick overrun of [logdetails(queue_node)] to [queue_node.tick_overrun], MC iteration = [iteration].")
 			queue_node.state = state
 
 			if (state == SS_PAUSED)
@@ -921,7 +981,12 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 			queue_node.dequeue()
 
 			queue_node = queue_node.queue_next
-
+			if(iteration < 3)
+				log_world("MC: RunQueue() completed processing a subsystem, queued [logdetails(queue_node)], MC iteration = [iteration].")
+		if(iteration < 3)
+			log_world("MC: RunQueue() exited inner loop, queue_node = [logdetails(queue_node)], MC iteration = [iteration].")
+	if(iteration < 3)
+		log_world("MC: RunQueue() exited outer loop, ran = [ran], queue_head = [logdetails(queue_head)], tick_usage = [TICK_USAGE], MC iteration = [iteration].")
 	if (. == 0)
 		. = 1
 
@@ -997,7 +1062,7 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 /datum/controller/master/proc/UpdateTickRate()
 	if (!processing)
 		return
-	var/client_count = length(GLOB.clients)
+	var/client_count = length(GLOB.whitelisted_clients)
 	if (client_count < CONFIG_GET(number/mc_tick_rate/disable_high_pop_mc_mode_amount))
 		processing = CONFIG_GET(number/mc_tick_rate/base_mc_tick_rate)
 	else if (client_count > CONFIG_GET(number/mc_tick_rate/high_pop_mc_mode_amount))

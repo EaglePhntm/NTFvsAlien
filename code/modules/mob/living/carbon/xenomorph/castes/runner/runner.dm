@@ -2,7 +2,7 @@
 	caste_base_type = /datum/xeno_caste/runner
 	name = "Runner"
 	desc = "A small red alien that looks like it could run fairly quickly..."
-	icon = 'icons/Xeno/castes/runner.dmi' //They are now like, 2x1 or something
+	icon = 'ntf_modular/icons/Xeno/castes/runner.dmi' //They are now like, 2x1 or something
 	icon_state = "Runner Walking"
 	bubble_icon = "alienleft"
 	health = 100
@@ -16,7 +16,7 @@
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 	)
 
-/mob/living/carbon/xenomorph/runner/Initialize(mapload)
+/mob/living/carbon/xenomorph/runner/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_LIGHT_STEP, XENO_TRAIT)
 
@@ -72,7 +72,7 @@
 	/// The amount of melting acid stacks to be applied.
 	var/applied_acid_stacks = 2
 
-/mob/living/carbon/xenomorph/runner/melter/Initialize(mapload)
+/mob/living/carbon/xenomorph/runner/melter/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	RegisterSignal(src, COMSIG_XENOMORPH_ATTACK_OBJ, PROC_REF(on_attack_obj))
 	RegisterSignal(src, COMSIG_XENOMORPH_POSTATTACK_LIVING, PROC_REF(on_postattack_living))

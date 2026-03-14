@@ -42,6 +42,8 @@
 /turf/open/floor/plating/ground/snow/attack_alien(mob/living/carbon/xenomorph/M, damage_amount = M.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(M.status_flags & INCORPOREAL)
 		return
+	if(M.handcuffed)
+		return
 
 	if(M.a_intent == INTENT_GRAB)
 		if(!slayer)
@@ -51,7 +53,7 @@
 		M.visible_message(span_notice("\The [M] starts clearing out \the [src]."), \
 		span_notice("We start clearing out \the [src]."), null, 5)
 		playsound(M.loc, 'sound/weapons/alien_claw_swipe.ogg', 25, 1)
-		if(!do_after(M, 0.5 SECONDS, IGNORE_HELD_ITEM, src, BUSY_ICON_BUILD))
+		if(!do_after(M, 5, FALSE, src, BUSY_ICON_BUILD))
 			return FALSE
 
 		if(!slayer)
@@ -77,7 +79,7 @@
 			return
 
 		to_chat(user, "Now planting \the [L].")
-		if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_BUILD))
+		if(!do_after(user,20, TRUE, src, BUSY_ICON_BUILD))
 			return
 
 		user.visible_message(span_notice("[user.name] planted \the [L] into [src]."))

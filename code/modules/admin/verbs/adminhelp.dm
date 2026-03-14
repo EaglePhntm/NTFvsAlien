@@ -290,13 +290,20 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	else
 		MessageNoRecipient(msg_raw)
 
-		//send it to TGS if nobody is on and tell us how many were on
+		/*//send it to TGS if nobody is on and tell us how many were on
 		var/ticket_type = (tier == TICKET_ADMIN) ? "Admin" : "Mentor"
 		var/admin_number_present = send2tgs_adminless_only(initiator_ckey, "[ticket_type] Ticket #[id]: [sanitizediscord(name)]")
 		log_admin_private("Ticket #[id]: [key_name(initiator)]: [name] - heard by [admin_number_present] non-AFK staff.")
 		if(admin_number_present <= 0)
 			to_chat(C, span_notice("No active admins are online, your adminhelp was sent through TGS to admins who are available. This may use IRC or Discord."))
-			heard_by_no_admins = TRUE
+			heard_by_no_admins = TRUE*/
+		var/list/admemes = get_admin_counts(0)["present"]
+		if(admemes.len <= 0)
+			log_admin_private("No readminned admemes are present...")
+			if(CONFIG_GET(flag/amia_enabled))
+				log_admin_private("Automatic Mia is enabled, sending their whines to discord.")
+				to_chat(C, span_notice("No active admins are online. Your ahelp will try to be relayed to the admin channel now. Thank you for your patience."))
+				amia_ahelprelay(id,initiator_ckey,msg)
 
 	GLOB.ahelp_tickets.active_tickets += src
 

@@ -24,18 +24,46 @@
 		switch(round(health * 100 / maxHealth))
 			if(100 to INFINITY)
 				hud_used.healths.icon_state = "health0"
-			if(75 to 99)
+			if(95 to 100)
 				hud_used.healths.icon_state = "health1"
-			if(50 to 74)
+			if(90 to 95)
 				hud_used.healths.icon_state = "health2"
-			if(25 to 49)
+			if(85 to 90)
 				hud_used.healths.icon_state = "health3"
-			if(10 to 24)
+			if(80 to 85)
 				hud_used.healths.icon_state = "health4"
-			if(0 to 9)
+			if(75 to 80)
 				hud_used.healths.icon_state = "health5"
-			else
+			if(70 to 75)
 				hud_used.healths.icon_state = "health6"
+			if(65 to 70)
+				hud_used.healths.icon_state = "health7"
+			if(60 to 65)
+				hud_used.healths.icon_state = "health8"
+			if(55 to 60)
+				hud_used.healths.icon_state = "health9"
+			if(50 to 55)
+				hud_used.healths.icon_state = "health10"
+			if(45 to 50)
+				hud_used.healths.icon_state = "health11"
+			if(40 to 45)
+				hud_used.healths.icon_state = "health12"
+			if(35 to 40)
+				hud_used.healths.icon_state = "health13"
+			if(30 to 35)
+				hud_used.healths.icon_state = "health14"
+			if(25 to 30)
+				hud_used.healths.icon_state = "health15"
+			if(20 to 25)
+				hud_used.healths.icon_state = "health16"
+			if(15 to 20)
+				hud_used.healths.icon_state = "health17"
+			if(10 to 15)
+				hud_used.healths.icon_state = "health18"
+			if(5 to 10)
+				hud_used.healths.icon_state = "health19"
+			else
+				hud_used.healths.icon_state = "health20"
 
 ///gives humans oxy when moved around in certain conditions. called on COMSIG_MOVABLE_MOVED
 /mob/living/carbon/human/proc/on_crit_moved(datum/source, atom/old_loc, movement_dir, forced = FALSE, list/old_locs)

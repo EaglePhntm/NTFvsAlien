@@ -5,7 +5,7 @@
 	screen_overlay = "cameras"
 	broken_icon = "computer_small_red_broken"
 	circuit = /obj/item/circuitboard/computer/security
-	var/list/network = list("marinemainship")
+	var/list/network = list("colony")
 	var/list/watchers = list() //who's using the console, associated with the camera they're on.
 	var/long_ranged = FALSE
 
@@ -18,7 +18,7 @@
 /obj/machinery/computer/security/check_eye(mob/living/user)
 	if(!istype(user))
 		return
-	if((machine_stat & (NOPOWER|BROKEN|DISABLED)) || user.incapacitated() || user.eye_blind )
+	if((machine_stat & (NOPOWER|BROKEN|DISABLED)) || user.incapacitated() || user.isBlind() )
 		user.unset_interaction()
 		return
 	if(!(user in watchers))
@@ -97,7 +97,7 @@
 
 	if(C)
 		var/camera_fail = FALSE
-		if(!C.can_use() || user.eye_blind || user.incapacitated())
+		if(!C.can_use() || user.isBlind() || user.incapacitated())
 			camera_fail = TRUE
 		else if(long_ranged)
 			var/list/viewing = viewers(src)
@@ -209,10 +209,10 @@
 	density = FALSE
 	icon_state = "computer_small"
 	screen_overlay = "security_cam"
-	network = list("marinemainship")
+	network = list("marinemainship", "colony")
 
 /obj/machinery/computer/security/marinemainship_network
-	network = list("marinemainship")
+	network = list("marinemainship", "colony")
 
 /obj/machinery/computer/security/marine_network
 	network = list("marine")
@@ -234,12 +234,12 @@
 
 /obj/machinery/computer/security/dropship/one
 	name = "\improper 'Alamo' camera controls"
-	network = list("dropship1")
+	network = list("dropship1", "landing zones")
 	opacity = FALSE
 
 /obj/machinery/computer/security/dropship/two
 	name = "\improper 'Normandy' camera controls"
-	network = list("dropship2")
+	network = list("dropship2", "landing zones")
 
 /obj/machinery/computer/security/dropship/three
 	name = "\improper 'Triump' camera controls"

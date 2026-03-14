@@ -1,0 +1,37 @@
+/datum/game_mode/infestation/secret_of_life/extended_plus/extended_surv
+	name = "Extended - Survivor-Heavy"
+	config_tag = "Extended - Survivor-Heavy"
+	round_type_flags = MODE_INFESTATION|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_ALLOW_XENO_QUICKBUILD|MODE_MUTATIONS_OBTAINABLE|MODE_XENO_GRAB_DEAD_ALLOWED|MODE_SINGLE_USE_NUKE_DISK_GENERATOR|MODE_CHILL_RULES|MODE_SURVIVAL
+	valid_job_types = list(
+		/datum/job/terragov/squad/leader = 1,
+		/datum/job/terragov/squad/engineer = 1,
+		/datum/job/terragov/squad/corpsman = 1,
+		/datum/job/other/prisoner = 2,
+		/datum/job/xenomorph = FREE_XENO_AT_START,
+		/datum/job/xenomorph/queen = 1,
+		/datum/job/clf/medic = 1,
+		/datum/job/clf/tech = 2,
+		/datum/job/other/prisonerclf = 2,
+		/datum/job/som/command/staffofficer = 1,
+		/datum/job/som/squad/medic = 1,
+		/datum/job/som/squad/engineer = 1,
+		/datum/job/other/prisonersom = 2,
+		/datum/job/survivor/assistant = -1,
+		/datum/job/survivor/scientist = -1,
+		/datum/job/survivor/doctor = -1,
+		/datum/job/survivor/liaison = -1,
+		/datum/job/survivor/security = -1,
+		/datum/job/survivor/civilian = -1,
+		/datum/job/survivor/chef = -1,
+		/datum/job/survivor/botanist = -1,
+		/datum/job/survivor/atmos = -1,
+		/datum/job/survivor/chaplain = -1,
+		/datum/job/survivor/miner = -1,
+		/datum/job/survivor/salesman = -1,
+		/datum/job/survivor/marshal = -1,
+		/datum/job/survivor/non_deployed_operative = -1,
+		/datum/job/survivor/prisoner = -1,
+		/datum/job/survivor/stripper = -1,
+		/datum/job/survivor/maid = -1,
+		/datum/job/survivor/synth = -1,
+	)

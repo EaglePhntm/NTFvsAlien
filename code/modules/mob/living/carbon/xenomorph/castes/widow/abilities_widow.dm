@@ -3,9 +3,19 @@
 // ***************************************
 /datum/action/ability/activable/xeno/secrete_resin/widow
 	buildable_structures = list(
+		//Each entry corresponds to an entry in the global resin_images_list, in order.
+		//Make sure to keep them synced up.
 		/turf/closed/wall/resin/regenerating/thick,
+		/turf/closed/wall/resin/membrane,
 		/obj/alien/resin/sticky,
 		/obj/structure/mineral_door/resin/thick,
+		/obj/structure/bed/nest,
+		/obj/structure/xeno/lighttower,
+		/obj/structure/bed/nest/advanced,
+		/obj/structure/bed/nest/advanced/special,
+		/turf/closed/wall/resin/regenerating/special/bulletproof,
+		/turf/closed/wall/resin/regenerating/special/fireproof,
+		/turf/closed/wall/resin/regenerating/special/hardy,
 	)
 
 // ***************************************
@@ -55,7 +65,6 @@
 	if(!do_after(xeno_owner, 1 SECONDS, NONE, xeno_owner, BUSY_ICON_DANGER))
 		return fail_activate()
 	var/datum/ammo/xeno/leash_ball = GLOB.ammo_list[/datum/ammo/xeno/leash_ball]
-	leash_ball.hivenumber = xeno_owner.hivenumber
 	var/atom/movable/projectile/newspit = new (get_turf(xeno_owner))
 
 	newspit.generate_bullet(leash_ball)
@@ -121,8 +130,10 @@
 		return COMPONENT_MOVABLE_BLOCK_PRE_MOVE
 
 /// This is so that xenos can remove leash balls
-/obj/structure/xeno/aoe_leash/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/structure/xeno/aoe_leash/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(xeno_attacker.status_flags & INCORPOREAL)
+		return
+	if(xeno_attacker.handcuffed)
 		return
 	if(HAS_TRAIT(xeno_attacker, TRAIT_WEB_PULLER))
 		xeno_attacker.balloon_alert(xeno_attacker, "pulling...")
@@ -222,7 +233,7 @@
 /// Adds spiderlings to spiderling list and registers them for death so we can remove them later
 /datum/action/ability/xeno_action/create_spiderling/proc/add_spiderling()
 	/// This creates and stores the spiderling so we can reassign the owner for spider swarm and cap how many spiderlings you can have at once
-	var/mob/living/carbon/xenomorph/spiderling/new_spiderling = new(owner.loc, owner, owner)
+	var/mob/living/carbon/xenomorph/spiderling/new_spiderling = new(owner.loc, TRUE, owner.get_xeno_hivenumber(), owner)
 	RegisterSignals(new_spiderling, list(COMSIG_MOB_DEATH, COMSIG_QDELETING), PROC_REF(remove_spiderling))
 	spiderlings += new_spiderling
 	new_spiderling.pixel_x = rand(-8, 8)
@@ -310,6 +321,9 @@
 		to_chat(xeno_owner, span_xenowarning("We start burrowing into the ground..."))
 		INVOKE_ASYNC(src, PROC_REF(xeno_burrow_doafter))
 		return
+	var/mob/living/carbon/human/hauled = xeno_owner.eaten_mob
+	if(hauled && HAS_TRAIT(hauled, TRAIT_HAULED))
+		hauled.forceMove(xeno_owner.loc)
 	UnregisterSignal(xeno_owner, COMSIG_XENOMORPH_TAKING_DAMAGE)
 	ADD_TRAIT(xeno_owner, TRAIT_NON_FLAMMABLE, initial(name))
 	xeno_owner.soft_armor = xeno_owner.soft_armor.modifyRating(fire = 100)
@@ -329,6 +343,10 @@
 /datum/action/ability/xeno_action/burrow/proc/xeno_burrow_doafter()
 	if(!do_after(owner, 3 SECONDS, NONE, null, BUSY_ICON_DANGER))
 		return
+	var/mob/living/carbon/human/hauled = xeno_owner.eaten_mob
+
+	if(hauled && HAS_TRAIT(hauled, TRAIT_HAULED))
+		hauled.forceMove(src)
 	to_chat(owner, span_xenowarning("We are now burrowed, hidden in plain sight and ready to strike."))
 	// This part here actually burrows the xeno
 	owner.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -362,7 +380,7 @@
 	///the attached spiderlings
 	var/list/mob/living/carbon/xenomorph/spiderling/attached_spiderlings = list()
 	///how many times we attempt to attach adjacent spiderligns
-	var/attach_attempts = 5
+	var/attach_attempts = 8
 
 /datum/action/ability/xeno_action/attach_spiderlings/action_activate()
 	. = ..()

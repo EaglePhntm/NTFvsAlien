@@ -42,6 +42,8 @@
 	SIGNAL_HANDLER
 	if(attacker.status_flags & INCORPOREAL)
 		return FALSE
+	if(attacker.handcuffed)
+		return FALSE
 	shock(source, attacker)
 
 /datum/element/egrill/proc/shock(obj/source, mob/living/user)

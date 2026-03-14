@@ -1,6 +1,6 @@
 /obj/vehicle/sealed/armored
 	name = "\improper MT - Shortstreet MK4"
-	desc = "An adorable chunk of metal with an alarming amount of firepower designed to crush, immolate, destroy and maim anything that Nanotrasen wants it to. This model contains advanced Bluespace technology which allows a TARDIS-like amount of room on the inside."
+	desc = "An adorable chunk of metal with an alarming amount of firepower designed to crush, immolate, destroy and maim anything that Ninetails wants it to. This model contains advanced Bluespace technology which allows a TARDIS-like amount of room on the inside."
 	icon = 'icons/obj/armored/1x1/tinytank.dmi'
 	icon_state = "tank"
 	pixel_x = -16
@@ -49,7 +49,7 @@
 	///reference to our interior datum if set, uses the typepath its set to
 	var/datum/interior/armored/interior
 	///Skill required to enter this vehicle
-	var/required_entry_skill = SKILL_LARGE_VEHICLE_DEFAULT
+	var/required_entry_skill = 0
 	///What weapon we have in our primary slot
 	var/obj/item/armored_weapon/primary_weapon
 	///What weapon we have in our secondary slot
@@ -69,7 +69,8 @@
 	var/list/permitted_mods = list(
 		/obj/item/tank_module/overdrive,
 		/obj/item/tank_module/passenger,
-		/obj/item/tank_module/ability/zoom
+		/obj/item/tank_module/ability/zoom,
+		/obj/item/tank_module/ability/smoke_launcher
 	)
 	///Minimap flags to use for this vehcile
 	var/minimap_flags = MINIMAP_FLAG_MARINE
@@ -81,6 +82,8 @@
 	var/zoom_mode = FALSE
 	/// damage done by rams
 	var/ram_damage = 20
+	///the timer used for ram cooldown
+	var/ram_cooldown = 0
 	/**
 	 * List for storing all item typepaths that we may "easy load" into the tank by attacking its entrance
 	 * This will be turned into a typeCache on  initialize
@@ -88,10 +91,14 @@
 	var/list/easy_load_list
 	///Wether we are strafing
 	var/strafe = FALSE
+	///How many humans this is worth for silo gen calcs
+	var/larva_value = 5
 	///How close a wrecked vehicle is to being prepared for repair
 	var/wreck_repair_stage = 0
 
 /obj/vehicle/sealed/armored/Initialize(mapload)
+	if(type != /obj/vehicle/sealed/armored/multitile) //TODO: TESTING ONLY, SO MRAP DOESN'T HAVE A VALUE OF 5 IN A SEPARATE PR
+		larva_value = 0
 	easy_load_list = typecacheof(easy_load_list)
 	if(interior)
 		interior = new interior(src, CALLBACK(src, PROC_REF(interior_exit)))
@@ -390,6 +397,7 @@
 		RegisterSignal(M, COMSIG_MOB_DEATH, PROC_REF(mob_exit), TRUE)
 		RegisterSignal(M, COMSIG_LIVING_DO_RESIST, TYPE_PROC_REF(/atom/movable, resisted_against), TRUE)
 	. = ..()
+	update_minimap_icon()
 	if(primary_weapon)
 		var/list/primary_icons
 		if(primary_weapon.ammo)
@@ -443,7 +451,8 @@
 	UnregisterSignal(M, COMSIG_LIVING_DO_RESIST)
 	idle_inside_loop?.output_atoms -= M
 	drive_inside_loop?.output_atoms -= M
-	return ..()
+	. = ..()
+	update_minimap_icon()
 
 /obj/vehicle/sealed/armored/relaymove(mob/living/user, direction)
 	. = ..()
@@ -620,7 +629,7 @@
 			balloon_alert(user, "no gunner utility module")
 			return
 		balloon_alert(user, "detaching gunner utility")
-		if(!do_after(user, 2 SECONDS, NONE, src))
+		if(!do_after(user, 40 SECONDS, NONE, src))
 			return
 		gunner_utility_module.on_unequip(user)
 		balloon_alert(user, "detached")
@@ -638,7 +647,7 @@
 		balloon_alert(user, "no primary weapon")
 		return
 	balloon_alert(user, "detaching primary")
-	if(!do_after(user, 2 SECONDS, NONE, src))
+	if(!do_after(user, 40 SECONDS, NONE, src))
 		return
 	var/obj/item/armored_weapon/gun = primary_weapon
 	primary_weapon.detach(loc)
@@ -657,7 +666,7 @@
 		balloon_alert(user, "no secondary weapon")
 		return
 	balloon_alert(user, "detaching secondary")
-	if(!do_after(user, 2 SECONDS, NONE, src))
+	if(!do_after(user, 40 SECONDS, NONE, src))
 		return
 	var/obj/item/armored_weapon/gun = secondary_weapon
 	secondary_weapon.detach(loc)
@@ -673,7 +682,7 @@
 		balloon_alert(user, "no driver utility module")
 		return
 	balloon_alert(user, "detaching driver utility")
-	if(!do_after(user, 2 SECONDS, NONE, src))
+	if(!do_after(user, 40 SECONDS, NONE, src))
 		return
 	driver_utility_module.on_unequip(user)
 	balloon_alert(user, "detached")
@@ -756,6 +765,26 @@
 		return
 	INVOKE_ASYNC(selected, TYPE_PROC_REF(/obj/item/armored_weapon, begin_fire), user, target, modifiers)
 
+/obj/vehicle/sealed/armored/proc/update_minimap_flags()
+	minimap_flags = 0
+	var/list/candidate_occupants = (return_controllers_with_flag(VEHICLE_CONTROL_DRIVE) | return_controllers_with_flag(VEHICLE_CONTROL_MELEE) | return_controllers_with_flag(VEHICLE_CONTROL_EQUIPMENT) | return_controllers_with_flag(VEHICLE_CONTROL_SETTINGS)) | occupants
+	for(var/mob/occupant in candidate_occupants)
+		minimap_flags = GLOB.faction_to_minimap_flag[occupant.faction]
+		if(minimap_flags)
+			break
+	if(!minimap_flags)
+		minimap_flags = initial(minimap_flags)
+
+/obj/vehicle/sealed/armored/add_control_flags(mob/controller, flags)
+	. = ..()
+	if(.)
+		update_minimap_icon()
+
+/obj/vehicle/sealed/armored/remove_control_flags(mob/controller, flags)
+	. = ..()
+	if(.)
+		update_minimap_icon()
+
 ///Updates the vehicles minimap icon
 /obj/vehicle/sealed/armored/proc/update_minimap_icon()
 	if(!minimap_icon_state)
@@ -764,6 +793,7 @@
 	minimap_icon_state = initial(minimap_icon_state)
 	if(armored_flags & ARMORED_IS_WRECK)
 		minimap_icon_state += "_wreck"
+	update_minimap_flags()
 	SSminimaps.add_marker(src, minimap_flags, image('icons/UI_icons/map_blips_large.dmi', null, minimap_icon_state, MINIMAP_BLIPS_LAYER))
 
 /atom/movable/vis_obj/turret_overlay

@@ -1,9 +1,10 @@
 /datum/game_mode/hvh/campaign
 	name = "Campaign"
 	config_tag = "Campaign"
-	round_type_flags = MODE_TWO_HUMAN_FACTIONS|MODE_HUMAN_ONLY
+	round_type_flags = MODE_TWO_HUMAN_FACTIONS
 	whitelist_ship_maps = list(MAP_ITERON)
 	whitelist_ground_maps = list(MAP_FORT_PHOBOS)
+	whitelist_antag_maps = list(MAP_ANTAGMAP_NOSPAWN)
 	bioscan_interval = 3 MINUTES
 	valid_job_types = list(
 		/datum/job/terragov/squad/standard = -1,
@@ -24,9 +25,9 @@
 		/datum/job/som/command/commander = 1,
 	)
 	///The current mission type being played
-	var/datum/campaign_mission/current_mission
+	///var/datum/campaign_mission/current_mission ///moved to game_mode base
 	///campaign stats organised by faction
-	var/list/datum/faction_stats/stat_list = list()
+	////var/list/datum/faction_stats/stat_list = list() ///moved to game_mode base
 	///List of death times by ckey. Used for respawn time
 	var/list/player_death_times = list()
 	///List of timers to auto open the respawn window
@@ -34,15 +35,17 @@
 
 /datum/game_mode/hvh/campaign/announce()
 	to_chat(world, "<b>The current game mode is - Campaign!</b>")
-	to_chat(world, "<b>The fringe world of Palmaria is undergoing significant upheaval, with large portions of the population threatening to succeed from TerraGov. With the population on the brink of civil war, \
-	both TerraGov Marine Corp and the Sons of Mars forces are looking to intervene.")
+	to_chat(world, "<b>The fringe world of Palmaria is undergoing significant upheaval, with large portions of the population threatening to secede from NTC. With the population on the brink of civil war, \
+	both NTF and the Sons of Mars forces are looking to intervene.")
 	to_chat(world, "<b>Fight for your faction across the planet, the campaign for Palmaria starts now!</b>")
 	to_chat(world, "<b>WIP, report bugs on the github!</b>")
 
 /datum/game_mode/hvh/campaign/pre_setup()
 	. = ..()
+	/* NTF EDIT - moved to /datum/game_mode/proc/pre_setup()
 	for(var/faction in factions)
 		stat_list[faction] = new /datum/faction_stats(faction)
+	*/
 	RegisterSignals(SSdcs, list(COMSIG_GLOB_PLAYER_ROUNDSTART_SPAWNED, COMSIG_GLOB_PLAYER_LATE_SPAWNED), PROC_REF(register_faction_member))
 	RegisterSignals(SSdcs, list(COMSIG_GLOB_MOB_DEATH, COMSIG_MOB_GHOSTIZE), PROC_REF(set_death_time))
 	RegisterSignal(SSdcs, COMSIG_GLOB_CAMPAIGN_MISSION_ENDED, PROC_REF(end_mission))
@@ -81,9 +84,9 @@
 	var/op_name_faction_two = GLOB.operation_namepool[/datum/operation_namepool].get_random_name()
 	for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
 		if(human.faction == factions[1])
-			human.play_screen_text(HUD_ANNOUNCEMENT_FORMATTING(op_name_faction_one, "Fight to restore peace and order across the planet, and check the SOM threat.<br>" + "[GAME_YEAR]-[time2text(world.realtime, "MM-DD")] [stationTimestamp("hh:mm")]<br>" + "TGMC Rapid Reaction Battalion<br>" + "[human.job.title], [human]<br>", LEFT_ALIGN_TEXT), /atom/movable/screen/text/screen_text/picture/rapid_response)
+			human.play_screen_text(HUD_ANNOUNCEMENT_FORMATTING(op_name_faction_one, "Fight to restore peace and order across the planet, and check the SOM threat.<br>" + "[GAME_YEAR]-[time2text(world.realtime, "MM-DD")] [stationTimestamp("hh:mm")]<br>" + "NTF Rapid Reaction Battalion<br>" + "[human.job.title], [human]<br>", LEFT_ALIGN_TEXT), /atom/movable/screen/text/screen_text/picture/rapid_response)
 		else if(human.faction == factions[2])
-			human.play_screen_text(HUD_ANNOUNCEMENT_FORMATTING(op_name_faction_two, "Fight to liberate the people of Palmaria from the yoke of TerraGov oppression!<br>" + "[GAME_YEAR]-[time2text(world.realtime, "MM-DD")] [stationTimestamp("hh:mm")]<br>" + "SOM 4th Special Assault Force<br>" + "[human.job.title], [human]<br>", LEFT_ALIGN_TEXT), /atom/movable/screen/text/screen_text/picture/saf_four)
+			human.play_screen_text(HUD_ANNOUNCEMENT_FORMATTING(op_name_faction_two, "Fight to liberate the people of Palmaria from the yoke of Ninetails oppression!<br>" + "[GAME_YEAR]-[time2text(world.realtime, "MM-DD")] [stationTimestamp("hh:mm")]<br>" + "SOM 4th Special Assault Force<br>" + "[human.job.title], [human]<br>", LEFT_ALIGN_TEXT), /atom/movable/screen/text/screen_text/picture/saf_four)
 
 /datum/game_mode/hvh/campaign/process()
 	if(round_finished)
@@ -113,17 +116,17 @@
 
 /datum/game_mode/hvh/campaign/declare_completion()
 	. = ..()
-	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.clients)]\nTotal TGMC spawned: [GLOB.round_statistics.total_humans_created[FACTION_TERRAGOV]]\nTotal SOM spawned: [GLOB.round_statistics.total_humans_created[FACTION_SOM]]")
+	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.whitelisted_clients)]\nTotal NTF spawned: [GLOB.round_statistics.total_humans_created[FACTION_TERRAGOV]]\nTotal SOM spawned: [GLOB.round_statistics.total_humans_created[FACTION_SOM]]")
 
 /datum/game_mode/hvh/campaign/end_round_fluff()
 	var/announcement_body = ""
 	switch(round_finished)
 		if(MODE_COMBAT_PATROL_SOM_MINOR)
-			announcement_body = "Brave SOM forces are reporting decisive victories against the imperialist TerraGov forces across the planet, forcing their disorganised and chaotic retreat. \
+			announcement_body = "Brave SOM forces are reporting decisive victories against the imperialist Ninetails forces across the planet, forcing their disorganised and chaotic retreat. \
 			With the planet now liberated, the Sons of Mars welcome the people of Palmaria into the light of a new day, ready to help them into a better future as brothers."
 		if(MODE_COMBAT_PATROL_MARINE_MINOR)
-			announcement_body = "TGMC forces have routed the terrorist SOM forces across the planet, destroying their strongholds and returning possession of stolen property to their legitimate corporate owners. \
-			With the SOM threat removed, TerraGov peacekeeping forces begin to move in to ensure a rapid return to law and order, restoring stability, safety, and a guarantee of Palmaria's economic development to the benefit of all citizens."
+			announcement_body = "NTF forces have routed the terrorist SOM forces across the planet, destroying their strongholds and returning possession of stolen property to their legitimate corporate owners. \
+			With the SOM threat removed, Ninetails peacekeeping forces begin to move in to ensure a rapid return to law and order, restoring stability, safety, and a guarantee of Palmaria's economic development to the benefit of all citizens."
 
 	send_ooc_announcement(
 		sender_override = "Round Concluded",
@@ -193,14 +196,18 @@
 	return list(/datum/action/campaign_overview, /datum/action/campaign_loadout)
 
 ///sets up the newly selected mission
-/datum/game_mode/hvh/campaign/proc/load_new_mission(datum/campaign_mission/new_mission)
+////datum/game_mode/hvh/campaign/proc/load_new_mission(datum/campaign_mission/new_mission)// NTF EDIT
+/datum/game_mode/proc/load_new_mission(datum/campaign_mission/new_mission)
 	current_mission = new_mission
-	addtimer(CALLBACK(src, PROC_REF(autobalance_cycle)), CAMPAIGN_AUTOBALANCE_DELAY, TIMER_CLIENT_TIME) //we autobalance teams after a short delay to account for slow respawners
-	//TIMER_CLIENT_TIME as loading a new z-level messes with the timing otherwise
 	for(var/faction in factions)
 		for(var/player in GLOB.alive_human_list_faction[faction])
-			stat_list[faction].interact(player) //gives the mission brief
+			stat_list[faction]?.interact(player) //gives the mission brief
 	current_mission.load_mission()
+
+/datum/game_mode/hvh/campaign/load_new_mission(datum/campaign_mission/new_mission)
+	. = ..()
+	addtimer(CALLBACK(src, PROC_REF(autobalance_cycle)), CAMPAIGN_AUTOBALANCE_DELAY, TIMER_CLIENT_TIME) //we autobalance teams after a short delay to account for slow respawners
+	//TIMER_CLIENT_TIME as loading a new z-level messes with the timing otherwise
 	TIMER_COOLDOWN_START(src, COOLDOWN_BIOSCAN, bioscan_interval)
 
 ///Checks team balance and tries to correct if possible
@@ -313,7 +320,7 @@
 ///Limited loadout quantities scale by pop
 /datum/game_mode/hvh/campaign/proc/scale_loadouts(pop_override)
 	if(!isnum(pop_override))
-		pop_override = length(GLOB.clients)
+		pop_override = length(GLOB.whitelisted_clients)
 	var/loadout_ratio = clamp((pop_override - CAMPAIGN_LOADOUT_POP_MIN) / (CAMPAIGN_LOADOUT_POP_MAX - CAMPAIGN_LOADOUT_POP_MIN), 0, 1)
 	for(var/job in GLOB.campaign_loadout_items_by_role)
 		for(var/datum/loadout_item/loadout_item AS in GLOB.campaign_loadout_items_by_role[job])

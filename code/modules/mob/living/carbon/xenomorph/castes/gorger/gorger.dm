@@ -2,7 +2,7 @@
 	caste_base_type = /datum/xeno_caste/gorger
 	name = "Gorger"
 	desc = "A large, powerfully muscled xeno with seemingly more vitality than others."
-	icon = 'icons/Xeno/castes/gorger.dmi'
+	icon = 'ntf_modular/icons/Xeno/castes/gorger.dmi'
 	icon_state = "Gorger Walking"
 	health = 600
 	maxHealth = 600
@@ -13,6 +13,6 @@
 	mob_size = MOB_SIZE_BIG
 	bubble_icon = "alienroyal"
 
-/mob/living/carbon/xenomorph/gorger/Initialize(mapload)
+/mob/living/carbon/xenomorph/gorger/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	GLOB.huds[DATA_HUD_XENO_HEART].add_hud_to(src)

@@ -19,6 +19,8 @@
 	 */
 	var/list/evo_requirements = list(
 		/datum/xeno_caste/queen = 8,
+		/datum/xeno_caste/king = 12,
+		/datum/xeno_caste/dragon = 12,
 	)
 
 /datum/game_mode/infestation/post_setup()
@@ -50,6 +52,7 @@
 	for(var/datum/xeno_caste/caste AS in evo_requirements)
 		GLOB.xeno_caste_datums[caste][XENO_UPGRADE_BASETYPE].evolve_min_xenos = evo_requirements[caste]
 
+
 /datum/game_mode/infestation/process()
 	if(round_finished)
 		return PROCESS_KILL
@@ -76,7 +79,7 @@
 			return
 		bioscanning_ai.last_ai_bioscan = world.time
 		to_chat(bioscanning_ai, span_warning("Scanning for hostile lifeforms..."))
-		if(!do_after(usr, AI_SCAN_DELAY, NONE, usr, BUSY_ICON_GENERIC)) //initial windup time until firing begins
+		if(!do_after(usr, AI_SCAN_DELAY, TRUE, usr, BUSY_ICON_GENERIC)) //initial windup time until firing begins
 			bioscanning_ai.last_ai_bioscan = 0
 			return
 
@@ -199,7 +202,7 @@
 	if(world.time < (SSticker.round_start_time + 5 SECONDS))
 		return FALSE
 
-	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_ALIVE_SSD|COUNT_IGNORE_XENO_SPECIAL_AREA)
+	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_ALIVE_SSD|COUNT_IGNORE_XENO_SPECIAL_AREA| COUNT_CLF_TOWARDS_XENOS | COUNT_GREENOS_TOWARDS_MARINES )
 	var/num_humans = living_player_list[1]
 	var/num_xenos = living_player_list[2]
 	var/num_humans_ship = living_player_list[3]
@@ -243,13 +246,13 @@
 
 /datum/game_mode/infestation/declare_completion()
 	. = ..()
-	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.clients)]\nTotal xenos spawned: [GLOB.round_statistics.total_xenos_created]\nTotal humans spawned: [GLOB.round_statistics.total_humans_created]")
+	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.whitelisted_clients)]\nTotal xenos spawned: [GLOB.round_statistics.total_xenos_created]\nTotal humans spawned: [GLOB.round_statistics.total_humans_created]")
 
 /datum/game_mode/infestation/end_round_fluff()
 	send_ooc_announcement(
 		sender_override = "Round Concluded",
 		title = round_finished,
-		text = "Thus ends the story of the brave men and women of the TerraGov Marine Corps, and their struggle on [SSmapping.configs[GROUND_MAP].map_name]...",
+		text = "Thus ends the story of the brave men and women of the Nine-Tailed Fox, and their struggle on [SSmapping.configs[GROUND_MAP].map_name]...",
 		play_sound = FALSE,
 		style = OOC_ALERT_GAME
 	)
@@ -324,8 +327,8 @@
 				xeno_candidate = TRUE
 				break
 	if(!xeno_candidate && !bypass_checks)
-		to_chat(world, "<b>Unable to start [name].</b> No xeno candidate found.")
-		return FALSE
+		to_chat(world, "WARNING: No xeno candidate found.")
+		return TRUE
 
 /datum/game_mode/infestation/pre_setup()
 	. = ..()
@@ -338,8 +341,8 @@
 
 	priority_announce(
 		title = "High Command Update",
-		subtitle = "Good morning, marines.",
-		message = "Cryosleep disengaged by TGMC High Command.<br><br>ATTN: [SSmapping.configs[SHIP_MAP].map_name].<br>[SSmapping.configs[GROUND_MAP].announce_text]",
+		subtitle = "Good morning, operatives.",
+		message = "Cryosleep disengaged by NTF High Command.<br><br>ATTN: [SSmapping.configs[SHIP_MAP].map_name].<br>[SSmapping.configs[GROUND_MAP].announce_text]",
 		sound = 'sound/AI/ares_online.ogg',
 		color_override = "red"
 	)
@@ -359,7 +362,7 @@
 
 /datum/game_mode/infestation/proc/on_nuclear_defuse(obj/machinery/nuclearbomb/bomb, mob/defuser)
 	SIGNAL_HANDLER
-	priority_announce("WARNING. WARNING. Planetary Nuke deactivated. WARNING. WARNING. Self destruct failed. WARNING. WARNING.", "Planetary Warhead Disengaged", type = ANNOUNCEMENT_PRIORITY)
+	priority_announce("WARNING. WARNING. Planetary Antimatter Bomb deactivated. WARNING. WARNING. Self destruct failed. WARNING. WARNING.", "Planetary Warhead Disengaged", type = ANNOUNCEMENT_PRIORITY)
 
 /datum/game_mode/infestation/proc/on_nuclear_explosion(datum/source, z_level)
 	SIGNAL_HANDLER
@@ -370,12 +373,12 @@
 	SIGNAL_HANDLER
 	var/datum/hive_status/normal/HS = GLOB.hive_datums[XENO_HIVE_NORMAL]
 	var/area_name = get_area_name(nuke)
-	HS.xeno_message("An overwhelming wave of dread ripples throughout the hive... A nuke has been activated[area_name ? " in [area_name]":""]!")
+	HS.xeno_message("An overwhelming wave of dread ripples throughout the hive... An antimatter bomb has been activated[area_name ? " in [area_name]":""]!")
 	HS.set_all_xeno_trackers(nuke)
 
 /datum/game_mode/infestation/proc/play_cinematic(z_level)
 	GLOB.enter_allowed = FALSE
-	priority_announce("DANGER. DANGER. Planetary Nuke Activated. DANGER. DANGER. Self destruct in progress. DANGER. DANGER.", "Planetary Warhead Detonation Confirmed", type = ANNOUNCEMENT_PRIORITY)
+	priority_announce("DANGER. DANGER. Planetary Antimatter Bomb Activated. DANGER. DANGER. Self destruct in progress. DANGER. DANGER.", "Planetary Warhead Detonation Confirmed", type = ANNOUNCEMENT_PRIORITY)
 	var/sound/S = sound(pick('sound/theme/nuclear_detonation1.ogg','sound/theme/nuclear_detonation2.ogg'), channel = CHANNEL_CINEMATIC)
 	SEND_SOUND(world, S)
 

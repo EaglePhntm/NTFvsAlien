@@ -352,7 +352,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		if(istype(part,/datum/limb/head) && !(part.limb_status & LIMB_DESTROYED))
 			has_head = 1
 
-		if(part.limb_status & LIMB_DESTROYED)
+		if(part.limb_status & LIMB_DESTROYED ||	part.invisible)
 			icon_key = "[icon_key]0"
 		else if(part.limb_status & LIMB_ROBOT)
 			icon_key = "[icon_key]2"
@@ -380,7 +380,8 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		//Robotic limbs are handled in get_icon() so all we worry about are missing or dead limbs.
 		//No icon stored, so we need to start with a basic one.
 		var/datum/limb/chest = get_limb("chest")
-		base_icon = chest.get_icon(race_icon, physique_key)
+		if(!chest.invisible)
+			base_icon = chest.get_icon(race_icon, physique_key)
 
 		if(chest.limb_status & LIMB_NECROTIZED)
 			base_icon.ColorTone(necrosis_color_mod)
@@ -390,7 +391,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 
 			var/icon/temp //Hold the bodypart icon for processing.
 
-			if(part.limb_status & LIMB_DESTROYED)
+			if(part.limb_status & LIMB_DESTROYED ||	part.invisible)
 				continue
 
 			if(istype(part, /datum/limb/chest)) //already done above
@@ -458,10 +459,11 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		if(makeup_style && (species?.species_flags & HAS_LIPS))	//skeletons are allowed to wear face paint no matter what you think, agouri.
 			stand_icon.Blend(new/icon('icons/mob/human_face.dmi', "camo_[makeup_style]_s"), ICON_OVERLAY)
 
-
+	/*NTF Removal
 	if(species.species_flags & HAS_UNDERWEAR)
 		stand_icon.Blend(new /icon('icons/mob/human.dmi', "underwear_[underwear]_[physique]"), ICON_OVERLAY)
 		stand_icon.Blend(new /icon('icons/mob/human.dmi', "undershirt_[undershirt]_[physique]"), ICON_OVERLAY)
+	*/
 
 	update_bodyparts()
 	species?.update_body(src)
@@ -551,7 +553,12 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	UpdateDamageIcon()
 	update_transform()
 	update_headbite()
-
+	// NTF EDIT START
+	update_inv_socks()
+	update_inv_underwear()
+	update_inv_undershirt()
+	update_inv_bra()
+	// NTF EDIT END
 
 /* --------------------------------------- */
 //vvvvvv UPDATE_INV PROCS vvvvvv
@@ -804,8 +811,6 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	remove_overlay(BURST_LAYER)
 	if(!chestburst)
 		return
-	overlays_standing[BURST_LAYER] = mutable_appearance('icons/Xeno/Effects.dmi', chestburst == CARBON_IS_CHEST_BURSTING ? "burst_stand" : "bursted_stand", -BURST_LAYER)
-	apply_overlay(BURST_LAYER)
 
 /mob/living/carbon/human/update_fire()
 	remove_overlay(FIRE_LAYER)
@@ -813,3 +818,59 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		return
 	overlays_standing[FIRE_LAYER] = mutable_appearance('icons/mob/OnFire.dmi', fire_stacks < 15 ? "Standing_weak" : "Standing_medium", -FIRE_LAYER)
 	apply_overlay(FIRE_LAYER)
+
+// NTF EDIT START
+
+/mob/living/carbon/human/update_inv_socks()
+	remove_overlay(SOCKS_LAYER)
+	if(!w_socks)
+		return
+
+	if(client && hud_used?.hud_shown && hud_used.extra_shown)
+		w_socks.screen_loc = "WEST:6,SOUTH+5:15"
+		client.screen += w_socks
+
+	overlays_standing[SOCKS_LAYER] = w_socks.make_worn_icon(species_type = species.name, slot_name = slot_socks_str, default_icon = 'ntf_modular/modules/underwear/underwear/underwear.dmi', default_layer = SOCKS_LAYER)
+
+	apply_overlay(SOCKS_LAYER)
+
+/mob/living/carbon/human/update_inv_underwear()
+	remove_overlay(UNDERWEAR_LAYER)
+	if(!w_underwear)
+		return
+
+	if(client && hud_used?.hud_shown && hud_used.extra_shown)
+		w_underwear.screen_loc = "WEST:6,SOUTH+4:13"
+		client.screen += w_underwear
+
+	overlays_standing[UNDERWEAR_LAYER] = w_underwear.make_worn_icon(species_type = species.name, slot_name = slot_underwear_str, default_icon = 'ntf_modular/modules/underwear/underwear/underwear.dmi', default_layer = UNDERWEAR_LAYER)
+
+	apply_overlay(UNDERWEAR_LAYER)
+
+/mob/living/carbon/human/update_inv_undershirt()
+	remove_overlay(UNDERSHIRT_LAYER)
+	if(!w_undershirt)
+		return
+
+	if(client && hud_used?.hud_shown && hud_used.extra_shown)
+		w_undershirt.screen_loc = "WEST:6,SOUTH+6:17"
+		client.screen += w_undershirt
+
+	overlays_standing[UNDERSHIRT_LAYER] = w_undershirt.make_worn_icon(species_type = species.name, slot_name = slot_shirt_str, default_icon = 'ntf_modular/modules/underwear/underwear/underwear.dmi', default_layer = UNDERSHIRT_LAYER)
+
+	apply_overlay(UNDERSHIRT_LAYER)
+
+/mob/living/carbon/human/update_inv_bra()
+	remove_overlay(BRA_LAYER)
+	if(!bra)
+		return
+
+	if(client && hud_used?.hud_shown && hud_used.extra_shown)
+		bra.screen_loc = "WEST+1:8,SOUTH+4:13"
+		client.screen += bra
+
+	overlays_standing[BRA_LAYER] = bra.make_worn_icon(species_type = species.name, slot_name = slot_bra_str, default_icon = 'ntf_modular/modules/underwear/underwear/underwear.dmi', default_layer = BRA_LAYER)
+
+	apply_overlay(BRA_LAYER)
+
+// NTF EDIT END

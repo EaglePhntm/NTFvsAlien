@@ -47,7 +47,7 @@
 				balloon_alert(user, "blocked by [thing_to_check]!")
 				return
 	playsound(loc, 'sound/machines/hydraulics_1.ogg', 40, 1)
-	if(!do_after(user, 7 SECONDS, IGNORE_HELD_ITEM, src))
+	if(!do_after(user, 7 SECONDS, FALSE, src))
 		return
 	if(installed_equipment || attached_clamp.loaded != loaded_equipment)
 		return
@@ -508,9 +508,12 @@
 
 /obj/structure/dropship_equipment/shuttle/sentry_holder/Initialize(mapload)
 	. = ..()
-	if(!deployed_turret)
+	if(!istype(deployed_turret))
 		var/obj/new_gun = new sentry_type(src)
 		deployed_turret = new_gun.loc
+		if(!istype(deployed_turret))
+			deployed_turret = null
+			return
 		RegisterSignal(deployed_turret, COMSIG_OBJ_DECONSTRUCT, PROC_REF(clean_refs))
 	deployed_turret.set_on(FALSE)
 
@@ -824,7 +827,7 @@
 		ammo_equipped.ammo_count = max(ammo_equipped.ammo_count-ammo_equipped.ammo_used_per_firing, 0)
 	update_icon()
 
-/obj/structure/dropship_equipment/cas/weapon/proc/open_fire(obj/selected_target, attackdir)
+/obj/structure/dropship_equipment/cas/weapon/proc/open_fire(obj/selected_target, attackdir, faction)
 	var/turf/target_turf = get_turf(selected_target)
 	if(firing_sound)
 		playsound(loc, firing_sound, 70, TRUE)
@@ -849,9 +852,18 @@
 
 	//Marine-only visuals
 	var/predicted_dangerous_turfs = SA.get_turfs_to_impact(target_turf, attackdir)
-	for(var/turf/impact in predicted_dangerous_turfs)
-		effects_to_delete += new /obj/effect/overlay/blinking_laser/marine/lines(impact)
+	if(faction == FACTION_TERRAGOV)
+		for(var/turf/impact in predicted_dangerous_turfs)
+			effects_to_delete += new /obj/effect/overlay/blinking_laser/marine/lines(impact)
+	else
+		for(var/turf/impact in predicted_dangerous_turfs)
+			effects_to_delete += new /obj/effect/overlay/blinking_laser/som/lines(impact)
 
+	var/mob/user = usr
+	if(istype(usr))
+		log_combat(user, selected_target, "shot (CAS)", SA, "(Will land in [ammo_travelling_time/(1 SECONDS)] seconds) (fired from [logdetails(src)], linked console is [logdetails(linked_console)])")
+	else
+		log_attack("???UNKNOWN??? shot (CAS) [logdetails(selected_target)] with [logdetails(SA)] (Will land in [ammo_travelling_time/(1 SECONDS)] seconds) (fired from [logdetails(src)], linked console is [logdetails(linked_console)])")
 	addtimer(CALLBACK(SA, TYPE_PROC_REF(/obj/structure/ship_ammo, detonate_on), target_turf, attackdir), ammo_travelling_time)
 	QDEL_LIST_IN(effects_to_delete, ammo_travelling_time)
 
@@ -935,7 +947,7 @@
 /obj/structure/dropship_equipment/cas/weapon/laser_beam_gun
 	name = "laser beam gun"
 	icon_state = "laser_beam"
-	desc = "State of the art technology recently acquired by the TGMC, it fires a battery-fed pulsed laser beam at near lightspeed setting on fire everything it touches. Moving this will require some sort of lifter."
+	desc = "State of the art technology recently acquired by the NTC, it fires a battery-fed pulsed laser beam at near lightspeed setting on fire everything it touches. Moving this will require some sort of lifter."
 	icon = 'icons/obj/structures/prop/mainship_64.dmi'
 	firing_sound = 'sound/weapons/gunship_laser.ogg'
 	firing_delay = 50 //5 seconds

@@ -207,7 +207,7 @@
 	user.forceMove(loc)
 	if(isliving(user))
 		var/mob/living/L = user
-		L.Stun(4 SECONDS)
+		L.Stun(2 SECONDS)
 	if(!user.lying_angle)
 		user.visible_message("<span class='warning'>[user] suddenly climbs out of [src]!",
 		"<span class='warning'>You climb out of [src] and get your bearings!")
@@ -1204,7 +1204,7 @@
 		set_linked(O)
 	update()
 
-//Override attackby so we disallow trunkremoval when somethings ontop
+//Override attackby so we disallow trunkremoval when somethings on top
 /obj/structure/disposalpipe/trunk/attackby(obj/item/I, mob/user, params)
 	//Disposal constructors
 	var/obj/structure/disposalconstruct/C = locate() in loc

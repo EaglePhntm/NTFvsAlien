@@ -22,6 +22,7 @@
 	med_pain_set_perceived_health()
 	med_hud_set_health()
 	med_hud_set_status()
+	handle_regular_hud_updates()
 
 	var/health_deficiency = max(1 - (health / maxHealth) * 100, staminaloss)
 
@@ -210,6 +211,8 @@
 	if(species.species_flags & NO_STAMINA)
 		staminaloss = 0
 		return
+	if(species?.stamina_mod && amount > 0)
+		amount *= species.stamina_mod
 	return ..()
 
 /mob/living/carbon/human/setStaminaLoss(amount)

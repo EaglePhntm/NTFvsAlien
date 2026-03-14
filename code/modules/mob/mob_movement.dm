@@ -63,6 +63,15 @@
 		mob.control_object.forceMove(get_step(mob.control_object, direct))
 
 /client/Move(atom/newloc, direction, glide_size_override)
+	var/mob/living/living_mob  // fuck you im doing it, the comment below. ntf edit
+	if(isliving(mob))
+		living_mob = mob
+
+	if(ishuman(living_mob))
+		var/mob/living/carbon/human/human = living_mob
+		if(HAS_TRAIT(human, TRAIT_HAULED))
+			human.handle_haul_resist()
+			return //ntf edit end
 	if(world.time < move_delay) //do not move anything ahead of this check please
 		return FALSE
 	next_move_dir_add = NONE
@@ -80,8 +89,20 @@
 	if(!isliving(mob))
 		return mob.Move(newloc, direction)
 	if(mob.stat == DEAD && !HAS_TRAIT(mob, TRAIT_IS_RESURRECTING))
+		if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS_STRICT)) && !(mob.client && check_rights_for(mob.client, R_ADMIN)))
+			to_chat(mob, span_boldwarning("You're DEAD!"))
+			move_delay = world.time + 1 SECONDS //to reduce the spam
+			return FALSE
 		mob.ghostize()
 		return FALSE
+
+		//NTF EDIT ADDITION BEGIN - PIXEL_SHIFT - PORTED FROM SKYRAT #870
+	if(mob.shifting)
+		mob.pixel_shift(direction)
+		return FALSE
+	else if(mob.is_shifted)
+		mob.unpixel_shift()
+	//NTF EDIT ADDITION END
 
 	var/mob/living/L = mob  //Already checked for isliving earlier
 
@@ -98,6 +119,12 @@
 	if(L.pulledby)
 		if(L.incapacitated(TRUE))
 			return
+		else if(isxeno(L))
+			var/mob/living/carbon/xenomorph/xeno = L
+			if(xeno.handcuffed)
+				move_delay = world.time + 1 SECONDS //to reduce the spam
+				to_chat(src, span_warning("You're restrained! You can't move!"))
+				return
 		else if(L.restrained(RESTRAINED_NECKGRAB))
 			move_delay = world.time + 1 SECONDS //to reduce the spam
 			to_chat(src, span_warning("You're restrained! You can't move!"))

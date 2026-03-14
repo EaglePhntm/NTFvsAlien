@@ -16,28 +16,47 @@
 	var/boost_timer = 0
 	var/hivenumber = XENO_HIVE_NORMAL
 	var/admin = FALSE
+	var/target_hole = HOLE_MOUTH
+	var/mob/living/carbon/xenomorph/larva/new_xeno = null
+	var/psypoint_reward = 0
+	var/biomass_reward = 0
+	var/hive_target_bonus = FALSE
+	var/first_reward_claimed = FALSE
 
 
 /obj/item/alien_embryo/Initialize(mapload)
 	. = ..()
 	if(!isliving(loc))
 		return
+	if(isxeno(loc))
+		var/mob/living/carbon/xenomorph/xeno_loc = loc
+		if(xeno_loc.xeno_caste.tier == XENO_TIER_MINION || xeno_loc.xeno_caste.caste_type_path == /datum/xeno_caste/larva || xeno_loc.xeno_caste.caste_type_path == /datum/xeno_caste/puppet || xeno_loc.xeno_caste.caste_type_path == /datum/xeno_caste/spiderling)
+			return INITIALIZE_HINT_QDEL //letting these be larva farms makes it too easy to get larva.
 	affected_mob = loc
 	affected_mob.status_flags |= XENO_HOST
 	log_combat(affected_mob, null, "been infected with an embryo")
 	START_PROCESSING(SSobj, src)
-	if(iscarbon(affected_mob))
-		var/mob/living/carbon/C = affected_mob
-		C.med_hud_set_status()
-	RegisterSignal(affected_mob, COMSIG_HUMAN_SET_UNDEFIBBABLE, PROC_REF(on_host_dnr))
+	var/mob/living/C = affected_mob
+	C.med_hud_set_status()
+
 
 /obj/item/alien_embryo/Destroy()
 	if(affected_mob)
 		log_combat(affected_mob, null, "had their embryo removed")
-		affected_mob.status_flags &= ~(XENO_HOST)
-		if(iscarbon(affected_mob))
-			var/mob/living/carbon/C = affected_mob
-			C.med_hud_set_status()
+		var/anyleft = FALSE
+		for(var/obj/item/alien_embryo/remainingembryo in affected_mob)
+			if(!QDELETED(remainingembryo))
+				anyleft = TRUE
+				break
+		if(!anyleft)
+			for(var/mob/living/carbon/xenomorph/larva/remaininglarva in affected_mob)
+				if(!QDELETED(remaininglarva))
+					anyleft = TRUE
+					break
+		if(!anyleft)
+			affected_mob.status_flags &= ~(XENO_HOST)
+		var/mob/living/C = affected_mob
+		C.med_hud_set_status()
 		STOP_PROCESSING(SSobj, src)
 		affected_mob = null
 	return ..()
@@ -48,17 +67,25 @@
 		qdel(src)
 		return PROCESS_KILL
 
-	if(loc != affected_mob)
-		affected_mob.status_flags &= ~(XENO_HOST)
-		if(iscarbon(affected_mob))
-			var/mob/living/carbon/C = affected_mob
-			C.med_hud_set_status()
-		affected_mob = null
-		return PROCESS_KILL
+	if(affected_mob.stat == DEAD && stage < 3) //No more corpsefucking for infinite larva, thanks
+		return FALSE
 
-	if(affected_mob.stat == DEAD)
-		var/mob/living/carbon/xenomorph/larva/L = locate() in affected_mob
-		L?.initiate_burst(affected_mob)
+	if(loc != affected_mob)
+		var/anyleft = FALSE
+		for(var/obj/item/alien_embryo/remainingembryo in affected_mob)
+			if(!QDELETED(remainingembryo))
+				anyleft = TRUE
+				break
+		if(!anyleft)
+			for(var/mob/living/carbon/xenomorph/larva/remaininglarva in affected_mob)
+				if(!QDELETED(remaininglarva))
+					anyleft = TRUE
+					break
+		if(!anyleft)
+			affected_mob.status_flags &= ~(XENO_HOST)
+		var/mob/living/C = affected_mob
+		C.med_hud_set_status()
+		affected_mob = null
 		return PROCESS_KILL
 
 	if(HAS_TRAIT(affected_mob, TRAIT_STASIS))
@@ -66,18 +93,63 @@
 
 	process_growth()
 
+	/*
 ///Kills larva when host goes DNR
 /obj/item/alien_embryo/proc/on_host_dnr(datum/source)
 	SIGNAL_HANDLER
 	qdel(src)
+	*/
 
 /obj/item/alien_embryo/proc/process_growth()
+	if(affected_mob.stat == DEAD && stage < 3) //No more corpsefucking for infinite larva, thanks
+		return FALSE
+
+	if(ishuman(affected_mob) && !(SSticker.mode.round_type_flags & MODE_CHILL_RULES))
+		if(affected_mob.getCloneLoss() >= 30 || HAS_TRAIT(affected_mob, TRAIT_PSY_DRAINED)) //I guess they remain dormant
+			return FALSE
+
+	hive_target_bonus = hive_target_bonus || HAS_TRAIT(affected_mob, TRAIT_HIVE_TARGET)
+
+	var/psych_points_output = EMBRYO_PSY_POINTS_REWARD_MIN + ((HIGH_PLAYER_POP - SSmonitor.maximum_connected_players_count) / HIGH_PLAYER_POP * (EMBRYO_PSY_POINTS_REWARD_MAX - EMBRYO_PSY_POINTS_REWARD_MIN))
+	psych_points_output = clamp(psych_points_output, EMBRYO_PSY_POINTS_REWARD_MIN, EMBRYO_PSY_POINTS_REWARD_MAX)
+
+	var/embryos_in_host = 0
+	for(var/obj/item/alien_embryo/embryo in affected_mob.contents)
+		if(embryo.affected_mob == affected_mob)
+			embryos_in_host++
+	var/current_psypoint_reward = psych_points_output * EMBRYO_REWARD_IMMEDIATE_FRACTION / embryos_in_host
+	var/current_biomass_reward =  MUTATION_BIOMASS_PER_EMBRYO_TICK * EMBRYO_REWARD_IMMEDIATE_FRACTION / embryos_in_host
+	if(!affected_mob.client || (affected_mob.client.inactivity > AFK_TIMER))
+		current_psypoint_reward *= 0.1
+		current_biomass_reward *= 0.1
+	if(isnestedhost(affected_mob))
+		current_psypoint_reward *= 5
+		current_biomass_reward *= 5
+
+	GLOB.round_statistics.strategic_psypoints_from_embryos += current_psypoint_reward
+	GLOB.round_statistics.biomass_from_embryos += current_biomass_reward
+	if(hive_target_bonus)
+		GLOB.round_statistics.strategic_psypoints_from_hive_target_rewards += current_psypoint_reward
+		GLOB.round_statistics.biomass_from_hive_target_rewards += current_biomass_reward
+		SSpoints.add_strategic_psy_points(hivenumber, current_psypoint_reward*2)
+		SSpoints.add_tactical_psy_points(hivenumber, current_psypoint_reward*0.5)
+		SSpoints.add_biomass_points(hivenumber, current_biomass_reward*2)
+	else
+		SSpoints.add_strategic_psy_points(hivenumber, current_psypoint_reward)
+		SSpoints.add_tactical_psy_points(hivenumber, current_psypoint_reward*0.25)
+		SSpoints.add_biomass_points(hivenumber, current_biomass_reward)
+
+	psypoint_reward += current_psypoint_reward * EMBRYO_REWARD_DELAYED_MULTIPLIER
+	biomass_reward += current_psypoint_reward * EMBRYO_REWARD_DELAYED_MULTIPLIER
+	if(!first_reward_claimed)
+		first_reward_claimed = TRUE
+		GLOB.round_statistics.total_embryos_rewarding++
 
 	if(stage <= 4)
 		counter += 2.5 //Free burst time in ~7/8 min.
 
 	if(affected_mob.reagents.get_reagent_amount(/datum/reagent/consumable/larvajelly))
-		counter += 10 //Accelerates larval growth massively. Voluntarily drinking larval jelly while infected is straight-up suicide. Larva hits Stage 5 in exactly ONE minute.
+		counter += 2.5 //Doubles larval growth progress. Burst time in ~4 min
 
 	if(affected_mob.reagents.get_reagent_amount(/datum/reagent/medicine/larvaway))
 		counter -= 1 //Halves larval growth progress, for some tradeoffs. Larval toxin purges this
@@ -97,33 +169,31 @@
 	switch(stage)
 		if(2)
 			if(prob(2))
-				to_chat(affected_mob, span_warning("[pick("Your chest hurts a little bit", "Your stomach hurts")]."))
+				to_chat(affected_mob, span_warning("[pick("You feel something in your [target_hole].", "You feel something in your [target_hole].")]."))
 		if(3)
 			if(prob(2))
-				to_chat(affected_mob, span_warning("[pick("Your throat feels sore", "Mucous runs down the back of your throat")]."))
+				to_chat(affected_mob, span_warning("[pick("You feel something move inside your [target_hole].", "You feel something move in your [target_hole].")]."))
 			else if(prob(1))
-				to_chat(affected_mob, span_warning("Your muscles ache."))
-				if(prob(20))
-					affected_mob.take_limb_damage(1)
-			else if(prob(2))
-				affected_mob.emote("[pick("sneeze", "cough")]")
+				to_chat(affected_mob, span_warning("Your [target_hole] aches a little."))
 		if(4)
 			if(prob(1))
-				if(!affected_mob.IsUnconscious())
+				if(!affected_mob.IsParalyzed())
 					affected_mob.visible_message(span_danger("\The [affected_mob] starts shaking uncontrollably!"), \
 												span_danger("You start shaking uncontrollably!"))
-					affected_mob.Unconscious(20 SECONDS)
 					affected_mob.jitter(105)
-					affected_mob.take_limb_damage(1)
 			if(prob(2))
-				to_chat(affected_mob, span_warning("[pick("Your chest hurts badly", "It becomes difficult to breathe", "Your heart starts beating rapidly, and each beat is painful")]."))
+				to_chat(affected_mob, span_warning("[pick("You feel something squirming inside your [target_hole]!.", "It becomes a bit difficult to breathe.")]."))
 		if(5)
-			become_larva()
+			var/mob/living/carbon/xenomorph/larva/waiting_larva = locate() in affected_mob
+			if(!waiting_larva)
+				become_larva()
 		if(6)
 			larva_autoburst_countdown--
-			if(!larva_autoburst_countdown)
-				var/mob/living/carbon/xenomorph/larva/L = locate() in affected_mob
-				L?.initiate_burst(affected_mob)
+			if(larva_autoburst_countdown < 1)
+				if(istype(new_xeno) && (!QDELING(new_xeno)) && (new_xeno.loc == affected_mob))
+					new_xeno.initiate_burst(affected_mob, src)
+				else
+					qdel(src)
 
 
 //We look for a candidate. If found, we spawn the candidate as a larva.
@@ -140,12 +210,9 @@
 
 	//If the bursted person themselves has Xeno enabled, they get the honor of first dibs on the new larva.
 	if(affected_mob.client?.prefs && (affected_mob.client.prefs.be_special & (BE_ALIEN|BE_ALIEN_UNREVIVABLE)) && !is_banned_from(affected_mob.ckey, ROLE_XENOMORPH))
-		picked = affected_mob
-	else //Get a candidate from observers.
 		picked = get_alien_candidate()
 
 	//Spawn the larva.
-	var/mob/living/carbon/xenomorph/larva/new_xeno
 
 	new_xeno = new(affected_mob)
 
@@ -155,77 +222,106 @@
 	//If we have a candidate, transfer it over.
 	if(picked)
 		picked.mind.transfer_to(new_xeno, TRUE)
-		to_chat(new_xeno, span_xenoannounce("We are a xenomorph larva inside a host! Move to burst out of it!"))
+		to_chat(new_xeno, span_xenoannounce("We are a xenomorph larva inside a host! Move to squirm out of it!"))
 		new_xeno << sound('sound/effects/alien/new_larva.ogg')
 
 	stage = 6
+/mob/living/carbon/xenomorph/larva
+	var/burst_timer = null
 
-
-/mob/living/carbon/xenomorph/larva/proc/initiate_burst(mob/living/carbon/human/victim)
-	if(victim.chestburst || loc != victim)
+/mob/living/carbon/xenomorph/larva/proc/initiate_burst(mob/living/victim, obj/item/alien_embryo/embryo)
+	if(timeleft(burst_timer))
 		return
-
-	victim.chestburst = CARBON_IS_CHEST_BURSTING
-	ADD_TRAIT(victim, TRAIT_PSY_DRAINED, TRAIT_PSY_DRAINED)
-	to_chat(src, span_danger("We start bursting out of [victim]'s chest!"))
-
-	victim.Unconscious(40 SECONDS)
-	victim.visible_message(span_danger("\The [victim] starts shaking uncontrollably!"), \
-								span_danger("You feel something ripping up your insides!"))
-	victim.jitter(300)
-
-	victim.emote_burstscream()
-
-	addtimer(CALLBACK(src, PROC_REF(burst), victim), 3 SECONDS)
-
-
-/mob/living/carbon/xenomorph/larva/proc/burst(mob/living/carbon/human/victim)
-	if(QDELETED(victim))
-		return
+	burst_timer = null
 
 	if(loc != victim)
-		victim.chestburst = CARBON_NO_CHEST_BURST
 		return
 
-	victim.update_burst()
+	to_chat(src, span_danger("We start slithering out of [victim]!"))
+	if(!embryo || embryo.target_hole == HOLE_MOUTH)
+		playsound(victim, 'modular_skyrat/sound/weapons/gagging.ogg', 15, TRUE)
+	else
+		victim.emote_burstscream()
+	victim.Paralyze(15 SECONDS)
+	victim.visible_message("<span class='danger'>\The [victim] starts shaking uncontrollably!</span>", \
+								"<span class='danger'>You feel something wiggling in your [embryo?.target_hole]!</span>")
+	victim.jitter(150)
+
+	burst_timer = addtimer(CALLBACK(src, PROC_REF(burst), victim, embryo), 3 SECONDS, TIMER_STOPPABLE)
+
+/mob/living/carbon/xenomorph/larva/proc/burst(mob/living/victim, obj/item/alien_embryo/embryo)
+	if(timeleft(burst_timer))
+		deltimer(burst_timer)
+	burst_timer = null
+	if(QDELETED(victim))
+		return
 
 	if(istype(victim.loc, /obj/vehicle/sealed))
 		var/obj/vehicle/sealed/armored/veh = victim.loc
 		forceMove(veh.exit_location(src))
 	else
 		forceMove(get_turf(victim)) //moved to the turf directly so we don't get stuck inside a cryopod or another mob container.
-	playsound(src, pick('sound/voice/alien/chestburst.ogg','sound/voice/alien/chestburst2.ogg'), 25)
+	playsound(src, pick('sound/voice/alien/chestburst.ogg','sound/voice/alien/chestburst2.ogg'), 10)
+	victim.visible_message("<span class='danger'>The Larva forces its way out of [victim]'s [embryo?.target_hole]!</span>")
 	GLOB.round_statistics.total_larva_burst++
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "total_larva_burst")
-	var/obj/item/alien_embryo/AE = locate() in victim
-
-	if(AE)
-		qdel(AE)
-
-	victim.apply_damage(200, BRUTE, victim.get_limb("chest"), updating_health = TRUE) //lethal armor ignoring brute damage
-	var/datum/internal_organ/O
-	for(var/i in list(ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_LIVER, ORGAN_SLOT_KIDNEYS, ORGAN_SLOT_APPENDIX)) //Bruise all torso internal organs
-		O = victim.get_organ_slot(i)
-
-		if(!victim.mind && !victim.client) //If we have no client or mind, permadeath time; remove the organs. Mainly for the NPC colonist bodies
-			victim.remove_organ_slot(i)
+	if(istype(embryo))
+		GLOB.round_statistics.strategic_psypoints_from_births += embryo.psypoint_reward
+		GLOB.round_statistics.biomass_from_births += embryo.biomass_reward
+		if(embryo.hive_target_bonus)
+			GLOB.round_statistics.strategic_psypoints_from_hive_target_rewards += embryo.psypoint_reward
+			GLOB.round_statistics.biomass_from_hive_target_rewards += embryo.biomass_reward
+			SSpoints.add_strategic_psy_points(embryo.hivenumber, embryo.psypoint_reward*2)
+			SSpoints.add_tactical_psy_points(embryo.hivenumber, embryo.psypoint_reward*0.5)
+			SSpoints.add_biomass_points(embryo.hivenumber, embryo.biomass_reward*2)
 		else
-			O.take_damage(O.min_bruised_damage, TRUE)
+			SSpoints.add_strategic_psy_points(embryo.hivenumber, embryo.psypoint_reward)
+			SSpoints.add_tactical_psy_points(embryo.hivenumber, embryo.psypoint_reward*0.25)
+			SSpoints.add_biomass_points(embryo.hivenumber, embryo.biomass_reward)
+	QDEL_NULL(embryo)
 
-	var/datum/limb/chest = victim.get_limb("chest")
-	new /datum/wound/internal_bleeding(15, chest) //Apply internal bleeding to chest
-	chest.fracture()
+	var/anyleft = FALSE
+	for(var/obj/item/alien_embryo/remainingembryo in victim)
+		if(!QDELETED(remainingembryo))
+			anyleft = TRUE
+			break
+	if(!anyleft)
+		for(var/mob/living/carbon/xenomorph/larva/remaininglarva in victim)
+			if(!QDELETED(remaininglarva))
+				anyleft = TRUE
+				break
+	if(!anyleft)
+		victim.status_flags &= ~(XENO_HOST)
+	victim.med_hud_set_status()
 
+	log_combat(src, null, "was born as a larva.")
+	log_game("[key_name(src)] was born as a larva at [AREACOORD(src)].")
+	if(ismonkey(victim))
+		var/mob/living/carbon/human/monkey = victim
+		if(prob(66)) //1/3 chance
+			monkey.death()
+			log_game("Marking [logdetails(monkey)] as undefibbable because it is giving birth as a monkey.")
+			monkey.set_undefibbable()
+			monkey.take_overall_damage(100, CLONE, MELEE)
+			monkey.take_overall_damage(40, BRUTE, MELEE)
+		else
+			monkey.take_overall_damage(140, BRUTE, MELEE)
+		monkey.take_overall_damage(20, BURN, MELEE)
+	if(ishuman(victim) && !(SSticker.mode.round_type_flags & MODE_CHILL_RULES))
+		if(victim.getCloneLoss() < 30)
+			victim.adjustCloneLoss(45)
+			if(!(CHECK_BITFIELD(victim.restrained_flags, RESTRAINED_XENO_NEST)))
+				victim.death(FALSE)
+			victim.visible_message(span_warning("[victim]'s body and hole are devastated by the birth."))
 
-	victim.chestburst = CARBON_CHEST_BURSTED
-	victim.update_burst()
-	log_combat(src, null, "chestbursted as a larva.")
-	log_game("[key_name(src)] chestbursted as a larva at [AREACOORD(src)].")
-
-	if(((locate(/obj/structure/bed/nest) in loc) && hive.living_xeno_ruler?.z == loc.z) || (!mind))
-		burrow()
-
-	victim.death()
+	if(((locate(/obj/structure/bed/nest) in loc) || loc_weeds_type) && !mind)
+		var/suitablesilo = FALSE
+		for(var/obj/silo in GLOB.xeno_resin_silos_by_hive[hivenumber])
+			if(silo.z == z)
+				suitablesilo = TRUE
+				break
+		if(suitablesilo)
+			addtimer(CALLBACK(src, PROC_REF(burrow)), 4 SECONDS)
 
 
 /mob/living/proc/emote_burstscream()

@@ -38,17 +38,25 @@
 	if(!do_checks(spirited_away, user))
 		return
 	do_extract(spirited_away, user)
-	var/datum/export_report/export_report = spirited_away.supply_export(user.faction)
-	if(export_report)
+	var/list/datum/export_report/export_reports = spirited_away.supply_export(user.faction, user)
+	var/points = 0
+	var/dropship_points = 0
+	for(var/datum/export_report/export_report in export_reports)
+		points += export_report.points
+		dropship_points += export_report.dropship_points
 		SSpoints.export_history += export_report
 	user.visible_message(span_notice("[user] finishes attaching [src] to [spirited_away] and activates it."),\
-	span_notice("You attach the pack to [spirited_away] and activate it. This looks like it will yield [export_report.points ? export_report.points : "no"] point[export_report.points == 1 ? "" : "s"]."), null, 5)
+	span_notice("You attach the pack to [spirited_away] and activate it. This looks like it will yield [points ? points : "no"] point[points == 1 ? "" : "s"][dropship_points ? " and [dropship_points] dropship point[dropship_points == 1 ? "" : "s"]" : ""]."), null, 5)
 	uses--
 	if(uses < 1)
 		user.temporarilyRemoveItemFromInventory(src) //Removes the item without qdeling it, qdeling it this early will break the rest of the procs
 		moveToNullspace()
 
-	qdel(spirited_away)
+	if(isliving(spirited_away))
+		var/mob/living/spirited_away_living = spirited_away
+		spirited_away_living.despawn()
+	if(!QDELETED(spirited_away))
+		qdel(spirited_away)
 
 
 /obj/item/fulton_extraction_pack/proc/do_checks(atom/movable/spirited_away, mob/user)
@@ -59,7 +67,7 @@
 		return FALSE
 	user.visible_message(span_notice("[user] starts attaching [src] to [spirited_away]."),\
 	span_notice("You start attaching the pack to [spirited_away]..."), null, 5)
-	if(!do_after(user, 5 SECONDS, NONE, spirited_away))
+	if(!do_after(user, 5 SECONDS, NONE, spirited_away, BUSY_ICON_HOSTILE, BUSY_ICON_DANGER))
 		return FALSE
 	if(!isturf(spirited_away.loc))
 		balloon_alert(user, "Must extract on the ground")
@@ -90,6 +98,17 @@
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), get_turf(holder_obj), 'sound/items/fultext_deploy.ogg', 50, TRUE), 0.4 SECONDS)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), get_turf(holder_obj), 'sound/items/fultext_launch.ogg', 50, TRUE), 7.4 SECONDS)
 	addtimer(CALLBACK(src, PROC_REF(cleanup_extraction)), 8 SECONDS)
+	if(ishuman(spirited_away))
+		var/mob/living/carbon/human/spirited_away_human = spirited_away
+		if(!spirited_away_human)
+			return
+		spirited_away_human.ImmobilizeNoChain(6.2 SECONDS)
+		var/obj/item/radio/headset/mainship/headset = spirited_away_human.wear_ear
+		if(istype(headset))
+			headset.disable_locator(9 SECONDS)
+		if(spirited_away_human.stat == CONSCIOUS)
+			spirited_away_human.visible_message(span_notice("[spirited_away_human] lets out a yelp as they are suddenly lifted off the air!"), span_warning("You let out a yelp as you are suddenly lifted off the air!"), null, 5)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), get_turf(holder_obj), 'ntf_modular/sound/misc/kirby_scream_meme.ogg', 60, FALSE), 6.25 SECONDS)
 
 	flick("fulton_expand", baloon)
 	baloon.icon_state = "fulton_balloon"
@@ -107,8 +126,6 @@
 	holder_obj.pixel_z = initial(pixel_z)
 	holder_obj.vis_contents -= baloon
 	baloon.icon_state = initial(baloon.icon_state)
-	if(uses < 1)
-		qdel(src)
 	active = FALSE
 
 /obj/item/fulton_extraction_pack/tank
@@ -146,16 +163,10 @@
 	desc = "You shouldn't see this."
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
-
 //Overrides.
 /mob/living/carbon/xenomorph/fulton_act(mob/living/user, obj/item/I)
 	if(!SSpoints)
 		balloon_alert(user, "Failed to link with destination")
-		return TRUE
-
-	if(stat != DEAD)
-		balloon_alert(user, "Target still alive")
-		to_chat(user, span_warning("The extraction device buzzes, complaining. This one seems to be alive still."))
 		return TRUE
 
 	var/obj/item/fulton_extraction_pack/ext_pack = I
@@ -163,13 +174,17 @@
 	return TRUE
 
 /mob/living/carbon/human/fulton_act(mob/living/user, obj/item/I)
+	if(!SSpoints)
+		balloon_alert(user, "Failed to link with destination")
+		return TRUE
 	if(!can_sell_human_body(src, user.faction))
 		balloon_alert(user, "High command not interested")
 		return TRUE
-	if(stat != DEAD)
-		balloon_alert(user, "Target still alive")
-		to_chat(user, span_warning("The extraction device buzzes, complaining. This one seems to be alive still."))
-		return TRUE
+	else if(istype(I, /obj/item/fulton_extraction_pack/adminbus/advanced))
+		var/obj/item/fulton_extraction_pack/adminbus/advanced/adv_pack = I
+		if(!adv_pack.linked_extraction_point)
+			balloon_alert(user, "No extraction point linked")
+			return TRUE
 	var/obj/item/fulton_extraction_pack/ext_pack = I
 	ext_pack.extract(src, user)
 	return TRUE
@@ -222,11 +237,27 @@
 	return ..()
 
 
-/obj/item/fulton_extraction_pack/adminbus/preattack(mob/user, atom/target)
-	if(!isturf(target.loc) || !ismovable(target))
+/obj/item/fulton_extraction_pack/adminbus/preattack(atom/target, mob/user)
+	if(!SSpoints && !linked_extraction_point) //cant have shit in detroit
+		balloon_alert(user, "Failed to link with destination")
 		return FALSE
 	if(active)
 		balloon_alert(user, "Fulton not ready")
+		return FALSE
+	if(istype(target, /obj/structure/closet))
+		var/obj/structure/closet/target_closet = target
+		if(!target_closet)
+			return FALSE
+		if(target_closet.opened)
+			return FALSE
+	if(ishuman(target))
+		if(!can_sell_human_body(src, user.faction) && !linked_extraction_point)
+			balloon_alert(user, "High command not interested")
+			return FALSE
+	if(isarmoredvehicle(target))
+		balloon_alert(user, "Use specialized fulton")
+		return FALSE
+	if(!isturf(target.loc) || !ismovable(target))
 		return FALSE
 	. = TRUE
 	if(istype(target, /obj/structure/fulton_extraction_point))
@@ -248,21 +279,56 @@
 	if(care_about_anchored && movable_target.anchored)
 		balloon_alert(user, "Cannot extract anchored")
 		return FALSE
-	if(do_after_time && (user.do_actions || !do_after(user, do_after_time, TRUE, target)))
-		return
+	if(!do_after(user, do_after_time, NONE, target, BUSY_ICON_HOSTILE, BUSY_ICON_DANGER))
+		return FALSE
 	if(require_living_to_be_dead && isliving(target))
 		var/mob/living/living_target = target
 		if(living_target.stat == DEAD)
 			return
 
+	uses--
+	if(uses < 1)
+		user.temporarilyRemoveItemFromInventory(src) //Removes the item without qdeling it, qdeling it this early will break the rest of the procs
+		moveToNullspace()
+
 	do_extract(target, user)
 
 	if(linked_extraction_point)
-		movable_target.forceMove(get_turf(linked_extraction_point))
+		sleep(8 SECONDS) //Wait for the fulton animation to finish
+		var/turf/droploc = get_turf(linked_extraction_point)
+		if(!droploc)
+			if(isliving(movable_target))
+				REMOVE_TRAIT(movable_target, TRAIT_IMMOBILE, type)
+			return
+		movable_target.forceMove(droploc)
+		if(ishuman(movable_target))
+			var/mob/living/carbon/human/movable_target_human = movable_target
+			movable_target_human.ImmobilizeNoChain(4 SECONDS)
+			movable_target_human.KnockdownNoChain(4 SECONDS)
+		playsound(droploc, 'sound/items/fultext_deploy.ogg', 30, TRUE)
+		var/image/fulton_image = image('icons/obj/items/fulton_balloon.dmi', src, "fulton_balloon")
+		movable_target.pixel_z = 400
+		movable_target.add_overlay(list(fulton_image))
+		animate(movable_target, time = 4 SECONDS, pixel_z = 0, easing=SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+		addtimer(CALLBACK(droploc, TYPE_PROC_REF(/turf, ceiling_debris)), 2.5 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(clean_fultondrop), movable_target, list(fulton_image)), 4 SECONDS)
 		if(isliving(movable_target))
 			REMOVE_TRAIT(movable_target, TRAIT_IMMOBILE, type)
 	else
 		qdel(target)
+		if(uses < 1)
+			qdel(src)
+
+/// handles cleanup of post-animation stuff (ie just after it lands)
+/obj/item/fulton_extraction_pack/adminbus/proc/clean_fultondrop(mob/living/carbon/human/movable_target, list/anim_overlays)
+	movable_target.cut_overlay(anim_overlays)
+	var/image/fulton_image = image('icons/obj/items/fulton_balloon.dmi', src, "fulton_retract")
+	movable_target.add_overlay(list(fulton_image))
+	sleep(4)
+	movable_target.cut_overlay(list(fulton_image))
+	if(uses < 1)
+		QDEL_IN(src, 3 SECONDS)
+
 
 /obj/vehicle/sealed/armored/fulton_act(mob/living/user, obj/item/I)
 	. = TRUE
@@ -294,3 +360,29 @@
 	icon_state = "extraction_point"
 	anchored = TRUE
 	density = FALSE
+	drag_delay = 0
+
+/obj/structure/fulton_extraction_point/wrench_act(mob/living/user, obj/item/I)
+	if(!user.Adjacent(src))
+		return
+	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
+	if(anchored)
+		to_chat(user, span_notice("You unanchor [src]."))
+		anchored = FALSE
+	else
+		to_chat(user, span_notice("You anchor [src]."))
+		anchored = TRUE
+
+/obj/item/fulton_extraction_pack/adminbus/advanced
+	name = "advanced fulton extraction pack"
+	desc = "An advanced balloon that can be used to extract specific equipment or personnel rather than directly selling them when linked to a fulton extraction point, unlinked it should function the same as a regular fulton. Anything not bolted down can be moved."
+	color = COLOR_BRIGHT_BLUE
+	tool_behaviour = TOOL_FULTON
+	require_living_to_be_dead = FALSE
+
+/obj/item/fulton_extraction_pack/adminbus/preattack(mob/user, atom/target)
+	. = ..()
+	if(linked_extraction_point)
+		name = "[initial(name)] ([get_area_name(linked_extraction_point.loc)])"
+	else
+		name = initial(name)

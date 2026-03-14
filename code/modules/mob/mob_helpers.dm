@@ -1,14 +1,17 @@
 /proc/isdeaf(A)
 	if(isliving(A))
 		var/mob/living/M = A
-		return M.ear_deaf || M.disabilities & DEAF
+		return M.get_ear_deaf() || M.disabilities & DEAF
 	return FALSE
 
 /proc/is_blind(A)
 	if(isliving(A))
 		var/mob/living/M = A
-		return M.eye_blind
+		return M.isBlind()
 	return FALSE
+
+/mob/living/proc/isBlind()
+	return eye_blind
 
 /mob/proc/can_use_hands()
 	return
@@ -58,19 +61,19 @@
 
 //The base miss chance for the different defence zones
 GLOBAL_LIST_INIT(base_miss_chance, list(
-	"head" = 10,
+	"head" = 20,
 	"chest" = 0,
 	"groin" = 5,
-	"l_leg" = 10,
-	"r_leg" = 10,
-	"l_arm" = 10,
-	"r_arm" = 10,
-	"l_hand" = 30,
-	"r_hand" = 30,
-	"l_foot" = 40,
-	"r_foot" = 40,
-	"eyes" = 20,
-	"mouth" = 15,
+	"l_leg" = 25,
+	"r_leg" = 25,
+	"l_arm" = 25,
+	"r_arm" = 25,
+	"l_hand" = 50,
+	"r_hand" = 50,
+	"l_foot" = 65,
+	"r_foot" = 65,
+	"eyes" = 200, //Rp shooting mode, miss most of your shots, works against xenos too
+	"mouth" = 40,
 ))
 
 //Used to weight organs when an organ is hit randomly (i.e. not a directed, aimed attack).
@@ -392,13 +395,13 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		return
 	var/track_link
 	if (source && action == NOTIFY_ORBIT)
-		track_link = " <a href='byond://?src=[REF(ghost)];track=[REF(source)]'>(Follow)</a>"
+		track_link = " <a href='byond://?_src_=usr;[track_href(source)]'>(Follow)</a>"
 	if (source && action == NOTIFY_JUMP)
 		var/turf/T = get_turf(source)
-		track_link = " <a href='byond://?src=[REF(ghost)];jump=1;x=[T.x];y=[T.y];z=[T.z]'>(Jump)</a>"
+		track_link = " <a href='byond://?_src_=usr;jump=1;x=[T.x];y=[T.y];z=[T.z]'>(Jump)</a>"
 	var/full_enter_link
 	if (enter_link)
-		full_enter_link = "<a href='byond://?src=[REF(ghost)];[enter_link]'>[(enter_text) ? "[enter_text]" : "(Claim)"]</a>"
+		full_enter_link = "<a href='byond://?_src_=usr;[enter_link]'>[(enter_text) ? "[enter_text]" : "(Claim)"]</a>"
 	to_chat(ghost, "[(extra_large) ? "<br><hr>" : ""][span_deadsay("[message][(enter_link) ? " [full_enter_link]" : ""][track_link]")][(extra_large) ? "<hr><br>" : ""]")
 	if(ghost_sound)
 		SEND_SOUND(ghost, sound(ghost_sound, volume = notify_volume, channel = CHANNEL_NOTIFY))
@@ -458,7 +461,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 /mob/living/carbon/human/proc/do_unique_action()
 	SIGNAL_HANDLER
 	. = COMSIG_KB_ACTIVATED //The return value must be a flag compatible with the signals triggering this.
-	if(incapacitated() || lying_angle)
+	if(incapacitated())
 		return
 
 	var/obj/item/active_item = get_active_held_item()

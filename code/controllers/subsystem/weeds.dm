@@ -29,8 +29,9 @@ SUBSYSTEM_DEF(weeds)
 
 		var/obj/alien/weeds/weed = locate(/obj/alien/weeds) in T
 		if(weed && !weed.parent_node && !istype(weed, /obj/alien/weeds/node))
-			weed.set_parent_node(node)
-			SSweeds_decay.decaying_list -= weed
+			if(weed.issamexenohive(node))
+				weed.set_parent_node(node)
+				SSweeds_decay.decaying_list -= weed
 
 		if(QDELETED(node) || QDELETED(T) || !T.is_weedable())
 			pending -= T
@@ -79,7 +80,7 @@ SUBSYSTEM_DEF(weeds)
 		return
 	var/obj/alien/weeds/weed_to_spawn = node.weed_type
 	var/swapped = FALSE
-	if(iswallturf(T))
+	if(isclosedturf(T)) //ntf change from iswallturf(T)
 		weed_to_spawn = /obj/alien/weeds/weedwall
 	for (var/obj/O in T)
 		if(istype(O, /obj/structure/window/framed))
@@ -100,4 +101,4 @@ SUBSYSTEM_DEF(weeds)
 			weed.swapped = TRUE
 			swapped = TRUE
 			qdel(O)
-	new weed_to_spawn(T, node, swapped)
+	new weed_to_spawn(T, node.hivenumber, node, swapped)

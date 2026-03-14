@@ -253,7 +253,7 @@
 /turf/open/floor/tile/cafe,
 /area/lv624/ground/caves/central2)
 "DQ" = (
-/obj/machinery/constructable_frame/machine_frame,
+/obj/machinery/constructable_frame,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central2)
 "Eb" = (

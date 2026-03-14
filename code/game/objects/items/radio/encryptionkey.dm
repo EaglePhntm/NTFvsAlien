@@ -43,14 +43,19 @@ GLOBAL_LIST_EMPTY_TYPED(custom_updating_encryptkeys, /obj/item/encryptionkey)
 	icon_state = "rob_cypherkey"
 	channels = list(RADIO_CHANNEL_CAS = TRUE)
 
+/obj/item/encryptionkey/sec
+	name = "\improper CorpSec radio encryption key"
+	icon_state = "sec_cypherkey"
+	channels = list(RADIO_CHANNEL_SEC = TRUE, RADIO_CHANNEL_ALPHA = TRUE, RADIO_CHANNEL_BRAVO = TRUE, RADIO_CHANNEL_CHARLIE = TRUE, RADIO_CHANNEL_DELTA = TRUE, RADIO_CHANNEL_MEDICAL = TRUE, RADIO_CHANNEL_REQUISITIONS = TRUE)
+
 /obj/item/encryptionkey/mcom
 	name = "\improper Marine Command radio encryption key"
 	icon_state = "cap_cypherkey"
-	channels = list(RADIO_CHANNEL_COMMAND = TRUE, RADIO_CHANNEL_CAS = TRUE, RADIO_CHANNEL_ALPHA = TRUE, RADIO_CHANNEL_BRAVO = TRUE, RADIO_CHANNEL_CHARLIE = TRUE, RADIO_CHANNEL_DELTA = TRUE, RADIO_CHANNEL_ENGINEERING = TRUE, RADIO_CHANNEL_MEDICAL = TRUE, RADIO_CHANNEL_REQUISITIONS = TRUE)
+	channels = list(RADIO_CHANNEL_COMMAND = TRUE, RADIO_CHANNEL_SEC = TRUE, RADIO_CHANNEL_CAS = TRUE, RADIO_CHANNEL_ALPHA = TRUE, RADIO_CHANNEL_BRAVO = TRUE, RADIO_CHANNEL_CHARLIE = TRUE, RADIO_CHANNEL_DELTA = TRUE, RADIO_CHANNEL_ENGINEERING = TRUE, RADIO_CHANNEL_MEDICAL = TRUE, RADIO_CHANNEL_REQUISITIONS = TRUE)
 	custom_squad_factions = ENCRYPT_CUSTOM_TERRAGOV
 
 /obj/item/encryptionkey/mcom/ai //AI only.
-	channels = list(RADIO_CHANNEL_COMMAND = TRUE, RADIO_CHANNEL_CAS = TRUE, RADIO_CHANNEL_ALPHA = TRUE, RADIO_CHANNEL_BRAVO = TRUE, RADIO_CHANNEL_CHARLIE = TRUE, RADIO_CHANNEL_DELTA = TRUE, RADIO_CHANNEL_ENGINEERING = TRUE, RADIO_CHANNEL_MEDICAL = TRUE, RADIO_CHANNEL_REQUISITIONS = TRUE)
+	channels = list(RADIO_CHANNEL_COMMAND = TRUE, RADIO_CHANNEL_SEC = TRUE, RADIO_CHANNEL_CAS = TRUE, RADIO_CHANNEL_ALPHA = TRUE, RADIO_CHANNEL_BRAVO = TRUE, RADIO_CHANNEL_CHARLIE = TRUE, RADIO_CHANNEL_DELTA = TRUE, RADIO_CHANNEL_ENGINEERING = TRUE, RADIO_CHANNEL_MEDICAL = TRUE, RADIO_CHANNEL_REQUISITIONS = TRUE)
 
 
 /obj/item/encryptionkey/squadlead
@@ -87,13 +92,10 @@ GLOBAL_LIST_EMPTY_TYPED(custom_updating_encryptkeys, /obj/item/encryptionkey)
 /obj/item/encryptionkey/dutch
 	name = "\improper Colonist encryption key"
 	channels = list(RADIO_CHANNEL_COLONIST = TRUE)
-	independent = TRUE
-
 
 /obj/item/encryptionkey/PMC
-	name = "\improper Nanotrasen encryption key"
-	channels = list(RADIO_CHANNEL_PMC = TRUE)
-	independent = TRUE
+	name = "\improper Ninetails encryption key"
+	channels = list(RADIO_CHANNEL_COMMON = TRUE, RADIO_CHANNEL_PMC = TRUE)
 
 
 /obj/item/encryptionkey/usl
@@ -117,7 +119,6 @@ GLOBAL_LIST_EMPTY_TYPED(custom_updating_encryptkeys, /obj/item/encryptionkey)
 /obj/item/encryptionkey/som
 	name = "\improper Sons of Mars encryption key"
 	channels = list(RADIO_CHANNEL_SOM = TRUE)
-	independent = TRUE
 
 /obj/item/encryptionkey/icc
 	name = "\improper ICC encryption key"
@@ -140,7 +141,7 @@ GLOBAL_LIST_EMPTY_TYPED(custom_updating_encryptkeys, /obj/item/encryptionkey)
 	independent = TRUE
 
 /obj/item/encryptionkey/vsd
-	name = "\improper Security Detail encryption key"
+	name = "\improper Kaizoku encryption key"
 	channels = list(RADIO_CHANNEL_VSD = TRUE)
 	independent = TRUE
 
@@ -193,5 +194,11 @@ GLOBAL_LIST_EMPTY_TYPED(custom_updating_encryptkeys, /obj/item/encryptionkey)
 
 /obj/item/encryptionkey/spatial_agent
 	name = "\improper Spatial agent encryption key"
-	channels = list(RADIO_CHANNEL_COMMAND = TRUE, RADIO_CHANNEL_CAS = TRUE, RADIO_CHANNEL_ALPHA = TRUE, RADIO_CHANNEL_BRAVO = TRUE, RADIO_CHANNEL_CHARLIE = TRUE, RADIO_CHANNEL_DELTA = TRUE, RADIO_CHANNEL_ENGINEERING = TRUE, RADIO_CHANNEL_MEDICAL = TRUE, RADIO_CHANNEL_REQUISITIONS = TRUE)
+	channels = list(RADIO_CHANNEL_DEATHSQUAD = TRUE, RADIO_CHANNEL_ERP = TRUE, RADIO_CHANNEL_VSD = TRUE, RADIO_CHANNEL_SOM = TRUE, RADIO_CHANNEL_COMMAND_SOM = TRUE, RADIO_CHANNEL_ZULU = TRUE, RADIO_CHANNEL_YANKEE = TRUE, RADIO_CHANNEL_XRAY = TRUE, RADIO_CHANNEL_WHISKEY = TRUE, RADIO_CHANNEL_ENGINEERING_SOM = TRUE, RADIO_CHANNEL_MEDICAL_SOM = TRUE, RADIO_CHANNEL_COMMAND = TRUE, RADIO_CHANNEL_CAS = TRUE, RADIO_CHANNEL_ALPHA = TRUE, RADIO_CHANNEL_BRAVO = TRUE, RADIO_CHANNEL_CHARLIE = TRUE, RADIO_CHANNEL_DELTA = TRUE, RADIO_CHANNEL_ENGINEERING = TRUE, RADIO_CHANNEL_MEDICAL = TRUE, RADIO_CHANNEL_REQUISITIONS = TRUE)
+	independent = TRUE
+
+/obj/item/encryptionkey/commai
+	icon_state = "syn_cypherkey"
+	name = "\improper comm code decryption AI chip"
+	channels = list(RADIO_CHANNEL_COLONIST = TRUE, RADIO_CHANNEL_DEATHSQUAD = TRUE, RADIO_CHANNEL_ERP = TRUE, RADIO_CHANNEL_VSD = TRUE, RADIO_CHANNEL_SOM = TRUE, RADIO_CHANNEL_ZULU = TRUE, RADIO_CHANNEL_YANKEE = TRUE, RADIO_CHANNEL_XRAY = TRUE, RADIO_CHANNEL_WHISKEY = TRUE, RADIO_CHANNEL_ENGINEERING_SOM = TRUE, RADIO_CHANNEL_MEDICAL_SOM = TRUE)
 	independent = TRUE

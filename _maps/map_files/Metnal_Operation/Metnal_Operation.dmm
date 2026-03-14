@@ -1310,6 +1310,8 @@
 /obj/structure/table/reinforced/prison,
 /obj/item/stack/sheet/mineral/phoron/medium_stack,
 /obj/effect/spawner/random/weaponry/gun/rifles,
+/obj/item/stack/sheet/mineral/iron,
+/obj/item/stack/sheet/mineral/silver,
 /turf/open/floor/prison/yellow{
 	dir = 4
 	},
@@ -1573,7 +1575,6 @@
 /area/metnal/caves/northwest)
 "bfI" = (
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
-	dir = 4;
 	name = "\improper Maars Bar"
 	},
 /turf/open/floor/wood/alt_eleven,
@@ -1715,9 +1716,7 @@
 /turf/open/floor/prison/plate,
 /area/metnal/inside/cargo)
 "blI" = (
-/obj/machinery/sleeper{
-	dir = 4
-	},
+/obj/machinery/sleeper,
 /turf/open/floor/prison/blue/plate,
 /area/metnal/inside/meddesk)
 "blN" = (
@@ -5177,6 +5176,7 @@
 	},
 /obj/structure/closet/wardrobe/engineering_yellow,
 /obj/item/clothing/shoes/magboots,
+/obj/structure/cable,
 /turf/open/floor/tile/dark/brown2{
 	dir = 8
 	},
@@ -6452,9 +6452,7 @@
 /turf/open/floor/wood/alt_seven,
 /area/metnal/inside/bar)
 "eqA" = (
-/obj/machinery/door/airlock/multi_tile/urban/generic{
-	dir = 4
-	},
+/obj/machinery/door/airlock/multi_tile/urban/generic,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/dark,
 /area/metnal/inside/chapel)
@@ -7389,7 +7387,6 @@
 /area/metnal/inside/engineering)
 "eTs" = (
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
-	dir = 4;
 	name = "\improper Maars Bar"
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -7772,7 +7769,6 @@
 /area/metnal/inside/colonydorms)
 "fgK" = (
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
-	dir = 4;
 	name = "\improper Maars Bar"
 	},
 /obj/structure/cable,
@@ -8881,7 +8877,6 @@
 /area/metnal/inside/primarystorage)
 "fVH" = (
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
-	dir = 4;
 	name = "\improper Maars Bar"
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -11510,7 +11505,7 @@
 	},
 /area/metnal/inside/mining)
 "hOt" = (
-/obj/machinery/cic_maptable/drawable,
+/obj/machinery/cic_maptable/survivor,
 /turf/open/floor/urban/wood/blackwood,
 /area/metnal/inside/bridge)
 "hOK" = (
@@ -11576,9 +11571,7 @@
 /turf/open/floor/carpet/black,
 /area/metnal/inside/executivedorms)
 "hRc" = (
-/obj/effect/turf_decal/trimline/neutral/warning{
-	dir = 2
-	},
+/obj/effect/turf_decal/trimline/neutral/warning,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/prison/bright_clean/two,
@@ -13133,6 +13126,15 @@
 	dir = 4
 	},
 /area/metnal/caves/southwest/garbledradio)
+"iWa" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/tile/dark/brown2{
+	dir = 8
+	},
+/area/metnal/inside/substation)
 "iWd" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -16228,9 +16230,7 @@
 /turf/open/urban/street/asphalt,
 /area/metnal/outside/east)
 "kWU" = (
-/obj/effect/turf_decal/trimline/neutral/warning{
-	dir = 2
-	},
+/obj/effect/turf_decal/trimline/neutral/warning,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
 	},
@@ -18357,7 +18357,8 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/metnal/caves/southeast)
 "msf" = (
-/obj/structure/prop/computer/broken/four,
+/obj/effect/turf_decal/box,
+/obj/effect/landmark/static_comms/net_two,
 /turf/open/floor/prison/plate,
 /area/metnal/inside/cargo)
 "msA" = (
@@ -19573,6 +19574,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/prison/blue/plate,
 /area/metnal/inside/medical)
+"nhs" = (
+/obj/structure/cable,
+/turf/open/floor/tile/brown/full,
+/area/metnal/inside/substation)
 "nhu" = (
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
@@ -20630,7 +20635,7 @@
 	},
 /area/metnal/inside/experimentation)
 "nSf" = (
-/obj/machinery/constructable_frame/machine_frame,
+/obj/machinery/constructable_frame,
 /turf/open/floor/tile/dark,
 /area/metnal/inside/engineering)
 "nSh" = (
@@ -26765,7 +26770,7 @@
 /area/metnal/inside/meddesk)
 "rSh" = (
 /obj/structure/table/black,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/wood/variable/mosaic,
 /area/metnal/inside/northmeetingroom)
 "rSN" = (
@@ -28717,9 +28722,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/metnal/caves/west/garbledradio)
 "teS" = (
-/obj/structure/table/reinforced/prison,
-/obj/item/stack/sheet/mineral/silver,
-/obj/effect/landmark/weed_node,
+/obj/effect/landmark/static_comms/net_one,
 /turf/open/floor/prison/yellow{
 	dir = 10
 	},
@@ -30653,7 +30656,6 @@
 /obj/effect/turf_decal/caution{
 	dir = 4
 	},
-/obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/metnal/inside/substation)
 "unV" = (
@@ -30809,13 +30811,6 @@
 	},
 /turf/open/ground/grass/weedable,
 /area/metnal/inside/Headquarters)
-"usw" = (
-/obj/structure/table/reinforced/prison,
-/obj/item/stack/sheet/mineral/iron,
-/turf/open/floor/prison/yellow{
-	dir = 9
-	},
-/area/metnal/inside/mining)
 "usC" = (
 /obj/effect/acid_hole,
 /turf/closed/wall/r_wall/prison,
@@ -32723,9 +32718,7 @@
 	},
 /area/metnal/caves/southeast/garbledradio)
 "vEh" = (
-/obj/effect/turf_decal/trimline/neutral/warning{
-	dir = 2
-	},
+/obj/effect/turf_decal/trimline/neutral/warning,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 8
 	},
@@ -42048,7 +42041,7 @@ cxI
 qDi
 hNj
 oFj
-cRl
+iWa
 dwl
 dwl
 dwl
@@ -42251,7 +42244,7 @@ sML
 nSQ
 sML
 oMa
-xfY
+xzK
 unU
 oMa
 duU
@@ -42451,10 +42444,10 @@ jMx
 rkg
 nSo
 uWw
-nSo
+nhs
 eai
-nSo
-nSo
+nhs
+nhs
 eai
 mPI
 jMx
@@ -57954,8 +57947,8 @@ iyY
 hYx
 tgQ
 sTF
-sTF
 msf
+bSz
 bSz
 oil
 kVU
@@ -70704,8 +70697,8 @@ qyx
 aCB
 aLL
 bQC
-teS
 djm
+teS
 hAj
 bmG
 qyx
@@ -70906,7 +70899,7 @@ qyx
 vKa
 njE
 sEW
-usw
+sEW
 liJ
 afg
 ezV

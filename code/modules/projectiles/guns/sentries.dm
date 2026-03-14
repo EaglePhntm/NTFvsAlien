@@ -16,7 +16,8 @@
 	scatter_unwielded = 0
 	burst_scatter_mult = 0
 	burst_amount = 4
-	turret_flags = TURRET_HAS_CAMERA|TURRET_SAFETY|TURRET_ALERTS
+
+	turret_flags = TURRET_HAS_CAMERA|TURRET_ALERTS
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_IFF|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	deployable_item = /obj/machinery/deployable/mounted/sentry
@@ -81,7 +82,7 @@
 //thrown SOM sentry
 /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/cope
 	name = "\improper COPE sentry"
-	desc = "The Centurion Omnidirectional Point-defense Energy sentry is a man portable, automated weapon system utilised by the SOM. It is activated in hand then thrown into place before it deploys, where it's ground hugging profile makes it a difficult target to accurately hit. Equipped with a compact volkite weapon system, and a recharging battery to allow for prolonged use, but can take normal volkite cells in a pinch."
+	desc = "The Centurion Omnidirectional Point-defense Energy sentry is a man portable, automated weapon system utilised by the SOM. It is activated in hand then thrown into place before it deploys. Equipped with a compact volkite weapon system, and a recharging battery to allow for prolonged use, but can take normal volkite cells in a pinch."
 	icon_state = "cope"
 	icon = 'icons/obj/machines/deployable/sentry/cope.dmi'
 	worn_icon_list = list(
@@ -91,6 +92,7 @@
 	max_integrity = 225
 	integrity_failure = 50
 	deploy_time = 1 SECONDS
+	throw_range = 3
 	turret_flags = TURRET_HAS_CAMERA|TURRET_ALERTS|TURRET_RADIAL
 	deployable_item = /obj/machinery/deployable/mounted/sentry/cope
 	turret_range = 9
@@ -107,7 +109,7 @@
 	rounds_per_shot = 12
 	fire_delay = 0.2 SECONDS
 	scatter = -3
-	damage_falloff_mult = 0.5
+	damage_falloff_mult = 0.8
 	ammo_datum_type = /datum/ammo/energy/volkite/light
 	default_ammo_type = /obj/item/cell/lasgun/volkite/turret
 	allowed_ammo_types = list(/obj/item/cell/lasgun/volkite/turret, /obj/item/cell/lasgun/volkite)
@@ -156,13 +158,36 @@
 		return
 	do_deploy(user)
 
+/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/cope/do_deploy(mob/user, turf/location)
+	. = ..()
+	spawn(1)
+		if(!(CHECK_BITFIELD(item_flags, IS_DEPLOYED)))
+			reset()
 /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/cope/predeployed
 	faction = FACTION_SOM
 	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_PICKUP
 
+/obj/item/storage/box/crate/volkite/cope
+	name = "\improper COPE sentry crate"
+	desc = "A large case containing all you need to set up a COPE sentry."
+	icon_state = "sentry_mini_case"
+	w_class = WEIGHT_CLASS_HUGE
+
+/obj/item/storage/box/crate/volkite/cope/Initialize(mapload, ...)
+	. = ..()
+	storage_datum.storage_slots = 6
+	storage_datum.set_holdable(can_hold_list = list(
+		/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/cope,
+		/obj/item/cell/lasgun/volkite/turret,
+	))
+
+/obj/item/storage/box/crate/volkite/cope/PopulateContents()
+	new /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/cope(src)
+	new /obj/item/cell/lasgun/volkite/turret(src)
+
 /obj/item/weapon/gun/sentry/big_sentry/premade
 	faction = FACTION_TERRAGOV
-	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOY_ON_INITIALIZE
+	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_PICKUP
 
 /obj/item/weapon/gun/sentry/big_sentry/premade/radial
 	turret_range = 9
@@ -235,7 +260,7 @@
 	name = "SG-577 Gauss Turret"
 	desc = "A deployable, semi-automated turret with AI targeting capabilities. Armed with an armor penetrating MIC Gauss Cannon and a high-capacity drum magazine."
 	icon_state = "sentry"
-	turret_flags = TURRET_HAS_CAMERA|TURRET_ON|TURRET_IMMOBILE|TURRET_SAFETY|TURRET_RADIAL
+	turret_flags = TURRET_HAS_CAMERA|TURRET_ON|TURRET_IMMOBILE|TURRET_RADIAL|TURRET_SAFETY
 	max_shells = 100
 
 	ammo_datum_type = /datum/ammo/bullet/turret/gauss

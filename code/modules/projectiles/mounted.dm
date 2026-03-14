@@ -49,7 +49,7 @@
 
 /obj/machinery/deployable/mounted/AltClick(mob/user)
 	. = ..()
-	if(!Adjacent(user) || user.lying_angle || user.incapacitated() || !ishuman(user)) //Damn you zack, yoinking mags from pipes as a runner.
+	if(!Adjacent(user) || user.incapacitated() || !ishuman(user)) //Damn you zack, yoinking mags from pipes as a runner.
 		return
 	var/obj/item/weapon/gun/internal_gun = get_internal_item()
 	internal_gun?.unload(user)
@@ -332,12 +332,12 @@
 /// Can be anchored and unanchored from the ground by Alt Right Click.
 /obj/machinery/deployable/mounted/moveable/AltRightClick(mob/living/user)
 	. = ..()
-	if(!Adjacent(user) || !ishuman(user) || user.lying_angle || user.incapacitated())
+	if(!Adjacent(user) || !ishuman(user) || user.incapacitated())
 		return
 
 	if(anchor_time)
 		balloon_alert(user, "You begin [anchored ? "unanchoring" : "anchoring"] [src]")
-		if(!do_after(user, anchor_time, NONE, src))
+		if(!do_after(user, anchor_time, TRUE, src))
 			balloon_alert(user, "Interrupted!")
 			return
 

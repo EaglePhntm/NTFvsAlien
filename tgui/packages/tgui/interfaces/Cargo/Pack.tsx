@@ -11,13 +11,15 @@ export const Pack = (props: PackProps) => {
   const { pack, amount } = props;
   const supplies = useSupplyPacks();
   if (!supplies) return;
-  const { name, notes, cost, contains } = supplies[pack];
+  const { name, notes, cost, contains, faction_lock } = supplies[pack];
   return !!contains && contains.constructor === Object ? (
     <Collapsible
       color="transparent"
       title={<PackName cost={cost} name={name} pl={0} amount={amount} />}
     >
       <b>{notes ? 'Notes: ' : null} </b> {notes}
+      {notes && faction_lock ? <br /> : null}
+      <b>{faction_lock ? 'Access restricted to: ' : null} </b> {faction_lock}
       <Table>
         <Table.Row>
           <Table.Cell bold>Item Type</Table.Cell>

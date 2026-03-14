@@ -38,19 +38,25 @@
 	minimap_icon = "defender"
 
 	// *** Defender Abilities *** //
-	crest_defense_armor = 30
+	crest_defense_armor = 40
 	crest_defense_slowdown = 0.8
-	fortify_armor = 50
+	fortify_armor = 60
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/psychic_influence,
+		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/activable/xeno/devour,
+		/datum/action/ability/activable/xeno/tail_stab,
 		/datum/action/ability/xeno_action/toggle_crest_defense,
 		/datum/action/ability/xeno_action/fortify,
 		/datum/action/ability/activable/xeno/charge/forward_charge,
 		/datum/action/ability/xeno_action/tail_sweep,
 		/datum/action/ability/xeno_action/regenerate_skin,
+		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
 	)
 
 	mutations = list(
@@ -76,12 +82,18 @@
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/psychic_influence,
+		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/activable/xeno/devour,
+		/datum/action/ability/activable/xeno/tail_stab,
 		/datum/action/ability/xeno_action/toggle_crest_defense,
 		/datum/action/ability/xeno_action/fortify,
 		/datum/action/ability/activable/xeno/charge/forward_charge,
 		/datum/action/ability/xeno_action/tail_sweep,
 		/datum/action/ability/xeno_action/regenerate_skin,
 		/datum/action/ability/xeno_action/centrifugal_force,
+		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
 	)

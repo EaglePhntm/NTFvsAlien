@@ -74,6 +74,67 @@
 			return
 		X.use_plasma(0.3 * X.xeno_caste.plasma_max * X.xeno_caste.plasma_regen_limit) //Drains 30% of max plasma on hit
 
+/datum/ammo/energy/lasgun/marine/shocking
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN
+	damage = 20
+	penetration = 0
+	sundering = 0
+	damage_falloff = 2
+	damage_type = STAMINA
+	icon_state = "disablershot"
+	hitscan_effect_icon = "beam_stun"
+	bullet_color = COLOR_LIGHT_ORANGE
+	max_range = 5
+
+/datum/ammo/energy/lasgun/marine/shocking/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
+	. = ..()
+	do_sparks(3, TRUE, target_mob)
+	if(isxeno(target_mob)) //need 1 second more than the actual effect time
+		var/mob/living/carbon/xenomorph/X = target_mob
+		X.use_stun_health(0.015 * X.xeno_caste.max_health)
+
+/datum/ammo/energy/tesla/emp
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN
+	damage = 80
+	penetration = 100
+	damage_type = STAMINA
+	icon_state = "disablershot"
+	hitscan_effect_icon = "beam_stun"
+	max_range = 9
+	bullet_color = COLOR_LIGHT_ORANGE
+	var/emp_chance = 100
+
+/datum/ammo/energy/tesla/emp/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
+	. = ..()
+	if(prob(emp_chance))
+		do_sparks(3, TRUE, target_mob)
+		empulse(target_mob, 0, 1, 1, 2)
+		staggerstun(target_mob, proj, stun = 0.5 SECONDS)
+	var/mob/living/carbon/human/human_victim = target_mob
+	if(human_victim.species.species_flags & ROBOTIC_LIMBS)
+		human_victim.adjustStaminaLoss(proj.damage/2)
+		human_victim.add_slowdown(0.2,1)
+		human_victim.AdjustStun(0.2 SECONDS)
+		if(human_victim.getStaminaLoss() > 20)
+			human_victim.overlay_fullscreen_timer(human_victim.getStaminaLoss(), 10, "glitch", /atom/movable/screen/fullscreen/robot_glitch)
+		if((human_victim.getStaminaLoss() >= human_victim.maxHealth*2) && !human_victim.IsUnconscious())
+			human_victim.ParalyzeNoChain(15 SECONDS) //fake unconscious basically
+			human_victim.AdjustMute(15 SECONDS)
+			human_victim.overlay_fullscreen_timer(15 SECONDS, 10, "bluescreen", /atom/movable/screen/fullscreen/dead/robot)
+			human_victim.visible_message(span_warning("[human_victim] shudders violently whilst spitting out error text before collapsing, flailing on the ground randomly."), span_tip("You are bluescreening, but you should be able to recover from this by rebooting automatically in about 15s."), span_notice("You hear a clanker glitching."))
+
+/datum/ammo/energy/tesla/emp/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
+	. = ..()
+	if(prob(emp_chance))
+		do_sparks(3, TRUE, target_obj)
+		empulse(target_obj, 0, 0, 1, 2)
+
+/datum/ammo/energy/tesla/emp/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
+	. = ..()
+	if(prob(emp_chance))
+		do_sparks(3, TRUE, target_turf)
+		empulse(target_turf, 0, 0, 1, 2)
+
 #define BFG_SOUND_DELAY_SECONDS 1
 /datum/ammo/energy/bfg
 	name = "bfg glob"
@@ -248,6 +309,11 @@
 	sundering = 1
 	max_range = 18
 
+/datum/ammo/energy/lasgun/marine/weakening/carbine
+	damage = 25
+	max_range = 18
+	plasma_drain = 15
+
 /datum/ammo/energy/lasgun/marine/overcharge
 	name = "overcharged laser bolt"
 	icon_state = "overchargedlaser"
@@ -268,15 +334,10 @@
 	hitscan_effect_icon = "blue_beam"
 	bullet_color = COLOR_DISABLER_BLUE
 	///plasma drained per hit
-	var/plasma_drain = 25
+	plasma_drain = 25
 
 /datum/ammo/energy/lasgun/marine/weakening/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	staggerstun(target_mob, proj, max_range = 6, slowdown = 1)
-
-	if(!isxeno(target_mob))
-		return
-	var/mob/living/carbon/xenomorph/xeno_victim = target_mob
-	xeno_victim.use_plasma(plasma_drain * xeno_victim.xeno_caste.plasma_regen_limit)
 
 /datum/ammo/energy/lasgun/marine/microwave
 	name = "microwave laser bolt"
@@ -349,11 +410,26 @@
 /datum/ammo/energy/lasgun/marine/cripple/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	staggerstun(target_mob, proj, slowdown = 1.5)
 
+/datum/ammo/energy/lasgun/marine/tracker
+	name = "tracker laser blast"
+	icon_state = "overchargedlaser"
+	hud_state = "laser_disabler"
+	damage = 20
+	penetration = 10
+	sundering = 0
+	hitscan_effect_icon = "blue_beam"
+	bullet_color = COLOR_DISABLER_BLUE
+
+/datum/ammo/energy/lasgun/marine/tracker/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
+	target_mob.AddComponent(/datum/component/dripping, DRIP_ON_TIME, 60 SECONDS, 1 SECONDS)
+
 /datum/ammo/energy/lasgun/marine/autolaser
 	name = "machine laser bolt"
 	damage = 18
 	penetration = 15
 	sundering = 1
+	hitscan_effect_icon = "beam_particle"
+	bullet_color = COLOR_DISABLER_BLUE
 
 /datum/ammo/energy/lasgun/marine/autolaser/burst
 	name = "burst machine laser bolt"
@@ -385,6 +461,7 @@
 	///number of melting stacks to apply when hitting mobs
 	var/melt_stacks = 2
 
+
 /datum/ammo/energy/lasgun/marine/autolaser/melting/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	if(!isliving(target_mob))
 		return
@@ -397,11 +474,18 @@
 	else
 		living_victim.apply_status_effect(STATUS_EFFECT_MELTING, melt_stacks)
 
+/datum/ammo/energy/lasgun/marine/autolaser/mini
+	name = "mini laser bolt"
+	hitscan_effect_icon = "beam_particle"
+	damage = 10
+	penetration = 5
+	sundering = 0.5
+
 /datum/ammo/energy/lasgun/marine/sniper
 	name = "sniper laser bolt"
 	hud_state = "laser_sniper"
 	damage = 60
-	penetration = 30
+	penetration = 20
 	accurate_range_min = 5
 	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN|AMMO_BETTER_COVER_RNG|AMMO_SNIPER
 	sundering = 5
@@ -426,7 +510,7 @@
 	icon_state = "microwavelaser"
 	hud_state = "laser_impact"
 	damage = 40
-	penetration = 30
+	penetration = 10
 	accurate_range_min = 5
 	sundering = 10
 	hitscan_effect_icon = "pu_laser"
@@ -493,7 +577,7 @@
 	icon_state = "disablershot"
 	hud_state = "laser_disabler"
 	damage = 70
-	penetration = 0
+	penetration = 40
 	damage_type = STAMINA
 	hitscan_effect_icon = "beam_stun"
 	bullet_color = LIGHT_COLOR_YELLOW
@@ -543,6 +627,17 @@
 
 /datum/ammo/energy/lasgun/marine/xray/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
 	proj.proj_max_range--
+
+/datum/ammo/energy/lasgun/marine/weakening/xray
+	damage = 20
+	penetration = 50
+	sundering = 0
+	max_range = 10
+	damage_type = STAMINA
+	hitscan_effect_icon = "blue_beam"
+	bullet_color = COLOR_CYAN
+	///plasma drained per hit
+	plasma_drain = 15
 
 /datum/ammo/energy/lasgun/marine/heavy_laser
 	ammo_behavior_flags = AMMO_TARGET_TURF|AMMO_BETTER_COVER_RNG|AMMO_ENERGY|AMMO_HITSCAN|AMMO_INCENDIARY
@@ -778,7 +873,7 @@
 	damage = 40
 	max_range = 14
 	penetration = 5
-	shell_speed = 1.5
+	shell_speed = 2
 	ammo_behavior_flags = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_TARGET_TURF
 	bullet_color = LIGHT_COLOR_ELECTRIC_GREEN
 
@@ -825,7 +920,7 @@
 	max_range = 40
 	accurate_range = 10
 	accuracy = 25
-	damage = 850
+	damage = 400
 	penetration = 120
 	sundering = 30
 	damage_falloff = 5

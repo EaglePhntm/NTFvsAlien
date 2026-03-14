@@ -112,6 +112,7 @@
 	GLOB.mob_living_list += src
 	if(stat != DEAD)
 		GLOB.alive_living_list += src
+		sexcon = new /datum/sex_controller(src)
 	SSmobs.start_processing(src)
 
 	set_armor_datum()
@@ -142,6 +143,7 @@
 	. = ..()
 	hard_armor = null
 	soft_armor = null
+	QDEL_NULL(sexcon)
 
 
 //This proc is used for mobs which are affected by pressure to calculate the amount of pressure that actually
@@ -352,6 +354,10 @@
 			//the puller can always swap with its victim if on grab intent
 			if(L.pulledby == src && a_intent == INTENT_GRAB)
 				mob_swap_mode = SWAPPING
+			if(isxeno(L))
+				var/mob/living/carbon/xenomorph/xeno = L
+				if(xeno.handcuffed)
+					mob_swap_mode = SWAPPING
 			//restrained people act if they were on 'help' intent to prevent a person being pulled from being seperated from their puller
 			else if((L.restrained() || L.a_intent == INTENT_HELP) && (restrained() || a_intent == INTENT_HELP) && L.move_force < MOVE_FORCE_VERY_STRONG)
 				mob_swap_mode = SWAPPING
@@ -539,7 +545,7 @@
 	ranged_scatter_mod += scatter_mod
 	SEND_SIGNAL(src, COMSIG_RANGED_SCATTER_MOD_CHANGED, scatter_mod)
 
-/mob/living/proc/smokecloak_on()
+/mob/living/proc/smokecloak_on(smokecloak_alpha)
 
 	if(smokecloaked)
 		return
@@ -547,12 +553,13 @@
 	if(stat == DEAD)
 		return
 
-	alpha = 5 // bah, let's make it better, it's a disposable device anyway
+	alpha = smokecloak_alpha
 
 	GLOB.huds[DATA_HUD_SECURITY_ADVANCED].remove_from_hud(src)
 	GLOB.huds[DATA_HUD_XENO_INFECTION].remove_from_hud(src)
 	GLOB.huds[DATA_HUD_XENO_REAGENTS].remove_from_hud(src)
 	GLOB.huds[DATA_HUD_XENO_DEBUFF].remove_from_hud(src)
+	GLOB.huds[DATA_HUD_XENO_HUMAN_SHARED].remove_from_hud(src)
 	GLOB.huds[DATA_HUD_XENO_HEART].remove_from_hud(src)
 
 	smokecloaked = TRUE
@@ -568,6 +575,7 @@
 	GLOB.huds[DATA_HUD_XENO_INFECTION].add_to_hud(src)
 	GLOB.huds[DATA_HUD_XENO_REAGENTS].add_to_hud(src)
 	GLOB.huds[DATA_HUD_XENO_DEBUFF].add_to_hud(src)
+	GLOB.huds[DATA_HUD_XENO_HUMAN_SHARED].add_to_hud(src)
 	GLOB.huds[DATA_HUD_XENO_HEART].add_to_hud(src)
 
 	smokecloaked = FALSE
@@ -575,10 +583,14 @@
 /mob/living/proc/update_cloak()
 	if(!smokecloaked)
 		return
-
-	var/obj/effect/particle_effect/smoke/tactical/S = locate() in loc
-	if(S)
-		return
+	var/best_alpha = 255
+	var/any_camo = FALSE
+	for(var/obj/effect/particle_effect/smoke/S in loc)
+		if(CHECK_BITFIELD(S.smoke_traits, SMOKE_CAMO) && !CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO))
+			any_camo = TRUE
+			best_alpha = min(best_alpha, S.smokecloak_alpha)
+	if(any_camo)
+		smokecloak_on(best_alpha)
 	else
 		smokecloak_off()
 
@@ -911,7 +923,6 @@ below 100 is not dizzy
 	SEND_SIGNAL(src, COMSIG_LIVING_SET_LYING_ANGLE)
 	if(lying_angle)
 		density = FALSE
-		drop_all_held_items()
 		if(layer == initial(layer)) //to avoid things like hiding larvas.
 			layer = LYING_MOB_LAYER //so mob lying always appear behind standing mobs
 	else
@@ -929,6 +940,7 @@ below 100 is not dizzy
 			ADD_TRAIT(src, TRAIT_IMMOBILE, STAT_TRAIT)
 			ADD_TRAIT(src, TRAIT_FLOORED, STAT_TRAIT)
 		if(DEAD)
+			REMOVE_TRAIT(src, TRAIT_NON_FLAMMABLE, STAT_TRAIT)
 			on_revive()
 	switch(stat)
 		if(CONSCIOUS) //From unconscious to conscious.
@@ -936,6 +948,8 @@ below 100 is not dizzy
 			REMOVE_TRAIT(src, TRAIT_FLOORED, STAT_TRAIT)
 		if(DEAD)
 			on_death()
+			ADD_TRAIT(src, TRAIT_NON_FLAMMABLE, STAT_TRAIT)
+			ExtinguishMob()
 
 
 /mob/living/setGrabState(newstate)

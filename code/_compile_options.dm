@@ -8,6 +8,9 @@
 #define USE_CUSTOM_ERROR_HANDLER
 #endif
 
+//Uncomment this if we decide to start using TGS
+//#define USE_TGS
+
 #ifdef TESTING
 #define DATUMVAR_DEBUGGING_MODE
 

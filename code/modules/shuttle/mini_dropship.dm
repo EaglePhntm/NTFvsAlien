@@ -13,6 +13,49 @@
 	rechargeTime = 0
 	alarm_loop_type = /datum/looping_sound/looping_launch_announcement_alarm/tadpole
 
+/obj/docking_port/stationary/marine_dropship/minidropship/som
+	name = "SOM Minidropship hangar pad"
+	id = SHUTTLE_SOMTADPOLE
+	roundstart_template = /datum/map_template/shuttle/minidropship/som
+
+/obj/docking_port/mobile/marine_dropship/minidropship/som
+	name = "SOM Tadpole"
+	id = SHUTTLE_SOMTADPOLE
+	dwidth = 0
+	dheight = 0
+	width = 7
+	height = 9
+	rechargeTime = 0
+
+/obj/docking_port/stationary/marine_dropship/minidropship/clf
+	name = "Technical Vehicle Parking Spot"
+	id = SHUTTLE_CLFTADPOLE
+	//roundstart_template = /datum/map_template/shuttle/minidropship/clf
+
+
+/obj/docking_port/mobile/marine_dropship/minidropship/clf
+	name = "Technical Van"
+	id = SHUTTLE_CLFTADPOLE
+	dwidth = 0
+	dheight = 0
+	width = 6
+	height = 8
+	rechargeTime = 0
+
+/obj/docking_port/stationary/marine_dropship/minidropship/colmil
+	name = "CM Minidropship Parking Spot"
+	id = SHUTTLE_CMTADPOLE
+	//roundstart_template = /datum/map_template/shuttle/minidropship/colmil
+
+/obj/docking_port/mobile/marine_dropship/minidropship/colmil
+	name = "CM Tadpole"
+	id = SHUTTLE_CMTADPOLE
+	dwidth = 0
+	dheight = 0
+	width = 7
+	height = 9
+	rechargeTime = 0
+
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship
 	name = "Tadpole navigation computer"
 	desc = "Used to designate a precise transit location for the Tadpole."
@@ -48,6 +91,30 @@
 	var/launching_delay = 10 SECONDS
 	///Minimap for use while in landing cam mode
 	var/datum/action/minimap/marine/external/tadmap
+
+/obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/som
+	name = "SOM Tadpole navigation computer"
+	shuttleId = SHUTTLE_SOMTADPOLE
+	origin_port_id = SHUTTLE_SOMTADPOLE
+	req_one_access = null
+	req_access = list(ACCESS_SOM_TADPOLE)
+	networks = list(SOM_CAMERA_NETWORK)
+
+/obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/clf
+	name = "CLF Van Controls"
+	shuttleId = SHUTTLE_CLFTADPOLE
+	origin_port_id = SHUTTLE_CLFTADPOLE
+	req_access = null
+	req_one_access = null
+	networks = null
+
+/obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/colmil
+	name = "CM Tadpole navigation computer"
+	shuttleId = SHUTTLE_CMTADPOLE
+	origin_port_id = SHUTTLE_CMTADPOLE
+	req_access = null
+	req_one_access = null
+	networks = null
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/Initialize(mapload)
 	..()
@@ -175,11 +242,13 @@
 	nvg_vision_mode = !nvg_vision_mode
 	ui_user?.update_sight()
 
-/obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	. = ..()
 	if(machine_stat & BROKEN)
 		return
 	if(xeno_attacker.status_flags & INCORPOREAL)
+		return
+	if(xeno_attacker.handcuffed)
 		return
 	if(HAS_TRAIT_FROM(xeno_attacker, TRAIT_TURRET_HIDDEN, STEALTH_TRAIT))
 		return
@@ -338,7 +407,7 @@
 		to_chat(owner, span_warning("The shuttle can't move while docked on the planet"))
 		return
 	var/area/landing_area = get_area(remote_eye)
-	if(!(landing_area.area_flags & MARINE_BASE))
+	if(!(landing_area.area_flags & MARINE_BASE) && origin.shuttleId == SHUTTLE_TADPOLE)
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ)
 	origin.shuttle_port.callTime = SHUTTLE_LANDING_CALLTIME
 	origin.next_fly_state = SHUTTLE_ON_GROUND

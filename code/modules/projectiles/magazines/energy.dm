@@ -70,7 +70,7 @@
 
 /obj/item/cell/lasgun/plasma
 	name = "\improper WML plasma energy cell"
-	desc = "A plasma containment cell used by the TerraGov Marine Corps for plasma guns. It doesn't seem to have an expiry date on it."
+	desc = "A plasma containment cell used by the Nine-Tailed Fox for plasma guns. It doesn't seem to have an expiry date on it."
 	icon_state = "plasma"
 	maxcharge = 900
 	icon_state_mini = "mag_plasma"
@@ -124,9 +124,9 @@
 	magazine_features_flags = MAGAZINE_REFUND_IN_CHAMBER|MAGAZINE_WORN
 	w_class = WEIGHT_CLASS_HUGE
 	slowdown = 0.2
-	maxcharge = 3000
+	maxcharge = 9000 //3000 = 100 culverin rounds
 	self_recharge = TRUE
-	charge_amount = 100
+	charge_amount = 150
 	charge_delay = 2 SECONDS
 	light_range = 0.1
 	light_power = 0.1
@@ -203,8 +203,10 @@
 	w_class = WEIGHT_CLASS_BULKY
 	slowdown = 0
 	maxcharge = 2400
+	self_recharge = TRUE // Eats up a whole pocket slot
+	charge_amount = 12 //balanced around recharging 1 standard laser rifle shot per second
 	cell_type = /obj/item/cell/lasgun/lasrifle
-	self_recharge = FALSE
+
 
 /obj/item/cell/lasgun/volkite/powerpack/marine/backpack
 	name = "\improper TE powerbackpack"
@@ -214,3 +216,4 @@
 	equip_slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_HUGE
 	maxcharge = 12000
+	charge_amount = 24 //balanced around recharging 2 standard laser rifle shot per second, it takes up your whole backpack

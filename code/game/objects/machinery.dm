@@ -94,17 +94,19 @@
 				var/obj/item/I = i
 				I.forceMove(loc)
 			component_parts.Cut()
+			var/obj/item/stack/cable_coil/A = new /obj/item/stack/cable_coil(loc)
+			A.amount = 5
 	return ..()
 
 
 /obj/machinery/proc/spawn_frame(disassembled)
-	var/obj/machinery/constructable_frame/machine_frame/M = new(loc)
+	var/obj/machinery/constructable_frame/M = new(loc)
 	. = M
 	M.setAnchored(anchored)
 	if(!disassembled)
 		M.take_damage(M.max_integrity * 0.5) //the frame is already half broken
-	M.state = 2
-	M.icon_state = "box_1"
+	M.state = 0
+	M.icon_state = "box_0"
 
 
 /obj/machinery/setAnchored(anchorvalue)
@@ -252,6 +254,7 @@
 
 /obj/machinery/can_interact(mob/user)
 	. = ..()
+
 	if(!.)
 		return FALSE
 

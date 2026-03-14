@@ -12,7 +12,7 @@
 	var/count_infectedhumans = 0
 	var/count_aliens = 0
 
-	for(var/client/C in GLOB.clients)
+	for(var/client/C in GLOB.whitelisted_clients)
 		if(isobserver(C.mob))
 			count_observers++
 			if(!check_other_rights(C, R_ADMIN, FALSE))
@@ -36,12 +36,13 @@
 
 
 	var/msg = "<b>Current Players:</b><br>"
+	msg = "<a href='byond://?_src_=usr;refreshwho=1'>Refresh</a><br>[msg]"
 
 	var/list/Lines = list()
 
 
 	if(check_rights(R_ADMIN, FALSE))
-		for(var/client/C in GLOB.clients)
+		for(var/client/C in GLOB.whitelisted_clients)
 			var/entry = "[C.key]"
 			if(C.holder?.fakekey)
 				entry += " <i>(as [C.holder.fakekey])</i>"
@@ -56,13 +57,15 @@
 							entry += " - Observing"
 						else
 							entry += " - <b>DEAD</b>"
+					else if(isnewplayer(C.mob))
+						entry += " - <b>In lobby</b>"
 					else
 						entry += " - <b>DEAD</b>"
 			entry += " (<A href='byond://?src=[REF(usr.client.holder)];[HrefToken()];moreinfo=[REF(C.mob)]'>?</A>)"
 			entry += " ([round(C.avgping, 1)]ms)"
 			Lines += entry
 	else
-		for(var/client/C in GLOB.clients)
+		for(var/client/C in GLOB.whitelisted_clients)
 			if(C.holder?.fakekey)
 				Lines += "[C.holder.fakekey] ([round(C.avgping, 1)]ms)"
 			else

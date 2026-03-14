@@ -127,6 +127,8 @@
 		var/icon/generated_icon = GenerateLayerGroup(colors, icon_states[icon_state], render_steps)
 		// We read a pixel to force the icon to be fully generated before we let it loose into the world
 		// I hate this
+		if(!generated_icon)
+			generated_icon = icon('icons/blanks/32x32.dmi', "nothing")
 		generated_icon.GetPixel(1, 1)
 		icon_bundle.Insert(generated_icon, icon_state)
 	icon_bundle = fcopy_rsc(icon_bundle)

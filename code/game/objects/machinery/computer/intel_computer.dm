@@ -5,25 +5,29 @@
 
 /obj/machinery/computer/intel_computer
 	name = "Intelligence computer"
-	desc = "A computer used to access the colonies central database. TGMC Intel division will occasionally request remote data retrieval from these computers"
+	desc = "A computer used to access the colonies central database. NTC Intel division will occasionally request remote data retrieval from these computers"
+	icon = 'ntf_modular/icons/obj/machines/computer.dmi'
 	icon_state = "intel_computer"
 	screen_overlay = "intel_computer_screen"
 	circuit = /obj/item/circuitboard/computer/intel_computer
 
-	resistance_flags = INDESTRUCTIBLE|UNACIDABLE
+	max_integrity = 500
+	integrity_failure = 250
+	resistance_flags = DROPSHIP_IMMUNE|XENO_DAMAGEABLE|PORTAL_IMMUNE|BANISH_IMMUNE|PLASMACUTTER_IMMUNE|CRUSHER_IMMUNE
 	interaction_flags = INTERACT_MACHINE_TGUI
-
-	faction = FACTION_TERRAGOV
+	atom_flags = NODECONSTRUCT
 
 	///Whether this computer is activated by the event yet
 	var/active = FALSE
 	///How much supply points you get for completing the terminal
-	var/supply_reward = 1000
+	var/supply_reward = 350
 	///How much dropship points you get for completing the terminal
-	var/dropship_reward = 100
+	var/dropship_reward = 275
+	///length of intel disk chain
+	var/max_chain = 0
 
 	///How much progress we get every tick, up to 100
-	var/progress_interval = 0.75
+	var/progress_interval = 1
 	///Tracks how much of the terminal is completed
 	var/progress = 0
 	///have we logged into the terminal yet?
@@ -34,6 +38,10 @@
 	var/printing = FALSE
 	///When we reach max progress and get the points
 	var/printing_complete = FALSE
+	///What faction has launched the intel process
+	faction = FACTION_TERRAGOV
+	fragile = FALSE
+
 
 /obj/machinery/computer/intel_computer/Initialize(mapload)
 	. = ..()
@@ -45,7 +53,7 @@
 	if(!printing)
 		STOP_PROCESSING(SSmachines, src)
 		return
-	if (machine_stat & NOPOWER)
+	if (machine_stat & (NOPOWER|DISABLED|BROKEN))
 		printing = FALSE
 		update_minimap_icon()
 		visible_message("<b>[src]</b> shuts down as it loses power. Any running programs will now exit.")
@@ -55,22 +63,45 @@
 			progress = 0
 		return
 	progress += progress_interval
-	if(progress <= 100)
+	if(progress < 100)
 		return
-	STOP_PROCESSING(SSmachines, src)
+	active = FALSE
 	printing = FALSE
 	printing_complete = TRUE
+	//NTF edit. Printing a disk instead of instantly giving the points.
+	var/obj/item/disk/intel_disk/new_disk = new(get_turf(src), supply_reward, dropship_reward, faction, get_area(src), max_chain)
+	visible_message(span_notice("[src] beeps as it finishes printing the disc."))
+	var/sound/printed_ding = sound('sound/machines/ding.ogg', volume = 25)
+	minor_announce("Classified data extraction has been completed in [get_area(src)].  A disk has been produced that is worth [supply_reward] supply points, [dropship_reward] dropship points, [dropship_reward/2] credits, and is [max_chain ? "part of an intel chain of length [max_chain]" : "not part of an intel chain"].", title = "Intel Division", alert = printed_ding, should_play_sound = TRUE)
+	for(var/hivenumber in GLOB.hive_datums)
+		var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
+		GLOB.hive_datums[hivenumber].xeno_message(
+			"A disk has been produced at [get_area(src)] that is worth [floor(supply_reward * INTEL_AMBROSIA_PER_SUPPLY_POINT)] ambrosia, [round(supply_reward/2, 0.1)] psypoints and [round(floor(supply_reward/60)/xeno_job.job_points_needed, 0.01)] burrowed larvae. It is [max_chain ? "part of an intel chain of length [max_chain]" : "not part of an intel chain"].",
+			size = 3,
+			target = new_disk,
+			sound = printed_ding,
+			report_distance = TRUE,
+			)
+	max_chain = 0
+	supply_reward = initial(supply_reward)
+	dropship_reward = initial(dropship_reward)
+	SStgui.close_uis(src)
 	update_minimap_icon()
-	SSpoints.supply_points[faction] += supply_reward
-	SSpoints.dropship_points += dropship_reward
-	minor_announce("Classified transmission recieved from [get_area(src)]. Bonus delivered as [supply_reward] supply points and [dropship_reward] dropship points.", title = "TGMC Intel Division")
-	SSminimaps.remove_marker(src)
+	update_icon()
+	STOP_PROCESSING(SSmachines, src)
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_INTEL_DISK_PRINTED, src, new_disk)
 
-/obj/machinery/computer/intel_computer/Destroy()
+/obj/machinery/computer/intel_computer/Destroy(force)
+	if(!force)
+		set_disabled()
+		return QDEL_HINT_LETMELIVE
 	GLOB.intel_computers -= src
 	return ..()
 
 /obj/machinery/computer/intel_computer/interact(mob/user)
+	if(machine_stat & (BROKEN|DISABLED))
+		to_chat(user, span_warning("The terminal is currently broken and cannot be used."))
+		return
 	if(!active)
 		to_chat(user, span_notice("This terminal has nothing of use on it."))
 		return
@@ -84,8 +115,11 @@
 
 ///Change minimap icon if its on or off
 /obj/machinery/computer/intel_computer/proc/update_minimap_icon()
-	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, "intel[printing ? "_on" : "_off"]", MINIMAP_LABELS_LAYER))
+	if(active)
+		SSminimaps.remove_marker(src)
+		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('ntf_modular/icons/UI_icons/map_blips.dmi', null, "intel[printing ? "_on" : "_off"][max_chain ? "_[min(max_chain, 5)]" : ""]", MINIMAP_BLIPS_LAYER))
+	else
+		SSminimaps.remove_marker(src)
 
 /obj/machinery/computer/intel_computer/ui_data(mob/user)
 	var/list/data = list()
@@ -126,3 +160,152 @@
 	active = FALSE
 	if(printing)
 		STOP_PROCESSING(SSmachines, src)
+
+// SOL edit start
+/obj/machinery/computer/intel_computer/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/disk/intel_disk))
+		if(!active)
+			to_chat(user, span_notice("This terminal has nothing of use on it."))
+			return TRUE
+		var/obj/item/disk/intel_disk/used_disk = I
+		if(world.time > used_disk.printed_at + used_disk.duration)
+			to_chat(user, span_notice("This disk has already expired!"))
+			return TRUE
+		user.dropItemToGround(used_disk)
+		max_chain = max(max_chain, used_disk.max_chain + 1)
+		supply_reward += used_disk.supply_reward + max_chain*75
+		dropship_reward += used_disk.dropship_reward + max_chain*50
+		qdel(used_disk)
+		to_chat(user, span_notice("You insert the disk into [src].  The next disk [src] produces will be worth [supply_reward] supply points, [dropship_reward] dropship points, [round(dropship_reward/2)] credits, and be part of an intel chain of length [max_chain]."))
+		visible_message(span_notice("[user] inserts the disk into [src].  The next disk [src] produces will be worth [supply_reward] supply points, [dropship_reward] dropship points, [round(dropship_reward/2)] credits, and be part of an intel chain of length [max_chain]."), ignored_mob = user)
+		update_minimap_icon()
+		return TRUE
+	. = ..()
+
+/obj/machinery/computer/intel_computer/examine(mob/user)
+	. = ..()
+	if(printing && faction)
+		. += span_notice("It is being operated by [faction].")
+	. += span_notice("The next disk this computer produces will be worth [supply_reward] supply points, [dropship_reward] dropship points, [round(dropship_reward/2)] credits, and [max_chain ? "be part of an intel chain of length [max_chain]" : "not be part of an intel chain"].")
+	if(isxeno(user))
+		var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[user.get_xeno_hivenumber()])
+		. += span_notice("You could redeem it at a silo for [floor(supply_reward * INTEL_AMBROSIA_PER_SUPPLY_POINT)] ambrosia, [round(supply_reward/2, 0.1)] psypoints and [round(floor(supply_reward/60)/xeno_job.job_points_needed, 0.01)] burrowed larvae.")
+	. += span_notice("[active ? "Y":"Once it is active, y"]ou could insert an intel disk to increase these rewards. [max_chain ? "This will extend its intel chain if it is already part of a chain of length [max_chain] or more" : "This will also start an intel chain"].")
+
+/obj/machinery/computer/intel_computer/ex_act(severity)
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			set_disabled()
+			return
+		if(EXPLODE_HEAVY)
+			if (prob(50))
+				set_disabled()
+				return
+		if(EXPLODE_LIGHT)
+			if (prob(25))
+				set_disabled()
+				return
+		if(EXPLODE_WEAK)
+			if (prob(15))
+				set_disabled()
+				return
+
+/obj/machinery/computer/intel_computer/obj_break(damage_flag)
+	obj_integrity = max_integrity
+	. = ..()
+	set_disabled()
+
+/obj/machinery/computer/intel_computer/do_acid_melt()
+	visible_message(span_xenodanger("[src] is disabled by the acid!"))
+	playsound(src, SFX_ACID_HIT, 25)
+	set_disabled()
+
+/obj/item/disk/intel_disk
+	name = "classified data disk"
+	desc = "Probably, contains some important data."
+	icon_state = "nucleardisk"
+	w_class = WEIGHT_CLASS_TINY
+	/// The faction
+	var/who_printed
+	var/where_printed
+	/// The world.time when the disk was printed.
+	var/printed_at
+	/// Supply reward. Set up during init. Is set up by an intel computer.
+	var/supply_reward
+	/// Dropship reward. Set up during init. Is set up by an intel computer.
+	var/dropship_reward
+	/// After this time, the disk will yield no req points.
+	var/duration = 1 HOURS
+	///length of intel disk chain
+	var/max_chain = 0
+
+/obj/item/disk/intel_disk/Initialize(mapload, supply_reward, dropship_reward, who_printed, where_printed, max_chain)
+	. = ..()
+	icon_state = "datadisk[rand(1, 7)]"
+	src.supply_reward = supply_reward
+	src.dropship_reward = dropship_reward
+	src.who_printed = who_printed
+	src.where_printed = where_printed
+	src.max_chain = max_chain
+	printed_at = world.time
+	name = "\improper [who_printed] Intelligence diskette ([stationTimestamp("hh:mm", printed_at + duration)])"
+	desc += " According to the label, this disk was printed by [who_printed] in \the [where_printed]. The time stamp suggests that it was printed at [stationTimestamp("hh:mm", printed_at)]. The tactical information within it will cease to have value and soon after self destruct at [stationTimestamp("hh:mm", printed_at + duration)]."
+	addtimer(CALLBACK(src, PROC_REF(disk_warning)), duration, TIMER_STOPPABLE)
+	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('ntf_modular/icons/UI_icons/map_blips.dmi', null, "intel_carried[max_chain ? "_[min(max_chain, 5)]" : ""]", MINIMAP_BLIPS_LAYER))
+
+/obj/item/disk/intel_disk/proc/disk_warning()
+	SIGNAL_HANDLER
+	visible_message("[src] beeps as it is now obsolete. The disk will self destruct in a minute.")
+	playsound(src, 'sound/machines/beepalert.ogg', 25)
+	addtimer(CALLBACK(src, PROC_REF(disk_cleanup)), 1 MINUTES, TIMER_STOPPABLE)
+	SSminimaps.remove_marker(src)
+	SEND_SIGNAL(src, COMSIG_DISK_EXPIRY)
+
+/obj/item/disk/intel_disk/proc/disk_cleanup()
+	SIGNAL_HANDLER
+	visible_message("[src] beeps a few times and explodes into pieces!")
+	explosion(src,0,0,0,1,0,0,0, tiny = TRUE)
+	qdel(src)
+
+/obj/item/disk/intel_disk/get_export_value()
+	if(world.time > printed_at + duration)
+		. = null
+	else
+		. = list(supply_reward, dropship_reward)
+
+/obj/item/disk/intel_disk/supply_export(faction_selling, mob/user)
+	. = ..()
+	if(!.)
+		return FALSE
+	var/datum/game_mode/infestation/secret_of_life/gaymode = SSticker.mode
+	var/datum/individual_stats/the_stats
+	if(gaymode && user)
+		the_stats = gaymode.stat_list[user.faction].get_player_stats(user)
+		the_stats?.give_funds(round(dropship_reward/2))
+	minor_announce("Classified data disk extracted by [faction_selling] from area of operations. [supply_reward] supply points[the_stats ? "," : " and"] [dropship_reward] dropship points[the_stats ? ", and [dropship_reward/2] credits" : ""] were acquired.  It was [max_chain ? "part of an intel chain of length [max_chain]" : "not part of an intel chain"].", title = "Intel Division")
+	for(var/hivenumber in GLOB.hive_datums)
+		GLOB.hive_datums[hivenumber].xeno_message(
+			"The talls of [faction_selling] claimed a disk for [supply_reward] supply points[the_stats ? "," : " and"] [dropship_reward] dropship points[the_stats ? ", and [dropship_reward/2] credits" : ""].  It was [max_chain ? "part of an intel chain of length [max_chain]" : "not part of an intel chain"].",
+			size = 3,
+			)
+	GLOB.round_statistics.points_from_intel += supply_reward
+	if(max_chain > GLOB.round_statistics.intel_max_chain)
+		GLOB.round_statistics.intel_max_chain = max_chain
+	if(!("[max_chain]" in GLOB.round_statistics.intel_chain_sold_by_list))
+		GLOB.round_statistics.intel_chain_sold_by_list["[max_chain]"] = faction_selling
+		GLOB.round_statistics.intel_chain_sold_for_list["[max_chain]"] = "[supply_reward] supply points[the_stats ? "," : " and"] [dropship_reward] dropship points[the_stats ? ", and [dropship_reward/2] credits" : ""]"
+
+/obj/item/disk/intel_disk/Destroy()
+	SSminimaps.remove_marker(src)
+	. = ..()
+
+/obj/item/disk/intel_disk/examine(mob/user)
+	. = ..()
+	if(world.time > printed_at + duration)
+		. += span_userdanger("It has expired, is worthless, and will soon explode!")
+		return
+	. += span_notice("It is worth [supply_reward] supply points, [dropship_reward] dropship points, [round(dropship_reward/2)] credits, and is [max_chain ? "part of an intel chain of length [max_chain]":"not part of an intel chain"].")
+	if(isxeno(user))
+		var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[user.get_xeno_hivenumber()])
+		. += span_notice("You could redeem it at a silo for [floor(supply_reward * INTEL_AMBROSIA_PER_SUPPLY_POINT)] ambrosia, [round(supply_reward/2, 0.1)] psypoints and [round(floor(supply_reward/60)/xeno_job.job_points_needed, 0.01)] burrowed larvae.")
+	. += span_notice("You could insert it into an active intel computer to increase these rewards and [max_chain?"extend its intel chain to length [max_chain+1]":"start an intel chain"].")

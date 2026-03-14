@@ -92,9 +92,10 @@
 	icon_state = "autoloader"
 	icon = 'icons/obj/items/guns/attachments/rail.dmi'
 	accuracy_mod = -0.10
-	delay_mod = -0.125 SECONDS
+	delay_mod = -0.025 SECONDS
 	burst_mod = -1
-	accuracy_unwielded_mod = -0.15
+	scatter_mod = 3
+	accuracy_unwielded_mod = -0.2
 
 /obj/item/attachable/magnetic_harness
 	name = "magnetic harness"

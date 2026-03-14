@@ -1,19 +1,141 @@
+2026-02-01:
+  Colfer1:
+  - balance: samples now have an icon on the map, so you can find those pesky researchers
+2026-02-02:
+  Nokia2Student:
+  - rscadd: Healing infusion can be used on humans
+  - rscadd: Plasma transfer can be used on humans. It regenerates stamina instead
+      of plasma.
+2026-02-03:
+  Colfer1:
+  - balance: Halter charged rounds now does bluescreener effects to combat robots
+      rather than EMP
+  - balance: Combat robots now take D.O.T. when below 0 health, but their repair methods
+      are faster
+  - balance: Combat robots become paralyzed when at -80% health, rather than continuing
+      until death
 2026-02-06:
+  CaputCapital:
+  - rscadd: KZ loadouts have been fixed
+  - rscadd: New KZ loadouts have been added to all KZ roles
+  - rscadd: lMG-D, lMG-D drum mags, V-34 black pattern, and 10 extended magazines
+      have been added to KZ's weapon vendors
+  Colfer1:
+  - qol: The health EKG has been changed to a healthbar for carbon mobs
   Joe13413:
   - bugfix: replaced rogue space tiles in tgmc airfield map
   Lumipharon:
   - code_imp: Map votes will now choose a random valid map if no one votes
+  OrbisAnima:
+  - bugfix: Tactical Sensors no longer turn off when a weapon is stashed, as long
+      as they are in a pocket.
   Runian:
   - rscadd: Mosin Nagant clips can now be obtained in no longer exclusive to Nuclear
       War's weapon vendor. It can now be obtained in the weapon vendor for Crash &
       Valhalla as well.
+  destrucktoid:
+  - rscadd: New generic skillbook for usage in adding more skillbooks in the future.
+  - balance: FC gets -1 to engineering skills but their loadout vendor will give them
+      a book which lets them choose between +1 engineering or +1 to surgery.
   mudzbe:
   - bugfix: Cleanup mech removal queen evo oversight
+2026-02-07:
+  Colfer1:
+  - bugfix: the healthbar no longer blinks
+  EaglePhntm:
+  - rscadd: Adds playable huggers
+  OrbisAnima:
+  - balance: Supersoldier movement increase stim can no longer be stacked, but it
+      gives 0.2 of a bonus instead of 0.1. Hive Pheromones Stim has an injection similar
+      to the others (2.5 seconds at the time of this writting) from 15 seconds.
+2026-02-09:
+  CaputCapital:
+  - rscadd: Adds the Korovin to KZ.
+  Colfer1:
+  - balance: Tanks can no longer be disassembled in 2 seconds
+  destrucktoid:
+  - rscadd: Som version of FC skillbook
+2026-02-10:
+  Nokia2Student:
+  - bugfix: SOM Hovertank invisible interior gun overlay fix
+2026-02-11:
+  EaglePhntm:
+  - rscadd: Ports chimera from rutgmc
+2026-02-13:
+  Colfer1:
+  - balance: SH-39 can no longer stunlock xenomorphs infinitely
+  Lefunny:
+  - balance: Increased culverin powerpack maxcharge from 3000 to 9000, which is equivalent
+      to 100 to 300 culverin rounds.
+  - balance: Culverin recharge increased from 100 to 150, thanks to increased maxcharge
+  OrbisAnima:
+  - balance: style line cannot equip absorvant shields but work as a rownie when they
+      have no equalizer equipped.
+  - balance: Rownie skeletons no longer can use absorvant type shields
+  - balance: Style line armor no longer is as fast as the rownie base, but the armor
+      attachments dont give them extra slowdown either (they are functionally the
+      same as before the change, this allows the line to still use the absorvant shields
+      and work like a xenonauten set)
+  - balance: Swat boots no longer give you a rownie equivalent speed boost. Shame
+      on you for abusing those.
+  - code_imp: implemented null checks on traits. (A lot of stuff affected, from aphrotoxin
+      to abilities and much more)
+  - code_imp: implemented caste check on xeno death and avoided procesing double+
+      deaths for xeno deaths (facehuggers being a big source)
+  - code_imp: implemented a safeguard for greyicons when they try to merge with a
+      non icon check (I assume invisible modules but could be for other cases)
+2026-02-14:
+  Lefunny:
+  - balance: Neuro now deals oxy and tox damage, no longer does the stamina stun and
+      other things.
+  OrbisAnima:
+  - qol: filters minions out of the crew manifest.
+2026-02-15:
+  Colfer1:
+  - balance: the SH-39's fire delay is now 1.4 instead of 1.2
 2026-02-19:
   Ldip999:
   - bugfix: fixed HTML Injection with carbon copies
 2026-02-21:
   Generalcamo:
   - bugfix: Fixed `flash_lighting_fx`. Camera flash effects work again.
+  Ldip999:
+  - server: Performance logging
   mudzbe:
   - balance: Reduced time to crash to 7 minutes
+2026-02-24:
+  Ldip999:
+  - config: AMIA config files (Included by default, but disabled by default)
+  - admin: AMIA ahelp relay
+  - server: AMIA interface for integration
+  OrbisAnima:
+  - code_imp: Added a new proc for xenos to return a number based on their tier. I
+      use it to simulate their sex skill.
+  - code_imp: Added a new proc to sexcon to calculate how much of a sex reagent is
+      extracted, based on the sex skill of the user, and the one being milked of race
+      (xenos make more).
+  - bugfix: Fixed cum into a container to produce cum for force ejaculation.
+  - qol: Added the ability to use glasses and bottles or cups in addition to beakers
+      for milking and force eyaculation.
+  - balance: Changed the ejaculation code to reduce Aphrotoxin by 40% plus ten, that
+      means if you have 1k aphro it takes 7 climaxes to reduce it to 0, but otherwise
+      you need 2 if you got 50, to keep the balance of how we have it without having
+      breaking numbers for it.
+  - balance: makes all night vision googles need a batery.
+  - balance: Removes mesons effect (ie, see turfts) from the nvg googles.
+  - code_imp: Changes the name of Specialist Operatives to Squad Specialist for consistency
+      sake.
+  - rscdel: Temporarily removes the Ghost cloak and replaces it with the sniper cloak.
+  - balance: Makes motion sensors more sensitive when the opposing ones are near,
+      but less sensitive when they are further away.
+2026-02-27:
+  Destrucktoid:
+  - rscadd: Adds a new check to larval growth that the person who it's growing within
+      hasn't been psydrained whilst alive already.
+  - balance: Psydrain can no longer be used on allies
+  - balance: Psydrain deals 20 cloneloss again
+  - balance: Reverted larva growing in dead marines and allowing xenos to drag dead
+      marines if the larva exceeds stage 3 upon death.
+  - bugfix: Xenos can no longer drain a marine, then impregnate them.
+  Ldip999:
+  - code_imp: Added way to send arbitrary messages to the discord bot

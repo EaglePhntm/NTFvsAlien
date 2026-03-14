@@ -1,0 +1,383 @@
+//copypaste cryo object but structure base
+
+/obj/structure/bed/chair/stasis
+	name = "Hypersleep stasis frame"
+	desc = "Latest to hypersleep tech that runs on a mini nuclear battery, \
+	could be used by ones who fear closed spaces or kinky people, can be dragged unlike regular cryos, \
+	items are not removed and the person is still 'interactable' and may wake up later unlike traditional hypersleep pods. \
+	Using ALT+CLICK will anchor/unanchor the pod for easier transport. \
+	<b>Using this in a publicly accessible area tend to mean you are open for SSD business.</b> Thankfully it <b>logs</b> those intereactions for you."
+	anchored = FALSE
+	buckle_flags = CAN_BUCKLE
+	drag_delay = 1 //Pulling something on wheels is easy
+	icon = 'ntf_modular/icons/obj/machines/suit_cycler.dmi'
+	icon_state = "suit_cycler"
+	layer = ABOVE_ALL_MOB_LAYER
+	dir = SOUTH
+	density = FALSE
+	resistance_flags = RESIST_ALL
+	light_range = 0.5
+	light_power = 0.5
+	light_color = LIGHT_COLOR_BLUE
+	///Person waiting to be taken by ghosts
+	var/mob/living/occupant
+	///the radio plugged into this pod
+	var/obj/item/radio/radio
+
+//keep facing south unless north
+/obj/structure/bed/chair/stasis/setDir(newdir)
+	if(newdir == EAST)
+		setDir(SOUTH)
+	if(newdir == WEST)
+		setDir(SOUTH)
+	. = ..()
+
+/obj/structure/bed/chair/stasis/dark
+	icon_state = "dark_cycler"
+
+/obj/structure/bed/chair/stasis/pilot
+	icon_state = "pilot_cycler"
+
+/obj/structure/bed/chair/stasis/captain
+	icon_state = "cap_cycler"
+
+/obj/structure/bed/chair/stasis/sec
+	icon_state = "sec_cycler"
+
+/obj/structure/bed/chair/stasis/med
+	icon_state = "med_cycler"
+
+/obj/structure/bed/chair/stasis/explo
+	icon_state = "explo_cycler"
+
+/obj/structure/bed/chair/stasis/engi
+	icon_state = "engi_cycler"
+
+/obj/structure/bed/chair/stasis/indust
+	icon_state = "industrial_cycler"
+
+/obj/structure/bed/chair/stasis/red
+	icon_state = "red_cycler"
+
+/obj/structure/bed/chair/stasis/Initialize(mapload)
+	. = ..()
+	update_icon()
+	RegisterSignal(src, COMSIG_MOVABLE_SHUTTLE_CRUSH, PROC_REF(shuttle_crush))
+
+/obj/structure/bed/chair/stasis/update_icon()
+	. = ..()
+	if(!occupant)
+		set_light(0)
+	else
+		set_light(initial(light_range))
+
+
+/obj/structure/bed/chair/stasis/update_overlays()
+	. = ..()
+	if(!occupant)
+		return
+	. += emissive_appearance(icon, "cap", src, layer = BELOW_MOB_LAYER, alpha = 100)
+	. += mutable_appearance(icon, "cap", layer = BELOW_MOB_LAYER, alpha = 100)
+
+/obj/structure/bed/chair/stasis/AltClick(mob/user)
+	. = ..()
+	if(!user.Adjacent(src))
+		return
+	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
+	if(anchored)
+		to_chat(user, span_notice("You unanchor [src]."))
+		anchored = FALSE
+	else
+		to_chat(user, span_notice("You anchor [src]."))
+		anchored = TRUE
+
+/obj/structure/bed/chair/stasis/proc/shuttle_crush()
+	SIGNAL_HANDLER
+	if(occupant)
+		var/mob/living/L = occupant
+		unbuckle_mob(L, TRUE, FALSE)
+		L.gib()
+
+/obj/structure/bed/chair/stasis/Destroy()
+	unbuckle_all_mobs()
+	return ..()
+
+/obj/structure/bed/chair/stasis/grab_interact(obj/item/grab/grab, mob/user, base_damage = BASE_OBJ_SLAM_DAMAGE, is_sharp = FALSE)
+	. = ..()
+	if(.)
+		return
+	if(isxeno(user))
+		return
+	var/mob/living/carbon/human/grabbed_mob = grab.grabbed_thing
+	if(!ishuman(grabbed_mob))
+		to_chat(user, span_warning("There is no way [src] will accept [grabbed_mob]!"))
+		return
+
+	if(grabbed_mob.client)
+		if(tgui_alert(grabbed_mob, "Would you like to enter cryosleep?", null, list("Yes", "No")) == "Yes")
+			if(QDELETED(grabbed_mob) || !(grab?.grabbed_thing == grabbed_mob))
+				return
+		else
+			return
+
+	user_buckle_mob(grabbed_mob, user, TRUE, FALSE)
+	return TRUE
+
+
+/obj/structure/bed/chair/stasis/user_buckle_mob(mob/living/buckling_mob, mob/living/user, check_loc, silent)
+	if(buckling_mob.stat == DEAD)
+		to_chat(user, span_notice("[buckling_mob] is dead!"))
+		return FALSE
+
+	if(isxeno(buckling_mob))
+		return FALSE
+
+	var/mob/initiator = user ? user : buckling_mob
+	if(!QDELETED(occupant))
+		to_chat(initiator, span_warning("[src] is occupied."))
+		return FALSE
+
+	if(user && buckling_mob != user)
+		user.visible_message(span_notice("[user] starts putting [buckling_mob] into [src]."),
+		span_notice("You start putting [buckling_mob] into [src]."))
+	else
+		buckling_mob.visible_message(span_notice("[buckling_mob] starts climbing into [src]."),
+		span_notice("You start climbing into [src]."))
+
+	log_combat(initiator, buckling_mob, "begun to buckle", src)
+	if(!do_after(initiator, 20, TRUE, user, BUSY_ICON_GENERIC))
+		return FALSE
+	log_combat(initiator, buckling_mob, "buckled", src)
+
+	buckling_mob.forceMove(loc)
+	. = ..()
+
+	buckling_mob.add_filter("stasis_filter", 1, color_matrix_filter(rgb(0, 132, 255)))
+	ADD_TRAIT(buckling_mob, TRAIT_STASIS, type)
+	occupant = buckling_mob
+	update_icon()
+
+	balloon_alert_to_viewers("Hisses as it starts the stasis process...")
+	to_chat(buckling_mob, span_notice("You feel yourself slipping into a dreamy stasis state... You can use the context menu to return to lobby."))
+	playsound(loc, 'sound/machines/hiss.ogg', 25, 1)
+	start_sex_recording()
+
+/obj/structure/bed/chair/stasis
+	var/list/sex_records = list()
+
+/obj/structure/bed/chair/stasis/proc/start_sex_recording()
+	RegisterSignal(occupant, COMSIG_STARTED_SEX_UPON, PROC_REF(record_sex_started))
+	RegisterSignal(occupant, COMSIG_RECEIVED_SEX, PROC_REF(record_sex))
+	RegisterSignal(occupant, COMSIG_CAME_INTO, PROC_REF(record_sex_came_into))
+	RegisterSignal(occupant, COMSIG_CAME_INTO_BY, PROC_REF(record_sex_came_into_by))
+	RegisterSignal(occupant, COMSIG_CAME_ONTO, PROC_REF(record_sex_came_onto))
+	RegisterSignal(occupant, COMSIG_CAME_ONTO_BY, PROC_REF(record_sex_came_onto_by))
+
+/obj/structure/bed/chair/stasis/proc/record_sex_started(datum/source, mob/living/carbon/blame_mob)
+	SIGNAL_HANDLER
+	if(!iscarbon(source))
+		return
+	var/mob/living/carbon/csauce = source
+	var/name_to_use = blame_mob.real_name
+	var/datum/sex_action/action = SEX_ACTION(blame_mob.sexcon.current_action)
+	if(ishuman(blame_mob))
+		var/mob/living/carbon/human/bmob = blame_mob
+		if(bmob.wear_id)
+			name_to_use = bmob.wear_id.name
+		else
+			name_to_use = "Unidentified [bmob.gender]"
+	sex_records += list("<br><br>[name_to_use] started to [action.name] ([csauce.real_name]).<br>")
+
+/obj/structure/bed/chair/stasis/proc/record_sex_came_into(datum/source, mob/living/carbon/blame_mob)
+	SIGNAL_HANDLER
+	if(!iscarbon(source))
+		return
+	var/mob/living/carbon/csauce = source
+	var/name_to_use = blame_mob.real_name
+	var/datum/sex_action/action = SEX_ACTION(blame_mob.sexcon.current_action)
+	if(ishuman(blame_mob))
+		var/mob/living/carbon/human/bmob = blame_mob
+		if(bmob.wear_id)
+			name_to_use = bmob.wear_id.name
+		else
+			name_to_use = "Unidentified [bmob.gender]"
+	sex_records += list("[name_to_use] came inside [csauce.real_name] while they [action.name].<br>")
+
+/obj/structure/bed/chair/stasis/proc/record_sex_came_into_by(datum/source, mob/living/carbon/blame_mob)
+	SIGNAL_HANDLER
+	if(!iscarbon(source))
+		return
+	var/mob/living/carbon/csauce = source
+	var/name_to_use = blame_mob.real_name
+	var/datum/sex_action/action = SEX_ACTION(blame_mob.sexcon.current_action)
+	if(ishuman(blame_mob))
+		var/mob/living/carbon/human/bmob = blame_mob
+		if(bmob.wear_id)
+			name_to_use = bmob.wear_id.name
+		else
+			name_to_use = "Unidentified [bmob.gender]"
+	sex_records += list("[csauce.real_name] was made to cum into [name_to_use] while they [action.name].<br>")
+
+/obj/structure/bed/chair/stasis/proc/record_sex_came_onto(datum/source, mob/living/carbon/blame_mob)
+	SIGNAL_HANDLER
+	if(!iscarbon(source))
+		return
+	var/mob/living/carbon/csauce = source
+	var/name_to_use = blame_mob.real_name
+	var/datum/sex_action/action = SEX_ACTION(blame_mob.sexcon.current_action)
+	if(ishuman(blame_mob))
+		var/mob/living/carbon/human/bmob = blame_mob
+		if(bmob.wear_id)
+			name_to_use = bmob.wear_id.name
+		else
+			name_to_use = "Unidentified [bmob.gender]"
+	sex_records += list("[name_to_use] came onto [csauce.real_name] while they [action.name].<br>")
+
+/obj/structure/bed/chair/stasis/proc/record_sex_came_onto_by(datum/source, mob/living/carbon/blame_mob)
+	SIGNAL_HANDLER
+	if(!iscarbon(source))
+		return
+	var/mob/living/carbon/csauce = source
+	var/name_to_use = blame_mob.real_name
+	var/datum/sex_action/action = SEX_ACTION(blame_mob.sexcon.current_action)
+	if(ishuman(blame_mob))
+		var/mob/living/carbon/human/bmob = blame_mob
+		if(bmob.wear_id)
+			name_to_use = bmob.wear_id.name
+		else
+			name_to_use = "Unidentified [bmob.gender]"
+	sex_records += list("[csauce.real_name] was made to cum onto [name_to_use] while they [action.name].<br>")
+
+/obj/structure/bed/chair/stasis/proc/record_sex(datum/source, mob/living/carbon/blame_mob)
+	SIGNAL_HANDLER
+	if(!iscarbon(source))
+		return
+	var/mob/living/carbon/csauce = source
+	var/name_to_use = blame_mob.real_name
+	var/datum/sex_action/action = SEX_ACTION(blame_mob.sexcon.current_action)
+	if(ishuman(blame_mob))
+		var/mob/living/carbon/human/bmob = blame_mob
+		if(bmob.wear_id)
+			name_to_use = bmob.wear_id.name
+		else
+			name_to_use = "Unidentified [bmob.gender]"
+	if(prob(15)) //shitty spam reduction
+		sex_records += list("[name_to_use] continued to [action.name]... ([csauce.real_name])<br>")
+
+/obj/structure/bed/chair/stasis/proc/report_sex_results(mob/sexed)
+	if(length(sex_records))
+		to_chat(sexed, span_green("[src] reports you have been successfully fucked during your hypersleep! This message will display once then will be deleted."))
+		to_chat(sexed, span_notice("-----SSD SEX RECORDING START---"))
+		for(var/index in 1 to length(sex_records))
+			to_chat(sexed, span_notice("[sex_records[index]]"))
+		to_chat(sexed, span_notice("-----SSD SEX RECORDING END---"))
+		sex_records = list()
+	UnregisterSignal(sexed, list(COMSIG_STARTED_SEX_UPON,COMSIG_CAME_INTO,COMSIG_CAME_INTO_BY,COMSIG_CAME_ONTO,COMSIG_CAME_ONTO_BY))
+
+/obj/structure/bed/chair/stasis/verb/enter_cryo()
+	set name = "Start Hypersleep"
+	set desc = "Store your body in this stasis frame for later retrieval by you, sending you to lobby."
+	set category = "IC.Object"
+	set src in view(0)
+
+	if(QDELETED(occupant) || !(usr in buckled_mobs))
+		return FALSE
+	if(ishuman(usr) && usr.client)
+		var/mob/living/carbon/human/human_usr = usr
+		if(tgui_alert(usr, "Would you like to enter hypersleep?", null, list("Yes", "No")) != "Yes")
+			return
+		human_usr.set_resting(TRUE)
+		human_usr.ghostize(TRUE, FALSE, TRUE)
+
+/obj/structure/bed/chair/stasis/verb/send_away()
+	set name = "Fullcryo Occupant"
+	set desc = "Send the occupant of this cryopod to the deep storage, freeing up the pod, body, items and their job for future use."
+	set category = "IC.Object"
+	set src in view(1)
+
+	if(usr.incapacitated(TRUE))
+		return
+	log_combat(usr, occupant, "attempted to fullcryo", src)
+	if(occupant.client && occupant != usr)
+		to_chat(usr, span_warning("You cannot send away an awake person."))
+		return
+	if(!occupant)
+		to_chat(usr, span_warning("There is no occupant in [src]."))
+		return
+	playsound(loc, 'sound/machines/hiss.ogg', 25, 1)
+	UnregisterSignal(occupant, list(COMSIG_STARTED_SEX_UPON,COMSIG_RECEIVED_SEX,COMSIG_CAME_INTO,COMSIG_CAME_INTO_BY,COMSIG_CAME_ONTO,COMSIG_CAME_ONTO_BY))
+	log_combat(usr, occupant, "fullcryoed", src)
+	occupant.despawn()
+	occupant = null
+	update_icon()
+	for(var/obj/item/W in src)
+		W.store_in_cryo()
+
+/obj/structure/bed/chair/stasis/verb/store_items()
+	set name = "Store Worn Items"
+	set desc = "Store occupant's items in cryoframe's internal storage for later-retrieval. WARNING: turrets will shoot the occupant due their ID being stored away!"
+	set category = "IC.Object"
+	set src in view(1)
+
+	if(usr.incapacitated(TRUE))
+		return
+	if(occupant.client)
+		to_chat(usr, span_warning("You cannot do that to an awake person."))
+		return
+	if(!occupant)
+		to_chat(usr, span_warning("There is no occupant in [src]."))
+		return
+	playsound(loc, 'sound/machines/hiss.ogg', 25, 1)
+	for(var/obj/item/W in occupant)
+		occupant.temporarilyRemoveItemFromInventory(W)
+		W.forceMove(src)
+
+/obj/structure/bed/chair/stasis/verb/eject_items()
+	set name = "Eject items"
+	set desc = "Eject occupant's items from cryoframe's internal storage."
+	set category = "IC.Object"
+	set src in view(1)
+
+	if(usr.incapacitated(TRUE))
+		return
+	if(!length(contents))
+		to_chat(usr, span_warning("There are no items stored in [src]."))
+		return
+	for(var/obj/item/W in src)
+		W.forceMove(get_turf(usr))
+
+/obj/structure/bed/chair/stasis/unbuckle_mob(mob/living/buckled_mob, force, can_fall)
+	. = ..()
+	if(QDELETED(occupant))
+		return
+
+	log_combat(usr, buckled_mob, "unbuckled", src)
+	//Eject any items that aren't meant to be in the pod.
+	var/list/items = contents
+
+	for(var/I in items)
+		var/atom/movable/A = I
+		A.forceMove(loc)
+
+	report_sex_results(occupant)
+	occupant.remove_filter("stasis_filter")
+	REMOVE_TRAIT(occupant, TRAIT_STASIS, type)
+	occupant = null
+	eject_items()
+	playsound(loc, 'sound/machines/hiss.ogg', 25, 1)
+	update_icon()
+
+/obj/structure/bed/chair/stasis/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+	if(!occupant)
+		to_chat(xeno_attacker, span_xenowarning("There is nothing of interest in there."))
+		return
+	if(xeno_attacker.status_flags & INCORPOREAL || xeno_attacker.do_actions)
+		return
+	if(xeno_attacker.handcuffed)
+		return
+	visible_message(span_warning("[xeno_attacker] begins to take from [src]!"), 3)
+	playsound(loc, 'sound/effects/metal_creaking.ogg', 25, 1)
+	unbuckle_all_mobs()
+
+/obj/machinery/cloning/vats
+	icon = 'ntf_modular/icons/obj/machines/cloning.dmi'

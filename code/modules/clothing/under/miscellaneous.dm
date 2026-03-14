@@ -11,7 +11,7 @@
 	worn_icon_state = "w_suit"
 
 /obj/item/clothing/under/captain_fly
-	name = "rogue captains uniform"
+	name = "rogue commander's uniform"
 	desc = "For the man who doesn't care because he's still free."
 	icon_state = "captain_fly"
 
@@ -32,7 +32,7 @@
 
 /obj/item/clothing/under/rank/prisoner
 	name = "prison jumpsuit"
-	desc = "It's standardised Nanotrasen prisoner-wear. Its suit sensors are stuck in the \"Fully On\" position."
+	desc = "It's standardised NTC prisoner-wear. Its suit sensors are stuck in the \"Fully On\" position."
 	icon_state = "prisoner"
 	worn_icon_state = "prisoner"
 	has_sensor = LOCKED_SENSORS
@@ -240,8 +240,8 @@
 
 
 /obj/item/clothing/under/dress/dress_cap
-	name = "captain's dress uniform"
-	desc = "Feminine fashion for the style concious captain."
+	name = "commander's dress uniform"
+	desc = "Feminine fashion for the style concious commander."
 	icon_state = "dress_cap"
 	armor_protection_flags = CHEST|GROIN|ARMS
 
@@ -314,8 +314,8 @@
 	armor_protection_flags = CHEST|GROIN
 
 /obj/item/clothing/under/captainformal
-	name = "captain's formal uniform"
-	desc = "A captain's formal-wear, for special occasions."
+	name = "commander's formal uniform"
+	desc = "A commander's formal-wear, for special occasions."
 	icon_state = "captain_formal"
 	worn_icon_state = "by_suit"
 
@@ -367,6 +367,7 @@
 	desc = "The very image of a working man. Not that you're probably doing work."
 	icon_state = "mechanic_s"
 
+//this is NOT THE SNEAKING SUIT
 /obj/item/clothing/under/spec_operative
 	name = "Special Operations Uniform"
 	desc = "Created by an unknown corporation for high risk missions, made with several layers of a unknown nano-fiber that, while light, molds to the wearer's body shape and hardens protecting them."
@@ -378,7 +379,7 @@
 	cold_protection_flags = CHEST|GROIN|LEGS|ARMS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0
-	slowdown= -1
+	slowdown = -1
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 
@@ -388,4 +389,3 @@
 	icon_state = "tp_bodyrobes"
 	worn_icon_state = "tp_bodyrobes"
 	armor_protection_flags = CHEST|GROIN|LEGS|ARMS
-

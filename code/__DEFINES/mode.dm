@@ -72,11 +72,19 @@
 #define MODE_MUTATIONS_OBTAINABLE (1<<17)
 /// Should marines have access to quickbuild?
 #define MODE_ALLOW_MARINE_QUICKBUILD (1<<18)
+///Alamo only, no tad or pods. Sovl.
+#define MODE_ALAMO_ONLY (1<<19)
+#define MODE_SURVIVAL (1<<20)
+///disables leaving bodies etc, alot of things as a dead guy.
+#define MODE_NO_GHOSTS_STRICT (1<<21)
+#define MODE_SINGLE_USE_NUKE_DISK_GENERATOR (1<<22)
+///This flag being present makes things such as larva bursting cloneloss and relevant limits NOT happen. It must not be used in PVP modes.
+#define MODE_CHILL_RULES (1<<23)
 
 #define MODE_INFESTATION_X_MAJOR "Xenomorph Major Victory"
-#define MODE_INFESTATION_M_MAJOR "Marine Major Victory"
+#define MODE_INFESTATION_M_MAJOR "Ninetails Major Victory"
 #define MODE_INFESTATION_X_MINOR "Xenomorph Minor Victory"
-#define MODE_INFESTATION_M_MINOR "Marine Minor Victory"
+#define MODE_INFESTATION_M_MINOR "Ninetails Minor Victory"
 
 #define MODE_ZOMBIE_Z_MAJOR "Zombie Major Victory"
 #define MODE_ZOMBIE_Z_MINOR "Zombie Minor Victory"
@@ -131,17 +139,26 @@
 #define COOLDOWN_COMM_MESSAGE 1 MINUTES
 #define COOLDOWN_COMM_CENTRAL 30 SECONDS
 
-#define SUPPLY_POINT_MARINE_SPAWN 25
+#define SUPPLY_POINT_MARINE_SPAWN 50
 
 #define AFK_TIMER 5 MINUTES
-#define TIME_BEFORE_TAKING_BODY 1 MINUTES
+#define TIME_BEFORE_TAKING_BODY 2 MINUTES
 
-#define DEATHTIME_CHECK(M) ((world.time - GLOB.key_to_time_of_role_death[M.key]) < SSticker.mode?.respawn_time)
+#define DEATHTIME_CHECK(M) ((M.key in GLOB.key_to_time_of_role_death)  && ((world.time - GLOB.key_to_time_of_role_death[M.key]) < SSticker.mode?.respawn_time))
 #define DEATHTIME_MESSAGE(M) to_chat(M, span_warning("You have been dead for [(world.time - GLOB.key_to_time_of_role_death[M.key]) * 0.1] second\s.</span><br><span class='warning'>You must wait [SSticker.mode?.respawn_time * 0.1] seconds before rejoining the game!"))
+
+#define XENODEATHTIME_CHECK(M) ((M.key in GLOB.key_to_time_of_xeno_death)  && ((world.time - (GLOB.key_to_time_of_xeno_death[M.key] ? GLOB.key_to_time_of_xeno_death[M.key] : -INFINITY) < SSticker.mode?.xenorespawn_time)))
+#define XENODEATHTIME_MESSAGE(M) to_chat(M, span_warning("You have been dead for [(world.time - GLOB.key_to_time_of_xeno_death[M.key]) * 0.1] second\s.</span><br><span class ='warning'>You must wait [SSticker.mode?.xenorespawn_time * 0.1] seconds before rejoining the game as a Xenomorph! You can take a SSD minion without resetting your timer."))
+
+#define WHITELIST_CHECK(C) (C in GLOB.whitelisted_clients)
+#define WHITELIST_MESSAGE(C) (to_chat(C, span_danger("<hr>You were unable to do that because you are not whitelisted.  Please join the discord to get whitelisted ([CONFIG_GET(string/discordurl)]).  If this is not possible for you, you can apply for an exception via ahelp(F1).  If you were whitelisted since you connected, please try reconnecting.  If you connected less than a second ago, please wait a second and try again.  If this does not help, please open a ticket on our discord or ahelp for assistance.\n")))
 
 #define COUNT_IGNORE_HUMAN_SSD (1<<0)
 #define COUNT_IGNORE_XENO_SSD (1<<1)
 #define COUNT_IGNORE_XENO_SPECIAL_AREA (1<<2)
+#define COUNT_CLF_TOWARDS_XENOS (1<<3)
+#define COUNT_GREENOS_TOWARDS_MARINES (1<<4)
+#define COUNT_IGNORE_ALTERNATE_FACTION_MARINES (1<<5)
 
 #define COUNT_IGNORE_ALIVE_SSD (COUNT_IGNORE_HUMAN_SSD|COUNT_IGNORE_XENO_SSD)
 
@@ -160,13 +177,17 @@
 //How many psy points a hive gets if all generators are corrupted
 #define GENERATOR_PSYCH_POINT_OUTPUT 1
 //How many psy points are gave for each marine psy drained at low pop
-#define PSY_DRAIN_REWARD_MAX 90
+//#define PSY_DRAIN_REWARD_MAX 90
+#define PSY_DRAIN_REWARD_MAX 54  //ntf edit
 //How many psy points are gave for each marine psy drained at high pop
-#define PSY_DRAIN_REWARD_MIN 30
+//#define PSY_DRAIN_REWARD_MIN 30
+#define PSY_DRAIN_REWARD_MIN 18 //ntf edit
 //How many psy points are gave every 5 second by a cocoon at low pop
-#define COCOON_PSY_POINTS_REWARD_MAX 3
+//#define COCOON_PSY_POINTS_REWARD_MAX 3
+#define COCOON_PSY_POINTS_REWARD_MAX 1.8 //ntf edit
 //How many psy points are gave every 5 second by a cocoon at high pop
-#define COCOON_PSY_POINTS_REWARD_MIN 1
+//#define COCOON_PSY_POINTS_REWARD_MIN 1
+#define COCOON_PSY_POINTS_REWARD_MIN 0.6 //ntf edit
 
 //The player pop consider to be very high pop
 #define HIGH_PLAYER_POP 80
@@ -180,10 +201,11 @@
 #define INFESTATION_MARINE_CRASHING 1
 #define INFESTATION_DROPSHIP_CAPTURED_XENOS 2
 
-#define NUCLEAR_WAR_LARVA_POINTS_NEEDED 10
+#define NUCLEAR_WAR_LARVA_POINTS_NEEDED 8
 #define CRASH_LARVA_POINTS_NEEDED 8
 
-#define FREE_XENO_AT_START 2
+#define FREE_XENO_AT_START 4
+#define FREE_XENO_AT_START_CORRUPT 2
 
 #define MAX_UNBALANCED_RATIO_TWO_HUMAN_FACTIONS 1.1
 
@@ -200,4 +222,4 @@
 
 #define NUCLEAR_WAR_MECH_MINIMUM_POP_REQUIRED 40 // This amount of clients must be connected at gamemode setup to get the first mech pilot slot.
 #define NUCLEAR_WAR_MECH_INTERVAL_PER_SLOT 20 // After meeting NUCLEAR_WAR_MECH_MINIMUM_POP_REQUIRED, a mech pilot slot is open for each set of X clients.
-#define NUCLEAR_WAR_TANK_MINIMUM_POP_REQUIRED 50 // This amount of clients must be connected at gamemode setup to get two assault crewman jobs (and thus tank).
+#define NUCLEAR_WAR_TANK_MINIMUM_POP_REQUIRED 35 // This amount of clients must be connected at gamemode setup to get two assault crewman jobs (and thus tank).

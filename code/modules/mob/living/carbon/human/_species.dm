@@ -59,6 +59,8 @@
 	var/brute_mod = null
 	///Burn damage modifier
 	var/burn_mod = null
+	///Stamina damage multiplier
+	var/stamina_mod = null
 	///new max_stamina [/mob/living/var/max_stamina] of the human mob once species is applied
 	var/max_stamina = 50
 
@@ -70,7 +72,7 @@
 	///how much the stunned effect is reduced per Life call
 	var/knock_out_reduction = 1
 	///How much slowdown is innate to our species
-	var/slowdown = 0
+	var/slowdown = -1
 	///Inventory slots the race can't equip stuff to. Golems cannot wear jumpsuits, for example
 	var/list/no_equip = list()
 
@@ -137,6 +139,13 @@
 	var/list/burstscreams = list()
 	///List of sounds for certain emotes [/datum/emote/living/carbon/human/warcry/get_sound]
 	var/list/warcries = list()
+	//stupid erp panel shit
+	var/list/groans = list()
+	var/list/chokes = list()
+	var/list/sexymoanhvys = list()
+	var/list/sexymoanlights = list()
+	var/list/robotnoises = list(MALE = SFX_ROBOT_NOISES, FEMALE = SFX_ROBOT_NOISES, PLURAL = SFX_ROBOT_NOISES, NEUTER = SFX_ROBOT_NOISES)
+	var/list/robotthreaten = list(MALE = SFX_ROBOT_THREATEN, FEMALE = SFX_ROBOT_THREATEN, PLURAL = SFX_ROBOT_THREATEN, NEUTER = SFX_ROBOT_THREATEN)
 
 	///Generic traits tied to having the species
 	var/list/inherent_traits = list()
@@ -161,6 +170,10 @@
 	var/joinable_roundstart = FALSE
 	///If this species counts as a human
 	var/count_human = FALSE
+	/// Whether this species can select genital overlays
+	var/has_genital_selection = FALSE
+	/// NTF ADDITION START
+	var/has_underwear_slots = FALSE
 
 /datum/species/New()
 	if(hud_type)
@@ -508,6 +521,12 @@
 		equip_slots |= SLOT_IN_R_POUCH
 		equip_slots |= SLOT_ACCESSORY
 		equip_slots |= SLOT_IN_ACCESSORY
+		// NTF EDIT START
+		equip_slots |= SLOT_BRA
+		equip_slots |= SLOT_SOCKS
+		equip_slots |= SLOT_UNDERWEAR
+		equip_slots |= SLOT_SHIRT
+		// NTF EDIT END
 
 ///damage override at the species level, called by /mob/living/proc/apply_damage
 /datum/species/proc/apply_damage(damage = 0, damagetype = BRUTE, def_zone, blocked = 0, sharp = FALSE, edge = FALSE, updating_health = FALSE, penetration, mob/living/attacker, mob/living/carbon/human/victim)

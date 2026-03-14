@@ -26,10 +26,13 @@
 	visible_message(span_warning("[src] attempts to remove [cuffs]!"),
 	span_notice("You attempt to remove [cuffs]... (This will take around [DisplayTimeText(cuffs.breakouttime)] and you need to stand still.)"))
 
-	if(!do_after(src, cuffs.breakouttime, IGNORE_HELD_ITEM, target = src))
+	if(!do_after(src, cuffs.breakouttime, FALSE, target = src))
 		return FALSE
 
 	visible_message(span_danger("[src] manages to remove [cuffs]!"),
 	span_notice("You successfully remove [cuffs]."))
 
 	dropItemToGround(cuffs) //This will call UnEquip() > update_handcuffed() > UnregisterSignal()
+	if(isxeno(src))
+		var/mob/living/carbon/xenomorph/xeno = src
+		xeno.update_handcuffed_overlay()

@@ -7,6 +7,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	"[FREQ_COMMAND]" = "comradio",
 	"[FREQ_AI]" = "airadio",
 	"[FREQ_CAS]" = "casradio",
+	"[FREQ_SEC]" = "secradio",
 	"[FREQ_ENGINEERING]" = "engradio",
 	"[FREQ_MEDICAL]" = "medradio",
 	"[FREQ_REQUISITIONS]" = "supradio",
@@ -17,10 +18,11 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	"[FREQ_COMMAND_SOM]" = "comradio",
 	"[FREQ_ENGINEERING_SOM]" = "engradio",
 	"[FREQ_MEDICAL_SOM]" = "medradio",
+	"[FREQ_CIV_GENERAL]" = "civradio",
 	))
 
 
-/atom/movable/proc/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
+/atom/movable/proc/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null, range = 7)
 	if(!can_speak())
 		return
 
@@ -32,11 +34,14 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	if(!language)
 		language = get_default_language()
 
-	send_speech(message, 7, src, , spans, message_language = language)
+	send_speech(message, range, src, , spans, message_language = language)
 
 
 /atom/movable/proc/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
 	SHOULD_CALL_PARENT(TRUE)
+	if(!isnum(radio_freq) && !isnull(radio_freq))
+		stack_trace("Invalid frequency! [logdetails(radio_freq)][istext(radio_freq) ? " \[AS TEXT\]" :""]")
+		radio_freq = text2num(radio_freq) || 0
 	SEND_SIGNAL(src, COMSIG_MOVABLE_HEAR, message, speaker, message_language, raw_message, radio_freq, spans, message_mode)
 	return TRUE
 

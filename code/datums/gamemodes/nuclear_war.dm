@@ -3,7 +3,9 @@
 	config_tag = "Nuclear War"
 	silo_scaling = 2
 	round_type_flags = MODE_INFESTATION|MODE_LATE_OPENING_SHUTTER_TIMER|MODE_XENO_RULER|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_SILOS_SPAWN_MINIONS|MODE_ALLOW_XENO_QUICKBUILD|MODE_FORCE_CUSTOMSQUAD_UI|MODE_MUTATIONS_OBTAINABLE
+	round_type_flags2 = MODE_2_NO_ABDUCT
 	xeno_abilities_flags = ABILITY_NUCLEARWAR
+	time_between_round = 48 HOURS
 	valid_job_types = list(
 		/datum/job/terragov/command/captain = 1,
 		/datum/job/terragov/command/fieldcommander = 1,
@@ -18,17 +20,22 @@
 		/datum/job/terragov/medical/researcher = 2,
 		/datum/job/terragov/civilian/liaison = 2,
 		/datum/job/terragov/silicon/synthetic = 1,
+		/datum/job/terragov/command/mech_pilot = 0,
+		/datum/job/terragov/command/assault_crewman = 0,
 		/datum/job/terragov/command/transport_crewman = 1,
 		/datum/job/terragov/silicon/ai = 1,
 		/datum/job/terragov/squad/engineer = 1,
 		/datum/job/terragov/squad/corpsman = 1,
+		/datum/job/terragov/squad/specialist = 1,
 		/datum/job/terragov/squad/smartgunner = 1,
 		/datum/job/terragov/squad/leader = 1,
 		/datum/job/terragov/squad/standard = -1,
+		/datum/job/terragov/squad/slut = -1,
 		/datum/job/xenomorph = FREE_XENO_AT_START,
 		/datum/job/xenomorph/queen = 1
 	)
 	job_points_needed_by_job_type = list(
+		/datum/job/terragov/squad/specialist = 20,
 		/datum/job/terragov/squad/smartgunner = 20,
 		/datum/job/terragov/squad/corpsman = 5,
 		/datum/job/terragov/squad/engineer = 5,
@@ -37,20 +44,28 @@
 
 	evo_requirements = list(
 		/datum/xeno_caste/queen = 8,
+		/datum/xeno_caste/king = 12,
+		/datum/xeno_caste/dragon = 18,
 	)
+
+	max_larva_preg_at_once = 1
 
 ///Timer used to track the countdown to hive collapse due to lack of silos or corrupted generators
 	var/siloless_hive_timer
 
 /datum/game_mode/infestation/nuclear_war/post_setup()
-	var/client_count = length(GLOB.clients)
+	var/client_count = length(GLOB.whitelisted_clients)
+	if(client_count >= NUCLEAR_WAR_MECH_MINIMUM_POP_REQUIRED)
+		evo_requirements[/datum/xeno_caste/queen] -= 1
 	if(client_count >= NUCLEAR_WAR_TANK_MINIMUM_POP_REQUIRED)
-		evo_requirements[/datum/xeno_caste/queen] -= 2
+		evo_requirements[/datum/xeno_caste/queen] -= 1
 
 	. = ..()
 
-	SSpoints.add_strategic_psy_points(XENO_HIVE_NORMAL, 1400)
-	SSpoints.add_tactical_psy_points(XENO_HIVE_NORMAL, 300)
+	for(var/hivenumber in GLOB.hive_datums)
+		SSpoints.add_strategic_psy_points(hivenumber, 1400)
+		SSpoints.add_tactical_psy_points(hivenumber, 300)
+		SSpoints.add_biomass_points(hivenumber, 0) // Solely to make sure it isn't null.
 
 	for(var/obj/effect/landmark/corpsespawner/corpse AS in GLOB.corpse_landmarks_list)
 		corpse.create_mob()
@@ -127,10 +142,10 @@
 	if(round_finished)
 		return TRUE
 
-	if(world.time < (SSticker.round_start_time + 5 SECONDS))
+	if(world.time < (SSticker.round_start_time + 2 MINUTES))
 		return FALSE
 
-	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_ALIVE_SSD|COUNT_IGNORE_XENO_SPECIAL_AREA)
+	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_ALIVE_SSD|COUNT_IGNORE_XENO_SPECIAL_AREA| COUNT_CLF_TOWARDS_XENOS | COUNT_GREENOS_TOWARDS_MARINES )
 	var/num_humans = living_player_list[1]
 	var/num_xenos = living_player_list[2]
 	var/num_humans_ship = living_player_list[3]

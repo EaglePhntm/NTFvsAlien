@@ -8,15 +8,15 @@
 	hitbox = /obj/hitbox
 	interior = /datum/interior/armored
 	minimap_icon_state = "tank"
-	required_entry_skill = SKILL_LARGE_VEHICLE_TRAINED
 	atom_flags = DIRLOCK|BUMP_ATTACKABLE|PREVENT_CONTENTS_EXPLOSION|CRITICAL_ATOM
 	armored_flags = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_SECONDARY_WEAPON|ARMORED_HAS_UNDERLAY|ARMORED_HAS_HEADLIGHTS|ARMORED_PURCHASABLE_ASSAULT|ARMORED_WRECKABLE
 	appearance_flags = PIXEL_SCALE
 	pixel_x = -56
 	pixel_y = -48
-	max_integrity = 900
-	soft_armor = list(MELEE = 50, BULLET = 100 , LASER = 90, ENERGY = 60, BOMB = 60, BIO = 100, FIRE = 50, ACID = 50)
+	max_integrity = 1000
+	soft_armor = list(MELEE = 50, BULLET = 100, LASER = 90, ENERGY = 90, BOMB = 60, BIO = 100, FIRE = 100, ACID = 50)
 	hard_armor = list(MELEE = 0, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 0, BIO = 20, FIRE = 0, ACID = 0)
+	facing_modifiers = list(VEHICLE_FRONT_ARMOUR = 0.8, VEHICLE_SIDE_ARMOUR = 1, VEHICLE_BACK_ARMOUR = 1.2)
 	permitted_mods = list(
 		/obj/item/tank_module/overdrive,
 		/obj/item/tank_module/ability/zoom,
@@ -32,14 +32,16 @@
 		/obj/item/armored_weapon/secondary_flamer,
 		/obj/item/armored_weapon/tow,
 		/obj/item/armored_weapon/microrocket_pod,
+		/obj/item/armored_weapon/secondary_mlrs,
 	)
 	max_occupants = 4
-	move_delay = 0.75 SECONDS
+	move_delay = 0.6 SECONDS
 	glide_size = 2.5
-
-	ram_damage = 100
+	ram_damage = 300
 	easy_load_list = list(
 		/obj/item/ammo_magazine/tank,
+		/obj/structure/largecrate,
+		/obj/structure/closet/crate,
 	)
 	///pass_flags given to desants, in addition to the vehicle's pass_flags
 	var/desant_pass_flags = PASS_FIRE|PASS_LOW_STRUCTURE
@@ -163,7 +165,6 @@
 //THe HvX tank is not balanced at all for HvH
 /obj/vehicle/sealed/armored/multitile/campaign
 	desc = "A gigantic wall of metal designed for maximum SOM destruction. Drag yourself onto it at an entrance to get inside."
-	required_entry_skill = SKILL_LARGE_VEHICLE_DEFAULT
 	max_integrity = 1400
 	soft_armor = list(MELEE = 90, BULLET = 95 , LASER = 95, ENERGY = 95, BOMB = 80, BIO = 100, FIRE = 100, ACID = 75)
 	hard_armor = list(MELEE = 10, BULLET = 5, LASER = 5, ENERGY = 5, BOMB = 40, BIO = 100, FIRE = 0, ACID = 0)

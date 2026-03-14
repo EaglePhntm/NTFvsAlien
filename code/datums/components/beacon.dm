@@ -35,6 +35,7 @@
 	RegisterSignal(parent, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_z_change))
 
 /datum/component/beacon/UnregisterFromParent()
+	deactivate(parent)
 	UnregisterSignal(parent, list(
 		COMSIG_ITEM_ATTACK_SELF,
 		COMSIG_ATOM_UPDATE_NAME,
@@ -61,6 +62,9 @@
 	SIGNAL_HANDLER
 
 	if(!ishuman(user))
+		return
+
+	if(!user.get_active_held_item(source))
 		return
 
 	if(length(user.do_actions))
@@ -164,7 +168,7 @@
 ///Adds an extra line of instructions to the examine
 /datum/component/beacon/proc/on_examine(atom/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
-	examine_list += span_notice("Activate in hand to create a supply beacon signal.")
+	examine_list += span_notice(anchor ? "Activate in hand to create a supply beacon signal." : "Toss this to activate a supply beacon signal.")
 
 ///If the signal source dies, the beacon datum should as well
 /datum/component/beacon/proc/clean_beacon_datum()
@@ -174,10 +178,10 @@
 ///Gives the beacon broadcaster object the appropriate, descriptive name
 /datum/component/beacon/proc/on_update_name(atom/source, updates)
 	SIGNAL_HANDLER
+	source.name = initial(source.name)
 	if(active)
 		source.name += " - [get_area(source)] - [activator]"
 		return
-	source.name = initial(source.name)
 
 ///Updates the icon state of the object to an active state, if it has one
 /datum/component/beacon/proc/on_update_icon_state(atom/source, updates)

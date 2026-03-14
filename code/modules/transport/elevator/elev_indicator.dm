@@ -24,7 +24,7 @@
 	/// What specific_transport_id do we link with?
 	var/linked_elevator_id
 	/// 'Floors' for display purposes are by default offset by 1 from their actual z-levels
-	var/lowest_floor_offset = 1
+	var/lowest_floor_offset = 2
 	/// Weakref to the transport.
 	var/datum/weakref/lift_ref
 	/// The lowest floor number. Determined by transport module init.

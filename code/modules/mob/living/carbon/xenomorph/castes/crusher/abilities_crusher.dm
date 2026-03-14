@@ -12,6 +12,8 @@
 	name = "Stomp"
 	action_icon_state = "stomp"
 	action_icon = 'icons/Xeno/actions/crusher.dmi'
+	desc = "Knocks all adjacent targets away and down."
+
 	ability_cost = 100
 	cooldown_duration = 20 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
@@ -24,7 +26,7 @@
 	var/stomp_range = CRUSHER_STOMP_RANGE
 	/// At what point does damage begin to fall off?
 	var/stomp_falloff = CRUSHER_STOMP_FALLOFF
-	/// Should this ability deal additional effects / have more potent effects for victims that the owner is standing ontop of?
+	/// Should this ability deal additional effects / have more potent effects for victims that the owner is standing on top of?
 	var/distance_bonus_allowed = TRUE
 
 /datum/action/ability/activable/xeno/stomp/New(Target)
@@ -84,6 +86,7 @@
 	action_icon_state = "cresttoss"
 	action_icon = 'icons/Xeno/actions/crusher.dmi'
 	desc = "Fling an adjacent target over and behind you, or away from you while on harm intent. Also works over barricades."
+
 	ability_cost = 75
 	cooldown_duration = 12 SECONDS
 	keybinding_signals = list(
@@ -131,7 +134,7 @@
 		var/mob/living/L = A
 		if(L.mob_size >= MOB_SIZE_BIG) //Penalize toss distance for big creatures
 			toss_distance = FLOOR(toss_distance * 0.5, 1)
-			big_mob_message = ", struggling mightily to heft its bulk"
+			big_mob_message = ", struggling mightily to heft [L.p_their()]  bulk"
 	else if(ismecha(A))
 		toss_distance = FLOOR(toss_distance * 0.5, 1)
 		big_mob_message = ", struggling mightily to heft its bulk"
@@ -191,6 +194,7 @@
 	action_icon_state = "crest_defense"
 	action_icon = 'icons/Xeno/actions/defender.dmi'
 	desc = "Charges up the crushers charge in place, then unleashes the full bulk of the crusher at the target location. Does not crush in diagonal directions."
+
 	ability_cost = 175
 	cooldown_duration = 30 SECONDS
 	keybinding_signals = list(

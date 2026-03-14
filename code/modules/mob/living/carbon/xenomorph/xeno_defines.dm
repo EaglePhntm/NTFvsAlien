@@ -41,7 +41,7 @@
 
 	// *** Speed *** //
 	var/speed = 1
-	var/weeds_speed_mod = -0.4
+	var/weeds_speed_mod = -0.5
 
 	// *** Regeneration Delay ***//
 	///Time after you take damage before a xenomorph can regen.
@@ -107,6 +107,8 @@
 	var/spit_delay = 6 SECONDS
 	///list of datum projectile types the xeno can use.
 	var/list/spit_types
+	///list of various chemical stings xenos can use
+	var/list/sting_types
 
 	// *** Acid spray *** //
 	///How long the acid spray stays on floor before it deletes itself, should be higher than 0 to avoid runtimes with timers.
@@ -173,10 +175,20 @@
 
 	// *** Queen Abilities *** //
 	///Amount of leaders allowed
-	var/queen_leader_limit = 0
+	var/queen_leader_limit = 3
 
 	// *** Wraith Abilities *** //
+	//Banish - Values for the Wraith's Banish ability
+	///Base duration of Banish before modifiers
+	var/wraith_banish_base_duration = WRAITH_BANISH_BASE_DURATION
 
+	//Blink - Values for the Wraith's Blink ability
+	///Cooldown multiplier of Blink when used on non-friendlies
+	var/wraith_blink_drag_nonfriendly_living_multiplier = WRAITH_BLINK_DRAG_NONFRIENDLY_MULTIPLIER
+	///Cooldown multiplier of Blink when used on friendlies
+	var/wraith_blink_drag_friendly_multiplier = WRAITH_BLINK_DRAG_FRIENDLY_MULTIPLIER
+	///Base range of Blink
+	var/wraith_blink_range = WRAITH_BLINK_RANGE
 
 	// *** Hunter Abilities ***
 	///Damage breakpoint to knock out of stealth
@@ -208,7 +220,6 @@
 	var/silent_vent_crawl = FALSE
 	// Accuracy malus, 0 by default. Should NOT go over 70.
 	var/accuracy_malus = 0
-
 	/// All mutations that this caste can view and potentially purchase.
 	var/list/datum/mutation_upgrade/mutations = list()
 
@@ -218,6 +229,7 @@
 		ADD_TRAIT(xenomorph, trait, XENO_TRAIT)
 	xenomorph.AddComponent(/datum/component/bump_attack)
 	xenomorph.RegisterSignal(xenomorph,COMSIG_XENOMORPH_ATTACK_LIVING, TYPE_PROC_REF(/mob/living/carbon/xenomorph, onhithuman))
+
 
 /datum/xeno_caste/proc/on_caste_removed(mob/xenomorph)
 	xenomorph.remove_component(/datum/component/bump_attack)
@@ -284,7 +296,7 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER|LONG_GLIDE
 	see_infrared = TRUE
 	hud_type = /datum/hud/alien
-	hud_possible = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, XENO_RANK_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_DEBUFF_HUD, XENO_FIRE_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD)
+	hud_possible = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, XENO_RANK_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_DEBUFF_HUD, XENO_HUMAN_SHARED_HUD, XENO_FIRE_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD)
 	buckle_flags = NONE
 	faction = FACTION_XENO
 	initial_language_holder = /datum/language_holder/xeno
@@ -293,16 +305,18 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	light_system = MOVABLE_LIGHT
 
 	///Hive name define
-	var/hivenumber = XENO_HIVE_NORMAL
+	hivenumber = XENO_HIVE_NORMAL
 	///Hive datum we belong to
-	var/datum/hive_status/hive
+	VAR_PROTECTED/datum/hive_status/hive
 	///Xeno mob specific flags
-	var/xeno_flags = NONE
+	var/xeno_flags = XENO_DESTROY_OWN_STRUCTURES
 
 	///State tracking of hive status toggles
 	var/status_toggle_flags = HIVE_STATUS_DEFAULTS
 	///Handles displaying the various wound states of the xeno.
 	var/atom/movable/vis_obj/xeno_wounds/wound_overlay
+	///Handles displaying the various wound states of the xeno.
+	var/atom/movable/vis_obj/xeno_wounds/genital_overlay/genital_overlay
 	///Handles displaying the various fire states of the xeno
 	var/atom/movable/vis_obj/xeno_wounds/fire_overlay/fire_overlay
 	///Handles displaying any equipped backpack item, such as a saddle
@@ -314,8 +328,14 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	///Plasma currently stored
 	var/plasma_stored = 0
 
+	var/xeno_desc = ""
+	///Profile picture set by player
+	var/xenoprofile_pic = ""
+
 	///A mob the xeno ate
-	var/mob/living/carbon/eaten_mob
+	var/mob/living/carbon/human/eaten_mob
+	///A mob the xeno is trying to eat
+	var/mob/living/devouring_mob
 	///How much evolution they have stored
 	var/evolution_stored = 0
 	///How much upgrade points they have stored.
@@ -361,6 +381,8 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	///Naming variables
 	var/nicknumber = 0 //The number/name after the xeno type. Saved right here so it transfers between castes.
 
+	var/possessor = null //who is in control of this mob, used exclusively for possessions
+
 	///This list of inherent verbs lets us take any proc basically anywhere and add them.
 	///If they're not a xeno subtype it might crash or do weird things, like using human verb procs
 	///It should add them properly on New() and should reset/readd them on evolves
@@ -375,6 +397,14 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	/// Visual effect that appears when doing a normal attack.
 	var/attack_effect = ATTACK_EFFECT_REDSLASH
 
+	// Stun health related vars
+	/// How much stun damage a mob has
+	var/stun_health_damage = 0
+	/// When true the xeno is in the crit from stun damage
+	var/stun_health_crit = FALSE
+	/// Timer which's created when xeno is critted from stun damage
+	var/stun_health_crit_timer = null
+
 	//Charge vars
 	///Will the mob charge when moving ? You need the charge verb to change this
 	var/is_charging = CHARGE_OFF
@@ -385,6 +415,10 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	// Defender vars
 	var/fortify = 0
 	var/crest_defense = 0
+
+	// Baneling vars
+	/// Respawn charges, each charge makes respawn take 30 seconds. Maximum of 2 charges. If there is no charge the respawn takes 120 seconds.
+	var/stored_charge = 0
 
 	// *** Ravager vars *** //
 	/// when true the rav will not go into crit or take crit damage.
@@ -433,8 +467,17 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	///The xenos/silo/nuke currently tracked by the xeno_tracker arrow
 	var/atom/tracked
 
+	///Are we the roony version of this xeno
+	var/is_a_rouny = FALSE
+
 	/// The type of footstep this xeno has.
 	var/footstep_type = FOOTSTEP_XENO_MEDIUM
+	var/blunt_stab = FALSE
+	var/fiery_stab = FALSE
+
+	var/preggo = FALSE
+	///grace period to health regen after being hit by a projectile while fighting a xeno
+	var/no_health_regen_grace_period = FALSE
 
 	//list of active tunnels
 	var/list/tunnels = list()
@@ -469,3 +512,7 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 		return
 	SEND_SIGNAL(src, COMSIG_XENO_SELECTED_REAGENT_CHANGED, selected_reagent, new_reagent_typepath)
 	selected_reagent = new_reagent_typepath
+
+/mob/living/carbon/xenomorph/proc/get_hive()
+	RETURN_TYPE(/datum/hive_status)
+	return hive

@@ -17,6 +17,8 @@
 	src.identifier = identifier
 	setDir(direction)
 	update_icon()
+	if(operator)
+		addtimer(CALLBACK(src, PROC_REF(remove_blip), operator), 3 SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME) //incase
 
 ///Remove the blip from the operator screen
 /obj/effect/blip/edge_blip/remove_blip(mob/operator)
@@ -38,6 +40,8 @@
 	blip_image = image('icons/effects/blips.dmi', src, "close_blip_[identifier]")
 	SET_PLANE_EXPLICIT(blip_image, ABOVE_HUD_PLANE, src)
 	user.client.images += blip_image
+	if(user)
+		addtimer(CALLBACK(src, PROC_REF(remove_blip), user), 3 SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME) //incase
 
 /// Remove the blip from the operator images
 /obj/effect/blip/close_blip/remove_blip(mob/user)
@@ -59,20 +63,26 @@
 	var/mob/living/carbon/human/operator
 	///If a hostile was detected
 	var/hostile_detected = FALSE
-	///The time needed after the last move to not be detected by this motion detector
-	var/move_sensitivity = 1 SECONDS
+	/// Maximum age of movement (in time) that can still be detected at distance 0. Higher values make the detector more forgiving to recent movement.
+	var/base_sensitivity = 2 SECONDS
+	/// Controls how quickly detection sensitivity decreases with distance. Higher values make long-range detection less reliable.
+	var/distance_multiplier = 1.5
+	/// Minimum detectable movement age. Prevents the detector from becoming completely ineffective at long range.
+	var/minimum_sensitivity = 0.4 SECONDS
 	///The range of this motion detector
 	var/range = 16
 	///The list of all the blips
 	var/list/obj/effect/blip/blips_list = list()
 
 /obj/item/attachable/motiondetector/Destroy()
-	clean_operator(forced = TRUE)
+	operator = null
+	clean_operator()
 	return ..()
 
 /obj/item/attachable/motiondetector/activate(mob/user, turn_off)
 	if(operator)
-		clean_operator(forced = TRUE)
+		operator = null
+		clean_operator()
 		return TRUE
 	operator = user
 	RegisterSignals(operator, list(COMSIG_QDELETING, COMSIG_GUN_USER_UNSET), PROC_REF(clean_operator))
@@ -102,18 +112,24 @@
 
 /obj/item/attachable/motiondetector/equipped(mob/user, slot)
 	. = ..()
-	if(!ishandslot(slot))
+	if(!ishandslot(slot) && slot != SLOT_BELT && slot != SLOT_S_STORE && slot != SLOT_R_STORE && slot != SLOT_L_STORE)
 		clean_operator()
 
-/obj/item/attachable/motiondetector/removed_from_inventory(mob/user)
+/obj/item/attachable/motiondetector/on_enter_storage(obj/item/storage/S)
 	. = ..()
-	clean_operator(forced = TRUE) //Exploit prevention. If you are putting the tac sensor into a storage in your hand (Like holding a satchel), hand == loc will return
+	operator = null //forces clean
+	clean_operator()
 
 /// Signal handler to clean out user vars
-/obj/item/attachable/motiondetector/proc/clean_operator(datum/source, obj/item/weapon/gun/gun, forced = FALSE)
+/obj/item/attachable/motiondetector/proc/clean_operator(datum/source, obj/item/weapon/gun/gun)
 	SIGNAL_HANDLER
-	if(!forced && operator && (operator.l_hand == src || operator.r_hand == src || operator.l_hand == loc || operator.r_hand == loc))
+	if(operator && (operator.l_hand == src || operator.r_hand == src || operator.l_hand == loc || operator.r_hand == loc))
 		return
+	// NTF CODE ADDITION START
+	var/e_slot = operator ? operator.get_equipped_slot(src) : null
+	if (e_slot && (e_slot == SLOT_L_STORE || e_slot == SLOT_R_STORE))
+		return
+	// NTF CODE ADDITION END
 	STOP_PROCESSING(SSobj, src)
 	clean_blips()
 	if(operator)
@@ -132,16 +148,26 @@
 	for (var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(operator, range))
 		if(nearby_human == operator)
 			continue
-		if(nearby_human.last_move_time + move_sensitivity < world.time)
+		var/target_distance = get_dist(operator, nearby_human)
+		var/effective_sensitivity = base_sensitivity - (target_distance * distance_multiplier)
+		effective_sensitivity = clamp(effective_sensitivity, minimum_sensitivity, base_sensitivity)
+		if(nearby_human.last_move_time + effective_sensitivity < world.time)
 			continue
-		prepare_blip(nearby_human, nearby_human.wear_id?.iff_signal & operator.wear_id.iff_signal ? MOTION_DETECTOR_FRIENDLY : MOTION_DETECTOR_HOSTILE)
+		prepare_blip(nearby_human, nearby_human.wear_id?.iff_signal & operator.get_iff_signal() ? MOTION_DETECTOR_FRIENDLY : MOTION_DETECTOR_HOSTILE)
 	for (var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(operator, range))
-		if(nearby_xeno.last_move_time + move_sensitivity < world.time )
+		var/target_distance = get_dist(operator, nearby_xeno)
+		var/effective_sensitivity = base_sensitivity - (target_distance * distance_multiplier)
+		effective_sensitivity = clamp(effective_sensitivity, minimum_sensitivity, base_sensitivity)
+		if(nearby_xeno.last_move_time + effective_sensitivity < world.time )
 			continue
-		prepare_blip(nearby_xeno, MOTION_DETECTOR_HOSTILE)
+		prepare_blip(nearby_xeno, nearby_xeno.get_iff_signal() & operator.get_iff_signal() ?  MOTION_DETECTOR_FRIENDLY : MOTION_DETECTOR_HOSTILE)
 	if(hostile_detected)
-		playsound(loc, 'sound/items/tick.ogg', 100, 0, 7, 2)
-	addtimer(CALLBACK(src, PROC_REF(clean_blips)), 1 SECONDS)
+		//playsound(loc, 'sound/items/tick.ogg', 100, 0, 7, 2)
+		playsound(loc, pick('ntf_modular/sound/items/detector_ping_1.ogg', 'ntf_modular/sound/items/detector_ping_2.ogg', 'ntf_modular/sound/items/detector_ping_3.ogg', 'ntf_modular/sound/items/detector_ping_4.ogg'), 60, 0, 7, 2)
+	else
+		playsound(loc, 'ntf_modular/sound/items/detector.ogg', 60, 0, 7, 2)
+
+	addtimer(CALLBACK(src, PROC_REF(clean_blips)), 1 SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME)
 
 ///Clean all blips from operator screen
 /obj/item/attachable/motiondetector/proc/clean_blips()

@@ -75,6 +75,10 @@
 	var/mob/living/living_target = target
 	if(bumper.faction == living_target.faction)
 		return //FF
+	if(bumper.issamexenohive(living_target))
+		return //FF
+	if(GLOB.faction_to_iff[bumper.faction] & GLOB.faction_to_iff[living_target.faction])
+		return //FF
 	if(ishuman(target) && (bumper.wear_id))
 		var/mob/living/carbon/human/human_target = target
 		if(bumper.wear_id?.iff_signal == human_target.wear_id?.iff_signal)
@@ -93,7 +97,8 @@
 	if(!isnull(.))
 		return
 	if(bumper.issamexenohive(target))
-		return //No more nibbling.
+		if(!(bumper.xeno_flags & XENO_ALLIES_BUMP))
+			return //No more nibbling.
 	return xeno_do_bump_action(target)
 
 ///Handles living bump attacks.
@@ -127,7 +132,7 @@
 	var/mob/living/carbon/xenomorph/bumper = parent
 	if(bumper.next_move > world.time)
 		return COMPONENT_BUMP_RESOLVED //We don't want to push people while on attack cooldown.
-	bumper.UnarmedAttack(target, TRUE)
+	bumper.xeno_slash(target)
 	GLOB.round_statistics.xeno_bump_attacks++
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "xeno_bump_attacks")
 	TIMER_COOLDOWN_START(src, COOLDOWN_BUMP_ATTACK, bumper.xeno_caste.attack_delay)

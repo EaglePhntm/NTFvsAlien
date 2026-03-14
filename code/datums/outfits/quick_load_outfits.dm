@@ -4,13 +4,13 @@
 	///How much of this loadout there is. infinite by default
 	var/quantity = -1
 	///What job this loadout is associated with. Used for tabs and access.
-	var/jobtype = "Squad Marine"
+	var/jobtype = "Squad Operative"
 	///Restricts loadouts to a specific job. Set to false to allow any job to take the loadout.
 	var/require_job = TRUE
 	///Secondary weapon
 	var/secondary_weapon
 
-/datum/outfit/quick/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/quick/equip(mob/living/carbon/human/H, visualsOnly = FALSE, provide_id = TRUE)
 	//Start with uniform,suit,backpack for additional slots. Deletes any existing equipped item to avoid accidentally losing half your loadout. Not suitable for standard gamemodes!
 	if(w_uniform)
 		qdel(H.w_uniform)
@@ -46,13 +46,13 @@
 
 //Base TGMC outfit
 /datum/outfit/quick/tgmc
-	name = "TGMC base"
+	name = "NTF base"
 	desc = "This is the base typepath for all TGMC quick vendor outfits. You shouldn't see this."
 
 //Base TGMC marine outfit
 /datum/outfit/quick/tgmc/marine
-	name = "TGMC Squad Marine"
-	jobtype = "Squad Marine"
+	name = "NTF Squad Marine"
+	jobtype = "Squad Operative"
 
 	ears = /obj/item/radio/headset/mainship/marine
 	w_uniform = /obj/item/clothing/under/marine/black_vest
@@ -234,7 +234,7 @@
 
 /datum/outfit/quick/tgmc/marine/standard_machinegunner
 	name = "MG-60 Machinegunner"
-	desc = "The old reliable workhorse of the TGMC. Equipped with an MG-60 machinegun with bipod, heavy armor and some basic construction supplies. Good for holding ground and providing firesupport, and the cost of some mobility."
+	desc = "The old reliable workhorse of the NTF. Equipped with an MG-60 machinegun with bipod, heavy armor and some basic construction supplies. Good for holding ground and providing firesupport, and the cost of some mobility."
 
 	belt = /obj/item/storage/belt/sparepouch
 	suit_store = /obj/item/weapon/gun/rifle/standard_gpmg/machinegunner
@@ -477,7 +477,7 @@
 
 //Base TGMC engineer outfit
 /datum/outfit/quick/tgmc/engineer
-	name = "TGMC Squad Engineer"
+	name = "NTF Squad Engineer"
 	jobtype = "Squad Engineer"
 
 	ears = /obj/item/radio/headset/mainship/marine
@@ -571,9 +571,9 @@
 	)
 
 
-//Base TGMC corpsman outfit
+//Base NTF corpsman outfit
 /datum/outfit/quick/tgmc/corpsman
-	name = "TGMC Squad Corpsman"
+	name = "NTF Squad Corpsman"
 	jobtype = "Squad Corpsman"
 
 	belt = /obj/item/storage/belt/lifesaver/quick
@@ -729,9 +729,9 @@
 	)
 
 
-//Base TGMC smartgunner outfit
+//Base NTF smartgunner outfit
 /datum/outfit/quick/tgmc/smartgunner
-	name = "TGMC Squad Smartgunner"
+	name = "NTF Squad Smartgunner"
 	jobtype = "Squad Smartgunner"
 
 	belt = /obj/item/belt_harness/marine
@@ -818,7 +818,7 @@
 
 //Base TGMC leader outfit
 /datum/outfit/quick/tgmc/leader
-	name = "TGMC Squad Leader"
+	name = "NTF Squad Leader"
 	jobtype = "Squad Leader"
 
 	ears = /obj/item/radio/headset/mainship/marine
@@ -869,7 +869,7 @@
 	webbing_contents = list(
 		/obj/item/explosive/grenade/sticky = 2,
 		/obj/item/explosive/grenade = 2,
-		/obj/item/binoculars/fire_support/campaign = 1,
+		/obj/item/binoculars/fire_support/extended/sl = 1,
 	)
 
 /datum/outfit/quick/tgmc/leader/standard_assaultrifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -898,7 +898,7 @@
 		/obj/item/explosive/grenade = 2,
 		/obj/item/explosive/grenade/m15 = 1,
 		/obj/item/explosive/grenade/incendiary = 1,
-		/obj/item/binoculars/fire_support/campaign = 1,
+		/obj/item/binoculars/fire_support/extended/sl = 1,
 	)
 
 
@@ -924,7 +924,7 @@
 		/obj/item/explosive/grenade = 2,
 		/obj/item/explosive/grenade/m15 = 1,
 		/obj/item/explosive/grenade/incendiary = 1,
-		/obj/item/binoculars/fire_support/campaign = 1,
+		/obj/item/binoculars/fire_support/extended/sl = 1,
 	)
 
 /datum/outfit/quick/tgmc/leader/combat_rifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -952,7 +952,7 @@
 	webbing_contents = list(
 		/obj/item/explosive/grenade = 2,
 		/obj/item/explosive/grenade/sticky = 2,
-		/obj/item/binoculars/fire_support/campaign = 1,
+		/obj/item/binoculars/fire_support/extended/sl = 1,
 	)
 
 
@@ -978,7 +978,7 @@
 		/obj/item/explosive/grenade/m15 = 2,
 		/obj/item/explosive/grenade/incendiary = 1,
 		/obj/item/explosive/grenade/smokebomb/cloak = 1,
-		/obj/item/binoculars/fire_support/campaign = 1,
+		/obj/item/binoculars/fire_support/extended/sl = 1,
 	)
 
 
@@ -1003,7 +1003,7 @@
 	webbing_contents = list(
 		/obj/item/ammo_magazine/flamer_tank/mini = 2,
 		/obj/item/explosive/grenade = 2,
-		/obj/item/binoculars/fire_support/campaign = 1,
+		/obj/item/binoculars/fire_support/extended/sl = 1,
 	)
 
 /datum/outfit/quick/tgmc/leader/standard_laserrifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -1030,7 +1030,7 @@
 		/obj/item/ammo_magazine/pistol/vp70 = 2,
 		/obj/item/storage/box/MRE = 1,
 		/obj/item/explosive/plastique = 1,
-		/obj/item/binoculars/fire_support/campaign = 1,
+		/obj/item/binoculars/fire_support/extended/sl = 1,
 	)
 
 
@@ -2047,3 +2047,2050 @@
 		/obj/item/explosive/grenade/som = 4,
 		/obj/item/binoculars/fire_support/campaign/som = 1,
 	)
+
+//someone must update these below
+
+/datum/outfit/quick/som/veteran/v35breacher
+	name = "V-35 Veteran Breacher"
+	desc = "Heavy armored breaching configuration. Equipped with a V-35 Battle Rifle."
+
+	head = /obj/item/clothing/head/modular/som/lorica
+	glasses = /obj/item/clothing/glasses/welding
+	wear_suit = /obj/item/clothing/suit/modular/som/heavy/lorica
+	suit_store = /obj/item/weapon/gun/rifle/som_big
+	belt = /obj/item/storage/belt/marine/som/big
+
+/datum/outfit/quick/som/veteran/v35breacher/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_to_slot_or_del(new /obj/item/tool/weldingtool/largetank, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/volkite, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/som_big, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/som_big, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE/som, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary/som, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
+
+/datum/outfit/quick/som/veteran/dragoon
+	name = "Dragoon Veteran"
+	desc = "A lightly-armored agile class. Equipped with a Dragoon Mk1 Rapid Engagement rifle, plentiful ammo and autodoc. The rifle allows the soldier to harrass enemy units before tactically retreating, either picking off high-value targets or applying a constant pressure on the enemy. Also comes with a rifle instruction pamphlet to make up for your lack of training!"
+
+	wear_suit = /obj/item/clothing/suit/modular/som/light/autodoc
+	belt = /obj/item/storage/belt/marine/som
+	suit_store = /obj/item/weapon/gun/rifle/dragoon
+	back = /obj/item/storage/backpack/lightpack/icc
+	glasses = /obj/item/clothing/glasses/night/m56_goggles
+	r_hand = /obj/item/pamphlet/rifleman
+
+/datum/outfit/quick/som/veteran/dragoon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon/pox, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon/pox, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon, SLOT_IN_BELT)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/boltclip/dragoon, SLOT_IN_BACKPACK)
+
+// VSD
+
+/datum/outfit/quick/vsd
+	name = "KZ Debug"
+	jobtype = "KZ"
+
+/datum/outfit/quick/vsd/standard
+	name = "KZ Standard"
+	jobtype = "KZ Standard"
+	require_job = FALSE
+	w_uniform = /obj/item/clothing/under/vsd/webbing
+	shoes = /obj/item/clothing/shoes/marine/vsd/full
+	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/harmor
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	head = /obj/item/clothing/head/helmet/marine/vsd_two
+	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
+	l_pocket = /obj/item/storage/pouch/magazine
+	back = /obj/item/storage/backpack/lightpack/vsd
+	ears = /obj/item/radio/headset/mainship/vsd
+	head = /obj/item/clothing/head/helmet/marine/vsd/heavy
+
+/datum/outfit/quick/vsd/standard/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
+
+/datum/outfit/quick/vsd/standard/grunt_one
+	name = "CC/67 Rifle KZ Grunt"
+	desc = "The old standard. Equipped with the standard CC/67 combat rifle, VP70 pistol, a deployable shield, and lightweight armor."
+	suit_store = /obj/item/weapon/gun/rifle/vsd_rifle
+	mask = /obj/item/clothing/mask/gas
+	head = /obj/item/clothing/head/vsd
+	glasses = /obj/item/clothing/glasses/meson
+	w_uniform = /obj/item/clothing/under/vsd/webbing
+	shoes = /obj/item/clothing/shoes/marine/vsd/full
+	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/alt
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
+	l_pocket = /obj/item/storage/pouch/magazine
+	back = /obj/item/storage/backpack/lightpack/vsd
+	belt = /obj/item/storage/holster/belt/pistol/standard_pistol
+	ears = /obj/item/radio/headset/mainship/vsd
+
+/datum/outfit/quick/vsd/standard/grunt_one/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/stack/barbed_wire, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_rifle, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_rifle, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_rifle, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/weapon/shield/riot/marine/deployable, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/vp70, SLOT_IN_BELT)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_rifle, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_rifle, SLOT_IN_L_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/binoculars, SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_rifle, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_rifle, SLOT_IN_SUIT)
+
+/datum/outfit/quick/vsd/standard/grunt_two
+	name = "CC/77 Rifle KZ Grunt"
+	desc = "The new standard. Equipped with the standard CC/77 assault rifle, GL-81 single-shot grenade launcher, and medium armor."
+	suit_store = /obj/item/weapon/gun/rifle/vsd_carbine
+	mask = /obj/item/clothing/mask/gas/vsd
+	head = /obj/item/clothing/head/helmet/marine/vsd
+	glasses = /obj/item/clothing/glasses/meson
+	w_uniform = /obj/item/clothing/under/vsd/webbing
+	shoes = /obj/item/clothing/shoes/marine/vsd/full
+	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/marmor
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
+	l_pocket = /obj/item/storage/pouch/grenade
+	back = /obj/item/storage/backpack/lightpack/vsd
+	belt = /obj/item/storage/belt/marine
+	ears = /obj/item/radio/headset/mainship/vsd
+
+/datum/outfit/quick/vsd/standard/grunt_two/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_carbine, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_carbine, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_carbine, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_carbine, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_carbine, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_carbine, SLOT_IN_BELT)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_carbine, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_carbine, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_L_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/binoculars, SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/grenade_launcher/single_shot, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/attachable/scope/mini, SLOT_IN_SUIT)
+
+/datum/outfit/quick/vsd/standard/grunt_three
+	name = "L26 Support MG KZ Grunt"
+	desc = "The standard of laying down suppressive fire. Equipped with the standard L26 support machinegun, C96 pistol, a deployable shield, various support-based grenades, and Crasher multi-threat heavy-set ballistic armor."
+	suit_store = /obj/item/weapon/gun/rifle/vsd_lmg
+	mask = /obj/item/clothing/mask/gas/icc
+	head = /obj/item/clothing/head/helmet/marine/vsd
+	glasses = /obj/item/clothing/glasses/meson
+	w_uniform = /obj/item/clothing/under/vsd/webbing
+	shoes = /obj/item/clothing/shoes/marine/vsd/full
+	wear_suit = /obj/item/clothing/suit/storage/marine/vsd_two/harmor
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
+	l_pocket = /obj/item/storage/pouch/grenade
+	back = /obj/item/storage/backpack/lightpack/vsd
+	belt = /obj/item/storage/belt/marine
+	ears = /obj/item/radio/headset/mainship/vsd
+
+/datum/outfit/quick/vsd/standard/grunt_three/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/stack/barbed_wire, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/vsd_pistol/standard(H), SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/weapon/shield/riot/marine/deployable, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_mg_main, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_mg_main, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_mg_main, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_mg_main, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_mg_main, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_mg_main, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_mg_main, SLOT_IN_BELT)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/drain, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/drain, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/antigas, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/antigas, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/cloak, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/cloak, SLOT_IN_L_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/binoculars, SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/emp, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/emp, SLOT_IN_SUIT)
+
+/datum/outfit/quick/vsd/standard/lmg
+	name = "CC/74 LMG KZ Grunt"
+	desc = "The standard of employing bruteforce to break through. Equipped with the CC/74 assault LMG. Also equipped with a CC/104 'divider' revolver, offense-based grenades, and the Crasher MT-H/43 powered ballistic armor."
+	w_uniform = /obj/item/clothing/under/vsd/shirt/webbing
+	suit_store = /obj/item/weapon/gun/rifle/vsd_lmg_main
+	l_pocket = /obj/item/storage/pouch/grenade
+	mask = /obj/item/clothing/mask/gas/vsd
+	head = /obj/item/clothing/head/helmet/marine/vsd/heavy
+	glasses = /obj/item/clothing/glasses/meson
+	shoes = /obj/item/clothing/shoes/marine/vsd/full
+	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/harmor
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	r_pocket = /obj/item/storage/pouch/medical_injectors
+	back = /obj/item/storage/backpack/lightpack/vsd
+	belt = /obj/item/storage/holster/belt/pistol/standard_pistol
+	ears = /obj/item/radio/headset/mainship/vsd
+
+/datum/outfit/quick/vsd/standard/lmg/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/bullet/hefa, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/bullet/hefa, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/bullet/hefa, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_mg, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_mg, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_mg, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_mg, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/xmdivider/ap, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/xmdivider/ap, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/xmdivider/ap, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/xmdivider, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/xmdivider, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/xmdivider, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/xmdivider, SLOT_IN_BELT)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/oxycodone, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/hypervene, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_R_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/m15, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/m15, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/m15, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/m15, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/m15, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/m15, SLOT_IN_L_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/binoculars, SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_mg, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_mg, SLOT_IN_SUIT)
+
+/datum/outfit/quick/vsd/standard/ksg
+	name = "L12 Shotgun KZ Grunt"
+	desc = "The standard of getting up close and personal. Equipped with the 14 round capacity L12 pump-action shotgun. Also equipped with a C96 pistol sidearm and the Crasher MT-H/43 powered ballistic armor."
+	w_uniform = /obj/item/clothing/under/vsd/shirt/webbing
+	suit_store = /obj/item/weapon/gun/shotgun/pump/ksg/standard
+	l_pocket = /obj/item/storage/pouch/shotgun
+	mask = /obj/item/clothing/mask/gas/vsd
+	head = /obj/item/clothing/head/helmet/marine/vsd/heavy
+	glasses = /obj/item/clothing/glasses/meson
+	shoes = /obj/item/clothing/shoes/marine/vsd/full
+	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/harmor
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
+	back = /obj/item/storage/backpack/lightpack/vsd
+	belt = /obj/item/storage/holster/belt/pistol/standard_pistol
+	ears = /obj/item/radio/headset/mainship/vsd
+
+/datum/outfit/quick/vsd/standard/ksg/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/vsd_pistol/standard(H), SLOT_IN_BELT)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/oxycodone, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/hypervene, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_R_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_L_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/binoculars, SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_SUIT)
+
+//outfits
+/datum/outfit/quick/vsd/engineer
+	name = "KZ Engineer"
+	jobtype = "KZ Engineer"
+	glasses = /obj/item/clothing/glasses/meson
+	w_uniform = /obj/item/clothing/under/vsd/webbing
+	shoes = /obj/item/clothing/shoes/marine/vsd/full
+	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/harmor
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
+	l_pocket = /obj/item/storage/pouch/magazine
+	back = /obj/item/storage/backpack/lightpack/vsd
+	belt = /obj/item/storage/belt/utility/full
+	ears = /obj/item/radio/headset/mainship/vsd
+	head = /obj/item/clothing/head/helmet/marine/vsd/heavy
+
+/datum/outfit/quick/vsd/engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+/datum/outfit/quick/vsd/engineer/l26
+	name = "CC/77 Rifle KZ Engineer"
+	desc = "Shore up the outpost. Equipped with CC/77 assault carbine, two Build-A-Sentry attachments, Crasher MT-H/43 powered ballistic armor and a modest amount of materials and tools to work with in the field."
+	suit_store = /obj/item/weapon/gun/rifle/vsd_carbine
+	glasses = /obj/item/clothing/glasses/meson/enggoggles
+	w_uniform = /obj/item/clothing/under/vsd/webbing
+	shoes = /obj/item/clothing/shoes/marine/vsd/full
+	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/harmor
+	head = /obj/item/clothing/head/helmet/marine/vsd/heavy
+	mask = /obj/item/clothing/mask/gas/icc
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
+	l_pocket = /obj/item/storage/pouch/construction
+	back = /obj/item/storage/backpack/lightpack/vsd
+	belt = /obj/item/storage/belt/utility/full
+	ears = /obj/item/radio/headset/mainship/vsd
+
+/datum/outfit/quick/vsd/engineer/l26/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_carbine, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_carbine, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_carbine, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_carbine, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/attachable/buildasentry, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/attachable/buildasentry, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/stack/sheet/plasteel/large_stack, SLOT_IN_L_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/binoculars/tactical/range, SLOT_IN_ACCESSORY)
+
+/datum/outfit/quick/vsd/engineer/l27
+	name = "KPX/47 Spectra KZ Engineer"
+	desc = "Manipulate the battlefield with technology. Equipped with KPX/47 Spectra energy rifle, a plasma cutter, a C96 sidearm, the Archercorp heavy barrier armor, and a folded UGV Iguana. Don't forget the pair of superior welding goggles in the generator room, underneath the toolboxes."
+	suit_store = /obj/item/weapon/gun/energy/lasgun/lasrifle/plasma_kz/kpx
+	w_uniform = /obj/item/clothing/under/vsd/webbing
+	shoes = /obj/item/clothing/shoes/marine/vsd/full
+	wear_suit = /obj/item/clothing/suit/modular/style/barrier/heavybarrier/vsdeng
+	head = /obj/item/clothing/head/helmet/marine/vsd
+	mask = /obj/item/clothing/mask/gas/icc
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
+	l_pocket = /obj/item/storage/pouch/tools/full
+	back = /obj/item/storage/backpack/lightpack/vsd
+	belt = /obj/item/tool/pickaxe/plasmacutter
+	ears = /obj/item/radio/headset/mainship/vsd
+
+/datum/outfit/quick/vsd/engineer/l27/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/deployable_vehicle, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/uav_turret/claw, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/tesla_turret, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/cell/rtg/small, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/cable_coil(src,30,pick("red","yellow","orange")), SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/circuitboard/apc, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/tool/multitool, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/vsd_pistol/standard(H), SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/unmanned_vehicle_remote, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/binoculars/tactical/range, SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/volkite, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/volkite, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/volkite, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/volkite, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/volkite, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/volkite, SLOT_IN_SUIT)
+
+/datum/outfit/quick/vsd/engineer/l28
+	name = "lMG-D KZ Engineer"
+	desc = "Plant the bulwark. Equipped with the lMG-D machinegun, multiple deployable shields, and razorwire grenades."
+	suit_store = /obj/item/weapon/gun/rifle/lmg_d
+	glasses = /obj/item/clothing/glasses/meson/sunglasses
+	w_uniform = /obj/item/clothing/under/vsd/webbing
+	shoes = /obj/item/clothing/shoes/marine/vsd/full
+	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/marmor
+	head = /obj/item/clothing/head/helmet/marine/vsd
+	mask = /obj/item/clothing/mask/bandanna/black
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	r_pocket = /obj/item/storage/pouch/medical_injectors
+	l_pocket = /obj/item/storage/pouch/grenade
+	back = /obj/item/storage/backpack/lightpack/vsd
+	belt = /obj/item/storage/belt/marine
+	ears = /obj/item/radio/headset/mainship/vsd
+
+/datum/outfit/quick/vsd/engineer/l28/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/stack/barbed_wire/small_stack, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/tool/screwdriver, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lmg_d, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lmg_d, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lmg_d, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lmg_d, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lmg_d, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lmg_d, SLOT_IN_BELT)
+
+	H.equip_to_slot_or_del(new /obj/item/tool/weldingtool, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/tool/multitool, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/tool/wirecutters, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/cable_coil, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/tool/wrench, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lmg_d, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lmg_d, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/weapon/shield/riot/marine/deployable, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/weapon/shield/riot/marine/deployable, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/hypervene, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/rezadone, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_R_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/chem_grenade/razorburn_small, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/chem_grenade/razorburn_small, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/chem_grenade/razorburn_small, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/chem_grenade/razorburn_large, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/chem_grenade/razorburn_large, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/chem_grenade/razorburn_large, SLOT_IN_L_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/binoculars/tactical/range, SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/weapon/shield/riot/marine/deployable, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/weapon/shield/riot/marine/deployable, SLOT_IN_SUIT)
+
+/datum/outfit/quick/vsd/engineer/l29
+	name = "V-34 Carbine KZ Engineer"
+	desc = "Make things go boom. Equipped with V-34 assault carbine, GL-81 single-shot grenade launcher, Crasher MT-L/43 ballistic armor and a modest amount of explosives both offensive and defensive."
+	suit_store = /obj/item/weapon/gun/rifle/som_carbine/black/standard
+	glasses = /obj/item/clothing/glasses/meson/enggoggles
+	w_uniform = /obj/item/clothing/under/vsd/webbing
+	shoes = /obj/item/clothing/shoes/marine/vsd/full
+	wear_suit = /obj/item/clothing/suit/storage/marine/vsd
+	head = /obj/item/clothing/head/vsd
+	mask = /obj/item/clothing/mask/gas/vsd
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
+	l_pocket = /obj/item/storage/pouch/grenade
+	back = /obj/item/storage/backpack/lightpack/vsd
+	belt = /obj/item/storage/belt/utility/full
+	ears = /obj/item/radio/headset/mainship/vsd
+
+/datum/outfit/quick/vsd/engineer/l29/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/detpack, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/detpack, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/detpack, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/detpack, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/assembly/signaler, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/attachable/scope/mini, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/grenade_launcher/single_shot, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/explosive_mines/large, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/bullet/upp, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/bullet/upp, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/bullet/upp, SLOT_IN_L_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/binoculars/tactical/range, SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/launcher/rocket/oneuse, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/launcher/rocket/oneuse, SLOT_IN_SUIT)
+
+//outfits
+/datum/outfit/quick/vsd/medic
+	name = "KZ Medic"
+	jobtype = "KZ Medic"
+	w_uniform = /obj/item/clothing/under/vsd/medic
+	glasses = /obj/item/clothing/glasses/hud/health
+	shoes = /obj/item/clothing/shoes/marine/vsd/full
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	ears = /obj/item/radio/headset/mainship/vsd
+
+/datum/outfit/quick/vsd/medic/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
+
+/datum/outfit/quick/vsd/medic/ksg
+	name = "L12 Shotgun KZ Medic"
+	desc = "For protecting the dead and wounded in closed spaces. Equipped with the Crasher MT-H/43 powered ballistic armor, the 14 round capacity L12 pump-action shotgun and C96 pistol."
+	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/harmor
+	head = /obj/item/clothing/head/helmet/marine/vsd/heavy
+	suit_store = /obj/item/weapon/gun/shotgun/pump/ksg/support
+	belt = /obj/item/storage/belt/lifesaver/full/upp
+	r_pocket = /obj/item/storage/pouch/medical_injectors
+	l_pocket = /obj/item/storage/pouch/shotgun
+	back = /obj/item/storage/backpack/lightpack/vsd
+	ears = /obj/item/radio/headset/mainship/vsd
+	glasses = /obj/item/clothing/glasses/hud/health
+	mask = /obj/item/clothing/mask/gas/vsd
+
+/datum/outfit/quick/vsd/medic/ksg/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/oxycodone, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine,SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/defibrillator, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/quickclotplus, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/vsd_pistol/standard(H), SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/hypervene, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/antitox_mix, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/rezadone, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_R_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_L_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_SUIT)
+
+	H.equip_to_slot_or_del(new /obj/item/roller, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/tweezers, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/big, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/nanoblood, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/combat_advanced, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/bodybag/cryobag, SLOT_IN_ACCESSORY)
+
+
+/datum/outfit/quick/vsd/medic/vsd_rifle
+	name = "CC/67 Rifle KZ Medic"
+	desc = "For keeping the team alive. Equipped with the Crasher multi-threat light ballistic armor, CC/67 combat rifle, the C96 pistol, and the NM Automedical dispenser."
+	suit_store = /obj/item/weapon/gun/rifle/vsd_rifle
+	ears = /obj/item/radio/headset/mainship/vsd
+	wear_suit = /obj/item/clothing/suit/storage/marine/vsd_two
+	head = /obj/item/clothing/head/helmet/marine/vsd
+	belt = /obj/item/storage/holster/belt/pistol/standard_pistol
+	r_pocket = /obj/item/storage/pouch/medical_injectors
+	l_pocket = /obj/item/storage/pouch/magazine
+	back = /obj/item/storage/backpack/dispenser/medic
+	glasses = /obj/item/clothing/glasses/hud/medgoggles
+	mask = /obj/item/clothing/mask/gas/vsd
+
+/datum/outfit/quick/vsd/medic/vsd_rifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/oxycodone, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine,SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/defibrillator, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/quickclotplus, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_rifle, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_rifle, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_rifle, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_rifle, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/splint, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/splint, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/advanced/bruise_pack, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/advanced/bruise_pack, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/advanced/bruise_pack, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/advanced/burn_pack, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/advanced/burn_pack, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/advanced/burn_pack, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/bodybag/cryobag, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/bodybag/cryobag, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/hypervene, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/antitox_mix, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/rezadone, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_R_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_rifle, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_rifle, SLOT_IN_L_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/vsd_pistol/standard(H), SLOT_IN_BELT)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_rifle, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_rifle, SLOT_IN_SUIT)
+
+	H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/inaprovaline, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/tweezers_advanced, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/big, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/nanoblood, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/healthanalyzer, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/combat_advanced, SLOT_IN_ACCESSORY)
+
+/datum/outfit/quick/vsd/medic/vsd_v34
+	name = "V-34 Carbine Medic"
+	desc = "For bringing, supplying, and delivering the goods. Equipped with the UL5 personal armor, V-34 assault carbine and a significantly improved medical inventory."
+	wear_suit = /obj/item/clothing/suit/storage/marine/usl_squadul5urban
+	head = /obj/item/clothing/head/vsd
+	suit_store = /obj/item/weapon/gun/rifle/som_carbine/black/standard
+	ears = /obj/item/radio/headset/mainship/vsd
+	belt = /obj/item/storage/belt/rig
+	r_pocket = /obj/item/storage/pouch/medical_injectors
+	l_pocket = /obj/item/storage/pouch/medkit
+	back = /obj/item/storage/backpack/lightpack/vsd
+	glasses = /obj/item/clothing/glasses/hud/medsunglasses
+	mask = /obj/item/clothing/mask/bandanna/black
+
+/datum/outfit/quick/vsd/medic/vsd_v34/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/neuraline, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/antitox_mix, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine,SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/rezadone, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/neuraline, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/antitox_mix, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/rezadone, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_R_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/nanoblood, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/combat_advanced, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/peridaxonplus, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/quickclotplus, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/synaptizine, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/imialky, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/big/spaceacillin, SLOT_IN_L_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/defibrillator, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/meralyne, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/dermaline, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/big/combatmix, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/tramadol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/tricordrazine, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/dylovene, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/inaprovaline, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/dexalin, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/isotonic, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/quickclot, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/splint, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/advanced/burn_pack, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/advanced/bruise_pack, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/bodybag/cryobag, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/bodybag/cryobag, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/healthanalyzer, SLOT_IN_BELT)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black, SLOT_IN_SUIT)
+
+	H.equip_to_slot_or_del(new /obj/item/roller, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/tweezers_advanced, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/big, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/splint, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/advanced/burn_pack, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/advanced/bruise_pack, SLOT_IN_ACCESSORY)
+
+/datum/outfit/quick/vsd/medic/vsd_pdw
+	name = "C17 PDW KZ Medic"
+	desc = "For being the rapid response in evacuating the dead and wounded. Equipped with the rownin skeleton with an overclocked shield module, C17 Riot PDW, two medevac sets, and support grenades."
+	wear_suit = /obj/item/clothing/suit/modular/rownin/vsdelitealt
+	head = /obj/item/clothing/head/bandanna/grey
+	suit_store = /obj/item/weapon/gun/smg/vsd_pdw/medic
+	ears = /obj/item/radio/headset/mainship/vsd
+	belt = /obj/item/storage/belt/lifesaver/full/upp
+	r_pocket = /obj/item/storage/pouch/medical_injectors
+	l_pocket = /obj/item/storage/pouch/grenade
+	back = /obj/item/storage/backpack/lightpack/vsd
+	glasses = /obj/item/clothing/glasses/hud/medsunglasses
+	mask = /obj/item/clothing/mask/gas/vsd
+
+/datum/outfit/quick/vsd/medic/vsd_pdw/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/oxycodone, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/quickclotplus, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/defibrillator, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/synaptizine, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vsd_pdw, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vsd_pdw, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vsd_pdw, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/roller/medevac, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/roller/medevac, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/medevac_beacon, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/medevac_beacon, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/hypervene, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/antitox_mix, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/rezadone, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_R_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/antigas, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/antigas, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky/cloaker, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky/cloaker, SLOT_IN_L_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vsd_pdw, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vsd_pdw, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vsd_pdw, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vsd_pdw, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vsd_pdw, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vsd_pdw, SLOT_IN_SUIT)
+
+	H.equip_to_slot_or_del(new /obj/item/roller, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/tweezers, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/nanoblood, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/combat_advanced, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/bodybag/cryobag, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/bodybag/cryobag, SLOT_IN_ACCESSORY)
+
+//outfits
+/datum/outfit/quick/vsd/spec
+	name = "KZ Specialist"
+	jobtype = "KZ Specialist"
+	w_uniform = /obj/item/clothing/under/vsd/officer
+	shoes = /obj/item/clothing/shoes/marine/vsd/full
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
+	back = /obj/item/storage/backpack/lightpack/vsd
+	ears = /obj/item/radio/headset/mainship/vsd
+	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/harmor
+	head = /obj/item/clothing/head/helmet/marine/vsd/heavy
+	mask = /obj/item/clothing/mask/gas/vsd
+
+/datum/outfit/quick/vsd/spec/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/binoculars, SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
+
+
+/datum/outfit/quick/vsd/spec/flamer
+	name = "CC/21 Pyro KZ Specialist"
+	desc = "For when you want to burn down a rainforest. Equipped with Crasher MT-H/43 'Apollo' powered fire-protected armor, CC/21 flamethrower, half a dozen WP grenades, and a C96 pistol."
+	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/flamer
+	head = /obj/item/clothing/head/helmet/marine/vsd/flamer
+	belt = /obj/item/storage/holster/belt/pistol/standard_pistol
+	suit_store = /obj/item/weapon/gun/flamer/vsd
+	w_uniform = /obj/item/clothing/under/vsd/webbing
+	l_pocket = /obj/item/storage/pouch/grenade
+	r_pocket = /obj/item/storage/pouch/medical_injectors
+	back = /obj/item/ammo_magazine/flamer_tank/backtank/X
+	glasses = /obj/item/clothing/glasses/night/vsd/alt
+	ears = /obj/item/radio/headset/mainship/vsd
+
+/datum/outfit/quick/vsd/spec/flamer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/hypervene, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/antitox_mix, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_R_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/phosphorus/upp, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/phosphorus/upp, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/phosphorus/upp, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/phosphorus/upp, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/phosphorus/upp, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/phosphorus/upp, SLOT_IN_L_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/vsd_pistol/standard(H), SLOT_IN_BELT)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/flamer_tank/vsd, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/flamer_tank/vsd, SLOT_IN_SUIT)
+
+/datum/outfit/quick/vsd/spec/demolitionist
+	name = "C153 Demolitionist KZ Specialist"
+	desc = "You're part of the wrecking crew. Equipped with Crasher MT-H/43 'Zeus' powered explosive-defensive armor, C153 shoulder launcher with 6 84mm HE 'Anti-Personnel' cases, high capacity grenade belt, and a SH-221 tactical shotgun."
+	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/eod
+	head = /obj/item/clothing/head/helmet/marine/vsd/eod
+	belt = /obj/item/storage/belt/grenade/b17
+	suit_store = /obj/item/weapon/gun/launcher/rocket/vsd
+	l_pocket = /obj/item/storage/pouch/explosive
+	r_pocket = /obj/item/storage/pouch/medical_injectors
+	back = /obj/item/weapon/gun/shotgun/combat
+	glasses = /obj/item/clothing/glasses/night/vsd/alt
+	ears = /obj/item/radio/headset/mainship/vsd
+	w_uniform = /obj/item/clothing/under/vsd/webbing
+
+/datum/outfit/quick/vsd/spec/demolitionist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/vsd/he, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/vsd/he, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/vsd/he, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/vsd/he, SLOT_IN_L_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/hypervene, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/antitox_mix, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_R_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_BELT)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/vsd/he, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/vsd/he, SLOT_IN_SUIT)
+
+/datum/outfit/quick/vsd/spec/gunslinger
+	name = "CC/AT32 Gunslinger KZ Specialist"
+	desc = "Bring on the impressive firepower. Equipped with Crasher MT-H/43 'Ares' powered ballistic armor, CC/AT32 Autocannon, and a V-34 assault carbine as a secondary."
+	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/juggernaut
+	head = /obj/item/clothing/head/helmet/marine/vsd/juggernaut
+	belt = /obj/item/storage/belt/marine
+	suit_store = /obj/item/weapon/gun/minigun/vsd_autocannon
+	l_pocket = /obj/item/storage/pouch/general/large
+	r_pocket = /obj/item/storage/pouch/medical_injectors
+	back = /obj/item/weapon/gun/rifle/som_carbine/black/standard
+	glasses = /obj/item/clothing/glasses/night/vsd/alt
+	ears = /obj/item/radio/headset/mainship/vsd
+	w_uniform = /obj/item/clothing/under/vsd/webbing
+
+/datum/outfit/quick/vsd/spec/gunslinger/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_autocannon, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_autocannon, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_autocannon, SLOT_IN_L_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/hypervene, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/antitox_mix, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_R_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/extended, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/extended, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/extended, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/extended, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/extended, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/extended, SLOT_IN_BELT)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_autocannon/explosive, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_autocannon/at, SLOT_IN_SUIT)
+
+/datum/outfit/quick/vsd/spec/scout
+	name = "T73 'Spetsnaz' KZ Specialist"
+	desc = "Comb the forests with covert intent. Equipped with the rownin skeleton, supplied with valkyrie beta, an overclocked eshield, a Type 73 Commando, smoke grenades, and a UV-T skink for remote scouting."
+	glasses = /obj/item/clothing/glasses/night/vsd/alt
+	w_uniform = /obj/item/clothing/under/vsd/webbing
+	shoes = /obj/item/clothing/shoes/marine/vsd/full
+	wear_suit = /obj/item/clothing/suit/modular/rownin/vsdelite
+	suit_store = /obj/item/weapon/gun/rifle/type71/commando
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	head = /obj/item/clothing/head/vsd/beret
+	mask = /obj/item/clothing/mask/gas/vsd
+	r_pocket = /obj/item/storage/pouch/grenade
+	l_pocket = /obj/item/storage/pouch/medical_injectors
+	back = /obj/item/storage/backpack/lightpack/vsd
+	ears = /obj/item/radio/headset/mainship/vsd
+	belt = /obj/item/belt_harness/marine
+
+/datum/outfit/quick/vsd/spec/scout/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/storage/box/explosive_mines, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/deployable_vehicle/tiny, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/unmanned_vehicle_remote, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_SUIT)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/rezadone, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/hypervene, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/antitox_mix, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_L_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/cloak, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/cloak, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/cloak, SLOT_IN_R_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/quickclotplus, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/bodybag/tarp, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/binoculars/tactical/range, SLOT_IN_ACCESSORY)
+
+/datum/outfit/quick/vsd/spec/uslspec_one
+	name = "USL Specialist"
+	w_uniform = /obj/item/clothing/under/vsd/upp
+	mask = /obj/item/clothing/mask/gas/vsd
+	suit_store = /obj/item/weapon/gun/rifle/type71/flamer
+	l_pocket = /obj/item/storage/pouch/magazine
+	ears = /obj/item/radio/headset/mainship/vsd
+
+/datum/outfit/quick/vsd/spec/uslspec_one/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/flamer_tank/mini, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/flamer_tank/mini, SLOT_IN_L_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/vsd_pistol/standard(H), SLOT_IN_BELT)
+
+/datum/outfit/quick/vsd/spec/uslspec_two
+	name = "USL Specialist 2"
+	w_uniform = /obj/item/clothing/under/vsd/upp
+	head = /obj/item/clothing/head/uppcap/beret
+	mask = /obj/item/clothing/mask/gas/vsd
+	suit_store = /obj/item/weapon/gun/clf_heavyrifle
+	back = /obj/item/shotgunbox/clf_heavyrifle
+	l_pocket = /obj/item/storage/pouch/grenade
+	ears = /obj/item/radio/headset/mainship/vsd
+
+/datum/outfit/quick/vsd/spec/uslspec_two/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/bullet/upp, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/bullet/upp, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/bullet/upp, SLOT_IN_L_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vsd_pistol, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/vsd_pistol/standard(H), SLOT_IN_BELT)
+
+
+//juggernaut outfits
+/datum/outfit/quick/vsd/juggernaut
+	name = "CC/B/31 'Ares' KZ Squad Leader"
+	desc = "You're in charge and look the part, charge with bruteforce. Equipped with Crasher MT-H/43 'Ares' powered ballistic armor, the V-34 assault carbine and the CC/B/31 breaching shotgun."
+	jobtype = "KZ Squad Leader"
+	glasses = /obj/item/clothing/glasses/night/vsd/alt
+	w_uniform = /obj/item/clothing/under/vsd/webbing
+	shoes = /obj/item/clothing/shoes/marine/vsd/full
+	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/juggernaut
+	suit_store = /obj/item/weapon/gun/rifle/vsd_breaching
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	head = /obj/item/clothing/head/helmet/marine/vsd/juggernaut
+	mask = /obj/item/clothing/mask/gas/vsd
+	r_pocket = /obj/item/storage/pouch/medical_injectors
+	l_pocket = /obj/item/storage/pouch/general/large
+	back = /obj/item/weapon/gun/rifle/som_carbine/black/standard
+	ears = /obj/item/radio/headset/mainship/vsd
+	belt = /obj/item/storage/belt/marine
+
+/datum/outfit/quick/vsd/juggernaut/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/extended, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/extended, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/extended, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/extended, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/cb31, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/cb31, SLOT_IN_BELT)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_L_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/hypervene, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/antitox_mix, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_R_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/quickclotplus, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/binoculars/tactical/range, SLOT_IN_ACCESSORY)
+
+/datum/outfit/quick/vsd/eod
+	name = "C153 'Zeus' KZ Squad Leader"
+	desc = "You're in charge and look the part, blast a way through. Equipped with Crasher MT-H/43 'Zeus' powered explosive-defensive armor, a C153 shoulder launcher, and a Type 71 with an underslung flamethrower."
+	jobtype = "KZ Squad Leader"
+	glasses = /obj/item/clothing/glasses/night/vsd/alt
+	w_uniform = /obj/item/clothing/under/vsd/webbing
+	shoes = /obj/item/clothing/shoes/marine/vsd/full
+	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/eod
+	suit_store = /obj/item/weapon/gun/launcher/rocket/vsd
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	head = /obj/item/clothing/head/helmet/marine/vsd/eod
+	belt = /obj/item/storage/belt/marine
+	mask = /obj/item/clothing/mask/gas/vsd
+	r_pocket = /obj/item/storage/pouch/explosive
+	l_pocket = /obj/item/storage/pouch/explosive
+	back = /obj/item/weapon/gun/rifle/type71/flamer
+	ears = /obj/item/radio/headset/mainship/vsd
+
+/datum/outfit/quick/vsd/eod/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/vsd/he, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/vsd/he, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/vsd/incendiary, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/vsd/incendiary, SLOT_IN_R_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/vsd/heat, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/vsd/heat, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/vsd/chemical, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/vsd/chemical, SLOT_IN_L_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BELT)
+
+	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher, SLOT_IN_SUIT)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/meraderm, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/oxycodone, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/binoculars/tactical/range, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/hypervene, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/antitox_mix, SLOT_IN_ACCESSORY)
+
+/datum/outfit/quick/vsd/recon
+	name = "T73 'Komandir' KZ Squad Leader"
+	desc = "You're in charge and look the part, infiltrate and disrupt. Equipped with the rownin skeleton, supplied with valkyrie beta, an overclocked eshield, a Type 73 Commando, GL-81 grenade launcher, smoke and EMP grenades."
+	jobtype = "KZ Squad Leader"
+	glasses = /obj/item/clothing/glasses/night/vsd/alt
+	w_uniform = /obj/item/clothing/under/vsd/webbing
+	shoes = /obj/item/clothing/shoes/marine/vsd/full
+	wear_suit = /obj/item/clothing/suit/modular/rownin/vsdelite
+	suit_store = /obj/item/weapon/gun/rifle/type71/commando
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	head = /obj/item/clothing/head/vsd/beret
+	mask = /obj/item/clothing/mask/gas/vsd
+	r_pocket = /obj/item/storage/pouch/grenade
+	l_pocket = /obj/item/storage/pouch/medical_injectors
+	back = /obj/item/storage/backpack/lightpack/vsd
+	ears = /obj/item/radio/headset/mainship/vsd
+	belt = /obj/item/belt_harness/marine
+
+/datum/outfit/quick/vsd/recon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/neuraline, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/explosive_mines/large, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/attachable/scope/mini, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/grenade_launcher/single_shot, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_SUIT)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/rezadone, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/hypervene, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/antitox_mix, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_L_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/cloak, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/cloak, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/emp, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/emp, SLOT_IN_R_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/quickclotplus, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/bodybag/tarp, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/binoculars/tactical/range, SLOT_IN_ACCESSORY)
+
+// PMC Kwik-E-Quip Outfits
+/datum/outfit/quick/pmc/standard
+	name = "AC Standard"
+	jobtype = "AC Standard"
+
+	belt = /obj/item/storage/belt/marine
+	ears = /obj/item/radio/headset/mainship/marine/pmc
+	w_uniform = /obj/item/clothing/under/marine/veteran/pmc/holster
+	shoes = /obj/item/clothing/shoes/marine/pmc/full
+	wear_suit = /obj/item/clothing/suit/storage/marine/veteran/pmc
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	head = /obj/item/clothing/head/helmet/marine/veteran/pmc
+	mask = /obj/item/clothing/mask/gas/pmc
+	suit_store = /obj/item/weapon/gun/smg/m25
+	r_pocket = /obj/item/storage/pouch/grenade
+	l_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
+	back = /obj/item/storage/backpack/lightpack/pmc
+
+/datum/outfit/quick/pmc/standard/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/ap, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/ap, SLOT_IN_SUIT)
+
+	H.equip_to_slot_or_del(new /obj/item/radio, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/sliceable/sandwiches/meatbread, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/vp70/tactical(H), SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/ap, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/ap, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/ap, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/ap, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/ap, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/ap, SLOT_IN_BELT)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/drain, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/cloak, SLOT_IN_R_POUCH)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/enrg_bar, SLOT_IN_HEAD)
+
+/datum/outfit/quick/pmc/medic
+	name = "AC Medic"
+	jobtype = "AC Medic"
+
+	belt = /obj/item/storage/belt/lifesaver/quick
+	ears = /obj/item/radio/headset/mainship/marine/pmc
+	w_uniform = /obj/item/clothing/under/marine/veteran/pmc/holster
+	shoes = /obj/item/clothing/shoes/marine/pmc/full
+	wear_suit = /obj/item/clothing/suit/storage/marine/veteran/pmc
+	gloves = /obj/item/clothing/gloves/defibrillator
+	head = /obj/item/clothing/head/helmet/marine/veteran/pmc
+	mask = /obj/item/clothing/mask/gas/pmc
+	glasses = /obj/item/clothing/glasses/hud/health
+	suit_store = /obj/item/weapon/gun/smg/m25
+	r_pocket = /obj/item/storage/pouch/medical_injectors/medic
+	l_pocket = /obj/item/storage/pouch/pressurized_reagent_pouch/bktt
+	back = /obj/item/storage/backpack/lightpack/pmc
+
+/datum/outfit/quick/pmc/medic/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/ap, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/ap, SLOT_IN_SUIT)
+
+	H.equip_to_slot_or_del(new /obj/item/radio, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/bodybag/cryobag, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/roller, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/tweezers_advanced, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/nanoblood, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/vp70/tactical(H), SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/enrg_bar, SLOT_IN_HEAD)
+
+/datum/outfit/quick/pmc/engineer
+	name = "AC Engineer"
+	jobtype = "AC Engineer"
+
+	ears = /obj/item/radio/headset/mainship/marine/pmc
+	belt = /obj/item/storage/belt/marine
+	glasses = /obj/item/clothing/glasses/meson
+	w_uniform = /obj/item/clothing/under/marine/veteran/pmc/holster
+	shoes = /obj/item/clothing/shoes/marine/pmc/full
+	wear_suit = /obj/item/clothing/suit/storage/marine/veteran/pmc
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	mask = /obj/item/clothing/mask/gas/pmc
+	head = /obj/item/clothing/head/helmet/marine/veteran/pmc
+	suit_store = /obj/item/weapon/gun/smg/m25
+	r_pocket = /obj/item/storage/pouch/firstaid/combat_patrol
+	l_pocket = /obj/item/storage/pouch/tools/full
+	back = /obj/item/storage/backpack/lightpack/pmc
+
+/datum/outfit/quick/pmc/engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/ap, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/ap, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/ap, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/ap, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/ap, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/ap, SLOT_IN_BELT)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/vp70/tactical(H), SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/clothing/glasses/welding/superior, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/assembly/signaler, SLOT_IN_SUIT)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/circuitboard/apc, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/cell/high, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/sheet/plasteel/medium_stack, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/barbed_wire/half_stack, SLOT_IN_BACKPACK)
+
+
+/datum/outfit/quick/pmc/gunner
+	name = "AC Gunner"
+	jobtype = "AC Gunner"
+
+	belt = /obj/item/belt_harness/marine
+	ears = /obj/item/radio/headset/mainship/marine/pmc
+	w_uniform = /obj/item/clothing/under/marine/veteran/pmc/holster
+	shoes = /obj/item/clothing/shoes/marine/pmc/full
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	mask = /obj/item/clothing/mask/gas/pmc
+	glasses = /obj/item/clothing/glasses/night/m56_goggles
+	r_pocket = /obj/item/storage/pouch/explosive
+	l_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
+	back = /obj/item/storage/backpack/lightpack/pmc
+
+/datum/outfit/quick/pmc/gunner/smart_machinegun
+	name = "SG-60 Smart Machinegun AC Gunner"
+	jobtype = "AC Gunner"
+
+	wear_suit = /obj/item/clothing/suit/storage/marine/veteran/pmc/gunner/joker
+	head = /obj/item/clothing/head/helmet/marine/veteran/pmc/gunner/joker
+	suit_store = /obj/item/weapon/gun/rifle/pmc_gpmg
+
+/datum/outfit/quick/pmc/gunner/smart_machinegun/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smart_gpmg, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smart_gpmg, SLOT_IN_SUIT)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/enrg_bar, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/radio, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/oxycodone, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smart_gpmg, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smart_gpmg, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smart_gpmg, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smart_gpmg, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/cloak, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/mk90, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/mk90, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/mk90, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/mk90(H), SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_R_POUCH)
+
+/datum/outfit/quick/pmc/gunner/smart_rifle
+	name = "SG-25 Smart Rifle AC Gunner"
+	jobtype = "AC Gunner"
+
+	wear_suit = /obj/item/clothing/suit/storage/marine/veteran/pmc/gunner/stripes
+	head = /obj/item/clothing/head/helmet/marine/veteran/pmc/gunner/hunter
+	suit_store = /obj/item/weapon/gun/rifle/pmc_smartrifle
+
+/datum/outfit/quick/pmc/gunner/smart_rifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/standard_smartrifle, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/standard_smartrifle, SLOT_IN_SUIT)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/enrg_bar, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/radio, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/oxycodone, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/standard_smartrifle, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/standard_smartrifle, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/standard_smartrifle, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/standard_smartrifle, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/cloak, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/mk90, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/mk90, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/mk90, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/mk90(H), SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_R_POUCH)
+
+/datum/outfit/quick/pmc/sniper
+	name = "AC Specialist"
+	jobtype = "AC Specialist"
+
+	ears = /obj/item/radio/headset/mainship/marine/pmc
+	w_uniform = /obj/item/clothing/under/marine/veteran/pmc/webbing
+	shoes = /obj/item/clothing/shoes/marine/pmc/full
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc_elite
+	mask = /obj/item/clothing/mask/gas/pmc/leader
+	glasses = /obj/item/clothing/glasses/night/m56_goggles
+	back = /obj/item/storage/backpack/lightpack/pmc
+
+/datum/outfit/quick/pmc/sniper/sniper_rifle
+	name = "SRX-42 Sniper AC Specialist"
+	jobtype = "AC Specialist"
+
+	belt = /obj/item/storage/holster/belt/pistol/m4a3/mk100_gyrojet
+	wear_suit = /obj/item/clothing/suit/storage/marine/veteran/pmc/sniper
+	head = /obj/item/clothing/head/helmet/marine/veteran/pmc/sniper
+	suit_store = /obj/item/weapon/gun/rifle/sniper/pmc_railgun
+	r_pocket = /obj/item/storage/pouch/magazine/large/pmc_sniper
+	l_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
+
+/datum/outfit/quick/pmc/sniper/sniper_rifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/railgun/pmc, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/railgun/pmc, SLOT_IN_SUIT)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/enrg_bar, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/drain, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/drain, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/binoculars/tactical/range, SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/radio, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/explosive_mines/pmc, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/railgun/pmc, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/railgun/pmc, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/sliceable/sandwiches/meatbread, SLOT_IN_BACKPACK)
+
+/datum/outfit/quick/pmc/sniper/ra_val
+	name = "RA-VAL SMG AC Specialist"
+	jobtype = "AC Specialist"
+
+	belt = /obj/item/storage/holster/belt/pistol/m4a3/mk90
+	wear_suit = /obj/item/clothing/suit/storage/marine/veteran/pmc/standard/joker
+	head = /obj/item/clothing/head/helmet/marine/veteran/pmc/standard/mantis
+	suit_store = /obj/item/weapon/gun/smg/val
+	mask = /obj/item/clothing/mask/gas/pmc
+	r_pocket = /obj/item/storage/pouch/magazine/large/pmc_raval
+	l_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
+
+/datum/outfit/quick/pmc/sniper/ra_val/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/val, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/val, SLOT_IN_SUIT)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/enrg_bar, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/drain, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/drain, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/binoculars/tactical/range, SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/radio, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/explosive_mines/pmc, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/val, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/val, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/sliceable/sandwiches/meatbread, SLOT_IN_BACKPACK)
+
+/datum/outfit/quick/pmc/squad_leader
+	name = "AC Squad Leader"
+	jobtype = "AC Squad Leader"
+
+	belt = /obj/item/storage/belt/marine
+	ears = /obj/item/radio/headset/mainship/marine/pmc
+	w_uniform = /obj/item/clothing/under/marine/veteran/pmc/leader/holster
+	shoes = /obj/item/clothing/shoes/marine/pmc/full
+	wear_suit = /obj/item/clothing/suit/storage/marine/veteran/pmc/leader
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc_elite
+	head = /obj/item/clothing/head/helmet/marine/veteran/pmc/leader
+	mask = /obj/item/clothing/mask/gas/pmc/leader
+	glasses = /obj/item/clothing/glasses/night/m56_goggles
+	r_pocket = /obj/item/storage/pouch/grenade
+	l_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
+	back = /obj/item/storage/backpack/lightpack/pmc
+
+/datum/outfit/quick/pmc/squad_leader/m416
+	name = "M416 Rifle AC Squad Leader"
+	jobtype = "AC Squad Leader"
+
+	suit_store = /obj/item/weapon/gun/rifle/m416
+
+/datum/outfit/quick/pmc/squad_leader/m416/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_SUIT)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/enrg_bar, SLOT_IN_HEAD)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/mk100_gyrojet, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/mk100_gyrojet, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/mk100_gyrojet, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/mk100_gyrojet(H), SLOT_IN_ACCESSORY)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m416, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m416, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m416, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m416, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m416, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m416, SLOT_IN_BELT)
+
+	H.equip_to_slot_or_del(new /obj/item/radio, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m416, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m416, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/advanced/bruise_pack, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/advanced/burn_pack, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/impact, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/impact, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/impact, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/impact, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/drain, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/cloak, SLOT_IN_R_POUCH)
+
+// ICC Kwik-E-Quip Outfits
+/datum/outfit/quick/icc/standard // base for ICC standards, not to be used
+	name = "CM Standard"
+	jobtype = "CM Standard"
+
+	w_uniform = /obj/item/clothing/under/icc/webbing
+	belt = /obj/item/storage/belt/marine/icc
+	w_uniform = /obj/item/clothing/under/icc/webbing
+	shoes = /obj/item/clothing/shoes/marine/icc/knife
+	wear_suit = /obj/item/clothing/suit/storage/marine/icc
+	gloves = /obj/item/clothing/gloves/marine/icc
+	head = /obj/item/clothing/head/helmet/marine/icc
+	mask = /obj/item/clothing/mask/gas/icc
+	r_pocket = /obj/item/storage/pouch/pistol/icc
+	l_pocket = /obj/item/storage/pouch/medical_injectors/icc/firstaid
+	back = /obj/item/storage/backpack/lightpack/icc
+
+/datum/outfit/quick/icc/standard/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/wrapped/barcaridine, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/oxycodone, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/icc_dpistol, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/icc_dpistol, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/icc_dpistol, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/icc_dpistol, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/tool/screwdriver, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/tool/wrench, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
+
+/datum/outfit/quick/icc/standard/icc_battlecarbine
+	name = "L-15 Battlecarbine"
+	desc = "Equipped with an L-15 battlecarbine, the standard rifle of the ICCAF. Suffers from high dropoff, and is best suited for CQC."
+	suit_store = /obj/item/weapon/gun/rifle/icc_battlecarbine/standard
+
+/datum/outfit/quick/icc/standard/icc_battlecarbine/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_battlecarbine, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_battlecarbine, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_battlecarbine, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_battlecarbine, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_battlecarbine, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_battlecarbine, SLOT_IN_BELT)
+
+/datum/outfit/quick/icc/standard/icc_sharpshooter
+	name = "L-11 Sharpshooter"
+	desc = "Equipped with an L-11 sharpshooter rifle, an excellent choice for long range combat, owing to its stopping power and accuracy, comparable to the DMR-37."
+	suit_store = /obj/item/weapon/gun/rifle/icc_sharpshooter
+
+/datum/outfit/quick/icc/standard/icc_sharpshooter/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_sharpshooter, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_sharpshooter, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_sharpshooter, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_sharpshooter, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_sharpshooter, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_sharpshooter, SLOT_IN_BELT)
+
+/datum/outfit/quick/icc/standard/icc_assaultcarbine
+	name = "L-88 Assault Carbine"
+	desc = "Equipped with an L-88 assault carbine, which though outdated still sees usage by ICCAF reserve personnel, and, like the L-15 battlecarbine, is used in close quarters."
+	suit_store = /obj/item/weapon/gun/rifle/icc_assaultcarbine
+
+/datum/outfit/quick/icc/standard/icc_assaultcarbine/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_assaultcarbine, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_assaultcarbine, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_assaultcarbine, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_assaultcarbine, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_assaultcarbine, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_assaultcarbine, SLOT_IN_BELT)
+
+/datum/outfit/quick/icc/standard/icc_autoshotgun
+	name = "ML-41 Autoshotgun"
+	desc = "Equipped with an ML-41 autoshotgun, the weapon of choice for fast paced assaults. Loaded with flechette by default, but is sometimes swapped out for frag drums by the ICCAF to really bring on the pain."
+	suit_store = /obj/item/weapon/gun/rifle/icc_autoshotgun
+
+/datum/outfit/quick/icc/standard/icc_autoshotgun/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_autoshotgun, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_autoshotgun, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_autoshotgun, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_autoshotgun, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_autoshotgun, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_autoshotgun, SLOT_IN_BELT)
+
+/datum/outfit/quick/icc/medic // base, not to be used
+	name = "CM Medic"
+	jobtype = "CM Medic"
+
+	w_uniform = /obj/item/clothing/under/icc/medic
+	belt = /obj/item/storage/belt/lifesaver/icc/ert
+	shoes = /obj/item/clothing/shoes/marine/icc/guard/knife
+	wear_suit = /obj/item/clothing/suit/storage/marine/icc/guard
+	gloves = /obj/item/clothing/gloves/marine/icc/guard
+	head = /obj/item/clothing/head/helmet/marine/icc/guard
+	mask = /obj/item/clothing/mask/gas/icc
+	r_pocket = /obj/item/storage/pouch/pistol/icc
+	l_pocket = /obj/item/storage/pouch/medical_injectors/icc/firstaid
+	back = /obj/item/storage/backpack/lightpack/icc
+	glasses = /obj/item/clothing/glasses/hud/health
+
+/datum/outfit/quick/icc/medic/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/wrapped/barcaridine, SLOT_IN_SUIT)
+
+	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/defibrillator, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/icc_dpistol, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/icc_dpistol, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/medevac_beacon, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/roller, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/bodybag/cryobag, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/oxycodone, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/nanoblood, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/roller/medevac, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/tweezers, SLOT_IN_ACCESSORY)
+
+/datum/outfit/quick/icc/medic/icc_sharpshooter
+	name = "L-11 ICC Medic"
+	desc = "Equipped with an L-11 sharpshooter rifle and everything you need to keep people alive."
+	suit_store = /obj/item/weapon/gun/rifle/icc_sharpshooter/medic
+	l_pocket = /obj/item/storage/pouch/magazine/large/icc
+	r_pocket = /obj/item/storage/pouch/magazine/large/icc
+
+/datum/outfit/quick/icc/medic/icc_sharpshooter/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_sharpshooter, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_sharpshooter, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_sharpshooter, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_sharpshooter, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_sharpshooter, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_sharpshooter, SLOT_IN_L_POUCH)
+
+/datum/outfit/quick/icc/guard // base, not to be used
+	name = "CM Guardsman"
+	jobtype = "CM Guardsman"
+
+	w_uniform = /obj/item/clothing/under/icc/webbing
+	belt = /obj/item/storage/belt/marine/icc
+	w_uniform = /obj/item/clothing/under/icc/webbing
+	shoes = /obj/item/clothing/shoes/marine/icc/guard/knife
+	wear_suit = /obj/item/clothing/suit/storage/marine/icc/guard
+	gloves = /obj/item/clothing/gloves/marine/icc/guard
+	head = /obj/item/clothing/head/helmet/marine/icc/guard
+	mask = /obj/item/clothing/mask/gas/icc
+	r_pocket = /obj/item/storage/pouch/pistol/icc
+	l_pocket = /obj/item/storage/pouch/medical_injectors/icc/firstaid
+	back = /obj/item/storage/backpack/lightpack/icc
+
+/datum/outfit/quick/icc/guard/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/tricordrazine, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/tricordrazine, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/tramadol, SLOT_IN_ACCESSORY)
+
+
+/datum/outfit/quick/icc/guard/icc_rocket
+	name = "MP-IRL & ML-120 Guardsman"
+	desc = "Equipped with an MP-IRL rocket launcher and an ML-120 coilgun. Comes equipped with 5 HE, 2 thermobaric and 2 HE-AT warheads. Serious firepower."
+
+	suit_store = /obj/item/weapon/gun/launcher/rocket/icc
+	back = /obj/item/weapon/gun/rifle/icc_coilgun
+	l_pocket = /obj/item/storage/pouch/explosive/icc
+	r_pocket = /obj/item/storage/pouch/explosive/icc
+
+/datum/outfit/quick/icc/guard/icc_rocket/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/icc, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/icc, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/icc/light, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/icc/light, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/icc/thermobaric, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/icc/thermobaric, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/icc/heat, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/icc/heat, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
+
+/datum/outfit/quick/icc/guard/icc_autoshotgun
+	name = "ML-41 & ML-120 Guardsman"
+	desc = "Equipped with an ML-41 autoshotgun and an ML-120 coilgun. Comes with 7 12g frag drum magazines, the ammo of choice for frontal assaults and for killing practically everything that moves."
+	suit_store = /obj/item/weapon/gun/rifle/icc_coilgun
+	back = /obj/item/weapon/gun/rifle/icc_autoshotgun/guard
+	l_pocket = /obj/item/storage/pouch/magazine/large/icc
+	r_pocket = /obj/item/storage/pouch/magazine/large/icc
+
+/datum/outfit/quick/icc/guard/icc_autoshotgun/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_autoshotgun/frag, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_autoshotgun/frag, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_autoshotgun/frag, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_autoshotgun/frag, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_autoshotgun/frag, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_autoshotgun/frag, SLOT_IN_L_POUCH)
+
+/datum/outfit/quick/icc/leader // base
+	name = "CM Squad Leader"
+	jobtype = "CM Squad Leader"
+
+	w_uniform = /obj/item/clothing/under/icc/webbing
+	belt = /obj/item/storage/belt/marine/icc
+	mask = /obj/item/clothing/mask/gas/icc
+	shoes = /obj/item/clothing/shoes/marine/icc/knife
+	wear_suit = /obj/item/clothing/suit/storage/marine/icc/guard
+	gloves = /obj/item/clothing/gloves/marine/icc/guard
+	head = /obj/item/clothing/head/helmet/marine/icc/guard
+	back = /obj/item/storage/backpack/lightpack/icc/guard
+	l_pocket = /obj/item/storage/pouch/medical_injectors/icc/firstaid
+	r_pocket = /obj/item/storage/pouch/construction/icc/full
+
+/datum/outfit/quick/icc/leader/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/binoculars/tactical/range, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_ACCESSORY)
+
+/datum/outfit/quick/icc/leader/icc_confrontationrifle
+	name = "ML-12 ICC Squad Leader"
+	desc = "In charge. Equipped with the high-caliber ML-12 confrontation rifle and a variety of support equipment."
+	suit_store = /obj/item/weapon/gun/rifle/icc_confrontationrifle/leader
+
+/datum/outfit/quick/icc/leader/icc_confrontationrifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_confrontationrifle, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_confrontationrifle, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_confrontationrifle, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_confrontationrifle, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_confrontationrifle, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_confrontationrifle, SLOT_IN_BELT)

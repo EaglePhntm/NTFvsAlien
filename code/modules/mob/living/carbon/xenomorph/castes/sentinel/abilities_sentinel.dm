@@ -4,6 +4,7 @@
 /datum/action/ability/activable/xeno/xeno_spit/toxic_spit
 	name = "Toxic Spit"
 	desc = "Spit a toxin at your target up to 7 tiles away, inflicting the Intoxicated debuff and dealing damage over time."
+
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOXIC_SPIT,
 	)
@@ -39,6 +40,7 @@
 	action_icon_state = "neuroclaws_off"
 	action_icon = 'icons/Xeno/actions/sentinel.dmi'
 	desc = "Imbue your claws with acid for a short duration, inflicting lasting effects on your victims."
+
 	cooldown_duration = 10 SECONDS
 	ability_cost = 100
 	//use_state_flags = ABILITY_USE_BUCKLED
@@ -62,6 +64,7 @@
 	remaining_slashes = SENTINEL_TOXIC_SLASH_COUNT
 	ability_duration = addtimer(CALLBACK(src, PROC_REF(toxic_slash_deactivate), xeno_owner), SENTINEL_TOXIC_SLASH_DURATION, TIMER_STOPPABLE) //Initiate the timer and set the timer ID for reference
 	RegisterSignal(xeno_owner, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(toxic_slash))
+	RegisterSignal(xeno_owner, COMSIG_XENOMORPH_DISARM_HUMAN, PROC_REF(toxic_slash))
 	xeno_owner.balloon_alert(xeno_owner, "Toxic Slash active")
 	xeno_owner.playsound_local(xeno_owner, 'sound/voice/alien/drool2.ogg', 25)
 	action_icon_state = "neuroclaws_on"
@@ -93,6 +96,7 @@
 ///Called when Toxic Slash expires.
 /datum/action/ability/xeno_action/toxic_slash/proc/toxic_slash_deactivate(mob/living/carbon/xenomorph/xeno_owner)
 	UnregisterSignal(xeno_owner, COMSIG_XENOMORPH_ATTACK_LIVING)
+	UnregisterSignal(xeno_owner, COMSIG_XENOMORPH_DISARM_HUMAN)
 	remaining_slashes = 0
 	deltimer(ability_duration) // Delete the timer so we don't have mismatch issues, and so we don't potentially try to deactivate the ability twice
 	ability_duration = null
@@ -133,6 +137,7 @@
 	action_icon_state = "neuro_sting"
 	action_icon = 'icons/Xeno/actions/sentinel.dmi'
 	desc = "Sting your victim, draining them and gaining benefits if they are Intoxicated."
+
 	cooldown_duration = 25 SECONDS
 	ability_cost = 75
 	target_flags = ABILITY_MOB_TARGET
@@ -189,7 +194,7 @@
 		xeno_owner.apply_status_effect(STATUS_EFFECT_DRAIN_SURGE, drain_surge_melee ? 0 : strength, drain_surge_melee ? (strength / 100) : 0)
 		new /obj/effect/temp_visual/drain_sting_crit(get_turf(human_target))
 	human_target.adjustFireLoss(potency / 5)
-	human_target.AdjustKnockdown(max(0.1 SECONDS, potency_in_sets - 10))
+	human_target.AdjustParalyzed(max(0.1 SECONDS, potency_in_sets - 10))
 	var/health_to_heal = potency * heal_multiplier
 	HEAL_XENO_DAMAGE(xeno_owner, health_to_heal, FALSE)
 	if(heal_multiplier > 1 && health_to_heal)

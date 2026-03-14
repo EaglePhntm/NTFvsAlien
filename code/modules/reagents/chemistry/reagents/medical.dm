@@ -48,7 +48,7 @@
 	L.Unconscious(40 SECONDS)
 
 /datum/reagent/medicine/inaprovaline/overdose_crit_process(mob/living/L, metabolism)
-	L.setDrowsyness(L.drowsyness, 20)
+	L.drowsy(20)
 	if(ishuman(L)) //Critical overdose causes total blackout and heart damage. Too much stimulant
 		var/mob/living/carbon/human/H = L
 		var/datum/internal_organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
@@ -233,7 +233,7 @@
 		L.Unconscious(5 SECONDS)
 
 /datum/reagent/medicine/leporazine/overdose_crit_process(mob/living/L, metabolism)
-	L.drowsyness = max(L.drowsyness, 30)
+	L.drowsy(30)
 
 /datum/reagent/medicine/kelotane
 	name = "Kelotane"
@@ -301,12 +301,12 @@
 	description = "Saline-Glucose can be used to restore blood in a pinch."
 	color = COLOR_REAGENT_SALINE_GLUCOSE
 	custom_metabolism = REAGENTS_METABOLISM * 2
-	overdose_threshold = REAGENTS_OVERDOSE
-	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL
+	overdose_threshold = REAGENTS_OVERDOSE * 2
+	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 2
 	taste_description = "salty water"
 
 /datum/reagent/medicine/saline_glucose/on_mob_life(mob/living/L, metabolism)
-	if(L.blood_volume < BLOOD_VOLUME_NORMAL)
+	if(L.get_blood_volume() < BLOOD_VOLUME_NORMAL)
 		L.adjust_blood_volume(1.2)
 	return ..()
 
@@ -620,9 +620,9 @@
 		TIMER_COOLDOWN_START(L, name, 300 SECONDS)
 
 /datum/reagent/medicine/russian_red/on_mob_life(mob/living/L, metabolism)
-	L.heal_overall_damage(7*effect_str, 7*effect_str)
+	L.heal_overall_damage(10*effect_str, 10*effect_str)
 	L.adjustToxLoss(-2.5*effect_str)
-	L.adjustCloneLoss(0.7*effect_str)
+	L.adjustCloneLoss(effect_str)
 	if(iscarbon(L))
 		var/mob/living/carbon/C = L
 		C.setShock_Stage(min(C.shock_stage - 5*effect_str, 150)) //removes a target from deep paincrit instantly
@@ -907,9 +907,10 @@
 	L.adjust_blood_volume(2.4)
 	L.adjustToxLoss(effect_str)
 	L.adjustStaminaLoss(6*effect_str)
-	if(L.blood_volume < BLOOD_VOLUME_OKAY)
+	var/blood_volume = L.get_blood_volume()
+	if(blood_volume < BLOOD_VOLUME_OKAY)
 		L.adjust_blood_volume(2.4)
-	if(L.blood_volume < BLOOD_VOLUME_BAD)
+	if(blood_volume < BLOOD_VOLUME_BAD)
 		L.set_blood_volume(BLOOD_VOLUME_BAD+1)
 		L.reagents.add_reagent(/datum/reagent/toxin/scannable,25)
 		L.AdjustSleeping(10 SECONDS)
@@ -1363,18 +1364,11 @@
 	custom_metabolism = 0
 	taste_description = "metal, followed by mild burning"
 	overdose_threshold = REAGENTS_OVERDOSE * 1.2 //slight buffer to keep you safe
-	reagent_ui_priority = REAGENT_UI_UNIQUE
 	purge_list = list(
 		/datum/reagent/medicine/bicaridine,
 		/datum/reagent/medicine/kelotane,
 		/datum/reagent/medicine/tramadol,
-		/datum/reagent/medicine/oxycodone,
 		/datum/reagent/medicine/tricordrazine,
-		/datum/reagent/medicine/meralyne,
-		/datum/reagent/medicine/dermaline,
-		/datum/reagent/medicine/paracetamol,
-		/datum/reagent/medicine/russian_red,
-		/datum/reagent/consumable/doctor_delight,
 	)
 	purge_rate = 5
 

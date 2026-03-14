@@ -476,6 +476,7 @@
 /area/lv624/lazarus/hydroponics)
 "cB" = (
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 10
 	},
@@ -1019,9 +1020,6 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/research/caves)
 "fq" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 4
 	},
@@ -2074,6 +2072,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/engineering)
 "kN" = (
@@ -3544,9 +3543,7 @@
 /area/lv624/ground/jungle10)
 "ss" = (
 /obj/effect/landmark/corpsespawner/pmc,
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
+/turf/open/floor/engine/cult,
 /area/lv624/ground/caves/west1/garbledradio)
 "st" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -3571,6 +3568,7 @@
 /area/lv624/lazarus/security)
 "sw" = (
 /obj/item/toy/beach_ball/basketball,
+/obj/effect/landmark/static_comms/net_two,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/fitness)
 "sx" = (
@@ -3581,6 +3579,7 @@
 /area/lv624/lazarus/medbay)
 "sy" = (
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/fitness)
 "sA" = (
@@ -3596,9 +3595,6 @@
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable,
 /area/lv624/ground/jungle7)
 "sC" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -4342,6 +4338,7 @@
 	dir = 9
 	},
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/wood,
 /area/lv624/lazarus/chapel)
 "wF" = (
@@ -4862,11 +4859,6 @@
 	dir = 9
 	},
 /area/lv624/lazarus/sleep_male)
-"zg" = (
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
-/area/lv624/ground/caves/west1/garbledradio)
 "zi" = (
 /obj/structure/window_frame/wood,
 /obj/item/shard,
@@ -5172,10 +5164,6 @@
 /obj/effect/turf_decal/warning_stripes/thick,
 /turf/open/floor,
 /area/lv624/lazarus/spaceport)
-"Ay" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/closed/mineral/smooth/indestructible,
-/area/storage/testroom)
 "Az" = (
 /obj/effect/landmark/zombie_spawner,
 /turf/open/floor/plating/ground/dirt,
@@ -5406,6 +5394,7 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/wood,
 /area/lv624/lazarus/bar)
 "BM" = (
@@ -5425,9 +5414,6 @@
 /turf/open/floor/marking/bot,
 /area/lv624/lazarus/quartstorage/outdoors)
 "BP" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
 /turf/open/floor/tile/red/redtaupe{
 	dir = 9
 	},
@@ -5891,6 +5877,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/tile/bar,
 /area/lv624/lazarus/canteen)
 "Et" = (
@@ -5987,6 +5974,7 @@
 /area/lv624/lazarus/bar)
 "ER" = (
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle7)
 "EU" = (
@@ -6539,9 +6527,7 @@
 	dir = 1
 	},
 /obj/item/clothing/shoes/cult,
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
+/turf/open/floor/engine/cult,
 /area/lv624/ground/caves/west1/garbledradio)
 "HL" = (
 /obj/machinery/door/airlock/mainship/secure/free_access,
@@ -7338,6 +7324,7 @@
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 1
 	},
+/obj/effect/landmark/static_comms/net_one,
 /turf/open/floor,
 /area/lv624/lazarus/security)
 "LM" = (
@@ -7850,9 +7837,7 @@
 /obj/machinery/computer3{
 	name = "Family Guy Reruns TV"
 	},
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
+/turf/open/floor/engine/cult,
 /area/lv624/ground/caves/west1/garbledradio)
 "NW" = (
 /obj/effect/turf_decal/siding{
@@ -7961,9 +7946,7 @@
 	dir = 1
 	},
 /obj/item/storage/backpack/cultpack,
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
+/turf/open/floor/engine/cult,
 /area/lv624/ground/caves/west1/garbledradio)
 "Oz" = (
 /obj/structure/bed/chair{
@@ -9838,9 +9821,7 @@
 /area/lv624/ground/jungle10)
 "XM" = (
 /obj/machinery/floodlight/colony,
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
+/turf/open/floor/engine/cult,
 /area/lv624/ground/caves/west1/garbledradio)
 "XO" = (
 /turf/closed/wall,
@@ -10486,7 +10467,7 @@ wh
 (3,1,1) = {"
 wh
 hD
-Ay
+hD
 hD
 FC
 FC
@@ -12073,8 +12054,8 @@ Tq
 pb
 sR
 sR
-zg
-zg
+Sh
+Sh
 sR
 sR
 Tq
@@ -12177,9 +12158,9 @@ Tq
 Tq
 sR
 XM
-zg
-zg
-zg
+Sh
+Sh
+Sh
 sR
 PF
 Tq
@@ -12279,12 +12260,12 @@ ae
 Tq
 PF
 Tq
-zg
-zg
+Sh
+Sh
 ss
 tM
-zg
-zg
+Sh
+Sh
 Tq
 Tq
 oN
@@ -12383,12 +12364,12 @@ ae
 pb
 Tq
 Tq
-zg
-zg
-zg
+Sh
+Sh
+Sh
 Jc
-zg
-zg
+Sh
+Sh
 Tq
 Tq
 FC
@@ -12489,7 +12470,7 @@ Tq
 Tq
 sR
 NV
-zg
+Sh
 Oy
 XM
 sR
@@ -12593,7 +12574,7 @@ Tq
 Tq
 sR
 QO
-zg
+Sh
 HK
 sR
 sR
@@ -15554,7 +15535,7 @@ GQ
 ft
 gc
 QQ
-yZ
+uT
 jO
 bH
 uT

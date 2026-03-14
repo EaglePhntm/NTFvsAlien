@@ -1,5 +1,5 @@
 /obj/item/clothing/shoes/marine
-	name = "marine combat boots"
+	name = "Operative combat boots"
 	desc = "Standard issue combat boots for combat scenarios or combat situations. All combat, all the time."
 	icon_state = "marine"
 	worn_icon_state = "marine"
@@ -21,6 +21,7 @@
 		/obj/item/armor_module/storage/boot/pmc_knife
 	)
 	starting_attachments = list(/obj/item/armor_module/storage/boot)
+	soft_armor = list(MELEE = 30, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 30, BIO = 20, FIRE = 20, ACID = 15)
 
 /obj/item/clothing/shoes/marine/Initialize(mapload)
 	. = ..()
@@ -42,7 +43,7 @@
 	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
 
 /obj/item/clothing/shoes/marine/brown
-	name = "brown marine combat boots"
+	name = "brown Operative combat boots"
 	icon_state = "marine_brown"
 	worn_icon_state = "marine_brown"
 
@@ -64,7 +65,7 @@
 	siemens_coefficient = 0.6
 
 /obj/item/clothing/shoes/marinechief/captain
-	name = "captain's shoes"
+	name = "Commander's shoes"
 	desc = "Has special soles for better trampling those underneath."
 
 /obj/item/clothing/shoes/marinechief/som
@@ -157,7 +158,7 @@
 
 /obj/item/clothing/shoes/marine/vsd
 	name = "\improper combat boots"
-	desc = "V.S.D's standard issue combat boots"
+	desc = "KZ's standard issue combat boots"
 	icon_state = "boots"
 	worn_icon_state = "boots"
 

@@ -37,6 +37,10 @@
 	var/tier2_xeno_limit
 	/// Queue of all clients wanting to join xeno side
 	var/list/client/candidates
+	/// Amount of special resin points used to build special resin walls by each hive.
+	var/special_build_points = 50
+	/// These factions will not be attacked by turrets of this hive but cannot sell their resin jelly or corpses.
+	var/list/allied_factions = list(FACTION_CLF, FACTION_XENO)
 
 	///Reference to upgrades available and purchased by this hive.
 	var/datum/hive_purchases/purchases = new
@@ -93,10 +97,11 @@
 	.["hive_max_tier_three"] = tier3_xeno_limit
 	.["hive_minion_count"] = length(xenos_by_tier[XENO_TIER_MINION])
 
-	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+	var/datum/job/xenomorph/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
 	.["hive_larva_current"] = xeno_job.job_points
-	.["hive_larva_rate"] = SSsilo.current_larva_spawn_rate
+	.["hive_larva_rate"] = SSsilo.current_larva_spawn_rate[hivenumber] || 0
 	.["hive_larva_burrowed"] = xeno_job.total_positions - xeno_job.current_positions
+	.["hive_larva_debt"] = xeno_job.free_xeno_at_start
 
 	.["hive_strategic_psy_points"] = !isnull(SSpoints.xeno_strategic_points_by_hive[hivenumber]) ? SSpoints.xeno_strategic_points_by_hive[hivenumber] : 0
 	.["hive_tactical_psy_points"] = !isnull(SSpoints.xeno_tactical_points_by_hive[hivenumber]) ? SSpoints.xeno_tactical_points_by_hive[hivenumber] : 0
@@ -162,7 +167,7 @@
 
 	.["xeno_info"] = list()
 	for(var/mob/living/carbon/xenomorph/xeno AS in get_all_xenos())
-		if(initial(xeno.tier) == XENO_TIER_MINION)
+		if((!(xeno.client)) && (xeno.xeno_caste.caste_flags & (CASTE_HIDE_IN_STATUS|CASTE_IS_A_MINION)))
 			continue // Skipping minions
 		var/datum/xeno_caste/caste = xeno.xeno_caste
 		var/plasma_multi = caste.plasma_regen_limit == 0 ? 1 : caste.plasma_regen_limit // Division by 0 bad.
@@ -222,7 +227,7 @@
 	.["hive_orphan_max"] = NUCLEAR_WAR_ORPHAN_HIVEMIND MILLISECONDS
 	.["hive_silo_collapse_max"] = NUCLEAR_WAR_SILO_COLLAPSE MILLISECONDS
 
-	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+	var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
 	.["hive_larva_threshold"] = xeno_job.job_points_needed
 
 	.["user_ref"] = REF(user)
@@ -286,7 +291,7 @@
 				return
 			SEND_SIGNAL(usr, COMSIG_XENOMORPH_WATCHXENO, xeno_target)
 		if("Deevolve")
-			if(!isxenoqueen(usr)) // Queen only. No boys allowed.
+			if(!isxenoqueen(usr) && ((living_xeno_ruler != usr) || GLOB.tier_as_number[living_xeno_ruler.tier] <= GLOB.tier_as_number[xeno_target.tier])) // must be queen or be ruler and be higher tier than target
 				return
 			attempt_deevolve(usr, xeno_target)
 		if("Leader")
@@ -351,7 +356,7 @@
 	X.color = null
 
 // for clean transfers between hives
-/mob/living/carbon/xenomorph/proc/transfer_to_hive(hivenumber)
+/mob/living/carbon/xenomorph/transfer_to_hive(hivenumber)
 	if (hive.hivenumber == hivenumber)
 		return // If we are in that hive already
 	if(!GLOB.hive_datums[hivenumber])
@@ -368,19 +373,13 @@
  * subtypes also consider stored larva, not just the current amount of living xenos
  */
 /datum/hive_status/proc/total_xenos_for_evolving()
-	return get_total_xeno_number()
-
-/datum/hive_status/normal/total_xenos_for_evolving()
-	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+	var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
 	var/stored_larva = xeno_job.total_positions - xeno_job.current_positions
 	return get_total_xeno_number() + stored_larva
 
 /datum/hive_status/proc/get_total_tier_zeros()
-	return length(xenos_by_tier[XENO_TIER_ZERO])
-
-/datum/hive_status/normal/get_total_tier_zeros()
-	. = ..()
-	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+	. = length(xenos_by_tier[XENO_TIER_ZERO])
+	var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
 	var/stored_larva = xeno_job.total_positions - xeno_job.current_positions
 	. += stored_larva
 
@@ -464,6 +463,7 @@
 	return TRUE
 
 /mob/living/carbon/xenomorph/proc/add_to_hive(datum/hive_status/HS, force=FALSE, prevent_ruler=FALSE)
+	PROTECTED_PROC(TRUE)
 	if(!force && hivenumber != XENO_HIVE_NONE)
 		CRASH("trying to do a dirty add_to_hive")
 
@@ -475,11 +475,24 @@
 
 	hive = HS
 	hivenumber = HS.hivenumber // just to be sure
+	if(stat != DEAD)
+		LAZYOR(GLOB.alive_xeno_list_hive[hivenumber], src)
 	generate_name()
 
 	SSdirection.start_tracking(HS.hivenumber, src)
 	hive.update_tier_limits() //Update our tier limits.
-	hive.update_ruler()
+	INVOKE_NEXT_TICK_UNIQUE(hive, TYPE_PROC_REF(/datum/hive_status, update_ruler))
+
+	remove_abilities()
+	remove_component(/datum/component/seethrough_mob)
+	for(var/datum/action/A in actions)
+		if(istype(A, /datum/action/toggle_seethrough))
+			A.remove_action(src)
+	apply_minimap_hud()
+	add_abilities()
+	AddComponent(/datum/component/seethrough_mob)
+	apply_melee_stat_buff()
+	apply_health_stat_buff()
 
 /mob/living/carbon/xenomorph/hivemind/add_to_hive(datum/hive_status/HS, force = FALSE, prevent_ruler=FALSE)
 	. = ..()
@@ -503,6 +516,7 @@
 	hive_core.color = HS.color
 
 /mob/living/carbon/xenomorph/proc/add_to_hive_by_hivenumber(hivenumber, force=FALSE, prevent_ruler=FALSE) // helper function to add by given hivenumber
+	PRIVATE_PROC(TRUE)
 	if(!GLOB.hive_datums[hivenumber])
 		CRASH("add_to_hive_by_hivenumber called with invalid hivenumber")
 	var/datum/hive_status/HS = GLOB.hive_datums[hivenumber]
@@ -511,6 +525,7 @@
 
 // This is a special proc called only when a xeno is first created to set their hive and name properly
 /mob/living/carbon/xenomorph/proc/set_initial_hivenumber(prevent_ruler=FALSE)
+	PRIVATE_PROC(TRUE)
 	add_to_hive_by_hivenumber(hivenumber, force=TRUE, prevent_ruler=prevent_ruler)
 
 // ***************************************
@@ -558,6 +573,7 @@
 	return TRUE
 
 /mob/living/carbon/xenomorph/proc/remove_from_hive()
+	PROTECTED_PROC(TRUE)
 	if(!istype(hive))
 		CRASH("tried to remove a xeno from a hive that didnt have a hive to be removed from")
 
@@ -569,10 +585,11 @@
 
 	if(hive.living_xeno_ruler == src)
 		hive.set_ruler(null)
-		hive.update_ruler()
+		INVOKE_NEXT_TICK_UNIQUE(hive, TYPE_PROC_REF(/datum/hive_status, update_ruler))
 
 	SSdirection.stop_tracking(hive.hivenumber, src)
 
+	LAZYREMOVE(GLOB.alive_xeno_list_hive[hivenumber], src)
 	var/datum/hive_status/reference_hive = hive
 	hive = null
 	hivenumber = XENO_HIVE_NONE // failsafe value
@@ -653,6 +670,9 @@
 	if(!target.xeno_caste.deevolves_to)
 		to_chat(devolver, span_xenonotice("Cannot deevolve [target]."))
 		return
+	if(!GLOB.xeno_caste_datums[target.xeno_caste.deevolves_to])
+		to_chat(devolver, span_xenonotice("Cannot deevolve [target]."))
+		return
 	var/datum/xeno_caste/new_caste = GLOB.xeno_caste_datums[target.xeno_caste.deevolves_to][XENO_UPGRADE_BASETYPE]
 	var/confirm = tgui_alert(devolver, "Are you sure you want to deevolve [target] from [target.xeno_caste.caste_name] to [new_caste.caste_name]?", null, list("Yes", "No"))
 	if(confirm != "Yes")
@@ -689,6 +709,9 @@
 
 ///Handles any effects when a xeno dies
 /datum/hive_status/proc/on_xeno_death(mob/living/carbon/xenomorph/dead_xeno)
+	if(dead_xeno in dead_xenos)
+		return
+
 	remove_from_lists(dead_xeno)
 	dead_xenos += dead_xeno
 
@@ -696,9 +719,19 @@
 
 	if(dead_xeno == living_xeno_ruler)
 		on_ruler_death(dead_xeno)
-	var/datum/xeno_caste/base_caste = GLOB.xeno_caste_datums[get_parent_caste_type(dead_xeno.xeno_caste)][XENO_UPGRADE_BASETYPE]
-	if(base_caste.death_evolution_delay <= 0)
+
+	if(!dead_xeno?.xeno_caste)
 		return
+
+	var/parent = get_parent_caste_type(dead_xeno.xeno_caste)
+	var/list/caste_list = GLOB.xeno_caste_datums[parent]
+	if(!caste_list)
+		return
+
+	var/datum/xeno_caste/base_caste = caste_list[XENO_UPGRADE_BASETYPE]
+	if(!base_caste || base_caste.death_evolution_delay <= 0)
+		return
+
 	if(!caste_death_timers[base_caste])
 		caste_death_timers[base_caste] = addtimer(CALLBACK(src, PROC_REF(end_caste_death_timer), base_caste), base_caste.death_evolution_delay , TIMER_STOPPABLE)
 
@@ -706,6 +739,8 @@
 /datum/hive_status/proc/on_xeno_revive(mob/living/carbon/xenomorph/X)
 	dead_xenos -= X
 	add_to_lists(X)
+	X.apply_melee_stat_buff()
+	X.apply_health_stat_buff()
 	return TRUE
 
 
@@ -737,24 +772,22 @@
 		remove_leader(leader)
 		leader.hud_set_queen_overwatch()
 	ruler.hud_set_queen_overwatch()
-	update_ruler()
+	INVOKE_NEXT_TICK_UNIQUE(src, PROC_REF(update_ruler))
 	return TRUE
 
 /// If the current ruler devolves or caste_swaps we want to properly handle it
 /datum/hive_status/proc/on_missing_ruler(mob/living/carbon/xenomorph/old_mob, mob/living/carbon/xenomorph/new_mob)
 	SIGNAL_HANDLER
-	if(old_mob == living_xeno_ruler)
-		living_xeno_ruler = null
+	if(living_xeno_ruler)
+		living_xeno_ruler.remove_ruler_abilities()
+		living_xeno_ruler.generate_name()
+	set_ruler(null)
 	update_leader_pheromones()
 	for(var/mob/living/carbon/xenomorph/leader AS in xeno_leader_list)
 		remove_leader(leader)
 		leader.hud_set_queen_overwatch()
 		leader.update_leader_icon(FALSE)
-	if(living_xeno_ruler)
-		living_xeno_ruler.remove_ruler_abilities()
-		UnregisterSignal(living_xeno_ruler, list(COMSIG_XENOMORPH_EVOLVED, COMSIG_XENOMORPH_DEEVOLVED))
-	set_ruler(null)
-	update_ruler(old_mob)
+	INVOKE_NEXT_TICK_UNIQUE(src, PROC_REF(update_ruler))
 
 /// This proc attempts to find a new ruler to lead the hive.
 /datum/hive_status/proc/update_ruler(mob/living/carbon/xenomorph/previous_ruler)
@@ -763,22 +796,25 @@
 		return
 
 	var/mob/living/carbon/xenomorph/successor
-	var/list/mob/living/carbon/xenomorph/prio_candidates = xenos_by_tier[XENO_TIER_FOUR]
-	var/list/mob/living/carbon/xenomorph/seco_candidates = xenos_by_tier[XENO_TIER_THREE]
 
-	for(var/mob/living/carbon/xenomorph/potential_successor in prio_candidates)
-		if(!(potential_successor.xeno_caste.can_flags & CASTE_CAN_BE_RULER))
-			continue
-		successor = potential_successor
+	var/list/mob/living/carbon/xenomorph/candidates = xenos_by_tier[XENO_TIER_FOUR] + xenos_by_tier[XENO_TIER_THREE] + xenos_by_tier[XENO_TIER_TWO] + xenos_by_tier[XENO_TIER_ONE]
+
+	for(var/mob/living/carbon/xenomorph/potential_successor in candidates)
 		if(isxenoqueen(potential_successor))
-			break
-
-	if(!successor)
-		for(var/mob/living/carbon/xenomorph/potential_successor in seco_candidates)
-			if(potential_successor.xeno_caste.can_flags & CASTE_CAN_BE_RULER && !living_xeno_ruler)
-				if(previous_ruler == potential_successor)
-					continue
+			successor = potential_successor
+			break //found a living queen so we're done
+		if(!successor)
+			successor = potential_successor //they're better than nothing, or they wouldn't be in the list
+		else
+			if(GLOB.tier_as_number[successor.tier] > GLOB.tier_as_number[potential_successor.tier])
+				break //if next candidate is a lower tier we're done
+			if(potential_successor == living_xeno_ruler)
 				successor = potential_successor
+			if(successor == living_xeno_ruler) //prefer not to switch if unnecessary
+				continue
+			if(successor.client && (!potential_successor.client || potential_successor.client.inactivity > successor.client.inactivity))
+				continue
+			successor = potential_successor //among candidates of same tier, prefer active ones
 
 	if(!successor || living_xeno_ruler == successor)
 		return
@@ -798,6 +834,7 @@
 	successor.give_ruler_abilities()
 	successor.hud_set_queen_overwatch()
 	if(prev)
+		prev.generate_name()
 		prev.hud_set_queen_overwatch() // we want to remove the ruler star from the previous ruler
 		prev = null // instantly null it
 		successor.update_leader_icon(FALSE) // We dont want to call this if its the first xeno
@@ -813,9 +850,10 @@
 	SSdirection.clear_leader(hivenumber)
 	if(!isnull(successor))
 		SSdirection.set_leader(hivenumber, successor)
-		RegisterSignals(successor, list(COMSIG_XENOMORPH_EVOLVED, COMSIG_XENOMORPH_DEEVOLVED), PROC_REF(on_missing_ruler), TRUE)
 	living_xeno_ruler = successor
 	handle_ruler_timer()
+	if(istype(successor))
+		living_xeno_ruler.generate_name()
 
 
 /datum/hive_status/proc/handle_ruler_timer()
@@ -928,6 +966,7 @@ to_chat will check for valid clients itself already so no need to double check f
 
 /datum/hive_status/normal/add_xeno(mob/living/carbon/xenomorph/X)
 	. = ..()
+	X.AddComponent(/datum/component/xeno_iff, CLF_IFF)
 	orphan_hud_timer?.apply_to(X)
 	siloless_hud_timer?.apply_to(X)
 
@@ -941,8 +980,10 @@ to_chat will check for valid clients itself already so no need to double check f
 		return
 	if(!(SSticker.mode?.round_type_flags & MODE_XENO_RULER))
 		return
+	/*
 	if(SSmonitor.gamestate != SHIPSIDE) //orphan hivemind will only happen during shipside.
 		return
+	*/
 	var/datum/game_mode/infestation/D = SSticker.mode
 
 	if(living_xeno_ruler)
@@ -967,24 +1008,25 @@ to_chat will check for valid clients itself already so no need to double check f
 	var/datum/game_mode/infestation/nuclear_war/D = SSticker.mode
 	siloless_hud_timer = new(null, null, get_all_xenos() , D.siloless_hive_timer, "Siloless Collapse: ${timer}")
 
-/datum/hive_status/normal/burrow_larva(mob/living/carbon/xenomorph/larva/L)
-	if(!is_ground_level(L.z))
+/datum/hive_status/burrow_larva(mob/living/carbon/xenomorph/larva/L)
+	if(!is_ground_level(L.z) && !L.get_xeno_hivenumber() == XENO_HIVE_CORRUPTED)
+		return
+	if(L.stat)
 		return
 	L.visible_message(span_xenodanger("[L] quickly burrows into the ground."))
-	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+	var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
 	xeno_job.add_job_positions(1)
 	update_tier_limits()
 	GLOB.round_statistics.total_xenos_created-- // keep stats sane
 	SSblackbox.record_feedback("tally", "round_statistics", -1, "total_xenos_created")
 	qdel(L)
 
-
 // This proc checks for available spawn points and offers a choice if there's more than one.
 /datum/hive_status/proc/attempt_to_spawn_larva(client/xeno_candidate, larva_already_reserved = FALSE)
 	if(isnull(xeno_candidate))
 		return FALSE
 
-	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+	var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
 	if((xeno_job.total_positions - xeno_job.current_positions) < 0)
 		return FALSE
 
@@ -995,7 +1037,7 @@ to_chat will check for valid clients itself already so no need to double check f
 		if(length(possible_silos))
 			return attempt_to_spawn_larva_in_silo(xeno_candidate, possible_silos, larva_already_reserved)
 		if(SSticker.mode?.round_type_flags & MODE_SILO_RESPAWN && !SSsilo.can_fire) // Distress mode & prior to shutters opening, so let the queue bypass silos if needed
-			return do_spawn_larva(xeno_candidate, pick(GLOB.spawns_by_job[/datum/job/xenomorph]), larva_already_reserved)
+			return do_spawn_larva(xeno_candidate, pick(GLOB.spawns_by_job[xeno_job.type]), larva_already_reserved)
 		to_chat(xeno_candidate, span_warning("There are no places currently available to receive new larvas."))
 		return FALSE
 
@@ -1052,7 +1094,7 @@ to_chat will check for valid clients itself already so no need to double check f
 		return FALSE
 
 	if(!larva_already_reserved)
-		var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+		var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
 		var/stored_larva = xeno_job.total_positions - xeno_job.current_positions
 		if(!stored_larva)
 			to_chat(xeno_candidate.mob, span_warning("There are no longer burrowed larvas available."))
@@ -1068,30 +1110,33 @@ to_chat will check for valid clients itself already so no need to double check f
 
 
 /datum/hive_status/proc/do_spawn_larva(client/xeno_candidate, turf/spawn_point, larva_already_reserved = FALSE)
-	if(is_banned_from(xeno_candidate.ckey, ROLE_XENOMORPH))
-		to_chat(xeno_candidate.mob, span_warning("You are jobbaned from the [ROLE_XENOMORPH] role."))
+	var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
+	if(is_banned_from(xeno_candidate.ckey, xeno_job.title))
+		to_chat(xeno_candidate.mob, span_warning("You are jobbaned from the [xeno_job.title] role."))
 		return FALSE
 
-	var/mob/living/carbon/xenomorph/larva/new_xeno = new /mob/living/carbon/xenomorph/larva(spawn_point)
+	var/mob/living/carbon/xenomorph/larva/new_xeno = new /mob/living/carbon/xenomorph/larva(spawn_point, null, hivenumber)
 	new_xeno.visible_message(span_xenodanger("A larva suddenly burrows out of the ground!"),
 	span_xenodanger("We burrow out of the ground and awaken from our slumber. For the Hive!"))
 
 	log_game("[key_name(xeno_candidate)] has joined as [new_xeno] at [AREACOORD(new_xeno.loc)].")
-	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
 	message_admins("[key_name(xeno_candidate)] has joined as [ADMIN_TPMONTY(new_xeno)].")
 
 	xeno_candidate.mob.mind.transfer_to(new_xeno, TRUE)
 	new_xeno.playsound_local(new_xeno, 'sound/effects/alien/new_larva.ogg')
 	to_chat(new_xeno, span_xenoannounce("We are a xenomorph larva awakened from slumber!"))
 	if(!larva_already_reserved)
+		log_game("Occupying 1 [xeno_job.title] slot due to it being assigned to [xeno_candidate.ckey] via do_spawn_larva.")
 		xeno_job.occupy_job_positions(1)
 	return new_xeno
 
 
 /datum/hive_status/normal/on_shuttle_hijack(obj/docking_port/mobile/marine_dropship/hijacked_ship)
-	SSticker.mode.update_silo_death_timer(src)
+	/*
 	GLOB.xeno_enter_allowed = FALSE
-	xeno_message("Our Ruler has commanded the metal bird to depart for the metal hive in the sky! Run and board it to avoid a cruel death!")
+	*/
+	SSticker.mode.update_silo_death_timer(src)
+	xeno_message("Our Ruler has commanded the metal bird to depart for the metal hive in the sky! Run and board it to avoid severing!")
 	RegisterSignal(hijacked_ship, COMSIG_SHUTTLE_SETMODE, PROC_REF(on_hijack_depart))
 
 	for(var/obj/structure/xeno/structure AS in GLOB.xeno_structures_by_hive[XENO_HIVE_NORMAL])
@@ -1111,7 +1156,7 @@ to_chat will check for valid clients itself already so no need to double check f
 	UnregisterSignal(source, COMSIG_SHUTTLE_SETMODE)
 
 	// Add extra xenos based on the difference of xenos / marines
-	var/players = SSticker.mode.count_humans_and_xenos()
+	var/players = SSticker.mode.count_humans_and_xenos(null, COUNT_CLF_TOWARDS_XENOS | COUNT_GREENOS_TOWARDS_MARINES)
 	var/difference = round(players[2] - (players[1] * 0.5)) // no of xenos - half the no of players
 
 	var/left_behind = 0
@@ -1122,17 +1167,17 @@ to_chat will check for valid clients itself already so no need to double check f
 			continue
 		if(isxenohivemind(boarder))
 			continue
-		INVOKE_ASYNC(boarder, TYPE_PROC_REF(/mob/living, gib))
+		boarder.transfer_to_hive(XENO_HIVE_FORSAKEN)
 		if(boarder.xeno_caste.tier == XENO_TIER_MINION)
 			continue
 		left_behind++
-	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+	var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
 	if(left_behind)
-		xeno_message("[left_behind > 1 ? "[left_behind] sisters" : "One sister"] perished due to being too slow to board the bird. The freeing of their psychic link allows us to call burrowed, at least.")
+		xeno_message("[left_behind > 1 ? "[left_behind] sisters" : "One sister"] severed connection due to being too slow to board the bird. The freeing of their psychic link allows us to call burrowed, at least.")
 		xeno_job.add_job_positions(left_behind)
 	if(difference < 0)
-		if(xeno_job.total_positions < (-difference + xeno_job.current_positions))
-			xeno_job.set_job_positions(-difference + xeno_job.current_positions)
+		if(xeno_job.total_positions < floor(-difference + xeno_job.current_positions))
+			xeno_job.set_job_positions(floor(-difference + xeno_job.current_positions))
 	update_tier_limits()
 
 /**
@@ -1140,14 +1185,16 @@ to_chat will check for valid clients itself already so no need to double check f
  * return TRUE if the client was added, FALSE if it was removed
  */
 /datum/hive_status/proc/add_to_larva_candidate_queue(client/waiter)
-	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+	var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
 	var/stored_larva = xeno_job.total_positions - xeno_job.current_positions
 	var/list/possible_mothers = list()
 	var/list/possible_silos = list()
 	SEND_SIGNAL(src, COMSIG_HIVE_XENO_MOTHER_PRE_CHECK, possible_mothers, possible_silos)
-	if(stored_larva > 0 && !LAZYLEN(candidates) && (length(possible_mothers) || length(possible_silos) || (SSticker.mode?.round_type_flags & MODE_SILO_RESPAWN && SSmonitor.gamestate == SHUTTERS_CLOSED)))
+	if(stored_larva > 0 && !LAZYLEN(candidates) && !XENODEATHTIME_CHECK(waiter.mob) && (length(possible_mothers) || length(possible_silos) || (SSticker.mode?.round_type_flags & MODE_SILO_RESPAWN && SSmonitor.gamestate == SHUTTERS_CLOSED)))
+		log_game("Occupying 1 [xeno_job.title] slot because we are attempting to assign it to [waiter.ckey], who joined the larva queue with burrowed available.")
 		xeno_job.occupy_job_positions(1)
 		if(!attempt_to_spawn_larva(waiter, TRUE))
+			log_game("Freeing 1 [xeno_job.title] slot because we failed to assign it to [waiter.ckey], who joined the larva queue with burrowed available.")
 			xeno_job.free_job_positions(1)
 			return FALSE
 		return TRUE
@@ -1157,24 +1204,24 @@ to_chat will check for valid clients itself already so no need to double check f
 	LAZYADD(candidates, waiter)
 	RegisterSignal(waiter, COMSIG_QDELETING, PROC_REF(cleanup_waiter))
 	var/new_position = LAZYLEN(candidates)
-	SEND_SIGNAL(waiter, COMSIG_CLIENT_SET_LARVA_QUEUE_POSITION, new_position)
+	SEND_SIGNAL(waiter, COMSIG_CLIENT_SET_LARVA_QUEUE_POSITION, new_position, hivenumber)
 	to_chat(waiter, span_warning("There are either no burrowed larva, you are on your xeno respawn timer, or there are no silos. You are in position [new_position] to become a Xenomorph."))
 	give_larva_to_next_in_queue() //Updates the queue for xeno respawn timer
 	return TRUE
 
 /// Remove a client from the larva candidate queue
 /datum/hive_status/proc/remove_from_larva_candidate_queue(client/waiter)
-	var/larva_position = SEND_SIGNAL(waiter, COMSIG_CLIENT_GET_LARVA_QUEUE_POSITION)
+	var/larva_position = SEND_SIGNAL(waiter, COMSIG_CLIENT_GET_LARVA_QUEUE_POSITION, hivenumber)
 	if (!larva_position)
 		return // We weren't in the queue
 	LAZYREMOVE(candidates, waiter)
 	UnregisterSignal(waiter, COMSIG_QDELETING)
-	SEND_SIGNAL(waiter, COMSIG_CLIENT_SET_LARVA_QUEUE_POSITION, 0)
+	SEND_SIGNAL(waiter, COMSIG_CLIENT_SET_LARVA_QUEUE_POSITION, 0, hivenumber)
 	to_chat(waiter, span_warning("You left the Larva queue."))
 	var/client/client_in_queue
 	for(var/i in 1 to LAZYLEN(candidates))
 		client_in_queue = LAZYACCESS(candidates, i)
-		SEND_SIGNAL(client_in_queue, COMSIG_CLIENT_SET_LARVA_QUEUE_POSITION, i)
+		SEND_SIGNAL(client_in_queue, COMSIG_CLIENT_SET_LARVA_QUEUE_POSITION, i, hivenumber)
 
 /// Propose larvas until their is no more candidates, or no more burrowed
 /datum/hive_status/proc/give_larva_to_next_in_queue()
@@ -1183,18 +1230,26 @@ to_chat will check for valid clients itself already so no need to double check f
 	SEND_SIGNAL(src, COMSIG_HIVE_XENO_MOTHER_PRE_CHECK, possible_mothers, possible_silos)
 	if(!length(possible_mothers) && !length(possible_silos) && (!(SSticker.mode?.round_type_flags & MODE_SILO_RESPAWN) || SSsilo.can_fire))
 		return
-	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+	var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
 	var/stored_larva = round(xeno_job.total_positions - xeno_job.current_positions)
 	var/slot_occupied = min(stored_larva, LAZYLEN(candidates))
 	if(slot_occupied < 1)
 		return
 	var/slot_really_taken = 0
+	log_game("Occupying [slot_occupied] [xeno_job.title] slots because we are attempting to assign them to the next people in the larva queue.")
 	if(!xeno_job.occupy_job_positions(slot_occupied))
 		return
 	var/client/client_in_queue
 	var/oldest_death = 0
 	while(stored_larva > 0 && LAZYLEN(candidates))
-		client_in_queue = LAZYACCESS(candidates, 1)
+		for(var/i in 1 to LAZYLEN(candidates))
+			client_in_queue = LAZYACCESS(candidates, i)
+			if(!XENODEATHTIME_CHECK(client_in_queue.mob))
+				break
+			var/candidate_death_time = (GLOB.key_to_time_of_xeno_death[client_in_queue.key] + SSticker.mode?.xenorespawn_time) - world.time
+			if(oldest_death > candidate_death_time || !oldest_death)
+				oldest_death = candidate_death_time
+			client_in_queue = null // Deathtimer still running
 
 		if(!client_in_queue) // No valid candidates in the queue
 			if(oldest_death)
@@ -1209,10 +1264,11 @@ to_chat will check for valid clients itself already so no need to double check f
 			slot_really_taken++
 
 	if(slot_occupied - slot_really_taken > 0)
+		log_game("Freeing [slot_occupied - slot_really_taken] [xeno_job.title] slots because we failed to assign them to the next people in the larva queue.")
 		xeno_job.free_job_positions(slot_occupied - slot_really_taken)
 	for(var/i in 1 to LAZYLEN(candidates))
 		client_in_queue = LAZYACCESS(candidates, i)
-		SEND_SIGNAL(client_in_queue, COMSIG_CLIENT_SET_LARVA_QUEUE_POSITION, i)
+		SEND_SIGNAL(client_in_queue, COMSIG_CLIENT_SET_LARVA_QUEUE_POSITION, i, hivenumber)
 
 /// Remove ref to avoid hard del and null error
 /datum/hive_status/proc/cleanup_waiter(datum/source)
@@ -1221,7 +1277,7 @@ to_chat will check for valid clients itself already so no need to double check f
 
 ///Attempt to give a larva to the next in line, if not possible, free the xeno position and propose it to another candidate
 /datum/hive_status/proc/try_to_give_larva(client/next_in_line)
-	SEND_SIGNAL(next_in_line, COMSIG_CLIENT_SET_LARVA_QUEUE_POSITION, 0)
+	SEND_SIGNAL(next_in_line, COMSIG_CLIENT_SET_LARVA_QUEUE_POSITION, 0, hivenumber)
 	if(!attempt_to_spawn_larva(next_in_line, TRUE))
 		to_chat(next_in_line, span_warning("You failed to qualify to become a larva, you must join the queue again."))
 		return FALSE
@@ -1265,15 +1321,20 @@ to_chat will check for valid clients itself already so no need to double check f
 	hivenumber = XENO_HIVE_CORRUPTED
 	prefix = "Corrupted "
 	color = "#00ff80"
+	allied_factions = list(FACTION_TERRAGOV, FACTION_NANOTRASEN, FACTION_ICC)
 
 // Make sure they can understand english
 /datum/hive_status/corrupted/post_add(mob/living/carbon/xenomorph/X)
 	. = ..()
+	X.inherent_accesses += ALL_MARINE_ACCESS
 	X.grant_language(/datum/language/common)
+	X.AddComponent(/datum/component/xeno_iff, TGMC_LOYALIST_IFF)
 
 /datum/hive_status/corrupted/post_removal(mob/living/carbon/xenomorph/X)
 	. = ..()
+	X.inherent_accesses = initial(X.inherent_accesses)
 	X.remove_language(/datum/language/common)
+	X.remove_component(/datum/component/xeno_iff)
 
 /datum/hive_status/corrupted/can_xeno_message()
 	return TRUE // can always talk in hivemind
@@ -1355,6 +1416,7 @@ to_chat will check for valid clients itself already so no need to double check f
 	hivenumber = XENO_HIVE_ALPHA
 	prefix = "Alpha "
 	color = "#cccc00"
+	allied_factions = list()
 
 /mob/living/carbon/xenomorph/queen/Alpha
 	hivenumber = XENO_HIVE_ALPHA
@@ -1430,6 +1492,7 @@ to_chat will check for valid clients itself already so no need to double check f
 	hivenumber = XENO_HIVE_BETA
 	prefix = "Beta "
 	color = "#9999ff"
+	allied_factions = list()
 
 /mob/living/carbon/xenomorph/queen/Beta
 	hivenumber = XENO_HIVE_BETA
@@ -1505,6 +1568,7 @@ to_chat will check for valid clients itself already so no need to double check f
 	hivenumber = XENO_HIVE_ZETA
 	prefix = "Zeta "
 	color = "#606060"
+	allied_factions = list()
 
 /mob/living/carbon/xenomorph/queen/Zeta
 	hivenumber = XENO_HIVE_ZETA
@@ -1579,6 +1643,10 @@ to_chat will check for valid clients itself already so no need to double check f
 	name = "Admeme"
 	hivenumber = XENO_HIVE_ADMEME
 	prefix = "Admeme "
+	allied_factions = list()
+
+/mob/living/carbon/xenomorph/larva/admeme
+	hivenumber = XENO_HIVE_ADMEME
 
 /mob/living/carbon/xenomorph/queen/admeme
 	hivenumber = XENO_HIVE_ADMEME
@@ -1591,15 +1659,95 @@ to_chat will check for valid clients itself already so no need to double check f
 	hivenumber = XENO_HIVE_FALLEN
 	prefix = "Fallen "
 	color = "#8046ba"
+	allied_factions = list()
 
 /datum/hive_status/corrupted/fallen/can_xeno_message()
 	return FALSE
+
+/mob/living/carbon/xenomorph/larva/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN
 
 /mob/living/carbon/xenomorph/queen/Corrupted/fallen
 	hivenumber = XENO_HIVE_FALLEN
 
 /mob/living/carbon/xenomorph/king/Corrupted/fallen
 	hivenumber = XENO_HIVE_FALLEN
+
+/datum/hive_status/forsaken
+	name = "Forsaken"
+	hivenumber = XENO_HIVE_FORSAKEN
+	prefix = "Forsaken "
+	color = "#5b3f5b"
+	allied_factions = list(FACTION_CLF, FACTION_XENO)
+
+/mob/living/carbon/xenomorph/queen/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/boiler/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/bull/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/carrier/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/crusher/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/gorger/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/defender/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/defiler/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/drone/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/hivelord/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/hivemind/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/hunter/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/larva/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/praetorian/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/ravager/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/runner/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/sentinel/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/shrike/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/spitter/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/warrior/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/wraith/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/king/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/mob/living/carbon/xenomorph/behemoth/Forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
 
 // ***************************************
 // *********** Xeno hive compare helpers
@@ -1616,7 +1764,13 @@ to_chat will check for valid clients itself already so no need to double check f
 /atom/proc/get_xeno_hivenumber()
 	return FALSE
 
-/obj/alien/egg/get_xeno_hivenumber()
+/obj/alien/get_xeno_hivenumber()
+	return hivenumber
+
+/obj/structure/bed/nest/advanced/get_xeno_hivenumber()
+	return hivenumber
+
+/obj/structure/cocoon/get_xeno_hivenumber()
 	return hivenumber
 
 /obj/item/alien_embryo/get_xeno_hivenumber()
@@ -1625,12 +1779,15 @@ to_chat will check for valid clients itself already so no need to double check f
 /obj/item/clothing/mask/facehugger/get_xeno_hivenumber()
 	return hivenumber
 
-/mob/living/carbon/xenomorph/get_xeno_hivenumber()
+/mob/living
+	VAR_PROTECTED/hivenumber
+
+/mob/living/get_xeno_hivenumber()
 	return hivenumber
 
 /mob/illusion/xeno/get_xeno_hivenumber()
 	var/mob/living/carbon/xenomorph/original_xeno = original_mob
-	return original_xeno.hivenumber
+	return original_xeno.get_xeno_hivenumber()
 
 /obj/structure/xeno/get_xeno_hivenumber()
 	if(hivenumber)
@@ -1642,7 +1799,20 @@ to_chat will check for valid clients itself already so no need to double check f
 		return huggers[1].hivenumber
 	return ..()
 
-/mob/living/carbon/human/get_xeno_hivenumber()
-	if(faction == FACTION_ZOMBIE)
-		return FACTION_ZOMBIE
-	return FALSE
+/obj/machinery/deployable/mounted/sentry/get_xeno_hivenumber()
+	return hivenumber
+
+/obj/structure/mineral_door/resin/get_xeno_hivenumber()
+	return hivenumber
+
+/turf/closed/wall/resin/get_xeno_hivenumber()
+	return hivenumber
+
+/obj/item/resin_jelly/get_xeno_hivenumber()
+	return hivenumber
+
+/obj/item/stack/req_jelly/get_xeno_hivenumber()
+	return hivenumber
+
+/obj/item/reagent_containers/food/snacks/nutrient_jelly/get_xeno_hivenumber()
+	return hivenumber

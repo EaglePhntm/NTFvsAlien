@@ -5,8 +5,8 @@ import { resolveAsset } from '../../assets';
 import { useBackend } from '../../backend';
 import { getGridSpotKey, GridSpotKey, LoadoutSlotData, SLOTS } from './Types';
 
-const ROWS = 4;
-const COLUMNS = 3;
+const ROWS = 6;
+const COLUMNS = 4;
 
 const BUTTON_DIMENSION_WIDTH = '70px';
 const BUTTON_DIMENSION_HEIGHT = '70px';
@@ -40,6 +40,9 @@ export const SlotSelector = (props: LoadoutSlotData) => {
                     const slot = SLOTS[keyAtSpot!];
 
                     let tooltip;
+                    if (!item) {
+                      return;
+                    }
 
                     if ('name' in item) {
                       tooltip = item.name;

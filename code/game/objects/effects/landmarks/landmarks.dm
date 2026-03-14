@@ -68,6 +68,21 @@
 	GLOB.latejoinsom += loc
 	return INITIALIZE_HINT_QDEL
 
+/obj/effect/landmark/start/latejoinclf/Initialize(mapload)
+	. = ..()
+	GLOB.latejoinclf += loc
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/landmark/start/latejoinsurvivor/Initialize(mapload)
+	. = ..()
+	GLOB.latejoinsurvivor += loc
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/landmark/start/latejoinmoff/Initialize(mapload)
+	. = ..()
+	GLOB.latejoinmoff += loc
+	return INITIALIZE_HINT_QDEL
+
 /obj/effect/landmark/start/latejoin_gateway/Initialize(mapload)
 	. = ..()
 	GLOB.latejoin_gateway += loc
@@ -418,9 +433,8 @@
 		/obj/item/weapon/gun/rifle/lmg_d,
 		/obj/item/weapon/gun/rifle/type71/commando,
 		/obj/item/weapon/gun/rifle/m412/elite,
-		/obj/item/weapon/gun/rifle/sniper/elite,
+		/obj/item/weapon/gun/rifle/sniper/pmc_railgun,
 		/obj/item/weapon/gun/smg/m25/elite,
-		/obj/item/weapon/gun/rifle/sniper/elite/xmas,
 		/obj/item/weapon/gun/rifle/sniper/antimaterial,
 		/obj/item/weapon/gun/rifle/railgun,
 		/obj/item/weapon/gun/rifle/icc_coilgun,

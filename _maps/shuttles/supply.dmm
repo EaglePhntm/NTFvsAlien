@@ -6,7 +6,7 @@
 /turf/open/floor/plating,
 /area/shuttle/supply)
 "c" = (
-/obj/docking_port/mobile/supply,
+/obj/docking_port/mobile/supply/ntc,
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/supply)
 "f" = (

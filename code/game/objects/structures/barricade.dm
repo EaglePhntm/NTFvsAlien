@@ -29,6 +29,7 @@
 	var/can_wire = FALSE
 	///Is this barricade wired?
 	var/is_wired = FALSE
+	faction = FACTION_TERRAGOV //probably makes drone built cades work better im lazy to figure that out.
 
 /obj/structure/barricade/Initialize(mapload, mob/user)
 	. = ..()
@@ -46,6 +47,8 @@
 
 /obj/structure/barricade/examine(mob/user)
 	. = ..()
+	if(faction)
+		. += span_info("It belongs to <b>[faction]</b>")
 	if(is_wired)
 		. += span_info("There is a length of wire strewn across the top of this barricade.")
 	switch((obj_integrity / max_integrity) * 100)
@@ -77,14 +80,18 @@
 /obj/structure/barricade/attack_animal(mob/user)
 	return attack_alien(user)
 
-/obj/structure/barricade/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/structure/barricade/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
-
+	if(xeno_attacker.handcuffed)
+		return FALSE
+	var/datum/hive_status/elhive = xeno_attacker.get_hive()
+	if((faction in elhive.allied_factions) && xeno_attacker.a_intent != INTENT_HARM)
+		attack_hand(xeno_attacker)
+		return
 	if(is_wired)
 		balloon_alert(xeno_attacker, "barbed wire slicing into you!")
 		xeno_attacker.apply_damage(15, blocked = MELEE , sharp = TRUE, updating_health = TRUE)
-
 	return ..()
 
 /obj/structure/barricade/attackby(obj/item/I, mob/user, params)
@@ -384,9 +391,9 @@
 #define CADE_UPGRADE_REQUIRED_SHEETS 1
 
 //cade armor defines
-#define CADE_UPGRADE_BOMB 80
-#define CADE_UPGRADE_MELEE list(melee = 30, bullet = 50, laser = 50, energy = 50)
-#define CADE_UPGRADE_ACID 35
+#define CADE_UPGRADE_BOMB list(melee = 40, bomb = 40) //plus tanks 20% of crusher charges pre melee armor reduction
+#define CADE_UPGRADE_MELEE list(melee = 30, bullet = 60, laser = 60, energy = 60, bomb = 20)
+#define CADE_UPGRADE_ACID 75
 
 /obj/structure/barricade/solid
 	name = "metal barricade"
@@ -394,7 +401,7 @@
 	icon = 'icons/obj/structures/barricades/metal.dmi'
 	icon_state = "metal_0"
 	max_integrity = 250
-	soft_armor = list(MELEE = 0, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 0, BIO = 100, FIRE = 80, ACID = 40)
+	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 0, BIO = 100, FIRE = 80, ACID = 40, BOMB = 40)
 	coverage = 128
 	stack_type = /obj/item/stack/sheet/metal
 	stack_amount = BUILD_COST_METAL_CADE
@@ -511,9 +518,9 @@
 
 	switch(choice)
 		if(CADE_TYPE_BOMB)
-			soft_armor = soft_armor.modifyRating(BOMB = CADE_UPGRADE_BOMB)
+			soft_armor = soft_armor.modifyRating(MELEE = CADE_UPGRADE_BOMB["melee"], BOMB = CADE_UPGRADE_BOMB["bomb"])
 		if(CADE_TYPE_MELEE)
-			soft_armor = soft_armor.modifyRating(MELEE = CADE_UPGRADE_MELEE["melee"], BULLET = CADE_UPGRADE_MELEE["bullet"], LASER = CADE_UPGRADE_MELEE["laser"], ENERGY = CADE_UPGRADE_MELEE["energy"])
+			soft_armor = soft_armor.modifyRating(MELEE = CADE_UPGRADE_MELEE["melee"], BULLET = CADE_UPGRADE_MELEE["bullet"], LASER = CADE_UPGRADE_MELEE["laser"], ENERGY = CADE_UPGRADE_MELEE["energy"], BOMB = CADE_UPGRADE_MELEE["bomb"])
 		if(CADE_TYPE_ACID)
 			soft_armor = soft_armor.modifyRating(ACID = CADE_UPGRADE_ACID)
 			resistance_flags |= UNACIDABLE
@@ -950,7 +957,12 @@
 	. = ..()
 	if(.)
 		return
-
+	if(ishuman(user) && faction && !(GLOB.faction_to_iff[faction] & user.get_iff_signal()))
+		balloon_alert(user, "It's joints are locked with an IFF lock.")
+		return
+	else if(!faction)
+		faction = user.faction
+		balloon_alert(user, "[src]'s iff lock now programmed to [user.faction].")
 	toggle_open(null, user)
 
 /obj/structure/barricade/folding/proc/toggle_open(state, atom/user)
@@ -1124,7 +1136,7 @@
 	if(!ishuman(usr))
 		return
 	var/mob/living/carbon/human/user = usr
-	if(over_object != user || !in_range(src, user) || user.incapacitated() || user.lying_angle)
+	if(over_object != user || !in_range(src, user) || user.incapacitated())
 		return
 	disassemble(user)
 

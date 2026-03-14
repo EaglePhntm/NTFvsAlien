@@ -1,4 +1,7 @@
 /////////////////////////////// the camera computer
+
+GLOBAL_LIST_EMPTY(remote_fob_computers)
+
 /obj/machinery/computer/camera_advanced/remote_fob
 	name = "FOB Construction Drone Control"
 	desc = "A computer console equipped with camera screen and controls for a planetside deployed construction drone. Materials or equipment vouchers can be added simply by inserting them into the computer."
@@ -25,12 +28,13 @@
 
 /obj/machinery/computer/camera_advanced/remote_fob/Initialize(mapload)
 	. = ..()
+	GLOB.remote_fob_computers += src
 	metal_cade = new()
 	plast_cade = new()
 	toggle_wiring = new()
 	eject_metal_action = new()
 	eject_plasteel_action = new()
-	RegisterSignal(SSdcs, COMSIG_GLOB_DROPSHIP_TRANSIT, PROC_REF(disable_drone_creation))
+	//RegisterSignal(SSdcs, COMSIG_GLOB_DROPSHIP_TRANSIT, PROC_REF(disable_drone_creation))
 
 /obj/machinery/computer/camera_advanced/remote_fob/proc/disable_drone_creation()
 	SIGNAL_HANDLER
@@ -41,6 +45,7 @@
 
 /obj/machinery/computer/camera_advanced/remote_fob/Destroy()
 	spawn_spot = null
+	GLOB.remote_fob_computers -= src
 	QDEL_NULL(metal_cade)
 	QDEL_NULL(plast_cade)
 	QDEL_NULL(toggle_wiring)

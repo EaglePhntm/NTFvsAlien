@@ -118,6 +118,10 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 	for(var/mob/listener AS in listeners)
 		if(ambient_sound && !(listener.client?.prefs?.toggles_sound & SOUND_AMBIENCE))
 			continue
+
+		if(listener.stat == DEAD)
+			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS_STRICT)) && !check_rights_for(listener.client, R_ADMIN)) // no getting to know what you shouldn't
+				continue
 		listener.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, channel, S)
 
 	//We do tanks separately, since they are not actually on the source z, and we need some other stuff to get accurate directional sound
@@ -218,8 +222,16 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 /proc/playsound_z(z, soundin, _volume)
 	soundin = sound(get_sfx(soundin), channel = SSsounds.random_available_channel(), volume = _volume)
 	for(var/mob/M AS in GLOB.player_list)
+		if(!M.client)
+			continue
+
 		if(isnewplayer(M))
 			continue
+
+		if(M.stat == DEAD)
+			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS_STRICT)) && !check_rights_for(M.client, R_ADMIN)) // no getting to know what you shouldn't
+				continue
+
 		if (M.z == z)
 			SEND_SOUND(M, soundin)
 
@@ -227,8 +239,14 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 /proc/playsound_z_humans(z, soundin, _volume)
 	soundin = sound(get_sfx(soundin), channel = SSsounds.random_available_channel(), volume = _volume)
 	for(var/mob/living/carbon/human/H AS in GLOB.humans_by_zlevel["[z]"])
-		if(H.client)
-			SEND_SOUND(H, soundin)
+		if(!H.client)
+			continue
+
+		if(H.stat == DEAD)
+			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS_STRICT)) && !check_rights_for(H.client, R_ADMIN)) // no getting to know what you shouldn't
+				continue
+
+		SEND_SOUND(H, soundin)
 	for(var/mob/dead/observer/O AS in SSmobs.dead_players_by_zlevel[z])
 		if(O.client)
 			SEND_SOUND(O, soundin)
@@ -237,8 +255,14 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 /proc/playsound_z_xenos(z, soundin, _volume, hive_type = XENO_HIVE_NORMAL)
 	soundin = sound(get_sfx(soundin), channel = SSsounds.random_available_channel(), volume = _volume)
 	for(var/mob/living/carbon/xenomorph/X AS in GLOB.hive_datums[hive_type].xenos_by_zlevel["[z]"])
-		if(X.client)
-			SEND_SOUND(X, soundin)
+		if(!X.client)
+			continue
+
+		if(X.stat == DEAD)
+			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS_STRICT)) && !check_rights_for(X.client, R_ADMIN)) // no getting to know what you shouldn't
+				continue
+
+		SEND_SOUND(X, soundin)
 	for(var/mob/dead/observer/O AS in SSmobs.dead_players_by_zlevel[z])
 		if(O.client)
 			SEND_SOUND(O, soundin)
@@ -442,5 +466,25 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			soundin = pick('sound/voice/robot/robot_pain1.ogg', 'sound/voice/robot/robot_pain2.ogg', 'sound/voice/robot/robot_pain3.ogg')
 		if(SFX_ROBOT_WARCRY)
 			soundin = pick('sound/voice/robot/robot_warcry1.ogg', 'sound/voice/robot/robot_warcry2.ogg', 'sound/voice/robot/robot_warcry3.ogg')
+		if(SFX_ROBOT_NOISES)
+			soundin = pick('sound/runtime/drone/drone1.ogg', 'sound/runtime/drone/drone2.ogg', 'sound/runtime/drone/drone3.ogg', 'sound/runtime/drone/drone4.ogg', 'sound/runtime/drone/drone5.ogg', 'sound/runtime/drone/drone6.ogg', 'sound/runtime/drone/drone7.ogg', 'sound/runtime/drone/drone8.ogg', 'sound/runtime/drone/drone9.ogg', 'sound/runtime/drone/drone10.ogg', 'sound/runtime/drone/drone11.ogg', 'sound/runtime/drone/drone12.ogg',)
+		if(SFX_ROBOT_THREATEN)
+			soundin = pick('sound/machines/sound_machines_FireAlarm1.ogg', 'sound/machines/sound_machines_FireAlarm2.ogg', 'sound/machines/sound_machines_FireAlarm3.ogg', 'sound/machines/sound_machines_FireAlarm4.ogg')
+
+		//ntf additions
+		if("rtb_handset")
+			soundin = pick('ntf_modular/sound/machines/telephone/rtb_handset_1.ogg', 'ntf_modular/sound/machines/telephone/rtb_handset_2.ogg', 'ntf_modular/sound/machines/telephone/rtb_handset_3.ogg', 'ntf_modular/sound/machines/telephone/rtb_handset_4.ogg', 'ntf_modular/sound/machines/telephone/rtb_handset_5.ogg')
+		if("talk_phone")
+			soundin = pick('ntf_modular/sound/machines/telephone/talk_phone1.ogg', 'ntf_modular/sound/machines/telephone/talk_phone2.ogg', 'ntf_modular/sound/machines/telephone/talk_phone3.ogg', 'ntf_modular/sound/machines/telephone/talk_phone4.ogg', 'ntf_modular/sound/machines/telephone/talk_phone5.ogg', 'ntf_modular/sound/machines/telephone/talk_phone6.ogg', 'ntf_modular/sound/machines/telephone/talk_phone7.ogg')
+		if(SFX_FEMALE_CHOKE)
+			soundin = list('ntf_modular/sound/vo/female/gen/choke (1).ogg','ntf_modular/sound/vo/female/gen/choke (2).ogg','ntf_modular/sound/vo/female/gen/choke (3).ogg')
+		if(SFX_FEMALE_GROAN)
+			soundin = list('ntf_modular/sound/vo/female/gen/groan (1).ogg','ntf_modular/sound/vo/female/gen/groan (2).ogg','ntf_modular/sound/vo/female/gen/groan (3).ogg','ntf_modular/sound/vo/female/gen/groan (4).ogg','ntf_modular/sound/vo/female/gen/groan (5).ogg')
+		if(SFX_FEMALE_SEXYMOANLIGHT)
+			soundin = list('ntf_modular/sound/vo/female/gen/se/sexlight (1).ogg','ntf_modular/sound/vo/female/gen/se/sexlight (2).ogg','ntf_modular/sound/vo/female/gen/se/sexlight (3).ogg','ntf_modular/sound/vo/female/gen/se/sexlight (4).ogg','ntf_modular/sound/vo/female/gen/se/sexlight (5).ogg','ntf_modular/sound/vo/female/gen/se/sexlight (6).ogg','ntf_modular/sound/vo/female/gen/se/sexlight (7).ogg')
+		if(SFX_FEMALE_SEXYMOANHVY)
+			soundin = list('ntf_modular/sound/vo/female/gen/se/sex (1).ogg','ntf_modular/sound/vo/female/gen/se/sex (2).ogg','ntf_modular/sound/vo/female/gen/se/sex (3).ogg','ntf_modular/sound/vo/female/gen/se/sex (4).ogg','ntf_modular/sound/vo/female/gen/se/sex (5).ogg','ntf_modular/sound/vo/female/gen/se/sex (6).ogg','ntf_modular/sound/vo/female/gen/se/sex (7).ogg','ntf_modular/sound/vo/female/gen/se/sex (8).ogg')
+		if(SFX_LARVA_TALK)
+			soundin = pick('ntf_modular/sound/voice/alien/larva_talk1.ogg','ntf_modular/sound/voice/alien/larva_talk2.ogg','ntf_modular/sound/voice/alien/larva_talk3.ogg','ntf_modular/sound/voice/alien/larva_talk4.ogg')
 
 	return soundin

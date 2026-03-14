@@ -1,0 +1,528 @@
+//nest overrides
+/obj/structure/bed/nest/post_buckle_mob(mob/living/buckling_mob)
+	. = ..()
+	if(buckling_mob.client && ishuman(buckling_mob))
+		INVOKE_ASYNC(buckling_mob.client, TYPE_PROC_REF(/client, ask_reclone)) //pops up the prompt
+
+/obj/structure/bed/nest/welder_act(mob/living/user, obj/item/I)
+	if(!welder_needed_unbuckle)
+		return FALSE
+	if(!length(buckled_mobs))
+		return FALSE
+	if(user.do_actions)
+		return FALSE
+	var/obj/item/tool/weldingtool/welder = I
+	if(!welder.tool_use_check(user, 5))
+		return FALSE
+	user.visible_message(span_notice("[user] starts to burn off the resin of \the [src]"))
+	if(!do_after(user, 5 SECONDS, IGNORE_HELD_ITEM, src, BUSY_ICON_FRIENDLY))
+		return FALSE
+	if(!welder.remove_fuel(5, user))
+		to_chat(user, span_warning("Not enough fuel to finish the task."))
+		return TRUE
+	user.visible_message(span_notice("[user] burns off the resin restraints on \the [src]"))
+	unbuckle_all_mobs()
+
+
+//----- advanced nests
+/obj/structure/bed/nest/advanced
+	name = "tentacle breeding nest"
+	icon = 'icons/Xeno/Effects.dmi'
+	desc = "A trap nest, It's a gruesome pile of thick, sticky resin-covered tentacles shaped like a nest. It will quickly capture who stay on it and cum acid and larva inside if given opportunity. It is rather easy to escape from."
+	var/hivenumber = XENO_HIVE_NORMAL
+	var/target_hole = HOLE_MOUTH
+	var/settings_locked = FALSE
+	var/list/mob/living/carbon/human/grabbing = null
+	COOLDOWN_DECLARE(tentacle_cooldown)
+	COOLDOWN_DECLARE(cum_cooldown)
+	resist_time = 4 SECONDS //gotta be able to resist quick in case this is used in combat, with the quick capture power, you WILL die so fast.
+	var/capture_time = 1 SECONDS
+	var/cooldown_time = 5 SECONDS
+	var/cum_time = 29.9 SECONDS
+
+/obj/structure/bed/nest/advanced/Initialize(mapload, _hivenumber)
+	. = ..()
+	if(_hivenumber) ///because admins can spawn them
+		hivenumber = _hivenumber
+	var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
+	name = "[hive.prefix][name]"
+	if(hive.color)
+		color = hive.color //they are dark asf already so we wont gradient it.
+	START_PROCESSING(SSslowprocess, src)
+	var/static/list/listen_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_cross),
+	)
+	AddElement(/datum/element/connect_loc, listen_connections)
+	addtimer(CALLBACK(src, PROC_REF(mature)), 2 MINUTES)
+
+/obj/structure/bed/nest/advanced/proc/mature()
+	var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
+	Shake(duration = 2 SECONDS)
+	name = "mature [hive.prefix][name]"
+	visible_message(span_notice("[src] shudders as its tentacles thicken and harden, becoming more effective at capturing prey!"))
+	resist_time *= 2
+	capture_time *= 0.5
+	cooldown_time *= 0.5
+	max_integrity *= 2
+	obj_integrity *= 2
+
+/obj/structure/bed/nest/advanced/examine(mob/user)
+	. = ..()
+	. += span_notice("It is currently set to use its victim's [target_hole].")
+	if(settings_locked)
+		if(user.buckled == src)
+			. += span_notice("Set to: <a href=byond://?src=[REF(src)];sethole=1>\[mouth\]</a> <a href=byond://?src=[REF(src)];sethole=2>\[ass\]</a> <a href=byond://?src=[REF(src)];sethole=3>\[pussy\]</a> <a href=byond://?src=[REF(src)];sethole=4>\[nipples\]</a> <a href=byond://?src=[REF(src)];sethole=5>\[ears\]</a> <a href=byond://?src=[REF(src)];lock=2>\[unlock settings\]</a>")
+		else
+			. += span_notice("The settings are locked. Only the person buckled to it can unlock them.")
+	else
+		. += span_notice("Set to: <a href=byond://?src=[REF(src)];sethole=1>\[mouth\]</a> <a href=byond://?src=[REF(src)];sethole=2>\[ass\]</a> <a href=byond://?src=[REF(src)];sethole=3>\[pussy\]</a> <a href=byond://?src=[REF(src)];sethole=4>\[nipples\]</a> <a href=byond://?src=[REF(src)];sethole=5>\[ears\]</a> <a href=byond://?src=[REF(src)];lock=1>\[lock settings\]</a>")
+
+/obj/structure/bed/nest/advanced/post_unbuckle_mob(mob/living/buckled_mob)
+	. = ..()
+	playsound(src, pick(list('ntf_modular/sound/misc/cork_pop.ogg','ntf_modular/sound/misc/cork_pop (2).ogg')), 75, TRUE, 7, ignore_walls = FALSE)
+	if(istype(src, /obj/structure/bed/nest/advanced/special))
+		try_suit_up(buckled_mob)
+	settings_locked = FALSE
+	COOLDOWN_START(src, tentacle_cooldown, 15 SECONDS)
+
+/obj/structure/bed/nest/advanced/proc/on_cross(datum/source, atom/movable/A, oldloc, oldlocs)
+	SIGNAL_HANDLER
+	if(!HAS_TRAIT(A, TRAIT_HAULED))
+		try_to_grab(A)
+
+/obj/structure/bed/nest/advanced/proc/try_to_grab(mob/living/carbon/human/target)
+	if(!COOLDOWN_FINISHED(src, tentacle_cooldown))
+		return
+	if(LAZYLEN(buckled_mobs))
+		return
+	if(CHECK_MULTIPLE_BITFIELDS(target.allow_pass_flags, HOVERING))
+		return
+	if(!ishuman(target))
+		return
+	if(issamexenohive(target))
+		return
+	if(target.stat == DEAD)
+		return
+	if(target.key && target.afk_status == MOB_DISCONNECTED)
+		return
+	if(target.buckled)
+		return
+	if(target in grabbing)
+		return
+	if(ismonkey(target))
+		if(!buckle_mob(target))
+			return
+		target.visible_message(span_danger("Tentacles suddenly grab [target]'s legs and secure [target.p_them()] into [src]!"),
+		span_userdanger("Tentacles suddenly grab your legs and secure you into [src]!"),
+		span_notice("You hear squelching."))
+		COOLDOWN_START(src, tentacle_cooldown, cooldown_time)
+		COOLDOWN_START(src, cum_cooldown, cum_time)
+		return
+	COOLDOWN_START(src, tentacle_cooldown, cooldown_time)
+	COOLDOWN_START(src, cum_cooldown, cum_time)
+	target.visible_message(span_danger("Tentacles start grabbing at [target]'s legs to try to secure [target.p_them()] into [src]!"),
+		span_userdanger("Tentacles suddenly grab your legs to try to secure you into [src]!"),
+		span_notice("You hear squelching."))
+	LAZYADD(grabbing, target)
+	ASYNC
+		if(!do_mob(target, src, capture_time, null, BUSY_ICON_DANGER, PROGRESS_GENERIC, IGNORE_HAND | IGNORE_HELD_ITEM | IGNORE_DO_AFTER_COEFFICIENT | IGNORE_INCAPACITATION))
+			LAZYREMOVE(grabbing, target)
+			return
+		if(!buckle_mob(target))
+			return
+		target.visible_message(span_danger("Tentacles secure [target] into [src]!"),
+			span_userdanger("Tentacles secure you into [src]!"),
+			span_notice("You hear squelching."))
+
+/obj/structure/bed/nest/advanced/can_interact(mob/user)
+	if(isliving(user))
+		return (src in view(user))
+
+	return IsAdminGhost(user)
+
+/obj/structure/bed/nest/advanced/Topic(href, href_list)
+	. = ..()
+	if(.)
+		return
+	if(href_list["sethole"])
+		if(!(src in view(3, usr)))
+			to_chat(usr, span_warning("You aren't close enough to [src] to change the setting!"))
+			return
+		if(settings_locked && (usr.buckled != src))
+			to_chat(usr, span_warning("The settings of [src] are locked! Only the person buckled to it can change them currently."))
+			return
+		switch(href_list["sethole"])
+			if("1")
+				target_hole = HOLE_MOUTH
+				to_chat(usr, span_notice("You set [src] to use its victim's mouth."))
+			if("2")
+				target_hole = HOLE_ASS
+				to_chat(usr, span_notice("You set [src] to use its victim's ass."))
+			if("3")
+				target_hole = HOLE_VAGINA
+				to_chat(usr, span_notice("You set [src] to use its victim's pussy."))
+			if("4")
+				target_hole = HOLE_NIPPLE
+				to_chat(usr, span_notice("You set [src] to use its victim's nipples."))
+			if("5")
+				target_hole = HOLE_EAR
+				to_chat(usr, span_notice("You set [src] to use its victim's ears."))
+			else
+				to_chat(usr, span_warning("Attempted to set [src]'s target hole to an invalid value."))
+	if(href_list["lock"])
+		if(usr.buckled != src)
+			to_chat(usr, span_warning("Only the person buckled to [src] can lock or unlock its settings."))
+			return
+		switch(href_list["lock"])
+			if("1")
+				settings_locked = TRUE
+				to_chat(usr, span_notice("You lock the settings of [src]."))
+			if("2")
+				settings_locked = FALSE
+				to_chat(usr, span_notice("You unlock the settings of [src]."))
+			else
+				to_chat(usr, span_notice("Something went wrong with you attempting to lock or unlock the settings of [src]!"))
+
+/obj/structure/bed/nest/advanced/user_buckle_mob(mob/living/buckling_mob, mob/living/user, check_loc = TRUE, silent, skip)
+	if(skip)
+		return ..()
+	if(user.incapacitated() || !in_range(user, src) || buckling_mob.buckled)
+		return FALSE
+	if(LAZYLEN(buckled_mobs))
+		to_chat(user, span_warning("There's already someone in [src]."))
+		return FALSE
+	if(ishuman(buckling_mob))
+		var/mob/living/carbon/human/H = buckling_mob
+		if(!TIMER_COOLDOWN_FINISHED(H, COOLDOWN_NEST))
+			to_chat(user, span_warning("[H] was recently unbuckled. Wait a bit."))
+			return FALSE
+
+	user.visible_message(span_warning("[user] pins [buckling_mob] into [src], preparing the securing tentacles."),
+	span_warning("[user] pins [buckling_mob] into [src], preparing the securing tentacles."))
+
+	if(!do_mob(user, buckling_mob, 1 SECONDS, BUSY_ICON_HOSTILE))
+		return FALSE
+	if(QDELETED(src))
+		return FALSE
+	if(LAZYLEN(buckled_mobs))
+		to_chat(user, span_warning("There's already someone in [src]."))
+		return FALSE
+	if(!ishuman(buckling_mob))
+		to_chat(user, span_warning("[buckling_mob] is not something we can capture."))
+		return FALSE
+
+	log_combat(user, buckling_mob, "nested", src)
+	buckling_mob.visible_message(span_xenonotice("[user] coaxes the tentacles into securing [buckling_mob] into [src]!"),
+		span_xenonotice("[user] coaxes [src]'s tentacles into trapping you in it and starting to breed you!"),
+		span_notice("You hear squelching."))
+	playsound(loc, SFX_ALIEN_RESIN_MOVE, 50)
+	COOLDOWN_START(src, tentacle_cooldown, 15 SECONDS)
+
+	silent = TRUE
+	skip = TRUE
+	return ..()
+
+/obj/structure/bed/nest/advanced/Destroy()
+	STOP_PROCESSING(SSslowprocess, src)
+	. = ..()
+
+/obj/structure/bed/nest/advanced/process()
+	. = ..()
+	INVOKE_ASYNC(src, PROC_REF(sex_process)) //so we can have random delays to make it less robotic between two huggers
+
+
+/obj/structure/bed/nest/advanced/proc/sex_process()
+	sleep(rand(1,6)) //tiny sleep to make it off-sync with self and other huggers
+	if(obj_integrity < max_integrity)
+		obj_integrity += min(obj_integrity+4, max_integrity)
+	if(!LAZYLEN(buckled_mobs))
+		if(!COOLDOWN_FINISHED(src, tentacle_cooldown))
+			return
+		for(var/mob/living/carbon/human/target in loc)
+			if(target.buckled)
+				continue
+			if(target.stat != DEAD && (COOLDOWN_FINISHED(src, tentacle_cooldown)))
+				try_to_grab(target)
+				continue
+			if(HAS_TRAIT(target, TRAIT_PSY_DRAINED))
+				continue
+				//could maybe make it silo the corpse here instead
+			else
+				COOLDOWN_START(src, tentacle_cooldown, 30 SECONDS)
+				visible_message(span_xenonotice("[src] starts using its tentacles to spin a cocoon around [target]!"))
+				ASYNC
+
+					/*
+					//can't use do_after because we're not a mob and the corpse would fail due to being dead
+					var/ok = TRUE
+					var/datum/progressicon/busyicon = new(target, BUSY_ICON_DANGER)
+					while(!COOLDOWN_FINISHED(src, tentacle_cooldown))
+						stoplag(1)
+						if(QDELETED(target))
+							ok = FALSE
+						if(target.loc != loc)
+							ok = FALSE
+						if(HAS_TRAIT(target, TRAIT_PSY_DRAINED))
+							ok = FALSE
+						if(target.stat != DEAD)
+							ok = FALSE
+						if(!ok)
+							visible_message(span_xenonotice("[src] stops making a cocoon."))
+							qdel(busyicon)
+							return
+					*/
+					if(!do_mob(target, src, 30 SECONDS, null, BUSY_ICON_DANGER, PROGRESS_GENERIC, IGNORE_HAND | IGNORE_HELD_ITEM | IGNORE_DO_AFTER_COEFFICIENT | IGNORE_INCAPACITATION)  || HAS_TRAIT(target, TRAIT_PSY_DRAINED) || (target.stat != DEAD))
+						visible_message(span_xenonotice("[src] stops making a cocoon."))
+						return
+					visible_message(span_xenonotice("[src] finishes using its tentacles to spin a cocoon around [target]!"))
+					//qdel(busyicon)
+					target.med_hud_set_status()
+					ADD_TRAIT(target, TRAIT_PSY_DRAINED, TRAIT_PSY_DRAINED)
+					new /obj/structure/cocoon(get_turf(src), hivenumber, target)
+			break
+		return
+	var/mob/living/carbon/human/victim = buckled_mobs[1]
+	if(!victim)
+		return
+	if(victim.key && victim.afk_status == MOB_DISCONNECTED)
+		unbuckle_mob(victim)
+		return
+	if(victim.stat == DEAD)
+		unbuckle_mob(victim)
+		return
+	do_thrust_animate(victim, src)
+	do_thrust_animate(src, victim)
+	if(COOLDOWN_FINISHED(src, cum_cooldown))
+		COOLDOWN_START(src, cum_cooldown, cum_time)
+		if(!(victim.status_flags & XENO_HOST))
+			victim.visible_message(span_xenonotice("[src] roughly thrusts a tentacle into [victim]'s [target_hole], a round bulge visibly sliding through it as it inserts an egg into [victim]!"),
+			span_xenonotice("[src] roughly thrusts a tentacle into your [target_hole], a round bulge visibly sliding through it as it inserts an egg into you!"),
+			span_notice("You hear squelching."), 1)
+			playsound(victim, 'ntf_modular/sound/misc/mat/endin.ogg', 50, TRUE, 5, ignore_walls = FALSE)
+			implant_embryo(victim, target_hole, force_xenohive = hivenumber)
+		else
+			victim.visible_message(span_love("[src]'s tentacle pumps globs of sizzling acidic cum into [victim]'s [target_hole]!"),
+			span_love("[src] tentacle pumps globs of sizzling acidic cum into your [target_hole]!"),
+			span_love("You hear spurting."), 1)
+			playsound(victim, 'ntf_modular/sound/misc/mat/endin.ogg', 50, TRUE, 5, ignore_walls = FALSE)
+		if(istype(src, /obj/structure/bed/nest/advanced/special))
+			//same medicines as larval growth sting, but no larva jelly
+			if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/tricordrazine) < 5)
+				victim.reagents.add_reagent(/datum/reagent/medicine/tricordrazine, 10)
+			if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/inaprovaline) < 5)
+				victim.reagents.add_reagent(/datum/reagent/medicine/inaprovaline, 10)
+			if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/dexalin) < 5)
+				victim.reagents.add_reagent(/datum/reagent/medicine/dexalin, 10)
+			if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/spaceacillin) < 5)
+				victim.reagents.add_reagent(/datum/reagent/medicine/spaceacillin, 2)
+		victim.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno, 10)
+		victim.reagents.add_reagent(/datum/reagent/toxin/acid/xeno_cum, 2) //need to make xenos not leave people in here unattended instead of using regular nests.
+	else
+		victim.visible_message(span_love("[src] roughly thrusts a tentacle into [victim]'s [target_hole]!"),
+		span_love("[src] roughly thrusts a tentacle into your [target_hole]!"),
+		span_love("You hear squelching."), 1)
+		playsound(victim, 'ntf_modular/sound/misc/mat/segso.ogg', 50, TRUE, 5, ignore_walls = FALSE)
+		victim.adjustStaminaLoss(5)
+		victim.sexcon.adjust_arousal(5)
+
+/obj/structure/bed/nest/advanced/proc/try_suit_up(mob/living/carbon/human/victim)
+	if(!(victim.status_flags & XENO_HOST))
+		return
+	if(!victim)
+		return
+	if(istype(victim.get_item_by_slot(SLOT_BACK), /obj/item/clothing/resin_sack))
+		return
+	if(victim.stat == DEAD)
+		return
+	if(victim.back)
+		victim.dropItemToGround(victim.back)
+	var/obj/item/clothing/resin_sack/gooberpack = new /obj/item/clothing/resin_sack(loc)
+	var/datum/component/parasitic_clothing/paracomp = gooberpack.GetComponent(/datum/component/parasitic_clothing)
+	paracomp.hivenumber = hivenumber
+	victim.equip_to_slot(gooberpack, SLOT_BACK)
+	victim.visible_message(span_warning("[src] attaches to [victim] as a resin sack!"),
+			span_warning("[src] attaches to you as a resin sack!"),
+			span_notice("You hear rustling."), 3)
+	if(victim.reagents.get_reagent_amount(/datum/reagent/toxin/acid/xeno_cum) >= 1)
+		victim.reagents.remove_all_type(/datum/reagent/toxin/acid/xeno_cum, 100)
+		victim.visible_message(span_green("Remaining acidic cum spills out from [victim]'s holes!"),
+				span_green("Remaining acidic cum spills out of your holes!"),
+				span_notice("You hear splashing."), 3)
+	qdel(src)
+
+/obj/structure/bed/nest/advanced/special
+	name = "sentient tentacle breeding nest"
+	desc = "An utility nest, It's a gruesome pile of thick, sticky resin-covered tentacles shaped like a nest. It will cum acid into talls who stay stuck too long. Best watch out. This one is less prominent in catching people but it will be harder to escape and will tend to them. Uupon escape it will cling to them until burned off.."
+	color = COLOR_VIOLET
+	resist_time = 15 SECONDS
+	capture_time = 10 SECONDS
+	cooldown_time = 6 SECONDS
+	max_integrity = 80
+
+//wall nest
+/turf/closed/wall/attackby(obj/item/attacking_item, mob/living/user)
+	if(isxeno(user) && istype(attacking_item, /obj/item/grab))
+		var/obj/item/grab/attacker_grab = attacking_item
+		var/mob/living/carbon/xenomorph/user_as_xenomorph = user
+		user_as_xenomorph.do_nesting_host(attacker_grab.grabbed_thing, src)
+		return
+	. = ..()
+
+/obj/alien/weeds/weedwall/attackby(obj/item/attacking_item, mob/living/user, params)
+	if(isxeno(user) && istype(attacking_item, /obj/item/grab))
+		var/obj/item/grab/attacking_grab = attacking_item
+		var/mob/living/carbon/xenomorph/user_as_xenomorph = user
+		user_as_xenomorph.do_nesting_host(attacking_grab.grabbed_thing, src)
+		return
+	. = ..()
+
+/turf/closed/wall/resin/attackby(obj/item/attacking_item, mob/living/user, params)
+	if(isxeno(user) && istype(attacking_item, /obj/item/grab))
+		var/obj/item/grab/attacking_grab = attacking_item
+		var/mob/living/carbon/xenomorph/user_as_xenomorph = user
+		user_as_xenomorph.do_nesting_host(attacking_grab.grabbed_thing, src)
+		return
+	. = ..()
+
+/mob/living/carbon/xenomorph/proc/do_nesting_host(mob/current_mob, nest_structural_base)
+	var/list/xeno_hands = list(get_active_held_item(), get_inactive_held_item())
+	var/nesting_time = 2 SECONDS
+
+	if(!ishuman(current_mob))
+		to_chat(src, span_xenonotice("This is not a host."))
+		return
+
+	if(current_mob.stat == DEAD)
+		to_chat(src, span_xenonotice("This host is dead."))
+		return
+
+	var/mob/living/carbon/human/host_to_nest = current_mob
+
+	var/found_grab = FALSE
+	for(var/i in 1 to length(xeno_hands))
+		if(istype(xeno_hands[i], /obj/item/grab))
+			found_grab = TRUE
+			break
+
+	if(!found_grab)
+		to_chat(src, span_xenonotice("To nest the host here, a sure grip is needed to lift them up onto it!"))
+		return
+
+	var/turf/supplier_turf = get_turf(nest_structural_base)
+	if(!istype(nest_structural_base, /turf/closed/wall/resin))
+		var/obj/alien/weeds/weedwall/supplier_weeds = locate(/obj/alien/weeds/weedwall) in supplier_turf
+		if(!supplier_weeds)
+			to_chat(src, span_xenowarning("There are no weeds here! Nesting hosts requires hive weeds."))
+			return
+
+	var/area/curarea = get_area(loc)
+	if(curarea.ceiling < CEILING_UNDERGROUND || isdropshiparea(curarea) || (get_xeno_hivenumber() == XENO_HIVE_CORRUPTED && (is_mainship_level(z) || curarea.area_flags & MARINE_BASE)))
+		to_chat(src, span_xenowarning("The weeds here are not strong enough for nesting hosts easily, caves would be better."))
+		nesting_time *= 3
+
+	if(!supplier_turf.density)
+		var/obj/structure/window/framed/framed_window = locate(/obj/structure/window/framed/) in supplier_turf
+		if(!framed_window)
+			to_chat(src, span_xenowarning("Hosts need a vertical surface to be nested upon!"))
+			return
+
+	var/dir_to_nest = get_dir(host_to_nest, nest_structural_base)
+
+	if(!host_to_nest.Adjacent(supplier_turf))
+		to_chat(src, span_xenonotice("The host must be directly next to the wall its being nested on!"))
+		return
+
+	if(!locate(dir_to_nest) in GLOB.cardinals)
+		to_chat(src, span_xenonotice("The host must be directly next to the wall its being nested on!"))
+		return
+
+	for(var/obj/structure/bed/nest/wall/preexisting_nest in get_turf(host_to_nest))
+		if(preexisting_nest.dir == dir_to_nest)
+			if(preexisting_nest.buckled_mobs.len)
+				to_chat(src, span_xenonotice("There is already a host nested here!"))
+				return
+			else
+				qdel(preexisting_nest) //weird
+
+	visible_message(span_warning("[src] pins [host_to_nest] into [src], preparing the securing resin."),
+	span_warning("[src] pins [host_to_nest] into [src], preparing the securing resin."))
+	if(!do_mob(src, host_to_nest, 4 SECONDS, BUSY_ICON_HOSTILE))
+		return FALSE
+
+	var/obj/structure/bed/nest/wall/applicable_nest = new(get_turf(host_to_nest))
+	applicable_nest.dir = turn(dir_to_nest, 180)
+	if(!applicable_nest.buckle_mob(host_to_nest, src))
+		qdel(applicable_nest)
+
+/obj/structure/bed/nest/wall
+	name = "wall alien nest"
+	desc = "It's a wall of thick, sticky resin as a nest."
+	icon = 'ntf_modular/icons/Xeno/Effects.dmi'
+	icon_state = "nestwall"
+	buckle_lying = 0
+	layer = ABOVE_MOB_LAYER
+	var/mutable_appearance/resin_stuff_overlay
+	var/list/buckle_x
+	var/list/buckle_y
+	var/buckled_mob_density
+	welder_needed_unbuckle = TRUE
+	resistance_flags = UNACIDABLE
+
+/obj/structure/bed/nest/wall/Initialize(mapload)
+	. = ..()
+	buckle_x = list("[SOUTH]" = 0, "[NORTH]" = 0, "[WEST]" = 18, "[EAST]" = -17)
+	buckle_y = list("[SOUTH]" = 27, "[NORTH]" = -19, "[WEST]" = 3, "[EAST]" = 3)
+
+/obj/structure/bed/nest/wall/user_buckle_mob(mob/living/buckling_mob, mob/user, check_loc = TRUE, silent)
+
+/obj/structure/bed/nest/wall/buckle_mob(mob/living/buckling_mob, force, check_loc, lying_buckle, hands_needed, target_hands_needed, silent)
+	. = ..()
+	walldir_update(buckling_mob)
+
+/obj/structure/bed/nest/wall/update_overlays()
+	. = ..()
+	if(LAZYLEN(buckled_mobs))
+		resin_stuff_overlay = image(icon, icon_state = "nestwall_overlay", layer = layer, dir = dir)
+		add_overlay(resin_stuff_overlay)
+	else
+		cut_overlay(resin_stuff_overlay)
+
+/obj/structure/bed/nest/wall/proc/walldir_update(mob/living/buckling_mob)
+	buckling_mob.set_lying_angle(0)
+	buckled_mob_density = buckling_mob.density
+	buckling_mob.density = FALSE
+	buckling_x = buckle_x["[dir]"]
+	buckling_y = buckle_y["[dir]"]
+	buckling_mob.pixel_x = buckle_x["[dir]"]
+	buckling_mob.pixel_y = buckle_y["[dir]"]
+	pixel_y = buckle_y["[dir]"]
+	pixel_x = buckle_x["[dir]"]
+	if(dir == NORTH)
+		layer = 2.054
+		buckling_mob.layer = BELOW_CLOSED_TURF_LAYER
+		if(ishuman(buckling_mob))
+			var/mob/living/carbon/human/hmob = buckling_mob
+			for(var/datum/limb/limbz in hmob.limbs)
+				if(istype(limbz, /datum/limb/head))
+					continue
+				limbz.invisible = TRUE
+			hmob.remove_overlay(BODYPARTS_LAYER)
+			hmob.update_body(TRUE, TRUE)
+	update_overlays()
+
+/obj/structure/bed/nest/wall/unbuckle_mob(mob/living/buckled_mob, force = FALSE, can_fall = TRUE)
+	. = ..()
+	if(ishuman(buckled_mob))
+		var/mob/living/carbon/human/hmob = buckled_mob
+		for(var/datum/limb/limbz in hmob.limbs)
+			if(istype(limbz, /datum/limb/head))
+				continue
+			limbz.invisible = initial(limbz.invisible)
+		hmob.remove_overlay(BODYPARTS_LAYER)
+		hmob.update_body(TRUE, TRUE)
+	buckled_mob.pixel_y = initial(buckled_mob.pixel_y)
+	buckled_mob.pixel_x = initial(buckled_mob.pixel_x)
+	buckled_mob.density = buckled_mob_density
+	buckled_mob.layer = initial(buckled_mob.layer)
+	update_overlays()
+	qdel(src)

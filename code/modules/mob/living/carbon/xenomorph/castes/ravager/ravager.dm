@@ -2,7 +2,7 @@
 	caste_base_type = /datum/xeno_caste/ravager
 	name = "Ravager"
 	desc = "A huge, nasty red alien with enormous scythed claws."
-	icon = 'icons/Xeno/castes/ravager.dmi'
+	icon = 'ntf_modular/icons/Xeno/castes/ravager.dmi'
 	icon_state = "Ravager Walking"
 	health = 250
 	maxHealth = 250
@@ -16,7 +16,7 @@
 	/// The amount of plasma to be gained for being on fire.
 	var/plasma_gain_from_fire = 50
 
-/mob/living/carbon/xenomorph/ravager/Initialize(mapload)
+/mob/living/carbon/xenomorph/ravager/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_LIGHT_STEP, XENO_TRAIT)
 
@@ -37,3 +37,5 @@
 
 /mob/living/carbon/xenomorph/ravager/bloodthirster
 	caste_base_type = /datum/xeno_caste/ravager/bloodthirster
+	name = "Bloodthirster"
+	icon_state = "Bloodthirster Walking"

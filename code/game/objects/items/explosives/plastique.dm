@@ -55,12 +55,14 @@
 /obj/item/explosive/plastique/afterattack(atom/target, mob/user, flag)
 	if(!flag)
 		return FALSE
+	if(isxeno(user))
+		return FALSE
 	if(!target.can_plastique(user, src))
 		return FALSE
 	user.visible_message(span_warning("[user] is trying to plant [name] on [target]!"),
 	span_warning("You are trying to plant [name] on [target]!"))
 
-	if(!do_after(user, 2 SECONDS, NONE, target, BUSY_ICON_HOSTILE) || !target.can_plastique(user, src))
+	if(!do_after(user, 2 SECONDS, TRUE, target, BUSY_ICON_HOSTILE) || !target.can_plastique(user, src))
 		return FALSE
 
 	plant_plastique(target, user)
@@ -128,7 +130,9 @@
 
 ///Removes from a target
 /obj/item/explosive/plastique/proc/remove_plastique(mob/living/user)
-	if(!do_after(user, 2 SECONDS, NONE, plant_target, BUSY_ICON_HOSTILE))
+	if(!do_after(user, 2 SECONDS, TRUE, plant_target, BUSY_ICON_HOSTILE))
+		return
+	if(QDELETED(src))
 		return
 	if(QDELETED(src))
 		return
@@ -183,7 +187,7 @@
 		explosion(plant_target, flash_range = 1) //todo: place as abuse of explosion
 		qdel(src)
 		return
-	explosion(plant_target, 0, 0, 1, 0, 0, 0, 1, 0, 1, explosion_cause=src)
+	explosion(plant_target, 0, 2, 4, 6, 0, 0, 3, 0, 1, explosion_cause=src)
 	playsound(plant_target, SFX_EXPLOSION_SMALL, 100, FALSE, 25)
 	var/datum/effect_system/smoke_spread/smoke = new smoketype()
 	smoke.set_up(smokeradius, plant_target, 2)
@@ -214,3 +218,7 @@
 
 /turf/open/can_plastique(mob/user, obj/plastique)
 	return FALSE
+
+/obj/machinery/power/apc/can_plastique(mob/user, obj/plastique)
+	return FALSE
+

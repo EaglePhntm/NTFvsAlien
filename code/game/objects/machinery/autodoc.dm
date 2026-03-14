@@ -29,7 +29,7 @@
 #define SURGERY_PROCEDURE_EXTERNAL_DIALYSIS 15
 #define SURGERY_PROCEDURE_EXTERNAL_BLOOD 16
 
-#define UNNEEDED_DELAY 10 SECONDS // How long to waste if someone queues an unneeded surgery.
+#define UNNEEDED_DELAY 5 SECONDS // How long to waste if someone queues an unneeded surgery.
 
 //Autodoc
 /obj/machinery/autodoc
@@ -45,6 +45,10 @@
 	light_power = 0.5
 	light_color = LIGHT_COLOR_BLUE
 	dir = EAST
+	var/surgery = FALSE
+	var/forceeject = FALSE
+
+	//It uses power
 	use_power = ACTIVE_POWER_USE
 	idle_power_usage = 15
 	active_power_usage = 120000 // It rebuilds you from nothing...
@@ -163,7 +167,7 @@
 			visible_message("[src] whirrs and gurgles as the dialysis module operates.")
 			to_chat(occupant, span_info("You feel slightly better."))
 	if(blood_transfer)
-		if(connected && occupant.blood_volume < BLOOD_VOLUME_NORMAL)
+		if(connected && occupant.get_blood_volume() < BLOOD_VOLUME_NORMAL)
 			if(connected.blood_pack.reagents.get_reagent_amount(/datum/reagent/blood) < 4)
 				connected.blood_pack.reagents.add_reagent(/datum/reagent/blood, 195, list("donor" = null,"blood_DNA" = null,"blood_type" = "O-"))
 				say("Blood reserves depleted, switching to fresh bag.")
@@ -228,11 +232,13 @@
 		metal_stack.use(amount_to_use) // Will qdel if there is no metal remaining.
 		return
 
-/obj/machinery/autodoc/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/machinery/autodoc/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(!occupant)
 		to_chat(xeno_attacker, span_xenowarning("There is nothing of interest in there."))
 		return
 	if(xeno_attacker.status_flags & INCORPOREAL || xeno_attacker.do_actions)
+		return
+	if(xeno_attacker.handcuffed)
 		return
 	visible_message(span_warning("[xeno_attacker] begins to pry the [src]'s cover!"), 3)
 	playsound(src,'sound/effects/metal_creaking.ogg', 25, 1)
@@ -540,7 +546,7 @@
 			break
 	if(overdosing)
 		surgery_list += new /datum/autodoc_surgery(null, operated_organ, SURGERY_CATEGORY_EXTERNAL, SURGERY_PROCEDURE_EXTERNAL_DIALYSIS)
-	if(operated_human.blood_volume < BLOOD_VOLUME_NORMAL)
+	if(operated_human.get_blood_volume() < BLOOD_VOLUME_NORMAL)
 		surgery_list += new /datum/autodoc_surgery(null, operated_organ, SURGERY_CATEGORY_EXTERNAL, SURGERY_PROCEDURE_EXTERNAL_BLOOD)
 	return surgery_list
 
@@ -843,7 +849,7 @@
 									live_larva.forceMove(get_turf(src))
 								else
 									embyro.forceMove(occupant.loc)
-									occupant.status_flags &= ~XENO_HOST
+									//occupant.status_flags &= ~XENO_HOST //this is handled by /obj/item/alien_embryo/process()
 								qdel(embyro)
 					if(length(limb_ref.implants))
 						for(var/obj/item/implant AS in limb_ref.implants)

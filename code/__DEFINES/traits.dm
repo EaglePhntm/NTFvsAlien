@@ -61,15 +61,15 @@
 			};\
 		}\
 	} while (0)
-#define HAS_TRAIT(target, trait) (target._status_traits ? (target._status_traits[trait] ? TRUE : FALSE) : FALSE)
-#define HAS_TRAIT_FROM(target, trait, source) (target._status_traits ? (target._status_traits[trait] ? (source in target._status_traits[trait]) : FALSE) : FALSE)
+#define HAS_TRAIT(target, trait) (target && target._status_traits ? (target._status_traits[trait] ? TRUE : FALSE) : FALSE)
+#define HAS_TRAIT_FROM(target, trait, source) (target && target._status_traits ? (target._status_traits[trait] ? (source in target._status_traits[trait]) : FALSE) : FALSE)
 #define HAS_TRAIT_FROM_ONLY(target, trait, source) (\
-	target._status_traits ?\
+	target && target._status_traits ?\
 		(target._status_traits[trait] ?\
 			((source in target._status_traits[trait]) && (length(target._status_traits) == 1))\
 			: FALSE)\
 		: FALSE)
-#define HAS_TRAIT_NOT_FROM(target, trait, source) (target._status_traits ? (target._status_traits[trait] ? (length(target._status_traits[trait] - source) > 0) : FALSE) : FALSE)
+#define HAS_TRAIT_NOT_FROM(target, trait, source) (target && target._status_traits ? (target._status_traits[trait] ? (length(target._status_traits[trait] - source) > 0) : FALSE) : FALSE)
 
 // common trait
 #define TRAIT_GENERIC "generic"
@@ -78,6 +78,7 @@
 #define ROUNDSTART_TRAIT "roundstart" //cannot be removed without admin intervention
 #define SLEEPER_TRAIT "sleeper"
 #define STASIS_BAG_TRAIT "stasis_bag"
+#define BANELING_STASIS_TRAIT "baneling_stasis_trait"
 #define SPECIES_TRAIT "species" // /datum/species innate trait
 #define CRYOPOD_TRAIT "cryopod"
 #define XENO_TRAIT "xeno"
@@ -167,7 +168,7 @@
 ///AM will not be submerged. Trait must ALWAYS be added via the add_nosubmerge_trait proc for correct behavior
 #define TRAIT_NOSUBMERGE "trait_nosubmerge"
 
-#define TRAIT_HAS_SPAWNED_MECH "has_spawned_mech"
+// #define TRAIT_HAS_SPAWNED_MECH "has_spawned_mech"
 
 //added b grilling a food
 #define TRAIT_FOOD_GRILLED "food_grilled"
@@ -209,6 +210,8 @@
 #define TRAIT_AXE_EXPERT "axe_expert"
 ///You swing sword good
 #define TRAIT_SWORD_EXPERT "sword_expert"
+///Restricted to Melee Weapons
+#define TRAIT_KNIGHT "knight"
 ///Pain reduction light
 #define TRAIT_LIGHT_PAIN_RESIST "light_pain_resist"
 ///Pain reduction medium
@@ -252,6 +255,7 @@
 #define TRAIT_FAKEDEATH "fakedeath" //Makes the owner appear as dead to most forms of medical examination
 #define TRAIT_LEGLESS "legless" //Has lost all the appendages needed to stay standing up.
 #define TRAIT_NOPLASMAREGEN "noplasmaregen"//xeno plasma wont recharge
+#define TRAIT_NOHEALTHREGEN "nohealthregen" // xeno health wont regen
 #define TRAIT_UNDEFIBBABLE "undefibbable"//human can't be revived
 #define TRAIT_HOLLOW "hollowedout" //examine trait for puppeteer
 #define TRAIT_IMMEDIATE_DEFIB "immediate_defib"//immediately revives when defibbed, rather than just healing

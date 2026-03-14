@@ -1,6 +1,15 @@
 /mob/dead/observer/Login()
 	. = ..()
-	SSmobs.dead_players_by_zlevel[z] += src
+	if(!isnum(z))
+		stack_trace("z [logdetails(z)] is not a number while in Login of [logdetails(src)]")
+	else
+		if(z > length(SSmobs.dead_players_by_zlevel))
+			stack_trace("z [logdetails(z)] is bigger than length(SSmobs.dead_players_by_zlevel)([length(SSmobs.dead_players_by_zlevel)]) while in Login of [logdetails(src)]")
+			while(length(SSmobs.dead_players_by_zlevel) < z)
+				SSmobs.dead_players_by_zlevel.len++
+				SSmobs.dead_players_by_zlevel[length(SSmobs.dead_players_by_zlevel)] = list()
+		SSmobs.dead_players_by_zlevel[z] += src
+
 	RegisterSignal(src, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(observer_z_changed))
 
 	client.prefs.load_preferences()
@@ -17,10 +26,11 @@
 		H = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
 		H.add_hud_to(src)
 	if(ghost_squadhud)
-		H = GLOB.huds[DATA_HUD_SQUAD_TERRAGOV]
-		H.add_hud_to(src)
-		H = GLOB.huds[DATA_HUD_SQUAD_SOM]
-		H.add_hud_to(src)
+		for(var/faction in GLOB.faction_to_data_hud)
+			H = GLOB.huds[GLOB.faction_to_data_hud[faction]]
+			H.add_hud_to(src)
+		H = GLOB.huds[MACHINE_HEALTH_HUD]
+		H?.add_hud_to(src)
 	if(ghost_xenohud)
 		H = GLOB.huds[DATA_HUD_XENO_STATUS]
 		H.add_hud_to(src)

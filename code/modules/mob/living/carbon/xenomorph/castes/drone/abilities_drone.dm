@@ -97,14 +97,14 @@
 // *********** Acidic Salve
 // ***************************************
 /datum/action/ability/activable/xeno/psychic_cure/acidic_salve
-	name = "Acidic Salve"
+	name = "Resin Salve"
 	action_icon_state = "heal_xeno"
 	action_icon = 'icons/Xeno/actions/drone.dmi'
-	desc = "Apply a minor heal to the target. If applied to a linked sister, it will also apply a regenerative buff. Additionally, if that linked sister is near death, the heal's potency is increased."
+	desc = "Apply a minor heal to the target. If applied to a linked sister, it will also apply a regenerative buff. Additionally, if that linked sister is near death, the heal's potency is increased. This heals humans aswell."
 	cooldown_duration = 5 SECONDS
 	ability_cost = 150
 	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_ACIDIC_SALVE,
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_RESIN_SALVE,
 	)
 	heal_range = DRONE_HEAL_RANGE
 	target_flags = ABILITY_MOB_TARGET
@@ -116,13 +116,15 @@
 	var/bonus_healing_additive_multiplier = 2
 
 /datum/action/ability/activable/xeno/psychic_cure/acidic_salve/use_ability(atom/target)
+	if(!ismob(target))
+		return FALSE
 	if(xeno_owner.do_actions)
 		return FALSE
 	var/mob/living/living_target = target
 	if((!bypass_cast_time_on_threshold || (living_target.health > (living_target.maxHealth * bonus_healing_threshold))))
 		if(!do_after(xeno_owner, 1 SECONDS, NONE, target, BUSY_ICON_FRIENDLY, BUSY_ICON_MEDICAL))
 			return FALSE
-	xeno_owner.visible_message(span_xenowarning("\the [xeno_owner] vomits acid over [target], mending their wounds!"))
+	xeno_owner.visible_message(span_xenowarning("\the [xeno_owner] healing resin over [target], mending their wounds!"))
 	owner.changeNext_move(CLICK_CD_RANGE)
 	salve_healing(target)
 	succeed_activate()
@@ -132,7 +134,7 @@
 		personal_statistics.heals++
 
 /// Heals the target and gives them a regenerative buff, if applicable.
-/datum/action/ability/activable/xeno/psychic_cure/acidic_salve/proc/salve_healing(mob/living/carbon/xenomorph/target)
+/datum/action/ability/activable/xeno/psychic_cure/acidic_salve/proc/salve_healing(mob/living/target)
 	var/datum/action/ability/activable/xeno/essence_link/essence_link_action = owner.actions_by_path[/datum/action/ability/activable/xeno/essence_link]
 	var/heal_multiplier = 1
 	if(essence_link_action.existing_link?.link_target == target)
@@ -141,10 +143,30 @@
 			heal_multiplier += bonus_healing_additive_multiplier
 	playsound(target, SFX_ALIEN_DROOL, 25)
 	new /obj/effect/temp_visual/telekinesis(get_turf(target))
-	var/heal_amount = (DRONE_BASE_SALVE_HEAL + target.recovery_aura * target.maxHealth * 0.01) * heal_multiplier
+	var/mob/living/carbon/xenomorph/X = target
+	var/heal_amount = (DRONE_BASE_SALVE_HEAL + (isxeno(X) ? X.recovery_aura * target.maxHealth * 0.01 : 0)) * heal_multiplier
 	var/leftover_healing = heal_amount
-	HEAL_XENO_DAMAGE(target, leftover_healing, FALSE)
-	var/sunder_change = target.adjust_sunder(-heal_amount / 10)
+	var/sunder_change = 0
+	if(isxeno(target))
+		HEAL_XENO_DAMAGE(target, leftover_healing, FALSE)
+		sunder_change = target.adjust_sunder(-heal_amount / 10)
+	else
+		heal_amount = heal_amount/4
+		target.adjustFireLoss(-max(0, heal_amount - target.getBruteLoss()), TRUE)
+		target.adjustBruteLoss(-heal_amount)
+		target.adjust_sunder(-heal_amount/10)
+		if(ishuman(target))
+			var/mob/living/carbon/human/human_target = target
+			human_target.xeno_heals++
+			if((human_target.xeno_heals % 3) == 0)
+				for(var/datum/limb/limb_to_fix in shuffle(human_target.limbs))
+					if(limb_to_fix.limb_status & (LIMB_BROKEN | LIMB_SPLINTED | LIMB_STABILIZED))
+						if(limb_to_fix.brute_dam > limb_to_fix.min_broken_damage)
+							continue
+						limb_to_fix.remove_limb_flags(LIMB_BROKEN | LIMB_SPLINTED | LIMB_STABILIZED)
+						limb_to_fix.add_limb_flags(LIMB_REPAIRED)
+						human_target.visible_message("[human_target]'s broken [limb_to_fix.name] is repaired by the healing!", "Your broken [limb_to_fix.name] is repaired by the healing!")
+						break
 	GLOB.round_statistics.drone_acidic_salve += (heal_amount - leftover_healing)
 	GLOB.round_statistics.drone_acidic_salve_sunder += -sunder_change
 	if(heal_multiplier > 1) // A signal depends on the above heals, so this has to be done here.
@@ -179,6 +201,9 @@
 	INVOKE_NEXT_TICK(src, PROC_REF(link_essence_action))
 
 /datum/action/ability/xeno_action/enhancement/can_use_action(silent, override_flags, selecting)
+	. = ..()
+	if(!.)
+		return
 	if(existing_enhancement)
 		return TRUE
 	if(!HAS_TRAIT(owner, TRAIT_ESSENCE_LINKED))
@@ -187,7 +212,6 @@
 		return FALSE
 	if(essence_link_action.existing_link.stacks < essence_link_action.existing_link.max_stacks)
 		return FALSE
-	return ..()
 
 /datum/action/ability/xeno_action/enhancement/action_activate()
 	if(existing_enhancement)

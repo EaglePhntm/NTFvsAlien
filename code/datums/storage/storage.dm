@@ -391,9 +391,6 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	if(!ishuman(user))
 		return COMPONENT_NO_MOUSEDROP
 
-	if(user.lying_angle)
-		return COMPONENT_NO_MOUSEDROP
-
 	if(over_object == user && parent.Adjacent(user)) // this must come before the screen objects only block
 		open(user)
 		return COMPONENT_NO_MOUSEDROP

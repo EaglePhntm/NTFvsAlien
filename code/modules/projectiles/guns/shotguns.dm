@@ -37,13 +37,12 @@
 
 	placed_overlay_iconstate = "shotgun"
 
-
 //-------------------------------------------------------
 //TACTICAL SHOTGUN
 
 /obj/item/weapon/gun/shotgun/combat
 	name = "\improper SH-221 tactical shotgun"
-	desc = "The Nanotrasen SH-221 Shotgun, a quick-firing semi-automatic shotgun based on the centuries old Benelli M4 shotgun. Only issued to the TGMC in small numbers."
+	desc = "The Ninetails SH-221 Shotgun, a quick-firing semi-automatic shotgun based on the centuries old Benelli M4 shotgun. Only issued to the NTC in small numbers."
 	equip_slot_flags = ITEM_SLOT_BACK
 	icon_state = "mk221"
 	worn_icon_state = "mk221"
@@ -77,7 +76,7 @@
 
 /obj/item/weapon/gun/shotgun/combat/standardmarine
 	name = "\improper SH-39 combat shotgun"
-	desc = "The Terran Armories SH-39 combat shotgun is a semi automatic shotgun used by breachers and pointmen within the TGMC squads. Uses 12 gauge shells."
+	desc = "The Archercorp SH-39 combat shotgun is a semi automatic shotgun used by breachers and pointmen within the NTC squads. Uses 12 gauge shells."
 	force = 20 //Has a stock already
 	equip_slot_flags = ITEM_SLOT_BACK
 	icon = 'icons/obj/items/guns/shotguns64.dmi'
@@ -106,12 +105,12 @@
 	attachable_offset = list("muzzle_x" = 41, "muzzle_y" = 20,"rail_x" = 15, "rail_y" = 20, "under_x" = 23, "under_y" = 12, "stock_x" = 11, "stock_y" = 14)
 	starting_attachment_types = list(/obj/item/attachable/stock/t39stock)
 
-	fire_delay = 1.4 SECONDS
+	fire_delay = 1.2 SECONDS
 	accuracy_mult = 1.05
 	accuracy_mult_unwielded = 0.65
 	scatter = 3
 	scatter_unwielded = 12
-	damage_mult = 0.7  //30% less damage. Faster firerate.
+	damage_mult = 0.85  //15% less damage. Faster firerate.
 	recoil = 2
 	recoil_unwielded = 4
 	wield_delay = 1 SECONDS
@@ -124,19 +123,22 @@
 /obj/item/weapon/gun/shotgun/combat/masterkey
 	name = "masterkey shotgun"
 	desc = "A weapon-mounted, three-shot shotgun. Reloadable with any normal 12 gauge shell. The short barrel reduces the ammo's effectiveness drastically in exchange for fitting as a attachment.."
-	icon = 'icons/obj/items/guns/attachments/gun.dmi'
+	icon = 'ntf_modular/icons/obj/items/guns/attachments/gun.dmi'
 	icon_state = "masterkey"
+	cocked_sound = 'sound/weapons/guns/interact/trenchgun_pump.ogg'
 	max_chamber_items = 2
 	attachable_allowed = list()
 	starting_attachment_types = list()
 	slot = ATTACHMENT_SLOT_UNDER
 	attach_delay = 3 SECONDS
 	detach_delay = 3 SECONDS
+	reciever_flags = AMMO_RECIEVER_HANDFULS|AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION|AMMO_RECIEVER_UNIQUE_ACTION_LOCKS
 	gun_features_flags = GUN_IS_ATTACHMENT|GUN_AMMO_COUNTER|GUN_ATTACHMENT_FIRE_ONLY|GUN_WIELDED_STABLE_FIRING_ONLY|GUN_CAN_POINTBLANK|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	default_ammo_type = /datum/ammo/bullet/shotgun/buckshot
-	damage_mult = 0.6 // 40% less damage, but MUCH higher falloff.
 	scatter = 3
-	fire_delay = 2 SECONDS
+	damage_mult = 0.85
+	cock_delay = 1.2 SECONDS
+	fire_delay = 1.5 SECONDS
 	pixel_shift_x = 14
 	pixel_shift_y = 18
 
@@ -201,7 +203,7 @@
 
 /obj/item/weapon/gun/shotgun/double/marine
 	name = "\improper SH-34 double barrel shotgun"
-	desc = "A double barreled shotgun of archaic, but sturdy design used by the TGMC. Due to reports of barrel bursting, the abiility to fire both barrels has been disabled. Uses 12 gauge shells, but can only hold 2 at a time."
+	desc = "A double barreled shotgun of archaic, but sturdy design used by the NTC. Due to reports of barrel bursting, the abiility to fire both barrels has been disabled. Uses 12 gauge shells, but can only hold 2 at a time."
 	equip_slot_flags = ITEM_SLOT_BACK
 	icon_state = "ts34"
 	worn_icon_state = "ts34"
@@ -360,6 +362,13 @@
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/stock/trenchgun,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/bayonet/converted,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonet/som,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/angledgrip,
+		/obj/item/attachable/gyro,
 	)
 	item_map_variant_flags = NONE
 	attachable_offset = list("muzzle_x" = 34, "muzzle_y" = 19,"rail_x" = 12, "rail_y" = 21, "under_x" = 37, "under_y" = 16, "stock_x" = 0, "stock_y" = 12)
@@ -369,7 +378,7 @@
 
 	fire_delay = 1.2 SECONDS
 	max_chamber_items = 5
-	damage_mult = 0.75
+	damage_mult = 1
 	accuracy_mult_unwielded = 1
 
 	scatter = 4
@@ -401,6 +410,10 @@
 	icon = 'icons/obj/items/guns/shotguns64.dmi'
 	icon_state = "ks23"
 	worn_icon_state = "ks23"
+	worn_icon_list = list(
+		slot_l_hand_str = 'ntf_modular/icons/mob/inhands/guns/shotguns_left_1.dmi',
+		slot_r_hand_str = 'ntf_modular/icons/mob/inhands/guns/shotguns_right_1.dmi',
+	)
 	caliber = CALIBER_6G //codex
 	default_ammo_type = /datum/ammo/bullet/shotgun/heavy_buckshot
 	fire_sound = 'sound/weapons/guns/fire/ks23.ogg'
@@ -449,6 +462,60 @@
 	)
 
 //------------------------------------------------------
+// SH-23 Heavy Shotgun (Marine Version of the ML-101)
+
+/obj/item/weapon/gun/shotgun/pump/sh23
+	name = "\improper SH-23-NT heavy pump shotgun"
+	desc = "An NTF clone of an ICC classic, slow to chamber but hits like a truck. Due to the reinforcement needed to slam 6 gauge downrange, the body of this shotgun has no attachment mounting points\n<b>Requires a pump, which is the Unique Action key.</b>"
+	equip_slot_flags = ITEM_SLOT_BACK
+	icon = 'ntf_modular/icons/obj/items/guns/shotguns64.dmi'
+	icon_state = "sh23"
+	worn_icon_state = "sh23"
+	worn_icon_list = list(
+		slot_s_store_str = 'ntf_modular/icons/mob/suit_slot.dmi',
+		slot_back_str = 'ntf_modular/icons/mob/clothing/back.dmi',
+		slot_l_hand_str = 'ntf_modular/icons/mob/inhands/guns/shotguns_left_1.dmi',
+		slot_r_hand_str = 'ntf_modular/icons/mob/inhands/guns/shotguns_right_1.dmi',
+	)
+	caliber = CALIBER_6G //codex
+	default_ammo_type = /datum/ammo/bullet/shotgun/heavy_buckshot
+	fire_sound = 'sound/weapons/guns/fire/ks23.ogg'
+	reload_sound = 'sound/weapons/guns/interact/ks23_insert.ogg'
+	cocked_sound = 'sound/weapons/guns/interact/ks23_pump.ogg'
+	max_chamber_items = 3
+	attachable_allowed = list(
+		/obj/item/attachable/stock/sh23,
+	)
+
+	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 9, "rail_y" = 21, "under_x" = 18, "under_y" = 12, "stock_x" = 0, "stock_y" = 12)
+	item_map_variant_flags = NONE
+
+	starting_attachment_types = list(
+		/obj/item/attachable/stock/sh23,
+	)
+
+	fire_delay = 2.75 SECONDS
+	scatter_unwielded = 10
+	recoil = 0 // It has a stock. It's on the sprite.
+	aim_slowdown = 0.7
+	wield_delay = 1.2 SECONDS
+	cock_delay = 1.8 SECONDS
+
+/obj/item/weapon/gun/shotgun/pump/sh23/do_fire(obj/object_to_fire)
+	. = ..()
+	gun_user.knockback(gun_user,1,1,gun_user.get_opposite_dir(),MOVE_FORCE_STRONG)
+	gun_user.facedir(gun_user.get_opposite_dir()) //face back towards the mf
+
+//------------------------------------------------------
+// SH-23 Heavy Shotgun (Marine Version of the ML-101)
+
+/obj/item/weapon/gun/shotgun/pump/sh23/som
+	name = "\improper SH-23-S heavy pump shotgun"
+	desc = "A SOM clone of an ICC classic, slow to chamber but hits like a truck. Due to the reinforcement needed to slam 6 gauge downrange, the body of this shotgun has no attachment mounting points\n<b>Requires a pump, which is the Unique Action key.</b>"
+	icon_state = "sh23som"
+	worn_icon_state = "sh23som"
+
+//------------------------------------------------------
 //A hacky bolt action rifle. in here for the "pump" or bolt working action.
 
 /obj/item/weapon/gun/shotgun/pump/bolt
@@ -488,6 +555,7 @@
 		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/buildasentry,
 		/obj/item/attachable/stock/mosin,
+		/obj/item/attachable/shoulder_mount,
 	)
 	item_map_variant_flags = NONE
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
@@ -556,14 +624,14 @@
 		/obj/item/attachable/scope/marine,
 		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/buildasentry,
+		/obj/item/attachable/shoulder_mount,
 	)
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	attachable_offset = list("muzzle_x" = 45, "muzzle_y" = 23,"rail_x" = 17, "rail_y" = 25, "under_x" = 19, "under_y" = 14, "stock_x" = 15, "stock_y" = 12)
+	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_slowdown = 0.35
-	aim_time = 0.5 SECONDS
-
-
+	aim_time = 2 SECONDS
 	fire_delay = 1 SECONDS
 
 	scatter = -25
@@ -696,6 +764,7 @@
 	)
 	attachable_offset = list ("muzzle_x" = 45, "muzzle_y" = 23,"rail_x" = 21, "rail_y" = 23, "under_x" = 19, "under_y" = 14, "stock_x" = 15, "stock_y" = 12)
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
+	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.3 SECONDS
 	aim_speed_modifier = 2
 
@@ -763,7 +832,7 @@
 //SH-35 Pump shotgun
 /obj/item/weapon/gun/shotgun/pump/t35
 	name = "\improper SH-35 pump shotgun"
-	desc = "The Terran Armories SH-35 is the shotgun used by the TerraGov Marine Corps. It's used as a close quarters tool when someone wants something more suited for close range than most people, or as an odd sidearm on your back for emergencies. Uses 12 gauge shells.\n<b>Requires a pump, which is the Unique Action key.</b>"
+	desc = "The Archercorp SH-35 is the shotgun used by the Nine Tailed Fox. It's used as a close quarters tool when someone wants something more suited for close range than most people, or as an odd sidearm on your back for emergencies. Uses 12 gauge shells.\n<b>Requires a pump, which is the Unique Action key.</b>"
 	equip_slot_flags = ITEM_SLOT_BACK
 	icon = 'icons/obj/items/guns/shotguns64.dmi'
 	icon_state = "t35"
@@ -789,6 +858,7 @@
 		/obj/item/attachable/foldable/t35stock,
 		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/buildasentry,
+		/obj/item/attachable/shoulder_mount,
 	)
 	starting_attachment_types = list(/obj/item/attachable/foldable/t35stock)
 
@@ -858,14 +928,12 @@
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/lasersight,
 		/obj/item/weapon/gun/flamer/mini_flamer,
-		/obj/item/weapon/gun/shotgun/combat/masterkey,
 		/obj/item/weapon/gun/grenade_launcher/underslung,
 	)
 
 	attachable_offset = list("muzzle_x" = 40, "muzzle_y" = 17,"rail_x" = 12, "rail_y" = 23, "under_x" = 29, "under_y" = 12, "stock_x" = 13, "stock_y" = 15)
 
 	fire_delay = 1.75 SECONDS
-	damage_mult = 0.9
 	wield_delay = 0.95 SECONDS
 	burst_amount = 2
 	burst_delay = 0.01 SECONDS //basically instantaneous two shots
@@ -874,6 +942,7 @@
 	burst_scatter_mult = 2 // 2x4=8
 	accuracy_mult = 1
 	autobalance_monitor_value = ZX_PRICE
+	damage_mult = 0.7
 
 /obj/item/weapon/gun/shotgun/zx76/standard
 	starting_attachment_types = list(/obj/item/attachable/bayonet/converted, /obj/item/attachable/magnetic_harness, /obj/item/attachable/verticalgrip)
@@ -917,7 +986,7 @@
 	accuracy_mult_unwielded = 0.6
 	scatter = 4
 	scatter_unwielded = 16
-	damage_mult = 0.85
+	damage_mult = 1
 	recoil = 1
 	recoil_unwielded = 4
 	aim_slowdown = 0.35
@@ -980,9 +1049,15 @@
 /obj/item/weapon/gun/shotgun/pump/ksg
 	name = "\improper L12 pump-action shotgun"
 	desc = "A fourteen-round pump action shotgun. A sight to behold. Fires 12 gauge shotgun rounds, it's fourteen-round capacity makes it smooth when clearing rooms. A label on the side says: 'ONLY FOR CQC!!'."
-	icon = 'icons/obj/items/guns/shotguns64.dmi'
+	icon = 'ntf_modular/icons/obj/items/guns/shotguns64.dmi'
 	icon_state = "l12"
 	worn_icon_state = "l12"
+	worn_icon_list = list(
+		slot_s_store_str = 'ntf_modular/icons/mob/suit_slot.dmi',
+		slot_back_str = 'ntf_modular/icons/mob/clothing/back.dmi',
+		slot_l_hand_str = 'ntf_modular/icons/mob/inhands/guns/shotguns_left_1.dmi',
+		slot_r_hand_str = 'ntf_modular/icons/mob/inhands/guns/shotguns_right_1.dmi',
+	)
 	cock_animation = "l12_pump"
 	fire_sound = 'sound/weapons/guns/fire/shotgun_heavy.ogg'
 	reload_sound = 'sound/weapons/guns/interact/shotgun_cmb_insert.ogg'
@@ -990,22 +1065,30 @@
 	default_ammo_type = /datum/ammo/bullet/shotgun/buckshot
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/angledgrip,
+		/obj/item/attachable/lasersight,
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet/converted,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonet/som,
 		/obj/item/attachable/compensator,
 		/obj/item/attachable/scope/mini,
-		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/motiondetector,
-		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/buildasentry,
+		/obj/item/attachable/shoulder_mount,
 	)
 	item_map_variant_flags = NONE
 	attachable_offset = list("muzzle_x" = 49, "muzzle_y" = 21,"rail_x" = 19, "rail_y" = 24, "under_x" = 40, "under_y" = 16, "stock_x" = 0, "stock_y" = 12)
 
-	fire_delay = 2 SECONDS
+	fire_delay = 1.6 SECONDS
 	max_chamber_items = 14
-	damage_mult = 0.85
-	accuracy_mult_unwielded = 1
 
 	scatter = 6
 	min_scatter = 4
@@ -1013,14 +1096,74 @@
 	scatter_decay = 3
 	scatter_decay_unwielded = 1
 
-	scatter_unwielded = 10
-	recoil = 0
-	recoil_unwielded = 0
-	cock_delay = 1.2 SECONDS
+	cock_delay = 1.0 SECONDS
 	aim_slowdown = 0.55
+	damage_mult = 1 //fucking thing has 5 more rounds than the SOM shotgun but fires slower
 
 /obj/item/weapon/gun/shotgun/pump/ksg/standard
 	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/verticalgrip, /obj/item/attachable/compensator,)
 
 /obj/item/weapon/gun/shotgun/pump/ksg/support
 	starting_attachment_types = list(/obj/item/attachable/motiondetector, /obj/item/attachable/flashlight/under, /obj/item/attachable/compensator,)
+
+//-------------------------------------------------------
+//SH-46 semi automatic shotgun.
+
+/obj/item/weapon/gun/shotgun/combat/shq6
+	name = "\improper SH-46 combat shotgun"
+	desc = "The SH-46, is a semi-automatic, 12 Gauge, gas piston-operated shotgun, released for NTC by CAU."
+	force = 20 //Has a stock already
+	icon = 'ntf_modular/icons/obj/items/guns/shotguns64.dmi'
+	icon_state = "shq6"
+	worn_icon_state = "shq6"
+	worn_icon_list = list(
+		slot_s_store_str = 'ntf_modular/icons/mob/suit_slot.dmi',
+		slot_back_str = 'icons/mob/clothing/back.dmi',
+		slot_l_hand_str = 'ntf_modular/icons/mob/inhands/guns/shotguns_left_1.dmi',
+		slot_r_hand_str = 'ntf_modular/icons/mob/inhands/guns/shotguns_right_1.dmi',
+		)
+	fire_sound = 		'sound/weapons/guns/fire/SH46.ogg'
+	hand_reload_sound = 'sound/weapons/guns/interact/SH46_shell.ogg'
+	cocked_sound = 		'sound/weapons/guns/interact/SH46_boltpull.ogg'
+	max_chamber_items = 5
+	default_ammo_type = /datum/ammo/bullet/shotgun/buckshot
+	attachable_allowed = list(
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonet/som,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/angledgrip,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/motiondetector,
+	)
+
+	starting_attachment_types = null
+	attachable_offset = list("muzzle_x" = 52, "muzzle_y" = 20,"rail_x" = 24, "rail_y" = 22, "under_x" = 35, "under_y" = 14, "stock_x" = 13, "stock_y" = 13)
+
+	fire_delay = 0.8 SECONDS
+	accuracy_mult = 1.05
+	scatter = 3
+	damage_mult = 0.75  //25% less damage.
+	recoil = 1
+	wield_delay = 0.6 SECONDS
+	aim_slowdown = 0.2
+
+//It's very fast shogun, it's made to prevent stagger/weaken spam.
+/obj/item/weapon/gun/shotgun/combat/shq6/get_ammo()
+	. = ..()
+	switch(ammo_datum_type)
+		if(/datum/ammo/bullet/shotgun/buckshot)
+			return /datum/ammo/bullet/shotgun/buckshot
+		if(/datum/ammo/bullet/shotgun/slug)
+			return /datum/ammo/bullet/shotgun/slug
+		if(/datum/ammo/bullet/shotgun/flechette)
+			return /datum/ammo/bullet/shotgun/flechette
+		if(/datum/ammo/bullet/shotgun/incendiary)
+			return /datum/ammo/bullet/shotgun/incendiary

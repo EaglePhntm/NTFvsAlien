@@ -64,7 +64,7 @@
 /datum/mutation_upgrade/shell/hugger_overflow/proc/on_staggered(datum/source, amount, ignore_canstun)
 	if(get_threshold(get_total_structures()) > xenomorph_owner.huggers)
 		return
-	var/obj/item/clothing/mask/facehugger/new_hugger = new /obj/item/clothing/mask/facehugger/larval(get_turf(xenomorph_owner), xenomorph_owner.hivenumber, xenomorph_owner)
+	var/obj/item/clothing/mask/facehugger/new_hugger = new /obj/item/clothing/mask/facehugger/larval(get_turf(xenomorph_owner), xenomorph_owner.get_xeno_hivenumber(), xenomorph_owner)
 	step_away(new_hugger, xenomorph_owner, 1)
 	addtimer(CALLBACK(new_hugger, TYPE_PROC_REF(/obj/item/clothing/mask/facehugger, go_active), TRUE), new_hugger.jump_cooldown)
 	xenomorph_owner.huggers--
@@ -178,7 +178,7 @@
 
 /datum/mutation_upgrade/spur/claw_delivered
 	name = "Claw Delivered"
-	desc = "Huggers from your eggs now have a reduced cast time against humans. The cast time is set to 60/50/40% of its original value."
+	desc = "Huggers from your eggs now have a reduced cast time when being hand-planted onto humans. The cast time is set to 60/50/40% of its original value."
 	/// For the first structure, the multiplier to add to the Hugger's cast time when trying to attach to humans manually.
 	var/multiplier_initial = -0.3
 	/// For each structure, the multiplier to add to the Hugger's cast time when trying to attach to humans manually.
@@ -187,7 +187,7 @@
 /datum/mutation_upgrade/spur/claw_delivered/get_desc_for_alert(new_amount)
 	if(!new_amount)
 		return ..()
-	return "Huggers from your eggs now have a reduced cast time against humans. The cast time is set to [PERCENT(1 + get_multiplier(new_amount))]% of its original value."
+	return "Huggers from your eggs now have a reduced cast when being hand-planted onto humans. The cast time is set to [PERCENT(1 + get_multiplier(new_amount))]% of its original value."
 
 /datum/mutation_upgrade/spur/claw_delivered/on_mutation_enabled()
 	. = ..()
@@ -257,7 +257,7 @@
 //*********************//
 /datum/mutation_upgrade/veil/oviposition
 	name = "Oviposition"
-	desc = "Egg Lay now creates eggs with your selected type of hugger inside. The plasma cost is set to 50/40/30% of its their original value and its cooldown is set to 50% of its original value. You lose the ability, Spawn Huggers."
+	desc = "Egg Lay now creates eggs with your selected type of hugger inside and unlocks new alternative, latching huggers by right clicking the lay egg button. The plasma cost is set to 50/40/30% of its their original value and its cooldown is set to 50% of its original value. You lose the ability, Spawn Huggers."
 	/// For the first structure, the multiplier that will be added to the ability cost of Egg Lay.
 	var/multiplier_initial = -0.4
 	/// For each structure, the multiplier that will be added to the ability cost of Egg Lay.
@@ -266,7 +266,7 @@
 /datum/mutation_upgrade/veil/oviposition/get_desc_for_alert(new_amount)
 	if(!new_amount)
 		return ..()
-	return "Egg Lay now creates eggs with your selected type of hugger inside. The plasma cost is set to [PERCENT(1 + get_multiplier(new_amount))]% of its their original value and its cooldown is set to 50% of its original value. You lose the ability, Spawn Huggers."
+	return "Egg Lay now creates eggs with your selected type of hugger inside and can toggle into a new host-lingering series of huggers by right clicking onto the button. The plasma cost is set to [PERCENT(1 + get_multiplier(new_amount))]% of its their original value and its cooldown is set to 50% of its original value. You lose the ability, Spawn Huggers."
 
 /datum/mutation_upgrade/veil/oviposition/on_mutation_enabled()
 	var/datum/action/ability/xeno_action/lay_egg/egg_ability = xenomorph_owner.actions_by_path[/datum/action/ability/xeno_action/lay_egg]
@@ -276,6 +276,9 @@
 	if(spawn_ability)
 		spawn_ability.remove_action(xenomorph_owner)
 	egg_ability.use_selected_hugger = TRUE
+	egg_ability.can_use_adv_huggers = TRUE
+	egg_ability.action_icon_state = "lay_egg_adv_off"
+	egg_ability.update_button_icon()
 	egg_ability.cooldown_duration -= initial(egg_ability.cooldown_duration) * 0.5
 	egg_ability.ability_cost += initial(egg_ability.ability_cost) * get_multiplier(0)
 	return ..()

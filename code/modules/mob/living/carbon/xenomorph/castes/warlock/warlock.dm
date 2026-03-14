@@ -14,7 +14,7 @@
 	upgrade = XENO_UPGRADE_NORMAL
 	pass_flags = PASS_LOW_STRUCTURE
 
-/mob/living/carbon/xenomorph/warlock/Initialize(mapload)
+/mob/living/carbon/xenomorph/warlock/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	ammo = GLOB.ammo_list[/datum/ammo/energy/xeno/psy_blast]
 	ADD_TRAIT(src, TRAIT_SILENT_FOOTSTEPS, XENO_TRAIT)

@@ -6,6 +6,7 @@
 	action_icon_state = "flay"
 	action_icon = 'icons/Xeno/actions/puppeteer.dmi'
 	desc = "Takes a chunk of flesh from the victim marine through a quick swiping motion, adding 100 biomass to your biomass collection."
+
 	ability_cost = 0
 	cooldown_duration = 20 SECONDS
 	target_flags = ABILITY_MOB_TARGET
@@ -123,11 +124,12 @@
 // *********** Refurbish Husk
 // ***************************************
 /datum/action/ability/activable/xeno/refurbish_husk
-	name = "Refurbish Husk"
+	name = "Stitch Mimicry Puppet"
 	action_icon_state = "refurbish_husk"
 	action_icon = 'icons/Xeno/actions/puppeteer.dmi'
-	desc = "Harvest the biomass and organs of a body in order to create a meat puppet to do your bidding."
-	cooldown_duration = 25 SECONDS
+	desc = "Stitch a puppet in the likeness of another creature."
+	ability_cost = 200
+	cooldown_duration = 35 SECONDS
 	target_flags = ABILITY_MOB_TARGET
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_REFURBISHHUSK,
@@ -148,7 +150,7 @@
 		if(!silent)
 			xeno_owner.balloon_alert(xeno_owner, "too many puppets! (max: [xeno_owner.xeno_caste.max_puppets])")
 		return FALSE
-	if(HAS_TRAIT(target, TRAIT_MAPSPAWNED) || HAS_TRAIT(target, TRAIT_HOLLOW))
+/*	if(HAS_TRAIT(target, TRAIT_MAPSPAWNED) || HAS_TRAIT(target, TRAIT_HOLLOW))
 		if(!silent)
 			xeno_owner.balloon_alert(xeno_owner, "of no use!")
 		return FALSE
@@ -162,23 +164,27 @@
 	if(!HAS_TRAIT(target_human, TRAIT_UNDEFIBBABLE) || target_human.stat != DEAD)
 		xeno_owner.balloon_alert(xeno_owner, "not dead and unrevivable!")
 		return FALSE
-#endif
+#endif*/
 
 	xeno_owner.face_atom(target_human)
-	xeno_owner.visible_message(target_human, span_danger("[xeno_owner] begins carving out, doing all sorts of horrible things to [target_human]!"))
-	if(!do_after(xeno_owner, 8 SECONDS, IGNORE_HELD_ITEM, target_human, BUSY_ICON_DANGER, extra_checks = CALLBACK(xeno_owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = xeno_owner.health))))
+/*	xeno_owner.visible_message(target_human, span_danger("[xeno_owner] begins carving out, doing all sorts of horrible things to [target_human]!"))*/
+	xeno_owner.visible_message(xeno_owner, span_danger("[xeno_owner] begins to vomit out biomass and skillfully sews various bits and pieces together in [target_human]'s likeness!"))
+	if(!do_after(xeno_owner, 8 SECONDS, IGNORE_HELD_ITEM, xeno_owner, BUSY_ICON_DANGER, extra_checks = CALLBACK(xeno_owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = xeno_owner.health))))
 		return FALSE
 	succeed_activate()
 
 /datum/action/ability/activable/xeno/refurbish_husk/use_ability(mob/living/carbon/human/victim)
-	var/turf/victim_turf = get_turf(victim)
+/*	var/turf/victim_turf = get_turf(victim)*/
+	var/turf/victim_turf = get_turf(xeno_owner)
 
-	ADD_TRAIT(victim, TRAIT_HOLLOW, TRAIT_GENERIC)
-	victim.spawn_gibs()
-	var/mob/living/carbon/xenomorph/puppet/puppet = new(victim_turf, owner)
-	puppet.voice = victim.voice
+/*	ADD_TRAIT(victim, TRAIT_HOLLOW, TRAIT_GENERIC)
+	victim.spawn_gibs()*/
+	var/mob/living/carbon/xenomorph/puppet/puppet = new(victim_turf, TRUE, owner.get_xeno_hivenumber(), owner)
+	puppet.voice = victim.name
+	puppet.name = victim.name
 	add_puppet(puppet)
 	add_cooldown()
+	return ..()
 
 /// Adds a puppet to our list
 /datum/action/ability/activable/xeno/refurbish_husk/proc/add_puppet(mob/living/carbon/xenomorph/puppet/new_puppet)
@@ -205,7 +211,7 @@
 	name = "Stitch Puppet"
 	action_icon_state = "stitch_puppet"
 	action_icon = 'icons/Xeno/actions/puppeteer.dmi'
-	desc = "Uses 125 biomass to create a flesh homunculus to do your bidding, at an adjacent target location."
+	desc = "Uses 125 biomass to create a humanoid replica from your reserves of plasma and resin to do your bidding, at an adjacent target location."
 	ability_cost = 125
 	cooldown_duration = 25 SECONDS
 	target_flags = ABILITY_TURF_TARGET
@@ -239,7 +245,7 @@
 	xeno_owner.visible_message(span_warning("[xeno_owner] begins to vomit out biomass and skillfully sews various bits and pieces together!"))
 	if(!do_after(xeno_owner, 8 SECONDS, IGNORE_HELD_ITEM, target, BUSY_ICON_CLOCK, extra_checks = CALLBACK(xeno_owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = xeno_owner.health))))
 		return FALSE
-	xeno_owner.visible_message(span_warning("[xeno_owner] forms a repulsive puppet!"))
+	xeno_owner.visible_message(span_warning("[xeno_owner] forms a strange humanlike puppet!"))
 	succeed_activate()
 
 /datum/action/ability/activable/xeno/puppet/use_ability(atom/target)
@@ -288,8 +294,8 @@
 
 ///makes a puppet start a do_after to dexplode
 /datum/action/ability/activable/xeno/organic_bomb/proc/start_exploding_async(mob/living/puppet)
-	puppet.visible_message(span_danger("[puppet] bloats and slowly unfurls its stitched body!"))
-	if(do_after(puppet, 1.5 SECONDS, IGNORE_HELD_ITEM, puppet, BUSY_ICON_DANGER))
+	puppet.visible_message(span_danger("[puppet] bloats and slowly unfurls [puppet.p_their()] stitched body!"))
+	if(do_after(puppet, 1.5 SECONDS, FALSE, puppet, BUSY_ICON_DANGER))
 		detonate(puppet)
 
 ///detonates a puppet causing a spray of acid
@@ -371,7 +377,7 @@
 	var/mob/living/living_owner = owner
 	living_owner.face_atom(victim)
 	living_owner.visible_message(span_warning("[living_owner] begins to form biomass and force it into the ground!"))
-	if(!do_after(living_owner, 3 SECONDS, IGNORE_HELD_ITEM, victim, BUSY_ICON_DANGER, extra_checks = CALLBACK(living_owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = living_owner.health))))
+	if(!do_after(living_owner, 3 SECONDS, FALSE, victim, BUSY_ICON_DANGER, extra_checks = CALLBACK(living_owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = living_owner.health))))
 		return FALSE
 	their_turf.visible_message(span_warning("[living_owner]'s tendrils burst out from the ground!"))
 	for(var/turf/tile AS in RANGE_TURFS(1, their_turf))

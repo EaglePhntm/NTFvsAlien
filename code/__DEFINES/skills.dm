@@ -32,7 +32,7 @@
 #define SKILL_COMBAT_TRAINED 2
 
 ///Damage mod for having the weapon specific skill above 0
-#define COMBAT_SKILL_DAM_MOD 0.05
+#define COMBAT_SKILL_DAM_MOD 0
 
 ///Pistols skill; Increase accuracy, recoil, and damage of pistols and revolvers.
 #define SKILL_PISTOLS "pistols"
@@ -180,3 +180,11 @@
 #define SKILL_TASK_DIFFICULT 100
 #define SKILL_TASK_CHALLENGING 150
 #define SKILL_TASK_FORMIDABLE 200
+
+//NTF ADDITIONS
+#define SKILL_SEX "sex"
+
+#define SKILL_SEX_DEFAULT 0
+#define SKILL_SEX_TRAINED 1
+#define SKILL_SEX_EXPERT 2
+#define SKILL_SEX_MASTER 3

@@ -38,11 +38,17 @@
 	if(user == source)
 		return
 
-	if(over != user)
-		return
+	if(iscarbon(user))
+		var/mob/living/carbon/cuser = user
+		if(cuser.a_intent != INTENT_HELP)
+			return
 
 	if(isxeno(user))
-		return //bad
+		if(!(SSticker.mode.round_type_flags & MODE_CHILL_RULES))
+			return
+
+	if(over != user)
+		return
 
 	var/datum/strip_menu/strip_menu = LAZYACCESS(strip_menus, source)
 
@@ -101,7 +107,7 @@
 /// Start the equipping process. This is the proc you should yield in.
 /// Returns TRUE/FALSE depending on if it is allowed.
 /datum/strippable_item/proc/start_equip(atom/source, obj/item/equipping, mob/user)
-	if(isclothing(source))
+	if(isclothing(equipping))
 		source.visible_message(
 			"<span class='notice'>[user] tries to put [equipping] on [source].</span>",
 			"<span class='notice'>[user] tries to put [equipping] on you.</span>",
@@ -128,9 +134,6 @@
 	SHOULD_NOT_SLEEP(TRUE)
 	if(!is_incorporeal(user))
 		return FALSE
-
-	if(!user.dextrous)
-		return
 
 	var/obj/item/item = get_item(source)
 	if(isnull(item))
@@ -224,7 +227,7 @@
 	if(!ismob(source))
 		return FALSE
 
-	if(!do_after(user, get_equip_delay(equipping), NONE, source, BUSY_ICON_FRIENDLY))
+	if(!do_after(user, get_equip_delay(equipping), TRUE, source, BUSY_ICON_FRIENDLY))
 		return FALSE
 
 	if(!equipping.mob_can_equip(source, item_slot,warning = TRUE,override_nodrop = FALSE, bitslot = TRUE))
@@ -274,7 +277,9 @@
 
 /// A utility function for `/datum/strippable_item`s to start unequipping an item from a mob.
 /datum/strippable_item/proc/start_unequip_mob(obj/item/item, mob/source, mob/user, strip_delay)
-	if(!do_after(user, strip_delay || item.strip_delay, NONE, source, BUSY_ICON_FRIENDLY))
+	var/stripcheck = strip_delay || item.strip_delay
+	var/final_strip_delay = isxeno(user) ? stripcheck * 4 : stripcheck
+	if(!do_after(user, final_strip_delay, TRUE, source, BUSY_ICON_FRIENDLY))
 		return FALSE
 	return TRUE
 

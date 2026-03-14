@@ -48,11 +48,11 @@
 			"type": "hyperscale",
 			"icon_state": "hyperscale_glove_mob"
 		}
-    ],
+	],
 	"hyperscale_glove_inhand":[
 		{
 			"type":"hyperscale",
 			"icon_state": "hyperscale_glove_inhand"
 		}
-    ]
+	]
 }

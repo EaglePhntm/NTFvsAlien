@@ -22,7 +22,7 @@
 	damage_falloff = 0
 	penetration = 50
 	bullet_color = BOILER_LUMINOSITY_AMMO_NEUROTOXIN_COLOR
-	reagent_transfer_amount = 30
+	reagent_transfer_amount = 36
 	///On a direct hit, how long is the target paralyzed?
 	var/hit_paralyze_time = 1 SECONDS
 	///On a direct hit, how much do the victim's eyes get blurred?

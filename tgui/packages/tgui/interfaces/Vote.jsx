@@ -49,6 +49,7 @@ const StartVoteOptions = (props) => {
   const {
     allow_vote_mode,
     allow_vote_restart,
+    allow_vote_endround,
     allow_vote_groundmap,
     allow_vote_shipmap,
     vote_happening,
@@ -80,7 +81,15 @@ const StartVoteOptions = (props) => {
                   disabled={vote_happening || !allow_vote_restart}
                   onClick={() => act('restart')}
                 >
-                  Restart
+                  Restart (immediately)
+                </Button>
+              </Stack.Item>
+              <Stack.Item>
+                <Button
+                  disabled={vote_happening || !allow_vote_endround}
+                  onClick={() => act('endround')}
+                >
+                  End Round and Restart
                 </Button>
               </Stack.Item>
               <Stack.Item>
@@ -105,6 +114,7 @@ const VoteOptions = (props) => {
   const {
     allow_vote_mode,
     allow_vote_restart,
+    allow_vote_endround,
     allow_vote_groundmap,
     allow_vote_shipmap,
     upper_admin,
@@ -156,6 +166,19 @@ const VoteOptions = (props) => {
               <Stack.Item>
                 {!!upper_admin && (
                   <Button.Checkbox
+                    mr={!allow_vote_endround ? 1 : 1.6}
+                    color="red"
+                    checked={!!allow_vote_endround}
+                    onClick={() => act('toggle_endround')}
+                  >
+                    End Round vote{' '}
+                    {allow_vote_endround ? 'Enabled' : 'Disabled'}
+                  </Button.Checkbox>
+                )}
+              </Stack.Item>
+              <Stack.Item>
+                {!!upper_admin && (
+                  <Button.Checkbox
                     mr={!allow_vote_mode ? 1 : 1.6}
                     color="red"
                     checked={!!allow_vote_mode}
@@ -199,7 +222,7 @@ const VotersList = (props) => {
 // Display choices
 const ChoicesPanel = (props) => {
   const { act, data } = useBackend();
-  const { choices, selected_choice, vote_counts } = data;
+  const { choices, selected_choice, vote_counts, vote_weights } = data;
 
   return (
     <Stack.Item grow>
@@ -209,7 +232,12 @@ const ChoicesPanel = (props) => {
             {choices.map((choice, i) => (
               <Box key={choice.num_index}>
                 <LabeledList.Item
-                  label={choice.name.replace(/^\w/, (c) => c.toUpperCase())}
+                  label={
+                    choice.name.replace(/^\w/, (c) => c.toUpperCase()) +
+                    (vote_weights[choice.num_index - 1] !== 1
+                      ? ' (Weight = ' + vote_weights[choice.num_index - 1] + ')'
+                      : '')
+                  }
                   textAlign="right"
                   buttons={
                     <Button
@@ -234,7 +262,9 @@ const ChoicesPanel = (props) => {
                       name="vote-yea"
                     />
                   )}
-                  {vote_counts[choice.num_index - 1]} Votes
+                  {vote_counts[choice.num_index - 1] *
+                    vote_weights[choice.num_index - 1]}{' '}
+                  Votes
                 </LabeledList.Item>
                 <LabeledList.Divider />
               </Box>

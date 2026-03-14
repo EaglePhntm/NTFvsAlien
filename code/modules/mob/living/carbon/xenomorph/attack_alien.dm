@@ -17,7 +17,7 @@
 	return TRUE
 
 /mob/living/carbon/human/attack_alien_grab(mob/living/carbon/xenomorph/X)
-	if(check_shields(COMBAT_TOUCH_ATTACK, X.xeno_caste.melee_damage, "melee"))
+	if(check_shields(COMBAT_TOUCH_ATTACK, X.xeno_caste.melee_damage, "melee", shield_flags = SHIELD_FLAG_XENOMORPH))
 		return ..()
 	X.visible_message(span_danger("\The [X]'s grab is blocked by [src]'s shield!"),
 		span_danger("Our grab was blocked by [src]'s shield!"), null, 5)
@@ -33,6 +33,136 @@
 	X.visible_message(span_warning("\The [X] shoves [src]!"),
 	span_warning("We shove [src]!"), null, 5)
 	return TRUE
+
+/mob/living/carbon/human/attack_alien_disarm(mob/living/carbon/xenomorph/X, dam_bonus)
+	var/randn = rand(1, 100)
+	var/stamina_loss = getStaminaLoss()
+	var/damage = X.xeno_caste.melee_damage * X.xeno_melee_damage_modifier
+	var/sound = 'sound/weapons/alien_knockdown.ogg'
+	var/list/damage_mod = list()
+	var/list/armor_mod = list()
+	var/armor_block = 0
+
+	var/signal_return = SEND_SIGNAL(X, COMSIG_XENOMORPH_DISARM_LIVING, src, damage, damage_mod, armor_mod)
+	if(ishuman(src))
+		signal_return &= SEND_SIGNAL(X, COMSIG_XENOMORPH_DISARM_HUMAN, src, damage, damage_mod, armor_mod)
+
+	if(!(signal_return & COMSIG_XENOMORPH_BONUS_APPLIED))
+		damage_mod += dam_bonus
+		//locate() subtypes aswell, whichever the mob has.
+		var/datum/action/ability/xeno_action/stealth/stealth_skill = locate() in X.actions
+		if(stealth_skill)
+			if(stealth_skill.can_sneak_attack)
+				var/datum/action/ability/activable/xeno/hunter_mark/assassin/mark = X.actions_by_path[/datum/action/ability/activable/xeno/hunter_mark/assassin]
+				if(mark?.marked_target == src) //assassin death mark
+					damage *= mark.death_mark_damage_multiplier
+
+	var/armor_pen = X.xeno_caste.melee_ap
+
+	if(!(signal_return & COMPONENT_BYPASS_ARMOR))
+		armor_block = X.xeno_caste.melee_damage_armor
+
+	for(var/i in damage_mod)
+		damage += i
+
+	for(var/i in armor_mod)
+		armor_pen += i
+
+	if(!(signal_return & COMPONENT_BYPASS_SHIELDS))
+		damage = check_shields(COMBAT_MELEE_ATTACK, damage, "melee", shield_flags = SHIELD_FLAG_XENOMORPH)
+
+	if(!damage)
+		X.visible_message(span_danger("\The [X]'s disarm is blocked by [src]'s shield!"),
+			span_danger("Our disarm is blocked by [src]'s shield!"), null, COMBAT_MESSAGE_RANGE)
+		X.do_attack_animation(src, ATTACK_EFFECT_GRAB)
+		return FALSE
+
+	//Disarm attacks are stronger if human has no stamina buffer left because the xeno still got to take
+	//it down to 200 staminaloss + 50 buffer if at full stam, but they never are because exertion of other means.
+	if(staminaloss > 0)
+		damage *= 2
+	else //if human is energetic yet they will endure.
+		damage *= 0.5
+	if(pulledby) //extra damage to people who are grabbed.
+		damage *= 1.5
+	if(lying_angle||incapacitated()||IsParalyzed()||IsKnockdown()) //extra damage to people who are downed already.
+		damage *= 1.5
+
+	var/damage_to_deal = clamp(damage, 0, (maxHealth * 2) - stamina_loss)
+	damage_to_deal += (damage - damage_to_deal)
+
+	X.do_attack_animation(src, ATTACK_EFFECT_DISARM2)
+	if(ishuman(src))
+		if(istype(X.xeno_caste, /datum/xeno_caste/spiderling))
+			visible_message(null, "<span class='danger'>The spiderling is clinging to you!</span>")
+			sound = 'sound/weapons/thudswoosh.ogg'
+			X.visible_message("<span class='danger'>The spiderling clings to [src]!</span>",
+			"<span class='danger'>We grasp [src] and hold them still!</span>", null, 5)
+			add_slowdown(0.2,2)
+			playsound(loc, sound, 25, TRUE, 7)
+
+		if(IsParalyzed())
+			if((AmountParalyzed() < 10 SECONDS)  && stamina_loss >= maxHealth * 2)
+				AdjustParalyzed(2 SECONDS)
+			else
+				apply_damage(damage_to_deal, STAMINA, BODY_ZONE_CHEST, armor_block, FALSE, FALSE, TRUE, armor_pen, X)
+			X.visible_message("<span class='danger'>[X] holds [src] down!</span>",
+			"<span class='danger'>We hold [src] down!</span>", null, 5)
+		else
+			if(pulling)
+				X.visible_message("<span class='danger'>[X] has broken [src]'s grip on [pulling]!</span>",
+				"<span class='danger'>We break [src]'s grip on [pulling]!</span>", null, 5)
+				sound = 'sound/weapons/thudswoosh.ogg'
+				stop_pulling()
+			/* no more gun disarm
+			else if(prob(10) && drop_held_item())
+				X.visible_message("<span class='danger'>[X] has disarmed [src]!</span>",
+				"<span class='danger'>We disarm [src]!</span>", null, 5)
+				sound = 'sound/weapons/thudswoosh.ogg'
+			*/
+			apply_damage(damage_to_deal, STAMINA, BODY_ZONE_CHEST, armor_block, FALSE, FALSE, TRUE, armor_pen, X)
+			X.visible_message("<span class='danger'>[X] wrestles [src]-!</span>",
+			"<span class='danger'>We wrestle [src]!</span>", null, 5)
+			add_slowdown(0.4,2)
+			if(stamina_loss >= maxHealth * 2) //same as regular stamina exhaustion stun.
+				if(!IsParalyzed())
+					visible_message(null, "<span class='danger'>You are too weakened to keep resisting [X], you slump to the ground!</span>")
+					X.visible_message("<span class='danger'>[X] slams [src] to the ground!</span>",
+					"<span class='danger'>We slam [src] to the ground!</span>", null, 5)
+					//human living_health_procs.dm should handle the paralyze here.
+	else if(!ishuman(src))
+		if(randn <= 40)
+			if(!IsParalyzed())
+				X.visible_message("<span class='danger'>[X] shoves and presses [src] down!</span>",
+				"<span class='danger'>We shove and press [src] down!</span>", null, 5)
+				visible_message(null, "<span class='danger'>You are too weakened to keep resisting [X], you slump to the ground!</span>")
+				X.visible_message("<span class='danger'>[X] slams [src] to the ground!</span>",
+				"<span class='danger'>We slam [src] to the ground!</span>", null, 5)
+				Paralyze(10 SECONDS)
+			else if(IsParalyzed() && AmountParalyzed() < 10 SECONDS)
+				X.visible_message("<span class='danger'>[X] holds [src] down!</span>",
+				"<span class='danger'>We hold [src] down!</span>", null, 5)
+				AdjustParalyzed(2 SECONDS)
+			if(istype(X.xeno_caste, /datum/xeno_caste/spiderling))
+				visible_message(null, "<span class='danger'>The spiderlings are clinging to you and slowing you down!</span>")
+				X.visible_message("<span class='danger'>[X] grasps [src] and holds them still!</span>",
+					"<span class='danger'>We slam [src] to the ground!</span>", null, 5)
+				add_slowdown(0.2,2)
+		else
+			sound = 'sound/weapons/punchmiss.ogg'
+			X.visible_message("<span class='danger'>[X] attempted to disarm [src] but they resist!</span>",
+			"<span class='danger'>We attempt to disarm [src] but it resisted!</span>", null, 5)
+			add_slowdown(0.4,2)
+
+
+	log_combat(X, src, "disarmed")
+	playsound(loc, sound, 25, TRUE, 7)
+//	else;
+//		playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, 7)
+//		X.visible_message("<span class='danger'>[X] attempted to disarm [src]!</span>",
+//		"<span class='danger'>We attempt to disarm [src]!</span>", null, 5)
+//		return
+
 
 /mob/living/proc/can_xeno_slash(mob/living/carbon/xenomorph/X)
 	return !(status_flags & INCORPOREAL)
@@ -74,6 +204,15 @@
 	// if we don't get any non-stacking bonuses dont apply dam_bonus
 	if(!(signal_return & COMSIG_XENOMORPH_BONUS_APPLIED))
 		damage_mod += dam_bonus
+		//locate() subtypes aswell, whichever the mob has.
+		var/datum/action/ability/xeno_action/stealth/stealth_skill = locate() in X.actions
+		if(stealth_skill)
+			if(stealth_skill.can_sneak_attack)
+				var/datum/action/ability/activable/xeno/hunter_mark/assassin/mark = X.actions_by_path[/datum/action/ability/activable/xeno/hunter_mark/assassin]
+				if(mark?.marked_target == src) //assassin death mark
+					damage *= mark.death_mark_damage_multiplier
+
+	var/armor_pen = X.xeno_caste.melee_ap
 
 	if(!(signal_return & COMPONENT_BYPASS_ARMOR))
 		armor_block = X.xeno_caste.melee_damage_armor
@@ -81,12 +220,11 @@
 	for(var/i in damage_mod)
 		damage += i
 
-	var/armor_pen = X.xeno_caste.melee_ap
 	for(var/i in armor_mod)
 		armor_pen += i
 
 	if(!(signal_return & COMPONENT_BYPASS_SHIELDS))
-		damage = check_shields(COMBAT_MELEE_ATTACK, damage, "melee")
+		damage = check_shields(COMBAT_MELEE_ATTACK, damage, "melee", shield_flags = SHIELD_FLAG_XENOMORPH)
 
 	if(!damage)
 		X.visible_message(span_danger("\The [X]'s slash is blocked by [src]'s shield!"),
@@ -160,6 +298,9 @@
 		span_warning("We nibble [src]."), null, 5)
 		X.do_attack_animation(src)
 		return FALSE
+	else
+		if(!no_health_regen_grace_period)
+			apply_status_effect(STATUS_EFFECT_NO_HEALTH_REGEN, 10 SECONDS)
 	return ..()
 
 
@@ -181,6 +322,22 @@
 			disable_lights(sparks = TRUE)
 			to_chat(X, span_warning("We disable whatever annoying lights the dead creature possesses."))
 		else
+			var/implanted_larvas
+			for(var/mob/living/carbon/xenomorph/larva/implanted in contents)
+				implanted_larvas++
+			if(implanted_larvas)
+				for(var/i in 1 to implanted_larvas)
+					X.visible_message(span_danger("[X] begins to dig out a larva from [src]!"), span_danger("We begin to dig out a grown larva from [src]."), span_warning("You hear flesh cut open."), 5)
+					do_jitter_animation(50, 2 SECONDS)
+					if(do_mob(X, src, 3 SECONDS, BUSY_ICON_HOSTILE))
+						X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
+						playsound(get_turf(src), SFX_ALIEN_CLAW_FLESH, 25, TRUE)
+						apply_damage(X.xeno_caste.melee_damage * X.xeno_melee_damage_modifier, BRUTE, 0, MELEE, TRUE, TRUE, TRUE, X.xeno_caste.melee_ap, X)
+						X.visible_message(span_danger("[X] digs out a larva from [src]!"), span_danger("We dig out a larva from [src]."), span_warning("You hear flesh cut open."), 5)
+						for(var/mob/living/carbon/xenomorph/larva/implanted in contents)
+							implanted.forceMove(loc)
+							addtimer(CALLBACK(implanted, TYPE_PROC_REF(/mob/living/carbon/xenomorph/larva, burrow)), 1.5 SECONDS)
+							break
 			to_chat(X, span_warning("[src] is dead, why would we want to touch it?"))
 		return FALSE
 
@@ -191,31 +348,43 @@
 		return FALSE
 
 //Every other type of nonhuman mob //MARKER OVERRIDE
-/mob/living/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/mob/living/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 
 	if (xeno_attacker.fortify || xeno_attacker.behemoth_charging || xeno_attacker.endurance_active)
 		return FALSE
 
+	if(xeno_attacker.handcuffed)
+		return FALSE
+
 	switch(xeno_attacker.a_intent)
 		if(INTENT_HELP)
 			if(on_fire)
-				xeno_attacker.visible_message(span_danger("[xeno_attacker] stares at [src]."), span_notice("We stare at the roasting [src], toasty."), null, 5)
-				return FALSE
-
-			xeno_attacker.visible_message(span_notice("\The [xeno_attacker] caresses [src] with its scythe-like arm."), \
-			span_notice("We caress [src] with our scythe-like arm."), null, 5)
+				fire_stacks = max(fire_stacks - 1, 0)
+				playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
+				xeno_attacker.visible_message(span_danger("[xeno_attacker] tries to put out the fire on [src]!"), \
+					span_warning("We try to put out the fire on [src]!"), null, 5)
+				if(fire_stacks <= 0)
+					xeno_attacker.visible_message(span_danger("[xeno_attacker] has successfully extinguished the fire on [src]!"), \
+						span_notice("We extinguished the fire on [src]."), null, 5)
+					ExtinguishMob()
+				return TRUE
+			xeno_attacker.visible_message(span_notice("\The [xeno_attacker] caresses \the [src] with [xeno_attacker.p_their()] scythe-like arm."), \
+			span_notice("We caress \the [src] with our scythe-like arm."), null, 5)
 			return FALSE
 
 		if(INTENT_GRAB)
 			return attack_alien_grab(xeno_attacker)
 
-		if(INTENT_HARM, INTENT_DISARM)
+		if(INTENT_HARM)
 			SEND_SIGNAL(xeno_attacker, COMSIG_XENOMORPH_PRE_ATTACK_ALIEN_HARM, src, isrightclick)
 			return attack_alien_harm(xeno_attacker)
+
+		if(INTENT_DISARM)
+			return attack_alien_disarm(xeno_attacker)
 	return FALSE
 
 /mob/living/attack_larva(mob/living/carbon/xenomorph/larva/M)
-	M.visible_message(span_danger("[M] nudges its head against [src]."), \
+	M.visible_message(span_danger("[M] nudges [M.p_their()] head against [src]."), \
 	span_danger("We nudge our head against [src]."), null, 5)

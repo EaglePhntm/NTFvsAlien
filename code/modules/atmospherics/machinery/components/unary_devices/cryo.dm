@@ -3,7 +3,7 @@
 /obj/machinery/atmospherics/components/unary/cryo_cell
 	name = "cryo cell"
 	icon = 'icons/obj/machines/cryogenics2.dmi'
-	icon_state = "cell_mapper"
+	icon_state = "cell-off"
 	density = TRUE
 	max_integrity = 350
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 100, BOMB = 0, BIO = 100, FIRE = 30, ACID = 30)
@@ -58,6 +58,13 @@
 	occupant.Sleeping(20 SECONDS)
 
 	//You'll heal slowly just from being in an active pod, but chemicals speed it up.
+	if(HAS_TRAIT(occupant, TRAIT_SKILLS_EXTRACTED) && occupant.can_restore_skills)
+		occupant.set_skills(occupant.skills.modifyAllRatings(1))
+		REMOVE_TRAIT(occupant, TRAIT_SKILLS_EXTRACTED, TRAIT_GENERIC)
+		occupant.can_restore_skills = FALSE
+	if(HAS_TRAIT(occupant, TRAIT_SKILLS_IMPRINTED) && occupant.can_restore_skills)
+		REMOVE_TRAIT(occupant, TRAIT_SKILLS_IMPRINTED, TRAIT_GENERIC)
+		occupant.can_restore_skills = FALSE
 	if(occupant.getOxyLoss())
 		occupant.adjustOxyLoss(-1)
 	if (occupant.getToxLoss())
@@ -155,7 +162,7 @@
 		occupant.client.set_eye(occupant.client.mob)
 		occupant.client.perspective = MOB_PERSPECTIVE
 	if(occupant in contents)
-		occupant.forceMove(get_step(loc, dir))
+		occupant.forceMove(get_step(loc, SOUTH))	//this doesn't account for walls or anything, but i don't forsee that being a problem.
 	if (occupant.bodytemperature < 261 && occupant.bodytemperature >= 70) //Patch by Aranclanos to stop people from taking burn damage after being ejected
 		occupant.bodytemperature = 261									  // Changed to 70 from 140 by Zuhayr due to reoccurance of bug.
 	if(auto_eject) //Turn off and announce if auto-ejected because patient is recovered or dead.
@@ -414,11 +421,13 @@
 /obj/machinery/atmospherics/components/unary/cryo_cell/can_crawl_through()
 	return // can't ventcrawl in or out of cryo.
 
-/obj/machinery/atmospherics/components/unary/cryo_cell/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/machinery/atmospherics/components/unary/cryo_cell/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(!occupant)
 		to_chat(xeno_attacker, span_xenowarning("There is nothing of interest in there."))
 		return
 	if(xeno_attacker.status_flags & INCORPOREAL || xeno_attacker.do_actions)
+		return
+	if(xeno_attacker.handcuffed)
 		return
 	visible_message(span_warning("[xeno_attacker] begins to pry the [src]'s cover!"), 3)
 	playsound(src,'sound/effects/metal_creaking.ogg', 25, 1)

@@ -26,7 +26,7 @@
 	slot = ATTACHMENT_SLOT_UNDER
 	pixel_shift_x = 20
 	recoil_mod = -1
-	scatter_mod = 2
+	scatter_mod = -1
 	accuracy_unwielded_mod = -0.1
 	scatter_unwielded_mod = 1
 

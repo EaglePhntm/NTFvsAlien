@@ -400,12 +400,18 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 					newmob.forceMove(location)
 			if("larva")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/larva, location, null, delmob)
+			//RUTGNC EDIT BEGIN
+			if("facehugger")
+				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/facehugger, location, null, delmob)
+			//RUTGMC EDIT END
 			if("defender")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/defender, location, null, delmob)
 			if("warrior")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/warrior, location, null, delmob)
 			if("runner")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/runner, location, null, delmob)
+			if("baneling")
+				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/baneling, location, null, delmob)
 			if("drone")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/drone, location, null, delmob)
 			if("sentinel")
@@ -452,6 +458,8 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/puppeteer, location, null, delmob)
 			if("pyrogen")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/pyrogen, location,null , delmob)
+			if("chimera")
+				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/chimera, location, null, delmob)
 			if("behemoth")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/behemoth, location, null, delmob)
 			if("human")
@@ -475,7 +483,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			if("prototype_supersoldier")
 				newmob = M.change_mob_type(/mob/living/carbon/human/species/prototype_supersoldier, location, null, delmob) //todo doublecheck this
 			if("moth")
-				newmob = M.change_mob_type(/mob/living/carbon/human/species/moth, location, null, delmob, "Moth")
+				newmob = M.change_mob_type(/mob/living/carbon/human/species/moth, location, null, delmob, "Mothellian")
 			if("zombie")
 				newmob = M.change_mob_type(/mob/living/carbon/human/species/zombie, location, null, delmob, "Zombie")
 			if("ai")
@@ -635,16 +643,16 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		if(!istype(H))
 			return
 
-		var/input = input("Please enter a message to reply to [key_name(H)].", "Outgoing message from TGMC", "") as message|null
+		var/input = input("Please enter a message to reply to [key_name(H)].", "Outgoing message from NTC", "") as message|null
 		if(!input)
 			return
 
-		to_chat(H, span_boldnotice("Please stand by for a message from TGMC:<br/>[input]"))
+		to_chat(H, span_boldnotice("Please stand by for a message from NTC:<br/>[input]"))
 		var/sound/S = sound('sound/effects/sos-morse-code.ogg', channel = CHANNEL_ADMIN)
 		SEND_SOUND(H, S)
 
-		log_admin("[key_name(usr)] replied to [ADMIN_TPMONTY(H)]'s TGMC message with: [input].")
-		message_admins("[ADMIN_TPMONTY(usr)] replied to [ADMIN_TPMONTY(H)]'s' TGMC message with: [input]")
+		log_admin("[key_name(usr)] replied to [ADMIN_TPMONTY(H)]'s NTC message with: [input].")
+		message_admins("[ADMIN_TPMONTY(usr)] replied to [ADMIN_TPMONTY(H)]'s' NTC message with: [input]")
 
 
 	if(href_list["deny"])
@@ -732,25 +740,21 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 		var/mob/M = locate(href_list["lobby"])
 
-		if(!M.client)
-			to_chat(usr, span_warning("[M] doesn't seem to have an active client."))
+		if(!M.key)
+			to_chat(usr, span_warning("[M] doesn't seem to have a key."))
 			return
 
 		if(alert("Send [key_name(M)] back to Lobby?", "Send to Lobby", "Yes", "No") != "Yes")
 			return
 
+		if(!M.key)
+			to_chat(usr, span_warning("[M] doesn't seem to have a key."))
+			return
+
 		log_admin("[key_name(usr)] has sent [key_name(M)] back to the lobby.")
 		message_admins("[ADMIN_TPMONTY(usr)] has sent [key_name_admin(M)] back to the lobby.")
 
-		var/mob/new_player/NP = new()
-		M.client.screen.Cut()
-		NP.name = M.key
-		NP.key = M.key
-		if(isobserver(M))
-			qdel(M)
-		else
-			M.ghostize()
-
+		M.ghostize(FALSE, FALSE, TRUE)
 
 	else if(href_list["cryo"])
 		if(!check_rights(R_ADMIN))
@@ -758,6 +762,8 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 		var/mob/living/L = locate(href_list["cryo"])
 		if(!istype(L))
+			if(isobserver(L))
+				L.ghostize(FALSE, FALSE, TRUE)
 			return
 
 		if(alert("Cryo [key_name(L)]?", "Cryosleep", "Yes", "No") != "Yes")
@@ -766,6 +772,8 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		var/client/C = L.client
 		if(C && alert("They have a client attached, are you sure?", "Cryosleep", "Yes", "No") != "Yes")
 			return
+		else
+			L.ghostize(FALSE, FALSE, TRUE)
 
 		var/old_name = L.real_name
 		L.despawn()
@@ -773,13 +781,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		var/lobby
 		if(C?.mob?.mind && alert("Do you also want to send them to the lobby?", "Cryosleep", "Yes", "No") == "Yes")
 			lobby = TRUE
-			var/mob/new_player/NP = new()
-			var/mob/N = C.mob
-			NP.name = C.mob.name
-			C.screen.Cut()
-			C.mob.mind.transfer_to(NP, TRUE)
-			if(isobserver(N))
-				qdel(N)
+			C.mob.ghostize(FALSE, FALSE, TRUE)
 
 		log_admin("[key_name(usr)] has cryo'd [C ? key_name(C) : old_name][lobby ? " sending them to the lobby" : ""].")
 		message_admins("[ADMIN_TPMONTY(usr)] has cryo'd [C ? key_name_admin(C) : old_name] [lobby ? " sending them to the lobby" : ""].")
@@ -920,11 +922,17 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			sender = F.sender
 			subject = "re: [F.title]"
 
-		var/dep = input("Who do you want to message?", "Fax Message") as null|anything in list(CORPORATE_LIAISON, "Combat Information Center", "Brig", "Research", "Warden")
+		var/list/fax_machine_departments = list()
+		for(var/obj/machinery/faxmachine/machine in GLOB.faxmachines)
+			fax_machine_departments |= machine.department
+
+		var/dep = input("Who do you want to message?", "Fax Message") as null|anything in fax_machine_departments
 		if(!dep)
 			return
 
-		var/department = input("Which department do you want to reply AS?", "Fax Message") as null|anything in list("TGMC High Command", "TGMC Provost General", "Nanotrasen")
+		var/department = input("Which department do you want to reply AS?", "Fax Message") as null|anything in list("NTC Human Resources", "NTC Management", "NTC Secretary", "Custom")
+		if(department == "Custom")
+			department = input("Enter a custom sender", "Fax Message", "NTC Secretary") as text|null
 		if(!department)
 			return
 
@@ -1048,7 +1056,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			dat += "<a href='byond://?src=[REF(usr.client.holder)];[HrefToken()];changemode=[mode]'>[mode.name]</a><br>"
 		dat += "<br>"
 		dat += "Now: [GLOB.master_mode]<br>"
-		dat += "Next Round: [trim(file2text("data/mode.txt"))]"
+		dat += "Next Round: [GLOB.next_gamemode]"
 
 		var/datum/browser/browser = new(usr, "change_mode", "<div align='center'>Change Gamemode</div>")
 		browser.set_content(dat)
@@ -1462,12 +1470,13 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			usr.client.holder.ban_parse_href(href_list, TRUE)
 
 
-	else if(href_list["searchunbankey"] || href_list["searchunbanadminkey"] || href_list["searchunbanip"] || href_list["searchunbancid"])
+	else if(href_list["searchunbankey"] || href_list["searchunbanadminkey"] || href_list["searchunbanip"] || href_list["searchunbancid"] || href_list["searchunbanbanid"])
 		var/player_key = href_list["searchunbankey"]
 		var/admin_key = href_list["searchunbanadminkey"]
 		var/player_ip = href_list["searchunbanip"]
 		var/player_cid = href_list["searchunbancid"]
-		usr.client.holder.unbanpanel(player_key, admin_key, player_ip, player_cid)
+		var/ban_id = href_list["searchunbanbanid"]
+		usr.client.holder.unbanpanel(player_key, admin_key, player_ip, player_cid, ban_id)
 
 
 	else if(href_list["unbanpagecount"])
@@ -1476,7 +1485,8 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		var/admin_key = href_list["unbanadminkey"]
 		var/player_ip = href_list["unbanip"]
 		var/player_cid = href_list["unbancid"]
-		usr.client.holder.unbanpanel(player_key, admin_key, player_ip, player_cid, page)
+		var/ban_id = href_list["searchunbanbanid"]
+		usr.client.holder.unbanpanel(player_key, admin_key, player_ip, player_cid, ban_id, page = page)
 
 
 	else if(href_list["editbanid"])
@@ -1502,7 +1512,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		var/page = href_list["unbanpage"]
 		var/admin_key = href_list["unbanadminkey"]
 		usr.client.holder.unban(ban_id, player_key, player_ip, player_cid, role, page, admin_key)
-		usr.client.holder.unbanpanel(player_key, admin_key, player_ip, player_cid)
+		usr.client.holder.unbanpanel(player_key, admin_key, player_ip, player_cid, ban_id)
 
 
 	else if(href_list["unbanlog"])
@@ -1542,6 +1552,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		if(J.current_positions >= J.total_positions)
 			to_chat(usr, span_warning("Filling would cause an overflow. Please add more slots first."))
 			return
+		log_game("Occupying 1 [J.title] slot due to [usr.ckey] commanding this via the admin job panel.")
 		J.occupy_job_positions(1)
 
 		SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/job_slots)
@@ -1560,6 +1571,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		if(J.current_positions <= 0)
 			to_chat(usr, span_warning("Cannot free more job slots."))
 			return
+		log_game("Freeing 1 [J.title] slot due to [usr.ckey] commanding this via the admin job panel.")
 		J.free_job_positions(1)
 
 		SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/job_slots)
@@ -1770,6 +1782,25 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		log_admin("[key_name(src)] randomized the name of [oldname] -> [key_name(H)].")
 		message_admins("[ADMIN_TPMONTY(usr)] randomized the name of [oldname] -> [ADMIN_TPMONTY(H)].")
 
+	else if(href_list["togglerouny"])
+		if(!check_rights(R_FUN))
+			return
+		var/mob/living/carbon/xenomorph/X = locate(href_list["togglerouny"]) in GLOB.mob_living_list
+
+		if(!istype(X))
+			to_chat(usr, span_warning("Target is no longer valid."))
+			return
+
+		if(!X.is_a_rouny)
+			X.is_a_rouny = TRUE
+			X.update_icons()
+			log_admin("[key_name(src)] toggled rouny sprites for [key_name(X)] on.")
+			message_admins("[ADMIN_TPMONTY(usr)] toggled rouny sprites for [ADMIN_TPMONTY(X)] on.")
+		else
+			X.is_a_rouny = FALSE
+			X.update_icons()
+			log_admin("[key_name(src)] toggled rouny sprites for [key_name(X)] off.")
+			message_admins("[ADMIN_TPMONTY(usr)] toggled rouny sprites for [ADMIN_TPMONTY(X)] off.")
 
 	else if(href_list["checkcontents"])
 		if(!check_rights(R_DEBUG))
@@ -2046,7 +2077,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 		switch(href_list["xeno"])
 			if("hive")
-				previous = X.hivenumber
+				previous = X.get_xeno_hivenumber()
 
 				var/newhive = input("Select a hive.", "Xeno Panel") as null|anything in GLOB.hive_datums
 				if(!newhive)
@@ -2058,7 +2089,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				if(previous == change)
 					return
 
-				if(!istype(X) || X.hivenumber != previous)
+				if(!istype(X) || X.get_xeno_hivenumber() != previous)
 					to_chat(usr, span_warning("Target is no longer valid."))
 					return
 
@@ -2225,5 +2256,9 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		var/link_url = href_list["play_internet"]
 		if(!link_url)
 			return
-
 		web_sound(usr, link_url, credit)
+	else if(href_list["playerpanelextended"])
+		if(!check_rights(R_ADMIN))
+			return
+
+		SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/player_panel_extended)

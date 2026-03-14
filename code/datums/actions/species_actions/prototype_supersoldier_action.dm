@@ -268,6 +268,14 @@ GLOBAL_LIST_INIT(stim_type_lookup, init_stims())
 	stim_flags = NONE
 	trait_type = TRAIT_CRIT_IS_DEATH
 
+/datum/stim/trait/constructor
+	name = "Constructor"
+	desc = "Makes you build things faster by implementing according skills into your neural network."
+	cast_say = "Neural construction module loading..."
+	stim_uid = "constructor"
+	stim_flags = NONE
+	trait_type = TRAIT_SUPERIOR_BUILDER
+
 /datum/stim/trait/no_ear_damage
 	name = "Ear Resistance"
 	desc = "Reinforces your ears, making you immune to ear damage while it is active."
@@ -328,11 +336,11 @@ GLOBAL_LIST_INIT(stim_type_lookup, init_stims())
 	desc = "Increases your speed of movement, making you walk and move passively faster."
 	cast_say = "Administering adrenaline..."
 	stim_uid = "speedincrease"
-	particles = /particles/stims/speed
 	stim_flags = NONE
+	particles = /particles/stims/speed
 
 /datum/stim/speed_increase/finish_cast(mob/living/owner)
-	owner.add_movespeed_modifier(MOVESPEED_ID_STIM_INCREASE, TRUE, 0, NONE, TRUE, -0.5)
+	owner.add_movespeed_modifier(MOVESPEED_ID_STIM_INCREASE, TRUE, 0, NONE, TRUE, -0.2)
 	return ..()
 
 /datum/stim/speed_increase/end_effects(mob/living/owner)
@@ -359,10 +367,38 @@ GLOBAL_LIST_INIT(stim_type_lookup, init_stims())
 	stam.stim_drain_modifier += amount_edited
 	return ..()
 
+/datum/stim/crit_increase
+	name = "Crit Threshold"
+	desc = "Increases your resilience, allowing you to endure more damage before dying for a short time."
+	cast_say = "Administering methamphetamines"
+	stim_uid = "critaway"
+	particles = /particles/stims/crit
+	stim_flags = STIM_ALLOW_DUPE
+	cast_delay = 0.5 SECONDS
+	stim_duration = 30 SECONDS
+
+/datum/stim/crit_increase/finish_cast(mob/living/owner)
+	owner.health_threshold_crit -=35
+	owner.health_threshold_dead -=50
+	owner.add_slowdown(10)
+	return ..()
+
+/datum/stim/crit_increase/end_effects(mob/living/owner)
+	owner.health_threshold_crit +=35
+	owner.health_threshold_dead +=50
+	return ..()
+
+/datum/stim/trait/hivetarget
+	name = "Alien Pheromones"
+	desc = "Enhances your body's breedability, driving xenomorphs insane."
+	cast_say = "Adjusting desirability..."
+	stim_uid = "hivetarget"
+	stim_flags = NONE
+	trait_type = TRAIT_HIVE_TARGET
 
 /datum/stim/stamina_regen
 	name = "Stamina Recovery"
-	desc = "Increases your resistance to tiredness, making you use stamina more slowly."
+	desc = "Increases your resistance to tiredness, making you recover stamina faster."
 	cast_say = "Administering amphetamines..."
 	stim_uid = "stamregenincrease"
 	stim_flags = STIM_ALLOW_DUPE
@@ -403,7 +439,7 @@ GLOBAL_LIST_INIT(stim_type_lookup, init_stims())
 
 /datum/stim/skills/melee
 	name = "Melee Skill"
-	desc = "Enhances your strikes with magic, increasing your skill in melee."
+	desc = "Enhances your strikes with increased accuracy, increasing your skill in melee."
 	cast_say = "Neural reaction module loading..."
 	stim_uid = "meleeskillbuff"
 	stim_flags = STIM_ALLOW_DUPE
@@ -412,7 +448,7 @@ GLOBAL_LIST_INIT(stim_type_lookup, init_stims())
 
 /datum/stim/skills/powerloader
 	name = "Powerloader Skill"
-	desc = "Increase your skill at using power loaders."
+	desc = "Increase your skill at using power loaders, this is totally necessary."
 	cast_say = "Neural powerloader module loading..."
 	stim_uid = "powerloaderskillbuff"
 	stim_flags = STIM_ALLOW_DUPE
@@ -420,7 +456,7 @@ GLOBAL_LIST_INIT(stim_type_lookup, init_stims())
 	max_skills = list(SKILL_POWERLOADER = SKILL_POWERLOADER_PRO) // ensures RO and such are still better
 
 /particles/stims
-	count = 10
+	count = 4
 	spawning = 1
 	gravity = list(0, -0.03)
 	icon = 'icons/effects/particles/generic_particles.dmi'
@@ -433,6 +469,10 @@ GLOBAL_LIST_INIT(stim_type_lookup, init_stims())
 /particles/stims/speed
 	icon_state = "square"
 	gradient = list(1, "#001eff", 2, "#00ffc3", "loop")
+
+/particles/stims/crit
+	icon_state = "spark"
+	gradient = list(1, "#db1111", 2, "#d1c300", "loop")
 
 /datum/stim/better_throw
 	name = "Longer Throw"

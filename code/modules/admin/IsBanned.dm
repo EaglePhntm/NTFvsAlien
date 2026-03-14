@@ -31,10 +31,33 @@
 	if(GLOB.admin_datums[ckey] || GLOB.deadmins[ckey])
 		admin = TRUE
 
+	var/whitelisted = check_whitelist(ckey)
+	/*
+	var/logmsg
 
+	if(!real_bans_only)
+		if(admin)
+			logmsg = "Skipped amia whitelist check for [key] because they are an admin."
+		else
+			if(whitelisted)
+				logmsg = "Skipped amia whitelist check for [key] because they are in the TGMC-style whitelist."
+			else
+				if(ckey in GLOB.amia_bypass)
+					logmsg = "Skipped amia whitelist check for [key] because of a matching amia bypass entry for them:[json_encode(list(ckey = GLOB.amia_bypass[ckey]))]."
+				else
+					if(amia_whitelistcheck(ckey))
+						logmsg = "Looking up [key] in the amia whitelist... passed."
+		if(logmsg)
+			log_admin(logmsg)
+			if(message)
+				message_admins(logmsg)
+		else
+			log_access("Failed Login: [key] - Not on amia whitelist")
+			return list("reason"="Unverified","desc"="Your ckey is not associated with an active member account on our discord. Please verify by opening a ticket. If you are already verified, please let us know!")
+	*/
 	//Whitelist
 	if(!real_bans_only && !C && CONFIG_GET(flag/usewhitelist))
-		if(!check_whitelist(ckey))
+		if(!whitelisted)
 			if (admin)
 				log_admin("The admin [key] has been allowed to bypass the whitelist")
 				if (message)
@@ -43,6 +66,7 @@
 			else
 				log_access("Failed Login: [key] - Not on whitelist")
 				return list("reason"="whitelist", "desc" = "\nReason: You are not on the white list for this server")
+
 
 	//Guest Checking
 	if(!real_bans_only && !C && IsGuestKey(key))
@@ -58,9 +82,14 @@
 	if(!real_bans_only && !C && extreme_popcap && !admin)
 		var/popcap_value = length(GLOB.clients)
 		if(popcap_value >= extreme_popcap && !GLOB.joined_player_list.Find(ckey))
+#ifdef OPENDREAM
+			log_access("Failed Login: [key] - Population cap reached")
+			return list("reason"="popcap", "desc"= "\nReason: [CONFIG_GET(string/extreme_popcap_message)]")
+#else
 			if(!CONFIG_GET(flag/byond_member_bypass_popcap) || !world.IsSubscribed(ckey, "BYOND"))
 				log_access("Failed Login: [key] - Population cap reached")
 				return list("reason"="popcap", "desc"= "\nReason: [CONFIG_GET(string/extreme_popcap_message)]")
+#endif
 
 	if(CONFIG_GET(flag/sql_enabled))
 		if(!SSdbcore.Connect())

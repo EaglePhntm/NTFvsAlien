@@ -55,6 +55,7 @@
 	. = ..()
 	if(!.)
 		return
+	owner.drop_all_held_items()
 	ADD_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
 	ADD_TRAIT(owner, TRAIT_FLOORED, TRAIT_STATUS_EFFECT(id))
 
@@ -85,6 +86,7 @@
 	. = ..()
 	if(!.)
 		return
+	owner.drop_all_held_items()
 	ADD_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
 	ADD_TRAIT(owner, TRAIT_IMMOBILE, TRAIT_STATUS_EFFECT(id))
 	ADD_TRAIT(owner, TRAIT_FLOORED, TRAIT_STATUS_EFFECT(id))
@@ -154,8 +156,8 @@
 		healing += BASE_HEAL_RATE
 	if(locate(/obj/item/bedsheet) in owner.loc)
 		healing += BASE_HEAL_RATE
-		if((locate(/obj/item/toy/plush) in owner.loc)) // plushie bonus in bed with a blanket
-			healing += 0.75 * BASE_HEAL_RATE // plushie bonus in bed with a blanket
+	if((locate(/obj/item/toy/plush) in owner.loc)) // plushie bonus in bed
+		healing += BASE_HEAL_RATE
 	if(health_ratio > -0.5)
 		owner.adjustBruteLoss(healing)
 		owner.adjustFireLoss(healing)
@@ -175,7 +177,7 @@
 	id = "repairing"
 	tick_interval = 1 SECONDS
 	///How much brute or burn per second
-	var/healing_per_tick = 4
+	var/healing_per_tick = 8 //Robots can now bleedout
 	///Whether the last tick made a sound effect or not
 	var/last_sound
 
@@ -567,8 +569,8 @@
 		return
 	if(length(debuff_owner.do_actions))
 		return
-	if(!do_after(debuff_owner, 5 SECONDS, NONE, debuff_owner, BUSY_ICON_GENERIC))
-		debuff_owner?.balloon_alert(debuff_owner, "interrupted!")
+	if(!do_after(debuff_owner, 5 SECONDS, TRUE, debuff_owner, BUSY_ICON_GENERIC))
+		debuff_owner?.balloon_alert(debuff_owner, "Interrupted!")
 		return
 	if(QDELETED(src))
 		return
@@ -992,6 +994,40 @@
 /datum/status_effect/incapacitating/dancer_tagged
 	id = "dancer_tagged"
 	duration = 15 SECONDS
+
+// ***************************************
+// *********** Xeno healing debuff
+// ***************************************
+/datum/status_effect/nohealthregen
+	id = "nohealthregen"
+	alert_type = /atom/movable/screen/alert/status_effect/nohealthregen
+	status_type = STATUS_EFFECT_REPLACE
+
+/atom/movable/screen/alert/status_effect/nohealthregen
+	name = "Health Regeneration Stopped"
+	desc = "Your health regeneration was temporarily lost because of enemy xeno toxin!"
+
+/datum/status_effect/nohealthregen/on_creation(mob/living/new_owner, set_duration)
+	if(isxeno(new_owner))
+		var/mob/living/carbon/xenomorph/xeno = new_owner
+		if(xeno.no_health_regen_grace_period)
+			qdel(src)
+			return
+		owner = xeno
+		duration = set_duration
+		return ..()
+	else
+		CRASH("something applied nohealthregen on a nonxeno, dont do that")
+
+/datum/status_effect/nohealthregen/on_apply()
+	. = ..()
+	if(!.)
+		return
+	ADD_TRAIT(owner, TRAIT_NOHEALTHREGEN, TRAIT_STATUS_EFFECT(id))
+
+/datum/status_effect/nohealthregen/on_remove()
+	REMOVE_TRAIT(owner, TRAIT_NOHEALTHREGEN, TRAIT_STATUS_EFFECT(id))
+	return ..()
 
 // ***************************************
 // *********** Acid Melting

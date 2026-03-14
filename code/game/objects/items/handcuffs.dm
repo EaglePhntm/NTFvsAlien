@@ -42,7 +42,7 @@
 	log_combat(user, H, "handcuffed", src, addition="(attempt)")
 
 	user.visible_message(span_notice("[user] tries to put [src] on [H]."))
-	if(do_after(user, cuff_delay, NONE, H, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE, extra_checks = CALLBACK(user, TYPE_PROC_REF(/datum, Adjacent), H)) && !H.handcuffed)
+	if(do_mob(user, H, cuff_delay, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE, extra_checks = CALLBACK(user, TYPE_PROC_REF(/datum, Adjacent), H)) && !H.handcuffed)
 		if(H.has_limb_for_slot(SLOT_HANDCUFFED))
 			user.dropItemToGround(src)
 			H.equip_to_slot_if_possible(src, SLOT_HANDCUFFED, 1, 0, 1, 1)
@@ -57,6 +57,7 @@
 	breakouttime = 1 MINUTES
 	cuff_sound = 'sound/weapons/cablecuff.ogg'
 	cuff_delay = 2 SECONDS
+	w_class = WEIGHT_CLASS_TINY
 
 
 /obj/item/restraints/handcuffs/zip/place_handcuffs(mob/living/carbon/target, mob/user)
@@ -73,6 +74,7 @@
 	icon_state = "cuff_white"
 	breakouttime = 30 SECONDS
 	cuff_sound = 'sound/weapons/cablecuff.ogg'
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/restraints/handcuffs/cable/red
 	color = "#DD0000"

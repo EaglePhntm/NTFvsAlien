@@ -1,8 +1,49 @@
 2026-01-01:
+  Ducky-Momo:
+  - rscadd: KZ ammo back to specialized section of vendor
+  - balance: buffed autocannon accuracy, range and damage falloff
   mudzbe:
   - balance: Robots/synths take burn damage per zombium
   - rscdel: Remove flashbang effect from ammo cookoff
   - balance: Decrease zombie spawnrate
+2026-01-04:
+  Colfer1:
+  - balance: Medical nanites are now twice as effective, but purge other brute/burn/pain
+      healing chems like they are supposed to
+  - bugfix: AI no longer spam tailstab (because they dont have it anymore)
+  - balance: adjusted puppet speed and health to be less oppressive
+  - bugfix: Xenos can no longer devour eachother
+  OrbisAnima:
+  - qol: Removes repetition of Sex messages unless the intents are changed.
+2026-01-09:
+  Nokia2Student:
+  - balance: Xurrender/xumbit applies godmode to xenos.
+  - balance: Surrender/sumbit/xurrender/xumbit no longer applies godmode in war modes.
+  - balance: Nonlethals no longer damage xeno's plasma. They fill up their stun bar
+      instead.
+  - rscadd: Stun bar added for xenos, which paralyzes them for 9 seconds if it gets
+      filled up. It regenerates the same way health does, and its maximum depends
+      on xeno's current health. The more damaged xeno is, the easier it is to take
+      them down.
+  - rscadd: Added new shackles item to req, which can be used to restrain xenomorphs
+      and block their abilities.
+2026-01-10:
+  EaglePhntm:
+  - rscadd: Added resin sacks and bodysuit stuff
+  - bugfix: nests now give pleasure, no longer caretake their victims and they instead
+      inject acid in time, they are no longer put marine and forget 1x1 room hellholes,
+      they'll end up dying and becoming useless without supervising, use regular nests
+      for keeping people, tentacle for fun and traps. Also tentacles only take 1 second
+      with a cooldown of (30 seconds on fail) to catch people who walk over them instead
+      of 10 now so dont stay on it, proper trap.
+  Nokia2Student:
+  - balance: All nonlethals no longer drain both plasma and stun bar, only some target
+      both.
+  - balance: Stun bar regeneration penalty was removed when low on health/plasma.
+2026-01-16:
+  Lefunny:
+  - balance: Dragon speed from 0.1 to 0.3
+  - balance: Dragon slowdown during firebreath reduced from 8 to 2
 2026-01-17:
   Lumipharon:
   - imageadd: improved welder sprites
@@ -10,7 +51,26 @@
   - code_imp: Added a NPC controller component to slave NPCs to a given atom
   Neocloudy:
   - refactor: Subsystem initialization order has been refactored.
+  OrbisAnima:
+  - rscadd: Adds automatic color changing cat ears and tails to the clothing vendors
+      under the 'other' tab.
   mudzbe:
   - bugfix: Adjusts crash map AI nodes, so that zombies path to nuke discs better
   - bugfix: Weeds always spawn in xeno valhalla
   - qol: Add marine quickbuild to crash gamemodes
+2026-01-20:
+  Lefunny:
+  - rscadd: Satrapine minirocket pack.
+  - rscadd: KnockOut minirocket pack.
+2026-01-26:
+  Colfer1:
+  - rscadd: Adds the laser weapon bundle, including 2 of every standard laser weapon
+      and backpack
+  - balance: Reduces the laser sniper's penetration from 30 to 20 on its standard
+      mode
+  - balance: Gives laser pack/backpack self charging abilities, so theres a point
+      to using them over recharger cells
+2026-01-31:
+  Colfer1:
+  - qol: Nanopaste now behaves similarly to other healpacks/repair methods for robots
+  - bugfix: Nanopaste crate now actually contains 5 nanopaste as advertised

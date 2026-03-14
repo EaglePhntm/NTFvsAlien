@@ -47,28 +47,26 @@
 	name = "pepperball"
 	hud_state = "pepperball"
 	hud_state_empty = "pepperball_empty"
-	ammo_behavior_flags = AMMO_BALLISTIC
+	ammo_behavior_flags = NONE //no ballistic so no blood sprite.
 	accurate_range = 15
 	damage_type = STAMINA
 	armor_type = BIO
-	damage = 70
+	damage = 57
 	penetration = 0
 	shrapnel_chance = 0
 	///percentage of xenos total plasma to drain when hit by a pepperball
-	var/drain_multiplier = 0.05
-	///Flat plasma to drain, unaffected by caste plasma amount.
-	var/plasma_drain = 25
+	var/drain_multiplier = 0.025
+	bullet_color = COLOR_LIGHT_PINK
+	plasma_drain = 20
 
 /datum/ammo/bullet/pepperball/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	if(isxeno(target_mob))
 		var/mob/living/carbon/xenomorph/X = target_mob
-		if(!(X.xeno_caste.caste_flags & CASTE_PLASMADRAIN_IMMUNE))
-			X.use_plasma(drain_multiplier * X.xeno_caste.plasma_max * X.xeno_caste.plasma_regen_limit)
-			X.use_plasma(plasma_drain)
+		X.use_stun_health(drain_multiplier * X.xeno_caste.max_health)
 
 /datum/ammo/bullet/pepperball/pepperball_mini
-	damage = 40
-	drain_multiplier = 0.03
+	damage = 42
+	drain_multiplier = 0.02
 	plasma_drain = 15
 
 /datum/ammo/alloy_spike

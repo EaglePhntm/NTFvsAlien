@@ -22,7 +22,7 @@
 		return TRUE
 
 /datum/campaign_asset/strategic_reserves/activated_effect()
-	faction.active_attrition_points += round(length(GLOB.clients) * 0.3)
+	faction.active_attrition_points += round(length(GLOB.whitelisted_clients) * 0.3)
 	faction.respawn_delay_modifier += respawn_delay_mod
 
 /datum/campaign_asset/strategic_reserves/deactivate()

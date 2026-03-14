@@ -420,7 +420,8 @@
 /turf/open/floor/prison,
 /area/icy_caves/caves/cavesbrig)
 "bL" = (
-/obj/machinery/computer/intel_computer,
+/obj/structure/cable,
+/obj/machinery/power/terminal,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/engineering)
 "bN" = (
@@ -707,6 +708,10 @@
 /obj/structure/cable,
 /turf/open/floor/plating/mainship,
 /area/icy_caves/caves/northwestmonorail)
+"dj" = (
+/obj/machinery/computer/intel_computer,
+/turf/open/floor/tile/dark/yellow2,
+/area/icy_caves/outpost/engineering)
 "dk" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -1180,6 +1185,15 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating,
 /area/icy_caves/outpost/refinery)
+"fz" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/item/storage/box/gloves,
+/obj/structure/table,
+/turf/open/floor/tile/dark,
+/area/icy_caves/outpost/research)
 "fA" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -2637,8 +2651,6 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/structure/table,
-/obj/item/storage/box/gloves,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/research)
 "nX" = (
@@ -2760,7 +2772,8 @@
 	},
 /area/icy_caves/caves/alienstuff)
 "oF" = (
-/obj/effect/landmark/weed_node,
+/obj/item/storage/fancy/vials,
+/obj/structure/table,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/research)
 "oG" = (
@@ -2990,6 +3003,7 @@
 "pJ" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/ai_node,
+/obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/engineering)
 "pK" = (
@@ -4114,8 +4128,7 @@
 /area/icy_caves/caves/chapel)
 "uC" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/structure/table,
-/obj/item/reagent_containers/glass/beaker/vial,
+/obj/effect/landmark/static_comms/net_two,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/research)
 "uD" = (
@@ -4374,6 +4387,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/engineering)
 "vI" = (
@@ -5497,12 +5511,8 @@
 /turf/open/floor/plating/ground/snow/layer2,
 /area/icy_caves/outpost/outside)
 "AX" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
-/obj/structure/cable,
+/obj/item/reagent_containers/glass/beaker/vial,
 /obj/structure/table,
-/obj/item/mass_spectrometer/adv,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/research)
 "AY" = (
@@ -7704,7 +7714,8 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northern)
 "LG" = (
-/obj/effect/spawner/random/misc/structure/closet/welding,
+/obj/machinery/power/smes/buildable,
+/obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/engineering)
 "LH" = (
@@ -8597,9 +8608,9 @@
 /turf/open/floor/plating,
 /area/icy_caves/outpost/garage)
 "Qb" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/closed/mineral/smooth/darkfrostwall/indestructible,
-/area/lv624/lazarus/console)
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/floor/tile/dark,
+/area/icy_caves/outpost/garage)
 "Qc" = (
 /obj/structure/table,
 /obj/item/storage/kitchen_tray,
@@ -8715,7 +8726,6 @@
 /area/icy_caves/caves/northwestmonorail)
 "QE" = (
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
-	dir = 4;
 	name = "\improper Cave Cafeteria"
 	},
 /turf/open/floor/wood,
@@ -8917,6 +8927,8 @@
 /obj/structure/bed/chair{
 	dir = 8
 	},
+/obj/structure/cable,
+/obj/machinery/power/terminal,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/engineering)
 "Rx" = (
@@ -9489,6 +9501,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/engineering)
 "UB" = (
@@ -9639,11 +9652,6 @@
 	dir = 4
 	},
 /area/icy_caves/caves/weapon_vault)
-"Vi" = (
-/obj/structure/table,
-/obj/item/storage/fancy/vials,
-/turf/open/floor/tile/dark,
-/area/icy_caves/outpost/research)
 "Vj" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /turf/open/floor/tile/purple/whitepurplefull,
@@ -9789,6 +9797,8 @@
 	},
 /obj/structure/cable,
 /obj/effect/ai_node,
+/obj/structure/table,
+/obj/item/mass_spectrometer/adv,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/research)
 "VP" = (
@@ -11027,7 +11037,7 @@ EM
 (3,1,1) = {"
 EM
 MN
-Qb
+MN
 MN
 EM
 EM
@@ -16466,8 +16476,8 @@ QF
 tC
 Wa
 tN
-KZ
-KZ
+xR
+Qb
 qF
 SM
 Qa
@@ -16622,8 +16632,8 @@ Dk
 QM
 tQ
 MS
-KZ
-KZ
+xR
+xR
 qF
 Qa
 tQ
@@ -25769,13 +25779,13 @@ si
 sj
 si
 ce
-ol
+dj
 yx
 BI
 xU
 YG
 ro
-si
+bL
 LG
 ZI
 ZI
@@ -25931,8 +25941,8 @@ TA
 Dp
 ou
 ro
-si
 bL
+LG
 ZI
 ZI
 XO
@@ -26432,8 +26442,8 @@ Za
 po
 yn
 Ob
-nH
-qm
+fz
+AX
 qG
 ra
 tH
@@ -26588,8 +26598,8 @@ XO
 Mh
 lN
 qJ
-AX
-Vi
+nH
+qm
 TX
 yw
 tH

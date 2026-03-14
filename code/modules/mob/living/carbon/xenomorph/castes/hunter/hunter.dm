@@ -8,20 +8,21 @@
 	health = 150
 	maxHealth = 150
 	plasma_stored = 50
+	pass_flags = PASS_LOW_STRUCTURE
 	tier = XENO_TIER_TWO
 	upgrade = XENO_UPGRADE_NORMAL
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 	)
 
-/mob/living/carbon/xenomorph/hunter/Initialize(mapload)
+/mob/living/carbon/xenomorph/hunter/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SILENT_FOOTSTEPS, XENO_TRAIT)
 
 /mob/living/carbon/xenomorph/hunter/weapon_x
 	caste_base_type = /datum/xeno_caste/hunter/weapon_x
 
-/mob/living/carbon/xenomorph/hunter/weapon_x/Initialize(mapload)
+/mob/living/carbon/xenomorph/hunter/weapon_x/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	RegisterSignal(SSdcs, COMSIG_GLOB_CAMPAIGN_MISSION_ENDED, PROC_REF(terminate_specimen))
 
@@ -29,4 +30,3 @@
 /mob/living/carbon/xenomorph/hunter/weapon_x/proc/terminate_specimen()
 	SIGNAL_HANDLER
 	qdel(src)
-

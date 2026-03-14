@@ -4,9 +4,9 @@
 	unarmed_type = /datum/unarmed_attack/punch
 	limb_type = SPECIES_LIMB_HUMAN
 
-	total_health = 125 //more health than regular humans
+	total_health = 150 //more health than regular humans
 
-	brute_mod = 0.7
+	//brute_mod = 0.7
 	burn_mod = 0.8 // A slight amount of burn resistance. Changed from 0.7 due to their critical condition phase
 
 	cold_level_1 = -1
@@ -19,7 +19,7 @@
 
 	body_temperature = 350
 
-	species_flags = NO_BREATHE|NO_BLOOD|NO_POISON|NO_PAIN|IS_SYNTHETIC|NO_CHEM_METABOLIZATION|NO_STAMINA|DETACHABLE_HEAD|HAS_LIPS|HAS_UNDERWEAR|HAS_SKIN_COLOR|ROBOTIC_LIMBS|GREYSCALE_BLOOD|SPECIES_NO_HUG
+	species_flags = NO_BREATHE|NO_BLOOD|NO_POISON|NO_PAIN|IS_SYNTHETIC|NO_CHEM_METABOLIZATION|DETACHABLE_HEAD|HAS_LIPS|HAS_SKIN_COLOR|ROBOTIC_LIMBS|GREYSCALE_BLOOD
 
 	blood_color = "#EEEEEE"
 
@@ -31,6 +31,8 @@
 	paincries = list(MALE = SFX_MALE_PAIN, FEMALE = SFX_FEMALE_PAIN)
 	goredcries = list(MALE = SFX_MALE_GORED, FEMALE = SFX_FEMALE_GORED)
 	warcries = list(MALE = SFX_MALE_WARCRY, FEMALE = SFX_FEMALE_WARCRY)
+	robotnoises = list(MALE = SFX_ROBOT_NOISES, FEMALE = SFX_ROBOT_NOISES, PLURAL = SFX_ROBOT_NOISES, NEUTER = SFX_ROBOT_NOISES)
+	robotthreaten = list(MALE = SFX_ROBOT_THREATEN, FEMALE = SFX_ROBOT_THREATEN, PLURAL = SFX_ROBOT_THREATEN, NEUTER = SFX_ROBOT_THREATEN)
 	special_death_message = "You have been shut down.<br><small>But it is not the end of you yet... if you still have your body, wait until somebody can resurrect you...</small>"
 
 /datum/species/synthetic/handle_unique_behavior(mob/living/carbon/human/H)
@@ -40,6 +42,16 @@
 		if(prob(12))
 			H.visible_message(span_boldwarning("[H] shudders violently and shoots out sparks!"), span_warning("Critical damage sustained. Internal temperature regulation systems offline. Shutdown imminent. <b>Estimated integrity: [round(H.health)]%.</b>"))
 			do_sparks(4, TRUE, H)
+	//stolen from robot code, they are still nonorganic so.
+	if(H.health <= 0 && H.health > -50)
+		H.clear_fullscreen("robotlow")
+		H.overlay_fullscreen("robothalf", /atom/movable/screen/fullscreen/robot/machine/robothalf)
+	else if(H.health <= -50)
+		H.clear_fullscreen("robothalf")
+		H.overlay_fullscreen("robotlow", /atom/movable/screen/fullscreen/robot/machine/robotlow)
+	else
+		H.clear_fullscreen("robothalf")
+		H.clear_fullscreen("robotlow")
 
 /datum/species/synthetic/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
 	. = ..()
@@ -71,13 +83,13 @@
 
 /datum/species/early_synthetic // Worse at medical, better at engineering. Tougher in general than later synthetics
 	name = "Early Synthetic"
-	icobase = 'icons/mob/human_races/r_synthetic.dmi'
 	default_language_holder = /datum/language_holder/synthetic
 	unarmed_type = /datum/unarmed_attack/punch
 	slowdown = 1.15 //Slower than Late Synths
-	total_health = 200 //Tough boys, very tough boys
-	brute_mod = 0.6
+	total_health = 225 //Tough boys, very tough boys
+	//brute_mod = 0.6
 	burn_mod = 0.6
+	limb_type = SPECIES_LIMB_HUMAN
 
 	cold_level_1 = -1
 	cold_level_2 = -1
@@ -89,7 +101,7 @@
 
 	body_temperature = 350
 
-	species_flags = NO_BREATHE|NO_BLOOD|NO_POISON|NO_PAIN|IS_SYNTHETIC|NO_CHEM_METABOLIZATION|NO_STAMINA|DETACHABLE_HEAD|HAS_UNDERWEAR|ROBOTIC_LIMBS|GREYSCALE_BLOOD|SPECIES_NO_HUG
+	species_flags = NO_BREATHE|NO_BLOOD|NO_POISON|NO_PAIN|IS_SYNTHETIC|NO_CHEM_METABOLIZATION|DETACHABLE_HEAD|ROBOTIC_LIMBS|GREYSCALE_BLOOD
 
 	blood_color = "#EEEEEE"
 	hair_color = "#000000"
@@ -101,6 +113,8 @@
 	paincries = list(MALE = SFX_MALE_PAIN, FEMALE = SFX_FEMALE_PAIN)
 	goredcries = list(MALE = SFX_MALE_GORED, FEMALE = SFX_FEMALE_GORED)
 	warcries = list(MALE = SFX_MALE_WARCRY, FEMALE = SFX_FEMALE_WARCRY)
+	robotnoises = list(MALE = SFX_ROBOT_NOISES, FEMALE = SFX_ROBOT_NOISES, PLURAL = SFX_ROBOT_NOISES, NEUTER = SFX_ROBOT_NOISES)
+	robotthreaten = list(MALE = SFX_ROBOT_THREATEN, FEMALE = SFX_ROBOT_THREATEN, PLURAL = SFX_ROBOT_THREATEN, NEUTER = SFX_ROBOT_THREATEN)
 	special_death_message = "You have been shut down.<br><small>But it is not the end of you yet... if you still have your body, wait until somebody can resurrect you...</small>"
 
 /datum/species/early_synthetic/handle_unique_behavior(mob/living/carbon/human/H)
@@ -116,7 +130,6 @@
 	var/datum/atom_hud/AH = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED_SYNTH]
 	AH.add_hud_to(H)
 	H.health_threshold_crit = -100 // They overheat below SYNTHETIC_CRIT_THRESHOLD
-
 
 /datum/species/early_synthetic/post_species_loss(mob/living/carbon/human/H)
 	. = ..()

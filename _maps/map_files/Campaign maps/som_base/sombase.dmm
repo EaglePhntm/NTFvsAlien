@@ -2638,7 +2638,7 @@
 /area/rocinante_base/surface/building/security/hub)
 "drA" = (
 /obj/structure/table/black,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/mainship/mono,
 /area/rocinante_base/surface/building/administration)
 "drG" = (
@@ -3042,7 +3042,7 @@
 /area/rocinante_base/surface/building/security/brig)
 "dVL" = (
 /obj/structure/table/black,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/mainship/black/full,
 /area/rocinante_base/surface/building/lz_control)
 "dWU" = (
@@ -5535,7 +5535,7 @@
 /area/rocinante_base/surface/building/living/west_barracks)
 "hdc" = (
 /obj/structure/table/black,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/mainship/blue{
 	dir = 1
 	},
@@ -12416,7 +12416,7 @@
 /area/rocinante_base/surface/building/living/barracks)
 "pWD" = (
 /obj/structure/table/black,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/rocinante_base/surface/building/administration)
@@ -18066,7 +18066,7 @@
 /area/rocinante_base/surface/building/administration/meeting)
 "wTX" = (
 /obj/structure/table/black,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/mainship/red{
 	dir = 8
 	},

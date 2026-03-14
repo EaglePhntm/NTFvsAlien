@@ -9,6 +9,8 @@
 	icon = null
 	worn_icon_list = list(slot_wear_suit_str = 'icons/mob/modular/modular_armor.dmi')
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
+	shows_butt = TRUE
+	shows_bottom_genital = TRUE
 
 	attachments_allowed = list(
 		/obj/item/armor_module/module/better_shoulder_lamp,
@@ -21,7 +23,10 @@
 		/obj/item/armor_module/module/hlin_explosive_armor,
 		/obj/item/armor_module/module/ballistic_armor,
 		/obj/item/armor_module/module/chemsystem,
+		/obj/item/armor_module/module/knight,
 		/obj/item/armor_module/module/eshield,
+		/obj/item/armor_module/module/eshield/absorbant/energy,
+		/obj/item/armor_module/module/eshield/absorbant/ballistic,
 		/obj/item/armor_module/module/eshield/overclocked,
 		/obj/item/armor_module/module/mirage,
 		/obj/item/armor_module/module/armorlock,
@@ -47,9 +52,17 @@
 
 	allowed_uniform_type = /obj/item/clothing/under
 
+/*
 /obj/item/clothing/suit/modular/xenonauten/hodgrenades
 	starting_attachments = list(
 		/obj/item/armor_module/module/ballistic_armor,
+		/obj/item/armor_module/storage/grenade,
+	)
+*/
+
+/obj/item/clothing/suit/modular/xenonauten/svalgrenades
+	starting_attachments = list(
+		/obj/item/armor_module/module/eshield,
 		/obj/item/armor_module/storage/grenade,
 	)
 
@@ -205,11 +218,14 @@
 		/obj/item/armor_module/storage/engineering,
 	)
 
+
 /obj/item/clothing/suit/modular/xenonauten/heavy/grenadier //Literally grenades
 	starting_attachments = list(
-		/obj/item/armor_module/module/ballistic_armor,
+//		/obj/item/armor_module/module/ballistic_armor,
+		/obj/item/armor_module/module/eshield, //no hod, so give them a shield intead
 		/obj/item/armor_module/storage/grenade,
 	)
+
 
 /obj/item/clothing/suit/modular/xenonauten/heavy/surt
 	starting_attachments = list(
@@ -236,7 +252,7 @@
 	)
 
 /obj/item/clothing/suit/modular/xenonauten/pilot
-	name = "\improper TerraGov standard flak jacket"
+	name = "\improper NTC standard flak jacket"
 	desc = "A flak jacket used by dropship pilots to protect themselves while flying in the cockpit. Excels in protecting the wearer against high-velocity solid projectiles."
 	item_flags = NONE
 	soft_armor = list(MELEE = 40, BULLET = 50, LASER = 50, ENERGY = 25, BOMB = 30, BIO = 5, FIRE = 25, ACID = 30)
@@ -269,7 +285,7 @@
 /obj/item/clothing/suit/storage/marine/ballistic
 	name = "\improper Crasher multi-threat ballistic armor"
 	desc = "A reused design of a old body armor system from the 21st century."
-	soft_armor = list(MELEE = 40, BULLET = 50, LASER = 50, ENERGY = 25, BOMB = 30, BIO = 5, FIRE = 25, ACID = 30)
+	soft_armor = list(MELEE = 40, BULLET = 65, LASER = 60, ENERGY = 40, BOMB = 45, BIO = 45, FIRE = 45, ACID = 45)
 	slowdown = 0.25
 	armor_protection_flags = CHEST|GROIN|ARMS|LEGS|FEET|HANDS
 	icon = 'icons/mob/clothing/suits/marine_armor.dmi'
@@ -309,6 +325,121 @@
 		/obj/item/weapon/energy/sword,
 	)
 
+/obj/item/clothing/suit/storage/marine/vsd_two
+	name = "Crasher multi-threat light ballistic armor"
+	desc = "The Kaizoku Corporation's main body armor. Protects the user from most bullet calibers."
+	icon = 'icons/mob/clothing/suits/marine_armor.dmi'
+	worn_icon_list = list(
+		slot_wear_suit_str = 'icons/mob/clothing/suits/marine_armor.dmi',
+	)
+	icon_state = "vsd_vest"
+	worn_icon_state = "vsd_vest"
+	slowdown = SLOWDOWN_ARMOR_LIGHT
+	soft_armor = list(MELEE = 35, BULLET = 65, LASER = 45, ENERGY = 40, BOMB = 40, BIO = 45, FIRE = 45, ACID = 45)
+	item_map_variant_flags = NONE
+	armor_features_flags = NONE
+
+	icon_state_variants = list(
+		"urban",
+		"jungle",
+		"desert",
+		"snow",
+	)
+	colorable_allowed = ICON_STATE_VARIANTS_ALLOWED
+	current_variant = "urban"
+
+/obj/item/clothing/suit/storage/marine/vsd_two/plate_carrier
+	name = "Crasher multi-threat light plate carrier"
+	icon_state = "vsd_plate_carrier"
+	worn_icon_state = "vsd_plate_carrier"
+
+/obj/item/clothing/suit/storage/marine/vsd_two/marmor
+	name = "Crasher multi-threat medium-set ballistic armor"
+	desc = "Kaizoku Corporation's uncommon use body armor, used usually by engineers. Protects the user from most bullet calibers."
+	icon_state = "vsd_marmor"
+	worn_icon_state = "vsd_marmor"
+	slowdown = SLOWDOWN_ARMOR_MEDIUM
+	soft_armor = list(MELEE = 45, BULLET = 75, LASER = 55, ENERGY = 45, BOMB = 45, BIO = 50, FIRE = 45, ACID = 55)
+
+/obj/item/clothing/suit/storage/marine/vsd_two/harmor
+	name = "Crasher multi-threat heavy-set ballistic armor"
+	desc = "The Kaizoku Corporation's leader set of armor, rarely given to the grunts. Protects the user from most bullet calibers."
+	icon_state = "vsd_harmor"
+	worn_icon_state = "vsd_harmor"
+	slowdown = SLOWDOWN_ARMOR_HEAVY
+	soft_armor = list(MELEE = 50, BULLET = 80, LASER = 55, ENERGY = 45, BOMB = 50, BIO = 55, FIRE = 55, ACID = 60)
+
+/obj/item/clothing/suit/storage/marine/usl_squad
+	name = "UL5 personal armor"
+	desc = "Standard body armor of the USL operatives, the UL5 (United Light MK5) is a set of light body armor, roughly on par with the venerable Xenonauten in service with the NTC."
+	icon = 'icons/mob/clothing/suits/marine_armor.dmi'
+	worn_icon_list = list(
+		slot_wear_suit_str = 'icons/mob/clothing/suits/marine_armor.dmi',
+	)
+	slowdown = SLOWDOWN_ARMOR_LIGHT
+	icon_state = "main_vest"
+	worn_icon_state = "main_vest"
+	soft_armor = list(MELEE = 55, BULLET = 60, LASER = 60, ENERGY = 60, BOMB = 55, BIO = 10, FIRE = 60, ACID = 60)
+	item_map_variant_flags = NONE
+	armor_features_flags = NONE
+
+	icon_state_variants = list(
+		"USL",
+		"urban",
+		"jungle",
+		"desert",
+		"snow",
+	)
+	colorable_allowed = ICON_STATE_VARIANTS_ALLOWED
+	current_variant = "USL"
+
+/obj/item/clothing/suit/storage/marine/usl_squadul5urban
+	name = "UL5 personal armor"
+	desc = "Standard body armor of the USL operatives, now in service with KZ. The UL5 (United Light MK5) is a set of light body armor, roughly on par with the venerable Xenonauten in service with the NTC."
+	icon = 'icons/mob/clothing/suits/marine_armor.dmi'
+	worn_icon_list = list(
+		slot_wear_suit_str = 'icons/mob/clothing/suits/marine_armor.dmi',
+	)
+	slowdown = SLOWDOWN_ARMOR_LIGHT
+	icon_state = "main_vest"
+	worn_icon_state = "main_vest"
+	soft_armor = list(MELEE = 55, BULLET = 60, LASER = 60, ENERGY = 60, BOMB = 55, BIO = 10, FIRE = 60, ACID = 60)
+	item_map_variant_flags = NONE
+	armor_features_flags = NONE
+
+	icon_state_variants = list(
+		"USL",
+		"urban",
+		"jungle",
+		"desert",
+		"snow",
+	)
+	colorable_allowed = ICON_STATE_VARIANTS_ALLOWED
+	current_variant = "urban"
+
+/obj/item/clothing/suit/storage/marine/usl_squad/larmor_two
+	name = "UL5 stealth armor"
+	desc = "A modification of the UL5, designed for stealth operations."
+	icon_state = "secondary_vest"
+	worn_icon_state = "secondary_vest"
+	slowdown = SLOWDOWN_ARMOR_VERY_LIGHT
+
+/obj/item/clothing/suit/storage/marine/usl_squad/marmor
+	name = "UM6 gunner armor"
+	desc = "A heavy duty set of body armor in service with the USL operatives, the UM6 (United Medium MK6) is known for being a rugged set of armor, capable of taking immesnse punishment."
+	icon_state = "marmor_vest"
+	worn_icon_state = "marmor_vest"
+	slowdown = SLOWDOWN_ARMOR_MEDIUM
+	soft_armor = list(MELEE = 60, BULLET = 65, LASER = 60, ENERGY = 60, BOMB = 60, BIO = 10, FIRE = 60, ACID = 60)
+
+/obj/item/clothing/suit/storage/marine/usl_squad/harmor
+	name = "UH7 heavy plated armor"
+	desc = "An extremely heavy-duty set of body armor in service with the USL military, the UH7 (Union Heavy MK7) is known for having powerful ballistic protection, alongside a noticeable neck guard, fortified in order to allow the wearer to endure the stresses of the bulky helmet."
+	icon_state = "harmor_vest"
+	worn_icon_state = "harmor_vest"
+	slowdown = SLOWDOWN_ARMOR_HEAVY
+	soft_armor = list(MELEE = 65, BULLET = 65, LASER = 65, ENERGY = 60, BOMB = 60, BIO = 10, FIRE = 60, ACID = 60)
+
 //Xenonauten helmets
 /obj/item/clothing/head/modular/m10x
 	name = "\improper M10X pattern marine helmet"
@@ -328,8 +459,8 @@
 		/obj/item/armor_module/module/binoculars/artemis_mark_two,
 		/obj/item/armor_module/module/artemis,
 		/obj/item/armor_module/module/antenna,
-		/obj/item/armor_module/module/night_vision,
 		/obj/item/armor_module/storage/helmet,
+		/obj/item/armor_module/module/night_vision,
 		/obj/item/armor_module/armor/badge,
 	)
 	starting_attachments = list(/obj/item/armor_module/storage/helmet)
@@ -386,6 +517,11 @@
 		/obj/item/armor_module/armor/badge,
 		/obj/item/armor_module/armor/visor/marine/xenonaut,
 	)
+
+/obj/item/clothing/head/modular/m10x/stolen
+	name = "\improper stolen M10X pattern helmet"
+	desc = "A stolen modular M10X pattern marine helmet. It has been painted a dark red & repurposed for use by the Sons of Mars."
+	color = COLOR_PALE_RED_GRAY // dark green * grey-pink = Dark red
 
 /obj/item/clothing/head/modular/m10x/leader
 	name = "\improper M11X pattern leader helmet"

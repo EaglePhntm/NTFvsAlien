@@ -41,7 +41,7 @@
 /datum/mutation_upgrade/shell/staggered_panic/proc/on_staggered(datum/source, amount, ignore_canstun)
 	if(!can_be_activated || xenomorph_owner.stat != CONSCIOUS)
 		return
-	if(get_globs(get_total_structures()) > (xenomorph_owner.corrosive_ammo + xenomorph_owner.neurotoxin_ammo))
+	if(get_globs(get_total_structures()) > (xenomorph_owner.corrosive_ammo + xenomorph_owner.neurotoxin_ammo + xenomorph_owner.aphro_ammo))
 		return
 	var/turf/current_turf = get_turf(xenomorph_owner)
 	for(var/turf/acid_tile AS in RANGE_TURFS(acid_radius, current_turf))
@@ -278,7 +278,7 @@
 /datum/mutation_upgrade/veil/acid_trail/proc/on_movement(datum/source, atom/old_loc, movement_dir, forced, list/old_locs)
 	if(xenomorph_owner.stat != CONSCIOUS)
 		return
-	if(get_globs(get_total_structures()) > (xenomorph_owner.corrosive_ammo + xenomorph_owner.neurotoxin_ammo))
+	if(get_globs(get_total_structures()) > (xenomorph_owner.corrosive_ammo + xenomorph_owner.neurotoxin_ammo + xenomorph_owner.aphro_ammo))
 		return
 	xenomorph_spray(get_turf(xenomorph_owner), 2 SECONDS, 16)
 

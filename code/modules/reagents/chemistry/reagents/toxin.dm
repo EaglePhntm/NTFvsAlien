@@ -167,7 +167,7 @@
 	L.jitter(5)
 	if(prob(10) && !L.stat)
 		L.Unconscious(10 SECONDS)
-	L.setDrowsyness(max(L.drowsyness, 30))
+	L.drowsy(30)
 
 //Reagents used for plant fertilizers.
 /datum/reagent/toxin/fertilizer
@@ -219,24 +219,27 @@
 	description = "An effective hypnotic used to treat insomnia."
 	color = COLOR_TOXIN_SLEEPTOXIN
 	toxpwr = 0
-	overdose_threshold = REAGENTS_OVERDOSE
-	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL
+	custom_metabolism = REAGENTS_METABOLISM
+	overdose_threshold = REAGENTS_OVERDOSE*3
+	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL*3
+	scannable = TRUE
 	taste_description = "cough syrup"
 	trait_flags = BRADYCARDICS
 
 /datum/reagent/toxin/sleeptoxin/on_mob_life(mob/living/L, metabolism)
 	switch(current_cycle)
-		if(1 to 6)
+		if(1 to 5)
 			if(prob(5))
 				L.emote("yawn")
 			L.blur_eyes(10)
-		if(7 to 10)
+		if(6 to 8)
 			if(prob(10))
-				L.Sleeping(10 SECONDS)
-			L.drowsyness = max(L.drowsyness, 20)
-		if(11 to 80)
-			L.Sleeping(10 SECONDS) //previously knockdown, no good for a soporific.
-			L.drowsyness = max(L.drowsyness, 30)
+				L.emote("yawn")
+				L.KnockdownNoChain(10 SECONDS)
+			L.drowsy(20)
+		if(9 to 80)
+			L.Sleeping(30 SECONDS) //previously knockdown, no good for a soporific.
+			L.drowsy(30)
 		if(81 to INFINITY)
 			L.adjustDrowsyness(2)
 	L.reagent_pain_modifier += PAIN_REDUCTION_HEAVY
@@ -355,7 +358,7 @@
 
 /datum/reagent/toxin/acid/reaction_mob(mob/living/L, method = TOUCH, volume, show_message = TRUE, touch_protection = 0)
 	. = ..()
-	if(!(method in list(TOUCH, VAPOR, PATCH)))
+	if(!(method in list(TOUCH, VAPOR, PATCH, INJECT)))
 		return
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
@@ -420,6 +423,9 @@
 	meltprob = 30
 	taste_multi = 1.5
 
+/datum/reagent/toxin/acid/polyacid/on_mob_life(mob/living/L, metabolism)
+	L.take_limb_damage(0, 5*effect_str)
+
 /datum/reagent/toxin/nanites
 	name = "Nanomachines"
 	description = "Microscopic construction robots designed to tear iron out of the surroundings and build jagged structures of wire when mixed into a foam. Drinking this is a bad idea."
@@ -457,21 +463,38 @@
 	custom_metabolism = REAGENTS_METABOLISM * 2
 	overdose_threshold = 10000 //Overdosing for neuro is what happens when you run out of stamina to avoid its oxy and toxin damage
 	toxpwr = 0
+	//var/neuro_stun_cd = 0
 
 /datum/reagent/toxin/xeno_neurotoxin/on_mob_life(mob/living/L, metabolism)
-	var/power
-	switch(current_cycle)
-		if(1 to 20)
+	var/power = 0
+	var/crit_threshold = L.get_crit_threshold()
+	var/healthfactor = (L.health - crit_threshold)/(L.getMaxHealth() - crit_threshold)
+	switch(current_cycle * healthfactor)
+		if(1 to 18)
 			power = (2*effect_str) //While stamina loss is going, stamina regen apparently doesn't happen, so I can keep this smaller.
 			L.reagent_pain_modifier -= PAIN_REDUCTION_LIGHT
-		if(21 to 45)
+		if(19 to 40)
 			power = (6*effect_str)
 			L.reagent_pain_modifier -= PAIN_REDUCTION_HEAVY
 			L.jitter(4) //Shows that things are bad
-		if(46 to INFINITY)
+		if(41 to INFINITY)
 			power = (15*effect_str)
 			L.reagent_pain_modifier -= PAIN_REDUCTION_VERY_HEAVY
 			L.jitter(8) //Shows that things are *really* bad
+
+	power *= healthfactor
+	/*
+
+	//Non lethal variant, deals only stamina damage
+	var/stamina_loss_limit = L.maxHealth * 2
+	var/applied_damage = clamp(power, 0, (stamina_loss_limit - L.getStaminaLoss()))
+	var/damage_overflow = power - applied_damage
+	if((damage_overflow > 0) && COOLDOWN_FINISHED(src, neuro_stun_cd))
+		L.adjustStaminaLoss(power)
+		COOLDOWN_START(src, neuro_stun_cd, 5 MINUTES) //only do the hard stun once every five minutes, unless the reagent is cleared completely
+	else
+		L.adjustStaminaLoss(applied_damage)
+	*/
 
 	//Apply stamina damage, then apply any 'excess' stamina damage beyond our maximum as tox and oxy damage
 	var/stamina_loss_limit = L.maxHealth * 2
@@ -485,12 +508,22 @@
 
 	L.set_timed_status_effect(2 SECONDS, /datum/status_effect/speech/stutter, only_if_higher = TRUE)
 
+	if(L.incapacitated()) //includes paralyzed or nested but not resting
+		custom_metabolism = initial(custom_metabolism) * (1 + (volume/20)) //double speed at 20 units, triple at 40 units, quadruple at 60, etc
+	else
+		custom_metabolism = initial(custom_metabolism)
+
+	if(L.reagents.get_reagent_amount(/datum/reagent/medicine/dylovene) > 1)
+		custom_metabolism *= 1.4
+	if(L.reagents.get_reagent_amount(/datum/reagent/hypervene) > 1)
+		custom_metabolism *= 3
+
 	if(current_cycle < 21) //Additional effects at higher cycles
 		return ..()
 
 	L.adjust_drugginess(1.1) //Move this to stage 2 and 3 so it's not so obnoxious
 
-	if(L.eye_blurry < 30) //So we don't have the visual acuity of Mister Magoo forever
+	if(L.get_blurriness() < 30) //So we don't have the visual acuity of Mister Magoo forever
 		L.adjust_blurriness(1.3)
 
 	return ..()
@@ -640,6 +673,148 @@
 		to_chat(L, span_warning("Your veins feel like water..") )
 		return ..()
 
+/datum/reagent/toxin/xeno_aphrotoxin
+	name = "Aphrotoxin"
+	description = "An aphrodisiac made naturally by some xenos, it is used to disorient hosts and prepare them for breeding."
+	reagent_state = LIQUID
+	color = COLOR_TOXIN_APHROTOXIN
+	overdose_threshold = 10000
+	scannable = TRUE
+	custom_metabolism = REAGENTS_METABOLISM
+	toxpwr = 0
+	var/mob/living/carbon/debuff_owner
+	var/obj/effect/abstract/particle_holder/particle_holder
+	var/mob/living/carbon/human/debuff_ownerhuman
+	var/clothesundoed = 0
+/particles/aphrodisiac
+	icon = 'ntf_modular/icons/effects/particles/generic_particles.dmi'
+	icon_state = "heart"
+	width = 100
+	height = 100
+	count = 1000
+	spawning = 4
+	lifespan = 9
+	fade = 10
+	grow = 0.2
+	velocity = list(0, 0)
+	position = generator(GEN_SPHERE, 10, 10, NORMAL_RAND)
+	drift = generator(GEN_VECTOR, list(0, -0.15), list(0, 0.15))
+	gravity = list(0, 0.4)
+	scale = generator(GEN_VECTOR, list(0.3, 0.3), list(0.9,0.9), NORMAL_RAND)
+	rotation = 0
+	color = "#b002db"
+
+/datum/reagent/toxin/xeno_aphrotoxin/on_mob_life(mob/living/L, metabolism)
+	if(prob(5))
+		if(CHECK_BITFIELD(L.status_flags, XENO_HOST))
+			L.reagents.add_reagent(/datum/reagent/consumable/larvajelly, 2)
+			L.reagents.remove_reagent(/datum/reagent/toxin/xeno_aphrotoxin, 4)
+	particle_holder.particles.spawning = 1 + round(debuff_owner.reagents.get_reagent_amount(/datum/reagent/toxin/xeno_aphrotoxin) / 4)
+	if(prob(25))
+		L.adjustStaminaLoss(L.reagents.get_reagent_amount(/datum/reagent/toxin/xeno_aphrotoxin))
+		if(L.sexcon)
+			L.sexcon.adjust_arousal(L.reagents.get_reagent_amount(/datum/reagent/toxin/xeno_aphrotoxin))
+			switch(L.sexcon.arousal)
+				if(1 to 50)
+					to_chat(L, span_warning("You feel your [L.gender==MALE ? "cock throb a little," : "vagina get a bit wet,"] distracting you.") )
+					L.adjustStaminaLoss(5)
+					L.sexcon.adjust_arousal(5)
+				if(51 to 100)
+					to_chat(L, span_warning("You feel your [L.gender==MALE ? "cock harden and throb." : "vagina drip down your legs."] your knees feel weak!") )
+					L.adjustStaminaLoss(10)
+					L.sexcon.adjust_arousal(10)
+				if(101 to 150)
+					L.emote("blush")
+					to_chat(L, span_warning("You feel your [L.gender==MALE ? "cock throb with need!" : "vagina drool like a waterfall!"] Your legs tremble, too weak to walk for a moment.") )
+					L.blur_eyes(1)
+					L.AdjustConfused(1 SECONDS)
+					L.adjustStaminaLoss(15)
+					L.sexcon.adjust_arousal(15)
+				if(151 to MAX_AROUSAL)
+					L.emote("moan")
+					to_chat(L, span_warning("You feel your [L.gender==MALE ? "cock throb hard as steel!" : "vagina drool like rain, burn like fire!"] your legs almost give up as you come near orgasm!") )
+					L.blur_eyes(2)
+					L.AdjustConfused(2 SECONDS)
+					L.adjustStaminaLoss(20)
+					L.sexcon.adjust_arousal(20)
+	return ..()
+
+/// Called when the debuff's owner uses the Resist action for this debuff.
+/datum/reagent/toxin/xeno_aphrotoxin/proc/call_resist_debuff()
+	SIGNAL_HANDLER
+	INVOKE_ASYNC(src, PROC_REF(resist_debuff)) // grilled cheese sandwich
+
+/// Resisting the debuff will allow the debuff's owner to remove some stacks from themselves.
+/datum/reagent/toxin/xeno_aphrotoxin/proc/resist_debuff()
+	var/channel = SSsounds.random_available_channel()
+	var/t_his = p_their()
+	if(length(debuff_owner.do_actions))
+		return
+	if(clothesundoed != 1)
+		if(debuff_ownerhuman.w_uniform)
+			debuff_ownerhuman.visible_message(span_warning("[debuff_ownerhuman] begins to undo [t_his] clothes and expose [t_his] [debuff_ownerhuman.gender==MALE ? "cock" : "pussy"]!"), span_warning("You begin to undo your clothes and expose your [debuff_ownerhuman.gender==MALE ? "cock" : "pussy"]."), span_warning("You hear ruffling."), 5)
+			if(!do_after(debuff_owner, 2 SECONDS, TRUE, debuff_owner, BUSY_ICON_CLOCK))
+				debuff_owner?.balloon_alert(debuff_owner, "Interrupted")
+				return
+	clothesundoed = 1
+	playsound(debuff_owner, "sound/effects/squelch2.ogg", 30, channel = channel)
+	debuff_ownerhuman.visible_message(span_warning("[debuff_ownerhuman] begins to [debuff_ownerhuman.gender==MALE ? "jack off" : "rub her slit"]!"), span_warning("You begin to [debuff_ownerhuman.gender==MALE ? "jack off" : "rub your vagina"]."), span_warning("You hear slapping."), 5)
+	if(!do_after(debuff_owner, 10 SECONDS, TRUE, debuff_owner, BUSY_ICON_GENERIC))
+		debuff_owner?.balloon_alert(debuff_owner, "Interrupted.")
+		debuff_owner.stop_sound_channel(channel)
+		clothesundoed = 0
+		return
+	if(!debuff_owner)
+		usr.stop_sound_channel(channel)
+		return
+	debuff_owner.emote("moan")
+	debuff_owner.visible_message(span_warning("[debuff_owner] cums on the floor!"), span_warning("You cum on the floor."), span_warning("You hear a splatter."), 5)
+	debuff_owner.balloon_alert(debuff_owner, "Orgasmed.")
+	debuff_owner.adjustStaminaLoss(75)
+
+	playsound(usr.loc, "sound/effects/splat.ogg", 30)
+	debuff_owner.update_eye_blur()
+	debuff_owner.reagents.remove_reagent(/datum/reagent/toxin/xeno_aphrotoxin, 15)
+	debuff_owner.reagents.remove_reagent(/datum/reagent/consumable/larvajelly, 6)
+	debuff_owner.sexcon.ejaculate(debuff_owner)
+	if(debuff_owner.getStaminaLoss() > 120)
+		if(prob(5))
+			debuff_owner.visible_message(span_warning("[debuff_owner] manages to black out from cumming too hard..."), 4)
+			debuff_owner.SetUnconscious(8 SECONDS)
+	if(debuff_owner.reagents.get_reagent_amount(/datum/reagent/toxin/xeno_aphrotoxin) > 0)
+		resist_debuff() // We repeat ourselves as long as the debuff persists.
+		return
+	clothesundoed = 0
+
+/datum/reagent/toxin/xeno_aphrotoxin/on_mob_add(mob/living/L)
+	if(L.status_flags & GODMODE)
+		qdel(src)
+		return
+	if(isxeno(L))
+		qdel(src)
+		return
+	. = ..()
+	debuff_ownerhuman = L
+	debuff_owner = L
+	RegisterSignal(L, COMSIG_LIVING_DO_RESIST, PROC_REF(call_resist_debuff))
+	L.adjust_mob_scatter(10)
+	L.adjust_mob_accuracy(-10)
+	L.balloon_alert(L, "Aphrotoxin")
+	particle_holder = new(L, /particles/aphrodisiac)
+	particle_holder.particles.spawning = 1 + round(debuff_owner.reagents.get_reagent_amount(/datum/reagent/toxin/xeno_aphrotoxin) / 2)
+	particle_holder.pixel_x = -2
+	particle_holder.pixel_y = 0
+	if(HAS_TRAIT(debuff_owner, TRAIT_INTOXICATION_RESISTANT) || (debuff_owner.get_soft_armor(BIO) >= 65))
+		custom_metabolism = REAGENTS_METABOLISM
+
+/datum/reagent/toxin/xeno_aphrotoxin/on_mob_delete()
+	UnregisterSignal(debuff_owner, COMSIG_LIVING_DO_RESIST)
+	debuff_owner.adjust_mob_scatter(-10)
+	debuff_owner.adjust_mob_accuracy(10)
+	debuff_owner = null
+	QDEL_NULL(particle_holder)
+	return ..()
+
 /datum/reagent/zombium
 	name = "Zombium"
 	description = "Powerful chemical able to raise the dead, origin is likely from an unidentified bioweapon."
@@ -722,7 +897,7 @@
 		if(prob(min(current_cycle - 5,30)))
 			L.emote("me", 1, "gasps for air!")
 			L.Losebreath(4)
-		if(L.eye_blurry < 30)
+		if(L.get_blurriness() < 30)
 			L.adjust_blurriness(1.3)
 	else
 		L.adjustStaminaLoss(0.5*effect_str)
@@ -730,4 +905,63 @@
 			L.emote("gasp")
 			L.Losebreath(3)
 
+	return ..()
+
+/datum/reagent/toxin/poxomelanin
+	name = "Poxomelanin"
+	description = "A synthetic nerve agent that is biochemically similar to melanin. Causes tiredness, lose of focus, weakness and painful muscle spasms, while also slowly purging common painkillers. Unlike other chemical agents, the severity of it's effects depend directly on it's concentration in an organism's blood. Metabolises relatively slowly due to it's resemblance to a natural hormone."
+	reagent_state = LIQUID
+	color = "#666666"
+	overdose_threshold = 24
+	custom_metabolism = REAGENTS_METABOLISM * 0.9
+	toxpwr = 0
+	purge_list = list(
+		/datum/reagent/medicine/paracetamol,
+		/datum/reagent/medicine/tramadol,
+		/datum/reagent/medicine/oxycodone
+	)
+	purge_rate = 0.7
+	///was added to scatter and subtracted from accuracy last life tick
+	var/last_scaccuracy_mod = 0
+
+/datum/reagent/toxin/poxomelanin/on_mob_life(mob/living/L, metabolism)
+	var/concentration = L.reagents.get_reagent_amount(/datum/reagent/toxin/poxomelanin)
+	var/slowdown_modifier = 0.5
+	var/tiredness = 0
+
+	L.adjust_mob_scatter(-last_scaccuracy_mod) //undo last tick's effects
+	L.adjust_mob_accuracy(last_scaccuracy_mod)
+	last_scaccuracy_mod = 0
+	switch(concentration)
+		if(1 to 5)
+			L.reagent_pain_modifier -= PAIN_REDUCTION_LIGHT
+			slowdown_modifier = 0.5
+			tiredness = (1*effect_str)
+			last_scaccuracy_mod = concentration/2 // linear from 0 to 2.5
+		if(6 to 15)
+			L.reagent_pain_modifier -= PAIN_REDUCTION_MEDIUM
+			slowdown_modifier = 1
+			tiredness = (5*effect_str)
+			last_scaccuracy_mod = 2.5 + (concentration-5)/4 //linear from 2.5 to 5
+		if(16 to INFINITY)
+			L.reagent_pain_modifier -= PAIN_REDUCTION_HEAVY //Kept to a fairly low cap since this is supposed to be more of a debuff chemical rather than being the primary weapon when using pox rounds.
+			slowdown_modifier = 1.5
+			tiredness = (10*effect_str)
+			last_scaccuracy_mod = 5 + min(5, (concentration-15)/3) //linear from 5 at 15 to 10 at 30, never goes over 10
+	L.adjust_mob_scatter(last_scaccuracy_mod)
+	L.adjust_mob_accuracy(-last_scaccuracy_mod)
+	L.add_movespeed_modifier(MOVESPEED_ID_POXOMELANIN, TRUE, 0, NONE, TRUE, 2 * slowdown_modifier) //Fairly light slowdowns, but still impactful. Hope you have buddies or some cover.
+	var/stamina_loss_limit = L.maxHealth * 0.3
+	var/applied_damage = clamp(tiredness, 0, (stamina_loss_limit - L.getStaminaLoss())) //Xeno neurotoxin but far less potent and cannot stamcrit
+	L.adjustStaminaLoss(applied_damage)
+
+	return ..()
+
+/datum/reagent/toxin/poxomelanin/overdose_process(mob/living/L, metabolism)
+	L.blur_eyes(5)
+
+/datum/reagent/toxin/poxomelanin/on_mob_delete(mob/living/L, metabolism)
+	L.remove_movespeed_modifier(MOVESPEED_ID_POXOMELANIN)
+	L.adjust_mob_scatter(-last_scaccuracy_mod)
+	L.adjust_mob_accuracy(last_scaccuracy_mod)
 	return ..()

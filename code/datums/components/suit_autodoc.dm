@@ -407,7 +407,7 @@
 
 //// Action buttons
 /datum/action/suit_autodoc/can_use_action(silent, override_flags, selecting)
-	if(QDELETED(owner) || owner.incapacitated() || owner.lying_angle)
+	if(QDELETED(owner) || owner.incapacitated())
 		return FALSE
 	return TRUE
 

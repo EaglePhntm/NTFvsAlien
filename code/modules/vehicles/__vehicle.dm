@@ -14,7 +14,7 @@
 	allow_pass_flags = PASS_AIR
 	COOLDOWN_DECLARE(cooldown_vehicle_move)
 	///mob = bitflags of their control level.
-	var/list/mob/occupants
+	var/list/list/mob/occupants
 	///Maximum amount of passengers plus drivers
 	var/max_occupants = 1
 	////Maximum amount of drivers
@@ -189,7 +189,7 @@
 		trailer.Move(old_loc, movement_dir, glide_size)
 
 
-//TGMC ADDED BELOW
+//NTC ADDED BELOW
 /obj/vehicle/effect_smoke(obj/effect/particle_effect/smoke/S)
 	. = ..()
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))

@@ -16,14 +16,13 @@
 	speed = -1.1
 
 	// *** Plasma *** //
-	plasma_max = 400
+	plasma_max = 200
 	plasma_gain = 35
 
 	// *** Health *** //
 	max_health = 340
 
 	// *** Evolution *** //
-	evolution_threshold = 225
 	upgrade_threshold = TIER_TWO_THRESHOLD
 
 	deevolves_to = /datum/xeno_caste/runner
@@ -42,10 +41,19 @@
 	// *** Abilities *** //
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/psychic_influence,
+		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/activable/xeno/devour,
+		/datum/action/ability/activable/xeno/blink,
+		/datum/action/ability/activable/xeno/banish,
+		/datum/action/ability/xeno_action/recall,
+		/datum/action/ability/activable/xeno/devour,
 		/datum/action/ability/activable/xeno/rewind,
 		/datum/action/ability/xeno_action/portal,
+		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
 	)
 
 /datum/xeno_caste/wraith/normal
@@ -59,10 +67,18 @@
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/psychic_influence,
+		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/xeno_action/portal,
+		/datum/action/ability/activable/xeno/devour,
+		/datum/action/ability/activable/xeno/blink,
+		/datum/action/ability/activable/xeno/banish,
+		/datum/action/ability/xeno_action/recall,
+		/datum/action/ability/activable/xeno/devour,
 		/datum/action/ability/activable/xeno/rewind,
+		/datum/action/ability/xeno_action/portal,
 		/datum/action/ability/xeno_action/timestop,
+		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
 	)
-

@@ -72,6 +72,8 @@
 	COOLDOWN_DECLARE(next_infection_message)
 	///What % of the body does this limb cover. Make sure that the sum is always 100.
 	var/cover_index = 0
+	//ntf addition
+	var/invisible = FALSE
 
 
 /datum/limb/New(datum/limb/P, mob/mob_owner)
@@ -138,12 +140,13 @@
 			DAMAGE PROCS
 ****************************************************/
 
+
 /datum/limb/proc/emp_act(severity)
 	for(var/datum/internal_organ/organ AS in internal_organs)
 		organ.emp_act(severity)
 	if(!(limb_status & LIMB_ROBOT))	//meatbags do not care about EMP
 		return
-	take_damage_limb(0, (5 - severity) * 7, blocked = soft_armor.energy, updating_health = TRUE)
+	take_damage_limb(0, (5 - severity) * 4, blocked = soft_armor.energy, updating_health = TRUE)
 
 
 /datum/limb/proc/take_damage_limb(brute, burn, sharp, edge, blocked = 0, updating_health = FALSE, list/forbidden_limbs = list())
@@ -885,6 +888,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return brute_dam || burn_dam
 
 /datum/limb/proc/get_icon(icon/race_icon, gender="")
+	if(invisible)
+		return icon(race_icon, "")
 	if(limb_status & LIMB_ROBOT && !(owner.species.species_flags & LIMB_ROBOT)) //if race set the flag then we just let the race handle this
 		return icon('icons/mob/human_races/robotic.dmi', "[icon_name][gender ? "_[gender]" : ""]")
 
@@ -946,7 +951,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	target.balloon_alert_to_viewers("Splinting [display_name]...")
 
-	if(!do_after(user, delay, NONE, target, BUSY_ICON_FRIENDLY, BUSY_ICON_MEDICAL, extra_checks = CALLBACK(src, PROC_REF(extra_splint_checks), applied_health)))
+	if(!do_mob(user, target, delay, BUSY_ICON_FRIENDLY, BUSY_ICON_MEDICAL, extra_checks = CALLBACK(src, PROC_REF(extra_splint_checks), applied_health)))
 		return FALSE
 
 	target.balloon_alert_to_viewers("Splinted [display_name]")
@@ -1159,4 +1164,5 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(!.)
 		return
 	if(!(owner.species.species_flags & DETACHABLE_HEAD) && vital)
+		log_game("Marking [logdetails(owner)] as undefibbable because it lost its head and it needs that.")
 		owner.set_undefibbable()

@@ -76,10 +76,12 @@
 #define AMMO_PASS_THROUGH_MOB (1<<15)
 ///If the projectile ricochet and miss sound is pitched up
 #define AMMO_SOUND_PITCH (1<<16)
-///Is this projectile considered sniper ammo, used for the anti sniper stacking status effect
+///Is this projectile considered sniper ammo.
 #define AMMO_SNIPER (1<<17)
 ///Ammo type entirely ignores xenos
 #define AMMO_SKIPS_ZOMBIE (1<<18)
+///for sniper turrets so they cant stack fuck people. Seperate from ammo_sniper.
+#define AMMO_SNIPER_TURRET (1<<18)
 
 //Gun defines for gun related thing. More in the projectile folder.
 //gun_features_flags
@@ -115,6 +117,7 @@
 #define AMMO_RECIEVER_DO_NOT_EMPTY_ROUNDS_AFTER_FIRE (1<<10)
 #define AMMO_RECIEVER_CYCLE_ONLY_BEFORE_FIRE (1<<11) //The ammo stay in the magazine until the last moment
 #define AMMO_RECIEVER_AUTO_EJECT_LOCKED (1<<12) //Not allowed to turn automatic unloading off
+#define AMMO_RECIEVER_MULTICLIP (1<<13) //Able to take multiple stripper clips back-to-back
 
 #define FLAMER_IS_LIT (1<<0)
 #define FLAMER_NO_LIT_OVERLAY (1<<1)
@@ -141,6 +144,7 @@
 #define MAGAZINE_NOT_FABRICABLE (1<<4)
 ///ammo count shown on mag sprite
 #define MAGAZINE_SHOW_AMMO (1<<5)
+#define MAGAZINE_REQUIRES_EMPTY_GUN (1<<6)
 
 //Slowdown from various armors.
 #define SHOES_SLOWDOWN -1.0			// How much shoes slow you down by default. Negative values speed you up
@@ -149,7 +153,7 @@
 #define SLOWDOWN_ARMOR_LIGHT 0.2
 #define SLOWDOWN_ARMOR_MEDIUM 0.5
 #define SLOWDOWN_ARMOR_HEAVY 0.7
-#define SLOWDOWN_ARMOR_VERY_HEAVY 1
+#define SLOWDOWN_ARMOR_VERY_HEAVY 1.25
 
 //Marine armor defines
 #define MARINE_ARMOR_LIGHT list(MELEE = 35, BULLET = 55, LASER = 55, ENERGY = 50, BOMB = 45, BIO = 45, FIRE = 45, ACID = 45)
@@ -173,7 +177,7 @@
 #define ENERGY_OVERCHARGE_FIRE_DELAY 10
 
 //Define stagger damage multipliers
-#define STAGGER_DAMAGE_MULTIPLIER 0.5 //-50% damage dealt by the staggered target after all other mods.
+#define STAGGER_DAMAGE_MULTIPLIER 1 //-25% damage dealt by the staggered target after all other mods. (ntf edit from 0.5 to 1 so it dont work)
 
 //Define smoke effects
 #define SMOKE_COUGH (1<<0)
@@ -201,6 +205,9 @@
 ///Purges all types of smoke
 #define SMOKE_PURGER (1<<22)
 #define SMOKE_XENO_PYROGEN (1<<23) // Smoke that acts like SMOKE_BLISTERING for non-xenos and applies pyrogen's melting fire status effect when entering.
+
+//secondary because it goes up to 23
+#define SMOKE_XENO_APHROTOXIN (1<<1)
 
 //Incapacitated
 #define INCAPACITATED_IGNORE_RESTRAINED (1<<0)
@@ -245,4 +252,7 @@
 #define CAVE_MINOR_INTERFERENCE 1 //! Scrambles outgoing messages, no impact on incoming.
 #define CAVE_FULL_INTERFERENCE 2 //! Prevents incoming and outgoing messages.
 
-#define ANTENNA_SYNCING_TIME 30 SECONDS //! Time needed to initially configure an antenna module after equipping.
+#define ANTENNA_SYNCING_TIME 10 SECONDS //! Time needed to initially configure an antenna module after equipping.
+
+//NTF ADDITIONS
+#define STAGGER_ACCURACY_MULTIPLIER 0.5 //-50% accuracy by the staggered target after all other mods.

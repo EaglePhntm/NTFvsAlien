@@ -48,6 +48,7 @@
 			RES_TIER_UNCOMMON = list(
 				/obj/item/research_product/money/uncommon,
 				/obj/item/implanter/blade,
+				/obj/item/attachable/shoulder_mount,
 			),
 			RES_TIER_RARE = list(
 				/obj/item/research_product/money/rare,
@@ -64,6 +65,7 @@
 			RES_TIER_UNCOMMON = list(
 				/obj/item/research_product/money/uncommon,
 				/obj/item/implanter/chem/blood,
+				/obj/item/attachable/shoulder_mount,
 			),
 			RES_TIER_RARE = list(
 				/obj/item/research_product/money/rare,
@@ -237,6 +239,10 @@
 		RES_TIER_RARE = 0,
 	)
 
+/obj/item/research_resource/Initialize(mapload)
+	. = ..()
+	SSminimaps.add_marker(src, ((MINIMAP_FLAG_ALL) ^ (MINIMAP_FLAG_SURVIVOR)), image('ntf_modular/icons/UI_icons/map_blips.dmi', null, "sample", MINIMAP_LABELS_LAYER))
+
 /obj/item/research_resource/money
 	desc = "Unidentified substance. The random data it provides could probably secure some funding."
 	research_type = RES_MONEY
@@ -275,10 +281,11 @@
 	///Points provided for exporting the product
 	var/export_points = 1
 
-/obj/item/research_product/supply_export(faction_selling)
-	SSpoints.supply_points[faction_selling] += export_points
+/obj/item/research_product/supply_export(faction_selling, mob/user)
+	SSpoints.add_supply_points(faction_selling, export_points)  //NTF edit. Forcibly caps req points
+	SSpoints.add_dropship_points(faction_selling, export_points)  //ntf edit
 	GLOB.round_statistics.points_from_research += export_points
-	return new /datum/export_report(export_points, name, faction_selling)
+	return list(new /datum/export_report(export_points, name, faction_selling))
 
 /obj/item/research_product/money/examine(user)
 	. = ..()

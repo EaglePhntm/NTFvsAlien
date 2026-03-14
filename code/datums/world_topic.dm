@@ -52,7 +52,7 @@
 	.["ai"] = CONFIG_GET(flag/allow_ai)
 	.["host"] = world.host ? world.host : null
 	.["round_id"] = GLOB.round_id
-	.["players"] = length(GLOB.clients)
+	.["players"] = length(GLOB.whitelisted_clients)
 	.["revision"] = GLOB.revdata.commit
 	.["revision_date"] = GLOB.revdata.date
 	.["hub"] = GLOB.hub_visibility
@@ -90,5 +90,5 @@
 
 /datum/world_topic/ping/Run(list/input)
 	. = 0
-	for (var/client/C in GLOB.clients)
+	for (var/client/C in GLOB.whitelisted_clients)
 		++.

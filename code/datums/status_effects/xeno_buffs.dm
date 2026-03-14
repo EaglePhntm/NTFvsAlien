@@ -358,11 +358,11 @@
 /// Toggles the buff on or off.
 /datum/status_effect/drone_enhancement/proc/toggle_buff(toggle)
 	if(!toggle)
-		buffed_xeno.xeno_melee_damage_modifier = initial(buffed_xeno.xeno_melee_damage_modifier)
+		buffed_xeno.xeno_melee_damage_modifier -= (enhancement_action.damage_multiplier - 1)
 		buffed_xeno.remove_movespeed_modifier(MOVESPEED_ID_ENHANCEMENT)
 		toggle_particles(FALSE)
 		return
-	buffed_xeno.xeno_melee_damage_modifier = enhancement_action.damage_multiplier
+	buffed_xeno.xeno_melee_damage_modifier += (enhancement_action.damage_multiplier - 1)
 	buffed_xeno.add_movespeed_modifier(MOVESPEED_ID_ENHANCEMENT, TRUE, 0, NONE, FALSE, enhancement_action.speed_addition)
 	toggle_particles(TRUE)
 
@@ -565,9 +565,9 @@
 	if(plasma_mod >= HIGN_THRESHOLD)
 		owner_xeno.AdjustImmobilized(KNOCKDOWN_DURATION)
 		ADD_TRAIT(owner_xeno, TRAIT_HANDS_BLOCKED, src)
-		target.AdjustKnockdown(KNOCKDOWN_DURATION)
+		target.AdjustParalyzed(KNOCKDOWN_DURATION)
 
-		if(do_after(owner_xeno, KNOCKDOWN_DURATION, IGNORE_HELD_ITEM, target))
+		if(do_after(owner_xeno, KNOCKDOWN_DURATION, FALSE, target, ignore_turf_checks = FALSE))
 			owner_xeno.gain_plasma(plasma_gain_on_hit)
 			SEND_SIGNAL(target, COMSIG_XENO_CARNAGE_HIT, owner_xeno.xeno_caste.drain_plasma_gain, owner_xeno)
 	if(owner_xeno.has_status_effect(STATUS_EFFECT_XENO_FEAST))
@@ -657,7 +657,7 @@
 	SIGNAL_HANDLER
 
 	var/mob/living/carbon/xenomorph/X = owner
-	if(HAS_TRAIT(X,TRAIT_NOPLASMAREGEN)) //No bonus plasma if you're on a diet
+	if(HAS_TRAIT(X, TRAIT_NOPLASMAREGEN)) //No bonus plasma if you're on a diet
 		return
 	var/bonus_plasma = X.xeno_caste.plasma_gain * bonus_regen * (1 + X.recovery_aura * 0.05) * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD //Recovery aura multiplier; 5% bonus per full level
 	X.gain_plasma(bonus_plasma)
@@ -687,8 +687,8 @@
 	var/innate_healing = FALSE
 
 /datum/status_effect/healing_infusion/on_creation(mob/living/new_owner, set_duration = HIVELORD_HEALING_INFUSION_DURATION, stacks_to_apply = HIVELORD_HEALING_INFUSION_TICKS, new_innate_healing)
-	if(!isxeno(new_owner))
-		CRASH("something applied [id] on a nonxeno, dont do that")
+	if(!iscarbon(new_owner))
+		CRASH("something applied [id] on a noncarbon, dont do that")
 
 	duration = set_duration
 	owner = new_owner
@@ -704,18 +704,20 @@
 	if(!.)
 		return
 	ADD_TRAIT(owner, TRAIT_HEALING_INFUSION, TRAIT_STATUS_EFFECT(id))
-	if(innate_healing)
-		ADD_TRAIT(owner, TRAIT_INNATE_HEALING, TRAIT_STATUS_EFFECT(id))
 	owner.add_filter("hivelord_healing_infusion_outline", 3, outline_filter(1, COLOR_VERY_PALE_LIME_GREEN)) //Set our cool aura; also confirmation we have the buff
-	RegisterSignal(owner, COMSIG_XENOMORPH_HEALTH_REGEN, PROC_REF(healing_infusion_regeneration)) //Register so we apply the effect whenever the target heals
-	RegisterSignal(owner, COMSIG_XENOMORPH_SUNDER_REGEN, PROC_REF(healing_infusion_sunder_regeneration)) //Register so we apply the effect whenever the target heals
+	if(isxeno(owner))
+		if(innate_healing)
+			ADD_TRAIT(owner, TRAIT_INNATE_HEALING, TRAIT_STATUS_EFFECT(id))
+		RegisterSignal(owner, COMSIG_XENOMORPH_HEALTH_REGEN, PROC_REF(healing_infusion_regeneration)) //Register so we apply the effect whenever the target heals
+		RegisterSignal(owner, COMSIG_XENOMORPH_SUNDER_REGEN, PROC_REF(healing_infusion_sunder_regeneration)) //Register so we apply the effect whenever the target heals
 
 /datum/status_effect/healing_infusion/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_HEALING_INFUSION, TRAIT_STATUS_EFFECT(id))
-	if(innate_healing)
-		REMOVE_TRAIT(owner, TRAIT_INNATE_HEALING, TRAIT_STATUS_EFFECT(id))
 	owner.remove_filter("hivelord_healing_infusion_outline")
-	UnregisterSignal(owner, list(COMSIG_XENOMORPH_HEALTH_REGEN, COMSIG_XENOMORPH_SUNDER_REGEN))
+	if(isxeno(owner))
+		if(innate_healing)
+			REMOVE_TRAIT(owner, TRAIT_INNATE_HEALING, TRAIT_STATUS_EFFECT(id))
+		UnregisterSignal(owner, list(COMSIG_XENOMORPH_HEALTH_REGEN, COMSIG_XENOMORPH_SUNDER_REGEN))
 
 	new /obj/effect/temp_visual/telekinesis(get_turf(owner)) //Wearing off VFX
 	new /obj/effect/temp_visual/healing(get_turf(owner))
@@ -729,6 +731,9 @@
 /datum/status_effect/healing_infusion/proc/healing_infusion_regeneration(mob/living/carbon/xenomorph/patient, heal_data, seconds_per_tick)
 	SIGNAL_HANDLER
 
+	if(HAS_TRAIT(patient, TRAIT_NOHEALTHREGEN)) //No regen if you're on a diet
+		return
+
 	if(!health_ticks_remaining)
 		qdel(src)
 		return
@@ -738,12 +743,20 @@
 	new /obj/effect/temp_visual/healing(get_turf(patient)) //Cool SFX
 
 	var/total_heal_amount = 6 + (patient.maxHealth * 0.03) * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD //Base amount 6 HP plus 3% of max
-	if(patient.recovery_aura)
+	if(isxeno(patient) && patient.recovery_aura)
 		total_heal_amount *= (1 + patient.recovery_aura * 0.05) //Recovery aura multiplier; 5% bonus per full level
 
 	var/leftover_healing = total_heal_amount
 	HEAL_XENO_DAMAGE(patient, leftover_healing, FALSE)
 	GLOB.round_statistics.hivelord_healing_infusion += (total_heal_amount - leftover_healing)
+	heal_data[1] += leftover_healing
+	heal_data[2] += total_heal_amount
+
+/mob/living/carbon/human/Life(seconds_per_tick, times_fired)
+	. = ..()
+	if(HAS_TRAIT(src, TRAIT_HEALING_INFUSION))
+		src.heal_overall_damage(1.5, 1.5, TRUE, TRUE) // On par with 20u+ bica and kelo
+
 
 ///Called when the target xeno regains Sunder via heal_wounds in life.dm
 /datum/status_effect/healing_infusion/proc/healing_infusion_sunder_regeneration(mob/living/carbon/xenomorph/patient, seconds_per_tick)
@@ -951,29 +964,33 @@
 	var/obj/effect/abstract/particle_holder/particle_holder
 
 /datum/status_effect/baton_pass/on_apply()
-	if(!isxeno(owner))
-		return FALSE
-	var/mob/living/carbon/xenomorph/owner_xeno = owner
-
-	particle_holder = new(owner_xeno, /particles/baton_pass)
-	var/particle_x = abs(owner_xeno.pixel_x)
+	particle_holder = new(owner, /particles/baton_pass)
+	var/particle_x = abs(owner.pixel_x)
 	particle_holder.pixel_x = particle_x
 	particle_holder.pixel_y = -3
-
+	var/movespeed_mod //Hold this here; as we'll want to apply seperate code for humans. Just incase.
 	//only slower xenos get better movespeed amplify. No gigaspeed runners
-	var/movespeed_mod =((owner_xeno.xeno_caste.speed <= -1) ? -0.1 : (owner_xeno.xeno_caste.speed <= -0.8) ? -0.2 : -0.4)
-	owner_xeno.add_movespeed_modifier(MOVESPEED_ID_PRAETORIAN_DANCER_BATON_PASS, TRUE, 1, NONE, TRUE, movespeed_mod)
+	if(isxeno(owner))
+		var/mob/living/carbon/xenomorph/owner_xeno = owner
+		movespeed_mod =((owner_xeno.xeno_caste.speed <= -1) ? -0.1 : (owner_xeno.xeno_caste.speed <= -0.8) ? -0.2 : -0.4)
+		owner.emote("roar")
+	else
+		movespeed_mod = -0.18 //Less effective than on slow castes for humans.
+		owner.emote("warcry")
+	owner.add_movespeed_modifier(MOVESPEED_ID_PRAETORIAN_DANCER_BATON_PASS, TRUE, 1, NONE, TRUE, movespeed_mod)
 
-	to_chat(owner, span_notice("We feel on top of the world! Go, go, go!"))
-	owner_xeno.Shake(duration = 6 SECONDS, shake_interval = 0.08 SECONDS)
-	owner_xeno.emote("roar")
+	to_chat(owner, span_notice("You feel on top of the world! Go, go, go!"))
+	owner.Shake(duration = 6 SECONDS, shake_interval = 0.08 SECONDS)
 
 	return ..()
 
 /datum/status_effect/baton_pass/on_remove()
 	. = ..()
 	var/mob/living/carbon/xenomorph/owner_xeno = owner
-	owner_xeno.remove_movespeed_modifier(MOVESPEED_ID_PRAETORIAN_DANCER_BATON_PASS)
+	if(isxeno(owner))
+		owner_xeno.remove_movespeed_modifier(MOVESPEED_ID_PRAETORIAN_DANCER_BATON_PASS)
+	else
+		owner.remove_movespeed_modifier(MOVESPEED_ID_PRAETORIAN_DANCER_BATON_PASS) //ensure to correctly handle this so we dont get infinite speed
 	to_chat(owner, span_notice("We come down from our adrenaline high."))
 	QDEL_NULL(particle_holder)
 

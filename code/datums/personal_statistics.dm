@@ -57,6 +57,7 @@ GLOBAL_LIST_EMPTY(personal_statistics_list)
 	var/delimbs = 0
 	var/internal_injuries = 0
 	var/internal_injuries_inflicted = 0
+	var/tail_stabs = 0
 
 	var/grenade_hand_delimbs = 0
 
@@ -614,7 +615,7 @@ The alternative is scattering them everywhere under their respective objects whi
 
 ///Record when a bone break or internal bleeding is inflicted
 /datum/species/proc/record_internal_injury(mob/living/carbon/human/victim, mob/attacker, old_status, new_status)
-	if(old_status == new_status || (!victim.ckey && !attacker?.ckey))
+	if(old_status == new_status || (!victim.ckey && !(istype(attacker) && attacker.ckey)))
 		return FALSE
 
 	//If neither of these flags was enabled after being damaged, then no internal injury occurred
@@ -624,7 +625,7 @@ The alternative is scattering them everywhere under their respective objects whi
 	if(victim.ckey)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[victim.ckey]
 		personal_statistics.internal_injuries++
-	if(attacker?.ckey)
+	if(istype(attacker) && attacker?.ckey)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[attacker.ckey]
 		personal_statistics.internal_injuries_inflicted++
 	return TRUE

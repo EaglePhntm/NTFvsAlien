@@ -560,7 +560,7 @@
 /area/bluemoon/outside/building/engi)
 "aAu" = (
 /obj/structure/table,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/prison/sterilewhite,
 /area/bluemoon/caves/facility/lambda/s)
 "aAP" = (
@@ -683,7 +683,7 @@
 /turf/open/floor/wood,
 /area/bluemoon/outside/building/dorms/bar)
 "aHV" = (
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/structure/table,
 /turf/open/floor/tile/dark/red2{
 	dir = 1
@@ -1087,7 +1087,6 @@
 /area/bluemoon/caves/facility/eta)
 "blh" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/drained,
 /turf/open/floor/plating,
 /area/bluemoon/caves/facility/lambda/s)
 "blj" = (
@@ -1146,6 +1145,7 @@
 /obj/item/storage/box/MRE{
 	name = "\improper MRE"
 	},
+/obj/structure/cable,
 /turf/open/floor/prison/darkyellow{
 	dir = 1
 	},
@@ -2091,10 +2091,7 @@
 /turf/open/floor,
 /area/bluemoon/outside/building/marshal)
 "cuV" = (
-/obj/structure/table,
-/obj/item/clothing/suit/armor/riot,
-/obj/item/clothing/suit/armor/riot,
-/obj/item/clothing/mask/gas,
+/obj/structure/closet/l3closet/security,
 /turf/open/floor/tile/dark,
 /area/bluemoon/outside/building/marshal)
 "cvd" = (
@@ -3093,7 +3090,7 @@
 /area/bluemoon/outside/building/cargo)
 "dxx" = (
 /obj/structure/table,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/prison/blue{
 	dir = 10
 	},
@@ -4479,7 +4476,6 @@
 	},
 /area/bluemoon/outside/building/med)
 "fij" = (
-/obj/structure/closet/secure_closet/marshal,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -7691,6 +7687,7 @@
 	dir = 1;
 	on = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/bluemoon/caves/facility/lambda/s)
 "iPZ" = (
@@ -7818,9 +7815,9 @@
 /turf/open/floor/wood,
 /area/bluemoon/caves/facility/lambda/s)
 "iWa" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/closed/mineral/smooth/darkfrostwall/indestructible,
-/area/lv624/lazarus/console)
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/floor/plating,
+/area/bluemoon/outside/building/cargo/outpost)
 "iWv" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
@@ -9541,6 +9538,9 @@
 /obj/structure/table,
 /obj/item/clothing/suit/armor/riot,
 /obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/suit/armor/riot,
 /turf/open/floor/tile/dark,
 /area/bluemoon/outside/building/marshal)
 "kNv" = (
@@ -11040,6 +11040,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 9
 	},
+/obj/structure/closet/secure_closet/marshal,
 /turf/open/floor/tile/dark,
 /area/bluemoon/outside/building/marshal)
 "mwJ" = (
@@ -11104,7 +11105,7 @@
 /turf/open/floor/bcircuit/off,
 /area/bluemoon/caves/facility/lambda/s)
 "myX" = (
-/obj/machinery/constructable_frame/machine_frame,
+/obj/machinery/constructable_frame,
 /turf/open/floor/urban/carpet/carpetblackdeco,
 /area/bluemoon/outside/building/dorms/rec)
 "mBf" = (
@@ -12535,6 +12536,8 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/machinery/power/apc/drained,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/bluemoon/caves/facility/lambda/s)
 "okt" = (
@@ -14049,6 +14052,12 @@
 /obj/effect/landmark/corpsespawner/scientist,
 /turf/open/floor/prison,
 /area/bluemoon/caves/facility/lambda/n)
+"qkh" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/bluemoon/outside/building/cargo/outpost)
 "qkX" = (
 /obj/machinery/hydroponics,
 /turf/open/floor/cyantwo,
@@ -14483,7 +14492,7 @@
 /area/bluemoon/outside/building/engi)
 "qQQ" = (
 /obj/structure/table,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/prison/red,
 /area/bluemoon/caves/facility/lambda/sec)
 "qRp" = (
@@ -15269,7 +15278,7 @@
 /turf/closed/wall,
 /area/bluemoon/outside/building/dorms)
 "rIn" = (
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/structure/table,
 /turf/open/floor/tile/green/whitegreen{
 	dir = 4
@@ -16434,6 +16443,10 @@
 /area/bluemoon/outside/building/dorms/bar)
 "tdN" = (
 /obj/structure/rack,
+/obj/structure/cable,
+/obj/machinery/power/terminal{
+	dir = 8
+	},
 /turf/open/floor/prison/darkyellow{
 	dir = 1
 	},
@@ -17131,7 +17144,7 @@
 /area/bluemoon/caves/facility/lambda/n)
 "tWk" = (
 /obj/structure/table,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/dark/blue2{
 	dir = 1
 	},
@@ -17333,6 +17346,7 @@
 /area/bluemoon/outside/building/engi)
 "uiD" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/structure/closet/secure_closet/marshal,
 /turf/open/floor/tile/dark,
 /area/bluemoon/outside/building/marshal)
 "ujf" = (
@@ -17668,7 +17682,6 @@
 	},
 /area/bluemoon/outside/building/lz)
 "uBC" = (
-/obj/structure/closet/secure_closet/marshal,
 /turf/open/floor/tile/vault{
 	dir = 8
 	},
@@ -18154,7 +18167,7 @@
 /area/bluemoon/outside/building/marshal)
 "vah" = (
 /obj/structure/table,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/prison/plate,
 /area/bluemoon/caves/facility/lambda/n)
 "vak" = (
@@ -19401,7 +19414,6 @@
 /turf/open/floor/rcircuit/anim,
 /area/bluemoon/caves/facility/omicron)
 "wwa" = (
-/obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
@@ -19751,6 +19763,7 @@
 /area/bluemoon/outside/building/dorms/plant)
 "wTt" = (
 /obj/effect/ai_node,
+/obj/effect/landmark/static_comms/net_two,
 /turf/open/floor/tile/dark,
 /area/bluemoon/outside/building/marshal)
 "wTu" = (
@@ -20154,7 +20167,7 @@
 /area/bluemoon/outside/building/cargo/shop)
 "xvO" = (
 /obj/structure/table,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -20775,7 +20788,7 @@
 /area/bluemoon/outside/building/virology)
 "xZn" = (
 /obj/structure/table,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/prison/darkpurple{
 	dir = 5
 	},
@@ -21567,7 +21580,7 @@ ldL
 ldL
 ldL
 uPz
-iWa
+uPz
 uPz
 ldL
 kwo
@@ -25740,8 +25753,8 @@ sIG
 sIG
 inh
 pBW
-ugz
-ugz
+dkX
+iWa
 ohH
 dkX
 dkX
@@ -25887,8 +25900,8 @@ blp
 sIG
 sIG
 pBW
-ugz
-pFr
+dkX
+qkh
 gjr
 pFr
 ugz
@@ -30120,7 +30133,7 @@ iUv
 htr
 fij
 wTt
-cuV
+kWV
 kNr
 hfA
 uHq
@@ -30272,7 +30285,7 @@ uiD
 uiD
 mwo
 poJ
-hZA
+uBC
 htr
 dLi
 dLi
@@ -30412,14 +30425,14 @@ iUv
 vnx
 iUv
 htr
-doH
-xtW
-wzI
-qWq
-eFE
-iDJ
-iDJ
-hZA
+kWV
+kWV
+kWV
+kWV
+kWV
+kWV
+kWV
+cuV
 htr
 bZl
 bZl
@@ -30559,14 +30572,14 @@ uJX
 iUv
 iUv
 htr
-htr
-htr
-htr
-htr
-htr
-htr
-htr
-htr
+doH
+xtW
+wzI
+qWq
+eFE
+iDJ
+iDJ
+hZA
 htr
 eQz
 eQz
@@ -30705,15 +30718,15 @@ uJX
 uJX
 iUv
 iUv
-iUv
-iUv
-iUv
-iUv
-iUv
-iUv
-iUv
-iUv
-iUv
+htr
+htr
+htr
+htr
+htr
+htr
+htr
+htr
+htr
 wrH
 wqx
 mLX
@@ -39848,7 +39861,7 @@ rpa
 qft
 xyG
 fSB
-ocb
+blh
 ocb
 qft
 nkm

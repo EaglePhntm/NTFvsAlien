@@ -47,10 +47,6 @@
 			if (prob(50))
 				qdel(src)
 
-
-
-
-
 /obj/machinery/optable/examine(mob/user)
 	. = ..()
 	if(get_dist(user, src) > 2 && !isobserver(user))
@@ -72,8 +68,8 @@
 /obj/machinery/optable/user_buckle_mob(mob/living/buckling_mob, mob/user, check_loc = TRUE, silent)
 	if(!ishuman(buckling_mob))
 		return FALSE
-	if(buckling_mob == user)
-		return FALSE
+	//if(buckling_mob == user)
+	//	return FALSE
 	if(!ishuman(user)) //xenos buckling humans into op tables and applying anesthetic masks? no way.
 		to_chat(user, span_xenowarning("We don't have the manual dexterity to do this."))
 		return FALSE
@@ -84,7 +80,7 @@
 		to_chat(user, span_warning("There is no anesthetic tank connected to the table, load one first."))
 		return FALSE
 	buckling_mob.visible_message(span_notice("[user] begins to connect [buckling_mob] to the anesthetic system."))
-	if(!do_after(user, 2.5 SECONDS, IGNORE_HELD_ITEM, src, BUSY_ICON_GENERIC))
+	if(!do_after(user, 2.5 SECONDS, FALSE, src, BUSY_ICON_GENERIC))
 		if(buckling_mob != victim)
 			to_chat(user, span_warning("The patient must remain on the table!"))
 			return FALSE
@@ -167,6 +163,7 @@
 		visible_message(span_notice("[C] has been laid on the operating table by [user]."), null, null, 4)
 	C.set_resting(TRUE)
 	C.forceMove(loc)
+	user_buckle_mob(C, user, TRUE)
 
 	if(ishuman(C))
 		var/mob/living/carbon/human/H = C

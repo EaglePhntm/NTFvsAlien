@@ -60,6 +60,8 @@ Registers signals, handles the pathfinding element addition/removal alongside ma
 	var/list/ability_list = list()
 	///Count of how many times we've failed to form a path to our goal node
 	var/fail_goal_path_count = 0
+	///Will not look for targets to attack
+	var/non_aggressive = FALSE
 
 /datum/ai_behavior/New(loc, mob/parent_to_assign, atom/escorted_atom)
 	..()
@@ -413,6 +415,8 @@ Registers signals, handles the pathfinding element addition/removal alongside ma
 
 ///Returns true if a combat target is no longer valid
 /datum/ai_behavior/proc/need_new_combat_target()
+	if(non_aggressive)
+		return FALSE
 	if(!combat_target)
 		return TRUE
 
@@ -479,7 +483,7 @@ These are parameter based so the ai behavior can choose to (un)register the sign
 		return TRUE
 	if(HAS_TRAIT(mob_parent, TRAIT_IS_CLIMBING))
 		return TRUE
-	if(mob_parent.pulledby?.faction == mob_parent.faction)
+	if(mob_parent.pulledby?.faction && (GLOB.faction_to_iff[mob_parent.pulledby.faction] == GLOB.faction_to_iff[mob_parent.faction]))
 		return TRUE //lets players wrangle NPC's
 	return FALSE
 

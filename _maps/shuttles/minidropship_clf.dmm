@@ -1,0 +1,282 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"b" = (
+/obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
+/obj/machinery/door/poddoor/mainship/open{
+	id = "minidropship_podlock"
+	},
+/obj/machinery/door/airlock/multi_tile/mainship/blackgeneric/glass{
+	dir = 2
+	},
+/turf/open/floor/mainship/plate/outline,
+/area/shuttle/minidropship)
+"c" = (
+/turf/open/floor/plating/plating_catwalk,
+/area/shuttle/minidropship)
+"e" = (
+/turf/template_noop,
+/area/space)
+"g" = (
+/obj/machinery/holopad,
+/obj/item/ammo_magazine/heavy_minigun,
+/obj/item/ammo_magazine/heavy_minigun,
+/obj/item/ammo_magazine/heavy_minigun,
+/obj/docking_port/mobile/marine_dropship/minidropship/clf,
+/turf/open/floor/mainship/mono,
+/area/shuttle/minidropship)
+"i" = (
+/obj/machinery/door/poddoor/shutters/transit/nonsmoothing{
+	dir = 1
+	},
+/obj/machinery/door/poddoor/mainship/open{
+	dir = 2;
+	id = "minidropship_podlock"
+	},
+/obj/machinery/door/airlock/multi_tile/mainship/blackgeneric/glass,
+/turf/open/floor/mainship/plate,
+/area/shuttle/minidropship)
+"k" = (
+/obj/item/weapon/gun/standard_minigun/nest{
+	dir = 8
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/shuttle/minidropship)
+"m" = (
+/obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
+/obj/machinery/door/poddoor/mainship/open{
+	id = "minidropship_podlock"
+	},
+/obj/structure/closet/walllocker/hydrant/full{
+	pixel_x = -22;
+	pixel_y = -24
+	},
+/obj/structure/window/framed/mainship,
+/turf/open/floor/mainship/plate/outline,
+/area/shuttle/minidropship)
+"n" = (
+/obj/effect/urban/decal/workers_decal,
+/turf/open/floor/mainship/plate/outline,
+/area/shuttle/minidropship)
+"s" = (
+/obj/structure/bed/chair/dropship/pilot,
+/obj/structure/closet/crate/delta,
+/obj/item/book/manual/engineering_construction,
+/obj/machinery/door_control/minidropship{
+	name = "inner door-control"
+	},
+/obj/item/reagent_containers/hypospray/autoinjector/synaptizine_expired,
+/obj/item/reagent_containers/hypospray/autoinjector/synaptizine_expired,
+/turf/open/floor/plating/plating_catwalk,
+/area/shuttle/minidropship)
+"u" = (
+/obj/structure/dropship_piece/tadpole/tadpole_nose/right{
+	dir = 1;
+	pixel_y = 32
+	},
+/obj/machinery/door_control{
+	dir = 1;
+	id = "minidropship_podlock";
+	name = "outer door-control"
+	},
+/obj/structure/dropship_piece/tadpole/cockpit/right{
+	dir = 1
+	},
+/obj/structure/dropship_piece/two/weapon/rightright{
+	dir = 1;
+	pixel_y = 32
+	},
+/obj/effect/attach_point/weapon/minidropship{
+	equipment_offset_y = 25;
+	ship_tag = "minidropshipclf"
+	},
+/turf/open/floor/mainship/mono,
+/area/shuttle/minidropship)
+"w" = (
+/obj/structure/dropship_piece/singlewindow/tadpole{
+	dir = 1
+	},
+/obj/structure/dropship_piece/tadpole/tadpole_nose{
+	dir = 1;
+	pixel_y = 32
+	},
+/turf/open/floor/mainship/mono,
+/area/shuttle/minidropship)
+"y" = (
+/turf/template_noop,
+/area/shuttle/minidropship)
+"z" = (
+/obj/structure/dropship_piece/tadpole/rearleft{
+	dir = 1
+	},
+/turf/template_noop,
+/area/shuttle/minidropship)
+"A" = (
+/obj/structure/dropship_piece/tadpole/rearright{
+	dir = 1
+	},
+/turf/template_noop,
+/area/shuttle/minidropship)
+"C" = (
+/obj/machinery/door/poddoor/shutters/transit/nonsmoothing{
+	dir = 1
+	},
+/obj/machinery/door/poddoor/mainship/open{
+	dir = 2;
+	id = "minidropship_podlock"
+	},
+/turf/open/floor/mainship/plate,
+/area/shuttle/minidropship)
+"D" = (
+/obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/clf,
+/turf/open/floor/mainship/plate/outline,
+/area/shuttle/minidropship)
+"E" = (
+/obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
+/obj/machinery/door/poddoor/mainship/open{
+	id = "minidropship_podlock"
+	},
+/turf/open/floor/mainship/plate/outline,
+/area/shuttle/minidropship)
+"F" = (
+/obj/structure/dropship_piece/tadpole/engine{
+	dir = 1;
+	pixel_x = 23;
+	pixel_y = -14
+	},
+/obj/structure/dropship_piece/glassone,
+/turf/open/floor/mainship/mono,
+/area/shuttle/minidropship)
+"H" = (
+/obj/structure/dropship_piece/glasstwo/tadpole,
+/obj/structure/dropship_piece/tadpole/engine{
+	dir = 1;
+	pixel_x = -23;
+	pixel_y = -14
+	},
+/turf/open/floor/mainship/mono,
+/area/shuttle/minidropship)
+"J" = (
+/obj/item/ammo_magazine/heavy_minigun,
+/obj/item/ammo_magazine/heavy_minigun,
+/obj/item/ammo_magazine/heavy_minigun,
+/turf/open/floor/plating/plating_catwalk,
+/area/shuttle/minidropship)
+"K" = (
+/obj/machinery/vending/nanoammo/directional/west,
+/turf/open/floor/mainship/plate/outline,
+/area/shuttle/minidropship)
+"L" = (
+/obj/structure/dropship_piece/glasstwo/tadpole{
+	dir = 1
+	},
+/obj/structure/dropship_piece/tadpole/engine{
+	dir = 1;
+	pixel_x = 23;
+	pixel_y = -14
+	},
+/turf/open/floor/mainship/mono,
+/area/shuttle/minidropship)
+"N" = (
+/obj/effect/urban/decal,
+/obj/item/weapon/gun/standard_minigun/nest{
+	dir = 8
+	},
+/turf/open/floor/mainship/mono,
+/area/shuttle/minidropship)
+"T" = (
+/obj/machinery/cic_maptable/no_flags,
+/turf/open/floor/mainship/plate/outline,
+/area/shuttle/minidropship)
+"V" = (
+/obj/machinery/door/poddoor/mainship/open{
+	id = "minidropship_podlock"
+	},
+/obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
+/obj/machinery/vending/nanomed/tadpolemed{
+	pixel_x = 8
+	},
+/obj/structure/closet/walllocker/hydrant/extinguisher{
+	pixel_x = -22;
+	pixel_y = -24
+	},
+/obj/structure/window/framed/mainship,
+/turf/open/floor/mainship/plate/outline,
+/area/shuttle/minidropship)
+"X" = (
+/obj/structure/dropship_piece/tadpole/tadpole_nose/left{
+	dir = 1;
+	pixel_y = 32
+	},
+/obj/structure/dropship_piece/tadpole/cockpit/left{
+	dir = 1
+	},
+/obj/effect/attach_point/weapon/minidropship{
+	equipment_offset_y = 25;
+	ship_tag = "minidropshipclf"
+	},
+/obj/structure/dropship_piece/two/weapon/leftleft{
+	dir = 1;
+	pixel_y = 32
+	},
+/turf/open/floor/mainship/mono,
+/area/shuttle/minidropship)
+
+(1,1,1) = {"
+e
+e
+e
+e
+e
+e
+e
+e
+"}
+(2,1,1) = {"
+e
+X
+H
+V
+E
+b
+H
+z
+"}
+(3,1,1) = {"
+y
+w
+T
+s
+N
+k
+n
+i
+"}
+(4,1,1) = {"
+y
+w
+D
+c
+g
+J
+K
+C
+"}
+(5,1,1) = {"
+e
+u
+F
+m
+E
+b
+L
+A
+"}
+(6,1,1) = {"
+e
+e
+e
+e
+e
+e
+e
+e
+"}

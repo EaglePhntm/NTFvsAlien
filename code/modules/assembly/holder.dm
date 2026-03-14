@@ -34,8 +34,7 @@
 /obj/item/assembly_holder/proc/attach(obj/item/assembly/A, mob/user)
 	if(user)
 		user.transferItemToLoc(A, src)
-	else
-		A.forceMove(src)
+	A.forceMove(src)
 	A.holder = src
 	A.toggle_secure()
 	if(!a_left)
@@ -87,8 +86,10 @@
 	. = ..()
 	if(a_left)
 		a_left.dropped()
+		a_left.holder_movement()
 	if(a_right)
 		a_right.dropped()
+		a_right.holder_movement()
 
 
 /obj/item/assembly_holder/attack_hand(mob/living/user)

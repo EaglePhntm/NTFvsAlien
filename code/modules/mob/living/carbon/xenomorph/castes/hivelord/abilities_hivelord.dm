@@ -45,7 +45,7 @@
 	xeno_owner.face_atom(recycled_xeno) //Face towards the target so we don't look silly
 	xeno_owner.visible_message(span_warning("\The [xeno_owner] starts breaking apart \the [recycled_xeno]'s carcass."), \
 	span_danger("We slowly deconstruct upon \the [recycled_xeno]'s carcass!"), null, 20)
-	if(!do_after(owner, 7 SECONDS, IGNORE_HELD_ITEM, recycled_xeno, BUSY_ICON_GENERIC, extra_checks = CALLBACK(src, PROC_REF(can_use_ability), target, TRUE, ABILITY_USE_BUSY)))
+	if(!do_after(owner, 7 SECONDS, FALSE, recycled_xeno, BUSY_ICON_GENERIC, extra_checks = CALLBACK(src, PROC_REF(can_use_ability), target, TRUE, ABILITY_USE_BUSY)))
 		return
 
 	xeno_owner.record_recycle_points(recycled_xeno)
@@ -63,9 +63,19 @@
 /datum/action/ability/activable/xeno/secrete_resin/hivelord
 	ability_cost = 25
 	buildable_structures = list(
+		//Each entry corresponds to an entry in the global resin_images_list, in order.
+		//Make sure to keep them synced up.
 		/turf/closed/wall/resin/regenerating/thick,
+		/turf/closed/wall/resin/membrane/thick,
 		/obj/alien/resin/sticky,
 		/obj/structure/mineral_door/resin/thick,
+		/obj/structure/bed/nest,
+		/obj/structure/xeno/lighttower,
+		/obj/structure/bed/nest/advanced,
+		/obj/structure/bed/nest/advanced/special,
+		/turf/closed/wall/resin/regenerating/special/bulletproof,
+		/turf/closed/wall/resin/regenerating/special/fireproof,
+		/turf/closed/wall/resin/regenerating/special/hardy,
 	)
 
 // ***************************************
@@ -147,7 +157,7 @@
 		owner.balloon_alert(owner, "resin walk ended, no plasma")
 		resinwalk_off(TRUE)
 		return
-	if(!xeno_owner.loc_weeds_type && weeding_cost > 0 && xeno_owner.plasma_stored >= weeding_cost)
+	if(!xeno_owner.loc_weeds_type && weeding_cost > 0 && xeno_owner.plasma_stored >= (weeding_cost+10))
 		var/obj/alien/weeds/created_weeds = new(xeno_owner.loc)
 		SSweeds_decay.decaying_list += created_weeds // Check if it should go away (no nearby node) or stick around (nearby node).
 		xeno_owner.handle_weeds_on_movement() // loc_weeds_type is changed here.
@@ -192,6 +202,82 @@
 	armor_amount = new_armor_amount
 
 // ***************************************
+// *********** Tunnel
+// ***************************************
+/datum/action/ability/xeno_action/build_tunnel
+	name = "Dig Tunnel"
+	action_icon_state = "build_tunnel"
+	action_icon = 'icons/Xeno/actions/hivelord.dmi'
+	desc = "Create a tunnel entrance. Use again to create the tunnel exit."
+	ability_cost = 200
+	cooldown_duration = 120 SECONDS
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_BUILD_TUNNEL,
+	)
+
+/datum/action/ability/xeno_action/build_tunnel/can_use_action(silent, override_flags, selecting)
+	. = ..()
+	if(!.)
+		return FALSE
+	var/turf/T = get_turf(owner)
+	if(locate(/obj/structure/xeno/tunnel) in T)
+		if(!silent)
+			owner.balloon_alert(owner, "tunnel already here!")
+		return
+	if(!T.can_dig_xeno_tunnel())
+		if(!silent)
+			owner.balloon_alert(owner, "bad terrain!")
+		return FALSE
+	if(owner.get_active_held_item())
+		if(!silent)
+			owner.balloon_alert(owner, "need an empty hand!")
+		return FALSE
+
+/datum/action/ability/xeno_action/build_tunnel/on_cooldown_finish()
+	to_chat(xeno_owner, span_notice("We are ready to dig a tunnel again."))
+	return ..()
+
+/datum/action/ability/xeno_action/build_tunnel/action_activate()
+	var/turf/T = get_turf(owner)
+
+	xeno_owner.balloon_alert(xeno_owner, "digging...")
+	xeno_owner.visible_message(span_xenonotice("[xeno_owner] begins digging out a tunnel entrance."), \
+	span_xenonotice("We begin digging out a tunnel entrance."), null, 5)
+	if(!do_after(xeno_owner, HIVELORD_TUNNEL_DIG_TIME, NONE, T, BUSY_ICON_BUILD))
+		xeno_owner.balloon_alert(xeno_owner, "digging aborted")
+		return fail_activate()
+
+	if(!can_use_action(TRUE))
+		return fail_activate()
+
+	owner.balloon_alert(xeno_owner, "tunnel dug")
+	xeno_owner.visible_message(span_xenonotice("\The [xeno_owner] digs out a tunnel entrance."), \
+	span_xenonotice("We dig out a tunnel, connecting it to our network."), null, 5)
+	var/obj/structure/xeno/tunnel/newt = new(T, xeno_owner.get_xeno_hivenumber())
+
+	playsound(T, 'sound/weapons/pierce.ogg', 25, 1)
+
+	xeno_owner.tunnels.Add(newt)
+
+	add_cooldown()
+
+	to_chat(xeno_owner, span_xenonotice("We now have <b>[LAZYLEN(xeno_owner.tunnels)] of [HIVELORD_TUNNEL_SET_LIMIT]</b> tunnels."))
+
+	newt.tunnel_desc = "[get_area(newt)] (X: [newt.x], Y: [newt.y])"
+
+	xeno_message("[xeno_owner.name] has built a new tunnel at [newt.tunnel_desc]!", "xenoannounce", 3, xeno_owner.get_xeno_hivenumber())
+
+	if(LAZYLEN(xeno_owner.tunnels) > HIVELORD_TUNNEL_SET_LIMIT) //if we exceed the limit, delete the oldest tunnel set.
+		var/obj/structure/xeno/tunnel/old_tunnel = xeno_owner.tunnels[1]
+		old_tunnel.deconstruct(FALSE)
+		to_chat(xeno_owner, span_xenodanger("Having exceeding our tunnel limit, our oldest tunnel has collapsed."))
+
+	succeed_activate()
+	playsound(T, 'sound/weapons/pierce.ogg', 25, 1)
+
+
+
+// ***************************************
 // *********** plasma transfer
 // ***************************************
 /datum/action/ability/activable/xeno/transfer_plasma/improved
@@ -214,15 +300,17 @@
 
 /datum/action/ability/xeno_action/place_jelly_pod/can_use_action(silent, override_flags, selecting)
 	. = ..()
+	if(!.)
+		return
 	var/turf/T = get_turf(owner)
 	if(!T || !T.is_weedable() || T.density)
 		if(!silent)
-			T.balloon_alert(owner, "can't place a pod here!")
+			owner.balloon_alert(owner, "can't place a pod here!")
 		return FALSE
 
 	if(!xeno_owner.loc_weeds_type)
 		if(!silent)
-			T.balloon_alert(owner, "need weeds!")
+			owner.balloon_alert(owner, "need weeds!")
 		return FALSE
 
 	if(!T.check_disallow_alien_fortification(owner, silent))
@@ -263,7 +351,7 @@
 		return FALSE
 
 /datum/action/ability/xeno_action/create_jelly/action_activate()
-	var/obj/item/resin_jelly/jelly = new(owner.loc)
+	var/obj/item/resin_jelly/jelly = new(owner.loc, xeno_owner.get_xeno_hivenumber())
 	owner.put_in_hands(jelly)
 	to_chat(owner, span_xenonotice("We create a globule of resin from our ovipositor.")) // Ewww...
 	add_cooldown()
@@ -298,23 +386,23 @@
 	if(!.)
 		return
 
-	if(!isxeno(target))
+	if(!iscarbon(target))
 		if(!silent)
-			target.balloon_alert(owner, "can only heal xenos!")
+			target.balloon_alert(owner, "can only heal living targets!")
 		return FALSE
-	var/mob/living/carbon/xenomorph/patient = target
+	var/mob/living/carbon/patient = target
 
-	if(!CHECK_BITFIELD(use_state_flags|override_flags, ABILITY_IGNORE_DEAD_TARGET) && patient.stat == DEAD)
+/*	if(!CHECK_BITFIELD(use_state_flags|override_flags, ABILITY_IGNORE_DEAD_TARGET) && patient.stat == DEAD)
 		if(!silent)
-			target.balloon_alert(owner, "she's dead!")
+			target.balloon_alert(owner, "it's dead!")
+		return FALSE */
+
+	if(!check_distance(patient, silent))
 		return FALSE
 
-	if(!check_distance(target, silent))
-		return FALSE
-
-	if(HAS_TRAIT(target, TRAIT_HEALING_INFUSION))
+	if(HAS_TRAIT(patient, TRAIT_HEALING_INFUSION))
 		if(!silent)
-			target.balloon_alert(owner, "already infused!")
+			patient.balloon_alert(owner, "already infused!")
 		return FALSE
 
 
@@ -348,7 +436,7 @@
 	new /obj/effect/temp_visual/telekinesis(get_turf(target))
 	to_chat(target, span_xenodanger("Our wounds begin to knit and heal rapidly as [owner]'s healing energies infuse us.")) //Let the target know.
 
-	var/mob/living/carbon/xenomorph/patient = target
+	var/mob/living/carbon/patient = target
 
 	patient.apply_status_effect(STATUS_EFFECT_HEALING_INFUSION, HIVELORD_HEALING_INFUSION_DURATION * status_multiplier, HIVELORD_HEALING_INFUSION_TICKS * status_multiplier, innate_healing) //per debuffs.dm
 	if(resin_jelly_duration)
@@ -380,6 +468,8 @@
 
 /datum/action/ability/xeno_action/sow/can_use_action(silent, override_flags, selecting)
 	. = ..()
+	if(!.)
+		return
 	if(!xeno_owner.loc_weeds_type)
 		if(!silent)
 			owner.balloon_alert(owner, "no weeds!")
@@ -394,11 +484,13 @@
 		return FALSE
 
 	playsound(src, SFX_ALIEN_RESIN_BUILD, 25)
-	new xeno_owner.selected_plant(get_turf(owner))
+	new xeno_owner.selected_plant(get_turf(owner), xeno_owner.get_xeno_hivenumber())
 	add_cooldown()
 	return succeed_activate()
 
 /datum/action/ability/xeno_action/sow/update_button_icon()
+	if(QDELETED(xeno_owner) || QDELETED(button))
+		return
 	button.overlays.Cut()
 	button.overlays += image('icons/Xeno/actions/construction.dmi', button, initial(xeno_owner.selected_plant.name))
 	return ..()
@@ -437,6 +529,8 @@
 
 /datum/action/ability/xeno_action/place_recovery_pylon/can_use_action(silent, override_flags, selecting)
 	. = ..()
+	if(!.)
+		return
 	var/turf/current_turf = get_turf(owner)
 	if(!current_turf || !current_turf.is_weedable() || current_turf.density)
 		if(!silent)
@@ -457,7 +551,7 @@
 		if(!silent)
 			current_turf.balloon_alert(owner, "nearby recovery pylon already!")
 		return FALSE
-	if(LAZYLEN(GLOB.hive_datums[xeno_owner.hivenumber].recovery_pylons) >= HIVELORD_RECOVERY_PYLON_SET_LIMIT)
+	if(LAZYLEN(GLOB.hive_datums[xeno_owner.get_xeno_hivenumber()].recovery_pylons) >= HIVELORD_RECOVERY_PYLON_SET_LIMIT)
 		if(!silent)
 			current_turf.balloon_alert(owner, "maximum recovery pylons made!")
 		return FALSE

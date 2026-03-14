@@ -35,9 +35,20 @@
 	switch(H.a_intent)
 
 		if(INTENT_HELP)
+			if(handcuffed && !H.do_actions)
+				H.visible_message(span_warning("\The [H] starts working on the shackles binding \the [src]."), \
+					span_warning("You start working on the shackles binding \the [src]."), null, 5)
+				if(do_mob(H, src, 15 SECONDS, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE, extra_checks = CALLBACK(src, TYPE_PROC_REF(/datum, Adjacent), H)))
+					if(handcuffed)
+						H.visible_message(span_warning("\The [H] carefully removes the shackles from \the [src]."), \
+							span_warning("You carefully remove the shackles from \the [src]."), null, 5)
+						src.update_handcuffed()
+						src.update_handcuffed_overlay()
+						new /obj/item/restraints/handcuffs/shackles(src.loc)
+				return
 			if(stat == DEAD)
 				H.visible_message(span_warning("\The [H] pokes \the [src], but nothing happens."), \
-				span_warning("You poke \the [src], but nothing happens."), null, 5)
+					span_warning("You poke \the [src], but nothing happens."), null, 5)
 			else
 				H.visible_message(span_notice("\The [H] pets \the [src]."), \
 					span_notice("You pet \the [src]."), null, 5)
@@ -69,12 +80,15 @@
 
 //Hot hot Aliens on Aliens action.
 //Actually just used for eating people.
-/mob/living/carbon/xenomorph/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/mob/living/carbon/xenomorph/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(status_flags & INCORPOREAL || xeno_attacker.status_flags & INCORPOREAL) //Incorporeal xenos cannot attack or be attacked
 		return
 
 	if(src == xeno_attacker)
 		return TRUE
+
+	if(xeno_attacker.handcuffed)
+		return
 
 	switch(xeno_attacker.a_intent)
 		if(INTENT_HELP)
@@ -88,7 +102,17 @@
 						span_notice("We extinguished the fire on [src]."), null, 5)
 					ExtinguishMob()
 				return TRUE
-			xeno_attacker.visible_message(span_notice("\The [xeno_attacker] caresses \the [src] with its scythe-like arm."), \
+			if(handcuffed && !xeno_attacker.do_actions)
+				xeno_attacker.visible_message(span_warning("\The [xeno_attacker] starts working on the shackles binding \the [src]."), \
+					span_warning("You start working on the shackles binding \the [src]."), null, 5)
+				if(do_mob(xeno_attacker, src, 15 SECONDS, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE, extra_checks = CALLBACK(src, TYPE_PROC_REF(/datum, Adjacent), xeno_attacker)))
+					if(handcuffed)
+						xeno_attacker.visible_message(span_warning("\The [xeno_attacker] carefully removes the shackles from \the [src]."), \
+							span_warning("You carefully remove the shackles from \the [src]."), null, 5)
+						src.update_handcuffed()
+						src.update_handcuffed_overlay()
+						new /obj/item/restraints/handcuffs/shackles(src.loc)
+			xeno_attacker.visible_message(span_notice("\The [xeno_attacker] caresses \the [src] with[ p_their()] scythe-like arm."), \
 			span_notice("We caress \the [src] with our scythe-like arm."), null, 5)
 			return TRUE
 		if(INTENT_GRAB)

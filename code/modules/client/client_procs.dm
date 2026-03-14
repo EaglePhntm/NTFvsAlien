@@ -134,6 +134,8 @@
 
 	return ..()	//redirect to hsrc.Topic()
 
+GLOBAL_DATUM_INIT(new_client_amia_whitelist_callback, /datum/callback, CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(new_client_whitelist_check_callback)))
+GLOBAL_PROTECT(new_client_amia_whitelist_callback)
 
 /client/New(TopicData)
 	var/tdata = TopicData //save this for later use
@@ -392,6 +394,48 @@
 	fully_created = TRUE
 
 
+	if(GLOB.admin_datums[ckey] || GLOB.deadmins[ckey])
+		log_admin("Skipped amia whitelist check for [key] because they are an admin.")
+		GLOB.whitelisted_clients += src
+		GLOB.whitelisted_clients[src] = "Admin"
+	else
+		if(check_whitelist(ckey))
+			log_admin("Skipped amia whitelist check for [key] because they are in the TGMC-style whitelist.")
+			GLOB.whitelisted_clients += src
+			GLOB.whitelisted_clients[src] = "WL"
+		else
+			if(ckey in GLOB.amia_bypass)
+				log_admin("Skipped amia whitelist check for [key] because of a matching amia bypass entry for them:[json_encode(list(ckey = GLOB.amia_bypass[ckey]))].")
+				GLOB.whitelisted_clients += src
+				GLOB.whitelisted_clients[src] = "amia bypass"
+			else
+				if(CONFIG_GET(flag/amia_enabled))
+					log_admin("Looking up [key] in the amia whitelist...")
+					to_chat(src, span_notice("Attempting to look up your ckey ([ckey]) in the amia whitelist."))
+					amia_whitelistcheck(ckey, GLOB.new_client_amia_whitelist_callback)
+	if(src in GLOB.whitelisted_clients)
+		to_chat(src, span_notice("Whitelist check passed.  Welcome."))
+
+/proc/new_client_whitelist_check_callback(ckey, result)
+	var/client/client_checked = GLOB.directory[ckey]
+	if(!istype(client_checked))
+		//They already logged out
+		return
+	if((client_checked in GLOB.whitelisted_clients))
+		log_admin("ckey:[ckey] was already marked as whitelisted (reason: [GLOB.whitelisted_clients[client_checked]]) when a whitelist lookup for them [result].")
+	switch(result)
+		if("Passed")
+			to_chat(client_checked, span_notice("Whitelist check passed.  You are registered in the amia whitelist and should now have access to play on the server."))
+			if(!(client_checked in GLOB.whitelisted_clients))
+				GLOB.whitelisted_clients += client_checked
+				GLOB.whitelisted_clients[client_checked] = "amia"
+		if("Failed")
+			to_chat(client_checked, span_notice("Whitelist check failed.  You are not registered in the amia whitelist."))
+		if("Errored")
+			to_chat(client_checked, span_notice("There was an error while checking if you are registered in the amia whitelist.  Try reconnecting, and if this keeps happening, inform admins."))
+		if("Skipped")
+			to_chat(client_checked, span_notice("Unable to check if you are registered in the amia whitelist because the bot is currently down or turned off."))
+	return
 
 //////////////////
 //  DISCONNECT  //
@@ -411,12 +455,15 @@
 
 /client/Destroy()
 	SEND_SIGNAL(src, COMSIG_CLIENT_DISCONNECTED)
-	log_access("Logout: [key_name(src)]")
+	log_access("Logout: [key_name(src)]. ([length(GLOB.clients) - 1] players left)")
+	if(!(length(GLOB.clients) - 1))
+		log_game_world("Last player just logged out.  Connection issues or just deadpop?")
 	if(obj_window)
 		QDEL_NULL(obj_window)
 	if(holder)
 		if(check_rights(R_ADMIN, FALSE))
-			message_admins("Admin logout: [key_name(src)].")
+			message_admins("Admin logout: [key_name(src)]. ([length(GLOB.admins) - 1] admins left)")
+			log_access("Admin logout: [key_name(src)]. ([length(GLOB.admins) - 1] admins left)")
 		else if(check_rights(R_MENTOR, FALSE))
 			message_staff("Mentor logout: [key_name(src)].")
 		holder.owner = null
@@ -442,6 +489,7 @@
 	GLOB.ahelp_tickets.ClientLogout(src)
 	GLOB.directory -= ckey
 	GLOB.clients -= src
+	GLOB.whitelisted_clients -= src
 	QDEL_NULL(view_size)
 	QDEL_NULL(parallax_rock)
 	QDEL_LIST(parallax_layers_cached)
@@ -627,7 +675,7 @@
 		return
 	var/client_is_in_db = query_client_in_db.NextRow()
 	//If we aren't an admin, and the flag is set
-	if(CONFIG_GET(flag/panic_bunker) && !holder && !GLOB.deadmins[ckey])
+	if(CONFIG_GET(flag/panic_bunker) && !holder && !GLOB.deadmins[ckey] && !(ckey in GLOB.bunker_passthrough))
 		var/living_recs = CONFIG_GET(number/panic_bunker_living)
 		//Relies on pref existing, but this proc is only called after that occurs, so we're fine.
 		var/minutes = get_exp_living(pure_numeric = TRUE)
@@ -665,6 +713,8 @@
 		if(!account_join_date)
 			account_join_date = "Error"
 			account_age = -1
+		else if(ckey in GLOB.bunker_passthrough)
+			GLOB.bunker_passthrough -= ckey
 	qdel(query_client_in_db)
 	var/datum/db_query/query_get_client_age = SSdbcore.NewQuery(
 		"SELECT firstseen, DATEDIFF(Now(),firstseen), accountjoindate, DATEDIFF(Now(),accountjoindate) FROM [format_table_name("player")] WHERE ckey = :ckey",
@@ -965,9 +1015,6 @@ GLOBAL_VAR_INIT(automute_on, null)
 	var/weight = SPAM_TRIGGER_WEIGHT_FORMULA(message)
 	total_message_weight += weight
 
-	var/message_cache = total_message_count
-	var/weight_cache = total_message_weight
-
 	if(last_message_time && world.time > last_message_time)
 		last_message_time = 0
 		total_message_count = 0
@@ -975,6 +1022,10 @@ GLOBAL_VAR_INIT(automute_on, null)
 
 	else if(!last_message_time)
 		last_message_time = world.time + SPAM_TRIGGER_TIME_PERIOD
+
+	// Having this before the if instead of after requires every long messsage to be sent twice or else have it get locked out.
+	var/message_cache = total_message_count
+	var/weight_cache = total_message_weight
 
 	last_message = message
 
@@ -986,9 +1037,11 @@ GLOBAL_VAR_INIT(automute_on, null)
 			to_chat(src, span_danger("You have exceeded the spam filter. An auto-mute was applied."))
 			create_message("note", ckey(key), "SYSTEM", "Automuted due to spam. Last message: '[last_message]'", null, null, FALSE, TRUE, null, FALSE, "Minor")
 			mute(src, mute_type, TRUE)
+		else
+			to_chat(src, span_danger("You have hit the spam filter limit."))
 		return TRUE
 
-	if(warning && GLOB.automute_on && !check_rights(R_ADMIN, FALSE))
+	if(warning)
 		to_chat(src, span_danger("You are nearing the spam filter limit."))
 
 /client/vv_edit_var(var_name, var_value)

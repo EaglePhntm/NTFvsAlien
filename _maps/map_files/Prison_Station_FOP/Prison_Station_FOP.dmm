@@ -16173,7 +16173,7 @@
 /turf/open/floor/prison/plate,
 /area/prison/cellblock/lowsec/ne)
 "aZi" = (
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/structure/table/reinforced,
 /turf/open/floor/prison/green/full,
 /area/prison/cellblock/lowsec/nw)
@@ -16487,7 +16487,7 @@
 	},
 /area/prison/security/checkpoint/highsec/n)
 "bag" = (
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/structure/table/reinforced,
 /turf/open/floor/prison,
 /area/prison/hallway/central)
@@ -19726,7 +19726,7 @@
 /turf/open/floor/prison/cellstripe,
 /area/prison/cellblock/vip)
 "bkd" = (
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/structure/table/reinforced,
 /turf/open/floor/prison/cellstripe,
 /area/prison/cellblock/vip)
@@ -21874,7 +21874,7 @@
 	},
 /area/prison/cellblock/vip)
 "bqW" = (
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/structure/table/reinforced,
 /turf/open/floor/prison/cellstripe{
 	dir = 1
@@ -23092,7 +23092,7 @@
 /turf/open/floor/prison/bright_clean,
 /area/prison/store)
 "bvc" = (
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/structure/table/reinforced,
 /turf/open/floor/prison/darkred/full,
 /area/prison/hallway/central)
@@ -34359,7 +34359,7 @@
 /turf/open/floor/prison,
 /area/prison/recreation/medsec)
 "ciC" = (
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/structure/table/reinforced,
 /turf/open/floor/prison,
 /area/prison/recreation/medsec)
@@ -39704,6 +39704,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/prison/darkyellow{
 	dir = 4
 	},
@@ -40253,6 +40254,11 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
 /turf/closed/wall/r_wall/prison,
 /area/prison/command/quarters)
+"eVZ" = (
+/obj/effect/landmark/weed_node,
+/obj/structure/cable,
+/turf/open/floor/prison,
+/area/prison/engineering)
 "eWi" = (
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/misc/paperbin{
@@ -40381,6 +40387,10 @@
 	},
 /turf/open/floor/prison/bluefloor,
 /area/prison/pirate)
+"fjT" = (
+/obj/effect/landmark/static_comms/net_two,
+/turf/open/floor/prison,
+/area/prison/security/monitoring/highsec)
 "fkw" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -40847,6 +40857,12 @@
 	dir = 4
 	},
 /area/prison/cellblock/mediumsec/north)
+"gpf" = (
+/obj/structure/cable,
+/turf/open/floor/prison/darkyellow{
+	dir = 8
+	},
+/area/prison/engineering)
 "gpm" = (
 /obj/structure/bed,
 /obj/effect/spawner/random/weaponry/shiv,
@@ -43028,6 +43044,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/prison/darkyellow{
 	dir = 8
 	},
@@ -44303,6 +44320,7 @@
 /area/prison/hallway/central)
 "nmv" = (
 /obj/machinery/power/smes/buildable/empty,
+/obj/structure/cable,
 /turf/open/floor/prison/darkyellow{
 	dir = 9
 	},
@@ -45429,9 +45447,9 @@
 /turf/open/floor/prison,
 /area/prison/engineering)
 "pIl" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/closed/wall/r_wall/prison_unmeltable,
-/area/storage/testroom)
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/floor/prison/marked,
+/area/prison/hallway/east)
 "pIp" = (
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/misc/paperbin{
@@ -45623,6 +45641,12 @@
 	},
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/prison/maintenance/residential/nw)
+"pYQ" = (
+/obj/structure/cable,
+/turf/open/floor/prison/darkyellow{
+	dir = 4
+	},
+/area/prison/engineering)
 "pZB" = (
 /turf/open/floor/prison/darkred{
 	dir = 5
@@ -46202,6 +46226,7 @@
 /area/prison/residential/south)
 "rha" = (
 /obj/machinery/power/smes/buildable/empty,
+/obj/structure/cable,
 /turf/open/floor/prison/darkyellow{
 	dir = 5
 	},
@@ -66792,8 +66817,8 @@ baa
 aYx
 bhB
 aXK
-aXK
-aXK
+lnA
+fjT
 ixq
 bhB
 oie
@@ -67049,8 +67074,8 @@ baa
 bjR
 bhB
 aXK
-aXK
-aXK
+lnA
+lnA
 lnA
 bhB
 oie
@@ -84074,7 +84099,7 @@ cgB
 bRC
 nmv
 kIC
-gYO
+gpf
 dGA
 gYO
 gYO
@@ -85359,7 +85384,7 @@ pfC
 bRC
 pTc
 ojj
-hge
+eVZ
 cbJ
 cbJ
 hge
@@ -85616,7 +85641,7 @@ cgB
 mws
 rha
 dSj
-sgK
+pYQ
 wkb
 tbE
 sgK
@@ -103822,7 +103847,7 @@ oAY
 oAY
 hYR
 bHR
-bHR
+pIl
 bIM
 hYR
 qtN
@@ -114450,7 +114475,7 @@ aab
 aab
 bKg
 bKg
-pIl
+bKg
 bKg
 bKg
 acD

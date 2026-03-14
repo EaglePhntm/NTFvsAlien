@@ -128,8 +128,21 @@
 	do_defuse(zombie)
 
 /mob/living/carbon/human/attack_zombie(mob/living/carbon/human/zombie, obj/item/weapon/zombie_claw/claw, params, rightclick)
+	. = FALSE
 	if(stat == DEAD)
 		return
+	var/parrychance = 20
+	if(is_holding_item_of_type(/obj/item/weapon/shield))
+		parrychance = 40
+		//pretty much all melee weapons and shield.
+	if((is_holding_item_of_type(/obj/item/weapon/sword)\
+			|| is_holding_item_of_type(/obj/item/weapon/twohanded) || is_holding_item_of_type(/obj/item/weapon/combat_knife)\
+			|| is_holding_item_of_type(/obj/item/weapon/shield) || is_holding_item_of_type(/obj/item/weapon/baton)\
+			|| is_holding_item_of_type(/obj/item/weapon/energy)) && prob(parrychance))
+		visible_message("[src] blocks the attack by [zombie]!")
+		playsound(loc, 'sound/effects/metalhit.ogg', 50)
+		return TRUE
+
 	if(!claw.zombium_per_hit)
 		return
 	if(species.species_flags & NO_CHEM_METABOLIZATION)

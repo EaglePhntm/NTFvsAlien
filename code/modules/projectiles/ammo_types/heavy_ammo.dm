@@ -64,17 +64,18 @@
 	hud_state = "minigun"
 	hud_state_empty = "smartgun_empty"
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
-	accurate_range_min = 6
 	accuracy_variation = 3
-	damage = 30
+	damage = 50
 	penetration = 50
-	sundering = 1
-	max_range = 35
+	sundering = 12.5
+	shrapnel_chance = 0
+	max_range = 20
+	accurate_range_min = 4
 	///Bonus flat damage to walls, balanced around resin walls.
 	var/autocannon_wall_bonus = 50
 
 /datum/ammo/bullet/auto_cannon/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
-	proj.proj_max_range -= 20
+	proj.proj_max_range -= 10
 
 	if(istype(target_turf, /turf/closed/wall))
 		var/turf/closed/wall/wall_victim = target_turf
@@ -82,7 +83,7 @@
 
 /datum/ammo/bullet/auto_cannon/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	proj.proj_max_range -= 5
-	staggerstun(target_mob, proj, max_range = 20, slowdown = 1)
+	staggerstun(target_mob, proj, max_range = 20, stagger = 1.5)
 
 /datum/ammo/bullet/auto_cannon/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
 	proj.proj_max_range -= 5
@@ -101,11 +102,12 @@
 	name = "autocannon smart-detonating bullet"
 	hud_state = "sniper_flak"
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_TARGET_TURF
-	damage = 50
-	penetration = 30
-	sundering = 5
-	max_range = 30
-	airburst_multiplier = 1
+	damage = 65
+	penetration = 35
+	sundering = 7.5
+	shrapnel_chance = 25
+	max_range = 10
+	airburst_multiplier = 0.5
 	autocannon_wall_bonus = 25
 
 /datum/ammo/bullet/auto_cannon/flak/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
@@ -118,9 +120,14 @@
 	name = "autocannon solid-shot bullet"
 	hud_state = "railgun_hvap"
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_TARGET_TURF
-	damage = 85
-	penetration = 75
+	damage = 50
+	penetration = 30
+	sundering = 17.5
+	shrapnel_chance = 25
 	autocannon_wall_bonus = 100
+
+/datum/ammo/bullet/auto_cannon/anti_tank/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
+	staggerstun(target_mob, proj, stagger = 2.5 SECONDS, slowdown = 1.5)
 
 /datum/ammo/bullet/railgun
 	name = "armor piercing railgun slug"

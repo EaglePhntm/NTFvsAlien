@@ -33,9 +33,10 @@ The Grenade Launchers
 		/obj/item/explosive/grenade,
 		/obj/item/explosive/grenade/training,
 		/obj/item/explosive/grenade/pmc,
+		/obj/item/explosive/grenade/vsd,
+		/obj/item/explosive/grenade/bullet/upp,
 		/obj/item/explosive/grenade/m15,
 		/obj/item/explosive/grenade/stick,
-		/obj/item/explosive/grenade/upp,
 		/obj/item/explosive/grenade/som,
 		/obj/item/explosive/grenade/sectoid,
 		/obj/item/explosive/grenade/creampie,
@@ -50,6 +51,8 @@ The Grenade Launchers
 		/obj/item/explosive/grenade/smokebomb/neuro,
 		/obj/item/explosive/grenade/smokebomb/acid,
 		/obj/item/explosive/grenade/smokebomb/satrapine,
+		/obj/item/explosive/grenade/smokebomb/aphrotoxin,
+		/obj/item/explosive/grenade/smokebomb/sleep,
 		/obj/item/explosive/grenade/phosphorus,
 		/obj/item/explosive/grenade/phosphorus/upp,
 		/obj/item/explosive/grenade/impact,
@@ -69,6 +72,7 @@ The Grenade Launchers
 		/obj/item/explosive/grenade/bullet/laser,
 		/obj/item/explosive/grenade/bullet/hefa,
 		/obj/item/explosive/grenade/emp,
+		/obj/item/explosive/grenade/cagenade,
 	)
 	reciever_flags = NONE
 
@@ -122,7 +126,7 @@ The Grenade Launchers
 
 /obj/item/weapon/gun/grenade_launcher/multinade_launcher
 	name = "\improper GL-70 grenade launcher"
-	desc = "The GL-70 is the standard grenade launcher used by the TerraGov Marine Corps for area denial and big explosions."
+	desc = "The GL-70 is the standard grenade launcher used by the Nine-Tailed Fox for area denial and big explosions."
 	icon = 'icons/obj/items/guns/special64.dmi'
 	icon_state = "t70"
 	worn_icon_state = "t70"
@@ -138,6 +142,8 @@ The Grenade Launchers
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/scope/mini,
 		/obj/item/attachable/stock/t70stock,
+		/obj/item/attachable/buildasentry,
+		/obj/item/attachable/shoulder_mount,
 	)
 	starting_attachment_types = list(/obj/item/attachable/stock/t70stock)
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 14, "rail_y" = 22, "under_x" = 19, "under_y" = 14, "stock_x" = 11, "stock_y" = 12)
@@ -163,8 +169,8 @@ The Grenade Launchers
 	desc = "A weapon-mounted, reloadable, two-shot grenade launcher."
 	icon = 'icons/obj/items/guns/attachments/gun.dmi'
 	icon_state = "grenade"
-	max_shells = 2 //codex
-	max_chamber_items = 1
+	max_shells = 1 //codex
+	max_chamber_items = 0
 	fire_delay = 1 SECONDS
 	fire_sound = 'sound/weapons/guns/fire/underbarrel_grenadelauncher.ogg'
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 14, "rail_y" = 22, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
@@ -181,7 +187,8 @@ The Grenade Launchers
 		/obj/item/explosive/grenade,
 		/obj/item/explosive/grenade/training,
 		/obj/item/explosive/grenade/stick,
-		/obj/item/explosive/grenade/upp,
+		/obj/item/explosive/grenade/vsd,
+		/obj/item/explosive/grenade/bullet/upp,
 		/obj/item/explosive/grenade/som,
 		/obj/item/explosive/grenade/incendiary,
 		/obj/item/explosive/grenade/incendiary/som,
@@ -192,6 +199,8 @@ The Grenade Launchers
 		/obj/item/explosive/grenade/smokebomb/drain,
 		/obj/item/explosive/grenade/smokebomb/antigas,
 		/obj/item/explosive/grenade/smokebomb/neuro,
+		/obj/item/explosive/grenade/smokebomb/aphrotoxin,
+		/obj/item/explosive/grenade/smokebomb/sleep,
 		/obj/item/explosive/grenade/smokebomb/acid,
 		/obj/item/explosive/grenade/smokebomb/satrapine,
 		/obj/item/explosive/grenade/phosphorus,
@@ -203,14 +212,18 @@ The Grenade Launchers
 		/obj/item/explosive/grenade/sticky/pmc,
 		/obj/item/explosive/grenade/flashbang/stun,
 		/obj/item/explosive/grenade/emp,
+		/obj/item/explosive/grenade/pmc,
+		/obj/item/explosive/grenade/sticky/pmc,
 	)
 
 	wield_delay_mod = 0.2 SECONDS
 
 /obj/item/weapon/gun/grenade_launcher/underslung/invisible
+	name = "integrated underslung grenade launcher"
 	attach_features_flags = NONE
 
 /obj/item/weapon/gun/grenade_launcher/underslung/integrated
+	name = "integrated underslung grenade launcher"
 	attach_features_flags = NONE
 	icon_state = NONE
 
@@ -222,16 +235,18 @@ The Grenade Launchers
 	pixel_shift_y = 15
 
 /obj/item/weapon/gun/grenade_launcher/underslung/mpi
+	name = "integrated underslung grenade launcher"
 	icon_state = "grenade_mpi"
 	attach_features_flags = NONE
 	default_ammo_type = /obj/item/explosive/grenade/som
 
 /obj/item/weapon/gun/grenade_launcher/underslung/mpi/removeable
+	name = "makeshift underslung grenade launcher"
 	attach_features_flags = ATTACH_REMOVABLE
 
 /obj/item/weapon/gun/grenade_launcher/single_shot
 	name = "\improper GL-81 grenade launcher"
-	desc = "A lightweight, single-shot grenade launcher used by the TerraGov Marine Corps for area denial and big explosions."
+	desc = "A lightweight, single-shot grenade launcher used by the Nine Tailed Fox for area denial and big explosions."
 	icon_state = "m81"
 	worn_icon_state = "m81"
 	max_shells = 1 //codex
@@ -240,6 +255,7 @@ The Grenade Launchers
 	aim_slowdown = 1
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	attachable_allowed = list(
+		/obj/item/attachable/scope/mini,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/flashlight,
 	)
@@ -247,11 +263,12 @@ The Grenade Launchers
 	fire_delay = 1.05 SECONDS
 	max_chamber_items = 0
 	max_range = 10
+	w_class = WEIGHT_CLASS_NORMAL //this is pretty much useless so put it in your bag, maybe slightly less useless.
 
 
 /obj/item/weapon/gun/grenade_launcher/single_shot/riot
 	name = "\improper GL-81 riot grenade launcher"
-	desc = "A lightweight, single-shot grenade launcher to launch tear gas grenades. Used by Nanotrasen security during riots."
+	desc = "A lightweight, single-shot grenade launcher to launch tear gas grenades. Used by Ninetails security during riots."
 	default_ammo_type = null
 	allowed_ammo_types = list(/obj/item/explosive/grenade/chem_grenade)
 	req_access = list(ACCESS_MARINE_BRIG)
@@ -273,5 +290,5 @@ The Grenade Launchers
 
 /obj/item/weapon/gun/grenade_launcher/single_shot/flare/marine
 	name = "M30E2 flare gun"
-	desc = "A very tiny flaregun that fires flares equipped with long range irons, the mass amounts of markings on the back and barrel denote it as owned by the TGMC."
+	desc = "A very tiny flaregun that fires flares equipped with long range irons, the mass amounts of markings on the back and barrel denote it as owned by the NTC."
 	icon_state = "marine_flaregun"

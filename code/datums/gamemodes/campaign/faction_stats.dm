@@ -145,6 +145,8 @@ GLOBAL_LIST_INIT(campaign_mission_pool, list(
 		individual_stat_list[new_member.ckey].apply_perks()
 	else
 		get_player_stats(new_member)
+	if(!iscampaigngamemode(SSticker.mode))
+		return
 	var/datum/action/campaign_loadout/loadouts = new
 	loadouts.give_action(new_member)
 	if(!(new_member.job.job_cost))
@@ -277,7 +279,7 @@ GLOBAL_LIST_INIT(campaign_mission_pool, list(
 /datum/faction_stats/proc/mission_end(datum/source, datum/campaign_mission/completed_mission, winning_faction)
 	SIGNAL_HANDLER
 	stats_flags &= ~CAMPAIGN_TEAM_HAS_SET_ATTRITION
-	total_attrition_points += round(length(GLOB.clients) * 0.5 * (attrition_gain_multiplier + loss_bonus))
+	total_attrition_points += round(length(GLOB.whitelisted_clients) * 0.5 * (attrition_gain_multiplier + loss_bonus))
 	if(faction == winning_faction)
 		stats_flags |= CAMPAIGN_TEAM_MISSION_SELECT_ALLOWED
 		loss_bonus = 0
@@ -371,9 +373,13 @@ GLOBAL_LIST_INIT(campaign_mission_pool, list(
 
 /datum/faction_stats/ui_static_data(mob/living/user)
 	. = ..()
+
+	var/datum/game_mode/current_mode = SSticker.mode
+/*NTF REMOVAL
 	var/datum/game_mode/hvh/campaign/current_mode = SSticker.mode
 	if(!istype(current_mode))
 		CRASH("campaign_mission loaded without campaign game mode")
+*/
 
 	var/list/data = list()
 	var/ui_theme
@@ -482,9 +488,12 @@ GLOBAL_LIST_INIT(campaign_mission_pool, list(
 	if(.)
 		return
 
+	var/datum/game_mode/current_mode = SSticker.mode
+/*NTF REMOVAL
 	var/datum/game_mode/hvh/campaign/current_mode = SSticker.mode
 	if(!istype(current_mode))
 		CRASH("campaign_mission loaded without campaign game mode")
+*/
 
 	var/mob/living/user = usr
 	if(!istype(user))
