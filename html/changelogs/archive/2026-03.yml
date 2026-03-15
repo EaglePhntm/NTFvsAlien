@@ -20,3 +20,7 @@
   Runian:
   - rscadd: In Zombie Crash, completing objectives now grants points. These points
       can be redeemed at a vendor for gear.
+2026-03-15:
+  obvious650-source:
+  - balance: PR-412 ap mags to req
+  - balance: 10x24 ap bullet box to req
