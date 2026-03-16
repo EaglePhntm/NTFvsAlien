@@ -7,4 +7,5 @@
 #include "code\__DEFINES\mobs.dm"
 #include "code\__DEFINES\mode.dm"
 #include "code\__DEFINES\sexcon.dm"
+#include "code\__DEFINES\span.dm"
 #include "code\__DEFINES\traits.dm"

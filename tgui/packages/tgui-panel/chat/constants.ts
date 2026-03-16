@@ -39,6 +39,8 @@ export const MESSAGE_TYPE_STAFFLOG = 'stafflog';
 export const MESSAGE_TYPE_ATTACKLOG = 'attacklog';
 export const MESSAGE_TYPE_DEBUG = 'debug';
 export const MESSAGE_TYPE_ERP = 'erp';
+export const MESSAGE_TYPE_ICANNOUNCE = 'icannouncements';
+export const MESSAGE_TYPE_VOTING = 'voting';
 
 // Metadata for each message type
 export const MESSAGE_TYPES = [
@@ -118,6 +120,20 @@ export const MESSAGE_TYPES = [
     description: 'Messages from the ERP panel',
     selector:
       '.love, .lovebold, .love_low, .love_mid, .love_high, .love_extreme',
+  },
+  {
+    type: MESSAGE_TYPE_ICANNOUNCE,
+    name: 'IC Announcements',
+    description: 'Command Reports and similar ic announcements',
+    selector:
+      '.icannounce',
+  },
+  {
+    type: MESSAGE_TYPE_VOTING,
+    name: 'Voting',
+    description: 'Messages related to votes',
+    selector:
+      '.voting',
   },
   {
     type: MESSAGE_TYPE_UNKNOWN,

@@ -1,7 +1,6 @@
 #include "code\_DEFINES\colors.dm"
 #include "code\_DEFINES\sexcon_defines.dm"
 #include "code\_DEFINES\skills.dm"
-#include "code\_DEFINES\span.dm"
 #include "code\_HELPERS\announce.dm"
 #include "code\_onclick\hud\fullscreen.dm"
 #include "code\datums\components\parasitic.dm"
