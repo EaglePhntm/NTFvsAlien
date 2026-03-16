@@ -398,7 +398,14 @@ ADMIN_VERB(toggle_amia, R_SERVER, "Toggle Amia Bot", "Toggle all attempts to use
 	CONFIG_SET(flag/amia_enabled, !CONFIG_GET(flag/amia_enabled))
 
 	log_admin("[key_name(user)] has [CONFIG_GET(flag/amia_enabled) ? "enabled" : "disabled"] the amia bot.")
-	message_admins("[ADMIN_TPMONTY(user.mob)] has [CONFIG_GET(flag/panic_bunker) ? "enabled" : "disabled"] the amia bot.")
+	message_admins("[ADMIN_TPMONTY(user.mob)] has [CONFIG_GET(flag/amia_enabled) ? "enabled" : "disabled"] the amia bot.")
+
+ADMIN_VERB(toggle_amia_whielist, R_SERVER, "Toggle Amia Whitelist", "Toggle the requirement to be on the amia whitelist.", ADMIN_CATEGORY_SERVER)
+
+	CONFIG_SET(flag/amia_whitelist_enabled, !CONFIG_GET(flag/amia_whitelist_enabled))
+
+	log_admin("[key_name(user)] has [CONFIG_GET(flag/amia_whitelist_enabled) ? "enabled" : "disabled"] the amia whitelist.")
+	message_admins("[ADMIN_TPMONTY(user.mob)] has [CONFIG_GET(flag/amia_whitelist_enabled) ? "enabled" : "disabled"] the amia whitelist.")
 
 ADMIN_VERB(panic_bunker, R_SERVER, "Toggle Panic Bunker", "Toggle new players being permitted to join the server.", ADMIN_CATEGORY_SERVER)
 	if(!CONFIG_GET(flag/sql_enabled))

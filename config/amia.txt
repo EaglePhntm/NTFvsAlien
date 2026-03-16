@@ -1,5 +1,5 @@
 AMIA_ADDRESS localhost
 AMIA_PORT 3001
 AMIA_ENABLED
-
-
+## Uncomment to turn on whitelist
+# AMIA_WHITELIST_ENABLED

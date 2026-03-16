@@ -1,5 +1,5 @@
 /proc/amia_whitelistcheck(ckey, datum/callback/result_callback)
-	if(CONFIG_GET(flag/amia_enabled))
+	if(CONFIG_GET(flag/amia_enabled) && CONFIG_GET(flag/amia_whitelist_enabled))
 		var/encondedckey = url_encode(ckey)
 		ASYNC
 			var/list/response = do_amia_export("CheckWL?ckey=[encondedckey]", "Whitelist check for ckey:[ckey]")
