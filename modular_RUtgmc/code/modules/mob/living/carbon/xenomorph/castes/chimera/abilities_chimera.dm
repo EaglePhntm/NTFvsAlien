@@ -132,7 +132,7 @@
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CHIMERA_WARP_BLAST,
 	)
-	var/range = 2
+	var/range = 3
 	var/warp_blast_damage = 30
 
 /datum/action/ability/xeno_action/warp_blast/action_activate()
@@ -302,4 +302,4 @@
 	update_button_icon()
 
 /datum/action/ability/activable/xeno/blink/chimera
-	ability_cost = 75
+	ability_cost = 35

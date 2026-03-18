@@ -6,7 +6,7 @@
 	icon_state = "Chimera Walking"
 	health = 400
 	maxHealth = 400
-	plasma_stored = 300
+	plasma_stored = 400
 	pixel_x = -16
 	drag_delay = 3
 	tier = XENO_TIER_THREE
