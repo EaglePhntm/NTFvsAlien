@@ -139,7 +139,7 @@ SUBSYSTEM_DEF(vote)
 	if(!result_text)
 		return
 	log_vote(result_text)
-	to_chat(world, custom_boxed_message("purple_box", result_text))
+	to_chat(world, span_voting(custom_boxed_message("purple_box", result_text)))
 	status_update_vote_ended(discord_text)
 
 /// Apply the result of the vote if it's possible
@@ -246,7 +246,7 @@ SUBSYSTEM_DEF(vote)
 			// No delay in case the restart is due to lag
 			SSticker.Reboot("Restart vote successful.", 1)
 		else
-			to_chat(world, "<span style='boltnotice'>Notice:Restart vote will not restart the server automatically because there are active admins on.</span>")
+			to_chat(world, "<span style='boldnotice'>Notice:Restart vote will not restart the server automatically because there are active admins on.</span>")
 			message_admins("A restart vote has passed, but there are active admins on with +SERVER, so it has been canceled. If you wish, you may restart the server.", sound('sound/effects/adminhelp.ogg', channel = CHANNEL_ADMIN), TRUE)
 	if(endround)
 		var/active_admins = FALSE
@@ -258,7 +258,7 @@ SUBSYSTEM_DEF(vote)
 			SSticker.force_ending = TRUE
 			SSticker.mode.round_finished = "Democracy"
 		else
-			to_chat(world, "<span style='boltnotice'>Notice:End round vote will not restart the server automatically because there are active admins on.</span>")
+			to_chat(world, "<span style='boldnotice'>Notice:End round vote will not restart the server automatically because there are active admins on.</span>")
 			message_admins("An end round vote has passed, but there are active admins on with +SERVER, so it has been canceled. If you wish, you may restart the server.", sound('sound/effects/adminhelp.ogg', channel = CHANNEL_ADMIN), TRUE)
 			if(!("Democracy" in SSticker.mode.round_end_states))
 				SSticker.mode.round_end_states.Insert(1, "Democracy")
@@ -443,7 +443,7 @@ SUBSYSTEM_DEF(vote)
 		log_vote(text)
 		var/vp = CONFIG_GET(number/vote_period)
 		SEND_SOUND(world, sound('sound/ambience/votestart.ogg', channel = CHANNEL_NOTIFY, volume = 50))
-		to_chat(world, custom_boxed_message("purple_box", "<big><b>[text]</b></big><hr>Type <b>vote</b> in the command bar or click on vote action (top left) to place your votes.<hr>You have [DisplayTimeText(vp)] to vote.</font>"))
+		to_chat(world, span_voting(custom_boxed_message("purple_box", "<big><b>[text]</b></big><hr>Type <b>vote</b> in the command bar or click on vote action (top left) to place your votes.<hr>You have [DisplayTimeText(vp)] to vote.</font>")))
 		time_remaining = round(vp/10)
 		vote_happening = TRUE
 		for(var/c in GLOB.whitelisted_clients)

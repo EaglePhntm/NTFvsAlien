@@ -13,6 +13,16 @@
 	contains = list(/obj/item/ammo_magazine/rifle/standard_carbine/ap)
 	cost = 50
 
+/datum/supply_packs/weapons/m412_ap
+	name = "\improper PR-412 AP magazine (10x24mm)"
+	contains = list(/obj/item/ammo_magazine/rifle/ap)
+	cost = 25
+
+/datum/supply_packs/weapons/apbox10x24
+	name = "\improper Big ammo box (10x24mm AP)"
+	contains = list(/obj/item/big_ammo_box/ap)
+	cost = 200
+
 /datum/supply_packs/weapons/dragoon
 	name = "Dragoon Mk1 Rapid Engagement Rifle"
 	contains = list(/obj/item/weapon/gun/rifle/dragoon)

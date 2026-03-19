@@ -44,7 +44,7 @@
 	else
 		finalized_alert = faction_alert_default_span(jointext(alert_strings, ""))
 
-	return finalized_alert
+	return span_icannounce(finalized_alert)
 
 /**
  * Make a priority announcement to a target

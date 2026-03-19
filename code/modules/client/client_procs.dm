@@ -409,11 +409,16 @@ GLOBAL_PROTECT(new_client_amia_whitelist_callback)
 				GLOB.whitelisted_clients += src
 				GLOB.whitelisted_clients[src] = "amia bypass"
 			else
-				if(CONFIG_GET(flag/amia_enabled))
-					log_admin("Looking up [key] in the amia whitelist...")
-					to_chat(src, span_notice("Attempting to look up your ckey ([ckey]) in the amia whitelist."))
-					amia_whitelistcheck(ckey, GLOB.new_client_amia_whitelist_callback)
-	if(src in GLOB.whitelisted_clients)
+				if(CONFIG_GET(flag/amia_whitelist_enabled))
+					if(CONFIG_GET(flag/amia_enabled))
+						log_admin("Looking up [key] in the amia whitelist...")
+						to_chat(src, span_notice("Attempting to look up your ckey ([ckey]) in the amia whitelist."))
+						amia_whitelistcheck(ckey, GLOB.new_client_amia_whitelist_callback)
+				else
+					log_admin("Skipped amia whitelist check for [key] because the amia whitelist is disabled.")
+					GLOB.whitelisted_clients += src
+					GLOB.whitelisted_clients[src] = "none - WL disabled"
+	if(CONFIG_GET(flag/amia_whitelist_enabled) && (src in GLOB.whitelisted_clients))
 		to_chat(src, span_notice("Whitelist check passed.  Welcome."))
 
 /proc/new_client_whitelist_check_callback(ckey, result)

@@ -10928,13 +10928,16 @@
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment/corner{
-	dir = 2
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/engineering)
 "bqj" = (
 /obj/structure/closet/emcloset,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
 /turf/open/floor/tile/dark/yellow2{
 	dir = 4
 	},
@@ -11015,11 +11018,9 @@
 /area/ice_colony/underground/engineering)
 "bqM" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/structure/disposalpipe/segment/corner{
-	dir = 1
-	},
-/turf/open/floor/tile/dark2,
-/area/ice_colony/underground/engineering)
+/obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
+/turf/open/floor/plating,
+/area/ice_colony/underground/maintenance/engineering/garbledradio)
 "bqN" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -11027,14 +11028,10 @@
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/engineering)
 "bqO" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
-/obj/machinery/disposal,
-/turf/open/floor/tile/dark/yellow2{
-	dir = 4
-	},
-/area/ice_colony/underground/engineering)
+/obj/structure/closet/wardrobe/engineering_yellow,
+/obj/machinery/light,
+/turf/open/floor/plating,
+/area/ice_colony/underground/maintenance/engineering/garbledradio)
 "bqP" = (
 /turf/closed/wall/r_wall,
 /area/ice_colony/underground/maintenance/engineering)
@@ -11065,14 +11062,8 @@
 /area/ice_colony/exterior/surface/valley/southwest)
 "brf" = (
 /obj/structure/closet/wardrobe/engineering_yellow,
-/turf/open/floor/tile/dark/yellow2,
-/area/ice_colony/underground/engineering)
-"brj" = (
-/obj/structure/closet/wardrobe/engineering_yellow,
-/turf/open/floor/tile/dark/yellow2{
-	dir = 6
-	},
-/area/ice_colony/underground/engineering)
+/turf/open/floor/plating,
+/area/ice_colony/underground/maintenance/engineering/garbledradio)
 "brn" = (
 /turf/open/floor/tile/darkgreen/darkgreen2{
 	dir = 8
@@ -11083,14 +11074,18 @@
 	dir = 5
 	},
 /obj/effect/landmark/weed_node,
-/turf/open/floor/tile/dark2,
-/area/ice_colony/underground/engineering)
+/turf/open/floor/plating,
+/area/ice_colony/underground/maintenance/engineering/garbledradio)
 "brr" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/floor/tile/dark2,
-/area/ice_colony/underground/engineering)
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/ai_node,
+/turf/open/floor/plating,
+/area/ice_colony/underground/maintenance/engineering/garbledradio)
 "brs" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -11099,7 +11094,7 @@
 	name = "\improper Underground Maintenance"
 	},
 /turf/open/floor/plating,
-/area/ice_colony/underground/engineering)
+/area/ice_colony/underground/maintenance/engineering/garbledradio)
 "brT" = (
 /obj/structure/cable,
 /turf/open/floor/tile/dark2,
@@ -11116,11 +11111,6 @@
 "brY" = (
 /turf/open/floor/tile/darkgreen/darkgreen2/corner,
 /area/ice_colony/underground/hallway/south_east)
-"bsc" = (
-/turf/open/floor/tile/dark/yellow2{
-	dir = 4
-	},
-/area/ice_colony/underground/engineering)
 "bsd" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
@@ -13128,7 +13118,6 @@
 	},
 /area/ice_colony/underground/security/interrogation)
 "bFc" = (
-/obj/structure/nuke_disk_candidate,
 /turf/open/floor/tile/dark/red2{
 	dir = 10
 	},
@@ -17418,8 +17407,11 @@
 "ccx" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/ai_node,
-/turf/open/floor/tile/dark2,
-/area/ice_colony/underground/engineering)
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/ice_colony/underground/maintenance/engineering/garbledradio)
 "ccP" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /turf/open/floor/plating,
@@ -17586,7 +17578,7 @@
 	},
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating,
-/area/ice_colony/underground/maintenance/engineering/garbledradio)
+/area/ice_colony/underground/maintenance/engineering)
 "ckx" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /turf/open/floor/plating,
@@ -18009,7 +18001,7 @@
 	},
 /obj/structure/rack,
 /turf/open/floor/plating,
-/area/ice_colony/underground/maintenance/engineering/garbledradio)
+/area/ice_colony/underground/maintenance/engineering)
 "cTE" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/disposalpipe/junction,
@@ -18408,7 +18400,7 @@
 	},
 /obj/effect/ai_node,
 /turf/open/floor/plating,
-/area/ice_colony/underground/maintenance/engineering/garbledradio)
+/area/ice_colony/underground/maintenance/engineering)
 "dsL" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
@@ -18708,13 +18700,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/darkgreen/darkgreen2,
 /area/ice_colony/surface/dorms)
-"dPd" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/ice_colony/underground/maintenance/engineering/garbledradio)
 "dPf" = (
 /turf/open/floor/tile/vault{
 	dir = 8
@@ -20405,8 +20390,8 @@
 /turf/open/floor/wood,
 /area/ice_colony/surface/bar/canteen)
 "glC" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/ice,
+/obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
+/turf/open/floor/plating,
 /area/ice_colony/underground/maintenance/engineering/garbledradio)
 "glQ" = (
 /obj/effect/decal/cleanable/blood/xtracks,
@@ -20695,7 +20680,7 @@
 	},
 /obj/effect/spawner/random/engineering/structure/tank/fuelweighted,
 /turf/open/floor/plating,
-/area/ice_colony/underground/maintenance/engineering/garbledradio)
+/area/ice_colony/underground/maintenance/engineering)
 "gGw" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -21052,10 +21037,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/hangar)
-"hfh" = (
-/obj/effect/landmark/xeno_resin_door,
-/turf/open/floor/plating/ground/ice,
-/area/ice_colony/underground/maintenance/engineering/garbledradio)
 "hfp" = (
 /obj/effect/spawner/random/engineering/ore_box,
 /turf/open/floor/plating/icefloor/warnplate{
@@ -21543,7 +21524,7 @@
 "hTb" = (
 /obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/ice,
-/area/ice_colony/underground/maintenance/engineering/garbledradio)
+/area/ice_colony/underground/maintenance/engineering)
 "hTA" = (
 /obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/tile/dark/brown2/corner{
@@ -22015,7 +21996,7 @@
 	name = "\improper Underground Maintenance"
 	},
 /turf/open/floor/plating,
-/area/ice_colony/underground/maintenance/engineering/garbledradio)
+/area/ice_colony/underground/maintenance/engineering)
 "iKn" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/snow/layer1,
@@ -23732,11 +23713,8 @@
 /turf/open/floor/plating/ground/snow/layer1,
 /area/ice_colony/exterior/surface/valley/northwest)
 "kXF" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
-/turf/open/floor/plating/ground/ice,
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/turf/closed/wall/r_wall,
 /area/ice_colony/underground/maintenance/engineering/garbledradio)
 "kXM" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
@@ -25779,8 +25757,9 @@
 /turf/open/floor/tile/darkgreen/darkgreen2,
 /area/ice_colony/underground/hallway/south_east/garbledradio)
 "nBW" = (
+/obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/ice,
-/area/ice_colony/underground/maintenance/engineering/garbledradio)
+/area/ice_colony/exterior/underground/caves)
 "nCm" = (
 /obj/effect/turf_decal/warning_stripes/thin,
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -26335,10 +26314,9 @@
 	},
 /area/ice_colony/surface/garage/one)
 "onS" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
+/obj/machinery/door/airlock/mainship/maint/free_access{
+	name = "\improper Underground Maintenance"
 	},
-/obj/effect/ai_node,
 /turf/open/floor/plating,
 /area/ice_colony/underground/maintenance/engineering/garbledradio)
 "onW" = (
@@ -27188,10 +27166,7 @@
 /turf/open/floor/tile/dark/yellow2,
 /area/ice_colony/surface/substation)
 "pBp" = (
-/obj/structure/rack,
-/obj/effect/spawner/random/engineering/toolbox,
-/obj/effect/spawner/random/engineering/toolbox,
-/obj/effect/spawner/random/engineering/toolbox,
+/obj/structure/nuke_disk_candidate,
 /turf/open/floor/plating,
 /area/ice_colony/underground/maintenance/engineering/garbledradio)
 "pBR" = (
@@ -31386,10 +31361,6 @@
 	},
 /turf/open/floor/carpet,
 /area/ice_colony/underground/crew/leisure)
-"uQN" = (
-/obj/effect/spawner/random/misc/structure/supplycrate,
-/turf/open/floor/plating,
-/area/ice_colony/underground/maintenance/engineering/garbledradio)
 "uRV" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -33217,6 +33188,9 @@
 "xna" = (
 /obj/structure/closet/crate,
 /obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/light{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -54484,12 +54458,12 @@ bnk
 bYj
 bYZ
 bZp
-njX
-uie
-uEq
-uEq
-uEq
-njX
+bqP
+vDz
+nWU
+nWU
+nWU
+bqP
 bJt
 bwC
 bqP
@@ -54696,12 +54670,12 @@ bnk
 bnL
 gem
 bql
-njX
-uEq
-uEq
-uEq
-uEq
-uEq
+bqP
+nWU
+nWU
+nWU
+nWU
+nWU
 ckm
 nWU
 bqP
@@ -54909,12 +54883,12 @@ dEc
 wDy
 dEc
 iKl
-uEq
-uEq
-uie
-uEq
-uEq
-dPd
+nWU
+nWU
+vDz
+nWU
+nWU
+bJt
 nWU
 bqP
 uQB
@@ -55120,12 +55094,12 @@ rBQ
 bZq
 dEc
 bql
-njX
-hfh
-hfh
-hfh
-njX
-njX
+bqP
+fXA
+fXA
+fXA
+bqP
+bqP
 bJt
 bqI
 bqP
@@ -55332,12 +55306,12 @@ rBQ
 bZq
 gem
 bql
-njX
-nBW
-nBW
-nBW
-nBW
-hfh
+bqP
+byc
+byc
+byc
+byc
+fXA
 hxE
 bqI
 bqP
@@ -55544,12 +55518,12 @@ bnk
 bZq
 dEc
 bZv
-njX
-nBW
-nBW
+bqP
+byc
+byc
 hTb
-glC
-hfh
+cwO
+fXA
 bJu
 byc
 fXA
@@ -55756,13 +55730,13 @@ bnk
 spf
 dEc
 bqL
-njX
+bqP
 uQB
-glC
-nBW
-nBW
-hfh
-kXF
+cwO
+byc
+byc
+fXA
+bJu
 cwO
 fXA
 uQB
@@ -55968,12 +55942,12 @@ bnk
 bnk
 lrc
 bnk
-njX
+bqP
 uQB
-nBW
-nBW
+byc
+byc
 uQB
-njX
+bqP
 gGv
 byc
 fXA
@@ -56589,9 +56563,9 @@ bSv
 ctm
 bYk
 fHT
-njX
-uie
-uEq
+bqP
+vDz
+nWU
 bnk
 bTi
 bYY
@@ -56801,9 +56775,9 @@ bSv
 fHT
 bYk
 ctm
-njX
-uEq
-uEq
+bqP
+nWU
+nWU
 bnk
 bnJ
 dEc
@@ -57013,9 +56987,9 @@ bSv
 ctm
 bYk
 ctm
-njX
-uEq
-uEq
+bqP
+nWU
+nWU
 bnk
 bmo
 dEc
@@ -57225,9 +57199,9 @@ bSv
 ctm
 bYk
 ctm
-njX
-uEq
-uie
+bqP
+nWU
+vDz
 fta
 bnL
 dEc
@@ -57237,7 +57211,7 @@ bpz
 bZh
 bqK
 wDy
-dEc
+wDy
 brb
 bnk
 uQB
@@ -57437,9 +57411,9 @@ bSv
 ctm
 bYk
 ctm
-njX
-uEq
-uEq
+bqP
+nWU
+nWU
 blB
 bnL
 dEc
@@ -57649,9 +57623,9 @@ bSv
 ctm
 bYk
 ctm
-njX
-uEq
-uEq
+bqP
+nWU
+nWU
 bnk
 eVk
 dEc
@@ -57861,9 +57835,9 @@ bSv
 ctm
 snq
 ctm
-njX
-uEq
-uEq
+bqP
+nWU
+nWU
 bnk
 qON
 dEc
@@ -58073,9 +58047,9 @@ ctm
 nlW
 bYk
 ctm
-njX
-uEq
-uie
+bqP
+nWU
+vDz
 bnk
 tzv
 dEc
@@ -58285,9 +58259,9 @@ ctm
 rJk
 cVV
 ctm
-njX
-uEq
-uEq
+bqP
+nWU
+nWU
 bnk
 mlQ
 dEc
@@ -58295,10 +58269,10 @@ dEc
 bpp
 dEc
 bqh
-bqL
-dEc
-dEc
-bql
+njX
+njX
+onS
+njX
 njX
 jXk
 bMt
@@ -58497,9 +58471,9 @@ ctm
 lao
 bYk
 ctm
-njX
-uEq
-uEq
+bqP
+nWU
+nWU
 bnk
 fnh
 dEc
@@ -58507,10 +58481,10 @@ dEc
 dEc
 dEc
 bZj
-klc
+kXF
 ccx
-klc
-klc
+qWO
+xKD
 xKD
 xKD
 ihh
@@ -58709,9 +58683,9 @@ nyH
 fUH
 bYG
 ctm
-njX
-uie
-uEq
+bqP
+vDz
+nWU
 bnk
 rIZ
 dEc
@@ -58719,11 +58693,11 @@ gem
 dEc
 dEc
 bqh
-dEc
-dEc
-dEc
-bZv
-njX
+glC
+uEq
+uEq
+uEq
+uie
 uEq
 nnQ
 oBJ
@@ -58921,9 +58895,9 @@ ctm
 ctm
 fHT
 ctm
-njX
-uEq
-uEq
+bqP
+nWU
+nWU
 bnk
 bnJ
 boz
@@ -58933,8 +58907,8 @@ klc
 bqi
 bqM
 brq
-dEc
-brf
+uEq
+bqO
 njX
 uEq
 oeV
@@ -59133,19 +59107,19 @@ ctm
 ctm
 ctm
 ctm
-njX
-uEq
-uEq
+bqP
+nWU
+nWU
 bnk
 bnL
 dEc
 gem
 dEc
 dEc
-dEc
 bqN
-brr
-dEc
+glC
+nnQ
+uEq
 brf
 njX
 iFk
@@ -59345,9 +59319,9 @@ ctm
 iPh
 ctm
 ctm
-njX
-uEq
-uEq
+bqP
+nWU
+nWU
 bnk
 bnS
 boA
@@ -59355,10 +59329,10 @@ boA
 boA
 boA
 bqj
-bqO
+njX
 brr
-bsc
-brj
+uEq
+brf
 njX
 njX
 njX
@@ -59557,28 +59531,28 @@ glQ
 tzQ
 ctm
 ctm
+bqP
+nWU
+nWU
+bnk
+bnk
+bnk
+bnk
+bnk
+bnk
+bnk
 njX
-uEq
-uEq
-bnk
-bnk
-bnk
-bnk
-bnk
-bnk
-bnk
-bnk
 brs
-bnk
-bnk
+njX
+njX
 bug
 bwK
 bwK
+nBW
 bwK
 bwK
 bwK
-bwK
-bwK
+nBW
 bwK
 bqP
 kgG
@@ -59769,20 +59743,20 @@ ctm
 ctm
 ctm
 ctm
-njX
-uEq
-uie
-uEq
-uEq
-uEq
-uEq
-uEq
-uie
-uEq
-uie
-onS
+bqP
+nWU
+vDz
+nWU
+nWU
+nWU
+nWU
+nWU
+vDz
+nWU
+vDz
+sxL
 cTu
-njX
+bqP
 uSg
 bwK
 pKn
@@ -59981,20 +59955,20 @@ ctm
 ctm
 fHT
 ctm
-njX
-uEq
-uEq
-uEq
-uEq
-uie
-uEq
-uEq
-uEq
-uEq
-uEq
-nnQ
-eRB
-njX
+bqP
+nWU
+nWU
+nWU
+nWU
+vDz
+nWU
+nWU
+nWU
+nWU
+nWU
+kgG
+bqI
+bqP
 uSg
 bwK
 bwK
@@ -60193,28 +60167,28 @@ ctm
 ctm
 ctm
 uSg
-njX
-njX
-njX
-njX
-njX
-njX
-njX
-njX
-njX
-njX
-njX
-nnQ
-uEq
-njX
+bqP
+bqP
+bqP
+bqP
+bqP
+bqP
+bqP
+bqP
+bqP
+bqP
+bqP
+kgG
+nWU
+bqP
 uSg
 uSg
+nBW
 bwK
-bwK
 uSg
 uSg
 uSg
-bwK
+nBW
 bwK
 bqP
 iQJ
@@ -60415,10 +60389,10 @@ uSg
 uSg
 uSg
 uSg
-njX
-nnQ
-uEq
-njX
+bqP
+kgG
+nWU
+bqP
 uSg
 uSg
 bwK
@@ -60627,10 +60601,10 @@ uSg
 uSg
 uSg
 uSg
-njX
-nnQ
-uie
-njX
+bqP
+kgG
+vDz
+bqP
 uSg
 bwK
 bwK
@@ -60839,10 +60813,10 @@ uSg
 uSg
 uSg
 uSg
-njX
-nnQ
-uEq
-njX
+bqP
+kgG
+nWU
+bqP
 uSg
 bwK
 bwK
@@ -60851,7 +60825,7 @@ bwK
 bwK
 bwK
 bwK
-bwK
+nBW
 bqP
 kgG
 dUI
@@ -61051,12 +61025,12 @@ uSg
 uSg
 uSg
 uSg
-njX
-nnQ
-uEq
-njX
+bqP
+kgG
+nWU
+bqP
 bwK
-bwK
+nBW
 uSg
 uSg
 uSg
@@ -61263,16 +61237,16 @@ uSg
 uSg
 uSg
 uSg
-njX
-nnQ
-uie
-njX
-njX
-njX
-njX
-njX
-njX
-njX
+bqP
+kgG
+vDz
+bqP
+bqP
+bqP
+bqP
+bqP
+bqP
+bqP
 bqP
 bqP
 bqP
@@ -61475,16 +61449,16 @@ uSg
 uSg
 uSg
 uSg
-njX
+bqP
 dsz
-xKD
-xKD
-xKD
-xKD
-xKD
-qWO
-xKD
-xKD
+hWM
+hWM
+hWM
+hWM
+hWM
+wEr
+hWM
+hWM
 hWM
 hWM
 tAe
@@ -61687,16 +61661,16 @@ uSg
 uSg
 uSg
 uSg
-njX
-uQN
-uQN
-uEq
-uEq
-uie
-uEq
-uEq
-uEq
-uie
+bqP
+dUI
+dUI
+nWU
+nWU
+vDz
+nWU
+nWU
+nWU
+vDz
 nWU
 nWU
 nWU
@@ -61899,16 +61873,16 @@ qFy
 qFy
 uSg
 uSg
-njX
-njX
-njX
-njX
-njX
-njX
-njX
-njX
-njX
-njX
+bqP
+bqP
+bqP
+bqP
+bqP
+bqP
+bqP
+bqP
+bqP
+bqP
 bqP
 bqP
 bqP

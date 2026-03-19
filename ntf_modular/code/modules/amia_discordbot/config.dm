@@ -7,7 +7,8 @@
 	protection = CONFIG_ENTRY_HIDDEN
 
 /datum/config_entry/flag/amia_enabled
-	protection = CONFIG_ENTRY_HIDDEN
+
+/datum/config_entry/flag/amia_whitelist_enabled
 
 /proc/amia_constring()
 	return "http://" + CONFIG_GET(string/amia_address) + ":" + CONFIG_GET(string/amia_port) + "/"

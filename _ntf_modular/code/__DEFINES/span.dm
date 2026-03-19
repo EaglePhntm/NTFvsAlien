@@ -1,6 +1,8 @@
 #define span_love(str) ("<span class='love'>" + str + "</span>")
 #define span_lovebold(str) ("<span class='lovebold'>" + str + "</span>")
 #define span_loveextreme(str) ("<span class='love_extreme'>" + str + "</span>")
+#define span_voting(str) ("<span class='voting'>" + str + "</span>")
+#define span_icannounce(str) ("<span class='icannounce'>" + str + "</span>")
 // Colors
 #define span_white(str) ("<span class='white'>" + str + "</span>")
 #define span_black(str) ("<span class='black'>" + str + "</span>")
