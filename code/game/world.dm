@@ -353,6 +353,14 @@ GLOBAL_VAR(restart_counter)
 		// If you didn't see a server name, or the master controller
 		// is stilling initing, we don't update the hub.
 		return
+	var/name_without_wl = replacetext(server_name, "(WL at Discord)", "")
+	if(CONFIG_GET(flag/amia_whitelist_enabled))
+		if(server_name == name_without_wl)
+			server_name += "(WL at Discord)"
+	else
+		server_name = name_without_wl
+	server_name = trim(server_name)
+
 
 	// Start generating the hub status
 	// Note: Hub content is limited to 254 characters, including HTML/CSS. Image width is limited to 450 pixels.
