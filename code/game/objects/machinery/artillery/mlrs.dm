@@ -25,6 +25,7 @@
 		/obj/item/mortal_shell/rocket/mlrs/aphro,
 		/obj/item/mortal_shell/rocket/mlrs/neuro,
 		/obj/item/mortal_shell/rocket/mlrs/sleep,
+		/obj/item/mortal_shell/rocket/mlrs/minelayer,
 	)
 	tally_type = TALLY_ROCKET_ARTY
 	cool_off_time = 80 SECONDS

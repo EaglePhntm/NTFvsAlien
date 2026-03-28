@@ -175,3 +175,30 @@
 	new /obj/item/mortal_shell/rocket/mlrs/sleep(src)
 	new /obj/item/mortal_shell/rocket/mlrs/sleep(src)
 	new /obj/item/mortal_shell/rocket/mlrs/sleep(src)
+
+/obj/item/mortal_shell/rocket/mlrs/minelayer
+	name = "\improper 60mm minelayer rocket"
+	desc = "A 60mm rocket loaded with a landmine deployment system."
+	icon_state = "mlrs_cloak"
+	ammo_type = /datum/ammo/mortar/rocket/minelayer/mlrs
+
+/obj/item/storage/box/mlrs_rockets/minelayer
+	name = "\improper TA-40L minelayer rocket crate"
+
+/obj/item/storage/box/mlrs_rockets/minelayer/PopulateContents()
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)

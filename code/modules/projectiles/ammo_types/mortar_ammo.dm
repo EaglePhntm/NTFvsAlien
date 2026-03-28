@@ -159,6 +159,9 @@
 			log_attack("[logdetails(mine)] was deployed with [logdetails(src)] (IFF signal [iff_signal])")
 	mine.deploy_mine(null, iff_signal)
 
+/datum/ammo/mortar/rocket/minelayer/mlrs
+	shell_speed = 2.5
+
 /datum/ammo/mortar/rocket/smoke
 	///the smoke effect at the point of detonation
 	var/datum/effect_system/smoke_spread/smoketype = /datum/effect_system/smoke_spread/tactical
