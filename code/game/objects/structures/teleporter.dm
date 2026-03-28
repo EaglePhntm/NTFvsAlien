@@ -4,6 +4,9 @@
 	max_integrity = 200
 	resistance_flags = XENO_DAMAGEABLE
 	idle_power_usage = 50
+	hud_possible = list(MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD)
+	///Max teleport range
+	var/max_range = 60
 	///List of all teleportable types
 	var/static/list/teleportable_types = list(
 		/obj/structure/closet,
@@ -23,16 +26,9 @@
 /obj/machinery/deployable/teleporter/examine(mob/user)
 	. = ..()
 	var/obj/item/teleporter_kit/kit = get_internal_item()
-	if(!kit?.cell)
-		. += "It is currently lacking a power cell."
-	if(kit?.linked_teleporter)
-		if(isobserver(user))
-			. += "It is currently linked to Teleporter #[kit.linked_teleporter.self_tele_tag][FOLLOW_LINK(user, kit.linked_teleporter)] at [get_area(kit.linked_teleporter)]"
-		else
-			. += "It is currently linked to Teleporter #[kit.linked_teleporter.self_tele_tag] at [get_area(kit.linked_teleporter)]"
-	else
-		. += "It is not linked to any other teleporter."
-
+	if(!kit)
+		return
+	. += kit.get_examine_details(user)
 
 /obj/machinery/deployable/teleporter/Initialize(mapload, _internal_item, mob/deployer)
 	. = ..()
@@ -44,67 +40,7 @@
 
 /obj/machinery/deployable/teleporter/attack_hand(mob/living/user)
 	. = ..()
-	var/obj/item/teleporter_kit/kit = get_internal_item()
-	if(!istype(kit))
-		CRASH("A teleporter didn't have an internal item, or it was of the wrong type.")
-
-	if (!powered() && (!kit.cell || kit.cell.charge < TELEPORTING_COST))
-		to_chat(user, span_warning("A red light flashes on \the [src]. It seems it doesn't have enough power."))
-		playsound(loc,'sound/machines/buzz-two.ogg', 25, FALSE)
-		return
-
-	if(!COOLDOWN_FINISHED(kit, teleport_cooldown))
-		to_chat(user, span_warning("\The [src] is still recharging! It will be ready in [round(COOLDOWN_TIMELEFT(kit, teleport_cooldown) / 10)] seconds."))
-		return
-
-	if(!kit.linked_teleporter)
-		to_chat(user, span_warning("\The [src] is not linked to any other teleporter."))
-		return
-
-	if(!istype(kit.linked_teleporter.loc, /obj/machinery/deployable/teleporter))
-		to_chat(user, span_warning("The other teleporter is not deployed!"))
-		return
-
-	var/obj/machinery/deployable/teleporter/deployed_linked_teleporter = kit.linked_teleporter.loc
-	var/obj/item/teleporter_kit/linked_kit = deployed_linked_teleporter.get_internal_item()
-
-	if(!deployed_linked_teleporter.powered() && (!linked_kit?.cell || linked_kit.cell.charge < TELEPORTING_COST))
-		to_chat(user, span_warning("[deployed_linked_teleporter] is not powered!"))
-		return
-
-	var/list/atom/movable/teleporting = list()
-	for(var/atom/movable/thing in loc)
-		if(is_type_in_list(thing, blacklisted_types))
-			continue
-		if(is_type_in_list(thing, teleportable_while_anchored_types))
-			teleporting += thing
-			continue
-		if(is_type_in_list(thing, teleportable_types) && !thing.anchored)
-			if(isliving(thing))
-				if(thing.status_flags & INCORPOREAL)
-					continue
-			teleporting += thing
-
-	if(!length(teleporting))
-		to_chat(user, span_warning("No teleportable content was detected on [src]!"))
-		return
-
-	do_sparks(5, TRUE, src)
-	playsound(loc,'sound/effects/phasein.ogg', 50, FALSE)
-	COOLDOWN_START(kit, teleport_cooldown, 2 SECONDS)
-	COOLDOWN_START(linked_kit, teleport_cooldown, 2 SECONDS)
-	if(powered())
-		use_power(TELEPORTING_COST * 200)
-	else
-		kit.cell.charge -= TELEPORTING_COST
-	update_icon()
-	if(deployed_linked_teleporter.powered())
-		deployed_linked_teleporter.use_power(TELEPORTING_COST * 200)
-	else
-		linked_kit.cell.charge -= TELEPORTING_COST
-	deployed_linked_teleporter.update_icon()
-	for(var/atom/movable/thing_to_teleport AS in teleporting)
-		thing_to_teleport.forceMove(get_turf(deployed_linked_teleporter))
+	attempt_teleport(user)
 
 /obj/machinery/deployable/teleporter/attack_ghost(mob/dead/observer/user)
 	var/obj/item/teleporter_kit/kit = internal_item
@@ -129,7 +65,7 @@
 	log_combat(user,src,"removed a cell from",addition=" linked teleporter is \[[logdetails(kit?.linked_teleporter)]\]")
 	user.put_in_hands(kit.cell)
 	kit.cell = null
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 /obj/machinery/deployable/teleporter/attackby(obj/item/I, mob/user, params)
 	if(!istype(I, /obj/item/cell))
@@ -147,15 +83,118 @@
 	kit.cell = I
 	log_combat(user,src,"added a cell to",addition=" linked teleporter is \[[logdetails(kit?.linked_teleporter)]\]")
 	playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
-	update_icon()
+	update_appearance(UPDATE_ICON)
+
+/obj/machinery/deployable/teleporter/update_icon()
+	. = ..()
+	hud_set_power_level()
 
 /obj/machinery/deployable/teleporter/update_icon_state()
-	. = ..()
+	icon_state = default_icon_state
+
 	var/obj/item/teleporter_kit/kit = get_internal_item()
 	if(powered() || kit?.cell?.charge > TELEPORTING_COST)
 		icon_state = default_icon_state + "_on"
+
+///Updates hud power level
+/obj/machinery/deployable/teleporter/proc/hud_set_power_level()
+	var/image/holder = hud_list[MACHINE_AMMO_HUD]
+
+	if(!holder)
 		return
-	icon_state = default_icon_state
+
+	holder.icon = 'icons/mob/hud/xeno_health.dmi'
+	if(powered())
+		holder.icon_state = "plasma100"
+		return
+
+	var/obj/item/teleporter_kit/kit = get_internal_item()
+	if(!kit?.cell)
+		holder.icon_state = "plasma0"
+		return
+	var/amount = kit.cell.maxcharge ? round(kit.cell.charge * 100 / kit.cell.maxcharge, 10) : 0
+	holder.icon_state = "plasma[amount]"
+
+///Tries to teleport anything on the pad
+/obj/machinery/deployable/teleporter/proc/attempt_teleport(mob/living/user)
+	var/obj/item/teleporter_kit/kit = get_internal_item()
+	if(!istype(kit))
+		CRASH("A teleporter didn't have an internal item, or it was of the wrong type.")
+
+	if(!kit.linked_teleporter)
+		balloon_alert(user, "No link found")
+		return
+
+	if(!istype(kit.linked_teleporter.loc, /obj/machinery/deployable/teleporter))
+		balloon_alert(user, "Link not deployed")
+		return
+
+	var/obj/item/teleporter_kit/linked_kit = kit.linked_teleporter
+	var/obj/machinery/deployable/teleporter/deployed_linked_teleporter = kit.linked_teleporter.loc
+
+	if(!check_power(kit, user) || !deployed_linked_teleporter.check_power(linked_kit, user, TRUE))
+		return
+
+	if(!COOLDOWN_FINISHED(kit, teleport_cooldown))
+		balloon_alert(user, "[floor(COOLDOWN_TIMELEFT(kit, teleport_cooldown) / 10)] seconds")
+		return
+
+/* NTF edit, this would not work well for us
+	if(deployed_linked_teleporter.z != z)
+		balloon_alert(user, "Beyond max range")
+		return
+
+	var/tele_dist = get_dist_euclidean(src, deployed_linked_teleporter)
+	if(tele_dist > max_range)
+		balloon_alert(user, "[floor(tele_dist - max_range)] beyond max range")
+		return
+*/
+
+	var/list/atom/movable/teleporting = list()
+	for(var/atom/movable/thing AS in loc)
+		if(thing.anchored)
+			continue
+		if(!is_type_in_list(thing, teleportable_types))
+			continue
+		if(is_type_in_list(thing, blacklisted_types))
+			continue
+		teleporting += thing
+
+	if(!length(teleporting))
+		balloon_alert(user, "Nothing to teleport")
+		return
+
+	do_sparks(5, TRUE, src)
+	playsound(loc,'sound/effects/phasein.ogg', 50, FALSE)
+	COOLDOWN_START(kit, teleport_cooldown, 2 SECONDS)
+	COOLDOWN_START(linked_kit, teleport_cooldown, 2 SECONDS)
+
+	teleport_power_drain(kit)
+	deployed_linked_teleporter.teleport_power_drain(linked_kit)
+
+	for(var/atom/movable/thing_to_teleport AS in teleporting)
+		thing_to_teleport.forceMove(get_turf(deployed_linked_teleporter))
+
+///Checks if we have the required external or internal power
+/obj/machinery/deployable/teleporter/proc/check_power(obj/item/teleporter_kit/kit, user, silent = FALSE)
+	if(powered())
+		return TRUE
+	if(kit?.cell?.charge >= TELEPORTING_COST)
+		return TRUE
+
+	if(!silent)
+		to_chat(user, span_warning("A red light flashes on \the [src]. It seems it doesn't have enough power."))
+		playsound(loc,'sound/machines/buzz-two.ogg', 25, FALSE)
+	return FALSE
+
+///Drains power on use
+/obj/machinery/deployable/teleporter/proc/teleport_power_drain(obj/item/teleporter_kit/kit)
+	if(powered())
+		use_power(TELEPORTING_COST * 200)
+	else
+		kit.cell.use(TELEPORTING_COST)
+	update_appearance(UPDATE_ICON)
+
 
 /obj/item/teleporter_kit
 	name = "\improper ASRS Bluespace teleporter"
@@ -187,7 +226,6 @@
 	self_tele_tag = tele_tag
 	name = "\improper ASRS Bluespace teleporter #[tele_tag]"
 
-
 /obj/item/teleporter_kit/Destroy()
 	log_combat(usr, src, "destroyed", addition=" linked teleporter is \[[logdetails(linked_teleporter)]\]")
 	if(linked_teleporter)
@@ -198,8 +236,15 @@
 
 /obj/item/teleporter_kit/examine(mob/user)
 	. = ..()
+	. += get_examine_details(user)
+
+///Returns a list of additional examine details
+/obj/item/teleporter_kit/proc/get_examine_details(mob/user)
+	. = list()
 	if(!cell)
 		. += "It is currently lacking a power cell."
+	else
+		. += "It has [round(cell.percent())]% power remaining."
 	if(linked_teleporter)
 		if(isobserver(user))
 			. += "It is currently linked to Teleporter #[linked_teleporter.self_tele_tag][FOLLOW_LINK(user, linked_teleporter)] at [get_area(linked_teleporter)]"

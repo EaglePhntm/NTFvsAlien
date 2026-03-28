@@ -72,14 +72,10 @@
 #define MODE_MUTATIONS_OBTAINABLE (1<<17)
 /// Should marines have access to quickbuild?
 #define MODE_ALLOW_MARINE_QUICKBUILD (1<<18)
+/// Should Area Power Controllers have no access restrictions
+#define MODE_APC_ALL_ACCESS (1<<19)
 ///Alamo only, no tad or pods. Sovl.
-#define MODE_ALAMO_ONLY (1<<19)
-#define MODE_SURVIVAL (1<<20)
-///disables leaving bodies etc, alot of things as a dead guy.
-#define MODE_NO_GHOSTS_STRICT (1<<21)
-#define MODE_SINGLE_USE_NUKE_DISK_GENERATOR (1<<22)
-///This flag being present makes things such as larva bursting cloneloss and relevant limits NOT happen. It must not be used in PVP modes.
-#define MODE_CHILL_RULES (1<<23)
+#define MODE_ALAMO_ONLY (1<<20)
 
 #define MODE_INFESTATION_X_MAJOR "Xenomorph Major Victory"
 #define MODE_INFESTATION_M_MAJOR "Ninetails Major Victory"
