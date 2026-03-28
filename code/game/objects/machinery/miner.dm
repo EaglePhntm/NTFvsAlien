@@ -281,7 +281,7 @@
 	if(user.faction == FACTION_CLF && ((cavezone && cavezone.ceiling > CEILING_UNDERGROUND) || is_platinum()))
 		user.visible_message(span_warning("Repairing this would go against your masters' wishes and wellbeing."))
 		return FALSE
-	if ((SSticker.mode.round_type_flags & MODE_CHILL_RULES) && (user.faction != FACTION_CLF) && !can_capture(user))
+	if ((SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES) && (user.faction != FACTION_CLF) && !can_capture(user))
 		user.visible_message(span_warning("Under the current truce, your faction is forbidden from seizing additional miners of this type. Only when war is declared may this restriction be lifted."))
 		return FALSE
 	if(miner_status != MINER_SMALL_DAMAGE)

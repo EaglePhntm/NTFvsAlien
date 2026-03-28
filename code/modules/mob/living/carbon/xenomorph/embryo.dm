@@ -104,7 +104,7 @@
 	if(affected_mob.stat == DEAD && stage < 3) //No more corpsefucking for infinite larva, thanks
 		return FALSE
 
-	if(ishuman(affected_mob) && !(SSticker.mode.round_type_flags & MODE_CHILL_RULES))
+	if(ishuman(affected_mob) && !(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES))
 		if(affected_mob.getCloneLoss() >= 30 || HAS_TRAIT(affected_mob, TRAIT_PSY_DRAINED)) //I guess they remain dormant
 			return FALSE
 
@@ -307,7 +307,7 @@
 		else
 			monkey.take_overall_damage(140, BRUTE, MELEE)
 		monkey.take_overall_damage(20, BURN, MELEE)
-	if(ishuman(victim) && !(SSticker.mode.round_type_flags & MODE_CHILL_RULES))
+	if(ishuman(victim) && !(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES))
 		if(victim.getCloneLoss() < 30)
 			victim.adjustCloneLoss(45)
 			if(!(CHECK_BITFIELD(victim.restrained_flags, RESTRAINED_XENO_NEST)))

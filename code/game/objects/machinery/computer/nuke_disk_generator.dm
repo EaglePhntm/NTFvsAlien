@@ -95,7 +95,7 @@
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_DISK_GENERATED, src)
 	busy = FALSE
 	// Self destruct for sol gamemode
-	if(SSticker.mode.round_type_flags & MODE_SINGLE_USE_NUKE_DISK_GENERATOR)
+	if(SSticker.mode.round_type_flags2 & MODE_2_SINGLE_USE_NUKE_DISK_GENERATOR)
 		visible_message(span_danger("\the [src] emits a high-pitched whine before sparking violently! It's starting to self-destruct due to security measures! Clear the area immediately!"))
 		priority_announce("\The [src] was printed by [user.faction] and begun a self-destruct sequence!", "Warning!")
 		animate(src, color = COLOR_RED, time = 8 SECONDS)

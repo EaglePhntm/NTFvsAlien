@@ -25,14 +25,14 @@
 		var/AllXenos[] = All[2]
 		if(AllMarines < AllXenos * XENO_MARINE_RATIO)
 			reclone_time /= 2
-		if(SSticker.mode.round_type_flags & MODE_CHILL_RULES)
+		if(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES)
 			reclone_time *= 0.1
 			reclone_time = max(reclone_time, 1 MINUTES)
 		else
 			reclone_time = max(reclone_time, 8 MINUTES) //absolute minimum time.
 	if(ishuman(mob)) //if person is dnr they get half cost
 		var/mob/living/carbon/human/hum = mob
-		if(hum.dead_ticks > GLOB.time_before_dnr || SSticker.mode.round_type_flags & MODE_CHILL_RULES)
+		if(hum.dead_ticks > GLOB.time_before_dnr || SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES)
 			the_cost /= 2
 	var/the_question = "You can now reclone for [the_cost] supply points cost, All your equipment will be with you if you do. If you choose to stay, you can pop this up again by using the 'ghost' verb from your body, whether you are alive and nested or dead-dead. You can still freely ghost around and return to your body."
 	if(world.time < (reclone_start_time + reclone_time))
