@@ -191,16 +191,16 @@
 	smoke.start()
 
 /datum/ammo/smoke_burst/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
-	drop_nade(get_turf(target_mob))
+	drop_nade(get_turf(target_mob), proj)
 
 /datum/ammo/smoke_burst/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
-	drop_nade(target_obj.allow_pass_flags & PASS_PROJECTILE ? get_step_towards(target_obj, proj) : get_turf(target_obj))
+	drop_nade(target_obj.allow_pass_flags & PASS_PROJECTILE ? get_step_towards(target_obj, proj) : get_turf(target_obj), proj)
 
 /datum/ammo/smoke_burst/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
-	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj)
 
 /datum/ammo/smoke_burst/do_at_max_range(turf/target_turf, atom/movable/projectile/proj)
-	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj)
 
 /datum/ammo/smoke_burst/tank
 	max_range = 7

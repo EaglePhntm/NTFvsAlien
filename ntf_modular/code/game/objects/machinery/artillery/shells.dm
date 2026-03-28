@@ -63,10 +63,10 @@
 	B1 = new()
 	B2 = new()
 
-/datum/ammo/mortar/razorburn/drop_nade(turf/T)
+/datum/ammo/mortar/razorburn/drop_nade(turf/target_turf, atom/movable/projectile/proj)
 	B1.reagents.add_reagent_list(B1_chems)
 	B2.reagents.add_reagent_list(B2_chems)
-	chem_splash(T, 7, list(B1.reagents, B2.reagents), 10, 1)
+	chem_splash(target_turf, 7, list(B1.reagents, B2.reagents), 10, 1)
 
 /obj/item/mortal_shell/metalfoam
 	name = "\improper 80mm metal foam mortar shell"

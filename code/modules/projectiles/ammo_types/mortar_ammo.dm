@@ -26,7 +26,7 @@
 	explosion(target_turf, 1, 2, 5, 0, 3, explosion_cause=src)
 
 /datum/ammo/mortar/do_at_max_range(turf/target_turf, atom/movable/projectile/proj)
-	drop_nade(target_turf)
+	drop_nade(target_turf, proj)
 
 /datum/ammo/mortar/incend/drop_nade(turf/target_turf, atom/movable/projectile/proj)
 	flame_radius(4, target_turf)

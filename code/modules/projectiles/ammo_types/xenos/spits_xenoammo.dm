@@ -316,13 +316,13 @@
 	drop_nade(get_turf(target_mob), proj)
 
 /datum/ammo/xeno/acid/auto/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
-	drop_nade(target_obj.density ? get_step_towards(target_obj, proj) : get_turf(target_obj))
+	drop_nade(target_obj.density ? get_step_towards(target_obj, proj) : get_turf(target_obj), proj)
 
 /datum/ammo/xeno/acid/auto/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
-	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj)
 
 /datum/ammo/xeno/acid/auto/do_at_max_range(turf/target_turf, atom/movable/projectile/proj)
-	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj)
 
 /datum/ammo/xeno/acid/passthrough
 	name = "acid spittle"
@@ -343,16 +343,16 @@
 
 /datum/ammo/xeno/acid/heavy/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	var/turf/target_turf = get_turf(target_mob)
-	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj)
 
 /datum/ammo/xeno/acid/heavy/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
-	drop_nade(target_obj.density ? get_step_towards(target_obj, proj) : get_turf(target_obj))
+	drop_nade(target_obj.density ? get_step_towards(target_obj, proj) : get_turf(target_obj), proj)
 
 /datum/ammo/xeno/acid/heavy/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
-	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj)
 
 /datum/ammo/xeno/acid/heavy/do_at_max_range(turf/target_turf, atom/movable/projectile/proj)
-	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj)
 
 
 ///For the Spitter's Scatterspit ability
@@ -401,11 +401,11 @@
 
 ///Hitting an object causes the bomblet to fail and release transparent fast-dissipating smoke
 /datum/ammo/xeno/acid/smokescreen/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
-	drop_nade(target_obj.density ? get_step_towards(target_obj, proj) : get_turf(target_obj), FALSE)
+	drop_nade(target_obj.density ? get_step_towards(target_obj, proj) : get_turf(target_obj), proj)
 
 ///Hitting a mob causes the bomblet to fail and release transparent fast-dissipating smoke
 /datum/ammo/xeno/acid/smokescreen/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
-	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, FALSE)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj)
 
 /datum/ammo/xeno/acid/smokescreen/do_at_max_range(turf/target_turf, atom/movable/projectile/proj)
 	var/turf/det_turf = get_step_towards(target_turf, proj)
@@ -497,7 +497,7 @@
 	ammo_behavior_flags = AMMO_XENO|AMMO_SKIPS_ALIENS
 
 /datum/ammo/rocket/he/xadar/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
-	drop_nade(get_turf(target_obj))
+	drop_nade(get_turf(target_obj), proj)
 	if(ishitbox(target_obj))
 		var/obj/hitbox/vehiclehitbox = target_obj
 		vehiclehitbox.root.take_damage(XADAR_VEHICLE_DAMAGE)
