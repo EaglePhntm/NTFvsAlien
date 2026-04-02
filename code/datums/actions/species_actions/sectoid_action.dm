@@ -236,7 +236,7 @@
 	carbon_target.notransform = FALSE
 	carbon_target.status_flags &= ~GODMODE
 	REMOVE_TRAIT(carbon_target, TRAIT_HANDS_BLOCKED, REF(src))
-	carbon_target.set_move_resist(initial(carbon_target.move_resist))
+	carbon_target.set_move_resist(carbon_target.get_initial_move_resist())
 	carbon_target.remove_atom_colour(TEMPORARY_COLOR_PRIORITY, COLOR_GRAY)
 	carbon_target.overlays -= stone_overlay
 

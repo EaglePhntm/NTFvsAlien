@@ -12,7 +12,7 @@
 	///How much the atom tries to push things out its way
 	var/move_force = MOVE_FORCE_DEFAULT
 	///How much the atom resists being thrown or moved.
-	var/move_resist = MOVE_RESIST_DEFAULT
+	VAR_PROTECTED/move_resist = MOVE_RESIST_DEFAULT
 	///Delay added to mob's move_delay when pulling it.
 	var/drag_delay = 3
 	///Wind-up before the mob can pull an object.
@@ -1705,3 +1705,8 @@ GLOBAL_LIST_EMPTY(submerge_filter_timer_list)
 	if(pulledby && !can_be_pulled(pulledby))
 		pulledby.stop_pulling()
 
+/atom/movable/proc/get_move_resist()
+	return move_resist
+
+/atom/movable/proc/get_initial_move_resist()
+	return initial(move_resist)

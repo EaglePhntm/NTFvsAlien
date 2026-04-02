@@ -363,7 +363,7 @@
 	if(attached_armor)
 		xeno_owner.soft_armor = xeno_owner.soft_armor.detachArmor(attached_armor)
 		attached_armor = null
-	xeno_owner.set_move_resist(initial(xeno_owner.move_resist))
+	xeno_owner.set_move_resist(xeno_owner.get_initial_move_resist())
 	if(required_rest)
 		UnregisterSignal(xeno_owner, COMSIG_XENOMORPH_UNREST)
 	var/datum/action/ability/activable/xeno/drain/drain_ability = xeno_owner.actions_by_path[/datum/action/ability/activable/xeno/drain]

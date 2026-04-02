@@ -166,7 +166,7 @@
 	user_old_x = operator.pixel_x
 	user_old_y = operator.pixel_y
 	update_pixels(operator, TRUE)
-	user_old_move_resist = operator.move_resist
+	user_old_move_resist = operator.get_move_resist()
 	operator.set_move_resist(MOVE_FORCE_STRONG)
 
 ///Updates the pixel offset of user so it looks like their manning the gun from behind

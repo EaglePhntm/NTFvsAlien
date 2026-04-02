@@ -247,7 +247,7 @@
 		GLOB.round_statistics.defender_crest_raises++
 		SSblackbox.record_feedback("tally", "round_statistics", 1, "defender_crest_raises")
 		REMOVE_TRAIT(xeno_owner, TRAIT_STAGGERIMMUNE, CREST_DEFENSE_TRAIT)
-		xeno_owner.set_move_resist(initial(xeno_owner.move_resist))
+		xeno_owner.set_move_resist(xeno_owner.get_initial_move_resist())
 		xeno_owner.soft_armor = xeno_owner.soft_armor.modifyAllRatings(-last_crest_bonus)
 		xeno_owner.remove_movespeed_modifier(MOVESPEED_ID_CRESTDEFENSE)
 

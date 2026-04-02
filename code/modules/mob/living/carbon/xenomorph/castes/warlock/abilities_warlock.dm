@@ -158,7 +158,7 @@
 		xeno_owner.remove_movespeed_modifier(MOVESPEED_ID_WARLOCK_PSYCHIC_SHIELD)
 	action_icon_state = "psy_shield"
 	xeno_owner.update_glow()
-	xeno_owner.set_move_resist(initial(xeno_owner.move_resist))
+	xeno_owner.set_move_resist(xeno_owner.get_initial_move_resist())
 	update_button_icon()
 	add_cooldown()
 	if(active_shield)

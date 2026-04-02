@@ -146,7 +146,7 @@
 			span_xenonotice("We yank all the leashes from \the [src]!"))
 		playsound(src, 'sound/voice/alien/pounce.ogg', 25, TRUE)
 		for(var/mob/living/carbon/human/human_mob in leash_victims)
-			if(human_mob.stat == DEAD || human_mob.move_resist >= MOVE_FORCE_OVERPOWERING)
+			if(human_mob.stat == DEAD || human_mob.get_move_resist() >= MOVE_FORCE_OVERPOWERING)
 				continue
 			human_mob.throw_at(src, get_dist(src, human_mob), 2, xeno_attacker)
 			human_mob.Paralyze(0.5 SECONDS)

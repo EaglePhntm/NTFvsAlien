@@ -127,7 +127,7 @@
 		for(var/obj/effect/forcefield/fog/fog in throw_origin)
 			A.balloon_alert(xeno_owner, "there's fog there!")
 			return fail_activate()
-	if(A.move_resist >= MOVE_FORCE_OVERPOWERING)
+	if(A.get_move_resist() >= MOVE_FORCE_OVERPOWERING)
 		A.balloon_alert(xeno_owner, "too heavy!")
 		return fail_activate()
 	if(isliving(A))

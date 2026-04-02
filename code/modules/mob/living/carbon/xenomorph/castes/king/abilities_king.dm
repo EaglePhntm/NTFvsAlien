@@ -148,7 +148,7 @@
 	victim.notransform = FALSE
 	victim.status_flags &= ~GODMODE
 	REMOVE_TRAIT(victim, TRAIT_HANDS_BLOCKED, REF(src))
-	victim.set_move_resist(initial(victim.move_resist))
+	victim.set_move_resist(victim.get_initial_move_resist())
 	victim.remove_atom_colour(TEMPORARY_COLOR_PRIORITY, COLOR_GRAY)
 	victim.overlays -= petrified_humans[victim]
 	petrified_humans -= victim

@@ -214,7 +214,7 @@
 	. = ..()
 	H.transform = matrix().Scale(1/(1.2), 1/(1.2))
 	REMOVE_TRAIT(H, TRAIT_STUNIMMUNE, ZOMBIE_TRAIT)
-	H.set_move_resist(initial(H.move_resist))
+	H.set_move_resist(H.get_initial_move_resist())
 
 /datum/species/zombie/strong
 	name = "Strong zombie" //These are zombies created from marines, they are stronger, but of course rarer
