@@ -92,7 +92,7 @@
 			target_mob.gib()
 	else
 		staggerstun(target_mob, proj, max_range, knockback = 1, hard_size_threshold = 3)
-	drop_nade(target_turf)
+	drop_nade(target_turf, proj)
 
 /datum/ammo/rocket/ltb/heavy/drop_nade(turf/target_turf, atom/movable/projectile/proj)
 	explosion(target_turf, 1, 4, 6, 0, 3, explosion_cause = proj)
@@ -448,7 +448,7 @@
 /datum/ammo/rocket/atgun_shell/apcr/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	var/target_turf = get_turf(target_mob)
 	staggerstun(target_mob, proj, max_range = 20, stagger = 1 SECONDS, slowdown = 0.5, knockback = 2, hard_size_threshold = 3)
-	drop_nade(target_turf)
+	drop_nade(target_turf, proj)
 	proj.proj_max_range -= 5
 	shake_camera(target_mob, 0.2 SECONDS, 2)
 
