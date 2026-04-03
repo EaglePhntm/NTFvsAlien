@@ -43,6 +43,11 @@
 	contains = list(/obj/item/storage/box/mlrs_rockets/sleep)
 	cost = 100
 
+/datum/supply_packs/explosives/mlrs_rockets_minelayer
+	name = "TA-40L Minelayer MLRS Rocket Pack (x16)"
+	contains = list(/obj/item/storage/box/mlrs_rockets/minelayer)
+	cost = 100
+
 /datum/supply_packs/imports/halterex
 	name = "NT Halter extended mag (x1)"
 	contains = list(/obj/item/ammo_magazine/rifle/nt_halter/extended)

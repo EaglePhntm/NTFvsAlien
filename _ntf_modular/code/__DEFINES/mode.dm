@@ -18,3 +18,10 @@
 #define MODE_2_NO_GHOSTS (1<<1)
 ///makes it not possible to cap the alamo.
 #define MODE_2_NO_ABDUCT (1<<2)
+
+#define MODE_2_SURVIVAL (1<<3)
+///disables leaving bodies etc, alot of things as a dead guy.
+#define MODE_2_NO_GHOSTS_STRICT (1<<4)
+#define MODE_2_SINGLE_USE_NUKE_DISK_GENERATOR (1<<5)
+///This flag being present makes things such as larva bursting cloneloss and relevant limits NOT happen. It must not be used in PVP modes.
+#define MODE_2_CHILL_RULES (1<<6)

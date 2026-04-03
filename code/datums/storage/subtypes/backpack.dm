@@ -39,6 +39,7 @@
 		/obj/item/mortal_shell,
 		/obj/item/stack/razorwire,
 		/obj/item/stack/sandbags,
+		/obj/item/teleporter_kit,
 	))
 
 /datum/storage/backpack/satchel/tech/New(atom/parent)

@@ -266,7 +266,7 @@
 		if(isobserver(i))
 			continue
 		var/atom/movable/thing_to_throw = i
-		if(thing_to_throw.anchored || thing_to_throw.move_resist == INFINITY)
+		if(thing_to_throw.anchored || thing_to_throw.get_move_resist() == INFINITY)
 			continue
 		thing_to_throw.throw_at(pick(targets), 1, 1)
 

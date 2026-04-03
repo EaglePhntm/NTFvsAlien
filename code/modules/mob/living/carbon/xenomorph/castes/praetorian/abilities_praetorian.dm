@@ -666,7 +666,7 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 			var/mob/living/carbon/human/human_mob = target
 			if(human_mob.stat == DEAD)
 				continue
-			if(human_mob.move_resist >= MOVE_FORCE_OVERPOWERING)
+			if(human_mob.get_move_resist() >= MOVE_FORCE_OVERPOWERING)
 				continue
 			human_mobs += human_mob
 			human_mob.allow_pass_flags |= (PASS_MOB|PASS_XENO) // Without this, groups of affected humans will bump into each other while being thrown.
@@ -958,7 +958,7 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	for(var/turf/affected_tile AS in block(lower_left, upper_right))
 		affected_tile.Shake(duration = 0.1 SECONDS)
 		for(var/atom/movable/affected AS in affected_tile)
-			if(!ishuman(affected) || affected.move_resist >= MOVE_FORCE_OVERPOWERING)
+			if(!ishuman(affected) || affected.get_move_resist() >= MOVE_FORCE_OVERPOWERING)
 				continue
 			var/mob/living/carbon/human/affected_human = affected
 			if(affected_human.stat == DEAD)
@@ -1051,7 +1051,7 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 /// Ends the charge when hitting a human. Knocks them back pretty far.
 /datum/action/ability/activable/xeno/oppressor/advance/proc/mob_hit(datum/source, mob/living/living_hit)
 	SIGNAL_HANDLER
-	if(!ishuman(living_hit) || living_hit.move_resist >= MOVE_FORCE_OVERPOWERING)
+	if(!ishuman(living_hit) || living_hit.get_move_resist() >= MOVE_FORCE_OVERPOWERING)
 		return
 
 	RegisterSignal(living_hit, COMSIG_MOVABLE_IMPACT, PROC_REF(on_throw_impact))

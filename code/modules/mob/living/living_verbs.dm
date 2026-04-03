@@ -67,7 +67,7 @@
 		return
 
 	// Gamemode disallowed handler - START
-	if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS_STRICT)))
+	if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags2, MODE_2_NO_GHOSTS_STRICT)))
 		if(client && check_rights_for(client, R_ADMIN))
 			switch(tgui_input_list(src, "Ghosting in this game mode would normally send you to the lobby, but since you are an admin you can bypass this.  What do you wish to do?", "Ghost", list("Ghost", "AGhost", "Return to lobby"), "AGhost"))
 				if("Ghost")

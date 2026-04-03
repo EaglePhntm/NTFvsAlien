@@ -138,7 +138,7 @@
 			continue
 
 		if(M.stat == DEAD)
-			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS_STRICT)) && !check_rights_for(M.client, R_ADMIN)) // no getting to know what you shouldn't
+			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags2, MODE_2_NO_GHOSTS_STRICT)) && !check_rights_for(M.client, R_ADMIN)) // no getting to know what you shouldn't
 				continue
 
 		var/msg = message
@@ -206,7 +206,7 @@
 			continue
 
 		if(M.stat == DEAD)
-			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS_STRICT)) && !(M.client && check_rights_for(M.client, R_ADMIN))) // no getting to know what you shouldn't
+			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags2, MODE_2_NO_GHOSTS_STRICT)) && !(M.client && check_rights_for(M.client, R_ADMIN))) // no getting to know what you shouldn't
 				continue
 
 		var/msg = message
@@ -237,7 +237,7 @@
 			continue
 
 		if(M.stat == DEAD)
-			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS_STRICT)) && !(M.client && check_rights_for(M.client, R_ADMIN))) // no getting to know what you shouldn't
+			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags2, MODE_2_NO_GHOSTS_STRICT)) && !(M.client && check_rights_for(M.client, R_ADMIN))) // no getting to know what you shouldn't
 				continue
 
 		if(audible_message_flags & EMOTE_MESSAGE && rc_vc_msg_prefs_check(M, audible_message_flags))

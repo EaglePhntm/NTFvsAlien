@@ -97,7 +97,7 @@
 	if(SSticker.HasRoundStarted())
 		SSblackbox.ReportDeath(src)
 
-	//if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS_STRICT)))
+	//if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags2, MODE_2_NO_GHOSTS_STRICT)))
 	if(isrobot(src) || issynth(src))
 		overlay_fullscreen("death", /atom/movable/screen/fullscreen/dead/robot)
 	else

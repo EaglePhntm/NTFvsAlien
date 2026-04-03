@@ -21,7 +21,7 @@
 		for(var/mob/living/carbon/human/possible_target in GLOB.humans_by_zlevel["[z]"])
 			if(!istype(possible_target) || !possible_target.client)
 				continue
-			if((SSticker.mode.round_type_flags & MODE_CHILL_RULES))
+			if((SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES))
 				if(!(possible_target.client?.prefs?.be_special & BE_HIVE_TARGET))
 					continue
 			eligible_targets += possible_target

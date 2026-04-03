@@ -89,7 +89,7 @@
 	if(!isliving(mob))
 		return mob.Move(newloc, direction)
 	if(mob.stat == DEAD && !HAS_TRAIT(mob, TRAIT_IS_RESURRECTING))
-		if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS_STRICT)) && !(mob.client && check_rights_for(mob.client, R_ADMIN)))
+		if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags2, MODE_2_NO_GHOSTS_STRICT)) && !(mob.client && check_rights_for(mob.client, R_ADMIN)))
 			to_chat(mob, span_boldwarning("You're DEAD!"))
 			move_delay = world.time + 1 SECONDS //to reduce the spam
 			return FALSE

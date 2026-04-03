@@ -20,21 +20,21 @@
 	living_target.blind_eyes(2)
 	living_target.adjust_blurriness(4)
 
-	drop_nade(get_turf(target_mob))
+	drop_nade(get_turf(target_mob), proj)
 
 /datum/ammo/bile_spit/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
 	var/turf/target_turf = get_turf(target_obj)
-	drop_nade(target_turf.density ? proj.loc : target_turf)
+	drop_nade(target_turf.density ? proj.loc : target_turf, proj)
 
 /datum/ammo/bile_spit/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
-	drop_nade(target_turf.density ? proj.loc : target_turf)
+	drop_nade(target_turf.density ? proj.loc : target_turf, proj)
 
 /datum/ammo/bile_spit/do_at_max_range(turf/target_turf, atom/movable/projectile/proj)
-	drop_nade(target_turf.density ? proj.loc : target_turf)
+	drop_nade(target_turf.density ? proj.loc : target_turf, proj)
 
-/datum/ammo/bile_spit/drop_nade(turf/T)
+/datum/ammo/bile_spit/drop_nade(turf/target_turf, atom/movable/projectile/proj)
 	var/datum/effect_system/smoke_spread/xeno/neuro/light/extinguishing/smoke_system = new
 	smoke_system.strength = 1.5
 	smoke_system.lifetime = 2
-	smoke_system.set_up(3, T)
+	smoke_system.set_up(3, target_turf)
 	smoke_system.start()

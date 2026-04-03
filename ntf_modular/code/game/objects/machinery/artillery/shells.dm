@@ -63,10 +63,10 @@
 	B1 = new()
 	B2 = new()
 
-/datum/ammo/mortar/razorburn/drop_nade(turf/T)
+/datum/ammo/mortar/razorburn/drop_nade(turf/target_turf, atom/movable/projectile/proj)
 	B1.reagents.add_reagent_list(B1_chems)
 	B2.reagents.add_reagent_list(B2_chems)
-	chem_splash(T, 7, list(B1.reagents, B2.reagents), 10, 1)
+	chem_splash(target_turf, 7, list(B1.reagents, B2.reagents), 10, 1)
 
 /obj/item/mortal_shell/metalfoam
 	name = "\improper 80mm metal foam mortar shell"
@@ -175,3 +175,30 @@
 	new /obj/item/mortal_shell/rocket/mlrs/sleep(src)
 	new /obj/item/mortal_shell/rocket/mlrs/sleep(src)
 	new /obj/item/mortal_shell/rocket/mlrs/sleep(src)
+
+/obj/item/mortal_shell/rocket/mlrs/minelayer
+	name = "\improper 60mm minelayer rocket"
+	desc = "A 60mm rocket loaded with a landmine deployment system."
+	icon_state = "mlrs_cloak"
+	ammo_type = /datum/ammo/mortar/rocket/minelayer/mlrs
+
+/obj/item/storage/box/mlrs_rockets/minelayer
+	name = "\improper TA-40L minelayer rocket crate"
+
+/obj/item/storage/box/mlrs_rockets/minelayer/PopulateContents()
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)
+	new /obj/item/mortal_shell/rocket/mlrs/minelayer(src)

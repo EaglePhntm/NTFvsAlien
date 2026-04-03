@@ -155,20 +155,20 @@
 	damage_falloff = 0.5
 	penetration = 0
 
-/datum/ammo/bullet/shotgun/frag/drop_nade(turf/T)
-	explosion(T, weak_impact_range = 2, tiny = TRUE, explosion_cause=src)
+/datum/ammo/bullet/shotgun/frag/drop_nade(turf/target_turf, atom/movable/projectile/proj)
+	explosion(target_turf, weak_impact_range = 2, tiny = TRUE, explosion_cause=src)
 
 /datum/ammo/bullet/shotgun/frag/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
-	drop_nade(get_turf(target_mob))
+	drop_nade(get_turf(target_mob), proj)
 
 /datum/ammo/bullet/shotgun/frag/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
-	drop_nade(target_obj.density ? get_step_towards(target_obj, proj) : target_obj.loc)
+	drop_nade(target_obj.density ? get_step_towards(target_obj, proj) : target_obj.loc, proj)
 
 /datum/ammo/bullet/shotgun/frag/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
-	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj)
 
 /datum/ammo/bullet/shotgun/frag/do_at_max_range(turf/target_turf, atom/movable/projectile/proj)
-	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj)
 
 /datum/ammo/bullet/shotgun/frag/frag_spread
 	name = "additional frag shell"

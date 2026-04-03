@@ -161,7 +161,7 @@
 					var/mob/living/carbon/xenomorph/xeno_user = user
 					var/heal_amount = rand(10, 20) + (20*blame_mob.skills.sex) + (xeno_user.recovery_aura * xeno_user.maxHealth * 0.01)
 					HEAL_XENO_DAMAGE(xeno_user, heal_amount, FALSE)
-				if(!isxeno(blame_mob) || SSticker.mode.round_type_flags & MODE_CHILL_RULES)
+				if(!isxeno(blame_mob) || SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES)
 					user.adjustCloneLoss(-(rand(5,10)+(5*blame_mob.skills.sex)))
 			if(SEX_DRAIN_STYLE_DRAIN_STAMINA)
 				if((!(user.mind)) || (user.client?.prefs.harmful_sex_flags & HARMFUL_SEX_STAMINA_DRAIN))
@@ -289,7 +289,7 @@
 	set_arousal(40)
 	var/aphrotoxin_amount =  user.reagents.get_reagent_amount(/datum/reagent/toxin/xeno_aphrotoxin)
 	if(aphrotoxin_amount)
-		user.reagents.remove_reagent(/datum/reagent/toxin/xeno_aphrotoxin, (aphrotoxin_amount * 0.4) + 10) 
+		user.reagents.remove_reagent(/datum/reagent/toxin/xeno_aphrotoxin, (aphrotoxin_amount * 0.4) + 10)
 	user.emote("sexmoanhvy")
 	playsound(user, 'ntf_modular/sound/misc/mat/end.ogg', 100, FALSE, 7, ignore_walls = FALSE)
 	last_ejaculation_time = world.time

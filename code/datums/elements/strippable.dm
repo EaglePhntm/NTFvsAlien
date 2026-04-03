@@ -44,7 +44,7 @@
 			return
 
 	if(isxeno(user))
-		if(!(SSticker.mode.round_type_flags & MODE_CHILL_RULES))
+		if(!(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES))
 			return
 
 	if(over != user)

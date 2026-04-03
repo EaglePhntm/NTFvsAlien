@@ -1,8 +1,9 @@
 /datum/game_mode/infestation/crash/zombie
 	name = "Zombie Crash"
 	config_tag = "Zombie Crash"
-	round_type_flags = MODE_ALLOW_MARINE_QUICKBUILD|MODE_XENO_GRAB_DEAD_ALLOWED|MODE_CHILL_RULES|MODE_INFESTATION|MODE_PSY_POINTS|MODE_SILO_RESPAWN|MODE_MUTATIONS_OBTAINABLE
+	round_type_flags = MODE_ALLOW_MARINE_QUICKBUILD|MODE_XENO_GRAB_DEAD_ALLOWED|MODE_INFESTATION|MODE_PSY_POINTS|MODE_SILO_RESPAWN|MODE_MUTATIONS_OBTAINABLE
 	xeno_abilities_flags = ABILITY_ALL_GAMEMODE //Non pvp
+	round_type_flags2 = MODE_2_CHILL_RULES
 	required_players = 1
 	valid_job_types = list(
 		/datum/job/terragov/squad/standard = -1,
@@ -46,7 +47,10 @@
 
 /datum/game_mode/infestation/crash/zombie/post_setup()
 	. = ..()
+	var/list/z_levels = SSmapping.levels_by_any_trait(list(ZTRAIT_GROUND))
 	for(var/obj/effect/landmark/corpsespawner/corpse AS in GLOB.corpse_landmarks_list)
+		if(!(corpse.z in z_levels))
+			continue
 		corpse.create_zombie()
 
 	for(var/i in (GLOB.zombie_spawner_turfs + GLOB.xeno_resin_silo_turfs))

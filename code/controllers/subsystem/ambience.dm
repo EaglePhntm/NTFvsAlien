@@ -18,7 +18,7 @@ SUBSYSTEM_DEF(ambience)
 		if(ambience_listening_clients[client_iterator] > world.time)
 			continue //Not ready for the next sound
 
-		if(client_iterator.mob.stat == DEAD && (CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS_STRICT)))
+		if(client_iterator.mob.stat == DEAD && (CHECK_BITFIELD(SSticker.mode.round_type_flags2, MODE_2_NO_GHOSTS_STRICT)))
 			continue
 
 		var/area/current_area = get_area(client_iterator.mob)

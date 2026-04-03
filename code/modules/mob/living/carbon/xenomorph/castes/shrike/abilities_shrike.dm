@@ -94,7 +94,7 @@
 		return FALSE
 	if(isxeno(target) && (target != xeno_owner) && !collusion_xenos_only)
 		return FALSE
-	if(target.move_resist >= MOVE_FORCE_OVERPOWERING)
+	if(target.get_move_resist() >= MOVE_FORCE_OVERPOWERING)
 		return FALSE
 	var/max_dist = SHRIKE_FLING_RANGE //the distance only goes to 3 now, since this is more of a utility then an attack.
 	if(!line_of_sight(owner, target, max_dist))
@@ -273,7 +273,7 @@
 			if(!ishuman(affected) && !istype(affected, /obj/item) && !isdroid(affected))
 				affected.Shake(duration = 0.5 SECONDS)
 				continue
-			if(affected.move_resist >= MOVE_FORCE_OVERPOWERING)
+			if(affected.get_move_resist() >= MOVE_FORCE_OVERPOWERING)
 				continue
 			if(ishuman(affected))
 				var/mob/living/carbon/human/H = affected
@@ -608,7 +608,7 @@
 /datum/action/ability/activable/xeno/psychic_vortex/proc/vortex_pull()
 	playsound(owner, 'sound/effects/seedling_chargeup.ogg', 60)
 	for(var/atom/movable/movable_victim in range(VORTEX_RANGE, owner.loc))
-		if(movable_victim.anchored || isxeno(movable_victim) || movable_victim.move_resist > MOVE_FORCE_STRONG)
+		if(movable_victim.anchored || isxeno(movable_victim) || movable_victim.get_move_resist() > MOVE_FORCE_STRONG)
 			continue
 		if(ishuman(movable_victim))
 			var/mob/living/carbon/human/H = movable_victim
@@ -626,7 +626,7 @@
 /// Randomly throws movable atoms in the radius of the vortex abilites range, different each use.
 /datum/action/ability/activable/xeno/psychic_vortex/proc/vortex_push()
 	for(var/atom/movable/movable_victim in range(VORTEX_RANGE, owner.loc))
-		if(movable_victim.anchored || isxeno(movable_victim) || movable_victim.move_resist == INFINITY)
+		if(movable_victim.anchored || isxeno(movable_victim) || movable_victim.get_move_resist() == INFINITY)
 			continue
 		if(ishuman(movable_victim))
 			var/mob/living/carbon/human/human_victim = movable_victim

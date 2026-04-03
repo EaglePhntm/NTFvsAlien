@@ -128,7 +128,7 @@
 
 /mob/living/carbon/xenomorph/proc/xenoimpregify()
 	if(!preggo && gender == FEMALE)
-		if(!(SSticker.mode.round_type_flags & MODE_CHILL_RULES) && client?.prefs?.xenogender == 4) //futa
+		if(!(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES) && client?.prefs?.xenogender == 4) //futa
 			to_chat(src, span_alien("We can't bear larvas during war times, our mixed physiology makes it difficult."))
 			return FALSE
 		to_chat(src, span_alien("We feel a new larva forming within us."))
@@ -167,7 +167,7 @@
 	return FALSE
 
 /proc/implant_embryo(mob/living/victim, target_hole, times = 1, mob/living/carbon/xenomorph/source, force_xenohive, override_limit = MAX_LARVA_PREGNANCIES)
-	if(isxeno(victim) && !(SSticker.mode.round_type_flags & MODE_CHILL_RULES)) //no inf larva farm
+	if(isxeno(victim) && !(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES)) //no inf larva farm
 		return
 	if(!target_hole)
 		target_hole = pick(HOLE_LIST)
