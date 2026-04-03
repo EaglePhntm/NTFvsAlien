@@ -127,9 +127,9 @@
 				return FALSE
 	return ..()
 
-/obj/vehicle/ridden/motorbike/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
+/obj/vehicle/ridden/motorbike/relaydrive(mob/living/user, direction)
 	. = ..()
-	if(!LAZYLEN(buckled_mobs)) // dont use fuel or make noise unless we're being used
+	if(!.)
 		return
 	fuel_count -= 0.1
 	if(fuel_count == LOW_FUEL_LEFT_MESSAGE)
