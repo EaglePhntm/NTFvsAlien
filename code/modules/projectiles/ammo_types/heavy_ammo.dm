@@ -107,7 +107,6 @@
 	sundering = 7.5
 	shrapnel_chance = 25
 	max_range = 10
-	airburst_multiplier = 0.5
 	autocannon_wall_bonus = 25
 	///Damage done via airburst
 	var/burst_damage = 50

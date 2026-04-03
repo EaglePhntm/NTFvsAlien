@@ -79,4 +79,4 @@
 	accuracy_variation = 3
 	damage = 30 //No fire burst so maybe fine.
 	sundering = 2.5
-	deflagrate_multiplier = 0
+	deflagrate_mult = 0
