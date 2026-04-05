@@ -245,9 +245,9 @@
 	spit_cost = 200
 	added_spit_delay = 8 SECONDS
 	bonus_projectiles_type = /datum/ammo/xeno/sticky/mini
-	bonus_projectiles_scatter = 45
+	bonus_projectiles_scatter = 22
 	///number of sticky resins made
-	var/bonus_projectile_quantity = 8
+	var/bonus_projectile_quantity = 16
 
 /datum/ammo/xeno/sticky/globe/drop_resin(turf/target_turf, atom/movable/projectile/proj, hivenumber = XENO_HIVE_NORMAL)
 	. = ..()
