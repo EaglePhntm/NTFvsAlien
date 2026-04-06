@@ -1,0 +1,4 @@
+author: "blackdav123"
+delete-after: True
+changes:
+  - rscadd: "Marines will now receive alerts when silo collapse has started or stopped."
