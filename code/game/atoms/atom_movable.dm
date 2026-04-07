@@ -755,13 +755,13 @@
 	else if(gravity > 1)
 		range = ROUND_UP(range * (2 - gravity))
 
-	if(!targetted_throw)
-		target = get_turf_in_angle(Get_Angle(src, target), target, range - get_dist(src, target))
-
 	if(SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_THROW) & COMPONENT_MOVABLE_BLOCK_PRE_THROW)
 		return FALSE
 
 	var/turf/origin = get_turf(src)
+
+	if(!targetted_throw)
+		target = get_turf_at_angle(origin, Get_Angle(origin, target), range)
 
 	if(spin)
 		animation_spin(5, 1)
