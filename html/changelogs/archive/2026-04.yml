@@ -24,3 +24,8 @@
       clankers rejoice
   - qol: climbing a multitile structure will now attempt to climb the tile you actually
       click on
+2026-04-07:
+  Joe13413:
+  - qol: Clarified Tyr/Lorica and shield asset descriptions in campaign
+  blackdav123:
+  - rscadd: Marines will now receive alerts when silo collapse has started or stopped.
