@@ -78,6 +78,8 @@
 #define MODE_BUFFED_XENO_ABILITIES (1<<20)
 ///Alamo only, no tad or pods. Sovl.
 #define MODE_ALAMO_ONLY (1<<21)
+/// Should encounter gamemode modifiers be enabled
+#define MODE_ENCOUNTER (1<<22)
 
 #define MODE_INFESTATION_X_MAJOR "Xenomorph Major Victory"
 #define MODE_INFESTATION_M_MAJOR "Ninetails Major Victory"
@@ -201,6 +203,7 @@
 
 #define NUCLEAR_WAR_LARVA_POINTS_NEEDED 8
 #define CRASH_LARVA_POINTS_NEEDED 8
+#define ENCOUNTER_LARVA_POINTS_NEEDED 15
 
 #define FREE_XENO_AT_START 4
 #define FREE_XENO_AT_START_CORRUPT 2
