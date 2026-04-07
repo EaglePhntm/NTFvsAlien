@@ -162,3 +162,9 @@
 		return INFINITY
 
 	return abs(A.x - B.x) + abs(A.y - B.y) + abs(A.z - B.z)
+
+/// Returns the turf at a given angle and range from the origin turf
+/proc/get_turf_at_angle(turf/origin, angle, range)
+	var/dx = sin(angle) * range
+	var/dy = cos(angle) * range
+	return locate(round(origin.x + dx), round(origin.y + dy), origin.z)
