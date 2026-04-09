@@ -1,0 +1,4 @@
+author: "mudzbe"
+delete-after: True
+changes:
+  - bugfix: "fixed wood window frame missing icons, also made new sprites to replace incorrect ones"
