@@ -77,7 +77,6 @@
 		capture_timer = null
 		countdown.stop()
 	if(owning_faction == user.faction) //we already own it, we just stopped the enemy cap
-		message_admins("FUCK")
 		capturing_faction = null
 		update_icon()
 		return
