@@ -29,3 +29,10 @@
   - qol: Clarified Tyr/Lorica and shield asset descriptions in campaign
   blackdav123:
   - rscadd: Marines will now receive alerts when silo collapse has started or stopped.
+2026-04-10:
+  mudzbe:
+  - bugfix: fixed wood window frame missing icons, also made new sprites to replace
+      incorrect ones
+  novaepee and Lumi:
+  - imageadd: Recolored Sleeper Console, now you won't get sleeper and body scanner
+      confused
