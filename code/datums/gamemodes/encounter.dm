@@ -30,8 +30,9 @@
 	wave_timer_length = 2 MINUTES
 	max_game_time = 30 MINUTES
 	game_timer_delay = 0
+	whitelist_ship_maps = list(MAP_COMBAT_PATROL_BASE)
+	blacklist_ship_maps = null
 	blacklist_ground_maps = list(MAP_WHISKEY_OUTPOST, MAP_OSCAR_OUTPOST, MAP_FORT_PHOBOS, MAP_CHIGUSA, MAP_CORSAT)
-	///mission completion target
 
 	///TGMC's point count
 	var/TGMC_cap_points = 0
