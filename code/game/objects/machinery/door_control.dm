@@ -278,6 +278,17 @@
 	id = "ROlobby"
 	req_one_access = list(ACCESS_MARINE_CARGO, ACCESS_MARINE_LOGISTICS)
 
+/obj/machinery/door_control/mainship/ReqHVH
+	name = "TGMC Requisition Shutters"
+	id = "ReqHVH"
+
+/obj/machinery/door_control/mainship/ReqHVH/som
+	name = "SOM Requisition Shutters"
+
+/obj/machinery/door_control/mainship/ReqHVH/som/Initialize()
+	. = ..()
+	RegisterSignal(SSdcs, COMSIG_GLOB_HVH_REQ, PROC_REF(handle_pod))
+
 /obj/machinery/door_control/mainship/req/ro1
 	name = "RO Line 1 Shutters"
 	id = "ROlobby1"

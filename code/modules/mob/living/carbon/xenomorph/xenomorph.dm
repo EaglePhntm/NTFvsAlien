@@ -602,7 +602,7 @@
 		return
 	buckle_mob(target, TRUE, TRUE, 90, 1, 1)
 
-/mob/living/carbon/xenomorph/MouseDrop_T(atom/dropping, mob/user)
+/mob/living/carbon/xenomorph/MouseDrop_T(atom/dropping, mob/user, params)
 	. = ..()
 	if(isxeno(user))
 		var/mob/living/carbon/xenomorph/xeno_user = user

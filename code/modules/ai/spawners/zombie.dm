@@ -25,6 +25,11 @@
 	var/datum/proximity_monitor/proximity_monitor
 	COOLDOWN_DECLARE(proxy_alert_cooldown)
 	COOLDOWN_DECLARE(defender_spawn_cooldown)
+	use_postspawn = TRUE
+
+/obj/effect/ai_node/spawner/zombie/postspawn(list/squad)
+	for(var/mob/living/living_spawned in squad)
+		living_spawned.offer_mob()
 
 /obj/effect/ai_node/spawner/zombie/Initialize(mapload)
 	. = ..()

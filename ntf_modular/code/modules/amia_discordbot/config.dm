@@ -28,3 +28,4 @@ GLOBAL_LIST_EMPTY(amia_requests_outstanding)
 	else
 		log_world("Failed amia request #[this_request_number] :- [logdesc]")
 	GLOB.amia_requests_outstanding -= "[this_request_number]"
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(status_update_heartbeat)), 1 HOURS, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE|TIMER_NO_HASH_WAIT)

@@ -146,6 +146,8 @@
 #define COMSIG_GLOB_CAMPAIGN_OB_BEACON_TRIGGERED "!campaign_ob_beacon_triggered"
 ///Enables the teleporter array
 #define COMSIG_GLOB_TELEPORTER_ARRAY_ENABLED "!teleporter_array_enabled"
+///Opens the combat patrol base req doors
+#define COMSIG_GLOB_HVH_REQ "!hvh_req_opened"
 
 ///from /atom/notify_ai_hazard()
 #define COMSIG_GLOB_AI_HAZARD_NOTIFIED "!ai_hazard_notified"
@@ -433,6 +435,12 @@
 #define COMSIG_MOVABLE_SHUTTLE_CRUSH "movable_shuttle_crush"
 ///Movable deployed via a patrol point
 #define COMSIG_MOVABLE_PATROL_DEPLOYED "movable_patrol_deployed"
+
+///from /atom/can_climb()
+#define COMSIG_ATOM_CHECK_CLIMBABLE "atom_check_climbable"
+	#define COMPONENT_MOVABLE_CAN_CLIMB (1<<0)
+///from /atom/try_climb()
+#define COMSIG_ATOM_TRY_CLIMBABLE "atom_try_climbable"
 
 // /turf signals
 #define COMSIG_TURF_CHANGE "turf_change"						//from base of turf/ChangeTurf(): (path, list/new_baseturfs, flags, list/transferring_comps)

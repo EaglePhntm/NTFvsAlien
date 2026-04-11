@@ -73,32 +73,41 @@
 			return
 	user.forceMove(linked_point.loc)
 
+/obj/structure/patrol_point/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+	. = ..()
+	if(.)
+		return
+	if(!Adjacent(xeno_attacker) || xeno_attacker.lying_angle || xeno_attacker.buckled || xeno_attacker.anchored)
+		return
+
+	activate_point(xeno_attacker, xeno_attacker)
+
 /obj/structure/patrol_point/tgmc_11
-	id = "NTC_11"
+	id = "TGMC_1"
 
 /obj/structure/patrol_point/tgmc_12
-	id = "NTC_12"
+	id = "TGMC_12"
 
 /obj/structure/patrol_point/tgmc_13
-	id = "NTC_13"
+	id = "TGMC_13"
 
 /obj/structure/patrol_point/tgmc_14
-	id = "NTC_14"
+	id = "TGMC_14"
 
 /obj/structure/patrol_point/tgmc_21
-	id = "NTC_21"
+	id = "TGMC_2"
 	icon_state = "patrol_point_2"
 
 /obj/structure/patrol_point/tgmc_22
-	id = "NTC_22"
+	id = "TGMC_22"
 	icon_state = "patrol_point_2"
 
 /obj/structure/patrol_point/tgmc_23
-	id = "NTC_23"
+	id = "TGMC_23"
 	icon_state = "patrol_point_2"
 
 /obj/structure/patrol_point/tgmc_24
-	id = "NTC_24"
+	id = "TGMC_24"
 	icon_state = "patrol_point_2"
 
 /obj/structure/patrol_point/som_11
@@ -106,6 +115,13 @@
 
 /obj/structure/patrol_point/som_21
 	id = "SOM_2"
+	icon_state = "patrol_point_2"
+
+/obj/structure/patrol_point/xeno_11
+	id = "Xeno_1"
+
+/obj/structure/patrol_point/xeno_21
+	id = "Xeno_2"
 	icon_state = "patrol_point_2"
 
 /obj/structure/patrol_point/tank

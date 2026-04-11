@@ -116,6 +116,11 @@ GLOBAL_VAR(next_gamemode)
 	msg += "Players online: [length(GLOB.whitelisted_clients)]"
 	amia_arbitrary_status_update(msg, pingid)
 
+/proc/status_update_heartbeat()
+	var/msg = "Players online: [length(GLOB.whitelisted_clients)]"
+	msg += "Round time: [duration2text(world.time - SSticker.round_start_time)]"
+	amia_arbitrary_status_update(msg)
+
 /proc/send_long_status_update(list/lines, ping_id)
 	var/msg = ""
 	while(length(lines))
