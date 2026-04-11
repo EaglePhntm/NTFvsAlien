@@ -6,6 +6,7 @@
 	round_type_flags = MODE_LATE_OPENING_SHUTTER_TIMER|MODE_TWO_HUMAN_FACTIONS|MODE_INFESTATION|MODE_MUTATIONS_OBTAINABLE|MODE_PSY_POINTS|MODE_SILO_RESPAWN|MODE_ENCOUNTER
 	xeno_abilities_flags = ABILITY_CRASH
 	factions = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_XENO)
+	human_factions = list(FACTION_TERRAGOV, FACTION_SOM)
 	valid_job_types = list(
 		/datum/job/terragov/squad/engineer = 8,
 		/datum/job/terragov/squad/corpsman = 8,
@@ -33,6 +34,8 @@
 	whitelist_ship_maps = list(MAP_COMBAT_PATROL_BASE)
 	blacklist_ship_maps = null
 	blacklist_ground_maps = list(MAP_WHISKEY_OUTPOST, MAP_OSCAR_OUTPOST, MAP_FORT_PHOBOS, MAP_CHIGUSA, MAP_CORSAT)
+	whitelist_antag_maps = list(MAP_ANTAGMAP_NOSPAWN)
+
 
 	///TGMC's point count
 	var/TGMC_cap_points = 0
@@ -49,7 +52,7 @@
 
 /datum/game_mode/hvh/combat_patrol/encounter/announce()
 	to_chat(world, "<b>The current game mode is - Free for all!</b>")
-	to_chat(world, "<b>SOM and Terragov forces are fighting for control of this sector and an alien threat has emerged, capture the sensor towers for your team.</b>")
+	to_chat(world, "<b>SOM and NTF forces are fighting for control of this sector and an alien threat has emerged, capture the sensor towers for your team.</b>")
 
 /datum/game_mode/hvh/combat_patrol/encounter/get_deploy_point_message(mob/living/user)
 	. = "Capture as many sensor towers as possible, deny them to the other team."
