@@ -24,6 +24,9 @@
 		/datum/job/som/squad/veteran = 5,
 		/datum/job/xenomorph = ENCOUNTER_LARVA_POINTS_NEEDED,
 	)
+	var/list/evo_requirements = list(
+		/datum/xeno_caste/queen = 8,
+	)
 	wave_timer_length = 2 MINUTES
 	max_game_time = 30 MINUTES
 	game_timer_delay = 0
@@ -82,8 +85,8 @@
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_HVH_REQ)
 
 	// Apply Evolution Xeno Population Locks:
-	// for(var/datum/xeno_caste/caste AS in evo_requirements)
-	// 	GLOB.xeno_caste_datums[caste][XENO_UPGRADE_BASETYPE].evolve_min_xenos = evo_requirements[caste]
+	for(var/datum/xeno_caste/caste AS in evo_requirements)
+		GLOB.xeno_caste_datums[caste][XENO_UPGRADE_BASETYPE].evolve_min_xenos = evo_requirements[caste]
 
 /datum/game_mode/hvh/combat_patrol/encounter/get_status_tab_items(datum/dcs, mob/source, list/items)
 	. = ..()

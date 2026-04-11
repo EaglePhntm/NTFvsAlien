@@ -152,6 +152,8 @@
 		else
 			human.play_screen_text(HUD_ANNOUNCEMENT_FORMATTING("OVERWATCH", "[src] activation process has been stopped, rally up and get it together team!", LEFT_ALIGN_TEXT), /atom/movable/screen/text/screen_text/picture/potrait)
 
+		human.playsound_local(human, "sound/effects/CIC_order.ogg", 10, 1)
+
 ///Pauses or restarts the gamemode timer
 /obj/structure/sensor_tower/proc/toggle_game_timer(addition_time)
 	var/datum/game_mode/hvh/combat_patrol/sensor_capture/mode = SSticker.mode
