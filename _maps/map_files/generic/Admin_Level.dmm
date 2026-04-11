@@ -1701,6 +1701,12 @@
 /obj/effect/turf_decal/warning_stripes/box/empty,
 /turf/open/floor/tile/dark/gray,
 /area/centcom/valhalla)
+"chd" = (
+/obj/structure/prop/mainship/doorblocker/patrol_base{
+	name = "\improper Redeployment Airlock"
+	},
+/turf/open/floor/mainship,
+/area/mainship/squads/req)
 "chk" = (
 /obj/structure/table,
 /obj/item/clipboard,
@@ -14542,6 +14548,11 @@
 	dir = 9
 	},
 /area/centcom/valhalla)
+"uzE" = (
+/obj/structure/droppod/respawning,
+/obj/structure/drop_pod_launcher,
+/turf/open/space/basic,
+/area/mainship/squads/req)
 "uAf" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -22034,9 +22045,9 @@ pCb
 pCb
 pCb
 pCb
-pCb
-pCb
 eRU
+uzE
+chd
 iVF
 hau
 jmY
@@ -22290,9 +22301,9 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
 pCb
+eRU
+eRU
 eRU
 iVF
 tHl
@@ -22547,8 +22558,8 @@ xrI
 xrI
 xrI
 xrI
-xrI
-xrI
+pCb
+pCb
 pCb
 pSH
 iVF
