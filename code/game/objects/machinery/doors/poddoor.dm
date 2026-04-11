@@ -250,9 +250,6 @@
 	id = "ReqHVH"
 	resistance_flags = RESIST_ALL
 
-/obj/machinery/door/poddoor/mainship/ReqHVH/Initialize(mapload)
-	. = ..()
-
 /obj/machinery/door/poddoor/timed_late
 	icon = 'icons/obj/doors/mainship/blastdoors_shutters.dmi'
 	name = "Timed Emergency Shutters"
