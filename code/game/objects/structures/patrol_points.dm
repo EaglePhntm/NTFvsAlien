@@ -83,7 +83,7 @@
 	activate_point(xeno_attacker, xeno_attacker)
 
 /obj/structure/patrol_point/tgmc_11
-	id = "TGMC_11"
+	id = "TGMC_1"
 
 /obj/structure/patrol_point/tgmc_12
 	id = "TGMC_12"
@@ -95,7 +95,7 @@
 	id = "TGMC_14"
 
 /obj/structure/patrol_point/tgmc_21
-	id = "TGMC_21"
+	id = "TGMC_2"
 	icon_state = "patrol_point_2"
 
 /obj/structure/patrol_point/tgmc_22
