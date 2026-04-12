@@ -94,3 +94,8 @@ mode Secret of Life - NTF vs CLF
 	requiredplayers 0
 	votable 1
 endmode
+
+mode Encounter
+	requiredplayers 4
+	votable 1
+endmode

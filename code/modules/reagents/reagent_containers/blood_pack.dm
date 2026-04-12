@@ -30,6 +30,9 @@
 		if(50.1 to INFINITY)
 			icon_state = "full"
 
+/obj/item/reagent_containers/blood/is_refuelable()
+	return FALSE
+
 /obj/item/reagent_containers/blood/APlus
 	name = "BloodPack A+" //so it shows up correctly in req
 	blood_type = "A+"

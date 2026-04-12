@@ -161,6 +161,7 @@
 	return (mean + stddev * R1)
 #undef ACCURACY
 
+///Gets a turf at an angle, up to increments number of steps away, NOT range
 /proc/get_turf_in_angle(angle, turf/starting, increments)
 	var/pixel_x = 0
 	var/pixel_y = 0

@@ -418,7 +418,7 @@
 		return
 	if(moving_diagonally) // No pushing in diagonal move
 		return
-	if(!client)
+	if(!client) //why??
 		return
 	var/mob/mob_to_push = AM
 	if(istype(mob_to_push) && mob_to_push.lying_angle)
@@ -444,9 +444,8 @@
 			push_anchored = TRUE
 	if(ismob(AM))
 		var/atom/movable/mob_buckle = mob_to_push.buckled
-		// If we can't pull them because of what they're buckled to, make sure we can push the thing they're buckled to instead.
-		// If neither are true, we're not pushing anymore.
-		if(mob_buckle && (mob_buckle.buckle_flags & BUCKLE_PREVENTS_PULL || (force < (mob_buckle.get_move_resist() * MOVE_FORCE_PUSH_RATIO))))
+		//If they're buckled to something, we need to be able to push that instead
+		if(mob_buckle && (force < (mob_buckle.get_move_resist() * MOVE_FORCE_PUSH_RATIO)))
 			now_pushing = FALSE
 			return
 	if((AM.anchored && !push_anchored) || (force < (AM.get_move_resist() * MOVE_FORCE_PUSH_RATIO)))
