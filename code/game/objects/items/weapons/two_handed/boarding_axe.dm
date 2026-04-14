@@ -80,7 +80,7 @@
 			continue
 		if(!ishuman(victim))
 			var/obj/obj_victim = victim
-			obj_victim.take_damage(damage, BRUTE, MELEE, TRUE, TRUE, get_dir(obj_victim, carbon_owner), penetration, carbon_owner)
+			obj_victim.take_damage(damage, BRUTE, MELEE, TRUE, get_dir(obj_victim, carbon_owner), penetration, carbon_owner)
 			obj_victim.knockback(owner, 1, 2, knockback_force = MOVE_FORCE_VERY_STRONG)
 			continue
 		var/mob/living/carbon/human/human_victim = victim
