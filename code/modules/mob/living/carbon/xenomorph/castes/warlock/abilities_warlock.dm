@@ -277,7 +277,7 @@
 	playsound(loc, 'sound/effects/portal.ogg', 20)
 
 	var/perpendicular_angle = Get_Angle(get_turf(src), get_step(src, dir)) //the angle src is facing, get_turf because pixel_x or y messes with the angle
-	var/direction_to_atom = angle_to_dir(Get_Angle(src, targetted_atom))
+	var/direction_to_atom = angle2dir(Get_Angle(src, targetted_atom))
 	for(var/atom/movable/projectile/reflected_projectile AS in frozen_projectiles)
 		reflected_projectile.projectile_behavior_flags &= ~PROJECTILE_FROZEN
 		reflected_projectile.distance_travelled = 0
