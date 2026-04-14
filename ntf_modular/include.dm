@@ -14,6 +14,7 @@
 #include "code\datums\gamemodes\sovl_war.dm"
 #include "code\datums\gamemodes\sovl_war_plus.dm"
 #include "code\datums\gamemodes\survival.dm"
+#include "code\datums\gamemodes\whiskey_outpost.dm"
 #include "code\datums\genital_menu.dm"
 #include "code\datums\health_scan\advice\damage_types.dm"
 #include "code\datums\jobs\access.dm"
