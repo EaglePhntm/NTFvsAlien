@@ -234,7 +234,7 @@
 
 ///Start the acid cone spray in the correct direction
 /datum/action/ability/activable/xeno/shard_burst/cone/proc/start_shard_burst_cone(turf/T, range)
-	var/facing = angle_to_dir(Get_Angle(owner, T))
+	var/facing = angle2dir(Get_Angle(owner, T))
 	owner.setDir(facing)
 	switch(facing)
 		if(NORTH, SOUTH, EAST, WEST)
