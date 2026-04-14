@@ -1,5 +1,0 @@
-author: "Lumipharon"
-delete-after: True
-changes:
-  - balance: "Campaign: Autobalance will give attrition instead of a mech if the player count difference is less than 5"
-  - bugfix: "Campaign: Autobalance will no longer trigger at low pop with a 1 player difference"

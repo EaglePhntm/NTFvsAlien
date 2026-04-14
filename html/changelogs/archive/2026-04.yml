@@ -36,3 +36,9 @@
   novaepee and Lumi:
   - imageadd: Recolored Sleeper Console, now you won't get sleeper and body scanner
       confused
+2026-04-14:
+  Lumipharon:
+  - balance: 'Campaign: Autobalance will give attrition instead of a mech if the player
+      count difference is less than 5'
+  - bugfix: 'Campaign: Autobalance will no longer trigger at low pop with a 1 player
+      difference'
