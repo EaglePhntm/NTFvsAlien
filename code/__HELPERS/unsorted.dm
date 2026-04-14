@@ -1149,8 +1149,8 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
  *	center - where the cone begins, or center of a circle drawn with this
  *	max_dist - how far the cone should expand, in euclidean distance
  *	starting_row - from how far should the turfs start getting included in the cone. -1 required to include center turf due to byond
- *	cone_width - big the angle of the cone is
- *	cone_angle - at what angle should the cone be made, relative to the game board's orientation
+ *	cone_width - width of the cone in degrees
+ *	cone_angle - The direction of the cone in degrees
  *	blocked - whether the cone should take into consideration obstacles
  */
 /proc/generate_cone(atom/center, max_distance = 10, starting_row = 1, cone_width = 60, cone_angle = 0, blocked = TRUE, pass_flags_checked = NONE)
@@ -1158,6 +1158,7 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 	if(!center)
 		return
 	cone_width = min(cone_width, 359) //359 gives us a true circle, but 360 won't function due to north being 0, not 360
+	//NOTE: a width of less than 45 degrees will fail to draw a cone at certain extreme angles, as no adjacent turfs will be in cone width
 	var/right_angle = cone_angle + cone_width * 0.5
 	var/left_angle = cone_angle - cone_width * 0.5
 
