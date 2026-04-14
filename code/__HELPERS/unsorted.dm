@@ -137,38 +137,6 @@
 	else if(. >= 360)
 		. -= 360
 
-///Returns one of the 8 directions based on an angle
-/proc/angle_to_dir(angle)
-	switch(angle)
-		if(338 to 360, 0 to 22)
-			return NORTH
-		if(23 to 67)
-			return NORTHEAST
-		if(68 to 112)
-			return EAST
-		if(113 to 157)
-			return SOUTHEAST
-		if(158 to 202)
-			return SOUTH
-		if(203 to 247)
-			return SOUTHWEST
-		if(248 to 292)
-			return WEST
-		if(293 to 337)
-			return NORTHWEST
-
-///Returns one of the 4 cardinal directions based on an angle
-/proc/angle_to_cardinal_dir(angle)
-	switch(angle)
-		if(316 to 360, 0 to 45)
-			return NORTH
-		if(46 to 135)
-			return EAST
-		if(136 to 225)
-			return SOUTH
-		if(226 to 315)
-			return WEST
-
 ///returns degrees between two angles
 /proc/get_between_angles(degree_one, degree_two)
 	var/angle = abs(degree_one - degree_two) % 360
@@ -585,7 +553,7 @@
 	return turfs
 
 /proc/get_cardinal_dir(atom/A, atom/B)
-	return angle_to_cardinal_dir(Get_Angle(get_turf(A), get_turf(B)))
+	return angle2dir_cardinal(Get_Angle(get_turf(A), get_turf(B)))
 
 /// If given a diagonal dir, return a corresponding cardinal dir. East/west preferred
 /proc/closest_cardinal_dir(dir)
