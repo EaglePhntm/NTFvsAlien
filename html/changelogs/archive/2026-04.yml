@@ -42,3 +42,9 @@
       count difference is less than 5'
   - bugfix: 'Campaign: Autobalance will no longer trigger at low pop with a 1 player
       difference'
+2026-04-15:
+  novaepee:
+  - rscadd: Change placement of surgery room's items in Pillar of Spring for MD's
+      ease of access when doing surgery
+  - balance: allow MDs in Pillar of Spring to use more surgery items for less WASD
+      movement; very tactical
