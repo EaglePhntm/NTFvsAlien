@@ -1082,6 +1082,13 @@
 /obj/machinery/floodlight/outpost,
 /turf/open/ground/jungle,
 /area/whiskey_outpost/outside/south)
+"eT" = (
+/obj/effect/turf_decal/grassdecal{
+	dir = 8
+	},
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/open/floor/plating/ground/dirt,
+/area/whiskey_outpost/outside/south)
 "eV" = (
 /obj/machinery/door/airlock/mainship/marine/requisitions{
 	dir = 1
@@ -1458,6 +1465,10 @@
 /obj/structure/cable,
 /turf/closed/wall/r_wall,
 /area/whiskey_outpost)
+"gB" = (
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/closed/wall/r_wall,
+/area/whiskey_outpost/outside/south)
 "gC" = (
 /obj/effect/turf_decal/grassdecal/corner2{
 	dir = 4
@@ -2166,6 +2177,10 @@
 /obj/machinery/sleeper,
 /turf/open/floor/mainship/sterile,
 /area/whiskey_outpost)
+"jU" = (
+/obj/structure/razorwire,
+/turf/open/floor/plating/asteroidfloor,
+/area/whiskey_outpost)
 "jW" = (
 /obj/machinery/computer/sleep_console,
 /obj/machinery/light{
@@ -2629,7 +2644,7 @@
 /obj/item/mortal_shell/smoke,
 /obj/item/mortal_shell/smoke,
 /turf/open/floor/plating/asteroidplating,
-/area/whiskey_outpost/outside/north)
+/area/whiskey_outpost)
 "lX" = (
 /obj/machinery/computer/autodoc_console,
 /turf/open/floor/mainship/sterile,
@@ -3675,6 +3690,10 @@
 /obj/structure/largecrate/guns/russian,
 /turf/open/floor/prison,
 /area/whiskey_outpost)
+"qN" = (
+/obj/effect/landmark/start/job/xenomorph,
+/turf/open/floor/plating/ground/dirt,
+/area/whiskey_outpost/outside/south)
 "qP" = (
 /obj/structure/table/mainship,
 /obj/item/tool/handheld_charger,
@@ -3899,11 +3918,19 @@
 /obj/effect/landmark/start/job/squadmarine,
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost/outside/west)
+"rX" = (
+/obj/effect/landmark/static_comms/net_two,
+/turf/open/floor/plating/asteroidfloor,
+/area/whiskey_outpost)
 "sa" = (
 /turf/open/ground/coast/corner{
 	dir = 8
 	},
 /area/whiskey_outpost/outside/east)
+"sc" = (
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/closed/mineral/smooth,
+/area/whiskey_outpost/outside/rock)
 "sd" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /obj/effect/turf_decal/grassdecal/corner2{
@@ -4176,6 +4203,12 @@
 /obj/effect/spawner/random/weaponry/melee,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
+"tF" = (
+/obj/effect/turf_decal/grassdecal/corner2,
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/open/floor/plating/ground/dirt,
+/area/whiskey_outpost/outside/south)
 "tI" = (
 /obj/structure/razorwire,
 /obj/structure/razorwire,
@@ -5735,6 +5768,10 @@
 	dir = 6
 	},
 /area/whiskey_outpost/outside/north)
+"Ch" = (
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/floor/plating/asteroidfloor,
+/area/whiskey_outpost)
 "Cj" = (
 /obj/machinery/chem_dispenser,
 /turf/open/floor/mainship/sterile/corner{
@@ -6876,6 +6913,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/whiskey_outpost/outside/north)
+"JZ" = (
+/obj/machinery/computer/ordercomp,
+/turf/open/floor/plating/asteroidfloor,
+/area/whiskey_outpost)
 "Kc" = (
 /obj/structure/razorwire,
 /turf/open/floor/plating/ground/dirt,
@@ -6911,6 +6952,10 @@
 "Kr" = (
 /turf/open/ground/coast/corner2,
 /area/whiskey_outpost/outside/east)
+"Ks" = (
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/open/ground/jungle,
+/area/whiskey_outpost/outside/south)
 "Kv" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /obj/structure/flora/jungle/planttop1,
@@ -7508,6 +7553,10 @@
 /obj/structure/flora/ausbushes/grassybush,
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/east)
+"Oj" = (
+/obj/effect/landmark/xeno_tunnel_spawn,
+/turf/open/ground/jungle,
+/area/whiskey_outpost/outside/south)
 "Ok" = (
 /turf/open/ground/coast/corner{
 	dir = 8
@@ -8379,6 +8428,13 @@
 /obj/structure/razorwire,
 /turf/open/ground/jungle,
 /area/whiskey_outpost/outside/south)
+"UH" = (
+/obj/effect/turf_decal/grassdecal{
+	dir = 4
+	},
+/obj/effect/landmark/xeno_silo_spawn,
+/turf/open/floor/plating/ground/dirt,
+/area/whiskey_outpost/outside/south)
 "UJ" = (
 /obj/structure/barricade/sandbags{
 	pixel_y = -6
@@ -8591,6 +8647,11 @@
 /obj/structure/dropship_piece/one/wing/right/bottom,
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/east)
+"We" = (
+/obj/structure/flora/jungle/vines,
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/closed/gm/dense,
+/area/whiskey_outpost/outside/south)
 "Wf" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/floor/plating/ground/dirt,
@@ -8819,7 +8880,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/east)
 "XP" = (
-/obj/structure/table/mainship,
+/obj/machinery/computer/intel_computer,
 /turf/open/floor/tile/dark,
 /area/whiskey_outpost)
 "XU" = (
@@ -8864,6 +8925,10 @@
 /obj/structure/razorwire,
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/west)
+"Yf" = (
+/obj/effect/landmark/xeno_spawner_spawn,
+/turf/open/ground/jungle,
+/area/whiskey_outpost/outside/south)
 "Yg" = (
 /obj/machinery/light{
 	dir = 1
@@ -8926,6 +8991,11 @@
 	},
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/east)
+"YI" = (
+/obj/effect/turf_decal/grassdecal/corner,
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/open/floor/plating/ground/dirt,
+/area/whiskey_outpost/outside/south)
 "YJ" = (
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost/outside/east)
@@ -8973,6 +9043,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/computer/intel_computer,
 /turf/open/floor/plating/warning{
 	dir = 8
 	},
@@ -11999,10 +12070,10 @@ dx
 NW
 NW
 NW
-ua
-ua
-ua
-DW
+yw
+yw
+yw
+jU
 rs
 so
 gF
@@ -12136,10 +12207,10 @@ dx
 NW
 NW
 NW
-ua
-ua
-ua
-DW
+yw
+rX
+yw
+jU
 rs
 so
 gF
@@ -12273,10 +12344,10 @@ dx
 NW
 NW
 NW
-ua
-ua
-ua
-DW
+yw
+yw
+yw
+jU
 rs
 so
 gF
@@ -12410,10 +12481,10 @@ dx
 NW
 NW
 NW
-NW
-ua
-ua
-DW
+yw
+yw
+yw
+jU
 rs
 so
 gF
@@ -15990,7 +16061,7 @@ fH
 gp
 yw
 yw
-yw
+JZ
 yw
 yw
 yw
@@ -17602,13 +17673,13 @@ iu
 Hq
 Hq
 iu
-Bc
-NW
-NW
-NW
-NW
-NW
-NW
+We
+sc
+sc
+sc
+sc
+sc
+sc
 dx
 "}
 (63,1,1) = {"
@@ -17739,7 +17810,7 @@ Hq
 Hq
 Hq
 Hq
-Rf
+gB
 Rf
 Rf
 Rf
@@ -17876,11 +17947,11 @@ xZ
 xZ
 pY
 Hq
-rN
+YI
 xZ
 xZ
 xZ
-xZ
+UH
 Bs
 aa
 dx
@@ -18013,10 +18084,10 @@ kn
 jX
 lq
 xZ
-cm
+tF
 kn
 yK
-kn
+qN
 kn
 vv
 aa
@@ -18150,7 +18221,7 @@ fj
 fn
 kn
 GQ
-fj
+eT
 fj
 fn
 kn
@@ -18287,8 +18358,8 @@ Hq
 vi
 fj
 fS
-Hq
-Hq
+Ks
+Oj
 vi
 fj
 fj
@@ -18423,8 +18494,8 @@ Rf
 iu
 Hq
 Hq
-Hq
-Hq
+Yf
+Ks
 Rf
 Rf
 Rf
@@ -18561,13 +18632,13 @@ iu
 Hq
 Hq
 Hq
-Hq
-NW
-NW
-NW
-NW
-NW
-NW
+Ks
+sc
+sc
+sc
+sc
+sc
+sc
 dx
 "}
 (70,1,1) = {"
@@ -20506,8 +20577,8 @@ NW
 NW
 NW
 NW
-NW
-NW
+yw
+yw
 QF
 dY
 FT
@@ -20643,8 +20714,8 @@ NW
 NW
 NW
 NW
-NW
-NW
+yw
+yw
 MR
 Og
 WN
@@ -22155,12 +22226,12 @@ NW
 NW
 NW
 NW
-NW
-NW
-NW
-NW
-NW
-NW
+yw
+yw
+yw
+yw
+yw
+yw
 da
 DZ
 WH
@@ -22292,12 +22363,12 @@ NW
 NW
 NW
 NW
-NW
-NW
-NW
-NW
-NW
-NW
+yw
+yw
+yw
+yw
+yw
+yw
 NW
 NW
 od
@@ -22429,12 +22500,12 @@ NW
 NW
 NW
 NW
-NW
-NW
-NW
-NW
-NW
-NW
+yw
+yw
+Ch
+yw
+yw
+yw
 NW
 NW
 um
@@ -22566,15 +22637,15 @@ NW
 NW
 NW
 NW
+yw
+yw
+yw
+yw
+yw
+yw
 NW
 NW
-NW
-NW
-NW
-NW
-NW
-NW
-SR
+Bm
 qf
 cx
 cx
@@ -22703,15 +22774,15 @@ NW
 NW
 NW
 NW
-NW
-NW
-NW
-NW
-NW
-NW
-cx
-cx
-cx
+yw
+yw
+yw
+yw
+yw
+yw
+lT
+PK
+qf
 cx
 cx
 cx
@@ -22845,9 +22916,9 @@ NW
 NW
 NW
 NW
-cx
-cx
-cx
+qE
+do
+GB
 cx
 cx
 cx
@@ -22981,10 +23052,10 @@ NW
 NW
 NW
 NW
-cx
-cx
-JX
-cx
+WH
+WH
+WH
+GB
 cx
 nJ
 Eb
@@ -23118,10 +23189,10 @@ NW
 NW
 NW
 NW
-cx
-cx
-cx
-cx
+SR
+SR
+SR
+qf
 cx
 cx
 cx
