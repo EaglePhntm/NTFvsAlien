@@ -91,8 +91,7 @@
 	dir = 1
 	},
 /obj/machinery/camera/autoname/mainship/dropship_one{
-	pixel_x = -6;
-	pixel_y = -16
+	dir = 1
 	},
 /turf/open/shuttle/dropship/floor/out{
 	dir = 4
@@ -228,9 +227,6 @@
 /turf/closed/shuttle/dropship1/finleft,
 /area/shuttle/dropship/alamo)
 "aZ" = (
-/obj/machinery/camera/autoname/mainship/dropship_one{
-	pixel_y = 32
-	},
 /obj/machinery/vending/marineFood{
 	pixel_y = 27;
 	density = 0
@@ -345,6 +341,9 @@
 	dir = 8
 	},
 /obj/structure/bed/bunkbed,
+/obj/machinery/camera/autoname/mainship/dropship_one{
+	dir = 4
+	},
 /turf/open/shuttle/dropship/floor/out{
 	dir = 1
 	},
@@ -482,6 +481,9 @@
 /area/shuttle/dropship/alamo)
 "cL" = (
 /obj/machinery/robotic_cradle,
+/obj/machinery/camera/autoname/mainship/dropship_one{
+	dir = 8
+	},
 /turf/open/shuttle/dropship/floor/out,
 /area/shuttle/dropship/alamo)
 "di" = (
@@ -580,15 +582,14 @@
 	},
 /area/shuttle/dropship/alamo)
 "oO" = (
-/obj/machinery/camera/autoname/mainship/dropship_one{
-	dir = 4;
-	pixel_x = -16
-	},
 /obj/machinery/vending/nanomed{
 	dir = 4
 	},
 /obj/structure/largecrate/supply/explosives/disposable,
 /obj/structure/rack,
+/obj/machinery/camera/autoname/mainship/dropship_one{
+	dir = 4
+	},
 /turf/open/shuttle/dropship/floor,
 /area/shuttle/dropship/alamo)
 "pm" = (
@@ -698,11 +699,16 @@
 "Nj" = (
 /turf/open/shuttle/dropship/thirtyone,
 /area/shuttle/dropship/alamo)
+"NT" = (
+/obj/structure/bed/chair/dropship/doublewide/left,
+/turf/open/shuttle/dropship/floor,
+/area/shuttle/dropship/alamo)
 "OZ" = (
 /obj/machinery/vending/nanomed{
 	dir = 8
 	},
 /obj/structure/largecrate/supply/generator,
+/obj/structure/bed/chair/dropship/doublewide/right,
 /turf/open/shuttle/dropship/floor,
 /area/shuttle/dropship/alamo)
 "QK" = (
@@ -901,7 +907,7 @@ og
 rb
 aI
 ji
-aI
+NT
 me
 DE
 aS
