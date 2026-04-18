@@ -13,6 +13,7 @@
 		/mob/living,
 		/obj/machinery,
 		/obj/structure/largecrate,
+		/obj/vehicle/ridden,
 	)
 	var/static/list/teleportable_while_anchored_types = list(
 		/obj/vehicle,
@@ -153,9 +154,11 @@
 	var/list/atom/movable/teleporting = list()
 	for(var/atom/movable/thing AS in loc)
 		if(thing.anchored)
-			continue
-		if(!is_type_in_list(thing, teleportable_types))
-			continue
+			if(!is_type_in_list(thing, teleportable_while_anchored_types))
+				continue
+		else
+			if(!is_type_in_list(thing, teleportable_types))
+				continue
 		if(is_type_in_list(thing, blacklisted_types))
 			continue
 		teleporting += thing
