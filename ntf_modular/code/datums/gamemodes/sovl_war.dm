@@ -99,8 +99,10 @@
 	if(round_finished)
 		return
 	if(round_stage == INFESTATION_MARINE_CRASHING)
+		priority_announce("The hive has collapsed due to lack of rulership.", "Orphan hivemind collapse", type = ANNOUNCEMENT_PRIORITY)
 		round_finished = MODE_INFESTATION_M_MINOR
 		return
+	priority_announce("The hive has collapsed due to lack of rulership.  Marines win!", "Orphan hivemind collapse", type = ANNOUNCEMENT_PRIORITY)
 	round_finished = MODE_INFESTATION_M_MAJOR
 
 /datum/game_mode/infestation/sovl_war/get_hivemind_collapse_countdown()
