@@ -286,6 +286,11 @@
 	},
 /turf/open/floor/wood,
 /area/whiskey_outpost)
+"bi" = (
+/turf/open/floor/plating/asteroidwarning{
+	dir = 1
+	},
+/area/whiskey_outpost/outside/north)
 "bj" = (
 /obj/structure/rack,
 /obj/item/big_ammo_box/ap,
@@ -3298,6 +3303,11 @@
 "oL" = (
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/rock)
+"oM" = (
+/turf/open/floor/plating/asteroidwarning{
+	dir = 6
+	},
+/area/whiskey_outpost/outside/north)
 "oN" = (
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost/outside/north)
@@ -4012,7 +4022,7 @@
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost/outside/west)
 "rX" = (
-/obj/effect/landmark/static_comms/net_two,
+/obj/machinery/telecomms/relay/preset/tower/mapcomms,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "sa" = (
@@ -4086,6 +4096,10 @@
 	dir = 4
 	},
 /area/whiskey_outpost)
+"sr" = (
+/obj/machinery/telecomms/relay/preset/tower/mapcomms,
+/turf/open/floor/plating/asteroidfloor,
+/area/whiskey_outpost/outside/north)
 "ss" = (
 /obj/effect/decal/remains/xeno,
 /turf/open/floor/plating/ground/dirt,
@@ -4602,6 +4616,9 @@
 	},
 /turf/open/floor/marking/bot,
 /area/whiskey_outpost)
+"uZ" = (
+/turf/open/floor/plating/asteroidwarning,
+/area/whiskey_outpost/outside/north)
 "vb" = (
 /obj/structure/platform_decoration{
 	dir = 10
@@ -5307,6 +5324,11 @@
 	},
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/east)
+"yZ" = (
+/turf/open/floor/plating/asteroidwarning{
+	dir = 4
+	},
+/area/whiskey_outpost/outside/north)
 "za" = (
 /obj/item/weapon/gun/energy/lasgun/lasrifle/heavy_laser{
 	dir = 4
@@ -5427,6 +5449,11 @@
 /obj/effect/landmark/autowire,
 /turf/open/floor/plating/asteroidwarning,
 /area/whiskey_outpost)
+"zI" = (
+/turf/open/floor/plating/asteroidwarning{
+	dir = 9
+	},
+/area/whiskey_outpost/outside/north)
 "zJ" = (
 /obj/structure/barricade/sandbags,
 /turf/open/shuttle/dropship/eight,
@@ -7056,6 +7083,11 @@
 	dir = 8
 	},
 /area/whiskey_outpost/outside/east)
+"JF" = (
+/turf/open/floor/plating/asteroidwarning{
+	dir = 10
+	},
+/area/whiskey_outpost/outside/north)
 "JG" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/open/ground/jungle,
@@ -8695,6 +8727,11 @@
 /obj/effect/ai_node,
 /turf/open/floor/asteroidfloor,
 /area/whiskey_outpost/outside/east)
+"Uq" = (
+/turf/open/floor/plating/asteroidwarning{
+	dir = 5
+	},
+/area/whiskey_outpost/outside/north)
 "Ur" = (
 /obj/item/roller,
 /turf/open/floor/mainship/sterile/dark,
@@ -9195,6 +9232,11 @@
 /obj/item/ammo_magazine/sentry/sniper,
 /turf/open/floor/plating/platebot,
 /area/whiskey_outpost/outside/east)
+"XT" = (
+/turf/open/floor/plating/asteroidwarning{
+	dir = 8
+	},
+/area/whiskey_outpost/outside/north)
 "XU" = (
 /obj/structure/razorwire,
 /turf/open/ground/grass,
@@ -9395,6 +9437,12 @@
 /obj/effect/landmark/autowire,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost/outside/east)
+"Zl" = (
+/obj/effect/ai_node,
+/turf/open/floor/plating/asteroidwarning{
+	dir = 1
+	},
+/area/whiskey_outpost/outside/north)
 "Zq" = (
 /obj/structure/table/mainship,
 /obj/effect/spawner/random/food_or_drink/beer/whiskeyoutpost,
@@ -9497,7 +9545,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "ZR" = (
-/obj/effect/landmark/static_comms/net_one,
+/obj/machinery/telecomms/relay/preset/tower/mapcomms,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost/outside/east)
 "ZS" = (
@@ -13130,10 +13178,10 @@ Sn
 eY
 on
 NW
-um
-um
-um
-um
+zI
+XT
+XT
+JF
 um
 um
 iz
@@ -13267,10 +13315,10 @@ on
 go
 um
 um
-um
-um
-um
-um
+Zl
+TP
+sr
+uZ
 um
 um
 um
@@ -13404,10 +13452,10 @@ um
 um
 um
 um
-um
-um
-um
-um
+bi
+TP
+TP
+uZ
 um
 um
 um
@@ -13541,10 +13589,10 @@ um
 um
 um
 um
-um
-um
-um
-um
+Uq
+yZ
+yZ
+oM
 um
 um
 TP
