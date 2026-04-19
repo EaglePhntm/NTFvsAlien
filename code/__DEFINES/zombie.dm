@@ -9,7 +9,7 @@
 ///Determines how much burn damage robots and synths should take per zombium
 #define ZOMBIUM_ROBOT_EFFECT_MULTIPLIER 1
 ///Spawner threatened spawning limit
-#define ZOMBIE_THREATENED_CAP 10
+#define ZOMBIE_THREATENED_CAP 40
 ///How much damage zombies take from razorwire
 #define ZOMBIE_RAZORWIRE_DAMAGE 50
 ///The ratio of maximum allowed possessed sentient zombies to alive humans
