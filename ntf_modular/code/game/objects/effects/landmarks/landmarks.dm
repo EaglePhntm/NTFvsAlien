@@ -60,3 +60,16 @@
 /obj/effect/landmark/reclone_tp/Destroy()
 	. = ..()
 	GLOB.reclone_tp_spots += src
+
+/obj/effect/landmark/autowire
+	name = "barricade wire landmark"
+	color = "#848484"
+
+/obj/effect/landmark/autowire/LateInitialize()
+	. = ..()
+	for(var/obj/structure/barricade/cade as anything in loc)
+		if(!istype(cade, /obj/structure/barricade))
+			continue
+		if(!cade.is_wired && cade.can_wire)
+			cade.wire()
+	qdel(src)
