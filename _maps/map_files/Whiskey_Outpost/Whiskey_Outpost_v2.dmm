@@ -221,7 +221,8 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/whiskey_outpost)
 "aS" = (
-/obj/machinery/computer/intel_computer,
+/obj/machinery/computer/voucher,
+/obj/structure/table/mainship,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "aT" = (
@@ -5237,7 +5238,7 @@
 /area/whiskey_outpost/outside/east)
 "yl" = (
 /obj/item/minerupgrade/automatic,
-/turf/open/floor/plating/asteroidwarning,
+/turf/open/floor/mech_bay_recharge_floor,
 /area/whiskey_outpost/outside/east)
 "ym" = (
 /obj/effect/decal/cleanable/blood/writing{
@@ -5727,7 +5728,7 @@
 /area/whiskey_outpost/outside/west)
 "AX" = (
 /obj/vehicle/sealed/mecha/combat/gygax/dark/loaded,
-/turf/open/floor/plating/asteroidfloor,
+/turf/open/floor/mech_bay_recharge_floor,
 /area/whiskey_outpost)
 "Bb" = (
 /obj/structure/barricade/solid/plasteel,
@@ -6707,7 +6708,7 @@
 /area/whiskey_outpost/outside/east)
 "GJ" = (
 /obj/vehicle/sealed/mecha/combat/marauder/loaded,
-/turf/open/floor/plating/asteroidfloor,
+/turf/open/floor/mech_bay_recharge_floor,
 /area/whiskey_outpost)
 "GP" = (
 /obj/structure/bed/chair{
@@ -7431,6 +7432,11 @@
 /obj/structure/flora/jungle/vines,
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/south)
+"LP" = (
+/obj/effect/turf_decal/warning_stripes/thin,
+/obj/machinery/computer/intel_computer,
+/turf/open/floor/prison/plate,
+/area/whiskey_outpost)
 "LQ" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/floor/plating,
@@ -7956,7 +7962,7 @@
 /area/whiskey_outpost)
 "OX" = (
 /obj/vehicle/sealed/mecha/combat/savannah_ivanov,
-/turf/open/floor/plating/asteroidfloor,
+/turf/open/floor/mech_bay_recharge_floor,
 /area/whiskey_outpost)
 "OY" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -8016,6 +8022,9 @@
 /obj/structure/flora/tree/jungle/small,
 /turf/open/ground/jungle,
 /area/whiskey_outpost/outside/west)
+"Pu" = (
+/turf/open/floor/mech_bay_recharge_floor,
+/area/whiskey_outpost)
 "Pv" = (
 /turf/open/floor/plating,
 /area/whiskey_outpost/outside/east)
@@ -8946,7 +8955,7 @@
 /area/whiskey_outpost/outside/west)
 "VL" = (
 /obj/vehicle/sealed/mecha/combat/marauder/mauler/loaded,
-/turf/open/floor/plating/asteroidfloor,
+/turf/open/floor/mech_bay_recharge_floor,
 /area/whiskey_outpost)
 "VM" = (
 /turf/open/ground/coast{
@@ -12284,7 +12293,7 @@ In
 Nf
 Nv
 gF
-gF
+Pu
 gF
 gF
 ER
@@ -18108,7 +18117,7 @@ cD
 DR
 dn
 xy
-KX
+LP
 Xt
 xr
 DR
