@@ -134,12 +134,12 @@
 
 	if(!can_attach(attachment, user, attachment_data))
 		return FALSE
-
+	/*
 	if(!CHECK_BITFIELD(attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_NO_HANDS))
 		var/obj/item/in_hand = user.get_inactive_held_item()
-		if(in_hand != parent)
 			to_chat(user, span_warning("You have to hold [parent] to do that!"))
 			return FALSE
+		*/
 
 	var/do_after_icon_type = BUSY_ICON_GENERIC
 	var/attach_delay = attachment_data[ATTACH_DELAY]
