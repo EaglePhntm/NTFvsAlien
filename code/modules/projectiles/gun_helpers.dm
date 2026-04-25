@@ -20,8 +20,6 @@
 		return
 
 	var/mob/living/living_user = user
-	if(living_user.get_active_held_item() != src && living_user.get_inactive_held_item() != src)
-		return
 
 	active_attachable.unload(living_user)
 
@@ -29,13 +27,13 @@
 	. = ..()
 	if(.)
 		return
-	if(user.get_inactive_held_item() != src || istype(I, /obj/item/attachable) || isgun(I))
+	if(istype(I, /obj/item/attachable) || isgun(I))
 		return
 	reload(I, user)
 
 /obj/item/weapon/gun/attackby_alternate(obj/item/I, mob/user, params)
 	. = ..()
-	if(!active_attachable || user.get_inactive_held_item() != src)
+	if(!active_attachable)
 		return
 
 	active_attachable.reload(I, user)

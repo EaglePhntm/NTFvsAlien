@@ -99,9 +99,11 @@
 	if(!CHECK_BITFIELD(magazine_flags, MAGAZINE_REFILLABLE)) //and a refillable magazine
 		return
 
+	/*
 	if(src != user.get_inactive_held_item() && !CHECK_BITFIELD(magazine_flags, MAGAZINE_HANDFUL)) //It has to be held.
 		to_chat(user, span_notice("Try holding [src] before you attempt to restock it."))
 		return
+	*/
 
 	var/obj/item/ammo_magazine/mag = I
 	if(default_ammo != mag.default_ammo)

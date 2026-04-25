@@ -77,6 +77,8 @@
 		return
 	//wheel of fuck
 	var/target_hole = pick(HOLE_LIST)
+	if(wearer.gender != FEMALE && target_hole == HOLE_VAGINA)
+		target_hole = HOLE_ASS
 	if(fixed_hole)
 		target_hole = fixed_hole
 	if(COOLDOWN_FINISHED(src, implant_cooldown))
