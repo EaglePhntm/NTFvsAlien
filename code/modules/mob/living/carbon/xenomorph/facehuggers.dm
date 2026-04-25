@@ -717,9 +717,9 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 	var/as_planned = target?.wear_mask == src  || target?.w_underwear == src || target?.w_undershirt == src
 	if((target.can_be_facehugged(src, FALSE, FALSE, TRUE)) && !sterile && as_planned && can_implant_embryo(target)) //is hugger still on face and can they still be impregnated
 		if(source && (hivenumber == source.get_xeno_hivenumber()))
-			implant_embryo(target, source = source)
+			implant_embryo(target, target_hole, source = source)
 		else
-			implant_embryo(target, force_xenohive = hivenumber)
+			implant_embryo(target, target_hole, force_xenohive = hivenumber)
 		sterile = TRUE
 		kill_hugger()
 	else
