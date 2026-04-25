@@ -220,6 +220,10 @@
 /obj/structure/curtain/open/shower,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/whiskey_outpost)
+"aS" = (
+/obj/machinery/computer/intel_computer,
+/turf/open/floor/plating/asteroidfloor,
+/area/whiskey_outpost)
 "aT" = (
 /obj/structure/largecrate/supply/supplies/water,
 /turf/open/floor/prison/plate,
@@ -2241,6 +2245,12 @@
 /obj/effect/turf_decal/lvsanddecal/full,
 /obj/item/storage/box/visual/grenade/razorburn_large,
 /turf/open/floor/plating/asteroidfloor,
+/area/whiskey_outpost/outside/east)
+"ka" = (
+/obj/machinery/mech_bay_recharge_port,
+/turf/open/floor/plating/asteroidwarning{
+	dir = 10
+	},
 /area/whiskey_outpost/outside/east)
 "kb" = (
 /obj/machinery/door/airlock/mainship/medical/glass/chemistry{
@@ -5557,6 +5567,10 @@
 	dir = 1
 	},
 /area/whiskey_outpost/outside/west)
+"Al" = (
+/obj/machinery/computer/intel_computer,
+/turf/open/floor/tile/damaged/panel,
+/area/whiskey_outpost/outside/east)
 "Am" = (
 /obj/item/quikdeploy/cade/plasteel,
 /obj/item/quikdeploy/cade/plasteel,
@@ -6363,6 +6377,10 @@
 /obj/item/binoculars/tactical,
 /turf/open/floor/plating/asteroidplating,
 /area/whiskey_outpost/outside/north)
+"Es" = (
+/obj/machinery/mech_bay_recharge_port,
+/turf/open/floor/plating,
+/area/whiskey_outpost)
 "Ev" = (
 /obj/effect/turf_decal/grassdecal{
 	dir = 4
@@ -6541,6 +6559,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/computer/intel_computer,
 /turf/open/floor/mainship/sterile/dark,
 /area/whiskey_outpost)
 "FH" = (
@@ -8791,6 +8810,10 @@
 /obj/effect/turf_decal/lvsanddecal/full,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost/outside/west)
+"UY" = (
+/obj/machinery/mech_bay_recharge_port,
+/turf/open/floor/plating/asteroidfloor,
+/area/whiskey_outpost)
 "Va" = (
 /obj/structure/flora/jungle/vines,
 /turf/closed/wall,
@@ -12124,7 +12147,7 @@ In
 Yi
 Xs
 gF
-gF
+Es
 jt
 gF
 ER
@@ -15633,8 +15656,8 @@ jD
 kr
 kL
 yw
-yw
-yw
+UY
+UY
 yw
 Sx
 wh
@@ -16451,7 +16474,7 @@ gp
 yw
 yw
 JZ
-yw
+aS
 yw
 yw
 yw
@@ -24175,7 +24198,7 @@ SD
 SS
 UB
 Xd
-Ya
+Al
 ZX
 Sw
 ZX
@@ -25276,7 +25299,7 @@ Jf
 Jf
 mx
 KY
-VP
+ka
 VI
 Jf
 Hw
