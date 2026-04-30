@@ -69,7 +69,7 @@
 	minimap_icon = "nm_ceo"
 
 /datum/job/terragov/command/nm_ceo/player_old_enough(client/C)
-	if(check_other_rights(usr.client, R_ADMIN, FALSE) && C.ckey == "drcrawler")
+	if(check_other_rights(usr.client, R_ADMIN, FALSE) && C.ckey == "CrimsonQuiver") //need someone
 		return TRUE
 	return FALSE
 
