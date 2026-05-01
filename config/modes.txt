@@ -75,6 +75,11 @@ mode Secret of Life - Main
 	default
 endmode
 
+mode Secret of Life - Faction Chaos
+	requiredplayers 0
+	default
+endmode
+
 mode Secret of Life - NTF vs Alien only
 	requiredplayers 0
 	votable 1
