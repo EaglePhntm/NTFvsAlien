@@ -1,5 +1,0 @@
-author: "kiwedespars"
-delete-after: True
-changes:
-  - imageadd: "black/navy conqueror"
-  - imagedel: "green conqueror\n:cl:"
