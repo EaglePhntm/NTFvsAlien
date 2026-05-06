@@ -18,6 +18,8 @@ GLOBAL_LIST_INIT(poster_designs, subtypesof(/datum/poster))
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/hair_gradient, GLOB.hair_gradients_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/facial_hair, GLOB.facial_hair_styles_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_wings, GLOB.moth_wings_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/lizard_tail, GLOB.lizard_tails_list)
+
 
 /proc/init_species()
 	var/rkey = 0
@@ -30,7 +32,6 @@ GLOBAL_LIST_INIT(poster_designs, subtypesof(/datum/poster))
 		GLOB.all_species[S.name] = S
 		if(S.joinable_roundstart)
 			GLOB.roundstart_species[S.name] = S
-
 
 /proc/init_language_datums()
 	for(var/L in subtypesof(/datum/language))

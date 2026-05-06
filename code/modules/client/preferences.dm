@@ -119,6 +119,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	//Species specific
 	var/moth_wings = "Plain"
+	var/allow_mismatched_parts = FALSE
+
+	// Lizard specific
+	var/lizard_tail = "Smooth"
+	var/lizard_spines = "None"
+	var/lizard_markings = "None"
+	var/lizard_body_color = "#6BA36B"
 
 	//Lore
 	var/citizenship = "Phantom City (Earth)"

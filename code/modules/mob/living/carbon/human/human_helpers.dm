@@ -76,6 +76,42 @@
 
 			if ("l_foot", "left foot")
 				return "left_foot_[get_gender_name(gender)]"
+	else if(S.limb_type == SPECIES_LIMB_LIZARD)
+		switch(limb_name)
+			if ("torso", "chest")
+				return "lizard_chest_[get_gender_name(gender)]"
+
+			if ("head")
+				return "lizard_head"
+
+			if ("groin")
+				return "lizard_chest_[get_gender_name(gender)]"
+
+			if ("r_arm", "right arm")
+				return "lizard_r_arm"
+
+			if ("l_arm", "left arm")
+				return "lizard_l_arm"
+
+			if ("r_hand", "right hand")
+				return "lizard_r_hand"
+
+			if ("l_hand", "left hand")
+				return "lizard_l_hand"
+
+			if ("r_leg", "right leg")
+				return "lizard_r_leg"
+
+			if ("l_leg", "left leg")
+				return "lizard_l_leg"
+
+			if ("r_foot", "right foot")
+				return "lizard_r_leg"
+
+			if ("l_foot", "left foot")
+				return "lizard_l_leg"
+			else
+				return null
 	else
 		switch(limb_name)
 			if ("torso")

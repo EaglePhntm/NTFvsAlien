@@ -5,6 +5,7 @@
 	robot_type = pick(ROBOT_TYPES)
 	ethnicity = random_ethnicity()
 	moth_wings = pick(GLOB.moth_wings_list)
+	lizard_tail = pick(GLOB.lizard_tails_list)
 
 	h_style = random_hair_style(gender, species)
 	f_style = random_facial_hair_style(gender, species)
@@ -163,9 +164,15 @@
 
 /datum/preferences/proc/randomize_species_specific()
 	moth_wings = pick(GLOB.moth_wings_list - "Burnt Off")
+	lizard_tail = pick(GLOB.lizard_tails_list - "None")
 
 
 /datum/preferences/proc/copy_to(mob/living/carbon/human/character, safety = FALSE)
+	if(species && GLOB.all_species[species])
+		character.set_species(species)
+	else
+		character.set_species("Human")
+
 	var/new_name
 	if(random_name)
 		new_name = character.species.random_name(gender)
@@ -220,6 +227,12 @@
 	character.pitch = tts_pitch
 
 	character.moth_wings = moth_wings
+	character.allow_mismatched_parts = allow_mismatched_parts
+
+	character.lizard_tail = lizard_tail
+	character.lizard_spines = lizard_spines
+	character.lizard_markings = lizard_markings
+	character.lizard_body_color = lizard_body_color
 
 	/*NTF Removal
 	character.underwear = underwear

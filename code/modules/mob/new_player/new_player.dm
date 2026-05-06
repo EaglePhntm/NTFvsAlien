@@ -324,12 +324,10 @@
 
 
 /mob/new_player/get_species()
-	var/datum/species/chosen_species
-	if(client.prefs.species)
-		chosen_species = client.prefs.species
-	if(!chosen_species)
-		return "Human"
-	return chosen_species
+	if(client?.prefs?.species && GLOB.all_species[client.prefs.species])
+		return client.prefs.species
+
+	return "Human"
 
 
 /mob/new_player/get_gender()

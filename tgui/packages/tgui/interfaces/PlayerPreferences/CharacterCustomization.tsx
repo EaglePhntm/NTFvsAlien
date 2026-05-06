@@ -245,6 +245,11 @@ export const CharacterCustomization = (props) => {
                 value={'moth_wings'}
                 action={'moth_wings'}
               />
+              <SelectFieldPreference
+                label={'Lizard Tail'}
+                value={'lizard_tail'}
+                action={'lizard_tail'}
+              />
               <TextFieldPreference label={'TTS pitch'} value={'tts_pitch'} />
             </LabeledList>
           </Flex.Item>

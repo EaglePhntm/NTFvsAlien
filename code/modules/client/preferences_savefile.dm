@@ -512,6 +512,8 @@
 
 	READ_FILE(S["moth_wings"], moth_wings)
 
+	READ_FILE(S["lizard_tail"], lizard_tail)
+
 	READ_FILE(S["citizenship"], citizenship)
 	READ_FILE(S["blood_type"], blood_type)
 	READ_FILE(S["religion"], religion)
@@ -609,6 +611,8 @@
 	b_eyes = sanitize_integer(b_eyes, 0, 255, initial(b_eyes))
 
 	moth_wings = sanitize_inlist(moth_wings, GLOB.moth_wings_list, initial(moth_wings))
+
+	lizard_tail = sanitize_inlist(lizard_tail, GLOB.lizard_tails_list, initial(lizard_tail))
 
 	citizenship = sanitize_inlist(citizenship, CITIZENSHIP_CHOICES, initial(citizenship))
 	blood_type = sanitize_inlist(blood_type, list("O-", "O+", "A-", "A+", "B-", "B+", "AB-", "AB+"), initial(blood_type))
@@ -735,6 +739,8 @@
 
 	moth_wings = sanitize_inlist(moth_wings, GLOB.moth_wings_list, initial(moth_wings))
 
+	lizard_tail = sanitize_inlist(lizard_tail, GLOB.lizard_tails_list, initial(lizard_tail))
+
 	citizenship = sanitize_inlist(citizenship, CITIZENSHIP_CHOICES, initial(citizenship))
 	blood_type = sanitize_inlist(blood_type, list("O-", "O+", "A-", "A+", "B-", "B+", "AB-", "AB+"), initial(blood_type))
 	religion = sanitize_inlist(religion, RELIGION_CHOICES, initial(religion))
@@ -811,6 +817,8 @@
 	WRITE_FILE(S["b_eyes"], b_eyes)
 
 	WRITE_FILE(S["moth_wings"], moth_wings)
+
+	WRITE_FILE(S["lizard_tail"], lizard_tail)
 
 	WRITE_FILE(S["citizenship"], citizenship)
 	WRITE_FILE(S["blood_type"], blood_type)

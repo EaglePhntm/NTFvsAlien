@@ -75,6 +75,8 @@
 			data["synthetic_type"] = synthetic_type
 			data["robot_type"] = robot_type
 			data["moth_wings"] = moth_wings
+			data["lizard_tail"] = lizard_tail
+			data["lizard_tail_list"] = GLOB.lizard_tails_list
 			data["random_name"] = random_name
 			data["ai_name"] = ai_name
 			data["age"] = age
@@ -348,7 +350,12 @@
 				return
 			moth_wings = choice
 			update_preview_icon()
-
+		if("lizard_tail")
+			var/choice = tgui_input_list(ui.user, "Choose your tail.", "Lizard Tail", GLOB.lizard_tails_list)
+			if(!choice)
+				return
+			lizard_tail = choice
+			update_preview_icon()
 		if("xeno_name")
 			var/newValue = params["newValue"]
 			if(newValue == "")
