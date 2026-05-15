@@ -16653,9 +16653,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/carpet/royalblack{
-	icon_state = "carpet_royalblack-110"
-	},
+/turf/open/floor/urban/wood,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -17568,9 +17566,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/carpet/royalblack{
-	icon_state = "carpet_royalblack-38"
-	},
+/turf/open/floor/urban/wood,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -27621,9 +27617,7 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 8
 	},
-/turf/open/floor/carpet/royalblack{
-	icon_state = "carpet_royalblack-74"
-	},
+/turf/open/floor/urban/wood,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
