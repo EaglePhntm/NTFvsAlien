@@ -1217,7 +1217,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/wood,
+/turf/open/floor/prison/kitchen,
 /area/mainship/living/officer_study)
 "aZa" = (
 /obj/machinery/vending/boozeomat,
@@ -2666,7 +2666,7 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 8
 	},
-/turf/open/floor/wood,
+/turf/open/floor/prison/kitchen,
 /area/mainship/living/officer_study)
 "chh" = (
 /obj/machinery/disposal,
@@ -3028,6 +3028,10 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1,
 /turf/open/floor/mainship,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
+"cxl" = (
+/obj/structure/ladder,
+/turf/open/floor/prison/kitchen,
+/area/mainship/living/officer_study)
 "cxr" = (
 /obj/item/weapon/gun/sentry/big_sentry/premade/radial{
 	name = "\improper ST-571 sentry gun"
@@ -11730,16 +11734,18 @@
 /obj/machinery/keycard_auth{
 	pixel_x = 7
 	},
-/obj/machinery/button/door{
-	pixel_y = 0;
-	pixel_x = -6;
-	id = "captainprivacyshutters"
-	},
 /obj/structure/transmitter/desk{
 	pixel_x = 7;
 	pixel_y = 11;
 	phone_category = "Command";
 	phone_id = "Commander's Office"
+	},
+/obj/machinery/door_control/old/cic{
+	id = "captainprivacyshutters";
+	name = "Privacy Shutter";
+	pixel_y = 0;
+	req_one_access = list(200,40);
+	pixel_x = -5
 	},
 /turf/open/floor/carpet/royalblack{
 	icon_state = "carpet_royalblack-55"
@@ -14248,7 +14254,6 @@
 	pixel_y = 13;
 	name = "fancy bedsheet"
 	},
-/obj/structure/curtain/open/black,
 /turf/open/space/basic,
 /area/sulaco/command{
 	name = "Captain's Room";
@@ -19890,6 +19895,15 @@
 	dir = 8
 	},
 /area/mainship/groundhq/ntf/shipboard/brig)
+"qiz" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/prison/kitchen,
+/area/mainship/living/officer_study)
 "qiK" = (
 /obj/machinery/door/poddoor/shutters/mainship/open/checkpoint{
 	dir = 2;
@@ -22044,7 +22058,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/turf/open/floor/wood,
+/turf/open/floor/prison/kitchen,
 /area/mainship/living/officer_study)
 "rZI" = (
 /obj/machinery/telecomms/receiver/preset_right,
@@ -25593,7 +25607,7 @@
 /obj/machinery/door/airlock/mainship/command/CPTstudy{
 	name = "\improper Commander's Study"
 	},
-/turf/open/space/basic,
+/turf/open/floor/wood/variable/mosaic,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -35988,7 +36002,7 @@ gsf
 lsL
 tnP
 lyD
-uTe
+hHn
 aYI
 cMb
 cMb
@@ -36107,8 +36121,8 @@ bbZ
 hHn
 hHn
 iZk
-dhf
-aBL
+cxl
+qiz
 cMb
 tmd
 ifv
