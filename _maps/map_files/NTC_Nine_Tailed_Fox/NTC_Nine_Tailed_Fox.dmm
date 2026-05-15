@@ -1745,7 +1745,7 @@
 	dir = 4
 	},
 /turf/open/floor/carpet/royalblack{
-	icon_state = "carpet_royalblack-38"
+	icon_state = "carpet_royalblack-55"
 	},
 /area/sulaco/command{
 	name = "Captain's Room";
@@ -1944,8 +1944,7 @@
 	name = "Shipside Medbay"
 	})
 "bHG" = (
-/obj/structure/bed/urban/chairs/red{
-	buckle_lying = 0;
+/obj/structure/bed/chair/comfy/black{
 	dir = 4
 	},
 /turf/open/floor/carpet/red,
@@ -2013,7 +2012,7 @@
 	dir = 8
 	},
 /turf/open/floor/carpet/royalblack{
-	icon_state = "carpet_royalblack-74"
+	icon_state = "carpet_royalblack-203"
 	},
 /area/sulaco/command{
 	name = "Captain's Room";
@@ -3733,8 +3732,7 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/lower_hull)
 "dbd" = (
-/obj/structure/bed/urban/chairs/red{
-	buckle_lying = 0;
+/obj/structure/bed/chair/comfy/black{
 	dir = 1
 	},
 /turf/open/floor/carpet/red,
@@ -8282,7 +8280,14 @@
 "gVq" = (
 /obj/item/reagent_containers/food/drinks/flask/barflask,
 /obj/structure/table/wood/fancy,
-/obj/item/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green{
+	pixel_y = 1;
+	pixel_x = -3
+	},
+/obj/machinery/button/door{
+	id = "captainshutters";
+	name = "shutter button"
+	},
 /turf/open/floor/carpet/royalblack{
 	icon_state = "carpet_royalblack-74"
 	},
@@ -9537,8 +9542,7 @@
 	pixel_y = -6;
 	dir = 2
 	},
-/obj/structure/bed/urban/chairs/red{
-	buckle_lying = 0;
+/obj/structure/bed/chair/comfy/black{
 	dir = 8
 	},
 /turf/open/floor/urban/wood/blackwood,
@@ -10163,8 +10167,7 @@
 	},
 /area/mainship/command/cic)
 "iDa" = (
-/obj/structure/bed/urban/chairs/red{
-	buckle_lying = 0;
+/obj/structure/bed/chair/comfy/black{
 	dir = 1
 	},
 /turf/open/floor/urban/wood/blackwood,
@@ -16650,7 +16653,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/urban/wood,
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-110"
+	},
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -17563,7 +17568,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/urban/wood,
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-38"
+	},
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -20279,9 +20286,7 @@
 /turf/open/floor/mainship_hull,
 /area/mainship/engineering/port_atmos)
 "qQz" = (
-/obj/structure/bed/urban/chairs/red{
-	buckle_lying = 0
-	},
+/obj/structure/bed/chair/comfy/black,
 /turf/open/floor/urban/wood/blackwood,
 /area/mainship/groundhq/ntf/crimsonveil)
 "qQR" = (
@@ -20538,12 +20543,6 @@
 	name = "Ship Floor 3 Hallways"
 	})
 "rdh" = (
-/obj/machinery/button/door{
-	id = "captainshutters";
-	name = "shutter button";
-	pixel_y = 9;
-	pixel_x = -22
-	},
 /turf/open/floor/carpet/royalblack{
 	icon_state = "carpet_royalblack-21"
 	},
@@ -20641,9 +20640,7 @@
 	pixel_y = 0;
 	pixel_x = 1
 	},
-/turf/open/floor/carpet/royalblack{
-	icon_state = "carpet_royalblack-110"
-	},
+/turf/open/floor/carpet/royalblack,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -25731,8 +25728,7 @@
 	pixel_y = -6;
 	dir = 2
 	},
-/obj/structure/bed/urban/chairs/red{
-	buckle_lying = 0;
+/obj/structure/bed/chair/comfy/black{
 	dir = 4
 	},
 /turf/open/floor/urban/wood/blackwood,
@@ -26480,8 +26476,7 @@
 	},
 /area/mainship/groundhq/ntf/engineering/ce_room)
 "wlm" = (
-/obj/structure/bed/urban/chairs/red{
-	buckle_lying = 0;
+/obj/structure/bed/chair/comfy/black{
 	dir = 8
 	},
 /turf/open/floor/carpet/red,
@@ -27626,7 +27621,9 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 8
 	},
-/turf/open/floor/urban/wood,
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-74"
+	},
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
