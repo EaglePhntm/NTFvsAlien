@@ -56,6 +56,20 @@
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/mainship/groundhq/ntf/command/corporateliaison)
+"acL" = (
+/obj/structure/table/mainship/nometal,
+/obj/effect/spawner/random/misc/paperbin,
+/obj/item/tool/pen/blue,
+/obj/structure/transmitter/desk{
+	pixel_x = 6;
+	pixel_y = 6;
+	phone_category = "Command";
+	phone_id = "Commander's Office"
+	},
+/turf/open/floor/carpet/side{
+	dir = 4
+	},
+/area/space)
 "adz" = (
 /obj/machinery/computer/mech_builder{
 	dir = 8
@@ -529,7 +543,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/mainship/floor,
+/turf/open/floor/wood,
 /area/mainship/living/officer_study)
 "aBO" = (
 /obj/structure/table/reinforced,
@@ -576,11 +590,6 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/upper_hull)
-"aCH" = (
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk,
-/turf/open/floor/prison/kitchen,
-/area/mainship/living/officer_study)
 "aCQ" = (
 /obj/machinery/door/airlock/mainship/generic/corporate{
 	dir = 2
@@ -639,6 +648,20 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/lower_hull)
+"aEC" = (
+/obj/structure/window/reinforced/toughened{
+	dir = 1
+	},
+/obj/structure/table/mainship/nometal,
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/obj/structure/window/reinforced/toughened,
+/obj/machinery/door/window/secure{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/space)
 "aEP" = (
 /obj/machinery/light{
 	dir = 4
@@ -1191,10 +1214,10 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment/corner{
-	dir = 8
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/turf/open/floor/mainship/floor,
+/turf/open/floor/wood,
 /area/mainship/living/officer_study)
 "aZa" = (
 /obj/machinery/vending/boozeomat,
@@ -1310,8 +1333,9 @@
 /area/mainship/hull/upper_hull)
 "bbZ" = (
 /obj/structure/table/reinforced,
-/obj/machinery/microwave,
-/obj/machinery/camera/autoname,
+/obj/machinery/processor{
+	pixel_y = 5
+	},
 /turf/open/floor/prison/kitchen,
 /area/mainship/living/officer_study)
 "bcK" = (
@@ -1718,7 +1742,7 @@
 	id = "shipside_cic_lockdown2";
 	name = "Door lockdown"
 	},
-/turf/open/floor/mainship/floor,
+/turf/open/floor/wood,
 /area/mainship/living/officer_study)
 "bwF" = (
 /obj/machinery/door/firedoor/multi_tile{
@@ -1771,10 +1795,12 @@
 /turf/open/shuttle/escapepod,
 /area/mainship/hallways/hangar/droppod)
 "byD" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 6
+/obj/structure/bed/chair/sofa/left{
+	dir = 4
 	},
-/turf/open/floor/wood,
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-38"
+	},
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -1969,16 +1995,6 @@
 /area/outpost/cargo{
 	outside = 1
 	})
-"bFM" = (
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced/tinted/frosted{
-	dir = 8
-	},
-/obj/structure/window/reinforced/tinted/frosted{
-	dir = 4
-	},
-/turf/open/floor/mainship/black/full,
-/area/mainship/shipboard/firing_range)
 "bGm" = (
 /obj/structure/bed/chair/sofa/corner,
 /obj/effect/turf_decal/siding/dark,
@@ -1991,12 +2007,9 @@
 	name = "Shipside Medbay"
 	})
 "bHG" = (
-/obj/structure/bed/chair/wood/wings{
-	dir = 4
-	},
-/turf/open/floor/carpet/side{
-	dir = 8
-	},
+/obj/item/storage/donut_box,
+/obj/structure/table/wood/fancy,
+/turf/open/floor/carpet/red,
 /area/mainship/living/officer_study)
 "bHP" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
@@ -2051,41 +2064,18 @@
 /obj/machinery/self_destruct/rod,
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/self_destruct)
-"bJy" = (
-/obj/structure/table/mainship/nometal,
-/obj/effect/spawner/random/misc/paperbin,
-/obj/item/tool/pen/blue,
-/obj/structure/transmitter/desk{
-	pixel_x = 6;
-	pixel_y = 6;
-	phone_category = "Command";
-	phone_id = "Commander's Office"
-	},
-/turf/open/floor/carpet/side{
-	dir = 4
-	},
-/area/sulaco/command{
-	name = "Captain's Room";
-	outside = 0
-	})
 "bJK" = (
 /turf/closed/wall/mainship,
 /area/mainship/hallways/port_umbilical{
 	name = "Ship Floor 2 Hallways"
 	})
 "bJO" = (
-/obj/structure/window/reinforced/toughened{
-	dir = 1
-	},
-/obj/structure/table/mainship/nometal,
-/obj/machinery/light/mainship{
-	dir = 4
-	},
-/obj/structure/window/reinforced/toughened,
-/obj/machinery/door/window/secure{
+/obj/structure/bed/chair/sofa/right{
 	dir = 8
 	},
-/turf/open/floor/wood,
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-74"
+	},
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -2269,7 +2259,7 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 4
 	},
-/turf/open/floor/mainship/floor,
+/turf/open/floor/wood,
 /area/mainship/living/officer_study)
 "bRD" = (
 /obj/machinery/light,
@@ -2383,6 +2373,13 @@
 /area/mainship/hallways/aft_hallway{
 	name = "Ship Floor 3 Hallways"
 	})
+"bVH" = (
+/obj/structure/cable,
+/obj/structure/bed/urban/chairs/red{
+	dir = 4
+	},
+/turf/open/floor/carpet/red,
+/area/mainship/living/officer_study)
 "bVJ" = (
 /turf/closed/shuttle/ert{
 	icon_state = "rightengine_2";
@@ -2666,14 +2663,15 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 10
 	},
-/turf/open/floor/mainship/floor,
+/obj/structure/disposalpipe/segment/corner{
+	dir = 8
+	},
+/turf/open/floor/wood,
 /area/mainship/living/officer_study)
 "chh" = (
-/obj/structure/table/mainship/nometal,
-/obj/machinery/computer/security/marinemainship_network,
-/turf/open/floor/carpet/side{
-	dir = 5
-	},
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk,
+/turf/open/floor/wood/variable/mosaic,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -2982,13 +2980,6 @@
 /area/mainship/hallways/port_umbilical{
 	name = "Ship Floor 2 Hallways"
 	})
-"cuv" = (
-/mob/living/simple_animal/cat/Jones,
-/turf/open/floor/wood,
-/area/sulaco/command{
-	name = "Captain's Room";
-	outside = 0
-	})
 "cvd" = (
 /obj/structure/sign/poster,
 /obj/machinery/light/mainship{
@@ -3186,6 +3177,12 @@
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/lower_hull)
+"cCu" = (
+/obj/structure/closet/secure_closet/captain,
+/obj/item/disk/nuclear/red,
+/obj/item/armor_module/module/valkyrie_autodoc,
+/turf/open/floor/wood,
+/area/space)
 "cCy" = (
 /obj/structure/flora/pottedplant/nine,
 /turf/open/floor/wood,
@@ -3237,6 +3234,10 @@
 	static_lighting = 1;
 	base_lighting_alpha = 0
 	})
+"cEc" = (
+/mob/living/simple_animal/cat/Jones,
+/turf/open/floor/wood,
+/area/space)
 "cEm" = (
 /turf/open/floor/mainship_hull/dir{
 	dir = 4
@@ -3302,13 +3303,8 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/command/cic)
 "cGE" = (
-/obj/structure/table/mainship/nometal,
-/obj/item/ashtray/glass,
-/obj/item/storage/fancy/cigar,
-/obj/item/tool/lighter/zippo,
-/turf/open/floor/carpet/side{
-	dir = 4
-	},
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/wood/variable/mosaic,
 /area/sulaco/command{
 	name = "Commander's Room";
 	outside = 0
@@ -3823,12 +3819,10 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/lower_hull)
 "dbd" = (
-/obj/structure/bed/chair/wood/wings{
+/obj/structure/bed/urban/chairs/red{
 	dir = 8
 	},
-/turf/open/floor/carpet/side{
-	dir = 6
-	},
+/turf/open/floor/carpet/red,
 /area/mainship/living/officer_study)
 "dbh" = (
 /obj/machinery/door/poddoor/railing{
@@ -3875,6 +3869,15 @@
 "dcj" = (
 /turf/open/floor/plating,
 /area/mainship/engineering/port_atmos)
+"ddD" = (
+/obj/structure/bed/chair/sofa/left{
+	dir = 4
+	},
+/obj/machinery/firealarm{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/space)
 "ddE" = (
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
@@ -3904,6 +3907,15 @@
 /obj/effect/ai_node,
 /turf/open/floor/mainship/sterile/plain,
 /area/mainship/living/tankerbunks)
+"deH" = (
+/obj/structure/table/mainship/nometal,
+/obj/item/ashtray/glass,
+/obj/item/storage/fancy/cigar,
+/obj/item/tool/lighter/zippo,
+/turf/open/floor/carpet/side{
+	dir = 4
+	},
+/area/space)
 "deQ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -3983,6 +3995,13 @@
 /obj/effect/landmark/start/latejoin,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/cryo_cells)
+"dix" = (
+/obj/structure/table/mainship/nometal,
+/obj/machinery/computer/security/marinemainship_network,
+/turf/open/floor/carpet/side{
+	dir = 5
+	},
+/area/space)
 "diD" = (
 /obj/structure/cable,
 /obj/structure/transmitter{
@@ -4055,6 +4074,11 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/mainship,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
+"dme" = (
+/obj/structure/table/mainship/nometal,
+/obj/effect/spawner/random/misc/table_lighting,
+/turf/open/floor/carpet,
+/area/space)
 "dmp" = (
 /obj/machinery/computer/camera_advanced,
 /obj/structure/table/reinforced,
@@ -4244,10 +4268,13 @@
 /turf/open/floor/grass,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "dyR" = (
-/obj/structure/table/mainship/nometal,
-/obj/machinery/computer/secure_data,
-/turf/open/floor/carpet/side{
+/obj/structure/table/urban/shiny_brown,
+/obj/machinery/computer/marine_card,
+/obj/machinery/light/mainship{
 	dir = 1
+	},
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-110"
 	},
 /area/sulaco/command{
 	name = "Captain's Room";
@@ -4604,10 +4631,10 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/req)
 "dQa" = (
-/obj/structure/table/mainship/nometal,
-/obj/machinery/computer/marine_card,
-/turf/open/floor/carpet/side{
-	dir = 1
+/obj/structure/table/urban/shiny_brown,
+/obj/machinery/computer/security/marinemainship_network,
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-74"
 	},
 /area/sulaco/command{
 	name = "Captain's Room";
@@ -4635,9 +4662,8 @@
 	name = "Ship Floor 1 Hallways"
 	})
 "dRN" = (
-/turf/open/floor/carpet/side{
-	dir = 6
-	},
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/wood/variable/mosaic,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -5013,10 +5039,6 @@
 /area/mainship/medical/upper_medical{
 	name = "Shipside Medbay"
 	})
-"eju" = (
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/mainship/floor,
-/area/mainship/living/officer_study)
 "ejv" = (
 /turf/open/floor/mainship/black/full,
 /area/mainship/living/tankerbunks)
@@ -5724,13 +5746,10 @@
 	name = "Shipside Corpsec Office"
 	})
 "eSQ" = (
-/obj/machinery/light/mainship{
-	dir = 8
+/obj/machinery/firealarm{
+	dir = 4
 	},
-/obj/docking_port/stationary/marine_dropship/crash_target,
-/turf/open/floor/carpet/side{
-	dir = 10
-	},
+/turf/open/floor/wood/variable/mosaic,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -5758,6 +5777,12 @@
 /area/outpost/cargo{
 	outside = 1
 	})
+"eUe" = (
+/obj/machinery/door/airlock/mainship/command/CPTstudy{
+	name = "\improper Commander's Study"
+	},
+/turf/open/floor/mainship/mono,
+/area/space)
 "eUf" = (
 /obj/effect/turf_decal/warning_stripes/thick/corner{
 	dir = 8
@@ -5839,6 +5864,12 @@
 	dir = 8
 	},
 /area/mainship/hallways/hangar)
+"eXa" = (
+/obj/machinery/door/airlock/mainship/generic/bathroom{
+	dir = 2
+	},
+/turf/open/floor/mainship/mono,
+/area/space)
 "eXp" = (
 /obj/machinery/light/mainship/small,
 /obj/structure/toilet{
@@ -6042,14 +6073,6 @@
 	dir = 8
 	},
 /area/mainship/squads/general)
-"feE" = (
-/obj/structure/bed/chair/wood/wings{
-	dir = 8
-	},
-/turf/open/floor/carpet/side{
-	dir = 4
-	},
-/area/mainship/living/officer_study)
 "feR" = (
 /obj/machinery/computer/camera_advanced/overwatch/military/bravo,
 /obj/machinery/light{
@@ -6443,16 +6466,6 @@
 /area/outpost/cargo{
 	outside = 1
 	})
-"fud" = (
-/obj/structure/table/reinforced,
-/obj/structure/sink{
-	dir = 4
-	},
-/obj/item/reagent_containers/glass/beaker/large,
-/obj/item/reagent_containers/glass/beaker/large,
-/obj/effect/spawner/random/food_or_drink/kitchenknife,
-/turf/open/floor/prison/kitchen,
-/area/mainship/living/officer_study)
 "fvh" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -6537,9 +6550,10 @@
 /turf/open/floor/tile/dark,
 /area/mainship/groundhq/ntf/hallways/gardens)
 "fzz" = (
-/obj/structure/table/mainship/nometal,
-/obj/machinery/computer/emails,
-/turf/open/floor/wood,
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/wood/variable/mosaic,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -6792,6 +6806,11 @@
 	dir = 9
 	},
 /area/mainship/living/tankerbunks)
+"fIa" = (
+/obj/structure/table/mainship/nometal,
+/obj/machinery/computer/security/wooden_tv,
+/turf/open/floor/wood,
+/area/space)
 "fIr" = (
 /obj/structure/cable,
 /obj/machinery/light{
@@ -6961,7 +6980,7 @@
 /obj/machinery/door/airlock/mainship/generic/bathroom{
 	dir = 2
 	},
-/turf/open/floor/mainship/mono,
+/turf/open/floor/mainship/sterile/dark,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -7003,10 +7022,7 @@
 	outside = 0
 	})
 "fPe" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 1
-	},
-/turf/open/floor/carpet/side,
+/turf/open/floor/wood/variable/mosaic,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -7182,6 +7198,11 @@
 /obj/structure/mirror,
 /turf/open/floor/mainship/floor,
 /area/campaign/jungle_outpost/outpost/living/bathroom)
+"fUS" = (
+/obj/structure/table/reinforced,
+/obj/machinery/microwave,
+/turf/open/floor/prison/kitchen,
+/area/mainship/living/officer_study)
 "fVd" = (
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/engineering/engine_core)
@@ -7599,6 +7620,15 @@
 /area/mainship/shipboard/port_missiles{
 	name = "Shipside Corpsec Office"
 	})
+"gkj" = (
+/obj/structure/table/mainship/nometal,
+/obj/item/megaphone,
+/obj/item/whistle,
+/obj/item/flashlight/lamp/green,
+/obj/item/reagent_containers/food/drinks/britcup,
+/obj/item/newspaper,
+/turf/open/floor/wood,
+/area/space)
 "gkt" = (
 /obj/machinery/light{
 	dir = 1
@@ -8399,7 +8429,8 @@
 /turf/open/floor/step_trigger/supply_fall/row_one,
 /area/mainship/squads/req)
 "gTW" = (
-/turf/open/floor/carpet,
+/obj/structure/bed/urban/chairs/black,
+/turf/open/floor/carpet/royalblack,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -8471,13 +8502,11 @@
 	name = "Research"
 	})
 "gVq" = (
-/obj/structure/bed,
-/obj/item/bedsheet/hop,
-/obj/machinery/keycard_auth{
-	pixel_y = 25
-	},
-/turf/open/floor/carpet/side{
-	dir = 5
+/obj/item/reagent_containers/food/drinks/flask/barflask,
+/obj/structure/table/wood/fancy,
+/obj/item/flashlight/lamp/green,
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-74"
 	},
 /area/sulaco/command{
 	name = "Captain's Room";
@@ -8534,6 +8563,12 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/officer_study)
+"gYI" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 6
+	},
+/turf/open/floor/wood,
+/area/space)
 "gYV" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
@@ -8550,11 +8585,6 @@
 /obj/effect/landmark/start/job/crash/squadmarine,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/living/cryo_cells)
-"gZt" = (
-/obj/structure/table/mainship/nometal,
-/obj/item/storage/box/donkpockets,
-/turf/open/floor/prison/kitchen,
-/area/mainship/living/officer_study)
 "gZA" = (
 /obj/machinery/landinglight/cas{
 	dir = 1
@@ -8648,13 +8678,17 @@
 /turf/open/floor/wood,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "hch" = (
-/obj/structure/bed/chair/sofa/right{
+/obj/machinery/power/apc/mainship{
 	dir = 4
 	},
-/obj/machinery/air_alarm{
-	dir = 4
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 1
 	},
-/turf/open/floor/wood,
+/obj/structure/disposalpipe/segment{
+	dir = 1
+	},
+/turf/open/floor/wood/variable/mosaic,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -8738,6 +8772,11 @@
 /obj/item/bedsheet/captain,
 /turf/open/floor/wood,
 /area/mainship/living/tankerbunks)
+"hdZ" = (
+/turf/open/floor/carpet/side{
+	dir = 8
+	},
+/area/space)
 "heq" = (
 /obj/machinery/light/mainship/small{
 	dir = 4
@@ -8808,10 +8847,6 @@
 /area/mainship/hallways/starboard_hallway{
 	name = "Ship Floor 3 Hallways"
 	})
-"hhd" = (
-/obj/structure/table/wood,
-/turf/open/floor/carpet/side,
-/area/mainship/living/officer_study)
 "hht" = (
 /obj/machinery/camera/autoname{
 	dir = 4
@@ -8927,7 +8962,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/mainship/floor,
+/turf/open/floor/wood,
 /area/mainship/living/officer_study)
 "hnC" = (
 /obj/machinery/cryopod/right,
@@ -8940,6 +8975,9 @@
 /area/mainship/hallways/dorm2)
 "hom" = (
 /obj/machinery/vending/dinnerware,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
 /turf/open/floor/prison/kitchen,
 /area/mainship/living/officer_study)
 "hoD" = (
@@ -9165,6 +9203,14 @@
 /area/mainship/hallways/bow_hallway{
 	name = "Ship Floor 1 Hallways"
 	})
+"hBp" = (
+/obj/machinery/camera/autoname/mainship{
+	dir = 4
+	},
+/turf/open/floor/carpet/side{
+	dir = 8
+	},
+/area/space)
 "hCt" = (
 /turf/open/floor/urban/carpet/carpetdarkerblue,
 /area/mainship/groundhq/ntf/hallways/gardens)
@@ -9524,9 +9570,10 @@
 	name = "Shipside Medbay"
 	})
 "hTv" = (
-/obj/structure/table/mainship/nometal,
-/obj/effect/spawner/random/misc/table_lighting,
-/turf/open/floor/carpet,
+/obj/structure/table/urban/shiny_brown,
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-157"
+	},
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -9722,6 +9769,14 @@
 /obj/machinery/holopad,
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/req)
+"iaw" = (
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/carpet/side{
+	dir = 6
+	},
+/area/space)
 "iaz" = (
 /turf/open/ground/grass,
 /area/mainship/groundhq/ntf/hallways/gardens)
@@ -10091,7 +10146,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/mainship/floor,
+/turf/open/floor/wood,
 /area/mainship/living/officer_study)
 "isi" = (
 /turf/open/floor/mainship/cargo/arrow{
@@ -10404,13 +10459,6 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/port_emb)
-"iEX" = (
-/obj/item/clothing/head/chefhat,
-/obj/structure/table/reinforced,
-/obj/item/tool/kitchen/rollingpin,
-/obj/item/clothing/gloves/latex,
-/turf/open/floor/prison/kitchen,
-/area/mainship/living/officer_study)
 "iFd" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 8
@@ -10611,6 +10659,10 @@
 /obj/machinery/power/apc/mainship,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/upper_hull)
+"iLI" = (
+/obj/machinery/light/mainship,
+/turf/open/floor/mainship/floor,
+/area/space)
 "iLS" = (
 /obj/structure/rack,
 /obj/item/storage/firstaid/adv,
@@ -10978,6 +11030,14 @@
 /obj/machinery/marine_selector/clothes/leader,
 /turf/open/floor/mainship,
 /area/mainship/squads/general)
+"iZk" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -9;
+	pixel_y = 1
+	},
+/turf/open/floor/prison/kitchen,
+/area/mainship/living/officer_study)
 "jak" = (
 /obj/machinery/marine_selector/clothes/smartgun,
 /turf/open/floor/mainship/floor,
@@ -11410,6 +11470,9 @@
 /obj/effect/turf_decal/siding/dark,
 /turf/open/floor/tile/dark,
 /area/mainship/groundhq/ntf/hallways/gardens)
+"jvV" = (
+/turf/open/floor/carpet/side,
+/area/space)
 "jwc" = (
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/lower_hull)
@@ -11426,6 +11489,9 @@
 /area/mainship/hallways/bow_hallway{
 	name = "Ship Floor 1 Hallways"
 	})
+"jwS" = (
+/turf/closed/wall/mainship,
+/area/space)
 "jxm" = (
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/surgery_hallway{
@@ -11477,17 +11543,6 @@
 	dir = 8
 	},
 /area/mainship/squads/general)
-"jAQ" = (
-/obj/structure/table/wood,
-/obj/item/storage/fancy/cigar,
-/obj/item/reagent_containers/food/drinks/bottle/whiskey{
-	pixel_x = 8
-	},
-/obj/effect/ai_node,
-/turf/open/floor/carpet/side{
-	dir = 1
-	},
-/area/mainship/living/officer_study)
 "jAV" = (
 /obj/machinery/light/mainship{
 	dir = 8
@@ -11671,8 +11726,23 @@
 /turf/closed/wall/mainship/outer/reinforced,
 /area/mainship/hallways/hangar)
 "jIr" = (
-/turf/open/floor/carpet/side{
-	dir = 8
+/obj/structure/table/urban/shiny_brown,
+/obj/machinery/keycard_auth{
+	pixel_x = 7
+	},
+/obj/machinery/button/door{
+	pixel_y = 0;
+	pixel_x = -6;
+	id = "captainprivacyshutters"
+	},
+/obj/structure/transmitter/desk{
+	pixel_x = 7;
+	pixel_y = 11;
+	phone_category = "Command";
+	phone_id = "Commander's Office"
+	},
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-55"
 	},
 /area/sulaco/command{
 	name = "Captain's Room";
@@ -12691,6 +12761,9 @@
 	dir = 8
 	},
 /area/mainship/living/basketball)
+"kvN" = (
+/turf/open/floor/mainship/floor,
+/area/space)
 "kwl" = (
 /obj/machinery/floodlight/landing/hq,
 /turf/open/floor/mainship/cargo,
@@ -13021,9 +13094,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/command/cic)
-"kJv" = (
-/turf/open/floor/mainship/floor,
-/area/mainship/living/officer_study)
 "kKB" = (
 /obj/machinery/door/airlock/mainship/secure/free_access,
 /obj/machinery/door/poddoor/lift/preopen{
@@ -13095,12 +13165,14 @@
 /turf/open/floor/mainship_hull,
 /area/mainship/groundhq/ntf/crimsonveil)
 "kNA" = (
-/obj/structure/cable,
-/obj/machinery/power/apc/mainship{
-	dir = 4
+/obj/structure/disposalpipe/segment{
+	dir = 1
 	},
-/obj/structure/bookcase,
-/turf/open/floor/wood,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 1
+	},
+/turf/open/floor/wood/variable/mosaic,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -13338,10 +13410,6 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/basketball)
-"kRO" = (
-/obj/structure/window/framed/mainship,
-/turf/open/floor/plating,
-/area/mainship/living/officer_study)
 "kRS" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -13488,7 +13556,8 @@
 	dir = 1
 	},
 /obj/machinery/door/window,
-/turf/open/floor/plating/plating_catwalk,
+/obj/effect/spawner/random/misc/soap/regularweighted,
+/turf/open/floor/mainship/sterile/dark,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -13740,6 +13809,9 @@
 	},
 /turf/open/floor/wood/darker,
 /area/mainship/medical/lower_medical)
+"lhN" = (
+/turf/open/floor/carpet,
+/area/space)
 "lik" = (
 /obj/structure/cable,
 /obj/machinery/power/monitor/core,
@@ -13809,7 +13881,10 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/engineering/engine_core)
 "ljZ" = (
-/turf/open/floor/carpet/side,
+/obj/structure/bed/chair/comfy/black{
+	dir = 1
+	},
+/turf/open/floor/wood/variable/mosaic,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -13968,6 +14043,12 @@
 /area/mainship/medical/upper_medical{
 	name = "Shipside Medbay"
 	})
+"lqo" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 1
+	},
+/turf/open/floor/carpet/side,
+/area/space)
 "lqq" = (
 /obj/structure/table/mainship,
 /obj/machinery/faxmachine/cic,
@@ -14002,6 +14083,22 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/lower_hull)
+"lsz" = (
+/obj/structure/bed/chair/sofa/right{
+	dir = 4
+	},
+/obj/machinery/air_alarm{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/space)
+"lsL" = (
+/obj/structure/table/reinforced,
+/obj/item/clothing/gloves/latex,
+/obj/item/tool/kitchen/rollingpin,
+/obj/item/clothing/head/chefhat,
+/turf/open/floor/prison/kitchen,
+/area/mainship/living/officer_study)
 "ltn" = (
 /obj/item/storage/toolbox/mechanical,
 /obj/item/clothing/glasses/welding,
@@ -14137,18 +14234,22 @@
 	outside = 1
 	})
 "lxq" = (
-/obj/item/clothing/under/redpyjamas{
-	pixel_y = 5
+/obj/structure/bed/fancy{
+	pixel_y = 12
 	},
-/obj/item/clothing/shoes/laceup{
-	desc = "The height of fashion, and they're pre-polished! The name 'Bob' is written on the inside.";
-	pixel_y = -5
+/obj/structure/bed/fancy{
+	pixel_y = -2
 	},
-/obj/structure/table/mainship/nometal,
-/obj/item/reagent_containers/food/drinks/flask/barflask,
-/turf/open/floor/carpet/side{
-	dir = 9
+/obj/item/bedsheet/ce{
+	pixel_y = -2;
+	name = "fancy bedsheet"
 	},
+/obj/item/bedsheet/ce{
+	pixel_y = 13;
+	name = "fancy bedsheet"
+	},
+/obj/structure/curtain/open/black,
+/turf/open/space/basic,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -14230,6 +14331,10 @@
 /obj/structure/ship_ammo/cas/heavygun,
 /turf/open/floor/mainship/cargo/arrow,
 /area/mainship/hallways/hangar)
+"lBP" = (
+/obj/machinery/holopad,
+/turf/open/floor/wood,
+/area/space)
 "lBZ" = (
 /obj/machinery/light{
 	dir = 1
@@ -14825,6 +14930,20 @@
 /area/mainship/hallways/port_umbilical{
 	name = "Ship Floor 2 Hallways"
 	})
+"lXl" = (
+/obj/item/clothing/under/redpyjamas{
+	pixel_y = 5
+	},
+/obj/item/clothing/shoes/laceup{
+	desc = "The height of fashion, and they're pre-polished! The name 'Bob' is written on the inside.";
+	pixel_y = -5
+	},
+/obj/structure/table/mainship/nometal,
+/obj/item/reagent_containers/food/drinks/flask/barflask,
+/turf/open/floor/carpet/side{
+	dir = 9
+	},
+/area/space)
 "lXm" = (
 /obj/structure/disposalpipe/segment/corner,
 /obj/effect/turf_decal/warning_stripes/engineer,
@@ -15373,6 +15492,10 @@
 /obj/machinery/landinglight/cas,
 /turf/open/floor/plating,
 /area/mainship/hallways/hangar)
+"mug" = (
+/obj/effect/spawner/random/misc/soap/regularweighted,
+/turf/open/floor/mainship/floor,
+/area/space)
 "mun" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
@@ -16163,6 +16286,12 @@
 /obj/machinery/marine_selector/gear/leader,
 /turf/open/floor/mainship,
 /area/mainship/squads/general)
+"ndO" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/space)
 "nec" = (
 /turf/open/floor/step_trigger/supply_fall/row_two,
 /area/mainship/squads/req)
@@ -16195,12 +16324,12 @@
 	name = "Ship Floor 2 Hallways"
 	})
 "neY" = (
-/obj/structure/bed/chair/wood/wings{
-	dir = 4
+/obj/item/storage/fancy/cigar,
+/obj/item/reagent_containers/food/drinks/bottle/whiskey{
+	pixel_x = 8
 	},
-/turf/open/floor/carpet/side{
-	dir = 9
-	},
+/obj/structure/table/wood/fancy,
+/turf/open/floor/carpet/red,
 /area/mainship/living/officer_study)
 "nfh" = (
 /obj/machinery/shower{
@@ -16247,6 +16376,14 @@
 /obj/machinery/door/airlock/mainship/marine/general/sl,
 /turf/open/floor/mainship,
 /area/mainship/squads/general)
+"nha" = (
+/obj/structure/disposalpipe/segment/corner{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/structure/cable,
+/turf/open/floor/wood,
+/area/space)
 "nhs" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 4
@@ -16296,6 +16433,10 @@
 "nje" = (
 /turf/closed/wall/mainship/outer,
 /area/mainship/hull/lower_hull)
+"njn" = (
+/obj/structure/bed/chair/comfy/black,
+/turf/open/floor/carpet,
+/area/space)
 "njw" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 1
@@ -16454,6 +16595,10 @@
 	dir = 1
 	},
 /area/mainship/medical/operating_room_four)
+"nsd" = (
+/obj/structure/table/mainship/nometal,
+/turf/open/floor/carpet,
+/area/space)
 "nsp" = (
 /obj/effect/landmark/start/job/chiefshipengineer,
 /turf/open/floor/mainship/mono,
@@ -16920,8 +17065,14 @@
 	name = "CEO Office"
 	})
 "nPI" = (
-/obj/machinery/holopad,
-/turf/open/floor/wood,
+/obj/machinery/atmospherics/components/unary/vent_pump/layer1{
+	dir = 8;
+	on = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/wood/variable/mosaic,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -17064,8 +17215,8 @@
 /turf/open/floor/plating,
 /area/mainship/hallways/hangar)
 "nTM" = (
-/turf/open/floor/carpet/side{
-	dir = 10
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-157"
 	},
 /area/sulaco/command{
 	name = "Captain's Room";
@@ -17078,13 +17229,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/command/cic)
-"nUx" = (
-/obj/effect/spawner/random/misc/soap/regularweighted,
-/turf/open/floor/mainship/floor,
-/area/sulaco/command{
-	name = "Captain's Room";
-	outside = 0
-	})
 "nUA" = (
 /obj/structure/largecrate/random/barrel/yellow,
 /turf/open/floor/mainship/orange/full,
@@ -17337,6 +17481,11 @@
 /area/mainship/medical/upper_medical{
 	name = "Shipside Medbay"
 	})
+"ocS" = (
+/turf/open/floor/carpet/side{
+	dir = 10
+	},
+/area/space)
 "ocW" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/fullgrass,
@@ -17411,7 +17560,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/mainship/floor,
+/turf/open/floor/wood,
 /area/mainship/living/officer_study)
 "ofx" = (
 /obj/structure/disposalpipe/segment/corner{
@@ -17644,11 +17793,12 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/groundhq/ntf/hallways/bathroom)
 "osi" = (
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk{
+/obj/structure/bed/chair/sofa/left{
 	dir = 8
 	},
-/turf/open/floor/wood,
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-137"
+	},
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -17809,27 +17959,44 @@
 	},
 /area/mainship/living/basketball)
 "oyt" = (
-/obj/structure/disposalpipe/segment{
+/obj/structure/prop/urban/furniture/tables/tablewood{
 	dir = 4
 	},
-/turf/open/floor/wood,
+/obj/item/ashtray/glass{
+	pixel_x = 10;
+	pixel_y = -2
+	},
+/obj/item/storage/fancy/cigar{
+	pixel_x = -4
+	},
+/obj/item/tool/lighter/zippo,
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-157"
+	},
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
 	})
 "oyy" = (
-/obj/structure/disposalpipe/segment/corner{
+/obj/structure/bed/chair/sofa/right{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/structure/cable,
-/turf/open/floor/wood,
+/obj/machinery/light/mainship,
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-21"
+	},
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
 	})
 "oyH" = (
-/turf/open/floor/wood,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/wood/variable/mosaic,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -18437,14 +18604,6 @@
 /area/mainship/medical/surgery_hallway{
 	name = "Research"
 	})
-"oYJ" = (
-/obj/structure/bed/chair/wood/wings{
-	dir = 8
-	},
-/turf/open/floor/carpet/side{
-	dir = 5
-	},
-/area/mainship/living/officer_study)
 "oZv" = (
 /obj/machinery/light{
 	dir = 8
@@ -18507,6 +18666,16 @@
 	outside = 0;
 	name = "CEO Office"
 	})
+"pce" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/open/floor/mainship/black/full,
+/area/mainship/shipboard/firing_range)
 "pcv" = (
 /obj/structure/bed/chair/wood{
 	dir = 1
@@ -18520,6 +18689,10 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/command/corporateliaison)
+"pdJ" = (
+/obj/structure/bed/chair/office/dark,
+/turf/open/floor/wood,
+/area/space)
 "pdX" = (
 /obj/item/reagent_containers/jerrycan,
 /turf/open/floor/plating,
@@ -18681,10 +18854,6 @@
 	},
 /turf/open/floor/mainship/cargo,
 /area/mainship/hallways/hangar)
-"pjz" = (
-/obj/effect/landmark/mob_spawner/farwa,
-/turf/open/floor/plating/ground/dirtgrassborder,
-/area/mainship/groundhq/ntf/hallways/gardens)
 "pjA" = (
 /obj/docking_port/stationary/marine_dropship/cas,
 /turf/open/floor/plating,
@@ -18980,11 +19149,6 @@
 /area/mainship/groundhq/ntf/living/captain_mess{
 	name = "Kitchen"
 	})
-"pAd" = (
-/obj/structure/table/wood,
-/obj/item/storage/donut_box,
-/turf/open/floor/carpet,
-/area/mainship/living/officer_study)
 "pAz" = (
 /obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
@@ -19899,6 +20063,11 @@
 /area/mainship/hallways/port_umbilical{
 	name = "Ship Floor 2 Hallways"
 	})
+"qqd" = (
+/turf/open/floor/carpet/side{
+	dir = 6
+	},
+/area/space)
 "qqe" = (
 /obj/machinery/door/airlock/mainship/secure/free_access{
 	dir = 2
@@ -20191,10 +20360,13 @@
 "qzZ" = (
 /turf/closed/wall/mainship,
 /area/mainship/command/telecomms)
-"qAd" = (
-/obj/structure/ladder,
-/turf/open/floor/mainship/floor,
-/area/mainship/living/officer_study)
+"qAe" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/layer1{
+	dir = 8;
+	on = 1
+	},
+/turf/open/floor/wood,
+/area/space)
 "qAC" = (
 /obj/structure/table/wood,
 /turf/open/floor/wood,
@@ -20472,7 +20644,7 @@
 	dir = 4
 	},
 /obj/structure/mirror,
-/turf/open/floor/mainship/floor,
+/turf/open/floor/mainship/sterile/dark,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -20509,6 +20681,18 @@
 	color = "#c380ed"
 	},
 /area/mainship/groundhq/ntf/crimsonveil)
+"qNv" = (
+/obj/structure/safe,
+/obj/item/moneybag,
+/obj/item/clothing/glasses/monocle,
+/obj/item/weapon/telebaton,
+/obj/item/book/codebook,
+/obj/item/weapon/chainofcommand,
+/obj/item/weapon/cane,
+/turf/open/floor/carpet/side{
+	dir = 9
+	},
+/area/space)
 "qNB" = (
 /obj/machinery/atmospherics/pipe/simple/general/visible{
 	dir = 10
@@ -20638,33 +20822,10 @@
 /area/mainship/hallways/aft_hallway{
 	name = "Ship Floor 3 Hallways"
 	})
-"qRx" = (
-/obj/machinery/holopad,
-/obj/structure/cable,
-/turf/open/floor/wood,
-/area/mainship/living/officer_study)
-"qRF" = (
-/obj/machinery/light/mainship{
-	dir = 1
-	},
-/turf/open/floor/prison/kitchen,
-/area/mainship/living/officer_study)
 "qSb" = (
 /obj/machinery/vending/hydronutrients,
 /turf/open/floor/prison/cleanmarked,
 /area/mainship/groundhq/ntf/shipboard/brig_cells)
-"qSk" = (
-/obj/structure/table/mainship/nometal,
-/obj/item/megaphone,
-/obj/item/whistle,
-/obj/item/flashlight/lamp/green,
-/obj/item/reagent_containers/food/drinks/britcup,
-/obj/item/newspaper,
-/turf/open/floor/wood,
-/area/sulaco/command{
-	name = "Captain's Room";
-	outside = 0
-	})
 "qSs" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
@@ -20900,8 +21061,9 @@
 	name = "Ship Floor 3 Hallways"
 	})
 "rdh" = (
-/obj/structure/bed/chair/office/dark,
-/turf/open/floor/wood,
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-21"
+	},
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -20982,12 +21144,29 @@
 /area/mainship/medical/surgery_hallway{
 	name = "Research"
 	})
-"rlb" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/layer1{
-	dir = 8;
-	on = 1
+"rkW" = (
+/obj/structure/toilet{
+	dir = 4
 	},
-/turf/open/floor/wood,
+/obj/structure/mirror,
+/turf/open/floor/mainship/floor,
+/area/space)
+"rlb" = (
+/obj/structure/table/wood/fancy,
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_x = -5
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_y = 0;
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/food/drinks/bottle/specialwhiskey{
+	pixel_y = 0;
+	pixel_x = 1
+	},
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-110"
+	},
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -21474,6 +21653,13 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/engineering/upper_engine_monitoring)
+"rHy" = (
+/obj/structure/sink{
+	dir = 4
+	},
+/obj/machinery/vending/nanomed,
+/turf/open/floor/mainship/floor,
+/area/space)
 "rIb" = (
 /obj/machinery/door/airlock/mainship/generic{
 	name = "\improper Toilet"
@@ -21781,6 +21967,13 @@
 	dir = 1
 	},
 /area/mainship/medical/operating_room_four)
+"rXq" = (
+/obj/machinery/button/door{
+	id = "captainshutters";
+	name = "shutter button"
+	},
+/turf/closed/wall/mainship,
+/area/space)
 "rXt" = (
 /obj/structure/window/framed/mainship/hull,
 /turf/open/floor/mainship_hull/dir{
@@ -21791,6 +21984,14 @@
 /obj/machinery/camera/autoname/mainship,
 /turf/open/ground/coast/corner,
 /area/mainship/groundhq/ntf/hallways/gardens)
+"rXH" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/mainship{
+	dir = 4
+	},
+/obj/structure/bookcase,
+/turf/open/floor/wood,
+/area/space)
 "rYm" = (
 /turf/open/floor/wood,
 /area/mainship/ntf/fcroom)
@@ -21839,6 +22040,12 @@
 /area/mainship/hallways/bow_hallway{
 	name = "Ship Floor 1 Hallways"
 	})
+"rZG" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/mainship/living/officer_study)
 "rZI" = (
 /obj/machinery/telecomms/receiver/preset_right,
 /turf/open/floor/mainship/tcomms,
@@ -21959,15 +22166,10 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/hangar)
 "scY" = (
-/obj/structure/safe,
-/obj/item/moneybag,
-/obj/item/clothing/glasses/monocle,
-/obj/item/weapon/telebaton,
-/obj/item/book/codebook,
-/obj/item/weapon/chainofcommand,
-/obj/item/weapon/cane,
-/turf/open/floor/carpet/side{
-	dir = 9
+/obj/structure/table/urban/shiny_brown,
+/obj/machinery/computer/secure_data,
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-38"
 	},
 /area/sulaco/command{
 	name = "Captain's Room";
@@ -22029,6 +22231,16 @@
 /area/mainship/hallways/bow_hallway{
 	name = "Ship Floor 1 Hallways"
 	})
+"sei" = (
+/obj/structure/bed,
+/obj/item/bedsheet/hop,
+/obj/machinery/keycard_auth{
+	pixel_y = 25
+	},
+/turf/open/floor/carpet/side{
+	dir = 5
+	},
+/area/space)
 "sez" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/maint,
@@ -22143,7 +22355,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/mainship/floor,
+/turf/open/floor/wood,
 /area/mainship/living/officer_study)
 "slL" = (
 /turf/closed/wall/mainship,
@@ -22178,7 +22390,7 @@
 /turf/open/floor/prison/darkred/full,
 /area/mainship/groundhq/ntf/crimsonveil)
 "smP" = (
-/turf/open/floor/mainship/floor,
+/turf/open/floor/mainship/sterile/dark,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -22303,14 +22515,18 @@
 	})
 "ssm" = (
 /obj/structure/table/reinforced,
-/obj/structure/window/reinforced/tinted/frosted{
+/obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/window/reinforced/tinted/frosted{
+/obj/structure/window/reinforced{
 	dir = 8
 	},
 /turf/open/floor/mainship/black/full,
 /area/mainship/shipboard/firing_range)
+"ssq" = (
+/obj/effect/landmark/start/job/captain,
+/turf/open/floor/wood,
+/area/space)
 "ssx" = (
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/port_umbilical{
@@ -22407,6 +22623,13 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/groundhq/ntf/shipboard/brig)
+"svF" = (
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/space)
 "svO" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -22419,8 +22642,9 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/squads/general)
 "swp" = (
-/obj/structure/bed/chair/comfy/black,
-/turf/open/floor/carpet,
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-203"
+	},
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -22565,6 +22789,7 @@
 /area/mainship/groundhq/ntf/hallways/gardens)
 "sBX" = (
 /obj/structure/table/reinforced,
+/obj/item/storage/box/donkpockets,
 /obj/machinery/reagentgrinder{
 	pixel_y = 5
 	},
@@ -22660,13 +22885,13 @@
 	})
 "sHz" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 5
-	},
-/obj/structure/disposalpipe/segment/corner{
-	dir = 1
-	},
 /obj/effect/landmark/start/job/vanguard,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/bow_hallway{
 	name = "Ship Floor 1 Hallways"
@@ -22895,8 +23120,7 @@
 /obj/structure/sink{
 	dir = 4
 	},
-/obj/machinery/vending/nanomed,
-/turf/open/floor/mainship/floor,
+/turf/open/floor/mainship/sterile/dark,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -23212,22 +23436,6 @@
 "tcR" = (
 /turf/open/floor/mainship/sterile/side,
 /area/mainship/medical/lower_medical)
-"tcV" = (
-/obj/machinery/door/airlock/mainship/command/CPToffice{
-	dir = 2;
-	name = "\improper Commander's Office"
-	},
-/obj/structure/cable,
-/obj/machinery/door/firedoor/mainship{
-	dir = 2
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/turf/open/floor/mainship/mono,
-/area/sulaco/command{
-	name = "Captain's Room";
-	outside = 0
-	})
 "tdf" = (
 /obj/machinery/suit_storage_unit/carbon_unit,
 /turf/open/floor/mainship/orange{
@@ -23510,6 +23718,11 @@
 /area/mainship/shipboard/port_missiles{
 	name = "Shipside Corpsec Office"
 	})
+"tmS" = (
+/obj/structure/table/mainship/nometal,
+/obj/machinery/computer/emails,
+/turf/open/floor/wood,
+/area/space)
 "tnl" = (
 /obj/machinery/door/airlock/mainship/engineering/engine{
 	dir = 2
@@ -23533,6 +23746,13 @@
 /obj/effect/ai_node,
 /turf/open/floor/wood,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
+"tnP" = (
+/obj/structure/table/reinforced,
+/obj/effect/spawner/random/food_or_drink/kitchenknife,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
+/turf/open/floor/prison/kitchen,
+/area/mainship/living/officer_study)
 "toa" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -23578,12 +23798,8 @@
 /turf/open/floor/mainship,
 /area/mainship/squads/general)
 "tqd" = (
-/obj/structure/bed/chair/wood/wings{
-	dir = 4
-	},
-/turf/open/floor/carpet/side{
-	dir = 10
-	},
+/obj/structure/table/wood/fancy,
+/turf/open/floor/carpet/red,
 /area/mainship/living/officer_study)
 "tqn" = (
 /obj/machinery/door/firedoor/mainship,
@@ -23739,13 +23955,16 @@
 /turf/open/space/basic,
 /area/mainship/hull/lower_hull)
 "tAw" = (
-/obj/structure/bed/chair/sofa/left{
+/obj/machinery/air_alarm{
 	dir = 4
 	},
-/obj/machinery/firealarm{
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 6
+	},
+/obj/structure/disposalpipe/segment/corner{
 	dir = 4
 	},
-/turf/open/floor/wood,
+/turf/open/floor/wood/variable/mosaic,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -24408,9 +24627,6 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/light/mainship{
-	dir = 4
-	},
 /turf/open/floor/prison/kitchen,
 /area/mainship/living/officer_study)
 "uec" = (
@@ -24511,6 +24727,10 @@
 /area/outpost/cargo{
 	outside = 1
 	})
+"uif" = (
+/obj/machinery/holopad,
+/turf/open/floor/wood,
+/area/mainship/living/officer_study)
 "uiu" = (
 /obj/item/reagent_containers/spray/cleaner,
 /turf/open/floor/mainship/mono,
@@ -24600,6 +24820,16 @@
 /obj/effect/spawner/random/misc/plushie/fiftyfifty,
 /turf/open/floor/mainship,
 /area/mainship/groundhq/ntf/shipboard/brig_cells)
+"umz" = (
+/obj/machinery/shower{
+	dir = 4
+	},
+/obj/structure/window/reinforced/tinted/frosted{
+	dir = 1
+	},
+/obj/machinery/door/window,
+/turf/open/floor/plating/plating_catwalk,
+/area/space)
 "umR" = (
 /obj/structure/cable,
 /obj/machinery/light/small,
@@ -24618,6 +24848,11 @@
 /area/mainship/command/cic)
 "unY" = (
 /obj/structure/window/framed/mainship/requisitions,
+/obj/machinery/door/poddoor/shutters/mainship{
+	name = "\improper Privacy Shutters";
+	dir = 2;
+	id = "captainprivacyshutters"
+	},
 /turf/open/floor/plating,
 /area/sulaco/command{
 	name = "Captain's Room";
@@ -24922,7 +25157,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/mainship/floor,
+/turf/open/floor/wood,
 /area/mainship/living/officer_study)
 "uzU" = (
 /obj/structure/cable,
@@ -25065,6 +25300,27 @@
 /obj/structure/cable,
 /turf/open/floor/tile/barber,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
+"uGc" = (
+/obj/structure/table/mainship/nometal,
+/obj/machinery/computer/marine_card,
+/turf/open/floor/carpet/side{
+	dir = 1
+	},
+/area/space)
+"uGP" = (
+/obj/structure/safe,
+/obj/item/clothing/mask/cigarette/cigar/havana,
+/obj/item/clothing/mask/cigarette/cigar/havana,
+/obj/item/clothing/mask/cigarette/cigar/havana,
+/obj/item/clothing/mask/cigarette/cigar/havana,
+/obj/item/clothing/mask/cigarette/cigar/havana,
+/obj/item/clothing/mask/cigarette/cigar/havana,
+/obj/item/moneybag,
+/turf/open/floor/wood/variable/mosaic,
+/area/sulaco/command{
+	name = "Captain's Room";
+	outside = 0
+	})
 "uHg" = (
 /obj/structure/bed/chair/wood/wings{
 	dir = 8
@@ -25337,7 +25593,7 @@
 /obj/machinery/door/airlock/mainship/command/CPTstudy{
 	name = "\improper Commander's Study"
 	},
-/turf/open/floor/mainship/mono,
+/turf/open/space/basic,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -26054,8 +26310,9 @@
 /turf/open/floor/stairs/rampbottom,
 /area/mainship/hallways/hangar)
 "vwi" = (
-/obj/effect/landmark/start/job/captain,
-/turf/open/floor/wood,
+/obj/structure/bookcase,
+/obj/item/book/codebook,
+/turf/open/floor/wood/variable/mosaic,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -26205,7 +26462,7 @@
 /area/mainship/living/cryo_cells)
 "vDu" = (
 /obj/machinery/light/mainship,
-/turf/open/floor/mainship/floor,
+/turf/open/floor/mainship/sterile/dark,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -26268,12 +26525,6 @@
 	outside = 0;
 	name = "CEO Office"
 	})
-"vFS" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/turf/open/floor/mainship/floor,
-/area/mainship/living/officer_study)
 "vFV" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -26366,6 +26617,9 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced,
+/obj/machinery/light/mainship{
+	dir = 4
+	},
 /turf/open/floor/prison/kitchen,
 /area/mainship/living/officer_study)
 "vLz" = (
@@ -26411,6 +26665,11 @@
 /area/mainship/medical/surgery_hallway{
 	name = "Research"
 	})
+"vNL" = (
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/up,
+/turf/open/floor/prison/kitchen,
+/area/mainship/living/officer_study)
 "vOb" = (
 /obj/item/reagent_containers/food/snacks/grown/poppy,
 /turf/open/floor/mainship/mono,
@@ -26924,9 +27183,18 @@
 	dir = 10
 	},
 /area/mainship/groundhq/ntf/engineering/ce_room)
+"wlj" = (
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/obj/docking_port/stationary/marine_dropship/crash_target,
+/turf/open/floor/carpet/side{
+	dir = 10
+	},
+/area/space)
 "wlm" = (
-/obj/structure/table/reinforced,
-/turf/open/floor/prison/kitchen,
+/obj/item/stool,
+/turf/open/floor/wood,
 /area/mainship/living/officer_study)
 "wlr" = (
 /obj/structure/cable,
@@ -26951,11 +27219,9 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/lower_hull)
 "wmm" = (
-/obj/machinery/light/mainship{
-	dir = 4
-	},
-/turf/open/floor/carpet/side{
-	dir = 6
+/mob/living/simple_animal/cat/Jones,
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-137"
 	},
 /area/sulaco/command{
 	name = "Captain's Room";
@@ -27040,6 +27306,7 @@
 	dir = 2;
 	id = "captainshutters"
 	},
+/obj/structure/window/framed/mainship/requisitions,
 /turf/open/floor/plating,
 /area/sulaco/command{
 	name = "Captain's Room";
@@ -27538,7 +27805,13 @@
 /obj/structure/closet/secure_closet/captain,
 /obj/item/disk/nuclear/red,
 /obj/item/armor_module/module/valkyrie_autodoc,
-/turf/open/floor/wood,
+/obj/item/clothing/under/redpyjamas{
+	pixel_y = 5
+	},
+/obj/item/whistle,
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-38"
+	},
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -28099,9 +28372,13 @@
 	name = "CEO Office"
 	})
 "xil" = (
-/obj/structure/table/mainship/nometal,
-/obj/machinery/computer/security/wooden_tv,
-/turf/open/floor/wood,
+/obj/machinery/vending/nanomed{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment/corner{
+	dir = 8
+	},
+/turf/open/floor/wood/variable/mosaic,
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -28207,11 +28484,14 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/upper_hull)
 "xlz" = (
-/obj/machinery/camera/autoname/mainship{
-	dir = 4
+/obj/docking_port/stationary/marine_dropship/crash_target,
+/obj/structure/table/urban/shiny_brown,
+/obj/effect/spawner/random/misc/paperbin{
+	pixel_y = 7
 	},
-/turf/open/floor/carpet/side{
-	dir = 8
+/obj/item/tool/pen/blue,
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-21"
 	},
 /area/sulaco/command{
 	name = "Captain's Room";
@@ -28350,6 +28630,19 @@
 /turf/open/floor/wood/darker,
 /area/mainship/hallways/port_hallway{
 	name = "Ship Floor 2 Hallways"
+	})
+"xqo" = (
+/obj/structure/cable,
+/obj/effect/ai_node,
+/obj/structure/disposalpipe/segment/corner{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 5
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/hallways/bow_hallway{
+	name = "Ship Floor 1 Hallways"
 	})
 "xqB" = (
 /obj/machinery/door/poddoor/shutters/mainship/selfdestruct,
@@ -28677,6 +28970,23 @@
 /obj/effect/soundplayer,
 /turf/closed/wall/mainship,
 /area/campaign/jungle_outpost/outpost/living/bathroom)
+"xDO" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 1
+	},
+/obj/machinery/door/airlock/mainship/command/CPToffice{
+	dir = 2;
+	name = "\improper Commander's Office"
+	},
+/turf/open/floor/wood/variable/mosaic,
+/area/sulaco/command{
+	name = "Captain's Room";
+	outside = 0
+	})
 "xDZ" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -28876,6 +29186,13 @@
 /obj/machinery/suit_storage_unit/carbon_unit,
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/lower_hull)
+"xMm" = (
+/obj/structure/table/mainship/nometal,
+/obj/machinery/computer/secure_data,
+/turf/open/floor/carpet/side{
+	dir = 1
+	},
+/area/space)
 "xMy" = (
 /obj/machinery/computer/supplycomp,
 /turf/open/floor/mainship/green{
@@ -29069,8 +29386,13 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/lower_medical)
 "xTA" = (
-/obj/structure/table/mainship/nometal,
-/turf/open/floor/carpet,
+/obj/structure/table/urban/shiny_brown,
+/obj/item/megaphone,
+/obj/item/flashlight/lamp/green,
+/obj/item/newspaper,
+/turf/open/floor/carpet/royalblack{
+	icon_state = "carpet_royalblack-137"
+	},
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
@@ -29125,6 +29447,9 @@
 	},
 /turf/open/floor/wood,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
+"xWS" = (
+/turf/open/floor/wood,
+/area/space)
 "xXf" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -34135,8 +34460,8 @@ eSQ
 tAw
 hch
 kNA
-slL
-hZA
+xDO
+xqo
 kyS
 sIF
 mOC
@@ -34254,7 +34579,7 @@ ljZ
 oyH
 byD
 oyy
-tcV
+slL
 sHz
 kyS
 sIF
@@ -34486,13 +34811,13 @@ fYO
 kjD
 slL
 chh
-bJy
+dRN
 cGE
 dRN
 xil
 bJO
 osi
-slL
+unY
 aHt
 kyS
 sIF
@@ -34726,7 +35051,7 @@ wnH
 wMI
 rdh
 fzz
-oyH
+fPe
 slL
 qMb
 kXS
@@ -34844,10 +35169,10 @@ kjD
 wnH
 lxq
 nTM
-qSk
-cuv
+fPe
+fPe
 fOp
-nUx
+smP
 vDu
 slL
 aHt
@@ -34946,9 +35271,9 @@ nwr
 gsf
 wEj
 bap
-qRx
-bap
-bap
+bVH
+bVH
+bVH
 ymf
 hnw
 cMb
@@ -34960,11 +35285,11 @@ bSt
 ePf
 kyS
 kjD
-slL
+wnH
 gVq
 wmm
 vwi
-oyH
+uGP
 slL
 sPS
 smP
@@ -35183,10 +35508,10 @@ nwr
 nwr
 uiM
 soj
-uTe
-jAQ
-pAd
-hhd
+djA
+tqd
+tqd
+tqd
 uTe
 uzE
 gYA
@@ -35303,10 +35628,10 @@ nwr
 uiM
 soj
 uTe
-oYJ
-feE
 dbd
-uTe
+dbd
+dbd
+uif
 aBL
 tbW
 cMb
@@ -35539,12 +35864,12 @@ nwr
 nwr
 nwr
 gsf
-kRO
-kRO
+gsf
+uTe
 wlm
 wlm
-lyD
-kJv
+uTe
+uTe
 uzE
 gYA
 tZG
@@ -35657,13 +35982,13 @@ nwr
 nwr
 nwr
 nwr
-kRO
-gZt
-qRF
-hHn
-hHn
-aCH
-eju
+nwr
+gsf
+gsf
+lsL
+tnP
+lyD
+uTe
 aYI
 cMb
 cMb
@@ -35776,14 +36101,14 @@ nwr
 nwr
 nwr
 nwr
-gsf
-gsf
+nwr
+uiM
 bbZ
-iEX
-fud
 hHn
-qAd
-vFS
+hHn
+iZk
+dhf
+aBL
 cMb
 tmd
 ifv
@@ -35897,11 +36222,11 @@ nwr
 nwr
 nwr
 uiM
-wlm
+fUS
 hHn
 hHn
-hHn
-hHn
+vNL
+rZG
 cha
 gYA
 tZG
@@ -39703,13 +40028,13 @@ nwr
 nwr
 nwr
 nwr
-nwr
-nwr
-nwr
-nwr
-nwr
-nwr
-nwr
+qNv
+hdZ
+hBp
+wlj
+ddD
+lsz
+rXH
 nwr
 nwr
 nwr
@@ -39822,13 +40147,13 @@ nwr
 nwr
 nwr
 nwr
-nwr
-nwr
-nwr
-nwr
-nwr
-nwr
-nwr
+xMm
+lhN
+dme
+jvV
+xWS
+gYI
+nha
 nwr
 nwr
 nwr
@@ -39941,13 +40266,13 @@ nwr
 nwr
 nwr
 nwr
-nwr
-nwr
-nwr
-nwr
-nwr
-nwr
-nwr
+uGc
+njn
+nsd
+lqo
+lBP
+qAe
+ndO
 nwr
 nwr
 nwr
@@ -40060,13 +40385,13 @@ nwr
 nwr
 nwr
 nwr
-nwr
-nwr
-nwr
-nwr
-nwr
-nwr
-nwr
+dix
+acL
+deH
+qqd
+fIa
+aEC
+svF
 nwr
 nwr
 nwr
@@ -40179,13 +40504,13 @@ nwr
 nwr
 nwr
 nwr
-nwr
-nwr
-nwr
-nwr
-nwr
-nwr
-nwr
+jwS
+rXq
+jwS
+eUe
+jwS
+jwS
+jwS
 nwr
 nwr
 nwr
@@ -40298,13 +40623,13 @@ nwr
 nwr
 nwr
 nwr
-nwr
-nwr
-nwr
-nwr
-nwr
-nwr
-nwr
+cCu
+pdJ
+tmS
+xWS
+jwS
+rkW
+umz
 nwr
 nwr
 nwr
@@ -40417,13 +40742,13 @@ nwr
 nwr
 nwr
 nwr
-nwr
-nwr
-nwr
-nwr
-nwr
-nwr
-nwr
+lXl
+ocS
+gkj
+cEc
+eXa
+mug
+iLI
 nwr
 nwr
 nwr
@@ -40536,13 +40861,13 @@ nwr
 nwr
 nwr
 nwr
-nwr
-nwr
-nwr
-nwr
-nwr
-nwr
-nwr
+sei
+iaw
+ssq
+xWS
+jwS
+rHy
+kvN
 nwr
 nwr
 nwr
@@ -49982,7 +50307,7 @@ dDT
 dDT
 dDT
 sNA
-ssm
+pce
 jLh
 sbX
 wWW
@@ -50101,7 +50426,7 @@ bNX
 bNX
 bNX
 bEM
-bFM
+ssm
 djm
 vre
 fTX
@@ -60242,7 +60567,7 @@ stw
 lPh
 typ
 iaz
-pjz
+qSu
 qDN
 kAG
 uYD
