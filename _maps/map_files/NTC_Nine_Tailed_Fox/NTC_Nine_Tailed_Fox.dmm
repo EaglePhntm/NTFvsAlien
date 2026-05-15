@@ -444,6 +444,13 @@
 "aya" = (
 /turf/closed/wall/mainship,
 /area/mainship/hull/lower_hull)
+"ayk" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/open/ground/grass,
+/area/mainship/groundhq/ntf/living/grunt_rnr)
 "ayz" = (
 /turf/closed/wall/mainship,
 /area/mainship/hallways/starboard_hallway{
@@ -4818,6 +4825,10 @@
 /area/mainship/hallways/aft_hallway{
 	name = "Ship Floor 3 Hallways"
 	})
+"edo" = (
+/obj/machinery/griddle,
+/turf/open/floor/prison/kitchen,
+/area/mainship/groundhq/ntf/living/grunt_rnr)
 "edp" = (
 /obj/structure/cable,
 /obj/machinery/power/terminal{
@@ -5102,6 +5113,12 @@
 	},
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/groundhq/ntf/hallways/bathroom)
+"eoJ" = (
+/obj/machinery/button/elevator/directional/south{
+	id = "officermess"
+	},
+/turf/open/floor/urban/wood,
+/area/mainship/groundhq/ntf/living/grunt_rnr)
 "eoX" = (
 /obj/machinery/light,
 /obj/structure/sign/security,
@@ -6716,6 +6733,9 @@
 	})
 "fGg" = (
 /obj/structure/flora/ausbushes/grassybush,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/open/ground/grass,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "fGq" = (
@@ -8969,11 +8989,12 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/upper_hull)
 "hvX" = (
-/obj/structure/window/framed/mainship/toughened,
 /obj/machinery/door/poddoor/mainship/open{
 	dir = 2;
-	id = "officermess"
+	id = "officermess";
+	name = "Privacy shutters"
 	},
+/obj/structure/window/framed/mainship/toughened,
 /turf/open/floor/plating,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "hxd" = (
@@ -9316,6 +9337,9 @@
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "hQi" = (
 /obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/open/ground/grass,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "hQn" = (
@@ -11551,6 +11575,7 @@
 	},
 /obj/structure/ladder,
 /obj/structure/ladder,
+/obj/structure/ladder,
 /turf/open/floor/mainship/mono,
 /area/mainship/command/cic)
 "jFp" = (
@@ -13571,6 +13596,9 @@
 /area/mainship/command/self_destruct)
 "lcs" = (
 /obj/structure/flora/drought/grass,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/open/ground/grass,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "lcv" = (
@@ -17033,6 +17061,13 @@
 	},
 /turf/open/floor/mainship/sterile/dark,
 /area/campaign/jungle_outpost/outpost/living/bathroom)
+"nUY" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/open/ground/grass,
+/area/mainship/groundhq/ntf/living/grunt_rnr)
 "nVh" = (
 /obj/structure/closet/secure_closet/evidence,
 /turf/open/floor/mainship/red{
@@ -18037,6 +18072,9 @@
 /area/mainship/living/cryo_cells)
 "oIx" = (
 /obj/structure/flora/ausbushes/brflowers,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/open/ground/grass,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "oID" = (
@@ -19108,6 +19146,9 @@
 /area/mainship/groundhq/ntf/engineering/upper_engine_monitoring)
 "pNe" = (
 /obj/structure/flora/ausbushes/pointybush,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/open/ground/grass,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "pNj" = (
@@ -20410,6 +20451,11 @@
 	},
 /turf/open/floor/mainship/cargo,
 /area/mainship/squads/req)
+"qNe" = (
+/obj/structure/table/reinforced/fabric,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
+/turf/open/floor/prison/kitchen,
+/area/mainship/groundhq/ntf/living/grunt_rnr)
 "qNB" = (
 /obj/machinery/atmospherics/pipe/simple/general/visible{
 	dir = 10
@@ -21472,6 +21518,11 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/tankerbunks)
+"rNS" = (
+/obj/structure/table/wood/fancy,
+/obj/structure/table/wood/fancy,
+/turf/open/floor/carpet/red,
+/area/mainship/groundhq/ntf/living/grunt_rnr)
 "rOu" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/maint,
@@ -27096,6 +27147,13 @@
 /obj/machinery/loadout_vendor,
 /turf/open/floor/mainship/sterile/plain,
 /area/mainship/living/tankerbunks)
+"wqF" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/open/ground/grass,
+/area/mainship/groundhq/ntf/living/grunt_rnr)
 "wqO" = (
 /obj/structure/transport/linear/public{
 	icon = 'icons/turf/elevator.dmi';
@@ -57793,7 +57851,7 @@ yco
 qsx
 aNP
 jUe
-aNP
+edo
 uXI
 jiX
 ufS
@@ -58148,7 +58206,7 @@ gbP
 lPQ
 inB
 qsx
-cfQ
+qNe
 aNP
 aNP
 vBf
@@ -58268,8 +58326,8 @@ nYO
 xsg
 qsx
 cfQ
-cfQ
-cfQ
+qNe
+qNe
 uXI
 eYz
 fAP
@@ -58619,16 +58677,16 @@ pgL
 huv
 jGb
 yco
-qsx
-qsx
-qsx
-qsx
+vEf
+pWd
+pWd
+vEf
 qsx
 qsx
 qsx
 qsx
 hvX
-vbu
+wqF
 hQi
 lcs
 fGg
@@ -58738,19 +58796,19 @@ aaP
 grF
 nkj
 yco
+gBN
+rNS
+rNS
+vbx
 vEf
-pWd
-pWd
-vEf
 qsx
-qsx
-qsx
+eoJ
 gvX
 gvX
-cSI
-cSI
-cSI
-cSI
+qsx
+qsx
+qsx
+qsx
 gvX
 lrN
 lrN
@@ -59214,19 +59272,19 @@ pgL
 grF
 pgL
 yco
+gBN
+rNS
+rNS
+vbx
 vEf
-kbb
-kbb
-vEf
-qsx
 qsx
 qsx
 gvX
 gvX
-cSI
-cSI
-cSI
-cSI
+qsx
+qsx
+qsx
+qsx
 gvX
 qZo
 wJU
@@ -59333,17 +59391,17 @@ pgL
 grF
 pgL
 yco
-qsx
-qsx
-qsx
-qsx
+vEf
+kbb
+kbb
+vEf
 qsx
 qsx
 qsx
 qsx
 hvX
-hQi
-loE
+nUY
+ayk
 pNe
 oIx
 gvX
