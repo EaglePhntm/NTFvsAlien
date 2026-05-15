@@ -4918,10 +4918,6 @@
 /area/mainship/medical/upper_medical{
 	name = "Shipside Medbay"
 	})
-"ejs" = (
-/obj/item/weapon/sword/mercsword,
-/turf/open/space/basic,
-/area/space)
 "ejv" = (
 /turf/open/floor/mainship/black/full,
 /area/mainship/living/tankerbunks)
@@ -49870,7 +49866,7 @@ nwr
 nwr
 nwr
 nwr
-ejs
+nwr
 nwr
 nwr
 nwr
