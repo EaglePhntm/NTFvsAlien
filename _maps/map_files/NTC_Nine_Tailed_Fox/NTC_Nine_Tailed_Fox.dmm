@@ -3770,9 +3770,6 @@
 /obj/structure/bed/chair/sofa/right{
 	dir = 4
 	},
-/obj/structure/window/reinforced/tinted{
-	dir = 8
-	},
 /turf/open/floor/carpet/red,
 /area/mainship/groundhq/ntf/crimsonveil)
 "dbT" = (
@@ -6137,14 +6134,6 @@
 /area/outpost/cargo{
 	outside = 1
 	})
-"fne" = (
-/obj/structure/table/urban/shiny_black,
-/obj/machinery/vending/boozeomat,
-/obj/structure/window/reinforced/tinted{
-	dir = 4
-	},
-/turf/open/floor/tile/darkish,
-/area/mainship/groundhq/ntf/crimsonveil)
 "fnl" = (
 /obj/structure/cable,
 /turf/open/floor/wood,
@@ -11739,9 +11728,6 @@
 /obj/structure/bed/chair/sofa/corner{
 	dir = 1
 	},
-/obj/structure/window/reinforced/tinted{
-	dir = 8
-	},
 /turf/open/floor/carpet/red,
 /area/mainship/groundhq/ntf/crimsonveil)
 "jRJ" = (
@@ -12238,6 +12224,11 @@
 	},
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/hallways/hangar)
+"kmE" = (
+/obj/structure/table/urban/shiny_black,
+/obj/machinery/vending/boozeomat,
+/turf/open/floor/tile/darkish,
+/area/mainship/groundhq/ntf/crimsonveil)
 "kmK" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 9
@@ -17755,12 +17746,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/port_atmos)
-"oGz" = (
-/obj/structure/window/reinforced/tinted{
-	dir = 4
-	},
-/turf/open/floor/tile/darkish,
-/area/mainship/groundhq/ntf/crimsonveil)
 "oGR" = (
 /obj/structure/bed,
 /obj/item/bedsheet/brown,
@@ -56107,8 +56092,8 @@ cqi
 cqi
 cqi
 cqi
-fQX
-pJW
+kmE
+jFV
 aUk
 vzV
 aOn
@@ -56345,8 +56330,8 @@ lMM
 hvV
 uJm
 cqi
-fne
-oGz
+fQX
+pJW
 aUk
 iaL
 hOa
