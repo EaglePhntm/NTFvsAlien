@@ -8714,6 +8714,7 @@
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/structure/stairs,
 /turf/open/floor/urban/wood/blackwood,
 /area/mainship/groundhq/ntf/crimsonveil)
 "hnp" = (
@@ -26449,6 +26450,7 @@
 /obj/structure/curtain/open/temple{
 	dir = 2
 	},
+/obj/structure/stairs,
 /turf/open/floor/urban/wood/blackwood,
 /area/mainship/groundhq/ntf/crimsonveil)
 "wli" = (
