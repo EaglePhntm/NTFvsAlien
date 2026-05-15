@@ -412,7 +412,7 @@
 	})
 "axC" = (
 /obj/effect/spawner/random/food_or_drink/sugary_snack,
-/obj/structure/table/wood,
+/obj/structure/table/wood/fancy,
 /turf/open/floor/wood,
 /area/mainship/groundhq/clf/living/cafeteria)
 "axM" = (
@@ -8602,7 +8602,7 @@
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/telecomms)
 "hih" = (
-/obj/structure/table/mainship,
+/obj/structure/table/wood/fancy,
 /turf/open/floor/wood,
 /area/mainship/groundhq/clf/living/cafeteria)
 "hjc" = (
@@ -17438,10 +17438,10 @@
 	})
 "oqM" = (
 /obj/effect/spawner/random/food_or_drink/sugary_snack,
-/obj/structure/table/wood,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/table/urban/shiny_brown,
 /turf/open/floor/wood,
 /area/mainship/groundhq/clf/living/cafeteria)
 "oqP" = (
@@ -19033,10 +19033,10 @@
 	name = "Shipside Medbay"
 	})
 "pMQ" = (
-/obj/structure/table/wood,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/table/urban/shiny_brown,
 /turf/open/floor/wood,
 /area/mainship/groundhq/clf/living/cafeteria)
 "pMX" = (
@@ -21415,12 +21415,6 @@
 /area/mainship/shipboard/port_missiles{
 	name = "Shipside Corpsec Office"
 	})
-"rPv" = (
-/obj/structure/bed/chair/sofa{
-	dir = 4
-	},
-/turf/open/floor/wood,
-/area/mainship/groundhq/clf/living/cafeteria)
 "rPy" = (
 /turf/closed/wall/mainship,
 /area/deltastation/engineering/main{
@@ -23501,8 +23495,8 @@
 /turf/closed/wall/mainship,
 /area/mainship/hallways/dorm3)
 "tyH" = (
-/obj/structure/table/wood,
 /obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/structure/table/urban/shiny_brown,
 /turf/open/floor/wood,
 /area/mainship/groundhq/clf/living/cafeteria)
 "tzm" = (
@@ -23546,7 +23540,7 @@
 	outside = 0
 	})
 "tBd" = (
-/obj/structure/table/wood,
+/obj/structure/table/urban/shiny_brown,
 /turf/open/floor/wood,
 /area/mainship/groundhq/clf/living/cafeteria)
 "tBv" = (
@@ -23818,11 +23812,8 @@
 	pixel_y = 3;
 	pixel_x = -7
 	},
-/obj/item/reagent_containers/food/snacks/pizzapasta/meatballspaghetti{
-	pixel_x = 3;
-	pixel_y = 9
-	},
 /obj/structure/cable,
+/obj/item/reagent_containers/food/snacks/burger/cheese,
 /turf/open/floor/carpet/red,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "tLW" = (
@@ -28153,10 +28144,7 @@
 	pixel_y = 3;
 	pixel_x = -7
 	},
-/obj/item/reagent_containers/food/snacks/pizzapasta/meatballspaghetti{
-	pixel_x = 3;
-	pixel_y = 5
-	},
+/obj/item/reagent_containers/food/snacks/burger/cheese,
 /turf/open/floor/carpet/red,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "xoj" = (
@@ -29008,22 +28996,11 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/storage/fancy/cigar{
-	pixel_x = -4
-	},
-/obj/item/storage/fancy/cigar{
-	pixel_x = -4
-	},
-/obj/item/storage/fancy/cigar{
-	pixel_x = -4
-	},
-/obj/item/storage/fancy/cigar{
-	pixel_x = -4
-	},
-/obj/item/storage/fancy/cigar{
-	pixel_x = -4
-	},
 /obj/structure/rack,
+/obj/item/storage/fancy/cigar,
+/obj/item/storage/fancy/cigar,
+/obj/item/storage/fancy/cigar,
+/obj/item/storage/fancy/cigar,
 /turf/open/floor/tile/darkish,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "xVb" = (
@@ -56683,8 +56660,8 @@ aYG
 aYG
 cwe
 kJf
+kJf
 oqP
-rPv
 jXX
 oAJ
 tUF
@@ -57041,7 +57018,7 @@ pLc
 uYf
 kJf
 kJf
-kJf
+nss
 xSQ
 oAJ
 iWN
@@ -57391,8 +57368,8 @@ fFk
 sVR
 uXI
 oqM
-axC
-axC
+tyH
+tyH
 kJf
 axC
 kJf
@@ -57748,10 +57725,10 @@ xkP
 xkP
 uXI
 tBd
-axC
-axC
+tyH
+tyH
 kJf
-tBd
+hih
 kJf
 jZp
 hih
@@ -58105,7 +58082,7 @@ oDu
 cRd
 uXI
 pMQ
-axC
+tyH
 tBd
 kJf
 axC
@@ -60005,7 +59982,7 @@ roJ
 gvX
 xVa
 gCo
-xgj
+gCo
 xgj
 gvX
 gsn
