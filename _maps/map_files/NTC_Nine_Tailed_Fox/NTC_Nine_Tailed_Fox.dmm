@@ -5802,7 +5802,7 @@
 /obj/structure/sink{
 	dir = 1
 	},
-/turf/open/floor/tile/darkish,
+/turf/open/floor/mainship/red/full,
 /area/mainship/groundhq/ntf/crimsonveil)
 "eZM" = (
 /obj/machinery/vending/nanomed,
@@ -15820,6 +15820,7 @@
 /obj/machinery/light/blue{
 	dir = 1
 	},
+/obj/structure/table/urban/shiny_black,
 /turf/open/floor/tile/darkish,
 /area/mainship/groundhq/ntf/crimsonveil)
 "mXH" = (
@@ -24769,6 +24770,7 @@
 /obj/machinery/chem_dispenser/soda{
 	dir = 8
 	},
+/obj/structure/table/urban/shiny_black,
 /turf/open/floor/tile/darkish,
 /area/mainship/groundhq/ntf/crimsonveil)
 "uOC" = (
@@ -27472,7 +27474,7 @@
 /area/mainship/hallways/hangar)
 "xaN" = (
 /obj/structure/reagent_dispensers/beerkeg,
-/turf/open/floor/tile/darkish,
+/turf/open/floor/mainship/red/full,
 /area/mainship/groundhq/ntf/crimsonveil)
 "xbj" = (
 /obj/structure/toilet,
@@ -27710,12 +27712,10 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/upper_hull)
 "xlz" = (
-/obj/docking_port/stationary/marine_dropship/crash_target,
 /obj/structure/table/urban/shiny_brown,
-/obj/effect/spawner/random/misc/paperbin{
-	pixel_y = 7
-	},
 /obj/item/tool/pen/blue,
+/obj/structure/paper_bin,
+/obj/docking_port/stationary/marine_dropship/crash_target,
 /turf/open/floor/carpet/royalblack{
 	icon_state = "carpet_royalblack-21"
 	},
