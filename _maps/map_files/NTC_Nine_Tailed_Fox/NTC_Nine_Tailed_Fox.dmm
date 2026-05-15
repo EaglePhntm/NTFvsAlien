@@ -3770,6 +3770,9 @@
 /obj/structure/bed/chair/sofa/right{
 	dir = 4
 	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/open/floor/carpet/red,
 /area/mainship/groundhq/ntf/crimsonveil)
 "dbT" = (
@@ -11728,6 +11731,9 @@
 "jRz" = (
 /obj/structure/bed/chair/sofa/corner{
 	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
 	},
 /turf/open/floor/carpet/red,
 /area/mainship/groundhq/ntf/crimsonveil)
@@ -56095,7 +56101,7 @@ cqi
 cqi
 cqi
 kmE
-jFV
+pJW
 aUk
 vzV
 aOn
@@ -56333,7 +56339,7 @@ hvV
 uJm
 cqi
 fQX
-pJW
+jFV
 aUk
 iaL
 hOa
