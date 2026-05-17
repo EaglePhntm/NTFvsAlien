@@ -153,6 +153,9 @@
 			data["robot_type"] = robot_type
 			data["robot_body_base"] = robot_body_base
 			data["robot_head_base"] = robot_head_base
+			data["custom_supersoldier_parts"] = custom_supersoldier_parts
+			data["supersoldier_body_base"] = supersoldier_body_base
+			data["supersoldier_head_base"] = supersoldier_head_base
 			data["moth_wings"] = moth_wings
 			data["allow_mismatched_parts"] = allow_mismatched_parts
 			data["use_genital_size_controls"] = use_genital_size_controls
@@ -484,6 +487,22 @@
 			robot_head_base = choice
 			update_preview_icon()
 
+		if("supersoldier_body_base")
+			var/choice = tgui_input_list(ui.user, "What supersoldier body base do you want?", "Supersoldier body base", SUPERSOLDIER_BODY_BASES)
+			if(!choice)
+				return
+			supersoldier_body_base = choice
+			if(!(digitigrade_legs in digitigrade_leg_options()))
+				digitigrade_legs = "Normal"
+			update_preview_icon()
+
+		if("supersoldier_head_base")
+			var/choice = tgui_input_list(ui.user, "What supersoldier head base do you want?", "Supersoldier head base", SUPERSOLDIER_HEAD_BASES)
+			if(!choice)
+				return
+			supersoldier_head_base = choice
+			update_preview_icon()
+
 		if("moth_wings")
 			var/choice = tgui_input_list(ui.user, "What kind of moth wings do you want to play with? Only useable as a moth.", "Moth with type choice", GLOB.moth_wings_list)
 			if(!choice)
@@ -507,6 +526,18 @@
 
 		if("toggle_mismatched_parts")
 			allow_mismatched_parts = !allow_mismatched_parts
+			var/list/leg_options = digitigrade_leg_options()
+			if(!(digitigrade_legs in leg_options))
+				digitigrade_legs = "Normal"
+			update_preview_icon()
+			save_preferences()
+			save_character()
+			save_keybinds()
+			SStgui.update_uis(src)
+			SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+			return TRUE
+		if("toggle_supersoldier_parts")
+			custom_supersoldier_parts = !custom_supersoldier_parts
 			var/list/leg_options = digitigrade_leg_options()
 			if(!(digitigrade_legs in leg_options))
 				digitigrade_legs = "Normal"

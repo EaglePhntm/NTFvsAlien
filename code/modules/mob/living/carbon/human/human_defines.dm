@@ -50,6 +50,9 @@
 	var/synthetic_body_base = "Human"
 	var/robot_body_base = "Combat Robot"
 	var/robot_head_base = "Combat Robot"
+	var/custom_supersoldier_parts = FALSE
+	var/supersoldier_body_base = "Human"
+	var/supersoldier_head_base = "Human"
 
 	///The style of the makeup the mob currently has applied. Used to determine the right icon state for on the mob.
 	var/makeup_style = ""

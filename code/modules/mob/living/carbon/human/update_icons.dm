@@ -359,7 +359,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	stand_icon = new(species.icon_template ? species.icon_template : 'icons/mob/human.dmi',"blank")
 
 	var/race_icon = get_body_icon()
-	var/icon_key = "[species.type]|[species.name]|[race_icon]|[physique_key]|[ethnicity]|[digitigrade_legs]|[synthetic_body_base]|[robot_body_base]|[robot_head_base]"
+	var/icon_key = "[species.type]|[species.name]|[race_icon]|[physique_key]|[ethnicity]|[digitigrade_legs]|[synthetic_body_base]|[robot_body_base]|[robot_head_base]|[custom_supersoldier_parts]|[supersoldier_body_base]|[supersoldier_head_base]"
 	for(var/datum/limb/part in limbs)
 
 		if(istype(part,/datum/limb/head) && !(part.limb_status & LIMB_DESTROYED))

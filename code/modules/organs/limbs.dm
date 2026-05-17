@@ -904,7 +904,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	else
 		e_icon = E.icon_name
 
-	return icon(race_icon, "[get_limb_icon_name(owner.species, owner.physique, icon_name, e_icon, owner.digitigrade_legs, owner.synthetic_body_base, owner.robot_body_base, owner.robot_head_base)]")
+	return icon(race_icon, "[get_limb_icon_name(owner.species, owner.physique, icon_name, e_icon, owner.digitigrade_legs, owner.synthetic_body_base, owner.robot_body_base, owner.robot_head_base, owner.custom_supersoldier_parts, owner.supersoldier_body_base, owner.supersoldier_head_base)]")
 
 
 /datum/limb/proc/is_usable()

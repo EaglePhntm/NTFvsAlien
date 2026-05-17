@@ -6,6 +6,8 @@
 	robot_type = pick(ROBOT_TYPES)
 	robot_body_base = pick(ROBOT_BODY_BASES)
 	robot_head_base = pick(ROBOT_HEAD_BASES)
+	supersoldier_body_base = pick(SUPERSOLDIER_BODY_BASES)
+	supersoldier_head_base = pick(SUPERSOLDIER_HEAD_BASES)
 	ethnicity = initial(ethnicity)
 	moth_wings = pick(GLOB.moth_wings_list)
 	tail = pick(GLOB.lizard_tails_list)
@@ -220,6 +222,9 @@
 	character.moth_wings = moth_wings
 	character.synthetic_body_base = synthetic_body_base
 	character.allow_mismatched_parts = allow_mismatched_parts
+	character.custom_supersoldier_parts = custom_supersoldier_parts
+	character.supersoldier_body_base = supersoldier_body_base
+	character.supersoldier_head_base = supersoldier_head_base
 	if(species == "Combat Robot" && !allow_mismatched_parts)
 		character.robot_body_base = "Combat Robot"
 		character.robot_head_base = "Combat Robot"

@@ -375,6 +375,9 @@
 /datum/preferences/proc/is_combat_robot_species()
 	return species == "Combat Robot"
 
+/datum/preferences/proc/is_prototype_supersoldier_species()
+	return species == "Prototype Supersoldier"
+
 /datum/preferences/proc/sync_synthetic_type_to_species()
 	if(species == "Early Synthetic")
 		synthetic_type = "Early Synthetic"
@@ -399,11 +402,22 @@
 		return DIGITIGRADE_LEG_TYPES
 	return list("Normal")
 
+/datum/preferences/proc/supersoldier_digitigrade_leg_options()
+	if(!is_prototype_supersoldier_species())
+		return list("Normal")
+	if(!custom_supersoldier_parts)
+		return list("Normal")
+	if(supersoldier_body_base in list("Lizard", "Anthro", "Akula", "Aquatic"))
+		return DIGITIGRADE_LEG_TYPES
+	return list("Normal")
+
 /datum/preferences/proc/digitigrade_leg_options()
 	if(is_synthetic_species())
 		return synthetic_digitigrade_leg_options()
 	if(is_combat_robot_species())
 		return combat_robot_digitigrade_leg_options()
+	if(is_prototype_supersoldier_species())
+		return supersoldier_digitigrade_leg_options()
 	var/datum/species/current_species = GLOB.all_species[species]
 	return current_species?.digitigrade_leg_options || list("Normal")
 

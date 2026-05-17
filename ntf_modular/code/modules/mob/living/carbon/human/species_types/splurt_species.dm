@@ -2,7 +2,7 @@
 	joinable_roundstart = FALSE
 
 /datum/species/human/prototype_supersoldier
-	joinable_roundstart = FALSE
+	joinable_roundstart = TRUE
 
 /datum/species/akula
 	name = "Akula"
@@ -63,6 +63,9 @@
 	limb_type = SPECIES_LIMB_SPLURT
 	splurt_limb_prefix = "insect"
 
+// Disabled SPLURT species placeholders keep the type paths and sprite wiring ready for later ports.
+// Do not enable these until their body sprites, mechanics, and preference defaults are finished.
+
 /datum/species/humanoid
 	name = "Humanoid"
 	icobase = BODYPART_ICON_HUMAN
@@ -77,16 +80,6 @@
 		"Digitigrade" = "digitigrade_1",
 		"Digitigrade 2" = "digitigrade_2",
 	)
-
-/datum/species/dwarf
-	name = "Dwarf"
-	icobase = BODYPART_ICON_HUMAN
-	species_flags = HAS_LIPS|HAS_UNDERWEAR|HAS_SKIN_COLOR
-	count_human = TRUE
-	joinable_roundstart = FALSE
-	has_genital_selection = TRUE
-	limb_type = SPECIES_LIMB_SPLURT
-	splurt_limb_prefix = "human"
 
 /datum/species/podperson
 	name = "Podperson"

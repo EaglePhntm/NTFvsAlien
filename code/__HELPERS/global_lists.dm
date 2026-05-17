@@ -12,6 +12,10 @@
 
 #define ROBOT_HEAD_BASES list("Combat Robot", "Hammerhead", "Chilvaris", "Ratcher", "Sterling", "Synskin", "Android", "Dark Android", "Human", "Lizard", "Anthro", "Morpheus Cyberkinetics", "Bishop Cyberkinetics", "Bishop Cyberkinetics 2.0", "Hephaestus Industries", "Hephaestus Industries 2.0", "Shellguard Munitions", "Ward-Takahashi Manufacturing", "Xion Manufacturing Group", "Xion Manufacturing Group 2.0", "Zeng-Hu Pharmaceuticals", "E3N AI")
 
+#define SUPERSOLDIER_BODY_BASES list("Human", "Lizard", "Anthro", "Akula", "Aquatic", "Insectoid", "Skrell")
+
+#define SUPERSOLDIER_HEAD_BASES list("Human", "Lizard", "Anthro", "Akula", "Aquatic", "Insectoid", "Skrell")
+
 
 // Posters
 GLOBAL_LIST_INIT(poster_designs, subtypesof(/datum/poster))

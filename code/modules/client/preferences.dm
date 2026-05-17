@@ -64,6 +64,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/robot_body_base = "Combat Robot"
 	var/robot_head_base = "Combat Robot"
 
+	//Prototype supersoldier appearance preferences
+	var/custom_supersoldier_parts = FALSE
+	var/supersoldier_body_base = "Human"
+	var/supersoldier_head_base = "Human"
+
 	//AI specific preferences
 	var/ai_name = "ARES v3.2"
 

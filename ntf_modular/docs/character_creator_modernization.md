@@ -306,6 +306,41 @@ logic. For example Anthro-like species can share an Anthro body base, and
 synthetic variants can route through synthetic/combat robot body-base selection.
 Avoid duplicating species datums when a body-base option is the actual behavior.
 
+## Disabled Species Placeholders
+
+Some species datums are intentionally present but not selectable yet. These keep
+SPLURT/Bubbers type paths, body icon wiring, savefile compatibility, and future
+port targets visible without exposing unfinished species to players.
+
+Current intentionally disabled placeholders include:
+
+- `Humanoid`
+- `Podperson`
+- `Mushperson`
+- `Xenomorph Hybrid`
+- `Tajaran`
+- `Vulpkanin`
+- `Teshari`
+- `Vox Primalis`
+
+Do not remove these just because `joinable_roundstart = FALSE`. Enable one only
+after its body sprites, hands, eyes, digitigrade behavior, accessory defaults,
+and any species mechanics are working in both the preview and in world.
+
+Copied Skyrat bodypart code files are not used by NTF's current renderer. Keep
+only the icon sheets and data that the NTF code references directly. Species
+that are not on the roadmap, such as dwarf, ghoul, and golem, should be removed
+instead of kept as disabled placeholders.
+
+`Prototype Supersoldier` is not a placeholder. Its core mechanics live in the
+upstream species/action files: it gets the supersoldier stim action, the tall
+trait, and a lower crit threshold while that species is active.
+
+Prototype supersoldiers can optionally use custom body/head bases through
+`custom_supersoldier_parts`, `supersoldier_body_base`, and
+`supersoldier_head_base`. This mirrors the combat robot custom-part flow, but it
+uses organic SPLURT body bases instead of robot manufacturer bodies.
+
 ## Savefile Rule
 
 Every new visible character option needs four pieces:

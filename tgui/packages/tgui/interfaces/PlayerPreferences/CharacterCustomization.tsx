@@ -161,6 +161,8 @@ export const CharacterCustomization = (props) => {
   const legRows = partRows.filter((row) => row.id === 'digitigrade_legs');
   const featureRows = partRows.filter((row) => row.id !== 'digitigrade_legs');
   const showCombatRobotParts = !!data.allow_mismatched_parts;
+  const showSupersoldierParts = !!data.custom_supersoldier_parts;
+  const isPrototypeSupersoldier = data.species === 'Prototype Supersoldier';
   const showSyntheticJobBody =
     data.species === 'Synthetic' || data.species === 'Early Synthetic';
   const creatorSizeControl = (row: CharacterCreatorOptionRow) => {
@@ -413,6 +415,14 @@ export const CharacterCustomization = (props) => {
     setLastRobotToggle(now);
     act('toggle_mismatched_parts');
   };
+  const toggleSupersoldierParts = () => {
+    const now = Date.now();
+    if (now - lastRobotToggle < 200) {
+      return;
+    }
+    setLastRobotToggle(now);
+    act('toggle_supersoldier_parts');
+  };
   const creatorPanels = {
     identity: 'Identity',
     appearance: 'Appearance',
@@ -533,6 +543,15 @@ export const CharacterCustomization = (props) => {
               >
                 Custom robot parts
               </Button.Checkbox>
+              {isPrototypeSupersoldier ? (
+                <Button.Checkbox
+                  checked={showSupersoldierParts}
+                  onClick={toggleSupersoldierParts}
+                  tooltip="Shows separate body and head controls for prototype supersoldier appearance."
+                >
+                  Custom supersoldier parts
+                </Button.Checkbox>
+              ) : null}
               <SelectFieldPreference
                 label={'Species'}
                 value={'species'}
@@ -567,6 +586,24 @@ export const CharacterCustomization = (props) => {
                     action={'robot_head_base'}
                     fallback={'Combat Robot'}
                     tooltip={'Head sprite base used by custom robot appearances.'}
+                  />
+                </>
+              ) : null}
+              {isPrototypeSupersoldier && showSupersoldierParts ? (
+                <>
+                  <SelectFieldPreference
+                    label={'Supersoldier body'}
+                    value={'supersoldier_body_base'}
+                    action={'supersoldier_body_base'}
+                    fallback={'Human'}
+                    tooltip={'Body sprite base used by custom prototype supersoldier appearances.'}
+                  />
+                  <SelectFieldPreference
+                    label={'Supersoldier head'}
+                    value={'supersoldier_head_base'}
+                    action={'supersoldier_head_base'}
+                    fallback={'Human'}
+                    tooltip={'Head sprite base used by custom prototype supersoldier appearances.'}
                   />
                 </>
               ) : null}

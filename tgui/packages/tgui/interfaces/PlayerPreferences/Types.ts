@@ -50,6 +50,9 @@ type CharacterCustomizationData = {
   synthetic_body_base: string;
   robot_body_base: string;
   robot_head_base: string;
+  custom_supersoldier_parts: boolean;
+  supersoldier_body_base: string;
+  supersoldier_head_base: string;
   character_creator_genital_row_ids: string[] | Record<string, string>;
   character_creator_genital_row_count: number;
   character_creator_part_row_ids: string[] | Record<string, string>;
