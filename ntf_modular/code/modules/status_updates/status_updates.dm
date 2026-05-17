@@ -23,6 +23,7 @@ GLOBAL_LIST_INIT(mode_to_pingid, list(
 	"Secret of Life - No Subfactions" = PINGID_SOL_MODE_PING,
 	"Secret of Life - NTF vs Alien only" = PINGID_SOL_MODE_PING,
 	"Secret of Life - NTF vs CLF" = PINGID_SOL_MODE_PING,
+	"Secret of Life - Faction Chaos" = PINGID_SOL_MODE_PING,
 ))
 
 #define MAXIMUM_DISCORD_MESSAGE_LENGTH 1800 // actually 2000 but let's leave 10% safety buffer

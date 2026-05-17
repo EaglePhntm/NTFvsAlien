@@ -156,13 +156,6 @@
 	if(!isxeno(user))
 		to_chat(user, span_warning("You don't know how to use this."))
 		return FALSE
-	if(!(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES))
-		if(ishuman(patient))
-			var/mob/living/carbon/human/homan = patient
-			var/threshold = 0.8 * GLOB.time_before_dnr
-			if(homan.dead_ticks <= threshold)
-				to_chat(user, span_xenowarning("This one hasn't gone cold enough yet. Try again in [(threshold - homan.dead_ticks)*2] seconds."))//2 seconds per tick
-				return
 	jellyrevive(patient,user)
 
 /obj/item/stack/req_jelly/proc/jellyrevive(mob/living/carbon/human/patient, mob/living/carbon/user)
@@ -194,7 +187,13 @@
 	if(fail_reason)
 		to_chat(user, span_notice("[icon2html(src, viewers(user))] We cannot save them - [fail_reason]"))
 		return
-
+	if(!(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES))
+		if(ishuman(patient))
+			var/mob/living/carbon/human/homan = patient
+			var/threshold = 0.8 * GLOB.time_before_dnr
+			if(homan.dead_ticks <= threshold)
+				to_chat(user, span_xenowarning("This one hasn't gone cold enough yet. Try again in [(threshold - homan.dead_ticks)*2] seconds."))//2 seconds per tick
+				return
 
 	var/mob/dead/observer/ghost = patient.get_ghost()
 	// For robots, we want to use the more relaxed bitmask as we are doing this before their IMMEDIATE_DEFIB trait is handled and they might
