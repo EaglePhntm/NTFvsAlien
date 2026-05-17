@@ -31,6 +31,12 @@
 /mob/living/carbon/human/species/moth
 	race = "Mothellian"
 
+/mob/living/carbon/human/species/akula
+	race = "Akula"
+
+/mob/living/carbon/human/species/anthro
+	race = "Anthro"
+
 /mob/living/carbon/human/species/vatgrown
 	race = "Vat-Grown Human"
 

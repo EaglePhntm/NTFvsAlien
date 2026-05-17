@@ -892,6 +892,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return icon(race_icon, "")
 	if(limb_status & LIMB_ROBOT && !(owner.species.species_flags & LIMB_ROBOT)) //if race set the flag then we just let the race handle this
 		return icon('icons/mob/human_races/robotic.dmi', "[icon_name][gender ? "_[gender]" : ""]")
+	if(owner)
+		race_icon = owner.get_body_icon_for_limb(icon_name)
 
 	var/datum/ethnicity/E = GLOB.ethnicities_list[owner.ethnicity]
 
@@ -902,7 +904,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	else
 		e_icon = E.icon_name
 
-	return icon(race_icon, "[get_limb_icon_name(owner.species, owner.physique, icon_name, e_icon)]")
+	return icon(race_icon, "[get_limb_icon_name(owner.species, owner.physique, icon_name, e_icon, owner.digitigrade_legs, owner.synthetic_body_base, owner.robot_body_base, owner.robot_head_base)]")
 
 
 /datum/limb/proc/is_usable()

@@ -13,6 +13,12 @@
 	var/species_flags = NONE
 	///used in limb code to find which bodytype files to pull from, yes this code can defenitely be improved
 	var/limb_type = SPECIES_LIMB_GENERIC
+	///Icon-state prefix for SPLURT/Skyrat greyscale bodypart sheets.
+	var/splurt_limb_prefix = "human"
+	///Digitigrade leg options this species has compatible sprites for.
+	var/list/digitigrade_leg_options = list("Normal")
+	///Maps digitigrade option names to their icon-state prefixes for generic limb sprites.
+	var/list/digitigrade_limb_prefixes = list()
 
 	//----Icon stuff here
 	///Normal icon file

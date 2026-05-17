@@ -45,7 +45,7 @@
 	var/movement = movement_keys[_key]
 	if(movement)
 		calculate_move_dir()
-		if(!movement_locked && !(next_move_dir_sub & movement))
+		if(!ntf_handle_ctrl_face_movement(movement) && !movement_locked && !(next_move_dir_sub & movement))
 			next_move_dir_add |= movement
 
 	// Client-level keybindings are ones anyone should be able to do at any time
@@ -113,4 +113,3 @@
 
 	for(var/key in keys_held)
 		keyUp(key)
-

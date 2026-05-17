@@ -1,3 +1,4 @@
+#include "..\ntf_modular\code\_DEFINES\accessories.dm"
 #include "code\__DEFINES\combat.dm"
 #include "code\__DEFINES\dcs\signals\signals.dm"
 #include "code\__DEFINES\dcs\signals\signals_keybinding.dm"

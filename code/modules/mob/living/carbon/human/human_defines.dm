@@ -47,6 +47,9 @@
 
 	//Species specific
 	var/moth_wings = "Plain"
+	var/synthetic_body_base = "Human"
+	var/robot_body_base = "Combat Robot"
+	var/robot_head_base = "Combat Robot"
 
 	///The style of the makeup the mob currently has applied. Used to determine the right icon state for on the mob.
 	var/makeup_style = ""
@@ -95,6 +98,36 @@
 	var/obj/item/r_store
 	///The item currently in the left pocket
 	var/obj/item/l_store
+
+	///Tail variables
+	var/tail = "None"
+	var/tail_color = "#FFFFFF"
+	var/tail_color_secondary = "#FFFFFF"
+	var/tail_color_tertiary = "#FFFFFF"
+	var/snout = "None"
+	var/snout_color = "#FFFFFF"
+	var/snout_color_secondary = "#FFFFFF"
+	var/snout_color_tertiary = "#FFFFFF"
+	var/ears = "None"
+	var/ears_color = "#FFFFFF"
+	var/ears_color_secondary = "#FFFFFF"
+	var/ears_color_tertiary = "#FFFFFF"
+	var/horns = "None"
+	var/horns_color = "#FFFFFF"
+	var/horns_color_secondary = "#FFFFFF"
+	var/horns_color_tertiary = "#FFFFFF"
+	var/wings = "None"
+	var/wings_color = "#FFFFFF"
+	var/wings_color_secondary = "#FFFFFF"
+	var/wings_color_tertiary = "#FFFFFF"
+	var/synth_antenna = "None"
+	var/synth_antenna_color = "#FFFFFF"
+	var/synth_antenna_color_secondary = "#FFFFFF"
+	var/synth_antenna_color_tertiary = "#FFFFFF"
+	var/digitigrade_legs = "Normal"
+	var/body_color = "#FFFFFF"
+	var/spines = "None"
+	var/list/body_markings = list()
 
 	///The current standing icon
 	var/icon/stand_icon

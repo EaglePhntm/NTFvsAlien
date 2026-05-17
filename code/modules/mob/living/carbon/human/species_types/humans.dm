@@ -3,7 +3,13 @@
 	unarmed_type = /datum/unarmed_attack/punch
 	species_flags = HAS_LIPS|HAS_UNDERWEAR
 	count_human = TRUE
-	limb_type = SPECIES_LIMB_HUMAN
+	/// Humans use the shared generic limb states instead of the old
+	/// ethnicity-specific body sheets. This keeps the player-facing body color
+	/// workflow closer to the SPLURT/Skyrat customization model: identity lives
+	/// in preferences and cosmetic features, not in alternate human limb files.
+	icobase = BODYPART_ICON_HUMAN
+	limb_type = SPECIES_LIMB_SPLURT
+	splurt_limb_prefix = "human"
 
 	screams = list(MALE = SFX_MALE_SCREAM, FEMALE = SFX_FEMALE_SCREAM)
 	paincries = list(MALE = SFX_MALE_PAIN, FEMALE = SFX_FEMALE_PAIN)

@@ -1,10 +1,12 @@
 /datum/species/lizard
 	name = "Lizard"
-	icobase = 'icons/mob/species/lizard/bodyparts.dmi'
+	icobase = BODYPART_ICON_LIZARD
 	unarmed_type = /datum/unarmed_attack/punch
 	species_flags = HAS_LIPS|HAS_UNDERWEAR
 	count_human = TRUE
-	limb_type = SPECIES_LIMB_LIZARD
+	limb_type = SPECIES_LIMB_SPLURT
+	splurt_limb_prefix = "lizard"
+	digitigrade_leg_options = list("Normal", "Digitigrade", "Digitigrade 2")
 
 	screams = list(MALE = SFX_MALE_SCREAM, FEMALE = SFX_FEMALE_SCREAM)
 	paincries = list(MALE = SFX_MALE_PAIN, FEMALE = SFX_FEMALE_PAIN)
@@ -28,30 +30,3 @@
 		var/firstspace = findtext(., " ")
 		if(!firstspace || firstspace == length(.))
 			. += " " + pick(SSstrings.get_list_from_file("names/last_name"))
-
-/datum/species/lizard/proc/update_lizard_tail(mob/living/carbon/human/H)
-	H.remove_overlay(LIZARD_TAIL_LAYER)
-	H.remove_underlay(LIZARD_TAIL_BEHIND_LAYER)
-
-	if(!(H.species.name == "Lizard" || H.allow_mismatched_parts))
-		return
-
-	var/datum/sprite_accessory/lizard_tail/tail = GLOB.lizard_tails_list[H.lizard_tail]
-	if(!tail || !tail.icon_state)
-		return
-
-	H.overlays_standing[LIZARD_TAIL_LAYER] = image(
-		tail.icon,
-		icon_state = "m_tail_lizard_[tail.icon_state]_FRONT"
-	)
-
-	H.underlays_standing[LIZARD_TAIL_BEHIND_LAYER] = image(
-		tail.icon,
-		icon_state = "m_tail_lizard_[tail.icon_state]_BEHIND"
-	)
-
-	H.apply_overlay(LIZARD_TAIL_LAYER)
-	H.apply_underlay(LIZARD_TAIL_BEHIND_LAYER)
-
-/datum/species/lizard/update_body(mob/living/carbon/human/H)
-	update_lizard_tail(H)

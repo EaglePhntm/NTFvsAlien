@@ -1,8 +1,16 @@
 #define ALLTIPS (SSstrings.get_list_from_file("tips/marine") + SSstrings.get_list_from_file("tips/xeno") + SSstrings.get_list_from_file("tips/meme") + SSstrings.get_list_from_file("tips/meta") + SSstrings.get_list_from_file("tips/HvH"))
 
-#define SYNTH_TYPES list("Synthetic","Early Synthetic","Robot")
+#define SYNTH_TYPES list("Synthetic","Early Synthetic","Combat Robot")
 
 #define ROBOT_TYPES list("Basic","Hammerhead","Chilvaris","Ratcher","Sterling","Synskin")
+
+#define DIGITIGRADE_LEG_TYPES list("Normal", "Digitigrade", "Digitigrade 2")
+
+#define SYNTHETIC_BODY_BASES list("Human", "Lizard", "Anthro")
+
+#define ROBOT_BODY_BASES list("Combat Robot", "Hammerhead", "Chilvaris", "Ratcher", "Sterling", "Synskin", "Android", "Dark Android", "Human", "Lizard", "Anthro", "Morpheus Cyberkinetics", "Bishop Cyberkinetics", "Bishop Cyberkinetics 2.0", "Hephaestus Industries", "Hephaestus Industries 2.0", "Shellguard Munitions", "Ward-Takahashi Manufacturing", "Xion Manufacturing Group", "Xion Manufacturing Group 2.0", "Zeng-Hu Pharmaceuticals", "E3N AI")
+
+#define ROBOT_HEAD_BASES list("Combat Robot", "Hammerhead", "Chilvaris", "Ratcher", "Sterling", "Synskin", "Android", "Dark Android", "Human", "Lizard", "Anthro", "Morpheus Cyberkinetics", "Bishop Cyberkinetics", "Bishop Cyberkinetics 2.0", "Hephaestus Industries", "Hephaestus Industries 2.0", "Shellguard Munitions", "Ward-Takahashi Manufacturing", "Xion Manufacturing Group", "Xion Manufacturing Group 2.0", "Zeng-Hu Pharmaceuticals", "E3N AI")
 
 
 // Posters
@@ -19,6 +27,11 @@ GLOBAL_LIST_INIT(poster_designs, subtypesof(/datum/poster))
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/facial_hair, GLOB.facial_hair_styles_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_wings, GLOB.moth_wings_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/lizard_tail, GLOB.lizard_tails_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/snout, GLOB.snouts_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/ears, GLOB.ears_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/horns, GLOB.horns_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/wings, GLOB.wings_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/synth_antenna, GLOB.synth_antennas_list)
 
 
 /proc/init_species()

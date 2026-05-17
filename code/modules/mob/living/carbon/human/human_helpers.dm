@@ -4,7 +4,17 @@
 		g = "f"
 	return g
 
-/proc/get_limb_icon_name(datum/species/S, gender, limb_name, ethnicity)
+/proc/get_limb_icon_name(datum/species/S, gender, limb_name, ethnicity, digitigrade_legs = "Normal", synthetic_body_base = "Human", robot_body_base = "Combat Robot", robot_head_base = "Combat Robot")
+	var/uses_digitigrade = digitigrade_legs && digitigrade_legs != "Normal" && (digitigrade_legs in S.digitigrade_leg_options)
+	if(istype(S, /datum/species/robot))
+		var/robot_base = get_effective_robot_body_base(limb_name == "head" ? robot_head_base : robot_body_base, synthetic_body_base)
+		if(is_old_robot_body_base(robot_base))
+			return get_generic_limb_icon_name(gender, limb_name, null)
+		return get_robot_limb_icon_name(robot_base, gender, limb_name, digitigrade_legs)
+	if(S.species_flags & IS_SYNTHETIC)
+		var/synthetic_prefix = get_splurt_synthetic_limb_prefix(synthetic_body_base)
+		if(synthetic_prefix)
+			return get_splurt_limb_icon_name(synthetic_prefix, gender, limb_name, digitigrade_legs)
 	if(S.limb_type == SPECIES_LIMB_HUMAN) // todo this section is fucking stupid and can be way more generic easily
 		switch(limb_name)
 			if ("torso", "chest")
@@ -100,81 +110,221 @@
 				return "lizard_l_hand"
 
 			if ("r_leg", "right leg")
+				if(uses_digitigrade)
+					return "digitigrade_r_leg"
 				return "lizard_r_leg"
 
 			if ("l_leg", "left leg")
+				if(uses_digitigrade)
+					return "digitigrade_l_leg"
 				return "lizard_l_leg"
 
 			if ("r_foot", "right foot")
+				if(uses_digitigrade)
+					return "digitigrade_r_leg"
 				return "lizard_r_leg"
 
 			if ("l_foot", "left foot")
+				if(uses_digitigrade)
+					return "digitigrade_l_leg"
 				return "lizard_l_leg"
 			else
 				return null
+	else if(S.limb_type == SPECIES_LIMB_SPLURT)
+		return get_splurt_limb_icon_name(S.splurt_limb_prefix, gender, limb_name, digitigrade_legs)
 	else
-		switch(limb_name)
-			if ("torso")
-				return "[limb_name]_[get_gender_name(gender)]"
+		var/digitigrade_prefix = S.digitigrade_limb_prefixes[digitigrade_legs]
+		return get_generic_limb_icon_name(gender, limb_name, digitigrade_prefix)
 
-			if ("chest")
-				return "[limb_name]_[get_gender_name(gender)]"
+/proc/get_splurt_synthetic_limb_prefix(synthetic_body_base)
+	switch(synthetic_body_base)
+		if("Lizard")
+			return "synthliz"
+		if("Anthro")
+			return "synthmammal"
+	return null
 
-			if ("head")
-				return "head_[get_gender_name(gender)]"
+/proc/get_splurt_robot_limb_prefix(robot_base)
+	switch(robot_base)
+		if("Lizard")
+			return "synthliz"
+		if("Anthro")
+			return "synthmammal"
+	return null
 
-			if ("groin")
-				return "[limb_name]_[get_gender_name(gender)]"
+/proc/get_robot_part_prefix(robot_base)
+	switch(robot_base)
+		if("Android")
+			return "ipc"
+		if("Dark Android")
+			return "synth"
+		if("Human")
+			return "human"
+		if("Lizard")
+			return "synthliz"
+		if("Anthro")
+			return "synthmammal"
+		if("Morpheus Cyberkinetics")
+			return "mcgipc"
+		if("Bishop Cyberkinetics")
+			return "bshipc"
+		if("Bishop Cyberkinetics 2.0")
+			return "bs2ipc"
+		if("Hephaestus Industries")
+			return "hsiipc"
+		if("Hephaestus Industries 2.0")
+			return "hi2ipc"
+		if("Shellguard Munitions")
+			return "sgmipc"
+		if("Ward-Takahashi Manufacturing")
+			return "wtmipc"
+		if("Xion Manufacturing Group")
+			return "xmgipc"
+		if("Xion Manufacturing Group 2.0")
+			return "xm2ipc"
+		if("Zeng-Hu Pharmaceuticals")
+			return "zhpipc"
+		if("E3N AI")
+			return "e3n"
+	return "ipc"
 
-			if ("r_arm")
-				return "[limb_name]"
+/proc/robot_part_uses_dimorphic_states(robot_base)
+	return robot_base in list("Human", "Lizard", "Anthro")
 
-			if ("right arm")
-				return "r_arm"
+/proc/robot_head_uses_human_eyes(robot_base)
+	return robot_base in list("Human", "Lizard", "Anthro")
 
-			if ("l_arm")
-				return "[limb_name]"
+/proc/get_robot_part_body_icon(robot_base)
+	switch(robot_base)
+		if("Human")
+			return BODYPART_ICON_HUMAN
+		if("Lizard")
+			return BODYPART_ICON_SYNTHLIZARD
+		if("Anthro")
+			return BODYPART_ICON_SYNTHMAMMAL
+	return BODYPART_ICON_IPC
 
-			if ("left arm")
-				return "l_arm"
+/proc/is_old_robot_body_base(robot_base)
+	return robot_base in list("Combat Robot", "Hammerhead", "Chilvaris", "Ratcher", "Sterling", "Synskin")
 
-			if ("r_leg")
-				return "[limb_name]"
+/proc/get_old_robot_body_icon(robot_base)
+	switch(robot_base)
+		if("Hammerhead")
+			return 'icons/mob/human_races/r_robot_alpharii.dmi'
+		if("Chilvaris")
+			return 'icons/mob/human_races/r_robot_charlit.dmi'
+		if("Ratcher")
+			return 'icons/mob/human_races/r_robot_deltad.dmi'
+		if("Sterling")
+			return 'icons/mob/human_races/r_robot_bravada.dmi'
+		if("Synskin")
+			return 'ntf_modular/icons/mob/human_races/r_synthetic.dmi'
+	return 'icons/mob/human_races/r_robot.dmi'
 
-			if ("right leg")
-				return "r_leg"
+/proc/get_splurt_robot_body_icon(robot_base)
+	if(is_old_robot_body_base(robot_base))
+		return get_old_robot_body_icon(robot_base)
+	return get_robot_part_body_icon(robot_base)
 
-			if ("l_leg")
-				return "[limb_name]"
+/proc/get_effective_robot_body_base(robot_base, synthetic_body_base)
+	return robot_base || "Combat Robot"
 
-			if ("left leg")
-				return "l_leg"
+/proc/get_robot_limb_icon_name(robot_base, gender, limb_name, digitigrade_legs)
+	var/robot_prefix = get_robot_part_prefix(robot_base)
+	if(robot_base == "Lizard" || robot_base == "Anthro")
+		return get_splurt_limb_icon_name(robot_prefix, gender, limb_name, digitigrade_legs)
+	var/dimorphic = robot_part_uses_dimorphic_states(robot_base)
+	switch(limb_name)
+		if("torso", "chest", "groin")
+			if(dimorphic)
+				return "[robot_prefix]_chest_[get_gender_name(gender)]"
+			return "[robot_prefix]_chest"
+		if("head")
+			if(dimorphic)
+				return "[robot_prefix]_head_[get_gender_name(gender)]"
+			return "[robot_prefix]_head"
+		if("r_arm", "right arm")
+			return "[robot_prefix]_r_arm"
+		if("l_arm", "left arm")
+			return "[robot_prefix]_l_arm"
+		if("r_hand", "right hand")
+			return "[robot_prefix]_r_arm"
+		if("l_hand", "left hand")
+			return "[robot_prefix]_l_arm"
+		if("r_leg", "right leg", "r_foot", "right foot")
+			return "[robot_prefix]_r_leg"
+		if("l_leg", "left leg", "l_foot", "left foot")
+			return "[robot_prefix]_l_leg"
+	return null
 
-			if ("r_hand")
-				return "[limb_name]"
+/proc/get_splurt_limb_icon_name(prefix, gender, limb_name, digitigrade_legs)
+	switch(limb_name)
+		if("torso", "chest", "groin")
+			return "[prefix]_chest_[get_gender_name(gender)]"
+		if("head")
+			return "[prefix]_head_[get_gender_name(gender)]"
+		if("r_arm", "right arm")
+			return "[prefix]_r_arm"
+		if("l_arm", "left arm")
+			return "[prefix]_l_arm"
+		if("r_hand", "right hand")
+			return "[prefix]_r_hand"
+		if("l_hand", "left hand")
+			return "[prefix]_l_hand"
+		if("r_leg", "right leg", "r_foot", "right foot")
+			if(digitigrade_legs == "Tallboy")
+				return "tallboy_r_leg"
+			if(digitigrade_legs == "Digitigrade")
+				return "digitigrade_1_r_leg"
+			if(digitigrade_legs == "Digitigrade 2")
+				return "digitigrade_2_r_leg"
+			return "[prefix]_r_leg"
+		if("l_leg", "left leg", "l_foot", "left foot")
+			if(digitigrade_legs == "Tallboy")
+				return "tallboy_l_leg"
+			if(digitigrade_legs == "Digitigrade")
+				return "digitigrade_1_l_leg"
+			if(digitigrade_legs == "Digitigrade 2")
+				return "digitigrade_2_l_leg"
+			return "[prefix]_l_leg"
+	return null
 
-			if ("right hand")
-				return "r_hand"
-
-			if ("l_hand")
-				return "[limb_name]"
-
-			if ("left hand")
-				return "l_hand"
-
-			if ("r_foot")
-				return "[limb_name]"
-
-			if ("right foot")
-				return "r_foot"
-
-			if ("l_foot")
-				return "[limb_name]"
-
-			if ("left foot")
-				return "l_foot"
-			else
-				return null
+/proc/get_generic_limb_icon_name(gender, limb_name, digitigrade_prefix)
+	switch(limb_name)
+		if ("torso")
+			return "[limb_name]_[get_gender_name(gender)]"
+		if ("chest")
+			return "torso_[get_gender_name(gender)]"
+		if ("head")
+			return "head_[get_gender_name(gender)]"
+		if ("groin")
+			return "[limb_name]_[get_gender_name(gender)]"
+		if ("r_arm", "right arm")
+			return "r_arm"
+		if ("l_arm", "left arm")
+			return "l_arm"
+		if ("r_leg", "right leg")
+			if(digitigrade_prefix)
+				return "[digitigrade_prefix]_r_leg"
+			return "r_leg"
+		if ("l_leg", "left leg")
+			if(digitigrade_prefix)
+				return "[digitigrade_prefix]_l_leg"
+			return "l_leg"
+		if ("r_hand", "right hand")
+			return "r_hand"
+		if ("l_hand", "left hand")
+			return "l_hand"
+		if ("r_foot", "right foot")
+			if(digitigrade_prefix)
+				return "[digitigrade_prefix]_r_leg"
+			return "r_foot"
+		if ("l_foot", "left foot")
+			if(digitigrade_prefix)
+				return "[digitigrade_prefix]_l_leg"
+			return "l_foot"
+		else
+			return null
 
 /mob/living/carbon/human/proc/set_limb_icons()
 	var/datum/ethnicity/E = GLOB.ethnicities_list[ethnicity]
@@ -187,7 +337,37 @@
 		e_icon = E.icon_name
 
 	for(var/datum/limb/L in limbs)
-		L.icon_name = get_limb_icon_name(species, physique, L.display_name, e_icon)
+		L.icon_name = get_limb_icon_name(species, physique, L.display_name, e_icon, digitigrade_legs, synthetic_body_base, robot_body_base, robot_head_base)
+
+/mob/living/carbon/human/proc/get_body_icon()
+	if(istype(species, /datum/species/robot))
+		return get_splurt_robot_body_icon(get_effective_robot_body_base(robot_body_base, synthetic_body_base))
+	if(species?.species_flags & IS_SYNTHETIC)
+		switch(synthetic_body_base)
+			if("Lizard")
+				return BODYPART_ICON_SYNTHLIZARD
+			if("Anthro")
+				return BODYPART_ICON_SYNTHMAMMAL
+	return species.icobase
+
+/mob/living/carbon/human/proc/get_body_icon_for_limb(limb_name)
+	if(istype(species, /datum/species/robot))
+		var/robot_base = get_effective_robot_body_base(limb_name == "head" ? robot_head_base : robot_body_base, synthetic_body_base)
+		return get_splurt_robot_body_icon(robot_base)
+	return get_body_icon()
+
+/mob/living/carbon/human/proc/get_eye_icon_state()
+	if(istype(species, /datum/species/robot))
+		var/robot_base = get_effective_robot_body_base(robot_head_base, synthetic_body_base)
+		if(robot_head_uses_human_eyes(robot_base))
+			return "eyes_s"
+		return "blank_eyes"
+	return species.eyes
+
+/mob/living/carbon/human/proc/get_render_body_color()
+	if(species?.name == "Moth" && (!body_color || body_color == "#FFFFFF"))
+		return sanitize_character_recolor(species.flesh_color)
+	return sanitize_character_recolor(body_color)
 
 /mob/living/carbon/human/get_reagent_tags()
 	. = ..()

@@ -57,9 +57,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	//Synthetic specific preferences
 	var/synthetic_name = "Undefined"
 	var/synthetic_type = "Synthetic"
+	var/synthetic_body_base = "Human"
 
 	//Robot specific preferences
 	var/robot_type = "Basic"
+	var/robot_body_base = "Combat Robot"
+	var/robot_head_base = "Combat Robot"
 
 	//AI specific preferences
 	var/ai_name = "ARES v3.2"
@@ -114,18 +117,59 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	/// Genitalia overlay system
 	var/genitalia_ass = null
+	var/genitalia_ass_size = 2
+	var/genitalia_ass_color = "#FFFFFF"
 	var/genitalia_boobs = null
+	var/genitalia_boobs_size = 3
+	var/genitalia_boobs_color = "#FFFFFF"
+	var/genitalia_boobs_color_secondary = "#d98fa3"
 	var/genitalia_cock = null
+	var/genitalia_cock_size = 3
+	var/genitalia_cock_color = "#FFFFFF"
+	var/genitalia_vagina = null
+	var/genitalia_vagina_color = "#FFFFFF"
+	var/genitalia_belly = null
+	var/genitalia_belly_size = 0
+	var/genitalia_belly_color = "#FFFFFF"
+	var/genitalia_testicles = null
+	var/genitalia_testicles_size = 2
+	var/genitalia_testicles_color = "#FFFFFF"
+	var/genitalia_testicles_color_secondary = "#d98fa3"
 
 	//Species specific
 	var/moth_wings = "Plain"
 	var/allow_mismatched_parts = FALSE
+	var/use_genital_size_controls = FALSE
 
-	// Lizard specific
-	var/lizard_tail = "Smooth"
-	var/lizard_spines = "None"
-	var/lizard_markings = "None"
-	var/lizard_body_color = "#6BA36B"
+	// Universal body part system
+	var/tail = "None"
+	var/tail_color = "#FFFFFF"
+	var/tail_color_secondary = "#FFFFFF"
+	var/tail_color_tertiary = "#FFFFFF"
+	var/snout = "None"
+	var/snout_color = "#FFFFFF"
+	var/snout_color_secondary = "#FFFFFF"
+	var/snout_color_tertiary = "#FFFFFF"
+	var/ears = "None"
+	var/ears_color = "#FFFFFF"
+	var/ears_color_secondary = "#FFFFFF"
+	var/ears_color_tertiary = "#FFFFFF"
+	var/horns = "None"
+	var/horns_color = "#FFFFFF"
+	var/horns_color_secondary = "#FFFFFF"
+	var/horns_color_tertiary = "#FFFFFF"
+	var/wings = "None"
+	var/wings_color = "#FFFFFF"
+	var/wings_color_secondary = "#FFFFFF"
+	var/wings_color_tertiary = "#FFFFFF"
+	var/synth_antenna = "None"
+	var/synth_antenna_color = "#FFFFFF"
+	var/synth_antenna_color_secondary = "#FFFFFF"
+	var/synth_antenna_color_tertiary = "#FFFFFF"
+	var/digitigrade_legs = "Normal"
+	var/body_color = "#FFFFFF"
+	var/spines = "None"
+	var/list/body_markings = list()
 
 	//Lore
 	var/citizenship = "Phantom City (Earth)"
@@ -231,6 +275,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	/// New TGUI Preference preview
 	var/map_name = "player_pref_map"
 	var/atom/movable/screen/map_view/preference_preview/screen_main
+	var/preference_preview_dir = SOUTH
 
 	/// If unique action will only act on the item in the active hand. If false, it will try to act on the item on the inactive hand as well in certain conditions.
 	var/unique_action_use_active_hand = TRUE
@@ -258,7 +303,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	// Initialize map objects
 	screen_main = new
-	screen_main.generate_view("screen")
+	screen_main.preferences = src
+	screen_main.generate_view(map_name)
 
 	if(!IsGuestKey(C.key))
 		load_path(C.ckey)

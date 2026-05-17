@@ -25,12 +25,13 @@ export const TextFieldPreference = (props) => {
 
 export const SelectFieldPreference = (props) => {
   const { act, data, config } = useBackend<any>();
-  const { label, value, action, tooltip } = props;
+  const { label, value, action, extra, tooltip, fallback = 'None' } = props;
   const itemLabel = label || value;
 
   return (
     <LabeledList.Item label={itemLabel} tooltip={tooltip}>
-      <Button content={data[value]} onClick={() => act(action)} />
+      <Button content={data[value] || fallback} onClick={() => act(action)} />
+      {extra ? extra : null}
     </LabeledList.Item>
   );
 };

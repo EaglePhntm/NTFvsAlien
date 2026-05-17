@@ -7,9 +7,15 @@ interface InputData {
   cockState: string;
   assState: string;
   boobState: string;
+  vaginaState: string;
+  bellyState: string;
+  testicleState: string;
   possibleCockStates: string[];
   possibleAssStates: string[];
   possibleBoobStates: string[];
+  possibleVaginaStates: string[];
+  possibleBellyStates: string[];
+  possibleTesticleStates: string[];
 }
 
 export const GenitalMenu = (props: any, context: any) => {
@@ -18,13 +24,19 @@ export const GenitalMenu = (props: any, context: any) => {
     cockState,
     assState,
     boobState,
+    vaginaState,
+    bellyState,
+    testicleState,
     possibleCockStates,
     possibleAssStates,
     possibleBoobStates,
+    possibleVaginaStates,
+    possibleBellyStates,
+    possibleTesticleStates,
   } = data;
 
   return (
-    <Window title="Genital selection" width={260} height={190}>
+    <Window title="Genital selection" width={300} height={310}>
       <Window.Content />
       <Section>
         <Stack fill vertical>
@@ -58,6 +70,39 @@ export const GenitalMenu = (props: any, context: any) => {
                   selected={boobState ? boobState : 'Default'}
                   onSelected={(e: string) =>
                     act('changeBoobs', {
+                      newState: e,
+                    })
+                  }
+                />
+              </LabeledList.Item>
+              <LabeledList.Item label="Vagina">
+                <Dropdown
+                  options={possibleVaginaStates}
+                  selected={vaginaState ? vaginaState : 'Default'}
+                  onSelected={(e: string) =>
+                    act('changeVagina', {
+                      newState: e,
+                    })
+                  }
+                />
+              </LabeledList.Item>
+              <LabeledList.Item label="Testicles">
+                <Dropdown
+                  options={possibleTesticleStates}
+                  selected={testicleState ? testicleState : 'Default'}
+                  onSelected={(e: string) =>
+                    act('changeTesticles', {
+                      newState: e,
+                    })
+                  }
+                />
+              </LabeledList.Item>
+              <LabeledList.Item label="Belly">
+                <Dropdown
+                  options={possibleBellyStates}
+                  selected={bellyState ? bellyState : 'Default'}
+                  onSelected={(e: string) =>
+                    act('changeBelly', {
                       newState: e,
                     })
                   }

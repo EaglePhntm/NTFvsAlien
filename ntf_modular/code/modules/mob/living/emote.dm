@@ -13,6 +13,80 @@
 	if(user.species.chokes[NEUTER])
 		return user.species.chokes[NEUTER]
 
+/mob/living/carbon/human
+	var/tail_wagging = FALSE
+
+/proc/tail_wagging_name(tail_name)
+	switch(tail_name)
+		if("Smooth")
+			return "Wagging Smooth"
+		if("Short")
+			return "Wagging Short"
+		if("Spikes")
+			return "Wagging Spikes"
+		if("Dark Tiger")
+			return "Wagging Dark Tiger"
+		if("Light Tiger")
+			return "Wagging Light Tiger"
+	return null
+
+/proc/tail_wagging_prefix(datum/sprite_accessory/lizard_tail/tail_data)
+	if(!tail_data?.icon_state)
+		return null
+	var/wagging_prefix = "m_waggingtail"
+	if(icon_exists(tail_data.icon, "[wagging_prefix]_[tail_data.icon_state]_FRONT_primary") || icon_exists(tail_data.icon, "[wagging_prefix]_[tail_data.icon_state]_FRONT"))
+		return wagging_prefix
+	return null
+
+/mob/living/carbon/human/proc/start_tail_wag()
+	if(tail_wagging)
+		return FALSE
+	if(!tail || tail == "None")
+		return FALSE
+	var/wagging_tail = tail_wagging_name(tail)
+	var/datum/sprite_accessory/lizard_tail/tail_data = GLOB.lizard_tails_list[tail]
+	if((!wagging_tail || !GLOB.lizard_tails_list[wagging_tail]) && !tail_wagging_prefix(tail_data))
+		return FALSE
+	tail_wagging = TRUE
+	update_tail()
+	return TRUE
+
+/mob/living/carbon/human/proc/stop_tail_wag()
+	if(!tail_wagging)
+		return FALSE
+	tail_wagging = FALSE
+	update_tail()
+	return TRUE
+
+/mob/living/carbon/human/proc/can_tail_wag()
+	if(!tail || tail == "None")
+		return FALSE
+	var/wagging_tail = tail_wagging_name(tail)
+	var/datum/sprite_accessory/lizard_tail/tail_data = GLOB.lizard_tails_list[tail]
+	return (wagging_tail && GLOB.lizard_tails_list[wagging_tail]) || tail_wagging_prefix(tail_data)
+
+/mob/living/carbon/human/proc/toggle_tail_wag()
+	if(tail_wagging)
+		return stop_tail_wag()
+	return start_tail_wag()
+
+/datum/emote/living/carbon/human/tailwag
+	key = "wag"
+	key_third_person = "wags"
+	message = "wags their tail."
+
+/datum/emote/living/carbon/human/tailwag/select_message_type(mob/living/carbon/human/user)
+	return user.tail_wagging ? "stops wagging their tail." : message
+
+/datum/emote/living/carbon/human/tailwag/run_emote(mob/living/carbon/human/user, params, type_override, intentional = FALSE, prefix)
+	if(!user.can_tail_wag())
+		user.balloon_alert(user, "no tail to wag!")
+		return FALSE
+	. = ..()
+	if(!.)
+		return
+	user.toggle_tail_wag()
+
 /datum/emote/living/carbon/human/sexmoanlight
 	key = "sexmoanlight"
 	emote_type = EMOTE_TYPE_AUDIBLE

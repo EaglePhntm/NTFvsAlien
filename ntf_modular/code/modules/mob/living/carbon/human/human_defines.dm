@@ -7,10 +7,29 @@
 /// Defines whether we are using an ass overlay
 /mob/living/carbon/human
 	var/ass = null
+	var/ass_size = 2
+	var/ass_color = "#FFFFFF"
 /// Defines whether we are using boob overlay
 	var/boobs = null
+	var/boobs_size = 3
+	var/boobs_color = "#FFFFFF"
+	var/boobs_color_secondary = "#d98fa3"
 /// Defines whether we are using ass overlay
 	var/cock = null
+	var/cock_size = 3
+	var/cock_color = "#FFFFFF"
+/// Defines whether we are using vagina overlay
+	var/vagina = null
+	var/vagina_color = "#FFFFFF"
+/// Defines whether we are using belly overlay
+	var/belly = null
+	var/belly_size = 0
+	var/belly_color = "#FFFFFF"
+/// Defines whether we are using testicles overlay
+	var/testicles = null
+	var/testicles_size = 2
+	var/testicles_color = "#FFFFFF"
+	var/testicles_color_secondary = "#d98fa3"
 ///For xeno healing bone repair
 	var/xeno_heals = 0
 	// Xenomorph that is hauling us if we are hauled

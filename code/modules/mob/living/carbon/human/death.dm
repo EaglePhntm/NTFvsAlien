@@ -57,6 +57,8 @@
 
 
 /mob/living/carbon/human/on_death()
+	stop_tail_wag()
+
 	if(!ishuman(pulledby))
 		pulledby?.stop_pulling()
 

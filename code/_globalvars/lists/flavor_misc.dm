@@ -22,6 +22,11 @@ GLOBAL_LIST_INIT(undershirt_f, list("None"," Black undershirt", "White undershir
 	//Mutant Human bits
 GLOBAL_LIST_EMPTY(moth_wings_list)
 GLOBAL_LIST_EMPTY(lizard_tails_list)
+GLOBAL_LIST_EMPTY(snouts_list)
+GLOBAL_LIST_EMPTY(ears_list)
+GLOBAL_LIST_EMPTY(horns_list)
+GLOBAL_LIST_EMPTY(wings_list)
+GLOBAL_LIST_EMPTY(synth_antennas_list)
 GLOBAL_LIST_EMPTY(tails_list_monkey)
 
 

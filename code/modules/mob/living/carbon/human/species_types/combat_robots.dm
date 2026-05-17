@@ -47,6 +47,7 @@
 	death_message = "shudders violently whilst spitting out error text before collapsing, their visual sensor darkening..."
 	special_death_message = "You have been shut down.<br><small>But it is not the end of you yet... if you still have your body, wait until somebody can resurrect you...</small>"
 	joinable_roundstart = TRUE
+	has_genital_selection = TRUE
 
 	inherent_actions = list(/datum/action/repair_self)
 

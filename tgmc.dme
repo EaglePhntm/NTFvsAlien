@@ -1970,6 +1970,7 @@
 #include "code\modules\mob\living\carbon\human\life\life_helpers.dm"
 #include "code\modules\mob\living\carbon\human\species_types\combat_robots.dm"
 #include "code\modules\mob\living\carbon\human\species_types\humans.dm"
+#include "code\modules\mob\living\carbon\human\species_types\lizard.dm"
 #include "code\modules\mob\living\carbon\human\species_types\monkeys.dm"
 #include "code\modules\mob\living\carbon\human\species_types\mothmen.dm"
 #include "code\modules\mob\living\carbon\human\species_types\prototype_supersoldier.dm"
@@ -1978,6 +1979,7 @@
 #include "code\modules\mob\living\carbon\human\species_types\synthetics.dm"
 #include "code\modules\mob\living\carbon\human\species_types\vatborns.dm"
 #include "code\modules\mob\living\carbon\human\species_types\zombies.dm"
+#include "code\modules\mob\living\carbon\human\sprite_accessories\lizard_tails.dm"
 #include "code\modules\mob\living\carbon\xenomorph\abilities.dm"
 #include "code\modules\mob\living\carbon\xenomorph\attack_alien.dm"
 #include "code\modules\mob\living\carbon\xenomorph\charge_crush.dm"
@@ -2592,4 +2594,5 @@
 #include "interface\fonts\vcr_osd_mono.dm"
 #include "modular_RUtgmc\includes.dm"
 #include "ntf_modular\include.dm"
+#include "ntf_modular\code\_DEFINES\accessories.dm"
 // END_INCLUDE

@@ -664,7 +664,7 @@ You are also an expert when it comes to botany and hydroponics. If you do not kn
 /datum/job/som/silicon/synthetic/som/return_spawn_type(datum/preferences/prefs)
 	if(prefs?.synthetic_type == "Early Synthetic")
 		return /mob/living/carbon/human/species/early_synthetic
-	if(prefs?.synthetic_type == "Robot")
+	if(prefs?.synthetic_type == "Combat Robot")
 		switch(prefs?.robot_type)
 			if("Basic")
 				return /mob/living/carbon/human/species/robot
