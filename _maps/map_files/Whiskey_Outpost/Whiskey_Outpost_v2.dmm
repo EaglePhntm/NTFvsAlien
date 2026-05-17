@@ -1676,6 +1676,13 @@
 /obj/structure/largecrate/supply/explosives/mines,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
+"ht" = (
+/obj/docking_port/stationary/ert/target{
+	id = "port_target";
+	name = "Northeast ERT landing"
+	},
+/turf/open/floor/plating/ground/dirt,
+/area/whiskey_outpost/outside/north)
 "hu" = (
 /obj/item/weapon/gun/hsg_102/hsg_nest{
 	dir = 8
@@ -5135,6 +5142,15 @@
 /obj/item/toy/plush/farwa,
 /turf/open/floor/prison/plate,
 /area/whiskey_outpost)
+"xH" = (
+/obj/docking_port/stationary/ert/target{
+	id = "starboard_target";
+	name = "Northwest ERT landing"
+	},
+/turf/open/ground/coast{
+	dir = 9
+	},
+/area/whiskey_outpost/outside/north)
 "xJ" = (
 /obj/structure/window_frame/colony,
 /obj/structure/flora/jungle/vines,
@@ -11268,7 +11284,7 @@ cx
 cx
 cx
 cx
-ai
+xH
 hz
 hz
 ea
@@ -24171,7 +24187,7 @@ JX
 cx
 qb
 um
-um
+ht
 um
 um
 oF

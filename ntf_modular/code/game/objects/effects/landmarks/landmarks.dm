@@ -65,11 +65,9 @@
 	name = "barricade wire landmark"
 	color = "#848484"
 
-/obj/effect/landmark/autowire/LateInitialize()
+/obj/effect/landmark/autowire/Initialize(mapload)
 	. = ..()
-	for(var/obj/structure/barricade/cade as anything in loc)
-		if(!istype(cade, /obj/structure/barricade))
-			continue
+	for(var/obj/structure/barricade/cade in loc.contents)
 		if(!cade.is_wired && cade.can_wire)
 			cade.wire()
 	qdel(src)
