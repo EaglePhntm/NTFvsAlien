@@ -4,6 +4,9 @@
 /datum/species/human/prototype_supersoldier
 	joinable_roundstart = TRUE
 
+// Roundstart SPLURT species below are not purely visual.
+// Their claw unarmed attack uses slash sounds, claw VFX, and sharp/edge damage.
+
 /datum/species/akula
 	name = "Akula"
 	icobase = BODYPART_ICON_AKULA

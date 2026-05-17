@@ -1,7 +1,9 @@
 /datum/species/lizard
 	name = "Lizard"
 	icobase = BODYPART_ICON_LIZARD
-	unarmed_type = /datum/unarmed_attack/punch
+	// Lizards intentionally use claw unarmed attacks: slash sounds, claw VFX,
+	// and sharp/edge damage instead of the human punch.
+	unarmed_type = /datum/unarmed_attack/claws
 	species_flags = HAS_LIPS|HAS_UNDERWEAR
 	count_human = TRUE
 	limb_type = SPECIES_LIMB_SPLURT

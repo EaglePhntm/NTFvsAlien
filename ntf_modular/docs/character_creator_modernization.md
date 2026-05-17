@@ -306,6 +306,13 @@ logic. For example Anthro-like species can share an Anthro body base, and
 synthetic variants can route through synthetic/combat robot body-base selection.
 Avoid duplicating species datums when a body-base option is the actual behavior.
 
+Roundstart SPLURT-style species are allowed to have deliberate mechanics, but
+those mechanics must be visible in the species datum. `Lizard`, `Akula`,
+`Anthro`, `Aquatic`, `Insectoid`, and `Skrell` currently use claw unarmed
+attacks. Claws do more unarmed damage than a punch, are sharp/edge attacks, use
+slash sounds, and render with claw VFX. Do not remove those as "accidental"
+unless design decides these species should become cosmetic-only.
+
 ## Disabled Species Placeholders
 
 Some species datums are intentionally present but not selectable yet. These keep

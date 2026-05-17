@@ -124,7 +124,8 @@
 					msg_admin_ff("[ADMIN_TPMONTY(human_user)] missed a punch against [ADMIN_TPMONTY(src)] in [ADMIN_VERBOSEJMP(T)].")
 				return FALSE
 
-			human_user.do_attack_animation(src, ATTACK_EFFECT_YELLOWPUNCH)
+			var/attack_effect = (attack.sharp && attack.edge) ? ATTACK_EFFECT_CLAW : ATTACK_EFFECT_YELLOWPUNCH
+			human_user.do_attack_animation(src, attack_effect)
 			var/max_dmg = max(human_user.melee_damage + (human_user.skills.getRating(SKILL_UNARMED) * UNARMED_SKILL_DAMAGE_MOD), 3)
 			var/damage = max_dmg
 			if(!lying_angle)
