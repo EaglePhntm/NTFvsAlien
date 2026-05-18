@@ -493,6 +493,7 @@
 /obj/machinery/door/airlock/mainship/command/officer{
 	dir = 2
 	},
+/obj/structure/cable,
 /turf/open/floor/squares,
 /area/mainship/living/officer_study)
 "aAz" = (
@@ -13102,7 +13103,6 @@
 	dir = 8
 	},
 /obj/structure/table/mainship/nometal,
-/obj/machinery/light/mainship,
 /obj/machinery/door_control/old{
 	id = "ROlobby";
 	name = "Requisitions lockdown";
@@ -18337,16 +18337,6 @@
 	outside = 0;
 	name = "CEO Office"
 	})
-"pce" = (
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/mainship/black/full,
-/area/mainship/shipboard/firing_range)
 "pcv" = (
 /obj/structure/bed/chair/wood{
 	dir = 1
@@ -22056,16 +22046,6 @@
 /area/mainship/hallways/bow_hallway{
 	name = "Ship Floor 1 Hallways"
 	})
-"ssm" = (
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/open/floor/mainship/black/full,
-/area/mainship/shipboard/firing_range)
 "sso" = (
 /obj/item/reagent_containers/food/snacks/grown/tomato,
 /obj/item/reagent_containers/food/snacks/grown/tomato,
@@ -49779,7 +49759,7 @@ dDT
 dDT
 dDT
 sNA
-ssm
+wWW
 uhP
 sbX
 vtb
@@ -49898,7 +49878,7 @@ dDT
 dDT
 dDT
 sNA
-pce
+wWW
 jLh
 sbX
 wWW
@@ -50017,7 +49997,7 @@ bNX
 bNX
 bNX
 bEM
-ssm
+wWW
 djm
 vre
 fTX
@@ -58866,7 +58846,7 @@ loz
 dIx
 oPQ
 dIx
-tFY
+upT
 xSt
 fwd
 qtl
