@@ -28,6 +28,8 @@
 			return GLOB.wings_list
 		if("synth_antenna")
 			return GLOB.synth_antennas_list
+		if("fluff")
+			return GLOB.fluffs_list
 	return list()
 
 /datum/preferences/proc/character_creator_part_definition(id)
@@ -48,6 +50,8 @@
 			return list("label" = "Wings", "pref" = "wings", "values" = character_creator_name_options(GLOB.wings_list), "fallback" = "None", "colors" = 3)
 		if("synth_antenna")
 			return list("label" = "Synth antenna", "pref" = "synth_antenna", "values" = character_creator_name_options(GLOB.synth_antennas_list), "fallback" = "None", "colors" = 3)
+		if("fluff")
+			return list("label" = "Fluff", "pref" = "fluff", "values" = character_creator_name_options(GLOB.fluffs_list), "fallback" = "None", "colors" = 3)
 	return null
 
 /datum/preferences/proc/character_creator_part_ids()
@@ -82,6 +86,17 @@
 		if(3)
 			return "[accessory]_color_tertiary"
 
+/datum/preferences/proc/character_creator_emissive_var(accessory)
+	return "[accessory]_emissive"
+
+/datum/preferences/proc/sanitize_character_creator_emissive_list(list/emissive_list)
+	var/list/sanitized = list(FALSE, FALSE, FALSE)
+	if(!islist(emissive_list))
+		return sanitized
+	for(var/index in 1 to min(length(emissive_list), 3))
+		sanitized[index] = !!emissive_list[index]
+	return sanitized
+
 /datum/preferences/proc/character_creator_genital_color_count(id)
 	switch(id)
 		if("genitalia_boobs")
@@ -113,6 +128,9 @@
 		if("genitalia_testicles")
 			return color_index == 2 ? "genitalia_testicles_color_secondary" : "genitalia_testicles_color"
 	return null
+
+/datum/preferences/proc/character_creator_genital_emissive_var(id)
+	return "[id]_emissive"
 
 /datum/preferences/proc/character_creator_genital_color_action(id, color_index)
 	return character_creator_genital_color_var(id, color_index)
@@ -251,6 +269,9 @@
 			var/color_var = character_creator_genital_color_var(id, color_index)
 			data["character_creator_[id]_color_[color_index]"] = vars[color_var]
 			data["character_creator_[id]_color_action_[color_index]"] = character_creator_genital_color_action(id, color_index)
+			var/list/emissive_list = vars[character_creator_genital_emissive_var(id)]
+			data["character_creator_[id]_emissive_[color_index]"] = allow_emissives && islist(emissive_list) && emissive_list[color_index]
+			data["character_creator_[id]_emissive_action_[color_index]"] = "toggle_character_creator_emissive"
 	data["character_creator_genital_row_ids"] = row_ids
 	data["character_creator_genital_row_count"] = length(row_ids)
 
@@ -270,6 +291,9 @@
 			var/color_var = character_creator_color_var(id, color_index)
 			data["character_creator_[id]_color_[color_index]"] = vars[color_var]
 			data["character_creator_[id]_color_action_[color_index]"] = character_creator_color_action(id, color_index)
+			var/list/emissive_list = vars[character_creator_emissive_var(id)]
+			data["character_creator_[id]_emissive_[color_index]"] = allow_emissives && islist(emissive_list) && emissive_list[color_index]
+			data["character_creator_[id]_emissive_action_[color_index]"] = "toggle_character_creator_emissive"
 	data["character_creator_part_row_ids"] = row_ids
 	data["character_creator_part_row_count"] = length(row_ids)
 
@@ -296,7 +320,7 @@
 				continue
 
 			var/list/entry = zone_markings[marking_name]
-			sanitized_zone[marking_name] = list(body_marking_entry_color(entry), FALSE)
+			sanitized_zone[marking_name] = list(body_marking_entry_color(entry), body_marking_entry_emissive(entry))
 			marking_count++
 
 		if(length(sanitized_zone))
@@ -324,6 +348,7 @@
 				row_ids += row_id
 				data["character_creator_marking_[row_id]_name"] = marking_name
 				data["character_creator_marking_[row_id]_color"] = body_marking_entry_color(zone_markings[marking_name])
+				data["character_creator_marking_[row_id]_emissive"] = allow_emissives && body_marking_entry_emissive(zone_markings[marking_name])
 
 		data["character_creator_marking_[zone]_row_ids"] = row_ids
 
@@ -475,6 +500,22 @@
 		update_preview_icon()
 		return TRUE
 
+	if(action == "toggle_character_creator_emissive")
+		var/field = params["field"]
+		var/color_index = sanitize_integer(params["color_index"], 1, 3, 1)
+		var/emissive_var
+		if(field in genital_actions)
+			emissive_var = character_creator_genital_emissive_var(field)
+		else if(character_creator_part_definition(field))
+			emissive_var = character_creator_emissive_var(field)
+		if(!emissive_var)
+			return FALSE
+		var/list/emissive_list = sanitize_character_creator_emissive_list(vars[emissive_var])
+		emissive_list[color_index] = !emissive_list[color_index]
+		vars[emissive_var] = emissive_list
+		update_preview_icon()
+		return TRUE
+
 	if(action == "add_character_creator_marking")
 		ensure_body_marking_references()
 		sanitize_body_markings()
@@ -549,6 +590,21 @@
 			if(new_color)
 				body_markings[zone][marking_name][1] = sanitize_hexcolor(new_color, 6, TRUE, "#FFFFFF")
 				update_preview_icon()
+			return TRUE
+
+	if(action == "toggle_character_creator_marking_emissive")
+		sanitize_body_markings()
+		var/zone = params["zone"]
+		var/row_id = params["row_id"]
+		if(!(zone in GLOB.marking_zones) || !islist(body_markings[zone]))
+			return TRUE
+		var/marking_index = 0
+		for(var/marking_name in body_markings[zone])
+			marking_index++
+			if(row_id != body_marking_row_id(zone, marking_index))
+				continue
+			body_markings[zone][marking_name][2] = !body_marking_entry_emissive(body_markings[zone][marking_name])
+			update_preview_icon()
 			return TRUE
 
 	if(action in genital_actions)

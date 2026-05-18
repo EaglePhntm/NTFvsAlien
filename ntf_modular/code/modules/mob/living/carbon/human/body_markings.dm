@@ -76,6 +76,44 @@ GLOBAL_LIST_INIT(marking_zone_to_bitflag, list(
 		return "#FFFFFF"
 	return sanitize_hexcolor(entry[1], 6, TRUE, "#FFFFFF")
 
+/proc/body_marking_entry_emissive(list/entry)
+	if(!islist(entry) || length(entry) < 2)
+		return FALSE
+	return !!entry[2]
+
+/mob/living/carbon/human/proc/update_body_marking_emissives()
+	remove_overlay(BODY_MARKINGS_EMISSIVE_LAYER)
+	if(!ntf_should_render_emissives() || !islist(body_markings))
+		return
+	ensure_body_marking_references()
+
+	var/list/emissive_layers = list()
+	for(var/zone in GLOB.marking_zones)
+		var/list/zone_markings = body_markings[zone]
+		if(!length(zone_markings))
+			continue
+
+		for(var/marking_name in zone_markings)
+			if(!body_marking_entry_emissive(zone_markings[marking_name]))
+				continue
+			var/datum/body_marking/marking = GLOB.body_markings[marking_name]
+			if(!marking)
+				continue
+
+			var/state = body_marking_state_for_limb(marking, zone, physique, digitigrade_legs)
+			if(!(state in icon_states(marking.icon)))
+				continue
+
+			var/mutable_appearance/marking_emissive = emissive_appearance(marking.icon, state, src, layer = -BODYPARTS_LAYER)
+			if(!marking_emissive)
+				continue
+			marking_emissive.dir = dir
+			emissive_layers += marking_emissive
+
+	if(length(emissive_layers))
+		overlays_standing[BODY_MARKINGS_EMISSIVE_LAYER] = emissive_layers
+		apply_overlay(BODY_MARKINGS_EMISSIVE_LAYER)
+
 /datum/body_marking
 	var/icon
 	var/icon_state
@@ -281,6 +319,7 @@ GLOBAL_LIST_INIT(marking_zone_to_bitflag, list(
 
 /mob/living/carbon/human/proc/apply_body_markings()
 	if(!islist(body_markings))
+		update_body_marking_emissives()
 		return
 	ensure_body_marking_references()
 
@@ -301,3 +340,5 @@ GLOBAL_LIST_INIT(marking_zone_to_bitflag, list(
 			var/icon/marking_icon = new/icon(marking.icon, state)
 			marking_icon.Blend(body_marking_entry_color(zone_markings[marking_name]), ICON_MULTIPLY)
 			stand_icon.Blend(marking_icon, ICON_OVERLAY)
+
+	update_body_marking_emissives()

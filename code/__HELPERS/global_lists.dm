@@ -36,6 +36,7 @@ GLOBAL_LIST_INIT(poster_designs, subtypesof(/datum/poster))
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/horns, GLOB.horns_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/wings, GLOB.wings_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/synth_antenna, GLOB.synth_antennas_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/fluff, GLOB.fluffs_list)
 
 
 /proc/init_species()

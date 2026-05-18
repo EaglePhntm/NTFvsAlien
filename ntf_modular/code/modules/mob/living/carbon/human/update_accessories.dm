@@ -23,6 +23,7 @@
 	update_snout()
 	update_ears()
 	update_horns()
+	update_fluff()
 	update_synth_antenna()
 
 /proc/accessory_has_top_tag(datum/sprite_accessory/accessory_data)
@@ -52,6 +53,13 @@
 	if(accessory_has_top_tag(accessory_data))
 		return ACCESSORY_FACE_TOP_LAYER
 	return accessory_face_draw_layer(render_layer)
+
+/proc/accessory_fluff_draw_layer(datum/sprite_accessory/accessory_data, render_layer)
+	if(accessory_has_top_tag(accessory_data))
+		return ACCESSORY_FACE_TOP_LAYER
+	if(render_layer == "FRONT")
+		return ACCESSORY_FACE_FRONT_LAYER
+	return accessory_body_draw_layer(render_layer)
 
 /proc/accessory_wing_draw_layer(datum/sprite_accessory/accessory_data, render_layer, direction)
 	if(direction == NORTH)
@@ -86,6 +94,33 @@
 	for(var/image/accessory_image in accessory_layers)
 		accessory_image.layer = draw_layer
 
+/proc/ntf_emissive_appearance_copy(image/to_use, atom/offset_spokesman = null)
+	if(!to_use)
+		return null
+	var/mutable_appearance/emissive = emissive_appearance(to_use.icon, to_use.icon_state, offset_spokesman, layer = to_use.layer, alpha = to_use.alpha, appearance_flags = to_use.appearance_flags)
+	emissive.dir = to_use.dir
+	emissive.pixel_x = to_use.pixel_x
+	emissive.pixel_y = to_use.pixel_y
+	emissive.pixel_w = to_use.pixel_w
+	emissive.pixel_z = to_use.pixel_z
+	return emissive
+
+/mob/living/carbon/human/proc/ntf_should_render_emissives()
+	// Preference previews flatten planes, which makes emissive masks draw as red sprites.
+	return allow_emissives && !istype(src, /mob/living/carbon/human/dummy)
+
+/mob/living/carbon/human/proc/accessory_emissive_enabled(list/emissive_list, color_index)
+	return ntf_should_render_emissives() && islist(emissive_list) && emissive_list[color_index]
+
+/mob/living/carbon/human/proc/add_tail_layer(list/accessory_layers, image/tail_image, color_index)
+	if(!tail_image)
+		return
+	accessory_layers += tail_image
+	if(accessory_emissive_enabled(tail_emissive, color_index))
+		var/mutable_appearance/emissive_tail = ntf_emissive_appearance_copy(tail_image, src)
+		if(emissive_tail)
+			accessory_layers += emissive_tail
+
 /mob/living/carbon/human/proc/update_horns()
 	remove_overlay(ACCESSORY_HORNS_LAYER)
 
@@ -106,17 +141,50 @@
 	var/list/horns_layers = list()
 	for(var/render_layer in horns_data.render_layers)
 		var/draw_layer = accessory_body_draw_layer(render_layer)
-		add_accessory_layer(horns_layers, horns_data, render_layer, null, horns_render_color, draw_layer = draw_layer)
+		add_accessory_layer(horns_layers, horns_data, render_layer, null, horns_render_color, draw_layer = draw_layer, emissive_enabled = accessory_emissive_enabled(horns_emissive, 1))
 		if(horns_data.color_count >= 2)
-			add_accessory_layer(horns_layers, horns_data, render_layer, "secondary", horns_color_secondary, draw_layer = draw_layer)
+			add_accessory_layer(horns_layers, horns_data, render_layer, "secondary", horns_color_secondary, draw_layer = draw_layer, emissive_enabled = accessory_emissive_enabled(horns_emissive, 2))
 		if(horns_data.color_count >= 3)
-			add_accessory_layer(horns_layers, horns_data, render_layer, "tertiary", horns_color_tertiary, draw_layer = draw_layer)
+			add_accessory_layer(horns_layers, horns_data, render_layer, "tertiary", horns_color_tertiary, draw_layer = draw_layer, emissive_enabled = accessory_emissive_enabled(horns_emissive, 3))
 
 	if(!length(horns_layers))
 		return
 
 	overlays_standing[ACCESSORY_HORNS_LAYER] = horns_layers
 	apply_overlay(ACCESSORY_HORNS_LAYER)
+
+/mob/living/carbon/human/proc/update_fluff()
+	remove_overlay(ACCESSORY_FLUFF_LAYER)
+	return // Disabled until fluff can be anchored through an organ/bodypart overlay, like SPLURT.
+
+	if(!fluff || fluff == "None")
+		return
+
+	var/datum/sprite_accessory/fluff/fluff_data = GLOB.fluffs_list[fluff]
+	if(!fluff_data || !fluff_data.icon_state)
+		return
+
+	var/fluff_render_color = fluff_color
+	switch(fluff_data.color_src)
+		if(ACCESSORY_COLOR_BODY)
+			fluff_render_color = body_color
+		if(ACCESSORY_COLOR_HAIR)
+			fluff_render_color = rgb(r_hair, g_hair, b_hair)
+
+	var/list/fluff_layers = list()
+	for(var/render_layer in fluff_data.render_layers)
+		var/draw_layer = accessory_fluff_draw_layer(fluff_data, render_layer)
+		add_accessory_layer(fluff_layers, fluff_data, render_layer, null, fluff_render_color, draw_layer = draw_layer, emissive_enabled = accessory_emissive_enabled(fluff_emissive, 1))
+		if(fluff_data.color_count >= 2)
+			add_accessory_layer(fluff_layers, fluff_data, render_layer, "secondary", fluff_color_secondary, draw_layer = draw_layer, emissive_enabled = accessory_emissive_enabled(fluff_emissive, 2))
+		if(fluff_data.color_count >= 3)
+			add_accessory_layer(fluff_layers, fluff_data, render_layer, "tertiary", fluff_color_tertiary, draw_layer = draw_layer, emissive_enabled = accessory_emissive_enabled(fluff_emissive, 3))
+
+	if(!length(fluff_layers))
+		return
+
+	overlays_standing[ACCESSORY_FLUFF_LAYER] = fluff_layers
+	apply_overlay(ACCESSORY_FLUFF_LAYER)
 
 /mob/living/carbon/human/proc/update_synth_antenna()
 	remove_overlay(ACCESSORY_ANTENNA_LAYER)
@@ -137,11 +205,11 @@
 
 	var/list/antenna_layers = list()
 	for(var/render_layer in antenna_data.render_layers)
-		add_accessory_layer(antenna_layers, antenna_data, render_layer, null, antenna_render_color, draw_layer = ACCESSORY_FACE_BEHIND_LAYER)
+		add_accessory_layer(antenna_layers, antenna_data, render_layer, null, antenna_render_color, draw_layer = ACCESSORY_FACE_BEHIND_LAYER, emissive_enabled = accessory_emissive_enabled(synth_antenna_emissive, 1))
 		if(antenna_data.color_count >= 2)
-			add_accessory_layer(antenna_layers, antenna_data, render_layer, "secondary", synth_antenna_color_secondary, draw_layer = ACCESSORY_FACE_BEHIND_LAYER)
+			add_accessory_layer(antenna_layers, antenna_data, render_layer, "secondary", synth_antenna_color_secondary, draw_layer = ACCESSORY_FACE_BEHIND_LAYER, emissive_enabled = accessory_emissive_enabled(synth_antenna_emissive, 2))
 		if(antenna_data.color_count >= 3)
-			add_accessory_layer(antenna_layers, antenna_data, render_layer, "tertiary", synth_antenna_color_tertiary, draw_layer = ACCESSORY_FACE_BEHIND_LAYER)
+			add_accessory_layer(antenna_layers, antenna_data, render_layer, "tertiary", synth_antenna_color_tertiary, draw_layer = ACCESSORY_FACE_BEHIND_LAYER, emissive_enabled = accessory_emissive_enabled(synth_antenna_emissive, 3))
 
 	if(!length(antenna_layers))
 		return
@@ -179,11 +247,11 @@
 	var/list/behind_layers = list()
 	for(var/render_layer in ears_data.render_layers)
 		var/list/target_layers = accessory_uses_underlay(ACCESSORY_KIND_EARS, ears_data, render_layer, dir) ? behind_layers : front_layers
-		add_accessory_layer(target_layers, ears_data, render_layer, null, ears_render_color)
+		add_accessory_layer(target_layers, ears_data, render_layer, null, ears_render_color, emissive_enabled = accessory_emissive_enabled(ears_emissive, 1))
 		if(ears_data.color_count >= 2)
-			add_accessory_layer(target_layers, ears_data, render_layer, "secondary", ears_color_secondary)
+			add_accessory_layer(target_layers, ears_data, render_layer, "secondary", ears_color_secondary, emissive_enabled = accessory_emissive_enabled(ears_emissive, 2))
 		if(ears_data.color_count >= 3)
-			add_accessory_layer(target_layers, ears_data, render_layer, "tertiary", ears_color_tertiary)
+			add_accessory_layer(target_layers, ears_data, render_layer, "tertiary", ears_color_tertiary, emissive_enabled = accessory_emissive_enabled(ears_emissive, 3))
 		if(ears_data.has_inner)
 			add_accessory_layer(target_layers, ears_data, render_layer, null, null, "m_earsinner")
 
@@ -217,19 +285,19 @@
 	for(var/render_layer in wings_data.render_layers)
 		var/list/target_layers = accessory_uses_underlay(ACCESSORY_KIND_WINGS, wings_data, render_layer, dir) ? behind_layers : front_layers
 		var/draw_layer = accessory_wing_draw_layer(wings_data, render_layer, dir)
-		add_accessory_layer(target_layers, wings_data, render_layer, null, wings_render_color, draw_layer = draw_layer)
+		add_accessory_layer(target_layers, wings_data, render_layer, null, wings_render_color, draw_layer = draw_layer, emissive_enabled = accessory_emissive_enabled(wings_emissive, 1))
 		if(wings_data.color_count >= 2)
-			add_accessory_layer(target_layers, wings_data, render_layer, "secondary", wings_color_secondary, draw_layer = draw_layer)
+			add_accessory_layer(target_layers, wings_data, render_layer, "secondary", wings_color_secondary, draw_layer = draw_layer, emissive_enabled = accessory_emissive_enabled(wings_emissive, 2))
 		if(wings_data.color_count >= 3)
-			add_accessory_layer(target_layers, wings_data, render_layer, "tertiary", wings_color_tertiary, draw_layer = draw_layer)
+			add_accessory_layer(target_layers, wings_data, render_layer, "tertiary", wings_color_tertiary, draw_layer = draw_layer, emissive_enabled = accessory_emissive_enabled(wings_emissive, 3))
 
 	if(wings_data.top_icon_state)
 		var/top_draw_layer = accessory_wing_draw_layer(wings_data, "FRONT", dir)
-		add_accessory_layer(front_layers, wings_data, "FRONT", null, wings_render_color, null, wings_data.top_icon_state, top_draw_layer)
+		add_accessory_layer(front_layers, wings_data, "FRONT", null, wings_render_color, null, wings_data.top_icon_state, top_draw_layer, accessory_emissive_enabled(wings_emissive, 1))
 		if(wings_data.color_count >= 2)
-			add_accessory_layer(front_layers, wings_data, "FRONT", "secondary", wings_color_secondary, null, wings_data.top_icon_state, top_draw_layer)
+			add_accessory_layer(front_layers, wings_data, "FRONT", "secondary", wings_color_secondary, null, wings_data.top_icon_state, top_draw_layer, accessory_emissive_enabled(wings_emissive, 2))
 		if(wings_data.color_count >= 3)
-			add_accessory_layer(front_layers, wings_data, "FRONT", "tertiary", wings_color_tertiary, null, wings_data.top_icon_state, top_draw_layer)
+			add_accessory_layer(front_layers, wings_data, "FRONT", "tertiary", wings_color_tertiary, null, wings_data.top_icon_state, top_draw_layer, accessory_emissive_enabled(wings_emissive, 3))
 
 	if(length(front_layers))
 		overlays_standing[ACCESSORY_WINGS_LAYER] = front_layers
@@ -258,11 +326,11 @@
 	var/list/snout_layers = list()
 	for(var/render_layer in snout_data.render_layers)
 		var/draw_layer = accessory_snout_draw_layer(snout_data, render_layer)
-		add_accessory_layer(snout_layers, snout_data, render_layer, null, snout_render_color, draw_layer = draw_layer)
+		add_accessory_layer(snout_layers, snout_data, render_layer, null, snout_render_color, draw_layer = draw_layer, emissive_enabled = accessory_emissive_enabled(snout_emissive, 1))
 		if(snout_data.color_count >= 2)
-			add_accessory_layer(snout_layers, snout_data, render_layer, "secondary", snout_color_secondary, draw_layer = draw_layer)
+			add_accessory_layer(snout_layers, snout_data, render_layer, "secondary", snout_color_secondary, draw_layer = draw_layer, emissive_enabled = accessory_emissive_enabled(snout_emissive, 2))
 		if(snout_data.color_count >= 3)
-			add_accessory_layer(snout_layers, snout_data, render_layer, "tertiary", snout_color_tertiary, draw_layer = draw_layer)
+			add_accessory_layer(snout_layers, snout_data, render_layer, "tertiary", snout_color_tertiary, draw_layer = draw_layer, emissive_enabled = accessory_emissive_enabled(snout_emissive, 3))
 
 	if(snout_data.restore_body_eyes)
 		var/eye_icon_state = get_eye_icon_state()
@@ -279,7 +347,7 @@
 	overlays_standing[SNOUT_LAYER] = snout_layers
 	apply_overlay(SNOUT_LAYER)
 
-/mob/living/carbon/human/proc/add_accessory_layer(list/accessory_layers, datum/sprite_accessory/accessory_data, render_layer, color_layer, render_color, icon_prefix_override, icon_state_override, draw_layer)
+/mob/living/carbon/human/proc/add_accessory_layer(list/accessory_layers, datum/sprite_accessory/accessory_data, render_layer, color_layer, render_color, icon_prefix_override, icon_state_override, draw_layer, emissive_enabled = FALSE)
 	var/accessory_icon_state = icon_state_override || accessory_data.icon_state
 	var/accessory_icon_prefix = icon_prefix_override || accessory_data:icon_prefix
 	var/prefixed_state = accessory_icon_prefix ? "[accessory_icon_prefix]_[accessory_icon_state]_[render_layer]" : null
@@ -316,7 +384,15 @@
 	accessory_image.color = render_color ? sanitize_character_recolor(render_color) : null
 	if(accessory_data.center)
 		center_image(accessory_image, accessory_data.dimension_x, accessory_data.dimension_y)
+	if(istype(accessory_data, /datum/sprite_accessory/fluff))
+		var/datum/sprite_accessory/fluff/fluff_data = accessory_data
+		accessory_image.pixel_w += fluff_data.pixel_x_offset
+		accessory_image.pixel_z += fluff_data.pixel_y_offset
 	accessory_layers += accessory_image
+	if(emissive_enabled)
+		var/mutable_appearance/emissive_accessory = ntf_emissive_appearance_copy(accessory_image, src)
+		if(emissive_accessory)
+			accessory_layers += emissive_accessory
 
 /mob/living/carbon/human/proc/update_tail()
 	remove_overlay(LIZARD_TAIL_LAYER)
@@ -366,72 +442,72 @@
 		if(icon_exists(tail_data.icon, front_state))
 			var/image/front_primary = image(tail_data.icon, icon_state = front_state)
 			front_primary.color = sanitize_character_recolor(tail_render_color)
-			front_layers += front_primary
+			add_tail_layer(front_layers, front_primary, 1)
 		else
 			var/unsuffixed_front_state = "[tail_icon_prefix]_[tail_data.icon_state]_FRONT"
 			if(icon_exists(tail_data.icon, unsuffixed_front_state))
 				var/image/front_primary = image(tail_data.icon, icon_state = unsuffixed_front_state)
 				front_primary.color = sanitize_character_recolor(tail_render_color)
-				front_layers += front_primary
+				add_tail_layer(front_layers, front_primary, 1)
 
 		if(icon_exists(tail_data.icon, behind_state))
 			var/image/behind_primary = image(tail_data.icon, icon_state = behind_state)
 			behind_primary.color = sanitize_character_recolor(tail_render_color)
-			behind_layers += behind_primary
+			add_tail_layer(behind_layers, behind_primary, 1)
 		else
 			var/unsuffixed_behind_state = "[tail_icon_prefix]_[tail_data.icon_state]_BEHIND"
 			if(icon_exists(tail_data.icon, unsuffixed_behind_state))
 				var/image/behind_primary = image(tail_data.icon, icon_state = unsuffixed_behind_state)
 				behind_primary.color = sanitize_character_recolor(tail_render_color)
-				behind_layers += behind_primary
+				add_tail_layer(behind_layers, behind_primary, 1)
 	else
 		if(icon_exists(tail_data.icon, front_state))
 			var/image/front_image = image(tail_data.icon, icon_state = front_state)
 			front_image.color = sanitize_character_recolor(tail_render_color)
-			front_layers += front_image
+			add_tail_layer(front_layers, front_image, 1)
 		else
 			var/suffixed_front_state = "[tail_icon_prefix]_[tail_data.icon_state]_FRONT_primary"
 			if(icon_exists(tail_data.icon, suffixed_front_state))
 				var/image/front_image = image(tail_data.icon, icon_state = suffixed_front_state)
 				front_image.color = sanitize_character_recolor(tail_render_color)
-				front_layers += front_image
+				add_tail_layer(front_layers, front_image, 1)
 
 		if(icon_exists(tail_data.icon, behind_state))
 			var/image/behind_image = image(tail_data.icon, icon_state = behind_state)
 			behind_image.color = sanitize_character_recolor(tail_render_color)
-			behind_layers += behind_image
+			add_tail_layer(behind_layers, behind_image, 1)
 		else
 			var/suffixed_behind_state = "[tail_icon_prefix]_[tail_data.icon_state]_BEHIND_primary"
 			if(icon_exists(tail_data.icon, suffixed_behind_state))
 				var/image/behind_image = image(tail_data.icon, icon_state = suffixed_behind_state)
 				behind_image.color = sanitize_character_recolor(tail_render_color)
-				behind_layers += behind_image
+				add_tail_layer(behind_layers, behind_image, 1)
 
 	if(tail_data.color_count >= 2)
 		var/secondary_front_state = "[tail_icon_prefix]_[tail_data.icon_state]_FRONT_secondary"
 		if(icon_exists(tail_data.icon, secondary_front_state))
 			var/image/front_secondary = image(tail_data.icon, icon_state = secondary_front_state)
 			front_secondary.color = sanitize_character_recolor(tail_color_secondary)
-			front_layers += front_secondary
+			add_tail_layer(front_layers, front_secondary, 2)
 
 		var/secondary_behind_state = "[tail_icon_prefix]_[tail_data.icon_state]_BEHIND_secondary"
 		if(icon_exists(tail_data.icon, secondary_behind_state))
 			var/image/behind_secondary = image(tail_data.icon, icon_state = secondary_behind_state)
 			behind_secondary.color = sanitize_character_recolor(tail_color_secondary)
-			behind_layers += behind_secondary
+			add_tail_layer(behind_layers, behind_secondary, 2)
 
 	if(tail_data.color_count >= 3)
 		var/tertiary_front_state = "[tail_icon_prefix]_[tail_data.icon_state]_FRONT_tertiary"
 		if(icon_exists(tail_data.icon, tertiary_front_state))
 			var/image/front_tertiary = image(tail_data.icon, icon_state = tertiary_front_state)
 			front_tertiary.color = sanitize_character_recolor(tail_color_tertiary)
-			front_layers += front_tertiary
+			add_tail_layer(front_layers, front_tertiary, 3)
 
 		var/tertiary_behind_state = "[tail_icon_prefix]_[tail_data.icon_state]_BEHIND_tertiary"
 		if(icon_exists(tail_data.icon, tertiary_behind_state))
 			var/image/behind_tertiary = image(tail_data.icon, icon_state = tertiary_behind_state)
 			behind_tertiary.color = sanitize_character_recolor(tail_color_tertiary)
-			behind_layers += behind_tertiary
+			add_tail_layer(behind_layers, behind_tertiary, 3)
 
 	if(dir == NORTH)
 		behind_layers += front_layers
@@ -457,6 +533,9 @@
 	update_accessories()
 	update_genitals()
 	update_inv_w_uniform()
+	update_inv_gloves()
+	update_inv_belt()
+	update_inv_back()
 	update_inv_shoes()
 	update_inv_wear_suit()
 	update_inv_socks()

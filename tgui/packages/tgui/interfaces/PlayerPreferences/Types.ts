@@ -45,6 +45,7 @@ type CharacterCustomizationData = {
   body_color: string;
   allow_mismatched_parts: boolean;
   use_genital_size_controls: boolean;
+  allow_emissives: boolean;
   species: string;
   synthetic_type: string;
   synthetic_body_base: string;
@@ -73,6 +74,7 @@ type CharacterCreatorOptionRow = {
   size_min?: number;
   size_max?: number;
   color_count?: number;
+  emissive_count?: number;
 };
 
 type BackgroundInformationData = {

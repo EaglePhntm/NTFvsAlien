@@ -2,7 +2,7 @@
 	if(!keys_held["Ctrl"])
 		return FALSE
 
-	intended_direction = movement
+	intended_direction = NONE
 	next_move_dir_add = NONE
 	next_move_dir_sub = NONE
 

@@ -159,6 +159,7 @@
 			data["moth_wings"] = moth_wings
 			data["allow_mismatched_parts"] = allow_mismatched_parts
 			data["use_genital_size_controls"] = use_genital_size_controls
+			data["allow_emissives"] = allow_emissives
 			data["random_name"] = random_name
 			data["preference_preview_dir"] = preference_preview_dir
 			data["mapRef"] = map_name
@@ -550,6 +551,15 @@
 			return TRUE
 		if("toggle_genital_size_controls")
 			use_genital_size_controls = !use_genital_size_controls
+			update_preview_icon()
+			save_preferences()
+			save_character()
+			save_keybinds()
+			SStgui.update_uis(src)
+			SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+			return TRUE
+		if("toggle_emissives")
+			allow_emissives = !allow_emissives
 			update_preview_icon()
 			save_preferences()
 			save_character()

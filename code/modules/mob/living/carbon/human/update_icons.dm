@@ -840,7 +840,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		back.screen_loc = ui_back
 		client.screen += back
 
-	overlays_standing[BACK_LAYER] = back.make_worn_icon(species_type = species.name, slot_name = slot_back_str, default_icon = 'icons/mob/clothing/back.dmi', default_layer = BACK_LAYER)
+	overlays_standing[BACK_LAYER] = ntf_set_worn_appearance_layer(back.make_worn_icon(species_type = species.name, slot_name = slot_back_str, default_icon = 'icons/mob/clothing/back.dmi', default_layer = BACK_LAYER), ntf_north_body_clothing_layer(dir))
 
 	apply_overlay(BACK_LAYER)
 

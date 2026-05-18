@@ -12,6 +12,8 @@ GLOBAL_VAR_INIT(max_larva_count_per_mob, 3) //Added for adminbus reasons
 #define ACCESSORY_WINGS_LAYER 37
 #define ACCESSORY_HORNS_LAYER 38
 #define ACCESSORY_ANTENNA_LAYER 39
+#define ACCESSORY_FLUFF_LAYER 40
+#define BODY_MARKINGS_EMISSIVE_LAYER 41
 #define BODYPARTS_LAYER 32
 #define WOUND_LAYER 31
 #define MOTH_WINGS_LAYER 30
@@ -46,7 +48,7 @@ GLOBAL_VAR_INIT(max_larva_count_per_mob, 3) //Added for adminbus reasons
 #define LASER_LAYER 1 //For sniper targeting laser
 #define LIZARD_TAIL_LAYER 33
 
-#define TOTAL_LAYERS 39
+#define TOTAL_LAYERS 41
 
 #define TOTAL_UNDERLAYS 4
 #define MOTH_WINGS_BEHIND_LAYER 1

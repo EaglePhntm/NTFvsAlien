@@ -208,16 +208,46 @@ export const CharacterCustomization = (props) => {
           const colorAction =
             data[`character_creator_${row.id}_color_action_${colorIndex}`] ??
             genitalColorActions[row.id]?.[index];
-          return colorSwatchButton(
-            data[`character_creator_${row.id}_color_${colorIndex}`] ??
-              data[colorAction] ??
-              '#ffffff',
-            colorAction,
+          const label =
             colorIndex === 1
-              ? 'Primary color'
+              ? 'Primary'
               : colorIndex === 2
-                ? 'Secondary color'
-                : 'Tertiary color',
+                ? 'Secondary'
+                : 'Tertiary';
+          const emissiveAction =
+            data[`character_creator_${row.id}_emissive_action_${colorIndex}`];
+          const emissiveEnabled =
+            !!data[`character_creator_${row.id}_emissive_${colorIndex}`];
+          return (
+            <Box
+              key={`${row.id}-color-${colorIndex}`}
+              as="span"
+              mr={0.25}
+              style={{ whiteSpace: 'nowrap' }}
+            >
+              {colorSwatchButton(
+                data[`character_creator_${row.id}_color_${colorIndex}`] ??
+                  data[colorAction] ??
+                  '#ffffff',
+                colorAction,
+                `${label} color`,
+              )}
+              {emissiveAction ? (
+                <Button
+                  compact
+                  color={emissiveEnabled ? 'good' : undefined}
+                  disabled={!data.allow_emissives}
+                  icon="lightbulb"
+                  tooltip={`${label} emissive`}
+                  onClick={() =>
+                    act(emissiveAction, {
+                      field: row.id,
+                      color_index: colorIndex,
+                    })
+                  }
+                />
+              ) : null}
+            </Box>
           );
         })}
       </Box>
@@ -321,7 +351,7 @@ export const CharacterCustomization = (props) => {
           alignItems: 'center',
           columnGap: '4px',
           display: 'grid',
-          gridTemplateColumns: 'minmax(0, 1fr) auto auto',
+          gridTemplateColumns: 'minmax(0, 1fr) auto auto auto',
           maxWidth: '520px',
         }}
       >
@@ -351,6 +381,23 @@ export const CharacterCustomization = (props) => {
             color={data[`character_creator_marking_${rowId}_color`] ?? '#ffffff'}
           />
         </Button>
+        <Button
+          compact
+          color={
+            data[`character_creator_marking_${rowId}_emissive`]
+              ? 'good'
+              : undefined
+          }
+          disabled={!data.allow_emissives}
+          icon="lightbulb"
+          tooltip="Marking emissive"
+          onClick={() =>
+            act('toggle_character_creator_marking_emissive', {
+              zone,
+              row_id: rowId,
+            })
+          }
+        />
         <Button
           compact
           color="bad"
@@ -613,15 +660,21 @@ export const CharacterCustomization = (props) => {
       case 'features':
         return (
           <LabeledList>
-              <Button.Checkbox
-                checked={data.use_genital_size_controls}
-                onClick={() => act('toggle_genital_size_controls')}
-              >
-                Show size controls
-              </Button.Checkbox>
-              {genitalRows.length ? (
-                genitalRows.map(creatorGenitalRow)
-              ) : (
+            <Button.Checkbox
+              checked={data.use_genital_size_controls}
+              onClick={() => act('toggle_genital_size_controls')}
+            >
+              Show size controls
+            </Button.Checkbox>
+            <Button.Checkbox
+              checked={data.allow_emissives}
+              onClick={() => act('toggle_emissives')}
+            >
+              Allow emissives
+            </Button.Checkbox>
+            {genitalRows.length ? (
+              genitalRows.map(creatorGenitalRow)
+            ) : (
                 <LabeledList.Item label={'Genitals'}>
                   No options available
                 </LabeledList.Item>

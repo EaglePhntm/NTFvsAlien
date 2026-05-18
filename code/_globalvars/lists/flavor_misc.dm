@@ -27,6 +27,7 @@ GLOBAL_LIST_EMPTY(ears_list)
 GLOBAL_LIST_EMPTY(horns_list)
 GLOBAL_LIST_EMPTY(wings_list)
 GLOBAL_LIST_EMPTY(synth_antennas_list)
+GLOBAL_LIST_EMPTY(fluffs_list)
 GLOBAL_LIST_EMPTY(tails_list_monkey)
 
 

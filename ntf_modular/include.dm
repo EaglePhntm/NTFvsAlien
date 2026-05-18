@@ -169,6 +169,7 @@
 #include "code\modules\mob\living\carbon\human\human_helpers.dm"
 #include "code\modules\mob\living\carbon\human\species_types\splurt_species.dm"
 #include "code\modules\mob\living\carbon\human\sprite_accessories\ears.dm"
+#include "code\modules\mob\living\carbon\human\sprite_accessories\fluff.dm"
 #include "code\modules\mob\living\carbon\human\sprite_accessories\horns.dm"
 #include "code\modules\mob\living\carbon\human\sprite_accessories\skyrat_tails.dm"
 #include "code\modules\mob\living\carbon\human\sprite_accessories\snouts.dm"

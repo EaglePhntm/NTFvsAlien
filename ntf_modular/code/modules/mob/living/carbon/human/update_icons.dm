@@ -40,21 +40,34 @@ GLOBAL_LIST_EMPTY(human_genitals_cache)
 		return "_s"
 	return ""
 
-/proc/add_genital_overlay_if_exists(list/genital_layers, icon_file, icon_state, draw_color, draw_layer)
+/proc/add_genital_emissive_overlay(list/genital_layers, mutable_appearance/overlay, mob/living/carbon/human/owner, list/emissive_list, color_index)
+	if(!owner || !owner.ntf_should_render_emissives() || !islist(emissive_list) || !emissive_list[color_index])
+		return
+	var/mutable_appearance/emissive_overlay = ntf_emissive_appearance_copy(overlay, owner)
+	if(emissive_overlay)
+		genital_layers += emissive_overlay
+
+/proc/add_genital_overlay_if_exists(list/genital_layers, icon_file, icon_state, draw_color, draw_layer, mob/living/carbon/human/owner = null, list/emissive_list = null, color_index = 1)
 	if(!icon_exists(icon_file, icon_state))
 		return
-	genital_layers += cached_genital_overlay(icon_file, icon_state, draw_color, draw_layer)
+	var/mutable_appearance/overlay = cached_genital_overlay(icon_file, icon_state, draw_color, draw_layer)
+	genital_layers += overlay
+	add_genital_emissive_overlay(genital_layers, overlay, owner, emissive_list, color_index)
 
-/proc/add_genital_colored_overlay_if_exists(list/genital_layers, icon_file, icon_state, draw_color, draw_layer, secondary_color = null)
+/proc/add_genital_colored_overlay_if_exists(list/genital_layers, icon_file, icon_state, draw_color, draw_layer, secondary_color = null, mob/living/carbon/human/owner = null, list/emissive_list = null)
 	var/primary_state = "[icon_state]_primary"
 	if(icon_exists(icon_file, primary_state))
-		genital_layers += cached_genital_overlay(icon_file, primary_state, draw_color, draw_layer)
+		var/mutable_appearance/primary_overlay = cached_genital_overlay(icon_file, primary_state, draw_color, draw_layer)
+		genital_layers += primary_overlay
+		add_genital_emissive_overlay(genital_layers, primary_overlay, owner, emissive_list, 1)
 		var/secondary_state = "[icon_state]_secondary"
 		if(secondary_color && icon_exists(icon_file, secondary_state))
-			genital_layers += cached_genital_overlay(icon_file, secondary_state, secondary_color, draw_layer)
+			var/mutable_appearance/secondary_overlay = cached_genital_overlay(icon_file, secondary_state, secondary_color, draw_layer)
+			genital_layers += secondary_overlay
+			add_genital_emissive_overlay(genital_layers, secondary_overlay, owner, emissive_list, 2)
 		return
 
-	add_genital_overlay_if_exists(genital_layers, icon_file, icon_state, draw_color, draw_layer)
+	add_genital_overlay_if_exists(genital_layers, icon_file, icon_state, draw_color, draw_layer, owner, emissive_list, 1)
 
 /proc/genital_draw_layer(position, render_layer, direction)
 	if(position == GENITAL_POSITION_REAR)
@@ -88,17 +101,17 @@ GLOBAL_LIST_EMPTY(human_genitals_cache)
 			var/boob_size = clamp(boobs_size, 0, 19)
 			var/boob_primary_color = boobs_color || genital_body_color
 			var/boob_secondary_color = boobs_color_secondary || "#d98fa3"
-			add_genital_colored_overlay_if_exists(genilist, 'ntf_modular/icons/mob/human/genitals/breasts_onmob.dmi', "m_breasts_[boob_style]_[boob_size][boob_suffix]_BEHIND", boob_primary_color, genital_draw_layer(GENITAL_POSITION_FRONT, "BEHIND", dir) - BREASTS_LAYER_OFFSET, boob_secondary_color)
+			add_genital_colored_overlay_if_exists(genilist, 'ntf_modular/icons/mob/human/genitals/breasts_onmob.dmi', "m_breasts_[boob_style]_[boob_size][boob_suffix]_BEHIND", boob_primary_color, genital_draw_layer(GENITAL_POSITION_FRONT, "BEHIND", dir) - BREASTS_LAYER_OFFSET, boob_secondary_color, src, boobs_emissive)
 
-			add_genital_colored_overlay_if_exists(genilist, 'ntf_modular/icons/mob/human/genitals/breasts_onmob.dmi', "m_breasts_[boob_style]_[boob_size][boob_suffix]_FRONT", boob_primary_color, genital_draw_layer(GENITAL_POSITION_FRONT, "FRONT", dir) - BREASTS_LAYER_OFFSET, boob_secondary_color)
+			add_genital_colored_overlay_if_exists(genilist, 'ntf_modular/icons/mob/human/genitals/breasts_onmob.dmi', "m_breasts_[boob_style]_[boob_size][boob_suffix]_FRONT", boob_primary_color, genital_draw_layer(GENITAL_POSITION_FRONT, "FRONT", dir) - BREASTS_LAYER_OFFSET, boob_secondary_color, src, boobs_emissive)
 
 		if(belly && belly_size)
 			var/belly_style = genital_state_style(belly)
 			var/belly_suffix = genital_state_old_suffix(belly)
 			var/clamped_belly_size = clamp(belly_size, 1, 10)
 			var/belly_render_color = belly_color || genital_body_color
-			add_genital_colored_overlay_if_exists(genilist, 'ntf_modular/icons/mob/human/genitals/belly.dmi', "m_belly_[belly_style]_[clamped_belly_size][belly_suffix]_BEHIND", belly_render_color, genital_draw_layer(GENITAL_POSITION_FRONT, "BEHIND", dir) - BELLY_LAYER_OFFSET)
-			add_genital_colored_overlay_if_exists(genilist, 'ntf_modular/icons/mob/human/genitals/belly.dmi', "m_belly_[belly_style]_[clamped_belly_size][belly_suffix]_FRONT", belly_render_color, genital_draw_layer(GENITAL_POSITION_FRONT, "FRONT", dir) - BELLY_LAYER_OFFSET)
+			add_genital_colored_overlay_if_exists(genilist, 'ntf_modular/icons/mob/human/genitals/belly.dmi', "m_belly_[belly_style]_[clamped_belly_size][belly_suffix]_BEHIND", belly_render_color, genital_draw_layer(GENITAL_POSITION_FRONT, "BEHIND", dir) - BELLY_LAYER_OFFSET, owner = src, emissive_list = belly_emissive)
+			add_genital_colored_overlay_if_exists(genilist, 'ntf_modular/icons/mob/human/genitals/belly.dmi', "m_belly_[belly_style]_[clamped_belly_size][belly_suffix]_FRONT", belly_render_color, genital_draw_layer(GENITAL_POSITION_FRONT, "FRONT", dir) - BELLY_LAYER_OFFSET, owner = src, emissive_list = belly_emissive)
 
 	if((!w_uniform || w_uniform.shows_butt) && (!worn_suit || worn_suit.shows_butt))
 		if(ass)
@@ -106,24 +119,24 @@ GLOBAL_LIST_EMPTY(human_genitals_cache)
 			var/ass_suffix = genital_state_old_suffix(ass)
 			var/clamped_ass_size = clamp(ass_size, 1, 8)
 			var/ass_render_color = ass_color || genital_body_color
-			add_genital_colored_overlay_if_exists(genilist, 'ntf_modular/icons/mob/human/genitals/butt.dmi', "m_butt_[ass_style]_[clamped_ass_size][ass_suffix]_ADJ", ass_render_color, genital_draw_layer(GENITAL_POSITION_REAR, "ADJ", dir) - BUTT_LAYER_OFFSET)
-			add_genital_colored_overlay_if_exists(genilist, 'ntf_modular/icons/mob/human/genitals/butt.dmi', "m_butt_[ass_style]_[clamped_ass_size][ass_suffix]_FRONT", ass_render_color, genital_draw_layer(GENITAL_POSITION_REAR, "FRONT", dir) - BUTT_LAYER_OFFSET)
+			add_genital_colored_overlay_if_exists(genilist, 'ntf_modular/icons/mob/human/genitals/butt.dmi', "m_butt_[ass_style]_[clamped_ass_size][ass_suffix]_ADJ", ass_render_color, genital_draw_layer(GENITAL_POSITION_REAR, "ADJ", dir) - BUTT_LAYER_OFFSET, owner = src, emissive_list = ass_emissive)
+			add_genital_colored_overlay_if_exists(genilist, 'ntf_modular/icons/mob/human/genitals/butt.dmi', "m_butt_[ass_style]_[clamped_ass_size][ass_suffix]_FRONT", ass_render_color, genital_draw_layer(GENITAL_POSITION_REAR, "FRONT", dir) - BUTT_LAYER_OFFSET, owner = src, emissive_list = ass_emissive)
 	if((!w_uniform || w_uniform.shows_bottom_genital) && (!worn_suit || worn_suit.shows_bottom_genital))
 		if(vagina)
 			var/vaginaicon = "m_vagina_[vagina]_0_FRONT"
-			add_genital_colored_overlay_if_exists(genilist, 'ntf_modular/icons/mob/human/genitals/vagina_onmob.dmi', vaginaicon, vagina_color || genital_body_color, genital_draw_layer(GENITAL_POSITION_FRONT, "FRONT", dir) - VAGINA_LAYER_OFFSET)
+			add_genital_colored_overlay_if_exists(genilist, 'ntf_modular/icons/mob/human/genitals/vagina_onmob.dmi', vaginaicon, vagina_color || genital_body_color, genital_draw_layer(GENITAL_POSITION_FRONT, "FRONT", dir) - VAGINA_LAYER_OFFSET, owner = src, emissive_list = vagina_emissive)
 		if(cock && testicles)
 			var/testicles_style = genital_state_style(testicles)
 			var/testicles_suffix = genital_state_old_suffix(testicles)
 			var/clamped_testicles_size = clamp(testicles_size, 0, 8)
 			var/testicles_primary_color = testicles_color || genital_body_color
 			var/testicles_secondary_color = testicles_color_secondary || "#d98fa3"
-			add_genital_colored_overlay_if_exists(genilist, 'ntf_modular/icons/mob/human/genitals/testicles_onmob.dmi', "m_testicles_[testicles_style]_[clamped_testicles_size][testicles_suffix]_BEHIND", testicles_primary_color, genital_draw_layer(GENITAL_POSITION_FRONT, "BEHIND", dir) - TESTICLES_LAYER_OFFSET, testicles_secondary_color)
-			add_genital_colored_overlay_if_exists(genilist, 'ntf_modular/icons/mob/human/genitals/testicles_onmob.dmi', "m_testicles_[testicles_style]_[clamped_testicles_size][testicles_suffix]_ADJ", testicles_primary_color, genital_draw_layer(GENITAL_POSITION_FRONT, "ADJ", dir) - TESTICLES_LAYER_OFFSET, testicles_secondary_color)
+			add_genital_colored_overlay_if_exists(genilist, 'ntf_modular/icons/mob/human/genitals/testicles_onmob.dmi', "m_testicles_[testicles_style]_[clamped_testicles_size][testicles_suffix]_BEHIND", testicles_primary_color, genital_draw_layer(GENITAL_POSITION_FRONT, "BEHIND", dir) - TESTICLES_LAYER_OFFSET, testicles_secondary_color, src, testicles_emissive)
+			add_genital_colored_overlay_if_exists(genilist, 'ntf_modular/icons/mob/human/genitals/testicles_onmob.dmi', "m_testicles_[testicles_style]_[clamped_testicles_size][testicles_suffix]_ADJ", testicles_primary_color, genital_draw_layer(GENITAL_POSITION_FRONT, "ADJ", dir) - TESTICLES_LAYER_OFFSET, testicles_secondary_color, src, testicles_emissive)
 		if(cock)
 			var/clamped_cock_size = clamp(cock_size, 1, 7)
 			var/cockicon = "m_penis_[cock]_[clamped_cock_size]_0_FRONT"
-			add_genital_colored_overlay_if_exists(genilist, 'ntf_modular/icons/mob/human/genitals/penis_onmob.dmi', cockicon, cock_color || genital_body_color, genital_draw_layer(GENITAL_POSITION_FRONT, "FRONT", dir) - PENIS_LAYER_OFFSET)
+			add_genital_colored_overlay_if_exists(genilist, 'ntf_modular/icons/mob/human/genitals/penis_onmob.dmi', cockicon, cock_color || genital_body_color, genital_draw_layer(GENITAL_POSITION_FRONT, "FRONT", dir) - PENIS_LAYER_OFFSET, owner = src, emissive_list = cock_emissive)
 
 	overlays_standing[GENITAL_LAYER] = genilist
 	apply_overlay(GENITAL_LAYER)
@@ -132,14 +145,33 @@ GLOBAL_LIST_EMPTY(human_genitals_cache)
 /mob/living/carbon/human/update_inv_w_uniform()
 	. = ..()
 	update_genitals()
+	update_body_marking_emissives()
 
 /mob/living/carbon/human/update_inv_wear_suit()
 	. = ..()
 	update_genitals()
+	update_body_marking_emissives()
+
+/mob/living/carbon/human/update_inv_gloves()
+	. = ..()
+	update_body_marking_emissives()
+
+/mob/living/carbon/human/update_inv_shoes()
+	. = ..()
+	update_body_marking_emissives()
+
+/mob/living/carbon/human/update_inv_head()
+	. = ..()
+	update_body_marking_emissives()
+
+/mob/living/carbon/human/update_inv_wear_mask()
+	. = ..()
+	update_body_marking_emissives()
 
 /mob/living/carbon/human/update_body(update_icons, force_cache_update)
 	. = ..()
 	update_genitals()
+	update_body_marking_emissives()
 
 #undef GENITAL_BODY_FRONT_LAYER
 #undef GENITAL_BODY_ADJ_LAYER
