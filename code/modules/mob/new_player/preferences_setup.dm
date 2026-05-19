@@ -195,10 +195,12 @@
 	character.r_eyes = r_eyes
 	character.g_eyes = g_eyes
 	character.b_eyes = b_eyes
+	character.eye_emissive = eye_emissive
 
 	character.r_hair = r_hair
 	character.g_hair = g_hair
 	character.b_hair = b_hair
+	character.hair_emissive = hair_emissive
 
 	character.r_grad = r_grad
 	character.g_grad = g_grad
@@ -214,6 +216,7 @@
 
 	character.citizenship = citizenship
 	character.blood_type = blood_type
+	character.species.blood_color = blood_color
 	character.religion = religion
 
 	character.voice = tts_voice

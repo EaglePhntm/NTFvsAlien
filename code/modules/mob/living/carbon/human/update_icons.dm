@@ -343,6 +343,8 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 
 //BASE MOB SPRITE
 /mob/living/carbon/human/proc/update_body(update_icons = 1, force_cache_update = 0)
+	remove_overlay(EYE_EMISSIVE_LAYER)
+
 	var/necrosis_color_mod = rgb(10,50,0)
 
 	var/physique_key = get_gender_name(physique)
@@ -467,6 +469,11 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 			var/icon/eyes = new/icon('icons/mob/human_face.dmi', eye_icon_state)
 			eyes.Blend(rgb(r_eyes, g_eyes, b_eyes), ICON_ADD)
 			stand_icon.Blend(eyes, ICON_OVERLAY)
+			if(eye_emissive && ntf_should_render_emissives())
+				var/mutable_appearance/eye_glow = emissive_appearance(eyes, "", src, layer = -BODYPARTS_LAYER)
+				eye_glow.dir = dir
+				overlays_standing[EYE_EMISSIVE_LAYER] = eye_glow
+				apply_overlay(EYE_EMISSIVE_LAYER)
 
 		//Face (Face paint)
 		if(makeup_style && (species?.species_flags & HAS_LIPS))	//skeletons are allowed to wear face paint no matter what you think, agouri.
@@ -486,6 +493,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 /mob/living/carbon/human/proc/update_hair()
 	//Reset our hair
 	remove_overlay(HAIR_LAYER)
+	remove_overlay(HAIR_EMISSIVE_LAYER)
 
 	if((species.species_flags & HAS_NO_HAIR) && !(species.name in GENERIC_HAIR_SPECIES))
 		return
@@ -578,6 +586,13 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 
 	overlays_standing[HAIR_LAYER] = hair_final
 	apply_overlay(HAIR_LAYER)
+
+	if(hair_emissive && ntf_should_render_emissives())
+		var/mutable_appearance/hair_glow = emissive_appearance(hair_final.icon, hair_final.icon_state, src, layer = hair_final.layer, appearance_flags = hair_final.appearance_flags)
+		hair_glow.dir = dir
+		hair_glow.overlays = hair_final.overlays.Copy()
+		overlays_standing[HAIR_EMISSIVE_LAYER] = hair_glow
+		apply_overlay(HAIR_EMISSIVE_LAYER)
 
 /* --------------------------------------- */
 //For legacy support.

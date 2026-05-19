@@ -553,6 +553,7 @@
 	READ_FILE(S["r_hair"], r_hair)
 	READ_FILE(S["g_hair"], g_hair)
 	READ_FILE(S["b_hair"], b_hair)
+	READ_FILE(S["hair_emissive"], hair_emissive)
 
 	READ_FILE(S["grad_style"], grad_style)
 	READ_FILE(S["r_grad"], r_grad)
@@ -567,6 +568,7 @@
 	READ_FILE(S["r_eyes"], r_eyes)
 	READ_FILE(S["g_eyes"], g_eyes)
 	READ_FILE(S["b_eyes"], b_eyes)
+	READ_FILE(S["eye_emissive"], eye_emissive)
 	READ_FILE(S["body_color"], body_color)
 
 	READ_FILE(S["moth_wings"], moth_wings)
@@ -613,6 +615,7 @@
 	READ_FILE(S["body_markings"], body_markings)
 	READ_FILE(S["citizenship"], citizenship)
 	READ_FILE(S["blood_type"], blood_type)
+	READ_FILE(S["blood_color"], blood_color)
 	READ_FILE(S["religion"], religion)
 
 	READ_FILE(S["tts_voice"], tts_voice)
@@ -722,6 +725,7 @@
 	r_hair = sanitize_integer(r_hair, 0, 255, initial(r_hair))
 	g_hair = sanitize_integer(g_hair, 0, 255, initial(g_hair))
 	b_hair = sanitize_integer(b_hair, 0, 255, initial(b_hair))
+	hair_emissive = sanitize_integer(hair_emissive, FALSE, TRUE, initial(hair_emissive))
 
 	grad_style = sanitize_inlist(grad_style, GLOB.hair_gradients_list, initial(grad_style))
 	r_grad = sanitize_integer(r_grad, 0, 255, initial(r_grad))
@@ -736,6 +740,7 @@
 	r_eyes = sanitize_integer(r_eyes, 0, 255, initial(r_eyes))
 	g_eyes = sanitize_integer(g_eyes, 0, 255, initial(g_eyes))
 	b_eyes = sanitize_integer(b_eyes, 0, 255, initial(b_eyes))
+	eye_emissive = sanitize_integer(eye_emissive, FALSE, TRUE, initial(eye_emissive))
 	body_color = sanitize_hexcolor(body_color, 6, TRUE, initial(body_color))
 
 	moth_wings = sanitize_inlist(moth_wings, GLOB.moth_wings_list, initial(moth_wings))
@@ -797,6 +802,7 @@
 
 	citizenship = sanitize_inlist(citizenship, CITIZENSHIP_CHOICES, initial(citizenship))
 	blood_type = sanitize_inlist(blood_type, list("O-", "O+", "A-", "A+", "B-", "B+", "AB-", "AB+"), initial(blood_type))
+	blood_color = sanitize_hexcolor(blood_color, 6, TRUE, initial(blood_color))
 	religion = sanitize_inlist(religion, RELIGION_CHOICES, initial(religion))
 
 	tts_voice = sanitize_inlist_tts(tts_voice)
@@ -934,6 +940,7 @@
 	r_hair = sanitize_integer(r_hair, 0, 255, initial(r_hair))
 	g_hair = sanitize_integer(g_hair, 0, 255, initial(g_hair))
 	b_hair = sanitize_integer(b_hair, 0, 255, initial(b_hair))
+	hair_emissive = sanitize_integer(hair_emissive, FALSE, TRUE, initial(hair_emissive))
 
 	grad_style = sanitize_inlist(grad_style, GLOB.hair_gradients_list, initial(grad_style))
 	r_grad = sanitize_integer(r_grad, 0, 255, initial(r_grad))
@@ -948,6 +955,7 @@
 	r_eyes = sanitize_integer(r_eyes, 0, 255, initial(r_eyes))
 	g_eyes = sanitize_integer(g_eyes, 0, 255, initial(g_eyes))
 	b_eyes = sanitize_integer(b_eyes, 0, 255, initial(b_eyes))
+	eye_emissive = sanitize_integer(eye_emissive, FALSE, TRUE, initial(eye_emissive))
 	body_color = sanitize_hexcolor(body_color, 6, TRUE, initial(body_color))
 
 	moth_wings = sanitize_inlist(moth_wings, GLOB.moth_wings_list, initial(moth_wings))
@@ -1009,6 +1017,7 @@
 
 	citizenship = sanitize_inlist(citizenship, CITIZENSHIP_CHOICES, initial(citizenship))
 	blood_type = sanitize_inlist(blood_type, list("O-", "O+", "A-", "A+", "B-", "B+", "AB-", "AB+"), initial(blood_type))
+	blood_color = sanitize_hexcolor(blood_color, 6, TRUE, initial(blood_color))
 	religion = sanitize_inlist(religion, RELIGION_CHOICES, initial(religion))
 
 	tts_voice = sanitize_inlist_tts(tts_voice)
@@ -1096,6 +1105,7 @@
 	WRITE_FILE(S["r_hair"], r_hair)
 	WRITE_FILE(S["g_hair"], g_hair)
 	WRITE_FILE(S["b_hair"], b_hair)
+	WRITE_FILE(S["hair_emissive"], hair_emissive)
 
 	WRITE_FILE(S["grad_style"], grad_style)
 	WRITE_FILE(S["r_grad"], r_grad)
@@ -1110,6 +1120,7 @@
 	WRITE_FILE(S["r_eyes"], r_eyes)
 	WRITE_FILE(S["g_eyes"], g_eyes)
 	WRITE_FILE(S["b_eyes"], b_eyes)
+	WRITE_FILE(S["eye_emissive"], eye_emissive)
 	WRITE_FILE(S["body_color"], body_color)
 
 	WRITE_FILE(S["moth_wings"], moth_wings)
@@ -1157,6 +1168,7 @@
 
 	WRITE_FILE(S["citizenship"], citizenship)
 	WRITE_FILE(S["blood_type"], blood_type)
+	WRITE_FILE(S["blood_color"], blood_color)
 	WRITE_FILE(S["religion"], religion)
 
 	WRITE_FILE(S["tts_voice"], tts_voice)

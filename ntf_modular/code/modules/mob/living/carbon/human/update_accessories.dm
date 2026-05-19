@@ -358,6 +358,10 @@
 			var/image/restored_eyes = image(icon = restored_eye_icon)
 			restored_eyes.layer = ACCESSORY_FACE_TOP_LAYER
 			snout_layers += restored_eyes
+			if(eye_emissive && ntf_should_render_emissives())
+				var/mutable_appearance/restored_eye_glow = ntf_emissive_appearance_copy(restored_eyes, src)
+				if(restored_eye_glow)
+					snout_layers += restored_eye_glow
 
 	if(!length(snout_layers))
 		return

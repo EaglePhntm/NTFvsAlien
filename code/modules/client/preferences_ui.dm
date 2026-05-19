@@ -135,6 +135,8 @@
 			data["r_eyes"] = r_eyes
 			data["g_eyes"] = g_eyes
 			data["b_eyes"] = b_eyes
+			data["hair_emissive"] = hair_emissive
+			data["eye_emissive"] = eye_emissive
 			data["real_name"] = real_name
 			data["body_color"] = body_color
 			data["genitalia_ass_color"] = genitalia_ass_color
@@ -565,6 +567,24 @@
 			return TRUE
 		if("toggle_emissives")
 			allow_emissives = !allow_emissives
+			update_preview_icon()
+			save_preferences()
+			save_character()
+			save_keybinds()
+			SStgui.update_uis(src)
+			SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+			return TRUE
+		if("toggle_hair_emissive")
+			hair_emissive = !hair_emissive
+			update_preview_icon()
+			save_preferences()
+			save_character()
+			save_keybinds()
+			SStgui.update_uis(src)
+			SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+			return TRUE
+		if("toggle_eye_emissive")
+			eye_emissive = !eye_emissive
 			update_preview_icon()
 			save_preferences()
 			save_character()

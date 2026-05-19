@@ -66,9 +66,20 @@ export const CharacterCustomization = (props) => {
       <ColorBox color={color} />
     </Button>
   );
-  const colorField = (label, color, action) => (
+  const emissiveButton = (checked, action, tooltip) => (
+    <Button
+      compact
+      color={checked ? 'good' : undefined}
+      disabled={!data.allow_emissives}
+      icon="lightbulb"
+      tooltip={tooltip}
+      onClick={() => act(action)}
+    />
+  );
+  const colorField = (label, color, action, extra = null) => (
     <LabeledList.Item label={label}>
       {colorSwatchButton(color, action, color)}
+      {extra}
     </LabeledList.Item>
   );
   const compactDropdown = (
@@ -171,7 +182,7 @@ export const CharacterCustomization = (props) => {
   const showSyntheticJobBody =
     data.species === 'Synthetic' || data.species === 'Early Synthetic';
   const creatorSizeControl = (row: CharacterCreatorOptionRow) => {
-    if (!sizeControls || !row.size_id) {
+    if (!row.size_id) {
       return null;
     }
     if (row.size_kind === 'breast') {
@@ -438,7 +449,6 @@ export const CharacterCustomization = (props) => {
       </LabeledList.Item>
     );
   };
-  const sizeControls = data.use_genital_size_controls;
   const genders = ['male', 'female', 'plural', 'neuter'];
   const physiques = ['use_gender', 'male', 'female'];
   const genderToName = {
@@ -556,11 +566,20 @@ export const CharacterCustomization = (props) => {
                 label={'Hair style'}
                 value={'h_style'}
                 action={'hairstyle'}
-                extra={colorSwatchButton(
-                  rgbToHex(r_hair, g_hair, b_hair),
-                  'haircolor',
-                  'Hair color',
-                )}
+                extra={
+                  <Box as="span">
+                    {colorSwatchButton(
+                      rgbToHex(r_hair, g_hair, b_hair),
+                      'haircolor',
+                      'Hair color',
+                    )}
+                    {emissiveButton(
+                      data.hair_emissive,
+                      'toggle_hair_emissive',
+                      'Hair emissive',
+                    )}
+                  </Box>
+                }
               />
               <SelectFieldPreference
                 label={'Hair gradient style'}
@@ -576,6 +595,11 @@ export const CharacterCustomization = (props) => {
                 'Eye Color',
                 rgbToHex(r_eyes, g_eyes, b_eyes),
                 'eyecolor',
+                emissiveButton(
+                  data.eye_emissive,
+                  'toggle_eye_emissive',
+                  'Eye emissive',
+                ),
               )}
               <ToggleFieldPreference
                 label={'Eye sight'}
@@ -681,12 +705,6 @@ export const CharacterCustomization = (props) => {
       case 'features':
         return (
           <LabeledList>
-            <Button.Checkbox
-              checked={data.use_genital_size_controls}
-              onClick={() => act('toggle_genital_size_controls')}
-            >
-              Show size controls
-            </Button.Checkbox>
             <Button.Checkbox
               checked={data.allow_emissives}
               onClick={() => act('toggle_emissives')}
