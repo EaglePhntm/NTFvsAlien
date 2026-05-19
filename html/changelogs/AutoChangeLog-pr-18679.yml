@@ -1,0 +1,4 @@
+author: "Lumipharon"
+delete-after: True
+changes:
+  - bugfix: "fixed the position of some wall mounted objects, as well as cameras in the Alamo"

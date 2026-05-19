@@ -50,6 +50,16 @@
 	has_genital_selection = TRUE
 
 	inherent_actions = list(/datum/action/repair_self)
+	species_description = "<br /><br /><b>Lore</b>:<br /><br /> \
+	You were manufactured by one of the corporations within the corporate council for a specific purpose, fighting. You were designed to be a combat robot, built to withstand and dish out large amounts of damage on the battlefield. \
+	You were built with a variety of combat scenarios in mind, and as such.<br /><br /><br /><br />  \
+	<b>Physiology</b>:<br /><br /> \
+	Combat robots are made of a variety of metals and synthetic materials, designed to be durable and resistant to damage. They have a complex internal structure that allows them to function effectively in combat situations.<br /><br /> \
+	However combat robots possess a grave weakness, they are vulnerable to electromagnetic interference.<br /><br /><br /><br /> \
+	<b>Psychology</b>:<br /><br /> \
+	Combat robots do not possess true consciousness or emotions, but they are programmed with a set of directives and protocols that govern their behavior in combat situations. They are designed to be efficient and effective in combat, and will follow their programming to the best of their abilities.<br /><br /> \
+	Although in rare cases, they may exhibit unexpected behavior due to system malfunctions or external interference.<br /><br /> \
+	Additionally there are sex-based variations in their design and functionality, which serves a combat purpose due to the new world's unknown sexual magic that is generally used for healing.<br /><br />"
 
 /datum/species/robot/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
 	. = ..()

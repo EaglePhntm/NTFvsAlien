@@ -1913,6 +1913,11 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				if(!change || !istype(H))
 					return
 				H.set_species(change)
+			if("bloodcolor")
+				change = input("Select the blood color.", "Edit Appearance") as null|color
+				if(!change || !istype(H))
+					return
+				H.blood_color = change
 
 		H.update_hair()
 		H.update_body()

@@ -1,5 +1,5 @@
 /datum/species/lizard
-	name = "Lizard"
+	name = "Reptilian"
 	icobase = BODYPART_ICON_LIZARD
 	// Lizards intentionally use claw unarmed attacks: slash sounds, claw VFX,
 	// and sharp/edge damage instead of the human punch.
@@ -25,6 +25,15 @@
 	special_death_message = "<big>You have perished.</big><br><small>But it is not the end of you yet... if you still have your body with your head still attached, wait until somebody can resurrect you...</small>"
 	joinable_roundstart = TRUE
 	has_genital_selection = TRUE
+	species_description = "<br /><br /><b>Lore</b>:<br /><br /> \
+	Reptilians are much like any other humanoid species, but with scaly skin, tails, and a variety of other reptilian features.<br /><br /> \
+	They are a diverse and adaptable species, found in a wide range of environments across the planet.<br /><br /> \
+	<b>Physiology</b>:<br /><br /> \
+	Reptilians have scaly skin that can come in a variety of colors and patterns, often used for camouflage.<br /><br /> \
+	They have tails that can be used for balance, communication, and in some cases, as a defense mechanism.<br /><br /> \
+	They have a unique circulatory system that allows them to regulate their body temperature and survive in extreme environments.<br /><br /> \
+	<b>Psychology</b>:<br /><br /> \
+	Reptilians are often solitary and territorial, preferring to live alone or in small family groups.<br /><br />"
 
 /datum/species/lizard/prefs_name(datum/preferences/prefs)
 	. = ..()

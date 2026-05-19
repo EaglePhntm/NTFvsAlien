@@ -1,0 +1,4 @@
+author: "Lumipharon"
+delete-after: True
+changes:
+  - bugfix: "Destructable campaign objectives now update their minimap blip when C4'd"

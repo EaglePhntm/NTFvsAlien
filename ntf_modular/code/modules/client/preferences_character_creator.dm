@@ -432,7 +432,7 @@
 		return list("Normal")
 	if(!custom_supersoldier_parts)
 		return list("Normal")
-	if(supersoldier_body_base in list("Lizard", "Anthro", "Akula", "Aquatic"))
+	if(supersoldier_body_base in list("Lizard", "Anthro", "Akula", "Aquatic", "Resurgentis"))
 		return DIGITIGRADE_LEG_TYPES
 	return list("Normal")
 

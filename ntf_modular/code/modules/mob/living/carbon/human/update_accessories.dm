@@ -171,7 +171,7 @@
 /mob/living/carbon/human/proc/update_fluff()
 	remove_overlay(ACCESSORY_FLUFF_LAYER)
 	return // Disabled until fluff can be anchored through an organ/bodypart overlay, like SPLURT.
-
+	/*
 	if(!fluff || fluff == "None")
 		return
 
@@ -200,6 +200,7 @@
 
 	overlays_standing[ACCESSORY_FLUFF_LAYER] = fluff_layers
 	apply_overlay(ACCESSORY_FLUFF_LAYER)
+	*/
 
 /mob/living/carbon/human/proc/update_synth_antenna()
 	remove_overlay(ACCESSORY_ANTENNA_LAYER)

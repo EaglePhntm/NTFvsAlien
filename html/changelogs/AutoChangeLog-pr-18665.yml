@@ -1,0 +1,4 @@
+author: "Lumipharon"
+delete-after: True
+changes:
+  - code_imp: "angle_to_dir() replaced with angle2dir. angle_to_cardinal_dir replaced with angle2dir_cardinal"

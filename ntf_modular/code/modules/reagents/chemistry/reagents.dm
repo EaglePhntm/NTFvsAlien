@@ -80,10 +80,10 @@
 	if(TIMER_COOLDOWN_RUNNING(L, name))
 		return
 	L.adjustStaminaLoss(-30 * effect_str)
-	to_chat(L, span_userdanger("You feel a burst of energy as the adrenaline courses through you! Time to go fast!"))
+	to_chat(L, span_userdanger("You feel a burst of energy as the adrenaline courses through you!!"))
 
 	if(L.health < L.health_threshold_crit && volume >= 3)
-		to_chat(L, span_userdanger("Heart explosion! Power flows through your veins!"))
+		to_chat(L, span_userdanger("Power flows through your veins!"))
 		L.adjustBruteLoss(-L.getBruteLoss(TRUE) * 0.40)
 		L.jitter(5)
 

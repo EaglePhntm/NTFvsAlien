@@ -174,6 +174,7 @@
 			data["h_style"] = h_style
 			data["grad_style"] = grad_style
 			data["f_style"] = f_style
+			data["blood_color"] = blood_color
 		if(BACKGROUND_INFORMATION)
 			data["age"] = age
 			data["citizenship"] = citizenship
@@ -628,6 +629,9 @@
 				digitigrade_legs = "Normal"
 			if(should_refresh_species_body_color(old_species, S))
 				body_color = S.flesh_color
+			if(!isnull(S.species_description))
+				tgui_alert(user, "Species information", list("Ok"), "[S.species_description]")
+				to_chat(user, span_notice("Species information: [S.species_description]"))
 			real_name = S.random_name(gender)
 			update_preview_icon()
 
@@ -1350,6 +1354,13 @@
 
 		if("hear_ooc_anywhere_as_staff")
 			hear_ooc_anywhere_as_staff = !hear_ooc_anywhere_as_staff
+
+		if("bloodcolor")
+			var/bloodcolor = input(user, "Choose your character's blood colour:", "Character Preference") as null|color
+			if(!bloodcolor)
+				return
+			blood_color = bloodcolor
+			update_preview_icon()
 
 		else //  Handle the unhandled cases
 			return

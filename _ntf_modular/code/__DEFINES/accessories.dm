@@ -8,6 +8,6 @@
 
 #define CHARACTER_CREATOR_ACCESSORIES list("tail", "snout", "ears", "horns", "wings")
 
-#define GENERIC_HAIR_SPECIES list("Human", "Human Hero", "Synthetic", "Early Synthetic", "Vat-Grown", "Mothellian", "Lizard", "Moth", "Akula", "Anthro", "Aquatic", "Insectoid", "Skrell")
+#define GENERIC_HAIR_SPECIES list("Human", "Human Hero", "Synthetic", "Early Synthetic", "Vat-Grown", "Mothellian", "Lizard", "Moth", "Akula", "Anthro", "Aquatic", "Insectoid", "Skrell", "Resurgentis")
 
 #define MAXIMUM_MARKINGS_PER_LIMB 3

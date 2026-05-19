@@ -23,7 +23,7 @@
 
 /datum/sprite_accessory/lizard_tail/skyrat/monkey
 	name = "Monkey"
-	icon = 'icons/mob/human/species/monkey/monkey_tail.dmi'
+	icon = 'ntf_modular/icons/mob/sprite_accessories/monkey_tail.dmi'
 	icon_state = "monkey_default"
 	uses_color_suffixes = FALSE
 	color_count = 1

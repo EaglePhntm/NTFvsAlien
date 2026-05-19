@@ -479,3 +479,8 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 ///Returns the slowdown applied to the mob when moving through liquids like water
 /mob/proc/get_liquid_slowdown()
 	return MOB_WATER_SLOWDOWN
+
+/mob/living/carbon/get_liquid_slowdown()
+	if(species.liquid_slowdown)
+		return species.liquid_slowdown
+	return ..()

@@ -1,0 +1,5 @@
+author: "Lumipharon"
+delete-after: True
+changes:
+  - balance: "Airbursting projectiles now affect objects instead of just living things"
+  - code_imp: "Code improvements to projectile airbursts and deflagrate"

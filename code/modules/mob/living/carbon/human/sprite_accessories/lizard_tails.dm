@@ -1,5 +1,5 @@
 /datum/sprite_accessory/lizard_tail
-	icon = 'icons/mob/species/lizard/lizard_tails.dmi'
+	icon = 'ntf_modular/icons/mob/sprite_accessories/lizard_tails.dmi'
 	var/color_count = 1
 	var/color_src = ACCESSORY_COLOR_TAIL
 	var/icon_prefix = "m_tail_lizard"

@@ -1,0 +1,8 @@
+author: "Lumipharon"
+delete-after: True
+changes:
+  - balance: "TGMC wide flamer range increased to 7 from 6, and width increased to 60 degrees from 55"
+  - balance: "SOM/VSD flamer width increased to 45 degrees from 40"
+  - balance: "Campaign: X-fuel back tank purchase price increased to 100 from 50"
+  - bugfix: "fixed SOM and VSD flamers not firing properly at certain specific angles"
+  - code_imp: "generate_cone() uses euclidean distance"

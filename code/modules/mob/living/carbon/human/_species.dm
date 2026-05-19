@@ -79,6 +79,8 @@
 	var/knock_out_reduction = 1
 	///How much slowdown is innate to our species
 	var/slowdown = -1
+	///liquid slowdown for our species
+	var/liquid_slowdown
 	///Inventory slots the race can't equip stuff to. Golems cannot wear jumpsuits, for example
 	var/list/no_equip = list()
 
@@ -180,6 +182,7 @@
 	var/has_genital_selection = FALSE
 	/// NTF ADDITION START
 	var/has_underwear_slots = FALSE
+	var/species_description = null
 
 /datum/species/New()
 	if(hud_type)

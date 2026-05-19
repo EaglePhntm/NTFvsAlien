@@ -374,7 +374,13 @@
 /obj/item/stack/sheet/metal/large_stack,
 /obj/item/stack/sheet/metal/large_stack,
 /obj/structure/rack,
+/obj/machinery/camera/autoname/mainship/dropship_one{
+	dir = 8
+	},
 /turf/open/shuttle/dropship/floor,
+/turf/open/shuttle/dropship/floor/out{
+	dir = 1
+	},
 /area/shuttle/dropship/alamo)
 "bJ" = (
 /turf/closed/shuttle/dropship1/wall,
@@ -699,10 +705,6 @@
 "Nj" = (
 /turf/open/shuttle/dropship/thirtyone,
 /area/shuttle/dropship/alamo)
-"NT" = (
-/obj/structure/bed/chair/dropship/doublewide/left,
-/turf/open/shuttle/dropship/floor,
-/area/shuttle/dropship/alamo)
 "OZ" = (
 /obj/machinery/vending/nanomed{
 	dir = 8
@@ -907,7 +909,7 @@ og
 rb
 aI
 ji
-NT
+aI
 me
 DE
 aS

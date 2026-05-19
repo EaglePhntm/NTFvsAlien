@@ -1,0 +1,4 @@
+author: "Aporhtonoma"
+delete-after: True
+changes:
+  - rscadd: "names of victims to puppets."

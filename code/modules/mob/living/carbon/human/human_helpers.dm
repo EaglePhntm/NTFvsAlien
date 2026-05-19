@@ -5,7 +5,6 @@
 	return g
 
 /proc/get_limb_icon_name(datum/species/S, gender, limb_name, ethnicity, digitigrade_legs = "Normal", synthetic_body_base = "Human", robot_body_base = "Combat Robot", robot_head_base = "Combat Robot", custom_supersoldier_parts = FALSE, supersoldier_body_base = "Human", supersoldier_head_base = "Human")
-	var/uses_digitigrade = digitigrade_legs && digitigrade_legs != "Normal" && (digitigrade_legs in S.digitigrade_leg_options)
 	if(istype(S, /datum/species/robot))
 		var/robot_base = get_effective_robot_body_base(limb_name == "head" ? robot_head_base : robot_body_base, synthetic_body_base)
 		if(is_old_robot_body_base(robot_base))
@@ -89,50 +88,6 @@
 
 			if ("l_foot", "left foot")
 				return "left_foot_[get_gender_name(gender)]"
-	else if(S.limb_type == SPECIES_LIMB_LIZARD)
-		switch(limb_name)
-			if ("torso", "chest")
-				return "lizard_chest_[get_gender_name(gender)]"
-
-			if ("head")
-				return "lizard_head"
-
-			if ("groin")
-				return "lizard_chest_[get_gender_name(gender)]"
-
-			if ("r_arm", "right arm")
-				return "lizard_r_arm"
-
-			if ("l_arm", "left arm")
-				return "lizard_l_arm"
-
-			if ("r_hand", "right hand")
-				return "lizard_r_hand"
-
-			if ("l_hand", "left hand")
-				return "lizard_l_hand"
-
-			if ("r_leg", "right leg")
-				if(uses_digitigrade)
-					return "digitigrade_r_leg"
-				return "lizard_r_leg"
-
-			if ("l_leg", "left leg")
-				if(uses_digitigrade)
-					return "digitigrade_l_leg"
-				return "lizard_l_leg"
-
-			if ("r_foot", "right foot")
-				if(uses_digitigrade)
-					return "digitigrade_r_leg"
-				return "lizard_r_leg"
-
-			if ("l_foot", "left foot")
-				if(uses_digitigrade)
-					return "digitigrade_l_leg"
-				return "lizard_l_leg"
-			else
-				return null
 	else if(S.limb_type == SPECIES_LIMB_SPLURT)
 		return get_splurt_limb_icon_name(S.splurt_limb_prefix, gender, limb_name, digitigrade_legs)
 	else
@@ -169,6 +124,8 @@
 			return "insect"
 		if("Skrell")
 			return "skrell"
+		if("Resurgentis")
+			return "resurgentis"
 	return "human"
 
 /proc/get_supersoldier_body_icon(body_base)

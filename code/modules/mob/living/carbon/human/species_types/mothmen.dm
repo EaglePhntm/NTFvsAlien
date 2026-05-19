@@ -18,6 +18,14 @@
 	reagent_tag = IS_MOTH
 
 	namepool = /datum/namepool/moth
+	species_description = "<br /><br /><b>Lore</b>:<br /><br /> \
+	Mothmen are a species of humanoid moth-like creatures that are known for their large, feathery wings and their nocturnal habits.<br /><br /> \
+	They are often found in dark, secluded areas such as forests, caves, and abandoned buildings. They worship .. Some lamp usually.<br /><br /><br /><br />  \
+	<b>Physiology</b>:<br /><br /> \
+	Mothmen have a unique physiology that allows them to navigate through dark environments with ease.<br /><br /><br /><br />  \
+	<b>Psychology</b>:<br /><br /> \
+	Mothmen are generally solitary creatures that prefer to avoid confrontation.<br /><br />"
+
 
 /datum/species/moth/handle_fire(mob/living/carbon/human/H)
 	if(H.moth_wings != "Burnt Off" && H.bodytemperature >= 400 && H.fire_stacks > 0)

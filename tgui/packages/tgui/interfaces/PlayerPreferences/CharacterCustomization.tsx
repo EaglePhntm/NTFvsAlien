@@ -51,6 +51,7 @@ export const CharacterCustomization = (props) => {
     r_facial,
     g_facial,
     b_facial,
+    blood_color,
   } = data;
 
   const rgbToHex = (red, green, blue) => {
@@ -517,6 +518,11 @@ export const CharacterCustomization = (props) => {
               value={'synthetic_name'}
             />
             <TextFieldPreference label={'AI Name'} value={'ai_name'} />
+            <SelectFieldPreference
+              label={'Blood Type'}
+              value={'blood_type'}
+              action={'blood_type'}
+            />
           </LabeledList>
         );
       case 'appearance':
@@ -588,7 +594,7 @@ export const CharacterCustomization = (props) => {
                   'Facial hair color',
                 )}
               />
-            </LabeledList>
+          </LabeledList>
         );
       case 'species':
         return (
@@ -664,8 +670,13 @@ export const CharacterCustomization = (props) => {
                   />
                 </>
               ) : null}
+              {colorField(
+                'Blood Color',
+                blood_color,
+                'bloodcolor',
+              )}
               {legRows.map(creatorPartRow)}
-            </LabeledList>
+          </LabeledList>
         );
       case 'features':
         return (
@@ -690,7 +701,7 @@ export const CharacterCustomization = (props) => {
                 </LabeledList.Item>
               )}
               {featureRows.map(creatorPartRow)}
-            </LabeledList>
+          </LabeledList>
         );
       case 'markings':
         return (
@@ -707,11 +718,6 @@ export const CharacterCustomization = (props) => {
       case 'voice':
         return (
           <LabeledList>
-            <SelectFieldPreference
-              label={'Blood Type'}
-              value={'blood_type'}
-              action={'blood_type'}
-            />
             <SelectFieldPreference
               label={'TTS voice'}
               value={'tts_voice'}

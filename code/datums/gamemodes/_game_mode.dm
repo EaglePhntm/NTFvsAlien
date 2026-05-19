@@ -154,6 +154,8 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 
 	return TRUE
 
+///Sets up the gamemode
+///Occurs before the game starts - game will not start if this fails to return TRUE, if bypass_checks is not also TRUE
 /datum/game_mode/proc/setup()
 	SHOULD_CALL_PARENT(TRUE)
 	if(custom_dnr_time)

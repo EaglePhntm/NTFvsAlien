@@ -193,10 +193,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/body_color = "#FFFFFF"
 	var/spines = "None"
 	var/list/body_markings = list()
+	var/blood_type = "A+"
+	var/blood_color = "#A10808"
 
 	//Lore
 	var/citizenship = "Phantom City (Earth)"
-	var/blood_type = "A+"
 	var/religion = "None"
 	var/flavor_text = ""
 	var/med_record = ""

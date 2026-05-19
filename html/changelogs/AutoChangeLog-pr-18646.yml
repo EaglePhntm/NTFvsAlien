@@ -1,0 +1,5 @@
+author: "Lumipharon"
+delete-after: True
+changes:
+  - bugfix: "When looking up/down a ladder, your camera resets when moving or being stunned"
+  - bugfix: "Stops ladder view from ending when it shouldn't"
