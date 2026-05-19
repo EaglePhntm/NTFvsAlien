@@ -3,7 +3,7 @@
 #define ACCESSORY_BODY_FRONT_LAYER -6
 #define ACCESSORY_BODY_ADJ_LAYER -46
 #define ACCESSORY_BODY_BEHIND_LAYER -49
-#define ACCESSORY_TAIL_NORTH_LAYER -(BODYPARTS_LAYER - 2)
+#define ACCESSORY_TAIL_NORTH_LAYER (ACCESSORY_FACE_TOP_LAYER + 0.5)
 #define ACCESSORY_WING_NORTH_LAYER -(BODYPARTS_LAYER - 1)
 #define ACCESSORY_WING_SOUTH_BEHIND_LAYER -48
 #define ACCESSORY_WING_FRONT_LAYER -7
@@ -13,6 +13,8 @@
 #define ACCESSORY_FACE_FRONT_LAYER -(HAIR_LAYER + 1)
 #define ACCESSORY_FACE_ADJ_LAYER -(HAIR_LAYER + 1)
 #define ACCESSORY_FACE_BEHIND_LAYER -(HAIR_LAYER + 2)
+#define ACCESSORY_FACE_UNDER_LAYER -(HAIR_LAYER + 3)
+#define ACCESSORY_EARS_OVER_HAIR_LAYER (-(HAIR_LAYER) + 0.5)
 
 #define ACCESSORY_KIND_TAIL "tail"
 #define ACCESSORY_KIND_WINGS "wings"
@@ -61,6 +63,19 @@
 		return ACCESSORY_FACE_FRONT_LAYER
 	return accessory_body_draw_layer(render_layer)
 
+/proc/accessory_horns_draw_layer(render_layer, direction)
+	if(direction == NORTH)
+		return ACCESSORY_FACE_TOP_LAYER
+	return ACCESSORY_FACE_UNDER_LAYER
+
+/proc/accessory_antenna_draw_layer(render_layer, direction)
+	if(direction == NORTH)
+		return ACCESSORY_FACE_TOP_LAYER
+	return ACCESSORY_FACE_BEHIND_LAYER
+
+/proc/accessory_ears_draw_layer(render_layer, direction)
+	return ACCESSORY_EARS_OVER_HAIR_LAYER
+
 /proc/accessory_wing_draw_layer(datum/sprite_accessory/accessory_data, render_layer, direction)
 	if(direction == NORTH)
 		return ACCESSORY_WING_NORTH_LAYER
@@ -87,7 +102,7 @@
 				return TRUE
 			return FALSE
 		if(ACCESSORY_KIND_EARS)
-			return render_layer == "BEHIND"
+			return FALSE
 	return FALSE
 
 /proc/apply_accessory_image_layer(list/accessory_layers, draw_layer)
@@ -136,11 +151,11 @@
 		if(ACCESSORY_COLOR_BODY)
 			horns_render_color = body_color
 		if(ACCESSORY_COLOR_HAIR)
-			horns_render_color = rgb(r_hair, g_hair, b_hair)
+			horns_render_color = get_render_hair_color()
 
 	var/list/horns_layers = list()
 	for(var/render_layer in horns_data.render_layers)
-		var/draw_layer = accessory_body_draw_layer(render_layer)
+		var/draw_layer = accessory_horns_draw_layer(render_layer, dir)
 		add_accessory_layer(horns_layers, horns_data, render_layer, null, horns_render_color, draw_layer = draw_layer, emissive_enabled = accessory_emissive_enabled(horns_emissive, 1))
 		if(horns_data.color_count >= 2)
 			add_accessory_layer(horns_layers, horns_data, render_layer, "secondary", horns_color_secondary, draw_layer = draw_layer, emissive_enabled = accessory_emissive_enabled(horns_emissive, 2))
@@ -169,7 +184,7 @@
 		if(ACCESSORY_COLOR_BODY)
 			fluff_render_color = body_color
 		if(ACCESSORY_COLOR_HAIR)
-			fluff_render_color = rgb(r_hair, g_hair, b_hair)
+			fluff_render_color = get_render_hair_color()
 
 	var/list/fluff_layers = list()
 	for(var/render_layer in fluff_data.render_layers)
@@ -201,15 +216,16 @@
 		if(ACCESSORY_COLOR_BODY)
 			antenna_render_color = body_color
 		if(ACCESSORY_COLOR_HAIR)
-			antenna_render_color = rgb(r_hair, g_hair, b_hair)
+			antenna_render_color = get_render_hair_color()
 
 	var/list/antenna_layers = list()
 	for(var/render_layer in antenna_data.render_layers)
-		add_accessory_layer(antenna_layers, antenna_data, render_layer, null, antenna_render_color, draw_layer = ACCESSORY_FACE_BEHIND_LAYER, emissive_enabled = accessory_emissive_enabled(synth_antenna_emissive, 1))
+		var/draw_layer = accessory_antenna_draw_layer(render_layer, dir)
+		add_accessory_layer(antenna_layers, antenna_data, render_layer, null, antenna_render_color, draw_layer = draw_layer, emissive_enabled = accessory_emissive_enabled(synth_antenna_emissive, 1))
 		if(antenna_data.color_count >= 2)
-			add_accessory_layer(antenna_layers, antenna_data, render_layer, "secondary", synth_antenna_color_secondary, draw_layer = ACCESSORY_FACE_BEHIND_LAYER, emissive_enabled = accessory_emissive_enabled(synth_antenna_emissive, 2))
+			add_accessory_layer(antenna_layers, antenna_data, render_layer, "secondary", synth_antenna_color_secondary, draw_layer = draw_layer, emissive_enabled = accessory_emissive_enabled(synth_antenna_emissive, 2))
 		if(antenna_data.color_count >= 3)
-			add_accessory_layer(antenna_layers, antenna_data, render_layer, "tertiary", synth_antenna_color_tertiary, draw_layer = ACCESSORY_FACE_BEHIND_LAYER, emissive_enabled = accessory_emissive_enabled(synth_antenna_emissive, 3))
+			add_accessory_layer(antenna_layers, antenna_data, render_layer, "tertiary", synth_antenna_color_tertiary, draw_layer = draw_layer, emissive_enabled = accessory_emissive_enabled(synth_antenna_emissive, 3))
 
 	if(!length(antenna_layers))
 		return
@@ -241,19 +257,20 @@
 		if(ACCESSORY_COLOR_BODY)
 			ears_render_color = body_color
 		if(ACCESSORY_COLOR_HAIR)
-			ears_render_color = rgb(r_hair, g_hair, b_hair)
+			ears_render_color = get_render_hair_color()
 
 	var/list/front_layers = list()
 	var/list/behind_layers = list()
 	for(var/render_layer in ears_data.render_layers)
 		var/list/target_layers = accessory_uses_underlay(ACCESSORY_KIND_EARS, ears_data, render_layer, dir) ? behind_layers : front_layers
-		add_accessory_layer(target_layers, ears_data, render_layer, null, ears_render_color, emissive_enabled = accessory_emissive_enabled(ears_emissive, 1))
+		var/draw_layer = accessory_ears_draw_layer(render_layer, dir)
+		add_accessory_layer(target_layers, ears_data, render_layer, null, ears_render_color, draw_layer = draw_layer, emissive_enabled = accessory_emissive_enabled(ears_emissive, 1))
 		if(ears_data.color_count >= 2)
-			add_accessory_layer(target_layers, ears_data, render_layer, "secondary", ears_color_secondary, emissive_enabled = accessory_emissive_enabled(ears_emissive, 2))
+			add_accessory_layer(target_layers, ears_data, render_layer, "secondary", ears_color_secondary, draw_layer = draw_layer, emissive_enabled = accessory_emissive_enabled(ears_emissive, 2))
 		if(ears_data.color_count >= 3)
-			add_accessory_layer(target_layers, ears_data, render_layer, "tertiary", ears_color_tertiary, emissive_enabled = accessory_emissive_enabled(ears_emissive, 3))
+			add_accessory_layer(target_layers, ears_data, render_layer, "tertiary", ears_color_tertiary, draw_layer = draw_layer, emissive_enabled = accessory_emissive_enabled(ears_emissive, 3))
 		if(ears_data.has_inner)
-			add_accessory_layer(target_layers, ears_data, render_layer, null, null, "m_earsinner")
+			add_accessory_layer(target_layers, ears_data, render_layer, null, ears_color_secondary, "m_earsinner", draw_layer = draw_layer)
 
 	if(length(front_layers))
 		overlays_standing[ACCESSORY_EARS_LAYER] = front_layers
@@ -278,7 +295,7 @@
 		if(ACCESSORY_COLOR_BODY)
 			wings_render_color = body_color
 		if(ACCESSORY_COLOR_HAIR)
-			wings_render_color = rgb(r_hair, g_hair, b_hair)
+			wings_render_color = get_render_hair_color()
 
 	var/list/front_layers = list()
 	var/list/behind_layers = list()
@@ -321,7 +338,7 @@
 		if(ACCESSORY_COLOR_BODY)
 			snout_render_color = body_color
 		if(ACCESSORY_COLOR_HAIR)
-			snout_render_color = rgb(r_hair, g_hair, b_hair)
+			snout_render_color = get_render_hair_color()
 
 	var/list/snout_layers = list()
 	for(var/render_layer in snout_data.render_layers)
@@ -423,7 +440,7 @@
 		if(ACCESSORY_COLOR_TAIL)
 			tail_render_color = tail_color
 		if(ACCESSORY_COLOR_HAIR)
-			tail_render_color = rgb(r_hair, g_hair, b_hair)
+			tail_render_color = get_render_hair_color()
 
 	var/front_state
 	var/behind_state

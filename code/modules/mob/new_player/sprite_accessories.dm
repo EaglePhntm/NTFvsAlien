@@ -33,6 +33,8 @@
 			if(initial(P.locked))
 				continue
 		var/datum/sprite_accessory/D = new path()
+		if(!D.name)
+			continue
 
 		if(D.icon_state)
 			L[D.name] = D

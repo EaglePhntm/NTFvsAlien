@@ -164,3 +164,8 @@
 	b = round(b + ((255 - b) * 0.17))
 
 	return rgb(r, g, b)
+
+/// Returns a valid hex color for hair overlays.
+/// Hair sprites already carry their own shading, so unlike body recolors this does not brighten the chosen color.
+/proc/sanitize_hair_recolor(color, default = "#000000")
+	return sanitize_hexcolor(color, 6, TRUE, default)

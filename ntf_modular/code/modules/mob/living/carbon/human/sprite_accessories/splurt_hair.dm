@@ -2,9 +2,17 @@
 	icon = 'ntf_modular/icons/mob/sprite_accessories/hair.dmi'
 	colouration_blend = ICON_MULTIPLY
 
+/datum/sprite_accessory/hair/skyrat
+	colouration_blend = ICON_MULTIPLY
+
+/datum/sprite_accessory/hair/beachwave
+	colouration_blend = ICON_MULTIPLY
+
 /datum/sprite_accessory/hair/newyou
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/hair.dmi'
-	colouration_tone = TRUE
+	colouration_blend = ICON_MULTIPLY
+
+/datum/sprite_accessory/hair/nia
+	colouration_blend = ICON_MULTIPLY
 
 /datum/sprite_accessory/hair/inari
 	icon = 'ntf_modular/icons/mob/sprite_accessories/zubbers_hair.dmi'

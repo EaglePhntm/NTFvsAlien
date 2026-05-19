@@ -28,8 +28,9 @@
 	icon_state = "bigwolf"
 
 /datum/sprite_accessory/ears/mutant_bigwolfinner
-	name = "Big Wolf (ALT)"
-	icon_state = "bigwolfinner"
+	// Disabled for now: these states use SPLURT's matrixed bodypart overlay coloring, not the current split-layer accessory renderer.
+	name = null
+	icon_state = null
 	has_inner = TRUE
 
 /datum/sprite_accessory/ears/mutant_bigwolfdark
@@ -37,8 +38,9 @@
 	icon_state = "bigwolfdark"
 
 /datum/sprite_accessory/ears/mutant_bigwolfinnerdark
-	name = "Dark Big Wolf (ALT)"
-	icon_state = "bigwolfinnerdark"
+	// Disabled for now: these states use SPLURT's matrixed bodypart overlay coloring, not the current split-layer accessory renderer.
+	name = null
+	icon_state = null
 	has_inner = TRUE
 
 /datum/sprite_accessory/ears/mutant_bunny

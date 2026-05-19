@@ -428,6 +428,10 @@
 		if("randomize_name")
 			var/datum/species/S = GLOB.all_species[species]
 			real_name = S.random_name(gender)
+			save_character()
+			SStgui.update_uis(src)
+			SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+			return TRUE
 
 		if("toggle_always_random")
 			random_name = !random_name

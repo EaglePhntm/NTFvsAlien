@@ -502,6 +502,9 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	var/icon/face_standing = new /icon('icons/mob/human_face.dmi',"bald_s")
 	var/hair_draw_layer = -HAIR_LAYER
 	var/list/appearance_colored_hair = list()
+	var/render_hair_color = get_render_hair_color()
+	var/render_gradient_color = get_render_gradient_color()
+	var/render_facial_hair_color = get_render_facial_hair_color()
 
 	if(f_style && !(wear_suit?.inv_hide_flags & HIDELOWHAIR) && !(wear_mask?.inv_hide_flags & HIDELOWHAIR))
 		var/datum/sprite_accessory/facial_hair_style = GLOB.facial_hair_styles_list[f_style]
@@ -512,15 +515,15 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 			var/appearance_colored_facial = facial_hair_style.do_colouration && !facial_hair_style.greyscale_config && (facial_hair_style.colouration_tone || facial_hair_style.colouration_blend == ICON_MULTIPLY)
 			if(appearance_colored_facial)
 				var/mutable_appearance/facial_colored = mutable_appearance(icon = facial_hair_style.icon, icon_state = facial_icon_state, layer = hair_draw_layer)
-				facial_colored.color = rgb(r_facial, g_facial, b_facial)
+				facial_colored.color = render_facial_hair_color
 				appearance_colored_hair += facial_colored
 			else
 				var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = facial_icon_state)
 				if(facial_hair_style.do_colouration)
 					if(facial_hair_style.greyscale_config)
-						facial_s = SSgreyscale.GetColoredIconByType(facial_hair_style.greyscale_config, rgb(r_facial, g_facial, b_facial) )
+						facial_s = SSgreyscale.GetColoredIconByType(facial_hair_style.greyscale_config, render_facial_hair_color)
 					else
-						facial_s.Blend(rgb(r_facial, g_facial, b_facial), facial_hair_style.colouration_blend)
+						facial_s.Blend(render_facial_hair_color, facial_hair_style.colouration_blend)
 
 				face_standing.Blend(facial_s, ICON_OVERLAY)
 
@@ -533,7 +536,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 			var/appearance_colored_main_hair = hair_style.do_colouration && !hair_style.greyscale_config && (hair_style.colouration_tone || hair_style.colouration_blend == ICON_MULTIPLY)
 			if(appearance_colored_main_hair)
 				var/mutable_appearance/hair_colored = mutable_appearance(icon = hair_style.icon, icon_state = hair_icon_state, layer = hair_draw_layer)
-				hair_colored.color = rgb(r_hair, g_hair, b_hair)
+				hair_colored.color = render_hair_color
 				appearance_colored_hair += hair_colored
 
 				if(grad_style && grad_style != "None")
@@ -541,7 +544,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 					var/icon/grad_s = new/icon("icon" = gradient.icon, "icon_state" = gradient.icon_state)
 					var/icon/hair_mask = new/icon("icon" = hair_style.icon, "icon_state" = hair_icon_state)
 					grad_s.Blend(hair_mask, ICON_ADD)
-					grad_s.Blend(rgb(r_grad, g_grad, b_grad), ICON_MULTIPLY)
+					grad_s.Blend(render_gradient_color, ICON_MULTIPLY)
 					var/mutable_appearance/grad_colored = mutable_appearance(grad_s, layer = hair_draw_layer)
 					appearance_colored_hair += grad_colored
 			else
@@ -552,11 +555,11 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 						var/datum/sprite_accessory/gradient = GLOB.hair_gradients_list[grad_style]
 						grad_s = new/icon("icon" = gradient.icon, "icon_state" = gradient.icon_state)
 						grad_s.Blend(hair_s, ICON_ADD)
-						grad_s.Blend(rgb(r_grad, g_grad, b_grad), ICON_ADD)
+						grad_s.Blend(render_gradient_color, ICON_ADD)
 					if(hair_style.colouration_tone)
-						hair_s.ColorTone(rgb(r_hair, g_hair, b_hair))
+						hair_s.ColorTone(render_hair_color)
 					else
-						hair_s.Blend(rgb(r_hair, g_hair, b_hair), hair_style.colouration_blend)
+						hair_s.Blend(render_hair_color, hair_style.colouration_blend)
 					if(!isnull(grad_s))
 						hair_s.Blend(grad_s, ICON_OVERLAY)
 

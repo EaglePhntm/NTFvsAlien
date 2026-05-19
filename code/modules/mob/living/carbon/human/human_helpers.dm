@@ -226,6 +226,9 @@
 /proc/robot_part_uses_dimorphic_states(robot_base)
 	return robot_base in list("Human", "Lizard", "Anthro")
 
+/proc/robot_part_uses_split_hand_states(robot_base)
+	return robot_base in list("Human", "Android", "Dark Android")
+
 /proc/robot_head_uses_human_eyes(robot_base)
 	return robot_base in list("Human", "Lizard", "Anthro")
 
@@ -283,8 +286,12 @@
 		if("l_arm", "left arm")
 			return "[robot_prefix]_l_arm"
 		if("r_hand", "right hand")
+			if(robot_part_uses_split_hand_states(robot_base))
+				return "[robot_prefix]_r_hand"
 			return "[robot_prefix]_r_arm"
 		if("l_hand", "left hand")
+			if(robot_part_uses_split_hand_states(robot_base))
+				return "[robot_prefix]_l_hand"
 			return "[robot_prefix]_l_arm"
 		if("r_leg", "right leg", "r_foot", "right foot")
 			return "[robot_prefix]_r_leg"
@@ -408,6 +415,15 @@
 	if(species?.name == "Moth" && (!body_color || body_color == "#FFFFFF"))
 		return sanitize_character_recolor(species.flesh_color)
 	return sanitize_character_recolor(body_color)
+
+/mob/living/carbon/human/proc/get_render_hair_color()
+	return sanitize_hair_recolor(rgb(r_hair, g_hair, b_hair))
+
+/mob/living/carbon/human/proc/get_render_gradient_color()
+	return sanitize_hair_recolor(rgb(r_grad, g_grad, b_grad))
+
+/mob/living/carbon/human/proc/get_render_facial_hair_color()
+	return sanitize_hair_recolor(rgb(r_facial, g_facial, b_facial))
 
 /mob/living/carbon/human/get_reagent_tags()
 	. = ..()

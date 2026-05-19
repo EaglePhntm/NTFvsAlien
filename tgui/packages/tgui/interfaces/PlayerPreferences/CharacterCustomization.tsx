@@ -31,6 +31,10 @@ export const CharacterCustomization = (props) => {
     'characterCreatorLastRobotToggle',
     0,
   );
+  const [lastNameRandomize, setLastNameRandomize] = useLocalState(
+    'characterCreatorLastNameRandomize',
+    0,
+  );
   const {
     random_name,
     gender,
@@ -470,6 +474,14 @@ export const CharacterCustomization = (props) => {
     setLastRobotToggle(now);
     act('toggle_supersoldier_parts');
   };
+  const randomizeName = () => {
+    const now = Date.now();
+    if (now - lastNameRandomize < 200) {
+      return;
+    }
+    setLastNameRandomize(now);
+    act('randomize_name');
+  };
   const creatorPanels = {
     identity: 'Identity',
     appearance: 'Appearance',
@@ -489,9 +501,7 @@ export const CharacterCustomization = (props) => {
               value={'real_name'}
               extra={
                 <Box as="span">
-                  <Button onClick={() => act('randomize_name')}>
-                    Randomize
-                  </Button>
+                  <Button onClick={randomizeName}>Randomize</Button>
                   <Button.Checkbox
                     inline
                     content="Always Random"
