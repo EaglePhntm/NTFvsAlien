@@ -7,7 +7,6 @@
 	joinable_roundstart = TRUE
 	has_genital_selection = TRUE
 	limb_type = SPECIES_LIMB_SPLURT
-	inherent_traits = list(TRAIT_TOO_TALL)
 	splurt_limb_prefix = "human"
 	screams = list(MALE = SFX_MALE_SCREAM, FEMALE = SFX_FEMALE_SCREAM)
 	paincries = list(MALE = SFX_MALE_PAIN, FEMALE = SFX_FEMALE_PAIN)
@@ -74,8 +73,10 @@
 
 /datum/action/ability/last_stand
 	name = "Last Stand"
-	desc = "Your body is wired to go into a berserk rage when you are critically injured, granting you temporary boosts to your strength and speed, but leaving you exhausted once the effect ends. <br><br> Triggers when your health drops below a certain threshold. Cooldown is automatically refreshed in 5 minutes."
+	action_icon_state = "frenzy"
+	desc = "Your body is wired to go into a berserk rage when you are critically injured, granting you temporary boosts to your speed and making you withstand dying out of pure rage and determination for it's short duration, but leaving you exhausted once the effect ends. Manual triggering will be less beneficial and may make you not be able to rage when you need it. <br><br> Triggers automatically when your health drops to critical. Cooldown is automatically refreshed in 5 minutes."
 	cooldown_duration = 5 MINUTES
+	use_state_flags = ABILITY_USE_BUCKLED|ABILITY_USE_BUSY|ABILITY_USE_HANDCUFFED|ABILITY_USE_INCAP|ABILITY_USE_LYING|ABILITY_USE_STAGGERED|ABILITY_USE_NOTTURF
 
 //basically stolen from rav but shittier
 /datum/action/ability/last_stand/can_use_action(silent, override_flags, selecting)
@@ -85,37 +86,46 @@
 
 	var/mob/living/carbon/carbon_owner = owner
 	if(!carbon_owner)		return FALSE
-	if(carbon_owner.health > carbon_owner.health_threshold_crit)
+	if(carbon_owner.health > (carbon_owner.maxHealth * 0.5)) //can be manually triggered below half health
 		if(!silent)
-			to_chat(owner, span_danger("Your health isn't low enough to rage! You must take [carbon_owner.health - carbon_owner.health_threshold_crit] more damage!"))
+			to_chat(owner, span_danger("Your health isn't low enough to rage! You must take [carbon_owner.health - (carbon_owner.maxHealth * 0.5)] more damage!"))
 		return FALSE
 
 
 /datum/action/ability/last_stand/action_activate()
 	var/mob/living/carbon/carbon_owner = owner
 	if(!carbon_owner)		return FALSE
-	var/rage_power = min(0.5, (1 - ((carbon_owner.health - carbon_owner.maxHealth) / carbon_owner.maxHealth)) * 4) // Calculate the power of our rage; scales with difference between current and max HP.
+	var/rage_power = min(0.5, (1 - ((carbon_owner.health - carbon_owner.maxHealth) / carbon_owner.maxHealth)) * 3) // Calculate the power of our rage; scales with difference between current and max HP.
 	var/rage_power_radius = CEILING(rage_power * 7, 1) //Define radius of the SFX
 
 	carbon_owner.visible_message(span_danger("\The [carbon_owner] becomes frenzied, bellowing with a roar!"), \
 	span_userdanger("You bellow as your fury overtakes you!"))
 	carbon_owner.do_jitter_animation(1000)
 
-	carbon_owner.reagents.add_reagent(/datum/reagent/medicine/adrenaline, 20)
-	carbon_owner.reagents.add_reagent(/datum/reagent/medicine/inaprovaline, 15)
-	carbon_owner.reagents.add_reagent(/datum/reagent/medicine/oxycodone, 5)
-	carbon_owner.emote("warcry")
+	carbon_owner.reagents.add_reagent(/datum/reagent/medicine/adrenaline, 6, no_overdose = TRUE)
+	carbon_owner.reagents.add_reagent(/datum/reagent/medicine/oxycodone, 5, no_overdose = TRUE)
+	carbon_owner.adjustBruteLoss(-carbon_owner.getBruteLoss(TRUE) * 0.60) //as if double inaprovaline
+	carbon_owner.adjustFireLoss(-carbon_owner.getFireLoss(TRUE) * 0.60)
+	carbon_owner.Stun(1 SECONDS)
+	carbon_owner.emote("me", 1, "slams their fist to the ground.")
+	carbon_owner.health_threshold_dead *= 2 //refuse death for now
+	carbon_owner.health_threshold_crit = -100
+	playsound(carbon_owner.loc, 'ntf_modular/sound/effects/ut-heavy-hit.ogg', 50)
 
 	for(var/turf/affected_tiles AS in RANGE_TURFS(rage_power_radius / 2, carbon_owner.loc))
 		affected_tiles.Shake(duration = 1 SECONDS) //SFX
 
 	for(var/mob/living/affected_mob in cheap_get_living_near(carbon_owner, rage_power_radius) + cheap_get_xenos_near(carbon_owner, rage_power_radius)) //Roar that applies cool SFX
+		if(affected_mob == carbon_owner)
+			continue
+		if(carbon_owner.get_iff_signal() == affected_mob.get_iff_signal())
+			continue
 		if(affected_mob.stat || affected_mob == carbon_owner) //We don't care about the dead/unconsious
 			continue
 
+		affected_mob.adjust_stagger(3 SECONDS)
 		shake_camera(affected_mob, 1 SECONDS, 1)
 		affected_mob.Shake(duration = 1 SECONDS) //SFX
-		playsound(affected_mob.loc, 'ntf_modular/sound/effects/ut-heavy-hit.ogg', 50)
 
 		if(rage_power >= RAVAGER_RAGE_SUPER_RAGE_THRESHOLD && affected_mob.hud_used) //If we're super pissed it's time to get crazy
 			var/atom/movable/plane_master_controller/game_plane_master_controller = affected_mob.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
@@ -124,12 +134,12 @@
 				animate(filt, size = 0.12, time = 5, loop = -1)
 			addtimer(CALLBACK(game_plane_master_controller, TYPE_PROC_REF(/datum, remove_filter), "rage_outcry"), 1 SECONDS)
 
-	carbon_owner.add_filter("ravager_rage_outline", 5, outline_filter(1.5, COLOR_RED)) //Set our cool aura; also confirmation we have the buff
+	carbon_owner.add_filter("last_stand_outline", 5, outline_filter(1.5, COLOR_RED)) //Set our cool aura; also confirmation we have the buff
 
 	//Too angry to be stunned/slowed/staggered/knocked down
-	ADD_TRAIT(carbon_owner, TRAIT_STUNIMMUNE, RAGE_TRAIT)
-	ADD_TRAIT(carbon_owner, TRAIT_SLOWDOWNIMMUNE, RAGE_TRAIT)
-	ADD_TRAIT(carbon_owner, TRAIT_STAGGERIMMUNE, RAGE_TRAIT)
+	ADD_TRAIT(carbon_owner, TRAIT_STUNIMMUNE, "[type]")
+	ADD_TRAIT(carbon_owner, TRAIT_SLOWDOWNIMMUNE, "[type]")
+	ADD_TRAIT(carbon_owner, TRAIT_STAGGERIMMUNE, "[type]")
 
 	addtimer(CALLBACK(src, PROC_REF(rage_warning)), RAVAGER_RAGE_DURATION * RAVAGER_RAGE_WARNING)
 	addtimer(CALLBACK(src, PROC_REF(rage_deactivate)), RAVAGER_RAGE_DURATION)
@@ -150,14 +160,16 @@
 /datum/action/ability/last_stand/proc/rage_deactivate()
 	if(QDELETED(owner))
 		return
+	var/mob/living/carbon/carbon_owner = owner
+	carbon_owner.health_threshold_dead = initial(carbon_owner.health_threshold_dead)
+	carbon_owner.health_threshold_crit = initial(carbon_owner.health_threshold_crit)
 	owner.do_jitter_animation(1000)
-	owner.remove_filter("ravager_rage_outline")
+	owner.remove_filter("last_stand_outline")
 	owner.visible_message(span_warning("[owner] seems to tire out."), \
 	span_userdanger("Your rage subsides and its power leaves your body, leaving you exhausted."))
 
 	owner.remove_movespeed_modifier(MOVESPEED_ID_RAVAGER_RAGE) //Reset speed
 
-	REMOVE_TRAIT(owner, TRAIT_STUNIMMUNE, RAGE_TRAIT)
-	REMOVE_TRAIT(owner, TRAIT_SLOWDOWNIMMUNE, RAGE_TRAIT)
-	REMOVE_TRAIT(owner, TRAIT_STAGGERIMMUNE, RAGE_TRAIT)
-	owner.reagents.add_reagent(/datum/reagent/toxin/chloralhydrate, 5)
+	REMOVE_TRAIT(owner, TRAIT_STUNIMMUNE, "[type]")
+	REMOVE_TRAIT(owner, TRAIT_SLOWDOWNIMMUNE, "[type]")
+	REMOVE_TRAIT(owner, TRAIT_STAGGERIMMUNE, "[type]")

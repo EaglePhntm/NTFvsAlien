@@ -650,7 +650,6 @@
 			if(should_refresh_species_body_color(old_species, S))
 				body_color = S.flesh_color
 			if(!isnull(S.species_description))
-				tgui_alert(user, "Species information", list("Ok"), "[S.species_description]")
 				to_chat(user, span_notice("Species information: [S.species_description]"))
 			real_name = S.random_name(gender)
 			update_preview_icon()
