@@ -1,0 +1,13 @@
+author: "SpooksAnno"
+delete-after: True
+changes:
+  - rscadd: "Added expanded character customization options including new tails, snouts, ears, horns, wings, markings, synth antennas, digitigrade legs, and body features."
+  - rscadd: "Added toggleable tail wagging."
+  - rscadd: "Added Ctrl + direction facing so characters can turn without walking."
+  - rscadd: "Added emissive toggles for supported character customization parts."
+  - qol: "Reworked the character creator into a cleaner tabbed layout with a larger rotating preview."
+  - qol: "Added more compact color controls for character customization."
+  - bugfix: "Fixed several character accessory layering issues involving tails, wings, clothing, belts, backpacks, markings, and body overlays."
+  - bugfix: "Fixed multiple customization options not updating or saving correctly."
+  - imageadd: "Added new character customization sprites from SPLURT/Skyrat-style sources."
+  - code_imp: "Added modular character creator helpers and documentation for future customization work."
