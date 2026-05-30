@@ -434,6 +434,28 @@
 	desc = "A card used to provide ID and determine access to a large array of machinery. It has a faint mark of purple by the edge..."
 	iff_signal = CLF_IFF
 
+/obj/item/card/id/clf/examine(mob/user)
+	. = ..()
+	if(HAS_TRAIT(user, TRAIT_CULTIST))
+		. += span_notice("You can alter this id by activating it in your hand.")
+
+/obj/item/card/id/clf/attack_self(mob/user)
+	. = ..()
+	if(HAS_TRAIT(user, TRAIT_CULTIST))
+		var/choice = tgui_input_list(user, "What do you want to change?", "Alter ID", list("name", "occupation", "rank", "cancel"), "cancel")
+		switch(choice)
+			if("name")
+				registered_name = tgui_input_text(user, "Input the name. (ex: John Doe)", "Name", "[initial(name)]", 24)
+				to_chat(user, span_notice("name set to [registered_name]."))
+			if("occupation")
+				assignment = tgui_input_text(user, "Input the occupation (ex: Assistant Colonist).", "Occupation", "[initial(assignment)]", 15)
+				rank = assignment
+				to_chat(user, span_notice("occupation set to [assignment]."))
+			if("rank")
+				paygrade = tgui_input_text(user, "Input the rank (ex: PVT).", "Rank", "[initial(paygrade)]", 15)
+				to_chat(user, span_notice("rank set to [rank]."))
+	update_label()
+
 /obj/item/card/id/dogtag/examine(mob/user)
 	. = ..()
 	if(ishuman(user))

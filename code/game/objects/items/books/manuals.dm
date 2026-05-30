@@ -719,7 +719,7 @@
 
 /obj/item/book/manual/marine_law
 	name = "Space Law"
-	desc = "A set of universal guidelines for keeping law and order on civilian, private and military vessels alike."
+	desc = "A set of universal guidelines for keeping law and order on civilian, private and military vessels alike. (Laws will need to be adjusted to fit the special circumstances of being off world and corpsec will have to be in place of HOJ.)"
 	icon_state = "bookSpaceLaw"
 	author = "The Company"
 	title = "Space Law"
@@ -730,7 +730,7 @@
 		</head>
 
 		<body>
-		<iframe width='100%' height='97%' src="https://tgstation13.org/wiki/Space_Law?printable=yes&removelinks=1" frameborder="0" id="main_frame"></iframe>
+		<meta http-equiv="refresh" content="0; url=https://docs.google.com/document/d/1dEtPEEufdo6Pg8XinZ_NoByNASOBLe3QY4jsZ8qUsOY/edit?usp=sharing">
 		</body>
 
 		</html>

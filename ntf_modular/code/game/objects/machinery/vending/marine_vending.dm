@@ -2443,7 +2443,7 @@
 			/obj/item/clothing/head/helmet/gimmick = 3,
 			/obj/item/clothing/head/helmet/marine = 4,
 			/obj/item/clothing/head/helmet/riot = 1,
-			/obj/item/clothing/suit/storage/clfrobe = 15,
+			/obj/item/clothing/suit/modular/clf/cultist_robe = 15,
 
 		),
 		"Combat Robot" = list(
@@ -2536,8 +2536,9 @@
 			/obj/item/weapon/gun/rifle/icc_assaultcarbine = 1,
 			/obj/item/ammo_magazine/rifle/icc_assaultcarbine = -1,
 			/obj/item/weapon/gun/rifle/mpi_km/black = 7, //ghetto ahh cult finds aks i guess who woulda thought
-			/obj/item/ammo_magazine/rifle/mpi_km/black = 5,
-			/obj/item/ammo_magazine/rifle/mpi_km/extended = 3,
+			/obj/item/weapon/gun/rifle/som_carbine/black/standard = 1,
+			/obj/item/ammo_magazine/rifle/mpi_km/black = 25,
+			/obj/item/ammo_magazine/rifle/mpi_km/extended = 7,
 		),
 		"Energy Weapons" = list(
 			/obj/item/cell/lasgun/lasrifle = 20,

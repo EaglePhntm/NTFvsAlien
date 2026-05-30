@@ -66,6 +66,7 @@
 		/obj/item/restraints/handcuffs = 2,
 		/obj/item/flash = 1,
 	)
+	backpack_contents = list(/obj/item/book/manual/marine_law = 1,)
 
 //quik clap grenade
 /obj/item/explosive/grenade/bednade

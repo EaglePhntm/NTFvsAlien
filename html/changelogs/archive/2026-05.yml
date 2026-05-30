@@ -132,3 +132,12 @@
   - bugfix: Fixed night vision goggles causing runtime noise during initialization.
   - bugfix: Fixed a stylesheet compile warning from an invalid color value.
   - admin: Improved xeno hive ability syncing to avoid duplicate ability actions.
+2026-05-30:
+  SpooksAnno:
+  - rscadd: Added Combat Robot as a separate silicon job path from Synthetic.
+  - qol: Character creator color pickers now reopen with the currently saved color.
+  - bugfix: Fixed Synthetic and Combat Robot species/job handling crossing into each
+      other.
+  - bugfix: Fixed Combat Robot eyewear and back-slot items using old robot-specific
+      worn sprites.
+  - bugfix: Fixed backpacks rendering through the normal back slot layer.

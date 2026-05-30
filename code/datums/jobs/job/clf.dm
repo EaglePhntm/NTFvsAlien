@@ -19,6 +19,7 @@
 
 /datum/job/clf/after_spawn(mob/living/carbon/C, mob/M, latejoin = FALSE)
 	. = ..()
+	ADD_TRAIT(C, TRAIT_CULTIST, "[type]")
 	C.transfer_to_hive(XENO_HIVE_NORMAL)
 	SSminimaps.add_marker(C, MINIMAP_FLAG_MARINE_CLF, image('ntf_modular/icons/UI_icons/map_blips_job.dmi', null, comm_title))
 	var/datum/action/minimap/clf/mini = new
@@ -222,7 +223,7 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 /datum/job/clf/tech
 	title = "Cultist Technomancer"
 	paygrade = "CLTW"
-	comm_title = "CLTC"
+	comm_title = "CLTW"
 	minimap_icon = "CLT4"
 	skills_type = /datum/skills/combat_engineer
 	job_flags = JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_LATEJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_OVERRIDELATEJOINSPAWN|JOB_FLAG_PROVIDES_SQUAD_HUD

@@ -214,6 +214,7 @@
 #include "code\modules\reagents\chemistry\reagents.dm"
 #include "code\modules\reagents\reagent_containers\glass\glass.dm"
 #include "code\modules\reqs\supplypacks\clothing_packs.dm"
+#include "code\modules\reqs\supplypacks\engineering_packs.dm"
 #include "code\modules\reqs\supplypacks\factory_packs.dm"
 #include "code\modules\reqs\supplypacks\imports_packs.dm"
 #include "code\modules\reqs\supplypacks\operations_packs.dm"

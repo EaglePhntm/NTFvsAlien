@@ -3260,9 +3260,7 @@
 /turf/closed/wall,
 /area/mainship/engineering/engineering_workshop)
 "emY" = (
-/obj/machinery/vending/medical{
-	req_access = null
-	},
+/obj/machinery/vending/medical,
 /obj/structure/cable,
 /turf/open/floor/mainship/sterile/corner{
 	dir = 4
@@ -8441,7 +8439,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "lti" = (
-/obj/machinery/telecomms/allinone,
+/obj/machinery/telecomms/relay/preset/telecomms,
 /turf/open/floor/mainship/tcomms,
 /area/mainship/groundhq/ntf/command/telecomms)
 "ltx" = (
@@ -8905,9 +8903,7 @@
 	},
 /area/mainship/groundhq/ntf/shipboard/brig_cells)
 "meu" = (
-/obj/machinery/vending/medical{
-	req_access = null
-	},
+/obj/machinery/vending/medical,
 /turf/open/floor/mainship/sterile/side{
 	dir = 4
 	},
@@ -13329,9 +13325,7 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/groundhq/ntf/medical/medical_science)
 "rSS" = (
-/obj/machinery/vending/medical{
-	req_access = null
-	},
+/obj/machinery/vending/medical,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -13450,17 +13444,6 @@
 	dir = 8
 	},
 /area/lv624/lazarus/armory)
-"sam" = (
-/obj/machinery/door/airlock/mainship/medical{
-	req_access = list(5);
-	name = "\improper CMO Office"
-	},
-/turf/open/floor/mainship/sterile/dark,
-/area/centcom/practice/medical{
-	outside = 0;
-	base_lighting_alpha = 0;
-	static_lighting = 1
-	})
 "saC" = (
 /turf/closed/wall/mainship,
 /area/mainship/groundhq/ntf/engineering/engineering_workshop)
@@ -14831,7 +14814,7 @@
 	always_unpowered = 0
 	})
 "uhb" = (
-/obj/item/storage/box/crate/loot,
+/obj/item/storage/box/crate/loot/materials_pack,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar2)
 "uhf" = (
@@ -15219,9 +15202,7 @@
 /turf/open/floor/plating,
 /area/mainship/groundhq/ntf/living/chapel)
 "uNL" = (
-/obj/machinery/vending/medical{
-	req_access = null
-	},
+/obj/machinery/vending/medical,
 /obj/machinery/light,
 /turf/open/floor/mainship/sterile/side,
 /area/centcom/practice/medical{
@@ -22257,7 +22238,7 @@ tad
 tad
 dNO
 tad
-sam
+lPX
 tad
 tad
 tad

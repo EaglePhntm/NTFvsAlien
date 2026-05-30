@@ -1,8 +1,0 @@
-author: "SpooksAnno"
-delete-after: True
-changes:
-  - rscadd: "Added Combat Robot as a separate silicon job path from Synthetic."
-  - qol: "Character creator color pickers now reopen with the currently saved color."
-  - bugfix: "Fixed Synthetic and Combat Robot species/job handling crossing into each other."
-  - bugfix: "Fixed Combat Robot eyewear and back-slot items using old robot-specific worn sprites."
-  - bugfix: "Fixed backpacks rendering through the normal back slot layer."

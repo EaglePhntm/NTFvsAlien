@@ -113,6 +113,7 @@
 		/obj/item/stack/medical/heal_pack/gauze = 1,
 		/obj/item/stack/medical/heal_pack/ointment = 1,
 		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
+		/obj/item/book/manual/marine_law = 1,
 	)
 
 	belt_contents = list(
@@ -314,6 +315,8 @@
 		/obj/item/tool/crowbar = 1,
 		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
 	)
+
+	backpack_contents = list(/obj/item/book/manual/marine_law = 1,)
 
 /datum/outfit/job/survivor/bartender
 	name = "Bartender Colonist"

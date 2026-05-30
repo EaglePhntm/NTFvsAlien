@@ -686,6 +686,6 @@ To serve the xenomorphs and join the ascended ones. (willingly or not, depends o
 	id = /obj/item/card/id/silver
 	ears = /obj/item/radio/headset/distress/dutch
 	w_uniform = /obj/item/clothing/under/colonist
-	wear_suit = /obj/item/clothing/suit/storage/clfrobe
+	wear_suit = /obj/item/clothing/suit/modular/clf/cultist_robe
 	shoes = /obj/item/clothing/shoes/marine/clf/full
 	gloves = /obj/item/clothing/gloves/black

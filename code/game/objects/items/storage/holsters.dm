@@ -655,7 +655,7 @@
 	new /obj/item/ammo_magazine/revolver/mateba(src)
 
 /obj/item/storage/holster/belt/korovin
-	name = "\improper MT41 pistol holster rig"
+	name = "\improper MT41 Korovin holster rig"
 	desc = "A modification of the standard KZ pouch rig to carry a sidearm. It also contains side pouches that can store sidearm magazines."
 	icon_state = "korovin_holster"
 	storage_type = /datum/storage/holster/belt/korovin

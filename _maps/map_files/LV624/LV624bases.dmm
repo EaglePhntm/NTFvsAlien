@@ -11202,6 +11202,10 @@
 	dir = 5
 	},
 /area/lv624/lazarus/research)
+"jCy" = (
+/obj/machinery/colony_floodlight_switch,
+/turf/closed/wall/r_wall,
+/area/lv624/lazarus/engineering)
 "jCK" = (
 /obj/structure/cable,
 /obj/machinery/power/smes/buildable/empty{
@@ -70178,7 +70182,7 @@ ygV
 ygV
 ygV
 aCD
-ygV
+jCy
 ygV
 ygV
 tmt

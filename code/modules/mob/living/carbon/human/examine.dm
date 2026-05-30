@@ -35,6 +35,11 @@
 	var/msg = ""
 
 	msg += "<span class='infoplain'>"
+	if(HAS_TRAIT(src, TRAIT_CULTIST))
+		if(isxeno(user) && user.get_xeno_hivenumber() == XENO_HIVE_NORMAL)
+			msg += "[t_He] has friendly pheromones... [t_He] is in service of the queen.\n"
+		else if(HAS_TRAIT(user, TRAIT_CULTIST))
+			msg += "You can recognize [t_him] from your cult, \a [job.title].\n"
 	msg += separator_hr("Outfit")
 
 	//uniform

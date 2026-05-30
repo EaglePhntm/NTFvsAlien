@@ -7,7 +7,7 @@
 	ears = /obj/item/radio/headset/distress/dutch
 	w_uniform = /obj/item/clothing/under/colonist
 	shoes = /obj/item/clothing/shoes/marine/clf/full
-	wear_suit = /obj/item/clothing/suit/storage/clfrobe
+	wear_suit = /obj/item/clothing/suit/modular/clf/cultist_robe
 	gloves = /obj/item/clothing/gloves/black
 	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
 	l_pocket = /obj/item/flashlight
@@ -81,7 +81,7 @@
 /datum/outfit/job/clf/standard/fanatic
 	head = /obj/item/clothing/head/headband/rambo
 	wear_suit = /obj/item/clothing/suit/storage/marine/boomvest/fast
-	l_hand = /obj/item/clothing/suit/storage/clfrobe
+	l_hand = /obj/item/clothing/suit/modular/clf/cultist_robe
 	belt = /obj/item/weapon/gun/shotgun/double/sawn
 	suit_store = /obj/item/weapon/gun/smg/skorpion/mag_harness
 
@@ -134,7 +134,7 @@
 	head = /obj/item/clothing/head/tgmcberet/bloodred
 	w_uniform = /obj/item/clothing/under/colonist
 	shoes = /obj/item/clothing/shoes/marine/clf/full
-	wear_suit = /obj/item/clothing/suit/storage/clfrobe
+	wear_suit = /obj/item/clothing/suit/modular/clf/cultist_robe
 	gloves = /obj/item/clothing/gloves/black
 	glasses = /obj/item/clothing/glasses/hud/health
 	suit_store = /obj/item/weapon/gun/smg/skorpion
@@ -208,7 +208,7 @@
 	ears = /obj/item/radio/headset/distress/dutch
 	w_uniform = /obj/item/clothing/under/colonist/webbing
 	shoes = /obj/item/clothing/shoes/marine/clf/full
-	wear_suit = /obj/item/clothing/suit/storage/clfrobe
+	wear_suit = /obj/item/clothing/suit/modular/clf/cultist_robe
 	gloves = /obj/item/clothing/gloves/black
 	head = /obj/item/clothing/head/helmet/marine
 	r_pocket = /obj/item/storage/pouch/pistol
@@ -280,7 +280,7 @@
 	ears = /obj/item/radio/headset/distress/dutch
 	w_uniform = /obj/item/clothing/under/colonist/webbing
 	shoes = /obj/item/clothing/shoes/marine/clf/full
-	wear_suit = /obj/item/clothing/suit/storage/clfrobe
+	wear_suit = /obj/item/clothing/suit/modular/clf/cultist_robe
 	gloves = /obj/item/clothing/gloves/black
 	head = /obj/item/clothing/head/militia
 	glasses = /obj/item/clothing/glasses/hud/health
@@ -423,7 +423,7 @@
 	belt = /obj/item/storage/belt/utility/full
 	ears = /obj/item/radio/headset/distress/dutch
 	w_uniform = /obj/item/clothing/under/techpriest
-	wear_suit = /obj/item/clothing/suit/techpriest
+	wear_suit = /obj/item/clothing/suit/modular/clf/techpriest_robe
 	shoes = /obj/item/clothing/shoes/techpriest
 	gloves = /obj/item/clothing/gloves/techpriest
 	head = /obj/item/clothing/head/techpriest
@@ -447,7 +447,7 @@
 
 	id = /obj/item/card/id/clf
 	w_uniform = /obj/item/clothing/under/rank/medical/blue
-	wear_suit = /obj/item/clothing/suit/storage/clfrobe
+	wear_suit = /obj/item/clothing/suit/modular/clf/cultist_robe
 	shoes = /obj/item/clothing/shoes/marine/clf/full
 	back = /obj/item/storage/backpack/lightpack
 	gloves = /obj/item/clothing/gloves/latex
@@ -472,7 +472,7 @@
 	ears = /obj/item/radio/headset/distress/dutch
 	w_uniform = /obj/item/clothing/under/colonist/webbing
 	shoes = /obj/item/clothing/shoes/marine/clf/full
-	wear_suit = /obj/item/clothing/suit/storage/clfrobe
+	wear_suit = /obj/item/clothing/suit/modular/clf/cultist_robe
 	gloves = /obj/item/clothing/gloves/black
 	head = /obj/item/clothing/head/collectable/xenom
 	glasses = /obj/item/clothing/glasses/hud/health
@@ -502,11 +502,64 @@
 		/obj/item/explosive/grenade/smokebomb = 1,
 	)
 
+/obj/item/clothing/suit/modular/clf
+	name = "cult robes"
+	icon = 'icons/obj/clothing/suits/suits.dmi'
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/clothing/suits_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/clothing/suits_right.dmi',
+	)
+	attachments_allowed = list(
+// Armor Modules
+		/obj/item/armor_module/module/better_shoulder_lamp,
+		/obj/item/armor_module/module/valkyrie_autodoc,
+		/obj/item/armor_module/module/fire_proof,
+		/obj/item/armor_module/module/tyr_extra_armor,
+		/obj/item/armor_module/module/tyr_extra_armor/mark1,
+		/obj/item/armor_module/module/mimir_environment_protection,
+		/obj/item/armor_module/module/mimir_environment_protection/mark1,
+		/obj/item/armor_module/module/hlin_explosive_armor,
+		/obj/item/armor_module/module/ballistic_armor,
+		/obj/item/armor_module/module/chemsystem,
+		/obj/item/armor_module/module/knight,
+		/obj/item/armor_module/module/eshield,
+		/obj/item/armor_module/module/eshield/som,
+		/obj/item/armor_module/module/eshield/som/overclocked,
+		/obj/item/armor_module/module/mimir_environment_protection/som,
+		/obj/item/armor_module/module/knight/som,
+		/obj/item/armor_module/module/tyr_extra_armor/som,
+		/obj/item/armor_module/module/fire_proof/som,
+		/obj/item/armor_module/module/valkyrie_autodoc/som,
+		/obj/item/armor_module/module/mirage,
+		/obj/item/armor_module/module/armorlock,
+// Storage Modules
+		/obj/item/armor_module/storage/general,
+		/obj/item/armor_module/storage/ammo_mag,
+		/obj/item/armor_module/storage/engineering,
+		/obj/item/armor_module/storage/medical,
+		/obj/item/armor_module/storage/general/som,
+		/obj/item/armor_module/storage/engineering/som,
+		/obj/item/armor_module/storage/medical/som,
+		/obj/item/armor_module/storage/injector,
+		/obj/item/armor_module/storage/grenade,
+		/obj/item/armor_module/storage/integrated,
+		/obj/item/armor_module/armor/badge,
+// Equalizer Modules
+		/obj/item/armor_module/module/style/light_armor,
+		/obj/item/armor_module/module/style/medium_armor,
+		/obj/item/armor_module/module/style/heavy_armor,
+	)
+	soft_armor = MARINE_ARMOR_LIGHT
+	slowdown = SLOWDOWN_ARMOR_LIGHT
 
-/obj/item/clothing/suit/storage/clfrobe
-	name = "purple robes"
+/obj/item/clothing/suit/modular/clf/cultist_robe
+	name = "cultist robes"
 	desc = "Heavy, royal purple robes threaded with psychic amplifiers and weird, bulbous lenses. Do not machine wash."
 	icon_state = "psyamp"
 	worn_icon_state = "psyamp"
-	soft_armor = MARINE_ARMOR_LIGHT
-	slowdown = SLOWDOWN_ARMOR_LIGHT
+
+/obj/item/clothing/suit/modular/clf/techpriest_robe
+	name = "Techpriest Robes"
+	desc = "Praise the omnissiah!"
+	icon_state = "tp_bodyrobes"
+	worn_icon_state = "tp_bodyrobes"
