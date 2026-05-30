@@ -552,15 +552,29 @@
 	. = ..()
 	if(old_dir == dir)
 		return
+	if(ISDIAGONALDIR(old_dir) || ISDIAGONALDIR(dir))
+		queue_directional_overlay_update()
+	else
+		update_directional_overlays()
+
+/mob/living/carbon/human/proc/queue_directional_overlay_update()
+	addtimer(CALLBACK(src, PROC_REF(update_directional_overlays)), 1, TIMER_UNIQUE | TIMER_OVERRIDE)
+
+/mob/living/carbon/human/proc/update_directional_overlays()
+	if(ISDIAGONALDIR(dir))
+		return
+	if(last_directional_overlay_dir == dir)
+		return
+	last_directional_overlay_dir = dir
 	update_accessories()
-	update_genitals()
-	update_inv_w_uniform()
-	update_inv_gloves()
+	update_genitals(FALSE)
+	update_inv_w_uniform(FALSE)
+	update_inv_gloves(FALSE)
 	update_inv_belt()
-	update_inv_back()
-	update_inv_shoes()
-	update_inv_wear_suit()
+	update_inv_shoes(FALSE)
+	update_inv_wear_suit(FALSE)
 	update_inv_socks()
 	update_inv_underwear()
 	update_inv_undershirt()
 	update_inv_bra()
+	update_body_marking_emissives()

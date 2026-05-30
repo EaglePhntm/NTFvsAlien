@@ -88,7 +88,7 @@ GLOBAL_LIST_EMPTY(human_genitals_cache)
 		return FALSE
 	return TRUE
 
-/mob/living/carbon/human/proc/update_genitals()
+/mob/living/carbon/human/proc/update_genitals(save_character = TRUE)
 	remove_overlay(GENITAL_LAYER)
 	if(!species?.has_genital_selection)
 		return
@@ -149,25 +149,30 @@ GLOBAL_LIST_EMPTY(human_genitals_cache)
 
 	overlays_standing[GENITAL_LAYER] = genilist
 	apply_overlay(GENITAL_LAYER)
-	client?.prefs.save_character()
+	if(save_character)
+		client?.prefs.save_character()
 
-/mob/living/carbon/human/update_inv_w_uniform()
+/mob/living/carbon/human/update_inv_w_uniform(update_dependent_overlays = TRUE)
 	. = ..()
-	update_genitals()
-	update_body_marking_emissives()
+	if(update_dependent_overlays)
+		update_genitals()
+		update_body_marking_emissives()
 
-/mob/living/carbon/human/update_inv_wear_suit()
+/mob/living/carbon/human/update_inv_wear_suit(update_dependent_overlays = TRUE)
 	. = ..()
-	update_genitals()
-	update_body_marking_emissives()
+	if(update_dependent_overlays)
+		update_genitals()
+		update_body_marking_emissives()
 
-/mob/living/carbon/human/update_inv_gloves()
+/mob/living/carbon/human/update_inv_gloves(update_dependent_overlays = TRUE)
 	. = ..()
-	update_body_marking_emissives()
+	if(update_dependent_overlays)
+		update_body_marking_emissives()
 
-/mob/living/carbon/human/update_inv_shoes()
+/mob/living/carbon/human/update_inv_shoes(update_dependent_overlays = TRUE)
 	. = ..()
-	update_body_marking_emissives()
+	if(update_dependent_overlays)
+		update_body_marking_emissives()
 
 /mob/living/carbon/human/update_inv_head()
 	. = ..()
