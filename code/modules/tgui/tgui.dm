@@ -108,6 +108,9 @@
 		with_data = TRUE,
 		with_static_data = TRUE))
 	SStgui.on_open(src)
+	if(ismachinery(src_object))
+		var/obj/machinery/machine = src_object
+		machine.on_tgui_open(user, src)
 
 	return TRUE
 
@@ -140,6 +143,9 @@
 		// the error message properly.
 		window.release_lock()
 		window.close(can_be_suspended)
+		if(ismachinery(src_object))
+			var/obj/machinery/machine = src_object
+			machine.on_tgui_close(user, src)
 		src_object.ui_close(user)
 		SStgui.on_close(src)
 	state = null

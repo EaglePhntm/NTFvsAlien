@@ -138,7 +138,7 @@ GLOBAL_VAR_INIT(corrupted_generators, 0)
 	SIGNAL_HANDLER
 	UnregisterSignal(SSdcs, COMSIG_GLOB_GAMESTATE_GROUNDSIDE)
 	corruption_on = TRUE
-	start_processing()
+	start_processing(SSMACHINES_MACHINES_EARLY)
 
 /obj/machinery/power/geothermal/process()
 	if(corrupted && corruption_on)
@@ -275,7 +275,7 @@ GLOBAL_VAR_INIT(corrupted_generators, 0)
 	icon_state = "on10"
 	is_on = TRUE
 	cur_tick = 0
-	start_processing()
+	start_processing(SSMACHINES_MACHINES_EARLY)
 	return TRUE
 
 /obj/machinery/power/geothermal/welder_act(mob/living/user, obj/item/I)
@@ -388,7 +388,7 @@ GLOBAL_VAR_INIT(corrupted_generators, 0)
 	power_gen_percent = 0
 	cur_tick = 0
 	update_appearance()
-	start_processing()
+	start_processing(SSMACHINES_MACHINES_EARLY)
 
 ///Removes corruption from the generator
 /obj/machinery/power/geothermal/proc/decorrupt()

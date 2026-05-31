@@ -60,6 +60,7 @@
 
 	update_minimap_icon()
 	running = FALSE
+	stop_processing()
 
 	if(completed_segments == total_segments)
 		say("Program retrieval successful. Standing by to print...")

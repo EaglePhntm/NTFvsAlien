@@ -57,7 +57,7 @@
 	if(!terminal.powernet)
 		terminal.connect_to_network()
 	update_icon()
-	start_processing()
+	start_processing(SSMACHINES_MACHINES_EARLY)
 
 /obj/machinery/power/smes/Destroy()
 	if(terminal)
@@ -173,7 +173,7 @@
 	terminal.setDir(get_dir(T,src))
 	terminal.master = src
 	machine_stat &= ~BROKEN
-	start_processing()
+	start_processing(SSMACHINES_MACHINES_EARLY)
 
 /obj/machinery/power/smes/disconnect_terminal()
 	if(terminal)

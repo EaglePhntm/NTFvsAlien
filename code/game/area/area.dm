@@ -35,6 +35,9 @@
 	var/used_equip = FALSE
 	var/used_light = FALSE
 	var/used_environ = FALSE
+	var/static_used_equip = FALSE
+	var/static_used_light = FALSE
+	var/static_used_environ = FALSE
 
 	var/global/global_uid = 0
 	var/uid
@@ -396,13 +399,13 @@
 	var/used = 0
 	switch(chan)
 		if(LIGHT)
-			used += used_light
+			used += used_light + static_used_light
 		if(EQUIP)
-			used += used_equip
+			used += used_equip + static_used_equip
 		if(ENVIRON)
-			used += used_environ
+			used += used_environ + static_used_environ
 		if(TOTAL)
-			used += used_light + used_equip + used_environ
+			used += used_light + used_equip + used_environ + static_used_light + static_used_equip + static_used_environ
 	return used
 
 
@@ -420,6 +423,15 @@
 			used_light += amount
 		if(ENVIRON)
 			used_environ += amount
+
+/area/proc/addStaticPower(amount, chan)
+	switch(chan)
+		if(STATIC_EQUIP, EQUIP)
+			static_used_equip += amount
+		if(STATIC_LIGHTS, LIGHT)
+			static_used_light += amount
+		if(STATIC_ENVIRON, ENVIRON)
+			static_used_environ += amount
 
 
 

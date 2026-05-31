@@ -69,6 +69,7 @@
 	layer = BELOW_OBJ_LAYER
 
 	use_power = IDLE_POWER_USE
+	use_static_power = TRUE
 	idle_power_usage = 10
 	active_power_usage = 100
 	obj_flags = CAN_BE_HIT
@@ -151,6 +152,8 @@
 	var/last_slogan = 0
 	///The interval between slogans.
 	var/slogan_delay = 15 MINUTES
+	///Timer id for the next slogan pitch.
+	var/slogan_timer
 	///Icon state when successfuly vending
 	var/icon_vend
 	///Icon state when failing to vend, be it by no access or money.
@@ -207,7 +210,7 @@
 	premium = null
 	products = null
 	contraband = null
-	start_processing()
+	schedule_slogan()
 	update_icon()
 	return INITIALIZE_HINT_LATELOAD
 
@@ -217,6 +220,9 @@
 	power_change()
 
 /obj/machinery/vending/Destroy()
+	if(slogan_timer)
+		deltimer(slogan_timer)
+		slogan_timer = null
 	QDEL_NULL(wires)
 	return ..()
 
@@ -874,14 +880,44 @@
 	if(seconds_electrified > 0)
 		seconds_electrified--
 
-	//Pitch to the people!  Really sell it!
-	if(((last_slogan + slogan_delay) <= world.time) && (length(slogan_list) > 0) && (!shut_up) && prob(5))
-		var/slogan = pick(slogan_list)
-		speak(slogan)
-		last_slogan = world.time
-
 	if(shoot_inventory && prob(2) && !hacking_safety)
 		throw_item()
+
+	update_processing()
+
+/obj/machinery/vending/proc/update_processing()
+	if((seconds_electrified > 0) || (shoot_inventory && !hacking_safety))
+		start_processing()
+		return
+	stop_processing()
+
+/obj/machinery/vending/proc/schedule_slogan(wait_time)
+	if(slogan_timer)
+		deltimer(slogan_timer)
+		slogan_timer = null
+
+	if(!length(slogan_list) || shut_up)
+		return
+
+	if(isnull(wait_time))
+		wait_time = max(1, last_slogan + slogan_delay - world.time)
+
+	slogan_timer = addtimer(CALLBACK(src, PROC_REF(handle_slogan)), wait_time, TIMER_STOPPABLE)
+
+/obj/machinery/vending/proc/handle_slogan()
+	slogan_timer = null
+
+	if(QDELETED(src))
+		return
+
+	if(machine_stat & (BROKEN|NOPOWER) || !active || shut_up || !length(slogan_list))
+		schedule_slogan(1 MINUTES)
+		return
+
+	//Pitch to the people, but without keeping every vendor in SSmachines forever.
+	speak(pick(slogan_list))
+	last_slogan = world.time
+	schedule_slogan(slogan_delay + rand(0, slogan_delay))
 
 /obj/machinery/vending/proc/speak(message)
 	if(machine_stat & NOPOWER)

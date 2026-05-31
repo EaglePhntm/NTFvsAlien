@@ -10,6 +10,10 @@
 
 	var/machine_stat = NONE
 	var/use_power = IDLE_POWER_USE
+	var/use_static_power = FALSE
+	var/static_power_usage = 0
+	var/registered_static_power_channel = EQUIP
+	var/area/registered_static_power_area
 	var/idle_power_usage = 0
 	var/active_power_usage = 0
 	var/machine_current_charge = 0 //Does it have an integrated, unremovable capacitor? Normally 10k if so.
@@ -36,10 +40,15 @@
 	GLOB.machines += src
 	component_parts = list()
 	set_ai_block()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/LateInitialize()
+	update_current_power_usage()
 
 /obj/machinery/Destroy()
+	clear_static_power()
 	GLOB.machines -= src
-	STOP_PROCESSING(SSmachines, src)
+	stop_processing()
 	if(istype(circuit)) //There are some uninitialized legacy path circuits.
 		QDEL_NULL(circuit)
 	operator?.unset_interaction()
@@ -65,6 +74,12 @@
 
 /obj/machinery/proc/is_operational()
 	return !(machine_stat & (NOPOWER|BROKEN|MAINT|DISABLED))
+
+/obj/machinery/proc/on_tgui_open(mob/user, datum/tgui/ui)
+	return
+
+/obj/machinery/proc/on_tgui_close(mob/user, datum/tgui/ui)
+	return
 
 
 /obj/machinery/proc/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
@@ -136,17 +151,42 @@
 	return
 
 
-/obj/machinery/proc/start_processing()
+/obj/machinery/proc/start_processing(processing_phase = SSMACHINES_MACHINES)
 	var/datum/controller/subsystem/processing/subsystem = locate(subsystem_type) in Master.subsystems
-	START_PROCESSING(subsystem, src)
+	if(!istype(subsystem, /datum/controller/subsystem/machines))
+		START_PROCESSING(subsystem, src)
+		return
+	if(datum_flags & DF_ISPROCESSING)
+		return
+	datum_flags |= DF_ISPROCESSING
+	var/datum/controller/subsystem/machines/machine_subsystem = subsystem
+	switch(processing_phase)
+		if(SSMACHINES_MACHINES_EARLY)
+			machine_subsystem.processing_early += src
+		if(SSMACHINES_MACHINES_LATE)
+			machine_subsystem.processing_late += src
+		else
+			machine_subsystem.processing += src
 
 
 /obj/machinery/proc/stop_processing()
 	var/datum/controller/subsystem/processing/subsystem = locate(subsystem_type) in Master.subsystems
-	STOP_PROCESSING(subsystem, src)
+	if(!istype(subsystem, /datum/controller/subsystem/machines))
+		STOP_PROCESSING(subsystem, src)
+		return
+	datum_flags &= ~DF_ISPROCESSING
+	var/datum/controller/subsystem/machines/machine_subsystem = subsystem
+	machine_subsystem.processing -= src
+	machine_subsystem.processing_early -= src
+	machine_subsystem.processing_late -= src
+	machine_subsystem.processing_power -= src
+	machine_subsystem.currentrun -= src
 
 
 /obj/machinery/process() // If you dont use process or power why are you here
+	return PROCESS_KILL
+
+/obj/machinery/proc/process_late(seconds_per_tick)
 	return PROCESS_KILL
 
 /**

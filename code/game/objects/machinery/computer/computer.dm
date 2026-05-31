@@ -6,6 +6,7 @@
 	density = TRUE
 	anchored = TRUE
 	use_power = IDLE_POWER_USE
+	use_static_power = TRUE
 	layer = BELOW_OBJ_LAYER
 	idle_power_usage = 300
 	active_power_usage = 300
@@ -24,18 +25,31 @@
 	var/broken_icon
 	///If true has a chance to break from any bullet
 	var/fragile = TRUE
+	///Whether this computer needs normal SSmachines processing immediately on init.
+	var/process_on_init = FALSE
 
 /obj/machinery/computer/Initialize(mapload)
 	. = ..()
 	if(!broken_icon)
 		broken_icon = "[initial(icon_state)]_broken"
-	start_processing()
+	if(process_on_init)
+		start_processing()
 	update_icon()
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/computer/LateInitialize()
 	. = ..()
 	power_change()
+
+/obj/machinery/computer/Destroy()
+	return ..()
+
+/obj/machinery/computer/on_tgui_open(mob/user, datum/tgui/ui)
+	update_use_power(ACTIVE_POWER_USE)
+
+/obj/machinery/computer/on_tgui_close(mob/user, datum/tgui/ui)
+	if(length(open_uis) <= 1)
+		update_use_power(IDLE_POWER_USE)
 
 /obj/machinery/computer/examine(mob/user)
 	. = ..()
