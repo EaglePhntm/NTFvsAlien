@@ -502,6 +502,13 @@
 /obj/item/clothing/under/som/medic/vest/black
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/black_vest)
 
+/obj/item/clothing/under/som/sleeveless
+	name = "\improper SOM Sleeveless Uniform"
+	desc = "A non-standard uniform of the SOM, it is sleeveless and seems to be borrowed from the Kaizoku Corporation"
+	icon = 'icons/mob/clothing/uniforms/ert_uniforms.dmi'
+	icon_state = "som_stripedshirt"
+	worn_icon_state = "som_stripedshirt"
+	
 /obj/item/clothing/under/som/veteran
 	name = "\improper SOM veteran uniform"
 	desc = "The standard uniform of SOM military personnel. Its design shows a clear lineage from mining uniforms used in the old mining colonies. This one has markings indicating specialist status."
@@ -649,8 +656,8 @@
 
 /obj/item/clothing/under/vsd/secondary
 	name = "KZ 'mixed' jumpsuit"
-	icon_state = "vsd_uniform_secondary"
-	worn_icon_state = "vsd_uniform_secondary"
+	icon_state = "vsd_uniform_alt"
+	worn_icon_state = "vsd_uniform_alt"
 
 /obj/item/clothing/under/vsd/secondary/webbing
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/black_vest)
@@ -697,8 +704,8 @@
 
 /obj/item/clothing/under/vsd/sleeveless
 	name = "KZ sleeveless shirt"
-	icon_state = "vsd_shirt_sleeveless"
-	worn_icon_state = "vsd_shirt_sleeveless"
+	icon_state = "vsd_stripedshirt"
+	worn_icon_state = "vsd_stripedshirt"
 
 /obj/item/clothing/under/vsd/juggernaut
 	name = "KZ military overalls"

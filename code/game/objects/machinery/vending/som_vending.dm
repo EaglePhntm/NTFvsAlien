@@ -560,6 +560,8 @@
 			/obj/item/clothing/head/helmet/marine/som/pilot = -1,
 			/obj/item/clothing/head/helmet/marine/stolen = -1,
 			/obj/item/clothing/head/modular/m10x/stolen = -1,
+			/obj/item/clothing/head/modular/m10x = -1,
+			/obj/item/clothing/head/modular/m10x/heavy = -1,
 		),
 		"Combat Drone" = list(
 			/obj/item/clothing/suit/modular/robot/light = -1,
@@ -671,6 +673,7 @@
 			/obj/item/clothing/under/marine/hyperscale = -1,
 			/obj/item/clothing/under/marine/hyperscale_skirt = -1,
 			/obj/item/clothing/under/marine/camo = -1,
+			/obj/item/clothing/under/som/sleeveless = -1,
 			/obj/item/clothing/under/marine/orion_fatigue = -1,
 			/obj/item/clothing/under/marine/red_fatigue = -1,
 			/obj/item/clothing/under/marine/lv_fatigue = -1,
