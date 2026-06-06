@@ -254,24 +254,26 @@ export const JobPreferences = (props) => {
               </Flex.Item>
               <Flex.Item>
                 <h4>Occupational choices</h4>
-                {Object.keys(special_occupations).map((special, idx) => (
+                {Object.keys(special_occupations).map((special, idx) => {
+                  const specialOccupation = special_occupations[special];
+                  return (
                   <>
                     <Button.Checkbox
-                      key={special_occupations[special]}
+                      key={specialOccupation.flag}
                       inline
                       content={special}
-                      checked={
-                        special_occupation & special_occupations[special]
-                      }
+                      tooltip={specialOccupation.tooltip}
+                      checked={special_occupation & specialOccupation.flag}
                       onClick={() =>
                         act('be_special', {
-                          flag: special_occupations[special],
+                          flag: specialOccupation.flag,
                         })
                       }
                     />
                     {idx === 1 && <br />}
                   </>
-                ))}
+                  );
+                })}
               </Flex.Item>
             </Flex>
           </Section>

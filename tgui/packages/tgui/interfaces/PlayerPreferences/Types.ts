@@ -209,10 +209,10 @@ type PreferencesUnderShirtTypes = {
 };
 
 type PreferencesSpecialOccupations = {
-  'Latejoin Xenomorph': number;
-  'Xenomorph when unrevivable': number;
-  'End of Round Deathmatch': number;
-  'Prefer Squad over Role': number;
+  [key: string]: {
+    flag: number;
+    tooltip?: string;
+  };
 };
 
 type AssocStringString = {

@@ -191,8 +191,8 @@
 	"Join as Chestburster" = BE_ALIEN,\
 	"Take Own Chestburster" = BE_ALIEN_UNREVIVABLE,\
 	"End of Round Deathmatch" = BE_DEATHMATCH,\
-	"Eligible for Hive Target" = BE_HIVE_TARGET,\
-	"Participate in Hive Targets" = BE_HIVE_TARGET_XENO,\
+	"Become Hive Target" = BE_HIVE_TARGET,\
+	"Receive Hive Target" = BE_HIVE_TARGET_XENO,\
 	"Prefer Squad over Role" = BE_SQUAD_STRICT\
 	)
 	//"Use random name when taking SSD mobs" = BE_SSD_RANDOM_NAME

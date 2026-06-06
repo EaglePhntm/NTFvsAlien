@@ -98,7 +98,9 @@
 
 		balloon_alert(xeno_attacker, "Retrieved jelly")
 		var/obj/item/stack/req_jelly/new_jelly = new(xeno_attacker.loc, 1, hivenumber)
-		new_jelly.add_to_stacks(xeno_attacker)
+		new_jelly.merge_with_stack_in_hands(xeno_attacker)
+		if(!QDELETED(new_jelly))
+			new_jelly.add_to_stacks(xeno_attacker)
 		chargesleft--
 	while(do_mob(xeno_attacker, src, 1 SECONDS))
 
@@ -120,7 +122,7 @@
 	desc = "A beautiful, glittering mound of honey-like resin. It might fetch a good price, or be shaped by a xenomorph into a potent healing poultice."
 	icon = 'ntf_modular/icons/xeno/xeno_materials.dmi'
 	icon_state = "reqjelly"
-	max_amount = 100
+	max_amount = 5
 	stack_name = "pile"
 	singular_name = "globule"
 	var/hivenumber = XENO_HIVE_NORMAL
@@ -134,6 +136,8 @@
 	var/living_blood_restore_amount = 60
 	///How long ambrosia takes to mend broken bones after application.
 	var/bone_mend_duration = 2 MINUTES
+	///How long a living target must wait before ambrosia can mend them again.
+	var/living_heal_cooldown = 10 SECONDS
 
 /obj/item/stack/req_jelly/Initialize(mapload, new_amount, _hivenumber)
 	if(_hivenumber) ///because admins can spawn them
@@ -148,6 +152,15 @@
 	if(!issamexenohive(S))
 		return FALSE
 	. = ..()
+
+/obj/item/stack/req_jelly/equipped(mob/user, slot)
+	. = ..()
+	if(QDELETED(src))
+		return
+	if(istype(user.l_hand, merge_type) && user.l_hand != src && merge(user.l_hand))
+		return
+	if(istype(user.r_hand, merge_type) && user.r_hand != src)
+		merge(user.r_hand)
 
 /obj/item/stack/req_jelly/change_stack(mob/user, new_amount)
 	if(amount < 1 || amount < new_amount)
@@ -184,10 +197,22 @@
 		return
 	patient.apply_status_effect(STATUS_EFFECT_AMBROSIA_DEPENDENCE, stacks_to_apply)
 
+/obj/item/stack/req_jelly/proc/can_apply_living_heal(mob/living/carbon/patient, mob/living/carbon/user)
+	if(!TIMER_COOLDOWN_RUNNING(patient, COOLDOWN_AMBROSIA_HEALING))
+		return TRUE
+	var/time_left = round(S_TIMER_COOLDOWN_TIMELEFT(patient, COOLDOWN_AMBROSIA_HEALING) / 10)
+	to_chat(user, span_warning("[icon2html(src, viewers(user))] The ambrosia has already saturated [patient]. Wait [time_left] second[time_left == 1 ? "" : "s"]."))
+	return FALSE
+
+/obj/item/stack/req_jelly/proc/start_living_heal_cooldown(mob/living/carbon/patient)
+	S_TIMER_COOLDOWN_START(patient, COOLDOWN_AMBROSIA_HEALING, living_heal_cooldown)
+
 /obj/item/stack/req_jelly/proc/jellyheal_xeno(mob/living/carbon/xenomorph/patient, mob/living/carbon/user)
 	if(user.do_actions)
 		balloon_alert(user, "busy!")
 		return
+	if(!can_apply_living_heal(patient, user))
+		return FALSE
 
 	if(!issamexenohive(patient))
 		to_chat(user, span_warning("[icon2html(src, viewers(user))] This ambrosia does not answer to a rival hive."))
@@ -220,6 +245,7 @@
 	patient.visible_message(span_notice("[patient]'s chitin knits beneath a glossy amber sheen."),
 		span_xenonotice("Warm ambrosia seals our wounds."))
 	to_chat(user, span_notice("[icon2html(src, viewers(user))] The ambrosia mends [patient]."))
+	start_living_heal_cooldown(patient)
 	use(1)
 	return TRUE
 
@@ -227,6 +253,8 @@
 	if(user.do_actions)
 		balloon_alert(user, "busy!")
 		return
+	if(!can_apply_living_heal(patient, user))
+		return FALSE
 
 	if(!ishuman(patient))
 		to_chat(user, span_warning("[icon2html(src, viewers(user))] We do not understand how to mend this body."))
@@ -299,6 +327,7 @@
 	if(has_fracture)
 		healing_notes += "binding broken bones in amber resin"
 	to_chat(user, span_notice("[icon2html(src, viewers(user))] The ambrosia mends [human_patient][length(healing_notes) ? ", [english_list(healing_notes)]" : ""]."))
+	start_living_heal_cooldown(human_patient)
 	use(1)
 	return TRUE
 

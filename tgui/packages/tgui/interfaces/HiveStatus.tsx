@@ -442,12 +442,12 @@ const HiveTargetDirectiveToggle = (_props: any) => {
       <Flex.Item grow>
         <Button.Checkbox
           checked={user_hive_target_participation}
-          tooltip="Receive hive target directives and their rewards this round."
+          tooltip="Opt into small hive hunt missions. Participating xenos receive the target directive and can earn the faction reward."
           onClick={() =>
             act('ToggleHiveTargetParticipation', { xeno: user_ref })
           }
         >
-          Participate in Hive Targets
+          Receive Hive Target
         </Button.Checkbox>
       </Flex.Item>
     </Flex>

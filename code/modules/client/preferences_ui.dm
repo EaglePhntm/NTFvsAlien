@@ -338,12 +338,18 @@
 				)
 			.["overflow_job"] = SSjob?.overflow_role?.title
 			.["special_occupations"] = list(
-				"Latejoin Xenomorph" = BE_ALIEN,
-				"Xenomorph when unrevivable" = BE_ALIEN_UNREVIVABLE,
-				"End of Round Deathmatch" = BE_DEATHMATCH,
-				"Eligible for Hive Target" = BE_HIVE_TARGET,
-				"Participate in Hive Targets" = BE_HIVE_TARGET_XENO,
-				"Prefer Squad over Role" = BE_SQUAD_STRICT,
+				"Latejoin Xenomorph" = list("flag" = BE_ALIEN),
+				"Xenomorph when unrevivable" = list("flag" = BE_ALIEN_UNREVIVABLE),
+				"End of Round Deathmatch" = list("flag" = BE_DEATHMATCH),
+				"Become Hive Target" = list(
+					"flag" = BE_HIVE_TARGET,
+					"tooltip" = "Allow your character to be selected as the xenomorph faction's hive target during small hunt missions.",
+				),
+				"Receive Hive Target" = list(
+					"flag" = BE_HIVE_TARGET_XENO,
+					"tooltip" = "Opt your xenomorph into small hive hunt missions. Participating xenos receive the target directive and can earn the faction reward.",
+				),
+				"Prefer Squad over Role" = list("flag" = BE_SQUAD_STRICT),
 				//"Use random name when taking SSD mobs" = BE_SSD_RANDOM_NAME
 			)
 		if(KEYBIND_SETTINGS)
