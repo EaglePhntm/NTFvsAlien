@@ -866,3 +866,14 @@ GLOBAL_LIST_INIT(stealth_greyscale_matrix,\
 	desc = "The backpack worn by MAGNUM corpsmen. It is significantly lighter than its Terran counterpart. You can recharge defibrillators by plugging them in."
 	icon_state = "freelancer_packm"
 	storage_type = /datum/storage/backpack/no_delay
+
+/obj/item/storage/backpack/lightpack/cm
+	name = "\improper Colonial Militia lightweight combat pack"
+	desc = "A small lightweight pack for expeditions and short-range operations. This one was made by MAGNUM mercenaries."
+	icon_state = "freelancer_satchel"
+
+/obj/item/storage/backpack/marine/corpsman/cm
+	name = "\improper Colonial Militia corpsman pack"
+	desc = "The backpack worn by MAGNUM corpsmen. It is significantly lighter than its Terran counterpart. You can recharge defibrillators by plugging them in."
+	icon_state = "freelancer_packm"
+	storage_type = /datum/storage/backpack/no_delay

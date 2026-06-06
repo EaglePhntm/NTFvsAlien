@@ -3813,21 +3813,20 @@
 	name = "CM Standard"
 	jobtype = "CM Standard"
 
-	w_uniform = /obj/item/clothing/under/icc/webbing
+	w_uniform = /obj/item/clothing/under/marine/veteran/cm
 	belt = /obj/item/storage/belt/marine/icc
-	w_uniform = /obj/item/clothing/under/icc/webbing
-	shoes = /obj/item/clothing/shoes/marine/icc/knife
-	wear_suit = /obj/item/clothing/suit/storage/marine/icc
-	gloves = /obj/item/clothing/gloves/marine/icc
-	head = /obj/item/clothing/head/helmet/marine/icc
-	mask = /obj/item/clothing/mask/gas/icc
+	w_uniform = /obj/item/clothing/under/marine/veteran/cm
+	shoes = /obj/item/clothing/shoes/marine/brown/full
+	wear_suit = /obj/item/clothing/suit/storage/marine/icc/guard
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	head = /obj/item/clothing/head/modular/m10x/binocular
+	mask = /obj/item/clothing/mask/bandanna
 	r_pocket = /obj/item/storage/pouch/pistol/icc
 	l_pocket = /obj/item/storage/pouch/medical_injectors/icc/firstaid
-	back = /obj/item/storage/backpack/lightpack/icc
+	back = /obj/item/storage/backpack/lightpack/cm
 
 /datum/outfit/quick/icc/standard/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/wrapped/barcaridine, SLOT_IN_HEAD)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/oxycodone, SLOT_IN_HEAD)
 	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_BACKPACK)
@@ -3906,16 +3905,16 @@
 	name = "CM Medic"
 	jobtype = "CM Medic"
 
-	w_uniform = /obj/item/clothing/under/icc/medic
+	w_uniform = /obj/item/clothing/under/marine/veteran/cm/medic
 	belt = /obj/item/storage/belt/lifesaver/icc/ert
-	shoes = /obj/item/clothing/shoes/marine/icc/guard/knife
-	wear_suit = /obj/item/clothing/suit/storage/marine/icc/guard
-	gloves = /obj/item/clothing/gloves/marine/icc/guard
-	head = /obj/item/clothing/head/helmet/marine/icc/guard
-	mask = /obj/item/clothing/mask/gas/icc
+	shoes = /obj/item/clothing/shoes/marine/brown/full
+	wear_suit = /obj/item/clothing/suit/storage/marine/vsd_two/plate_carrier
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	head = /obj/item/clothing/head/modular/m10x/binocular
+	mask = /obj/item/clothing/mask/bandanna
 	r_pocket = /obj/item/storage/pouch/pistol/icc
 	l_pocket = /obj/item/storage/pouch/medical_injectors/icc/firstaid
-	back = /obj/item/storage/backpack/lightpack/icc
+	back = /obj/item/storage/backpack/marine/corpsman/cm
 	glasses = /obj/item/clothing/glasses/hud/health
 
 /datum/outfit/quick/icc/medic/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -3959,17 +3958,17 @@
 	name = "CM Guardsman"
 	jobtype = "CM Guardsman"
 
-	w_uniform = /obj/item/clothing/under/icc/webbing
+	w_uniform = /obj/item/clothing/under/marine/veteran/cm
 	belt = /obj/item/storage/belt/marine/icc
-	w_uniform = /obj/item/clothing/under/icc/webbing
-	shoes = /obj/item/clothing/shoes/marine/icc/guard/knife
+	w_uniform = /obj/item/clothing/under/marine/veteran/cm
+	shoes = /obj/item/clothing/shoes/marine/brown/full
 	wear_suit = /obj/item/clothing/suit/storage/marine/icc/guard
-	gloves = /obj/item/clothing/gloves/marine/icc/guard
-	head = /obj/item/clothing/head/helmet/marine/icc/guard
-	mask = /obj/item/clothing/mask/gas/icc
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	head = /obj/item/clothing/head/modular/m10x/binocular
+	mask = /obj/item/clothing/mask/bandanna
 	r_pocket = /obj/item/storage/pouch/pistol/icc
 	l_pocket = /obj/item/storage/pouch/medical_injectors/icc/firstaid
-	back = /obj/item/storage/backpack/lightpack/icc
+	back = /obj/item/storage/backpack/lightpack/cm
 
 /datum/outfit/quick/icc/guard/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -4046,14 +4045,14 @@
 	name = "CM Squad Leader"
 	jobtype = "CM Squad Leader"
 
-	w_uniform = /obj/item/clothing/under/icc/webbing
+	w_uniform = /obj/item/clothing/under/marine/veteran/cm
 	belt = /obj/item/storage/belt/marine/icc
-	mask = /obj/item/clothing/mask/gas/icc
-	shoes = /obj/item/clothing/shoes/marine/icc/knife
+	mask = /obj/item/clothing/mask/bandanna
+	shoes = /obj/item/clothing/shoes/marine/brown/full
 	wear_suit = /obj/item/clothing/suit/storage/marine/icc/guard
-	gloves = /obj/item/clothing/gloves/marine/icc/guard
-	head = /obj/item/clothing/head/helmet/marine/icc/guard
-	back = /obj/item/storage/backpack/lightpack/icc/guard
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	head = /obj/item/clothing/head/modular/m10x/binocular
+	back = /obj/item/storage/backpack/lightpack/cm
 	l_pocket = /obj/item/storage/pouch/medical_injectors/icc/firstaid
 	r_pocket = /obj/item/storage/pouch/construction/icc/full
 

@@ -474,6 +474,9 @@
 /obj/item/clothing/head/modular/m10x/hod
 	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/module/hod_head)
 
+/obj/item/clothing/head/modular/m10x/binocular
+	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/module/binoculars)
+
 /obj/item/clothing/head/modular/m10x/freyr
 	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/module/artemis)
 

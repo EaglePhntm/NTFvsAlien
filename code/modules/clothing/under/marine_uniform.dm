@@ -387,6 +387,22 @@
 	icon_state = "freelancer_uniform_medic"
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/white_vest)
 
+//Colonial Militia
+
+/obj/item/clothing/under/marine/veteran/cm
+	name = "colonial militia fatigues"
+	desc = "A set of loose fitting fatigues, perfect for an informal mercenary. Smells like gunpowder, corn syrup, and covered in grease and sake stains."
+	icon_state = "freelancer_uniform"
+	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
+	has_sensor = 0
+	starting_attachments = list(/obj/item/armor_module/storage/uniform/brown_vest)
+
+/obj/item/clothing/under/marine/veteran/cm/medic
+	name = "colonial militia corpsman fatigues"
+	desc = "A set of loose fitting fatigues, perfect for an informal mercenary. Has much better state than regular fatigues, and don't smell that bad."
+	icon_state = "freelancer_uniform_medic"
+	starting_attachments = list(/obj/item/armor_module/storage/uniform/white_vest)
+
 /*===========================HELGHAST - MERCENARY================================*/
 
 /obj/item/clothing/under/marine/veteran/mercenary
@@ -508,7 +524,7 @@
 	icon = 'icons/mob/clothing/uniforms/ert_uniforms.dmi'
 	icon_state = "som_stripedshirt"
 	worn_icon_state = "som_stripedshirt"
-	
+
 /obj/item/clothing/under/som/veteran
 	name = "\improper SOM veteran uniform"
 	desc = "The standard uniform of SOM military personnel. Its design shows a clear lineage from mining uniforms used in the old mining colonies. This one has markings indicating specialist status."
