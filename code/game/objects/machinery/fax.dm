@@ -206,5 +206,14 @@
 /obj/machinery/faxmachine/som
 	department = "SOM"
 
+/obj/machinery/faxmachine/kz
+	department = "KZ"
+
+/obj/machinery/faxmachine/pmc
+	department = "pmc"
+
+/obj/machinery/faxmachine/cm
+	department = "CM"
+
 /obj/machinery/faxmachine/clf
 	department = "Cult"

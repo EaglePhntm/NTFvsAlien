@@ -298,7 +298,7 @@ GLOBAL_VAR_INIT(corrupted_generators, 0)
 		if(istype(hive))
 			hive.xeno_message("Our [name] is being attacked by [user] at [AREACOORD_NO_Z(src)]!", "xenoannounce", 5, FALSE, loc, 'sound/voice/hiss4.ogg',FALSE , null, /atom/movable/screen/arrow/silo_damaged_arrow)
 
-		if(!I.use_tool(src, user, 20 SECONDS - clamp((user.skills.getRating(SKILL_ENGINEER) - SKILL_ENGINEER_ENGI) * 5, 0, 20), 2, 25, null, BUSY_ICON_BUILD))
+		if(!I.use_tool(src, user, 50 SECONDS - clamp((user.skills.getRating(SKILL_ENGINEER) - SKILL_ENGINEER_ENGI) * 5, 0, 20), 2, 25, null, BUSY_ICON_BUILD))
 			return FALSE
 
 		log_combat(user, src, "decorrupted", addition = "from hive [corrupted]")

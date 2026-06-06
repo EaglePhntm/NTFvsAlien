@@ -1,3 +1,11 @@
 2026-06-01:
   SpooksAnno:
   - server: Reduced idle machinery processing overhead in SSmachines.
+2026-06-06:
+  Valen417:
+  - bugfix: KZ Striped Shirt
+  - bugfix: KZ Alternative Uniform
+  - rscadd: SOM Helmet options
+  - rscadd: 'SOM Striped Uniform option.
+
+      :cl:'

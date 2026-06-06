@@ -1,7 +1,0 @@
-author: "Valen417"
-delete-after: True
-changes:
-  - bugfix: "KZ Striped Shirt"
-  - bugfix: "KZ Alternative Uniform"
-  - rscadd: "SOM Helmet options"
-  - rscadd: "SOM Striped Uniform option.\n:cl:"
