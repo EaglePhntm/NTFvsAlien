@@ -42,6 +42,146 @@
 	return ..()
 
 // ***************************************
+// *********** Ambrosia Residue
+// ***************************************
+/datum/status_effect/ambrosia_residue
+	id = "ambrosia_residue"
+	duration = 5 MINUTES
+	status_type = STATUS_EFFECT_REFRESH
+	alert_type = null
+
+/datum/status_effect/ambrosia_dependence
+	id = "ambrosia_dependence"
+	duration = 20 MINUTES
+	tick_interval = 30 SECONDS
+	status_type = STATUS_EFFECT_UNIQUE
+	alert_type = null
+	///How many recent ambrosia treatments are still troubling the patient.
+	var/ambrosia_stacks = 0
+	///When the next dependence stack should fade.
+	var/next_stack_decay = 0
+	///How long each exposure stack lingers.
+	var/stack_decay_time = 5 MINUTES
+	///Maximum stored exposure stacks.
+	var/max_stacks = 8
+
+/datum/status_effect/ambrosia_dependence/on_creation(mob/living/new_owner, stacks_to_apply = 1)
+	. = ..()
+	if(.)
+		add_stacks(stacks_to_apply)
+
+/datum/status_effect/ambrosia_dependence/on_apply()
+	if(!ishuman(owner))
+		return FALSE
+	return TRUE
+
+/datum/status_effect/ambrosia_dependence/refresh()
+	duration = world.time + initial(duration)
+
+/datum/status_effect/ambrosia_dependence/proc/add_stacks(stacks_to_apply = 1)
+	ambrosia_stacks = clamp(ambrosia_stacks + stacks_to_apply, 1, max_stacks)
+	next_stack_decay = world.time + stack_decay_time
+	refresh()
+	if(ambrosia_stacks >= 6)
+		to_chat(owner, span_warning("The alien resin hums beneath your skin, hungry and warm."))
+	else if(ambrosia_stacks >= 4)
+		to_chat(owner, span_warning("Your wounds ache with a sweet amber warmth."))
+	else if(ambrosia_stacks >= 2)
+		to_chat(owner, span_notice("For a moment, you miss the warmth of the ambrosia."))
+
+/datum/status_effect/ambrosia_dependence/tick(delta_time)
+	if(!owner || owner.stat == DEAD)
+		qdel(src)
+		return
+
+	if(next_stack_decay && world.time >= next_stack_decay)
+		ambrosia_stacks--
+		if(ambrosia_stacks <= 0)
+			to_chat(owner, span_notice("The last of the ambrosia craving fades from your body."))
+			qdel(src)
+			return
+		next_stack_decay = world.time + stack_decay_time
+
+	switch(ambrosia_stacks)
+		if(2 to 3)
+			if(prob(10))
+				to_chat(owner, span_notice("[pick("The old amber warmth calls faintly from your wounds.", "Your healed flesh feels strangely hollow.", "Another taste of ambrosia would feel comforting.")]"))
+			if(prob(5))
+				owner.emote(pick("shiver", "twitch"))
+				owner.adjustStaminaLoss(10)
+		if(4 to 5)
+			if(prob(10))
+				to_chat(owner, span_warning("[pick("Your skin prickles where the ambrosia touched you.", "The resin's warmth feels painfully absent.", "You feel restless without the alien jelly.")]"))
+			if(prob(8))
+				owner.emote("me", EMOTE_TYPE_VISIBLE, pick("shivers.", "grimaces.", "winces."))
+				owner.adjustStaminaLoss(20)
+			if(prob(10))
+				owner.hallucination += 5
+		if(6 to 7)
+			if(prob(12))
+				to_chat(owner, span_warning("[pick("You need that amber warmth again.", "Your wounds itch for more alien resin.", "The thought of ambrosia coils in the back of your mind.")]"))
+			if(prob(10))
+				owner.emote("me", EMOTE_TYPE_VISIBLE, pick("trembles.", "groans softly.", "clutches at old wounds."))
+				owner.Stun(1 SECONDS)
+			if(prob(15))
+				owner.hallucination += 10
+				owner.dizzy(40)
+			owner.adjustToxLoss(0.1)
+			if(ishuman(owner))
+				var/mob/living/carbon/human/human_owner = owner
+				human_owner.adjustCloneLoss(0.05)
+		if(8 to INFINITY)
+			if(prob(15))
+				to_chat(owner, span_danger("[pick("Your body aches for ambrosia.", "The amber hunger twists through your nerves.", "You need the resin back in your wounds.")]"))
+			if(prob(12))
+				owner.emote("me", EMOTE_TYPE_VISIBLE, pick("convulses with a painful shiver!", "groans painfully!", "trembles violently!"))
+				owner.Stun(3 SECONDS)
+				owner.do_jitter_animation(100)
+			if(prob(20))
+				owner.hallucination += 15
+				owner.dizzy(60)
+			owner.adjustToxLoss(0.2)
+			if(ishuman(owner))
+				var/mob/living/carbon/human/human_owner = owner
+				human_owner.adjustCloneLoss(0.1)
+
+/datum/status_effect/ambrosia_bone_mend
+	id = "ambrosia_bone_mend"
+	duration = 2 MINUTES
+	status_type = STATUS_EFFECT_REFRESH
+	alert_type = null
+
+/datum/status_effect/ambrosia_bone_mend/on_creation(mob/living/new_owner, set_duration)
+	if(set_duration)
+		duration = set_duration
+	return ..()
+
+/datum/status_effect/ambrosia_bone_mend/on_apply()
+	if(!ishuman(owner))
+		return FALSE
+	return TRUE
+
+/datum/status_effect/ambrosia_bone_mend/on_remove()
+	var/mob/living/carbon/human/human_owner = owner
+	if(!istype(human_owner) || human_owner.stat == DEAD)
+		return ..()
+
+	var/fractures_mended = 0
+	for(var/datum/limb/limb AS in human_owner.limbs)
+		if(!(limb.limb_status & LIMB_BROKEN) || (limb.limb_status & (LIMB_DESTROYED|LIMB_ROBOT)))
+			continue
+		limb.remove_limb_flags(LIMB_BROKEN | LIMB_SPLINTED | LIMB_STABILIZED)
+		limb.add_limb_flags(LIMB_REPAIRED)
+		limb.bone_repair_stage = 0
+		limb.update_wounds()
+		fractures_mended++
+
+	if(fractures_mended)
+		human_owner.visible_message(span_notice("[human_owner]'s amber-bound bones settle back into place."),
+			span_notice("The amber resin threaded through your bones hardens, then finally settles."))
+	return ..()
+
+// ***************************************
 // *********** Essence Link
 // ***************************************
 /obj/effect/ebeam/essence_link

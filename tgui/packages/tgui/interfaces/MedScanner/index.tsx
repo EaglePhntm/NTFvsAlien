@@ -19,6 +19,7 @@ export function MedScanner() {
     regular_blood_amount,
     body_temperature,
     internal_bleeding,
+    ambrosia_residue,
     advice,
     accessible_theme,
   } = data;
@@ -44,6 +45,7 @@ export function MedScanner() {
         {!!(
           blood_amount < regular_blood_amount ||
           internal_bleeding ||
+          ambrosia_residue ||
           body_temperature.level !== TempLevels.OK
         ) && <PatientFooter />}
         {!!advice && <PatientAdvice />}

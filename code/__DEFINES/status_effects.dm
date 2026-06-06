@@ -37,6 +37,12 @@
 
 #define STATUS_EFFECT_RESIN_JELLY_COATING /datum/status_effect/resin_jelly_coating
 
+#define STATUS_EFFECT_AMBROSIA_RESIDUE /datum/status_effect/ambrosia_residue
+
+#define STATUS_EFFECT_AMBROSIA_BONE_MEND /datum/status_effect/ambrosia_bone_mend
+
+#define STATUS_EFFECT_AMBROSIA_DEPENDENCE /datum/status_effect/ambrosia_dependence
+
 #define STATUS_EFFECT_PLASMA_SURGE /datum/status_effect/plasma_surge
 
 #define STATUS_EFFECT_HEALING_INFUSION /datum/status_effect/healing_infusion
