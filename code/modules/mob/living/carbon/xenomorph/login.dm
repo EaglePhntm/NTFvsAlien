@@ -17,6 +17,7 @@
 		ooc_notes_maybes = client.prefs.metadata_maybes
 		ooc_notes_favs = client.prefs.metadata_favs
 		ooc_notes_style = client.prefs.metadata_ooc_style
+		hive_target_participation = !!(client.prefs.be_special & BE_HIVE_TARGET_XENO)
 	INVOKE_ASYNC(src, PROC_REF(update_xeno_gender))
 
 	hud_update_rank()

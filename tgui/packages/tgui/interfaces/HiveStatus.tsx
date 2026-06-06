@@ -51,6 +51,7 @@ type InputPack = {
   user_next_mat_level: number;
   user_tracked: string;
   user_can_mutate: boolean;
+  user_hive_target_participation: boolean;
   user_show_compact: boolean;
   user_show_empty: boolean;
   user_show_general: boolean;
@@ -286,6 +287,9 @@ const GeneralInfo = (_props: any) => {
       </Box>
       <Flex direction="column" className="Section__content">
         <Flex.Item>
+          <HiveTargetDirectiveToggle />
+        </Flex.Item>
+        <Flex.Item>
           <LarvaBar />
         </Flex.Item>
         <Flex.Item>
@@ -419,6 +423,34 @@ const MaturityBar = (_props: any) => {
         </Flex.Item>
       </Flex>
     </Tooltip>
+  );
+};
+
+const HiveTargetDirectiveToggle = (_props: any) => {
+  const { act, data } = useBackend<InputPack>();
+  const { user_xeno, user_ref, user_hive_target_participation } = data;
+
+  if (!user_xeno) {
+    return <Box />;
+  }
+
+  return (
+    <Flex mb={1}>
+      <Flex.Item ml={1} mr={1} width={bar_text_width} align="center">
+        Hive Targets:
+      </Flex.Item>
+      <Flex.Item grow>
+        <Button.Checkbox
+          checked={user_hive_target_participation}
+          tooltip="Receive hive target directives and their rewards this round."
+          onClick={() =>
+            act('ToggleHiveTargetParticipation', { xeno: user_ref })
+          }
+        >
+          Participate in Hive Targets
+        </Button.Checkbox>
+      </Flex.Item>
+    </Flex>
   );
 };
 

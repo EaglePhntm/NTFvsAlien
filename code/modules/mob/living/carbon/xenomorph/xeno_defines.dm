@@ -317,6 +317,8 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 
 	///State tracking of hive status toggles
 	var/status_toggle_flags = HIVE_STATUS_DEFAULTS
+	///Whether this xeno is currently opted into hive target directives.
+	var/hive_target_participation = FALSE
 	///Handles displaying the various wound states of the xeno.
 	var/atom/movable/vis_obj/xeno_wounds/wound_overlay
 	///Handles displaying the various wound states of the xeno.

@@ -158,6 +158,8 @@
 /mob/living/carbon/xenomorph/proc/claim_hive_target_reward(mob/living/carbon/human/target)
 	if(!istype(target) || !HAS_TRAIT(target, TRAIT_HIVE_TARGET))
 		return
+	if(!client || !hive_target_participation)
+		return
 	var/rewardness = 4
 	if(HAS_TRAIT_FROM(target, TRAIT_HIVE_TARGET, SUPERSOLDIER_TRAIT))
 		rewardness = 0.5 //ass self given target, weaponized sex?
