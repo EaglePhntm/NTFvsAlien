@@ -68,7 +68,7 @@
 /obj/machinery/telecomms/allinone/kz
 	freq_listening = list(FREQ_VSD)
 
-//CLF
+//Cult
 
 /obj/machinery/telecomms/bus/preset_four/clf
 	id = "Bus clf"
@@ -80,12 +80,12 @@
 	autolinkers = list("processor4_clf")
 
 /obj/machinery/telecomms/server/presets/common/clf
-	id = "Common Server CLF"
+	id = "Common Server Cult"
 	freq_listening = list(FREQ_COLONIST)
 	autolinkers = list("common_clf")
 
 /obj/machinery/telecomms/hub/preset/clf
-	id = "Hub CLF"
+	id = "Hub Cult"
 	autolinkers = list("hub_clf", "relay", "s_relay", "common_clf",
 	"receiverA_clf", "receiverB_clf", "broadcasterA_clf")
 

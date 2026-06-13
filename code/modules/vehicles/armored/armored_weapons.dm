@@ -181,6 +181,8 @@
 	var/mob/living/living_firer = firer
 	if(living_firer.IsStaggered())
 		projectile_to_fire.damage *= STAGGER_DAMAGE_MULTIPLIER
+		projectile_to_fire.accuracy *= STAGGER_ACCURACY_MULTIPLIER
+		projectile_to_fire.ammo.accurate_range_min += 1 //could make it less accurate in melee for xenos
 	if((projectile_to_fire.ammo.ammo_behavior_flags & AMMO_IFF))
 		projectile_to_fire.iff_signal = firer.get_iff_signal()
 	if(firer)
@@ -368,7 +370,7 @@
 	fire_mode = GUN_FIREMODE_AUTOMATIC
 	variance = 2
 	projectile_delay = 0.45 SECONDS
-	rearm_time = 9 SECONDS
+	rearm_time = 4 SECONDS
 	hud_state_empty = "hivelo_empty"
 
 /obj/item/armored_weapon/apc_cannon

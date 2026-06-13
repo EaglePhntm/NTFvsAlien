@@ -26,6 +26,7 @@
 	desc = "NineTails is not resposible for any organ damage."
 	icon_state = "corset"
 	inventory_flags = CHEST|GROIN
+	shows_butt = TRUE
 	shows_bottom_genital = TRUE
 
 /obj/item/clothing/under/lewd/stripper
@@ -34,7 +35,7 @@
 	icon_state = "stripper_p"
 	worn_icon_state = "stripper_p"
 	inventory_flags = CHEST|GROIN
-	shows_bottom_genital = TRUE
+	shows_butt = TRUE
 
 /obj/item/clothing/under/lewd/stripper/string
 	name = "black string bikini"
@@ -60,6 +61,7 @@
 	worn_icon_state = "gear_harness"
 	inventory_flags = CHEST|GROIN
 	shows_top_genital = TRUE
+	shows_butt = TRUE
 	shows_bottom_genital = TRUE
 
 /obj/item/clothing/under/lewd/keyholesweater
@@ -67,6 +69,7 @@
 	desc = "What is the point of this, anyway?"
 	icon_state = "keyholesweater"
 	worn_icon_state = "keyholesweater"
+	shows_butt = TRUE
 	shows_bottom_genital = TRUE
 
 /obj/item/clothing/under/lewd/stripper/mankini

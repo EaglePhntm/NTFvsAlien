@@ -64,11 +64,11 @@
 	return ..()
 
 /datum/campaign_mission/tdm/mech_wars/load_pre_mission_bonuses()
-	var/tanks_to_spawn = length(GLOB.clients) > 80 ? 3 : length(GLOB.clients) > 50 ? 2 : 1
+	var/tanks_to_spawn = length(GLOB.whitelisted_clients) > 80 ? 3 : length(GLOB.whitelisted_clients) > 50 ? 2 : 1
 	spawn_tank(starting_faction, tanks_to_spawn)
 	spawn_tank(hostile_faction, tanks_to_spawn)
 
-	var/mechs_to_spawn = floor(length(GLOB.clients) * 0.1) + 1
+	var/mechs_to_spawn = floor(length(GLOB.whitelisted_clients) * 0.1) + 1
 	var/heavy_spawn = floor(mechs_to_spawn / 6)
 	var/med_spawn = floor(mechs_to_spawn / 4)
 	var/light_spawn = mechs_to_spawn - heavy_spawn - med_spawn

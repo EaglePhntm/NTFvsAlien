@@ -6,7 +6,7 @@
 	desc = "They got that drip, doe."
 	item_map_variant_flags = NONE
 	allowed_uniform_type = /obj/item/clothing/under
-	slowdown = -0.5
+	slowdown = - 0.5
 	icon = 'icons/obj/clothing/suits/marine_suits.dmi'
 	worn_icon_list = list(
 		slot_wear_suit_str = 'icons/mob/clothing/suits/marine_suits.dmi',
@@ -27,8 +27,6 @@
 		/obj/item/armor_module/module/chemsystem,
 		/obj/item/armor_module/module/knight,
 		/obj/item/armor_module/module/eshield,
-		/obj/item/armor_module/module/eshield/absorbant/energy,
-		/obj/item/armor_module/module/eshield/absorbant/ballistic,
 		/obj/item/armor_module/module/eshield/som,
 		/obj/item/armor_module/module/eshield/som/overclocked,
 		/obj/item/armor_module/module/mimir_environment_protection/som,
@@ -305,3 +303,11 @@
 	worn_icon_state = "barrier_heavy_worn"
 	starting_attachments = list(/obj/item/armor_module/module/eshield/barrier/heavy)
 	icon = 'ntf_modular/icons/obj/clothing/suits/barrier_armor.dmi'
+
+/obj/item/clothing/suit/modular/style/barrier/heavybarrier/vsdeng
+	name = "\improper heavy barrier armor"
+	starting_attachments = list(
+		/obj/item/armor_module/module/eshield/barrier/heavy,
+		/obj/item/armor_module/module/mirage,
+		/obj/item/armor_module/storage/ammo_mag,
+	)

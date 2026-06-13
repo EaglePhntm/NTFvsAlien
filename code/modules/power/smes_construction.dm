@@ -183,11 +183,13 @@
 		to_chat(user, span_warning("The [src]'s screen is flashing with alerts. It seems to be overloaded! Touching it now is probably not a good idea."))
 		return
 	// If parent returned 1:
-	// - Hatch is open, so we can modify the SMES
-	// - No action was taken in parent function (terminal de/construction atm).
+	//action was taken in parent function (terminal de/construction atm).
 	. = ..()
 
-	if(!.)
+	if(.)
+		return
+
+	if(!CHECK_BITFIELD(machine_stat, PANEL_OPEN))
 		return
 
 	// Charged above 1% and safeties are enabled.
@@ -220,7 +222,7 @@
 
 		if(failure_probability && prob(failure_probability))
 			total_system_failure(failure_probability, user)
-			return
+			return TRUE
 
 		to_chat(user, span_warning("You have disassembled the SMES cell!"))
 		var/obj/machinery/constructable_frame/M = new(loc)
@@ -229,6 +231,7 @@
 		for(var/obj/O in component_parts)
 			O.forceMove(loc)
 		qdel(src)
+		return TRUE
 
 	// Superconducting Magnetic Coil - Upgrade the SMES
 	else if(istype(I, /obj/item/stock_parts/smes_coil))
@@ -238,7 +241,7 @@
 
 		if(failure_probability && prob(failure_probability))
 			total_system_failure(failure_probability, user)
-			return
+			return TRUE
 
 		to_chat(user, "You install the coil into the SMES unit!")
 		if(!user.transferItemToLoc(I, src))
@@ -247,6 +250,7 @@
 		cur_coils ++
 		component_parts += I
 		recalc_coils()
+		return TRUE
 
 	// Multitool - Toggle the safeties.
 	else if(ismultitool(I))

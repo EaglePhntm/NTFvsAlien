@@ -15,6 +15,7 @@
 	density = TRUE
 	active_power_usage = 3500 //The pneumatic pump power. 3 HP ~ 2200W
 	idle_power_usage = 100
+	use_static_power = TRUE
 	allow_pass_flags = PASS_LOW_STRUCTURE|PASSABLE
 	var/mode = 1 //Item mode 0=off 1=charging 2=charged
 	var/flush = 0 //True if flush handle is pulled
@@ -37,7 +38,7 @@
 
 
 	update()
-	start_processing()
+	update_processing()
 
 
 /obj/machinery/disposal/Destroy()
@@ -85,11 +86,13 @@
 				mode = -1 //Set it to doubleoff
 				playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
 				to_chat(user, span_notice("You remove the screws around the power connection."))
+				update_processing()
 				return
 			else if(mode == -1)
 				mode = 0
 				playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
 				to_chat(user, span_notice("You attach the screws around the power connection."))
+				update_processing()
 				return
 		else if(iswelder(I) && mode == -1)
 			if(length(contents))
@@ -145,6 +148,7 @@
 		span_notice("You place [I] into [src]."))
 
 	update()
+	update_processing()
 
 //Mouse drop another mob or self
 /obj/machinery/disposal/MouseDrop_T(mob/target, mob/user)
@@ -179,6 +183,7 @@
 	target.forceMove(src)
 	flush()
 	update()
+	update_processing()
 
 /obj/machinery/disposal/attack_hand_alternate(mob/living/user)
 	. = ..()
@@ -274,13 +279,16 @@
 		else
 			mode = 0
 		update()
+		update_processing()
 
 	if(href_list["handle"])
 		flush = text2num(href_list["handle"])
 		update()
+		update_processing()
 
 	if(href_list["eject"])
 		eject()
+		update_processing()
 
 //Eject the contents of the disposal unit
 /obj/machinery/disposal/proc/eject()
@@ -339,6 +347,7 @@
 //Timed process, charge the gas reservoir and perform flush if ready
 /obj/machinery/disposal/process()
 	if(machine_stat & BROKEN) //Nothing can happen if broken
+		update_processing()
 		return
 
 	flush_count++
@@ -358,6 +367,17 @@
 		update()
 	else
 		pressurize() //Otherwise charge
+
+	update_processing()
+
+/obj/machinery/disposal/proc/update_processing()
+	if(machine_stat & BROKEN)
+		stop_processing()
+		return
+	if(mode == 1 || flush || (mode == 2 && length(contents)))
+		start_processing()
+		return
+	stop_processing()
 
 /obj/machinery/disposal/proc/pressurize()
 	if(disposal_pressure < SEND_PRESSURE)
@@ -398,12 +418,14 @@
 	if(mode == 2)	//If was ready,
 		mode = 1	//Switch to charging
 	update()
+	update_processing()
 
 
 //Called when area power changes
 /obj/machinery/disposal/power_change()
 	..()	//Do default setting/reset of stat NOPOWER bit
 	update()	//Update icon
+	update_processing()
 
 
 //Called when holder is expelled from a disposal, should usually only occur if the pipe network is modified

@@ -19,7 +19,7 @@
 	. = ..()
 
 	reconnect()
-	start_processing()
+	start_processing(SSMACHINES_MACHINES_EARLY)
 
 //generators connect in dir and reverse_dir(dir) directions
 //mnemonic to determine circulator/generator directions: the cirulators orbit clockwise around the generator

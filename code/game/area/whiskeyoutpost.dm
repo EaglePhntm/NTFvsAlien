@@ -13,8 +13,6 @@
 	power_light = FALSE
 	power_equip = FALSE
 	power_environ = FALSE
-	outside = FALSE
-
 
 /area/whiskey_outpost/outside/north
 	name = "Whiskey Outpost North"

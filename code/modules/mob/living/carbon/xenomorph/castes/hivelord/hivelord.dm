@@ -17,7 +17,7 @@
 // ***************************************
 // *********** Init
 // ***************************************
-/mob/living/carbon/xenomorph/hivelord/Initialize(mapload)
+/mob/living/carbon/xenomorph/hivelord/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	update_spits()
 

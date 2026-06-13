@@ -1,7 +1,7 @@
 /datum/job/som
 	job_category = JOB_CAT_MARINESOM
-	access = ACCESS_SOM_DEFAULT
-	minimal_access = ACCESS_SOM_DEFAULT
+	access = list(ALL_SOM_ACCESS)
+	minimal_access = list(ALL_SOM_ACCESS)
 	faction = FACTION_SOM
 
 
@@ -11,8 +11,8 @@
 
 //Base job for normal gameplay SOM, not ERT.
 /datum/job/som/squad
-	access = ACCESS_SOM_DEFAULT
-	minimal_access = ALL_ANTAGONIST_ACCESS
+	access = list(ACCESS_SOM_DEFAULT, ACCESS_SOM_REQUESITIONS)
+	minimal_access = list(ACCESS_SOM_DEFAULT, ACCESS_SOM_REQUESITIONS)
 	supervisors = "the acting squad leader"
 	selection_color = "#ffeeee"
 	exp_type_department = EXP_TYPE_MARINES
@@ -48,7 +48,7 @@ Make your way to the cafeteria for some post-cryosleep chow, and then get equipp
 //SOM Standard
 /datum/job/som/squad/standard
 	title = SOM_SQUAD_MARINE
-	access = list (ACCESS_SOM_DEFAULT, ALL_ANTAGONIST_ACCESS)
+	access = list(ACCESS_SOM_DEFAULT, ACCESS_SOM_REQUESITIONS)
 	paygrade = "SOM_E1"
 	comm_title = "Mar"
 	minimap_icon = "private"
@@ -106,7 +106,7 @@ Make your way to the cafeteria for some post-cryosleep chow, and then get equipp
 
 /datum/job/som/squad/slut
 	title = SOM_SQUAD_SLUT
-	access = list (ACCESS_SOM_DEFAULT, ALL_ANTAGONIST_ACCESS)
+	access = list(ACCESS_SOM_DEFAULT, ACCESS_SOM_REQUESITIONS)
 	paygrade = "SOM_E1"
 	comm_title = "Slt"
 	minimap_icon = "slut"
@@ -164,7 +164,7 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 
 /datum/job/som/squad/engineer
 	title = SOM_SQUAD_ENGINEER
-	access = list (ACCESS_SOM_DEFAULT,ACCESS_SOM_REQUESITIONS,ACCESS_SOM_ENGINEERING,ALL_ANTAGONIST_ACCESS)
+	access = list (ACCESS_SOM_DEFAULT,ACCESS_SOM_REQUESITIONS,ACCESS_SOM_ENGINEERING,ACCESS_SOM_REQUESITIONS,ACCESS_MARINE_ENGINEERING,ACCESS_CIVILIAN_ENGINEERING)
 	paygrade = "SOM_E3"
 	comm_title = "Eng"
 	total_positions = 12
@@ -221,7 +221,7 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 
 /datum/job/som/squad/medic
 	title = SOM_SQUAD_CORPSMAN
-	access = list (ACCESS_SOM_DEFAULT,ACCESS_SOM_MEDICAL,ALL_ANTAGONIST_ACCESS)
+	access = list (ACCESS_SOM_DEFAULT,ACCESS_SOM_MEDICAL,ACCESS_SOM_REQUESITIONS)
 	paygrade = "SOM_E3"
 	comm_title = "Med"
 	total_positions = 16
@@ -278,7 +278,7 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 
 /datum/job/som/squad/veteran
 	title = SOM_SQUAD_VETERAN
-	access = list (ACCESS_SOM_DEFAULT,ACCESS_SOM_VETERAN,ALL_ANTAGONIST_ACCESS)
+	access = list (ACCESS_SOM_DEFAULT,ACCESS_SOM_VETERAN,ACCESS_SOM_REQUESITIONS,,ACCESS_SOM_TADPOLE)
 	paygrade = "SOM_S1"
 	comm_title = "Vet"
 	total_positions = 8
@@ -330,7 +330,7 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 
 /datum/job/som/squad/leader
 	title = SOM_SQUAD_LEADER
-	access = list (ACCESS_SOM_DEFAULT,ACCESS_SOM_REQUESITIONS,ACCESS_SOM_SQUADLEADER,ALL_ANTAGONIST_ACCESS, ACCESS_SOM_TADPOLE)
+	access = list (ACCESS_SOM_DEFAULT,ACCESS_SOM_REQUESITIONS,ACCESS_SOM_SQUADLEADER,ACCESS_SOM_TADPOLE)
 	req_admin_notify = TRUE
 	paygrade = "SOM_S3"
 	comm_title = JOB_COMM_TITLE_SQUAD_LEADER

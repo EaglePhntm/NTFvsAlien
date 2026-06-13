@@ -143,11 +143,11 @@
 	ears = /obj/item/radio/headset
 
 /datum/job/other/prisonerclf
-	title = "CLF Prisoner"
+	title = "Cult Prisoner"
 	paygrade = "Psnr"
 	comm_title = "Psnr"
 	outfit = /datum/outfit/job/prisonerclf
-	supervisors = "The CLF"
+	supervisors = "The Cult"
 	skills_type = /datum/skills/civilian
 	total_positions = -1
 	job_flags = JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_LATEJOINABLE|JOB_FLAG_OVERRIDELATEJOINSPAWN|JOB_FLAG_ADDTOMANIFEST
@@ -188,6 +188,10 @@
 	you can use a worker locker to get equipped and use your access to do your job properly,
 	you should not sabotage the station with this access."}
 
+/datum/job/worker/after_spawn(mob/living/carbon/C, mob/M, latejoin = FALSE)
+	. = ..()
+	C.transfer_to_hive(XENO_HIVE_CORRUPTED)
+
 //Morale officer
 /datum/job/moraleofficer
 	title = "Morale Officer"
@@ -217,3 +221,52 @@
 	. += {"\nYou are a 'Morale Officer' fancy name for a free-use whore hired by a corporation to keep employees in check,
 	do your job and try not to 'stain' the ship too much. You can alternatively give psychological consulting in other ways
 	aswell, you are somewhat qualified for post apoc standards. While you are not meant to fight, you can deploy for more effective morale support."}
+
+/datum/job/moraleofficer/after_spawn(mob/living/carbon/C, mob/M, latejoin = FALSE)
+	. = ..()
+	C.transfer_to_hive(XENO_HIVE_CORRUPTED)
+
+/datum/job/terragov/offduty
+	title = "Off Duty"
+	paygrade = "C"
+	comm_title = "C"
+	outfit = /datum/outfit/job/offduty
+	supervisors = "Ninetails Corp"
+	access = list(ACCESS_MARINE_ENGINEERING, ACCESS_MARINE_PREP, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LOGISTICS, ACCESS_MARINE_CARGO,  ACCESS_CIVILIAN_ENGINEERING)
+	minimal_access = list(ACCESS_MARINE_ENGINEERING, ACCESS_MARINE_PREP, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LOGISTICS, ACCESS_MARINE_CARGO,  ACCESS_CIVILIAN_ENGINEERING)
+	skills_type = /datum/skills
+	total_positions = -1
+	job_flags = JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_LATEJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST
+	faction = FACTION_TERRAGOV
+	job_category = JOB_CAT_CIVILIAN
+
+/datum/outfit/job/offduty
+	id = /obj/item/card/id
+	w_uniform = /obj/item/clothing/under/colonist
+	shoes = /obj/item/clothing/shoes/marine/full
+	l_hand = /obj/item/paper/jobnamer
+	belt = /obj/item/storage/holster/belt/pistol/g22
+	ears = /obj/item/radio/headset/mainship
+
+/datum/job/terragov/offduty/get_spawn_message_information(mob/M)
+	. = ..()
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"\nYou are an off-duty employee of Ninetails, you have access to most of the station but you are not expected to do much with it."}
+
+/obj/item/paper/jobnamer
+	name = "Job papers"
+	icon_state = "paper_words"
+
+/obj/item/paper/jobnamer/attack_self(mob/user)
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/H = user
+	var/jobtitle = tgui_input_text(H, "Pick a job title", "Job Title", null, 14, FALSE, FALSE)
+	if(jobtitle == "" || jobtitle == null)
+		return
+	var/obj/item/card/id/id_data = H.wear_id
+	if(!istype(id_data, /obj/item/card/id))
+		return
+	id_data.assignment = "Off-Duty [jobtitle]"
+	id_data.update_label()
+	qdel(src)

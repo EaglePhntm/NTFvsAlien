@@ -3,22 +3,32 @@
 	var/solmode_rearm_duration = 3 MINUTES
 	var/rearm_timer
 	var/bino_cooldown_mult = 1
+	var/always_available = FALSE
 
 /datum/fire_support/gau/solmode
+	fire_support_type = FIRESUPPORT_TYPE_GUN_SOLMODE
 	uses = 4
 	impact_quantity = 8
+	solmode_rearm_duration = 10 MINUTES
+	cooldown_duration = 1 MINUTES
+	bino_cooldown_mult = 0.2
+
+/datum/fire_support/laser/solmode
+	fire_support_type = FIRESUPPORT_TYPE_LASER_SOLMODE
+	uses = 4
 	solmode_rearm_duration = 5 MINUTES
-	cooldown_duration = 15 SECONDS
+	cooldown_duration = 1 MINUTES
 	bino_cooldown_mult = 0.2
 
 /datum/fire_support/rockets/solmode
+	fire_support_type = FIRESUPPORT_TYPE_ROCKETS_SOLMODE
 	uses = 3
-	impact_quantity = 12
-	solmode_rearm_duration = 10 MINUTES
-	cooldown_duration = 15 SECONDS
+	solmode_rearm_duration = 12 MINUTES
+	cooldown_duration = 2 MINUTES
 	bino_cooldown_mult = 0.5
 
 /datum/fire_support/cruise_missile/solmode
+	fire_support_type = FIRESUPPORT_TYPE_CRUISE_MISSILE_SOLMODE
 	uses = 2
 	cooldown_duration = 1 MINUTES
 	solmode_rearm_duration = 15 MINUTES
@@ -27,26 +37,55 @@
 	fire_support_type = FIRESUPPORT_TYPE_SENTRY_POD_SOLMODE
 	solmode_rearm_duration = 4
 	bino_cooldown_mult = 0.1
+	always_available = TRUE
 
 /datum/fire_support/droppod/supply/solmode
 	fire_support_type = FIRESUPPORT_TYPE_SUPPLY_POD_SOLMODE
 	solmode_rearm_duration = 4
 	bino_cooldown_mult = 0.1
+	always_available = TRUE
+
+/datum/fire_support/mortar/solmode
+	fire_support_type = FIRESUPPORT_TYPE_HE_MORTAR_SOLMODE
+	uses = 1
+	solmode_rearm_duration = 5 MINUTES
+	cooldown_duration = 1 MINUTES
+	bino_cooldown_mult = 0.2
+
+/datum/fire_support/mortar/incendiary/solmode
+	fire_support_type = FIRESUPPORT_TYPE_INCENDIARY_MORTAR_SOLMODE
+	uses = 1
+	solmode_rearm_duration = 5 MINUTES
+	cooldown_duration = 1 MINUTES
+	bino_cooldown_mult = 0.4
+
+/datum/fire_support/mortar/smoke/solmode
+	fire_support_type = FIRESUPPORT_TYPE_SMOKE_MORTAR_SOLMODE
+	uses = 2
+	solmode_rearm_duration = 5 MINUTES
+	cooldown_duration = 1 MINUTES
+	bino_cooldown_mult = 0.2
+
+/datum/fire_support/mortar/smoke/acid/solmode
+	fire_support_type = FIRESUPPORT_TYPE_ACID_SMOKE_MORTAR
+	uses = 1
+	solmode_rearm_duration = 5 MINUTES
+	cooldown_duration = 1 MINUTES
+	bino_cooldown_mult = 0.4
 
 //som shit has also lasting fire and overall crazy so i gotta gut em a bit.
 /datum/fire_support/volkite/solmode
-	uses = 3
-	cooldown_duration = 30 SECONDS //they still got fire so give it a break
-	solmode_rearm_duration = 4 MINUTES
 	fire_support_type = FIRESUPPORT_TYPE_VOLKITE_SOLMODE
+	uses = 3
+	cooldown_duration = 1 MINUTES
+	solmode_rearm_duration = 10 MINUTES
 	bino_cooldown_mult = 0.2
 
 /datum/fire_support/incendiary_rockets/solmode
 	uses = 2
-	impact_quantity = 6
 	fire_support_type = FIRESUPPORT_TYPE_INCEND_ROCKETS_SOLMODE
-	solmode_rearm_duration = 8 MINUTES
-	cooldown_duration = 30 SECONDS
+	solmode_rearm_duration = 12 MINUTES
+	cooldown_duration = 2 MINUTES
 	bino_cooldown_mult = 0.5
 
 /datum/fire_support/rad_missile/solmode
@@ -58,15 +97,49 @@
 /datum/fire_support/tele_cope/solmode
 	uses = 2
 	fire_support_type = FIRESUPPORT_TYPE_TELE_COPE_SOLMODE
-	solmode_rearm_duration = 10 MINUTES //free cope.
+	solmode_rearm_duration = 5 MINUTES //free cope.
 	bino_cooldown_mult = 0.1
+	always_available = TRUE
+
+/datum/fire_support/mortar/som/solmode
+	fire_support_type = FIRESUPPORT_TYPE_HE_MORTAR_SOM_SOLMODE
+	uses = 1
+	solmode_rearm_duration = 5 MINUTES
+	cooldown_duration = 1 MINUTES
+	bino_cooldown_mult = 0.2
+
+/datum/fire_support/mortar/incendiary/som/solmode
+	fire_support_type = FIRESUPPORT_TYPE_INCENDIARY_MORTAR_SOM_SOLMODE
+	uses = 1
+	solmode_rearm_duration = 5 MINUTES
+	cooldown_duration = 1 MINUTES
+	bino_cooldown_mult = 0.4
+
+/datum/fire_support/mortar/smoke/som/solmode
+	fire_support_type = FIRESUPPORT_TYPE_SMOKE_MORTAR_SOM_SOLMODE
+	uses = 2
+	solmode_rearm_duration = 5 MINUTES
+	cooldown_duration = 2 MINUTES
+	bino_cooldown_mult = 0.2
+
+/datum/fire_support/mortar/smoke/satrapine/solmode
+	fire_support_type = FIRESUPPORT_TYPE_SATRAPINE_SMOKE_MORTAR
+	uses = 1
+	solmode_rearm_duration = 5 MINUTES
+	cooldown_duration = 2 MINUTES
+	bino_cooldown_mult = 0.4
 
 /obj/item/binoculars/fire_support/extended
 	name = "pair of NTC command laser-designator"
 	desc = "A pair of binoculars, used to mark targets for tactical strikes, connected directly to factional ship systems and squadrons. Unique action to toggle mode. Ctrl+Click when using to target something."
 	mode_list = list(
 		FIRESUPPORT_TYPE_GUN_SOLMODE,
+		FIRESUPPORT_TYPE_LASER_SOLMODE,
 		FIRESUPPORT_TYPE_ROCKETS_SOLMODE,
+		FIRESUPPORT_TYPE_HE_MORTAR_SOLMODE,
+		FIRESUPPORT_TYPE_INCENDIARY_MORTAR_SOLMODE,
+		FIRESUPPORT_TYPE_SMOKE_MORTAR_SOLMODE,
+		FIRESUPPORT_TYPE_ACID_SMOKE_MORTAR_SOLMODE,
 		FIRESUPPORT_TYPE_CRUISE_MISSILE_SOLMODE,
 		FIRESUPPORT_TYPE_SUPPLY_POD_SOLMODE,
 		FIRESUPPORT_TYPE_SENTRY_POD_SOLMODE,
@@ -81,7 +154,12 @@
 	name = "pair of NTC SL laser-designator"
 	mode_list = list(
 		FIRESUPPORT_TYPE_GUN_SOLMODE,
+		FIRESUPPORT_TYPE_LASER_SOLMODE,
 		FIRESUPPORT_TYPE_ROCKETS_SOLMODE,
+		FIRESUPPORT_TYPE_HE_MORTAR_SOLMODE,
+		FIRESUPPORT_TYPE_INCENDIARY_MORTAR_SOLMODE,
+		FIRESUPPORT_TYPE_SMOKE_MORTAR_SOLMODE,
+		FIRESUPPORT_TYPE_ACID_SMOKE_MORTAR_SOLMODE,
 		FIRESUPPORT_TYPE_SUPPLY_POD_SOLMODE,
 		FIRESUPPORT_TYPE_SENTRY_POD_SOLMODE,
 	)
@@ -91,6 +169,10 @@
 	mode_list = list(
 		FIRESUPPORT_TYPE_VOLKITE_SOLMODE,
 		FIRESUPPORT_TYPE_INCEND_ROCKETS_SOLMODE,
+		FIRESUPPORT_TYPE_HE_MORTAR_SOM_SOLMODE,
+		FIRESUPPORT_TYPE_INCENDIARY_MORTAR_SOM_SOLMODE,
+		FIRESUPPORT_TYPE_SMOKE_MORTAR_SOM_SOLMODE,
+		FIRESUPPORT_TYPE_SATRAPINE_SMOKE_MORTAR_SOLMODE,
 		FIRESUPPORT_TYPE_RAD_MISSILE_SOLMODE,
 		FIRESUPPORT_TYPE_TELE_COPE_SOLMODE,
 	)
@@ -102,6 +184,10 @@
 	mode_list = list(
 		FIRESUPPORT_TYPE_VOLKITE_SOLMODE,
 		FIRESUPPORT_TYPE_INCEND_ROCKETS_SOLMODE,
+		FIRESUPPORT_TYPE_HE_MORTAR_SOM_SOLMODE,
+		FIRESUPPORT_TYPE_INCENDIARY_MORTAR_SOM_SOLMODE,
+		FIRESUPPORT_TYPE_SMOKE_MORTAR_SOM_SOLMODE,
+		FIRESUPPORT_TYPE_SATRAPINE_SMOKE_MORTAR_SOLMODE,
 		FIRESUPPORT_TYPE_TELE_COPE_SOLMODE,
 	)
 
@@ -123,6 +209,10 @@
 /obj/item/binoculars/fire_support/extended/acquire_target(atom/target, mob/living/carbon/human/user)
 	set waitfor = 0
 	//had issues with parent so fuck it
+	if(!(SSticker.mode.round_type_flags2 & MODE_2_CAMPAIGN_LITE_SUPPORT))
+		if(mode && !mode.always_available)
+			user.balloon_alert(user, "This fire-support is not available for this mission.")
+			return
 	if(!(COOLDOWN_FINISHED(src, bino_cooldown_timer)))
 		balloon_alert(user, "Too soon! Systems recalibrating... [round((bino_cooldown_timer - world.time)/10)]s")
 		return

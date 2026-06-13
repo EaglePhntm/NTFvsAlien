@@ -7,8 +7,15 @@
 /datum/sex_action/vaginal_ride_sex/shows_on_menu(mob/living/carbon/user, mob/living/carbon/target)
 	if(user == target)
 		return FALSE
-
-
+	if(isxeno(user))
+		var/mob/living/carbon/xenomorph/userxeno = user
+		if(userxeno.client?.prefs?.xenogender != 2 && userxeno.client?.prefs?.xenogender != 4)
+			return FALSE
+	else
+		if(user.gender != FEMALE)
+			return FALSE
+	if(target.gender != MALE && !target.sexcon.can_use_penis())
+		return FALSE
 
 	return TRUE
 
@@ -16,6 +23,15 @@
 	if(user == target)
 		return FALSE
 
+	if(isxeno(user))
+		var/mob/living/carbon/xenomorph/userxeno = user
+		if(userxeno.client?.prefs?.xenogender != 2 && userxeno.client?.prefs?.xenogender != 4)
+			return FALSE
+	else
+		if(user.gender != FEMALE)
+			return FALSE
+	if(target.gender != MALE && !target.sexcon.can_use_penis())
+		return FALSE
 	return TRUE
 
 /datum/sex_action/vaginal_ride_sex/on_start(mob/living/carbon/user, mob/living/carbon/target)
@@ -43,7 +59,7 @@
 		target.sexcon.cum_into(FALSE, user)
 		if(isxeno(target))
 			var/mob/living/carbon/xenomorph/X = target
-			X.impregify(user, "pussy")
+			X.impregify(user, HOLE_VAGINA)
 		if(isxeno(user) && ishuman(target))
 			var/mob/living/carbon/xenomorph/X = user
 			if(X.xenoimpregify())
@@ -52,7 +68,7 @@
 
 
 /datum/sex_action/vaginal_ride_sex/on_finish(mob/living/carbon/user, mob/living/carbon/target)
-	..()
+	playsound(src, pick(list('ntf_modular/sound/misc/cork_pop.ogg','ntf_modular/sound/misc/cork_pop (2).ogg')), 75, TRUE, 7, ignore_walls = FALSE)
 	user.visible_message(span_warning("[user] gets off [target]."))
 
 /datum/sex_action/vaginal_ride_sex/is_finished(mob/living/carbon/user, mob/living/carbon/target)

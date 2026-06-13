@@ -2,17 +2,32 @@
 /datum/round_event_control/hive_threat
 	name = "Hive threat"
 	typepath = /datum/round_event/hive_threat
-	weight = 36
+	weight = 144
 
 	gamemode_blacklist = list("Combat Patrol", "Sensor Capture", "Campaign", "Zombie Crash")
 
 	///The human target for the next instance of this event
 	var/mob/living/carbon/human/hive_target
 
+/datum/round_event_control/hive_threat/proc/get_participating_xenos(hivenumber)
+	. = list()
+	for(var/mob/living/carbon/xenomorph/possible_participant AS in GLOB.alive_xeno_list_hive[hivenumber])
+		if(!possible_participant.client || !possible_participant.hive_target_participation)
+			continue
+		. += possible_participant
+
+/datum/round_event_control/hive_threat/proc/has_participating_xenos()
+	for(var/hivenumber in GLOB.hive_datums)
+		if(length(get_participating_xenos(hivenumber)))
+			return TRUE
+	return FALSE
+
 /datum/round_event_control/hive_threat/can_spawn_event(players_amt, gamemode, force = FALSE)
 	. = ..()
 	if(!.)
 		return
+	if(!has_participating_xenos())
+		return FALSE
 	if(hive_target?.client?.prefs?.be_special & BE_HIVE_TARGET)
 		return TRUE
 	var/list/z_levels = SSmapping.levels_by_any_trait(list(ZTRAIT_GROUND))
@@ -21,8 +36,9 @@
 		for(var/mob/living/carbon/human/possible_target in GLOB.humans_by_zlevel["[z]"])
 			if(!istype(possible_target) || !possible_target.client)
 				continue
-			if(!(possible_target.client?.prefs?.be_special & BE_HIVE_TARGET))
-				continue
+			if((SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES))
+				if(!(possible_target.client?.prefs?.be_special & BE_HIVE_TARGET))
+					continue
 			eligible_targets += possible_target
 	if(!length(eligible_targets))
 		hive_target = null
@@ -33,6 +49,23 @@
 /datum/round_event/hive_threat
 	///The human target for this event
 	var/mob/living/carbon/human/hive_target
+
+/datum/round_event/hive_threat/proc/get_participating_xenos(hivenumber)
+	var/datum/round_event_control/hive_threat/hive_control = control
+	if(istype(hive_control))
+		return hive_control.get_participating_xenos(hivenumber)
+	. = list()
+	for(var/mob/living/carbon/xenomorph/possible_participant AS in GLOB.alive_xeno_list_hive[hivenumber])
+		if(!possible_participant.client || !possible_participant.hive_target_participation)
+			continue
+		. += possible_participant
+
+/datum/round_event/hive_threat/proc/get_nonparticipating_xenos(hivenumber)
+	var/list/all_xenos = list()
+	var/list/hive_xenos = GLOB.alive_xeno_list_hive[hivenumber]
+	if(length(hive_xenos))
+		all_xenos += hive_xenos
+	return all_xenos - get_participating_xenos(hivenumber)
 
 /datum/round_event/hive_threat/start()
 	var/datum/round_event_control/hive_threat/hive_control = control
@@ -53,10 +86,14 @@
 	hive_target.log_message("was marked as a hive target.", LOG_GAME)
 	RegisterSignal(SSdcs, COMSIG_GLOB_HIVE_TARGET_DRAINED, PROC_REF(handle_reward))
 	for(var/hivenumber in GLOB.hive_datums)
-		var/message = "You sense that [hive_target] is a valuable target for breeding. Fuck or psydrain them for a blessing for your hive!"
+		if(!length(get_participating_xenos(hivenumber)))
+			continue
+		var/message = "You sense that [hive_target] is a valuable target for the hive. Drain or psydrain them for a blessing!"
 		if(hivenumber == XENO_HIVE_NORMAL)
-			message = "The Queen Mother senses that [hive_target] is the breeding target of the hive. Fuck or psydrain them for the Queen Mother's blessing!"
-		GLOB.hive_datums[hivenumber].xeno_message(message, size = 3, force=TRUE, target = hive_target, arrow_color = "ff00b0", report_distance = TRUE)
+			message = "The Queen Mother senses that [hive_target] is a valuable target for the hive. Drain or psydrain them for the Queen Mother's blessing!"
+		if(hivenumber == XENO_HIVE_CORRUPTED)
+			message = "The Queen Mother senses that [hive_target] is a valuable target for the hive. Drain or psydrain them for the Metal Queen Mother's blessing!"
+		GLOB.hive_datums[hivenumber].xeno_message(message, size = 3, force=TRUE, target = hive_target, arrow_color = "ff00b0", report_distance = TRUE, filter_list = get_nonparticipating_xenos(hivenumber))
 
 //manages the hive reward and clean up
 /datum/round_event/hive_threat/proc/handle_reward(datum/source, mob/living/carbon/xenomorph/drainer, mob/living/drained)
@@ -66,7 +103,9 @@
 	var/message = "[drainer] has gleaned the secrets from the mind of [hive_target], helping ensure the future of the hive. Our hive is empowered by our success!"
 	if(drainer.get_xeno_hivenumber() == XENO_HIVE_NORMAL)
 		message = "[drainer] has gleaned the secrets from the mind of [hive_target], helping ensure the future of the hive. The Queen Mother empowers us for our success!"
-	drainer.get_hive().xeno_message(message, size = 3, force = TRUE)
+	if(drainer.get_xeno_hivenumber() == XENO_HIVE_CORRUPTED)
+		message = "[drainer] has gleaned the secrets from the mind of [hive_target], helping ensure the future of the hive. The Metal Queen Mother empowers us for our success!"
+	drainer.get_hive().xeno_message(message, size = 3, force = TRUE, filter_list = get_nonparticipating_xenos(drainer.get_xeno_hivenumber()))
 	log_combat(drainer, drained, "obtained a hive target reward from")
 	bless_hive(drainer)
 	REMOVE_TRAIT(hive_target, TRAIT_HIVE_TARGET, list(TRAIT_HIVE_TARGET, SUPERSOLDIER_TRAIT))
@@ -76,7 +115,7 @@
 
 ///Actually applies the buff to the hive
 /datum/round_event/hive_threat/proc/bless_hive(mob/living/carbon/xenomorph/drainer)
-	for(var/mob/living/carbon/xenomorph/receiving_xeno AS in GLOB.alive_xeno_list_hive[drainer.get_xeno_hivenumber()])
+	for(var/mob/living/carbon/xenomorph/receiving_xeno AS in get_participating_xenos(drainer.get_xeno_hivenumber()))
 		receiving_xeno.add_movespeed_modifier(MOVESPEED_ID_BLESSED_HIVE, TRUE, 0, NONE, TRUE, -0.2)
 		receiving_xeno.gain_plasma(receiving_xeno.xeno_caste.plasma_max)
 		receiving_xeno.salve_healing()
@@ -91,8 +130,10 @@
 	var/message = "We feel the hive target blessing fade"
 	if(hive.hivenumber == XENO_HIVE_NORMAL)
 		message = "We feel the Queen Mother's blessing fade"
-	hive.xeno_message(message, size = 3, force = TRUE)
-	for(var/mob/living/carbon/xenomorph/receiving_xeno in GLOB.alive_xeno_list_hive[hive.hivenumber])
+	if(hive.hivenumber == XENO_HIVE_CORRUPTED)
+		message = "We feel the Metal Queen Mother's blessing fade"
+	hive.xeno_message(message, size = 3, force = TRUE, filter_list = get_nonparticipating_xenos(hive.hivenumber))
+	for(var/mob/living/carbon/xenomorph/receiving_xeno in get_participating_xenos(hive.hivenumber))
 		receiving_xeno.remove_movespeed_modifier(MOVESPEED_ID_BLESSED_HIVE)
 	qdel(src)
 
@@ -102,4 +143,3 @@
 		REMOVE_TRAIT(hive_target, TRAIT_HIVE_TARGET, list(TRAIT_HIVE_TARGET, SUPERSOLDIER_TRAIT))
 		hive_target.med_hud_set_status()
 		hive_target = null
-

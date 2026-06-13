@@ -1,10 +1,11 @@
 /datum/game_mode/infestation/survival
 	name = "Survival"
 	config_tag = "Survival"
-	round_type_flags = MODE_INFESTATION|MODE_DISALLOW_RAILGUN|MODE_PSY_POINTS|MODE_XENO_SPAWN_PROTECT|MODE_SURVIVAL|MODE_XENO_GRAB_DEAD_ALLOWED|MODE_MUTATIONS_OBTAINABLE
+	round_type_flags = MODE_INFESTATION|MODE_DISALLOW_RAILGUN|MODE_PSY_POINTS|MODE_XENO_SPAWN_PROTECT|MODE_XENO_GRAB_DEAD_ALLOWED|MODE_MUTATIONS_OBTAINABLE
+	round_type_flags2 = MODE_2_NO_GHOSTS|MODE_2_SURVIVAL
 	xeno_abilities_flags = ABILITY_ALL_GAMEMODE
-	factions = list(FACTION_XENO, FACTION_CLF, FACTION_TERRAGOV)
-	human_factions = list(FACTION_TERRAGOV, FACTION_CLF)
+	factions = list(FACTION_XENO, FACTION_ICC, FACTION_CLF)
+	human_factions = list(FACTION_ICC, FACTION_CLF)
 	valid_job_types = list(
 		/datum/job/survivor/assistant = 2,
 		/datum/job/survivor/scientist = 1,
@@ -26,10 +27,8 @@
 		/datum/job/survivor/synth = 1,
 		/datum/job/clf/standard = 1,
 		/datum/job/clf/medic = 1,
-		/datum/job/clf/specialist = 1,
-		/datum/job/clf/tech = 1,
 		/datum/job/clf/leader = 1,
-		/datum/job/xenomorph = 2
+		/datum/job/xenomorph = 2,//two so they dont wipe by a mistake or maybe duo.
 	)
 
 	shutters_drop_time = 5 SECONDS
@@ -40,6 +39,7 @@
 	whitelist_ship_maps = list(MAP_EAGLE) //since it dont have survivor spawns, they should spawn at colony itself. And can be used to spawn marines later. Eagle is a fast dropship for emergency response.
 	whitelist_antag_maps = list(MAP_ANTAGMAP_NOSPAWN)
 	bioscan_interval = 0
+	spawn_xeno_shit = FALSE
 
 /datum/game_mode/infestation/survival/post_setup()
 	. = ..()
@@ -64,7 +64,7 @@
 	to_chat(world, span_round_header("The current map is - [SSmapping.configs[GROUND_MAP].map_name]!"))
 	to_chat(world, span_information("The brave colonists from earth were just settling down in this colony in some part of the planet XF-69, Surely nothing will go out of the ordinary this shift. // Stick to roleplay requirements."))
 	priority_announce(
-		message = "It's the beginning of another profitable shift in [SSmapping.configs[GROUND_MAP].map_name]. Make Ninetails proud!",
+		message = "It's the beginning of another shift in [SSmapping.configs[GROUND_MAP].map_name]. Make Ninetails proud!",
 		title = "Good morning, crew.",
 		type = ANNOUNCEMENT_PRIORITY,
 		color_override = "blue"
@@ -75,7 +75,7 @@
 		SEND_SOUND(M, S)
 		to_chat(M, assemble_alert(
 			title = "Queen Mother Calls.",
-			message = "Wake my children. It is time for you to wake from your sleep as new hosts are coming nearby... Capture the hosts and form a new hive out of them.",
+			message = "Rise my children, it is time to assault this still unbuilt tall-host hive before they can call for help. You are alone, so take care and infect hosts to grow your hive. Do not let the talls find you out too soon, or you will have trouble.",
 			color_override = "purple"
 		))
 		to_chat(M, span_information("You are a xenomorph, your primary goal is to breed as many hosts as possible while keeping yourself and the larvas in the hosts alive. You must still stick to roleplay standards. There is no time limit in this mode, take your time with erp or whatever rather than spamming impregnate on people. Game ends when all Xenos or Humans die. If you allow the talls to call for help, you will have trouble."))
@@ -83,11 +83,13 @@
 
 
 /datum/game_mode/infestation/survival/check_finished()
+	if(round_finished)
+		return TRUE
 
 	if(world.time < (SSticker.round_start_time + 5 MINUTES))
 		return FALSE
 
-	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_HUMAN_SSD|COUNT_IGNORE_XENO_SSD| COUNT_CLF_TOWARDS_XENOS | COUNT_GREENOS_TOWARDS_MARINES )
+	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_HUMAN_SSD|COUNT_IGNORE_XENO_SSD| COUNT_CLF_TOWARDS_XENOS | COUNT_GREENOS_TOWARDS_MARINES)
 	var/num_humans = living_player_list[1]
 	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
 	var/num_xenos = xeno_job.total_positions

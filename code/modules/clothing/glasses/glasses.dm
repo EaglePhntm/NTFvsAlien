@@ -29,6 +29,12 @@
 	var/deactivation_sound = 'sound/items/googles_off.ogg'
 	///Color to use for the HUD tint; leave null if no tint
 	var/tint
+	///static effect between 0 to 3
+	var/static_severity = 0
+	///sound for activation
+	var/activation_volume = 15
+	///sound for deactivation
+	var/deactivation_volume = 15
 
 /obj/item/clothing/glasses/examine_descriptor(mob/user)
 	return "eyewear"
@@ -76,9 +82,23 @@
 	active = !active
 
 	if(active && activation_sound)
-		playsound(get_turf(src), activation_sound, 15)
+		playsound(get_turf(src), activation_sound, activation_volume)
+		if(static_severity)
+			user.overlay_fullscreen("glasses_blur", /atom/movable/screen/fullscreen/damage/brute/nvg, 6)
+			var/to_use = /atom/movable/screen/fullscreen/flash/noise/nvg_weak
+			switch(static_severity)
+				if(1)
+					to_use = /atom/movable/screen/fullscreen/flash/noise/nvg_weak
+				if(2)
+					to_use = /atom/movable/screen/fullscreen/flash/noise/nvg
+				if(3)
+					to_use = /atom/movable/screen/fullscreen/flash/noise/nvg_strong
+			user.overlay_fullscreen("glasses_static", to_use)
 	else if(!active && deactivation_sound)
-		playsound(get_turf(src), deactivation_sound, 15)
+		playsound(get_turf(src), deactivation_sound, deactivation_volume)
+		if(static_severity)
+			user.clear_fullscreen("glasses_static")
+			user.clear_fullscreen("glasses_blur")
 
 	update_icon()	//Found out the hard way this has to be before update_inv_glasses()
 	user?.update_inv_glasses()
@@ -232,7 +252,6 @@
 	icon = 'icons/obj/clothing/glasses.dmi'
 	icon_state = "m56_goggles"
 	deactive_state = "m56_goggles_0"
-	vision_flags = SEE_TURFS
 	toggleable = 1
 	actions_types = list(/datum/action/item_action/toggle)
 
@@ -451,8 +470,7 @@
 	worn_layer = COLLAR_LAYER	//The sprites are designed to render over helmets
 	worn_item_state_slots = list()
 	// green
-	color_cutoffs = list(10, 40, 10)
-	vision_flags = SEE_TURFS
+	color_cutoffs = list(10, 30, 10)
 	toggleable = TRUE
 	goggles = TRUE
 	active = FALSE
@@ -462,11 +480,13 @@
 	///The battery inside
 	var/obj/item/cell/night_vision_battery/battery
 	///How much energy this module needs when activated
-	var/active_energy_cost = 4	//Little over 4 minutes of use
+	var/active_energy_cost = 1
 	///Looping sound to play
 	var/datum/looping_sound/active_sound = /datum/looping_sound/scan_pulse
 	///How loud the looping sound should be
 	var/looping_sound_volume = 25
+	static_severity = 3
+	activation_volume = 100
 
 /obj/item/clothing/glasses/night_vision/Initialize(mapload)
 	. = ..()
@@ -579,7 +599,7 @@
 	icon_state = "night_vision_mounted"
 	tint = COLOR_BLUE
 	vision_flags = NONE
-	active_energy_cost = 2	//A little over 7 minutes of use
+	active_energy_cost = 0.5
 	looping_sound_volume = 50
 
 /obj/item/clothing/glasses/night_vision/mounted/Initialize(mapload)

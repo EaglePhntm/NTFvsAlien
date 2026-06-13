@@ -37,7 +37,7 @@
 	. = ..()
 	var/datum/export_report/export_report = .[1]
 	GLOB.round_statistics.points_from_ambrosia += export_report.points
-	var/datum/game_mode/infestation/extended_plus/secret_of_life/gaymode = SSticker.mode
+	var/datum/game_mode/infestation/secret_of_life/gaymode = SSticker.mode
 	if(gaymode && user)
 		var/datum/individual_stats/the_stats = gaymode.stat_list[user.faction].get_player_stats(user)
 		the_stats?.give_funds(round(export_report.points*0.4))
@@ -53,38 +53,38 @@
 
 /mob/living/carbon/human/get_export_value()
 	switch(job.job_category)
-		if(JOB_CAT_ENGINEERING, JOB_CAT_MEDICAL, JOB_CAT_REQUISITIONS, JOB_CAT_ENGINEERINGSOM, JOB_CAT_MEDICALSOM, JOB_CAT_REQUISITIONSSOM)
-			. = list(200, 20)
-		if(JOB_CAT_MARINE, JOB_CAT_MARINESOM)
-			. = list(300, 30)
+		if(JOB_CAT_ENGINEERING, JOB_CAT_MEDICAL, JOB_CAT_REQUISITIONS, JOB_CAT_ENGINEERINGSOM, JOB_CAT_MEDICALSOM, JOB_CAT_REQUISITIONSSOM, JOB_CAT_SURVIVOR)
+			. = list(200, 100)
+		if(JOB_CAT_MARINE, JOB_CAT_MARINESOM, JOB_CAT_ICC, JOB_CAT_CLF, JOB_CAT_PMC, JOB_CAT_VSD)
+			. = list(300, 150)
 		if(JOB_CAT_SILICON)
-			. = list(800, 80)
+			. = list(800, 400)
 		if(JOB_CAT_COMMAND, JOB_CAT_COMMANDSOM)
-			. = list(1000, 100)
+			. = list(1000, 500)
 	return
 
 /mob/living/carbon/xenomorph/get_export_value()
 	switch(tier)
 		if(XENO_TIER_MINION)
-			. = list(60, 20)
+			. = list(60, 30)
 		if(XENO_TIER_ZERO)
-			. = list(200, 20)
+			. = list(200, 100)
 		if(XENO_TIER_ONE)
-			. = list(300, 40)
+			. = list(300, 150)
 		if(XENO_TIER_TWO)
-			. = list(600, 60)
+			. = list(600, 300)
 		if(XENO_TIER_THREE)
-			. = list(1000, 100)
+			. = list(1000, 500)
 		if(XENO_TIER_FOUR)
-			. = list(2000, 200)
+			. = list(2000, 1000)
 	return
 
 //I hate it but it's how it was so I'm not touching it further than this
 /mob/living/carbon/xenomorph/shrike/get_export_value()
-	return list(1200, 120)
+	return list(1200, 600)
 
 /obj/item/reagent_containers/food/snacks/req_pizza/get_export_value()
-	return list(60, 0)
+	return list(60, 30)
 
 /// Return TRUE if the relation between the two factions are bad enough that a bounty is on the human_to_sell head
 /proc/can_sell_human_body(mob/living/carbon/human/human_to_sell, seller_faction)
@@ -102,4 +102,4 @@
 			return TRUE
 
 /obj/item/stack/req_jelly/get_export_value()
-	return list(75 * amount, 25 * amount)
+	return list(75 * amount, 40 * amount)

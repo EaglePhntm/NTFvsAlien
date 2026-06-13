@@ -108,9 +108,14 @@
 /obj/item/stack/interact(mob/user, recipes_sublist)
 	. = ..()
 
-	//We need to open the menu only if radial stacks are disabled, or if select_radial tells us to by returning TRUE
-	if(!(!(user.client.prefs.toggles_gameplay & RADIAL_STACKS) || select_radial(user)))
-		return
+	var/list/recipe_list = recipes
+	if(recipes_sublist && recipe_list[recipes_sublist] && istype(recipe_list[recipes_sublist], /datum/stack_recipe_list))
+		var/datum/stack_recipe_list/srl = recipe_list[recipes_sublist]
+		recipe_list = srl.recipes
+	else
+		//We need to open the menu only if radial stacks are disabled, or if select_radial tells us to by returning TRUE
+		if(!(!(user.client.prefs.toggles_gameplay & RADIAL_STACKS) || select_radial(user)))
+			return
 
 	if(.)
 		return
@@ -121,10 +126,6 @@
 	if(QDELETED(src) || get_amount() <= 0)
 		DIRECT_OUTPUT(user, browse(null, "window=stack"))
 
-	var/list/recipe_list = recipes
-	if(recipes_sublist && recipe_list[recipes_sublist] && istype(recipe_list[recipes_sublist], /datum/stack_recipe_list))
-		var/datum/stack_recipe_list/srl = recipe_list[recipes_sublist]
-		recipe_list = srl.recipes
 	var/t1 = "Amount Left: [get_amount()]<br>"
 	for(var/i in 1 to length(recipe_list))
 		var/E = recipe_list[i]

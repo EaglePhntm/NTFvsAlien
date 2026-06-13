@@ -15,7 +15,7 @@
 	canSmoothWith = list(SMOOTH_GROUP_FENCE)
 	var/cut = FALSE //Cut fences can be passed through
 	///Chance for the fence to break on /init
-	var/chance_to_break = 80 //Defaults to 80%
+	var/chance_to_break = 3 //we got broken version for this
 	///icon set we switch to when destroyed
 	var/destroyed_icon = 'icons/obj/smooth_objects/brokenfence.dmi'
 

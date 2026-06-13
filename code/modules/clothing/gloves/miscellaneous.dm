@@ -2,6 +2,7 @@
 	desc = "Regal blue gloves, with a nice gold trim. Swanky."
 	name = "Commander's gloves"
 	icon_state = "captain"
+	soft_armor = list(MELEE = 30, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 30, BIO = 20, FIRE = 20, ACID = 15)
 	cold_protection_flags = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection_flags = HANDS
@@ -14,6 +15,7 @@
 	siemens_coefficient = 0.6
 	permeability_coefficient = 0.05
 
+	soft_armor = list(MELEE = 30, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 30, BIO = 20, FIRE = 20, ACID = 15)
 	cold_protection_flags = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection_flags = HANDS
@@ -25,6 +27,7 @@
 	icon_state = "black"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
+	soft_armor = list(MELEE = 40, BULLET = 50, LASER = 30, ENERGY = 30, BOMB = 30, BIO = 20, FIRE = 20, ACID = 15)
 	cold_protection_flags = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection_flags = HANDS
@@ -36,6 +39,7 @@
 	icon_state = "black"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
+	soft_armor = list(MELEE = 30, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 30, BIO = 20, FIRE = 20, ACID = 15)
 	cold_protection_flags = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection_flags = HANDS
@@ -241,3 +245,9 @@
 	name = "Techpriest gloves"
 	desc = "Praise the Omnissiah!"
 	icon_state = "tp_gloves"
+	siemens_coefficient = 0
+	permeability_coefficient = 0.05
+	cold_protection_flags = HANDS
+	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection_flags = HANDS
+	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE

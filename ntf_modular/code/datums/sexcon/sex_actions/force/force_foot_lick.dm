@@ -25,5 +25,4 @@
 	target.make_sucking_noise()
 
 /datum/sex_action/force_foot_lick/on_finish(mob/living/carbon/user, mob/living/carbon/target)
-	..()
 	user.visible_message(span_warning("[user] pulls [user.p_their()] feet away from [target]'s head."))

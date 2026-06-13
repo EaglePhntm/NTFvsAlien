@@ -238,7 +238,7 @@
 /area/oscar_outpost/outside/northeast)
 "cd" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor,
 /area/oscar_outpost)
 "ce" = (
@@ -3299,7 +3299,7 @@
 /area/oscar_outpost)
 "GL" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/engine/cult{
 	dir = 2
 	},
@@ -3421,7 +3421,7 @@
 /area/oscar_outpost/outside/west)
 "IA" = (
 /obj/structure/table/reinforced/prison,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/item/reagent_containers/food/drinks/bottle/vodka{
 	anchored = 1;
 	name = "Triage White Queen"
@@ -3612,7 +3612,7 @@
 /area/oscar_outpost)
 "Kr" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/item/weapon/gun/grenade_launcher/multinade_launcher,
 /turf/open/floor/engine/cult{
 	dir = 2

@@ -1,0 +1,20 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/docking_port/mobile/supply/colony{
+	dir = 1
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/shuttle/supply/colony)
+"O" = (
+/turf/open/floor/plating/plating_catwalk,
+/area/shuttle/supply/colony)
+
+(1,1,1) = {"
+O
+"}
+(2,1,1) = {"
+a
+"}
+(3,1,1) = {"
+O
+"}

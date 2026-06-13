@@ -41,7 +41,7 @@
 	is_on = TRUE
 	power_gen_percent = 99//will get to 100 on first tick, updating fuel_rate in the process
 	update_icon()
-	start_processing()
+	start_processing(SSMACHINES_MACHINES_EARLY)
 
 /obj/machinery/power/fusion_engine/random/Initialize(mapload)
 	. = ..()
@@ -141,7 +141,7 @@
 
 	is_on = TRUE
 	update_icon()
-	start_processing()
+	start_processing(SSMACHINES_MACHINES_EARLY)
 	return TRUE
 
 /obj/machinery/power/fusion_engine/attackby(obj/item/I, mob/user, params)

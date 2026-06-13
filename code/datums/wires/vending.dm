@@ -39,14 +39,17 @@
 	switch(wire)
 		if(WIRE_THROW)
 			V.shoot_inventory = !V.shoot_inventory
+			V.update_processing()
 		if(WIRE_CONTRABAND)
 			V.extended_inventory = !V.extended_inventory
 		if(WIRE_SHOCK)
 			V.seconds_electrified = MACHINE_DEFAULT_ELECTRIFY_TIME
+			V.update_processing()
 		if(WIRE_IDSCAN)
 			V.scan_id = !V.scan_id
 		if(WIRE_SPEAKER)
 			V.shut_up = !V.shut_up
+			V.schedule_slogan()
 
 
 /datum/wires/vending/on_cut(wire, mend, mob/user)
@@ -54,6 +57,7 @@
 	switch(wire)
 		if(WIRE_THROW)
 			V.shoot_inventory = !mend
+			V.update_processing()
 		if(WIRE_CONTRABAND)
 			V.extended_inventory = FALSE
 		if(WIRE_SHOCK)
@@ -61,7 +65,9 @@
 				V.seconds_electrified = MACHINE_NOT_ELECTRIFIED
 			else
 				V.seconds_electrified = MACHINE_ELECTRIFIED_PERMANENT
+			V.update_processing()
 		if(WIRE_IDSCAN)
 			V.scan_id = mend
 		if(WIRE_SPEAKER)
 			V.shut_up = mend
+			V.schedule_slogan()

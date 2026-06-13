@@ -378,7 +378,7 @@
 /area/oscar_outpost/village/abandonedbase)
 "fT" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/grayscale/black,
 /area/oscar_outpost/village/abandonedbase)
 "fV" = (
@@ -744,7 +744,7 @@
 /area/oscar_outpost/village/abandonedbase)
 "iH" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/effect/spawner/random/misc/structure/directional_window/east,
 /turf/open/floor/grayscale/black,
 /area/oscar_outpost/village/abandonedbase)

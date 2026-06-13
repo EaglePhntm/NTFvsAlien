@@ -438,8 +438,6 @@
 /obj/item/ammo_magazine/rifle/pepperball/pepperball_mini
 	name = "small pepperball canister (SAN balls)"
 	desc = "A small canister for use with the miniature pepperball gun."
-	icon = 'icons/obj/items/ammo/misc.dmi'
-	icon_state = "pepperball_mini"
 	default_ammo = /datum/ammo/bullet/pepperball/pepperball_mini
 	max_rounds = 20
 	w_class = WEIGHT_CLASS_SMALL

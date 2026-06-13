@@ -1591,7 +1591,8 @@
 "bNI" = (
 /obj/machinery/computer/supplycomp{
 	home_id = "supply_hq";
-	shuttle_id = "supplyhq"
+	shuttle_id = "supplyhq";
+	req_access = null
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/req)
@@ -10307,7 +10308,6 @@
 "lLS" = (
 /obj/structure/rack,
 /obj/item/storage/box/visual/grenade/teargas,
-/obj/item/shotgunbox/tracker,
 /turf/open/floor/mainship/red,
 /area/mainship/groundhq/ntf/shipboard/brig)
 "lLU" = (
@@ -13366,12 +13366,6 @@
 	outside = 0;
 	base_lighting_alpha = 0;
 	static_lighting = 1
-	})
-"pqb" = (
-/obj/structure/transmitter/colony_net/desk,
-/turf/open/floor/mainship/mono,
-/area/mainship/groundhq/ntf/hallways/aft_hallway{
-	name = "HQ Northwest Hallways"
 	})
 "pqM" = (
 /obj/machinery/door/airlock/mainship/medical/morgue{
@@ -22657,7 +22651,7 @@ eJu
 hLV
 cdM
 vPS
-pqb
+adO
 adO
 adO
 adO

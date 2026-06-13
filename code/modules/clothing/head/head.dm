@@ -5,12 +5,13 @@
 		slot_l_hand_str = 'icons/mob/inhands/clothing/hats_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/clothing/hats_right.dmi',
 	)
-	armor_protection_flags = HEAD
+	armor_protection_flags = HEAD|FACE|EYES //same as helmet
 	equip_slot_flags = ITEM_SLOT_HEAD
 	w_class = WEIGHT_CLASS_SMALL
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 	blood_sprite_state = "helmetblood"
 	armor_features_flags = ARMOR_NO_DECAP
+	inventory_flags = BLOCKSHARPOBJ
+	soft_armor = MARINE_ARMOR_HEAVY
 	var/anti_hug = 0
 	attachments_by_slot = list(
 		ATTACHMENT_SLOT_VISOR,
@@ -58,7 +59,6 @@
 	)
 	icon_state = "beanie_cargo"
 	inv_hide_flags = HIDETOPHAIR
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 /obj/item/clothing/head/tgmcberet
 	name = "\improper Dark gray beret"
 	desc = "A hat typically worn by the field-officers of the NTC. Occasionally they find their way down the ranks into the hands of squad-leaders and decorated grunts."
@@ -69,7 +69,6 @@
 		slot_r_hand_str = 'icons/mob/inhands/items/items_right.dmi',
 	)
 	icon_state = "beret"
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 	item_map_variant_flags = NONE
 	armor_features_flags = ARMOR_NO_DECAP
 
@@ -77,24 +76,20 @@
 	name = "\improper Tan beret"
 	icon_state = "berettan"
 	item_map_variant_flags = (ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT)
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/tgmcberet/red
 	name = "\improper Red badged beret"
 	icon_state = "beretred"
 	item_map_variant_flags = NONE
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/tgmcberet/red2
 	name = "\improper Red beret"
 	icon_state = "beretred2"
 	item_map_variant_flags = NONE
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/tgmcberet/red2/erp
 	name = "\improper ERP Red Beret"
 	desc = "An ERP-approved improved design of the red beret, how this small piece of cloth has such good padding is a closely guarded ERP-secret."
-	soft_armor = MARINE_ARMOR_MEDIUM
 
 /obj/item/clothing/head/tgmcberet/red2/erp/masterprankster
 	desc = "An ERP-approved improved design of the red beret, how this small piece of cloth has such good padding is a closely guarded ERP-secret. This one is held by Master Pranksters only!"
@@ -104,44 +99,37 @@
 	name = "\improper Blood red beret"
 	icon_state = "bloodred_beret"
 	item_map_variant_flags = NONE
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/tgmcberet/blueberet
 	name = "\improper Blue beret"
 	icon_state = "blue_beret"
 	item_map_variant_flags = NONE
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/tgmcberet/darkgreen
 	name = "\improper Dark green beret"
 	icon_state = "darkgreen_beret"
 	item_map_variant_flags = NONE
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/tgmcberet/green
 	name = "\improper Green beret"
 	icon_state = "beretgreen"
 	item_map_variant_flags = NONE
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/tgmcberet/snow
 	name = "\improper White beret"
 	icon_state = "beretsnow"
 	item_map_variant_flags = NONE
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/tgmcberet/wo
 	name = "\improper Command Master at Arms beret"
 	desc = "A beret with the lieutenant insignia emblazoned on it. It shines with the glow of corrupt authority and a smudge of doughnut."
 	icon_state = "beretwo"
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 	item_map_variant_flags = NONE
 
 /obj/item/clothing/head/tgmcberet/fc
 	name = "\improper Field Commander beret"
 	desc = "A beret with the field commander insignia emblazoned on it. It commands loyalty and bravery in all who gaze upon it."
 	icon_state = "beretfc"
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 	item_map_variant_flags = NONE
 
 
@@ -155,7 +143,6 @@
 		slot_l_hand_str = 'icons/mob/inhands/items/items_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items/items_right.dmi',
 	)
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 	var/flipped_cap = FALSE
 	var/base_cap_icon
 	item_map_variant_flags = (ITEM_ICE_VARIANT)
@@ -185,7 +172,23 @@
 	name = "\improper NTC officer cap"
 	desc = "A hat usually worn by officers in the NTC. While it has limited combat functionality, some prefer to wear it instead of the standard issue helmet. It has a built in signal booster plus antenna module both at once."
 	icon_state = "rocap"
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
+	attachments_allowed = list(
+		/obj/item/armor_module/module/tyr_head,
+		/obj/item/armor_module/module/fire_proof_helmet,
+		/obj/item/armor_module/module/hod_head,
+		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
+		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1,
+		/obj/item/armor_module/module/welding,
+		/obj/item/armor_module/module/welding/superior,
+		/obj/item/armor_module/module/binoculars,
+		/obj/item/armor_module/module/binoculars/artemis_mark_two,
+		/obj/item/armor_module/module/artemis,
+		/obj/item/armor_module/module/antenna,
+		/obj/item/armor_module/module/night_vision,
+		/obj/item/armor_module/storage/helmet,
+		/obj/item/armor_module/armor/badge,
+		/obj/item/armor_module/module/antenna/integrated,
+	)
 	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/module/antenna/integrated)
 
 /obj/item/clothing/head/tgmccap/ro/equipped(mob/user, slot)
@@ -205,14 +208,12 @@
 	name = "\improper NTC navy officer cap"
 	desc = "A hat usually worn by officers in the NTC. This time in a nice shade of navy blue. It has a built in signal booster plus antenna module both at once."
 	icon_state = "navycap"
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/tgmccap/req
 	name = "\improper NTC requisition cap"
 	desc = "It's a fancy hat for a not-so-fancy military supply clerk."
 	icon_state = "cargocap"
 	item_map_variant_flags = null
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 
 /obj/item/clothing/head/boonie
@@ -220,7 +221,6 @@
 	desc = "The pinnacle of tacticool technology."
 	icon_state = "booniehat"
 	worn_icon_state = "booniehat"
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/ornamented_cap
 	name = "\improper ornamented cap"
@@ -230,7 +230,6 @@
 	worn_icon_list = list(
 		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi'
 		)
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 	armor_features_flags = ARMOR_NO_DECAP
 
 /obj/item/clothing/head/slouch
@@ -241,7 +240,6 @@
 	worn_icon_list = list(
 		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi',
 	)
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/headband
 	name = "\improper Cyan headband"
@@ -253,24 +251,20 @@
 		slot_r_hand_str = 'icons/mob/inhands/items/items_right.dmi',
 	)
 	icon_state = "headband"
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/headband/red
 	name = "\improper Red headband"
 	icon_state = "headbandred"
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/headband/rambo
 	name = "\improper Vivid red headband"
 	desc = "It flutters in the face of the wind, defiant and unrestrained, like the man who wears it."
 	icon_state = "headband_rambo"
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/headband/snake
 	name = "\improper Black headband"
 	desc = "A replica of the headband of a legendary soldier. Sadly it doesn't offer infinite ammo. Yet."
 	icon_state = "headband_snake"
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 
 /obj/item/clothing/head/headset
@@ -288,14 +282,12 @@
 	name = "\improper Chief Medical hat"
 	desc = "A somewhat fancy hat, typically worn by those who wish to command medical respect."
 	icon_state = "cmohat"
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/securitycap
 	name = "Security Cap"
 	desc = "A hat often worn by security officers, it is comfortable and lightly armored."
 	icon_state = "security_cap"
 	icon = 'icons/obj/clothing/hats.dmi'
-	soft_armor = list(MELEE = 15, BULLET = 25, LASER = 20, ENERGY = 20, BOMB = 5, BIO = 5, FIRE = 15, ACID = 5)
 
 /*============================BERETS=================================*/
 //Berets have armor, so they have their own category. PMC caps are helmets, so they're in helmets.dm.
@@ -304,37 +296,31 @@
 	name = "Operative officer beret"
 	desc = "A beret with the NTC insignia emblazoned on it. It radiates respect and authority."
 	icon_state = "hosberet"
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 	inventory_flags = BLOCKSHARPOBJ
 
 /obj/item/clothing/head/beret/marine/captain
 	name = "Commander's beret"
 	desc = "A beret with the Commander insignia emblazoned on it. Wearer may suffer the heavy weight of responsibility upon his head and shoulders."
 	icon_state = "centcomcaptain"
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/beret/marine/chiefofficer
 	name = "chief officer beret"
 	desc = "A beret with the lieutenant-commander insignia emblazoned on it. It emits a dark aura and may corrupt the soul."
 	icon_state = "hosberet"
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/beret/marine/chiefofficer/sa
 	name = "spatial agent's beret"
 	desc = "A beret with the Spatial Agent insignia on it."
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/beret/marine/techofficer
 	name = "technical officer beret"
 	desc = "A beret with the lieutenant insignia emblazoned on it. There's something inexplicably efficient about it..."
 	icon_state = "e_beret_badge"
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/beret/marine/logisticsofficer
 	name = "logistics officer beret"
 	desc = "A beret with the lieutenant insignia emblazoned on it. It inspires a feeling of respect."
 	icon_state = "hosberet"
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /*=========================PROTECTIVE===============================
 =======================================================================*/
@@ -344,7 +330,6 @@
 	desc = "Perfect for winter in Siberia, da?"
 	icon_state = "ushankadown"
 	worn_icon_state = "ushankadown"
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 	cold_protection_flags = HEAD
 	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
 	inventory_flags = BLOCKSHARPOBJ
@@ -369,9 +354,9 @@
 	icon_state = "bearpelt"
 	siemens_coefficient = 2
 	anti_hug = 4
-	armor_protection_flags = HEAD|CHEST|ARMS
+	armor_protection_flags = HEAD
 	soft_armor = list(MELEE = 90, BULLET = 70, LASER = 45, ENERGY = 55, BOMB = 45, BIO = 10, FIRE = 55, ACID = 55)
-	cold_protection_flags = HEAD|CHEST|ARMS
+	cold_protection_flags = HEAD
 	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
 	inventory_flags = BLOCKSHARPOBJ
 	inv_hide_flags = HIDEEARS|HIDETOPHAIR
@@ -390,7 +375,6 @@
 	siemens_coefficient = 2
 	//anti_hug = 2
 	armor_protection_flags = HEAD
-	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 55, BOMB = 50, BIO = 50, FIRE = 55, ACID = 55)
 	cold_protection_flags = HEAD
 	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
 	inventory_flags = BLOCKSHARPOBJ
@@ -400,7 +384,6 @@
 /obj/item/clothing/head/uppcap/beret
 	name = "\improper armored USL beret"
 	icon_state = "upp_beret"
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/frelancer
 	name = "\improper armored Freelancer helmet"
@@ -414,7 +397,6 @@
 	icon_state = "freelancer_helmet"
 	siemens_coefficient = 2
 	armor_protection_flags = HEAD
-	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 55, BOMB = 50, BIO = 50, FIRE = 55, ACID = 55)
 	cold_protection_flags = HEAD
 	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
 	inventory_flags = BLOCKSHARPOBJ
@@ -442,7 +424,6 @@
 	starting_attachments = list(
 		/obj/item/armor_module/storage/helmet,
 	)
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/militia
 	name = "\improper armored militia cowl"
@@ -455,8 +436,7 @@
 	)
 	icon_state = "rebel_hood"
 	siemens_coefficient = 2
-	armor_protection_flags = HEAD|CHEST
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
+	armor_protection_flags = HEAD
 	cold_protection_flags = HEAD
 	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
 	inventory_flags = BLOCKSHARPOBJ
@@ -469,7 +449,6 @@
 	icon_state = "admiral_helmet"
 	siemens_coefficient = 2
 	armor_protection_flags = HEAD
-	soft_armor = list(MELEE = 60, BULLET = 60, LASER = 45, ENERGY = 55, BOMB = 55, BIO = 10, FIRE = 55, ACID = 55)
 	cold_protection_flags = HEAD
 	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
 	inventory_flags = BLOCKSHARPOBJ
@@ -485,7 +464,6 @@
 	)
 	icon = 'icons/obj/clothing/headwear/ert_headwear.dmi'
 	icon_state = "commissar_cap"
-	soft_armor = list(MELEE = 30, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 15, BIO = 10, FIRE = 20, ACID = 20)
 	armor_features_flags = ARMOR_NO_DECAP
 
 /obj/item/clothing/head/strawhat
@@ -498,7 +476,6 @@
 	)
 	icon = 'icons/obj/clothing/headwear/ert_headwear.dmi'
 	icon_state = "straw_hat"
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 /obj/item/clothing/head/vsd
 	name = "\improper Crasher MT/45 armored cap"
@@ -511,7 +488,6 @@
 	icon = 'icons/mob/clothing/headwear/ert_headwear.dmi'
 	icon_state = "vsd_cap"
 	worn_icon_state = "vsd_cap"
-	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 55, BOMB = 50, BIO = 50, FIRE = 55, ACID = 55)
 	armor_features_flags = ARMOR_NO_DECAP
 
 /obj/item/clothing/head/vsd/beret

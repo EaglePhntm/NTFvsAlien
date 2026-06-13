@@ -21,7 +21,7 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 	worn_icon_state = "facehugger"
 	w_class = WEIGHT_CLASS_TINY //Note: can be picked up by aliens unlike most other items of w_class below 4
 	resistance_flags = NONE
-	equip_slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_UNDERWEAR
+	equip_slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_UNDERWEAR|ITEM_SLOT_SHIRT
 	inventory_flags = COVEREYES|COVERMOUTH
 	armor_protection_flags = FACE|EYES
 	atom_flags = CRITICAL_ATOM
@@ -30,8 +30,8 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 	worn_layer = FACEHUGGER_LAYER
 	layer = FACEHUGGER_LAYER
 	strip_delay = 2 SECONDS
-	worn_item_state_slots = list(slot_underwear_str = "facehugger_crotch")
-	worn_icon_list = list(slot_underwear_str = 'ntf_modular/icons/Xeno/Effects.dmi')
+	worn_item_state_slots = list(slot_underwear_str = "facehugger_crotch", slot_shirt_str = "facehugger_back")
+	worn_icon_list = list(slot_underwear_str = 'ntf_modular/icons/Xeno/Effects.dmi', slot_shirt_str = 'ntf_modular/icons/Xeno/Effects.dmi')
 
 	///Whether the hugger is dead, active or inactive
 	var/stat = CONSCIOUS
@@ -93,7 +93,8 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 	var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
 	name = "[hive.prefix][name]"
 	if(hive.color)
-		add_filter("hive_color", 10, outline_filter(2, hive.color))
+		color = hive.color
+		add_filter("hive_color", 10, outline_filter(1, hive.color))
 
 	if(input_source)
 		facehugger_register_source(input_source)
@@ -196,6 +197,7 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 		return ..() // Dead or sterile (lamarr) can be picked.
 	else if(can_self_remove && attached)
 		if(!user.do_actions && do_after(user, strip_delay, NONE, src, BUSY_ICON_FRIENDLY))
+			playsound(src, pick(list('ntf_modular/sound/misc/cork_pop.ogg','ntf_modular/sound/misc/cork_pop (2).ogg')), 75, TRUE, 7, ignore_walls = FALSE)
 			return ..()
 	else if(stat == CONSCIOUS && user.can_be_facehugged(src, provoked = TRUE)) // If you try to take a healthy one it will try to hug or attack you.
 		user.visible_message(span_warning("[src] skitters up [user]'s arm as [user.p_they()] try to grab it!"), \
@@ -322,9 +324,15 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 
 	var/mob/living/carbon/chosen_target
 
-	for(var/mob/living/carbon/M in view(4, src))
+	for(var/mob/living/carbon/M in hearers(4, src))
 		// Using euclidean distance means it will prioritize cardinal directions, which are less likely to miss due to wall jank.
 		if(chosen_target && (get_dist_manhattan(src, M) > get_dist_manhattan(src, chosen_target)))
+			continue
+
+		if(combat_hugger && M.buckled)
+			continue
+
+		if(M.key && (M.afk_status == MOB_RECENTLY_DISCONNECTED || M.afk_status == MOB_DISCONNECTED))
 			continue
 
 		if(!M.can_be_facehugged(src))
@@ -521,7 +529,7 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 			var/obj/item/W = wear_mask
 			if(HAS_TRAIT(W, TRAIT_NODROP))
 				return FALSE
-			if(istype(W, /obj/item/clothing/mask/facehugger))
+			if(istype(W, /obj/item/clothing/mask/facehugger)) //unholy if pyramid
 				var/obj/item/clothing/mask/facehugger/hugger = W
 				if(hugger.stat != DEAD)
 					if(w_underwear)
@@ -529,7 +537,12 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 						if(istype(U, /obj/item/clothing/mask/facehugger))
 							var/obj/item/clothing/mask/facehugger/suithugger = U
 							if(suithugger.stat != DEAD)
-								return FALSE
+								if(w_undershirt)
+									var/obj/item/Us = w_undershirt
+									if(istype(Us, /obj/item/clothing/mask/facehugger))
+										var/obj/item/clothing/mask/facehugger/shirthugger = U
+										if(shirthugger.stat != DEAD)
+											return FALSE
 
 	return TRUE
 
@@ -588,17 +601,6 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 	if(ishuman(hugged))
 		var/mob/living/carbon/human/H = hugged
 		if(attempt_lewd_attach(H))
-			var/obj/item/clothing/underwear/U = H.w_underwear
-			H.dropItemToGround(H.w_underwear)
-			H.w_underwear = null
-			if(H.w_underwear)
-				visible_message("<span class='warning'>[src] rips into [H]'s [U.name] and latches onto their pelvis!</span>")
-			else
-				visible_message("<span class='warning'>[src] latches onto [H]'s pelvis!</span>")
-			H.equip_to_slot(src, SLOT_UNDERWEAR)
-			var/obj/item/radio/headset/mainship/headset = H.wear_ear
-			if(istype(headset))
-				headset.disable_locator(40 SECONDS)
 			return TRUE
 
 		if(!H.has_limb(HEAD))
@@ -655,16 +657,34 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 			if(istype(W, /obj/item/clothing/mask/facehugger))
 				var/obj/item/clothing/mask/facehugger/hugger = W
 				if(hugger.stat != DEAD)
-					target_hole = pick(HOLE_VAGINA, HOLE_ASS)
-	if(target.w_underwear)
-		var/obj/item/clothing/suit/O = target.w_underwear
-		var/obj/item/clothing/mask/facehugger/hugger = target.w_underwear
-		if((istype(hugger) && (hugger.stat != DEAD)) || HAS_TRAIT(O, TRAIT_NODROP))
-			target_hole = HOLE_MOUTH
+					target_hole = pick(HOLE_VAGINA, HOLE_ASS) //we try the others
 	if(target_hole != HOLE_MOUTH)
-		return TRUE
-	else
-		return FALSE
+		//try attach to undies first
+		var/obj/item/clothing/undie = target.w_underwear
+		var/obj/item/clothing/mask/facehugger/uhugger = target.w_underwear
+		if(!undie || (!istype(uhugger) || (uhugger.stat == DEAD)) && !HAS_TRAIT(undie, TRAIT_NODROP))
+			target.dropItemToGround(target.w_underwear)
+			target.w_underwear = null
+			if(target.w_underwear)
+				visible_message("<span class='warning'>[src] rips into [target]'s [undie.name] and latches onto their pelvis!</span>")
+			else
+				visible_message("<span class='warning'>[src] latches onto [target]'s pelvis!</span>")
+			target.equip_to_slot(src, SLOT_UNDERWEAR)
+			return TRUE
+		//try undershirt last
+		var/obj/item/clothing/undershirt = target.w_undershirt
+		var/obj/item/clothing/mask/facehugger/ushugger = target.w_undershirt
+		if(!undershirt || (!istype(ushugger) || (ushugger.stat == DEAD)) && !HAS_TRAIT(undershirt, TRAIT_NODROP))
+			target.dropItemToGround(target.w_undershirt)
+			target.w_undershirt = null
+			if(target.w_undershirt)
+				visible_message("<span class='warning'>[src] rips into [target]'s [undershirt.name] and latches onto their back!</span>")
+			else
+				visible_message("<span class='warning'>[src] latches onto [target]'s back!</span>")
+			target.equip_to_slot(src, SLOT_SHIRT)
+			return TRUE
+	target_hole = HOLE_MOUTH //default to mouth
+	return FALSE //will mean its a non lewd hug if there is nothing blocking face and it picked mouth.
 
 /obj/item/clothing/mask/facehugger/unequipped(mob/living/user, slot)
 	. = ..()
@@ -672,24 +692,19 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 
 /obj/item/clothing/mask/facehugger/equipped(mob/living/user, slot)
 	. = ..()
-	if(slot != SLOT_WEAR_MASK && slot != SLOT_UNDERWEAR || stat == DEAD)
+	if(slot != SLOT_WEAR_MASK && slot != SLOT_UNDERWEAR && slot != SLOT_SHIRT || stat == DEAD)
 		reset_attach_status(FALSE)
 		return
 	if(slot == SLOT_WEAR_MASK && target_hole != HOLE_MOUTH) //ensure in case of something fucking up or manual wearing
 		target_hole = HOLE_MOUTH
 	if(target_hole == HOLE_MOUTH)
-		if(!issamexenohive(user))
-			user.ParalyzeNoChain(10 SECONDS)
-			user.apply_damage(100, STAMINA)
 		if(ishuman(user))
 			var/hugsound = user.gender == FEMALE ? SFX_FEMALE_HUGGED : SFX_MALE_HUGGED
 			playsound(loc, hugsound, 25, 0)
-	else
-		if(!issamexenohive(user))
-			user.emote("scream")
-			user.ParalyzeNoChain(4 SECONDS)
-			user.apply_damage(100, STAMINA)
-			strip_delay *= 2
+	if(!issamexenohive(user))
+		user.ParalyzeNoChain(10 SECONDS)
+		user.apply_damage(100, STAMINA)
+
 	attached = TRUE
 	go_idle(FALSE, TRUE)
 	if(!sterile)
@@ -699,12 +714,12 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 /// Try to put an embryo into the target mob
 /obj/item/clothing/mask/facehugger/proc/try_impregnate(mob/living/carbon/human/target)
 	//ADD_TRAIT(src, TRAIT_NODROP, HUGGER_TRAIT)
-	var/as_planned = target?.wear_mask == src  || target?.w_underwear == src
-	if((target.can_be_facehugged(src, FALSE, FALSE, TRUE)) && !sterile && as_planned) //is hugger still on face and can they still be impregnated
+	var/as_planned = target?.wear_mask == src  || target?.w_underwear == src || target?.w_undershirt == src
+	if((target.can_be_facehugged(src, FALSE, FALSE, TRUE)) && !sterile && as_planned && can_implant_embryo(target)) //is hugger still on face and can they still be impregnated
 		if(source && (hivenumber == source.get_xeno_hivenumber()))
-			implant_embryo(target, source = source)
+			implant_embryo(target, target_hole, source = source)
 		else
-			implant_embryo(target, force_xenohive = hivenumber)
+			implant_embryo(target, target_hole, force_xenohive = hivenumber)
 		sterile = TRUE
 		kill_hugger()
 	else
@@ -1016,4 +1031,8 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 		return FALSE
 	return TRUE
 
+/obj/item/clothing/mask/facehugger/combat/harmless/attack_self(mob/user)
+	return
+
+#undef FACEHUGGER_DEATH
 #undef IMPREGNATION_TIME

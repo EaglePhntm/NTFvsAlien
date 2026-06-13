@@ -17,7 +17,7 @@
 	AddElement(/datum/element/connect_loc, connections)
 
 /obj/item/lightstick/proc/on_cross(datum/source, mob/living/L, oldloc, oldlocs)
-	if(!anchored || !istype(L) || isxenolarva(L))
+	if(!anchored || !istype(L) || isxenolarva(L) || isxenofacehugger(L))
 		return
 	if(L.mob_size != MOB_SIZE_BIG && prob(80))
 		return

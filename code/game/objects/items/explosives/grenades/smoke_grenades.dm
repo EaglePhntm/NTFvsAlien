@@ -37,6 +37,19 @@
 	dangerous = TRUE
 	smoketype = /datum/effect_system/smoke_spread/xeno/neuro/medium
 
+/obj/item/explosive/grenade/smokebomb/neuro/alt
+	name = "\improper M40-N2 Neurotoxin smoke grenade"
+	desc = "A smoke grenade containing a concentrated neurotoxin developed by Ninetails, supposedly derived from xenomorphs. Banned in some sectors as a chemical weapon, but classed as a less lethal riot control tool by the NTC. Version two produces a weaker and smaller smoke cloud that lasts much longer."
+	icon_state = "grenade_neuro"
+	worn_icon_state = "grenade_neuro"
+	hud_state = "grenade_neuro"
+	det_time = 4 SECONDS
+	dangerous = TRUE
+	smoketype = /datum/effect_system/smoke_spread/xeno/neuro/alt
+	smokeradius = 3
+	smoke_duration = 40 // 80 seconds
+	color = list(0.7,0,0,0, 0,1.5,0,0, 0,0,1.5,0, 0,0,0,1, 0,0,0,0)
+
 /obj/item/explosive/grenade/smokebomb/acid
 	name = "\improper M40-A Acid smoke grenade"
 	desc = "A grenade set to release a cloud of extremely acidic smoke developed by Ninetails, supposedly derived from xenomorphs. Has a shiny acid resistant shell. Its use is considered a warcrime under several treaties, none of which NTF is a signatory to."

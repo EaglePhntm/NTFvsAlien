@@ -19,6 +19,6 @@
 /datum/controller/proc/stat_entry(msg)
 
 /datum/controller/Destroy(force = FALSE, ...)
-	if(type != /datum/controller)
+	if(type != /datum/controller && isnull(GLOB.runtimes_restarting_mc))
 		stack_trace("[name]\[[tag]\]([type]) - controller destroyed")
 	return ..()

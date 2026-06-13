@@ -11,6 +11,8 @@
 /datum/sex_action/crotch_nuzzle/can_perform(mob/living/carbon/user, mob/living/carbon/target)
 	if(user == target)
 		return FALSE
+
+
 	return TRUE
 
 /datum/sex_action/crotch_nuzzle/on_start(mob/living/carbon/user, mob/living/carbon/target)
@@ -25,7 +27,6 @@
 	target.sexcon.handle_passive_ejaculation(user)
 
 /datum/sex_action/crotch_nuzzle/on_finish(mob/living/carbon/user, mob/living/carbon/target)
-	..()
 	user.visible_message(span_warning("[user] stops nuzzling [target]'s crotch..."))
 
 /datum/sex_action/crotch_nuzzle/is_finished(mob/living/carbon/user, mob/living/carbon/target)

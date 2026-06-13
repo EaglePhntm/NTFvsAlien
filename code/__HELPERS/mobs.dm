@@ -9,7 +9,7 @@
 			continue
 		if(gender == FEMALE && S.gender == MALE)
 			continue
-		if(!(species in S.species_allowed))
+		if(!can_use_hair_accessory(S, species))
 			continue
 		valid_hairstyles[hairstyle] = GLOB.hair_styles_list[hairstyle]
 
@@ -27,7 +27,7 @@
 			continue
 		if(gender == FEMALE && S.gender == MALE)
 			continue
-		if(!(species in S.species_allowed))
+		if(!can_use_hair_accessory(S, species))
 			continue
 
 		valid_facialhairstyles[facialhairstyle] = GLOB.facial_hair_styles_list[facialhairstyle]
@@ -36,6 +36,17 @@
 		return "Shaved"
 
 	return pick(valid_facialhairstyles)
+
+/proc/can_use_hair_accessory(datum/sprite_accessory/accessory, species)
+	if(!accessory)
+		return FALSE
+	if(!length(accessory.species_allowed))
+		return TRUE
+	if(species in accessory.species_allowed)
+		return TRUE
+	if("Human" in accessory.species_allowed)
+		return TRUE
+	return FALSE
 
 ///returns a random tts voice based on gender. Assumes theres 30 voices, not actually how many there are but yolo. todo should return based on gender but we need voice tags for that
 /proc/random_tts_voice()

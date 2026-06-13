@@ -7,12 +7,22 @@
 	if(user == target)
 		return FALSE
 
+	if(isxeno(user))
+		var/mob/living/carbon/xenomorph/userxeno = user
+		if(userxeno.client?.prefs?.xenogender != 2 && userxeno.client?.prefs?.xenogender != 4)
+			return FALSE
+	else
+		if(user.gender != FEMALE && !target.sexcon.can_use_breasts())
+			return FALSE
+	if(target.gender != MALE && !target.sexcon.can_use_penis())
+		return FALSE
 	return TRUE
 
 /datum/sex_action/force_nipple_sex/can_perform(mob/living/carbon/user, mob/living/carbon/target)
 	if(user == target)
 		return FALSE
-
+	if(target.gender != MALE && !target.sexcon.can_use_penis())
+		return FALSE
 	return TRUE
 
 /datum/sex_action/force_nipple_sex/on_start(mob/living/carbon/user, mob/living/carbon/target)
@@ -30,7 +40,7 @@
 		target.sexcon.cum_into(FALSE, user)
 		if(isxeno(target))
 			var/mob/living/carbon/xenomorph/X = target
-			X.impregify(user, "nipple")
+			X.impregify(user, HOLE_NIPPLE)
 
 	if(user.sexcon.considered_limp())
 		user.sexcon.perform_sex_action(target, 1.2, 3, FALSE)
@@ -39,6 +49,7 @@
 	user.sexcon.handle_passive_ejaculation(target)
 
 /datum/sex_action/force_nipple_sex/on_finish(mob/living/carbon/user, mob/living/carbon/target)
+	playsound(src, pick(list('ntf_modular/sound/misc/cork_pop.ogg','ntf_modular/sound/misc/cork_pop (2).ogg')), 75, TRUE, 7, ignore_walls = FALSE)
 	user.visible_message(span_warning("[user] pulls [target]'s cock out of [user.p_their()]  nipple."))
 
 /datum/sex_action/force_nipple_sex/is_finished(mob/living/carbon/user, mob/living/carbon/target)

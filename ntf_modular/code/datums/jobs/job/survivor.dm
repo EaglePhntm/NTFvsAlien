@@ -1,31 +1,31 @@
 //Non-Deployed Operative Survivor
 /datum/job/survivor/non_deployed_operative
-	title = "Non-Deployed Operative Survivor"
+	title = "Non-Deployed Operative Colonist"
 	skills_type = /datum/skills/civilian/survivor
 	outfit = /datum/outfit/job/survivor/non_deployed_operative
 
 //Prisoner Survivor
 /datum/job/survivor/prisoner
-	title = "Prisoner Survivor"
+	title = "Prisoner Colonist"
 	skills_type = /datum/skills/civilian/survivor
 	outfit = /datum/outfit/job/survivor/prisoner
 
 //Stripper Survivor
 /datum/job/survivor/stripper
-	title = "Stripper Survivor"
+	title = "Stripper Colonist"
 	skills_type = /datum/skills/civilian/survivor
 	outfit = /datum/outfit/job/survivor/stripper
 
 //Maid Survivor
 /datum/job/survivor/maid
-	title = "Maid Survivor"
+	title = "Maid Colonist"
 	skills_type = /datum/skills/civilian/survivor
 	outfit = /datum/outfit/job/survivor/maid
 
 
 //Robot(ic) Survivor
 /datum/job/survivor/synth
-	title = "Synthetic Survivor"
+	title = "Synthetic Colonist"
 	paygrade = "Mk.I"
 	supervisors = "the acting captain, Ninetails."
 	skills_type = /datum/skills/synthetic
@@ -51,20 +51,6 @@
 /datum/job/survivor/synth/return_spawn_type(datum/preferences/prefs)
 	if(prefs?.synthetic_type == "Early Synthetic")
 		return /mob/living/carbon/human/species/early_synthetic
-	if(prefs?.synthetic_type == "Robot")
-		switch(prefs?.robot_type)
-			if("Basic")
-				return /mob/living/carbon/human/species/robot
-			if("Hammerhead")
-				return /mob/living/carbon/human/species/robot/alpharii
-			if("Chilvaris")
-				return /mob/living/carbon/human/species/robot/charlit
-			if("Ratcher")
-				return /mob/living/carbon/human/species/robot/deltad
-			if("Sterling")
-				return /mob/living/carbon/human/species/robot/bravada
-			if("Synskin")
-				return /mob/living/carbon/human/species/robot/synskin
 	return /mob/living/carbon/human/species/synthetic
 
 /datum/job/survivor/synth/return_skills_type(datum/preferences/prefs)

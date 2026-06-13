@@ -48,6 +48,7 @@
 	if(!holder)
 		return FALSE
 	setDir(holder.dir)
+	SEND_SIGNAL(src, COMSIG_MOVABLE_MOVED, src)
 	return TRUE
 
 

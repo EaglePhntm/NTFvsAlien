@@ -18,7 +18,7 @@
 
 	fiery_stab = TRUE
 
-/mob/living/carbon/xenomorph/pyrogen/Initialize(mapload)
+/mob/living/carbon/xenomorph/pyrogen/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	RegisterSignal(src, COMSIG_XENOMORPH_POSTATTACK_LIVING, PROC_REF(on_postattack))
 

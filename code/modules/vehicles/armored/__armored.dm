@@ -380,7 +380,6 @@
 	if(entering_mob.skills.getRating(SKILL_LARGE_VEHICLE) < required_entry_skill)
 		return FALSE
 	if(!loc_override && !(entering_mob.loc in enter_locations(entering_mob)))
-		balloon_alert(entering_mob, "not at entrance")
 		return FALSE
 	return ..()
 
@@ -601,7 +600,10 @@
 		return ..()
 	if(!isliving(M))
 		return
-	try_easy_load(dropping, M)
+	if(try_easy_load(dropping, M))
+		return TRUE
+	if(isliving(dropping))
+		return ..() //we help them onto the vehicle
 
 /obj/vehicle/sealed/armored/grab_interact(obj/item/grab/grab, mob/user, base_damage, is_sharp)
 	return try_easy_load(grab.grabbed_thing, user)
@@ -629,7 +631,7 @@
 			balloon_alert(user, "no gunner utility module")
 			return
 		balloon_alert(user, "detaching gunner utility")
-		if(!do_after(user, 2 SECONDS, NONE, src))
+		if(!do_after(user, 40 SECONDS, NONE, src))
 			return
 		gunner_utility_module.on_unequip(user)
 		balloon_alert(user, "detached")
@@ -647,7 +649,7 @@
 		balloon_alert(user, "no primary weapon")
 		return
 	balloon_alert(user, "detaching primary")
-	if(!do_after(user, 2 SECONDS, NONE, src))
+	if(!do_after(user, 40 SECONDS, NONE, src))
 		return
 	var/obj/item/armored_weapon/gun = primary_weapon
 	primary_weapon.detach(loc)
@@ -666,7 +668,7 @@
 		balloon_alert(user, "no secondary weapon")
 		return
 	balloon_alert(user, "detaching secondary")
-	if(!do_after(user, 2 SECONDS, NONE, src))
+	if(!do_after(user, 40 SECONDS, NONE, src))
 		return
 	var/obj/item/armored_weapon/gun = secondary_weapon
 	secondary_weapon.detach(loc)
@@ -682,7 +684,7 @@
 		balloon_alert(user, "no driver utility module")
 		return
 	balloon_alert(user, "detaching driver utility")
-	if(!do_after(user, 2 SECONDS, NONE, src))
+	if(!do_after(user, 40 SECONDS, NONE, src))
 		return
 	driver_utility_module.on_unequip(user)
 	balloon_alert(user, "detached")
@@ -704,7 +706,7 @@
 ///Rotates the cannon overlay
 /obj/vehicle/sealed/armored/proc/swivel_turret(atom/A, new_weapon_dir)
 	if(!new_weapon_dir)
-		new_weapon_dir = angle_to_cardinal_dir(Get_Angle(get_turf(src), get_turf(A)))
+		new_weapon_dir = angle2dir_cardinal(Get_Angle(get_turf(src), get_turf(A)))
 	if(turret_overlay.dir == new_weapon_dir)
 		return FALSE
 	if(TIMER_COOLDOWN_RUNNING(src, COOLDOWN_TANK_SWIVEL)) //Slight cooldown to avoid spam

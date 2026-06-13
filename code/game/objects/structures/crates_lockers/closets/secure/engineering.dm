@@ -181,7 +181,7 @@
 		new /obj/item/clothing/mask/rebreather(src)
 
 /obj/structure/closet/secure_closet/engineering_personal/clf
-	name = "CLF engineer's locker"
+	name = "Cult engineer's locker"
 	req_access = list(ACCESS_CLF_ENGINEERING)
 
 /obj/structure/closet/secure_closet/engineering_personal/clf/PopulateContents()

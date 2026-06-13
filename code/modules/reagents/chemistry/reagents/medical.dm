@@ -301,8 +301,8 @@
 	description = "Saline-Glucose can be used to restore blood in a pinch."
 	color = COLOR_REAGENT_SALINE_GLUCOSE
 	custom_metabolism = REAGENTS_METABOLISM * 2
-	overdose_threshold = REAGENTS_OVERDOSE
-	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL
+	overdose_threshold = REAGENTS_OVERDOSE * 2
+	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 2
 	taste_description = "salty water"
 
 /datum/reagent/medicine/saline_glucose/on_mob_life(mob/living/L, metabolism)
@@ -1364,19 +1364,13 @@
 	custom_metabolism = 0
 	taste_description = "metal, followed by mild burning"
 	overdose_threshold = REAGENTS_OVERDOSE * 1.2 //slight buffer to keep you safe
-//	purge_list = list(
-//		/datum/reagent/medicine/bicaridine,
-//		/datum/reagent/medicine/kelotane,
-//		/datum/reagent/medicine/tramadol,
-//		/datum/reagent/medicine/oxycodone,
-//		/datum/reagent/medicine/tricordrazine,
-//		/datum/reagent/medicine/meralyne,
-//		/datum/reagent/medicine/dermaline,
-//		/datum/reagent/medicine/paracetamol,
-//		/datum/reagent/medicine/russian_red,
-//		/datum/reagent/consumable/drink/doctor_delight,
-//	)
-//	purge_rate = 5
+	purge_list = list(
+		/datum/reagent/medicine/bicaridine,
+		/datum/reagent/medicine/kelotane,
+		/datum/reagent/medicine/tramadol,
+		/datum/reagent/medicine/tricordrazine,
+	)
+	purge_rate = 5
 
 /datum/reagent/medicalnanites/on_mob_add(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("You feel like you should stay near medical help until this shot settles in."))
@@ -1549,3 +1543,29 @@
 	fadein = 5
 	friction = generator(GEN_NUM, 0.1, 0.15)
 	position = generator(GEN_SQUARE, 0, 16)
+
+/datum/reagent/medicine/regen
+	name = "Regeneration"
+	description = "A natural regeneration caused by will or some other power."
+	color = COLOR_GREEN
+	overdose_threshold = REAGENTS_OVERDOSE * 4
+	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 4
+	reagent_ui_priority = REAGENT_UI_BKTT
+	custom_metabolism = REAGENTS_METABOLISM
+
+/datum/reagent/medicine/regen/on_mob_life(mob/living/L, metabolism)
+	effect_str = min(4,max(1, volume/15))
+	custom_metabolism = REAGENTS_METABOLISM*max(1, volume/15)
+	var/target_temp = L.get_standard_bodytemperature()
+	L.adjustOxyLoss(-0.25*effect_str)
+	L.adjustToxLoss(-0.2*effect_str)
+	L.heal_overall_damage(effect_str*2, effect_str*2)
+	if(L.bodytemperature > target_temp)
+		L.adjust_bodytemperature(-2.5*TEMPERATURE_DAMAGE_COEFFICIENT*effect_str, target_temp)
+	return ..()
+
+/datum/reagent/medicine/regen/overdose_process(mob/living/L, metabolism)
+	L.apply_damage(effect_str, BURN)
+
+/datum/reagent/medicine/regen/overdose_crit_process(mob/living/L, metabolism)
+	L.apply_damages(effect_str, 3*effect_str, 2*effect_str)

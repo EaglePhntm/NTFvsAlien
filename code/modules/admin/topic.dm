@@ -400,6 +400,10 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 					newmob.forceMove(location)
 			if("larva")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/larva, location, null, delmob)
+			//RUTGNC EDIT BEGIN
+			if("facehugger")
+				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/facehugger, location, null, delmob)
+			//RUTGMC EDIT END
 			if("defender")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/defender, location, null, delmob)
 			if("warrior")
@@ -454,6 +458,8 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/puppeteer, location, null, delmob)
 			if("pyrogen")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/pyrogen, location,null , delmob)
+			if("chimera")
+				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/chimera, location, null, delmob)
 			if("behemoth")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/behemoth, location, null, delmob)
 			if("human")
@@ -1050,7 +1056,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			dat += "<a href='byond://?src=[REF(usr.client.holder)];[HrefToken()];changemode=[mode]'>[mode.name]</a><br>"
 		dat += "<br>"
 		dat += "Now: [GLOB.master_mode]<br>"
-		dat += "Next Round: [trim(file2text("data/mode.txt"))]"
+		dat += "Next Round: [GLOB.next_gamemode]"
 
 		var/datum/browser/browser = new(usr, "change_mode", "<div align='center'>Change Gamemode</div>")
 		browser.set_content(dat)
@@ -1546,6 +1552,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		if(J.current_positions >= J.total_positions)
 			to_chat(usr, span_warning("Filling would cause an overflow. Please add more slots first."))
 			return
+		log_game("Occupying 1 [J.title] slot due to [usr.ckey] commanding this via the admin job panel.")
 		J.occupy_job_positions(1)
 
 		SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/job_slots)
@@ -1564,6 +1571,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		if(J.current_positions <= 0)
 			to_chat(usr, span_warning("Cannot free more job slots."))
 			return
+		log_game("Freeing 1 [J.title] slot due to [usr.ckey] commanding this via the admin job panel.")
 		J.free_job_positions(1)
 
 		SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/job_slots)
@@ -1834,7 +1842,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				var/list/valid_hairstyles = list()
 				for(var/hairstyle in GLOB.hair_styles_list)
 					var/datum/sprite_accessory/S = GLOB.hair_styles_list[hairstyle]
-					if(!(H.species.name in S.species_allowed))
+					if(!can_use_hair_accessory(S, H.species.name))
 						continue
 
 					valid_hairstyles += hairstyle
@@ -1905,6 +1913,11 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				if(!change || !istype(H))
 					return
 				H.set_species(change)
+			if("bloodcolor")
+				change = input("Select the blood color.", "Edit Appearance") as null|color
+				if(!change || !istype(H))
+					return
+				H.blood_color = change
 
 		H.update_hair()
 		H.update_body()

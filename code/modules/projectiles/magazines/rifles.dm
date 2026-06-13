@@ -10,14 +10,14 @@
 	icon_state_mini = "mag_rifle"
 	w_class = WEIGHT_CLASS_NORMAL
 	default_ammo = /datum/ammo/bullet/rifle
-	max_rounds = 40
+	max_rounds = 50
 
 /obj/item/ammo_magazine/rifle/extended
 	name = "\improper PR-412 extended magazine (10x24mm)"
 	desc = "A 10mm assault extended rifle magazine."
 	icon_state = "m412_ext"
 	icon_state_mini = "mag_rifle_big_yellow"
-	max_rounds = 60
+	max_rounds = 70
 	bonus_overlay = "m412_ex"
 
 /obj/item/ammo_magazine/rifle/incendiary
@@ -228,12 +228,37 @@
 
 /obj/item/ammo_magazine/rifle/m16
 	name = "\improper M16 magazine (5.56x45mm)"
-	desc = "A 5.56x45mm magazine for the M16 assault rifle platform."
+	desc = "A thirty round 5.56x45mm magazine for the M16 assault rifle platform."
 	caliber = CALIBER_556X45
-	icon_state = "m16" //PLACEHOLDER
-	icon_state_mini = "mag_rifle_big"
+	icon_state = "m16"
+	icon_state_mini = "mag_rifle"
+	bonus_overlay = "m16_mag"
 	default_ammo = /datum/ammo/bullet/rifle
-	max_rounds = 30 //Also comes in 30 and 100 round Beta-C mag.
+	max_rounds = 30 //Other variants include a quad stacked 60 mag and 100 round Beta-C mag.
+
+/obj/item/ammo_magazine/rifle/m16_quadstack
+	name = "\improper M16 quad stacked magazine (5.56x45mm)"
+	desc = "A sixty round 5.56x45mm quad stacked magazine for the M16 assault rifle platform."
+	caliber = CALIBER_556X45
+	icon_state = "m16quad"
+	icon_state_mini = "mag_rifle_big"
+	bonus_overlay = "m16_quadmag"
+	default_ammo = /datum/ammo/bullet/rifle
+	max_rounds = 60 //Also comes in 30 and 100 round Beta-C mag.
+	aim_speed_mod = 0.2
+	wield_delay_mod = 0.2 SECONDS
+
+/obj/item/ammo_magazine/rifle/m16_cmag
+	name = "\improper M16 beta c-mag (5.56x45mm)"
+	desc = "A hundred round 5.56x45mm beta-c mag for the M16 assault rifle platform."
+	caliber = CALIBER_556X45
+	icon_state = "m16cmag"
+	icon_state_mini = "mag_drum"
+	bonus_overlay = "m16_cmag"
+	default_ammo = /datum/ammo/bullet/rifle
+	max_rounds = 100 //Also comes in 30 and 100 round Beta-C mag.
+	aim_speed_mod = 0.4
+	wield_delay_mod = 0.4 SECONDS
 
 //-------------------------------------------------------
 //FAMAS RIFLE
@@ -783,7 +808,7 @@
 	caliber = CALIBER_12G
 	icon_state = "ml41"
 	default_ammo = /datum/ammo/bullet/shotgun/flechette
-	max_rounds = 16
+	max_rounds = 20
 	icon_state_mini = "mag_rifle"
 
 /obj/item/ammo_magazine/rifle/icc_autoshotgun/rubber

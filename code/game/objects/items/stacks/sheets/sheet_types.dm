@@ -20,6 +20,8 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	/obj/machinery/constructable_frame = new /datum/stack_recipe("machine frame", /obj/machinery/constructable_frame, 4, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), \
 	/obj/structure/girder = new /datum/stack_recipe("wall girder", /obj/structure/girder, 8, time = 10 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_ADVANCED), \
 	/obj/structure/window_frame = new /datum/stack_recipe("window frame", /obj/structure/window_frame, 4, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), \
+	/obj/structure/window_frame/colony = new /datum/stack_recipe("colony window frame", /obj/structure/window_frame/colony, 4, time = 2.5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), \
+	/obj/structure/window_frame/colony/reinforced = new /datum/stack_recipe("reinforced colony window frame", /obj/structure/window_frame/colony/reinforced, 4, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), \
 	/obj/item/stack/rods = new /datum/stack_recipe("metal rod", /obj/item/stack/rods, 1, 4, 60, crafting_flags = NONE), \
 	/obj/item/stack/tile/plasteel = new /datum/stack_recipe("floor tile", /obj/item/stack/tile/plasteel, 1, 4, 20, crafting_flags = NONE), \
 	null, \

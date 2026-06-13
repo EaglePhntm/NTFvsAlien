@@ -8356,7 +8356,7 @@
 /area/antag_ship/pmc_ntf/center/armory)
 "Rk" = (
 /obj/docking_port/stationary/crashmode{
-	name = "CLF Crashland point";
+	name = "Cult Crashland point";
 	id = "clfcrashland"
 	},
 /turf/open/floor/plating/ground/dirt,

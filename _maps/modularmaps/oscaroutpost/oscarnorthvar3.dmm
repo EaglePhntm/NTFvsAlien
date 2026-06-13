@@ -411,7 +411,7 @@
 /area/oscar_outpost/outside/northwest)
 "cd" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/machinery/camera/autoname/mainship,
 /turf/open/floor/engine/cult{
 	dir = 2
@@ -759,7 +759,7 @@
 /area/oscar_outpost/outside/west)
 "dU" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -927,7 +927,6 @@
 /area/oscar_outpost)
 "fg" = (
 /obj/structure/platform/rockcliff{
-	climb_delay = 20;
 	dir = 8
 	},
 /turf/open/floor/mainship_hull/dir{
@@ -1591,7 +1590,6 @@
 /area/oscar_outpost/outside/northwest)
 "jz" = (
 /obj/structure/platform/rockcliff{
-	climb_delay = 20;
 	dir = 4
 	},
 /turf/open/floor/mainship_hull/dir{
@@ -4929,7 +4927,7 @@
 /area/oscar_outpost/outside/east)
 "IA" = (
 /obj/structure/table/reinforced/prison,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/mainship/sterile,
 /area/oscar_outpost)
 "IB" = (
@@ -5304,7 +5302,7 @@
 /area/oscar_outpost/outside/east)
 "LJ" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor,
 /area/oscar_outpost)
 "LY" = (

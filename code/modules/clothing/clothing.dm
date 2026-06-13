@@ -28,6 +28,7 @@
 	///Increases your stamina regen by 100*this%.  Can be negative.
 	var/stamina_regen_mod = 0
 
+	var/shows_butt = FALSE
 	var/shows_bottom_genital = FALSE
 	var/shows_top_genital = FALSE
 
@@ -275,6 +276,7 @@
 		slot_l_hand_str = 'icons/mob/inhands/clothing/masks_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/clothing/masks_right.dmi',
 	)
+	worn_icon_muzzled = 'ntf_modular/icons/mob/clothing/mask_muzzled.dmi'
 	equip_slot_flags = ITEM_SLOT_MASK
 	armor_protection_flags = FACE|EYES
 	blood_sprite_state = "maskblood"

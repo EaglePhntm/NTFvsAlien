@@ -1,7 +1,7 @@
 /datum/game_mode/infestation/crash
 	name = "Crash"
 	config_tag = "Crash"
-	round_type_flags = MODE_INFESTATION|MODE_XENO_SPAWN_PROTECT|MODE_DISALLOW_RAILGUN|MODE_ALLOW_MARINE_QUICKBUILD
+	round_type_flags = MODE_INFESTATION|MODE_XENO_SPAWN_PROTECT|MODE_DISALLOW_RAILGUN|MODE_ALLOW_MARINE_QUICKBUILD|MODE_APC_ALL_ACCESS
 	xeno_abilities_flags = ABILITY_CRASH
 	valid_job_types = list(
 		/datum/job/terragov/squad/standard = -1,
@@ -12,7 +12,7 @@
 		/datum/job/terragov/medical/professor = 1,
 		/datum/job/terragov/silicon/synthetic = 1,
 		/datum/job/terragov/command/fieldcommander = 1,
-		/datum/job/xenomorph = FREE_XENO_AT_START
+		/datum/job/xenomorph = 2
 	)
 	job_points_needed_by_job_type = list(
 		/datum/job/terragov/squad/smartgunner = 20,
@@ -22,14 +22,14 @@
 	)
 	respawn_time = 15 MINUTES
 	xenorespawn_time = 3 MINUTES
-	blacklist_ground_maps = list(MAP_COLONY1, MAP_BIG_RED, MAP_DELTA_STATION, MAP_PRISON_STATION, MAP_LV_624, MAP_WHISKEY_OUTPOST, MAP_OSCAR_OUTPOST, MAP_FORT_PHOBOS, MAP_CHIGUSA, MAP_LAVA_OUTPOST, MAP_CORSAT, MAP_KUTJEVO_REFINERY, MAP_BLUESUMMERS)
+	whitelist_ship_maps = list(MAP_EAGLE_CLASSIC)
+	blacklist_ground_maps = list(MAP_COLONY1, MAP_BIG_RED, MAP_DELTA_STATION, MAP_PRISON_STATION, MAP_LV_624, MAP_LV_624BASES, MAP_WHISKEY_OUTPOST, MAP_OSCAR_OUTPOST, MAP_FORT_PHOBOS, MAP_CHIGUSA, MAP_LAVA_OUTPOST, MAP_CORSAT, MAP_KUTJEVO_REFINERY, MAP_BLUESUMMERS)
 	tier_three_penalty = 1
 	tier_three_inclusion = TRUE
-	caste_swap_cooldown = 5 MINUTES
 	/*
 	restricted_castes = list(/datum/xeno_caste/wraith, /datum/xeno_caste/hivemind)
 	*/
-	time_between_round = 32 HOURS
+	time_between_round = 1 HOURS
 	silo_scaling = 0.3
 
 	// Round end conditions
@@ -43,9 +43,11 @@
 	// Round start info
 	var/starting_squad = "Alpha"
 	///How long between two larva check
-	var/larva_check_interval = 2 MINUTES
+	var/larva_check_interval = 9.9 SECONDS
 	///Last time larva balance was checked
 	var/last_larva_check
+	var/last_larva_calculation_result = 0
+	var/last_larva_calculation_time = 0
 	bioscan_interval = 0
 	max_larva_preg_at_once = 1
 
@@ -214,23 +216,39 @@
 	var/datum/hive_status/normal/xeno_hive = GLOB.hive_datums[XENO_HIVE_NORMAL]
 	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
 	// Spawn more xenos to help maintain the ratio.
-	var/xenomorphs_below_ratio = get_jobpoint_difference() / xeno_job.job_points_needed
-	if(xenomorphs_below_ratio >= 1)
-		xeno_job.add_job_positions(1)
-		xeno_hive.update_tier_limits()
+	var/jobpoint_difference = get_jobpoint_difference()
+	var/xenomorphs_below_ratio = jobpoint_difference / xeno_job.job_points_needed
+	log_game("Crash autobalance estimates [xenomorphs_below_ratio] extra xenos needed for balance.")
+	if(jobpoint_difference > xeno_job.job_points)
+		if(SSmonitor.gamestate == SHUTTERS_CLOSED)
+			log_game("Adding 1 Xenomorph larva due to low xenos per marine before ship landing on crash.")
+			GLOB.round_statistics.larva_from_crash_autobalance++
+			xeno_job.add_job_positions(1)
+			xeno_hive.update_tier_limits()
+		else
+			log_game("Adding 0.125 Xenomorph larva due to low xenos per marine on crash.")
+			GLOB.round_statistics.larva_from_crash_autobalance += 0.125
+			xeno_job.add_job_points(xeno_job.job_points_needed * 0.125)
+			xeno_hive.update_tier_limits()
 		return
 	// Make sure there is at least two xenos regardless of ratio.
 	var/total_xenos = xeno_hive.get_total_xeno_number() + (xeno_job.total_positions - xeno_job.current_positions)
 	if(total_xenos < 2)
-		xeno_job.add_job_positions(1)
+		log_game("Adding 0.125 Xenomorph larva due to low xeno pop on crash.")
+		GLOB.round_statistics.larva_from_crash_autobalance += 0.125
+		xeno_job.add_job_points(xeno_job.job_points_needed * 0.125)
 		xeno_hive.update_tier_limits()
 
 /// Gets the difference of job points between humans and xenos. Negative means too many xenos. Positive means too many humans.
 /datum/game_mode/infestation/crash/proc/get_jobpoint_difference()
+	if(world.time < last_larva_calculation_time + 1 SECONDS)
+		return last_larva_calculation_result
 	var/datum/hive_status/normal/xeno_hive = GLOB.hive_datums[XENO_HIVE_NORMAL]
 	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
 	var/total_xenos = xeno_hive.get_total_xeno_number() + (xeno_job.total_positions - xeno_job.current_positions)
-	return get_total_joblarvaworth() - (total_xenos * xeno_job.job_points_needed)
+	last_larva_calculation_result = get_total_joblarvaworth() - (total_xenos * xeno_job.job_points_needed)
+	. = last_larva_calculation_result
+	last_larva_calculation_time = world.time
 
 /datum/game_mode/infestation/crash/get_total_joblarvaworth(list/z_levels, count_flags = COUNT_IGNORE_HUMAN_SSD)
 	. = 0
@@ -264,3 +282,22 @@
 		var/jobpoint_difference = get_jobpoint_difference() + amount
 		adjusted_jobworth_list[index] = clamp(jobpoint_difference, 0, amount)
 	return adjusted_jobworth_list
+
+/datum/game_mode/infestation/crash/on_disk_segment_completed(datum/source, generating_computer)
+	for(var/mob/living/carbon/human/human AS in GLOB.human_mob_list)
+		if(!human.job)
+			continue
+		var/obj/item/card/id/user_id =  human.get_idcard()
+		if(!user_id)
+			continue
+		for(var/i in user_id.marine_points)
+			if(i == CAT_ZOMBIE_CRASH)
+				continue
+			user_id.marine_points[i] += 2
+
+/datum/game_mode/infestation/crash/get_status_tab_items(datum/dcs, mob/source, list/items)
+	..()
+	if(/datum/job/xenomorph in valid_job_types)
+		var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+		items += "Autobalance estimated larva needed to add for balance: [get_jobpoint_difference()/xeno_job.job_points_needed]"
+

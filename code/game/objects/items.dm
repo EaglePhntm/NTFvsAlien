@@ -22,7 +22,7 @@
 	///Byond tick delay between left click attacks
 	var/attack_speed = CLICK_CD_MELEE_WEAPON_DEFAULT
 	///Byond tick delay between right click alternate attacks
-	var/attack_speed_alternate = CLICK_CD_MELEE_WEAPON_DEFAULT
+	var/attack_speed_alternate = null
 	///Used in attackby() to say how something was attacked "[x] [z.attack_verb] [y] with their [z]!" Should be in simple present tense!
 	var/list/attack_verb
 
@@ -118,6 +118,10 @@
 	var/list/worn_item_state_slots
 	///>LazyList< Used to specify the icon file to be used when the item is worn in a certain slot. icon_override or sprite_sheets are set they will take precendence over this, assuming they apply to the slot in question.
 	var/list/worn_icon_list
+	///Icon file for mob worn overlays on snouted characters.
+	var/icon/worn_icon_muzzled
+	///Slot-specific worn icon files for snouted characters.
+	var/list/worn_icon_muzzled_list
 	///specific layer for on-mob icon.
 	var/worn_layer
 	///tells if the item shall use worn_icon_state for non-inhands, needed due to some items using worn_icon_state only for inhands and not worn.
@@ -193,6 +197,9 @@
 
 	if(autobalance_monitor_value)
 		AddComponent(/datum/component/autobalance_monitor, autobalance_monitor_value)
+
+	if(!isnum(attack_speed_alternate))
+		attack_speed_alternate = attack_speed
 
 /obj/item/Destroy()
 	if(ismob(loc))
@@ -298,8 +305,6 @@
 	. = ..()
 	if(.)
 		return
-	if(!user)
-		return
 	if(!istype(user))
 		return
 	if(anchored)
@@ -313,16 +318,18 @@
 		if(!current_storage.remove_from_storage(src, user.loc, user))
 			return
 
-	if(loc == user && !user.temporarilyRemoveItemFromInventory(src))
-		return
+	if(ismob(loc)) //you shouldn't be able to click on items directly if they are on a mob, other than your own inventory.
+		if(loc != user) //stops a tremendous number of exploits and ghost dupes due to byond being shitty.
+			return
+		if(!user.temporarilyRemoveItemFromInventory(src))
+			return
 
 	if(QDELETED(src))
 		return
 
 	pickup(user)
 	if(!user.put_in_active_hand(src))
-		user.dropItemToGround(src)
-		dropped(user)
+		return
 
 
 /obj/item/update_icon_state()
@@ -1260,9 +1267,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	return TRUE
 
 ///Generates worn icon for sprites on-mob.
-/obj/item/proc/make_worn_icon(species_type, slot_name, inhands, default_icon, default_layer)
+/obj/item/proc/make_worn_icon(species_type, slot_name, inhands, default_icon, default_layer, icon_file_override)
 	//Get the required information about the base icon
-	var/iconfile2use = get_worn_icon_file(species_type = species_type, slot_name = slot_name, default_icon = default_icon, inhands = inhands)
+	var/iconfile2use = get_worn_icon_file(species_type = species_type, slot_name = slot_name, default_icon = default_icon, inhands = inhands, icon_file_override = icon_file_override)
 	var/state2use = get_worn_icon_state(slot_name = slot_name, inhands = inhands)
 	var/layer2use = !inhands && worn_layer ? -worn_layer : -default_layer
 
@@ -1300,7 +1307,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	return standing
 
 ///gets what icon dmi file shall be used for the on-mob sprite
-/obj/item/proc/get_worn_icon_file(species_type,slot_name,default_icon,inhands)
+/obj/item/proc/get_worn_icon_file(species_type,slot_name,default_icon,inhands, icon_file_override)
 
 	//1: icon_override var
 	if(icon_override)
@@ -1311,7 +1318,11 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(. && !inhands)
 		return
 
-	//3: slot-specific sprite sheets
+	//3: caller-provided override, such as snouted worn icon variants.
+	if(icon_file_override)
+		return icon_file_override
+
+	//4: slot-specific sprite sheets
 	. = LAZYACCESS(worn_icon_list, slot_name)
 	if(.)
 		return
@@ -1322,6 +1333,13 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	//6: give error
 	CRASH("[src] dind't manage to find a icon file for worn onmob icon.")
+
+///Returns a snout-compatible worn icon file for this item and slot, if one is defined.
+/obj/item/proc/get_snouted_worn_icon_file(slot_name)
+	. = LAZYACCESS(worn_icon_muzzled_list, slot_name)
+	if(.)
+		return
+	return worn_icon_muzzled
 
 ///Returns the state that should be used for the on-mob icon
 /obj/item/proc/get_worn_icon_state(slot_name, inhands)

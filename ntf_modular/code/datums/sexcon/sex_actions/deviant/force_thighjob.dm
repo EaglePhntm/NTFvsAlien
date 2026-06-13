@@ -4,13 +4,16 @@
 /datum/sex_action/force_thighjob/shows_on_menu(mob/living/carbon/user, mob/living/carbon/target)
 	if(user == target)
 		return FALSE
-
+	if(target.gender != MALE && !target.sexcon.can_use_penis())
+		return FALSE
 	return TRUE
 
 /datum/sex_action/force_thighjob/can_perform(mob/living/carbon/user, mob/living/carbon/target)
 	if(user == target)
 		return FALSE
 
+	if(target.gender != MALE && !target.sexcon.can_use_penis())
+		return FALSE
 	return TRUE
 
 /datum/sex_action/force_thighjob/on_start(mob/living/carbon/user, mob/living/carbon/target)
@@ -29,7 +32,6 @@
 	target.sexcon.handle_passive_ejaculation(user)
 
 /datum/sex_action/force_thighjob/on_finish(mob/living/carbon/user, mob/living/carbon/target)
-	..()
 	user.visible_message(span_warning("[user] stops jerking [target] off with [user.p_their()] thighs..."))
 
 /datum/sex_action/force_thighjob/is_finished(mob/living/carbon/user, mob/living/carbon/target)

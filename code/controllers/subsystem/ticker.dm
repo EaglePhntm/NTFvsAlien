@@ -50,7 +50,7 @@ SUBSYSTEM_DEF(ticker)
 
 	start_at = world.time + (CONFIG_GET(number/lobby_countdown) * 1 SECONDS)
 	login_music = choose_lobby_song()
-	for(var/client/player AS in GLOB.clients)
+	for(var/client/player AS in GLOB.whitelisted_clients)
 		player.play_title_music()
 
 	return SS_INIT_SUCCESS
@@ -72,7 +72,7 @@ SUBSYSTEM_DEF(ticker)
 		if(GAME_STATE_STARTUP)
 			if(Master.initializations_finished_with_no_players_logged_in && !length(GLOB.clients))
 				start_at = world.time + (CONFIG_GET(number/lobby_countdown) * 1 SECONDS)
-			for(var/client/C in GLOB.clients)
+			for(var/client/C in GLOB.whitelisted_clients)
 				window_flash(C)
 			to_chat(world,
 				custom_boxed_message("red_box",
@@ -119,16 +119,19 @@ SUBSYSTEM_DEF(ticker)
 
 			if(!roundend_check_paused && mode.check_finished(force_ending) || force_ending)
 				current_state = GAME_STATE_FINISHED
+				SSblackbox.Seal()
+				seal_persistent_medals()
 				GLOB.ooc_allowed = TRUE
 				GLOB.dooc_allowed = TRUE
 				GLOB.round_statistics.round_length = (world.time - SSticker.round_start_time)
 				mode.declare_completion(force_ending)
 				world.TgsTriggerEvent("tg-Roundend", wait_for_completion = TRUE)
-				addtimer(CALLBACK(SSvote, TYPE_PROC_REF(/datum/controller/subsystem/vote, automatic_vote)), 2 SECONDS)
-				addtimer(CALLBACK(src, PROC_REF(Reboot)), CONFIG_GET(number/vote_period) * 3 + 9 SECONDS)
+				addtimer(CALLBACK(SSvote, TYPE_PROC_REF(/datum/controller/subsystem/vote, automatic_vote)), (2 + CONFIG_GET(number/mission_end_countdown)) SECONDS)
+				addtimer(CALLBACK(src, PROC_REF(Reboot), "Round ended.", 30 SECONDS), (CONFIG_GET(number/vote_period) * 3 + (9 + CONFIG_GET(number/mission_end_countdown)) SECONDS))
 				Master.SetRunLevel(RUNLEVEL_POSTGAME)
 				for(var/client/C AS in GLOB.clients)
 					C.mob?.update_sight() // To reveal ghosts
+				to_chat(world, span_boldnotice("Automatic gamemode vote starting in [CONFIG_GET(number/mission_end_countdown)] seconds"))
 
 
 /datum/controller/subsystem/ticker/proc/setup()
@@ -159,6 +162,7 @@ SUBSYSTEM_DEF(ticker)
 		return FALSE
 
 	CHECK_TICK
+	status_update_next_gamemode(mode.name, FALSE, TRUE)
 	mode.announce()
 
 	if(CONFIG_GET(flag/autooocmute))
@@ -275,7 +279,7 @@ SUBSYSTEM_DEF(ticker)
 	set waitfor = FALSE
 	round_end_sound_sent = FALSE
 	round_end_sound = fcopy_rsc(the_sound)
-	for(var/client/cli AS in GLOB.clients)
+	for(var/client/cli AS in GLOB.whitelisted_clients)
 		cli.Export("##action=load_rsc", round_end_sound)
 	round_end_sound_sent = TRUE
 
@@ -285,6 +289,8 @@ SUBSYSTEM_DEF(ticker)
 		GLOB.master_mode = mode
 	else
 		GLOB.master_mode = "Extended"
+	GLOB.next_gamemode_pinged = GLOB.master_mode
+	GLOB.next_gamemode = GLOB.master_mode
 	log_game("Saved mode is '[GLOB.master_mode]'")
 
 
@@ -292,6 +298,7 @@ SUBSYSTEM_DEF(ticker)
 	var/F = file("data/mode.txt")
 	fdel(F)
 	WRITE_FILE(F, the_mode)
+	GLOB.next_gamemode = the_mode
 
 
 /datum/controller/subsystem/ticker/proc/Reboot(reason, delay)

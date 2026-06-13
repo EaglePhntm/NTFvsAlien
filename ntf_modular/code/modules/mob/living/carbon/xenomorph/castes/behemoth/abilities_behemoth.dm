@@ -69,7 +69,6 @@
 	name = "siege pillar"
 
 /obj/structure/earth_pillar/siege/tail_stab_act(mob/living/carbon/xenomorph/xeno, damage, target_zone, penetration, structure_damage_multiplier, stab_description, disorientamount, can_hit_turf)
-	. = ..()
 	if(xeno.blunt_stab)
 		stab_description = "strong tail-whip"
 		var/the_direction = xeno.dir
@@ -235,7 +234,7 @@
 
 ///Start the acid cone spray in the correct direction
 /datum/action/ability/activable/xeno/shard_burst/cone/proc/start_shard_burst_cone(turf/T, range)
-	var/facing = angle_to_dir(Get_Angle(owner, T))
+	var/facing = angle2dir(Get_Angle(owner, T))
 	owner.setDir(facing)
 	switch(facing)
 		if(NORTH, SOUTH, EAST, WEST)

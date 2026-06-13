@@ -8,7 +8,6 @@
 	icon = 'icons/obj/structures/prop/mainship.dmi'
 	density = TRUE
 	anchored = TRUE
-	climbable = TRUE
 	resistance_flags = XENO_DAMAGEABLE
 	coverage = 20
 	allow_pass_flags = PASS_LOW_STRUCTURE|PASSABLE|PASS_WALKOVER
@@ -52,6 +51,9 @@
 	///Crosshair to use when this ammo is loaded
 	var/crosshair = 'icons/UI_Icons/cas_crosshairs/gun.dmi'
 
+/obj/structure/ship_ammo/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/climbable)
 
 /obj/structure/ship_ammo/attack_powerloader(mob/living/user, obj/item/powerloader_clamp/attached_clamp)
 	. = ..()
@@ -411,6 +413,9 @@
 		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
 			continue
 		if(ads.try_intercept(impact, src, 0.5, 5))
+			var/datum/effect_system/smoke_spread/debris/S = new
+			S.set_up(1, impact)
+			S.start()
 			qdel(src)
 			return
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, explosion_cause=src)
@@ -470,6 +475,9 @@
 		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
 			continue
 		if(ads.try_intercept(impact, src, 0.5, 5))
+			var/datum/effect_system/smoke_spread/debris/S = new
+			S.set_up(1, impact)
+			S.start()
 			qdel(src)
 			return
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, explosion_cause=src)
@@ -498,6 +506,9 @@
 		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
 			continue
 		if(ads.try_intercept(impact, src, 0.5, 5))
+			var/datum/effect_system/smoke_spread/debris/S = new
+			S.set_up(1, impact)
+			S.start()
 			qdel(src)
 			return
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, flame_range = fire_range, explosion_cause=src) //more spread out, with flames
@@ -524,6 +535,9 @@
 		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
 			continue
 		if(ads.try_intercept(impact, src, 0.5, 5))
+			var/datum/effect_system/smoke_spread/debris/S = new
+			S.set_up(1, impact)
+			S.start()
 			qdel(src)
 			return
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, explosion_cause=src) //first explosion is small to trick xenos into thinking its a minirocket.
@@ -606,6 +620,9 @@
 		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
 			continue
 		if(ads.try_intercept(impact, src, 0.5, 5))
+			var/datum/effect_system/smoke_spread/debris/S = new
+			S.set_up(1, impact)
+			S.start()
 			return
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, explosion_cause=src)
 
@@ -637,6 +654,9 @@
 		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
 			continue
 		if(ads.try_intercept(impact, src, 0.5, 5))
+			var/datum/effect_system/smoke_spread/debris/S = new
+			S.set_up(1, impact)
+			S.start()
 			return
 	flame_radius(fire_range, impact)
 
@@ -654,14 +674,18 @@
 
 /obj/structure/ship_ammo/cas/minirocket/smoke/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
-	var/datum/effect_system/smoke_spread/tactical/S = new
-	S.set_up(7, impact)// Large radius, but dissipates quickly
-	S.start()
+	var/datum/effect_system/smoke_spread/tactical/S
 	for(var/obj/machinery/deployable/mounted/sentry/ads_system/ads in range(GLOB.ads_intercept_range,impact))
 		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
 			continue
 		if(ads.try_intercept(impact, src, 0.5, 5))
+			S = new /datum/effect_system/smoke_spread/debris()
+			S.set_up(1, impact)
+			S.start()
 			return //shit happen anyway
+	S = new
+	S.set_up(7, impact)// Large radius, but dissipates quickly
+	S.start()
 
 /obj/structure/ship_ammo/cas/minirocket/tangle
 	name = "Tanglefoot mini rocket stack"
@@ -678,13 +702,15 @@
 /obj/structure/ship_ammo/cas/minirocket/tangle/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
 	var/datum/effect_system/smoke_spread/plasmaloss/S = new
-	S.set_up(9, impact, 9)// Between grenade and mortar
-	S.start()
 	for(var/obj/machinery/deployable/mounted/sentry/ads_system/ads in range(GLOB.ads_intercept_range,impact))
 		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
 			continue
 		if(ads.try_intercept(impact, src, 0.5, 5))
+			S.set_up(1, impact, 4)
+			S.start()
 			return
+	S.set_up(9, impact, 9)// Between grenade and mortar
+	S.start()
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, throw_range = 0, explosion_cause=src)
 
 /obj/structure/ship_ammo/cas/minirocket/illumination
@@ -709,6 +735,9 @@
 		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
 			continue
 		if(ads.try_intercept(impact, src, 0.5, 5))
+			var/datum/effect_system/smoke_spread/debris/S = new
+			S.set_up(1, impact)
+			S.start()
 			return
 	addtimer(CALLBACK(src, PROC_REF(drop_cas_flare), impact), 1.5 SECONDS)
 
@@ -744,6 +773,9 @@
 		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
 			continue
 		if(ads.try_intercept(impact, src, 0.5, 5))
+			var/datum/effect_system/smoke_spread/debris/S = new
+			S.set_up(1, impact)
+			S.start()
 			return
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, explosion_cause=src)
 
@@ -807,6 +839,9 @@
 		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
 			continue
 		if(ads.try_intercept(impact, src, 0.5, 5))
+			var/datum/effect_system/smoke_spread/debris/S = new
+			S.set_up(1, impact)
+			S.start()
 			return
 	explosion(impact, heavy_explosion_range, light_explosion_range, explosion_cause=src)
 

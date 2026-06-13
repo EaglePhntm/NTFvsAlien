@@ -70,6 +70,11 @@
 	deselect()
 	return ..()
 
+/datum/action/item_action/toggle/stun_proof/can_use_action(silent, override_flags, selecting)
+	if(QDELETED(owner) || owner.stat || owner.restrained())
+		return FALSE
+	return TRUE
+
 /datum/action/item_action/toggle/suit_toggle
 	keybinding_signals = list(KEYBINDING_NORMAL = COMSIG_KB_SUITLIGHT)
 
@@ -141,3 +146,19 @@
 /datum/action/item_action/aim_mode/action_activate()
 	var/obj/item/weapon/gun/I = target
 	I.toggle_auto_aim_mode(owner)
+
+/datum/action/item_action/aim_mode/ai_should_start_consider()
+	return TRUE
+
+/datum/action/item_action/aim_mode/ai_should_use(target)
+	var/obj/item/weapon/gun/I = src.target
+	if(HAS_TRAIT(I, TRAIT_GUN_IS_AIMING))
+		return FALSE
+	if(!((I.item_flags & FULLY_WIELDED) || (I.item_flags & IS_DEPLOYED)))
+		return FALSE
+	var/mob/living/carbon/human/human_owner = owner
+	if(!istype(human_owner))
+		return FALSE
+	if(!(human_owner.marksman_aura))
+		return FALSE
+	return TRUE

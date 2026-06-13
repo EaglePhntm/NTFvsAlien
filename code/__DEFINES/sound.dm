@@ -167,8 +167,11 @@
 #define SFX_MALE_PREBURST "male_preburst"
 #define SFX_FEMALE_PREBURST "female_preburst"
 #define SFX_JUMP "jump"
+//ntf additions
 #define SFX_ROBOT_SCREAM "robot_scream"
 #define SFX_ROBOT_PAIN "robot_pain"
 #define SFX_ROBOT_WARCRY "robot_warcry"
 #define SFX_ROBOT_NOISES "robot_noises"
 #define SFX_ROBOT_THREATEN "robot_threaten"
+#define SFX_LARVA_TALK "larva_talk"
+//ntf end

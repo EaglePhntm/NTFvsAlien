@@ -127,7 +127,7 @@
 
 
 /datum/emote/living/carbon/xenomorph/run_emote(mob/user, params, type_override, intentional = FALSE, prefix)
-	if(istype(user, /mob/living/carbon/xenomorph/larva))
+	if(istype(user, /mob/living/carbon/xenomorph/larva) || isxenofacehugger(user))
 		playsound(user.loc, SFX_ALIEN_ROAR_LARVA, 15)
 	else
 		return ..()

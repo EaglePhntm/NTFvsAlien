@@ -64,6 +64,7 @@
 #define COOLDOWN_ARMORED_TESLA "cooldown_armored_tesla"
 #define COOLDOWN_LOCATE_APC "cooldown_locate_apc"
 #define COOLDOWN_PDA_PLAY "cooldown_pda_play"
+#define COOLDOWN_AMBROSIA_HEALING "cooldown_ambrosia_healing"
 
 //Mecha cooldowns
 #define COOLDOWN_MECHA "mecha"

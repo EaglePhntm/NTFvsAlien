@@ -13,9 +13,10 @@
 	appearance_flags = PIXEL_SCALE
 	pixel_x = -56
 	pixel_y = -48
-	max_integrity = 900
-	soft_armor = list(MELEE = 50, BULLET = 100 , LASER = 90, ENERGY = 60, BOMB = 60, BIO = 100, FIRE = 50, ACID = 50)
+	max_integrity = 1000
+	soft_armor = list(MELEE = 50, BULLET = 100, LASER = 90, ENERGY = 90, BOMB = 60, BIO = 100, FIRE = 100, ACID = 50)
 	hard_armor = list(MELEE = 0, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 0, BIO = 20, FIRE = 0, ACID = 0)
+	facing_modifiers = list(VEHICLE_FRONT_ARMOUR = 0.8, VEHICLE_SIDE_ARMOUR = 1, VEHICLE_BACK_ARMOUR = 1.2)
 	permitted_mods = list(
 		/obj/item/tank_module/overdrive,
 		/obj/item/tank_module/ability/zoom,
@@ -31,6 +32,7 @@
 		/obj/item/armored_weapon/secondary_flamer,
 		/obj/item/armored_weapon/tow,
 		/obj/item/armored_weapon/microrocket_pod,
+		/obj/item/armored_weapon/secondary_mlrs,
 	)
 	max_occupants = 4
 	move_delay = 0.6 SECONDS
@@ -47,6 +49,10 @@
 	var/obj/effect/abstract/particle_holder/smoke_holder
 	///Holder for smoke del timer
 	var/smoke_del_timer
+
+/obj/vehicle/sealed/armored/multitile/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/climbable)
 
 /obj/vehicle/sealed/armored/multitile/Destroy()
 	QDEL_NULL(smoke_holder)

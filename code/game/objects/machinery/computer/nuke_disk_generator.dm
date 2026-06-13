@@ -28,6 +28,7 @@
 	max_integrity = 1500
 	integrity_failure = 250
 	resistance_flags = DROPSHIP_IMMUNE|XENO_DAMAGEABLE|PORTAL_IMMUNE|BANISH_IMMUNE|PLASMACUTTER_IMMUNE|CRUSHER_IMMUNE
+	atom_flags = NODECONSTRUCT
 
 
 /obj/machinery/computer/code_generator/nuke/Initialize(mapload)
@@ -59,6 +60,7 @@
 
 	update_minimap_icon()
 	running = FALSE
+	stop_processing()
 
 	if(completed_segments == total_segments)
 		say("Program retrieval successful. Standing by to print...")
@@ -66,18 +68,7 @@
 
 	say("Program run has concluded! Standing by...")
 
-	if(iscrashgamemode(SSticker.mode))
-		if(iszombiecrashgamemode(SSticker.mode))
-			global_rally_zombies(src, TRUE)
-		for(var/mob/living/carbon/human/human AS in GLOB.human_mob_list)
-			if(!human.job)
-				continue
-			var/obj/item/card/id/user_id =  human.get_idcard()
-			if(!user_id)
-				continue
-			for(var/i in user_id.marine_points)
-				user_id.marine_points[i] += 2
-		return
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_DISK_SEGMENT_COMPLETED, src)
 
 	// Requisitions points bonus per cycle.
 	var/disk_cycle_reward = DISK_CYCLE_REWARD_MIN + ((DISK_CYCLE_REWARD_MAX - DISK_CYCLE_REWARD_MIN) * (SSmonitor.maximum_connected_players_count / HIGH_PLAYER_POP))
@@ -86,7 +77,7 @@
 	if(!faction)
 		return
 	SSpoints.add_supply_points(faction, disk_cycle_reward)
-	SSpoints.add_dropship_points(faction, disk_cycle_reward/10)
+	SSpoints.add_dropship_points(faction, disk_cycle_reward/2)
 	GLOB.round_statistics.points_from_objectives += disk_cycle_reward
 
 	say("Program has execution has rewarded [disk_cycle_reward] requisitions points to [faction]!")
@@ -105,7 +96,7 @@
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_DISK_GENERATED, src)
 	busy = FALSE
 	// Self destruct for sol gamemode
-	if(SSticker.mode.round_type_flags & MODE_SINGLE_USE_NUKE_DISK_GENERATOR)
+	if(SSticker.mode.round_type_flags2 & MODE_2_SINGLE_USE_NUKE_DISK_GENERATOR)
 		visible_message(span_danger("\the [src] emits a high-pitched whine before sparking violently! It's starting to self-destruct due to security measures! Clear the area immediately!"))
 		priority_announce("\The [src] was printed by [user.faction] and begun a self-destruct sequence!", "Warning!")
 		animate(src, color = COLOR_RED, time = 8 SECONDS)

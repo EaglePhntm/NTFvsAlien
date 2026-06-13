@@ -47,6 +47,9 @@
 	///List of learned recipe TYPES.
 	var/list/learned_recipes
 
+	///Have used a skill book.
+	var/skillbookused = FALSE
+
 /datum/mind/New(key)
 	src.key = key
 

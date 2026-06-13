@@ -3903,6 +3903,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/effect/landmark/patrol_point/xeno/xeno_21,
 /turf/open/floor/prison/bright_clean,
 /area/desert_dam/interior/dam_interior/engine_east_wing)
 "awE" = (
@@ -14115,6 +14116,11 @@
 	dir = 4
 	},
 /area/desert_dam/building/security/warden)
+"bMA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/patrol_point/xeno/xeno_11,
+/turf/open/floor/prison/bright_clean,
+/area/desert_dam/interior/dam_interior/engine_west_wing)
 "bME" = (
 /obj/structure/rack,
 /obj/item/stack/sheet/wood{
@@ -37011,6 +37017,12 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/desert_dam/exterior/valley/valley_cargo)
+"jvp" = (
+/obj/effect/landmark/sensor_tower,
+/turf/open/floor/plating/ground/mars/random/cave{
+	dir = 8
+	},
+/area/desert_dam/exterior/valley/valley_crashsite)
 "jvN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -40347,7 +40359,7 @@
 "lyk" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/tech_supply,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/prison/blue{
 	dir = 1
 	},
@@ -40968,6 +40980,11 @@
 	dir = 1
 	},
 /area/desert_dam/exterior/valley/valley_hydro)
+"lTY" = (
+/obj/structure/desertdam/decals/road,
+/obj/effect/landmark/sensor_tower,
+/turf/open/floor/plating/ground/desertdam/asphalt,
+/area/desert_dam/exterior/valley/valley_northwest)
 "lUk" = (
 /obj/machinery/computer/intel_computer,
 /turf/open/floor/prison/whitegreen/full,
@@ -41903,6 +41920,10 @@
 	},
 /turf/open/floor/plating/ground/desertdam/asphalt/tile,
 /area/desert_dam/exterior/valley/valley_telecoms)
+"mBn" = (
+/obj/effect/landmark/sensor_tower,
+/turf/open/floor/plating/ground/desertdam/asphalt/edge,
+/area/desert_dam/exterior/valley/valley_medical)
 "mBs" = (
 /obj/structure/cable,
 /turf/open/floor/tile/white,
@@ -44454,6 +44475,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/prison,
 /area/desert_dam/interior/dam_interior/atmos_storage)
+"okN" = (
+/obj/effect/landmark/sensor_tower,
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/desert_dam/exterior/valley/valley_hydro)
 "okO" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/warning{
@@ -44966,6 +44991,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/asteroidplating,
 /area/desert_dam/exterior/valley/valley_crashsite)
+"oDn" = (
+/obj/effect/landmark/sensor_tower,
+/turf/open/floor/plating/ground/desertdam/asphalt/tile,
+/area/desert_dam/exterior/valley/valley_civilian)
 "oDZ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -54167,6 +54196,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark2,
 /area/desert_dam/building/administration/archives)
+"uej" = (
+/obj/effect/landmark/sensor_tower,
+/turf/open/floor/plating,
+/area/desert_dam/exterior/valley/valley_telecoms)
 "uet" = (
 /obj/structure/platform{
 	dir = 8
@@ -74032,7 +74065,7 @@ cHC
 ceA
 ceA
 can
-brr
+uej
 bFt
 ceA
 bZK
@@ -74411,7 +74444,7 @@ aoE
 apz
 aqg
 aqg
-asa
+lTY
 aoE
 aiZ
 aqz
@@ -76406,7 +76439,7 @@ rCV
 eOD
 eOD
 ugc
-eOD
+okN
 eOD
 eOD
 qfI
@@ -84746,7 +84779,7 @@ lev
 iVG
 lBN
 bpP
-iVG
+bMA
 uWd
 bpP
 bCw
@@ -89251,7 +89284,7 @@ ceX
 cjT
 cjT
 cjT
-jXq
+mBn
 cdw
 ceo
 fIK
@@ -100530,7 +100563,7 @@ aKm
 aKm
 kPN
 aKm
-cko
+oDn
 xcN
 qoS
 cVC
@@ -104871,7 +104904,7 @@ aKA
 aKA
 qVZ
 aKA
-aKA
+jvp
 doT
 aKA
 aKy

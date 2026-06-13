@@ -44,6 +44,7 @@
 		/obj/item/attachable/scope/mini,
 		/obj/item/weapon/gun/pistol/plasma_pistol,
 		/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/pistol/g22/tranq,
 		/obj/item/weapon/gun/flamer/mini_flamer,
 		/obj/item/weapon/gun/grenade_launcher/underslung,
 		/obj/item/attachable/motiondetector,
@@ -78,4 +79,4 @@
 	accuracy_variation = 3
 	damage = 30 //No fire burst so maybe fine.
 	sundering = 2.5
-	deflagrate_multiplier = 0
+	deflagrate_mult = 0

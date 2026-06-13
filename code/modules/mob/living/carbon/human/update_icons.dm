@@ -267,6 +267,18 @@ There are several things that need to be remembered:
 		underlays_standing[cache_index] = null
 
 GLOBAL_LIST_EMPTY(damage_icon_parts)
+
+/proc/ntf_sprite_accessory_icon_state(datum/sprite_accessory/accessory, suffix = "_s")
+	if(!accessory?.icon_state)
+		return null
+
+	var/suffixed_state = "[accessory.icon_state][suffix]"
+	var/static/list/state_cache = list()
+	var/cache_key = "[accessory.icon]|[suffixed_state]"
+	if(!(cache_key in state_cache))
+		state_cache[cache_key] = (suffixed_state in icon_states(accessory.icon)) ? suffixed_state : accessory.icon_state
+	return state_cache[cache_key]
+
 ///fetches the damage icon part, and caches it if it made a new one
 /mob/living/carbon/human/proc/get_damage_icon_part(damage_state, body_part)
 	if(GLOB.damage_icon_parts["[damage_state]_[species.blood_color]_[body_part]"])
@@ -331,6 +343,8 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 
 //BASE MOB SPRITE
 /mob/living/carbon/human/proc/update_body(update_icons = 1, force_cache_update = 0)
+	remove_overlay(EYE_EMISSIVE_LAYER)
+
 	var/necrosis_color_mod = rgb(10,50,0)
 
 	var/physique_key = get_gender_name(physique)
@@ -346,15 +360,16 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 
 	stand_icon = new(species.icon_template ? species.icon_template : 'icons/mob/human.dmi',"blank")
 
-	var/icon_key = "[species.race_key][physique_key][ethnicity]"
+	var/race_icon = get_body_icon()
+	var/icon_key = "[species.type]|[species.name]|[race_icon]|[physique_key]|[ethnicity]|[digitigrade_legs]|[synthetic_appearance_species]|[synthetic_body_base]|[robot_body_base]|[robot_head_base]|[custom_supersoldier_parts]|[supersoldier_body_base]|[supersoldier_head_base]"
 	for(var/datum/limb/part in limbs)
 
 		if(istype(part,/datum/limb/head) && !(part.limb_status & LIMB_DESTROYED))
 			has_head = 1
 
-		if(part.limb_status & LIMB_DESTROYED)
+		if(part.limb_status & LIMB_DESTROYED ||	part.invisible)
 			icon_key = "[icon_key]0"
-		else if(part.limb_status & LIMB_ROBOT)
+		else if(part.limb_status & LIMB_ROBOT && !(species?.species_flags & IS_SYNTHETIC))
 			icon_key = "[icon_key]2"
 		else if(part.limb_status & LIMB_NECROTIZED)
 			icon_key = "[icon_key]3"
@@ -375,12 +390,11 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	//BEGIN CACHED ICON GENERATION.
 
 		// Why don't we just make skeletons/shadows/golems a species? ~Z
-		var/race_icon = species.icobase
-
 		//Robotic limbs are handled in get_icon() so all we worry about are missing or dead limbs.
 		//No icon stored, so we need to start with a basic one.
 		var/datum/limb/chest = get_limb("chest")
-		base_icon = chest.get_icon(race_icon, physique_key)
+		if(!chest.invisible)
+			base_icon = chest.get_icon(race_icon, physique_key)
 
 		if(chest.limb_status & LIMB_NECROTIZED)
 			base_icon.ColorTone(necrosis_color_mod)
@@ -390,7 +404,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 
 			var/icon/temp //Hold the bodypart icon for processing.
 
-			if(part.limb_status & LIMB_DESTROYED)
+			if(part.limb_status & LIMB_DESTROYED ||	part.invisible)
 				continue
 
 			if(istype(part, /datum/limb/chest)) //already done above
@@ -442,17 +456,24 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 
 	stand_icon.Blend(base_icon,ICON_OVERLAY)
 
-	/*
-	//Skin colour. Not in cache because highly variable (and relatively benign).
-	if (species.species_flags & HAS_SKIN_COLOR)
-		stand_icon.Blend(rgb(r_skin, g_skin, b_skin), ICON_ADD)
-	*/
+	var/render_body_color = get_render_body_color()
+	if(render_body_color && render_body_color != "#FFFFFF")
+		stand_icon.Blend(render_body_color, ICON_MULTIPLY)
+
+	apply_body_markings()
 
 	if(has_head)
 		//Eyes
-		var/icon/eyes = new/icon('icons/mob/human_face.dmi', species.eyes)
-		eyes.Blend(rgb(r_eyes, g_eyes, b_eyes), ICON_ADD)
-		stand_icon.Blend(eyes, ICON_OVERLAY)
+		var/eye_icon_state = get_eye_icon_state()
+		if(eye_icon_state && eye_icon_state != "blank_eyes")
+			var/icon/eyes = new/icon('icons/mob/human_face.dmi', eye_icon_state)
+			eyes.Blend(rgb(r_eyes, g_eyes, b_eyes), ICON_ADD)
+			stand_icon.Blend(eyes, ICON_OVERLAY)
+			if(eye_emissive && ntf_should_render_emissives())
+				var/mutable_appearance/eye_glow = emissive_appearance(eyes, "", src, layer = -BODYPARTS_LAYER)
+				eye_glow.dir = dir
+				overlays_standing[EYE_EMISSIVE_LAYER] = eye_glow
+				apply_overlay(EYE_EMISSIVE_LAYER)
 
 		//Face (Face paint)
 		if(makeup_style && (species?.species_flags & HAS_LIPS))	//skeletons are allowed to wear face paint no matter what you think, agouri.
@@ -466,13 +487,15 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 
 	update_bodyparts()
 	species?.update_body(src)
+	update_accessories()
 
 //HAIR OVERLAY
 /mob/living/carbon/human/proc/update_hair()
 	//Reset our hair
 	remove_overlay(HAIR_LAYER)
+	remove_overlay(HAIR_EMISSIVE_LAYER)
 
-	if(species.species_flags & HAS_NO_HAIR)
+	if((species.species_flags & HAS_NO_HAIR) && !(species.name in GENERIC_HAIR_SPECIES))
 		return
 
 	var/datum/limb/head/head_organ = get_limb("head")
@@ -485,37 +508,75 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 
 	//base icons
 	var/icon/face_standing = new /icon('icons/mob/human_face.dmi',"bald_s")
+	var/hair_draw_layer = -HAIR_LAYER
+	var/list/appearance_colored_hair = list()
+	var/render_hair_color = get_render_hair_color()
+	var/render_gradient_color = get_render_gradient_color()
+	var/render_facial_hair_color = get_render_facial_hair_color()
 
 	if(f_style && !(wear_suit?.inv_hide_flags & HIDELOWHAIR) && !(wear_mask?.inv_hide_flags & HIDELOWHAIR))
 		var/datum/sprite_accessory/facial_hair_style = GLOB.facial_hair_styles_list[f_style]
-		if(facial_hair_style?.species_allowed && (species.name in facial_hair_style.species_allowed))
-			var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
-			if(facial_hair_style.do_colouration)
-				if(facial_hair_style.greyscale_config)
-					facial_s = SSgreyscale.GetColoredIconByType(facial_hair_style.greyscale_config, rgb(r_facial, g_facial, b_facial) )
-				else
-					facial_s.Blend(rgb(r_facial, g_facial, b_facial), ICON_ADD)
+		if(findtext(facial_hair_style?.name, "(Top"))
+			hair_draw_layer = -(FACEMASK_LAYER + 1)
+		if(can_use_hair_accessory(facial_hair_style, species.name))
+			var/facial_icon_state = ntf_sprite_accessory_icon_state(facial_hair_style)
+			var/appearance_colored_facial = facial_hair_style.do_colouration && !facial_hair_style.greyscale_config && (facial_hair_style.colouration_tone || facial_hair_style.colouration_blend == ICON_MULTIPLY)
+			if(appearance_colored_facial)
+				var/mutable_appearance/facial_colored = mutable_appearance(icon = facial_hair_style.icon, icon_state = facial_icon_state, layer = hair_draw_layer)
+				facial_colored.color = render_facial_hair_color
+				appearance_colored_hair += facial_colored
+			else
+				var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = facial_icon_state)
+				if(facial_hair_style.do_colouration)
+					if(facial_hair_style.greyscale_config)
+						facial_s = SSgreyscale.GetColoredIconByType(facial_hair_style.greyscale_config, render_facial_hair_color)
+					else
+						facial_s.Blend(render_facial_hair_color, facial_hair_style.colouration_blend)
 
-			face_standing.Blend(facial_s, ICON_OVERLAY)
+				face_standing.Blend(facial_s, ICON_OVERLAY)
 
 	if(h_style && !(head?.inv_hide_flags & HIDETOPHAIR))
 		var/datum/sprite_accessory/hair_style = GLOB.hair_styles_list[h_style]
-		if(hair_style && (species.name in hair_style.species_allowed))
-			var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
-			if(hair_style.do_colouration)
-				var/icon/grad_s
+		if(findtext(hair_style?.name, "(Top"))
+			hair_draw_layer = -(FACEMASK_LAYER + 1)
+		if(can_use_hair_accessory(hair_style, species.name))
+			var/hair_icon_state = ntf_sprite_accessory_icon_state(hair_style)
+			var/appearance_colored_main_hair = hair_style.do_colouration && !hair_style.greyscale_config && (hair_style.colouration_tone || hair_style.colouration_blend == ICON_MULTIPLY)
+			if(appearance_colored_main_hair)
+				var/mutable_appearance/hair_colored = mutable_appearance(icon = hair_style.icon, icon_state = hair_icon_state, layer = hair_draw_layer)
+				hair_colored.color = render_hair_color
+				appearance_colored_hair += hair_colored
+
 				if(grad_style && grad_style != "None")
 					var/datum/sprite_accessory/gradient = GLOB.hair_gradients_list[grad_style]
-					grad_s = new/icon("icon" = gradient.icon, "icon_state" = gradient.icon_state)
-					grad_s.Blend(hair_s, ICON_ADD)
-					grad_s.Blend(rgb(r_grad, g_grad, b_grad), ICON_ADD)
-				hair_s.Blend(rgb(r_hair, g_hair, b_hair), ICON_ADD)
-				if(!isnull(grad_s))
-					hair_s.Blend(grad_s, ICON_OVERLAY)
+					var/icon/grad_s = new/icon("icon" = gradient.icon, "icon_state" = gradient.icon_state)
+					var/icon/hair_mask = new/icon("icon" = hair_style.icon, "icon_state" = hair_icon_state)
+					grad_s.Blend(hair_mask, ICON_ADD)
+					grad_s.Blend(render_gradient_color, ICON_MULTIPLY)
+					var/mutable_appearance/grad_colored = mutable_appearance(grad_s, layer = hair_draw_layer)
+					appearance_colored_hair += grad_colored
+			else
+				var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = hair_icon_state)
+				if(hair_style.do_colouration)
+					var/icon/grad_s
+					if(grad_style && grad_style != "None")
+						var/datum/sprite_accessory/gradient = GLOB.hair_gradients_list[grad_style]
+						grad_s = new/icon("icon" = gradient.icon, "icon_state" = gradient.icon_state)
+						grad_s.Blend(hair_s, ICON_ADD)
+						grad_s.Blend(render_gradient_color, ICON_ADD)
+					if(hair_style.colouration_tone)
+						hair_s.ColorTone(render_hair_color)
+					else
+						hair_s.Blend(render_hair_color, hair_style.colouration_blend)
+					if(!isnull(grad_s))
+						hair_s.Blend(grad_s, ICON_OVERLAY)
 
-			face_standing.Blend(hair_s, ICON_OVERLAY)
+				face_standing.Blend(hair_s, ICON_OVERLAY)
 
-	var/mutable_appearance/hair_final = mutable_appearance(face_standing, layer =-HAIR_LAYER)
+	var/mutable_appearance/hair_final = mutable_appearance(face_standing, layer = hair_draw_layer)
+	for(var/mutable_appearance/colored_hair as anything in appearance_colored_hair)
+		colored_hair.layer = hair_draw_layer
+		hair_final.overlays += colored_hair
 
 	if(head?.inv_hide_flags & HIDE_EXCESS_HAIR)
 		var/image/mask = image('icons/mob/human_face.dmi', null, "Jeager_Mask")
@@ -525,6 +586,13 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 
 	overlays_standing[HAIR_LAYER] = hair_final
 	apply_overlay(HAIR_LAYER)
+
+	if(hair_emissive && ntf_should_render_emissives())
+		var/mutable_appearance/hair_glow = emissive_appearance(hair_final.icon, hair_final.icon_state, src, layer = hair_final.layer, appearance_flags = hair_final.appearance_flags)
+		hair_glow.dir = dir
+		hair_glow.overlays = hair_final.overlays.Copy()
+		overlays_standing[HAIR_EMISSIVE_LAYER] = hair_glow
+		apply_overlay(HAIR_EMISSIVE_LAYER)
 
 /* --------------------------------------- */
 //For legacy support.
@@ -568,6 +636,22 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	overlays_standing[BODYPARTS_LAYER] = image(icon=stand_icon, icon_state="blank", layer=-BODYPARTS_LAYER)
 	apply_overlay(BODYPARTS_LAYER)
 
+/proc/ntf_north_body_clothing_layer(direction, clothing_layer)
+	if(direction != NORTH)
+		return null
+	. = -(BODYPARTS_LAYER - 0.5)
+	if(!isnull(clothing_layer))
+		. -= clothing_layer * 0.001
+
+/proc/ntf_set_worn_appearance_layer(mutable_appearance/standing, draw_layer)
+	if(isnull(draw_layer) || !standing)
+		return standing
+	standing.layer = draw_layer
+	for(var/mutable_appearance/overlay as anything in standing.overlays)
+		if(istype(overlay))
+			overlay.layer = draw_layer
+	return standing
+
 /mob/living/carbon/human/update_inv_w_uniform()
 	remove_overlay(UNIFORM_LAYER)
 	if(!w_uniform)
@@ -579,7 +663,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	if(wear_suit?.inv_hide_flags & HIDEJUMPSUIT)
 		return
 
-	overlays_standing[UNIFORM_LAYER] = w_uniform.make_worn_icon(species_type = species.name, slot_name = slot_w_uniform_str, default_icon = 'icons/mob/clothing/uniforms/uniform_0.dmi', default_layer = UNIFORM_LAYER)
+	overlays_standing[UNIFORM_LAYER] = ntf_set_worn_appearance_layer(w_uniform.make_worn_icon(species_type = species.name, slot_name = slot_w_uniform_str, default_icon = 'icons/mob/clothing/uniforms/uniform_0.dmi', default_layer = UNIFORM_LAYER), ntf_north_body_clothing_layer(dir))
 
 	apply_overlay(UNIFORM_LAYER)
 	species?.update_inv_w_uniform(src)
@@ -605,7 +689,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		if(client && hud_used?.hud_shown && hud_used.inventory_shown)
 			gloves.screen_loc = ui_gloves
 			client.screen += gloves
-		overlays_standing[GLOVES_LAYER] = gloves.make_worn_icon(species_type = species.name, slot_name = slot_gloves_str, default_icon = 'icons/mob/clothing/hands.dmi', default_layer = GLOVES_LAYER)
+		overlays_standing[GLOVES_LAYER] = ntf_set_worn_appearance_layer(gloves.make_worn_icon(species_type = species.name, slot_name = slot_gloves_str, default_icon = 'icons/mob/clothing/hands.dmi', default_layer = GLOVES_LAYER), ntf_north_body_clothing_layer(dir))
 		apply_overlay(GLOVES_LAYER)
 		return
 
@@ -624,6 +708,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		bloodsies = mutable_appearance(icon = 'icons/effects/blood.dmi', icon_state = "bloodyhands") //Both hands.
 
 	bloodsies.color = blood_color
+	ntf_set_worn_appearance_layer(bloodsies, ntf_north_body_clothing_layer(dir))
 	overlays_standing[GLOVES_LAYER] = bloodsies
 	apply_overlay(GLOVES_LAYER)
 
@@ -668,7 +753,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		return
 
 	if(shoes)
-		overlays_standing[SHOES_LAYER] = shoes.make_worn_icon(species_type = species.name, slot_name = slot_shoes_str, default_icon = 'icons/mob/clothing/feet.dmi', default_layer = SHOES_LAYER)
+		overlays_standing[SHOES_LAYER] = ntf_set_worn_appearance_layer(shoes.make_worn_icon(species_type = species.name, slot_name = slot_shoes_str, default_icon = 'icons/mob/clothing/feet.dmi', default_layer = SHOES_LAYER), ntf_north_body_clothing_layer(dir))
 	else if(feet_blood_color)
 		var/mutable_appearance/bloodsies = mutable_appearance(icon = 'icons/effects/blood.dmi', icon_state = "shoeblood")
 		bloodsies.color = feet_blood_color
@@ -713,7 +798,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		belt.screen_loc = ui_belt
 		client.screen += belt
 
-	overlays_standing[BELT_LAYER] = belt.make_worn_icon(species_type = species.name, slot_name = slot_belt_str, default_icon = 'icons/mob/clothing/belt.dmi', default_layer = BELT_LAYER)
+	overlays_standing[BELT_LAYER] = ntf_set_worn_appearance_layer(belt.make_worn_icon(species_type = species.name, slot_name = slot_belt_str, default_icon = 'icons/mob/clothing/belt.dmi', default_layer = BELT_LAYER), ntf_north_body_clothing_layer(dir))
 
 	apply_overlay(BELT_LAYER)
 
@@ -728,7 +813,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		wear_suit.screen_loc = ui_oclothing
 		client.screen += wear_suit
 
-	overlays_standing[SUIT_LAYER] = wear_suit.make_worn_icon(species_type = species.name, slot_name = slot_wear_suit_str, default_icon = 'icons/mob/clothing/suits/suit_0.dmi', default_layer = SUIT_LAYER)
+	overlays_standing[SUIT_LAYER] = ntf_set_worn_appearance_layer(wear_suit.make_worn_icon(species_type = species.name, slot_name = slot_wear_suit_str, default_icon = 'icons/mob/clothing/suits/suit_0.dmi', default_layer = SUIT_LAYER), ntf_north_body_clothing_layer(dir))
 
 	apply_overlay(SUIT_LAYER)
 
@@ -755,7 +840,14 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		wear_mask.screen_loc = ui_mask
 		client.screen += wear_mask
 
-	overlays_standing[FACEMASK_LAYER] = wear_mask.make_worn_icon(species_type = species.name, slot_name = slot_wear_mask_str, default_icon = 'icons/mob/clothing/mask.dmi', default_layer = FACEMASK_LAYER)
+	var/snouted_mask_icon
+	if(snout && snout != "None")
+		var/snouted_icon_file = wear_mask.get_snouted_worn_icon_file(slot_wear_mask_str)
+		var/worn_state = wear_mask.get_worn_icon_state(slot_wear_mask_str, FALSE)
+		if(snouted_icon_file && worn_state && icon_exists(snouted_icon_file, worn_state))
+			snouted_mask_icon = snouted_icon_file
+
+	overlays_standing[FACEMASK_LAYER] = wear_mask.make_worn_icon(species_type = species.name, slot_name = slot_wear_mask_str, default_icon = 'icons/mob/clothing/mask.dmi', default_layer = FACEMASK_LAYER, icon_file_override = snouted_mask_icon)
 
 	apply_overlay(FACEMASK_LAYER)
 
@@ -829,7 +921,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		w_socks.screen_loc = "WEST:6,SOUTH+5:15"
 		client.screen += w_socks
 
-	overlays_standing[SOCKS_LAYER] = w_socks.make_worn_icon(species_type = species.name, slot_name = slot_socks_str, default_icon = 'ntf_modular/modules/underwear/underwear/underwear.dmi', default_layer = SOCKS_LAYER)
+	overlays_standing[SOCKS_LAYER] = ntf_set_worn_appearance_layer(w_socks.make_worn_icon(species_type = species.name, slot_name = slot_socks_str, default_icon = 'ntf_modular/modules/underwear/underwear/underwear.dmi', default_layer = SOCKS_LAYER), ntf_north_body_clothing_layer(dir, SOCKS_LAYER))
 
 	apply_overlay(SOCKS_LAYER)
 
@@ -842,7 +934,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		w_underwear.screen_loc = "WEST:6,SOUTH+4:13"
 		client.screen += w_underwear
 
-	overlays_standing[UNDERWEAR_LAYER] = w_underwear.make_worn_icon(species_type = species.name, slot_name = slot_underwear_str, default_icon = 'ntf_modular/modules/underwear/underwear/underwear.dmi', default_layer = UNDERWEAR_LAYER)
+	overlays_standing[UNDERWEAR_LAYER] = ntf_set_worn_appearance_layer(w_underwear.make_worn_icon(species_type = species.name, slot_name = slot_underwear_str, default_icon = 'ntf_modular/modules/underwear/underwear/underwear.dmi', default_layer = UNDERWEAR_LAYER), ntf_north_body_clothing_layer(dir, UNDERWEAR_LAYER))
 
 	apply_overlay(UNDERWEAR_LAYER)
 
@@ -855,7 +947,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		w_undershirt.screen_loc = "WEST:6,SOUTH+6:17"
 		client.screen += w_undershirt
 
-	overlays_standing[UNDERSHIRT_LAYER] = w_undershirt.make_worn_icon(species_type = species.name, slot_name = slot_shirt_str, default_icon = 'ntf_modular/modules/underwear/underwear/underwear.dmi', default_layer = UNDERSHIRT_LAYER)
+	overlays_standing[UNDERSHIRT_LAYER] = ntf_set_worn_appearance_layer(w_undershirt.make_worn_icon(species_type = species.name, slot_name = slot_shirt_str, default_icon = 'ntf_modular/modules/underwear/underwear/underwear.dmi', default_layer = UNDERSHIRT_LAYER), ntf_north_body_clothing_layer(dir, UNDERSHIRT_LAYER))
 
 	apply_overlay(UNDERSHIRT_LAYER)
 
@@ -868,7 +960,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		bra.screen_loc = "WEST+1:8,SOUTH+4:13"
 		client.screen += bra
 
-	overlays_standing[BRA_LAYER] = bra.make_worn_icon(species_type = species.name, slot_name = slot_bra_str, default_icon = 'ntf_modular/modules/underwear/underwear/underwear.dmi', default_layer = BRA_LAYER)
+	overlays_standing[BRA_LAYER] = ntf_set_worn_appearance_layer(bra.make_worn_icon(species_type = species.name, slot_name = slot_bra_str, default_icon = 'ntf_modular/modules/underwear/underwear/underwear.dmi', default_layer = BRA_LAYER), ntf_north_body_clothing_layer(dir, BRA_LAYER))
 
 	apply_overlay(BRA_LAYER)
 

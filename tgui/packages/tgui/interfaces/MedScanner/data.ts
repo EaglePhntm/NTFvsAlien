@@ -137,7 +137,8 @@ export type MedScannerData = {
   total_flow_rate: number;
   total_unknown_implants: number;
   internal_bleeding: boolean;
-  infection: boolean;
+  infection: string | null;
+  ambrosia_residue: string | null;
   limb_data_lists?: Record<string, Limb>;
   limbs_damaged: number;
 

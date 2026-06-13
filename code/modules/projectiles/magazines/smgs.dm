@@ -169,6 +169,7 @@
 	name = "\improper GAL9 extended magazine (9mm)"
 	icon_state = "uzi_ext"
 	max_rounds = 50
+	w_class = WEIGHT_CLASS_SMALL
 	bonus_overlay = "uzi_ex"
 	icon_state_mini = "mag_smg_dark"
 

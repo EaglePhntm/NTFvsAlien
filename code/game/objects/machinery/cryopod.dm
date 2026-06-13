@@ -320,9 +320,12 @@
 
 ///Despawn the mob, remove its job and store its item
 /mob/living/proc/despawn()
+	/*This is done when the body is deleted, so this was doing it twice
 	//Handle job slot/tater cleanup.
 	if(job in SSjob.active_joinable_occupations)
+		log_game("Freeing 1 [job.title] slot due to [logdetails(src)] being cryoed.")
 		job.free_job_positions(1)
+	*/
 
 	for(var/obj/item/W in src)
 		temporarilyRemoveItemFromInventory(W)
@@ -455,8 +458,10 @@
 		span_notice("You start climbing into [src]."))
 
 	var/mob/initiator = helper ? helper : user
+	log_combat(initiator, user, "begun to cryo", src)
 	if(!do_after(initiator, 20, TRUE, user, BUSY_ICON_GENERIC))
 		return FALSE
+	log_combat(initiator, user, "cryoed", src)
 
 	if(!QDELETED(occupant))
 		to_chat(initiator, span_warning("[src] is occupied."))

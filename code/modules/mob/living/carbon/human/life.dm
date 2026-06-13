@@ -12,7 +12,7 @@
 		if(stat != DEAD)
 
 			// Increase germ_level regularly
-			if(germ_level < GERM_LEVEL_AMBIENT && prob(30))	//if you're just standing there, you shouldn't get more germs beyond an ambient level
+			if(germ_level < GERM_LEVEL_AMBIENT && prob(10))	//if you're just standing there, you shouldn't get more germs beyond an ambient level
 				germ_level++
 
 			handle_breath()
@@ -32,6 +32,7 @@
 		else //Dead
 			dead_ticks ++
 			if(dead_ticks > GLOB.time_before_dnr)
+				log_game("Marking [logdetails(src)] as undefibbable because their defib timer ran out. Defib timer length: [DisplayTimeText(GLOB.time_before_dnr * (2 SECONDS))].")
 				set_undefibbable()
 			else
 				med_hud_set_status()
@@ -54,7 +55,9 @@
 	SEND_SIGNAL(src, COMSIG_HUMAN_SET_UNDEFIBBABLE)
 	SSmobs.stop_processing(src) //Last round of processing.
 
-	job?.free_job_positions(1)
+	if(job)
+		log_game("Freeing 1 [job.title] slot due to [logdetails(src)] becoming undefibbable.")
+		job.free_job_positions(1)
 	if(hud_list)
 		med_hud_set_status()
 	for(var/datum/data/record/general_record in GLOB.datacore.general)

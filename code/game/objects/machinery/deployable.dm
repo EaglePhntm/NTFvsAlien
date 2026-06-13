@@ -62,10 +62,6 @@
 		return
 	return ..()
 
-/obj/machinery/deployable/Destroy()
-	operator?.unset_interaction()
-	return ..()
-
 /obj/machinery/deployable/MouseDrop(over_object, src_location, over_location)
 	if(!ishuman(usr))
 		return

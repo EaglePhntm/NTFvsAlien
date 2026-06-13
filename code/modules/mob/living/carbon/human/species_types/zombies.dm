@@ -2,7 +2,7 @@
 	name = "Zombie"
 	icobase = 'icons/mob/human_races/r_husk.dmi'
 	total_health = 125
-	species_flags = NO_BREATHE|NO_SCAN|NO_BLOOD|NO_POISON|NO_PAIN|NO_CHEM_METABOLIZATION|NO_STAMINA|HEALTH_HUD_ALWAYS_DEAD|PARALYSE_RESISTANT|SPECIES_NO_HUG
+	species_flags = NO_BREATHE|NO_SCAN|NO_BLOOD|NO_POISON|NO_PAIN|NO_CHEM_METABOLIZATION|NO_STAMINA|HAS_UNDERWEAR|HEALTH_HUD_ALWAYS_DEAD|PARALYSE_RESISTANT|SPECIES_NO_HUG
 	lighting_cutoff = LIGHTING_CUTOFF_HIGH
 	inherent_traits = TRAIT_CRIT_IS_DEATH //so they dont stay alive when downed ig.
 	blood_color = "#110a0a"
@@ -26,7 +26,7 @@
 	var/revive_time = 1 MINUTES
 
 	///How much burn and burn damage can you heal every Life tick (half a sec)
-	var/heal_rate = 10
+	var/heal_rate = 7
 	var/faction = FACTION_ZOMBIE
 	var/hivenumber = FACTION_ZOMBIE
 	var/claw_type = /obj/item/weapon/zombie_claw
@@ -45,6 +45,7 @@
 		limb.vital = FALSE
 		break
 
+	log_game("Marking [logdetails(H)] as undefibbable because they are rising as a zombie.")
 	H.set_undefibbable()
 	H.faction = faction
 	H.transfer_to_hive(hivenumber)
@@ -179,6 +180,8 @@
 /// We start fading out the human and qdel them in set time
 /datum/species/zombie/proc/fade_out_and_qdel_in(mob/living/carbon/human/H, time = 5 SECONDS)
 	GLOB.round_statistics.zombies_permad++
+	if(H in GLOB.possessed_sentient_zombie_list)
+		GLOB.possessed_sentient_zombie_list -= H
 	fade_out(H)
 	QDEL_IN(H, time)
 
@@ -207,13 +210,13 @@
 	H.transform = matrix().Scale(1.2, 1.2)
 	ADD_TRAIT(H, TRAIT_STUNIMMUNE, ZOMBIE_TRAIT)
 	REMOVE_TRAIT(H, TRAIT_NO_STUN_ATTACK, ZOMBIE_TRAIT)//The boss of the gym
-	H.move_resist = MOVE_FORCE_EXCEPTIONALLY_STRONG
+	H.set_move_resist(MOVE_FORCE_EXCEPTIONALLY_STRONG)
 
 /datum/species/zombie/tank/post_species_loss(mob/living/carbon/human/H)
 	. = ..()
 	H.transform = matrix().Scale(1/(1.2), 1/(1.2))
 	REMOVE_TRAIT(H, TRAIT_STUNIMMUNE, ZOMBIE_TRAIT)
-	H.move_resist = initial(H.move_resist)
+	H.set_move_resist(H.get_initial_move_resist())
 
 /datum/species/zombie/strong
 	name = "Strong zombie" //These are zombies created from marines, they are stronger, but of course rarer

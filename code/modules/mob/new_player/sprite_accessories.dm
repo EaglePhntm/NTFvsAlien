@@ -33,6 +33,8 @@
 			if(initial(P.locked))
 				continue
 		var/datum/sprite_accessory/D = new path()
+		if(!D.name)
+			continue
 
 		if(D.icon_state)
 			L[D.name] = D
@@ -60,6 +62,12 @@
 
 	var/list/species_allowed = list("Human","Human Hero", "Synthetic", "Early Synthetics", "Vat-Grown", "Vatborn", "Mothellian", "Prototype Supersoldier") // Restrict some styles to specific species
 	var/do_colouration = TRUE	// Whether or not the accessory can be affected by colouration
+	var/colouration_blend = ICON_ADD
+	var/colouration_tone = FALSE
+	var/center = FALSE // Center sprites wider than the base 32px mob icon.
+	var/dimension_x = 32
+	var/dimension_y = 32
+	var/has_inner = FALSE
 
 	var/datum/greyscale_config/greyscale_config
 
@@ -1354,7 +1362,13 @@
 /datum/sprite_accessory/moth_wings
 	species_allowed = list("Mothellian")
 	do_colouration = FALSE
-	icon = 'icons/mob/species/moth/wings.dmi'
+	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/moth_wings.dmi'
+	center = TRUE
+	dimension_x = 45
+	dimension_y = 34
+	var/icon_prefix = "m_wings"
+	var/pixel_w_offset = 6
+	var/pixel_z_offset = 0
 
 /datum/sprite_accessory/moth_wings/plain
 	name = "Plain"
@@ -1394,7 +1408,7 @@
 
 /datum/sprite_accessory/moth_wings/punished
 	name = "Burnt Off"
-	icon_state = "punished"
+	icon_state = "burnt_off"
 
 /datum/sprite_accessory/moth_wings/firewatch
 	name = "Firewatch"

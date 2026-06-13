@@ -4,7 +4,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	name = "telephone receiver"
 	icon = 'ntf_modular/icons/obj/structures/phone.dmi'
 	icon_state = "wall_phone"
-	desc = "It is a wall mounted telephone. The fine text reads: To log your details with the mainframe please insert your keycard into the slot below. Unfortunately the slot is jammed. You can still use the phone, however."
+	desc = "It is a wall mounted telephone. Concept older than the old world technology, redesigned for today."
 
 	var/phone_category = "Uncategorised"
 	var/phone_color = "white"
@@ -44,6 +44,9 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	var/call_sound_length = 2 SECONDS
 	//since antenna module etc does no apply for close enough.
 	var/bypass_tgui_range = FALSE
+
+	var/call_sound_range = 14
+	var/pickup_sound_range = 7
 
 /datum/looping_sound/telephone/ring
 	start_sound = 'ntf_modular/sound/machines/telephone/dial.ogg'
@@ -221,7 +224,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	T.update_icon()
 
 	to_chat(user, span_purple("[icon2html(src, user)] Dialing [calling_phone_id].."))
-	playsound(get_turf(user), pickup_sound, 100)
+	playsound(get_turf(user), pickup_sound, 100, 1, pickup_sound_range)
 	timeout_timer_id = addtimer(CALLBACK(src, PROC_REF(reset_call), TRUE), timeout_duration, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE)
 	outring_loop.start(attached_to)
 
@@ -270,7 +273,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 		T.timeout_timer_id = null
 
 	to_chat(user, span_purple("[icon2html(src, user)] Picked up a call from [T.phone_id]."))
-	playsound(get_turf(user), pickup_sound, 100)
+	playsound(get_turf(user), pickup_sound, 100, sound_range = pickup_sound_range)
 
 	T.outring_loop.stop(attached_to)
 	user.put_in_active_hand(attached_to)
@@ -349,7 +352,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 
 		if(attached_to.loc == attached_to.attached_to)
 			if(next_ring < world.time)
-				playsound(loc, call_sound, 75)
+				playsound(loc, call_sound, 75, FALSE, call_sound_range)
 				visible_message(span_warning("[src] rings vigorously!"))
 				next_ring = world.time + 3 SECONDS
 
@@ -363,7 +366,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 		var/obj/item/phone/functional/P = T.attached_to
 
 		if(P && attached_to.loc == src && P.loc == T && next_ring < world.time)
-			playsound(get_turf(attached_to), call_sound, 20, FALSE, 14)
+			playsound(get_turf(attached_to), call_sound, 20, FALSE, call_sound_range)
 			visible_message(span_warning("[src] rings vigorously!"))
 			next_ring = world.time + 3 SECONDS
 
@@ -385,7 +388,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	if(ismob(attached_to.loc))
 		var/mob/M = attached_to.loc
 		M.drop_held_item(attached_to)
-		playsound(get_turf(M), putdown_sound, 100, FALSE, 7)
+		playsound(get_turf(M), putdown_sound, 100, FALSE, 1)
 
 	attached_to.forceMove(src)
 	reset_call()
@@ -670,7 +673,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 /obj/structure/transmitter/desk
 	name = "wired telephone"
 	icon_state = "desk_phone"
-	desc = "There is always ol' reliable."
+	desc = "It has a holographic number pad and everything."
 
 /obj/structure/transmitter/desk/no_dnd
 	do_not_disturb = PHONE_DND_FORBIDDEN
@@ -686,10 +689,23 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	networks_receive = list(FACTION_NEUTRAL)
 	networks_transmit = list(FACTION_NEUTRAL)
 
+/obj/structure/transmitter/colony_net/auto_id/Initialize(mapload, ...)
+	. = ..()
+	var/area/thearea = get_area(src)
+	phone_category = "Colony"
+	if(thearea)
+		phone_id = thearea.name
+
 /obj/structure/transmitter/colony_net/desk
 	name = "wired telephone"
 	icon_state = "desk_phone"
-	desc = "The finger plate is a little stiff."
+
+/obj/structure/transmitter/colony_net/desk/auto_id/Initialize(mapload, ...)
+	. = ..()
+	var/area/thearea = get_area(src)
+	phone_category = "Colony"
+	if(thearea)
+		phone_id = thearea.name
 
 /obj/structure/transmitter/som_net
 	color = COLOR_ORANGE
@@ -700,8 +716,6 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	name = "wired telephone"
 	icon_state = "desk_phone"
 
-	desc = "The finger plate is a little stiff."
-
 /obj/structure/transmitter/clf_net
 	color = COLOR_PURPLE
 	networks_receive = list(FACTION_CLF)
@@ -710,7 +724,6 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 /obj/structure/transmitter/clf_net/desk
 	name = "wired telephone"
 	icon_state = "desk_phone"
-	desc = "The finger plate is a little stiff."
 
 /obj/structure/transmitter/kz_net
 	color = COLOR_YELLOW
@@ -720,7 +733,6 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 /obj/structure/transmitter/kz_net/desk
 	name = "wired telephone"
 	icon_state = "desk_phone"
-	desc = "The finger plate is a little stiff."
 
 /obj/structure/transmitter/cm_net
 	color = COLOR_MODERATE_BLUE
@@ -730,4 +742,3 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 /obj/structure/transmitter/cm_net/desk
 	name = "wired telephone"
 	icon_state = "desk_phone"
-	desc = "The finger plate is a little stiff."

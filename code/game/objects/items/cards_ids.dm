@@ -282,7 +282,7 @@
 	desc = "A colonist generalized ID card."
 	icon_state = "silver"
 	worn_icon_state = "silver_id"
-
+	access = list(ACCESS_MARINE_MEDBAY, ACCESS_CIVILIAN_PUBLIC, ACCESS_CIVILIAN_LOGISTICS, ACCESS_CIVILIAN_ENGINEERING, ACCESS_CIVILIAN_MEDICAL, ACCESS_CIVILIAN_RESEARCH)
 
 /obj/item/card/id/equipped(mob/living/carbon/human/H, slot)
 	if(istype(H))
@@ -421,12 +421,40 @@
 		CAT_MEDSUP = MEDIC_TOTAL_BUY_POINTS,
 	)
 
+//we wont use dogtags anymore
 /obj/item/card/id/dogtag/clf
-	name = "\improper CLF dogtag"
-	desc = "Used by the CLF."
+	name = "\improper Cult dogtag"
+	desc = "Used by the Cult."
 	icon_state = "dogtag"
 	worn_icon_state = "dogtag"
 	iff_signal = CLF_IFF
+
+/obj/item/card/id/clf
+	name = "\improper Cult id"
+	desc = "A card used to provide ID and determine access to a large array of machinery. It has a faint mark of purple by the edge..."
+	iff_signal = CLF_IFF
+
+/obj/item/card/id/clf/examine(mob/user)
+	. = ..()
+	if(HAS_TRAIT(user, TRAIT_CULTIST))
+		. += span_notice("You can alter this id by activating it in your hand.")
+
+/obj/item/card/id/clf/attack_self(mob/user)
+	. = ..()
+	if(HAS_TRAIT(user, TRAIT_CULTIST))
+		var/choice = tgui_input_list(user, "What do you want to change?", "Alter ID", list("name", "occupation", "rank", "cancel"), "cancel")
+		switch(choice)
+			if("name")
+				registered_name = tgui_input_text(user, "Input the name. (ex: John Doe)", "Name", "[initial(registered_name)]", 40)
+				to_chat(user, span_notice("name set to [registered_name]."))
+			if("occupation")
+				assignment = tgui_input_text(user, "Input the occupation (ex: Assistant Colonist).", "Occupation", "", 40)
+				rank = assignment
+				to_chat(user, span_notice("occupation set to [assignment]."))
+			if("rank")
+				paygrade = tgui_input_text(user, "Input the rank (ex: PVT).", "Rank", "", 40)
+				to_chat(user, span_notice("rank set to [rank]."))
+	update_label()
 
 /obj/item/card/id/dogtag/examine(mob/user)
 	. = ..()

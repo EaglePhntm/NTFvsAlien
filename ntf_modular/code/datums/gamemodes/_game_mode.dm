@@ -1,12 +1,14 @@
 GLOBAL_LIST_EMPTY(comm_tower_landmarks_net_one)
 GLOBAL_LIST_EMPTY(comm_tower_landmarks_net_two)
 GLOBAL_LIST_EMPTY(all_static_telecomms_towers)
+GLOBAL_LIST_EMPTY(reclone_tp_spots)
 
 /datum/game_mode
 	var/zombies_regrow_limbs = FALSE
 	var/zombie_rebirth = FALSE
 	var/zombie_ids = FALSE
 	var/static_comms_amount = 2
+	var/round_type_flags2 = NONE
 
 /datum/game_mode/pre_setup()
 	. = ..()
@@ -27,6 +29,9 @@ GLOBAL_LIST_EMPTY(all_static_telecomms_towers)
 	QDEL_LIST(GLOB.comm_tower_landmarks_net_two)
 
 /datum/game_mode/LateSpawn(mob/new_player/player)
+	if(!WHITELIST_CHECK(player.client))
+		WHITELIST_MESSAGE(player.client)
+		return
 	for(var/mob/living/carbon/human/foundfucko in GLOB.ssd_living_mobs)
 		if(foundfucko.real_name == player.client.prefs.real_name && length(foundfucko.ckey_history) && (player.key in foundfucko.ckey_history))
 			to_chat(player, span_warning("This character already exists in round waiting in SSD, Use take SSD mob instead."))

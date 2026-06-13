@@ -254,7 +254,10 @@
 				else
 					emitted_gas = new /datum/effect_system/smoke_spread/xeno/ozelomelyn/light(xeno_owner)
 			if(/datum/reagent/toxin/xeno_aphrotoxin)
-				emitted_gas = new /datum/effect_system/smoke_spread/xeno/aphrotoxin(xeno_owner)
+				if(opaque)
+					emitted_gas = new /datum/effect_system/smoke_spread/xeno/aphrotoxin/opaque(xeno_owner)
+				else
+					emitted_gas = new /datum/effect_system/smoke_spread/xeno/aphrotoxin/light(xeno_owner)
 
 	if(xeno_owner.IsStaggered()) //If we got staggered, return
 		to_chat(xeno_owner, span_xenowarning("We try to emit toxins but are staggered!"))

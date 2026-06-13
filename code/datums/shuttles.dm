@@ -186,7 +186,7 @@
 /*
 /datum/map_template/shuttle/minidropship/clf
 	suffix = "_clf"
-	display_name = "CLF Technical"
+	display_name = "Cult Technical"
 	pickable = FALSE
 
 /datum/map_template/shuttle/minidropship/colmil
@@ -238,6 +238,18 @@
 	shuttle_id = "supplyicc"
 	name = "CM Supply Shuttle"
 
+/datum/map_template/shuttle/supplyvsd
+	shuttle_id = "supplyvsd"
+	name = "KZ Supply Shuttle"
+
+/datum/map_template/shuttle/supplypmc
+	shuttle_id = "supplypmc"
+	name = "AC Supply Shuttle"
+
+/datum/map_template/shuttle/supply/colony
+	shuttle_id = "supplycolony"
+	name = "Colony Supply Shuttle"
+
 /datum/map_template/shuttle/shipelevator
 	shuttle_id = SHUTTLE_SHIPELEVATOR
 	name = "Ship Elevator"
@@ -245,6 +257,10 @@
 /datum/map_template/shuttle/elevator
 	shuttle_id = SHUTTLE_ELEVATOR
 	name = "Elevator"
+
+/datum/map_template/shuttle/supply/som
+	shuttle_id = SHUTTLE_SOM_SUPPLY
+	name = SHUTTLE_SOM_SUPPLY
 
 /datum/map_template/shuttle/supply/vehicle
 	shuttle_id = SHUTTLE_VEHICLE_SUPPLY

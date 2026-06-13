@@ -302,3 +302,15 @@
 /obj/effect/landmark/start/job/usl_leader
 	icon_state = "MP"
 	job = /datum/job/usl_squad/leader
+
+/obj/effect/landmark/start/job/som/icc_commander
+	icon_state = "som_staff_officer"
+	job = /datum/job/icc/commander
+
+/obj/effect/landmark/start/job/som/icc_fieldcommander
+	icon_state = "som_staff_officer"
+	job = /datum/job/icc/fieldcommander
+
+/obj/effect/landmark/start/job/som/icc_admin
+	icon_state = "som_staff_officer"
+	job = /datum/job/icc/administrator

@@ -37,8 +37,11 @@
 					span_notice("You extinguished the fire on [src]."), null, 5)
 				return TRUE
 
-			if(istype(wear_mask, /obj/item/clothing/mask/facehugger) && human_user != src)
-				human_user.stripPanelUnequip(wear_mask, src, SLOT_WEAR_MASK)
+			if(istype(wear_mask, /obj/item/clothing/mask/facehugger) || istype(w_underwear, /obj/item/clothing/mask/facehugger) && human_user != src)
+				if(istype(wear_mask, /obj/item/clothing/mask/facehugger))
+					human_user.stripPanelUnequip(wear_mask, src, SLOT_WEAR_MASK)
+				if(istype(w_underwear, /obj/item/clothing/mask/facehugger))
+					human_user.stripPanelUnequip(w_underwear, src, SLOT_UNDERWEAR)
 				return TRUE
 
 			if(health >= get_crit_threshold())
@@ -121,7 +124,8 @@
 					msg_admin_ff("[ADMIN_TPMONTY(human_user)] missed a punch against [ADMIN_TPMONTY(src)] in [ADMIN_VERBOSEJMP(T)].")
 				return FALSE
 
-			human_user.do_attack_animation(src, ATTACK_EFFECT_YELLOWPUNCH)
+			var/attack_effect = (attack.sharp && attack.edge) ? ATTACK_EFFECT_CLAW : ATTACK_EFFECT_YELLOWPUNCH
+			human_user.do_attack_animation(src, attack_effect)
 			var/max_dmg = max(human_user.melee_damage + (human_user.skills.getRating(SKILL_UNARMED) * UNARMED_SKILL_DAMAGE_MOD), 3)
 			var/damage = max_dmg
 			if(!lying_angle)

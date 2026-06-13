@@ -284,6 +284,7 @@ You can serve your Division in a variety of roles, so choose carefully."}
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_REGULAR,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/squad/specialist = SMARTIE_POINTS_REGULAR,
 	)
 	html_description = {"
 		<b>Difficulty</b>:Very Hard<br /><br />
@@ -489,8 +490,8 @@ A happy base is a well-functioning base."}
 /datum/job/som/medical/professor
 	title = SOM_CHIEF_MEDICAL_OFFICER
 	shadow_languages = list(/datum/language/xenocommon)
-	access = list(ACCESS_SOM_DEFAULT,ACCESS_SOM_MEDICAL,ACCESS_SOM_ENGINEERING,ACCESS_SOM_COMMAND,ACCESS_MARINE_ENGINEERING, ACCESS_SOM_TADPOLE)
-	minimal_access = list(ACCESS_SOM_DEFAULT,ACCESS_SOM_MEDICAL,ACCESS_SOM_ENGINEERING,ACCESS_SOM_COMMAND,ACCESS_MARINE_ENGINEERING, ACCESS_SOM_TADPOLE)
+	access = list(ACCESS_SOM_DEFAULT,ACCESS_SOM_MEDICAL,ACCESS_SOM_ENGINEERING,ACCESS_SOM_COMMAND,ACCESS_MARINE_ENGINEERING, ACCESS_SOM_TADPOLE,ACCESS_MARINE_MEDBAY) //marine medbay because req locks and other things.
+	minimal_access = list(ACCESS_SOM_DEFAULT,ACCESS_SOM_MEDICAL,ACCESS_SOM_ENGINEERING,ACCESS_SOM_COMMAND,ACCESS_MARINE_ENGINEERING, ACCESS_SOM_TADPOLE,ACCESS_MARINE_MEDBAY)
 	req_admin_notify = TRUE
 	comm_title = "CMO"
 	paygrade = "CHO"
@@ -537,8 +538,8 @@ Make sure that the doctors and nurses are doing their jobs and keeping the SOM h
 //Medical Officer
 /datum/job/som/medical/medicalofficer
 	title = SOM_MEDICAL_DOCTOR
-	access = list(ACCESS_SOM_DEFAULT,ACCESS_SOM_MEDICAL,ACCESS_MARINE_ENGINEERING)
-	minimal_access = list(ACCESS_SOM_DEFAULT,ACCESS_SOM_MEDICAL,ACCESS_MARINE_ENGINEERING)
+	access = list(ACCESS_SOM_DEFAULT,ACCESS_SOM_MEDICAL,ACCESS_MARINE_ENGINEERING,ACCESS_MARINE_MEDBAY) //marine medbay because req locks and other things.
+	minimal_access = list(ACCESS_SOM_DEFAULT,ACCESS_SOM_MEDICAL,ACCESS_MARINE_ENGINEERING,ACCESS_MARINE_MEDBAY)
 	comm_title = "MD"
 	paygrade = "RES"
 	total_positions = 6
@@ -645,6 +646,7 @@ You are also an expert when it comes to botany and hydroponics. If you do not kn
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE_STRONG,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/squad/specialist = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
 	html_description = {"
@@ -662,20 +664,6 @@ You are also an expert when it comes to botany and hydroponics. If you do not kn
 /datum/job/som/silicon/synthetic/som/return_spawn_type(datum/preferences/prefs)
 	if(prefs?.synthetic_type == "Early Synthetic")
 		return /mob/living/carbon/human/species/early_synthetic
-	if(prefs?.synthetic_type == "Robot")
-		switch(prefs?.robot_type)
-			if("Basic")
-				return /mob/living/carbon/human/species/robot
-			if("Hammerhead")
-				return /mob/living/carbon/human/species/robot/alpharii
-			if("Chilvaris")
-				return /mob/living/carbon/human/species/robot/charlit
-			if("Ratcher")
-				return /mob/living/carbon/human/species/robot/deltad
-			if("Sterling")
-				return /mob/living/carbon/human/species/robot/bravada
-			if("Synskin")
-				return /mob/living/carbon/human/species/robot/synskin
 	return /mob/living/carbon/human/species/synthetic
 
 /datum/job/som/silicon/synthetic/som/return_skills_type(datum/preferences/prefs)

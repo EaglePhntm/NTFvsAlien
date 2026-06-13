@@ -145,19 +145,29 @@
 	slot = ATTACHMENT_SLOT_UNDER
 	size_mod = 2
 	deploy_time = 1 SECONDS
-	accuracy_mod = 0.3
-	recoil_mod = -2
-	scatter_mod = -10
-	burst_scatter_mod = -3
-	aim_mode_delay_mod = -0.5
+	accuracy_mod = 0.4
+	recoil_mod = -3
+	scatter_mod = -15
+	burst_scatter_mod = -4
+	aim_mode_delay_mod = -0.6
 
 /obj/item/attachable/foldable/bipod/activate(mob/living/user, turn_off)
 	if(folded && !(master_gun.item_flags & WIELDED)) //no one handed bipod use
 		if(user)
 			balloon_alert(user, "Unwielded")
 		return
-	if(!user.lying_angle)
-		var/obj/structure/barricade/cade = locate() in loc.contents
+
+
+	if(!user.lying_angle && folded)
+		var/cade
+		var/turf/current_turf = get_turf(user)
+		if(!current_turf)
+			return
+		for(var/obj/structure/barricade/cades AS in current_turf.contents)
+			if(!istype(cades))
+				continue
+			cade = cades
+			break
 		if(!cade)
 			balloon_alert(user, "Must lay or be at a barricade")
 			to_chat(user, span_warning("You can't deploy a bipod without laying or being at a barricade."))
@@ -170,6 +180,7 @@
 		UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
 		to_chat(user, span_notice("You retract [src]."))
 		return
+
 
 	if(user)
 		RegisterSignals(master_gun, list(COMSIG_ITEM_DROPPED, COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_UNWIELD), PROC_REF(retract_bipod))

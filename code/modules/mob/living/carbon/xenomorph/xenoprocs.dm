@@ -153,7 +153,13 @@
 	if(HAS_TRAIT(src, TRAIT_VALHALLA_XENO))
 		return FALSE
 	if(upgrade == XENO_UPGRADE_NORMAL)
-		return hive.purchases.upgrades_by_name[GLOB.tier_to_primo_upgrade[xeno_caste.tier]].times_bought
+		var/primo_upgrade_name = GLOB.tier_to_primo_upgrade[xeno_caste.tier]
+		if(!primo_upgrade_name)
+			return FALSE
+		var/datum/hive_upgrade/primo_upgrade = hive.purchases.upgrades_by_name[primo_upgrade_name]
+		if(!istype(primo_upgrade))
+			return FALSE
+		return primo_upgrade.times_bought
 	if(upgrade == XENO_UPGRADE_INVALID || upgrade == XENO_UPGRADE_PRIMO || upgrade == XENO_UPGRADE_BASETYPE)
 		return FALSE
 	stack_trace("Logic for handling this Upgrade tier wasn't written")
@@ -417,12 +423,12 @@
 	var/datum/game_mode/mode = SSticker.mode
 	switch(new_lighting_cutoff)
 		if(LIGHTING_CUTOFF_FULLBRIGHT, LIGHTING_CUTOFF_HIGH, LIGHTING_CUTOFF_MEDIUM)
-			if(!(mode.round_type_flags & MODE_SURVIVAL))
+			if(!(mode.round_type_flags2 & MODE_2_SURVIVAL))
 				ENABLE_BITFIELD(sight, SEE_MOBS)
 			ENABLE_BITFIELD(sight, SEE_OBJS)
 			ENABLE_BITFIELD(sight, SEE_TURFS)
 		if(LIGHTING_CUTOFF_VISIBLE)
-			if(!(mode.round_type_flags & MODE_SURVIVAL))
+			if(!(mode.round_type_flags2 & MODE_2_SURVIVAL))
 				ENABLE_BITFIELD(sight, SEE_MOBS)
 			DISABLE_BITFIELD(sight, SEE_OBJS)
 			DISABLE_BITFIELD(sight, SEE_TURFS)

@@ -99,7 +99,7 @@
 	new /obj/effect/decal/cleanable/blood/splatter/cum(turfu)
 
 //adds larva to a host.
-/mob/living/carbon/xenomorph/proc/impregify(mob/living/carbon/victim, overrideflavor, maxlarvas = MAX_LARVA_PREGNANCIES, damaging = TRUE, damagemult = 1, damageloc = BODY_ZONE_PRECISE_GROIN)
+/mob/living/carbon/xenomorph/proc/impregify(mob/living/carbon/victim, hole_target = HOLE_VAGINA, maxlarvas = MAX_LARVA_PREGNANCIES, damaging = TRUE, damagemult = 1, damageloc = BODY_ZONE_PRECISE_GROIN)
 	if(!istype(victim))
 		return
 	victim.reagents.remove_reagent(/datum/reagent/toxin/xeno_aphrotoxin, 10)
@@ -113,32 +113,44 @@
 			impregdamagetodeal *= damagemult
 		victim.apply_damage(aciddamagetodeal, BURN, damageloc, updating_health = TRUE)
 		victim.apply_damage(impregdamagetodeal, BRUTE, damageloc, updating_health = TRUE)
-		if(ismonkey(victim))
+		if(ismonkey(victim) || HAS_TRAIT(victim, TRAIT_FRAIL_LARVABURSTS))
 			victim.apply_damage(impregdamagetodeal, BRUTE, damageloc, updating_health = TRUE)
 	if(!can_implant_embryo(victim))
 		to_chat(src, span_warning("We came but this host is already full of young ones."))
 		return
 	if(victim.stat == DEAD)
 		to_chat(src, span_warning("We impregnate \the [victim] with a dormant larva."))
-	implant_embryo(victim, HOLE_VAGINA, source = src)
 	if(prob(5))
 		to_chat(src, span_warning("We sense we impregnated \the [victim] with TWINS!."))
-		implant_embryo(victim, HOLE_VAGINA, 2, source = src)
+		implant_embryo(victim, hole_target, 2, source = src)
 	else
-		implant_embryo(victim, HOLE_VAGINA, source = src)
+		implant_embryo(victim, hole_target, source = src)
 
 /mob/living/carbon/xenomorph/proc/xenoimpregify()
-	if(!preggo)
+	if(!preggo && gender == FEMALE)
+		if(!(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES) && client?.prefs?.xenogender == 4) //futa
+			to_chat(src, span_alien("We can't bear larvas during war times, our mixed physiology makes it difficult."))
+			return FALSE
 		to_chat(src, span_alien("We feel a new larva forming within us."))
 		addtimer(CALLBACK(src, PROC_REF(xenobirth)), 5 MINUTES)
+		Shake(duration = 3 SECONDS)
 		preggo = TRUE
 		return TRUE
+	return FALSE
 
 /mob/living/carbon/xenomorph/proc/xenobirth()
+	balloon_alert(src, "About to birth!!!")
+	emote("needhelp")
+	do_jitter_animation()
+	sleep(10 SECONDS)
 	preggo = FALSE
 	GLOB.round_statistics.total_larva_burst++
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "total_larva_burst")
 	playsound(src, pick('sound/voice/alien/chestburst.ogg','sound/voice/alien/chestburst2.ogg'), 10, FALSE, 7, ignore_walls = FALSE)
+	visible_message(span_warning("[src] starts to shake and drop to the floor."), span_warning("We are unable to move as a larva is coming out of us!"), span_warning("You hear a thud."), 5)
+	do_jitter_animation()
+	AdjustParalyzed(10 SECONDS)
+	sleep(10 SECONDS)
 	visible_message(span_warning("A larva drops out of [src]'s cunt and burrows away!"), span_warning("a larva drops out of our cunt and burrows away."), span_warning("You hear a splatter."), 5)
 	var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
 	xeno_job.add_job_points(1) //can be made a var if need be.
@@ -148,15 +160,19 @@
 	var/implanted_embryos = 0
 	for(var/obj/item/alien_embryo/implanted in victim.contents)
 		implanted_embryos++
+	for(var/mob/living/carbon/xenomorph/larva/implanted in victim.contents)
+		implanted_embryos++
 	if(implanted_embryos < limit)
 		return TRUE
 	return FALSE
 
-/proc/implant_embryo(mob/living/victim, target_hole, times = 1, mob/living/carbon/xenomorph/source, force_xenohive)
+/proc/implant_embryo(mob/living/victim, target_hole, times = 1, mob/living/carbon/xenomorph/source, force_xenohive, override_limit = MAX_LARVA_PREGNANCIES)
+	if(isxeno(victim) && !(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES)) //no inf larva farm
+		return
 	if(!target_hole)
 		target_hole = pick(HOLE_LIST)
 	for(var/index in 1 to times)
-		if(can_implant_embryo(victim))
+		if(can_implant_embryo(victim, override_limit))
 			var/obj/item/alien_embryo/embryo = new(victim)
 			if(source)
 				embryo.hivenumber = source.get_xeno_hivenumber()

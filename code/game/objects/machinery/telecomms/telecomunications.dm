@@ -19,6 +19,7 @@ GLOBAL_LIST_EMPTY(telecomms_freq_listening_list)
 	icon = 'icons/obj/machines/telecomms.dmi'
 	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE|UNACIDABLE
+	use_static_power = TRUE
 	/// list of machines this machine is linked to
 	var/list/links = list()
 	/**
@@ -78,7 +79,7 @@ GLOBAL_LIST_EMPTY(telecomms_freq_listening_list)
 
 		send_count++
 		if(filtered_machine.is_freq_listening(signal))
-			filtered_machine.traffic++
+			filtered_machine.add_traffic()
 
 		if(copysig)
 			filtered_machine.receive_information(signal.copy(), src)
@@ -86,7 +87,7 @@ GLOBAL_LIST_EMPTY(telecomms_freq_listening_list)
 			filtered_machine.receive_information(signal, src)
 
 	if(send_count > 0 && is_freq_listening(signal))
-		traffic++
+		add_traffic()
 
 	return send_count
 
@@ -108,7 +109,6 @@ GLOBAL_LIST_EMPTY(telecomms_freq_listening_list)
 /obj/machinery/telecomms/Initialize(mapload)
 	. = ..()
 	GLOB.telecomms_list += src
-	start_processing()
 	if(mapload && length(autolinkers))
 		return INITIALIZE_HINT_LATELOAD
 
@@ -159,6 +159,7 @@ GLOBAL_LIST_EMPTY(telecomms_freq_listening_list)
 
 
 /obj/machinery/telecomms/proc/update_power()
+	var/old_on = on
 	if(toggled)
 		if(machine_stat & (BROKEN|NOPOWER|EMPED)) // if powered, on. if not powered, off. if too damaged, off
 			on = FALSE
@@ -166,16 +167,26 @@ GLOBAL_LIST_EMPTY(telecomms_freq_listening_list)
 			on = TRUE
 	else
 		on = FALSE
+	return old_on != on
 
+/obj/machinery/telecomms/power_change()
+	. = ..()
+	if(update_power())
+		update_icon()
+
+/obj/machinery/telecomms/proc/add_traffic(amount = 1)
+	traffic += amount
+	start_processing()
 
 /obj/machinery/telecomms/process()
-	update_power()
-
-	// Update the icon
-	update_icon()
+	if(update_power())
+		update_icon()
 
 	if(traffic > 0)
-		traffic -= netspeed
+		traffic = max(0, traffic - netspeed)
+
+	if(traffic <= 0)
+		stop_processing()
 
 ///adds new_connection to src's links list AND vice versa. also updates links_by_telecomms_type
 /obj/machinery/telecomms/proc/add_new_link(obj/machinery/telecomms/new_connection, mob/user)

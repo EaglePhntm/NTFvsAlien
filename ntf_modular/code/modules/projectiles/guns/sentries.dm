@@ -2,7 +2,7 @@
 /obj/item/weapon/gun/rifle/drone
 	name = "theoritical drone"
 	desc = "what da heeell"
-	var/det_time = 1 SECONDS
+	var/det_time = 2 SECONDS
 	///The sound made when activated
 	var/arm_sound = 'sound/weapons/armbomb.ogg'
 
@@ -23,10 +23,10 @@
 	starting_attachment_types = list()
 	attachable_allowed = list()
 	turret_range = 11 //shit accuracy anyway
-	w_class = WEIGHT_CLASS_NORMAL //same as copes
+	w_class = WEIGHT_CLASS_NORMAL
 	faction = FACTION_TERRAGOV
 
-	soft_armor = list(MELEE = 0, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 30, BIO = 100, FIRE = 100, ACID = 30)
+	soft_armor = list(MELEE = 0, BULLET = 40, LASER = 40, ENERGY = 40, BOMB = 30, BIO = 100, FIRE = 100, ACID = 10)
 
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNT_BY_SHOTS_REMAINING|GUN_IFF|GUN_SMOKE_PARTICLES
 	reciever_flags = AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_DO_NOT_EJECT_HANDFULS|AMMO_RECIEVER_CYCLE_ONLY_BEFORE_FIRE
@@ -38,8 +38,8 @@
 	rounds_per_shot = 2
 	scatter = 10
 	throw_range = 4
-	fire_delay = 0.1 SECONDS
-	accuracy_mult = 0.8
+	fire_delay = 0.15 SECONDS
+	accuracy_mult = 0.7
 	ammo_datum_type = /datum/ammo/bullet/rifle/nut
 	default_ammo_type = /obj/item/ammo_magazine/rifle/nut_ammo
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/nut_ammo)
@@ -56,6 +56,7 @@
 /datum/ammo/bullet/rifle/nut
 	damage = 10
 	penetration = 5
+	accurate_range_min = 2
 
 /obj/item/weapon/gun/rifle/drone/attack_self(mob/user)
 	if(active)
@@ -144,6 +145,13 @@
 	atom_flags = BUMP_ATTACKABLE
 	var/movement_delay = 0.7 SECONDS
 
+/obj/machinery/deployable/mounted/sentry/nut/tail_stab_act(mob/living/carbon/xenomorph/xeno, damage, target_zone, penetration, structure_damage_multiplier, stab_description, disorientamount, can_hit_turf)
+	if(!(CHECK_BITFIELD(machine_stat, KNOCKED_DOWN)))
+		knock_down()
+		take_damage(10, BRUTE, MELEE, TRUE, get_dir(src, xeno), xeno.xeno_caste.melee_ap, xeno)
+		return TRUE
+	return ..()
+
 /obj/machinery/deployable/mounted/sentry/nut/lava_act()
 	return
 
@@ -179,7 +187,8 @@
 				return
 			notice = "<b>ALERT! [src] detected Hostile/Unknown: [mob.name] at: [AREACOORD_NO_Z(src)].</b>"
 			last_alert = world.time
-			walk_towards(src, get_adjacent_open_turfs(mob), movement_delay, 1)
+			if(!(CHECK_BITFIELD(machine_stat, KNOCKED_DOWN)))
+				walk_towards(src, get_adjacent_open_turfs(mob), movement_delay, 1)
 			/*
 			if(HAS_TRAIT(src, TRAIT_WARPED_INVISIBLE))
 				playsound(loc, 'sound/effects/pred_cloakoff.ogg', 25, TRUE)
@@ -191,7 +200,8 @@
 			var/atom/target = get_target()
 			if(target)
 				notice = "<b>ALERT! [src] at [AREACOORD_NO_Z(src)] attempting to kamikaze [target.name] due running out of ammo.</b>"
-				walk_towards(src, target, movement_delay, 1) //suicide bomb les go
+				if(!(CHECK_BITFIELD(machine_stat, KNOCKED_DOWN)))
+					walk_towards(src, target, movement_delay, 1) //suicide bomb les go
 				addtimer(CALLBACK(src, PROC_REF(self_destruct)), 3 SECONDS, TIMER_STOPPABLE)
 				last_damage_alert = world.time
 			else

@@ -3,6 +3,11 @@
 	requires_power = TRUE
 	always_unpowered = FALSE
 
+/area/antag_ship/icc
+	name = "CM Base"
+	requires_power = TRUE
+	always_unpowered = FALSE
+
 /area/antag_ship/icc/hangar
 
 /area/antag_ship/icc/hangar/west
@@ -29,6 +34,14 @@
 /area/antag_ship/icc/medical_room
 	name = "CM Base Medical Room"
 	minimap_color = MINIMAP_AREA_MEDBAY_CAVE
+
+/area/antag_ship/icc/prisoner_holding
+	name = "CM Base Prisoner Holding"
+	minimap_color = MINIMAP_AREA_CELL_MED
+
+/area/antag_ship/icc/living_area
+	name = "CM Base Living Area"
+	minimap_color = MINIMAP_AREA_LIVING
 
 /area/antag_ship/icc/requisition
 	name = "CM Base Requisitions"

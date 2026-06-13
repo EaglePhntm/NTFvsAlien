@@ -3,9 +3,10 @@
 
 $include dbconfig.txt
 $include resources.txt
+$include amia.txt
 
 ## Server name: This appears at the top of the screen in-game.
-SERVER_NAME SoL|NTF vs Alien M/ERP +18
+SERVER_NAME SoL|NTF vs Alien M/ERP +18 (WL at Discord)
 
 ## Hosted by name for unix platforms.
 HOSTEDBY VideNoir
@@ -179,7 +180,7 @@ PANIC_BUNKER_MESSAGE Sorry, but the server is currently not accepting connection
 #PANIC_SERVER_ADDRESS byond://address:port
 
 ##Name of the place to send people rejected by the bunker
-#PANIC_SERVER_NAME [Put the name here]
+PANIC_SERVER_NAME Join the discord to whitelist
 
 ## Notify admins when a new player connects for the first x days a player's been around on this server. (0 for first connection only, -1 for never)
 ##	Requires database

@@ -90,14 +90,15 @@
 				B.acid_spray_act(owner)
 
 		xenomorph_spray(TF, xeno_owner.xeno_caste.acid_spray_duration, xeno_owner.xeno_caste.acid_spray_damage, xeno_owner, TRUE, TRUE)
-		var/current_globs = xeno_owner.corrosive_ammo + xeno_owner.neurotoxin_ammo
+		var/current_globs = xeno_owner.corrosive_ammo + xeno_owner.neurotoxin_ammo + xeno_owner.aphro_ammo
 		if(xeno_owner.ammo && gaseous_spray_threshold && current_globs >= gaseous_spray_threshold)
 			var/datum/effect_system/smoke_spread/xeno/smoke
-			switch(xeno_owner.ammo.type)
-				if(/datum/ammo/xeno/boiler_gas/corrosive, /datum/ammo/xeno/boiler_gas/corrosive/lance)
-					smoke = new /datum/effect_system/smoke_spread/xeno/acid()
-				if(/datum/ammo/xeno/boiler_gas, /datum/ammo/xeno/boiler_gas/lance)
-					smoke = new /datum/effect_system/smoke_spread/xeno/neuro/light()
+			if(istype(xeno_owner.ammo, /datum/ammo/xeno/boiler_gas/corrosive))
+				smoke = new /datum/effect_system/smoke_spread/xeno/acid()
+			else if(istype(xeno_owner.ammo, /datum/ammo/xeno/boiler_gas/aphro))
+				smoke = new /datum/effect_system/smoke_spread/xeno/aphrotoxin/light()
+			else
+				smoke = new /datum/effect_system/smoke_spread/xeno/neuro/light()
 			if(smoke)
 				smoke.set_up(0, TF)
 				smoke.start()

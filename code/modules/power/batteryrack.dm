@@ -38,7 +38,7 @@
 	. = ..()
 	add_parts()
 	RefreshParts()
-	start_processing()
+	start_processing(SSMACHINES_MACHINES_EARLY)
 
 
 //Maybe this should be moved up to obj/machinery

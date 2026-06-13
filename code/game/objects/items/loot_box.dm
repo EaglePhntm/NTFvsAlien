@@ -609,7 +609,7 @@
 	new /obj/item/ammo_magazine/rifle(src)
 	new /obj/item/ammo_magazine/rifle(src)
 	new /obj/item/ammo_magazine/rifle(src)
-	new /obj/item/clothing/glasses/night/m42_night_goggles(src)
+	new /obj/item/clothing/glasses/night/m56_goggles(src)
 
 /obj/item/storage/box/crate/loot/b18classic_pack/Initialize(mapload)
 	. = ..()
@@ -635,5 +635,5 @@
 /obj/item/storage/box/crate/loot/sadarclassic_pack/PopulateContents()
 	. = ..()
 	new /obj/item/weapon/gun/launcher/rocket/sadar(src)
-	new /obj/item/storage/backpack/marine/satchel/scout_cloak(src)
+	new /obj/item/storage/backpack/marine/satchel/scout_cloak/sniper(src)
 	new /obj/item/ammo_magazine/rocket/sadar/ap(src)

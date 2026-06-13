@@ -95,7 +95,7 @@
 
 /datum/ammo/energy/tesla/emp
 	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN
-	damage = 90
+	damage = 80
 	penetration = 100
 	damage_type = STAMINA
 	icon_state = "disablershot"
@@ -108,20 +108,32 @@
 	. = ..()
 	if(prob(emp_chance))
 		do_sparks(3, TRUE, target_mob)
-		empulse(target_mob, 0, 0, 0, 1)
+		empulse(target_mob, 0, 1, 1, 2)
 		staggerstun(target_mob, proj, stun = 0.5 SECONDS)
+	var/mob/living/carbon/human/human_victim = target_mob
+	if(human_victim.species.species_flags & ROBOTIC_LIMBS)
+		human_victim.adjustStaminaLoss(proj.damage/2)
+		human_victim.add_slowdown(0.2,1)
+		human_victim.AdjustStun(0.2 SECONDS)
+		if(human_victim.getStaminaLoss() > 20)
+			human_victim.overlay_fullscreen_timer(human_victim.getStaminaLoss(), 10, "glitch", /atom/movable/screen/fullscreen/robot_glitch)
+		if((human_victim.getStaminaLoss() >= human_victim.maxHealth*2) && !human_victim.IsUnconscious())
+			human_victim.ParalyzeNoChain(15 SECONDS) //fake unconscious basically
+			human_victim.AdjustMute(15 SECONDS)
+			human_victim.overlay_fullscreen_timer(15 SECONDS, 10, "bluescreen", /atom/movable/screen/fullscreen/dead/robot)
+			human_victim.visible_message(span_warning("[human_victim] shudders violently whilst spitting out error text before collapsing, flailing on the ground randomly."), span_tip("You are bluescreening, but you should be able to recover from this by rebooting automatically in about 15s."), span_notice("You hear a clanker glitching."))
 
 /datum/ammo/energy/tesla/emp/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
 	. = ..()
 	if(prob(emp_chance))
 		do_sparks(3, TRUE, target_obj)
-		empulse(target_obj, 0, 0, 0, 1)
+		empulse(target_obj, 0, 0, 1, 2)
 
 /datum/ammo/energy/tesla/emp/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
 	. = ..()
 	if(prob(emp_chance))
 		do_sparks(3, TRUE, target_turf)
-		empulse(target_turf, 0, 0, 0, 1)
+		empulse(target_turf, 0, 0, 1, 2)
 
 #define BFG_SOUND_DELAY_SECONDS 1
 /datum/ammo/energy/bfg
@@ -158,8 +170,8 @@
 /datum/ammo/energy/bfg/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
 	proj.proj_max_range -= 10
 
-/datum/ammo/energy/bfg/drop_nade(turf/T)
-	explosion(T, 0, 0, 4, 0, 0, explosion_cause=src)
+/datum/ammo/energy/bfg/drop_nade(turf/target_turf, atom/movable/projectile/proj)
+	explosion(target_turf, 0, 0, 4, 0, 0, explosion_cause=src)
 
 /datum/ammo/energy/bfg/do_at_max_range(turf/target_turf, atom/movable/projectile/proj)
 	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
@@ -473,7 +485,7 @@
 	name = "sniper laser bolt"
 	hud_state = "laser_sniper"
 	damage = 60
-	penetration = 30
+	penetration = 20
 	accurate_range_min = 5
 	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN|AMMO_BETTER_COVER_RNG|AMMO_SNIPER
 	sundering = 5
@@ -636,23 +648,23 @@
 	max_range = 30
 	hitscan_effect_icon = "beam_incen"
 
-/datum/ammo/energy/lasgun/marine/heavy_laser/drop_nade(turf/T, radius = 1)
-	if(!T || !isturf(T))
+/datum/ammo/energy/lasgun/marine/heavy_laser/drop_nade(turf/target_turf, atom/movable/projectile/proj)
+	if(!isturf(target_turf))
 		return
-	playsound(T, 'sound/weapons/guns/fire/flamethrower2.ogg', 50, 1, 4)
-	flame_radius(radius, T, 3, 3, 3, 3)
+	playsound(target_turf, 'sound/weapons/guns/fire/flamethrower2.ogg', 50, 1, 4)
+	flame_radius(1, target_turf, 3, 3, 3, 3)
 
 /datum/ammo/energy/lasgun/marine/heavy_laser/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
-	drop_nade(get_turf(target_mob))
+	drop_nade(get_turf(target_mob), proj)
 
 /datum/ammo/energy/lasgun/marine/heavy_laser/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
 	drop_nade(target_obj.density ? get_step_towards(target_obj, proj) : target_obj, proj)
 
 /datum/ammo/energy/lasgun/marine/heavy_laser/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
-	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj)
 
 /datum/ammo/energy/lasgun/marine/heavy_laser/do_at_max_range(turf/target_turf, atom/movable/projectile/proj)
-	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj)
 
 /datum/ammo/energy/lasersentry
 	name = "laser sentry bolt"
@@ -707,20 +719,20 @@
 	accurate_range = 5
 	max_range = 12
 
-/datum/ammo/energy/plasma/blast/drop_nade(turf/T)
-	explosion(T, weak_impact_range = 3, color = COLOR_DISABLER_BLUE, explosion_cause=src)
+/datum/ammo/energy/plasma/blast/drop_nade(turf/target_turf, atom/movable/projectile/proj)
+	explosion(target_turf, weak_impact_range = 3, color = COLOR_DISABLER_BLUE, explosion_cause=src)
 
 /datum/ammo/energy/plasma/blast/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
-	drop_nade(target_obj.density ? get_step_towards(target_obj, proj) : target_obj.loc)
+	drop_nade(target_obj.density ? get_step_towards(target_obj, proj) : target_obj.loc, proj)
 
 /datum/ammo/energy/plasma/blast/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
-	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj)
 
 /datum/ammo/energy/plasma/blast/do_at_max_range(turf/target_turf, atom/movable/projectile/proj)
-	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj)
 
 /datum/ammo/energy/plasma/blast/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
-	drop_nade(target_mob.loc)
+	drop_nade(target_mob.loc, proj)
 
 /datum/ammo/energy/plasma/blast/melting
 	damage = 40
@@ -730,9 +742,9 @@
 	///Number of melting stacks to apply
 	var/melting_stacks = 2
 
-/datum/ammo/energy/plasma/blast/melting/drop_nade(turf/T)
-	explosion(T, weak_impact_range = 4, color = COLOR_DISABLER_BLUE, explosion_cause=src)
-	for(var/mob/living/living_victim in viewers(3, T)) //normally using viewers wouldn't work due to darkness and smoke both blocking vision. However explosions clear both temporarily so we avoid this issue.
+/datum/ammo/energy/plasma/blast/melting/drop_nade(turf/target_turf, atom/movable/projectile/proj)
+	explosion(target_turf, weak_impact_range = 4, color = COLOR_DISABLER_BLUE, explosion_cause=src)
+	for(var/mob/living/living_victim in viewers(3, target_turf)) //normally using viewers wouldn't work due to darkness and smoke both blocking vision. However explosions clear both temporarily so we avoid this issue.
 		var/datum/status_effect/stacking/melting/debuff = living_victim.has_status_effect(STATUS_EFFECT_MELTING)
 		if(debuff)
 			debuff.add_stacks(melting_stacks)
@@ -746,9 +758,9 @@
 	accurate_range = 9
 	ammo_behavior_flags = AMMO_ENERGY
 
-/datum/ammo/energy/plasma/blast/shatter/drop_nade(turf/T)
-	explosion(T, light_impact_range = 2, weak_impact_range = 5, throw_range = 0, color = COLOR_DISABLER_BLUE, explosion_cause=src)
-	for(var/mob/living/living_victim in viewers(3, T))
+/datum/ammo/energy/plasma/blast/shatter/drop_nade(turf/target_turf, atom/movable/projectile/proj)
+	explosion(target_turf, light_impact_range = 2, weak_impact_range = 5, throw_range = 0, color = COLOR_DISABLER_BLUE, explosion_cause=src)
+	for(var/mob/living/living_victim in viewers(3, target_turf))
 		living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, 5 SECONDS)
 
 /datum/ammo/energy/plasma/blast/incendiary
@@ -759,9 +771,9 @@
 	icon_state = "plasma_big"
 	hud_state = "flame"
 
-/datum/ammo/energy/plasma/blast/incendiary/drop_nade(turf/T)
-	flame_radius(2, T, burn_duration = 9, colour = "blue")
-	playsound(T, 'sound/weapons/guns/fire/flamethrower2.ogg', 35, 1, 4)
+/datum/ammo/energy/plasma/blast/incendiary/drop_nade(turf/target_turf, atom/movable/projectile/proj)
+	flame_radius(2, target_turf, burn_duration = 9, colour = "blue")
+	playsound(target_turf, 'sound/weapons/guns/fire/flamethrower2.ogg', 35, 1, 4)
 
 #define PLASMA_CANNON_INNER_STAGGERSTUN_RANGE 3
 #define PLASMA_CANNON_STAGGERSTUN_RANGE 9
@@ -866,7 +878,7 @@
 	bullet_color = LIGHT_COLOR_ELECTRIC_GREEN
 
 	///Fire burn time
-	var/heat = 12
+	var/burn_time = 12
 	///Fire damage
 	var/burn_damage = 9
 	///Fire color
@@ -877,7 +889,7 @@
 	var/burn_mod = 1
 	if(istype(target_turf, /turf/closed/wall))
 		burn_mod = 3
-	target_turf.ignite(heat, burn_damage * burn_mod, fire_color)
+	target_turf.ignite(burn_time, burn_damage * burn_mod, fire_color)
 
 	for(var/mob/living/mob_caught in target_turf)
 		if(mob_caught.stat == DEAD || mob_caught == target)
@@ -908,7 +920,7 @@
 	max_range = 40
 	accurate_range = 10
 	accuracy = 25
-	damage = 850
+	damage = 400
 	penetration = 120
 	sundering = 30
 	damage_falloff = 5

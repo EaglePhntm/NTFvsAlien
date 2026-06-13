@@ -17,8 +17,8 @@
 	var/list/req_components = null
 	var/list/req_component_names = null
 	var/state = CONSTRUCTION_STATE_BEGIN
-	var/required_skill = SKILL_CONSTRUCTION_ADVANCED
-	var/required_dismantle_skill = SKILL_ENGINEER_PLASTEEL
+	var/required_skill = SKILL_CONSTRUCTION_DEFAULT
+	var/required_dismantle_skill = SKILL_CONSTRUCTION_DEFAULT
 
 /obj/machinery/constructable_frame/state_2
 	icon_state = "box_1"

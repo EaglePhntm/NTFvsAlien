@@ -59,7 +59,7 @@ ENGINEERING
 /datum/supply_packs/engineering/pacman
 	name = "P.A.C.M.A.N. Portable Generator"
 	notes = "Uses phoron sheets as fuel to produce power. Fuel not included, buy it separately."
-	contains = list(/obj/machinery/power/port_gen/pacman)
+	contains = list(/obj/machinery/power/port_gen/pacman/empty)
 	cost = 150
 	containertype = null
 
@@ -72,7 +72,7 @@ ENGINEERING
 /datum/supply_packs/engineering/pacman_super
 	name = "S.U.P.E.R.P.A.C.M.A.N. Portable Generator"
 	notes = "Uses uranium sheets as fuel to produce power. Fuel not included, buy it separately."
-	contains = list(/obj/machinery/power/port_gen/pacman/super)
+	contains = list(/obj/machinery/power/port_gen/pacman/super/empty)
 	cost = 750
 	containertype = null
 
@@ -134,7 +134,7 @@ ENGINEERING
 /datum/supply_packs/engineering/foam_grenade
 	name = "Foam Grenade"
 	contains = list(/obj/item/explosive/grenade/chem_grenade/metalfoam)
-	cost = 30
+	cost = 20
 
 /datum/supply_packs/engineering/floodlight
 	name = "Deployable Floodlight"
@@ -146,10 +146,17 @@ ENGINEERING
 	contains = list(/obj/machinery/power/port_gen/pacman/mobile_power)
 	cost = 200
 
-/datum/supply_packs/engineering/teleporter
-	name = "Teleporter pads"
+/datum/supply_packs/engineering/teleporter_pair
+	name = "Teleporter pads x2"
+	notes = "Contains a pair of pre-linked teleporter pads"
 	contains = list(/obj/effect/teleporter_linker)
-	cost = 500
+	cost = 350
+
+/datum/supply_packs/engineering/teleporter_single
+	name = "Teleporter pad x1"
+	notes = "Contains a single replacement teleporter pad"
+	contains = list(/obj/item/teleporter_kit)
+	cost = 225
 
 /datum/supply_packs/engineering/tesla_turret
 	name = "Tesla turret"

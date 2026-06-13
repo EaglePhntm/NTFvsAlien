@@ -30,7 +30,8 @@
 	else
 		e_icon = E.icon_name
 
-	icon_state = "[get_limb_icon_name(H.species, H.physique, name, e_icon)]"
+	icon = H.get_body_icon_for_limb(name)
+	icon_state = "[get_limb_icon_name(H.get_visual_species(), H.physique, name, e_icon, H.digitigrade_legs, H.synthetic_body_base, H.robot_body_base, H.robot_head_base, H.custom_supersoldier_parts, H.supersoldier_body_base, H.supersoldier_head_base)]"
 	setDir(SOUTH)
 	transform = turn(transform, rand(70,130))
 

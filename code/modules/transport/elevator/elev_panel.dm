@@ -173,7 +173,8 @@
 		var/preset_name = preset_destination_names?[num2text(z_level)]
 		// If we don't have a preset name, use Floor z-1 for the title.
 		// z - 1 is used because the station z-level is 2, and goes up.
-		linked_elevator_destination["[z_level]"] = preset_name || "Floor [z_level - 1]"
+		//in ntf its somehow z3 so its -2 --- ntf edit, maybe cause antagmap
+		linked_elevator_destination["[z_level]"] = preset_name || "Floor [z_level - 2]"
 
 	// Reverse the destination list.
 	// By this point the list will go from bottom floor to top floor,
@@ -261,7 +262,7 @@
 	else
 		data["lift_exists"] = FALSE
 		data["currently_moving"] = FALSE
-		data["current_floor"] = 0 // 0 shows up as "Floor -1" in the UI, which is fine for what it is
+		data["current_floor"] = -2 // 0 shows up as "Floor -1" in the UI, which is fine for what it is -- reduced by 1 even more for compensation
 
 	return data
 

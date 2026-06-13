@@ -386,3 +386,15 @@
 	gloves = /obj/item/clothing/gloves/insulated
 	r_pocket = /obj/item/storage/pouch/general/medium
 	l_pocket = /obj/item/storage/pouch/general/medium
+
+/datum/outfit/job/civilian/combat_robot
+	name = COMBAT_ROBOT
+	jobtype = /datum/job/terragov/silicon/combat_robot
+
+	id = /obj/item/card/id/dogtag
+	ears = /obj/item/radio/headset/mainship/mcom
+	w_uniform = /obj/item/clothing/under/marine/robotic/black_vest
+	shoes = /obj/item/clothing/shoes/marine/full
+	gloves = /obj/item/clothing/gloves/marine
+	r_pocket = /obj/item/storage/pouch/general/medium
+	l_pocket = /obj/item/storage/pouch/general/medium

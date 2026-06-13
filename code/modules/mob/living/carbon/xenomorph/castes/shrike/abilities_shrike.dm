@@ -94,7 +94,7 @@
 		return FALSE
 	if(isxeno(target) && (target != xeno_owner) && !collusion_xenos_only)
 		return FALSE
-	if(target.move_resist >= MOVE_FORCE_OVERPOWERING)
+	if(target.get_move_resist() >= MOVE_FORCE_OVERPOWERING)
 		return FALSE
 	var/max_dist = SHRIKE_FLING_RANGE //the distance only goes to 3 now, since this is more of a utility then an attack.
 	if(!line_of_sight(owner, target, max_dist))
@@ -242,30 +242,15 @@
 		xeno_owner.face_atom(target)
 	starting_direction = xeno_owner.dir
 
-	var/turf/lower_left
-	var/turf/upper_right
-	switch(starting_direction)
-		if(NORTH)
-			lower_left = locate(xeno_owner.x - 1, xeno_owner.y + 1, xeno_owner.z)
-			upper_right = locate(xeno_owner.x + 1, xeno_owner.y + 3, xeno_owner.z)
-		if(SOUTH)
-			lower_left = locate(xeno_owner.x - 1, xeno_owner.y - 3, xeno_owner.z)
-			upper_right = locate(xeno_owner.x + 1, xeno_owner.y - 1, xeno_owner.z)
-		if(WEST)
-			lower_left = locate(xeno_owner.x - 3, xeno_owner.y - 1, xeno_owner.z)
-			upper_right = locate(xeno_owner.x - 1, xeno_owner.y + 1, xeno_owner.z)
-		if(EAST)
-			lower_left = locate(xeno_owner.x + 1, xeno_owner.y - 1, xeno_owner.z)
-			upper_right = locate(xeno_owner.x + 3, xeno_owner.y + 1, xeno_owner.z)
-
 	var/list/things_to_throw = list()
 	var/list/atom/movable/projectile/things_to_deflect = list()
-	for(var/turf/affected_tile in block(lower_left, upper_right)) //everything in the 3x3 block is found.
+
+	for(var/turf/affected_tile AS in get_forward_square(xeno_owner, 1, 3, FALSE, FALSE))
 		affected_tile.Shake(duration = 0.5 SECONDS)
 		for(var/atom/movable/affected AS in affected_tile)
 			if(isfire(affected))
 				var/obj/fire/fire = affected
-				fire.reduce_fire(10)
+				fire.reduce_fire(10, 10)
 				continue
 			if(projectile_cooldown_mulitplier && istype(affected, /atom/movable/projectile))
 				things_to_deflect += affected
@@ -273,7 +258,7 @@
 			if(!ishuman(affected) && !istype(affected, /obj/item) && !isdroid(affected))
 				affected.Shake(duration = 0.5 SECONDS)
 				continue
-			if(affected.move_resist >= MOVE_FORCE_OVERPOWERING)
+			if(affected.get_move_resist() >= MOVE_FORCE_OVERPOWERING)
 				continue
 			if(ishuman(affected))
 				var/mob/living/carbon/human/H = affected
@@ -529,7 +514,7 @@
 			to_chat(owner, span_warning("We can only shape on weeds. We must find some resin before we start building!"))
 		return FALSE
 
-	if(!T.check_alien_construction(owner, silent, /obj/structure/xeno/acidwell))
+	if(!T.check_alien_construction(owner, silent, well_type))
 		return FALSE
 
 	if(!T.check_disallow_alien_fortification(owner, silent))
@@ -540,9 +525,9 @@
 	succeed_activate()
 
 	playsound(T, SFX_ALIEN_RESIN_BUILD, 25)
-	new /obj/structure/xeno/acidwell(T, xeno_owner.get_xeno_hivenumber(), owner)
+	var/obj/structure/xeno/acidwell/new_well = new well_type(T, xeno_owner.get_xeno_hivenumber(), owner)
 
-	to_chat(owner, span_xenonotice("We place an acid well; it can be filled with more acid."))
+	to_chat(owner, span_xenonotice("We place \an [new_well]; it can be filled with more [new_well.content_name]."))
 	GLOB.round_statistics.xeno_acid_wells++
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "xeno_acid_wells")
 	owner.record_traps_created()
@@ -608,7 +593,7 @@
 /datum/action/ability/activable/xeno/psychic_vortex/proc/vortex_pull()
 	playsound(owner, 'sound/effects/seedling_chargeup.ogg', 60)
 	for(var/atom/movable/movable_victim in range(VORTEX_RANGE, owner.loc))
-		if(movable_victim.anchored || isxeno(movable_victim) || movable_victim.move_resist > MOVE_FORCE_STRONG)
+		if(movable_victim.anchored || isxeno(movable_victim) || movable_victim.get_move_resist() > MOVE_FORCE_STRONG)
 			continue
 		if(ishuman(movable_victim))
 			var/mob/living/carbon/human/H = movable_victim
@@ -626,7 +611,7 @@
 /// Randomly throws movable atoms in the radius of the vortex abilites range, different each use.
 /datum/action/ability/activable/xeno/psychic_vortex/proc/vortex_push()
 	for(var/atom/movable/movable_victim in range(VORTEX_RANGE, owner.loc))
-		if(movable_victim.anchored || isxeno(movable_victim) || movable_victim.move_resist == INFINITY)
+		if(movable_victim.anchored || isxeno(movable_victim) || movable_victim.get_move_resist() == INFINITY)
 			continue
 		if(ishuman(movable_victim))
 			var/mob/living/carbon/human/human_victim = movable_victim

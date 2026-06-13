@@ -317,7 +317,7 @@ GLOBAL_LIST_INIT(ai_squad_presets, list(
 		/datum/job/icc/standard,
 		/datum/job/icc/guard,
 	),
-	"CLF squad" = list(
+	"Cult squad" = list(
 		/datum/job/clf/standard,
 		/datum/job/clf/standard,
 		/datum/job/clf/leader,

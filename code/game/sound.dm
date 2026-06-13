@@ -120,7 +120,7 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			continue
 
 		if(listener.stat == DEAD)
-			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS)) && !check_rights_for(listener.client, R_ADMIN)) // no getting to know what you shouldn't
+			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags2, MODE_2_NO_GHOSTS_STRICT)) && !check_rights_for(listener.client, R_ADMIN)) // no getting to know what you shouldn't
 				continue
 		listener.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, channel, S)
 
@@ -229,7 +229,7 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			continue
 
 		if(M.stat == DEAD)
-			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS)) && !check_rights_for(M.client, R_ADMIN)) // no getting to know what you shouldn't
+			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags2, MODE_2_NO_GHOSTS_STRICT)) && !check_rights_for(M.client, R_ADMIN)) // no getting to know what you shouldn't
 				continue
 
 		if (M.z == z)
@@ -243,7 +243,7 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			continue
 
 		if(H.stat == DEAD)
-			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS)) && !check_rights_for(H.client, R_ADMIN)) // no getting to know what you shouldn't
+			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags2, MODE_2_NO_GHOSTS_STRICT)) && !check_rights_for(H.client, R_ADMIN)) // no getting to know what you shouldn't
 				continue
 
 		SEND_SOUND(H, soundin)
@@ -259,7 +259,7 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			continue
 
 		if(X.stat == DEAD)
-			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS)) && !check_rights_for(X.client, R_ADMIN)) // no getting to know what you shouldn't
+			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags2, MODE_2_NO_GHOSTS_STRICT)) && !check_rights_for(X.client, R_ADMIN)) // no getting to know what you shouldn't
 				continue
 
 		SEND_SOUND(X, soundin)
@@ -484,5 +484,7 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			soundin = list('ntf_modular/sound/vo/female/gen/se/sexlight (1).ogg','ntf_modular/sound/vo/female/gen/se/sexlight (2).ogg','ntf_modular/sound/vo/female/gen/se/sexlight (3).ogg','ntf_modular/sound/vo/female/gen/se/sexlight (4).ogg','ntf_modular/sound/vo/female/gen/se/sexlight (5).ogg','ntf_modular/sound/vo/female/gen/se/sexlight (6).ogg','ntf_modular/sound/vo/female/gen/se/sexlight (7).ogg')
 		if(SFX_FEMALE_SEXYMOANHVY)
 			soundin = list('ntf_modular/sound/vo/female/gen/se/sex (1).ogg','ntf_modular/sound/vo/female/gen/se/sex (2).ogg','ntf_modular/sound/vo/female/gen/se/sex (3).ogg','ntf_modular/sound/vo/female/gen/se/sex (4).ogg','ntf_modular/sound/vo/female/gen/se/sex (5).ogg','ntf_modular/sound/vo/female/gen/se/sex (6).ogg','ntf_modular/sound/vo/female/gen/se/sex (7).ogg','ntf_modular/sound/vo/female/gen/se/sex (8).ogg')
+		if(SFX_LARVA_TALK)
+			soundin = pick('ntf_modular/sound/voice/alien/larva_talk1.ogg','ntf_modular/sound/voice/alien/larva_talk2.ogg','ntf_modular/sound/voice/alien/larva_talk3.ogg','ntf_modular/sound/voice/alien/larva_talk4.ogg')
 
 	return soundin

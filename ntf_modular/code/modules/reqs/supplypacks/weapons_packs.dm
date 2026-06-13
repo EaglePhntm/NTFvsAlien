@@ -13,6 +13,16 @@
 	contains = list(/obj/item/ammo_magazine/rifle/standard_carbine/ap)
 	cost = 50
 
+/datum/supply_packs/weapons/m412_ap
+	name = "\improper PR-412 AP magazine (10x24mm)"
+	contains = list(/obj/item/ammo_magazine/rifle/ap)
+	cost = 25
+
+/datum/supply_packs/weapons/apbox10x24
+	name = "\improper Big ammo box (10x24mm AP)"
+	contains = list(/obj/item/big_ammo_box/ap)
+	cost = 200
+
 /datum/supply_packs/weapons/dragoon
 	name = "Dragoon Mk1 Rapid Engagement Rifle"
 	contains = list(/obj/item/weapon/gun/rifle/dragoon)
@@ -28,6 +38,15 @@
 	contains = list(/obj/item/ammo_magazine/rifle/boltclip/dragoon/pox)
 	cost = 100
 
+/datum/supply_packs/weapons/laserweapons
+	name = "Standard laser weapon bundle" // Since we can buy an xray laser rifle but not regular ones?
+	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine,
+/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle,
+/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper,
+/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_mlaser,
+/obj/item/cell/lasgun/volkite/powerpack/marine,
+/obj/item/cell/lasgun/volkite/powerpack/marine/backpack,)
+	cost = 250
 
 //factional things down here
 /datum/supply_packs/weapons/unity
@@ -83,3 +102,15 @@
 	contains = list(/obj/item/ammo_magazine/rifle/chamberedrifle/bluescreen)
 	faction_lock = list(FACTION_TERRAGOV)
 	cost = 60
+
+/datum/supply_packs/weapons/bikeautocannonammo
+	name = "heavy motorbike AC-32 autocannon ammo rack (x2)"
+	contains = list(/obj/item/ammo_magazine/bike_autocannon, /obj/item/ammo_magazine/bike_autocannon)
+	faction_lock = list(FACTION_TERRAGOV)
+	cost = 30
+
+/datum/supply_packs/weapons/bikeminigunammo
+	name = "hoverbike MG-100 Vindicator ammo rack"
+	contains = list(/obj/item/ammo_magazine/bike_minigun, /obj/item/ammo_magazine/bike_minigun)
+	faction_lock = list(FACTION_SOM)
+	cost = 30

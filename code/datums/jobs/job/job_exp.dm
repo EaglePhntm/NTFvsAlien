@@ -158,7 +158,7 @@ GLOBAL_PROTECT(exp_to_update)
 /proc/update_exp(mins, ann = FALSE)
 	if(!SSdbcore.Connect())
 		return -1
-	for(var/client/L in GLOB.clients)
+	for(var/client/L in GLOB.whitelisted_clients)
 		if(L.is_afk())
 			continue
 		L.update_exp_list(mins, ann)

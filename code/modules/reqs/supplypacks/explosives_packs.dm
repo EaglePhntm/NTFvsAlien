@@ -102,6 +102,14 @@ EXPLOSIVES
 	)
 	cost = 350
 
+/datum/supply_packs/explosives/explosives_neurotoxinv2
+	name = "M40-N2 Neurotoxin smoke grenade box"
+	notes = "Contains 25 grenades. Version two produces a weaker and smaller smoke cloud that lasts much longer."
+	contains = list(
+		/obj/item/storage/box/visual/grenade/neurotoxin/alt,
+	)
+	cost = 425
+
 /datum/supply_packs/explosives/explosives_acid
 	name = "M40-A Acid smoke grenade box"
 	notes = "Contains 25 grenades"
@@ -133,6 +141,14 @@ EXPLOSIVES
 		/obj/item/storage/box/visual/grenade/aphrotoxin,
 	)
 	cost = 250
+
+/datum/supply_packs/explosives/explosives_metalfoam
+	name = "Metal-Foam Grenade box"
+	notes = "Contains 25 grenades"
+	contains = list(
+		/obj/item/storage/box/visual/grenade/metalfoam,
+	)
+	cost = 480
 
 /datum/supply_packs/explosives/explosives_mines/emp
 	name = "EMP Grenades"

@@ -133,7 +133,13 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 				LAZYSET(channels, ch_name, keyslot2.channels[ch_name])
 
 	for(var/ch_name in channels)
-		secure_radio_connections[ch_name] = add_radio(src, GLOB.radiochannels[ch_name])
+		if(ch_name in GLOB.radiochannels)
+			secure_radio_connections += ch_name
+			secure_radio_connections[ch_name] = add_radio(src, GLOB.radiochannels[ch_name])
+		else
+			log_runtime("[ch_name] not found in GLOB.radiochannels!")
+			if(GLOB.radiochannels)
+				log_runtime("GLOB.radiochannels = [json_encode(GLOB.radiochannels)]")
 
 	/// only headsets autoupdate squads cuz im lazy and dont want to redo this proc
 	if(keyslot?.custom_squad_factions || keyslot2?.custom_squad_factions)
@@ -311,6 +317,12 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 /obj/item/radio/headset/mainship/proc/update_minimap_icon()
 	SIGNAL_HANDLER
 	SSminimaps.remove_marker(wearer)
+	if(locator_disabled_timer || wearer.stat == DEAD)
+		if(camera.status)
+			camera.toggle_cam(null, FALSE)
+	else
+		if(headset_hud_on && wearer.stat != DEAD && !(camera.status))
+			camera.toggle_cam(null, FALSE)
 	if(!wearer.job || !wearer.job.minimap_icon || locator_disabled_timer)
 		return
 	var/marker_flags = initial(minimap_type.marker_flags)
@@ -667,7 +679,6 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 
 /obj/item/radio/headset/distress/dutch
-	name = "colonist headset"
 	keyslot = /obj/item/encryptionkey/dutch
 	frequency = FREQ_COLONIST
 

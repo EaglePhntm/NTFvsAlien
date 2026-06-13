@@ -5,13 +5,25 @@
 /datum/sex_action/masturbate_vagina/shows_on_menu(mob/living/carbon/user, mob/living/carbon/target)
 	if(user != target)
 		return FALSE
-
+	if(isxeno(user))
+		var/mob/living/carbon/xenomorph/userxeno = user
+		if(userxeno.client?.prefs?.xenogender != 2 && userxeno.client?.prefs?.xenogender != 4)
+			return FALSE
+	else
+		if(user.gender != FEMALE)
+			return FALSE
 	return TRUE
 
 /datum/sex_action/masturbate_vagina/can_perform(mob/living/carbon/user, mob/living/carbon/target)
 	if(user != target)
 		return FALSE
-
+	if(isxeno(user))
+		var/mob/living/carbon/xenomorph/userxeno = user
+		if(userxeno.client?.prefs?.xenogender != 2 && userxeno.client?.prefs?.xenogender != 4)
+			return FALSE
+	else
+		if(user.gender != FEMALE)
+			return FALSE
 	return TRUE
 
 /datum/sex_action/masturbate_vagina/on_start(mob/living/carbon/user, mob/living/carbon/target)
@@ -28,7 +40,6 @@
 	user.sexcon.handle_passive_ejaculation(user)
 
 /datum/sex_action/masturbate_vagina/on_finish(mob/living/carbon/user, mob/living/carbon/target)
-	..()
 	user.visible_message(span_warning("[user] stops stroking."))
 
 /datum/sex_action/masturbate_vagina/is_finished(mob/living/carbon/human/user, mob/living/carbon/human/target)

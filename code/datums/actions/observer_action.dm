@@ -38,6 +38,10 @@
 /datum/action/observer_action/take_ssd_mob/action_activate()
 	var/mob/dead/observer/dead_owner = owner
 
+	if(!WHITELIST_CHECK(owner.client))
+		WHITELIST_MESSAGE(owner.client)
+		return
+
 	if(!GLOB.ssd_posses_allowed)
 		to_chat(owner, span_warning("Taking over SSD mobs is currently disabled."))
 		return
@@ -69,6 +73,11 @@
 	if(new_mob.stat == DEAD)
 		to_chat(owner, span_warning("You cannot join if the mob is dead."))
 		return FALSE
+
+	if(iszombie(new_mob) && (length(GLOB.possessed_sentient_zombie_list) >= GLOB.maximum_allowed_possessed_zombies))
+		to_chat(owner, span_warning("There are too few marines. Possessing additional zombies is currently disabled."))
+		return FALSE
+
 	if(tgui_alert(owner, "Are you sure you want to take " + new_mob.real_name +" ("+new_mob.job.title+")?", "Take SSD mob", list("Yes", "No",)) != "Yes")
 		return
 	if(isxeno(new_mob))
@@ -105,6 +114,8 @@
 
 	message_admins(span_adminnotice("[owner.key] took control of [new_mob.name] as [new_mob.p_they()] was ssd."))
 	log_admin("[owner.key] took control of [new_mob.name] as [new_mob.p_they()] was ssd.")
+	if(iszombie(new_mob))
+		GLOB.possessed_sentient_zombie_list += new_mob
 	var/mob/living/carbon/human/new_human = new_mob
 	var/datum/job/j = new_human.job
 	var/datum/outfit/job/o = j.outfit

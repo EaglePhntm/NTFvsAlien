@@ -53,6 +53,7 @@
 
 	if(upgrade == XENO_UPGRADE_PRIMO && !silent)
 		to_chat(src, span_xenoannounce(xeno_caste.primordial_message))
+		sync_hive_abilities()
 
 	generate_name() //Give them a new name now
 
@@ -73,6 +74,10 @@
 	upgrade_stored = TIER_ONE_THRESHOLD
 
 /mob/living/carbon/xenomorph/runner/melter/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+	upgrade_stored = TIER_ONE_THRESHOLD
+
+/mob/living/carbon/xenomorph/runner/panther/primordial
 	upgrade = XENO_UPGRADE_PRIMO
 	upgrade_stored = TIER_ONE_THRESHOLD
 
@@ -456,3 +461,9 @@
 
 //----BEHEMOTH END----//
 //============//
+
+//================//
+//----CHIMERA START----//
+/mob/living/carbon/xenomorph/chimera/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+//----CHIMERA END----//

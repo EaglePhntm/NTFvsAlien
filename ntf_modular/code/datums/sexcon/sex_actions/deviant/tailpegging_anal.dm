@@ -12,6 +12,7 @@
 /datum/sex_action/tailpegging_anal/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
 		return FALSE
+
 	if(isxeno(user))
 		return TRUE
 	return FALSE
@@ -35,5 +36,5 @@
 	target.sexcon.handle_passive_ejaculation(user)
 
 /datum/sex_action/tailpegging_anal/on_finish(mob/living/carbon/user, mob/living/carbon/target)
-	..()
+	playsound(src, pick(list('ntf_modular/sound/misc/cork_pop.ogg','ntf_modular/sound/misc/cork_pop (2).ogg')), 75, TRUE, 7, ignore_walls = FALSE)
 	user.visible_message(span_warning("[user] pulls [user.p_their()] tail out of [target]'s butt."))

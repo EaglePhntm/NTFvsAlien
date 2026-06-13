@@ -11,6 +11,8 @@
 	var/larva_from_converted_psypoints = 0
 	var/larva_from_converted_biomass = 0
 	var/larva_from_hive_target_rewards = 0
+	var/larva_from_crash_autobalance = 0
+	var/larva_debt_from_marines_cryoing = 0
 	var/generator_seconds = 0
 	var/biomass_from_cocoons = 0
 	var/biomass_from_psydrains = 0
@@ -28,3 +30,4 @@
 	var/intel_max_chain = 0
 	var/intel_chain_sold_for_list = list()
 	var/intel_chain_sold_by_list = list()
+	var/boiler_aphro_smokes = 0

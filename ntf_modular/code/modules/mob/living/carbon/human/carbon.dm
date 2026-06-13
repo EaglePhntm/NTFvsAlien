@@ -12,9 +12,9 @@
 	if(istype(get_active_held_item(), /obj/item))
 		var/obj/item/item = get_active_held_item()
 		if(item?.force)
-			var/damage_of_item = rand(item.force, floor(item.force * 2))
-			xeno.apply_damage(damage_of_item, BRUTE, zone_selected, MELEE, attacker = src)
-			visible_message(span_danger("<B>[src] attacks the gap in [xeno]'s carapace with the [item.name]!"))
+			var/damage_of_item = item.force
+			xeno.apply_damage(damage_of_item, BRUTE, zone_selected, MELEE, updating_health = TRUE, attacker = src)
+			visible_message(span_danger("<B>[src] attacks [xeno]'s carapace with the [item.name]!"))
 			if(item.sharp)
 				playsound(loc, 'sound/weapons/slice.ogg', 25, 1)
 			else
@@ -29,27 +29,62 @@
 	ADD_TRAIT(src, TRAIT_IMMOBILE, "t_s_xeno_haul")
 	ADD_TRAIT(src, TRAIT_HAULED, "t_s_xeno_haul")
 
-	RegisterSignal(xeno, COMSIG_MOB_DEATH, PROC_REF(release_haul_death))
 	devouring_mob = xeno
 	layer = ABOVE_MOB_LAYER
 	// add_filter("hauled_shadow", 1, color_matrix_filter(rgb(95, 95, 95)))
 	pixel_y = 6
 	next_haul_resist = 0
 
-/mob/living/carbon/human/proc/release_haul_death()
-	SIGNAL_HANDLER
-	handle_unhaul()
+/mob/living/carbon/human/death(gibbing, deathmessage, silent, special_death_message)
+	if(devouring_mob && !(SSticker.mode.round_type_flags & MODE_XENO_GRAB_DEAD_ALLOWED))
+		to_chat(devouring_mob, span_xenowarning("[src] is dead. No more use for them now."))
+		handle_unhaul()
+	. = ..()
 
-// Removing traits and other stuff after xeno releases us from haul
+/mob/living/carbon/xenomorph/death(gibbing, deathmessage, silent)
+	if(eaten_mob)
+		eaten_mob.handle_unhaul()
+	. = ..()
+
+/mob/living/carbon/human/proc/haul_dir_check()
+	if(!devouring_mob)
+		return
+	switch(closest_cardinal_dir(devouring_mob.dir))
+		if(NORTH)
+			layer = BELOW_MOB_LAYER
+			pixel_y = 12
+			pixel_x = 0
+			setDir(SOUTH)
+		if(EAST)
+			layer = ABOVE_MOB_LAYER
+			pixel_y = 6
+			pixel_x = 12
+			setDir(WEST)
+		if(WEST)
+			layer = ABOVE_MOB_LAYER
+			pixel_y = 6
+			pixel_x = -12
+			setDir(EAST)
+		if(SOUTH)
+			layer = ABOVE_MOB_LAYER
+			pixel_y = -12
+			pixel_x =  0
+			setDir(NORTH)
+
+// Removing traits and other stuff after xeno releases us from haul, works to drop devoured people too.
 /mob/living/carbon/human/proc/handle_unhaul()
-	var/location = get_turf(loc)
+	if(!devouring_mob) //we are in a belly
+		return
+	var/location = get_turf(devouring_mob.loc)
 	remove_traits(list(TRAIT_HAULED, TRAIT_IMMOBILE), "t_s_xeno_haul")
-	UnregisterSignal(devouring_mob, COMSIG_MOB_DEATH)
+	devouring_mob.remove_movespeed_modifier("hauler", TRUE)
 	pixel_y = 0
-	devouring_mob = null
-	layer = MOB_LAYER
-	//remove_filter("hauled_shadow")
+	pixel_x = 0
 	forceMove(location)
+	devouring_mob.eaten_mob = null
+	devouring_mob = null
+	layer = initial(layer)
+	//remove_filter("hauled_shadow")
 	next_haul_resist = 0
 
 /mob/living/carbon/help_shake_act(mob/living/carbon/shaker)

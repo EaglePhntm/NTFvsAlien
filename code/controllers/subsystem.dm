@@ -151,6 +151,8 @@
 	var/datum/controller/subsystem/queue_node
 	var/queue_node_priority
 	var/queue_node_flags
+	if(Master.iteration < 3)
+		log_world("MC: enqueue() queueing [logdetails(src)]([stat_entry()]) on MC iteration [Master.iteration].  queue_head = [logdetails(Master.queue_head)], last_type_processed = [logdetails(Master.last_type_processed)].")
 
 	for (queue_node = Master.queue_head; queue_node; queue_node = queue_node.queue_next)
 		queue_node_priority = queue_node.queued_priority
@@ -202,6 +204,8 @@
 		queue_prev = queue_node.queue_prev
 		queue_node.queue_prev = src
 
+	if(Master.iteration < 3)
+		log_world("MC: enqueue() just queued [logdetails(src)]([stat_entry()]) on MC iteration [Master.iteration].  queue_head = [logdetails(Master.queue_head)], last_type_processed = [logdetails(Master.last_type_processed)], src.queue_next = [logdetails(queue_next)], src.queue_prev = [logdetails(queue_prev)].")
 
 /datum/controller/subsystem/proc/dequeue()
 	if (queue_next)

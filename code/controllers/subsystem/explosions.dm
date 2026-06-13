@@ -616,11 +616,11 @@ This way we'll be able to draw the explosion's expansion path without having to 
 			if(QDELETED(affected_turf))
 				continue
 			for(var/atom/movable/thing_to_throw AS in affected_turf)
-				if(thing_to_throw.anchored || thing_to_throw.move_resist == INFINITY)
+				if(thing_to_throw.anchored || thing_to_throw.get_move_resist() == INFINITY)
 					continue
 
 				for(var/throw_source in throw_turf[affected_turf])
-					if(throw_turf[affected_turf][throw_source][3] < (thing_to_throw.move_resist * MOVE_FORCE_THROW_RATIO))
+					if(throw_turf[affected_turf][throw_source][3] < (thing_to_throw.get_move_resist() * MOVE_FORCE_THROW_RATIO))
 						continue
 					thing_to_throw.throw_at(
 						get_ranged_target_turf(

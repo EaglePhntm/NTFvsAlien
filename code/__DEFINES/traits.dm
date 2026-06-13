@@ -61,15 +61,15 @@
 			};\
 		}\
 	} while (0)
-#define HAS_TRAIT(target, trait) (target._status_traits ? (target._status_traits[trait] ? TRUE : FALSE) : FALSE)
-#define HAS_TRAIT_FROM(target, trait, source) (target._status_traits ? (target._status_traits[trait] ? (source in target._status_traits[trait]) : FALSE) : FALSE)
+#define HAS_TRAIT(target, trait) (target && target._status_traits ? (target._status_traits[trait] ? TRUE : FALSE) : FALSE)
+#define HAS_TRAIT_FROM(target, trait, source) (target && target._status_traits ? (target._status_traits[trait] ? (source in target._status_traits[trait]) : FALSE) : FALSE)
 #define HAS_TRAIT_FROM_ONLY(target, trait, source) (\
-	target._status_traits ?\
+	target && target._status_traits ?\
 		(target._status_traits[trait] ?\
 			((source in target._status_traits[trait]) && (length(target._status_traits) == 1))\
 			: FALSE)\
 		: FALSE)
-#define HAS_TRAIT_NOT_FROM(target, trait, source) (target._status_traits ? (target._status_traits[trait] ? (length(target._status_traits[trait] - source) > 0) : FALSE) : FALSE)
+#define HAS_TRAIT_NOT_FROM(target, trait, source) (target && target._status_traits ? (target._status_traits[trait] ? (length(target._status_traits[trait] - source) > 0) : FALSE) : FALSE)
 
 // common trait
 #define TRAIT_GENERIC "generic"
@@ -230,6 +230,8 @@
 #define TRAIT_CAN_TEAR_HOLE "can_tear_hole"
 /// Allows xenomorphs to heal without needing to be on weeds.
 #define TRAIT_INNATE_HEALING "innate_healing"
+///is currently jumping
+#define TRAIT_IS_JUMPING "is_jumping"
 
 ///Traits for managing AM pass_flags
 #define TRAIT_PASS_LOW_STRUCTURE "pass_low_structure"
@@ -257,6 +259,7 @@
 #define TRAIT_NOPLASMAREGEN "noplasmaregen"//xeno plasma wont recharge
 #define TRAIT_NOHEALTHREGEN "nohealthregen" // xeno health wont regen
 #define TRAIT_UNDEFIBBABLE "undefibbable"//human can't be revived
+#define TRAIT_AMBROSIA_REVIVED "ambrosia_revived" //mob has already been revived with alien ambrosia
 #define TRAIT_HOLLOW "hollowedout" //examine trait for puppeteer
 #define TRAIT_IMMEDIATE_DEFIB "immediate_defib"//immediately revives when defibbed, rather than just healing
 #define TRAIT_CRIT_IS_DEATH "crit_is_death" ///instantly causes enough oxy damage to kill the user when they hit critical health

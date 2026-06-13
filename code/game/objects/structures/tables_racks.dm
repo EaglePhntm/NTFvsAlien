@@ -9,7 +9,6 @@
 	density = TRUE
 	anchored = TRUE
 	layer = TABLE_LAYER
-	climbable = TRUE
 	resistance_flags = XENO_DAMAGEABLE
 	allow_pass_flags = PASS_LOW_STRUCTURE|PASSABLE|PASS_WALKOVER
 	obj_flags = parent_type::obj_flags|BLOCK_Z_OUT_DOWN|BLOCK_Z_IN_UP
@@ -47,6 +46,7 @@
 		COMSIG_TURF_CHECK_COVERED = TYPE_PROC_REF(/atom/movable, turf_cover_check),
 	)
 	AddElement(/datum/element/connect_loc, connections)
+	AddComponent(/datum/component/climbable)
 
 /obj/structure/table/Destroy()
 	update_adjacent(loc) //so neighbouring tables get updated correctly
@@ -204,8 +204,7 @@
 	usr.visible_message(span_warning("[usr] flips [src]!"),
 	span_warning("You flip [src]!"))
 
-	if(climbable)
-		structure_shaken()
+	structure_shaken()
 
 	flip_cooldown = world.time + 50
 
@@ -266,7 +265,7 @@
 		if(isobserver(i))
 			continue
 		var/atom/movable/thing_to_throw = i
-		if(thing_to_throw.anchored || thing_to_throw.move_resist == INFINITY)
+		if(thing_to_throw.anchored || thing_to_throw.get_move_resist() == INFINITY)
 			continue
 		thing_to_throw.throw_at(pick(targets), 1, 1)
 
@@ -295,7 +294,6 @@
 	layer = initial(layer)
 	flipped = FALSE
 	coverage = 10
-	climbable = initial(climbable)
 	atom_flags &= ~ON_BORDER
 	obj_flags ^= BLOCK_Z_OUT_DOWN|BLOCK_Z_IN_UP
 	for(var/D in list(turn(dir, 90), turn(dir, -90)))
@@ -345,7 +343,7 @@
 	AddElement(/datum/element/debris, DEBRIS_WOOD, -40, 5)
 
 /obj/structure/table/wood/footstep_override(atom/movable/source, list/footstep_overrides)
-	footstep_overrides[FOOTSTEP_WOOD] = layer
+	footstep_overrides[FOOTSTEP_WOOD] = get_footstep_layer(layer, plane)
 
 /obj/structure/table/wood/fancy
 	name = "fancy wooden table"
@@ -523,11 +521,10 @@
 	layer = TABLE_LAYER
 	anchored = TRUE
 	coverage = 20
-	climbable = TRUE
 	var/dropmetal = TRUE   //if true drop metal when destroyed; mostly used when we need large amounts of racks without marines hoarding the metal
 	max_integrity = 40
 	resistance_flags = XENO_DAMAGEABLE
-	allow_pass_flags = PASS_LOW_STRUCTURE|PASSABLE
+	allow_pass_flags = PASS_LOW_STRUCTURE|PASSABLE|PASS_WALKOVER
 	var/parts = /obj/item/frame/rack
 
 /obj/structure/rack/Initialize(mapload)
@@ -539,6 +536,7 @@
 		COMSIG_TURF_CHECK_COVERED = TYPE_PROC_REF(/atom/movable, turf_cover_check),
 	)
 	AddElement(/datum/element/connect_loc, connections)
+	AddComponent(/datum/component/climbable)
 
 /obj/structure/rack/MouseDrop_T(obj/item/I, mob/user)
 	if (!istype(I) || user.get_active_held_item() != I)

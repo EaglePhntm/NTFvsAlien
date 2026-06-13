@@ -1,5 +1,4 @@
 GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
-		/mob/living,
 		/obj/item/disk/nuclear,
 		/obj/item/radio/beacon,
 		/obj/vehicle,
@@ -22,6 +21,14 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 /obj/docking_port/stationary/supply
 	id = "supply_home"
 	roundstart_template = /datum/map_template/shuttle/supply
+	width = 5
+	dwidth = 2
+	dheight = 2
+	height = 5
+
+/obj/docking_port/stationary/supply/ntc_pad
+	id = "ntc_pad"
+	roundstart_template = null
 	width = 5
 	dwidth = 2
 	dheight = 2
@@ -60,6 +67,17 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	dheight = 1
 	height = 3
 
+/obj/docking_port/stationary/supplycolony
+	id = "supply_colony"
+	roundstart_template = /datum/map_template/shuttle/supply/colony
+	width = 3
+	dwidth = 1
+	dheight = 0
+	height = 1
+
+/obj/docking_port/stationary/supply/som
+	id = "supply_SOM_home"
+	roundstart_template = /datum/map_template/shuttle/supply/som
 
 /obj/docking_port/mobile/supply
 	name = "supply shuttle"
@@ -79,6 +97,24 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	/// Id of the home docking port
 	var/home_id = "supply_home"
 	railing_gear_name = "supply"
+	var/cargo_pad
+
+/obj/docking_port/mobile/supply/ntc
+	cargo_pad = "ntc_pad"
+
+/obj/docking_port/mobile/supply/som
+	name = "SOM supply shuttle"
+	id = SHUTTLE_SOM_SUPPLY
+	faction = FACTION_SOM
+	home_id = "supply_SOM_home"
+	railing_gear_name = "supply_SOM"
+
+/obj/docking_port/mobile/supply/colony
+	name = "colony supply shuttle"
+	id = "supplycolony"
+	faction = FACTION_NEUTRAL
+	home_id = "supply_colony"
+	railing_gear_name = "supply_colony"
 
 /obj/docking_port/mobile/supply/Destroy(force)
 	for(var/i in railings)
@@ -239,6 +275,14 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	var/shuttle_id = SHUTTLE_SUPPLY
 	/// Id of the home docking port
 	var/home_id = "supply_home"
+
+/obj/machinery/computer/supplycomp/hvh
+	req_access = null
+
+/obj/machinery/computer/supplycomp/hvh/som
+	faction = FACTION_SOM
+	shuttle_id = SHUTTLE_SOM_SUPPLY
+	home_id = "supply_SOM_home"
 
 /obj/machinery/computer/supplycomp/interact(mob/user)
 	. = ..()
@@ -482,7 +526,10 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 					playsound(supply_shuttle.return_center_turf(), 'sound/machines/buzz-two.ogg', 50, 0)
 				else
 					playsound(supply_shuttle.return_center_turf(), 'sound/machines/hydraulic.ogg', 50, 0)
-					SSshuttle.moveShuttleToTransit(shuttle_id, TRUE)
+					if(supply_shuttle.cargo_pad)
+						SSshuttle.moveShuttle(shuttle_id, supply_shuttle.cargo_pad, TRUE)
+					else
+						SSshuttle.moveShuttleToTransit(shuttle_id, TRUE)
 					addtimer(CALLBACK(supply_shuttle, TYPE_PROC_REF(/obj/docking_port/mobile/supply, sell), WEAKREF(ui.user)), 4 SECONDS)
 			else
 				var/obj/docking_port/D = SSshuttle.getDock(home_id)
@@ -616,6 +663,12 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	faction = FACTION_ICC
 	home_id = "supply_icc"
 	req_access = list(ACCESS_ICC_CARGO)
+
+/obj/machinery/computer/supplycomp/colony
+	shuttle_id = "supplycolony"
+	faction = FACTION_ICC
+	home_id = "supply_colony"
+	req_access = list(ACCESS_CIVILIAN_LOGISTICS)
 
 /obj/docking_port/mobile/supply/som
 	dir = 1

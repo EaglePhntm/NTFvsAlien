@@ -111,9 +111,9 @@ GLOBAL_LIST_INIT(restricted_camera_networks, list( //Those networks can only be 
 #define SCOUT_CLOAK_COOLDOWN 100
 #define SCOUT_CLOAK_TIMER 50
 #define SCOUT_CLOAK_SHOOTING 153 //why isnt this implemented idk
-#define SCOUT_CLOAK_RUN_ALPHA 152
-#define SCOUT_CLOAK_WALK_ALPHA 102
-#define SCOUT_CLOAK_STILL_ALPHA 51 //20% Transparency
+#define SCOUT_CLOAK_RUN_ALPHA 200 //20% transparency (Those values are from github copilot)
+#define SCOUT_CLOAK_WALK_ALPHA 125 //50% transparency
+#define SCOUT_CLOAK_STILL_ALPHA 75 //70% transparency
 #define SCOUT_CLOAK_MAX_ENERGY 100
 #define SCOUT_CLOAK_OFF_DAMAGE (1 << 0)
 #define SCOUT_CLOAK_OFF_ATTACK (1 << 1)
@@ -225,7 +225,7 @@ GLOBAL_LIST_INIT(restricted_camera_networks, list( //Those networks can only be 
 //Drop pods
 
 ///This number + standard alamo launch time is when droppods are allowed to launch
-#define DROPPOD_DEPLOY_DELAY 10 MINUTES
+#define DROPPOD_DEPLOY_DELAY 2 MINUTES
 
 //Lights define
 #define CHECKS_PASSED 1

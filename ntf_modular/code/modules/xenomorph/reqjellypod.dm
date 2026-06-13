@@ -98,7 +98,9 @@
 
 		balloon_alert(xeno_attacker, "Retrieved jelly")
 		var/obj/item/stack/req_jelly/new_jelly = new(xeno_attacker.loc, 1, hivenumber)
-		new_jelly.add_to_stacks(xeno_attacker)
+		new_jelly.merge_with_stack_in_hands(xeno_attacker)
+		if(!QDELETED(new_jelly))
+			new_jelly.add_to_stacks(xeno_attacker)
 		chargesleft--
 	while(do_mob(xeno_attacker, src, 1 SECONDS))
 
@@ -117,13 +119,25 @@
 
 /obj/item/stack/req_jelly
 	name = "alien ambrosia"
-	desc = "A beautiful, glittering mound of honey-like resin, might fetch a good price."
+	desc = "A beautiful, glittering mound of honey-like resin. It might fetch a good price, or be shaped by a xenomorph into a potent healing poultice."
 	icon = 'ntf_modular/icons/xeno/xeno_materials.dmi'
 	icon_state = "reqjelly"
-	max_amount = 100
+	max_amount = 125
 	stack_name = "pile"
 	singular_name = "globule"
 	var/hivenumber = XENO_HIVE_NORMAL
+	///How much brute and burn damage a globule heals when used on a living human.
+	var/living_heal_amount = 15
+	///How much toxin damage a globule heals when used on a living human.
+	var/living_toxin_heal_amount = 10
+	///How much cellular damage a globule heals when used on a living human.
+	var/living_cellular_heal_amount = 5
+	///How much blood a globule restores when used on a living human.
+	var/living_blood_restore_amount = 60
+	///How long ambrosia takes to mend broken bones after application.
+	var/bone_mend_duration = 2 MINUTES
+	///How long a living target must wait before ambrosia can mend them again.
+	var/living_heal_cooldown = 10 SECONDS
 
 /obj/item/stack/req_jelly/Initialize(mapload, new_amount, _hivenumber)
 	if(_hivenumber) ///because admins can spawn them
@@ -131,12 +145,22 @@
 	. = ..()
 	var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
 	name = "[hive.prefix][name]"
-	color = hive.color
+	if(hive.color)
+		color = hive.color
 
 /obj/item/stack/req_jelly/merge(obj/item/stack/S)
 	if(!issamexenohive(S))
 		return FALSE
 	. = ..()
+
+/obj/item/stack/req_jelly/equipped(mob/user, slot)
+	. = ..()
+	if(QDELETED(src))
+		return
+	if(istype(user.l_hand, merge_type) && user.l_hand != src && merge(user.l_hand))
+		return
+	if(istype(user.r_hand, merge_type) && user.r_hand != src)
+		merge(user.r_hand)
 
 /obj/item/stack/req_jelly/change_stack(mob/user, new_amount)
 	if(amount < 1 || amount < new_amount)
@@ -155,7 +179,157 @@
 	if(!isxeno(user))
 		to_chat(user, span_warning("You don't know how to use this."))
 		return FALSE
-	jellyrevive(patient,user)
+	if(patient.stat == DEAD)
+		if(!ishuman(patient))
+			to_chat(user, span_warning("[icon2html(src, viewers(user))] We do not understand how to return this body to life."))
+			return FALSE
+		var/mob/living/carbon/human/human_patient = patient
+		return jellyrevive(human_patient,user)
+	if(isxeno(patient))
+		var/mob/living/carbon/xenomorph/xeno_patient = patient
+		return jellyheal_xeno(xeno_patient, user)
+	return jellyheal(patient, user)
+
+/obj/item/stack/req_jelly/proc/add_ambrosia_dependence(mob/living/carbon/human/patient, stacks_to_apply = 1)
+	var/datum/status_effect/ambrosia_dependence/dependence = patient.has_status_effect(STATUS_EFFECT_AMBROSIA_DEPENDENCE)
+	if(dependence)
+		dependence.add_stacks(stacks_to_apply)
+		return
+	patient.apply_status_effect(STATUS_EFFECT_AMBROSIA_DEPENDENCE, stacks_to_apply)
+
+/obj/item/stack/req_jelly/proc/can_apply_living_heal(mob/living/carbon/patient, mob/living/carbon/user)
+	if(!TIMER_COOLDOWN_RUNNING(patient, COOLDOWN_AMBROSIA_HEALING))
+		return TRUE
+	var/time_left = round(S_TIMER_COOLDOWN_TIMELEFT(patient, COOLDOWN_AMBROSIA_HEALING) / 10)
+	to_chat(user, span_warning("[icon2html(src, viewers(user))] The ambrosia has already saturated [patient]. Wait [time_left] second[time_left == 1 ? "" : "s"]."))
+	return FALSE
+
+/obj/item/stack/req_jelly/proc/start_living_heal_cooldown(mob/living/carbon/patient)
+	S_TIMER_COOLDOWN_START(patient, COOLDOWN_AMBROSIA_HEALING, living_heal_cooldown)
+
+/obj/item/stack/req_jelly/proc/jellyheal_xeno(mob/living/carbon/xenomorph/patient, mob/living/carbon/user)
+	if(user.do_actions)
+		balloon_alert(user, "busy!")
+		return
+	if(!can_apply_living_heal(patient, user))
+		return FALSE
+
+	if(!issamexenohive(patient))
+		to_chat(user, span_warning("[icon2html(src, viewers(user))] This ambrosia does not answer to a rival hive."))
+		return FALSE
+
+	var/has_damage = patient.getBruteLoss() || patient.getFireLoss()
+	if(!has_damage)
+		to_chat(user, span_warning("[icon2html(src, viewers(user))] There is nothing for the ambrosia to mend."))
+		return FALSE
+
+	user.visible_message(span_notice("[user] starts smoothing [src] over [patient]'s wounds."),
+		span_notice("You start smoothing [src] over [patient]'s wounds."))
+
+	if(!do_after(user, 4 SECONDS, NONE, patient, BUSY_ICON_FRIENDLY, BUSY_ICON_MEDICAL))
+		to_chat(user, span_warning("You stop applying [src]."))
+		return FALSE
+
+	patient.adjustBruteLoss(-living_heal_amount, TRUE)
+	patient.adjustFireLoss(-living_heal_amount, TRUE)
+	var/extra_brute_heal = living_toxin_heal_amount
+	var/extra_burn_heal = living_cellular_heal_amount + living_heal_amount
+	if(extra_brute_heal)
+		patient.adjustBruteLoss(-extra_brute_heal, TRUE)
+	if(extra_burn_heal)
+		patient.adjustFireLoss(-extra_burn_heal, TRUE)
+	patient.updatehealth()
+
+	var/turf/patient_turf = get_turf(patient)
+	playsound(patient_turf, 'sound/effects/woosh_swoosh.ogg', 35, TRUE)
+	patient.visible_message(span_notice("[patient]'s chitin knits beneath a glossy amber sheen."),
+		span_xenonotice("Warm ambrosia seals our wounds."))
+	to_chat(user, span_notice("[icon2html(src, viewers(user))] The ambrosia mends [patient]."))
+	start_living_heal_cooldown(patient)
+	use(1)
+	return TRUE
+
+/obj/item/stack/req_jelly/proc/jellyheal(mob/living/carbon/patient, mob/living/carbon/user)
+	if(user.do_actions)
+		balloon_alert(user, "busy!")
+		return
+	if(!can_apply_living_heal(patient, user))
+		return FALSE
+
+	if(!ishuman(patient))
+		to_chat(user, span_warning("[icon2html(src, viewers(user))] We do not understand how to mend this body."))
+		return FALSE
+
+	var/mob/living/carbon/human/human_patient = patient
+	var/has_internal_bleeding = FALSE
+	var/has_infection = human_patient.germ_level >= INFECTION_LEVEL_ONE
+	var/has_fracture = FALSE
+	for(var/datum/limb/limb AS in human_patient.limbs)
+		if(limb.germ_level >= INFECTION_LEVEL_ONE)
+			has_infection = TRUE
+		if(locate(/datum/wound/internal_bleeding) in limb.wounds)
+			has_internal_bleeding = TRUE
+		if(limb.limb_status & LIMB_BROKEN)
+			has_fracture = TRUE
+
+	var/has_damage = human_patient.getBruteLoss() || human_patient.getFireLoss() || human_patient.getToxLoss() || human_patient.getOxyLoss() || human_patient.getCloneLoss()
+	var/has_blood_loss = human_patient.get_blood_volume() < BLOOD_VOLUME_NORMAL
+	if(!has_internal_bleeding && !has_infection && !has_fracture && !has_damage && !has_blood_loss)
+		to_chat(user, span_warning("[icon2html(src, viewers(user))] There is nothing for the ambrosia to mend."))
+		return FALSE
+
+	user.visible_message(span_notice("[user] starts smoothing [src] over [human_patient]'s wounds."),
+		span_notice("You start smoothing [src] over [human_patient]'s wounds."))
+
+	if(!do_after(user, 8 SECONDS, NONE, human_patient, BUSY_ICON_FRIENDLY, BUSY_ICON_MEDICAL))
+		to_chat(user, span_warning("You stop applying [src]."))
+		return FALSE
+
+	var/internal_bleeding_healed = 0
+	var/infections_healed = 0
+	for(var/datum/limb/limb AS in human_patient.limbs)
+		for(var/datum/wound/internal_bleeding/bleeder in limb.wounds)
+			internal_bleeding_healed++
+			qdel(bleeder)
+		if(limb.germ_level)
+			limb.germ_level = 0
+			infections_healed++
+		limb.disinfect()
+		limb.bandage()
+		limb.salve()
+		limb.clamp_bleeder()
+		limb.update_wounds()
+
+	if(human_patient.germ_level)
+		human_patient.germ_level = 0
+		infections_healed++
+
+	human_patient.heal_overall_damage(living_heal_amount, living_heal_amount, updating_health = TRUE)
+	human_patient.adjustToxLoss(-living_toxin_heal_amount)
+	human_patient.adjustCloneLoss(-living_cellular_heal_amount)
+	human_patient.setOxyLoss(max(0, human_patient.getOxyLoss() - living_heal_amount))
+	human_patient.adjust_blood_volume(living_blood_restore_amount)
+	human_patient.apply_status_effect(STATUS_EFFECT_AMBROSIA_RESIDUE)
+	add_ambrosia_dependence(human_patient)
+	if(has_fracture)
+		human_patient.apply_status_effect(STATUS_EFFECT_AMBROSIA_BONE_MEND, bone_mend_duration)
+	human_patient.updatehealth()
+
+	var/turf/patient_turf = get_turf(human_patient)
+	playsound(patient_turf, 'sound/effects/woosh_swoosh.ogg', 35, TRUE)
+	human_patient.visible_message(span_notice("[human_patient]'s wounds knit beneath a glossy amber sheen."),
+		span_notice("A warm alien resin seals your wounds and drives the sickness from your flesh."))
+	var/list/healing_notes = list()
+	if(internal_bleeding_healed)
+		healing_notes += "sealing [internal_bleeding_healed] internal bleed[internal_bleeding_healed == 1 ? "" : "s"]"
+	if(infections_healed)
+		healing_notes += "purging infection"
+	if(has_fracture)
+		healing_notes += "binding broken bones in amber resin"
+	to_chat(user, span_notice("[icon2html(src, viewers(user))] The ambrosia mends [human_patient][length(healing_notes) ? ", [english_list(healing_notes)]" : ""]."))
+	start_living_heal_cooldown(human_patient)
+	use(1)
+	return TRUE
 
 /obj/item/stack/req_jelly/proc/jellyrevive(mob/living/carbon/human/patient, mob/living/carbon/user)
 	if(user.do_actions) //Currently doing something
@@ -168,6 +342,9 @@
 
 	if(isxeno(patient))
 		to_chat(user, span_warning("[icon2html(src, viewers(user))] This would not help xenomorphs."))
+		return FALSE
+	if(ismonkey(patient) && HAS_TRAIT(patient, TRAIT_AMBROSIA_REVIVED))
+		to_chat(user, span_warning("[icon2html(src, viewers(user))] The ambrosia has already dragged this lesser host back once. It will not answer again."))
 		return FALSE
 
 	var/defib_heal_amt = 40
@@ -186,7 +363,13 @@
 	if(fail_reason)
 		to_chat(user, span_notice("[icon2html(src, viewers(user))] We cannot save them - [fail_reason]"))
 		return
-
+	if(!(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES))
+		if(ishuman(patient))
+			var/mob/living/carbon/human/homan = patient
+			var/threshold = 0.8 * GLOB.time_before_dnr
+			if(homan.dead_ticks <= threshold)
+				to_chat(user, span_xenowarning("This one hasn't gone cold enough yet. Try again in [(threshold - homan.dead_ticks)*2] seconds."))//2 seconds per tick
+				return
 
 	var/mob/dead/observer/ghost = patient.get_ghost()
 	// For robots, we want to use the more relaxed bitmask as we are doing this before their IMMEDIATE_DEFIB trait is handled and they might
@@ -273,6 +456,10 @@
 	use(1)
 	patient.updatehealth()
 	patient.resuscitate() // time for a smoke
+	patient.apply_status_effect(STATUS_EFFECT_AMBROSIA_RESIDUE)
+	add_ambrosia_dependence(patient)
+	if(ismonkey(patient))
+		ADD_TRAIT(patient, TRAIT_AMBROSIA_REVIVED, TRAIT_AMBROSIA_REVIVED)
 	patient.emote("gasp")
 	patient.flash_act()
 	patient.apply_effect(20, EFFECT_EYE_BLUR)
