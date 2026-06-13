@@ -5,7 +5,7 @@
 
 //Stat defines
 #define RESTING_BUFF 1.2
-#define WEED_SLOWDOWN 2
+#define WEED_SLOWDOWN 2.5
 
 // base weed type
 /obj/alien/weeds
@@ -300,7 +300,7 @@
 	/// list of all potential turfs that we can expand to
 	var/node_turfs = list()
 	/// How far this node can spread weeds
-	var/node_range = 2
+	var/node_range = 3
 	/// What type of weeds this node spreads
 	var/obj/alien/weeds/weed_type = /obj/alien/weeds
 	///The plasma cost multiplier for this node
@@ -393,7 +393,7 @@
 	weed_type = /obj/alien/weeds/sticky
 	color_variant = STICKY_COLOR
 	node_icon = "weednodegreen"
-	ability_cost_mult = 3
+	ability_cost_mult = 2.5
 
 /obj/alien/weeds/node/sticky/on_loc_entered(datum/source, atom/movable/crosser)
 	. = ..()
