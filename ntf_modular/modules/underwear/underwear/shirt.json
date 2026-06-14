@@ -53,6 +53,24 @@
 		"icon_state": "turtleneck_sleeveless"
 		}
 	],
+	"croptop_sleeves":[
+		{
+		"type": "hyperscale",
+		"icon_state": "croptop_sleeves"
+		}
+	],
+	"bcroptop_sleeves":[
+		{
+		"type": "hyperscale",
+		"icon_state": "bcroptop_sleeves"
+		}
+	],
+	"bcroptop_sleevesalt":[
+		{
+		"type": "hyperscale",
+		"icon_state": "bcroptop_sleevesalt"
+		}
+	],
 	"leotard_turtleneck":[
 		{
 		"type": "hyperscale",
