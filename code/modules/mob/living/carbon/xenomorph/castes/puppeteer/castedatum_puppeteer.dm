@@ -16,7 +16,7 @@
 	plasma_gain = 3
 	plasma_regen_limit = 1
 	plasma_icon_state = "plasma"
-	max_health = 365
+	max_health = 380
 	upgrade_threshold = TIER_TWO_THRESHOLD
 	evolution_threshold = 225
 
@@ -68,7 +68,7 @@
 	speed = -0.8
 	melee_damage = 18
 	plasma_max = 750
-	max_health = 385
+	max_health = 400
 	soft_armor = list(MELEE = 20, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 10, BIO = 20, FIRE = 20, ACID = 20)
 	max_puppets = 3
 

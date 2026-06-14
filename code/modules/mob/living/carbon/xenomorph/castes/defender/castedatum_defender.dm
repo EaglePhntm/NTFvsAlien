@@ -21,7 +21,7 @@
 	plasma_gain = 20
 
 	// *** Health *** //
-	max_health = 420
+	max_health = 460
 
 	// *** Evolution *** //
 	evolution_threshold = 100

@@ -24,7 +24,7 @@
 	plasma_gain = 11
 
 	// *** Health *** //
-	max_health = 300
+	max_health = 330
 
 	// *** Evolution *** //
 	evolution_threshold = 100
@@ -117,7 +117,7 @@
 	caste_flags = CASTE_ACID_BLOOD|CASTE_EVOLUTION_ALLOWED|CASTE_MUTATIONS_ALLOWED
 
 	// +50 health
-	max_health = 350
+	max_health = 385
 
 	// +5 armor across the board
 	soft_armor = list(MELEE = 35, BULLET = 35, LASER = 35, ENERGY = 35, BOMB = 5, BIO = 10, FIRE = 25, ACID = 10)

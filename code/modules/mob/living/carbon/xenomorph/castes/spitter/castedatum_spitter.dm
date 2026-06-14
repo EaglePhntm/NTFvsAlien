@@ -20,7 +20,7 @@
 	plasma_gain = 40
 
 	// *** Health *** //
-	max_health = 360
+	max_health = 375
 
 	// *** Evolution *** //
 	evolution_threshold = 225
@@ -100,7 +100,7 @@
 	speed = -0.8
 
 	// *** Health *** //
-	max_health = 320
+	max_health = 335
 
 	// *** Ablities *** //
 	actions = list(
