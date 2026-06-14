@@ -46,9 +46,9 @@
 	)
 
 	evo_requirements = list(
-		/datum/xeno_caste/queen = 8,
-		/datum/xeno_caste/king = 12,
-		/datum/xeno_caste/dragon = 12,
+		/datum/xeno_caste/queen = 0,
+		/datum/xeno_caste/king = 0,
+		/datum/xeno_caste/dragon = 0,
 	)
 /* NTF edit
 	restricted_castes = list(/datum/xeno_caste/wraith, /datum/xeno_caste/hivemind)

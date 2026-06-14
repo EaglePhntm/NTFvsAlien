@@ -158,9 +158,9 @@
 	var/sound_to_play = pop_lock ? pick('ntf_modular/sound/music/war_mode/hell_march_noearrape.ogg') : pick('ntf_modular/sound/music/war_mode/conflicttensionaltnoearrape.ogg', 'ntf_modular/sound/music/war_mode/konami-intro-metal-gear-solid.ogg')
 	if(pop_lock)
 		evo_requirements = list(
-			/datum/xeno_caste/queen = 8,
-			/datum/xeno_caste/king = 12,
-			/datum/xeno_caste/dragon = 12,
+			/datum/xeno_caste/queen = 0,
+			/datum/xeno_caste/king = 0,
+			/datum/xeno_caste/dragon = 0,
 		)
 		/*
 		for(var/mob/living/carbon/xenomorph/xeno in GLOB.xeno_mob_list)
