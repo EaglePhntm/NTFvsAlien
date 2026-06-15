@@ -397,7 +397,7 @@
 	///Current shield Health
 	var/shield_health = 0
 	///Maximum shield Health
-	var/max_shield_health = 60
+	var/max_shield_health = 40
 	///Amount to recharge per tick, processes once every two seconds.
 	var/recharge_rate = 10
 
@@ -541,7 +541,6 @@
 
 /obj/item/armor_module/module/eshield/overclocked
 	max_shield_health = 90
-	damaged_shield_cooldown = 5 SECONDS
 	shield_color_low = COLOR_MAROON
 	shield_color_mid = LIGHT_COLOR_RED_ORANGE
 	shield_color_full = LIGHT_COLOR_ELECTRIC_CYAN
@@ -553,7 +552,6 @@
 
 /obj/item/armor_module/module/eshield/som/overclocked
 	max_shield_health = 90
-	damaged_shield_cooldown = 5 SECONDS
 	shield_color_low = COLOR_MAROON
 	shield_color_mid = LIGHT_COLOR_RED_ORANGE
 	shield_color_full = LIGHT_COLOR_ELECTRIC_CYAN
@@ -561,7 +559,6 @@
 /obj/item/armor_module/module/eshield/vsd/overclocked
 	slot = ATTACHMENT_SLOT_KNEE
 	max_shield_health = 90
-	damaged_shield_cooldown = 5 SECONDS
 	shield_color_low = COLOR_MAROON
 	shield_color_mid = LIGHT_COLOR_RED_ORANGE
 	shield_color_full = LIGHT_COLOR_ELECTRIC_CYAN

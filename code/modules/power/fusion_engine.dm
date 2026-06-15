@@ -276,7 +276,7 @@
 
 /obj/machinery/power/fusion_engine/examine(mob/user)
 	. = ..()
-	if(!ishuman(user))
+	if(!ishuman(user) && !isobserver(user))
 		return
 	if(buildstate != FUSION_ENGINE_NO_DAMAGE)
 		. += span_info("It's broken.")
@@ -376,7 +376,7 @@
 
 /obj/item/fuel_cell/examine(mob/user)
 	. = ..()
-	if(ishuman(user))
+	if(ishuman(user) || isobserver(user))
 		. += "The fuel indicator reads: [get_fuel_percent()]%"
 		. += "Stored Energy: [DisplayEnergyFrac(fuel_amount * FUSION_ENGINE_MAX_POWER_GEN * 2 / FUSION_ENGINE_FULL_STRENGTH_FULL_RATE, max_fuel_amount * FUSION_ENGINE_MAX_POWER_GEN * 2 / FUSION_ENGINE_FULL_STRENGTH_FULL_RATE)]"
 

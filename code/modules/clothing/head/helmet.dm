@@ -654,7 +654,7 @@
 	worn_icon_list =  list(
 		slot_head_str = 'icons/mob/clothing/headwear/ert_headwear.dmi',
 	)
-	soft_armor = list(MELEE = 50, BULLET = 60, LASER = 60, ENERGY = 60, BOMB = 60, BIO = 60, FIRE = 55, ACID = 40)
+	soft_armor = MARINE_ARMOR_HEAVY
 
 /obj/item/clothing/head/helmet/marine/vsd/heavy
 	name = "\improper Crasher MT-H/43 powered ballistic helmet"

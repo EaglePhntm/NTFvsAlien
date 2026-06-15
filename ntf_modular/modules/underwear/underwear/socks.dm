@@ -156,6 +156,13 @@
 	greyscale_config = /datum/greyscale_config/socks
 	colorable_allowed = COLOR_WHEEL_ALLOWED
 
+/obj/item/clothing/underwear/socks/socks_thighalt_stir
+	name = "thigh-high Stirrups Alt (Greyscale)"
+	desc = "A pair of thigh-high stirrups slightly lowered."
+	icon_state = "socks_thighalt-stir"
+	greyscale_config = /datum/greyscale_config/socks
+	colorable_allowed = COLOR_WHEEL_ALLOWED
+
 /obj/item/clothing/underwear/socks/socks_thigh_m
 	name = "thigh-high socks - shaded"
 	desc = "A pair of thigh-high socks."

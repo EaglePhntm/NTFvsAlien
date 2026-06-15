@@ -853,8 +853,8 @@ GLOBAL_LIST_INIT(stealth_greyscale_matrix,\
 	icon_state = "icc_bag_guard"
 
 /obj/item/storage/backpack/lightpack/vsd
-	name = "\improper Crasher branded combat backpack"
-	desc = "A backpack design from 21st century still proves to be a good design in the 25th century."
+	name = "\improper Crasher branded combat lightweight pack"
+	desc = "A backpack design from 21st century still proves to be a good design in the 25th century. This one was enhanced to be used with powered armors or standalone, it provides ease of access to the contents and is made of a synthetic fiber that is resistant to wear and tear."
 	icon_state = "vsd_bag0"
 
 /obj/item/storage/backpack/lightpack/freelancer

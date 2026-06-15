@@ -77,6 +77,18 @@
 			"icon_state": "thong"
 		}
 	],
+	"thongblack":[
+		{
+			"type": "hyperscale",
+			"icon_state": "thongblack"
+		}
+	],
+	"thongblackalt":[
+		{
+			"type": "hyperscale",
+			"icon_state": "thongblackalt"
+		}
+	],
 	"thong_babydoll":[
 		{
 			"type": "hyperscale",

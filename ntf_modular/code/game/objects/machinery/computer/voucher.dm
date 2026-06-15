@@ -149,6 +149,6 @@
 	var/worth = 100
 
 /obj/item/card/credstick/executive
-	name = "executive dredstick"
+	name = "executive credstick"
 	desc = "A credstick which can be redeemed at a voucher console for credits used in skillsoft purchases or everyday needs. This one is an executive version, holding 5000 credits."
 	worth = 5000

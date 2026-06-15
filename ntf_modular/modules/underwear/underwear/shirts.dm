@@ -109,6 +109,18 @@
 	greyscale_config = /datum/greyscale_config/shirt
 	colorable_allowed = COLOR_WHEEL_ALLOWED
 
+/obj/item/clothing/underwear/shirt/croptop_turtleneck
+	name = "Shirt - Crop Top Turtleneck"
+	icon_state = "croptop_sleeves"
+
+/obj/item/clothing/underwear/shirt/croptop_turtleneck_black
+	name = "Shirt - Black Crop Top Turtleneck"
+	icon_state = "bcroptop_sleeves"
+
+/obj/item/clothing/underwear/shirt/croptop_turtleneck_steel
+	name = "Shirt - Black Steel Crop Top Turtleneck"
+	icon_state = "bcroptop_sleevesalt"
+
 /obj/item/clothing/underwear/shirt/buttondown
 	name = "Shirt - Buttondown"
 	icon_state = "buttondown"

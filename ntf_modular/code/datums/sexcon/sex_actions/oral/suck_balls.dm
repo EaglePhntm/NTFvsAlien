@@ -1,7 +1,7 @@
 /datum/sex_action/suck_balls
 	name = "Suck their balls"
+	check_same_tile = FALSE
 	check_incapacitated = FALSE
-
 
 /datum/sex_action/suck_balls/shows_on_menu(mob/living/carbon/user, mob/living/carbon/target)
 	if(user == target)

@@ -70,7 +70,7 @@
 	currency -= amount
 
 ///Adds a perk if able
-/datum/individual_stats/proc/purchase_perk(datum/perk/new_perk, mob/living/user)
+/datum/individual_stats/proc/purchase_perk(datum/perk/new_perk, mob/living/user, for_free = FALSE)
 	. = TRUE
 	if(!istype(new_perk))
 		return FALSE
@@ -93,9 +93,10 @@
 			if(!perk_found)
 				to_chat(user, span_warning("One or more prerequisites missing for this perk."))
 				return FALSE
-	if(use_funds(new_perk.unlock_cost))
-		to_chat(user, span_warning("Insufficient funds for this perk."))
-		return FALSE
+	if(!for_free)
+		if(use_funds(new_perk.unlock_cost))
+			to_chat(user, span_warning("Insufficient funds for this perk."))
+			return FALSE
 
 	new_perk.unlock_bonus(user, src)
 	unlocked_perks += new_perk

@@ -40,7 +40,7 @@
 		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
 			continue
 		if(ads.try_intercept(target_turf, src))
-			explosion(target_turf, flame_range = 5, explosion_cause="incen mortar fire support")
+			explosion(target_turf, flame_range = 2, explosion_cause="incen mortar fire support")
 			return
 	explosion(target_turf, weak_impact_range = 4, flame_range = 5, throw_range = 0, explosion_cause="incen mortar fire support")
 	playsound(target_turf, 'sound/weapons/guns/fire/flamethrower2.ogg', 35)
@@ -72,7 +72,8 @@
 	for(var/obj/machinery/deployable/mounted/sentry/ads_system/ads in range(GLOB.ads_intercept_range,target_turf))
 		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
 			continue
-		ads.try_intercept(target_turf, src) //go through
+		if(ads.try_intercept(target_turf, src))
+			smokeradius *= 0.5
 	smoke.set_up(smokeradius, target_turf, smoke_duration)
 	smoke.start()
 
