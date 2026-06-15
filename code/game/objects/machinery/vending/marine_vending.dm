@@ -1471,6 +1471,30 @@
 	resistance_flags = INDESTRUCTIBLE
 	use_power = NO_POWER_USE
 
+/obj/machinery/vending/armor_supply/civilian
+	name = "\improper Surplus Civilian Armor Equipment Vendor"
+	products = list(
+		"General" = list(
+			/obj/item/clothing/suit/modular/rownin = -1,
+			/obj/item/facepaint/green = -1,
+			/obj/item/facepaint/brown = -1,
+			/obj/item/facepaint/black = -1,
+			/obj/item/radio/loadout_tool = -1,
+		),
+		"Armor modules" = list(
+			/obj/item/armor_module/storage/general = -1,
+			/obj/item/armor_module/storage/engineering = -1,
+			/obj/item/armor_module/storage/medical = -1,
+			/obj/item/armor_module/storage/injector = -1,
+			/obj/item/armor_module/module/welding = -1,
+			/obj/item/armor_module/module/binoculars = -1,
+			/obj/item/armor_module/module/better_shoulder_lamp = -1,
+		),
+		"Style Line" = list(
+			/obj/item/clothing/suit/modular/style/leather_jacket = -1,
+			/obj/item/clothing/suit/modular/style/duster = -1,
+		))
+
 /obj/machinery/vending/uniform_supply
 	name = "\improper Surplus Clothing Vendor"
 	desc = "An automated equipment rack hooked up to a colossal storage of clothing and accessories. Ninetails designed a new vendor that utilizes bluespace technology to send surplus equipment from outer colonies' sweatshops to your hands! Be grateful."
