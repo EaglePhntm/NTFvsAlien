@@ -1424,6 +1424,10 @@
 			/obj/item/ammo_magazine/rifle/icc_autoshotgun/frag = 10,
 			/obj/item/weapon/gun/rifle/icc_assaultcarbine = -1,
 			/obj/item/ammo_magazine/rifle/icc_assaultcarbine = -1,
+			/obj/item/ammo_magazine/rifle/icc_assaultcarbinelbar = 10,
+			/obj/item/weapon/gun/rifle/famas = -1,
+			/obj/item/ammo_magazine/rifle/famas = -1,
+			/obj/item/ammo_magazine/rifle/famasext = 10,
 		),
 		"Energy Weapons" = list(
 			/obj/item/cell/lasgun/lasrifle = -1,
