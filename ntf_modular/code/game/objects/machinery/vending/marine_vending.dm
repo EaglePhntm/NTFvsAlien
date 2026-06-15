@@ -763,6 +763,7 @@
 			/obj/item/stack/throwing_knife = -1,
 			/obj/item/storage/belt/knifepouch = -1,
 			/obj/item/storage/holster/blade/machete/full = -1,
+			/obj/item/storage/holster/blade/katana =1,
 		),
 		"Sidearm" = list(
 			/obj/item/weapon/gun/pistol/vsd_pistol = -1,
