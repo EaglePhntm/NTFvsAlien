@@ -190,6 +190,11 @@
 	contains = list(/obj/item/ammo_magazine/rifle/icc_assaultcarbinelbar)
 	cost = 7
 
+/datum/supply_packs/imports/katanascabbard
+	name = "Katana"
+	contains = list(/obj/item/storage/holster/blade/katana/full)
+	cost = 50
+
 /datum/supply_packs/imports/plasticfork
 	name = "Plastic Fork"
 	contains = list(/obj/item/tool/kitchen/utensil/pfork)
