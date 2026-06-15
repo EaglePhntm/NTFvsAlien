@@ -126,7 +126,7 @@ ARMOR
 	)
 	cost = 40
 
-/datum/supply_packs/armor/basicdermalheadarmor
+/datum/supply_packs/armor/dermalheadpatcharmor
 	name = "Dermal Armour Patch"
 	contains = list(
 		/obj/item/clothing/head/helmet/HoS/dermal,
