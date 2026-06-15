@@ -941,7 +941,7 @@
 	wield_delay = 0.65 SECONDS
 	damage_mult = 1.2
 	scatter = 2
-	movement_acc_penalty_mult = 5
+	movement_acc_penalty_mult = 4
 
 /obj/item/weapon/gun/rifle/famas/freelancermedic
 	starting_attachment_types = list(/obj/item/attachable/lasersight, /obj/item/attachable/magnetic_harness, /obj/item/attachable/bayonet/converted)
@@ -2992,7 +2992,7 @@
 	wield_delay = 0.85 SECONDS
 	aim_slowdown = 0.2
 	scatter = 1
-	movement_acc_penalty_mult = 2
+	movement_acc_penalty_mult = 3
 
 /obj/item/weapon/gun/rifle/icc_assaultcarbine/export
 	name = "\improper L&S EM-88 assault carbine"
