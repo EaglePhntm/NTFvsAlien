@@ -174,6 +174,7 @@
 	)
 	desc = "Surplus blue camouflage pants."
 	icon_state = "pantsblue"
+	shows_top_genital = TRUE
 
 /obj/item/clothing/under/marine/pantsred
 	name = "Red Camo Pants"
@@ -183,6 +184,7 @@
 	)
 	desc = "Surplus red camouflage pants."
 	icon_state = "pantsred"
+	shows_top_genital = TRUE
 
 /obj/item/clothing/under/marine/pantsblack
 	name = "Black Camo Pants"
@@ -192,6 +194,7 @@
 	)
 	desc = "Surplus black camouflage pants."
 	icon_state = "pantsblack"
+	shows_top_genital = TRUE
 
 /obj/item/clothing/under/marine/shortsblack
 	name = "Black Tactical Booty Shorts"
@@ -201,6 +204,7 @@
 	)
 	desc = "Surplus black tactical booty shorts."
 	icon_state = "shortsblack"
+	shows_top_genital = TRUE
 
 /obj/item/clothing/under/marine/shortsred
 	name = "Red Tactical Booty Shorts"
@@ -210,6 +214,7 @@
 	)
 	desc = "Surplus red tactical booty shorts."
 	icon_state = "shortsred"
+	shows_top_genital = TRUE
 
 /obj/item/clothing/under/marine/shortsblue
 	name = "Blue Tactical Booty Shorts"
@@ -219,3 +224,4 @@
 	)
 	desc = "Surplus blue tactical booty shorts."
 	icon_state = "shortsblue"
+	shows_top_genital = TRUE
