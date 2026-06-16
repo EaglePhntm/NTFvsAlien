@@ -20,8 +20,12 @@
 		if(H.species.species_flags & IS_SYNTHETIC)
 			H.set_blood_volume(BLOOD_VOLUME_NORMAL)
 
-		while(S.surgery_open_stage == 0)
-			if (S && (S.limb_status & LIMB_ROBOT))
+		if(S && S.surgery_open_stage == 0)
+			if(!(S.limb_status & LIMB_ROBOT))
+				H.balloon_alert(user, "limb not robotic!")
+				return
+
+			while(amount && S.surgery_open_stage == 0)
 				if(user.do_actions || !do_after(user, 1 SECONDS, TRUE, src, BUSY_ICON_MEDICAL))
 					return
 				if(S.get_damage())

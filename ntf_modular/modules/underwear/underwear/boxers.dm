@@ -111,6 +111,16 @@
 	desc = "More revealing than your average panties."
 	icon_state = "thong"
 
+/obj/item/clothing/underwear/briefs/panties/thongblack
+	name = "black thong"
+	desc = "More revealing than your average panties, in black."
+	icon_state = "thongblack"
+
+/obj/item/clothing/underwear/briefs/panties/thongblackalt
+	name = "dark steel thong"
+	desc = "More revealing than your average panties, in dark steel."
+	icon_state = "thongblackalt"
+
 /obj/item/clothing/underwear/briefs/panties/thong/babydoll
 	name = "babydoll thong"
 	icon_state = "thong_babydoll"

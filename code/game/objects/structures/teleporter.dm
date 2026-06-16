@@ -248,6 +248,7 @@
 		. += "It is currently lacking a power cell."
 	else
 		. += "It has [round(cell.percent())]% power remaining."
+		. += "Cell energy : [DisplayEnergyFrac(cell.charge * (2/GLOB.CELLRATE), cell.maxcharge * (2/GLOB.CELLRATE))]"
 	if(linked_teleporter)
 		if(isobserver(user))
 			. += "It is currently linked to Teleporter #[linked_teleporter.self_tele_tag][FOLLOW_LINK(user, linked_teleporter)] at [get_area(linked_teleporter)]"

@@ -232,12 +232,14 @@ GLOBAL_LIST_INIT(smartgunner_gear_listed_products, list(
 GLOBAL_LIST_INIT(specialist_gear_listed_products, list(
 
 	/obj/effect/vendor_bundle/specialist = list(CAT_ESS, "Essential Specialist Set", 0, "white"),
-	/obj/item/storage/box/crate/loot/autosniper_lethal_pack_spec = list(CAT_SPSUP, "Recon L Class (SR-81 Autosniper, Mines, NVG, Sniper cloak)", 25, "black"),
-	/obj/item/storage/box/crate/loot/scoutrifle_pack_spec = list(CAT_SPSUP, "Recon L Class 2 (BR-8 Scout Rifle, Mines, NVG)", 25, "black"),
-	/obj/item/storage/box/crate/loot/moonbeam_pack_spec = list(CAT_SPSUP, "Recon NL Class (Moonbeam Nonlethal sniper, Mines, NVG, Sniper cloak)", 25, "black"),
-	/obj/item/storage/box/crate/loot/infiltration_pack_spec = list(CAT_SPSUP, "Infiltrator NL Class (Sneaking suit, G22 Tranq Pistol, Nonlethal Gear, NVG, Scout Cloak)", 25, "black"),
-	/obj/item/storage/box/crate/loot/infiltration_lethal_pack_spec = list(CAT_SPSUP, "Infiltrator L Class (Sneaking suit, M4A3 AP Pistol, Lethal Gear, NVG, Scout Cloak)", 25, "black"),
-	/obj/item/storage/box/crate/loot/gheist_pack_spec = list(CAT_SPSUP, "Hybrid Class (NVG, Light Footed skillsoft, Rifle Pamphlet, Dragoon Mk1 RER)", 25, "black"),
+	/obj/item/storage/box/crate/loot/autosniper_lethal_pack_spec = list(CAT_SPSUP, "Recon Autosniper Class (SR-81 Autosniper, Mines, NVG, Sniper cloak)", 25, "black"),
+	/obj/item/storage/box/crate/loot/scoutrifle_pack_spec = list(CAT_SPSUP, "Recon Scout Class 2 (BR-8 Scout Rifle, Mines, NVG)", 25, "black"),
+	/obj/item/storage/box/crate/loot/moonbeam_pack_spec = list(CAT_SPSUP, "Recon Moonbeam Class (Moonbeam Nonlethal sniper, Mines, NVG, Sniper cloak)", 25, "black"),
+	/obj/item/storage/box/crate/loot/infiltration_pack_spec = list(CAT_SPSUP, "Infiltrator Tranq Class (Sneaking suit, G22 Tranq Pistol, Nonlethal Gear, NVG, Scout Cloak)", 25, "black"),
+	/obj/item/storage/box/crate/loot/infiltration_lethal_pack_spec = list(CAT_SPSUP, "Infiltrator Lethal Class (Sneaking suit, M4A3 AP Pistol, Lethal Gear, NVG, Scout Cloak)", 25, "black"),
+	/obj/item/storage/box/crate/loot/gheist_pack_spec = list(CAT_SPSUP, "Dragoon Hybrid Class (NVG, Light Footed skillsoft, Rifle Pamphlet, Dragoon Mk1 RER)", 25, "orange"),
+	/obj/item/storage/box/crate/loot/mg_pack_spec = list(CAT_SPSUP, "Enforcer Gunner Class (MG27-E, Impr. Constitution skillsoft)", 25, "black"),
+	/obj/item/storage/box/crate/loot/shield_pack_spec = list(CAT_SPSUP, "Enforcer Defender Class (Soulsteel shield, Extreme Constitution skillsoft, valkyrie module)", 25, "black"),
 	/obj/item/ammo_magazine/pistol/g22tranq = list(CAT_SPSUP, "G22 Tranq Magazine", 1, "black"),
 	/obj/item/ammo_magazine/pistol/m1911/ap = list(CAT_SPSUP, "M4A3 AP Magazine", 1, "black"),
 	/obj/item/ammo_magazine/rifle/autosniper = list(CAT_SPSUP, "SR-81 Autosniper Magazine", 1, "black"),
@@ -249,6 +251,7 @@ GLOBAL_LIST_INIT(specialist_gear_listed_products, list(
 	/obj/item/ammo_magazine/rifle/chamberedrifle/bluescreen = list(CAT_SPSUP, "Moonbeam bluescreen sniper magazine", 1, "black"),
 	/obj/item/ammo_magazine/rifle/boltclip/dragoon = list(CAT_SPSUP, "Dragoon RER ammunition clip", 1, "black"),
 	/obj/item/ammo_magazine/rifle/boltclip/dragoon/pox = list(CAT_SPSUP, "Dragoon RER poxomelanin ammunition clip", 3, "black"),
+	/obj/item/ammo_magazine/minigun_powerpack = list(CAT_SPSUP, "Minigun Powerpack", 8, "black"),
 	))
 
 

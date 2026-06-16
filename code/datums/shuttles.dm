@@ -238,8 +238,8 @@
 	shuttle_id = "supplyicc"
 	name = "CM Supply Shuttle"
 
-/datum/map_template/shuttle/supplyvsd
-	shuttle_id = "supplyvsd"
+/datum/map_template/shuttle/supplykz
+	shuttle_id = "supplykz"
 	name = "KZ Supply Shuttle"
 
 /datum/map_template/shuttle/supplypmc

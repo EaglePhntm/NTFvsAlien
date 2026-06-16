@@ -88,7 +88,7 @@
 	if(lying_angle||incapacitated()||IsParalyzed()||IsKnockdown()) //extra damage to people who are downed already.
 		damage *= 1.5
 
-	var/damage_to_deal = clamp(damage, 0, (maxHealth * 2) - stamina_loss)
+	var/damage_to_deal = clamp(damage, 0, (maxHealth * STAMINA_LOSS_LIMIT_MULTIPLIER) - stamina_loss)
 	damage_to_deal += (damage - damage_to_deal)
 
 	X.do_attack_animation(src, ATTACK_EFFECT_DISARM2)
@@ -102,7 +102,7 @@
 			playsound(loc, sound, 25, TRUE, 7)
 
 		if(IsParalyzed())
-			if((AmountParalyzed() < 10 SECONDS)  && stamina_loss >= maxHealth * 2)
+			if((AmountParalyzed() < 10 SECONDS)  && stamina_loss >= maxHealth * STAMINA_LOSS_LIMIT_MULTIPLIER)
 				AdjustParalyzed(2 SECONDS)
 			else
 				apply_damage(damage_to_deal, STAMINA, BODY_ZONE_CHEST, armor_block, FALSE, FALSE, TRUE, armor_pen, X)
@@ -124,7 +124,7 @@
 			X.visible_message("<span class='danger'>[X] wrestles [src]-!</span>",
 			"<span class='danger'>We wrestle [src]!</span>", null, 5)
 			add_slowdown(0.4,2)
-			if(stamina_loss >= maxHealth * 2) //same as regular stamina exhaustion stun.
+			if(stamina_loss >= maxHealth * STAMINA_LOSS_LIMIT_MULTIPLIER) //same as regular stamina exhaustion stun.
 				if(!IsParalyzed())
 					visible_message(null, "<span class='danger'>You are too weakened to keep resisting [X], you slump to the ground!</span>")
 					X.visible_message("<span class='danger'>[X] slams [src] to the ground!</span>",

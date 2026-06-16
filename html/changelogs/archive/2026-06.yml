@@ -35,3 +35,22 @@
   CaputCapital:
   - rscadd: kitchen utensils, kitchen knives, rolling pin, ingredients, condiments
       and mystery pizza boxes (box with a random pizza type)
+2026-06-15:
+  CaputCapital:
+  - rscadd: Added new underwear to the vendors, croptops, bras, thongs, even stirrups
+      half an inch lower
+  - rscadd: KZ now gets ushankas, headbands, bandanas and hardlight gas masks in their
+      vendors
+  - bugfix: The regular thong had a missing side sprite, added back
+  Colfer1:
+  - qol: the research console now instantly starts researching
+2026-06-16:
+  Colfer1:
+  - rscadd: added a survivor armor vendor for mapping in
+  - qol: civilians now have requisitions access to CM now
+  Lewdissar:
+  - rscadd: Red, Blue and Black Booty Shorts and camo pants as standalone uniforms.
+      Heeled jackboots.
+  SpooksAnno:
+  - bugfix: Fixed nanopaste causing a server-crashing infinite loop when used on organic
+      limbs.

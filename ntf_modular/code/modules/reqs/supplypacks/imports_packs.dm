@@ -163,12 +163,12 @@
 /datum/supply_packs/imports/antienergyshield
 	name = "NTC Anti Energy Shield"
 	contains = list(/obj/item/armor_module/module/eshield/absorbant/energy)
-	cost = 500
+	cost = 800
 
 /datum/supply_packs/imports/antiballisticshield
 	name = "KZ Anti Ballsitic Shield"
 	contains = list(/obj/item/armor_module/module/eshield/absorbant/ballistic)
-	cost = 500
+	cost = 800
 
 /datum/supply_packs/imports/m16/ammo/extended
 	name = "FN M16 Assault Rifle Ammo Extended Mag"
@@ -186,13 +186,13 @@
 	name = "NTC Anti Energy Shield (Faction Supply)"
 	contains = list(/obj/item/armor_module/module/eshield/absorbant/energy)
 	faction_lock = list(FACTION_TERRAGOV)
-	cost = 350
+	cost = 600
 
 /datum/supply_packs/imports/antiballisticshieldfs
 	name = "KZ Anti Ballsitic Shield (Faction Supply)"
 	contains = list(/obj/item/armor_module/module/eshield/absorbant/ballistic)
 	faction_lock = list(FACTION_VSD)
-	cost = 350
+	cost = 600
 
 /datum/supply_packs/medical/carpotoxin
 	name = "Carpotoxin Bottle"

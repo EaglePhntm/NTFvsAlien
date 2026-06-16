@@ -27,6 +27,22 @@
 	greyscale_config = /datum/greyscale_config/bra
 	colorable_allowed = COLOR_WHEEL_ALLOWED
 
+/obj/item/clothing/underwear/bra/bra_skimpy
+	name = "bra skimpy"
+	icon_state = "bra_skimpy"
+	greyscale_config = /datum/greyscale_config/bra
+	colorable_allowed = COLOR_WHEEL_ALLOWED
+
+/obj/item/clothing/underwear/bra/bra_skimpyblack
+	name = "bra skimpy black"
+	icon_state = "bra_skimpyblack"
+	greyscale_config = /datum/greyscale_config/bra
+
+/obj/item/clothing/underwear/bra/bra_skimpyblackalt
+	name = "bra skimpy black steel"
+	icon_state = "bra_skimpyblackalt"
+	greyscale_config = /datum/greyscale_config/bra
+
 /obj/item/clothing/underwear/bra/bra_thin
 	name = "bra - thin"
 	icon_state = "bra_thin"

@@ -125,3 +125,10 @@ ARMOR
 		/obj/item/armor_module/module/binoculars/artemis_mark_two,
 	)
 	cost = 40
+
+/datum/supply_packs/armor/dermalheadpatcharmor
+	name = "Dermal Armour Patch"
+	contains = list(
+		/obj/item/clothing/head/helmet/HoS/dermal,
+	)
+	cost = 500

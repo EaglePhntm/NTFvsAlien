@@ -492,6 +492,8 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.biomass_from_cocoons] biomass was obtained from [GLOB.round_statistics.cocoons] cocoons, for an average of [GLOB.round_statistics.biomass_from_cocoons/GLOB.round_statistics.cocoons] points per cocoon."
 	if(GLOB.round_statistics.biomass_from_psydrains)
 		parts += "[GLOB.round_statistics.biomass_from_psydrains] biomass was obtained from [GLOB.round_statistics.psydrains] psydrains, for an average of [GLOB.round_statistics.biomass_from_psydrains/GLOB.round_statistics.psydrains] points per psydrain."
+	if(GLOB.round_statistics.monkey_orgasms)
+		parts += "[GLOB.round_statistics.monkey_orgasms] orgasms were experienced by monkies"
 	if(GLOB.round_statistics.human_orgasms)
 		parts += "[GLOB.round_statistics.human_orgasms] orgasms were experienced by humans"
 	if(GLOB.round_statistics.xeno_orgasms)

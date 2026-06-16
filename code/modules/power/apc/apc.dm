@@ -54,13 +54,13 @@
 	var/aidisabled = FALSE
 	///Reference to our cable terminal
 	var/obj/machinery/power/terminal/terminal = null
-	///Amount of power used by the lighting channel
+	///Amount of power used by the lighting channel in watts
 	var/lastused_light = 0
-	///Amount of power used by the equipment channel
+	///Amount of power used by the equipment channel in watts
 	var/lastused_equip = 0
-	///Amount of power used by the environmental channel
+	///Amount of power used by the environmental channel in watts
 	var/lastused_environ = 0
-	///Total amount of power used by the three channels
+	///Total amount of power used by the three channels in watts
 	var/lastused_total = 0
 	var/main_status = APC_EXTERNAL_POWER_NONE
 	///Grid excess calculated during the power accounting phase.
@@ -278,7 +278,8 @@
 					"off" = list("env" = 1)
 				)
 			)
-		)
+		),
+		"powerCellCharge" = cell ? DisplayEnergyFrac(cell.charge * (2/GLOB.CELLRATE), cell.maxcharge * (2/GLOB.CELLRATE)) : "No cell!"
 	)
 	return data
 

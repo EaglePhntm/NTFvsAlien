@@ -1471,6 +1471,30 @@
 	resistance_flags = INDESTRUCTIBLE
 	use_power = NO_POWER_USE
 
+/obj/machinery/vending/armor_supply/civilian
+	name = "\improper Surplus Civilian Armor Equipment Vendor"
+	products = list(
+		"General" = list(
+			/obj/item/clothing/suit/modular/rownin = -1,
+			/obj/item/facepaint/green = -1,
+			/obj/item/facepaint/brown = -1,
+			/obj/item/facepaint/black = -1,
+			/obj/item/radio/loadout_tool = -1,
+		),
+		"Armor modules" = list(
+			/obj/item/armor_module/storage/general = -1,
+			/obj/item/armor_module/storage/engineering = -1,
+			/obj/item/armor_module/storage/medical = -1,
+			/obj/item/armor_module/storage/injector = -1,
+			/obj/item/armor_module/module/welding = -1,
+			/obj/item/armor_module/module/binoculars = -1,
+			/obj/item/armor_module/module/better_shoulder_lamp = -1,
+		),
+		"Style Line" = list(
+			/obj/item/clothing/suit/modular/style/leather_jacket = -1,
+			/obj/item/clothing/suit/modular/style/duster = -1,
+		))
+
 /obj/machinery/vending/uniform_supply
 	name = "\improper Surplus Clothing Vendor"
 	desc = "An automated equipment rack hooked up to a colossal storage of clothing and accessories. Ninetails designed a new vendor that utilizes bluespace technology to send surplus equipment from outer colonies' sweatshops to your hands! Be grateful."
@@ -1680,6 +1704,12 @@
 			/obj/item/clothing/glasses/mgoggles/prescription = -1,
 		),
 		"Other" = list(
+			/obj/item/clothing/under/marine/pantsblue = -1,
+			/obj/item/clothing/under/marine/pantsred = -1,
+			/obj/item/clothing/under/marine/pantsblack = -1,
+			/obj/item/clothing/under/marine/shortsblack = -1,
+			/obj/item/clothing/under/marine/shortsred = -1,
+			/obj/item/clothing/under/marine/shortsblue = -1,
 			/obj/item/clothing/under/lewd/panties = -1,
 			/obj/item/clothing/under/lewd/chaps = -1,
 			/obj/item/clothing/under/lewd/corset = -1,
@@ -1737,6 +1767,7 @@
 			/obj/item/clothing/head/kitty = -1,
 			/obj/item/clothing/shoes/marine/thigh = -1,
 			/obj/item/clothing/shoes/marine/knee = -1,
+			/obj/item/clothing/shoes/marine/heel = -1,
 		),
 		"Underwear" = list(
 			/obj/item/clothing/underwear/socks/white = -1,
@@ -1765,6 +1796,7 @@
 			/obj/item/clothing/underwear/socks/leggings_black = -1,
 			/obj/item/clothing/underwear/socks/leggings_black_stir = -1,
 			/obj/item/clothing/underwear/socks/socks_thigh_stir = -1,
+			/obj/item/clothing/underwear/socks/socks_thighalt_stir = -1,
 			/obj/item/clothing/underwear/socks/socks_thigh_m = -1,
 			/obj/item/clothing/underwear/socks/socks_knee_stir = -1,
 			/obj/item/clothing/underwear/socks/socks_knee_m = -1,
@@ -1791,6 +1823,8 @@
 			/obj/item/clothing/underwear/undies/panties_slim = -1,
 			/obj/item/clothing/underwear/undies/panties_thin = -1,
 			/obj/item/clothing/underwear/undies/thong = -1,
+			/obj/item/clothing/underwear/undies/thongblack = -1,
+			/obj/item/clothing/underwear/undies/thongblackalt = -1,
 			/obj/item/clothing/underwear/undies/thong_babydoll = -1,
 			/obj/item/clothing/underwear/undies/panties_swimsuit = -1,
 			/obj/item/clothing/underwear/undies/panties_neko = -1,
@@ -1811,6 +1845,9 @@
 
 			/obj/item/clothing/underwear/bra/bra = -1,
 			/obj/item/clothing/underwear/bra/bra_alt = -1,
+			/obj/item/clothing/underwear/bra/bra_skimpy = -1,
+			/obj/item/clothing/underwear/bra/bra_skimpyblack = -1,
+			/obj/item/clothing/underwear/bra/bra_skimpyblackalt = -1,
 			/obj/item/clothing/underwear/bra/bra_thin = -1,
 			/obj/item/clothing/underwear/bra/bra_strapless = -1,
 			/obj/item/clothing/underwear/bra/bra_strapless_alt = -1,
@@ -1860,6 +1897,9 @@
 			/obj/item/clothing/underwear/shirt/turtleneck_sleeveless = -1,
 			/obj/item/clothing/underwear/shirt/leotard_turtleneck = -1,
 			/obj/item/clothing/underwear/shirt/leotard_turtleneck_sleeveless = -1,
+			/obj/item/clothing/underwear/shirt/croptop_turtleneck = -1,
+			/obj/item/clothing/underwear/shirt/croptop_turtleneck_black = -1,
+			/obj/item/clothing/underwear/shirt/croptop_turtleneck_steel = -1,
 			/obj/item/clothing/underwear/shirt/buttondown = -1,
 			/obj/item/clothing/underwear/shirt/buttondown_short_sleeve = -1,
 			/obj/item/clothing/underwear/shirt/babydoll = -1,

@@ -884,15 +884,26 @@ GLOBAL_LIST_INIT(wallitems, typecacheof(list(
 	return GLOB.sorted_areas
 
 
-// Format a power value in W, kW, MW, or GW.
+// Format a power value in W, kW, MW, or GW. Plust J/h similarly
 /proc/DisplayPower(powerused)
+	return "[DisplayUnit(powerused)]W ([DisplayUnit(powerused*3600)]J/h)"
+
+// input in joules
+/proc/DisplayEnergy(powerused)
+	return "[DisplayUnit(powerused/3600)]Wh ([DisplayUnit(powerused)]J)"
+
+// input in joules
+/proc/DisplayEnergyFrac(powerused, maxpower)
+	return "[DisplayUnit(powerused/3600)]Wh / [DisplayUnit(maxpower/3600)]Wh ([DisplayUnit(powerused)]J / [DisplayUnit(maxpower)]J)"
+
+/proc/DisplayUnit(powerused)
 	if(powerused < 1000) //Less than a kW
-		return "[powerused] W"
+		return "[powerused] "
 	else if(powerused < 1000000) //Less than a MW
-		return "[round((powerused * 0.001),0.01)] kW"
+		return "[round((powerused * 0.001),0.01)] k"
 	else if(powerused < 1000000000) //Less than a GW
-		return "[round((powerused * 0.000001),0.001)] MW"
-	return "[round((powerused * 0.000000001),0.0001)] GW"
+		return "[round((powerused * 0.000001),0.001)] M"
+	return "[round((powerused * 0.000000001),0.0001)] G"
 
 
 // Bucket a value within boundary

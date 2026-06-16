@@ -76,6 +76,7 @@
 	. += "Its power setting is set to [setting]."
 	if(cell)
 		. += "It has [round(cell.charge/powerused, 1)] level [setting] punches remaining."
+		. += "Cell energy : [DisplayEnergyFrac(cell.charge * (2/GLOB.CELLRATE), cell.maxcharge * (2/GLOB.CELLRATE))]"
 	else
 		. += "There is no cell installed!"
 

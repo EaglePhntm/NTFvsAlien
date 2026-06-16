@@ -275,6 +275,11 @@ Imports
 	contains = list(/obj/item/ammo_magazine/rifle/famas)
 	cost = 5
 
+/datum/supply_packs/imports/famas/ammoext
+	name = "FAMAS Assault Rifle Extended Ammo"
+	contains = list(/obj/item/ammo_magazine/rifle/famasext)
+	cost = 8
+
 /datum/supply_packs/imports/aug	//Waffle time
 	name = "L&S EM-88 Assault Carbine"
 	contains = list(/obj/item/weapon/gun/rifle/icc_assaultcarbine/export)
@@ -284,6 +289,11 @@ Imports
 	name = "EM-88 Assault Carbine Ammo"
 	contains = list(/obj/item/ammo_magazine/rifle/icc_assaultcarbine/export)
 	cost = 5
+
+/datum/supply_packs/imports/aug/ammoext
+	name = "EM-88 Assault Carbine Extended Ammo"
+	contains = list(/obj/item/ammo_magazine/rifle/icc_assaultcarbinelbar)
+	cost = 7
 
 /datum/supply_packs/imports/rev357
 	name = "'Rebota' Revolver"

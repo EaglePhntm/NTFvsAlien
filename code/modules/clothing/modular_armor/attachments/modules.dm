@@ -182,15 +182,6 @@
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "tyr_head_xn", /obj/item/clothing/head/modular/tdf = "")
 
-/obj/item/armor_module/module/tyr_extra_armor/som
-	name = "\improper Lorica armor reinforcement system"
-	desc = "Designed for mounting on modular SOM armor. A substantial amount of additional armor plating designed to grant the user extra protection against all forms of damage. Will definitely impact mobility."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
-	icon_state = "lorica_armor"
-	worn_icon_state = "lorica_armor_a"
-	attachment_layer = null
-	soft_armor = list(MELEE = 10, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 15, BIO = 5, FIRE = 10, ACID = 5)
-
 /*
 	Friendly fire module
 */
@@ -397,7 +388,7 @@
 	///Current shield Health
 	var/shield_health = 0
 	///Maximum shield Health
-	var/max_shield_health = 60
+	var/max_shield_health = 40
 	///Amount to recharge per tick, processes once every two seconds.
 	var/recharge_rate = 10
 
@@ -541,7 +532,6 @@
 
 /obj/item/armor_module/module/eshield/overclocked
 	max_shield_health = 90
-	damaged_shield_cooldown = 5 SECONDS
 	shield_color_low = COLOR_MAROON
 	shield_color_mid = LIGHT_COLOR_RED_ORANGE
 	shield_color_full = LIGHT_COLOR_ELECTRIC_CYAN
@@ -553,7 +543,6 @@
 
 /obj/item/armor_module/module/eshield/som/overclocked
 	max_shield_health = 90
-	damaged_shield_cooldown = 5 SECONDS
 	shield_color_low = COLOR_MAROON
 	shield_color_mid = LIGHT_COLOR_RED_ORANGE
 	shield_color_full = LIGHT_COLOR_ELECTRIC_CYAN
@@ -561,7 +550,6 @@
 /obj/item/armor_module/module/eshield/vsd/overclocked
 	slot = ATTACHMENT_SLOT_KNEE
 	max_shield_health = 90
-	damaged_shield_cooldown = 5 SECONDS
 	shield_color_low = COLOR_MAROON
 	shield_color_mid = LIGHT_COLOR_RED_ORANGE
 	shield_color_full = LIGHT_COLOR_ELECTRIC_CYAN
@@ -661,21 +649,21 @@
 	icon_state = "style_light"
 	worn_icon_state = "style_light_a"
 	soft_armor = MARINE_ARMOR_LIGHT
-	slowdown = SLOWDOWN_ARMOR_LIGHT + 0.5
+	slowdown = SLOWDOWN_ARMOR_LIGHT + 0.3
 
 /obj/item/armor_module/module/style/medium_armor
 	name = "\improper Medium Armor Equalizer"
 	icon_state = "style_medium"
 	worn_icon_state = "style_medium_a"
 	soft_armor = MARINE_ARMOR_MEDIUM
-	slowdown = SLOWDOWN_ARMOR_MEDIUM + 0.5
+	slowdown = SLOWDOWN_ARMOR_MEDIUM + 0.3
 
 /obj/item/armor_module/module/style/heavy_armor
 	name = "\improper Heavy Armor Equalizer"
 	icon_state = "style_heavy"
 	worn_icon_state = "style_heavy_a"
 	soft_armor = MARINE_ARMOR_HEAVY
-	slowdown = SLOWDOWN_ARMOR_HEAVY + 0.5
+	slowdown = SLOWDOWN_ARMOR_HEAVY + 0.3
 
 /**
  *   Helmet Modules

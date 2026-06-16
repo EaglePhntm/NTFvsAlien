@@ -552,6 +552,10 @@ GLOBAL_DATUM(droppod_reservation, /datum/turf_reservation/transit/droppod)
 		CRASH("Sentry pod spawned without a sentry!")
 	load_package(contents[1])
 
+/obj/structure/droppod/nonmob/turret_pod/completedrop(mob/user)
+	. = ..()
+	qdel(src)
+
 /obj/structure/droppod/nonmob/mech_pod
 	name = "\improper NTC Zeus mech drop pod"
 	desc = "A menacing metal hunk of steel that is used by the NTC for quick tactical redeployment. This is a larger model designed specifically to carry mechs. Shift click to enter when inside a mech."

@@ -269,8 +269,21 @@
 	caliber = CALIBER_556X45
 	icon_state = "famas"
 	icon_state_mini = "mag_rifle_greyblue"
+	w_class = WEIGHT_CLASS_SMALL
 	default_ammo = /datum/ammo/bullet/rifle
 	max_rounds = 24
+
+/obj/item/ammo_magazine/rifle/famasext
+	name = "\improper FAMAS extended magazine (5.56x45mm)"
+	desc = "A 5.56x45mm magazine for the FAMAS assault rifle."
+	caliber = CALIBER_556X45
+	icon_state = "famasext"
+	icon_state_mini = "mag_rifle_greyblue"
+	bonus_overlay = "famas_extmag"
+	default_ammo = /datum/ammo/bullet/rifle
+	max_rounds = 36
+	aim_speed_mod = 0.1
+	wield_delay_mod = 0.1 SECONDS
 
 //-------------------------------------------------------
 //MG-42 Light Machine Gun
@@ -835,6 +848,18 @@
 	icon_state_mini = "mag_rifle_olive"
 	default_ammo = /datum/ammo/bullet/rifle
 	max_rounds = 30
+
+/obj/item/ammo_magazine/rifle/icc_assaultcarbinelbar
+	name = "\improper L-88 assault carbine lbar magazine (5.56x45mm)"
+	desc = "A magazine filled with 5.56x45mm rifle rounds for the L-88 series of firearms, an extended variant."
+	caliber = CALIBER_556X45
+	icon_state = "augext"
+	icon_state_mini = "mag_rifle_olive"
+	bonus_overlay = "l88_extmag"
+	default_ammo = /datum/ammo/bullet/rifle
+	max_rounds = 42
+	aim_speed_mod = 0.1
+	wield_delay_mod = 0.1 SECONDS
 
 /obj/item/ammo_magazine/rifle/icc_assaultcarbine/export
 	name = "\improper EM-88 assault carbine magazine (5.56x45mm)"

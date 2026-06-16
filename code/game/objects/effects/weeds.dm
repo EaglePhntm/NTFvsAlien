@@ -5,7 +5,9 @@
 
 //Stat defines
 #define RESTING_BUFF 1.2
-#define WEED_SLOWDOWN 2
+#define SLOWDOWN_NORMAL 0.5
+#define SLOWDOWN_RESTING 0
+#define SLOWDOWN_STICKY 2
 
 // base weed type
 /obj/alien/weeds
@@ -28,6 +30,12 @@
 	var/resting_buff = 1
 	///If these weeds are not destroyed but just swapped
 	var/swapped = FALSE
+	var/cross_slowdown = SLOWDOWN_NORMAL
+
+/obj/alien/weeds/on_loc_entered(datum/source, atom/movable/crosser)
+	. = ..()
+	if(cross_slowdown > 0)
+		slow_down_crosser(crosser, cross_slowdown)
 
 /obj/alien/weeds/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	GLOB.round_statistics.weeds_destroyed++
@@ -187,16 +195,14 @@
 	name = "sticky weeds"
 	desc = "A layer of disgusting sticky slime, it feels like it's going to slow your movement down."
 	color_variant = STICKY_COLOR
-
-/obj/alien/weeds/sticky/on_loc_entered(datum/source, atom/movable/crosser)
-	. = ..()
-	slow_down_crosser(crosser, WEED_SLOWDOWN)
+	cross_slowdown = SLOWDOWN_STICKY
 
 /obj/alien/weeds/resting
 	name = "resting weeds"
 	desc = "This looks almost comfortable."
 	color_variant = RESTING_COLOR
 	resting_buff = RESTING_BUFF
+	cross_slowdown = SLOWDOWN_RESTING
 
 // =================
 // weed wall
@@ -276,6 +282,7 @@
 	var/obj/alien/weeds/weed_type = /obj/alien/weeds
 	///The plasma cost multiplier for this node
 	var/ability_cost_mult = 1
+	cross_slowdown = SLOWDOWN_NORMAL
 
 /obj/alien/weeds/node/Initialize(mapload, _hivenumber, obj/alien/weeds/node/node)
 	var/swapped = FALSE
@@ -365,10 +372,11 @@
 	color_variant = STICKY_COLOR
 	node_icon = "weednodegreen"
 	ability_cost_mult = 3
+	cross_slowdown = SLOWDOWN_STICKY
 
 /obj/alien/weeds/node/sticky/on_loc_entered(datum/source, atom/movable/crosser)
 	. = ..()
-	slow_down_crosser(crosser, WEED_SLOWDOWN)
+	slow_down_crosser(crosser, cross_slowdown)
 
 //Resting weed node
 /obj/alien/weeds/node/resting
@@ -379,3 +387,4 @@
 	node_icon = "weednodewhite"
 	resting_buff = RESTING_BUFF
 	ability_cost_mult = 2
+	cross_slowdown = SLOWDOWN_RESTING

@@ -105,7 +105,7 @@
 	attachable_offset = list("muzzle_x" = 41, "muzzle_y" = 20,"rail_x" = 15, "rail_y" = 20, "under_x" = 23, "under_y" = 12, "stock_x" = 11, "stock_y" = 14)
 	starting_attachment_types = list(/obj/item/attachable/stock/t39stock)
 
-	fire_delay = 1.2 SECONDS
+	fire_delay = 1.4 SECONDS
 	accuracy_mult = 1.05
 	accuracy_mult_unwielded = 0.65
 	scatter = 3
@@ -136,7 +136,7 @@
 	gun_features_flags = GUN_IS_ATTACHMENT|GUN_AMMO_COUNTER|GUN_ATTACHMENT_FIRE_ONLY|GUN_WIELDED_STABLE_FIRING_ONLY|GUN_CAN_POINTBLANK|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	default_ammo_type = /datum/ammo/bullet/shotgun/buckshot
 	scatter = 3
-	damage_mult = 0.85
+	damage_mult = 1.2
 	cock_delay = 1.2 SECONDS
 	fire_delay = 1.5 SECONDS
 	pixel_shift_x = 14
@@ -189,7 +189,7 @@
 	attachable_allowed = list()
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 20,"rail_x" = 11, "rail_y" = 22, "under_x" = 18, "under_y" = 16, "stock_x" = 18, "stock_y" = 16)
-	damage_mult = 1
+	damage_mult = 1.2
 	damage_falloff_mult = 2
 	fire_delay = 0.2 SECONDS
 	accuracy_mult = 0.9
@@ -376,9 +376,9 @@
 		/obj/item/attachable/stock/trenchgun,
 	)
 
-	fire_delay = 1.2 SECONDS
+	fire_delay = 1.4 SECONDS
 	max_chamber_items = 5
-	damage_mult = 1
+	damage_mult = 0.85
 	accuracy_mult_unwielded = 1
 
 	scatter = 4
