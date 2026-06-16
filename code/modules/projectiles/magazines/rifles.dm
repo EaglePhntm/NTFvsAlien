@@ -269,6 +269,7 @@
 	caliber = CALIBER_556X45
 	icon_state = "famas"
 	icon_state_mini = "mag_rifle_greyblue"
+	bonus_overlay = "famas_mag"
 	w_class = WEIGHT_CLASS_SMALL
 	default_ammo = /datum/ammo/bullet/rifle
 	max_rounds = 24
