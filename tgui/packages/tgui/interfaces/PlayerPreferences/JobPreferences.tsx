@@ -54,7 +54,7 @@ export const JobPreferences = (props) => {
     'Squad Engineer',
     'Squad Corpsman',
     'Squad Smartgunner',
-    'Specialist Operative',
+    'Squad Specialist',
     'Squad Leader',
   ];
   const somJobs = [
@@ -86,17 +86,19 @@ export const JobPreferences = (props) => {
     'Morale Officer',
     'Prisoner',
     'SOM Prisoner',
-    'CLF Prisoner',
+    'Cult Prisoner',
   ];
   const clfJobs = [
-    'CLF Breeder',
-    'CLF Standard',
-    'CLF Medic',
-    'CLF Specialist',
-    'CLF Synthetic',
-    'CLF Leader',
-    'CLF Base Technician',
-    'CLF Representative',
+    'Cult Offering',
+    'Cultist',
+    'Cultist Mender',
+    'Cultist Champion',
+    'Cult Synthetic',
+    'Cultist Archmender',
+    'Cultist Sect Leader',
+    'Cultist Technomancer',
+    'Cult Representative',
+    'Cult Messiah',
   ];
   const cmJobs = [
     'CM Standard',
@@ -105,6 +107,9 @@ export const JobPreferences = (props) => {
     'CM Squad Leader',
     'CM Base Technician',
     'Colonial Militia Representative',
+    'CM Commander',
+    'CM Militia Captain',
+    'CM Colony Administrator',
   ];
   const kzJobs = [
     'KZ Standard',
@@ -114,28 +119,28 @@ export const JobPreferences = (props) => {
     'KZ Squad Leader',
     'Kaizoku Liaison',
   ];
-  const survivorJobs = [
-    'Assistant Survivor',
-    'Scientist Survivor',
-    'Doctor Survivor',
-    'Liaison Survivor',
-    'Security Guard Survivor',
-    'Civilian Survivor',
-    'Chef Survivor',
-    'Botanist Survivor',
-    'Technician Survivor',
-    'Chaplain Survivor',
-    'Miner Survivor',
-    'Salesman Survivor',
-    'Colonial Marshal Survivor',
-    'Bartender Survivor',
-    'Pharmacy Technician Survivor',
-    'Roboticist Survivor',
-    'Non-Deployed Operative Survivor',
-    'Prisoner Survivor',
-    'Stripper Survivor',
-    'Maid Survivor',
-    'Synthetic Survivor',
+  const ColonistJobs = [
+    'Assistant Colonist',
+    'Scientist Colonist',
+    'Doctor Colonist',
+    'Liaison Colonist',
+    'Security Guard Colonist',
+    'Civilian Colonist',
+    'Chef Colonist',
+    'Botanist Colonist',
+    'Technician Colonist',
+    'Chaplain Colonist',
+    'Miner Colonist',
+    'Salesman Colonist',
+    'Colonial Marshal Colonist',
+    'Bartender Colonist',
+    'Pharmacy Technician Colonist',
+    'Roboticist Colonist',
+    'Non-Deployed Operative Colonist',
+    'Prisoner Colonist',
+    'Stripper Colonist',
+    'Maid Colonist',
+    'Synthetic Colonist',
   ];
   const pmcJobs = [
     'AC Standard',
@@ -249,24 +254,26 @@ export const JobPreferences = (props) => {
               </Flex.Item>
               <Flex.Item>
                 <h4>Occupational choices</h4>
-                {Object.keys(special_occupations).map((special, idx) => (
+                {Object.keys(special_occupations).map((special, idx) => {
+                  const specialOccupation = special_occupations[special];
+                  return (
                   <>
                     <Button.Checkbox
-                      key={special_occupations[special]}
+                      key={specialOccupation.flag}
                       inline
                       content={special}
-                      checked={
-                        special_occupation & special_occupations[special]
-                      }
+                      tooltip={specialOccupation.tooltip}
+                      checked={special_occupation & specialOccupation.flag}
                       onClick={() =>
                         act('be_special', {
-                          flag: special_occupations[special],
+                          flag: specialOccupation.flag,
                         })
                       }
                     />
                     {idx === 1 && <br />}
                   </>
-                ))}
+                  );
+                })}
               </Flex.Item>
             </Flex>
           </Section>
@@ -277,12 +284,12 @@ export const JobPreferences = (props) => {
           <JobList name="SOM Jobs" jobs={somJobs} />
         </Stack.Item>
         <Stack.Item grow>
-          <JobList name="Survivor Jobs" jobs={survivorJobs} />
+          <JobList name="Colonist Jobs" jobs={ColonistJobs} />
         </Stack.Item>
       </Stack>
       <Stack>
         <Stack.Item grow>
-          <JobList name="CLF Jobs" jobs={clfJobs} />
+          <JobList name="Cult Jobs" jobs={clfJobs} />
         </Stack.Item>
         <Stack.Item grow>
           <JobList name="AC Jobs" jobs={pmcJobs} />
@@ -306,6 +313,38 @@ const JobPreference = (props) => {
   const { job, setShownDescription } = props;
   const jobData = jobs[job];
   const preference = job_preferences[job];
+
+  if (!jobData) {
+    return (
+      <LabeledList.Item label={job}>
+        <Box align="right">
+          <Button.Checkbox
+            inline
+            icon="exclamation-triangle"
+            color="bad"
+            content={'Sorry, coders fucked this up'}
+            onClick={() =>
+              setShownDescription(
+                'failed to find /datum/job with title "' +
+                  job +
+                  '" in SSjob.joinable_occupations in /datum/preferences/ui_static_data(mob/user) ',
+              )
+            }
+          />
+          <Button
+            content="?"
+            onClick={() =>
+              setShownDescription(
+                'failed to find /datum/job with title "' +
+                  job +
+                  '" in SSjob.joinable_occupations in /datum/preferences/ui_static_data(mob/user) ',
+              )
+            }
+          />
+        </Box>
+      </LabeledList.Item>
+    );
+  }
 
   if (jobData.banned) {
     return (

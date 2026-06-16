@@ -29,7 +29,7 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	///The respawn time for marines
 	var/respawn_time = 30 MINUTES
 	//The respawn time for Xenomorphs
-	var/xenorespawn_time = 5 MINUTES
+	var/xenorespawn_time = 2.5 MINUTES
 	///How many points do you need to win in a point gamemode
 	var/win_points_needed = 0
 	///The points per faction, assoc list
@@ -135,7 +135,7 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 		L.after_round_start()
 
 	// Determine roundstart player count, used for population locks.
-	SSticker.mode.roundstart_players = length(GLOB.clients)
+	SSticker.mode.roundstart_players = length(GLOB.whitelisted_clients)
 	to_chat(world, "Round initialized with a Population of [SSticker.mode.roundstart_players]")
 	SSblackbox.record_feedback("text", "initial_players", 1, SSticker.mode.roundstart_players)
 	for(var/datum/job/job AS in valid_job_types)
@@ -154,6 +154,8 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 
 	return TRUE
 
+///Sets up the gamemode
+///Occurs before the game starts - game will not start if this fails to return TRUE, if bypass_checks is not also TRUE
 /datum/game_mode/proc/setup()
 	SHOULD_CALL_PARENT(TRUE)
 	if(custom_dnr_time)
@@ -234,9 +236,9 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	for(var/i in GLOB.new_player_list)
 		var/mob/new_player/player = i
 		var/mob/living = player.transfer_character()
+		player = null
 		if(!living)
 			continue
-		qdel(player)
 		living.client.init_verbs()
 		living.notransform = TRUE
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_PLAYER_ROUNDSTART_SPAWNED, living)
@@ -309,7 +311,7 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 
 	msg += "<hr>"
 
-	for(var/i in GLOB.clients)
+	for(var/i in GLOB.whitelisted_clients)
 		var/client/C = i
 		if(!check_other_rights(C, R_ADMIN, FALSE))
 			continue
@@ -490,6 +492,8 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.biomass_from_cocoons] biomass was obtained from [GLOB.round_statistics.cocoons] cocoons, for an average of [GLOB.round_statistics.biomass_from_cocoons/GLOB.round_statistics.cocoons] points per cocoon."
 	if(GLOB.round_statistics.biomass_from_psydrains)
 		parts += "[GLOB.round_statistics.biomass_from_psydrains] biomass was obtained from [GLOB.round_statistics.psydrains] psydrains, for an average of [GLOB.round_statistics.biomass_from_psydrains/GLOB.round_statistics.psydrains] points per psydrain."
+	if(GLOB.round_statistics.monkey_orgasms)
+		parts += "[GLOB.round_statistics.monkey_orgasms] orgasms were experienced by monkies"
 	if(GLOB.round_statistics.human_orgasms)
 		parts += "[GLOB.round_statistics.human_orgasms] orgasms were experienced by humans"
 	if(GLOB.round_statistics.xeno_orgasms)
@@ -620,6 +624,8 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.boiler_acid_smokes] number of times Boilers spat out a glob of acid."
 	if(GLOB.round_statistics.boiler_neuro_smokes)
 		parts += "[GLOB.round_statistics.boiler_neuro_smokes] number of times Boilers spat out a glob of neurotoxin."
+	if(GLOB.round_statistics.boiler_aphro_smokes)
+		parts += "[GLOB.round_statistics.boiler_aphro_smokes] number of times Boilers spat out a glob of aphrotoxin."
 	if(GLOB.round_statistics.psy_crushes)
 		parts += "[GLOB.round_statistics.psy_crushes] number of times Warlocks used psychic crush."
 	if(GLOB.round_statistics.psy_blasts)
@@ -639,7 +645,9 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	if(GLOB.round_statistics.larva_from_cocoon)
 		parts += "[GLOB.round_statistics.larva_from_cocoon] larvas came from cocoons."
 	if(GLOB.round_statistics.larva_from_marine_spawning)
-		parts += "[GLOB.round_statistics.larva_from_marine_spawning] larvas came from marine spawning."
+		parts += "[GLOB.round_statistics.larva_from_marine_spawning] larvas came from marines spawning."
+	if(GLOB.round_statistics.larva_debt_from_marines_cryoing)
+		parts += "[GLOB.round_statistics.larva_debt_from_marines_cryoing] larva debt came from marines cryoing."
 	if(GLOB.round_statistics.larva_from_siloing_body)
 		parts += "[GLOB.round_statistics.larva_from_siloing_body] larvas came from siloing bodies."
 	if(GLOB.round_statistics.larva_from_intel)
@@ -650,6 +658,8 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.larva_from_converted_biomass] larvas came from converted biomass."
 	if(GLOB.round_statistics.larva_from_hive_target_rewards)
 		parts += "[GLOB.round_statistics.larva_from_hive_target_rewards] larvas came from hive target rewards."
+	if(GLOB.round_statistics.larva_from_crash_autobalance)
+		parts += "[GLOB.round_statistics.larva_from_crash_autobalance] larvas were added automatically due to low xeno pop on crash."
 	if(GLOB.round_statistics.points_from_ambrosia)
 		parts += "[GLOB.round_statistics.points_from_ambrosia] requisitions points gained from ambrosia."
 	if(GLOB.round_statistics.points_from_intel)
@@ -681,6 +691,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 			var/last = GLOB.round_statistics.req_items_produced[length(GLOB.round_statistics.req_items_produced)]
 			parts += "[GLOB.round_statistics.req_items_produced[path]] [initial(path.name)][last ? "." : ","]"
 
+	status_update_round_end(parts)
 	if(length(parts))
 		return "<div class='panel stationborder'>[parts.Join("<br>")]</div>"
 	else
@@ -791,6 +802,9 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	return FALSE
 
 /datum/game_mode/proc/CanLateSpawn(mob/new_player/NP, datum/job/job)
+	if(!WHITELIST_CHECK(NP.client))
+		WHITELIST_MESSAGE(NP.client)
+		return FALSE
 	if(!isnewplayer(NP))
 		return FALSE
 	if(!NP.IsJobAvailable(job, TRUE))
@@ -940,7 +954,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 /datum/game_mode/proc/display_report()
 	GLOB.common_report = build_roundend_report()
 	log_roundend_report()
-	for(var/client/C in GLOB.clients)
+	for(var/client/C in GLOB.whitelisted_clients)
 		show_roundend_report(C)
 		give_show_report_button(C)
 		CHECK_TICK
@@ -1158,6 +1172,9 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 				forced_disks += candidate
 			else
 				viable_disks += candidate
+		else
+			new /obj/machinery/computer/intel_computer(get_turf(candidate))
+			qdel(candidate)
 	if((length(viable_disks) + length(forced_disks)) < length(GLOB.nuke_disk_generator_types)) //Lets in maps with > 3 disks for a given set and just behaves like the previous rng in that case.
 		CRASH("Warning: Current map has too few nuke disk generators to correctly generate disks for set \">[chosen_disk_set]<\". Make sure both generators and json are set up correctly.")
 	if(length(forced_disks) > length(GLOB.nuke_disk_generator_types))
@@ -1170,6 +1187,9 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 			spawn_loc = pick_n_take(viable_disks)
 		new disk_generator(get_turf(spawn_loc))
 		qdel(spawn_loc)
+	for(var/obj/structure/nuke_disk_candidate/candidate AS in GLOB.nuke_disk_spawn_locs)
+		new /obj/machinery/computer/intel_computer(get_turf(candidate))
+		qdel(candidate)
 
 /// Add gamemode related items to statpanel
 /datum/game_mode/proc/get_status_tab_items(datum/dcs, mob/source, list/items)

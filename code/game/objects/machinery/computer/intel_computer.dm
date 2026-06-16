@@ -15,6 +15,7 @@
 	integrity_failure = 250
 	resistance_flags = DROPSHIP_IMMUNE|XENO_DAMAGEABLE|PORTAL_IMMUNE|BANISH_IMMUNE|PLASMACUTTER_IMMUNE|CRUSHER_IMMUNE
 	interaction_flags = INTERACT_MACHINE_TGUI
+	atom_flags = NODECONSTRUCT
 
 	///Whether this computer is activated by the event yet
 	var/active = FALSE
@@ -90,7 +91,7 @@
 	STOP_PROCESSING(SSmachines, src)
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_INTEL_DISK_PRINTED, src, new_disk)
 
-/obj/machinery/computer/intel_computer/Destroy()
+/obj/machinery/computer/intel_computer/Destroy(force)
 	if(!force)
 		set_disabled()
 		return QDEL_HINT_LETMELIVE
@@ -234,7 +235,7 @@
 	/// Dropship reward. Set up during init. Is set up by an intel computer.
 	var/dropship_reward
 	/// After this time, the disk will yield no req points.
-	var/duration = 45 MINUTES
+	var/duration = 1 HOURS
 	///length of intel disk chain
 	var/max_chain = 0
 
@@ -276,7 +277,7 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	var/datum/game_mode/infestation/extended_plus/secret_of_life/gaymode = SSticker.mode
+	var/datum/game_mode/infestation/secret_of_life/gaymode = SSticker.mode
 	var/datum/individual_stats/the_stats
 	if(gaymode && user)
 		the_stats = gaymode.stat_list[user.faction].get_player_stats(user)

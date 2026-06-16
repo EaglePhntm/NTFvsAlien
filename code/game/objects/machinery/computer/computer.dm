@@ -6,6 +6,7 @@
 	density = TRUE
 	anchored = TRUE
 	use_power = IDLE_POWER_USE
+	use_static_power = TRUE
 	layer = BELOW_OBJ_LAYER
 	idle_power_usage = 300
 	active_power_usage = 300
@@ -24,18 +25,31 @@
 	var/broken_icon
 	///If true has a chance to break from any bullet
 	var/fragile = TRUE
+	///Whether this computer needs normal SSmachines processing immediately on init.
+	var/process_on_init = FALSE
 
 /obj/machinery/computer/Initialize(mapload)
 	. = ..()
 	if(!broken_icon)
 		broken_icon = "[initial(icon_state)]_broken"
-	start_processing()
+	if(process_on_init)
+		start_processing()
 	update_icon()
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/computer/LateInitialize()
 	. = ..()
 	power_change()
+
+/obj/machinery/computer/Destroy()
+	return ..()
+
+/obj/machinery/computer/on_tgui_open(mob/user, datum/tgui/ui)
+	update_use_power(ACTIVE_POWER_USE)
+
+/obj/machinery/computer/on_tgui_close(mob/user, datum/tgui/ui)
+	if(length(open_uis) <= 1)
+		update_use_power(IDLE_POWER_USE)
 
 /obj/machinery/computer/examine(mob/user)
 	. = ..()
@@ -127,16 +141,20 @@
 	. += emissive_appearance(icon, screen_overlay, offset_spokesman = src, alpha = src.alpha)
 	. += mutable_appearance(icon, screen_overlay, offset_spokesman = src, alpha = src.alpha)
 
+///Breaks the computer
 /obj/machinery/computer/proc/set_broken()
 	machine_stat |= BROKEN
 	density = FALSE
-	update_icon()
+	set_ai_block()
+	update_appearance(UPDATE_ICON)
 
+///Unbreaks the computer
 /obj/machinery/computer/proc/repair()
 	machine_stat &= ~BROKEN
 	density = initial(density)
 	durability = initial(durability)
-	update_icon()
+	set_ai_block()
+	update_appearance(UPDATE_ICON)
 
 /obj/machinery/computer/proc/decode(text)
 	// Adds line breaks
@@ -187,7 +205,7 @@
 	if(.)
 		return
 
-	if(isscrewdriver(I) && circuit)
+	if(isscrewdriver(I) && circuit && !(atom_flags & NODECONSTRUCT))
 		if(user.skills.getRating(SKILL_ENGINEER) < SKILL_ENGINEER_EXPERT)
 			user.visible_message(span_notice("[user] fumbles around figuring out how to deconstruct [src]."),
 			span_notice("You fumble around figuring out how to deconstruct [src]."))
@@ -261,3 +279,18 @@
 	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_DISARM2) //SFxeno_attacker
 	playsound(loc, pick('sound/effects/bang.ogg','sound/effects/metal_crash.ogg','sound/effects/meteorimpact.ogg'), 25, 1) //SFxeno_attacker
 	Shake(duration = 0.5 SECONDS)
+
+/obj/machinery/computer/set_ai_block()
+	var/turf/current_turf = get_turf(src)
+	if(!current_turf)
+		return
+	if(density && !QDELETED(src) && (resistance_flags & INDESTRUCTIBLE))
+		current_turf.atom_flags |= AI_BLOCKED
+		return
+	current_turf.atom_flags &= ~AI_BLOCKED
+
+/obj/machinery/computer/ai_handle_obstacle(mob/living/user, move_dir)
+	if(!isxeno(user) || resistance_flags & INDESTRUCTIBLE)
+		return ..()
+	var/mob/living/carbon/xenomorph/xeno_attacker = user
+	attack_alien(xeno_attacker)

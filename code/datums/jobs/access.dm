@@ -3,6 +3,9 @@
 	if(check_access())
 		return TRUE
 
+	if(check_inherent_access(M))
+		return TRUE
+
 	if(issilicon(M))
 		return TRUE //Silicons can access whatever they want
 
@@ -12,7 +15,6 @@
 	var/obj/item/card/id/I = M.get_idcard() //if they are holding or wearing a card that has access, that works.
 	if(check_access(I))
 		return TRUE
-
 
 /obj/proc/check_access(obj/item/card/id/ID)
 	if(!LAZYLEN(req_access) && !LAZYLEN(req_one_access))
@@ -365,18 +367,20 @@
 			. = size ? "FRE" : "Freelancer Veteran"
 		if("FRE4")
 			. = size ? "FRE" : "Freelancer Leader"
-		if("CLF0")
-			. = size ? "CLFB" : "CLF Breeding Slave"
-		if("CLF1")
-			. = size ? "CLFS" : "CLF Standard"
-		if("CLF2")
-			. = size ? "CLFM" : "CLF Medic"
-		if("CLF3")
-			. = size ? "CLFL" : "CLF Leader"
-		if("CLF4")
-			. = size ? "CLFS" : "CLF Specialist"
-		if("CLF5")
-			. = size ? "CLFT" : "CLF Base Technician"
+		if("CLTO")
+			. = size ? "CLTO" : "Cult Offering"
+		if("CLT")
+			. = size ? "CLT" : "Cultist"
+		if("CLTM")
+			. = size ? "CLTM" : "Cultist Mender"
+		if("CLTL")
+			. = size ? "CLTL" : "Cultist Sect Leader"
+		if("CLTC")
+			. = size ? "CLTC" : "Cultist Champion"
+		if("CLTW")
+			. = size ? "CLTW" : "Cultist Technomancer"
+		if("CLTMS")
+			. = size ? "CLTMS" : "Cultist Messiah"
 		if("SOM_E1")
 			. = size ? "PTE" : "SOM Private"
 		if("SOM_E2")
@@ -497,5 +501,15 @@
 			. = size ? "SV" : "Supervisor"
 		if("LIA5")
 			. = size ? "CO" : "Chief Officer"
+		if("CLTR1")
+			. = size ? "CLS" : "Cult Lesser Speaker"
+		if("CLTR2")
+			. = size ? "CS" : "Cult Speaker"
+		if("CLTR3")
+			. = size ? "CV" : "Cult Voice"
+		if("CLTR4")
+			. = size ? "CSN" : "Cult Sect Member"
+		if("CLTR5")
+			. = size ? "CSL" : "Cult Sect Leader"
 		else
 			. = paygrade //custom paygrade

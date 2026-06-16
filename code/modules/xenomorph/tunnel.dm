@@ -159,7 +159,7 @@ TUNNEL
 		M.visible_message(span_xenonotice("\The [M] begins crawling down into \the [src].") , \
 		span_xenonotice("We begin crawling down into \the [src] to <b>[targettunnel.tunnel_desc]</b>.") )
 
-	if(isxenolarva(M)) //Larva can zip through near-instantly, they are wormlike after all
+	if(isxenolarva(M) || isxenofacehugger(M)) //Larva can zip through near-instantly, they are wormlike after all
 		tunnel_time = 5
 
 	if(!do_after(M, tunnel_time, IGNORE_HELD_ITEM, src, BUSY_ICON_GENERIC))

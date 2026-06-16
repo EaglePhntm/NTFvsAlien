@@ -71,14 +71,16 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 
 /datum/action/ability/activable/xeno/throw_hugger/use_ability(atom/A)
 	//target a hugger on the ground to store it directly (unless its a fake/harmless hugger)
-	if(istype(A, /obj/item/clothing/mask/facehugger) && !istype(A, /obj/item/clothing/mask/facehugger/combat/harmless))
+	if(istype(A, /obj/item/clothing/mask/facehugger))
 		if(isturf(get_turf(A)) && xeno_owner.Adjacent(A))
 			if(!xeno_owner.issamexenohive(A))
 				to_chat(xeno_owner, span_warning("That facehugger is tainted!"))
 				xeno_owner.dropItemToGround(A)
 				return fail_activate()
-			xeno_owner.store_hugger(A)
-			return succeed_activate()
+			if(xeno_owner.store_hugger(A))
+				return succeed_activate()
+			else
+				return fail_activate()
 
 	var/obj/item/clothing/mask/facehugger/F = xeno_owner.get_active_held_item()
 	if(!istype(F) || F.stat == DEAD) //empty active hand
@@ -122,23 +124,29 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 			fake.facehugger_register_source(xeno_owner)
 			fake.throw_at(get_step(A, pick(CARDINAL_ALL_DIRS)), CARRIER_HUGGER_THROW_DISTANCE, CARRIER_HUGGER_THROW_SPEED)
 			fake.color = gradient(initial(fake.color), initial(F.color), fake_hugger_gradiant_percentage)
+			fake.lifecycle /= 3
 		xeno_owner.visible_message(span_xenowarning("\The [xeno_owner] throws something towards \the [A]!"), \
 		span_xenowarning("We throw a facehugger towards \the [A]!"))
 		add_cooldown()
 		return succeed_activate()
 
 /mob/living/carbon/xenomorph/proc/store_hugger(obj/item/clothing/mask/facehugger/F, message = TRUE, forced = FALSE) //todo: wrap this into ability
+	if(istype(F, /obj/item/clothing/mask/facehugger/combat/harmless))
+		to_chat(src, span_notice("This fakehugger is useless to absorb."))
+		return FALSE
 	if(huggers < xeno_caste.huggers_max)
 		if(F.stat == DEAD && !forced)
 			to_chat(src, span_notice("This facehugger has already expired, we cannot salvage it."))
-			return
+			return FALSE
 		F.kill_hugger()
 		huggers++
 		if(message)
 			playsound(src, 'sound/voice/alien/drool2.ogg', 50, 0, 1)
 			to_chat(src, span_notice("We salvage this facehugger's biomass to produce another. Now sheltering: [huggers] / [xeno_caste.huggers_max]."))
+		return TRUE
 	else if(message)
 		to_chat(src, span_warning("We can't carry any more facehuggers!"))
+		return FALSE
 
 // ***************************************
 // ********* Trap
@@ -467,7 +475,8 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	var/datum/internal_organ/O
 	for(var/i in list(ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_LIVER))
 		O = victim.get_organ_slot(i)
-		O.take_damage(debuff, TRUE)
+		if(istype(O))
+			O.take_damage(debuff, TRUE)
 
 	young.adjust_boost_timer(20, 40)
 

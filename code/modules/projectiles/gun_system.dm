@@ -476,6 +476,7 @@
 		COMSIG_KB_UNLOADGUN,
 		COMSIG_KB_GUN_SAFETY,
 		COMSIG_KB_UNIQUEACTION,
+		COMSIG_KB_UNIQUEACTION_UNDER,
 		COMSIG_KB_AUTOEJECT,
 		COMSIG_QDELETING,
 		COMSIG_RANGED_ACCURACY_MOD_CHANGED,
@@ -517,6 +518,7 @@
 		RegisterSignal(gun_user, COMSIG_MOB_MOUSEDRAG, PROC_REF(change_target))
 	else
 		RegisterSignal(gun_user, COMSIG_KB_UNIQUEACTION, PROC_REF(unique_action))
+	RegisterSignal(gun_user, COMSIG_KB_UNIQUEACTION_UNDER, PROC_REF(unique_action_under))
 	RegisterSignal(gun_user, COMSIG_QDELETING, PROC_REF(clean_gun_user))
 	RegisterSignals(gun_user, list(COMSIG_MOB_MOUSEUP, COMSIG_ITEM_ZOOM), PROC_REF(stop_fire))
 	RegisterSignal(gun_user, COMSIG_ITEM_UNZOOM, PROC_REF(on_unzoom))
@@ -1149,6 +1151,7 @@
 		user.apply_damage(200, OXY)
 		if(ishuman(user) && user == M)
 			var/mob/living/carbon/human/HM = user
+			log_game("Marking [logdetails(HM)] as undefibbable because they blew their own brains out.")
 			HM.set_undefibbable(TRUE) //can't be defibbed back from self inflicted gunshot to head
 		user.death()
 
@@ -1850,6 +1853,8 @@
 		var/mob/living/living_firer = firer
 		if(living_firer.IsStaggered())
 			projectile_to_fire.damage *= STAGGER_DAMAGE_MULTIPLIER
+			projectile_to_fire.accuracy *= STAGGER_ACCURACY_MULTIPLIER
+			projectile_to_fire.point_blank_range = 0 //no point blank bonus when staggered
 
 ///Sets the projectile accuracy and scatter
 /obj/item/weapon/gun/proc/setup_bullet_accuracy()

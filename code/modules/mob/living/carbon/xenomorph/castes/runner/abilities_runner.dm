@@ -120,7 +120,7 @@
 	savage_buff_amount = amount
 	xeno_owner.xeno_melee_damage_modifier += savage_buff_amount
 	xeno_owner.add_filter("runner_savage_buff_outline", 3, outline_filter(1, COLOR_VIVID_RED))
-	savage_buff_timer_id = addtimer(CALLBACK(src, PROC_REF(end_buff)), 7 SECONDS)
+	savage_buff_timer_id = addtimer(CALLBACK(src, PROC_REF(end_buff)), 7 SECONDS, TIMER_STOPPABLE)
 
 /// Removes the temporary melee damage modifier and the outline that was given.
 /datum/action/ability/activable/xeno/pounce/runner/proc/end_buff()
@@ -516,13 +516,9 @@
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_ACID_DASH_MELTER,
 	)
+	paralyze_duration = 0.5 SECONDS
 	charge_range = 7
 	do_acid_spray_act = FALSE
-	stun_duration = 0.5 SECONDS
-
-/datum/action/ability/activable/xeno/charge/acid_dash/melter/New(Target)
-	. = ..()
-	desc = "Instantly dash for [charge_range] tiles, tackling the first marine in your path. If you manage to tackle someone, gain another cast of the ability."
 
 /datum/action/ability/activable/xeno/melter_shroud
 	name = "Melter Shroud"

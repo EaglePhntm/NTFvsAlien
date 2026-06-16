@@ -80,7 +80,7 @@
 
 	var/tanks_to_spawn = 0
 	var/mechs_to_spawn = 0
-	var/current_pop = length(GLOB.clients)
+	var/current_pop = length(GLOB.whitelisted_clients)
 	switch(current_pop)
 		if(0 to 59)
 			tanks_to_spawn = 0

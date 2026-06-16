@@ -57,7 +57,7 @@
 	if(!terminal.powernet)
 		terminal.connect_to_network()
 	update_icon()
-	start_processing()
+	start_processing(SSMACHINES_MACHINES_EARLY)
 
 /obj/machinery/power/smes/Destroy()
 	if(terminal)
@@ -173,7 +173,7 @@
 	terminal.setDir(get_dir(T,src))
 	terminal.master = src
 	machine_stat &= ~BROKEN
-	start_processing()
+	start_processing(SSMACHINES_MACHINES_EARLY)
 
 /obj/machinery/power/smes/disconnect_terminal()
 	if(terminal)
@@ -203,6 +203,7 @@
 			icon_state = "[initial(icon_state)]"
 
 		update_icon()
+		return TRUE
 
 	else if(iscablecoil(I))
 		var/obj/item/stack/cable_coil/C = I
@@ -247,11 +248,11 @@
 		make_terminal(T)
 		terminal.connect_to_network()
 		connect_to_network()
-
+		return TRUE
 
 	else if(iswirecutter(I) && terminal && CHECK_BITFIELD(machine_stat, PANEL_OPEN))
 		terminal.deconstruct(user)
-
+		return TRUE
 
 /obj/machinery/power/smes/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -262,7 +263,7 @@
 /obj/machinery/power/smes/ui_data()
 	var/list/data = list(
 		"capacityPercent" = round(100*charge/capacity, 0.1),
-		"charge" = charge,
+		"charge" = charge * (2 / SMESRATE), //in joules
 		"inputAttempt" = input_attempt,
 		"inputting" = inputting,
 		"inputLevel" = input_level,
@@ -275,6 +276,7 @@
 		"outputLevel_text" = DisplayPower(output_level),
 		"outputLevelMax" = output_level_max,
 		"outputUsed" = output_used,
+		"maxCharge" = capacity * (2 / SMESRATE), //in joules
 	)
 	return data
 

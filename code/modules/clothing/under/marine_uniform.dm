@@ -90,6 +90,17 @@
 	name = "\improper ArcherCorp-brand camo fatigues (desert)"
 	icon_state = "d_marine_jumpsuit"
 
+/obj/item/clothing/under/marine/camo/woodland
+	name = "\improper Old-patterened camo fatigues (woodland)"
+	desc = "A set of formerly issued fatigues from a former nation-state. It appears to lack all the modern amenities."
+	icon_state = "woodland_marine_jumpsuit"
+	worn_icon_state = "woodland_marine_jumpsuit"
+	adjustment_variants = list(
+		"Rolled Sleeves" = "_d",
+		"No Sleeves" = "_h",
+		"No Top" = "_r",
+	)
+
 /obj/item/clothing/under/marine/corpsman
 	name = "\improper ArcherCorp-brand corpsman fatigues"
 	desc = "A standard-issue, kevlar-weaved, hazmat-tested, EMF-augmented combat corpsman fatigues. You suspect it's not as robust-proof as advertised."
@@ -387,6 +398,22 @@
 	icon_state = "freelancer_uniform_medic"
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/white_vest)
 
+//Colonial Militia
+
+/obj/item/clothing/under/marine/veteran/cm
+	name = "colonial militia fatigues"
+	desc = "A set of loose fitting fatigues, perfect for an informal mercenary. Smells like gunpowder, corn syrup, and covered in grease and sake stains."
+	icon_state = "freelancer_uniform"
+	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
+	has_sensor = 0
+	starting_attachments = list(/obj/item/armor_module/storage/uniform/brown_vest)
+
+/obj/item/clothing/under/marine/veteran/cm/medic
+	name = "colonial militia corpsman fatigues"
+	desc = "A set of loose fitting fatigues, perfect for an informal mercenary. Has much better state than regular fatigues, and don't smell that bad."
+	icon_state = "freelancer_uniform_medic"
+	starting_attachments = list(/obj/item/armor_module/storage/uniform/white_vest)
+
 /*===========================HELGHAST - MERCENARY================================*/
 
 /obj/item/clothing/under/marine/veteran/mercenary
@@ -501,6 +528,13 @@
 
 /obj/item/clothing/under/som/medic/vest/black
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/black_vest)
+
+/obj/item/clothing/under/som/sleeveless
+	name = "\improper SOM Sleeveless Uniform"
+	desc = "A non-standard uniform of the SOM, it is sleeveless and seems to be borrowed from the Kaizoku Corporation"
+	icon = 'icons/mob/clothing/uniforms/ert_uniforms.dmi'
+	icon_state = "som_stripedshirt"
+	worn_icon_state = "som_stripedshirt"
 
 /obj/item/clothing/under/som/veteran
 	name = "\improper SOM veteran uniform"
@@ -649,8 +683,8 @@
 
 /obj/item/clothing/under/vsd/secondary
 	name = "KZ 'mixed' jumpsuit"
-	icon_state = "vsd_uniform_secondary"
-	worn_icon_state = "vsd_uniform_secondary"
+	icon_state = "vsd_uniform_alt"
+	worn_icon_state = "vsd_uniform_alt"
 
 /obj/item/clothing/under/vsd/secondary/webbing
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/black_vest)
@@ -697,8 +731,8 @@
 
 /obj/item/clothing/under/vsd/sleeveless
 	name = "KZ sleeveless shirt"
-	icon_state = "vsd_shirt_sleeveless"
-	worn_icon_state = "vsd_shirt_sleeveless"
+	icon_state = "vsd_stripedshirt"
+	worn_icon_state = "vsd_stripedshirt"
 
 /obj/item/clothing/under/vsd/juggernaut
 	name = "KZ military overalls"

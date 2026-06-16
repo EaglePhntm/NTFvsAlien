@@ -9,6 +9,8 @@ SUBSYSTEM_DEF(processing)
 	var/stat_tag = "P" //Used for logging
 	var/list/processing = list()
 	var/list/currentrun = list()
+	var/datum/currently_processing
+	var/currently_processing_details = "*NULL*"
 
 /datum/controller/subsystem/processing/stat_entry(msg)
 	msg = "[stat_tag]:[length(processing)]"
@@ -21,15 +23,22 @@ SUBSYSTEM_DEF(processing)
 	var/list/current_run = currentrun
 
 	while(length(current_run))
-		var/datum/thing = current_run[length(current_run)]
+		currently_processing = current_run[length(current_run)]
+		var/datum/thing = currently_processing
+		currently_processing_details = "[logdetails(thing)][isdatum(thing) ? "([thing.ref_search_details()])" : ""]"
 		current_run.len--
 		if(QDELETED(thing))
 			processing -= thing
 		else if(thing.process(wait*0.1) == PROCESS_KILL)
 			// fully stop so that a future START_PROCESSING will work
 			STOP_PROCESSING(src, thing)
+		currently_processing = null
+		currently_processing_details = "*NULL*"
 		if (MC_TICK_CHECK)
 			return
+
+/datum/controller/subsystem/processing/ref_search_details()
+	. = "[..()](currently_processing:[currently_processing_details])"
 
 /datum/proc/process()
 	set waitfor = 0

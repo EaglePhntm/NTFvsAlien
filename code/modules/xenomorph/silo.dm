@@ -145,16 +145,22 @@
 		to_chat(user, "<span class='notice'>[src] can only process humanoid anatomies or larvas!</span>")
 		return
 
+	var/points_worth = 4
 	if(ishuman(victim))
 		if(victim.stat != DEAD)
 			to_chat(user, "<span class='notice'>[victim] is not dead!</span>")
 			return
 		if(!HAS_TRAIT(victim, TRAIT_UNDEFIBBABLE) && !ismonkey(victim))
-			to_chat(user, "<span class='notice'>[victim] is not unrevivable yet, this might make problems.</span>")
+			to_chat(user, "<span class='notice'>[victim] is not unrevivable yet, this might create problems.</span>")
 			return
 
 		if(issynth(victim))
 			to_chat(user, "<span class='notice'>[victim] has no useful biomass for us.</span>")
+			return
+
+		if(HAS_TRAIT(victim, TRAIT_MAPSPAWNED))
+			to_chat(user, "<span class='notice'>[victim] is too decayed to be of too much use.</span>")
+			points_worth *= 0.5
 			return
 
 		visible_message("[user] starts putting [victim] into [src].", 3)
@@ -162,12 +168,24 @@
 		if(!do_after(user, 20, FALSE, victim, BUSY_ICON_DANGER) || QDELETED(src))
 			return
 
+		if(ismonkey(victim))
+			points_worth *= 0.5
+
+		for(var/mob/living/carbon/xenomorph/larva/grownlarva in victim.contents)
+			visible_message("A [grownlarva] bursts out of [victim] and into [src]!.", 3)
+			grownlarva.forceMove(loc)
+			grownlarva.burrow()
+
 		victim.despawn() //basically gore cryo
 
-		shake(duration = 4 SECONDS)
+		Shake(1,1, 4 SECONDS)
+		playsound(src, pick('sound/machines/blender.ogg', 'sound/machines/juicer.ogg'), 20, TRUE)
 
 		var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
-		xeno_job.add_job_points(4.5) //4.5 corpses per burrowed; 8 points per larva
+		xeno_job.add_job_points(points_worth) //4 corpses per burrowed; 8 points per larva
+		SSpoints.add_biomass_points(get_xeno_hivenumber(), points_worth*10)
+		SSpoints.add_strategic_psy_points(get_xeno_hivenumber(), points_worth*50)
+		SSpoints.add_tactical_psy_points(get_xeno_hivenumber(), points_worth*25)
 
 		log_combat(victim, user, "was consumed by a resin silo")
 		log_game("[key_name(victim)] was consumed by a resin silo at [AREACOORD(victim.loc)].")
@@ -188,22 +206,9 @@
 			if(!do_after(user, 1 SECONDS, FALSE, victim, BUSY_ICON_DANGER) || QDELETED(src))
 				return
 
-			larba.ghostize(FALSE, FALSE, TRUE)
+			larba.ghostize(TRUE, FALSE, TRUE)
 			larba.burrow()
-			shake(duration = 4 SECONDS)
-
-/// Make the silo shake
-/obj/structure/xeno/silo/proc/shake(duration)
-	/// How important should be the shaking movement
-	var/offset = prob(50) ? -2 : 2
-	/// Track the last position of the silo for the animation
-	var/old_pixel_x = pixel_x
-	/// Sound played when shaking
-	var/shake_sound = rand(1, 100) == 1 ? 'sound/machines/blender.ogg' : 'sound/machines/juicer.ogg'
-	if(prob(1))
-		playsound(src, shake_sound, 25, TRUE)
-	animate(src, pixel_x = pixel_x + offset, time = 2, loop = -1) //start shaking
-	addtimer(CALLBACK(src, PROC_REF(stop_shake), old_pixel_x), duration)
+			Shake(1,1, 2 SECONDS)
 
 /// Stop the shaking animation
 /obj/structure/xeno/silo/proc/stop_shake(old_px)
@@ -218,7 +223,7 @@
 
 /obj/structure/xeno/silo/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, GLOB.hivenumber_to_minimap_flag[hivenumber], image('icons/UI_icons/map_blips.dmi', null, "silo[threat_warning ? "_warn" : "_passive"]", MINIMAP_LABELS_LAYER))
+	SSminimaps.add_marker(src, GLOB.hivenumber_to_minimap_flag[hivenumber], image('icons/UI_icons/map_blips.dmi', null, "silo[threat_warning ? "_warn" : "_passive"]", MINIMAP_PRIORITY_LAYER))
 
 /obj/structure/xeno/silo/process()
 	//Regenerate if we're at less than max integrity
@@ -252,7 +257,7 @@
 
 				larba.ghostize(FALSE, FALSE, TRUE)
 				larba.burrow()
-				shake(4 SECONDS)
+				Shake(1, 1, 2 SECONDS)
 
 			else
 				to_chat(user, span_xenonotice("We need to be a larva to fit there."))

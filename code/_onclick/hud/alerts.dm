@@ -159,6 +159,7 @@ Override makes it so the alert is not replaced until cleared by a clear_alert wi
 				if("Join as Larva")
 					var/mob/living/carbon/human/original_corpse = G.can_reenter_corpse?.resolve()
 					if(SSticker.mode.spawn_larva(G, target) && ishuman(original_corpse))
+						log_game("Marking [logdetails(original_corpse)] as undefibbable because its ghost, [logdetails(G)], just became a larva.")
 						original_corpse?.set_undefibbable()
 				if("Jump to it")
 					G.forceMove(get_turf(target))

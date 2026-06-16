@@ -146,6 +146,9 @@
 #define MAGAZINE_SHOW_AMMO (1<<5)
 #define MAGAZINE_REQUIRES_EMPTY_GUN (1<<6)
 
+///Standard flamer burn duration in 2 second ticks
+#define FLAMER_STANDARD_BURN_DURATION 17
+
 //Slowdown from various armors.
 #define SHOES_SLOWDOWN -1.0			// How much shoes slow you down by default. Negative values speed you up
 
@@ -177,7 +180,7 @@
 #define ENERGY_OVERCHARGE_FIRE_DELAY 10
 
 //Define stagger damage multipliers
-#define STAGGER_DAMAGE_MULTIPLIER 0.5 //-50% damage dealt by the staggered target after all other mods.
+#define STAGGER_DAMAGE_MULTIPLIER 1 //-25% damage dealt by the staggered target after all other mods. (ntf edit from 0.5 to 1 so it dont work)
 
 //Define smoke effects
 #define SMOKE_COUGH (1<<0)
@@ -204,8 +207,10 @@
 #define SMOKE_XENO_TOXIC (1<<21) //deals damage to anyone inside it and inflicts the intoxicated debuff, dealing damage over time
 ///Purges all types of smoke
 #define SMOKE_PURGER (1<<22)
-#define SMOKE_XENO_APHROTOXIN (1<<23)
-#define SMOKE_XENO_PYROGEN (1<<24) // Smoke that acts like SMOKE_BLISTERING for non-xenos and applies pyrogen's melting fire status effect when entering.
+#define SMOKE_XENO_PYROGEN (1<<23) // Smoke that acts like SMOKE_BLISTERING for non-xenos and applies pyrogen's melting fire status effect when entering.
+
+//secondary because it goes up to 23
+#define SMOKE_XENO_APHROTOXIN (1<<1)
 
 //Incapacitated
 #define INCAPACITATED_IGNORE_RESTRAINED (1<<0)
@@ -251,3 +256,6 @@
 #define CAVE_FULL_INTERFERENCE 2 //! Prevents incoming and outgoing messages.
 
 #define ANTENNA_SYNCING_TIME 10 SECONDS //! Time needed to initially configure an antenna module after equipping.
+
+//NTF ADDITIONS
+#define STAGGER_ACCURACY_MULTIPLIER 0.5 //-50% accuracy by the staggered target after all other mods.

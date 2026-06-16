@@ -67,7 +67,6 @@
 /turf/open/floor/plating,
 /area/shuttle/cas)
 "Cy" = (
-/obj/docking_port/mobile/marine_dropship/casplane/som,
 /obj/structure/somcas/one,
 /obj/structure/somcas{
 	dir = 8

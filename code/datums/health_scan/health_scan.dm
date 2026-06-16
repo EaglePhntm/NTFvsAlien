@@ -325,6 +325,7 @@
 	data["limbs_damaged"] = length(limb_data_lists)
 	data["internal_bleeding"] = internal_bleeding
 	data["infection"] = infection_message
+	data["ambrosia_residue"] = patient.has_status_effect(STATUS_EFFECT_AMBROSIA_RESIDUE) ? "Trace alien resin detected in wound sites." : null
 	data["pulse"] = "[patient.get_pulse(GETPULSE_TOOL)] bpm"
 	data["total_unknown_implants"] = total_unknown_implants
 	var/damaged_organs = list()

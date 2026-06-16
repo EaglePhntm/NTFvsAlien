@@ -502,8 +502,8 @@
 /obj/item/factory_refill/mortar_shell_smoke_refill
 	name = "box of rounded metal plates (Mortar Smoke)"
 	desc = "A box with round metal plates inside. Used to refill Unboxers. These will become Smoke shells used in mortars, once finished."
-	refill_type = /obj/item/factory_part/mortar_shell_flare
-	antag_refill_type = /obj/item/factory_part/mortar_shell_flare
+	refill_type = /obj/item/factory_part/mortar_shell_smoke
+	antag_refill_type = /obj/item/factory_part/mortar_shell_smoke
 	refill_amount = 30
 
 /obj/item/factory_refill/mlrs_rocket_refill

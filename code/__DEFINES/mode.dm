@@ -36,8 +36,8 @@
 // Mode defines.
 /// Should larva queue information be displayed in the status tab?
 #define MODE_INFESTATION (1<<0)
-/// Should late joining be disabled?
-#define MODE_NO_LATEJOIN (1<<1)
+/// Should encounter gamemode modifiers be enabled
+#define MODE_ENCOUNTER (1<<1)
 /// Should shutters automatically open after a certain period of time?
 #define MODE_LATE_OPENING_SHUTTER_TIMER (1<<2)
 ///  Should fog that only xenomorphs can passthrough be created?
@@ -72,13 +72,12 @@
 #define MODE_MUTATIONS_OBTAINABLE (1<<17)
 /// Should marines have access to quickbuild?
 #define MODE_ALLOW_MARINE_QUICKBUILD (1<<18)
+/// Should Area Power Controllers have no access restrictions
+#define MODE_APC_ALL_ACCESS (1<<19)
+#define MODE_BUFFED_XENO_ABILITIES (1<<20)
 ///Alamo only, no tad or pods. Sovl.
-#define MODE_ALAMO_ONLY (1<<19)
-#define MODE_SURVIVAL (1<<20)
-#define MODE_NO_GHOSTS (1<<21)
-#define MODE_SINGLE_USE_NUKE_DISK_GENERATOR (1<<22)
-/// Without this humans will be too clonelossed to birth additional larva.
-#define MODE_FREE_LARVABURST (1<<23)
+#define MODE_ALAMO_ONLY (1<<21)
+
 
 #define MODE_INFESTATION_X_MAJOR "Xenomorph Major Victory"
 #define MODE_INFESTATION_M_MAJOR "Ninetails Major Victory"
@@ -102,7 +101,7 @@
 #define CRASH_EVAC_INPROGRESS "CRASH_EVAC_INPROGRESS"
 #define CRASH_EVAC_COMPLETED "CRASH_EVAC_COMPLETED"
 ///Initial delay before crash landing
-#define CRASH_DELAY_TIME 10 MINUTES
+#define CRASH_DELAY_TIME 7 MINUTES
 
 #define INFESTATION_NUKE_NONE "INFESTATION_NUKE_NONE"
 #define INFESTATION_NUKE_INPROGRESS "INFESTATION_NUKE_INPROGRESS"
@@ -135,7 +134,7 @@
 #define SHUTTLE_HIJACK_LOCK 30 MINUTES
 
 #define COOLDOWN_COMM_REQUEST 5 MINUTES
-#define COOLDOWN_COMM_MESSAGE 1 MINUTES
+#define COOLDOWN_COMM_MESSAGE 30 SECONDS
 #define COOLDOWN_COMM_CENTRAL 30 SECONDS
 
 #define SUPPLY_POINT_MARINE_SPAWN 50
@@ -149,6 +148,9 @@
 #define XENODEATHTIME_CHECK(M) ((M.key in GLOB.key_to_time_of_xeno_death)  && ((world.time - (GLOB.key_to_time_of_xeno_death[M.key] ? GLOB.key_to_time_of_xeno_death[M.key] : -INFINITY) < SSticker.mode?.xenorespawn_time)))
 #define XENODEATHTIME_MESSAGE(M) to_chat(M, span_warning("You have been dead for [(world.time - GLOB.key_to_time_of_xeno_death[M.key]) * 0.1] second\s.</span><br><span class ='warning'>You must wait [SSticker.mode?.xenorespawn_time * 0.1] seconds before rejoining the game as a Xenomorph! You can take a SSD minion without resetting your timer."))
 
+#define WHITELIST_CHECK(C) (C in GLOB.whitelisted_clients)
+#define WHITELIST_MESSAGE(C) (to_chat(C, span_danger("<hr>You were unable to do that because you are not whitelisted.  Please join the discord to get whitelisted ([CONFIG_GET(string/discordurl)]).  If this is not possible for you, you can apply for an exception via ahelp(F1).  If you were whitelisted since you connected, please try reconnecting.  If you connected less than a second ago, please wait a second and try again.  If this does not help, please open a ticket on our discord or ahelp for assistance.\n")))
+
 #define COUNT_IGNORE_HUMAN_SSD (1<<0)
 #define COUNT_IGNORE_XENO_SSD (1<<1)
 #define COUNT_IGNORE_XENO_SPECIAL_AREA (1<<2)
@@ -161,7 +163,7 @@
 #define RESIN_SILO_PRICE 800
 #define EVOLUTION_TOWER_PRICE 300
 #define PSYCHIC_RELAY_PRICE 300
-#define PHEROMONE_TOWER_PRICE 300
+#define PHEROMONE_TOWER_PRICE 150
 #define SPAWNER_PRICE 400
 #define ACID_POOL_PRICE 200
 #define ACID_JAWS_PRICE 450
@@ -197,10 +199,11 @@
 #define INFESTATION_MARINE_CRASHING 1
 #define INFESTATION_DROPSHIP_CAPTURED_XENOS 2
 
-#define NUCLEAR_WAR_LARVA_POINTS_NEEDED 10
+#define NUCLEAR_WAR_LARVA_POINTS_NEEDED 8
 #define CRASH_LARVA_POINTS_NEEDED 8
+#define ENCOUNTER_LARVA_POINTS_NEEDED 15
 
-#define FREE_XENO_AT_START 6
+#define FREE_XENO_AT_START 4
 #define FREE_XENO_AT_START_CORRUPT 2
 
 #define MAX_UNBALANCED_RATIO_TWO_HUMAN_FACTIONS 1.1
@@ -208,6 +211,14 @@
 #define SENSOR_CAP_ADDITION_TIME_BONUS 3 MINUTES //additional time granted by capturing a sensor tower
 #define SENSOR_CAP_TIMER_PAUSED "paused"
 
+#define ZOMBIE_CRASH_POINTS_PER_CYCLE_MIN 10
+#define ZOMBIE_CRASH_POINTS_PER_CYCLE_MAX 120
+#define ZOMBIE_CRASH_POINTS_PER_TUNNEL_MIN 20
+#define ZOMBIE_CRASH_POINTS_PER_TUNNEL_MAX 240
+#define ZOMBIE_CRASH_POINTS_MAXIMUM 60
+/// The marine pop considered to be high pop, only for Zombie Crash.
+#define HIGH_MARINE_POP_ZOMBIE_CRASH 20
+
 #define NUCLEAR_WAR_MECH_MINIMUM_POP_REQUIRED 40 // This amount of clients must be connected at gamemode setup to get the first mech pilot slot.
 #define NUCLEAR_WAR_MECH_INTERVAL_PER_SLOT 20 // After meeting NUCLEAR_WAR_MECH_MINIMUM_POP_REQUIRED, a mech pilot slot is open for each set of X clients.
-#define NUCLEAR_WAR_TANK_MINIMUM_POP_REQUIRED 55 // This amount of clients must be connected at gamemode setup to get two assault crewman jobs (and thus tank).
+#define NUCLEAR_WAR_TANK_MINIMUM_POP_REQUIRED 35 // This amount of clients must be connected at gamemode setup to get two assault crewman jobs (and thus tank).

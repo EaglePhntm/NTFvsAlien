@@ -36,7 +36,7 @@
 
 	w_class = WEIGHT_CLASS_SMALL
 
-	var/max_uses = 50
+	var/max_uses = 100
 	var/uses = 0
 	var/failmsg = ""
 	var/charge = 1

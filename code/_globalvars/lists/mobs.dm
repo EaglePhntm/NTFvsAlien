@@ -1,4 +1,5 @@
 GLOBAL_LIST_EMPTY(clients)							//all clients
+GLOBAL_LIST_EMPTY(whitelisted_clients)				//all clients that are on some kind of whitelist, associative values are which kind
 GLOBAL_LIST_EMPTY(admins)							//all clients whom are admins
 GLOBAL_PROTECT(admins)
 GLOBAL_LIST_EMPTY(deadmins)							//all ckeys who have used the de-admin verb.
@@ -35,6 +36,7 @@ GLOBAL_LIST_INIT(simple_animals, list(list(),list(),list(),list())) // One for e
 GLOBAL_LIST_EMPTY(living_cameras)
 GLOBAL_LIST_EMPTY(aiEyes)
 GLOBAL_LIST_EMPTY_TYPED(humans_by_zlevel, /list/mob/living/carbon/human)			//z level /list/list of alive humans
+GLOBAL_LIST_EMPTY(possessed_sentient_zombie_list)
 
 GLOBAL_LIST_EMPTY(mob_config_movespeed_type_lookup)
 
@@ -47,6 +49,10 @@ GLOBAL_LIST_EMPTY(all_species)
 GLOBAL_LIST_EMPTY(roundstart_species)
 
 GLOBAL_LIST_INIT_TYPED(xeno_caste_datums, /list/datum/xeno_caste, init_xeno_caste_list())
+
+//ntf
+GLOBAL_LIST_EMPTY(bunker_passthrough) //for adding exceptions to the panic bunker
+GLOBAL_LIST_EMPTY(amia_bypass) //for adding exceptions to the amia whitelist
 
 /proc/init_xeno_caste_list()
 	. = list()
@@ -66,6 +72,8 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/runner/primordial,
 	/mob/living/carbon/xenomorph/runner/melter,
 	/mob/living/carbon/xenomorph/runner/melter/primordial,
+	/mob/living/carbon/xenomorph/runner/panther,
+	/mob/living/carbon/xenomorph/runner/panther/primordial,
 	/mob/living/carbon/xenomorph/drone,
 	/mob/living/carbon/xenomorph/drone/primordial,
 	/mob/living/carbon/xenomorph/sentinel,
@@ -130,22 +138,29 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/behemoth/primordial,
 	/mob/living/carbon/xenomorph/behemoth/sieger,
 	/mob/living/carbon/xenomorph/behemoth/sieger/primordial,
+	/mob/living/carbon/xenomorph/chimera,
+	/mob/living/carbon/xenomorph/chimera/primordial,
 	/mob/living/carbon/xenomorph/beetle,
 	/mob/living/carbon/xenomorph/mantis,
 	/mob/living/carbon/xenomorph/scorpion,
 	/mob/living/carbon/xenomorph/spiderling,
 	/mob/living/carbon/xenomorph/pyrogen,
 	/mob/living/carbon/xenomorph/pyrogen/primordial,
-	/mob/living/carbon/xenomorph/baneling,
 	/mob/living/carbon/xenomorph/dragon,
 	/mob/living/carbon/xenomorph/dragon/primordial,
+	/mob/living/carbon/xenomorph/facehugger,
+	/mob/living/carbon/xenomorph/facehugger/combat/slash,
+	/mob/living/carbon/xenomorph/facehugger/chemical/neurotoxin,
+	/mob/living/carbon/xenomorph/facehugger/chemical/aphrotoxin,
+	/mob/living/carbon/xenomorph/facehugger/chemical/ozelomelyn,
+	/mob/living/carbon/xenomorph/facehugger/combat/acid,
+	/mob/living/carbon/xenomorph/facehugger/combat/resin,
 	))
 
 GLOBAL_LIST_INIT(xeno_types_tier_one, list(/datum/xeno_caste/runner, /datum/xeno_caste/drone, /datum/xeno_caste/sentinel, /datum/xeno_caste/defender))
-GLOBAL_LIST_INIT(xeno_types_tier_two, list(/datum/xeno_caste/hunter, /datum/xeno_caste/warrior, /datum/xeno_caste/spitter, /datum/xeno_caste/hivelord, /datum/xeno_caste/carrier, /datum/xeno_caste/bull, /datum/xeno_caste/puppeteer, /datum/xeno_caste/pyrogen))
-GLOBAL_LIST_INIT(xeno_types_tier_three, list(/datum/xeno_caste/gorger, /datum/xeno_caste/wraith, /datum/xeno_caste/widow, /datum/xeno_caste/ravager, /datum/xeno_caste/praetorian, /datum/xeno_caste/boiler, /datum/xeno_caste/defiler, /datum/xeno_caste/crusher, /datum/xeno_caste/shrike, /datum/xeno_caste/behemoth, /datum/xeno_caste/warlock))
+GLOBAL_LIST_INIT(xeno_types_tier_two, list(/datum/xeno_caste/hunter, /datum/xeno_caste/warrior, /datum/xeno_caste/spitter, /datum/xeno_caste/hivelord, /datum/xeno_caste/carrier, /datum/xeno_caste/bull, /datum/xeno_caste/puppeteer, /datum/xeno_caste/pyrogen, /datum/xeno_caste/wraith,))
+GLOBAL_LIST_INIT(xeno_types_tier_three, list(/datum/xeno_caste/gorger, /datum/xeno_caste/widow, /datum/xeno_caste/ravager, /datum/xeno_caste/praetorian, /datum/xeno_caste/boiler, /datum/xeno_caste/defiler, /datum/xeno_caste/crusher, /datum/xeno_caste/shrike, /datum/xeno_caste/behemoth, /datum/xeno_caste/warlock, /datum/xeno_caste/chimera))
 GLOBAL_LIST_INIT(xeno_types_tier_four, list(/datum/xeno_caste/shrike, /datum/xeno_caste/queen, /datum/xeno_caste/king, /datum/xeno_caste/dragon))
-
 
 GLOBAL_LIST_INIT_TYPED(hive_datums, /datum/hive_status, init_hive_datum_list()) // init by make_datum_references_lists()
 
@@ -177,8 +192,6 @@ GLOBAL_LIST_INIT(hive_ui_static_data, init_hive_status_lists()) // init by make_
 
 		var/icon/xeno_minimap = icon('icons/UI_icons/map_blips.dmi', initial(caste.minimap_icon))
 		var/tier = initial(caste.tier)
-		if(tier == XENO_TIER_MINION)
-			continue
 		if(isnull(per_tier_counter[tier]))
 			per_tier_counter[tier] = 0
 
@@ -219,10 +232,7 @@ GLOBAL_LIST_INIT(human_init_actions, list(
 	/datum/action/skill/issue_order/move,
 	/datum/action/skill/issue_order/hold,
 	/datum/action/skill/issue_order/focus,
-	/datum/action/innate/order/attack_order/personal,
-	/datum/action/innate/order/defend_order/personal,
-	/datum/action/innate/order/retreat_order/personal,
-	/datum/action/innate/order/rally_order/personal,
+	/datum/action/innate/order/selectable/personal,
 	/datum/action/innate/message_squad,
 	/datum/action/ability/activable/build_designator,
 ))

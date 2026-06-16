@@ -22,7 +22,7 @@ SUBSYSTEM_DEF(minimaps)
 		/datum/controller/subsystem/modularmapping,
 	)
 	priority = FIRE_PRIORITY_MINIMAPS
-	wait = 5
+	wait = 10
 	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
 	///Minimap hud display datums sorted by zlevel
 	var/list/datum/hud_displays/minimaps_by_z = list()
@@ -358,10 +358,14 @@ SUBSYSTEM_DEF(minimaps)
 	if(!removal_cbs[source]) //already removed
 		return
 	UnregisterSignal(source, list(COMSIG_QDELETING, COMSIG_MOVABLE_Z_CHANGED))
-	var/turf/source_turf = get_turf(source)
-	for(var/flag in GLOB.all_minimap_flags)
-		minimaps_by_z["[source_turf.z]"].images_assoc["[flag]"] -= source
+	var/static/list/image/blip/blips_to_destroy = list()
+	if(source.z)
+		for(var/flag in GLOB.all_minimap_flags)
+			blips_to_destroy |= minimaps_by_z["[source.z]"].images_assoc["[flag]"][source]
+			minimaps_by_z["[source.z]"].images_assoc["[flag]"] -= source
+	blips_to_destroy |= images_by_source[source]
 	images_by_source -= source
+	QDEL_LIST(blips_to_destroy)
 	removal_cbs[source].Invoke()
 	removal_cbs -= source
 

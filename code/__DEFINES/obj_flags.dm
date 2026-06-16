@@ -33,6 +33,7 @@
 #define PROJECTILE_IMMUNE (1<<7) //Cannot be hit by projectiles
 #define PORTAL_IMMUNE (1<<8) //Cannot be teleported by wraith's portals
 #define BANISH_IMMUNE (1<<9) //is immune it wraith's banish ability
+#define TAIL_STABABLE (1<<10) //ntf addition, to bypass indestructible in checks.
 
 #define RESIST_ALL (UNACIDABLE|INDESTRUCTIBLE|PLASMACUTTER_IMMUNE)
 

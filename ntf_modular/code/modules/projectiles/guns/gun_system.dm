@@ -17,3 +17,14 @@
 		to_chat(user, span_warning("You can't use this while laying! Maybe a bipod fits?"))
 		return FALSE
 	return TRUE
+
+/obj/item/weapon/gun/proc/unique_action_under(mob/user, special_treatment = FALSE)
+	SIGNAL_HANDLER
+	if(!ismob(user))
+		return
+	if(!gun_user)
+		return
+	var/obj/item/under = attachments_by_slot[ATTACHMENT_SLOT_UNDER]
+	if(!under)
+		return
+	under.unique_action(user, special_treatment)

@@ -17,7 +17,7 @@
 	resistance_flags = UNACIDABLE
 	interaction_flags = INTERACT_MACHINE_TGUI
 	light_range = 1
-	light_power = 0.5
+	light_power = 5
 	mouse_over_pointer = MOUSE_HAND_POINTER
 
 	///The area we're affecting
@@ -54,15 +54,17 @@
 	var/aidisabled = FALSE
 	///Reference to our cable terminal
 	var/obj/machinery/power/terminal/terminal = null
-	///Amount of power used by the lighting channel
+	///Amount of power used by the lighting channel in watts
 	var/lastused_light = 0
-	///Amount of power used by the equipment channel
+	///Amount of power used by the equipment channel in watts
 	var/lastused_equip = 0
-	///Amount of power used by the environmental channel
+	///Amount of power used by the environmental channel in watts
 	var/lastused_environ = 0
-	///Total amount of power used by the three channels
+	///Total amount of power used by the three channels in watts
 	var/lastused_total = 0
 	var/main_status = APC_EXTERNAL_POWER_NONE
+	///Grid excess calculated during the power accounting phase.
+	var/last_power_excess = 0
 	///State of the electronics inside (missing, installed, secured)
 	var/has_electronics = APC_ELECTRONICS_MISSING
 	///Used for counting how many times it has been hit, used for Aliens at the moment
@@ -75,6 +77,8 @@
 	var/update_overlay = NONE
 	///Used to stop the icon from updating too much
 	var/icon_update_needed = FALSE
+	///Set when the APC needs to apply channel power changes after power accounting.
+	var/power_update_needed = FALSE
 	///Probability of APC being broken by a shuttle crash on the same z-level
 	var/crash_break_probability = 5
 
@@ -95,18 +99,7 @@
 
 	// offset 32 pixels in direction of dir
 	// this allows the APC to be embedded in a wall, yet still inside an area
-	if (ndir)
-		setDir(ndir)
-
-	switch(dir)
-		if(NORTH)
-			pixel_y = -32
-		if(SOUTH)
-			pixel_y = 32
-		if(EAST)
-			pixel_x = -32
-		if(WEST)
-			pixel_x = 32
+	setDir(ndir ? ndir : dir)
 
 	if(building)
 		var/area/A = get_area(src)
@@ -115,7 +108,7 @@
 		operating = FALSE
 		name = "\improper [area.name] APC"
 		machine_stat |= MAINT
-		update_icon()
+		update_appearance()
 		addtimer(CALLBACK(src, PROC_REF(update)), 5)
 
 	start_processing()
@@ -126,7 +119,7 @@
 	area = A
 	name = "\improper [area.name] APC"
 
-	update_icon()
+	update_appearance()
 	update() //areas should be lit on startup
 
 	if(mapload)
@@ -136,7 +129,7 @@
 		if(cell_type)
 			set_cell(new cell_type(src))
 			cell.charge = start_charge * cell.maxcharge / 100.0 //Convert percentage to actual value
-			cell.update_icon()
+			cell.update_appearance()
 
 
 		make_terminal()
@@ -146,6 +139,23 @@
 		//Break few ACPs on the colony
 		if(!start_charge && is_ground_level(z) && prob(10))
 			addtimer(CALLBACK(src, PROC_REF(set_broken)), 5)
+
+	if(CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_APC_ALL_ACCESS))
+		req_access = null
+
+/obj/machinery/power/apc/setDir(newdir)
+	. = ..()
+	pixel_w = 0
+	pixel_z = 0
+	switch(dir)
+		if(NORTH)
+			pixel_z = -24
+		if(SOUTH)
+			pixel_z = 32
+		if(EAST)
+			pixel_w = -30
+		if(WEST)
+			pixel_w = 30
 
 /obj/machinery/power/apc/Destroy()
 	GLOB.apcs_list -= src
@@ -161,6 +171,17 @@
 		disconnect_terminal()
 
 	return ..()
+
+/obj/machinery/power/apc/start_processing()
+	if(datum_flags & DF_ISPROCESSING)
+		return
+	datum_flags |= DF_ISPROCESSING
+	SSmachines.processing_apcs += src
+
+/obj/machinery/power/apc/stop_processing()
+	datum_flags &= ~DF_ISPROCESSING
+	SSmachines.processing_apcs -= src
+	SSmachines.currentrun -= src
 
 ///Wrapper to guarantee powercells are properly nulled and avoid hard deletes.
 /obj/machinery/power/apc/proc/set_cell(obj/item/cell/new_cell)
@@ -257,7 +278,8 @@
 					"off" = list("env" = 1)
 				)
 			)
-		)
+		),
+		"powerCellCharge" = cell ? DisplayEnergyFrac(cell.charge * (2/GLOB.CELLRATE), cell.maxcharge * (2/GLOB.CELLRATE)) : "No cell!"
 	)
 	return data
 
@@ -290,7 +312,7 @@
 					balloon_alert(usr, "APC unresponsive")
 				else
 					locked = !locked
-					update_icon()
+					update_appearance()
 					. = TRUE
 		if("cover")
 			coverlocked = !coverlocked
@@ -302,20 +324,20 @@
 			chargemode = !chargemode
 			if(!chargemode)
 				charging = APC_NOT_CHARGING
-				update_icon()
+				update_appearance()
 			. = TRUE
 		if("channel")
 			if(params["eqp"])
 				equipment = setsubsystem(text2num(params["eqp"]))
-				update_icon()
+				update_appearance()
 				update()
 			else if(params["lgt"])
 				lighting = setsubsystem(text2num(params["lgt"]))
-				update_icon()
+				update_appearance()
 				update()
 			else if(params["env"])
 				environ = setsubsystem(text2num(params["env"]))
-				update_icon()
+				update_appearance()
 				update()
 			. = TRUE
 		if("overload")
@@ -353,7 +375,7 @@
 		if(APC_RESET_EMP)
 			equipment = 3
 			environ = 3
-			update_icon()
+			update_appearance()
 			update()
 
 /obj/machinery/power/apc/surplus()
@@ -377,8 +399,11 @@
 
 
 /obj/machinery/power/apc/process()
-	if(icon_update_needed)
-		update_icon()
+	process_power()
+	process_charge()
+	process_late()
+
+/obj/machinery/power/apc/proc/process_power(seconds_per_tick)
 	if(machine_stat & (BROKEN|MAINT))
 		return
 	if(!area.requires_power)
@@ -401,6 +426,7 @@
 	var/last_ch = charging
 
 	var/excess = surplus()
+	last_power_excess = excess
 
 	if(!avail())
 		main_status = APC_EXTERNAL_POWER_NONE
@@ -466,39 +492,6 @@
 			if(cell.percent() > 75)
 				area.poweralert(1, src)
 
-		// now trickle-charge the cell
-		if(chargemode && charging == APC_CHARGING && operating)
-			if(excess > 0)		// check to make sure we have enough to charge
-				// Max charge is capped to % per second constant
-				var/ch = min(excess*GLOB.CELLRATE, cell.maxcharge*GLOB.CHARGELEVEL)
-				add_load(ch/GLOB.CELLRATE) // Removes the power we're taking from the grid
-				cell.give(ch) // actually recharge the cell
-
-			else
-				charging = APC_NOT_CHARGING		// stop charging
-				chargecount = 0
-
-		// show cell as fully charged if so
-		if(cell.charge >= cell.maxcharge)
-			cell.charge = cell.maxcharge
-			charging = APC_FULLY_CHARGED
-
-		if(chargemode)
-			if(!charging)
-				if(excess > cell.maxcharge * GLOB.CHARGELEVEL)
-					chargecount++
-				else
-					chargecount = 0
-
-				if(chargecount == 10)
-
-					chargecount = 0
-					charging = APC_CHARGING
-
-		else // chargemode off
-			charging = APC_NOT_CHARGING
-			chargecount = 0
-
 	else // no cell, switch everything off
 		charging = APC_NOT_CHARGING
 		chargecount = 0
@@ -509,10 +502,65 @@
 
 	// update icon & area power if anything changed
 	if(last_lt != lighting || last_eq != equipment || last_en != environ)
-		queue_icon_update()
-		update()
+		power_update_needed = TRUE
 	else if(last_ch != charging)
 		queue_icon_update()
+
+/obj/machinery/power/apc/proc/process_charge(seconds_per_tick)
+	if(machine_stat & (BROKEN|MAINT))
+		return
+	if(!area.requires_power)
+		return
+	if(!cell || shorted)
+		return
+
+	var/last_ch = charging
+	var/excess = last_power_excess
+
+	// now trickle-charge the cell
+	if(chargemode && charging == APC_CHARGING && operating)
+		if(excess > 0)		// check to make sure we have enough to charge
+			// Max charge is capped to % per second constant
+			var/ch = min(excess*GLOB.CELLRATE, cell.maxcharge*GLOB.CHARGELEVEL)
+			add_load(ch/GLOB.CELLRATE) // Removes the power we're taking from the grid
+			cell.give(ch) // actually recharge the cell
+
+		else
+			charging = APC_NOT_CHARGING		// stop charging
+			chargecount = 0
+
+	// show cell as fully charged if so
+	if(cell.charge >= cell.maxcharge)
+		cell.charge = cell.maxcharge
+		charging = APC_FULLY_CHARGED
+
+	if(chargemode)
+		if(!charging)
+			if(excess > cell.maxcharge * GLOB.CHARGELEVEL)
+				chargecount++
+			else
+				chargecount = 0
+
+			if(chargecount == 10)
+
+				chargecount = 0
+				charging = APC_CHARGING
+
+	else // chargemode off
+		charging = APC_NOT_CHARGING
+		chargecount = 0
+
+	if(last_ch != charging)
+		queue_icon_update()
+
+/obj/machinery/power/apc/process_late(seconds_per_tick)
+	if(power_update_needed)
+		power_update_needed = FALSE
+		queue_icon_update()
+		update()
+
+	if(icon_update_needed)
+		update_appearance()
 
 //val 0 = off, 1 = off(auto) 2 = on, 3 = on(auto)
 //on 0 = off, 1 = auto-on, 2 = auto-off
@@ -544,7 +592,7 @@
 	lighting = 0
 	equipment = 0
 	environ = 0
-	update_icon()
+	update_appearance()
 	update()
 	addtimer(CALLBACK(src, PROC_REF(reset), APC_RESET_EMP), 60 SECONDS)
 
@@ -586,7 +634,7 @@
 	visible_message(span_danger("[src]'s screen suddenly explodes in rain of sparks and small debris!"))
 	machine_stat |= BROKEN
 	operating = FALSE
-	update_icon()
+	update_appearance()
 	update()
 
 
@@ -618,7 +666,7 @@
 	operating = !operating
 	log_combat(user, src, "turned [operating ? "on" : "off"]")
 	update()
-	update_icon()
+	update_appearance()
 
 
 //------Various APCs ------//

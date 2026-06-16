@@ -13,6 +13,6 @@
 	mob_size = MOB_SIZE_BIG
 	bubble_icon = "alienroyal"
 
-/mob/living/carbon/xenomorph/gorger/Initialize(mapload)
+/mob/living/carbon/xenomorph/gorger/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	GLOB.huds[DATA_HUD_XENO_HEART].add_hud_to(src)

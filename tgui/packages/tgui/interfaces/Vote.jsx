@@ -171,7 +171,8 @@ const VoteOptions = (props) => {
                     checked={!!allow_vote_endround}
                     onClick={() => act('toggle_endround')}
                   >
-                    End Round vote {allow_vote_endround ? 'Enabled' : 'Disabled'}
+                    End Round vote{' '}
+                    {allow_vote_endround ? 'Enabled' : 'Disabled'}
                   </Button.Checkbox>
                 )}
               </Stack.Item>
@@ -221,7 +222,7 @@ const VotersList = (props) => {
 // Display choices
 const ChoicesPanel = (props) => {
   const { act, data } = useBackend();
-  const { choices, selected_choice, vote_counts } = data;
+  const { choices, selected_choice, vote_counts, vote_weights } = data;
 
   return (
     <Stack.Item grow>
@@ -231,7 +232,12 @@ const ChoicesPanel = (props) => {
             {choices.map((choice, i) => (
               <Box key={choice.num_index}>
                 <LabeledList.Item
-                  label={choice.name.replace(/^\w/, (c) => c.toUpperCase())}
+                  label={
+                    choice.name.replace(/^\w/, (c) => c.toUpperCase()) +
+                    (vote_weights[choice.num_index - 1] !== 1
+                      ? ' (Weight = ' + vote_weights[choice.num_index - 1] + ')'
+                      : '')
+                  }
                   textAlign="right"
                   buttons={
                     <Button
@@ -256,7 +262,9 @@ const ChoicesPanel = (props) => {
                       name="vote-yea"
                     />
                   )}
-                  {vote_counts[choice.num_index - 1]} Votes
+                  {vote_counts[choice.num_index - 1] *
+                    vote_weights[choice.num_index - 1]}{' '}
+                  Votes
                 </LabeledList.Item>
                 <LabeledList.Divider />
               </Box>

@@ -49,13 +49,52 @@
 	name = SECURITY_OFFICER
 	jobtype = /datum/job/terragov/security/security_officer
 
-	id = /obj/item/card/id/dogtag
-	back = /obj/item/storage/backpack/security
-	glasses = /obj/item/clothing/glasses/hud/security
-	belt = /obj/item/storage/belt/security
+	id = /obj/item/card/id/silver
+	back = /obj/item/storage/backpack/satchel/sec
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud
+	belt = /obj/item/storage/belt/security/tactical
 	head = /obj/item/clothing/head/beret/sec
+	mask = /obj/item/clothing/mask/gas/hardlight
 	ears = /obj/item/radio/headset/mainship/marine/generic/sec
 	w_uniform = /obj/item/clothing/under/rank/security/corp
 	wear_suit = /obj/item/clothing/suit/modular/xenonauten/bulletresistant
 	shoes = /obj/item/clothing/shoes/swat
-	gloves = /obj/item/clothing/gloves/marine/fingerless
+	gloves = /obj/item/clothing/gloves/swat
+
+	belt_contents = list(
+		/obj/item/weapon/telebaton = 1,
+		/obj/item/restraints/handcuffs = 2,
+		/obj/item/flash = 1,
+	)
+	backpack_contents = list(/obj/item/book/manual/marine_law = 1,)
+
+//quik clap grenade
+/obj/item/explosive/grenade/bednade
+	name = "Quik-Clap Grenade"
+	icon_state = "grenade_sticky_pmc"
+	color = COLOR_RED
+	desc = "Unfolds into a quik-clap bedroll, to be used by security forces for emergency field administration of cock upon lawbreakers. It does nothing to capture the target, though."
+	hit_sound = null
+
+/obj/item/explosive/grenade/bednade/throw_impact(atom/hit_atom, speed, bounce)
+	. = ..()
+	if(isliving(hit_atom))
+		var/mob/living/mafaka = hit_atom
+		Move(mafaka.loc) //go beneath people
+
+/obj/item/explosive/grenade/bednade/prime()
+	if(ishuman(loc))
+		var/mob/living/carbon/human/idiot = loc
+		var/in_hand = FALSE
+		if(idiot.l_hand == src)
+			in_hand = TRUE
+		else if(idiot.r_hand == src)
+			in_hand = TRUE
+		if(in_hand)
+			idiot.dropItemToGround(src, TRUE)
+			loc = idiot.loc
+	var/obj/structure/bed/bedroll/sec/sexbed = new /obj/structure/bed/bedroll/sec(loc)
+	update_icon()
+	qdel(src)
+	sleep(2)
+	playsound(sexbed.loc, 'sound/machines/ping.ogg', 25, 1)

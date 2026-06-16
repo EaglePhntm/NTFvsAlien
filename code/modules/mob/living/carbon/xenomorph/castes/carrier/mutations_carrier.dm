@@ -178,7 +178,7 @@
 
 /datum/mutation_upgrade/spur/claw_delivered
 	name = "Claw Delivered"
-	desc = "Huggers from your eggs now have a reduced cast time against humans. The cast time is set to 60/50/40% of its original value."
+	desc = "Huggers from your eggs now have a reduced cast time when being hand-planted onto humans. The cast time is set to 60/50/40% of its original value."
 	/// For the first structure, the multiplier to add to the Hugger's cast time when trying to attach to humans manually.
 	var/multiplier_initial = -0.3
 	/// For each structure, the multiplier to add to the Hugger's cast time when trying to attach to humans manually.
@@ -187,7 +187,7 @@
 /datum/mutation_upgrade/spur/claw_delivered/get_desc_for_alert(new_amount)
 	if(!new_amount)
 		return ..()
-	return "Huggers from your eggs now have a reduced cast time against humans. The cast time is set to [PERCENT(1 + get_multiplier(new_amount))]% of its original value."
+	return "Huggers from your eggs now have a reduced cast when being hand-planted onto humans. The cast time is set to [PERCENT(1 + get_multiplier(new_amount))]% of its original value."
 
 /datum/mutation_upgrade/spur/claw_delivered/on_mutation_enabled()
 	. = ..()

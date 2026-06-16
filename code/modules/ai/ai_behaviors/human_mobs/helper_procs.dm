@@ -328,7 +328,7 @@
 	return list(0, 2)
 
 /obj/item/weapon/gun/get_ai_combat_range()
-	if((gun_features_flags & GUN_IFF) || (ammo_datum_type::ammo_behavior_flags & AMMO_IFF))
+	if((gun_features_flags & GUN_IFF) || (HAS_TRAIT(src, TRAIT_GUN_IS_AIMING)) || (ammo_datum_type::ammo_behavior_flags & AMMO_IFF))
 		return list(5, 7)
 	return list(4, 5)
 
@@ -403,6 +403,8 @@
 	//todo:walkover stuff?
 	if(user.can_jump() && is_jumpable(user))
 		return AI_OBSTACLE_JUMP
+	if(try_climb(user))
+		return AI_OBSTACLE_RESOLVED
 	if(faction == user.faction) //don't break our shit
 		return AI_OBSTACLE_FRIENDLY
 
@@ -414,17 +416,6 @@
 		return AI_OBSTACLE_ATTACK
 	if(obj_flags & CAN_BE_HIT)
 		return AI_OBSTACLE_ATTACK
-
-/obj/structure/ai_handle_obstacle(mob/living/user, move_dir)
-	. = ..()
-	if(. == AI_OBSTACLE_IGNORED)
-		return
-	if(. == AI_OBSTACLE_JUMP)
-		return //jumping is always best
-	if(!can_climb(user))
-		return
-	INVOKE_ASYNC(src, PROC_REF(do_climb), user)
-	return AI_OBSTACLE_RESOLVED
 
 /obj/structure/barricade/folding/ai_handle_obstacle(mob/living/user, move_dir)
 	if(!can_interact(user) || !user.dextrous)

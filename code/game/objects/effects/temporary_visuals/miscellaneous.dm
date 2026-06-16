@@ -257,7 +257,7 @@
 /obj/effect/temp_visual/acid_bath
 	name = "acid bath"
 	icon = 'icons/obj/items/projectiles.dmi'
-	icon_state = "boiler_gas"
+	icon_state = "boiler_corrosive"
 	duration = 0.8 SECONDS
 
 /obj/effect/temp_visual/wraith_warp

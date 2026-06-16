@@ -7,3 +7,5 @@
 /// When a Xeno hauls us.
 #define TRAIT_HAULED "hauled"
 #define TRAIT_SURRENDERING "surrendering"
+#define TRAIT_FRAIL_LARVABURSTS "frail_larvabursts"
+#define TRAIT_CULTIST "cultist"

@@ -1,0 +1,56 @@
+2026-06-01:
+  SpooksAnno:
+  - server: Reduced idle machinery processing overhead in SSmachines.
+2026-06-05:
+  Lumipharon:
+  - rscadd: Added the sledgehammer to req for 50 points
+  - bugfix: fixed some platform layering issues
+2026-06-06:
+  Valen417:
+  - bugfix: KZ Striped Shirt
+  - bugfix: KZ Alternative Uniform
+  - rscadd: SOM Helmet options
+  - rscadd: SOM Striped Uniform option.
+2026-06-07:
+  SpooksAnno:
+  - rscadd: Alien ambrosia can now be used by xenos to heal living humans and xenos.
+  - rscadd: Alien ambrosia can now treat infections, internal bleeding, and delayed
+      bone mending on humans.
+  - rscadd: Alien ambrosia can revive dead humans, with monkeys limited to one ambrosia
+      revival.
+  - rscadd: Alien ambrosia now leaves visible alien residue after use and can be detected
+      by medical scanners.
+  - rscadd: Added ambrosia dependence effects for repeated human use.
+  - qol: Alien ambrosia now auto-stacks
+  - qol: Xenos can now toggle hive target participation through the hive menu.
+  - balance: Alien ambrosia stacks are capped at 125 and living healing has a 10 second
+      per-target cooldown.
+2026-06-09:
+  SpooksAnno:
+  - bugfix: 'Makes it harder for the character creator to create invalid or legacy
+      saved appearance data: Character appearance rebuilds now avoid unsafe startup/shutdown
+      timing and will try to log more useful failure context. Hopefully this will
+      solve our issue without needing to butcher things up'
+2026-06-13:
+  CaputCapital:
+  - rscadd: kitchen utensils, kitchen knives, rolling pin, ingredients, condiments
+      and mystery pizza boxes (box with a random pizza type)
+2026-06-15:
+  CaputCapital:
+  - rscadd: Added new underwear to the vendors, croptops, bras, thongs, even stirrups
+      half an inch lower
+  - rscadd: KZ now gets ushankas, headbands, bandanas and hardlight gas masks in their
+      vendors
+  - bugfix: The regular thong had a missing side sprite, added back
+  Colfer1:
+  - qol: the research console now instantly starts researching
+2026-06-16:
+  Colfer1:
+  - rscadd: added a survivor armor vendor for mapping in
+  - qol: civilians now have requisitions access to CM now
+  Lewdissar:
+  - rscadd: Red, Blue and Black Booty Shorts and camo pants as standalone uniforms.
+      Heeled jackboots.
+  SpooksAnno:
+  - bugfix: Fixed nanopaste causing a server-crashing infinite loop when used on organic
+      limbs.

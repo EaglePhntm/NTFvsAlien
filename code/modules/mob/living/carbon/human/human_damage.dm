@@ -22,6 +22,7 @@
 	med_pain_set_perceived_health()
 	med_hud_set_health()
 	med_hud_set_status()
+	handle_regular_hud_updates()
 
 	var/health_deficiency = max(1 - (health / maxHealth) * 100, staminaloss)
 

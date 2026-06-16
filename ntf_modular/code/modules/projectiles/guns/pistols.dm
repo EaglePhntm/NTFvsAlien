@@ -81,40 +81,38 @@
 	name = "tranq bullet"
 	hud_state = "pistol_tranq"
 	armor_type = "bullet"
-	damage = 20
-	penetration = 20
-	damage_type = STAMINA
+	damage = 15
 	shell_speed = 3.3
 	shrapnel_chance = 0.2
+	var/inject_amount_min = 5
+	var/inject_amount_max = 8
 
 /datum/ammo/bullet/pistol/tranq/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
-	if(iscarbon(target_mob))
+	if(iscarbon(target_mob) && !isxeno(target_mob))
 		var/mob/living/carbon/carbon_victim = target_mob
-		carbon_victim.reagents.add_reagent(/datum/reagent/toxin/sleeptoxin, rand(5,8), no_overdose = TRUE)
+		carbon_victim.reagents.add_reagent(/datum/reagent/toxin/sleeptoxin, rand(inject_amount_min,inject_amount_max), no_overdose = TRUE)
+	else if(isxeno(target_mob))
+		var/mob/living/carbon/xenomorph/xtarg = target_mob
+		xtarg.use_stun_health(proj.damage * (xtarg.xeno_caste.max_health/200))
 
 /datum/ammo/bullet/pistol/tranq/weak
 	name = "weak tranq bullet"
-	damage = 5
-	penetration = 5
-
-/datum/ammo/bullet/pistol/tranq/weak/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
-	if(iscarbon(target_mob))
-		var/mob/living/carbon/carbon_victim = target_mob
-		carbon_victim.reagents.add_reagent(/datum/reagent/toxin/sleeptoxin, rand(3,5), no_overdose = TRUE)
+	damage = 10
+	accuracy = -10 //like usual c99 ammo
+	inject_amount_min = 3
+	inject_amount_max = 5
 
 /obj/item/weapon/gun/pistol/g22/tranq
 	name = "\improper P-22 custom pistol"
-	desc = "A 20th century military firearm customized for special forces use, fires chemical loaded bullets to take down enemies nonlethally. Must be cocked manually therefore has disgusting fire rate, but custom frame allows greater accuracy."
+	desc = "A 20th century military firearm customized for special forces use, fires chemical loaded bullets to take down enemies nonlethally. Must be cocked manually therefore has disgusting fire rate, but custom frame allows greater accuracy. This can be attached under a gun."
 	icon = 'ntf_modular/icons/obj/items/guns/pistols.dmi'
 	icon_state = "g22"
 	worn_icon_state = "g22"
 	fire_animation = null //it doesnt cycle itself.
 	cock_animation = "g22_fire"
-	cock_delay = 1 SECONDS
+	cock_delay = 0.7 SECONDS
 	caliber = CALIBER_9X19_TRANQUILIZER //codex
-	load_method = SINGLE_CASING //codex
-	max_shells = null
-	max_chamber_items = 12 //codex
+	max_shells = 13
 	default_ammo_type = /obj/item/ammo_magazine/pistol/g22tranq
 	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/g22tranq, /obj/item/ammo_magazine/pistol/g22)
 	attachable_offset = list("muzzle_x" = 29, "muzzle_y" = 20,"rail_x" = 10, "rail_y" = 21, "under_x" = 21, "under_y" = 15, "stock_x" = 21, "stock_y" = 17)
@@ -139,16 +137,34 @@
 	reciever_flags = AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION|AMMO_RECIEVER_UNIQUE_ACTION_LOCKS
 	cocked_message = "You rack the pistol"
 	cock_locked_message = "The pistol is loaded! Fire it first!"
-	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_IS_ATTACHMENT
 	fire_delay = 0.7 SECONDS //manual cock anyway, meant to be able to not get obliterated up close too badly, unlike moonbeam.
 	accuracy_mult = 1.8
 	accuracy_mult_unwielded = 1.5
 	burst_amount = 1
 	akimbo_additional_delay = 0.9
+	attach_delay = 3 SECONDS
+	detach_delay = 3 SECONDS
+	slot = ATTACHMENT_SLOT_UNDER
+
+/obj/item/weapon/gun/pistol/g22/tranq/can_attach(obj/item/attaching_to, mob/attacher)
+	if(!attachments_by_slot[ATTACHMENT_SLOT_RAIL])
+		return TRUE
+	to_chat(attacher, span_warning("You cannot attach [src] to [attaching_to] while [attachments_by_slot[ATTACHMENT_SLOT_RAIL]] occupies [src]'s rail slot."))
+	return FALSE
+
+/obj/item/weapon/gun/pistol/g22/tranq/on_attach(obj/item/attached_to, mob/user)
+	gun_features_flags |= (GUN_WIELDED_STABLE_FIRING_ONLY|GUN_WIELDED_FIRING_ONLY)
+	return ..()
+
+/obj/item/weapon/gun/pistol/g22/tranq/on_detach(obj/item/attached_to, mob/user)
+	gun_features_flags &= ~(GUN_WIELDED_STABLE_FIRING_ONLY|GUN_WIELDED_FIRING_ONLY)
+	set_gun_user(user)
+	return ..()
 
 /obj/item/weapon/gun/pistol/m1911/custom/specops
 	name = "\improper P-1911SO custom pistol"
-	desc = "A handgun that has received an unholy amount of modifications. It seems to have been lovingly taken care of and passed down for generations. Lacks an auto magazine eject feature."
+	desc = "A handgun that has received an unholy amount of modifications. Lacks an auto magazine eject feature."
 	default_ammo_type = /obj/item/ammo_magazine/pistol/m1911/ap
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
@@ -169,3 +185,4 @@
 	)
 	accuracy_mult = 1.15
 	accuracy_mult_unwielded = 0.95
+	damage_mult = 1

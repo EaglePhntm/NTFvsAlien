@@ -10,7 +10,7 @@
 	closed_layer = CLOSED_DOOR_LAYER
 	smoothing_groups = null
 
-	resistance_flags = RESIST_ALL
+	resistance_flags = XENO_DAMAGEABLE
 
 	var/obj/docking_port/mobile/supply/linked_pad
 
@@ -90,3 +90,9 @@
 
 /obj/machinery/door/poddoor/railing/proc/do_close()
 	operating = FALSE
+
+/obj/machinery/door/poddoor/railing/supply
+	id = "supply_elevator_railing"
+
+/obj/machinery/door/poddoor/railing/supply/som
+	id = "supply_SOM_elevator_railing"

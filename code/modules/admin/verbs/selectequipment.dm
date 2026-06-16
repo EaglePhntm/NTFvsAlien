@@ -131,7 +131,7 @@ ADMIN_VERB_AND_CONTEXT_MENU(cmd_select_equipment, R_FUN, "Select equipment", "Se
 		cached_outfits += list(outfit_entry("General", /datum/outfit, "Naked", priority=TRUE))
 		cached_outfits += make_outfit_entries("General", subtypesof(/datum/outfit) - typesof(/datum/outfit/job))
 		cached_outfits += make_outfit_entries("Jobs", typesof(/datum/outfit/job))
-		cached_outfits += make_outfit_entries("Survivor", typesof(/datum/outfit/job/survivor))
+		cached_outfits += make_outfit_entries("Colonist", typesof(/datum/outfit/job/survivor))
 
 	data["outfits"] = cached_outfits
 	return data

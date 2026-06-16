@@ -102,10 +102,13 @@
 		var/mob/living/carbon/human/spirited_away_human = spirited_away
 		if(!spirited_away_human)
 			return
-		spirited_away_human.ParalyzeNoChain(6.2 SECONDS)
+		spirited_away_human.ImmobilizeNoChain(6.2 SECONDS)
+		var/obj/item/radio/headset/mainship/headset = spirited_away_human.wear_ear
+		if(istype(headset))
+			headset.disable_locator(9 SECONDS)
 		if(spirited_away_human.stat == CONSCIOUS)
 			spirited_away_human.visible_message(span_notice("[spirited_away_human] lets out a yelp as they are suddenly lifted off the air!"), span_warning("You let out a yelp as you are suddenly lifted off the air!"), null, 5)
-			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), get_turf(holder_obj), 'ntf_modular/sound/misc/kirby_scream_meme.ogg', 100, FALSE), 6.2 SECONDS)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), get_turf(holder_obj), 'ntf_modular/sound/misc/kirby_scream_meme.ogg', 60, FALSE), 6.25 SECONDS)
 
 	flick("fulton_expand", baloon)
 	baloon.icon_state = "fulton_balloon"
@@ -123,8 +126,6 @@
 	holder_obj.pixel_z = initial(pixel_z)
 	holder_obj.vis_contents -= baloon
 	baloon.icon_state = initial(baloon.icon_state)
-	if(uses < 1)
-		qdel(src)
 	active = FALSE
 
 /obj/item/fulton_extraction_pack/tank
@@ -289,6 +290,7 @@
 	if(uses < 1)
 		user.temporarilyRemoveItemFromInventory(src) //Removes the item without qdeling it, qdeling it this early will break the rest of the procs
 		moveToNullspace()
+
 	do_extract(target, user)
 
 	if(linked_extraction_point)
@@ -302,6 +304,7 @@
 		if(ishuman(movable_target))
 			var/mob/living/carbon/human/movable_target_human = movable_target
 			movable_target_human.ImmobilizeNoChain(4 SECONDS)
+			movable_target_human.KnockdownNoChain(4 SECONDS)
 		playsound(droploc, 'sound/items/fultext_deploy.ogg', 30, TRUE)
 		var/image/fulton_image = image('icons/obj/items/fulton_balloon.dmi', src, "fulton_balloon")
 		movable_target.pixel_z = 400
@@ -313,14 +316,18 @@
 			REMOVE_TRAIT(movable_target, TRAIT_IMMOBILE, type)
 	else
 		qdel(target)
+		if(uses < 1)
+			qdel(src)
 
 /// handles cleanup of post-animation stuff (ie just after it lands)
 /obj/item/fulton_extraction_pack/adminbus/proc/clean_fultondrop(mob/living/carbon/human/movable_target, list/anim_overlays)
 	movable_target.cut_overlay(anim_overlays)
 	var/image/fulton_image = image('icons/obj/items/fulton_balloon.dmi', src, "fulton_retract")
 	movable_target.add_overlay(list(fulton_image))
-	sleep(4 SECONDS)
+	sleep(4)
 	movable_target.cut_overlay(list(fulton_image))
+	if(uses < 1)
+		QDEL_IN(src, 3 SECONDS)
 
 
 /obj/vehicle/sealed/armored/fulton_act(mob/living/user, obj/item/I)
@@ -353,6 +360,7 @@
 	icon_state = "extraction_point"
 	anchored = TRUE
 	density = FALSE
+	drag_delay = 0
 
 /obj/structure/fulton_extraction_point/wrench_act(mob/living/user, obj/item/I)
 	if(!user.Adjacent(src))

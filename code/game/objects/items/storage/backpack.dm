@@ -12,13 +12,6 @@
 		slot_r_hand_str = 'icons/mob/inhands/equipment/backpacks_right.dmi',
 	)
 	worn_icon_state = "backpack"
-	sprite_sheets = list(
-		"Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		"Sterling Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		"Chilvaris Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		"Hammerhead Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		"Ratcher Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		)
 	w_class = WEIGHT_CLASS_BULKY
 	equip_slot_flags = ITEM_SLOT_BACK	//ERROOOOO
 	storage_type = /datum/storage/backpack
@@ -273,13 +266,14 @@
 		warning = "<span class='notice'>[src]'s defibrillator recharge unit cheerfully pings as it successfully recharges the defibrillator. "
 	cell.charge -= min(cell.charge, amount)
 	if(mention_charge)
-		to_chat(user, span_notice("[warning]<b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b>"))
+		to_chat(user, span_notice("[warning]<b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b> Energy : [DisplayEnergyFrac(cell.charge * (2/GLOB.CELLRATE), cell.maxcharge * (2/GLOB.CELLRATE))]"))
 	update_icon()
 
 /obj/item/storage/backpack/marine/corpsman/examine(mob/user)
 	. = ..()
 	if(cell)
-		. += span_notice("Its defibrillator recharge unit has a loaded power cell and its readout counter is active. <b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b>")
+		. += span_notice("Its defibrillator recharge unit has a loaded power cell and its readout counter is active. <b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b> Energy : [DisplayEnergyFrac(cell.charge * (2/GLOB.CELLRATE), cell.maxcharge * (2/GLOB.CELLRATE))]")
+		. += span_notice("Cell energy : [DisplayEnergyFrac(cell.charge * (2/GLOB.CELLRATE), cell.maxcharge * (2/GLOB.CELLRATE))]")
 	else
 		. += span_warning("Its defibrillator recharge unit does not have a power cell installed!")
 
@@ -327,7 +321,7 @@
 				cell.update_icon()
 				user.put_in_hands(cell)
 			cell = W
-			to_chat(user, span_notice("[replace_install] <b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b>"))
+			to_chat(user, span_notice("[replace_install] <b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b> Energy : [DisplayEnergyFrac(cell.charge * (2/GLOB.CELLRATE), cell.maxcharge * (2/GLOB.CELLRATE))]"))
 			playsound(user, 'sound/weapons/guns/interact/rifle_reload.ogg', 25, 1, 5)
 			update_icon()
 	return ..()
@@ -335,7 +329,7 @@
 
 /obj/item/storage/backpack/marine/tech
 	name = "\improper NTC technician backpack"
-	desc = "The standard-issue backpack worn by NTF technicians. Specially equipped to hold sentry gun and HSG-102 emplacement parts."
+	desc = "The standard-issue backpack worn by NTF technicians. Specially equipped to hold some bulky equipment such as sentry guns and teleporter pads and the HSG-102."
 	icon_state = "marinepackt"
 	worn_icon_state = "marinepackt"
 	storage_type = /datum/storage/backpack/tech
@@ -794,7 +788,7 @@ GLOBAL_LIST_INIT(stealth_greyscale_matrix,\
 		wearer.alpha = max(wearer.alpha, shimmer_alpha) //50% invisible
 	//Stationary stealth
 	else if( wearer.last_move_intent < stealth_delay ) //If we're standing still and haven't shimmed in the past 2 seconds we become almost completely invisible
-		wearer.alpha = SCOUT_CLOAK_STILL_ALPHA //95% invisible
+		wearer.alpha = SCOUT_CLOAK_STILL_ALPHA/2
 		camo_adjust_energy(wearer, SCOUT_CLOAK_ACTIVE_RECOVERY)
 
 // Welder Backpacks //
@@ -859,8 +853,8 @@ GLOBAL_LIST_INIT(stealth_greyscale_matrix,\
 	icon_state = "icc_bag_guard"
 
 /obj/item/storage/backpack/lightpack/vsd
-	name = "\improper Crasher branded combat backpack"
-	desc = "A backpack design from 21st century still proves to be a good design in the 25th century."
+	name = "\improper Crasher branded combat lightweight pack"
+	desc = "A backpack design from 21st century still proves to be a good design in the 25th century. This one was enhanced to be used with powered armors or standalone, it provides ease of access to the contents and is made of a synthetic fiber that is resistant to wear and tear."
 	icon_state = "vsd_bag0"
 
 /obj/item/storage/backpack/lightpack/freelancer
@@ -870,6 +864,17 @@ GLOBAL_LIST_INIT(stealth_greyscale_matrix,\
 
 /obj/item/storage/backpack/marine/corpsman/freelancer
 	name = "\improper Freelancer corpsman pack"
+	desc = "The backpack worn by MAGNUM corpsmen. It is significantly lighter than its Terran counterpart. You can recharge defibrillators by plugging them in."
+	icon_state = "freelancer_packm"
+	storage_type = /datum/storage/backpack/no_delay
+
+/obj/item/storage/backpack/lightpack/cm
+	name = "\improper Colonial Militia lightweight combat pack"
+	desc = "A small lightweight pack for expeditions and short-range operations. This one was made by MAGNUM mercenaries."
+	icon_state = "freelancer_satchel"
+
+/obj/item/storage/backpack/marine/corpsman/cm
+	name = "\improper Colonial Militia corpsman pack"
 	desc = "The backpack worn by MAGNUM corpsmen. It is significantly lighter than its Terran counterpart. You can recharge defibrillators by plugging them in."
 	icon_state = "freelancer_packm"
 	storage_type = /datum/storage/backpack/no_delay

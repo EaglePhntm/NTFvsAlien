@@ -69,6 +69,28 @@
 	variants_by_parent_type = list(/obj/item/clothing/suit/modular/som/heavy/leader = "")
 
 /**
+ * Mini autodoc-lite module
+ */
+/obj/item/armor_module/module/valkyrie_autodoc_beta
+	name = "\improper Valkyrie Beta automedical system"
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
+	desc = "Designed for mounting on modular armor. The beta variant lacks health analysis and systems which autoinject tricordrazine and tramadol based on the user's needs. It does automatically secure the bones and body of the wearer, effectively splinting them until professional medical attention can be admistered. This is the prototype NovaMed produced prior to completing project valkyrie with ArcherCorp's cooperation."
+	icon_state = "mod_autodoc"
+	worn_icon_state = "mod_autodoc_a"
+	slowdown = 0
+	slot = ATTACHMENT_SLOT_MODULE
+	variants_by_parent_type = list(/obj/item/clothing/suit/modular/xenonauten = "mod_autodoc_xn", /obj/item/clothing/suit/modular/tdf = "", /obj/item/clothing/suit/modular/goon = "", /obj/item/clothing/suit/modular/rownin = "", /obj/item/clothing/suit/storage/marine/freelancer = "")
+
+/obj/item/armor_module/module/valkyrie_autodoc_beta/on_attach(obj/item/attaching_to, mob/user)
+	. = ..()
+	/// This will do nothing without the autodoc update
+	parent.AddElement(/datum/element/limb_support)
+
+/obj/item/armor_module/module/valkyrie_autodoc_beta/on_detach(obj/item/detaching_from, mob/user)
+	detaching_from.RemoveElement(/datum/element/limb_support)
+	return ..()
+
+/**
  * Fire poof module
 */
 /obj/item/armor_module/module/fire_proof
@@ -159,15 +181,6 @@
 	soft_armor = list(MELEE = 15, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 10, FIRE = 10, ACID = 10)
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "tyr_head_xn", /obj/item/clothing/head/modular/tdf = "")
-
-/obj/item/armor_module/module/tyr_extra_armor/som
-	name = "\improper Lorica armor reinforcement system"
-	desc = "Designed for mounting on modular SOM armor. A substantial amount of additional armor plating designed to grant the user extra protection against all forms of damage. Will definitely impact mobility."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
-	icon_state = "lorica_armor"
-	worn_icon_state = "lorica_armor_a"
-	attachment_layer = null
-	soft_armor = list(MELEE = 10, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 15, BIO = 5, FIRE = 10, ACID = 5)
 
 /*
 	Friendly fire module
@@ -260,7 +273,7 @@
 	desc = "Designed for mounting on modular armor. This older model provides minor resistance to acid, biological, and radiological attacks. Pairing this with a Mimir helmet module and mask will make the user impervious to xeno gas clouds. Made by ArcherCorp."
 	icon_state = "mod_biohazard"
 	worn_icon_state = "mod_biohazard_a"
-	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 15, FIRE = 0, ACID = 15)
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 25, FIRE = 0, ACID = 20)
 	slowdown = 0
 
 //SOM version
@@ -270,6 +283,7 @@
 	icon_state = "mithridatius"
 	worn_icon_state = "mithridatius_a"
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 25, FIRE = 0, ACID = 20)
+	slowdown = 0.2
 
 /obj/item/armor_module/module/mimir_environment_protection/mimir_helmet
 	name = "\improper Mimir Mk.2 environmental resistance system helmet module"
@@ -286,25 +300,13 @@
 	desc = "Designed for mounting on modular armor. This older model provides minor resistance to acid, as well as biological, and radiological threats. Pairing this with a Mimir helmet module and mask will make the user highly resistant to gas attacks, but will not provide immunity. Will impact mobility."
 	icon_state = "mod_biohazard"
 	worn_icon_state = "mod_biohazard_a"
-	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 15, FIRE = 0, ACID = 15)
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 25, FIRE = 0, ACID = 20)
 	slowdown = 0.2
 
 /obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1 //gas protection
 	name = "\improper Mimir Mk.1 environmental resistance system helmet module"
 	desc = "Designed for mounting on a modular helmet. This older model provides minor resistance to acid, as well as biological, and radiological threats. Pairing this with a Mimir helmet module and mask will make the user highly resistant to gas attacks, but will not provide immunity. Will impact mobility."
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 15, FIRE = 0, ACID = 15)
-
-//Explosive defense armor
-/obj/item/armor_module/module/hlin_explosive_armor
-	name = "Hlin Explosive Compensation Module"
-	desc = "Designed for mounting on modular armor. Uses a complex set of armor plating and compensation to lessen the effect of explosions. Made by ArcherCorp."
-//SOM version
-/obj/item/armor_module/module/mimir_environment_protection/som
-	name = "\improper Mithridatius hostile environment protection system"
-	desc = "Designed for mounting on modular SOM armor. This module appears to be designed to protect the user from the effects of radiological attacks, although it also provides improved resistance against other environmental threats such as acids and gasses. Pairing this with a Mithridatius helmet module and mask will make the user impervious to gas clouds. Will impact mobility."
-	icon_state = "mithridatius"
-	worn_icon_state = "mithridatius_a"
-	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 25, FIRE = 0, ACID = 20)
 
 /*
 	Explosive defense armor
@@ -386,7 +388,7 @@
 	///Current shield Health
 	var/shield_health = 0
 	///Maximum shield Health
-	var/max_shield_health = 60
+	var/max_shield_health = 40
 	///Amount to recharge per tick, processes once every two seconds.
 	var/recharge_rate = 10
 
@@ -529,8 +531,7 @@
 		STOP_PROCESSING(SSobj, src)
 
 /obj/item/armor_module/module/eshield/overclocked
-	max_shield_health = 85
-	damaged_shield_cooldown = 5 SECONDS
+	max_shield_health = 90
 	shield_color_low = COLOR_MAROON
 	shield_color_mid = LIGHT_COLOR_RED_ORANGE
 	shield_color_full = LIGHT_COLOR_ELECTRIC_CYAN
@@ -541,8 +542,14 @@
 	desc = "A sophisticated shielding unit, designed to disperse the energy of incoming impacts, rendering them harmless to the user. If it sustains too much it will deactivate, and leave the user vulnerable. It is unclear if this was a purely  SOM designed module, or whether it was reverse engineered from the NTF's 'Svalinn' shield system which was developed around the same time."
 
 /obj/item/armor_module/module/eshield/som/overclocked
-	max_shield_health = 85
-	damaged_shield_cooldown = 5 SECONDS
+	max_shield_health = 90
+	shield_color_low = COLOR_MAROON
+	shield_color_mid = LIGHT_COLOR_RED_ORANGE
+	shield_color_full = LIGHT_COLOR_ELECTRIC_CYAN
+
+/obj/item/armor_module/module/eshield/vsd/overclocked
+	slot = ATTACHMENT_SLOT_KNEE
+	max_shield_health = 90
 	shield_color_low = COLOR_MAROON
 	shield_color_mid = LIGHT_COLOR_RED_ORANGE
 	shield_color_full = LIGHT_COLOR_ELECTRIC_CYAN
@@ -591,20 +598,10 @@
 	icon_state = "mod_armorlock"
 	worn_icon_state = "mod_armorlock_a"
 	slowdown = 0.1
-	attach_features_flags = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
+	attach_features_flags = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB|ATTACH_ACTIVATE_STUNNED
 	slot = ATTACHMENT_SLOT_MODULE
 	toggle_signal = COMSIG_KB_ARMORMODULE
 	COOLDOWN_DECLARE(armorlock_cooldown)
-	///This is the armor amounts we will be adding and removing when armor lock is activated
-	var/datum/armor/locked_armor_mod = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 50, FIRE = 50, ACID = 50)
-
-/obj/item/armor_module/module/armorlock/Initialize(mapload)
-	. = ..()
-	locked_armor_mod = getArmor(arglist(locked_armor_mod))
-
-/obj/item/armor_module/module/armorlock/Destroy()
-	. = ..()
-	locked_armor_mod = null
 
 /obj/item/armor_module/module/armorlock/activate(mob/living/user)
 	if(!COOLDOWN_FINISHED(src, armorlock_cooldown))
@@ -612,7 +609,7 @@
 		return
 
 	user.add_traits(list(TRAIT_HANDS_BLOCKED, TRAIT_STOPS_TANK_COLLISION, TRAIT_IMMOBILE, TRAIT_INCAPACITATED), REF(src))
-	user.move_resist = MOVE_FORCE_OVERPOWERING
+	user.set_move_resist(MOVE_FORCE_OVERPOWERING)
 	user.log_message("has been armor locked for [ARMORLOCK_DURATION] ticks", LOG_ATTACK, color="pink")
 
 	var/image/shield_overlay = image('icons/effects/effects.dmi', null, "armorlock")
@@ -628,7 +625,7 @@
 /obj/item/armor_module/module/armorlock/proc/end_armorlock(mob/living/user, image/shield_overlay)
 	user.overlays -= shield_overlay
 	user.remove_traits(list(TRAIT_HANDS_BLOCKED, TRAIT_STOPS_TANK_COLLISION, TRAIT_IMMOBILE, TRAIT_INCAPACITATED), REF(src))
-	user.move_resist = initial(user.move_resist)
+	user.set_move_resist(user.get_initial_move_resist())
 	user.status_flags &= ~GODMODE
 
 /obj/item/armor_module/module/style
@@ -652,21 +649,21 @@
 	icon_state = "style_light"
 	worn_icon_state = "style_light_a"
 	soft_armor = MARINE_ARMOR_LIGHT
-	slowdown = 0.7
+	slowdown = SLOWDOWN_ARMOR_LIGHT + 0.3
 
 /obj/item/armor_module/module/style/medium_armor
 	name = "\improper Medium Armor Equalizer"
 	icon_state = "style_medium"
 	worn_icon_state = "style_medium_a"
 	soft_armor = MARINE_ARMOR_MEDIUM
-	slowdown = 1
+	slowdown = SLOWDOWN_ARMOR_MEDIUM + 0.3
 
 /obj/item/armor_module/module/style/heavy_armor
 	name = "\improper Heavy Armor Equalizer"
 	icon_state = "style_heavy"
 	worn_icon_state = "style_heavy_a"
 	soft_armor = MARINE_ARMOR_HEAVY
-	slowdown = 1.2 //Have to increase these because styles got a speed bonus now
+	slowdown = SLOWDOWN_ARMOR_HEAVY + 0.3
 
 /**
  *   Helmet Modules
@@ -861,13 +858,13 @@
 
 /obj/item/armor_module/module/night_vision
 	name = "\improper BE-35 night vision kit"
-	desc = "Installation kit for the BE-35 night vision system. Slightly impedes movement."
+	desc = "Installation kit for the BE-35 night vision system."
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "night_vision"
 	attach_features_flags = ATTACH_REMOVABLE|ATTACH_NO_HANDS
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 	prefered_slot = SLOT_HEAD
-	slowdown = 0.1
+	slowdown = 0
 	///The goggles this module deploys
 	var/obj/item/clothing/glasses/night_vision/mounted/attached_goggles
 

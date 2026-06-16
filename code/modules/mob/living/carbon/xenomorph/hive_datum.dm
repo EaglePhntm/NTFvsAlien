@@ -30,6 +30,8 @@
 	var/list/obj/structure/xeno/mutation_chamber/spur/spur_chambers = list()
 	/// List of veil mutation chambers.
 	var/list/obj/structure/xeno/mutation_chamber/veil/veil_chambers = list()
+	///List of hive ability blessings
+	var/list/datum/action/ability/hive_abilities = list()
 
 	///list of hivemind cores
 	var/list/obj/structure/xeno/hivemindcore/hivemindcores = list()
@@ -167,7 +169,7 @@
 
 	.["xeno_info"] = list()
 	for(var/mob/living/carbon/xenomorph/xeno AS in get_all_xenos())
-		if(initial(xeno.tier) == XENO_TIER_MINION)
+		if((!(xeno.client)) && (xeno.xeno_caste.caste_flags & (CASTE_HIDE_IN_STATUS|CASTE_IS_A_MINION)))
 			continue // Skipping minions
 		var/datum/xeno_caste/caste = xeno.xeno_caste
 		var/plasma_multi = caste.plasma_regen_limit == 0 ? 1 : caste.plasma_regen_limit // Division by 0 bad.
@@ -200,6 +202,7 @@
 	.["user_next_mat_level"] = isxeno(user) && xeno_user.upgrade_possible() ? xeno_user.xeno_caste.upgrade_threshold : 0
 	.["user_tracked"] = isxeno(user) && !isnull(xeno_user.tracked) ? REF(xeno_user.tracked) : ""
 	.["user_can_mutate"] = isxeno(user) && (xeno_user.xeno_caste.caste_flags & CASTE_MUTATIONS_ALLOWED) && ((SSticker.mode?.round_type_flags & MODE_MUTATIONS_OBTAINABLE) || HAS_TRAIT(xeno_user, TRAIT_VALHALLA_XENO))
+	.["user_hive_target_participation"] = isxeno(user) && xeno_user.hive_target_participation
 
 	.["user_show_empty"] = !!(user.client.prefs.status_toggle_flags & HIVE_STATUS_SHOW_EMPTY)
 	.["user_show_compact"] = !!(user.client.prefs.status_toggle_flags & HIVE_STATUS_COMPACT_MODE)
@@ -310,6 +313,11 @@
 			if(!isxeno(usr))
 				return
 			GLOB.mutation_selector.interact(usr)
+		if("ToggleHiveTargetParticipation")
+			if(!isxeno(usr) || xeno_target != usr)
+				return
+			xeno_target.hive_target_participation = !xeno_target.hive_target_participation
+			to_chat(xeno_target, span_xenonotice("We [xeno_target.hive_target_participation ? "open" : "close"] our mind to hive target directives."))
 		if("Compass")
 			var/atom/target = locate(params["target"])
 			if(isobserver(usr))
@@ -670,6 +678,9 @@
 	if(!target.xeno_caste.deevolves_to)
 		to_chat(devolver, span_xenonotice("Cannot deevolve [target]."))
 		return
+	if(!GLOB.xeno_caste_datums[target.xeno_caste.deevolves_to])
+		to_chat(devolver, span_xenonotice("Cannot deevolve [target]."))
+		return
 	var/datum/xeno_caste/new_caste = GLOB.xeno_caste_datums[target.xeno_caste.deevolves_to][XENO_UPGRADE_BASETYPE]
 	var/confirm = tgui_alert(devolver, "Are you sure you want to deevolve [target] from [target.xeno_caste.caste_name] to [new_caste.caste_name]?", null, list("Yes", "No"))
 	if(confirm != "Yes")
@@ -706,6 +717,9 @@
 
 ///Handles any effects when a xeno dies
 /datum/hive_status/proc/on_xeno_death(mob/living/carbon/xenomorph/dead_xeno)
+	if(dead_xeno in dead_xenos)
+		return
+
 	remove_from_lists(dead_xeno)
 	dead_xenos += dead_xeno
 
@@ -713,9 +727,19 @@
 
 	if(dead_xeno == living_xeno_ruler)
 		on_ruler_death(dead_xeno)
-	var/datum/xeno_caste/base_caste = GLOB.xeno_caste_datums[get_parent_caste_type(dead_xeno.xeno_caste)][XENO_UPGRADE_BASETYPE]
-	if(base_caste.death_evolution_delay <= 0)
+
+	if(!dead_xeno?.xeno_caste)
 		return
+
+	var/parent = get_parent_caste_type(dead_xeno.xeno_caste)
+	var/list/caste_list = GLOB.xeno_caste_datums[parent]
+	if(!caste_list)
+		return
+
+	var/datum/xeno_caste/base_caste = caste_list[XENO_UPGRADE_BASETYPE]
+	if(!base_caste || base_caste.death_evolution_delay <= 0)
+		return
+
 	if(!caste_death_timers[base_caste])
 		caste_death_timers[base_caste] = addtimer(CALLBACK(src, PROC_REF(end_caste_death_timer), base_caste), base_caste.death_evolution_delay , TIMER_STOPPABLE)
 
@@ -944,10 +968,6 @@ to_chat will check for valid clients itself already so no need to double check f
 	. = ..()
 	RegisterSignals(SSdcs, list(COMSIG_GLOB_SILOLESS_COLLAPSE), PROC_REF(setup_siloless_hud_timer))
 
-/datum/hive_status/normal/Destroy(force, ...)
-	. = ..()
-	UnregisterSignal(SSdcs, COMSIG_GLOB_SILOLESS_COLLAPSE)
-
 /datum/hive_status/normal/add_xeno(mob/living/carbon/xenomorph/X)
 	. = ..()
 	X.AddComponent(/datum/component/xeno_iff, CLF_IFF)
@@ -964,8 +984,10 @@ to_chat will check for valid clients itself already so no need to double check f
 		return
 	if(!(SSticker.mode?.round_type_flags & MODE_XENO_RULER))
 		return
+	/*
 	if(SSmonitor.gamestate != SHIPSIDE) //orphan hivemind will only happen during shipside.
 		return
+	*/
 	var/datum/game_mode/infestation/D = SSticker.mode
 
 	if(living_xeno_ruler)
@@ -992,6 +1014,8 @@ to_chat will check for valid clients itself already so no need to double check f
 
 /datum/hive_status/burrow_larva(mob/living/carbon/xenomorph/larva/L)
 	if(!is_ground_level(L.z) && !L.get_xeno_hivenumber() == XENO_HIVE_CORRUPTED)
+		return
+	if(L.stat)
 		return
 	L.visible_message(span_xenodanger("[L] quickly burrows into the ground."))
 	var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
@@ -1106,6 +1130,7 @@ to_chat will check for valid clients itself already so no need to double check f
 	new_xeno.playsound_local(new_xeno, 'sound/effects/alien/new_larva.ogg')
 	to_chat(new_xeno, span_xenoannounce("We are a xenomorph larva awakened from slumber!"))
 	if(!larva_already_reserved)
+		log_game("Occupying 1 [xeno_job.title] slot due to it being assigned to [xeno_candidate.ckey] via do_spawn_larva.")
 		xeno_job.occupy_job_positions(1)
 	return new_xeno
 
@@ -1170,8 +1195,10 @@ to_chat will check for valid clients itself already so no need to double check f
 	var/list/possible_silos = list()
 	SEND_SIGNAL(src, COMSIG_HIVE_XENO_MOTHER_PRE_CHECK, possible_mothers, possible_silos)
 	if(stored_larva > 0 && !LAZYLEN(candidates) && !XENODEATHTIME_CHECK(waiter.mob) && (length(possible_mothers) || length(possible_silos) || (SSticker.mode?.round_type_flags & MODE_SILO_RESPAWN && SSmonitor.gamestate == SHUTTERS_CLOSED)))
+		log_game("Occupying 1 [xeno_job.title] slot because we are attempting to assign it to [waiter.ckey], who joined the larva queue with burrowed available.")
 		xeno_job.occupy_job_positions(1)
 		if(!attempt_to_spawn_larva(waiter, TRUE))
+			log_game("Freeing 1 [xeno_job.title] slot because we failed to assign it to [waiter.ckey], who joined the larva queue with burrowed available.")
 			xeno_job.free_job_positions(1)
 			return FALSE
 		return TRUE
@@ -1213,6 +1240,7 @@ to_chat will check for valid clients itself already so no need to double check f
 	if(slot_occupied < 1)
 		return
 	var/slot_really_taken = 0
+	log_game("Occupying [slot_occupied] [xeno_job.title] slots because we are attempting to assign them to the next people in the larva queue.")
 	if(!xeno_job.occupy_job_positions(slot_occupied))
 		return
 	var/client/client_in_queue
@@ -1240,6 +1268,7 @@ to_chat will check for valid clients itself already so no need to double check f
 			slot_really_taken++
 
 	if(slot_occupied - slot_really_taken > 0)
+		log_game("Freeing [slot_occupied - slot_really_taken] [xeno_job.title] slots because we failed to assign them to the next people in the larva queue.")
 		xeno_job.free_job_positions(slot_occupied - slot_really_taken)
 	for(var/i in 1 to LAZYLEN(candidates))
 		client_in_queue = LAZYACCESS(candidates, i)
@@ -1301,12 +1330,15 @@ to_chat will check for valid clients itself already so no need to double check f
 // Make sure they can understand english
 /datum/hive_status/corrupted/post_add(mob/living/carbon/xenomorph/X)
 	. = ..()
+	X.inherent_accesses += ALL_MARINE_ACCESS
 	X.grant_language(/datum/language/common)
 	X.AddComponent(/datum/component/xeno_iff, TGMC_LOYALIST_IFF)
 
 /datum/hive_status/corrupted/post_removal(mob/living/carbon/xenomorph/X)
 	. = ..()
+	X.inherent_accesses = initial(X.inherent_accesses)
 	X.remove_language(/datum/language/common)
+	X.remove_component(/datum/component/xeno_iff)
 
 /datum/hive_status/corrupted/can_xeno_message()
 	return TRUE // can always talk in hivemind

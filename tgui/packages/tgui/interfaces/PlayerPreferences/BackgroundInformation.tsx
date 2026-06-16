@@ -1,7 +1,15 @@
 import { useState } from 'react';
-import { Box, Button, Section, Stack, TextArea } from 'tgui-core/components';
+import {
+  Box,
+  Button,
+  LabeledList,
+  Section,
+  Stack,
+  TextArea,
+} from 'tgui-core/components';
 
 import { useBackend } from '../../backend';
+import { SelectFieldPreference, TextFieldPreference } from './FieldPreferences';
 
 export const BackgroundInformation = (props) => {
   const { act, data } = useBackend<BackgroundInformationData>();
@@ -27,6 +35,21 @@ export const BackgroundInformation = (props) => {
   const [xenoprofilePic, setXenoProfilePic] = useState(xenoprofile_pic);
   return (
     <Section title="Background information">
+      <Section title="Identity">
+        <LabeledList>
+          <TextFieldPreference label={'Age'} value={'age'} />
+          <SelectFieldPreference
+            label={'Citizenship'}
+            value={'citizenship'}
+            action={'citizenship'}
+          />
+          <SelectFieldPreference
+            label={'Religion'}
+            value={'religion'}
+            action={'religion'}
+          />
+        </LabeledList>
+      </Section>
       <Section
         title="Character Description"
         buttons={

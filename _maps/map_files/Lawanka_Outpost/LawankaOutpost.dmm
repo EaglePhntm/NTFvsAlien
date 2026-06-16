@@ -404,6 +404,11 @@
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor,
 /area/lawankaoutpost/colony/robotics)
+"aou" = (
+/obj/effect/landmark/excavation_site_spawner,
+/obj/structure/cable,
+/turf/open/floor/plating/ground/dirt,
+/area/lawankaoutpost/caves/northwest/garbledradio)
 "aoH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -545,6 +550,11 @@
 	dir = 6
 	},
 /area/lawankaoutpost/colony/medbay)
+"awQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/turf/open/floor/tile/dark/purple2,
+/area/lawankaoutpost/caves/nanotrasen_lab)
 "awR" = (
 /obj/machinery/landinglight/lz2{
 	dir = 4
@@ -580,6 +590,14 @@
 	dir = 6
 	},
 /area/lawankaoutpost/colony/biologics)
+"axA" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = 24
+	},
+/turf/open/floor/tile/green/whitegreen{
+	dir = 1
+	},
+/area/lawankaoutpost/colony/medbay)
 "axF" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/ai_node,
@@ -781,6 +799,7 @@
 /area/lawankaoutpost/outside/west)
 "aFv" = (
 /obj/effect/ai_node,
+/obj/effect/spawner/random/misc/structure/crate,
 /turf/open/floor/tile/dark/brown2/corner,
 /area/lawankaoutpost/colony/cargo)
 "aFw" = (
@@ -1413,6 +1432,12 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/ground/grass/weedable,
 /area/lawankaoutpost/colony/operations_hall)
+"bhJ" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = 24
+	},
+/turf/open/floor/plating,
+/area/lawankaoutpost/colony/biologics_storage)
 "bhR" = (
 /obj/machinery/disposal,
 /obj/machinery/light{
@@ -1934,6 +1959,10 @@
 	dir = 1
 	},
 /area/lawankaoutpost/colony/mining)
+"bDx" = (
+/obj/docking_port/stationary/supplycolony,
+/turf/open/floor/mainship/empty,
+/area/lawankaoutpost/colony/cargo)
 "bDB" = (
 /obj/effect/turf_decal/tracks/wheels/bloody,
 /turf/open/floor/cult,
@@ -1971,6 +2000,11 @@
 	dir = 9
 	},
 /area/lawankaoutpost/colony/engineering)
+"bEv" = (
+/obj/structure/fence,
+/obj/structure/cable,
+/turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable,
+/area/lawankaoutpost/outside/north)
 "bFp" = (
 /turf/open/floor/tile/dark/yellow2{
 	dir = 8
@@ -2738,6 +2772,10 @@
 /obj/structure/cable,
 /turf/open/floor,
 /area/lawankaoutpost/colony/southdorms)
+"clV" = (
+/obj/structure/cable,
+/turf/closed/mineral/smooth,
+/area/lawankaoutpost/caves/rock)
 "cmd" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -2766,7 +2804,7 @@
 /area/lawankaoutpost/colony/southdorms)
 "cmp" = (
 /obj/structure/table,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/engineering)
 "cms" = (
@@ -3113,6 +3151,10 @@
 	dir = 8
 	},
 /area/lawankaoutpost/colony/operations_hall)
+"cDp" = (
+/obj/effect/landmark/patrol_point/xeno/xeno_11,
+/turf/open/floor/tile/dark2,
+/area/lawankaoutpost/colony/engineering)
 "cDB" = (
 /obj/structure/closet/secure_closet/hos,
 /obj/machinery/light{
@@ -3302,6 +3344,7 @@
 "cJk" = (
 /obj/structure/table,
 /obj/item/stack/sheet/metal/small_stack,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/dark/yellow2{
 	dir = 1
 	},
@@ -3782,6 +3825,9 @@
 /area/lawankaoutpost/outside/central)
 "dep" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = 24
+	},
 /turf/open/floor/tile/dark/yellow2{
 	dir = 5
 	},
@@ -4440,6 +4486,11 @@
 /obj/effect/landmark/weed_node,
 /turf/open/ground/grass/weedable,
 /area/lawankaoutpost/outside/south)
+"dKs" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/cable,
+/turf/open/ground/grass/weedable,
+/area/lawankaoutpost/outside/northwest)
 "dKH" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 10
@@ -4723,6 +4774,7 @@
 "dXU" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/effect/ai_node,
+/obj/structure/cable,
 /turf/open/ground/grass/weedable,
 /area/lawankaoutpost/outside/north)
 "dYa" = (
@@ -4778,6 +4830,9 @@
 "eaq" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
+	},
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = 24
 	},
 /turf/open/floor/tile/dark/red2{
 	dir = 1
@@ -6242,6 +6297,16 @@
 "fkz" = (
 /turf/open/ground/grass/weedable,
 /area/lawankaoutpost/caves/rock)
+"fkJ" = (
+/obj/structure/prop/mainship/railing{
+	dir = 4
+	},
+/obj/machinery/computer/supplycomp/colony,
+/obj/effect/urban/decal/dirt,
+/obj/effect/urban/decal/dirt,
+/obj/effect/urban/decal/dirt,
+/turf/open/floor/tile/dark/brown2/corner,
+/area/lawankaoutpost/colony/cargo)
 "flw" = (
 /obj/structure/closet/wardrobe/chaplain_black,
 /obj/machinery/light{
@@ -7083,6 +7148,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/bar)
+"fOy" = (
+/obj/effect/landmark/weed_node,
+/obj/structure/cable,
+/turf/open/floor/plating/ground/dirt,
+/area/lawankaoutpost/outside/north)
 "fOD" = (
 /obj/item/ammo_casing,
 /turf/open/floor/tile/white,
@@ -7229,7 +7299,7 @@
 /area/lawankaoutpost/colony/marshalls)
 "fVN" = (
 /obj/structure/table/reinforced,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/darkgreen/darkgreen2/corner{
 	dir = 8
@@ -7250,6 +7320,11 @@
 "fVT" = (
 /turf/closed/wall/r_wall,
 /area/lawankaoutpost/caves/nanotrasen_lab)
+"fWi" = (
+/obj/effect/ai_node,
+/obj/structure/cable,
+/turf/open/floor/plating/ground/dirt,
+/area/lawankaoutpost/outside/north)
 "fWq" = (
 /obj/structure/sink{
 	dir = 1
@@ -7722,8 +7797,15 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
+/obj/structure/cable,
 /turf/open/ground/grass/weedable,
 /area/lawankaoutpost/outside/north)
+"gni" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = 24
+	},
+/turf/open/floor/tile/green/full,
+/area/lawankaoutpost/colony/hydroponics)
 "gnx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/weed_node,
@@ -8009,6 +8091,9 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/purple/whitepurple,
 /area/lawankaoutpost/colony/medbay)
+"gAr" = (
+/turf/open/floor/mainship/empty,
+/area/lawankaoutpost/colony/cargo)
 "gAQ" = (
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_x = -7;
@@ -8069,6 +8154,14 @@
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/lawankaoutpost/colony/bar)
+"gEh" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = 24
+	},
+/turf/open/floor/tile/dark/brown2{
+	dir = 1
+	},
+/area/lawankaoutpost/colony/cargo)
 "gEk" = (
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark/yellow2,
@@ -8108,6 +8201,11 @@
 /obj/effect/landmark/corpsespawner/security,
 /turf/open/floor/tile/red/whitered,
 /area/lawankaoutpost/colony/operations_hall)
+"gGs" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/cable,
+/turf/open/ground/grass/weedable,
+/area/lawankaoutpost/outside/north)
 "gGt" = (
 /turf/open/floor/tile/green/whitegreen{
 	dir = 1
@@ -8567,6 +8665,10 @@
 "hdB" = (
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/cargo)
+"hdD" = (
+/obj/structure/cable,
+/turf/open/ground/grass/weedable,
+/area/lawankaoutpost/outside/northwest)
 "hec" = (
 /obj/item/tool/wrench,
 /turf/open/floor/tile/dark/purple2{
@@ -8618,6 +8720,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/outside/central)
+"hfO" = (
+/obj/effect/landmark/patrol_point/xeno/xeno_21,
+/turf/open/floor/tile/dark,
+/area/lawankaoutpost/caves/nukestorage)
 "hgd" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/blue/taupeblue{
@@ -8647,6 +8753,14 @@
 /obj/effect/landmark/patrol_point/som/som_21,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/caves/southwest)
+"hhb" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = 24
+	},
+/turf/open/floor/tile/red/redtaupe{
+	dir = 1
+	},
+/area/lawankaoutpost/colony/recdorms)
 "hhr" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
@@ -10091,6 +10205,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/mining)
+"iyg" = (
+/obj/structure/cable,
+/turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable,
+/area/lawankaoutpost/outside/northwest)
 "iyu" = (
 /obj/machinery/door/airlock/colony/research{
 	name = "\improper Robotics"
@@ -10162,7 +10280,7 @@
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "iAU" = (
 /obj/structure/table/reinforced,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/green/whitegreenfull,
 /area/lawankaoutpost/colony/marshalls)
 "iBn" = (
@@ -11419,6 +11537,11 @@
 	},
 /turf/open/ground/grass/weedable,
 /area/lawankaoutpost/outside/northeast)
+"jAP" = (
+/obj/effect/landmark/weed_node,
+/obj/structure/cable,
+/turf/open/floor/plating/ground/dirt,
+/area/lawankaoutpost/caves/northwest/garbledradio)
 "jAQ" = (
 /obj/structure/bed/bunkbed,
 /obj/effect/decal/cleanable/blood,
@@ -11954,6 +12077,11 @@
 	dir = 4
 	},
 /area/lawankaoutpost/colony/operations_hall)
+"kaE" = (
+/obj/effect/landmark/weed_node,
+/obj/structure/cable,
+/turf/open/ground/grass/weedable,
+/area/lawankaoutpost/outside/north)
 "kaY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/ai_node,
@@ -12411,6 +12539,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/caves/nanotrasen_lab)
+"kxx" = (
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/lawankaoutpost/caves/nanotrasen_lab)
 "kxC" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -12852,6 +12984,7 @@
 "kNj" = (
 /obj/effect/decal/cleanable/blood,
 /obj/structure/cable,
+/obj/effect/landmark/static_comms/net_two,
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/marshalls)
 "kNU" = (
@@ -12875,7 +13008,6 @@
 /area/lawankaoutpost/colony/medbay)
 "kPC" = (
 /obj/structure/flora/jungle/planttop1,
-/obj/effect/landmark/static_comms/net_two,
 /turf/open/ground/grass/weedable,
 /area/lawankaoutpost/outside/southeast)
 "kPF" = (
@@ -12884,6 +13016,13 @@
 	dir = 1
 	},
 /area/lawankaoutpost/colony/atmos)
+"kQA" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	dir = 4;
+	pixel_x = -14
+	},
+/turf/open/floor/tile/green/whitegreenfull,
+/area/lawankaoutpost/colony/chapel)
 "kQT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -13288,6 +13427,7 @@
 	pixel_x = 5;
 	pixel_y = 10
 	},
+/obj/structure/cable,
 /turf/open/ground/grass/weedable,
 /area/lawankaoutpost/outside/north)
 "lgN" = (
@@ -14529,6 +14669,11 @@
 	},
 /turf/open/floor/mainship/orange/full,
 /area/lawankaoutpost/caves/nanotrasen_lab)
+"mgj" = (
+/obj/structure/flora/jungle/planttop1,
+/obj/structure/cable,
+/turf/open/ground/grass/weedable,
+/area/lawankaoutpost/outside/northwest)
 "mgq" = (
 /obj/structure/flora/jungle/plantbot1/alien,
 /turf/open/floor/plating/ground/dirt,
@@ -15164,7 +15309,7 @@
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "mHY" = (
 /obj/structure/table/reinforced,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/green/whitegreenfull,
 /area/lawankaoutpost/colony/medbay)
 "mIx" = (
@@ -15231,6 +15376,14 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/green/whitegreenfull,
 /area/lawankaoutpost/colony/chapel)
+"mKH" = (
+/obj/effect/landmark/weed_node,
+/obj/structure/transmitter/colony_net/auto_id{
+	dir = 4;
+	pixel_x = -14
+	},
+/turf/open/floor/wood,
+/area/lawankaoutpost/colony/bar)
 "mLf" = (
 /obj/machinery/landinglight/lz1{
 	dir = 8
@@ -15647,6 +15800,11 @@
 	dir = 1
 	},
 /area/lawankaoutpost/colony/southdorms)
+"ndP" = (
+/obj/structure/flora/ausbushes/reedbush,
+/obj/structure/cable,
+/turf/open/ground/grass/weedable,
+/area/lawankaoutpost/outside/north)
 "ndW" = (
 /obj/effect/ai_node,
 /turf/open/floor/tile/lightred/full,
@@ -17585,6 +17743,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/dark/brown2/corner,
 /area/lawankaoutpost/colony/cargo)
+"oBS" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/structure/cable,
+/turf/open/ground/grass/weedable,
+/area/lawankaoutpost/outside/north)
 "oCi" = (
 /obj/item/trash/burger,
 /turf/open/floor/tile/dark2,
@@ -18373,6 +18536,7 @@
 "phP" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
+/obj/structure/cable,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/outside/northeast)
 "pia" = (
@@ -18645,6 +18809,11 @@
 	dir = 1
 	},
 /area/lawankaoutpost/colony/southdorms)
+"psJ" = (
+/obj/effect/ai_node,
+/obj/structure/cable,
+/turf/open/ground/grass/weedable,
+/area/lawankaoutpost/outside/north)
 "psV" = (
 /obj/structure/cable,
 /turf/open/floor/wood,
@@ -19006,7 +19175,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 1
 	},
@@ -19798,6 +19967,14 @@
 "qoa" = (
 /turf/open/floor/tile/dark,
 /area/lawankaoutpost/colony/operations_storage)
+"qod" = (
+/obj/structure/flora/ausbushes/grassybush{
+	pixel_x = -8;
+	pixel_y = 6
+	},
+/obj/structure/cable,
+/turf/open/ground/grass/weedable,
+/area/lawankaoutpost/outside/north)
 "qoV" = (
 /obj/structure/flora/ausbushes/grassybush,
 /obj/effect/ai_node,
@@ -20216,6 +20393,13 @@
 /obj/effect/landmark/weed_node,
 /turf/open/ground/grass/weedable,
 /area/lawankaoutpost/outside/west)
+"qJt" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	dir = 4;
+	pixel_x = -14
+	},
+/turf/open/floor,
+/area/lawankaoutpost/colony/landingzonetwo)
 "qJG" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/dark2,
@@ -20318,6 +20502,13 @@
 	},
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/outside/southeast)
+"qPr" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	dir = 4;
+	pixel_x = -14
+	},
+/turf/open/floor/tile/purple/taupepurple/corner,
+/area/lawankaoutpost/colony/biologics)
 "qPW" = (
 /obj/item/stool,
 /turf/open/floor/tile/white,
@@ -20562,6 +20753,14 @@
 	},
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/engineering)
+"qYp" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = 24
+	},
+/turf/open/floor/tile/dark/brown2{
+	dir = 1
+	},
+/area/lawankaoutpost/colony/mining)
 "qYw" = (
 /turf/open/floor/tile/red/redtaupe{
 	dir = 8
@@ -20637,6 +20836,11 @@
 	dir = 1
 	},
 /area/lawankaoutpost/colony/biologics)
+"raE" = (
+/obj/effect/landmark/weed_node,
+/obj/structure/cable,
+/turf/open/floor/plating/ground/dirt,
+/area/lawankaoutpost/outside/northeast)
 "raJ" = (
 /obj/structure/table,
 /obj/item/tool/wrench,
@@ -21210,11 +21414,16 @@
 /turf/open/floor/tile/dark,
 /area/lawankaoutpost/colony/chapel)
 "rvH" = (
-/obj/machinery/door/airlock/multi_tile/research{
-	name = "\improper Biological Research Facility"
-	},
-/turf/open/floor,
-/area/lawankaoutpost/colony/biologics)
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/ai_node,
+/obj/structure/cable,
+/turf/open/floor/plating/ground/dirt,
+/area/lawankaoutpost/outside/central)
+"rvM" = (
+/obj/effect/ai_node,
+/obj/structure/cable,
+/turf/open/floor/plating/ground/dirt,
+/area/lawankaoutpost/caves/northwest/garbledradio)
 "rvV" = (
 /obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/dirt,
@@ -21828,6 +22037,11 @@
 	},
 /turf/open/floor,
 /area/lawankaoutpost/colony/hydroponics)
+"rVX" = (
+/obj/effect/landmark/weed_node,
+/obj/structure/cable,
+/turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable,
+/area/lawankaoutpost/outside/northwest)
 "rWd" = (
 /obj/effect/spawner/random/misc/soap/regularweighted,
 /obj/machinery/light{
@@ -21955,10 +22169,10 @@
 /turf/open/floor,
 /area/lawankaoutpost/colony/recdorms)
 "sce" = (
-/obj/effect/spawner/random/misc/structure/crate,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/spawner/random/misc/structure/supplycrate,
 /turf/open/floor/tile/dark/brown2/corner,
 /area/lawankaoutpost/colony/cargo)
 "sdr" = (
@@ -23709,6 +23923,10 @@
 	},
 /turf/open/floor/tile/purple/taupepurple/corner,
 /area/lawankaoutpost/colony/biologics)
+"tvz" = (
+/obj/structure/cable,
+/turf/open/ground/grass/weedable,
+/area/lawankaoutpost/outside/north)
 "tvG" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -23927,6 +24145,11 @@
 	dir = 4
 	},
 /area/lawankaoutpost/caves/nanotrasen_lab)
+"tEj" = (
+/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/cable,
+/turf/open/ground/grass/weedable,
+/area/lawankaoutpost/outside/northwest)
 "tFu" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -24255,6 +24478,12 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor,
 /area/lawankaoutpost/colony/biologics)
+"tSR" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = 24
+	},
+/turf/open/floor/cult,
+/area/lawankaoutpost/caves/southwest)
 "tSX" = (
 /obj/effect/landmark/weed_node,
 /turf/open/ground/grass/weedable,
@@ -24395,6 +24624,9 @@
 /area/lawankaoutpost/colony/engineering)
 "tZz" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = 24
+	},
 /turf/open/floor/tile/blue/taupeblue{
 	dir = 5
 	},
@@ -26479,10 +26711,13 @@
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "vMt" = (
+/obj/structure/prop/mainship/railing{
+	dir = 8
+	},
+/obj/effect/urban/decal/dirt,
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/dark/brown2/corner,
 /area/lawankaoutpost/colony/cargo)
 "vMv" = (
@@ -26579,6 +26814,7 @@
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_y = -12
 	},
+/obj/structure/cable,
 /turf/open/ground/grass/weedable,
 /area/lawankaoutpost/outside/north)
 "vRS" = (
@@ -27063,6 +27299,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/atmos)
+"wiq" = (
+/obj/structure/cable,
+/turf/open/floor/plating/ground/dirt,
+/area/lawankaoutpost/caves/northwest/garbledradio)
 "wiv" = (
 /obj/effect/landmark/campaign_structure/barricade/sandbags/asat{
 	dir = 1
@@ -27827,6 +28067,17 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
+	},
+/turf/open/floor/tile/blue/taupeblue{
+	dir = 1
+	},
+/area/lawankaoutpost/colony/northdorms)
+"wPs" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = 24
 	},
 /turf/open/floor/tile/blue/taupeblue{
 	dir = 1
@@ -39141,7 +39392,7 @@ rRZ
 gxq
 eSE
 dun
-pxb
+tSR
 pxb
 pxb
 uea
@@ -47587,7 +47838,7 @@ xGW
 xGW
 tRS
 skU
-nva
+cDp
 nva
 nva
 skU
@@ -47709,7 +47960,7 @@ uWn
 fVT
 qXW
 lkM
-iUK
+awQ
 fVT
 myQ
 ukz
@@ -47926,7 +48177,7 @@ fVT
 fVT
 eCG
 nKY
-wUp
+kxx
 fVT
 fVT
 fVT
@@ -48143,7 +48394,7 @@ oqq
 xGW
 knt
 knt
-knt
+wiq
 xGW
 oqq
 oqq
@@ -48331,18 +48582,18 @@ oqq
 oqq
 xGW
 xGW
-knt
-knt
-knt
-rOj
-knt
-knt
-knt
-knt
-knt
-rrz
-knt
-knt
+wiq
+wiq
+wiq
+jAP
+wiq
+wiq
+wiq
+wiq
+wiq
+rvM
+wiq
+wiq
 xGW
 xGW
 xGW
@@ -48360,7 +48611,7 @@ oqq
 xGW
 knt
 oMa
-knt
+wiq
 xGW
 xGW
 oqq
@@ -48548,7 +48799,7 @@ oqq
 oqq
 xGW
 knt
-knt
+wiq
 knt
 rrz
 knt
@@ -48559,7 +48810,7 @@ knt
 knt
 knt
 rOj
-knt
+wiq
 knt
 knt
 xGW
@@ -48577,7 +48828,7 @@ oqq
 xGW
 knt
 knt
-knt
+wiq
 knt
 xGW
 xGW
@@ -48765,7 +49016,7 @@ oqq
 xGW
 xGW
 knt
-knt
+wiq
 oMa
 knt
 knt
@@ -48776,7 +49027,7 @@ xGW
 xGW
 rrz
 knt
-knt
+wiq
 knt
 knt
 rrz
@@ -48794,7 +49045,7 @@ xGW
 xGW
 knt
 knt
-knt
+wiq
 knt
 knt
 xGW
@@ -48982,7 +49233,7 @@ oqq
 xGW
 rOj
 knt
-knt
+wiq
 knt
 knt
 xGW
@@ -48993,7 +49244,7 @@ oqq
 xGW
 xGW
 knt
-knt
+wiq
 knt
 rOj
 knt
@@ -49011,7 +49262,7 @@ xGW
 knt
 knt
 oMa
-knt
+wiq
 knt
 rOj
 xGW
@@ -49199,7 +49450,7 @@ oqq
 xGW
 xGW
 knt
-knt
+wiq
 knt
 xGW
 xGW
@@ -49210,13 +49461,13 @@ oqq
 oqq
 xGW
 xGW
-knt
-knt
-knt
-knt
-knt
-knt
-knt
+wiq
+wiq
+wiq
+wiq
+wiq
+wiq
+wiq
 xGW
 xGW
 xGW
@@ -49228,7 +49479,7 @@ xGW
 knt
 knt
 knt
-knt
+wiq
 jTd
 knt
 xGW
@@ -49416,7 +49667,7 @@ oqq
 oqq
 xGW
 knt
-knt
+wiq
 knt
 knt
 xGW
@@ -49433,7 +49684,7 @@ knt
 rrz
 rOj
 knt
-knt
+wiq
 knt
 knt
 xGW
@@ -49445,7 +49696,7 @@ knt
 knt
 knt
 knt
-knt
+wiq
 knt
 knt
 xGW
@@ -49633,7 +49884,7 @@ oqq
 oqq
 xGW
 knt
-knt
+wiq
 rrz
 knt
 knt
@@ -49641,7 +49892,7 @@ knt
 xGW
 xGW
 xGW
-xGW
+clV
 oqq
 oqq
 xGW
@@ -49650,7 +49901,7 @@ knt
 rrz
 rrz
 knt
-jTd
+aou
 knt
 rrz
 knt
@@ -49662,7 +49913,7 @@ rrz
 knt
 rOj
 rrz
-knt
+wiq
 knt
 xGW
 xGW
@@ -49736,7 +49987,7 @@ uxA
 pGg
 cDN
 mpM
-dlb
+mKH
 rdP
 rSo
 rdP
@@ -49818,7 +50069,7 @@ bKe
 xGW
 hoj
 lTQ
-lTQ
+hfO
 lTQ
 hoj
 xsy
@@ -49850,15 +50101,15 @@ oqq
 oqq
 xGW
 xGW
-knt
-rOj
-rrz
-knt
-knt
-knt
-rrz
-knt
-knt
+wiq
+jAP
+rvM
+wiq
+wiq
+wiq
+rvM
+wiq
+wiq
 xGW
 xGW
 xGW
@@ -49867,20 +50118,20 @@ knt
 knt
 knt
 knt
-knt
-rOj
-knt
-rrz
-knt
+wiq
 rOj
 knt
 rrz
 knt
+rOj
+knt
+rrz
 knt
 knt
 knt
 knt
-xGW
+wiq
+clV
 xGW
 oqq
 oqq
@@ -50075,7 +50326,7 @@ knt
 rOj
 knt
 rrz
-knt
+wiq
 knt
 rrz
 xGW
@@ -50084,19 +50335,19 @@ xGW
 rOj
 knt
 knt
-knt
-knt
-knt
-knt
-knt
-knt
-knt
-knt
-rOj
-knt
-knt
-knt
-knt
+wiq
+wiq
+wiq
+wiq
+wiq
+wiq
+wiq
+wiq
+jAP
+wiq
+wiq
+wiq
+wiq
 xGW
 oqq
 oqq
@@ -50292,7 +50543,7 @@ knt
 knt
 knt
 knt
-knt
+wiq
 knt
 knt
 knt
@@ -50509,7 +50760,7 @@ xGW
 xGW
 xGW
 knt
-knt
+wiq
 rOj
 knt
 knt
@@ -50726,11 +50977,11 @@ oqq
 oqq
 xGW
 xGW
-knt
-knt
-rrz
-knt
-knt
+wiq
+wiq
+rvM
+wiq
+wiq
 xGW
 xGW
 oqq
@@ -50947,7 +51198,7 @@ xGW
 knt
 knt
 rrz
-knt
+wiq
 xGW
 xGW
 oqq
@@ -51164,7 +51415,7 @@ xGW
 xGW
 knt
 knt
-rOj
+jAP
 knt
 xGW
 oqq
@@ -51381,7 +51632,7 @@ oqq
 xGW
 xGW
 knt
-knt
+wiq
 knt
 xGW
 oqq
@@ -51598,7 +51849,7 @@ oqq
 oqq
 xGW
 knt
-knt
+wiq
 knt
 xGW
 oqq
@@ -51815,7 +52066,7 @@ oqq
 oqq
 xGW
 knt
-knt
+wiq
 knt
 xGW
 oqq
@@ -52032,7 +52283,7 @@ oqq
 xGW
 xGW
 rrz
-knt
+wiq
 knt
 xGW
 oqq
@@ -52249,7 +52500,7 @@ xGW
 xGW
 knt
 rOj
-knt
+wiq
 knt
 xGW
 oqq
@@ -52466,7 +52717,7 @@ xGW
 knt
 knt
 knt
-knt
+wiq
 knt
 xGW
 oqq
@@ -52683,7 +52934,7 @@ xGW
 knt
 knt
 rOj
-knt
+wiq
 xGW
 xGW
 xGW
@@ -52729,7 +52980,7 @@ uaK
 dDh
 bHX
 vXr
-bAi
+axA
 lbk
 dQi
 qML
@@ -52900,16 +53151,16 @@ oRz
 oRz
 oRz
 oRz
-oRz
-sqp
-xQt
-xQt
-xQt
-xQt
-xQt
-xQt
-xQt
-xQt
+iyg
+rVX
+hdD
+hdD
+hdD
+hdD
+hdD
+hdD
+hdD
+hdD
 ueE
 xQt
 xQt
@@ -53126,7 +53377,7 @@ nQk
 xQt
 hSX
 bzx
-xQt
+hdD
 xQt
 iOO
 xQt
@@ -53343,7 +53594,7 @@ qnH
 xQt
 qUy
 xQt
-xQt
+hdD
 nTr
 xQt
 amB
@@ -53422,7 +53673,7 @@ npJ
 npJ
 npJ
 npJ
-ykk
+rvH
 lPz
 wQV
 bWn
@@ -53560,7 +53811,7 @@ xQt
 xQt
 xQt
 xQt
-xQt
+hdD
 xPE
 xxd
 taJ
@@ -53675,7 +53926,7 @@ miV
 pGo
 tTN
 pGo
-rIX
+kQA
 dBe
 lXR
 ada
@@ -53777,7 +54028,7 @@ vrF
 xQt
 amB
 xQt
-dhy
+dKs
 xQt
 xPE
 xQt
@@ -53994,7 +54245,7 @@ xQt
 xQt
 hSX
 xQt
-xQt
+hdD
 xQt
 hSX
 dhy
@@ -54211,7 +54462,7 @@ nQk
 xQt
 nTr
 xQt
-agM
+tEj
 kIT
 xQt
 nTr
@@ -54428,7 +54679,7 @@ xQt
 xQt
 xQt
 xQt
-lvs
+mgj
 sBa
 nQk
 xQt
@@ -54645,7 +54896,7 @@ iDa
 iDa
 iDa
 jGj
-sVx
+tvz
 gWt
 sVx
 sVx
@@ -55079,7 +55330,7 @@ tkJ
 gjR
 iDa
 sVx
-sVx
+tvz
 bJe
 xjq
 ivz
@@ -55296,7 +55547,7 @@ qhE
 gjR
 iDa
 sVx
-sVx
+tvz
 anT
 sVx
 sVx
@@ -55513,7 +55764,7 @@ tkJ
 nsJ
 iDa
 pAJ
-sVx
+tvz
 sVx
 ucF
 sVx
@@ -55730,7 +55981,7 @@ gjR
 qix
 iDa
 sVx
-jGj
+kaE
 sVx
 sVx
 sVx
@@ -55749,7 +56000,7 @@ jaI
 vbg
 azC
 aym
-cHR
+qYp
 rAA
 wyi
 kKl
@@ -55947,18 +56198,18 @@ iDa
 iDa
 iDa
 pAJ
-sVx
-sVx
-ivz
-pAJ
-sVx
-sVx
-sVx
-sVx
+tvz
+tvz
+oBS
+gGs
+tvz
+tvz
+tvz
+tvz
 dXU
-sVx
-sVx
-ucF
+tvz
+tvz
+psJ
 sVx
 aym
 gUA
@@ -56392,7 +56643,7 @@ sVx
 sVx
 xjq
 gWt
-sVx
+tvz
 sVx
 msh
 gUA
@@ -56609,7 +56860,7 @@ ivz
 jGj
 sVx
 sVx
-jGj
+kaE
 sVx
 bOj
 lLG
@@ -56826,7 +57077,7 @@ pAJ
 sVx
 sVx
 sVx
-sVx
+tvz
 pAJ
 aym
 gUA
@@ -57043,7 +57294,7 @@ sVx
 ucF
 jkY
 ojr
-ucF
+psJ
 sVx
 oVD
 oVD
@@ -57260,12 +57511,12 @@ sVx
 hBt
 sVx
 jGj
-sVx
+tvz
 sVx
 oVD
-pth
+fkJ
 sce
-aoe
+kUI
 oVD
 teF
 hWV
@@ -57477,10 +57728,10 @@ idf
 sVx
 xsB
 sVx
-kXZ
+ndP
 sVx
 oVD
-aoe
+gAr
 nzi
 bwg
 oVD
@@ -57694,10 +57945,10 @@ sVx
 vkd
 sVx
 sVx
-sVx
+tvz
 luL
 oVD
-kUI
+bDx
 aFv
 pth
 oVD
@@ -57822,7 +58073,7 @@ vmk
 vmk
 lmH
 ezB
-mCO
+gni
 rxt
 pSu
 fOX
@@ -57911,10 +58162,10 @@ sVx
 kXZ
 sVx
 idf
-sVx
+tvz
 sVx
 oVD
-aoe
+gAr
 qRw
 aoe
 oVD
@@ -58128,7 +58379,7 @@ jGj
 sVx
 sVx
 sVx
-sVx
+tvz
 sVx
 oVD
 vMt
@@ -58352,7 +58603,7 @@ aoe
 aoe
 aoe
 oVD
-fuQ
+gEh
 hdB
 riv
 rST
@@ -58562,7 +58813,7 @@ gOu
 eZQ
 aNo
 sVx
-sVx
+tvz
 bxT
 oVD
 aoe
@@ -58779,7 +59030,7 @@ frG
 kIa
 qAu
 pAJ
-sVx
+tvz
 sVx
 oVD
 mMn
@@ -58996,7 +59247,7 @@ vmY
 vmY
 yas
 vmY
-jGj
+kaE
 sVx
 oVD
 mMn
@@ -59205,15 +59456,15 @@ wRj
 xPU
 qYO
 bav
-xOL
-rvH
-oTk
-oTk
-qpe
-oTk
-oTk
-vmY
-idf
+xPU
+wRj
+uVE
+uVE
+fOy
+uVE
+uVE
+bEv
+qod
 sVx
 oVD
 aoe
@@ -59428,7 +59679,7 @@ sxs
 oTk
 oTk
 sxs
-oTk
+uVE
 vmY
 ucF
 sVx
@@ -59622,7 +59873,7 @@ oqq
 oqq
 oqq
 jTQ
-mcj
+bhJ
 wdK
 wwj
 oNy
@@ -59645,7 +59896,7 @@ ngy
 ngy
 rLp
 oTk
-oTk
+uVE
 vmY
 sVx
 pAJ
@@ -59862,7 +60113,7 @@ sVx
 pAJ
 gNZ
 oTk
-oTk
+uVE
 yas
 jGj
 gWt
@@ -60079,7 +60330,7 @@ iDa
 iDa
 iDa
 qpe
-oTk
+uVE
 vmY
 sVx
 sVx
@@ -60296,7 +60547,7 @@ kXU
 ivF
 iDa
 oTk
-sxs
+fWi
 vmY
 ucF
 sVx
@@ -60513,7 +60764,7 @@ egW
 ctd
 iDa
 sxs
-oTk
+uVE
 yas
 xjq
 sVx
@@ -60730,7 +60981,7 @@ tjT
 eWO
 cmy
 oTk
-oTk
+uVE
 vmY
 jGj
 uBB
@@ -60947,7 +61198,7 @@ lsF
 pOr
 cmy
 oTk
-oTk
+uVE
 vmY
 sVx
 sVx
@@ -61164,7 +61415,7 @@ vgO
 qKO
 cmy
 nNO
-bak
+raE
 lia
 fmD
 vCA
@@ -61381,7 +61632,7 @@ jsX
 kcB
 iDa
 sDD
-nNO
+eDw
 hnE
 lia
 lia
@@ -61598,7 +61849,7 @@ tjT
 dei
 iDa
 nNO
-nNO
+eDw
 nNO
 nNO
 nNO
@@ -61815,11 +62066,11 @@ kqq
 dDg
 iDa
 sDD
-nNO
-nNO
-nNO
+eDw
+eDw
+eDw
 phP
-nNO
+eDw
 hnE
 vkW
 osR
@@ -62025,7 +62276,7 @@ mAi
 kIr
 kFv
 mLL
-mLL
+qPr
 mLL
 ihs
 hRr
@@ -62036,7 +62287,7 @@ lia
 lia
 hnE
 nNO
-nNO
+eDw
 lia
 fmD
 fmD
@@ -62253,7 +62504,7 @@ igw
 uxe
 lia
 nNO
-nNO
+eDw
 lia
 jAu
 fmD
@@ -62470,7 +62721,7 @@ mWg
 fmD
 lia
 sDD
-nNO
+eDw
 lia
 hnE
 lia
@@ -62687,7 +62938,7 @@ lia
 lia
 hnE
 nNO
-nNO
+eDw
 nNO
 nNO
 nNO
@@ -70535,7 +70786,7 @@ pTn
 pTn
 pTn
 pTn
-lWg
+wPs
 jvt
 pTn
 wtm
@@ -71524,7 +71775,7 @@ wEk
 wEk
 wEk
 wEk
-wEk
+qJt
 pwF
 wEk
 wEk
@@ -71857,7 +72108,7 @@ gDs
 gDs
 dVY
 aiH
-qRX
+hhb
 aTm
 vwR
 iqG

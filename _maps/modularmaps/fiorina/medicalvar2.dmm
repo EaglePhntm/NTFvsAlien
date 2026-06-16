@@ -503,7 +503,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/phone{
+/obj/structure/transmitter/colony_net/desk/auto_id{
 	pixel_x = -3;
 	pixel_y = 13
 	},

@@ -517,7 +517,7 @@
 	if(relative_stamloss < 0 && mymob_human.max_stamina)
 		relative_stamloss = round(((relative_stamloss * 14) / mymob_human.max_stamina), 1)
 	else
-		relative_stamloss = round(((relative_stamloss * 7) / (mymob_human.maxHealth * 2)), 1)
+		relative_stamloss = round(((relative_stamloss * 7) / (mymob_human.maxHealth * STAMINA_LOSS_LIMIT_MULTIPLIER)), 1)
 	icon_state = "stamloss[relative_stamloss]"
 
 /atom/movable/screen/stamina_hud/Click(location, control, params)
@@ -793,6 +793,11 @@
 /atom/movable/screen/arrow/defend_order_arrow
 	name = "Defend order arrow"
 	icon_state = "Defend_arrow"
+	duration = CIC_ORDER_DURATION
+
+/atom/movable/screen/arrow/retreat_order_arrow
+	name = "Retreat order arrow"
+	icon_state = "Retreat_arrow"
 	duration = CIC_ORDER_DURATION
 
 /atom/movable/screen/arrow/hunter_mark_arrow

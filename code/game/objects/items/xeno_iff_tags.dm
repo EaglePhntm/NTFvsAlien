@@ -35,7 +35,7 @@
 	carried_iff = SOM_IFF
 
 /obj/item/xeno_iff_tag/clf
-	name = "CLF xenomorph IFF tag"
+	name = "Cult xenomorph IFF tag"
 	carried_iff = CLF_IFF
 
 /obj/item/xeno_iff_tag/deathsquad

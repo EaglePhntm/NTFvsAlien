@@ -40,6 +40,9 @@
 	pixel_x = -32
 	pixel_y = -32
 
+	//ntf
+	var/smoke_traits2 = NONE
+
 /obj/effect/particle_effect/smoke/Initialize(mapload, range, smoketime, smokecloud)
 	. = ..()
 	origin = src

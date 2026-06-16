@@ -25,6 +25,10 @@ mode Sovl War Plus
 	votable 0
 endmode
 
+mode Sovl War
+	requiredplayers 2
+endmode
+
 mode Extended
 	requiredplayers 0
 	votable 0
@@ -40,8 +44,13 @@ mode Extended Mini
 	votable 0
 endmode
 
-mode Survival
+mode Colony Fall
 	requiredplayers 8
+	votable 1
+endmode
+
+mode Colony Survival
+	requiredplayers 15
 	votable 1
 endmode
 
@@ -75,7 +84,12 @@ mode Secret of Life - Main
 	default
 endmode
 
-mode Secret of Life - Alien only
+mode Secret of Life - Faction Chaos
+	requiredplayers 0
+	default
+endmode
+
+mode Secret of Life - NTF vs Alien only
 	requiredplayers 0
 	votable 1
 endmode
@@ -90,7 +104,12 @@ mode Secret of Life - Classic
 	votable 1
 endmode
 
-mode Secret of Life - NTF vs CLF
+mode Secret of Life - NTF vs Cult
 	requiredplayers 0
+	votable 1
+endmode
+
+mode Encounter
+	requiredplayers 4
 	votable 1
 endmode

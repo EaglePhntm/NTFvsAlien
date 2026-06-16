@@ -1,6 +1,6 @@
 /obj/vehicle/ridden/big_bike
 	name = "big bike"
-	desc = "A TGMC heavy motorbike. Used to swiftly carry up to 2 soldiers over the roughest of terrain, at high speed and with respectable survivibility. Is typically armed with a pair of forwarded mounted weapons. Favoured for rapid assaults."
+	desc = "A AC heavy motorbike. Used to swiftly carry up to 2 soldiers over the roughest of terrain, at high speed and with respectable survivibility. Is typically armed with a pair of forwarded mounted weapons. Favoured for rapid assaults."
 	icon = 'icons/obj/vehicles/big_bike.dmi'
 	icon_state = "big_bike"
 	max_integrity = 425
@@ -12,7 +12,7 @@
 	layer = MOB_BELOW_PIGGYBACK_LAYER
 	allow_pass_flags = PASSABLE
 	pass_flags = PASS_LOW_STRUCTURE
-	buckle_flags = CAN_BUCKLE|BUCKLE_PREVENTS_PULL|BUCKLE_NEEDS_HAND
+	buckle_flags = CAN_BUCKLE|BUCKLE_NEEDS_HAND
 	max_buckled_mobs = 2
 	max_occupants = 2
 	pixel_w = -17

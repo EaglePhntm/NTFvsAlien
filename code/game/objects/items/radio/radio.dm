@@ -434,7 +434,13 @@
 		return
 
 	for(var/ch_name in channels)
-		secure_radio_connections[ch_name] = add_radio(src, GLOB.radiochannels[ch_name])
+		if(ch_name in GLOB.radiochannels)
+			secure_radio_connections += ch_name
+			secure_radio_connections[ch_name] = add_radio(src, GLOB.radiochannels[ch_name])
+		else
+			log_runtime("[ch_name] not found in GLOB.radiochannels!")
+			if(GLOB.radiochannels)
+				log_runtime("GLOB.radiochannels = [json_encode(GLOB.radiochannels)]")
 
 
 /obj/item/radio/off/Initialize(mapload)

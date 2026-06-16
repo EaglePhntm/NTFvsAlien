@@ -131,7 +131,7 @@
 		return "makes a [pick("strong ", "weak ", "")]noise."
 	if(isxeno(user) && message_alien)
 		. = message_alien
-	else if(isxenolarva(user) && message_larva)
+	else if((isxenolarva(user) || isxenofacehugger(user)) && message_larva)
 		. = message_larva
 	else if(isAI(user) && message_AI)
 		. = message_AI

@@ -1,5 +1,5 @@
 /datum/job/icc
-	job_category = JOB_CAT_MARINE
+	job_category = JOB_CAT_ICC
 	access = ALL_ICC_ACCESS
 	minimal_access = ALL_ICC_ACCESS
 	skills_type = /datum/skills/craftier
@@ -13,13 +13,14 @@
 after ransacking the armories of the colonies owned by NTC, you took arms to fight against the Xenomorph assault.
 Though soon they turned less lethal, danger still persists, especially those that are alone, namely survivors. Which is your job to protect now.
 You are all colonists hired by Ninetails, Novamed, TRANSCo and Archercorp, depending on your initial assignments. That's why you are here in this cursed planet to begin with.
-For that CM is closer to NTC and the corps than the rest, they gave your families or just you hope and funds to live comfortably back in earth and you a possibiity of a new begginning until it is all taken away. CM believes the other factions to be vultures on top of a stillborn colonization."}
+For that CM is closer to NTC and the corps than the rest, they gave your families or just you hope and funds to live comfortably back in earth and you a possibiity of a new begginning until it is all taken away. \
+CM believes the other factions to be vultures on top of a stillborn colonization. Corporate Council decided to appoint Colonial Milita as the governing force over the colonies, although while still serving under them."}
 
 
 //ICC Standard
 /datum/job/icc/standard
 	title = "CM Standard"
-	paygrade = "CMH"
+	paygrade = "CMS"
 	multiple_outfits = TRUE
 	outfit = /datum/outfit/job/icc/standard/mpi_km
 	outfits = list(
@@ -139,6 +140,7 @@ For that CM is closer to NTC and the corps than the rest, they gave your familie
 /datum/job/icc/guard
 	title = "CM Guard"
 	paygrade = "CM3"
+	comm_title = "CMG"
 	outfit = /datum/outfit/job/icc/guard/coilgun
 	multiple_outfits = TRUE
 	outfits = list(
@@ -249,6 +251,7 @@ For that CM is closer to NTC and the corps than the rest, they gave your familie
 /datum/job/icc/medic
 	title = "CM Medic"
 	paygrade = "CM2"
+	comm_title = "CMM"
 	skills_type = /datum/skills/combat_medic/crafty
 	multiple_outfits = TRUE
 	outfit = /datum/outfit/job/icc/medic/icc_machinepistol
@@ -328,6 +331,7 @@ For that CM is closer to NTC and the corps than the rest, they gave your familie
 /datum/job/icc/leader
 	title = "CM Leader"
 	paygrade = "CM2"
+	comm_title = "CML"
 	outfit = /datum/outfit/job/icc/leader/icc_heavyshotgun
 	skills_type = /datum/skills/sl/icc
 	multiple_outfits = TRUE
@@ -390,3 +394,213 @@ For that CM is closer to NTC and the corps than the rest, they gave your familie
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_confrontationrifle, SLOT_IN_BELT)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_confrontationrifle, SLOT_IN_BELT)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_confrontationrifle, SLOT_IN_BELT)
+
+//ICC command
+/datum/job/icc/commander
+	title = "CM Commander"
+	paygrade = "COL"
+	comm_title = "CMC"
+	supervisors = "CM/NTC high command"
+	skills_type = /datum/skills/captain
+	access = ALL_ICC_ACCESS
+	minimal_access = ALL_ICC_ACCESS
+	exp_requirements = XP_REQ_EXPERT
+	exp_type = EXP_TYPE_REGULAR_ALL
+	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP|JOB_FLAG_LOUDER_TTS|JOB_FLAG_OVERRIDELATEJOINSPAWN
+	jobworth = list(
+		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
+		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/squad/specialist = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
+		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
+	)
+	total_positions = 1
+	outfit = /datum/outfit/job/icc/commander
+
+/datum/job/icc/commander/get_spawn_message_information(mob/M)
+	. = ..()
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"As the Commander of the colonial militia you are held by higher standard and are expected to act competently. you report to CM High command and corporate management when necessary.
+Your primary task is the safety of colonial militia base and then the colony you are assigned to oversee, ensuring the survival and success of the colony.
+Your first order of business should be briefing the marines on the mission they are about to undertake.
+If you require any help, use <b>Mentorhelp</b> to ask mentors about what you're supposed to do.
+Godspeed, Commander! And remember, you are not above the law."}
+
+/datum/job/icc/commander/after_spawn(mob/living/new_mob, mob/user, latejoin)
+	. = ..()
+	if(!ishuman(new_mob))
+		return
+	var/mob/living/carbon/human/new_human = new_mob
+	var/playtime_mins = user?.client?.get_exp(title)
+	if(!playtime_mins || playtime_mins < 1 )
+		return
+	switch(playtime_mins)
+		if(0 to 1500) // starting
+			new_human.wear_id.paygrade = "COL"
+		if(1501 to 7500) // 25hrs
+			new_human.wear_id.paygrade = "MGEN"
+		if(7501 to INFINITY) //125 hrs
+			new_human.wear_id.paygrade = "GEN"
+
+/datum/outfit/job/icc/commander
+	name = "CM Commander"
+	jobtype = /datum/job/icc/commander
+
+	id = /obj/item/card/id/gold
+	belt = /obj/item/storage/holster/belt/pistol/smart_pistol/full
+	ears = /obj/item/radio/headset/mainship/marine/icc
+	w_uniform = /obj/item/clothing/under/marine/officer/command
+	shoes = /obj/item/clothing/shoes/marinechief/captain
+	gloves = /obj/item/clothing/gloves/marine/techofficer/captain
+	head = /obj/item/clothing/head/beret/marine/captain
+	r_pocket = /obj/item/storage/pouch/general/large/command
+	l_pocket = /obj/item/hud_tablet/leadership
+	back = /obj/item/storage/backpack/marine/satchel/captain_cloak
+
+//Field Commander
+/datum/job/icc/fieldcommander
+	title = "CM Militia Captain"
+	req_admin_notify = TRUE
+	paygrade = "O3"
+	comm_title = "CMMC"
+	total_positions = 1
+	skills_type = /datum/skills/fo
+	access = ALL_ICC_ACCESS
+	minimal_access = ALL_ICC_ACCESS
+	outfit = /datum/outfit/job/command/fieldcommandericc
+	exp_requirements = XP_REQ_EXPERIENCED
+	exp_type = EXP_TYPE_REGULAR_ALL
+	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP|JOB_FLAG_LOUDER_TTS|JOB_FLAG_OVERRIDELATEJOINSPAWN
+	jobworth = list(
+		/datum/job/xenomorph = LARVA_POINTS_REGULAR,
+		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/squad/specialist = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
+		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
+	)
+	minimap_icon = "fieldcommander"
+
+/datum/outfit/job/command/fieldcommandericc
+	name = "CM Militia Captain"
+	jobtype = /datum/job/icc/fieldcommander
+
+	id = /obj/item/card/id/dogtag/fc
+	belt = /obj/item/storage/holster/blade/officer/full
+	ears = /obj/item/radio/headset/mainship/marine/icc
+	w_uniform = /obj/item/clothing/under/marine/officer/exec
+	wear_suit = /obj/item/clothing/suit/modular/xenonauten
+	shoes = /obj/item/clothing/shoes/marine/full
+	gloves = /obj/item/clothing/gloves/marine/officer
+	head = /obj/item/clothing/head/tgmcberet/fc
+	r_pocket = /obj/item/storage/pouch/general/large/command
+	l_pocket = /obj/item/hud_tablet/fieldcommand
+	suit_store = /obj/item/storage/holster/belt/pistol/m4a3/fieldcommander
+
+/datum/job/icc/fieldcommander/get_spawn_message_information(mob/M)
+	. = ..()
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"You are charged with overseeing the security on the assigned colony, and are the highest-ranked deployed militia.
+Your duties are to ensure soldiers hold when ordered, and push when they are cowering behind barricades.
+Do not ask your men to do anything you would not do side by side with them.
+Make the CM proud!"}
+
+/datum/job/icc/fieldcommander/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
+	. = ..()
+	if(!ishuman(new_mob))
+		return
+	SSdirection.set_leader(TRACKING_ID_MARINE_COMMANDER, new_mob)
+	var/mob/living/carbon/human/new_human = new_mob
+	var/playtime_mins = user?.client?.get_exp(title)
+	if(!playtime_mins || playtime_mins < 1 )
+		return
+	switch(playtime_mins)
+		if(0 to 1500) // starting
+			new_human.wear_id.paygrade = "O3"
+		if(1501 to 6000) // 25hrs
+			new_human.wear_id.paygrade = "MO4"
+		if(6001 to 18000) // 100 hrs
+			new_human.wear_id.paygrade = "MO5"
+		if(18001 to 60000) // 300 hrs
+			new_human.wear_id.paygrade = "MO6"
+		if(60001 to INFINITY) // 1000 hrs
+			new_human.wear_id.paygrade = "M10" //If you play way too much TGMC. 1000 hours.
+	new_human.wear_id.update_label()
+
+//be assigned to jobs for colony management
+/datum/job/icc/administrator
+	title = "CM Colony Administrator"
+	paygrade = "O1"
+	comm_title = "ADM"
+	total_positions = 4
+	access = ALL_ICC_ACCESS
+	minimal_access = ALL_ICC_ACCESS
+	skills_type = /datum/skills/so
+	display_order = JOB_DISPLAY_ORDER_STAFF_OFFICER
+	outfit = /datum/outfit/job/administrator
+	multiple_outfits = TRUE
+	outfits = list(
+		/datum/outfit/job/administrator,
+	)
+	exp_requirements = XP_REQ_INTERMEDIATE
+	exp_type = EXP_TYPE_REGULAR_ALL
+	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP|JOB_FLAG_OVERRIDELATEJOINSPAWN
+	jobworth = list(
+		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
+		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/squad/specialist = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
+		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
+	)
+	html_description = {"
+		<b>Difficulty</b>: Medium<br /><br />
+		<b>You answer to the</b> CM Commander<br /><br />
+		<b>Unlock Requirement</b>: Starting Role<br /><br />
+		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
+		<b>Duty</b>: Be assigned to a colony department as the administrator and manage it, in rare cases, the entire colony departments.
+	"}
+
+	minimap_icon = "staffofficer"
+
+/datum/job/icc/administrator/get_spawn_message_information(mob/M)
+	. = ..()
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"Your job is to ensure the colony is running as intended, usually you will be assigned to a department in colony or for CM itself, by a CM commander, \
+	but if there isn't enough administrators you may need to oversee the entire colony departments..."}
+
+/datum/job/icc/administrator/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
+	. = ..()
+	if(!ishuman(new_mob))
+		return
+	var/mob/living/carbon/human/new_human = new_mob
+	var/playtime_mins = user?.client?.get_exp(title)
+	if(!playtime_mins || playtime_mins < 1 )
+		return
+	switch(playtime_mins)
+		if(0 to 600) // starting
+			new_human.wear_id.paygrade = "O1"
+		if(601 to 1500) // 10hrs
+			new_human.wear_id.paygrade = "O2"
+		if(1501 to 6000) // 25 hrs
+			new_human.wear_id.paygrade = "O3"
+		if(6001 to 18000) // 100 hrs
+			new_human.wear_id.paygrade = "O4"
+		if(18001 to INFINITY) // 300 hrs
+			new_human.wear_id.paygrade = "O5"
+	new_human.wear_id.update_label()
+
+/datum/outfit/job/administrator
+	name = "CM Colony Administrator"
+	jobtype = /datum/job/icc/administrator
+
+	id = /obj/item/card/id/silver
+	belt = /obj/item/storage/holster/belt/pistol/m4a3/officer
+	ears = /obj/item/radio/headset/mainship/marine/icc
+	w_uniform = /obj/item/clothing/under/marine/officer/bridge
+	shoes = /obj/item/clothing/shoes/marine/full
+	head = /obj/item/clothing/head/tgmccap/ro
+	r_pocket = /obj/item/storage/pouch/general/large
+	l_pocket = /obj/item/binoculars/tactical
+
+/datum/outfit/job/administrator/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_to_slot_or_hand(new /obj/item/binoculars/fire_support/extended/sl, SLOT_IN_R_POUCH)

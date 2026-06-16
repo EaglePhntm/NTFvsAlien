@@ -96,13 +96,6 @@
 		slot_l_hand_str = 'icons/mob/inhands/equipment/backpacks_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/backpacks_right.dmi',
 	)
-	sprite_sheets = list(
-		"Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		"Sterling Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		"Chilvaris Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		"Hammerhead Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		"Ratcher Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		)
 	storage_type = /datum/storage/holster/backholster
 
 //only applies on storage of all items, not withdrawal
@@ -129,13 +122,6 @@
 		/obj/item/weapon/gun/launcher/rocket/recoillessrifle,
 		/obj/item/weapon/gun/launcher/rocket/recoillessrifle/low_impact,
 	)
-	sprite_sheets = list(
-		"Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		"Sterling Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		"Chilvaris Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		"Hammerhead Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		"Ratcher Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		)
 
 /obj/item/storage/holster/backholster/rpg/full/PopulateContents()
 	new /obj/item/ammo_magazine/rocket/recoilless/light(src)
@@ -212,14 +198,6 @@
 	holsterable_allowed = list(/obj/item/mortar_kit)
 	storage_type = /datum/storage/holster/backholster/mortar
 
-	sprite_sheets = list(
-		"Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		"Sterling Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		"Chilvaris Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		"Hammerhead Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		"Ratcher Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		)
-
 /obj/item/storage/holster/backholster/mortar/full/PopulateContents()
 	new /obj/item/mortar_kit(src)
 
@@ -230,13 +208,6 @@
 	w_class = WEIGHT_CLASS_BULKY
 	holsterable_allowed = list(/obj/item/weapon/gun/flamer/big_flamer/marinestandard/engineer)
 	storage_type = /datum/storage/holster/backholster/flamer
-	sprite_sheets = list(
-		"Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		"Sterling Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		"Chilvaris Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		"Hammerhead Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		"Ratcher Combat Robot" = 'icons/mob/species/robot/backpack.dmi',
-		)
 	///The type of fuel this carries
 	var/fuel_type = DEFAULT_FUEL_TYPE
 
@@ -495,7 +466,18 @@
 	new /obj/item/ammo_magazine/pistol/m1911/ap(src)
 	INVOKE_ASYNC(storage_datum, TYPE_PROC_REF(/datum/storage, handle_item_insertion), new_gun)
 
-/obj/item/storage/holster/belt/pistol/g22/tranq/Initialize(mapload)
+/obj/item/storage/holster/belt/pistol/g22/Initialize(mapload)
+	. = ..()
+	var/obj/item/weapon/gun/new_gun = new /obj/item/weapon/gun/pistol/g22(src)
+	new /obj/item/ammo_magazine/pistol/g22(src)
+	new /obj/item/ammo_magazine/pistol/g22(src)
+	new /obj/item/ammo_magazine/pistol/g22(src)
+	new /obj/item/ammo_magazine/pistol/g22(src)
+	new /obj/item/ammo_magazine/pistol/g22(src)
+	new /obj/item/ammo_magazine/pistol/g22(src)
+	INVOKE_ASYNC(storage_datum, TYPE_PROC_REF(/datum/storage, handle_item_insertion), new_gun)
+
+/obj/item/storage/holster/belt/pistol/g22_tranq/Initialize(mapload)
 	. = ..()
 	var/obj/item/weapon/gun/new_gun = new /obj/item/weapon/gun/pistol/g22/tranq(src)
 	new /obj/item/ammo_magazine/pistol/g22tranq(src)
@@ -673,7 +655,7 @@
 	new /obj/item/ammo_magazine/revolver/mateba(src)
 
 /obj/item/storage/holster/belt/korovin
-	name = "\improper MT41 pistol holster rig"
+	name = "\improper MT41 Korovin holster rig"
 	desc = "A modification of the standard KZ pouch rig to carry a sidearm. It also contains side pouches that can store sidearm magazines."
 	icon_state = "korovin_holster"
 	storage_type = /datum/storage/holster/belt/korovin

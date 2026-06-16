@@ -282,7 +282,7 @@
 	user.mob.interaction_emote(target)
 
 /datum/keybinding/mob/prevent_movement
-	hotkey_keys = list("")
+	hotkey_keys = list("ctrl")
 	name = "block_movement"
 	full_name = "Block movement"
 	description = "Prevents you from moving"

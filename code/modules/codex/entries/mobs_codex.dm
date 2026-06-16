@@ -26,7 +26,7 @@
 		xeno_strings += "Can smash walls: Yes"
 	else
 		xeno_strings += "Can smash walls: No"
-	xeno_strings += "Max health: [maxHealth] [istype(hive) ? "([xeno_caste.max_health] from caste, x[hive.health_mulitiplier] multiplier from hive)" : ""]"
+	xeno_strings += "Max health: [maxHealth] [istype(hive) ? "([xeno_caste.max_health] from caste, x[hive.health_multiplier] multiplier from hive)" : ""]"
 	var/list/armor_in_list = soft_armor.getList()
 	for(var/armor_type in armor_in_list)
 		xeno_strings += "Soft [armor_type] armor: [armor_in_list[armor_type]]"

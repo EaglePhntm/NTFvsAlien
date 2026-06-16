@@ -37,17 +37,40 @@
 	remove_overlay(GENITAL_LAYER)
 	if(QDELETED(user)||QDELETED(src))
 		return
-	var/xgen = user?.client?.prefs?.xenogender
-	if(swapping) //flips to next in selection
-		xgen += 1
-	if(xgen >= 5) //revert to start if over max.
-		xgen = 1
-	//updates the overlays
-	user.client?.prefs?.xenogender = xgen
+	var/xgen = client?.prefs?.xenogender
+	if(swapping)
+		if(!COOLDOWN_FINISHED(src, gender_swap_cooldown))
+			to_chat(src, span_xenonotice("You need to wait [DisplayTimeText(COOLDOWN_TIMELEFT(src, gender_swap_cooldown))] more."))
+			return
+		var/gchoice = tgui_input_list(src, "Select a new role to take.", "Gender Selection", list(
+			NEUTER,
+			FEMALE,
+			MALE,
+			"Futa",
+			"cancel",
+		), "cancel")
+		if(xgen == gchoice)
+			return
+		if(gchoice == "cancel")
+			return
+		do_jitter_animation()
+		xgen = gchoice
+		if(!(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES))
+			COOLDOWN_START(src, gender_swap_cooldown, 5 MINUTES)
+	switch(xgen) //convert string to number
+		if(NEUTER)
+			xgen = 1
+		if(FEMALE)
+			xgen = 2
+		if(MALE)
+			xgen = 3
+		if("Futa")
+			xgen = 4
 	genital_overlay.layer = layer + 0.3
 	genital_overlay.vis_flags |= VIS_HIDE
 	genital_overlay.icon = src.icon
 	genital_overlay.icon_state = "none"
+	//updates the overlays
 	switch(xgen)
 		if(1) //blank
 			genital_overlay.icon_state = null
@@ -69,8 +92,12 @@
 			gender=FEMALE
 			if(swapping)
 				user.balloon_alert(user, "Futa")
+	user.client?.prefs?.xenogender = xgen
+	if(swapping)
+		user.client.prefs.save_character()
+		user.client.prefs.save_preferences()
 
-	if(xeno_caste.caste_flags & CASTE_HAS_WOUND_MASK) //ig if u cant see wounds u shouldnt see tiddies too maybe for things like being ethereal
+	if(xeno_caste.caste_flags & CASTE_HAS_WOUND_MASK && !HAS_TRAIT(src, TRAIT_XENOMORPH_INVISIBLE_BLOOD)) //ig if u cant see wounds u shouldnt see tiddies too maybe for things like being ethereal
 		apply_overlay(GENITAL_LAYER)
 	genital_overlay.vis_flags &= ~VIS_HIDE // Show the overlay
 
@@ -103,9 +130,10 @@
 
 /mob/living/carbon/xenomorph/Move(atom/newloc, direction, glide_size_override)
 	. = ..()
-	var/mob/user = eaten_mob
+	var/mob/living/carbon/human/user = eaten_mob
 	if(user && HAS_TRAIT(user, TRAIT_HAULED)) //this trait lets us know if they are devoured or carried in a real lazy shitcode way, it just works.
 		user.forceMove(loc)
+		user.haul_dir_check()
 
 /mob/living/carbon/xenomorph/forceMove(atom/destination)
 	. = ..()
@@ -116,13 +144,29 @@
 		else
 			user.forceMove(loc)
 
+/mob/living/carbon/xenomorph/proc/get_tier_bonus()
+	if(tier == XENO_TIER_ONE)
+		return 1
+	if(tier == XENO_TIER_TWO)
+		return 2
+	if(tier == XENO_TIER_THREE)
+		return 3
+	if(tier == XENO_TIER_FOUR)
+		return 4
+	return 0
+
 /mob/living/carbon/xenomorph/proc/claim_hive_target_reward(mob/living/carbon/human/target)
 	if(!istype(target) || !HAS_TRAIT(target, TRAIT_HIVE_TARGET))
 		return
+	if(!client || !hive_target_participation)
+		return
+	var/rewardness = 4
+	if(HAS_TRAIT_FROM(target, TRAIT_HIVE_TARGET, SUPERSOLDIER_TRAIT))
+		rewardness = 0.5 //ass self given target, weaponized sex?
 	var/psy_points_reward = PSY_DRAIN_REWARD_MIN + ((HIGH_PLAYER_POP - SSmonitor.maximum_connected_players_count) / HIGH_PLAYER_POP * (PSY_DRAIN_REWARD_MAX - PSY_DRAIN_REWARD_MIN))
 	psy_points_reward = clamp(psy_points_reward, PSY_DRAIN_REWARD_MIN, PSY_DRAIN_REWARD_MAX)
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_HIVE_TARGET_DRAINED, src, target)
-	psy_points_reward = psy_points_reward * 5
+	psy_points_reward = psy_points_reward * rewardness
 	SSpoints.add_strategic_psy_points(hivenumber, psy_points_reward)
 	SSpoints.add_tactical_psy_points(hivenumber, psy_points_reward*0.25)
 	GLOB.round_statistics.strategic_psypoints_from_hive_target_rewards += psy_points_reward
@@ -130,8 +174,8 @@
 	GLOB.round_statistics.biomass_from_hive_target_rewards += MUTATION_BIOMASS_PER_HIVE_TARGET_REWARD
 	SSpoints.add_biomass_points(hivenumber, MUTATION_BIOMASS_PER_HIVE_TARGET_REWARD)
 	var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[hivenumber])
-	xeno_job.add_job_points(5) //can be made a var if need be.
-	GLOB.round_statistics.larva_from_hive_target_rewards += 5/xeno_job.job_points_needed
+	xeno_job.add_job_points(rewardness)
+	GLOB.round_statistics.larva_from_hive_target_rewards += rewardness/xeno_job.job_points_needed
 	hive.update_tier_limits()
 	for(var/obj/item/alien_embryo/embryo in target)
 		embryo.hive_target_bonus = TRUE

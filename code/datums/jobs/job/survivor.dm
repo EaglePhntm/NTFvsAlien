@@ -1,12 +1,13 @@
 /datum/job/survivor
-	title = "Generic Survivor"
+	title = "Generic Colonist"
 	supervisors = "anyone who might rescue you"
-	access = list(ACCESS_CIVILIAN_PUBLIC, ACCESS_CIVILIAN_RESEARCH, ACCESS_CIVILIAN_ENGINEERING, ACCESS_CIVILIAN_LOGISTICS)
-	minimal_access = list(ACCESS_CIVILIAN_PUBLIC, ACCESS_CIVILIAN_RESEARCH, ACCESS_CIVILIAN_ENGINEERING, ACCESS_CIVILIAN_LOGISTICS)
+	access = list(ACCESS_CIVILIAN_PUBLIC, ACCESS_CIVILIAN_RESEARCH, ACCESS_CIVILIAN_ENGINEERING, ACCESS_CIVILIAN_LOGISTICS, ACCESS_ICC_CARGO)
+	minimal_access = list(ACCESS_CIVILIAN_PUBLIC, ACCESS_CIVILIAN_RESEARCH, ACCESS_CIVILIAN_ENGINEERING, ACCESS_CIVILIAN_LOGISTICS, ACCESS_ICC_CARGO)
 	display_order = JOB_DISPLAY_ORDER_SURVIVOR
-	faction = FACTION_TERRAGOV
+	faction = FACTION_ICC //closer to cm now
 	total_positions = -1
-	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_OVERRIDELATEJOINSPAWN|JOB_FLAG_ADDTOMANIFEST
+	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_OVERRIDELATEJOINSPAWN
+	job_category = JOB_CAT_SURVIVOR
 	skills_type = /datum/skills/civilian/survivor
 
 /datum/job/survivor/after_spawn(mob/living/carbon/spawned_carbon, mob/M, latejoin = FALSE)
@@ -68,53 +69,53 @@ Good luck, but do not expect to survive."}
 
 //Assistant
 /datum/job/survivor/assistant
-	title = "Assistant Survivor"
+	title = "Assistant Colonist"
 	outfit = /datum/outfit/job/survivor/assistant
 
 //Scientist
 /datum/job/survivor/scientist
-	title = "Scientist Survivor"
+	title = "Scientist Colonist"
 	skills_type = /datum/skills/civilian/survivor/scientist
 	outfit = /datum/outfit/job/survivor/scientist
 
 //Doctor
 /datum/job/survivor/doctor
-	title = "Doctor Survivor"
+	title = "Doctor Colonist"
 	skills_type = /datum/skills/civilian/survivor/doctor
 	outfit = /datum/outfit/job/survivor/doctor
 
 //Liaison
 /datum/job/survivor/liaison
-	title = "Liaison Survivor"
+	title = "Liaison Colonist"
 	outfit = /datum/outfit/job/survivor/liaison
 
 //Security Guard
 /datum/job/survivor/security
-	title = "Security Guard Survivor"
-	access = list(ACCESS_CIVILIAN_PUBLIC, ACCESS_CIVILIAN_RESEARCH, ACCESS_CIVILIAN_ENGINEERING, ACCESS_CIVILIAN_LOGISTICS, ACCESS_MARINE_BRIG)
-	minimal_access = list(ACCESS_CIVILIAN_PUBLIC, ACCESS_CIVILIAN_RESEARCH, ACCESS_CIVILIAN_ENGINEERING, ACCESS_CIVILIAN_LOGISTICS, ACCESS_MARINE_BRIG)
+	title = "Security Guard Colonist"
+	access = list(ACCESS_CIVILIAN_PUBLIC, ACCESS_CIVILIAN_RESEARCH, ACCESS_CIVILIAN_ENGINEERING, ACCESS_CIVILIAN_LOGISTICS, ACCESS_MARINE_BRIG, ACCESS_ICC_SECURITY)
+	minimal_access = list(ACCESS_CIVILIAN_PUBLIC, ACCESS_CIVILIAN_RESEARCH, ACCESS_CIVILIAN_ENGINEERING, ACCESS_CIVILIAN_LOGISTICS, ACCESS_MARINE_BRIG, ACCESS_ICC_SECURITY)
 	skills_type = /datum/skills/civilian/survivor/marshal
 	outfit = /datum/outfit/job/survivor/security
 
 //Civilian
 /datum/job/survivor/civilian
-	title = "Civilian Survivor"
+	title = "Civilian Colonist"
 	outfit = /datum/outfit/job/survivor/civilian
 
 //Chef
 /datum/job/survivor/chef
-	title = "Chef Survivor"
+	title = "Chef Colonist"
 	skills_type = /datum/skills/civilian/survivor/chef
 	outfit = /datum/outfit/job/survivor/chef
 
 //Botanist
 /datum/job/survivor/botanist
-	title = "Botanist Survivor"
+	title = "Botanist Colonist"
 	outfit = /datum/outfit/job/survivor/botanist
 
 
 /datum/outfit/job/survivor/botanist
-	name = "Botanist Survivor"
+	name = "Botanist Colonist"
 	jobtype = /datum/job/survivor/botanist
 
 	w_uniform = /obj/item/clothing/under/rank/hydroponics
@@ -129,57 +130,57 @@ Good luck, but do not expect to survive."}
 
 //Atmospherics Technician
 /datum/job/survivor/atmos
-	title = "Technician Survivor"
+	title = "Technician Colonist"
 	skills_type = /datum/skills/civilian/survivor/atmos
 	outfit = /datum/outfit/job/survivor/atmos
 
 //Chaplain
 /datum/job/survivor/chaplain
-	title = "Chaplain Survivor"
+	title = "Chaplain Colonist"
 	outfit = /datum/outfit/job/survivor/chaplain
 
 //Miner
 /datum/job/survivor/miner
-	title = "Miner Survivor"
+	title = "Miner Colonist"
 	skills_type = /datum/skills/civilian/survivor/miner
 	outfit = /datum/outfit/job/survivor/miner
 
 //Salesman
 /datum/job/survivor/salesman
-	title = "Salesman Survivor"
+	title = "Salesman Colonist"
 	outfit = /datum/outfit/job/survivor/salesman
 
 //Colonial Marshal
 /datum/job/survivor/marshal
-	title = "Colonial Marshal Survivor"
+	title = "Colonial Marshal Colonist"
 	skills_type = /datum/skills/civilian/survivor/marshal
 	outfit = /datum/outfit/job/survivor/marshal
 
 //Bartender Survivor
 /datum/job/survivor/bartender
-	title = "Bartender Survivor"
+	title = "Bartender Colonist"
 	outfit = /datum/outfit/job/survivor/bartender
 
 //Chemist Survivor
 /datum/job/survivor/chemist
-	title = "Pharmacy Technician Survivor"
+	title = "Pharmacy Technician Colonist"
 	skills_type = /datum/skills/civilian/survivor/scientist
 	outfit = /datum/outfit/job/survivor/chemist
 
 //Assistant
 /datum/job/survivor/assistant
-	title = "Assistant Survivor"
+	title = "Assistant Colonist"
 	outfit = /datum/outfit/job/survivor/assistant
 
 //Roboticist Survivor
 /datum/job/survivor/roboticist
-	title = "Roboticist Survivor"
+	title = "Roboticist Colonist"
 	skills_type = /datum/skills/civilian/survivor/atmos
 	outfit = /datum/outfit/job/survivor/roboticist
 
 // Rambo Survivor - pretty overpowered, pls spawn with caution
 /datum/job/survivor/rambo
-	title = "Rambo Survivor"
+	title = "Rambo Colonist"
 	skills_type = /datum/skills/civilian/survivor/master
 	outfit = /datum/outfit/job/survivor/rambo
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_OVERRIDELATEJOINSPAWN

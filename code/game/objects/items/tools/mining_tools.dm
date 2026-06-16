@@ -111,7 +111,7 @@
 /obj/item/tool/pickaxe/plasmacutter/examine(mob/user)
 	. = ..()
 	if(cell)
-		. += "The internal battery readout counter is active. <b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b>"
+		. += "The internal battery readout counter is active. <b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b> Energy : [DisplayEnergyFrac(cell.charge * (2/GLOB.CELLRATE), cell.maxcharge * (2/GLOB.CELLRATE))]"
 	else
 		. += span_warning("It does not have a power source installed!")
 
@@ -119,6 +119,8 @@
 	toggle(user)
 	user.changeNext_move(CLICK_CD_LONG)
 
+/obj/item/tool/pickaxe/plasmacutter/surgery_tool_check()
+	return powered
 
 //Toggles the cutter off and on
 /obj/item/tool/pickaxe/plasmacutter/proc/toggle(mob/user, silent)
@@ -127,7 +129,7 @@
 		powered = FALSE
 		if(!silent && user)
 			user.visible_message(span_notice("[user] turns [src] off."),
-		span_notice("You switch [src] off. <b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b>"))
+		span_notice("You switch [src] off. <b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b> Energy : [DisplayEnergyFrac(cell.charge * (2/GLOB.CELLRATE), cell.maxcharge * (2/GLOB.CELLRATE))]"))
 		update_plasmacutter()
 		return
 
@@ -138,7 +140,7 @@
 	powered = TRUE
 	if(!silent && user)
 		user.visible_message(span_notice("[user] turns [src] on."),
-		span_notice("You switch [src] on. <b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b>"))
+		span_notice("You switch [src] on. <b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b> Energy : [DisplayEnergyFrac(cell.charge * (2/GLOB.CELLRATE), cell.maxcharge * (2/GLOB.CELLRATE))]"))
 
 	update_plasmacutter()
 
@@ -151,7 +153,7 @@
 		balloon_alert(user, "turned off!")
 	else
 		balloon_alert(user, "insufficient charge!")
-		to_chat(user, span_warning("The plasma cutter has inadequate charge remaining! Give the internal battery time to recharge, or attack a living creature! <b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b>"))
+		to_chat(user, span_warning("The plasma cutter has inadequate charge remaining! Give the internal battery time to recharge, or attack a living creature! <b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b> Energy : [DisplayEnergyFrac(cell.charge * (2/GLOB.CELLRATE), cell.maxcharge * (2/GLOB.CELLRATE))]"))
 
 /obj/item/tool/pickaxe/plasmacutter/proc/start_cut(mob/user, name = "", atom/source, charge_amount = PLASMACUTTER_BASE_COST, custom_string, no_string, SFX = TRUE)
 	if(!(cell.charge >= charge_amount) || !powered) //Check power

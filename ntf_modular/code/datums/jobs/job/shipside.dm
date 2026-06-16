@@ -18,6 +18,7 @@
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/squad/specialist = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
 		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
@@ -54,6 +55,7 @@
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/squad/specialist = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
 		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
@@ -67,7 +69,7 @@
 	minimap_icon = "nm_ceo"
 
 /datum/job/terragov/command/nm_ceo/player_old_enough(client/C)
-	if(check_other_rights(usr.client, R_ADMIN, FALSE) && C.ckey == "drcrawler")
+	if(check_other_rights(usr.client, R_ADMIN, FALSE) && C.ckey == "CrimsonQuiver") //need someone
 		return TRUE
 	return FALSE
 
@@ -90,6 +92,7 @@
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/squad/specialist = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
 		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
@@ -151,6 +154,7 @@
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/squad/specialist = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
 		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
@@ -204,6 +208,7 @@
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/squad/specialist = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
 		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
@@ -274,6 +279,7 @@ Archercorp generally takes a more isolationist approach to diplomacy and are gen
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/squad/specialist = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
 		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
@@ -343,6 +349,7 @@ Novamed tends to be cooperative with other corporations, especially mutually wit
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/squad/specialist = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
 		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
@@ -410,10 +417,11 @@ TRANSCo generally tend to be rather hands off with general matters unless they a
 	"}
 	skills_type = /datum/skills/civilian
 	display_order = JOB_DISPLAY_ORDER_CORPORATE_LIAISON
-	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST
+	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_OVERRIDELATEJOINSPAWN
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/squad/specialist = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
 		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
@@ -488,6 +496,7 @@ Your ranking allows you to know your corporation has vital backing from the crim
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/squad/specialist = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
 		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
@@ -560,6 +569,7 @@ You honestly don't know what you are even here to negoitate, AS called terrorist
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/squad/specialist = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
 		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
@@ -610,20 +620,20 @@ Almost all of CM members were colonisers hired by the NTC before all of this hap
 /datum/job/clf/liaison_clf
 	job_category = JOB_CAT_CIVILIAN
 	selection_color = "#ffeedd"
-	title = "CLF Representative"
-	paygrade = "NT1"
-	comm_title = "CLFL"
-	supervisors = "the CLF high command."
+	title = "Cult Representative"
+	paygrade = "CLTR1"
+	comm_title = "CLTR"
+	supervisors = "the Cult high command."
 	total_positions = 1
 	access = ALL_CLF_ACCESS
 	minimal_access = ALL_CLF_ACCESS
 	outfit = /datum/outfit/job/civilian/liaison_clf
 	html_description = {"
 		<b>Difficulty</b>: Hard (varies)<br /><br />
-		<b>You answer to the</b> Colonial Liberation Force High Command.<br /><br />
+		<b>You answer to the</b> Cult of Evolution High Command.<br /><br />
 		<b>Unlock Requirement</b>: Starting Role<br /><br />
 		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
-		<b>Duty</b>: Create good relations, ensure safety of survivors and your faction. do paperwork, have sex during meetings...? Reply if you’re called.
+		<b>Duty</b>: Create good relations, ensure safety of xenomorphs and your cult. try to convert people and fail, have sex during meetings...? Reply if you’re called.
 	"}
 	skills_type = /datum/skills/civilian
 	display_order = JOB_DISPLAY_ORDER_CORPORATE_LIAISON
@@ -631,6 +641,7 @@ Almost all of CM members were colonisers hired by the NTC before all of this hap
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/squad/specialist = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
 		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
@@ -647,32 +658,34 @@ Almost all of CM members were colonisers hired by the NTC before all of this hap
 		return
 	switch(playtime_mins)
 		if(0 to 600) // starting
-			new_human.wear_id.paygrade = "LIA1"
+			new_human.wear_id.paygrade = "CLTR1"
 		if(601 to 1500) // 10hrs
-			new_human.wear_id.paygrade = "LIA2"
+			new_human.wear_id.paygrade = "CLTR2"
 		if(1501 to 6000) // 25 hrs
-			new_human.wear_id.paygrade = "LIA3"
+			new_human.wear_id.paygrade = "CLTR3"
 		if(6001 to 18000) // 100 hrs
-			new_human.wear_id.paygrade = "LIA4"
+			new_human.wear_id.paygrade = "CLTR4"
 		if(18001 to INFINITY) // 300 hrs
-			new_human.wear_id.paygrade = "LIA5"
+			new_human.wear_id.paygrade = "CLTR5"
 	new_human.wear_id.update_label()
 
 /datum/job/clf/liaison_clf/get_spawn_message_information(mob/M)
 	. = ..()
 	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
-	. += {"As a representative of Colonial Liberation Force you are expected to stay professional and loyal to the cause at all times.
-You are expected to make sure the operations are functioning as intended with the interests of CLF and a good outlook.
-Your primary job is to build good relations, protect the interests of the company and then the corporate council and report critical events to CLF. Follow regular game rules unless told otherwise by your superiors.
-Use a fax machine to communicate with headquarters or to acquire new directives when in doubt. You may not receive anything back (especially if the game staff is absent or otherwise busy), and this is normal.
-CLF is formed out of people realizing the evolutionary superiority of xenomorphs or people brainwashed into thinking so or... not thinking at all, becoming breed stock. Various reasons but one cause...
+	. += {"As a representative of Cult of Evolution you are expected to not spill any secrets and stay loyal to the cause at all times.
+You are expected to make sure the operations are functioning as intended with the interests of Cult and resolve external and internal issues.
+Your primary job is to build good relations, protect the interests of the cult and report critical events to Cult Leadership. Follow regular game rules unless told otherwise by your superiors.
+Use a fax machine to communicate with grand temple or to acquire new directives when in doubt. You may not receive anything back (especially if the game staff is absent or otherwise busy), and this is normal.
+Cult is formed out of people realizing the evolutionary superiority of xenomorphs or people brainwashed into thinking so or... not thinking at all, becoming breed stock. Various reasons but one cause...
 To serve the xenomorphs and join the ascended ones. (willingly or not, depends on the person.)"}
 
 /datum/outfit/job/civilian/liaison_clf
-	name = "CLF Representative"
+	name = "Cult Representative"
 	jobtype = /datum/job/clf/liaison_clf
 
 	id = /obj/item/card/id/silver
 	ears = /obj/item/radio/headset/distress/dutch
 	w_uniform = /obj/item/clothing/under/colonist
-	shoes = /obj/item/clothing/shoes/marine
+	wear_suit = /obj/item/clothing/suit/modular/clf/cultist_robe
+	shoes = /obj/item/clothing/shoes/marine/clf/full
+	gloves = /obj/item/clothing/gloves/black

@@ -40,7 +40,7 @@
 	return ..()
 
 /obj/effect/particle_effect/foam/footstep_override(atom/movable/source, list/footstep_overrides)
-	footstep_overrides[FOOTSTEP_WET] = layer
+	footstep_overrides[FOOTSTEP_WET] = get_footstep_layer(layer, plane)
 
 ///Finishes the foam, stopping it from processing and doing whatever it has to do.
 /obj/effect/particle_effect/foam/proc/kill_foam()
@@ -181,6 +181,8 @@
 	canSmoothWith = list(
 		SMOOTH_GROUP_FOAM_WALL,
 	)
+	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 10, BIO = 65, FIRE = 60, ACID = 10)
+	hard_armor = list(MELEE = 0, BULLET = 25, LASER = 25, ENERGY = 25, BOMB = 0, BIO = 25, FIRE = 10, ACID = 0)
 
 /obj/structure/foamedmetal/fire_act(burn_level)
 	take_damage(burn_level, BURN, FIRE)

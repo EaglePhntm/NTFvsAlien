@@ -153,7 +153,6 @@
 	icon_deny = "med-deny"
 	icon_vend = "med-vend"
 	//product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?;Ping!"
-	req_access = list(ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY) //only doctors and researchers can access these
 	products = list(
 		"Pill Bottle" = list(
 			/obj/item/storage/pill_bottle/bicaridine = -1,
@@ -219,16 +218,28 @@
 //			/obj/item/tool/research/xeno_probe = -1,
 			/obj/item/tool/research/excavation_tool = -1,
 			/obj/item/paper_map/excavation = -1,
+			/obj/item/clothing/glasses/hud/health = 6,
+			/obj/item/clothing/ears/earmuffs = 5,
+		),
+		"Surgical Equipment" = list(
 			/obj/item/storage/pouch/surgery = -1,
 			/obj/item/armor_module/storage/uniform/surgery_webbing = -1,
 			/obj/item/armor_module/storage/uniform/surgery_webbing/sling = -1,
 			/obj/item/tweezers = 15,
-			/obj/item/clothing/ears/earmuffs = 5,
 			/obj/item/reagent_containers/spray/surgery = -1,
 			/obj/item/tool/soap = 3,
-			/obj/item/clothing/glasses/hud/health = 6,
 			/obj/item/roller = 6,
 			/obj/item/stack/nanopaste = 15,
+			/obj/item/tool/surgery/scalpel/manager = -1,
+			/obj/item/tool/surgery/hemostat = -1,
+			/obj/item/tool/surgery/retractor = -1,
+			/obj/item/tool/surgery/cautery = -1,
+			/obj/item/tool/surgery/circular_saw = -1,
+			/obj/item/tool/surgery/surgical_membrane = -1,
+			/obj/item/tool/surgery/bonegel = -1,
+			/obj/item/tool/surgery/bonesetter = -1,
+			/obj/item/tool/surgery/FixOVein = -1,
+			/obj/item/tool/surgery/suture = -1,
 		),
 	)
 	idle_power_usage = 211
@@ -299,15 +310,28 @@
 			/obj/item/tool/research/xeno_analyzer = -1,
 			/obj/item/tool/research/excavation_tool = -1,
 			/obj/item/paper_map/excavation = -1,
+			/obj/item/clothing/glasses/hud/health = -1,
+			/obj/item/clothing/ears/earmuffs = -1,
+		),
+		"Surgical Equipment" = list(
 			/obj/item/storage/pouch/surgery = -1,
 			/obj/item/armor_module/storage/uniform/surgery_webbing = -1,
 			/obj/item/armor_module/storage/uniform/surgery_webbing/sling = -1,
 			/obj/item/tweezers = -1,
-			/obj/item/clothing/ears/earmuffs = -1,
 			/obj/item/reagent_containers/spray/surgery = -1,
 			/obj/item/tool/soap = -1,
-			/obj/item/clothing/glasses/hud/health = -1,
 			/obj/item/roller = -1,
+			/obj/item/tool/surgery/scalpel/manager = -1,
+			/obj/item/tool/surgery/scalpel = -1,
+			/obj/item/tool/surgery/hemostat = -1,
+			/obj/item/tool/surgery/retractor = -1,
+			/obj/item/tool/surgery/cautery = -1,
+			/obj/item/tool/surgery/circular_saw = -1,
+			/obj/item/tool/surgery/surgical_membrane = -1,
+			/obj/item/tool/surgery/bonegel = -1,
+			/obj/item/tool/surgery/bonesetter = -1,
+			/obj/item/tool/surgery/FixOVein = -1,
+			/obj/item/tool/surgery/suture = -1,
 		),
 		"Chemistry Equipment" = list(
 			/obj/item/reagent_containers/syringe = -1,
@@ -602,15 +626,15 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/nanoammo, (-26))
 		user?.balloon_alert(user, "contents organized")
 		return
 
-	else if(istype(I, /obj/item/shotgunbox))
-		var/obj/item/shotgunbox/big_shotgun_box = I
+	else if(istype(I, /obj/item/big_ammo_box))
+		var/obj/item/big_ammo_box/big_ammo_box = I
 		for(var/datum/vending_product/checked_record AS in product_records + hidden_records + coin_records)
 			var/obj/item/ammo_magazine/shotgun_shell_box = checked_record.product_path
-			if(big_shotgun_box.ammo_type == shotgun_shell_box.default_ammo)
-				while(big_shotgun_box.current_rounds >= shotgun_shell_box.max_rounds)
+			if(big_ammo_box.ammo_type == shotgun_shell_box.default_ammo)
+				while(big_ammo_box.current_rounds >= shotgun_shell_box.max_rounds)
 					if(!stock(shotgun_shell_box, user, show_feedback = FALSE))
 						break
-					big_shotgun_box.current_rounds -= shotgun_shell_box.max_rounds
+					big_ammo_box.current_rounds -= shotgun_shell_box.max_rounds
 				user?.balloon_alert(user, "shells organized")
 				return
 
@@ -658,6 +682,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/nanoammo, (-26))
 		/obj/item/storage/belt/security = -1,
 		/obj/item/explosive/grenade/smokebomb/sleep = 4,
 		/obj/item/roller/bedroll/sec = -1,
+		/obj/item/explosive/grenade/bednade = 20,
+		/obj/item/clothing/under/rank/warden/corp = 1,
+		/obj/item/clothing/under/rank/security/corp = 2,
+		/obj/item/clothing/under/marine/mp = 2,
+		/obj/item/tool/taperoll/police = 2,
+		/obj/item/clothing/suit/armor/patrol = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/combat = 8,
 	)
 
 /obj/machinery/vending/hydronutrients

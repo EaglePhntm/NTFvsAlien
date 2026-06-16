@@ -271,7 +271,7 @@ SUBSYSTEM_DEF(monitor)
 	var/datum/hive_status/normal/HN = GLOB.hive_datums[XENO_HIVE_NORMAL]
 	var/xeno_alive_plus_burrowed = HN.total_xenos_for_evolving()
 	var/xeno_alive_excl_burrowed = xeno_alive_plus_burrowed - burrowed
-	var/buff_needed_estimation = min(MAXIMUM_XENO_BUFF_POSSIBLE, max(1, xeno_alive_plus_burrowed/((xeno_alive_excl_burrowed + xeno_job.free_xeno_at_start)*2)))
+	var/buff_needed_estimation = min(MAXIMUM_XENO_BUFF_POSSIBLE, max(1, xeno_alive_plus_burrowed/(max(1,(xeno_alive_excl_burrowed + xeno_job.free_xeno_at_start)*2))))
 	// No need to ask admins every time
 	if(buff_needed_estimation == 1)
 		return buff_needed_estimation

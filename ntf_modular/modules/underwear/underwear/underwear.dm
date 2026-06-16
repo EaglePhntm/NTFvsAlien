@@ -113,6 +113,16 @@
 	greyscale_config = /datum/greyscale_config/undies
 	colorable_allowed = COLOR_WHEEL_ALLOWED
 
+/obj/item/clothing/underwear/undies/thongblack
+	name = "black thong"
+	desc = "More revealing than your average panties, in black."
+	icon_state = "thongblack"
+
+/obj/item/clothing/underwear/undies/thongblackalt
+	name = "black steel thong"
+	desc = "More revealing than your average panties, in black steel."
+	icon_state = "thongblackalt"
+
 /obj/item/clothing/underwear/undies/thong_babydoll
 	name = "thong (alt)"
 	icon_state = "thong_babydoll"

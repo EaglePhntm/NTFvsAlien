@@ -1,7 +1,7 @@
 #define PHONE_MARINE "NTC"
 #define PHONE_SOM "SOM"
 #define PHONE_KZ "KZ"
-#define PHONE_CLF "CLF"
+#define PHONE_CLF "Cult"
 #define PHONE_CM "CM"
 
 #define PHONE_DND_FORCED 2

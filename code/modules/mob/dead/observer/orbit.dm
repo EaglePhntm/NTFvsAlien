@@ -103,7 +103,7 @@
 			serialized["orbiters"] = number_of_orbiters
 
 		var/mob/living/player = mob_poi
-		serialized["health"] = FLOOR((player.health / player.maxHealth * 100), 1)
+		serialized["health"] = FLOOR(player.health / max(player.maxHealth,1) * 100, 1)
 
 		if(isxeno(mob_poi))
 			var/mob/living/carbon/xenomorph/xeno = poi

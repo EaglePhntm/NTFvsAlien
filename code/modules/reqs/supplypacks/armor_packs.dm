@@ -24,6 +24,18 @@ ARMOR
 	contains = list(/obj/item/weapon/shield/riot/marine)
 	cost = 100
 
+/datum/supply_packs/armor/basic
+	name = "Basic Jaegar set"
+	contains = list(
+		/obj/item/clothing/suit/modular/jaeger/light,
+		/obj/item/clothing/suit/modular/jaeger,
+		/obj/item/clothing/suit/modular/jaeger/heavy,
+		/obj/item/clothing/head/modular/marine/eod,
+		/obj/item/clothing/head/modular/marine/assault,
+		/obj/item/clothing/head/modular/marine/eva,
+	)
+	cost = 10
+
 /datum/supply_packs/armor/marine_shield/deployable
 	name = "TL-182 Deployable Shield"
 	contains = list(/obj/item/weapon/shield/riot/marine/deployable)
@@ -45,11 +57,6 @@ ARMOR
 		/obj/item/clothing/head/helmet/marine/grenadier,
 	)
 	cost = B17_PRICE
-
-/datum/supply_packs/armor/scout_cloak
-	name = "NT-Cyberghost"
-	contains = list(/obj/item/storage/backpack/marine/satchel/scout_cloak)
-	cost = 500
 
 /datum/supply_packs/armor/sniper_cloak
 	name = "Sniper Cloak"
@@ -118,3 +125,10 @@ ARMOR
 		/obj/item/armor_module/module/binoculars/artemis_mark_two,
 	)
 	cost = 40
+
+/datum/supply_packs/armor/dermalheadpatcharmor
+	name = "Dermal Armour Patch"
+	contains = list(
+		/obj/item/clothing/head/helmet/HoS/dermal,
+	)
+	cost = 500

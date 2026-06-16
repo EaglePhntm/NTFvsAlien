@@ -38,6 +38,15 @@
 	if(user == source)
 		return
 
+	if(iscarbon(user))
+		var/mob/living/carbon/cuser = user
+		if(cuser.a_intent != INTENT_HELP)
+			return
+
+	if(isxeno(user))
+		if(!(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES))
+			return
+
 	if(over != user)
 		return
 

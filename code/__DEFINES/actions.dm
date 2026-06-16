@@ -1,3 +1,4 @@
+//use_state_flags
 #define ABILITY_USE_INCAP (1 << 0) // ignore incapacitated
 #define ABILITY_USE_LYING (1 << 1) // ignore lying down
 #define ABILITY_USE_BUCKLED (1 << 2) // ignore buckled
@@ -16,6 +17,7 @@
 #define ABILITY_USE_BURROWED (1 << 16) // ignore being burrowed
 #define ABILITY_USE_HANDCUFFED (1 << 17) // ignore being handcuffed
 
+//target_flags
 #define ABILITY_TURF_TARGET (1 << 0) // ability targets turfs
 #define ABILITY_MOB_TARGET (1 << 1) // ability targets mobs
 #define ABILITY_XENO_TARGET (1 << 2) // ability targets Xenos
@@ -26,7 +28,8 @@
 #define ABILITY_CRASH (1<<0)
 #define ABILITY_NUCLEARWAR (1<<1)
 #define ABILITY_SOLMODE (1<<2)
-#define ABILITY_ALL_GAMEMODE (ABILITY_CRASH|ABILITY_NUCLEARWAR|ABILITY_SOLMODE)
+#define ABILITY_ENCOUNTER (1<<3)
+#define ABILITY_ALL_GAMEMODE (ABILITY_CRASH|ABILITY_NUCLEARWAR|ABILITY_SOLMODE|ABILITY_ENCOUNTER)
 
 #define PSIONIC_INTERACTION_STRENGTH_WEAK 1
 #define PSIONIC_INTERACTION_STRENGTH_STANDARD 2

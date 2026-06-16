@@ -1,29 +1,26 @@
 /datum/outfit/job/survivor/assistant
-	name = "Assistant Survivor"
+	name = "Assistant Colonist"
 	jobtype = /datum/job/survivor/assistant
 
 	w_uniform = /obj/item/clothing/under/color/grey
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/marine/clf/full
 	back = /obj/item/storage/backpack/satchel/norm
 	wear_suit = /obj/item/clothing/suit/armor/vest
 	ears = /obj/item/radio/headset/survivor
-	mask = /obj/item/clothing/mask/gas/tactical/coif
-	head = /obj/item/clothing/head/welding/flipped
 	belt = /obj/item/storage/belt/utility/full
-	l_pocket = /obj/item/flashlight/combat
-	r_hand = /obj/item/weapon/combat_knife
+	l_pocket = /obj/item/flashlight
 
 	backpack_contents = list(
 		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
 	)
 
 /datum/outfit/job/survivor/scientist
-	name = "Scientist Survivor"
+	name = "Scientist Colonist"
 	jobtype = /datum/job/survivor/scientist
 
 	w_uniform = /obj/item/clothing/under/rank/scientist
 	wear_suit = /obj/item/clothing/suit/storage/labcoat/researcher
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/marine/clf/full
 	back = /obj/item/storage/backpack/toxins
 	ears = /obj/item/radio/headset/survivor
 	l_hand = /obj/item/storage/firstaid/adv
@@ -43,12 +40,12 @@
 
 
 /datum/outfit/job/survivor/doctor
-	name = "Doctor's Assistant Survivor"
+	name = "Doctor's Assistant Colonist"
 	jobtype = /datum/job/survivor/doctor
 
 	w_uniform = /obj/item/clothing/under/rank/medical/blue
 	wear_suit = /obj/item/clothing/suit/storage/labcoat
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/marine/clf/full
 	back = /obj/item/storage/backpack/satchel/med
 	gloves = /obj/item/clothing/gloves/latex
 	glasses = /obj/item/clothing/glasses/hud/health
@@ -84,11 +81,11 @@
 	)
 
 /datum/outfit/job/survivor/liaison
-	name = "Liaison Survivor"
+	name = "Liaison Colonist"
 	jobtype = /datum/job/survivor/liaison
 
 	w_uniform = /obj/item/clothing/under/liaison_suit
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/marine/clf/full
 	back = /obj/item/storage/backpack/satchel/norm
 	ears = /obj/item/radio/headset/survivor
 	belt = /obj/item/storage/holster/belt/pistol/m4a3/vp78
@@ -96,15 +93,16 @@
 	l_pocket = /obj/item/tool/crowbar
 
 /datum/outfit/job/survivor/security
-	name = "Security Guard Survivor"
+	name = "Security Guard Colonist"
 	jobtype = /datum/job/survivor/security
 
 	w_uniform = /obj/item/clothing/under/rank/security
 	wear_suit = /obj/item/clothing/suit/armor/patrol
 	head = /obj/item/clothing/head/securitycap
 	shoes = /obj/item/clothing/shoes/marine/full
-	back = /obj/item/storage/backpack/security
-	belt = /obj/item/storage/belt/security
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud
+	back = /obj/item/storage/backpack/satchel/sec
+	belt = /obj/item/storage/belt/security/tactical
 	gloves = /obj/item/clothing/gloves/black
 	suit_store = /obj/item/weapon/gun/pistol/g22
 	ears = /obj/item/radio/headset/survivor
@@ -115,20 +113,23 @@
 		/obj/item/stack/medical/heal_pack/gauze = 1,
 		/obj/item/stack/medical/heal_pack/ointment = 1,
 		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
+		/obj/item/book/manual/marine_law = 1,
 	)
 
 	belt_contents = list(
 		/obj/item/ammo_magazine/pistol/g22 = 2,
 		/obj/item/flashlight/combat = 1,
 		/obj/item/weapon/telebaton = 1,
+		/obj/item/restraints/handcuffs = 1,
+		/obj/item/flash = 1,
 	)
 
 /datum/outfit/job/survivor/civilian
-	name = "Civilian Survivor"
+	name = "Civilian Colonist"
 	jobtype = /datum/job/survivor/civilian
 
 	w_uniform = /obj/item/clothing/under/colonist
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/marine/clf/full
 	back = /obj/item/storage/backpack/satchel/norm
 	ears = /obj/item/radio/headset/survivor
 
@@ -141,13 +142,13 @@
 
 
 /datum/outfit/job/survivor/chef
-	name = "Chef Survivor"
+	name = "Chef Colonist"
 	jobtype = /datum/job/survivor/chef
 
 	w_uniform = /obj/item/clothing/under/rank/chef
 	wear_suit = /obj/item/clothing/suit/storage/chef
 	head = /obj/item/clothing/head/chefhat
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/marine/clf/full
 	back = /obj/item/storage/backpack
 	ears = /obj/item/radio/headset/survivor
 
@@ -168,12 +169,12 @@
 
 
 /datum/outfit/job/survivor/botanist
-	name = "Botanist Survivor"
+	name = "Botanist Colonist"
 	jobtype = /datum/job/survivor/botanist
 
 	w_uniform = /obj/item/clothing/under/rank/hydroponics
 	wear_suit = /obj/item/clothing/suit/storage/apron/overalls
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/marine/clf/full
 	back = /obj/item/storage/backpack/hydroponics
 	ears = /obj/item/radio/headset/survivor
 	suit_store = /obj/item/weapon/combat_knife
@@ -188,12 +189,12 @@
 	)
 
 /datum/outfit/job/survivor/atmos
-	name = "Atmospherics Technician Survivor"
+	name = "Atmospherics Technician Colonist"
 	jobtype = /datum/job/survivor/atmos
 
 	w_uniform = /obj/item/clothing/under/rank/atmospheric_technician
 	wear_suit = /obj/item/clothing/suit/storage/hazardvest
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/marine/clf/full
 	back = /obj/item/storage/backpack/satchel/som
 	gloves = /obj/item/clothing/gloves/insulated
 	belt = /obj/item/storage/belt
@@ -227,12 +228,12 @@
 
 
 /datum/outfit/job/survivor/chaplain
-	name = "Chaplain Survivor"
+	name = "Chaplain Colonist"
 	jobtype = /datum/job/survivor/chaplain
 
 	w_uniform = /obj/item/clothing/under/rank/chaplain
 	wear_suit = /obj/item/clothing/suit/armor/vest
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/marine/clf/full
 	back = /obj/item/storage/backpack/satchel/norm
 	ears = /obj/item/radio/headset/survivor
 
@@ -249,13 +250,13 @@
 	)
 
 /datum/outfit/job/survivor/miner
-	name = "Miner Survivor"
+	name = "Miner Colonist"
 	jobtype = /datum/job/survivor/miner
 
 	w_uniform = /obj/item/clothing/under/rank/miner
 	head = /obj/item/clothing/head/helmet/space/rig/mining
 	glasses = /obj/item/clothing/glasses/meson
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/marine/clf/full
 	gloves = /obj/item/clothing/gloves/ruggedgloves
 	back = /obj/item/storage/backpack/satchel/som
 	l_hand = /obj/item/weapon/twohanded/sledgehammer
@@ -273,12 +274,12 @@
 
 
 /datum/outfit/job/survivor/salesman
-	name = "Salesman Survivor"
+	name = "Salesman Colonist"
 	jobtype = /datum/job/survivor/salesman
 
 	w_uniform = /obj/item/clothing/under/lawyer/purpsuit
 	wear_suit = /obj/item/clothing/suit/storage/lawyer/purpjacket
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/marine/clf/full
 	back = /obj/item/storage/backpack/satchel
 	mask = /obj/item/clothing/mask/cigarette/pipe/bonepipe
 	glasses = /obj/item/clothing/glasses/sunglasses/aviator
@@ -294,12 +295,12 @@
 
 
 /datum/outfit/job/survivor/marshal
-	name = "Colonial Marshal Survivor"
+	name = "Colonial Marshal Colonist"
 	jobtype = /datum/job/survivor/marshal
 
 	w_uniform = /obj/item/clothing/under/CM_uniform
 	wear_suit = /obj/item/clothing/suit/storage/CMB
-	shoes = /obj/item/clothing/shoes/jackboots
+	shoes = /obj/item/clothing/shoes/marine/clf/full
 	back = /obj/item/storage/backpack/satchel/sec
 	suit_store = /obj/item/storage/holster/belt/m44/full
 	belt = /obj/item/storage/belt/sparepouch
@@ -315,15 +316,17 @@
 		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
 	)
 
+	backpack_contents = list(/obj/item/book/manual/marine_law = 1,)
+
 /datum/outfit/job/survivor/bartender
-	name = "Bartender Survivor"
+	name = "Bartender Colonist"
 	jobtype = /datum/job/survivor/bartender
 
 	w_uniform = /obj/item/clothing/under/rank/bartender
 	wear_suit = /obj/item/clothing/suit/armor/vest
 	back = /obj/item/storage/backpack/satchel
 	belt = /obj/item/ammo_magazine/shotgun/buckshot
-	shoes = /obj/item/clothing/shoes/laceup
+	shoes = /obj/item/clothing/shoes/marine/clf/full
 	head = /obj/item/clothing/head/collectable/tophat
 	ears = /obj/item/radio/headset/survivor
 	glasses = /obj/item/clothing/glasses/sunglasses
@@ -339,7 +342,7 @@
 	)
 
 /datum/outfit/job/survivor/chemist
-	name = "Pharmacy Technician Survivor"
+	name = "Pharmacy Technician Colonist"
 	jobtype = /datum/job/survivor/chemist
 
 	w_uniform = /obj/item/clothing/under/rank/chemist
@@ -347,7 +350,7 @@
 	back = /obj/item/storage/backpack/satchel/chem
 	belt = /obj/item/storage/belt/hypospraybelt
 	gloves = /obj/item/clothing/gloves/latex
-	shoes = /obj/item/clothing/shoes/white
+	shoes = /obj/item/clothing/shoes/marine/clf/full
 	ears = /obj/item/radio/headset/survivor
 	glasses = /obj/item/clothing/glasses/science
 	l_pocket = /obj/item/flashlight
@@ -385,13 +388,13 @@
 	)
 
 /datum/outfit/job/survivor/roboticist
-	name = "Roboticist Survivor"
+	name = "Roboticist Colonist"
 	jobtype = /datum/job/survivor/roboticist
 
 	w_uniform = /obj/item/clothing/under/rank/roboticist
 	wear_suit = /obj/item/clothing/suit/storage/labcoat/science
 	belt = /obj/item/storage/belt/utility/full
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/marine/clf/full
 	back = /obj/item/storage/backpack/satchel/tox
 	ears = /obj/item/radio/headset/survivor
 	glasses = /obj/item/clothing/glasses/welding/flipped
@@ -416,7 +419,7 @@
 
 
 /datum/outfit/job/survivor/rambo
-	name = "Overpowered Survivor"
+	name = "Overpowered Colonist"
 	jobtype = /datum/job/survivor/rambo
 	w_uniform = /obj/item/clothing/under/marine/striped
 	wear_suit = /obj/item/clothing/suit/armor/patrol
@@ -427,7 +430,7 @@
 	belt = /obj/item/storage/belt/marine/alf_machinecarbine
 	l_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
 	r_pocket = /obj/item/flashlight/combat
-	glasses = /obj/item/clothing/glasses/m42_goggles
+	glasses = /obj/item/clothing/glasses/night_vision
 	head = /obj/item/clothing/head/headband
 	ears = /obj/item/radio/headset/survivor
 	backpack_contents = list()

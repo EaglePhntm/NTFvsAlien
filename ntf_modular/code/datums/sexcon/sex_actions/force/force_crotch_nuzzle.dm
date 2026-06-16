@@ -27,7 +27,6 @@
 	user.sexcon.handle_passive_ejaculation(target)
 
 /datum/sex_action/force_crotch_nuzzle/on_finish(mob/living/carbon/user, mob/living/carbon/target)
-	..()
 	user.visible_message(span_warning("[user] pulls [target]'s head away from [user.p_their()] crotch."))
 
 /datum/sex_action/force_crotch_nuzzle/is_finished(mob/living/carbon/user, mob/living/carbon/target)

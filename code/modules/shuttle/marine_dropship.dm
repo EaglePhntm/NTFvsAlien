@@ -649,6 +649,10 @@
 				continue
 			if(H.faction == FACTION_XENO)
 				continue
+			if(isnestedhost(H))
+				continue
+			if(CHECK_BITFIELD(H.restrained_flags, RESTRAINED_XENO_NEST)) //incase not pregger
+				continue
 			humans_on_ground++
 	if(length(GLOB.alive_human_list) && ((humans_on_ground / length(GLOB.alive_human_list)) > ALIVE_HUMANS_FOR_CALLDOWN))
 		to_chat(user, span_warning("There's too many tallhosts still on the ground. They interfere with our psychic field. We must dispatch them before we are able to do this."))
@@ -894,6 +898,9 @@
 				return
 			if(infestation_mode.round_stage == INFESTATION_MARINE_CRASHING)
 				message_admins("[usr] tried to capture the shuttle after it was already hijacked, possible use of exploits.")
+				return
+			if(infestation_mode.round_type_flags2 & MODE_2_NO_ABDUCT)
+				to_chat(usr, span_xenowarning("No! We need to finish the fight!"))
 				return
 			var/groundside_humans = length(GLOB.humans_by_zlevel["[z]"])
 			if(groundside_humans > 5)
@@ -1730,8 +1737,26 @@
 		to_chat(usr, span_warning("[src] is unresponsive."))
 		return FALSE
 
-	if(!length(GLOB.active_nuke_list))
-		to_chat(usr, span_danger("You must activate the nuke first."))
+	var/num_humans
+	for(var/mob/living/carbon/human/H in GLOB.alive_human_list)
+		if(!istype(H)) // Small fix?
+			continue
+		if(H.faction == FACTION_ZOMBIE)
+			continue
+		if(!H.client || H.afk_status == MOB_DISCONNECTED)
+			continue
+		if(isspaceturf(H.loc))
+			continue
+		if(H.incapacitated())
+			continue
+		if((isnestedhost(H) || HAS_TRAIT(H, TRAIT_HAULED)))
+			continue
+		if(ismonkey(H))
+			continue
+		num_humans++
+
+	if(num_humans < length(GLOB.dead_human_list))
+		to_chat(usr, span_danger("Majority of the force is still active, you are not authorized to retreat."))
 		return FALSE
 
 	log_admin("[key_name(usr)] is launching the canterbury[!length(GLOB.active_nuke_list)? " early" : ""].")

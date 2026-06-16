@@ -101,7 +101,7 @@
 	networks = list(SOM_CAMERA_NETWORK)
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/clf
-	name = "CLF Van Controls"
+	name = "Cult Van Controls"
 	shuttleId = SHUTTLE_CLFTADPOLE
 	origin_port_id = SHUTTLE_CLFTADPOLE
 	req_access = null
@@ -407,7 +407,7 @@
 		to_chat(owner, span_warning("The shuttle can't move while docked on the planet"))
 		return
 	var/area/landing_area = get_area(remote_eye)
-	if(!(landing_area.area_flags & MARINE_BASE))
+	if(!(landing_area.area_flags & MARINE_BASE) && origin.shuttleId == SHUTTLE_TADPOLE)
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ)
 	origin.shuttle_port.callTime = SHUTTLE_LANDING_CALLTIME
 	origin.next_fly_state = SHUTTLE_ON_GROUND

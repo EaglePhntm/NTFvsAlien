@@ -403,7 +403,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/white/warningstripe{
 	dir = 4
 	},

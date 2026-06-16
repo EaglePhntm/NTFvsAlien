@@ -124,9 +124,14 @@
 /obj/machinery/door/airlock/proc/canAIControl(mob/user)
 	if(hackProof)
 		return
-	if(z != user.z)
+	if(!SSmapping.level_trait(z,ZTRAIT_MARINE_MAIN_SHIP))
 		return
 	return ((aiControlDisabled != 1) && !isAllPowerCut())
+
+/obj/machinery/door/window/proc/canAIControl(mob/user)
+	if(!SSmapping.level_trait(z,ZTRAIT_MARINE_MAIN_SHIP))
+		return
+	return TRUE
 
 
 /obj/machinery/door/airlock/proc/canAIHack()
@@ -641,6 +646,23 @@
 
 
 /obj/machinery/door/airlock/proc/user_toggle_open(mob/user)
+	if(!canAIControl(user))
+		return
+
+	if(welded)
+		to_chat(user, span_warning("The airlock has been welded shut."))
+		return
+
+	if(locked)
+		to_chat(user, span_warning("The door bolts are down."))
+		return
+
+	if(!density)
+		close()
+	else
+		open()
+
+/obj/machinery/door/window/proc/user_toggle_open(mob/user)
 	if(!canAIControl(user))
 		return
 

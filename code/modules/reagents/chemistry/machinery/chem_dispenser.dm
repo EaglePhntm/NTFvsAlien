@@ -6,6 +6,7 @@
 	icon = 'icons/obj/machines/chemical_machines.dmi'
 	icon_state = "dispenser"
 	use_power = IDLE_POWER_USE
+	use_static_power = TRUE
 	idle_power_usage = 40
 	active_power_usage = 250
 	interaction_flags = INTERACT_MACHINE_TGUI
@@ -72,6 +73,10 @@
 
 	cell = new /obj/item/cell/hyper
 	start_processing()
+
+/obj/machinery/chem_dispenser/LateInitialize()
+	. = ..()
+	power_change()
 
 /obj/machinery/chem_dispenser/Destroy()
 	QDEL_NULL(beaker)

@@ -2360,7 +2360,7 @@
 	})
 "bZN" = (
 /obj/machinery/smartfridge/chemistry,
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	id = "researchlockdownext";
 	name = "\improper Research Lockdown"
 	},
@@ -17366,7 +17366,7 @@
 "pVD" = (
 /obj/structure/rack,
 /obj/item/storage/box/visual/grenade/teargas,
-/obj/item/shotgunbox/tracker,
+/obj/item/big_ammo_box/shotgun/tracker,
 /obj/item/ammo_magazine/shotgun/beanbag,
 /obj/item/ammo_magazine/shotgun/beanbag,
 /obj/item/ammo_magazine/shotgun/beanbag,
@@ -22034,7 +22034,7 @@
 /area/mainship/living/pilotbunks)
 "uqp" = (
 /obj/item/storage/box/visual/grenade/impact,
-/obj/item/shotgunbox/buckshot,
+/obj/item/big_ammo_box/shotgun/buckshot,
 /obj/structure/closet/secure_closet/guncabinet{
 	storage_capacity = 80;
 	req_access = list(200);
@@ -22353,7 +22353,7 @@
 "uBe" = (
 /obj/machinery/door/firedoor/mainship,
 /obj/structure/table/reinforced,
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	id = "researchlockdownext";
 	name = "\improper Research Lockdown"
 	},

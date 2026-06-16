@@ -73,6 +73,7 @@
 #include "map_templates.dm"
 #include "mapping.dm"
 #include "movement_order_sanity.dm"
+#include "ntf_character_appearance.dm"
 #include "plane_double_transform.dm"
 #include "security_levels.dm"
 #include "spawn_guns.dm"

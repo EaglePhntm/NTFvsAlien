@@ -22,8 +22,8 @@
 
 	body_temperature = 350
 
-	inherent_traits = list(TRAIT_IMMEDIATE_DEFIB, TRAIT_CRIT_IS_DEATH)
-	species_flags = NO_BREATHE|NO_BLOOD|NO_POISON|NO_PAIN|NO_CHEM_METABOLIZATION|DETACHABLE_HEAD|HAS_NO_HAIR|ROBOTIC_LIMBS|IS_INSULATED
+	inherent_traits = list(TRAIT_IMMEDIATE_DEFIB)
+	species_flags = NO_BREATHE|NO_BLOOD|NO_POISON|NO_PAIN|NO_CHEM_METABOLIZATION|DETACHABLE_HEAD|ROBOTIC_LIMBS|IS_INSULATED
 	stamina_mod = 0.75
 	max_stamina = 0
 
@@ -37,7 +37,6 @@
 //		SLOT_GLASSES,
 	)
 	blood_color = "#2d2055" //an oil-like color - a little note, robots cannot shed blood in any way, due to their flags
-	hair_color = "#00000000"
 	has_organ = list()
 	screams = list(MALE = SFX_ROBOT_SCREAM, FEMALE = SFX_ROBOT_SCREAM, PLURAL = SFX_ROBOT_SCREAM, NEUTER = SFX_ROBOT_SCREAM)
 	paincries = list(MALE = SFX_ROBOT_PAIN, FEMALE = SFX_ROBOT_PAIN, PLURAL = SFX_ROBOT_PAIN, NEUTER = SFX_ROBOT_PAIN)
@@ -48,17 +47,30 @@
 	death_message = "shudders violently whilst spitting out error text before collapsing, their visual sensor darkening..."
 	special_death_message = "You have been shut down.<br><small>But it is not the end of you yet... if you still have your body, wait until somebody can resurrect you...</small>"
 	joinable_roundstart = TRUE
+	has_genital_selection = TRUE
 
 	inherent_actions = list(/datum/action/repair_self)
+	species_description = "<br /><br /><b>Lore</b>:<br /><br /> \
+	You were manufactured by one of the corporations within the corporate council for a specific purpose, fighting. You were designed to be a combat robot, built to withstand and dish out large amounts of damage on the battlefield. \
+	You were built with a variety of combat scenarios in mind, and as such.<br /><br /><br /><br />  \
+	<b>Physiology</b>:<br /><br /> \
+	Combat robots are made of a variety of metals and synthetic materials, designed to be durable and resistant to damage. They have a complex internal structure that allows them to function effectively in combat situations.<br /><br /> \
+	However combat robots possess a grave weakness, they are vulnerable to electromagnetic interference.<br /><br /><br /><br /> \
+	<b>Psychology</b>:<br /><br /> \
+	Combat robots do not possess true consciousness or emotions, but they are programmed with a set of directives and protocols that govern their behavior in combat situations. They are designed to be efficient and effective in combat, and will follow their programming to the best of their abilities.<br /><br /> \
+	Although in rare cases, they may exhibit unexpected behavior due to system malfunctions or external interference.<br /><br /> \
+	Additionally there are sex-based variations in their design and functionality, which serves a combat purpose due to the new world's unknown sexual magic that is generally used for healing.<br /><br />"
 
 /datum/species/robot/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
 	. = ..()
+	H.speaking_noise = SFX_ROBOT_NOISES
 	H.speech_span = SPAN_ROBOT
 	H.voice_filter = "afftfilt=real='hypot(re,im)*sin(0)':imag='hypot(re,im)*cos(0)':win_size=512:overlap=1,rubberband=pitch=0.8"
 	H.health_threshold_crit = -100
 
 /datum/species/robot/post_species_loss(mob/living/carbon/human/H)
 	. = ..()
+	H.speaking_noise = initial(H.speaking_noise)
 	H.speech_span = initial(H.speech_span)
 	H.voice_filter = initial(H.voice_filter)
 	H.health_threshold_crit = -50
@@ -68,25 +80,36 @@
 	COOLDOWN_DECLARE(hard_crit_emote_cooldown)
 
 /datum/species/robot/handle_unique_behavior(mob/living/carbon/human/H)
+	if(H.health <= -0 && H.health > -90) // Doesn't kill, purely for sex/capture reasons
+		H.take_overall_damage(rand(2, 6), BURN, updating_health = TRUE, max_limbs = 1) // Melting!!!
 	if(H.health <= 0 && H.health > -50)
 		H.clear_fullscreen("robotlow")
 		H.overlay_fullscreen("robothalf", /atom/movable/screen/fullscreen/robot/machine/robothalf)
 		if(COOLDOWN_FINISHED(H, soft_crit_emote_cooldown))
 			COOLDOWN_START(H, soft_crit_emote_cooldown, 40 SECONDS)
 			H.emote("damaged")
+			to_chat(H, span_warning("Critical damage sustained. Repair damage immediately. <b>Integrity: [round(H.health)]%.</b>"))
+		if(prob(25))
+			do_sparks(4, TRUE, H)
 	else if(H.health <= -50)
 		H.clear_fullscreen("robothalf")
 		H.overlay_fullscreen("robotlow", /atom/movable/screen/fullscreen/robot/machine/robotlow)
 		if(COOLDOWN_FINISHED(H, hard_crit_emote_cooldown))
 			COOLDOWN_START(H, hard_crit_emote_cooldown, 40 SECONDS)
 			H.emote("critical")
+			to_chat(H, span_warning("Critical damage sustained. Total system failure imminent. <b>Integrity: [round(H.health)]%.</b>"))
+		if(prob(25))
+			do_sparks(4, TRUE, H)
 	else
 		H.clear_fullscreen("robothalf")
 		H.clear_fullscreen("robotlow")
 	if(H.health > -25) //Staggerslowed if below crit threshold
 		return
+	H.apply_effect(4 SECONDS, EFFECT_STUTTER) // Added flavor
 	H.Stagger(2 SECONDS)
 	H.adjust_slowdown(1)
+	if(H.health <= -80) //Paralyzes when near death
+		H.Paralyze(6 SECONDS)
 
 ///Lets a robot repair itself over time at the cost of being stunned and blind
 /datum/action/repair_self

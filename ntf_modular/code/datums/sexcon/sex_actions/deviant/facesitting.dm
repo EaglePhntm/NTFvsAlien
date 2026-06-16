@@ -10,7 +10,9 @@
 
 /datum/sex_action/facesitting/can_perform(mob/living/carbon/user, mob/living/carbon/target)
 	if(user == target)
-		return FALSE	// Need to stand up
+		return FALSE
+
+	// Need to stand up
 	if(user.resting)
 		return FALSE
 	// Target can't stand up
@@ -40,7 +42,7 @@
 	target.sexcon.handle_passive_ejaculation(user)
 
 /datum/sex_action/facesitting/on_finish(mob/living/carbon/user, mob/living/carbon/target)
-	..()
+	playsound(src, pick(list('ntf_modular/sound/misc/cork_pop.ogg','ntf_modular/sound/misc/cork_pop (2).ogg')), 75, TRUE, 7, ignore_walls = FALSE)
 	user.visible_message(span_warning("[user] gets off [target]'s face."))
 
 /datum/sex_action/facesitting/is_finished(mob/living/carbon/user, mob/living/carbon/target)
@@ -54,12 +56,26 @@
 /datum/sex_action/facesittingtwo/shows_on_menu(mob/living/carbon/user, mob/living/carbon/target)
 	if(user == target)
 		return FALSE
-
+	if(isxeno(user))
+		var/mob/living/carbon/xenomorph/userxeno = user
+		if(userxeno.client?.prefs?.xenogender != 2 && userxeno.client?.prefs?.xenogender != 4)
+			return FALSE
+	else
+		if(user.gender != FEMALE)
+			return FALSE
 	return TRUE
 
 /datum/sex_action/facesittingtwo/can_perform(mob/living/carbon/user, mob/living/carbon/target)
 	if(user == target)
 		return FALSE
+
+	if(isxeno(user))
+		var/mob/living/carbon/xenomorph/userxeno = user
+		if(userxeno.client?.prefs?.xenogender != 2 && userxeno.client?.prefs?.xenogender != 4)
+			return FALSE
+	else
+		if(user.gender != FEMALE)
+			return FALSE
 	// Need to stand up
 	if(user.resting)
 		return FALSE
@@ -87,6 +103,7 @@
 	target.sexcon.handle_passive_ejaculation(user)
 
 /datum/sex_action/facesittingtwo/on_finish(mob/living/carbon/user, mob/living/carbon/target)
+	playsound(src, pick(list('ntf_modular/sound/misc/cork_pop.ogg','ntf_modular/sound/misc/cork_pop (2).ogg')), 75, TRUE, 7, ignore_walls = FALSE)
 	user.visible_message(span_warning("[user] gets off [target]'s face."))
 
 /datum/sex_action/facesittingtwo/is_finished(mob/living/carbon/user, mob/living/carbon/target)

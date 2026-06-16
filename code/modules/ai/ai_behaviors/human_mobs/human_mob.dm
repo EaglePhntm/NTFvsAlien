@@ -130,13 +130,19 @@
 	. = ..()
 
 	for(var/datum/action/action in ability_list)
-		if(!action.ai_should_use(atom_to_walk_to)) //todo: some of these probably should be aimmed at combat_target somehow...
+		if(action.ai_should_use(combat_target))
+			if(istype(action, /datum/action/ability/activable))
+				var/datum/action/ability/activable/activable_action = action
+				activable_action.use_ability(combat_target)
+			else
+				action.action_activate()
 			continue
-		if(istype(action, /datum/action/ability/activable))
-			var/datum/action/ability/activable/activable_action = action
-			activable_action.use_ability(atom_to_walk_to)
-		else
-			action.action_activate()
+		if(action.ai_should_use(atom_to_walk_to))
+			if(istype(action, /datum/action/ability/activable))
+				var/datum/action/ability/activable/activable_action = action
+				activable_action.use_ability(atom_to_walk_to)
+			else
+				action.action_activate()
 
 	if(human_ai_behavior_flags & HUMAN_AI_USE_WEAPONS)
 		if(!grenade_process())

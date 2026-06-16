@@ -1,14 +1,14 @@
 /datum/hive_status
 	var/req_jelly_progress_required = 74 // 370 seconds =  6.25 minutes per globule
 	var/list/req_jelly_pods = list()
-	var/health_mulitiplier = 1
+	var/health_multiplier = 1
 	var/melee_multiplier = 1
 	var/aura_multiplier = 1
 	COOLDOWN_DECLARE(silo_shock_cooldown)
 	var/queueable = FALSE
 
 /datum/hive_status/proc/set_health_multiplier(new_health_multiplier)
-	health_mulitiplier = new_health_multiplier
+	health_multiplier = new_health_multiplier
 	for(var/mob/living/carbon/xenomorph/xeno AS in GLOB.alive_xeno_list_hive[hivenumber])
 		xeno.apply_health_stat_buff()
 
@@ -31,7 +31,7 @@
 	queueable = TRUE
 
 /datum/hive_status/corrupted
-	health_mulitiplier = 0.8
+	health_multiplier = 0.8
 	aura_multiplier = 0.95
 	req_jelly_progress_required = 148 // 750 seconds = 12.5 minutes per globule
 	queueable = TRUE

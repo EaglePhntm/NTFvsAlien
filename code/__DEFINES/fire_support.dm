@@ -57,6 +57,15 @@
 #define FIRESUPPORT_TYPE_TELE_COPE_SOLMODE "tele_cope_solmode"
 #define FIRESUPPORT_TYPE_SENTRY_POD_SOLMODE "sentry_pod_solmode"
 #define FIRESUPPORT_TYPE_SUPPLY_POD_SOLMODE "supply_pod_solmode"
+#define FIRESUPPORT_TYPE_LASER_SOLMODE "laser_solmode"
+#define FIRESUPPORT_TYPE_HE_MORTAR_SOLMODE "he_mortar_solmode"
+#define FIRESUPPORT_TYPE_INCENDIARY_MORTAR_SOLMODE "incendiary_mortar_solmode"
+#define FIRESUPPORT_TYPE_SMOKE_MORTAR_SOLMODE "smoke_mortar_solmode"
+#define FIRESUPPORT_TYPE_ACID_SMOKE_MORTAR_SOLMODE "acid_smoke_mortar_solmode"
+#define FIRESUPPORT_TYPE_HE_MORTAR_SOM_SOLMODE "he_mortar_som_solmode"
+#define FIRESUPPORT_TYPE_INCENDIARY_MORTAR_SOM_SOLMODE "incendiary_mortar_som_solmode"
+#define FIRESUPPORT_TYPE_SMOKE_MORTAR_SOM_SOLMODE "smoke_mortar_som_solmode"
+#define FIRESUPPORT_TYPE_SATRAPINE_SMOKE_MORTAR_SOLMODE "satrapine_smoke_mortar_solmode"
 
 ///Assoc list of firesupport types
 GLOBAL_LIST_INIT(fire_support_types, list(
@@ -91,4 +100,13 @@ GLOBAL_LIST_INIT(fire_support_types, list(
 	FIRESUPPORT_TYPE_TELE_COPE_SOLMODE = new /datum/fire_support/tele_cope/solmode,
 	FIRESUPPORT_TYPE_SENTRY_POD_SOLMODE = new /datum/fire_support/droppod/solmode,
 	FIRESUPPORT_TYPE_SUPPLY_POD_SOLMODE = new /datum/fire_support/droppod/supply/solmode,
+	FIRESUPPORT_TYPE_LASER_SOLMODE = new /datum/fire_support/laser/solmode,
+	FIRESUPPORT_TYPE_HE_MORTAR_SOLMODE = new /datum/fire_support/mortar/solmode,
+	FIRESUPPORT_TYPE_INCENDIARY_MORTAR_SOLMODE = new /datum/fire_support/mortar/incendiary/solmode,
+	FIRESUPPORT_TYPE_SMOKE_MORTAR_SOLMODE = new /datum/fire_support/mortar/smoke/solmode,
+	FIRESUPPORT_TYPE_ACID_SMOKE_MORTAR_SOLMODE = new /datum/fire_support/mortar/smoke/acid/solmode,
+	FIRESUPPORT_TYPE_HE_MORTAR_SOM_SOLMODE = new /datum/fire_support/mortar/som/solmode,
+	FIRESUPPORT_TYPE_INCENDIARY_MORTAR_SOM_SOLMODE = new /datum/fire_support/mortar/incendiary/som/solmode,
+	FIRESUPPORT_TYPE_SMOKE_MORTAR_SOM_SOLMODE = new /datum/fire_support/mortar/smoke/som/solmode,
+	FIRESUPPORT_TYPE_SATRAPINE_SMOKE_MORTAR_SOLMODE = new /datum/fire_support/mortar/smoke/satrapine/solmode,
 	))

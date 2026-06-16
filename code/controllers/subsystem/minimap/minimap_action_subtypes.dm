@@ -4,15 +4,15 @@
 
 
 /datum/action/minimap/survivor
-	minimap_flags = MINIMAP_FLAG_MARINE
+	minimap_flags = MINIMAP_FLAG_ICC
 	marker_flags = MINIMAP_FLAG_SURVIVOR
 
 /datum/action/minimap/researcher
-	minimap_flags = MINIMAP_FLAG_MARINE|MINIMAP_FLAG_EXCAVATION_ZONE|MINIMAP_FLAG_SURVIVOR
+	minimap_flags = MINIMAP_FLAG_MARINE|MINIMAP_FLAG_EXCAVATION_ZONE
 	marker_flags = MINIMAP_FLAG_MARINE
 
 /datum/action/minimap/marine
-	minimap_flags = MINIMAP_FLAG_MARINE|MINIMAP_FLAG_SURVIVOR
+	minimap_flags = MINIMAP_FLAG_MARINE
 	marker_flags = MINIMAP_FLAG_MARINE
 
 /datum/action/minimap/marine/external //Avoids keybind conflicts between inherent mob minimap and bonus minimap from consoles, CAS or similar.
@@ -37,7 +37,7 @@
 	marker_flags = MINIMAP_FLAG_KZ
 
 /datum/action/minimap/icc
-	minimap_flags = MINIMAP_FLAG_ICC
+	minimap_flags = MINIMAP_FLAG_ICC|MINIMAP_FLAG_SURVIVOR
 	marker_flags = MINIMAP_FLAG_ICC
 
 /datum/action/minimap/clf

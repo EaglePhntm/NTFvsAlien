@@ -74,6 +74,7 @@
 	bound_height = 32
 	obj_integrity = 75
 	max_integrity = 75
+	obj_flags = CAN_BE_HIT|PROJ_IGNORE_DENSITY
 
 /obj/structure/xeno/lighttower/Initialize(mapload)
 	. = ..()

@@ -188,7 +188,7 @@ GLOBAL_LIST_EMPTY(radio_packs)
 	phone_category = PHONE_KZ
 
 /obj/item/storage/backpack/marine/radiopack/clf_net
-	name = "\improper CLF radio operator Pack"
+	name = "\improper Cult radio operator Pack"
 	color = COLOR_PURPLE
 	networks_receive = list(FACTION_CLF)
 	networks_transmit = list(FACTION_CLF)
@@ -213,13 +213,23 @@ GLOBAL_LIST_EMPTY(radio_packs)
 	var/list/networks_receive = list(FACTION_TERRAGOV)
 	var/list/networks_transmit = list(FACTION_TERRAGOV)
 
+/obj/item/armor_module/module/antenna/on_attach(obj/item/attaching_to, mob/user)
+	. = ..()
+	var/datum/action/item_action = actions[1]
+	item_action.button.overlays.Cut()
+
+	var/image/IMG = image('ntf_modular/icons/obj/structures/phone.dmi', item_action.button, "scout_microphone")
+	item_action.button.overlays += IMG
+
 /obj/item/armor_module/module/antenna/activate(mob/living/user)
 	playsound(loc, 'sound/machines/terminal_button01.ogg', 50, 1)
-	switch(tgui_alert(user, "Use which interface?", "Antenna Module", list("Cancel","Beacon","Microphone")))
+	use_phone(user)
+	/*
+	switch(tgui_alert(user, "Use which interface?", "Antenna Module", list("Cancel","Coords","Microphone")))
 		if("Microphone")
 			use_phone(user)
 			update_button(FALSE)
-		if("Beacon")
+		if("Coords")
 			update_button(TRUE)
 			if(comms_setup == COMMS_SETTING)
 				to_chat(user, span_notice("Your Antenna module is still in the process of starting up!"))
@@ -230,6 +240,7 @@ GLOBAL_LIST_EMPTY(radio_packs)
 				return
 		if("Cancel")
 			return
+	*/
 
 /obj/item/armor_module/module/antenna/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
@@ -245,8 +256,10 @@ GLOBAL_LIST_EMPTY(radio_packs)
 	SIGNAL_HANDLER
 	if(slot == SLOT_HEAD)
 		autoset_phone_id(equipper)
+		RegisterSignal(equipper, COMSIG_MOVABLE_MOVED, PROC_REF(on_move))
 	else
 		autoset_phone_id(null) // Disable phone when dropped
+		UnregisterSignal(equipper, COMSIG_MOVABLE_MOVED)
 
 /obj/item/armor_module/module/antenna/proc/on_attackby(datum/source, obj/item/scout_phone, mob/living/user)
 	SIGNAL_HANDLER
@@ -279,10 +292,12 @@ GLOBAL_LIST_EMPTY(radio_packs)
 	internal_transmitter.putdown_sound = 'ntf_modular/sound/machines/telephone/scout_hang_up.ogg'
 	internal_transmitter.attached_to.can_be_raised = FALSE
 	internal_transmitter.bypass_tgui_range = TRUE
+	internal_transmitter.call_sound_range = 1
+	internal_transmitter.pickup_sound_range = 1
 	RegisterSignal(internal_transmitter, "COMSIG_TRANSMITTER_UPDATE_ICON", PROC_REF(check_for_ringing))
-	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(on_move))
 	GLOB.radio_packs += src
 
+/*
 /obj/item/armor_module/module/antenna/proc/update_button(mode)
 	var/datum/action/item_action = actions[1]
 	item_action.button.overlays.Cut()
@@ -291,6 +306,7 @@ GLOBAL_LIST_EMPTY(radio_packs)
 	else
 		var/image/IMG = image('ntf_modular/icons/obj/structures/phone.dmi', item_action.button, "scout_microphone")
 		item_action.button.overlays += IMG
+*/
 
 /obj/item/armor_module/module/antenna/proc/check_for_ringing()
 	SIGNAL_HANDLER
@@ -332,9 +348,31 @@ GLOBAL_LIST_EMPTY(radio_packs)
 			internal_transmitter.phone_id += " ([H.assigned_squad.name])"
 	else
 		internal_transmitter.phone_id = "[user]"
+	switch(user.faction)
+		if(FACTION_TERRAGOV)
+			internal_transmitter.phone_category = PHONE_MARINE
+		if(FACTION_SOM)
+			internal_transmitter.phone_category = PHONE_SOM
+		if(FACTION_VSD)
+			internal_transmitter.phone_category = PHONE_KZ
+		if(FACTION_CLF)
+			internal_transmitter.phone_category = PHONE_CLF
+		if(FACTION_ICC)
+			internal_transmitter.phone_category = PHONE_CM
+		else
+			internal_transmitter.phone_category = "Civilian"
+	internal_transmitter.networks_receive = list(user.faction)
+	internal_transmitter.networks_transmit = list(user.faction)
 	internal_transmitter.enabled = TRUE
 
 /obj/item/armor_module/module/antenna/proc/use_phone(mob/user)
+	if(!parent)
+		internal_transmitter.set_tether_holder(src)
+		return
+	if(isturf(loc))
+		internal_transmitter.set_tether_holder(parent)
+	else
+		internal_transmitter.set_tether_holder(parent.loc)
 	internal_transmitter.attack_hand(user)
 
 #undef COMMS_OFF

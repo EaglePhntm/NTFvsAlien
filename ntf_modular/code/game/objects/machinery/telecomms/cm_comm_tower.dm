@@ -30,7 +30,7 @@
 	build_path = /obj/machinery/telecomms/relay/preset/tower/faction/som
 
 /obj/item/circuitboard/machine/telecomms/relay/tower/faction/clf
-	name = "\improper TC-4T Telecommunications CLF Circuit Board"
+	name = "\improper TC-4T Telecommunications Cult Circuit Board"
 	build_path = /obj/machinery/telecomms/relay/preset/tower/faction/clf
 
 /obj/item/circuitboard/machine/telecomms/relay/tower/faction/cm
@@ -86,9 +86,9 @@
 	autolinkers = list("relay")
 	layer = FLY_LAYER
 	use_power = NO_POWER_USE
-	idle_power_usage = 0
+	idle_power_usage = 50
 	netspeed = 40
-	resistance_flags = INDESTRUCTIBLE
+	resistance_flags = INDESTRUCTIBLE|TAIL_STABABLE
 	var/destructible = TRUE
 	var/health = 450 //we use this seperate var so shit dont delete I guess.
 	freq_listening = NTC_SIDED_FREQS
@@ -99,6 +99,10 @@
 	. = ..()
 	update_minimap_marker()
 	START_PROCESSING(SSslowprocess, src)
+
+/obj/machinery/telecomms/relay/preset/tower/LateInitialize()
+	. = ..()
+	power_change()
 
 /obj/machinery/telecomms/relay/preset/tower/proc/update_minimap_marker()
 	if(!z)
@@ -127,6 +131,7 @@
 	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
 	playsound(loc, SFX_ALIEN_CLAW_METAL, 25)
 	update_health(damage_amount)
+	return TRUE
 
 /obj/machinery/telecomms/relay/preset/tower/tail_stab_act(mob/living/carbon/xenomorph/xeno, damage, target_zone, penetration, structure_damage_multiplier, stab_description, disorientamount, can_hit_turf)
 	if(!xeno.blunt_stab)
@@ -166,9 +171,10 @@
 	else
 		desc = initial(desc)
 
-	//spill your shit cause those are not replacable.
-	deconstruct()
 	update_state()
+	if(!(atom_flags & NODECONSTRUCT))
+		//spill your shit cause those are not replacable.
+		deconstruct()
 
 // In any case that might warrant reevaluating working state
 /obj/machinery/telecomms/relay/preset/tower/proc/update_state()
@@ -281,7 +287,7 @@
 
 /obj/machinery/telecomms/relay/preset/tower/faction/clf
 	freq_listening = CLF_FREQS
-	faction_shorthand = "CLF"
+	faction_shorthand = "Cult"
 
 /obj/machinery/telecomms/relay/preset/tower/faction/Initialize(mapload, ...)
 	if(faction_shorthand)
@@ -299,7 +305,6 @@
 /obj/machinery/telecomms/relay/preset/tower/mapcomms
 	name = "TC-3T static telecommunications tower"
 	desc = "A static heavy-duty TC-3T telecommunications tower. Used to set up subspace communications lines between planetary and extra-planetary locations. Will cause a devastating EMP burst once destroyed. Will need to have extra communication frequencies programmed into it by multitool."
-	use_power = NO_POWER_USE
 	idle_power_usage = 500
 	icon = 'ntf_modular/icons/obj/structures/machinery/comm_tower3.dmi'
 	icon_state = "static1"
@@ -326,9 +331,6 @@
 	/// Holds the delay for when a cluster can recorrupt the comms tower after a pylon has been destroyed
 	COOLDOWN_DECLARE(corruption_delay)
 
-/obj/machinery/telecomms/relay/preset/tower/mapcomms/Initialize()
-	. = ..()
-
 /obj/machinery/telecomms/relay/preset/tower/mapcomms/examine(mob/user)
 	. = ..()
 	. += span_notice("It is currently [toggled ? "on" : "off"].")
@@ -353,6 +355,7 @@
 	if(current_state != on)
 		to_chat(user, span_notice("\The [src] is already turned [on ? "on" : "off"]!"))
 		return
+	power_change()
 	if(machine_stat & NOPOWER)
 		to_chat(user, span_warning("\The [src] makes a small plaintful beep, and nothing happens. It seems to be out of power."))
 		return FALSE
@@ -360,14 +363,13 @@
 		to_chat(user, span_warning("\The [src]'s processors are still cooling! Wait before trying to flip the switch again."))
 		return
 	toggle_state(user) // just flip dat switch
-	var/turf/commloc = get_turf(src)
 	var/area/commarea = get_area(src)
 	if(on) //now, if it went on it now uses power
 		use_power = IDLE_POWER_USE
-		message_admins("[key_name(user)] turned \the [src] in [commarea] ON. [ADMIN_JMP(commloc.loc)]")
+		message_admins("[key_name(user)] turned \the [src] in [commarea] ON. [ADMIN_JMP(src)]")
 	else
 		use_power = NO_POWER_USE
-		message_admins("[key_name(user)] turned \the [src] in [commarea] OFF. [ADMIN_JMP(commloc.loc)]")
+		message_admins("[key_name(user)] turned \the [src] in [commarea] OFF. [ADMIN_JMP(src)]")
 	toggle_cooldown = world.time + 4 SECONDS
 	update_icon_state()
 
@@ -379,35 +381,37 @@
 			to_chat(user, span_warning("\The [src.name] needs repairs to have frequencies added to its software!"))
 			return
 		var/choice = tgui_input_list(user, "What do you wish to do?", "TC-3T comms tower", list("Wipe communication frequencies", "Add your faction's frequencies"))
-		if(choice == "Wipe communication frequencies")
-			freq_listening = list(FREQ_CIV_GENERAL)
-			to_chat(user, span_notice("You wipe the preexisting frequencies from \the [src]."))
-			return
-		else if(choice == "Add your faction's frequencies")
-			if(!do_after(user, 10, IGNORE_HAND|IGNORE_HELD_ITEM, BUSY_ICON_BUILD))
+		switch(choice)
+			if("Wipe communication frequencies")
+				freq_listening = list(FREQ_CIV_GENERAL)
+				to_chat(user, span_notice("You wipe the preexisting frequencies from \the [src]."))
 				return
-			if(user.faction in GLOB.faction_to_radio)
-				switch(faction)
-					if(FACTION_TERRAGOV,FACTION_NANOTRASEN,FACTION_ICC)
-						freq_listening -=  NTC_SIDED_FREQS
-						freq_listening +=  NTC_SIDED_FREQS
-					if(FACTION_SOM)
-						freq_listening -= SOM_FREQS
-						freq_listening += SOM_FREQS
-					if(FACTION_VSD)
-						freq_listening -= KZ_FREQS
-						freq_listening += KZ_FREQS
-					if(FACTION_CLF)
-						freq_listening -= CLF_FREQS
-						freq_listening += CLF_FREQS
-				to_chat(user, span_notice("You add your faction's communication frequencies to \the [src]'s comm list."))
-			else
-				to_chat(user, span_notice("You don't have a fitting faction."))
-			return
+			if("Add your faction's frequencies")
+				if(!do_after(user, 10, IGNORE_HAND|IGNORE_HELD_ITEM, BUSY_ICON_BUILD))
+					return
+				if(user.faction in GLOB.faction_to_radio)
+					switch(user.faction)
+						if(FACTION_TERRAGOV,FACTION_NANOTRASEN,FACTION_ICC)
+							freq_listening -= NTC_SIDED_FREQS
+							freq_listening += NTC_SIDED_FREQS
+						if(FACTION_SOM)
+							freq_listening -= SOM_FREQS
+							freq_listening += SOM_FREQS
+						if(FACTION_VSD)
+							freq_listening -= KZ_FREQS
+							freq_listening += KZ_FREQS
+						if(FACTION_CLF)
+							freq_listening -= CLF_FREQS
+							freq_listening += CLF_FREQS
+					to_chat(user, span_notice("You add your faction's communication frequencies to \the [src]'s comm list."))
+					return
+				else
+					to_chat(user, span_notice("You don't have a fitting faction."))
+					return
 	. = ..()
 
 /obj/machinery/telecomms/relay/preset/tower/mapcomms/power_change()
-	..()
+	. = ..()
 	if((machine_stat & NOPOWER))
 		if(on)
 			toggle_state()

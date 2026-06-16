@@ -51,10 +51,12 @@
 	adjustment_variants = list()
 
 /obj/item/clothing/under/rank/security/corp
+	name = "corpsec officer uniform"
 	icon_state = "sec_corporate"
 	adjustment_variants = list()
 
 /obj/item/clothing/under/rank/warden/corp
+	name = "corpsec warden uniform"
 	icon_state = "warden_corporate"
 	adjustment_variants = list()
 

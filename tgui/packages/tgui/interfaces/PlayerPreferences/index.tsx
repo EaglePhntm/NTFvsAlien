@@ -53,7 +53,7 @@ export const PlayerPreferences = (props) => {
   }
 
   return (
-    <Window width={1140} height={650}>
+    <Window width={1240} height={700}>
       <Window.Content scrollable>
         <Flex>
           <Flex.Item>

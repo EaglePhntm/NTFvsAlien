@@ -3,6 +3,7 @@
 	config_tag = "Nuclear War"
 	silo_scaling = 2
 	round_type_flags = MODE_INFESTATION|MODE_LATE_OPENING_SHUTTER_TIMER|MODE_XENO_RULER|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_SILOS_SPAWN_MINIONS|MODE_ALLOW_XENO_QUICKBUILD|MODE_FORCE_CUSTOMSQUAD_UI|MODE_MUTATIONS_OBTAINABLE
+	round_type_flags2 = MODE_2_NO_ABDUCT
 	xeno_abilities_flags = ABILITY_NUCLEARWAR
 	time_between_round = 48 HOURS
 	valid_job_types = list(
@@ -25,6 +26,7 @@
 		/datum/job/terragov/silicon/ai = 1,
 		/datum/job/terragov/squad/engineer = 1,
 		/datum/job/terragov/squad/corpsman = 1,
+		/datum/job/terragov/squad/specialist = 1,
 		/datum/job/terragov/squad/smartgunner = 1,
 		/datum/job/terragov/squad/leader = 1,
 		/datum/job/terragov/squad/standard = -1,
@@ -33,6 +35,7 @@
 		/datum/job/xenomorph/queen = 1
 	)
 	job_points_needed_by_job_type = list(
+		/datum/job/terragov/squad/specialist = 20,
 		/datum/job/terragov/squad/smartgunner = 20,
 		/datum/job/terragov/squad/corpsman = 5,
 		/datum/job/terragov/squad/engineer = 5,
@@ -42,7 +45,7 @@
 	evo_requirements = list(
 		/datum/xeno_caste/queen = 8,
 		/datum/xeno_caste/king = 12,
-		/datum/xeno_caste/dragon = 12,
+		/datum/xeno_caste/dragon = 18,
 	)
 
 	max_larva_preg_at_once = 1
@@ -51,11 +54,11 @@
 	var/siloless_hive_timer
 
 /datum/game_mode/infestation/nuclear_war/post_setup()
-	var/client_count = length(GLOB.clients)
+	var/client_count = length(GLOB.whitelisted_clients)
 	if(client_count >= NUCLEAR_WAR_MECH_MINIMUM_POP_REQUIRED)
-		evo_requirements[/datum/xeno_caste/queen] -= 2
+		evo_requirements[/datum/xeno_caste/queen] -= 1
 	if(client_count >= NUCLEAR_WAR_TANK_MINIMUM_POP_REQUIRED)
-		evo_requirements[/datum/xeno_caste/queen] -= 2
+		evo_requirements[/datum/xeno_caste/queen] -= 1
 
 	. = ..()
 
@@ -83,8 +86,11 @@
 	if(round_finished)
 		return
 	if(round_stage == INFESTATION_MARINE_CRASHING)
+		priority_announce("The hive has collapsed due to lack of rulership.", "Orphan hivemind collapse", type = ANNOUNCEMENT_PRIORITY)
 		round_finished = MODE_INFESTATION_M_MINOR
 		return
+	priority_announce("The hive has collapsed due to lack of rulership.  Marines win!", "Orphan hivemind collapse", type = ANNOUNCEMENT_PRIORITY)
+	round_finished = MODE_INFESTATION_M_MAJOR
 
 ///Returns the time left before the hivemind collapses due to being orphaned
 /datum/game_mode/infestation/nuclear_war/get_hivemind_collapse_countdown()
@@ -106,17 +112,22 @@
 		if(siloless_hive_timer)
 			deltimer(siloless_hive_timer)
 			siloless_hive_timer = null
+			silo_owner.xeno_message("A new silo has been laid! Hive collapse has been averted. Defend it and recorrupt generators to prevent future collapse.", "xenoannounce", 6, TRUE)
+			priority_announce("A new silo has been laid! Destroy the new silo before generators are recorrupted to resume hive collapse.", "Hive Collapse Averted", type = ANNOUNCEMENT_PRIORITY)
 		return
-	if(GLOB.corrupted_generators)
+	if(GLOB.corrupted_generators > 0)
 		if(siloless_hive_timer)
 			deltimer(siloless_hive_timer)
 			siloless_hive_timer = null
+			silo_owner.xeno_message("A generator has been corrupted! Hive collapse has been averted. Defend it and lay a new silo to prevent future collapse.", "xenoannounce", 6, TRUE)
+			priority_announce("A generator has been corrupted! Decorrupt the generators before a new silo is laid to resume hive collapse.", "Hive Collapse Averted", type = ANNOUNCEMENT_PRIORITY)
 		return
 	//handle starting
 	if(siloless_hive_timer)
 		return
 
 	silo_owner.xeno_message("We don't have any silos or corrupted generators! The hive will collapse if nothing is done.", "xenoannounce", 6, TRUE)
+	priority_announce("Psychic distress waves detected from the xenomorph hive, imminent hive collapse in [NUCLEAR_WAR_SILO_COLLAPSE/10] seconds. Prevent xenomorphs from laying a new silo or recorrupting generators.", "Imminent Hive Collapse Detected", type = ANNOUNCEMENT_PRIORITY)
 	siloless_hive_timer = addtimer(CALLBACK(src, PROC_REF(siloless_hive_collapse)), NUCLEAR_WAR_SILO_COLLAPSE, TIMER_STOPPABLE)
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_SILOLESS_COLLAPSE)
 

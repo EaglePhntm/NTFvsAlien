@@ -190,6 +190,10 @@
 	new /obj/item/armor_module/storage/uniform/black_vest(src)
 	new /obj/item/clothing/head/soft/sec/corp(src)
 	new /obj/item/clothing/under/rank/security/corp(src)
+	new /obj/item/clothing/under/lewd/stripper/slutcurity(src)
+	new /obj/item/clothing/suit/modular/xenonauten/bulletresistant/bikini(src)
+	new /obj/item/clothing/suit/modular/xenonauten/bulletresistant(src)
+	new /obj/item/book/manual/marine_law(src)
 
 
 /obj/structure/closet/secure_closet/security/cargo/PopulateContents()

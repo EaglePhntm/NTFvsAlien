@@ -138,7 +138,7 @@
 			continue
 
 		if(M.stat == DEAD)
-			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS)) && !check_rights_for(M.client, R_ADMIN)) // no getting to know what you shouldn't
+			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags2, MODE_2_NO_GHOSTS_STRICT)) && !check_rights_for(M.client, R_ADMIN)) // no getting to know what you shouldn't
 				continue
 
 		var/msg = message
@@ -206,7 +206,7 @@
 			continue
 
 		if(M.stat == DEAD)
-			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS)) && !(M.client && check_rights_for(M.client, R_ADMIN))) // no getting to know what you shouldn't
+			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags2, MODE_2_NO_GHOSTS_STRICT)) && !(M.client && check_rights_for(M.client, R_ADMIN))) // no getting to know what you shouldn't
 				continue
 
 		var/msg = message
@@ -237,7 +237,7 @@
 			continue
 
 		if(M.stat == DEAD)
-			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags, MODE_NO_GHOSTS)) && !(M.client && check_rights_for(M.client, R_ADMIN))) // no getting to know what you shouldn't
+			if((!SSticker.mode || CHECK_BITFIELD(SSticker.mode.round_type_flags2, MODE_2_NO_GHOSTS_STRICT)) && !(M.client && check_rights_for(M.client, R_ADMIN))) // no getting to know what you shouldn't
 				continue
 
 		if(audible_message_flags & EMOTE_MESSAGE && rc_vc_msg_prefs_check(M, audible_message_flags))
@@ -781,6 +781,8 @@
 /// Adds this list to the output to the stat browser
 /mob/proc/get_status_tab_items()
 	. = list("") //we want to offset unique stuff from standard stuff
+	if(!WHITELIST_CHECK(client))
+		return
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_MOB_GET_STATUS_TAB_ITEMS, src, .)
 	SEND_SIGNAL(src, COMSIG_MOB_GET_STATUS_TAB_ITEMS, .)
 

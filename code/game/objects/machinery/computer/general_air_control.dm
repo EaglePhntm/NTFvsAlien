@@ -319,7 +319,16 @@ Min Core Pressure: [pressure_limit] kPa<BR>"}
 	var/on_temperature = 1200
 	circuit = /obj/item/circuitboard/computer/air_management/injector_control
 
+/obj/machinery/computer/general_air_control/fuel_injection/Initialize(mapload)
+	. = ..()
+	if(automation)
+		start_processing()
+
 /obj/machinery/computer/general_air_control/fuel_injection/process()
+	if(!automation)
+		stop_processing()
+		return
+
 	if(automation)
 		if(!radio_connection)
 			return 0
@@ -403,6 +412,10 @@ Rate: [volume_rate] L/sec<BR>"}
 
 	if(href_list["toggle_automation"])
 		automation = !automation
+		if(automation)
+			start_processing()
+		else
+			stop_processing()
 
 	if(href_list["toggle_injector"])
 		device_info = null
@@ -434,7 +447,6 @@ Rate: [volume_rate] L/sec<BR>"}
 		)
 
 		radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
-
 
 
 

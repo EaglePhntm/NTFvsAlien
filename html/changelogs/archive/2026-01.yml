@@ -58,3 +58,19 @@
   - bugfix: Adjusts crash map AI nodes, so that zombies path to nuke discs better
   - bugfix: Weeds always spawn in xeno valhalla
   - qol: Add marine quickbuild to crash gamemodes
+2026-01-20:
+  Lefunny:
+  - rscadd: Satrapine minirocket pack.
+  - rscadd: KnockOut minirocket pack.
+2026-01-26:
+  Colfer1:
+  - rscadd: Adds the laser weapon bundle, including 2 of every standard laser weapon
+      and backpack
+  - balance: Reduces the laser sniper's penetration from 30 to 20 on its standard
+      mode
+  - balance: Gives laser pack/backpack self charging abilities, so theres a point
+      to using them over recharger cells
+2026-01-31:
+  Colfer1:
+  - qol: Nanopaste now behaves similarly to other healpacks/repair methods for robots
+  - bugfix: Nanopaste crate now actually contains 5 nanopaste as advertised

@@ -46,6 +46,10 @@
 	/// The turf that was last weeded. Used for auto weeding.
 	var/turf/last_weeded_turf
 
+/datum/action/ability/activable/xeno/plant_weeds/encounter
+	keybinding_signals = null
+	weed_type = /obj/alien/weeds/node/resting
+
 /datum/action/ability/activable/xeno/plant_weeds/New(Target)
 	. = ..()
 	if(SSmonitor.gamestate == SHUTTERS_CLOSED)
@@ -83,12 +87,20 @@
 		return fail_activate()
 
 	var/obj/alien/weeds/existing_weed = locate() in T
+	/*
 	if(existing_weed && (!existing_weed.issamexenohive(xeno_owner)))
 		to_chat(owner, span_warning("You cannot build on another hive's weeds!"))
 		return fail_activate()
-	if(existing_weed && existing_weed.type == weed_type)
+	*/
+	if(existing_weed && existing_weed.type == weed_type && existing_weed.issamexenohive(xeno_owner))
 		to_chat(owner, span_warning("There's a pod here already!"))
 		return fail_activate()
+
+	if(existing_weed && !existing_weed.issamexenohive(xeno_owner))
+		owner.visible_message(span_xenonotice("\The [owner] starts to place an invasive node..."), \
+			span_xenonotice("We prepare to place an invasive node!"), null, 5)
+		if(!do_after(owner, 2 SECONDS, IGNORE_HELD_ITEM, A, BUSY_ICON_BUILD))
+			return fail_activate()
 
 	owner.visible_message(span_xenonotice("\The [owner] regurgitates a pulsating node and plants it on the ground!"), \
 		span_xenonotice("We regurgitate a pulsating node and plant it on the ground!"), null, 5)
@@ -244,15 +256,20 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 		/obj/structure/mineral_door/resin,
 		/obj/structure/bed/nest,
 		/obj/structure/xeno/lighttower,
+		/obj/structure/bed/nest/advanced,
+		/obj/structure/bed/nest/advanced/special,
 		/turf/closed/wall/resin/regenerating/special/bulletproof,
 		/turf/closed/wall/resin/regenerating/special/fireproof,
 		/turf/closed/wall/resin/regenerating/special/hardy,
-		/obj/structure/bed/nest/advanced,
 		)
 	/// Used for the dragging functionality of pre-shuttter building
 	var/dragging = FALSE
 	/// The percentage of maximum health to heal the owner whenever a structure is built.
 	var/heal_percentage = 0
+
+/datum/action/ability/activable/xeno/secrete_resin/encounter
+	keybinding_signals = null
+	scaling_wait = 3 SECONDS //They are less suited to building
 
 /// Helper for handling the start of mouse-down and to begin the drag-building
 /datum/action/ability/activable/xeno/secrete_resin/proc/start_resin_drag(mob/user, atom/object, turf/location, control, params)
@@ -305,7 +322,10 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 	if(!xeno_owner) //only on removal
 		return
 	var/atom/A = xeno_owner.selected_resin
-	action_icon_state = initial(A.name)
+	var/image/selected_image = GLOB.resin_images_list[GLOB.xeno_resin_keys[A]]
+	if(selected_image)
+		action_icon_state = selected_image.icon_state
+		action_icon = selected_image.icon
 	if(SSmonitor.gamestate == SHUTTERS_CLOSED && CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active)
 		button.cut_overlay(visual_references[VREF_MUTABLE_BUILDING_COUNTER])
 		var/mutable_appearance/number = visual_references[VREF_MUTABLE_BUILDING_COUNTER]
@@ -545,6 +565,8 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 /datum/action/ability/xeno_action/pheromones/emit_frenzy/action_activate()
 	apply_pheros(AURA_XENO_FRENZY)
 
+#define TRANSFER_PLASMA_OUTLINE "transfer_plasma_outline"
+
 /datum/action/ability/activable/xeno/transfer_plasma
 	name = "Transfer Plasma"
 	action_icon_state = "transfer_plasma"
@@ -563,27 +585,31 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 	if(!.)
 		return FALSE
 
-	if(!isxeno(A) || A == owner || !owner.issamexenohive(A))
+	if(!iscarbon(A) || A == owner)
 		return FALSE
 
-	var/mob/living/carbon/xenomorph/target = A
+	var/mob/living/carbon/target = A
 
-	if(!(target.xeno_caste.can_flags & CASTE_CAN_BE_GIVEN_PLASMA))
-		if(!silent)
-			to_chat(owner, span_warning("We can't give that caste plasma."))
-			return FALSE
+	if(isxeno(target))
+		var/mob/living/carbon/xenomorph/xeno_target = target
+		if(!(xeno_target.xeno_caste.can_flags & CASTE_CAN_BE_GIVEN_PLASMA))
+			if(!silent)
+				to_chat(owner, span_warning("We can't give that caste plasma."))
+				return FALSE
 
 	if(get_dist(owner, target) > max_range)
 		if(!silent)
 			to_chat(owner, span_warning("We need to be closer to [target]."))
 		return FALSE
 
-	if(target.plasma_stored >= target.xeno_caste.plasma_max) //We can't select targets that won't benefit
-		to_chat(owner, span_xenowarning("[target] already has full plasma."))
-		return FALSE
+	if(isxeno(target))
+		var/mob/living/carbon/xenomorph/xeno_target = target
+		if(xeno_target.plasma_stored >= xeno_target.xeno_caste.plasma_max) //We can't select targets that won't benefit
+			to_chat(owner, span_xenowarning("[xeno_target] already has full plasma."))
+			return FALSE
 
 /datum/action/ability/activable/xeno/transfer_plasma/use_ability(atom/A)
-	var/mob/living/carbon/xenomorph/target = A
+	var/mob/living/carbon/target = A
 
 	to_chat(xeno_owner, span_notice("We start focusing our plasma towards [target]."))
 	new /obj/effect/temp_visual/transfer_plasma(get_turf(xeno_owner)) //Cool SFX that confirms our source and our target
@@ -599,22 +625,120 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 		return fail_activate()
 
 	target.beam(xeno_owner,"drain_life", time = 1 SECONDS, maxdistance = 10) //visual SFX
-	target.add_filter("transfer_plasma_outline", 3, outline_filter(1, COLOR_STRONG_MAGENTA))
-	addtimer(CALLBACK(target, TYPE_PROC_REF(/datum, remove_filter), "transfer_plasma_outline"), 1 SECONDS) //Failsafe blur removal
+	target.add_filter(TRANSFER_PLASMA_OUTLINE, 3, outline_filter(1, COLOR_STRONG_MAGENTA))
+	addtimer(CALLBACK(target, TYPE_PROC_REF(/datum, remove_filter), TRANSFER_PLASMA_OUTLINE), 1 SECONDS) //Failsafe blur removal
 
 	var/amount = plasma_transfer_amount
 	if(xeno_owner.plasma_stored < plasma_transfer_amount)
 		amount = xeno_owner.plasma_stored //Just use all of it
 
 	else //Otherwise transfer as much as the target can use
-		amount = clamp(target.xeno_caste.plasma_max - target.plasma_stored, 0, plasma_transfer_amount)
+		if(isxeno(target))
+			var/mob/living/carbon/xenomorph/xeno_target = target
+			amount = clamp(xeno_target.xeno_caste.plasma_max - xeno_target.plasma_stored, 0, plasma_transfer_amount)
 
 	xeno_owner.use_plasma(amount)
-	target.gain_plasma(amount)
-	to_chat(target, span_xenodanger("[xeno_owner] has transfered [amount] units of plasma to us. We now have [target.plasma_stored]/[target.xeno_caste.plasma_max]."))
+	if(isxeno(target))
+		var/mob/living/carbon/xenomorph/xeno_target = target
+		xeno_target.gain_plasma(amount)
+		to_chat(xeno_target, span_xenodanger("[xeno_owner] has transfered [amount] units of plasma to us. We now have [xeno_target.plasma_stored]/[xeno_target.xeno_caste.plasma_max]."))
+	else if(ishuman(target))
+		target.adjustStaminaLoss(-amount/5, TRUE)
+		target.AdjustUnconscious(-6 SECONDS) //The exact same amount of unc/stun/para gets removed on help act. Works on humans only, too.
+		target.AdjustStun(-6 SECONDS)
+		target.AdjustParalyzed(-6 SECONDS)
+		to_chat(target, span_notice("Your body tenses as alien plasma restores some of your stamina."))
 	to_chat(xeno_owner, span_xenodanger("We have transferred [amount] units of plasma to [target]. We now have [xeno_owner.plasma_stored]/[xeno_owner.xeno_caste.plasma_max]."))
 	playsound(xeno_owner, SFX_ALIEN_DROOL, 25)
 
+//A continuous beam version
+/datum/action/ability/activable/xeno/transfer_plasma/beam
+	plasma_transfer_amount = PLASMA_TRANSFER_AMOUNT
+	transfer_delay = 0.5 SECONDS
+	max_range = 5
+	///Timer holder for plasma loop
+	var/cycle_timer
+	///Who we're giving plasma to
+	var/mob/living/carbon/xenomorph/transfer_target
+	///Holder for beam effect
+	var/datum/beam/beam_holder
+
+/datum/action/ability/activable/xeno/transfer_plasma/beam/remove_action(mob/living/L)
+	deltimer(cycle_timer)
+	cycle_timer = null
+	transfer_target = null
+	if(beam_holder)
+		QDEL_NULL(beam_holder)
+	return ..()
+
+/datum/action/ability/activable/xeno/transfer_plasma/beam/can_use_ability(atom/A, silent = FALSE, override_flags)
+	if(cycle_timer)
+		return TRUE
+	return ..()
+
+/datum/action/ability/activable/xeno/transfer_plasma/beam/use_ability(atom/A)
+	if(cycle_timer)
+		deltimer(cycle_timer)
+		cycle_timer = null
+		finish_cycle()
+		return
+
+	transfer_target = A
+
+	to_chat(xeno_owner, span_notice("We start focusing our plasma towards [transfer_target]."))
+	new /obj/effect/temp_visual/transfer_plasma(get_turf(xeno_owner)) //Cool SFX that confirms our source and our transfer_target
+	new /obj/effect/temp_visual/transfer_plasma(get_turf(transfer_target)) //Cool SFX that confirms our source and our transfer_target
+	playsound(xeno_owner, SFX_ALIEN_DROOL, 25)
+
+	xeno_owner.face_atom(transfer_target) //Face our transfer_target so we don't look silly
+
+	if(!do_after(xeno_owner, transfer_delay, IGNORE_LOC_CHANGE, null, BUSY_ICON_FRIENDLY, extra_checks = CALLBACK(src, PROC_REF(usage_check), transfer_target)))
+		return fail_activate()
+
+	beam_holder = transfer_target.beam(xeno_owner,"drain_life", maxdistance = 10) //visual SFX
+	transfer_target.add_filter(TRANSFER_PLASMA_OUTLINE, 3, outline_filter(1, COLOR_STRONG_MAGENTA))
+	cycle_plasma()
+
+///Checks conditions, gives plasma and repeats
+/datum/action/ability/activable/xeno/transfer_plasma/beam/proc/cycle_plasma()
+	if(!usage_check())
+		finish_cycle()
+		return
+	var/amount = max(plasma_transfer_amount, xeno_owner.plasma_stored)
+	amount = clamp(transfer_target.xeno_caste.plasma_max - transfer_target.plasma_stored, 0, plasma_transfer_amount)
+
+	xeno_owner.use_plasma(amount)
+	transfer_target.gain_plasma(amount)
+
+	if(xeno_owner.plasma_stored <= 0) //we can just keep it running indefinitely, if desired
+		finish_cycle()
+		return
+
+	cycle_timer = addtimer(CALLBACK(src, PROC_REF(cycle_plasma)), 0.5 SECONDS, TIMER_STOPPABLE)
+
+///Checks if we can keep beaming
+/datum/action/ability/activable/xeno/transfer_plasma/beam/proc/usage_check()
+	if(QDELETED(transfer_target))
+		return FALSE
+	if(transfer_target.stat == DEAD)
+		return FALSE
+	if(transfer_target.z != xeno_owner.z)
+		return FALSE
+	if(get_dist(xeno_owner, transfer_target) > max_range)
+		return FALSE
+	if(!can_use_ability(transfer_target, TRUE, ABILITY_USE_BUSY))
+		return FALSE
+	return TRUE
+
+///Cleans up on finish
+/datum/action/ability/activable/xeno/transfer_plasma/beam/proc/finish_cycle()
+	transfer_target.remove_filter(TRANSFER_PLASMA_OUTLINE)
+	QDEL_NULL(beam_holder)
+	playsound(xeno_owner, SFX_ALIEN_DROOL, 25)
+	transfer_target = null
+	cycle_timer = null
+
+#undef TRANSFER_PLASMA_OUTLINE
 
 // ***************************************
 // *********** Corrosive Acid
@@ -1089,6 +1213,9 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 	var/use_selected_hugger = FALSE
 	/// The amount to multiply the created hugger's hand attach time by.
 	var/hand_attach_time_multiplier = 1
+	//dont give advanced version of lay eggs with use_selected_hugger to ones without hugger selection, like carrier has it so they can have it.
+	///static hugger to use if we cant select huggers, for advanced version
+	var/hugger_to_use = /obj/item/clothing/mask/facehugger/latching
 
 /datum/action/ability/xeno_action/lay_egg/action_activate(mob/living/carbon/xenomorph/user)
 	var/mob/living/carbon/xenomorph/xeno = owner
@@ -1273,6 +1400,10 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 		if(!silent)
 			to_chat(xeno_owner, span_warning("You can't do this while flying!"))
 		return FALSE
+	if((xeno_owner.get_xeno_hivenumber() == XENO_HIVE_CORRUPTED && ALIGNEMENT_FRIENDLY == GLOB.faction_to_alignement[victim.faction]) || (xeno_owner.get_xeno_hivenumber() == XENO_HIVE_NORMAL && FACTION_CLF == victim.faction) ) //So xenos can't psydrain their allies (Corrupted psydraining a marine for example)
+		if(!silent)
+			to_chat(xeno_owner, span_warning("We cannot psydrain our allies!"))
+		return FALSE
 
 	xeno_owner.face_atom(victim) //Face towards the target so we don't look silly
 	xeno_owner.visible_message(span_xenowarning("\The [xeno_owner] begins opening its mouth and extending a second jaw towards \the [victim]."), \
@@ -1351,7 +1482,7 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 	if(!.)
 		return FALSE
 	var/mob/living/carbon/xenomorph/X = owner
-	if(can_implant_embryo(A))
+	if(!can_implant_embryo(A))
 		to_chat(owner, span_warning("This host is already full of young ones."))
 		return FALSE
 	if(owner.do_actions) //can't use if busy
@@ -1364,6 +1495,11 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 	if(X.on_fire)
 		if(!silent)
 			to_chat(X, span_warning("We're too busy being on fire to do this!"))
+		return FALSE
+	if(X.status_flags & INCORPOREAL)
+		to_chat(X, span_warning("We can't do that while incorporeal."))
+	if(A.gender == X.gender && X.client?.prefs?.xenogender != 4)
+		to_chat(X, span_xenonotice("We can't get anywhere [A.gender == FEMALE ? "clam mashing." : "sword fighting."]."))
 		return FALSE
 	log_combat(X, A, "started to use their impregnate ability on")
 	X.visible_message(span_danger("[X] starts to fuck [A]!"), \
@@ -1380,14 +1516,18 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 		to_chat(owner, span_warning("We will cum in 7 seconds! Do not walk away until it is done."))
 		playsound(X, 'sound/effects/alien_plapping.ogg', 40, channel = channel)
 		if(!do_after(X, 7 SECONDS, FALSE, victim, BUSY_ICON_DANGER, extra_checks = CALLBACK(owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = X.health))))
-			to_chat(owner, span_warning("We stop fucking \the [victim]. They probably were loose anyways."))
+			to_chat(owner, span_warning("We stop fucking \the [victim]. [victim.gender == FEMALE ? "They probably were loose anyways." : "They were probably small anyways."]"))
 			X.stop_sound_channel(channel)
 			return fail_activate()
 		owner.visible_message(span_warning("[X] fucks [victim]!"), span_warning("We fuck [victim]!"), span_warning("You hear slapping."), 5, victim)
 		if(victim.stat == CONSCIOUS)
 			to_chat(victim, span_warning("[X] fucks you!"))
-		X.impregify(victim, damagemult = 3)
-		log_combat(X, victim, "impregnated", addition="with their impregnate ability")
+		if(X.client?.prefs?.xenogender > 2)
+			X.impregify(victim, HOLE_VAGINA, damagemult = 3)
+			log_combat(X, victim, "impregnated", addition="with their impregnate ability")
+		else
+			X.xenoimpregify()
+			log_combat(X, victim, "got impregnated by", addition="with their impregnate ability")
 		add_cooldown()
 		succeed_activate()
 	if(isxeno(A))
@@ -1395,16 +1535,20 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 		X.face_atom(A)
 		X.do_jitter_animation()
 		A.do_jitter_animation()
-		to_chat(X, span_warning("We will cum in 7 seconds! Do not walk away until it is done. Though this has no purpose but fun as Xenomorph cant bear larvas."))
+		to_chat(X, span_warning("We will cum in 7 seconds! Do not walk away until it is done."))
 		playsound(X, 'sound/effects/alien_plapping.ogg', 40, channel = channel)
 		if(!do_after(X, 7 SECONDS, FALSE, victim, BUSY_ICON_DANGER, extra_checks = CALLBACK(X, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = X.health))))
-			to_chat(X, span_warning("We stop fucking \the [victim]. They probably were loose anyways."))
+			to_chat(X, span_warning("We stop fucking \the [victim]. [victim.gender == FEMALE ? "They probably were loose anyways." : "They were probably small anyways."]"))
 			X.stop_sound_channel(channel)
 			return fail_activate()
 		X.visible_message(span_warning("[X] fucks [victim]!"), span_warning("We fuck [victim]!"), span_warning("You hear slapping."), 5, victim)
 		if(victim.stat == CONSCIOUS)
 			to_chat(victim, span_warning("[X] fucks you!"))
 			victim.emote("moan")
+		if(victim.gender == FEMALE)
+			victim.xenoimpregify()
+		if(X.gender == FEMALE)
+			X.xenoimpregify()
 		succeed_activate()
 /////////////////////////////////
 // Cocoon
@@ -1555,7 +1699,7 @@ GLOBAL_LIST_INIT(pattern_images_list, list(
 	action_icon_state = "square2x2"
 	action_icon = 'icons/Xeno/patterns.dmi'
 	target_flags = ABILITY_TURF_TARGET
-	gamemode_flags = ABILITY_NUCLEARWAR
+	gamemode_flags = ABILITY_ALL_GAMEMODE
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PLACE_PATTERN,
 		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_SELECT_PATTERN,

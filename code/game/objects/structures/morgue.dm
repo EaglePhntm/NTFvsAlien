@@ -122,7 +122,7 @@
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "morguet"
 	density = TRUE
-	layer = OBJ_LAYER
+	layer = BELOW_OBJ_LAYER
 	var/obj/structure/morgue/linked_morgue = null
 	anchored = TRUE
 

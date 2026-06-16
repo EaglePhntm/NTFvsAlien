@@ -10,6 +10,10 @@
 
 	var/machine_stat = NONE
 	var/use_power = IDLE_POWER_USE
+	var/use_static_power = FALSE
+	var/static_power_usage = 0
+	var/registered_static_power_channel = EQUIP
+	var/area/registered_static_power_area
 	var/idle_power_usage = 0
 	var/active_power_usage = 0
 	var/machine_current_charge = 0 //Does it have an integrated, unremovable capacitor? Normally 10k if so.
@@ -25,6 +29,7 @@
 	var/subsystem_type = /datum/controller/subsystem/machines
 	var/wrenchable = FALSE
 	var/obj/item/circuitboard/circuit // Circuit to be created and inserted when the machinery is created
+	///The mob controlling this machine
 	var/mob/living/carbon/human/operator
 
 	///Whether bullets can bypass the object even though it's dense
@@ -34,25 +39,47 @@
 	. = ..()
 	GLOB.machines += src
 	component_parts = list()
-	var/turf/current_turf = get_turf(src)
-	if(anchored && current_turf && density)
-		current_turf.atom_flags |= AI_BLOCKED
+	set_ai_block()
+	return INITIALIZE_HINT_LATELOAD
 
+/obj/machinery/LateInitialize()
+	update_current_power_usage()
 
 /obj/machinery/Destroy()
+	clear_static_power()
 	GLOB.machines -= src
-	STOP_PROCESSING(SSmachines, src)
+	stop_processing()
 	if(istype(circuit)) //There are some uninitialized legacy path circuits.
 		QDEL_NULL(circuit)
 	operator?.unset_interaction()
 	operator = null
-	var/turf/current_turf = get_turf(src)
-	if(anchored && current_turf && density)
-		current_turf.atom_flags &= ~ AI_BLOCKED
+	set_ai_block()
 	return ..()
+
+/obj/machinery/post_disassemble(mob/user)
+	if(operator)
+		operator.unset_interaction()
+	return ..()
+
+///Sets or unsets AI_BLOCKED on our turf
+/obj/machinery/proc/set_ai_block()
+	var/turf/current_turf = get_turf(src)
+	if(!current_turf)
+		return
+	if(anchored && density && !QDELETED(src))
+		current_turf.atom_flags |= AI_BLOCKED
+		return
+	current_turf.atom_flags &= ~AI_BLOCKED
+	//Because different NPC's handle machinery differently, don't override this without considering all NPC types
 
 /obj/machinery/proc/is_operational()
 	return !(machine_stat & (NOPOWER|BROKEN|MAINT|DISABLED))
+
+/obj/machinery/proc/on_tgui_open(mob/user, datum/tgui/ui)
+	return
+
+/obj/machinery/proc/on_tgui_close(mob/user, datum/tgui/ui)
+	return
 
 
 /obj/machinery/proc/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
@@ -124,17 +151,42 @@
 	return
 
 
-/obj/machinery/proc/start_processing()
+/obj/machinery/proc/start_processing(processing_phase = SSMACHINES_MACHINES)
 	var/datum/controller/subsystem/processing/subsystem = locate(subsystem_type) in Master.subsystems
-	START_PROCESSING(subsystem, src)
+	if(!istype(subsystem, /datum/controller/subsystem/machines))
+		START_PROCESSING(subsystem, src)
+		return
+	if(datum_flags & DF_ISPROCESSING)
+		return
+	datum_flags |= DF_ISPROCESSING
+	var/datum/controller/subsystem/machines/machine_subsystem = subsystem
+	switch(processing_phase)
+		if(SSMACHINES_MACHINES_EARLY)
+			machine_subsystem.processing_early += src
+		if(SSMACHINES_MACHINES_LATE)
+			machine_subsystem.processing_late += src
+		else
+			machine_subsystem.processing += src
 
 
 /obj/machinery/proc/stop_processing()
 	var/datum/controller/subsystem/processing/subsystem = locate(subsystem_type) in Master.subsystems
-	STOP_PROCESSING(subsystem, src)
+	if(!istype(subsystem, /datum/controller/subsystem/machines))
+		STOP_PROCESSING(subsystem, src)
+		return
+	datum_flags &= ~DF_ISPROCESSING
+	var/datum/controller/subsystem/machines/machine_subsystem = subsystem
+	machine_subsystem.processing -= src
+	machine_subsystem.processing_early -= src
+	machine_subsystem.processing_late -= src
+	machine_subsystem.processing_power -= src
+	machine_subsystem.currentrun -= src
 
 
 /obj/machinery/process() // If you dont use process or power why are you here
+	return PROCESS_KILL
+
+/obj/machinery/proc/process_late(seconds_per_tick)
 	return PROCESS_KILL
 
 /**
@@ -221,18 +273,18 @@
 			SEND_SIGNAL(src, COMSIG_MACHINERY_POWER_RESTORED)
 			. = TRUE
 
-	update_icon()
+	update_appearance()
 
 
 /obj/machinery/proc/auto_use_power()
 	if(!powered(power_channel))
 		if(use_power && machine_current_charge > idle_power_usage) //Does it have an integrated battery/reserve power to tap into?
 			machine_current_charge -= min(machine_current_charge, idle_power_usage) //Sterilize with min; no negatives allowed.
-			update_icon()
+			update_appearance()
 			return TRUE
 		else if(machine_current_charge > active_power_usage)
 			machine_current_charge -= min(machine_current_charge, active_power_usage)
-			update_icon()
+			update_appearance()
 			return TRUE
 		else
 			return FALSE
@@ -243,7 +295,7 @@
 				var/power_usage = clamp(machine_max_charge - machine_current_charge, 0, 500)
 				machine_current_charge += power_usage //recharge internal cell at max rate of 500
 				use_power(power_usage, power_channel)
-				update_icon()
+				update_appearance()
 			else
 				use_power(idle_power_usage, power_channel)
 
@@ -348,4 +400,4 @@
 
 	machine_stat |= DISABLED
 	density = FALSE
-	update_icon()
+	update_appearance()

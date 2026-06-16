@@ -57,6 +57,12 @@ export const PortableGenerator = (props) => {
                 }}
               />
             </LabeledList.Item>
+            <LabeledList.Item label="Charge left">
+            {data.charge_left}
+            </LabeledList.Item>
+            <LabeledList.Item label="Time left">
+            {data.time_left}
+            </LabeledList.Item>
             <LabeledList.Item label="Heat level">
               {data.current_heat < 100 ? (
                 <Box inline color="good">

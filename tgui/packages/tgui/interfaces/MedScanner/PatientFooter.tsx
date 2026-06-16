@@ -29,6 +29,7 @@ export function PatientFooter() {
     pulse,
     total_unknown_implants,
     infection,
+    ambrosia_residue,
     total_flow_rate,
   } = data;
   const bloodColors = getBloodColor(
@@ -106,6 +107,11 @@ export function PatientFooter() {
       {!!infection && (
         <NoticeBox color="orange" mt="8px" mb="0px">
           {infection}
+        </NoticeBox>
+      )}
+      {!!ambrosia_residue && (
+        <NoticeBox color="yellow" mt="8px" mb="0px">
+          {ambrosia_residue}
         </NoticeBox>
       )}
       {!!total_unknown_implants && (

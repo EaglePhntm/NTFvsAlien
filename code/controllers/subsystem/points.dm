@@ -118,6 +118,16 @@ SUBSYSTEM_DEF(points)
 	if(cost > supply_points[user.faction])
 		return
 	var/obj/docking_port/mobile/supply_shuttle = SSshuttle.getShuttle(SHUTTLE_SUPPLY)
+	if(O.faction == FACTION_SOM)
+		supply_shuttle = SSshuttle.getShuttle(SHUTTLE_SOM_SUPPLY)
+	if(O.faction == FACTION_CLF)
+		supply_shuttle = SSshuttle.getShuttle("supplyclf")
+	if(O.faction == FACTION_VSD)
+		supply_shuttle = SSshuttle.getShuttle("supplykz")
+	if(O.faction == FACTION_ICC)
+		supply_shuttle = SSshuttle.getShuttle("supplyicc")
+	if(O.faction == FACTION_NEUTRAL)
+		supply_shuttle = SSshuttle.getShuttle("supplycolony")
 	if(length(shoppinglist[O.faction]) >= supply_shuttle.return_number_of_turfs())
 		return
 	requestlist -= "[O.id]"

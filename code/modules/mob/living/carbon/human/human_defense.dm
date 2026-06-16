@@ -451,9 +451,9 @@ Contains most of the procs that are called when a mob is attacked by something
 	if(!I.tool_use_check(user, 2))
 		return TRUE
 
-	var/repair_time = 1 SECONDS
-	if(src == user)
-		repair_time *= 3
+	var/repair_time = 1.5 SECONDS // Robots now bleed out, so this is necessary
+/*	if(src == user)
+		repair_time *= 1*/
 
 
 	user.visible_message(span_notice("[user] starts to fix some of the dents on [src]'s [affecting.display_name]."),\

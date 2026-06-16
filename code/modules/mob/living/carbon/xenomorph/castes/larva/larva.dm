@@ -13,6 +13,7 @@
 	tier = XENO_TIER_ZERO  //Larva's don't count towards Pop limits
 	upgrade = XENO_UPGRADE_INVALID
 	density = FALSE
+	mob_size = MOB_SIZE_SMALL
 	gib_chance = 25
 	hud_type = /datum/hud/larva
 	inherent_verbs = list(
@@ -20,8 +21,9 @@
 	)
 
 	base_icon_state = "Larva"
+	speaking_noise = SFX_LARVA_TALK
 
-/mob/living/carbon/xenomorph/larva/Initialize(mapload)
+/mob/living/carbon/xenomorph/larva/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SILENT_FOOTSTEPS, XENO_TRAIT)
 	if(!mind)

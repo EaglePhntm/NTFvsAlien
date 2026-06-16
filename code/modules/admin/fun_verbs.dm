@@ -165,7 +165,7 @@ ADMIN_VERB_AND_CONTEXT_MENU(subtle_message, R_FUN|R_MENTOR, "Subtle Message", AD
 	message_admins("[ADMIN_TPMONTY(user.mob)] used Subtle Message on [ADMIN_TPMONTY(M)]: [msg]")
 
 ADMIN_VERB(award_medal, R_FUN, "Award a Medal", "Award a medal to a marine player", ADMIN_CATEGORY_FUN)
-	give_medal_award()
+	do_award_medal(user.mob)
 
 ADMIN_VERB(custom_info, R_FUN, "Change Custom Info", "Set a custom info to show to everyone and new joining players", ADMIN_CATEGORY_FUN)
 	var/new_info = tgui_input_text(user, "Set the custom information players get on joining or via the OOC tab.", "Custom info", GLOB.custom_info, multiline = TRUE, encode = FALSE)
@@ -217,7 +217,7 @@ ADMIN_VERB(sound_file, R_SOUND, "Play Imported Sound", "Play a sound imported fr
 	var/style = tgui_alert(user, "Play sound globally or locally?", "Play Imported Sound", list("Global", "Local", "Cancel"))
 	switch(style)
 		if("Global")
-			for(var/i in GLOB.clients)
+			for(var/i in GLOB.whitelisted_clients)
 				var/client/C = i
 				if(C.prefs.toggles_sound & SOUND_MIDI)
 					SEND_SOUND(C, uploaded_sound)
@@ -229,8 +229,8 @@ ADMIN_VERB(sound_file, R_SOUND, "Play Imported Sound", "Play a sound imported fr
 		else
 			return
 
-	log_admin("[key_name(user)] played sound '[S]' for [heard_midi] player(s). [length(GLOB.clients) - heard_midi] player(s) [style == "Global" ? "have disabled admin midis" : "were out of view"].")
-	message_admins("[ADMIN_TPMONTY(user.mob)] played sound '[S]' for [heard_midi] player(s). [length(GLOB.clients) - heard_midi] player(s) [style == "Global" ? "have disabled admin midis" : "were out of view"].")
+	log_admin("[key_name(user)] played sound '[S]' for [heard_midi] player(s). [length(GLOB.whitelisted_clients) - heard_midi] player(s) [style == "Global" ? "have disabled admin midis" : "were out of view"].")
+	message_admins("[ADMIN_TPMONTY(user.mob)] played sound '[S]' for [heard_midi] player(s). [length(GLOB.whitelisted_clients) - heard_midi] player(s) [style == "Global" ? "have disabled admin midis" : "were out of view"].")
 
 
 GLOBAL_VAR_INIT(web_sound_cooldown, 0)

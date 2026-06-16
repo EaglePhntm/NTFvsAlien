@@ -5,6 +5,13 @@
 /datum/sex_action/tailpegging_vaginal/shows_on_menu(mob/living/carbon/user, mob/living/carbon/target)
 	if(user == target)
 		return FALSE
+	if(isxeno(target))
+		var/mob/living/carbon/xenomorph/targetxeno = target
+		if(targetxeno.client?.prefs?.xenogender != 2 && targetxeno.client?.prefs?.xenogender != 4)
+			return FALSE
+	else
+		if(target.gender != FEMALE)
+			return FALSE
 	if(!isxeno(user))
 		return FALSE
 	return TRUE
@@ -33,5 +40,5 @@
 	target.sexcon.handle_passive_ejaculation(user)
 
 /datum/sex_action/tailpegging_vaginal/on_finish(mob/living/carbon/user, mob/living/carbon/target)
-	..()
+	playsound(src, pick(list('ntf_modular/sound/misc/cork_pop.ogg','ntf_modular/sound/misc/cork_pop (2).ogg')), 75, TRUE, 7, ignore_walls = FALSE)
 	user.visible_message(span_warning("[user] pulls [user.p_their()] tail out of [target]'s cunt."))

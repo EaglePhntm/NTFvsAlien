@@ -77,6 +77,8 @@
 		return
 	//wheel of fuck
 	var/target_hole = pick(HOLE_LIST)
+	if(wearer.gender != FEMALE && target_hole == HOLE_VAGINA)
+		target_hole = HOLE_ASS
 	if(fixed_hole)
 		target_hole = fixed_hole
 	if(COOLDOWN_FINISHED(src, implant_cooldown))
@@ -84,14 +86,14 @@
 		if(!(wearer.status_flags & XENO_HOST))
 			wearer.visible_message(span_xenonotice("[parent] roughly thrusts a tentacle into [wearer]'s [target_hole], a round bulge visibly sliding through it as it inserts an egg into [wearer]!"),
 			span_xenonotice("[parent] roughly thrusts a tentacle into your [target_hole], a round bulge visibly sliding through it as it inserts an egg into you!"),
-			span_notice("You hear squelching."))
-			playsound(wearer, 'ntf_modular/sound/misc/mat/endin.ogg', 50, TRUE, 7, ignore_walls = FALSE)
+			span_notice("You hear squelching."), 3)
+			playsound(wearer, 'ntf_modular/sound/misc/mat/endin.ogg', 50, TRUE, 5, ignore_walls = FALSE)
 			implant_embryo(wearer, target_hole, force_xenohive = hivenumber)
 		else
 			wearer.visible_message(span_love("[parent]'s tentacle pumps globs slightly acidic cum into [wearer]'s [target_hole]!"),
 			span_love("[parent] tentacle pumps globs of slightly acidic cum into your [target_hole]!"),
-			span_love("You hear spurting."))
-			playsound(wearer, 'ntf_modular/sound/misc/mat/endin.ogg', 50, TRUE, 7, ignore_walls = FALSE)
+			span_love("You hear spurting."), 3)
+			playsound(wearer, 'ntf_modular/sound/misc/mat/endin.ogg', 50, TRUE, 5, ignore_walls = FALSE)
 		wearer.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno, 6)
 		wearer.reagents.add_reagent(/datum/reagent/toxin/acid/xeno_cum, 1)
 		if(wearer.reagents.get_reagent_amount(/datum/reagent/medicine/tricordrazine) < 4)
@@ -101,7 +103,7 @@
 	else
 		wearer.visible_message(span_love("[parent] roughly thrusts a tentacle into [wearer]'s [target_hole]!"),
 		span_love("[parent] roughly thrusts a tentacle into your [target_hole]!"),
-		span_love("You hear squelching."))
+		span_love("You hear squelching."), 3)
 		wearer.adjustStaminaLoss(2)
 		playsound(wearer, 'ntf_modular/sound/misc/mat/segso.ogg', 50, TRUE, 5, ignore_walls = FALSE)
 		wearer.sexcon.adjust_arousal(5)

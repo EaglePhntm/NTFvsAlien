@@ -455,7 +455,7 @@ ADMIN_VERB(dsay, R_ADMIN, " dsay", "Speak as an admin in deadchat.", ADMIN_CATEG
 	user.mob.log_talk(msg, LOG_DSAY)
 	msg = "<span class='game deadsay'><span class='prefix'>DEAD:</span> <span class='name'>[user.holder.fakekey ? "" : "[span_tooltip(user.holder.rank.name, "(STAFF)")] "][user.holder.fakekey ? "Administrator" : user.key]</span> says, \"<span class='message'>[msg]</span>\"</span>"
 
-	for(var/i in GLOB.clients)
+	for(var/i in GLOB.whitelisted_clients)
 		var/client/C = i
 		if(istype(C.mob, /mob/new_player))
 			continue

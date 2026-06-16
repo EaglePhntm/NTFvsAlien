@@ -6,3 +6,4 @@
 	var/obj/item/w_socks = null
 	var/obj/item/w_undershirt = null
 	var/obj/item/bra = null
+	var/allow_mismatched_parts = FALSE

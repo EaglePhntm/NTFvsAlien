@@ -111,6 +111,14 @@
 	if(holder)
 		holder.update_icon()
 
+/obj/item/assembly/prox_sensor/dropped(mob/user)
+	. = ..()
+	proximity_monitor.set_host(loc,src)
+
+/obj/item/assembly/prox_sensor/pickup(mob/user)
+	. = ..()
+	proximity_monitor.set_host(src,src)
+
 /obj/item/assembly/prox_sensor/can_interact(mob/user)
 	. = ..()
 	if(!.)

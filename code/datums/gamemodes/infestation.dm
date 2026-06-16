@@ -22,27 +22,50 @@
 		/datum/xeno_caste/king = 12,
 		/datum/xeno_caste/dragon = 12,
 	)
+	var/spawn_xeno_shit = TRUE
 
 /datum/game_mode/infestation/post_setup()
 	. = ..()
 	if(bioscan_interval)
 		TIMER_COOLDOWN_START(src, COOLDOWN_BIOSCAN, bioscan_interval)
+
+	RegisterSignal(SSdcs, COMSIG_GLOB_DISK_SEGMENT_COMPLETED, PROC_REF(on_disk_segment_completed))
+
 	if(!(round_type_flags & MODE_INFESTATION))
 		return
-
 	var/weed_type
 	for(var/turf/T in GLOB.xeno_weed_node_turfs)
+		if(!spawn_xeno_shit)
+			var/area/thearea = get_area(T)
+			if(thearea.ceiling < CEILING_DEEP_UNDERGROUND)
+				continue
 		weed_type = pickweight(GLOB.weed_prob_list)
 		new weed_type(T)
 	for(var/turf/T AS in GLOB.xeno_resin_wall_turfs)
+		if(!spawn_xeno_shit)
+			var/area/thearea = get_area(T)
+			if(thearea.ceiling < CEILING_DEEP_UNDERGROUND)
+				continue
 		T.ChangeTurf(/turf/closed/wall/resin/regenerating, T.type)
 	for(var/i in GLOB.xeno_resin_door_turfs)
+		if(!spawn_xeno_shit)
+			var/area/thearea = get_area(i)
+			if(thearea.ceiling < CEILING_DEEP_UNDERGROUND)
+				continue
 		new /obj/structure/mineral_door/resin(i)
 	for(var/i in GLOB.xeno_tunnel_spawn_turfs)
+		if(!spawn_xeno_shit)
+			var/area/thearea = get_area(i)
+			if(thearea.ceiling < CEILING_DEEP_UNDERGROUND)
+				continue
 		var/obj/structure/xeno/tunnel/new_tunnel = new /obj/structure/xeno/tunnel(i, XENO_HIVE_NORMAL)
 		new_tunnel.name = "[get_area_name(new_tunnel)] tunnel"
 		new_tunnel.tunnel_desc = "["[get_area_name(new_tunnel)]"] (X: [new_tunnel.x], Y: [new_tunnel.y])"
 	for(var/i in GLOB.xeno_jelly_pod_turfs)
+		if(!spawn_xeno_shit)
+			var/area/thearea = get_area(i)
+			if(thearea.ceiling < CEILING_DEEP_UNDERGROUND)
+				continue
 		new /obj/structure/xeno/resin_jelly_pod(i, XENO_HIVE_NORMAL)
 
 	// Apply Evolution Xeno Population Locks:
@@ -243,7 +266,7 @@
 
 /datum/game_mode/infestation/declare_completion()
 	. = ..()
-	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.clients)]\nTotal xenos spawned: [GLOB.round_statistics.total_xenos_created]\nTotal humans spawned: [GLOB.round_statistics.total_humans_created]")
+	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.whitelisted_clients)]\nTotal xenos spawned: [GLOB.round_statistics.total_xenos_created]\nTotal humans spawned: [GLOB.round_statistics.total_humans_created]")
 
 /datum/game_mode/infestation/end_round_fluff()
 	send_ooc_announcement(
@@ -359,7 +382,7 @@
 
 /datum/game_mode/infestation/proc/on_nuclear_defuse(obj/machinery/nuclearbomb/bomb, mob/defuser)
 	SIGNAL_HANDLER
-	priority_announce("WARNING. WARNING. Planetary Nuke deactivated. WARNING. WARNING. Self destruct failed. WARNING. WARNING.", "Planetary Warhead Disengaged", type = ANNOUNCEMENT_PRIORITY)
+	priority_announce("WARNING. WARNING. Planetary Antimatter Bomb deactivated. WARNING. WARNING. Self destruct failed. WARNING. WARNING.", "Planetary Warhead Disengaged", type = ANNOUNCEMENT_PRIORITY)
 
 /datum/game_mode/infestation/proc/on_nuclear_explosion(datum/source, z_level)
 	SIGNAL_HANDLER
@@ -370,12 +393,12 @@
 	SIGNAL_HANDLER
 	var/datum/hive_status/normal/HS = GLOB.hive_datums[XENO_HIVE_NORMAL]
 	var/area_name = get_area_name(nuke)
-	HS.xeno_message("An overwhelming wave of dread ripples throughout the hive... A nuke has been activated[area_name ? " in [area_name]":""]!")
+	HS.xeno_message("An overwhelming wave of dread ripples throughout the hive... An antimatter bomb has been activated[area_name ? " in [area_name]":""]!")
 	HS.set_all_xeno_trackers(nuke)
 
 /datum/game_mode/infestation/proc/play_cinematic(z_level)
 	GLOB.enter_allowed = FALSE
-	priority_announce("DANGER. DANGER. Planetary Nuke Activated. DANGER. DANGER. Self destruct in progress. DANGER. DANGER.", "Planetary Warhead Detonation Confirmed", type = ANNOUNCEMENT_PRIORITY)
+	priority_announce("DANGER. DANGER. Planetary Antimatter Bomb Activated. DANGER. DANGER. Self destruct in progress. DANGER. DANGER.", "Planetary Warhead Detonation Confirmed", type = ANNOUNCEMENT_PRIORITY)
 	var/sound/S = sound(pick('sound/theme/nuclear_detonation1.ogg','sound/theme/nuclear_detonation2.ogg'), channel = CHANNEL_CINEMATIC)
 	SEND_SOUND(world, S)
 
@@ -409,3 +432,21 @@
 		victim.adjustFireLoss(victim.maxHealth * 4)
 		victim.death()
 		CHECK_TICK
+
+#define DISK_CYCLE_REWARD_MIN 100
+#define DISK_CYCLE_REWARD_MAX 300
+
+/// Gives points when a segment is completed.
+/datum/game_mode/infestation/proc/on_disk_segment_completed(datum/source, obj/machinery/computer/code_generator/nuke/generating_computer)
+	SIGNAL_HANDLER
+	var/disk_cycle_reward = DISK_CYCLE_REWARD_MIN + ((DISK_CYCLE_REWARD_MAX - DISK_CYCLE_REWARD_MIN) * (SSmonitor.maximum_connected_players_count / HIGH_PLAYER_POP))
+	disk_cycle_reward = ROUND_UP(clamp(disk_cycle_reward, DISK_CYCLE_REWARD_MIN, DISK_CYCLE_REWARD_MAX))
+
+	SSpoints.supply_points[FACTION_TERRAGOV] += disk_cycle_reward
+	SSpoints.dropship_points += disk_cycle_reward/10
+	GLOB.round_statistics.points_from_objectives += disk_cycle_reward
+
+	generating_computer.say("Program has execution has rewarded [disk_cycle_reward] requisitions points!")
+
+#undef DISK_CYCLE_REWARD_MIN
+#undef DISK_CYCLE_REWARD_MAX

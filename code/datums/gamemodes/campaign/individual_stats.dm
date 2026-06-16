@@ -27,7 +27,7 @@
 
 /datum/individual_stats/New(mob/living/carbon/new_mob, new_faction, new_currency)
 	. = ..()
-	RegisterSignal(SSdcs, COMSIG_GLOB_CAMPAIGN_MISSION_ENDED, PROC_REF(post_mission_credits))
+	RegisterSignals(SSdcs, list(COMSIG_GLOB_CAMPAIGN_MISSION_ENDED, COMSIG_GLOB_HVH_RESPAWN_WAVE), PROC_REF(post_mission_credits))
 	owner_ckey = new_mob.ckey
 	current_mob = new_mob
 	faction = new_faction
@@ -48,10 +48,12 @@
 	return ..()
 
 ///Pay each player additional credits based on individual performance during the mission
-/datum/individual_stats/proc/post_mission_credits(datum/source)
+/datum/individual_stats/proc/post_mission_credits(datum/source, datum/game_mode/hvh/hvh_mode)
 	SIGNAL_HANDLER
 	var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[owner_ckey]
-	give_funds(personal_statistics.get_mission_reward())
+	give_funds(hvh_mode.get_fund_value(personal_statistics.get_mission_reward()))
+	if(hvh_mode.wave_timer) //wave modes don't have missions to reset this, although this could be a flag
+		personal_statistics.reset_mission_stats()
 
 ///Applies cash
 /datum/individual_stats/proc/give_funds(amount)
@@ -68,7 +70,7 @@
 	currency -= amount
 
 ///Adds a perk if able
-/datum/individual_stats/proc/purchase_perk(datum/perk/new_perk, mob/living/user)
+/datum/individual_stats/proc/purchase_perk(datum/perk/new_perk, mob/living/user, for_free = FALSE)
 	. = TRUE
 	if(!istype(new_perk))
 		return FALSE
@@ -91,9 +93,10 @@
 			if(!perk_found)
 				to_chat(user, span_warning("One or more prerequisites missing for this perk."))
 				return FALSE
-	if(use_funds(new_perk.unlock_cost))
-		to_chat(user, span_warning("Insufficient funds for this perk."))
-		return FALSE
+	if(!for_free)
+		if(use_funds(new_perk.unlock_cost))
+			to_chat(user, span_warning("Insufficient funds for this perk."))
+			return FALSE
 
 	new_perk.unlock_bonus(user, src)
 	unlocked_perks += new_perk
@@ -179,12 +182,6 @@
 	return GLOB.conscious_state
 
 /datum/individual_stats/ui_data(mob/user)
-	/* totally nothing will go wrong
-	var/datum/game_mode/hvh/campaign/current_mode = SSticker.mode
-	if(!istype(current_mode))
-		CRASH("campaign_mission loaded without campaign game mode")
-	*/
-
 	var/list/data = list()
 	var/mob/living/living_user = user
 	data["current_job"] = istype(living_user) ? living_user.job.title : null
@@ -270,12 +267,6 @@
 	return data
 
 /datum/individual_stats/ui_static_data(mob/user)
-	/*
-	var/datum/game_mode/hvh/campaign/current_mode = SSticker.mode
-	if(!istype(current_mode))
-		CRASH("campaign_mission loaded without campaign game mode")
-	*/
-
 	var/list/data = list()
 
 	var/ui_theme
@@ -309,12 +300,6 @@
 	. = ..()
 	if(.)
 		return
-
-	/*
-	var/datum/game_mode/hvh/campaign/current_mode = SSticker.mode
-	if(!istype(current_mode))
-		CRASH("campaign_mission loaded without campaign game mode")
-	*/
 
 	var/mob/living/user = usr
 
@@ -412,6 +397,8 @@
 			return TRUE
 
 /datum/individual_stats/proc/reenable_loadout_select(mob/living/user)
+	if(QDELETED(user))
+		return
 	var/obj/item/card/id/user_id = user.get_idcard()
 	if(user.client)
 		user.playsound_local(user.loc, 'sound/machines/ping.ogg', 25)

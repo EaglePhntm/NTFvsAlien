@@ -38,13 +38,13 @@
 /datum/supply_packs/operations/extraction_beacon
 	name = "fulton extraction beacon"
 	contains = list(/obj/structure/fulton_extraction_point)
-	cost = 200
+	cost = 100
 
 /datum/supply_packs/operations/motion_tracker/advanced/pocket
 	name = "AC-2M pocket tactical motion tracker"
 	contains = list(/obj/item/attachable/motiondetector/advanced/pocket)
 	cost = 300
-	//no lock, its sold.
+	faction_lock = null //no lock, its sold.
 
 //factional things down here
 /datum/supply_packs/operations/motion_tracker/advanced
@@ -64,3 +64,17 @@
 	contains = list(/obj/item/attachable/motiondetector/advanced/pocket/covert)
 	cost = 500
 	faction_lock = list(FACTION_TERRAGOV)
+
+/datum/supply_packs/vehicles/heavybike
+	name = "AC Heavy Weaponized Motorbike"
+	contains = list(/obj/vehicle/ridden/big_bike)
+	cost = 500
+	containertype = null
+	faction_lock = list(FACTION_TERRAGOV)
+
+/datum/supply_packs/vehicles/hoverbike
+	name = "SOM Weaponiezed hoverbike"
+	contains = list(/obj/vehicle/ridden/hover_bike)
+	cost = 500
+	containertype = null
+	faction_lock = list(FACTION_SOM)

@@ -1,16 +1,13 @@
 /datum/outfit/job/survivor
-	name = "Survivor"
+	name = "Colonist"
 	jobtype = /datum/job/survivor
 
-	w_uniform = /obj/item/clothing/under/color/grey
-	shoes = /obj/item/clothing/shoes/snow
+	w_uniform = /obj/item/clothing/under/colonist
+	shoes = /obj/item/clothing/shoes/marine/clf/full
 	back = /obj/item/storage/backpack/satchel/norm
-	wear_suit = /obj/item/clothing/suit/storage/snow_suit
+	wear_suit = /obj/item/clothing/suit/armor/vest
 	ears = /obj/item/radio/headset/survivor
-	mask = /obj/item/clothing/mask/rebreather
-	head = /obj/item/clothing/head/hardhat/rugged
-	belt = /obj/item/belt_harness
-	gloves = /obj/item/clothing/gloves/black
+	belt = /obj/item/storage/belt/sparepouch
 	glasses = /obj/item/clothing/glasses/welding
 	r_pocket = /obj/item/storage/pouch/tools/full
 	l_pocket = /obj/item/storage/pouch/survival/full
@@ -20,7 +17,7 @@
 	)
 
 /datum/outfit/job/survivor/non_deployed_operative
-	name = "Non-Deployed Operative Survivor"
+	name = "Non-Deployed Operative Colonist"
 	jobtype = /datum/job/survivor/non_deployed_operative
 
 	w_uniform = /obj/item/clothing/under/marine/service
@@ -36,12 +33,12 @@
 	)
 
 /datum/outfit/job/survivor/prisoner
-	name = "Prisoner Survivor"
+	name = "Fugitive Colonist"
 	jobtype = /datum/job/survivor/prisoner
 
 	w_uniform = /obj/item/clothing/under/rank/prisoner
 	shoes = /obj/item/clothing/shoes/orange
-	back =  /obj/item/storage/backpack/security
+	back =  /obj/item/storage/backpack/satchel/rugged
 	mask = /obj/item/clothing/mask/gas/modular/skimask
 	backpack_contents = list(
 		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
@@ -49,7 +46,7 @@
 	)
 
 /datum/outfit/job/survivor/stripper
-	name = "Stripper Survivor"
+	name = "Stripper Colonist"
 	jobtype = /datum/job/survivor/stripper
 
 	w_uniform = /obj/item/clothing/under/lewd/stripper
@@ -61,7 +58,7 @@
 	)
 
 /datum/outfit/job/survivor/maid
-	name = "Maid Survivor"
+	name = "Maid Colonist"
 	jobtype = /datum/job/survivor/maid
 
 	w_uniform = /obj/item/clothing/under/dress/maid
@@ -75,7 +72,7 @@
 	)
 
 /datum/outfit/job/survivor/synth
-	name = "Synthetic Survivor"
+	name = "Synthetic Colonist"
 	jobtype = /datum/job/survivor/synth
 
 	id = /obj/item/card/id/gold

@@ -194,7 +194,7 @@
 		xeno_owner.apply_status_effect(STATUS_EFFECT_DRAIN_SURGE, drain_surge_melee ? 0 : strength, drain_surge_melee ? (strength / 100) : 0)
 		new /obj/effect/temp_visual/drain_sting_crit(get_turf(human_target))
 	human_target.adjustFireLoss(potency / 5)
-	human_target.AdjustKnockdown(max(0.1 SECONDS, potency_in_sets - 10))
+	human_target.AdjustParalyzed(max(0.1 SECONDS, potency_in_sets - 10))
 	var/health_to_heal = potency * heal_multiplier
 	HEAL_XENO_DAMAGE(xeno_owner, health_to_heal, FALSE)
 	if(heal_multiplier > 1 && health_to_heal)

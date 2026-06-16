@@ -41,7 +41,7 @@
 	is_on = TRUE
 	power_gen_percent = 99//will get to 100 on first tick, updating fuel_rate in the process
 	update_icon()
-	start_processing()
+	start_processing(SSMACHINES_MACHINES_EARLY)
 
 /obj/machinery/power/fusion_engine/random/Initialize(mapload)
 	. = ..()
@@ -78,17 +78,16 @@
 
 	if(power_gen_percent < 100)
 		power_gen_percent++
+		fuel_rate = FUSION_ENGINE_FULL_STRENGTH_FULL_RATE * 0.01 * power_gen_percent
 
 		switch(power_gen_percent) //Flavor text!
 			if(10)
 				balloon_alert_to_viewers("begins to whirr as it powers up")
-				fuel_rate = FUSION_ENGINE_FULL_STRENGTH_FULL_RATE * 0.1
 			if(50)
 				balloon_alert_to_viewers("hums as it reaches half capacity")
-				fuel_rate = FUSION_ENGINE_FULL_STRENGTH_FULL_RATE * 0.5
 			if(100)
 				balloon_alert_to_viewers("rumbles as it reaches full strength")
-				fuel_rate = FUSION_ENGINE_FULL_STRENGTH_FULL_RATE
+
 
 
 	add_avail(FUSION_ENGINE_MAX_POWER_GEN * (power_gen_percent / 100) ) //Nope, all good, just add the power
@@ -137,11 +136,11 @@
 	if(fusion_cell.fuel_amount <= 10)
 		balloon_alert_to_viewers("Fuel levels critically low")
 	balloon_alert_to_viewers("turns the generator on")
-	fuel_rate = FUSION_ENGINE_FULL_STRENGTH_FULL_RATE * 0.1
+	fuel_rate = 0
 
 	is_on = TRUE
 	update_icon()
-	start_processing()
+	start_processing(SSMACHINES_MACHINES_EARLY)
 	return TRUE
 
 /obj/machinery/power/fusion_engine/attackby(obj/item/I, mob/user, params)
@@ -277,7 +276,7 @@
 
 /obj/machinery/power/fusion_engine/examine(mob/user)
 	. = ..()
-	if(!ishuman(user))
+	if(!ishuman(user) && !isobserver(user))
 		return
 	if(buildstate != FUSION_ENGINE_NO_DAMAGE)
 		. += span_info("It's broken.")
@@ -292,24 +291,13 @@
 
 	if(!is_on)
 		. += span_info("It seems like it's offline.")
+		. += span_info("At max power it would produce [DisplayPower(FUSION_ENGINE_MAX_POWER_GEN)]")
 	else
 		. += span_info("The power gauge reads: [power_gen_percent]%")
+		. += span_info("It is outputting [DisplayPower(FUSION_ENGINE_MAX_POWER_GEN * 0.01 * power_gen_percent)]")
 	if(fusion_cell)
 		. += span_info("You can see a fuel cell in the receptacle.")
-		if(user.skills.getRating(SKILL_ENGINEER) >= SKILL_ENGINEER_EXPERT)
-			switch(fusion_cell.fuel_amount)
-				if(0 to 10)
-					. += span_danger("The fuel cell is critically low.")
-				if(11 to 25)
-					. += span_warning("The fuel cell is running low.")
-				if(26 to 50)
-					. += span_info("The fuel cell is a little under halfway.")
-				if(51 to 75)
-					. += span_info("The fuel cell is a little above halfway.")
-				if(76 to 99)
-					. += span_info("The fuel cell is nearly full.")
-				if(100)
-					. += span_info("The fuel cell is full.")
+		. += span_info("Cell Energy: [DisplayEnergyFrac(fusion_cell.fuel_amount * FUSION_ENGINE_MAX_POWER_GEN * 2 / FUSION_ENGINE_FULL_STRENGTH_FULL_RATE, fusion_cell.max_fuel_amount * FUSION_ENGINE_MAX_POWER_GEN * 2 / FUSION_ENGINE_FULL_STRENGTH_FULL_RATE)]")
 	else
 		. += span_info("There is no fuel cell in the receptacle.")
 
@@ -339,13 +327,6 @@
 			icon_state = "wire"
 		if(FUSION_ENGINE_LIGHT_DAMAGE)
 			icon_state = "wrench"
-
-#undef FUSION_ENGINE_MAX_POWER_GEN
-#undef FUSION_ENGINE_FAIL_CHECK_TICKS
-#undef FUSION_ENGINE_NO_DAMAGE
-#undef FUSION_ENGINE_LIGHT_DAMAGE
-#undef FUSION_ENGINE_MEDIUM_DAMAGE
-#undef FUSION_ENGINE_HEAVY_DAMAGE
 
 //FUEL CELL
 /obj/item/fuel_cell
@@ -395,8 +376,9 @@
 
 /obj/item/fuel_cell/examine(mob/user)
 	. = ..()
-	if(ishuman(user))
+	if(ishuman(user) || isobserver(user))
 		. += "The fuel indicator reads: [get_fuel_percent()]%"
+		. += "Stored Energy: [DisplayEnergyFrac(fuel_amount * FUSION_ENGINE_MAX_POWER_GEN * 2 / FUSION_ENGINE_FULL_STRENGTH_FULL_RATE, max_fuel_amount * FUSION_ENGINE_MAX_POWER_GEN * 2 / FUSION_ENGINE_FULL_STRENGTH_FULL_RATE)]"
 
 /obj/item/fuel_cell/proc/get_fuel_percent()
 	return round(100*fuel_amount/max_fuel_amount)
@@ -414,3 +396,10 @@
 	if(amount < 0 || amount > max_fuel_amount)
 		return
 	fuel_amount = amount
+
+#undef FUSION_ENGINE_MAX_POWER_GEN
+#undef FUSION_ENGINE_FAIL_CHECK_TICKS
+#undef FUSION_ENGINE_NO_DAMAGE
+#undef FUSION_ENGINE_LIGHT_DAMAGE
+#undef FUSION_ENGINE_MEDIUM_DAMAGE
+#undef FUSION_ENGINE_HEAVY_DAMAGE

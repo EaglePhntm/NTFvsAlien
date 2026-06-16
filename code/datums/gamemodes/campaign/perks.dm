@@ -115,14 +115,14 @@ Needed both for a purchase list and effected list (if one perk impacts multiple 
 
 /datum/perk/trait/hp_boost
 	name = "Improved constitution"
-	desc = "Through disciplined training and hypno indoctrination, your body is able to tolerate higher levels of trauma. +25 max health, +25 pain resistance. \
+	desc = "Through disciplined training and hypno indoctrination, your body is able to tolerate higher levels of trauma. +15 max health, +25 pain resistance. \
 	Also unlocks heavier armor for most roles."
 	ui_icon = "health_1"
 	all_jobs = TRUE
 	unlock_cost = 800
 	traits = list(TRAIT_LIGHT_PAIN_RESIST)
 	///How much this perk increases your maxhp by
-	var/health_mod = 25
+	var/health_mod = 15
 
 /datum/perk/trait/hp_boost/apply_perk(mob/living/carbon/owner)
 	. = ..()
@@ -153,7 +153,7 @@ Needed both for a purchase list and effected list (if one perk impacts multiple 
 
 /datum/perk/trait/hp_boost/two
 	name = "Extreme constitution"
-	desc = "Military grade biological augmentations are used to harden your body against grievous bodily harm. Provides an additional +25 max health and +10 pain resistance."
+	desc = "Military grade biological augmentations are used to harden your body against grievous bodily harm. Provides an additional +15 max health and +10 pain resistance."
 	req_desc = "Requires Improved constitution."
 	ui_icon = "health_2"
 	prereq_perks = list(/datum/perk/trait/hp_boost)
@@ -169,7 +169,7 @@ Needed both for a purchase list and effected list (if one perk impacts multiple 
 	ui_icon = "soft_footed"
 	traits = list(TRAIT_LIGHT_STEP)
 	all_jobs = TRUE
-	unlock_cost = 500
+	unlock_cost = 700
 
 /datum/perk/trait/axe_master
 	name = "Axe master"
@@ -247,7 +247,7 @@ Needed both for a purchase list and effected list (if one perk impacts multiple 
 
 /datum/perk/skill_mod/unarmed/New()
 	//letting specs etc take this lets em basically one shot limbs off at cqc 7
-	var/list/goofyjobs = GLOB.jobs_regular_all - list(SQUAD_SPECIALIST, SOM_SQUAD_VETERAN, FIELD_COMMANDER, SOM_FIELD_COMMANDER, NTC_CHIEF_EXECUTIVE_OFFICER, SYNTHETIC, "CLF Synthetic", "SOM Synthetic")
+	var/list/goofyjobs = GLOB.jobs_regular_all - list(SQUAD_SPECIALIST, SOM_SQUAD_VETERAN, FIELD_COMMANDER, SOM_FIELD_COMMANDER, NTC_CHIEF_EXECUTIVE_OFFICER, SYNTHETIC, "Cult Synthetic", "SOM Synthetic")
 	jobs_supported = goofyjobs
 	. = ..()
 

@@ -55,7 +55,7 @@
 			if(stealth_skill.can_sneak_attack)
 				var/datum/action/ability/activable/xeno/hunter_mark/assassin/mark = X.actions_by_path[/datum/action/ability/activable/xeno/hunter_mark/assassin]
 				if(mark?.marked_target == src) //assassin death mark
-					damage *= 2
+					damage *= mark.death_mark_damage_multiplier
 
 	var/armor_pen = X.xeno_caste.melee_ap
 
@@ -77,8 +77,8 @@
 		X.do_attack_animation(src, ATTACK_EFFECT_GRAB)
 		return FALSE
 
-	 //Disarm attacks are stronger if human has no stamina buffer left because the xeno still got to take
-	 //it down to 200 staminaloss + 50 buffer if at full stam, but they never are because exertion of other means.
+	//Disarm attacks are stronger if human has no stamina buffer left because the xeno still got to take
+	//it down to 200 staminaloss + 50 buffer if at full stam, but they never are because exertion of other means.
 	if(staminaloss > 0)
 		damage *= 2
 	else //if human is energetic yet they will endure.
@@ -88,7 +88,7 @@
 	if(lying_angle||incapacitated()||IsParalyzed()||IsKnockdown()) //extra damage to people who are downed already.
 		damage *= 1.5
 
-	var/damage_to_deal = clamp(damage, 0, (maxHealth * 2) - stamina_loss)
+	var/damage_to_deal = clamp(damage, 0, (maxHealth * STAMINA_LOSS_LIMIT_MULTIPLIER) - stamina_loss)
 	damage_to_deal += (damage - damage_to_deal)
 
 	X.do_attack_animation(src, ATTACK_EFFECT_DISARM2)
@@ -102,10 +102,12 @@
 			playsound(loc, sound, 25, TRUE, 7)
 
 		if(IsParalyzed())
-			if(AmountParalyzed() < 10 SECONDS)
-				X.visible_message("<span class='danger'>[X] holds [src] down!</span>",
-				"<span class='danger'>We hold [src] down!</span>", null, 5)
+			if((AmountParalyzed() < 10 SECONDS)  && stamina_loss >= maxHealth * STAMINA_LOSS_LIMIT_MULTIPLIER)
 				AdjustParalyzed(2 SECONDS)
+			else
+				apply_damage(damage_to_deal, STAMINA, BODY_ZONE_CHEST, armor_block, FALSE, FALSE, TRUE, armor_pen, X)
+			X.visible_message("<span class='danger'>[X] holds [src] down!</span>",
+			"<span class='danger'>We hold [src] down!</span>", null, 5)
 		else
 			if(pulling)
 				X.visible_message("<span class='danger'>[X] has broken [src]'s grip on [pulling]!</span>",
@@ -122,7 +124,7 @@
 			X.visible_message("<span class='danger'>[X] wrestles [src]-!</span>",
 			"<span class='danger'>We wrestle [src]!</span>", null, 5)
 			add_slowdown(0.4,2)
-			if(stamina_loss >= maxHealth * 2) //same as regular stamina exhaustion stun.
+			if(stamina_loss >= maxHealth * STAMINA_LOSS_LIMIT_MULTIPLIER) //same as regular stamina exhaustion stun.
 				if(!IsParalyzed())
 					visible_message(null, "<span class='danger'>You are too weakened to keep resisting [X], you slump to the ground!</span>")
 					X.visible_message("<span class='danger'>[X] slams [src] to the ground!</span>",
@@ -208,7 +210,7 @@
 			if(stealth_skill.can_sneak_attack)
 				var/datum/action/ability/activable/xeno/hunter_mark/assassin/mark = X.actions_by_path[/datum/action/ability/activable/xeno/hunter_mark/assassin]
 				if(mark?.marked_target == src) //assassin death mark
-					damage *= 2
+					damage *= mark.death_mark_damage_multiplier
 
 	var/armor_pen = X.xeno_caste.melee_ap
 
@@ -320,6 +322,22 @@
 			disable_lights(sparks = TRUE)
 			to_chat(X, span_warning("We disable whatever annoying lights the dead creature possesses."))
 		else
+			var/implanted_larvas
+			for(var/mob/living/carbon/xenomorph/larva/implanted in contents)
+				implanted_larvas++
+			if(implanted_larvas)
+				for(var/i in 1 to implanted_larvas)
+					X.visible_message(span_danger("[X] begins to dig out a larva from [src]!"), span_danger("We begin to dig out a grown larva from [src]."), span_warning("You hear flesh cut open."), 5)
+					do_jitter_animation(50, 2 SECONDS)
+					if(do_mob(X, src, 3 SECONDS, BUSY_ICON_HOSTILE))
+						X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
+						playsound(get_turf(src), SFX_ALIEN_CLAW_FLESH, 25, TRUE)
+						apply_damage(X.xeno_caste.melee_damage * X.xeno_melee_damage_modifier, BRUTE, 0, MELEE, TRUE, TRUE, TRUE, X.xeno_caste.melee_ap, X)
+						X.visible_message(span_danger("[X] digs out a larva from [src]!"), span_danger("We dig out a larva from [src]."), span_warning("You hear flesh cut open."), 5)
+						for(var/mob/living/carbon/xenomorph/larva/implanted in contents)
+							implanted.forceMove(loc)
+							addtimer(CALLBACK(implanted, TYPE_PROC_REF(/mob/living/carbon/xenomorph/larva, burrow)), 1.5 SECONDS)
+							break
 			to_chat(X, span_warning("[src] is dead, why would we want to touch it?"))
 		return FALSE
 

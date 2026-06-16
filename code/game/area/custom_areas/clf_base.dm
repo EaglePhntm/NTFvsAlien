@@ -1,48 +1,48 @@
 /area/antag_ship/clf_base
-	name = "CLF Base"
+	name = "Cult Base"
 	requires_power = TRUE
 	always_unpowered = FALSE
 
 /area/antag_ship/clf_base/bathroom
-	name = "CLF Base Bathroom"
+	name = "Cult Base Bathroom"
 
 /area/antag_ship/clf_base/sleeproom
-	name = "CLF Base Sleeproom"
+	name = "Cult Base Sleeproom"
 
 /area/antag_ship/clf_base/kitchen
-	name = "CLF Base Kitchen"
+	name = "Cult Base Kitchen"
 
 /area/antag_ship/clf_base/lounge
-	name = "CLF Base Lounge"
+	name = "Cult Base Lounge"
 
 /area/antag_ship/clf_base/techroom
-	name = "CLF Base Technical Room"
+	name = "Cult Base Technical Room"
 	minimap_color = MINIMAP_AREA_ENGI_CAVE
 
 /area/antag_ship/clf_base/armory
-	name = "CLF Base Armory"
+	name = "Cult Base Armory"
 	minimap_color = MINIMAP_AREA_SEC_CAVE
 
 /area/antag_ship/clf_base/prison
-	name = "CLF Base Prison"
+	name = "Cult Base Prison"
 	minimap_color = MINIMAP_AREA_SEC_CAVE
 
 /area/antag_ship/clf_base/requisition
-	name = "CLF Base Requisition"
+	name = "Cult Base Requisition"
 	minimap_color = MINIMAP_AREA_REQ_CAVE
 
 /area/antag_ship/clf_base/reedroom	// b
-	name = "CLF Base Room"
+	name = "Cult Base Room"
 
 /area/antag_ship/clf_base/medbay
-	name = "CLF Base Medbay"
+	name = "Cult Base Medbay"
 
 /area/antag_ship/clf_base/hallways
-	name = "CLF Base Hallways"
+	name = "Cult Base Hallways"
 
 /area/antag_ship/clf_base/hallways/inside
-	name = "CLF Base Hallway Inside"
+	name = "Cult Base Hallway Inside"
 
 /area/antag_ship/clf_base/hallways/outside
-	name = "CLF Base Hallway Outside"
+	name = "Cult Base Hallway Outside"
 	always_unpowered = TRUE

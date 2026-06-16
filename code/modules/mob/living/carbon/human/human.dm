@@ -85,6 +85,7 @@
 	RegisterSignal(src, COMSIG_KB_GIVE, PROC_REF(give_signal_handler))
 
 /mob/living/carbon/human/Destroy()
+	log_game("Marking [logdetails(src)] as undefibbable because their body is being deleted.")
 	set_undefibbable()
 	assigned_squad?.remove_from_squad(src)
 	remove_from_all_mob_huds()
@@ -218,7 +219,7 @@
 
 //gets paygrade from ID
 //paygrade is a user's actual rank, as defined on their ID.  size 1 returns an abbreviation, size 0 returns the full rank name, the third input is used to override what is returned if no paygrade is assigned.
-/mob/living/carbon/human/get_paygrade(size = 1)
+/mob/living/carbon/human/get_paygrade(size = PAYGRADE_SHORT)
 	var/obj/item/card/id/id = wear_id
 	if(istype(id))
 		return get_paygrades(id.paygrade, size, gender)

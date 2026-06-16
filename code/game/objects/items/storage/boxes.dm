@@ -1358,6 +1358,18 @@
 	spawn_number = 25
 	spawn_type = /obj/item/explosive/grenade/smokebomb/aphrotoxin
 
+/obj/item/storage/box/visual/grenade/neurotoxin/alt
+	name = "\improper M40-N2 Neurotoxin smoke grenade box"
+	desc = "A secure box holding 25 M40-N2 Neurotoxin smoke grenades. Classed as a less lethal riot control tool by the NTC. Version two produces a weaker and smaller smoke cloud that lasts much longer."
+	spawn_number = 25
+	spawn_type = /obj/item/explosive/grenade/smokebomb/neuro/alt
+
+/obj/item/storage/box/visual/grenade/metalfoam
+	name = "\improper Metal-Foam Grenade box"
+	desc = "A secure box holding 25 Metal-Foam Grenades. Used for emergency sealing of air breaches, or to provide cover from snipers."
+	spawn_number = 25
+	spawn_type = /obj/item/explosive/grenade/chem_grenade/metalfoam
+
 #undef BOX_OVERLAY_SHIFT_X
 #undef BOX_OVERLAY_SHIFT_Y
 

@@ -165,12 +165,10 @@
 	blood_overlay_type = "coat"
 	armor_protection_flags = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	item_flags = SYNTH_RESTRICTED
-	slowdown = 0.2
-	soft_armor = list(MELEE = 20, BULLET = 40, LASER = 30, ENERGY = 30, BOMB = 30, BIO = 15, FIRE = 25, ACID = 15)
+	slowdown = SLOWDOWN_ARMOR_LIGHT
+	soft_armor = MARINE_ARMOR_LIGHT
 	siemens_coefficient = 0.9
 	permeability_coefficient = 0.7
-	equip_delay_self = 20
-	unequip_delay_self = 20
 
 /obj/item/clothing/suit/armor/sectoid
 	name = "psionic field"

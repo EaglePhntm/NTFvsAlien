@@ -338,6 +338,7 @@ WEAPONS
 	name = "PB-12 pepperball gun"
 	contains = list(/obj/item/weapon/gun/rifle/pepperball)
 	cost = 100
+	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/pepperball/mag
 	name = "PB-12 pepperball gun magazine (x1)"
@@ -639,3 +640,8 @@ WEAPONS
 	name = "TX13 smart machinepistol ammo"
 	contains = list(/obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol)
 	cost = 10
+
+/datum/supply_packs/weapons/sledgehammer
+	name = "Sledgehammer"
+	contains = list(/obj/item/weapon/twohanded/sledgehammer)
+	cost = 50

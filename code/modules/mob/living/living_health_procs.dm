@@ -74,8 +74,8 @@
 		return FALSE	//godmode
 
 	var/stamina_loss_adjustment = staminaloss + amount
-	var/health_limit = maxHealth * 2
-	if(stamina_loss_adjustment > health_limit) //If we exceed maxHealth * 2 stamina damage, get hardstunned for 15 seconds, instead of taking oxygen damage.
+	var/health_limit = maxHealth * STAMINA_LOSS_LIMIT_MULTIPLIER
+	if(stamina_loss_adjustment > health_limit) //If we exceed maxHealth * STAMINA_LOSS_LIMIT_MULTIPLIER stamina damage, get hardstunned for 15 seconds, instead of taking oxygen damage.
 		ParalyzeNoChain(15 SECONDS)
 
 	staminaloss = clamp(stamina_loss_adjustment, -max_stamina, health_limit)
@@ -428,13 +428,16 @@
 	do_jitter_animation(1000)
 	if(!client)
 		if(should_offer_to_ghost)
-			offer_mob()
+			if(!iszombie(src) && !should_zombify)
+				offer_mob()
 			addtimer(CALLBACK(src, PROC_REF(finish_revive_to_crit), FALSE, should_zombify), 10 SECONDS)
 			return
 	if(should_zombify)
 		if(!iszombie(src))
 			set_species("Strong zombie")
 		AddComponent(/datum/component/ai_controller, /datum/ai_behavior/xeno/zombie/patrolling)
+		if(client)
+			GLOB.possessed_sentient_zombie_list += src
 	heal_limbs(-health)
 	set_stat(CONSCIOUS)
 	overlay_fullscreen_timer(0.5 SECONDS, 10, "roundstart1", /atom/movable/screen/fullscreen/black)

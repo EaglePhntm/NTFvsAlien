@@ -4340,7 +4340,7 @@
 /turf/open/floor/grayscale/black,
 /area/corsat/gamma/airlock/control)
 "WJ" = (
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /obj/structure/table/wood,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/carpet,

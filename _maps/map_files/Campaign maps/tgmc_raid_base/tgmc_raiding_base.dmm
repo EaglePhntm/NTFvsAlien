@@ -2881,7 +2881,7 @@
 /area/campaign/tgmc_raiding/underground/command/captain)
 "kA" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/mainship/blue{
 	dir = 4
 	},
@@ -4548,7 +4548,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/mainship/floor,
 /area/campaign/tgmc_raiding/colony/indoor/station)
 "qP" = (
@@ -6278,7 +6278,7 @@
 /area/campaign/tgmc_raiding/underground/maintenance/filtration)
 "xa" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/mainship/red/full,
 /area/campaign/tgmc_raiding/underground/security/central_outpost)
 "xb" = (
@@ -7688,7 +7688,7 @@
 /area/campaign/tgmc_raiding/underground/security)
 "Cg" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/mainship/red{
 	dir = 8
 	},
@@ -8400,7 +8400,7 @@
 /area/campaign/tgmc_raiding/underground/security)
 "EK" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/prison/darkred{
 	dir = 4
 	},
@@ -10492,7 +10492,7 @@
 /area/campaign/tgmc_raiding/colony/indoor/dome)
 "Me" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/mainship/blue,
 /area/campaign/tgmc_raiding/underground/command)
 "Mf" = (
@@ -11402,7 +11402,7 @@
 /area/campaign/tgmc_raiding/underground/command)
 "Pv" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/mainship/red{
 	dir = 1
 	},
@@ -12073,7 +12073,7 @@
 /area/campaign/tgmc_raiding/underground/command/east)
 "Sd" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/mainship/red{
 	dir = 6
 	},
@@ -12525,12 +12525,12 @@
 /area/campaign/tgmc_raiding/colony/indoor/engineering)
 "TC" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/mainship/floor,
 /area/campaign/tgmc_raiding/underground/command/east)
 "TD" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/prison/darkred{
 	dir = 5
 	},
@@ -12703,7 +12703,7 @@
 /area/campaign/tgmc_raiding/underground/maintenance/sewer)
 "Uj" = (
 /obj/structure/table/mainship,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/mainship/blue{
 	dir = 1
 	},

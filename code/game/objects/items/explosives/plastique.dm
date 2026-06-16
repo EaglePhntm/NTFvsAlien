@@ -55,6 +55,8 @@
 /obj/item/explosive/plastique/afterattack(atom/target, mob/user, flag)
 	if(!flag)
 		return FALSE
+	if(isxeno(user))
+		return FALSE
 	if(!target.can_plastique(user, src))
 		return FALSE
 	user.visible_message(span_warning("[user] is trying to plant [name] on [target]!"),
@@ -185,7 +187,10 @@
 		explosion(plant_target, flash_range = 1) //todo: place as abuse of explosion
 		qdel(src)
 		return
-	explosion(plant_target, 0, 0, 1, 0, 0, 0, 1, 0, 1, explosion_cause=src)
+	explosion(get_step(plant_target, NORTH), 0, 1, 2, 3, 4, 0, 2, 0, 1, explosion_cause=src)
+	explosion(get_step(plant_target, SOUTH), 0, 1, 2, 3, 4, 0, 2, 0, 1, explosion_cause=src)
+	explosion(get_step(plant_target, WEST), 0, 1, 2, 3, 4, 0, 2, 0, 1, explosion_cause=src)
+	explosion(get_step(plant_target, EAST), 0, 1, 2, 3, 4, 0, 2, 0, 1, explosion_cause=src)
 	playsound(plant_target, SFX_EXPLOSION_SMALL, 100, FALSE, 25)
 	var/datum/effect_system/smoke_spread/smoke = new smoketype()
 	smoke.set_up(smokeradius, plant_target, 2)
@@ -216,3 +221,7 @@
 
 /turf/open/can_plastique(mob/user, obj/plastique)
 	return FALSE
+
+/obj/machinery/power/apc/can_plastique(mob/user, obj/plastique)
+	return FALSE
+

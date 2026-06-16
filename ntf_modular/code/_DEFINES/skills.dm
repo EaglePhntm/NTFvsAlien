@@ -40,8 +40,18 @@
 	sex = SKILL_SEX_EXPERT
 
 /datum/skills/slut/clf
-	name = "CLF Breeder"
+	name = "Cult Offering"
 	engineer = SKILL_ENGINEER_METAL
 
 /datum/skills/civilian/mo
 	sex = SKILL_SEX_MASTER //Master at work
+
+/datum/skills/operations_officer
+	name = CORPORATE_LIAISON
+	leadership = SKILL_LEAD_TRAINED //not really trained to lead a military
+	police = SKILL_POLICE_MP //ig corporate training for self defence
+	medical = SKILL_MEDICAL_NOVICE
+	construction = SKILL_CONSTRUCTION_PLASTEEL
+	engineer = SKILL_ENGINEER_METAL
+	powerloader = SKILL_POWERLOADER_MASTER
+	combat = SKILL_COMBAT_UNTRAINED

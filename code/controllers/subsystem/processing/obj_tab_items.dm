@@ -13,12 +13,16 @@ PROCESSING_SUBSYSTEM_DEF(obj_tab_items)
 	var/list/current_run = currentrun
 
 	while(current_run.len)
-		var/datum/thing = current_run[current_run.len]
+		currently_processing = current_run[current_run.len]
+		var/datum/thing = currently_processing
+		currently_processing_details = "[logdetails(thing)][isdatum(thing) ? "([thing.ref_search_details()])" : ""]"
 		if(QDELETED(thing))
 			processing -= thing
 		else if(thing.process(wait * 0.1) == PROCESS_KILL)
 			// fully stop so that a future START_PROCESSING will work
 			STOP_PROCESSING(src, thing)
+		currently_processing = null
+		currently_processing_details = "*NULL*"
 		if (MC_TICK_CHECK)
 			return
 		current_run.len--

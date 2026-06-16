@@ -17,6 +17,7 @@
 	shield_color_low = COLOR_DARKER_RED
 	shield_color_mid = COLOR_DARK_RED
 	shield_color_full = COLOR_GRAY
+	damaged_shield_cooldown = 20 SECONDS
 	var/shield_color_overmax_full = COLOR_WHITE
 	var/shield_color_overmax_full_danger = COLOR_VIVID_RED
 	var/last_warning_time

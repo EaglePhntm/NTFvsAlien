@@ -163,7 +163,7 @@
 	basecolor = "#999999"
 	desc = "Some pussy juice or something, yuck."
 	random_icon_states = list("mgibbl1", "mgibbl2", "mgibbl3", "mgibbl4", "mgibbl5")
-	alpha = 100
+	alpha = 80
 	amount = 2
 	layer = ABOVE_WEEDS_LAYER
 

@@ -25,6 +25,16 @@ Imports
 	contains = list(/obj/item/ammo_magazine/rifle)
 	cost = 3
 
+/datum/supply_packs/imports/m41a/ammo/extended
+	name = "PR-412 Pulse Rifle Ammo Extended Mag"
+	contains = list(/obj/item/ammo_magazine/rifle/extended)
+	cost = 6
+
+/datum/supply_packs/imports/m41a/ammo/incendiary
+	name = "PR-412 Pulse Rifle Ammo Incendiary Mag"
+	contains = list(/obj/item/ammo_magazine/rifle/incendiary)
+	cost = 18
+
 /datum/supply_packs/imports/m412l1
 	name = "PR-412L1 Heavy Pulse Rifle"
 	contains = list(/obj/item/weapon/gun/rifle/m412l1_hpr)
@@ -65,15 +75,20 @@ Imports
 	contains = list(/obj/item/ammo_magazine/smg/m25)
 	cost = 3
 
+/datum/supply_packs/imports/m25/ammo/extended
+	name = "SMG-25 SMG Ammo Extended Magazine"
+	contains = list(/obj/item/ammo_magazine/smg/m25/extended)
+	cost = 6
+
 /datum/supply_packs/imports/alf
 	name = "ALF-51B Kauser machinecarbine"
 	contains = list(/obj/item/weapon/gun/rifle/alf_machinecarbine)
-	cost = 50
+	cost = 60
 
 /datum/supply_packs/imports/alf/ammo
 	name = "ALF-51B Kauser machinecarbine Ammo"
 	contains = list(/obj/item/ammo_magazine/rifle/alf_machinecarbine)
-	cost = 3
+	cost = 6
 
 /datum/supply_packs/imports/skorpion
 	name = "CZ-81 Skorpion SMG"
@@ -95,15 +110,25 @@ Imports
 	contains = list(/obj/item/ammo_magazine/smg/uzi)
 	cost = 3
 
+/datum/supply_packs/imports/uzi/ammo/extended
+	name = "SMG-2 Uzi SMG Ammo Extended Magazine"
+	contains = list(/obj/item/ammo_magazine/smg/uzi/extended)
+	cost = 5
+
 /datum/supply_packs/imports/ppsh
 	name = "PPSh-17b SMG"
 	contains = list(/obj/item/weapon/gun/smg/ppsh)
 	cost = 50
 
 /datum/supply_packs/imports/ppsh/ammo
+	name = "PPSh-17b SMG Ammo Magagazine"
+	contains = list(/obj/item/ammo_magazine/smg/ppsh)
+	cost = 3
+
+/datum/supply_packs/imports/ppsh/ammo/extended
 	name = "PPSh-17b SMG Ammo Drum"
 	contains = list(/obj/item/ammo_magazine/smg/ppsh/extended)
-	cost = 3
+	cost = 6
 
 /datum/supply_packs/imports/leveraction
 	name = "Lever Action Rifle"
@@ -135,15 +160,30 @@ Imports
 	cost = 10
 	available_against_xeno_only = TRUE
 
+/datum/supply_packs/imports/v34
+	name = "V-34 Assault Carbine"
+	contains = list(/obj/item/weapon/gun/rifle/som_carbine/black)
+	cost = 75
+
+/datum/supply_packs/imports/mpi_km/ammo
+	name = "V-34 Carbine Ammo"
+	contains = list(/obj/item/ammo_magazine/rifle/mpi_km/carbine/plum)
+	cost = 3
+
 /datum/supply_packs/imports/mpi_km
 	name = "MPi-KM Assault Rifle"
 	contains = list(/obj/item/weapon/gun/rifle/mpi_km)
 	cost = 50
 
-/datum/supply_packs/imports/mpi_km/ammo
+/datum/supply_packs/imports/mpi_km/ammo/standard
 	name = "MPi-KM Assault Rifle Ammo"
 	contains = list(/obj/item/ammo_magazine/rifle/mpi_km/plum)
-	cost = 3
+	cost = 4
+
+/datum/supply_packs/imports/mpi_km/ammo/extended
+	name = "MPi-KM Assault Rifle Ammo Extended Magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/mpi_km/extended)
+	cost = 6
 
 /datum/supply_packs/imports/mpi_km/ammo/rubber
 	name = "MPi-KM Assault Rifle Rubber Ammo"
@@ -154,6 +194,26 @@ Imports
 	name = "7.62x39mm Ammo Box"
 	contains = list(/obj/item/ammo_magazine/packet/pwarsaw)
 	cost = 15
+
+/datum/supply_packs/imports/lmg_d
+	name = "lMG-D Light Machine Gun"
+	contains = list(/obj/item/weapon/gun/rifle/lmg_d)
+	cost = 100
+
+/datum/supply_packs/imports/lmg_d/ammo
+	name = "lMG-D Light Machine Gun Drum Magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/lmg_d)
+	cost = 10
+
+/datum/supply_packs/imports/dp27
+	name = "Degtyaryov 'RP' Machine Gun"
+	contains = list(/obj/item/weapon/gun/rifle/dpm)
+	cost = 100
+
+/datum/supply_packs/imports/dp27/ammo
+	name = "Degtyaryov 'RP' Machine Gun Drum"
+	contains = list(/obj/item/ammo_magazine/rifle/dpm)
+	cost = 25
 
 /datum/supply_packs/imports/mkh
 	name = "MKH-98 Storm Rifle"
@@ -215,7 +275,12 @@ Imports
 	contains = list(/obj/item/ammo_magazine/rifle/famas)
 	cost = 5
 
-/datum/supply_packs/imports/aug	//Vietnam time
+/datum/supply_packs/imports/famas/ammoext
+	name = "FAMAS Assault Rifle Extended Ammo"
+	contains = list(/obj/item/ammo_magazine/rifle/famasext)
+	cost = 8
+
+/datum/supply_packs/imports/aug	//Waffle time
 	name = "L&S EM-88 Assault Carbine"
 	contains = list(/obj/item/weapon/gun/rifle/icc_assaultcarbine/export)
 	cost = 120
@@ -224,6 +289,11 @@ Imports
 	name = "EM-88 Assault Carbine Ammo"
 	contains = list(/obj/item/ammo_magazine/rifle/icc_assaultcarbine/export)
 	cost = 5
+
+/datum/supply_packs/imports/aug/ammoext
+	name = "EM-88 Assault Carbine Extended Ammo"
+	contains = list(/obj/item/ammo_magazine/rifle/icc_assaultcarbinelbar)
+	cost = 7
 
 /datum/supply_packs/imports/rev357
 	name = "'Rebota' Revolver"
@@ -295,6 +365,36 @@ Imports
 	contains = list(/obj/item/ammo_magazine/pistol/m1911)
 	cost = 3
 
+/datum/supply_packs/imports/lassniper
+	name = "Terra Experimental laser sniper rifle"
+	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper)
+	cost = 25
+
+/datum/supply_packs/imports/lasrifle
+	name = "Terra Experimental laser rifle"
+	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle)
+	cost = 20
+
+/datum/supply_packs/imports/lasmachinegun
+	name = "Terra Experimental laser machine gun"
+	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_mlaser)
+	cost = 20
+
+/datum/supply_packs/imports/lascarbine
+	name = "Terra Experimental laser carbine"
+	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine)
+	cost = 10
+
+/datum/supply_packs/imports/laspistol
+	name = "Terra Experimental laser pistol"
+	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol)
+	cost = 5
+
+/datum/supply_packs/imports/lasguncell
+	name = "Terra Experimental standard battery"
+	contains = list(/obj/item/cell/lasgun/lasrifle)
+	cost = 3
+
 /datum/supply_packs/imports/strawhat
 	name = "Straw hat"
 	contains = list(/obj/item/clothing/head/strawhat)
@@ -329,3 +429,98 @@ Imports
 	/obj/item/implanter/jump_mod,
 	)
 	cost = 500
+
+/datum/supply_packs/imports/plasticfork
+	name = "Plastic Fork"
+	contains = list(/obj/item/tool/kitchen/utensil/pfork)
+	cost = 1
+
+/datum/supply_packs/imports/plasticknife
+	name = "Plastic Knife"
+	contains = list(/obj/item/tool/kitchen/utensil/pknife)
+	cost = 1
+
+/datum/supply_packs/imports/plasticknife
+	name = "Plastic Spoon"
+	contains = list(/obj/item/tool/kitchen/utensil/pspoon)
+	cost = 1
+
+/datum/supply_packs/imports/utensilfork
+	name = "Utensil Fork"
+	contains = list(/obj/item/tool/kitchen/utensil/fork)
+	cost = 3
+
+/datum/supply_packs/imports/untensilknife
+	name = "Utensil Knife"
+	contains = list(/obj/item/tool/kitchen/utensil/knife)
+	cost = 3
+
+/datum/supply_packs/imports/utensilspoon
+	name = "Utensil Spoon"
+	contains = list(/obj/item/tool/kitchen/utensil/spoon)
+	cost = 3
+
+/datum/supply_packs/imports/kitchenknife
+	name = "Kitchen Knife"
+	contains = list(/obj/item/tool/kitchen/knife)
+	cost = 5
+
+/datum/supply_packs/imports/butcherknife
+	name = "Butcher Cleaver"
+	contains = list(/obj/item/tool/kitchen/knife/butcher)
+	cost = 20
+
+/datum/supply_packs/imports/rollingpin
+	name = "Rolling Pin"
+	contains = list(/obj/item/tool/kitchen/rollingpin)
+	cost = 5
+
+/datum/supply_packs/imports/flour
+	name = "Flour Bag"
+	contains = list(/obj/item/reagent_containers/food/snacks/flour)
+	cost = 5
+
+/datum/supply_packs/imports/milk
+	name = "Milk Carton"
+	contains = list(/obj/item/reagent_containers/food/drinks/milk)
+	cost = 5
+
+/datum/supply_packs/imports/soymilk
+	name = "Soy Milk Carton"
+	contains = list(/obj/item/reagent_containers/food/drinks/soymilk)
+	cost = 5
+
+/datum/supply_packs/imports/universalenzyme
+	name = "Universal Enzyme Bottle"
+	contains = list(/obj/item/reagent_containers/food/condiment/enzyme)
+	cost = 5
+
+/datum/supply_packs/imports/hotsauce
+	name = "Hot Sauce Bottle"
+	contains = list(/obj/item/reagent_containers/cup/bottle/capsaicin)
+	cost = 5
+
+/datum/supply_packs/imports/syrup
+	name = "Syrup Bottle"
+	contains = list(/obj/item/reagent_containers/cup/bottle/syrup_bottle)
+	cost = 5
+
+/datum/supply_packs/imports/saltshaker
+	name = "Salt Shaker"
+	contains = list(/obj/item/reagent_containers/food/condiment/saltshaker)
+	cost = 5
+
+/datum/supply_packs/imports/peppermill
+	name = "Pepper Mill"
+	contains = list(/obj/item/reagent_containers/food/condiment/peppermill)
+	cost = 5
+
+/datum/supply_packs/imports/frostoil
+	name = "Frost Oil"
+	contains = list(/obj/item/reagent_containers/cup/bottle/frostoil)
+	cost = 50
+
+/datum/supply_packs/imports/pizzarandom
+	name = "Mystery Pizza"
+	contains = list(/obj/item/pizzabox/random)
+	cost = 25

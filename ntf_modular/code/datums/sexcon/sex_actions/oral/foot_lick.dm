@@ -24,5 +24,4 @@
 	user.make_sucking_noise()
 
 /datum/sex_action/foot_lick/on_finish(mob/living/carbon/user, mob/living/carbon/target)
-	..()
 	user.visible_message(span_warning("[user] stops licking [target]'s feet ..."))

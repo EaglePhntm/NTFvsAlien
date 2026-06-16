@@ -6,11 +6,25 @@
 /datum/sex_action/throat_sex/shows_on_menu(mob/living/carbon/user, mob/living/carbon/target)
 	if(user == target)
 		return FALSE
+	if(isxeno(user))
+		var/mob/living/carbon/xenomorph/userxeno = user
+		if(userxeno.client?.prefs?.xenogender < 3)
+			return FALSE
+	else
+		if(user.gender != MALE && !user.sexcon.can_use_penis())
+			return FALSE
 	return TRUE
 
 /datum/sex_action/throat_sex/can_perform(mob/living/carbon/user, mob/living/carbon/target)
 	if(user == target)
 		return FALSE
+	if(isxeno(user))
+		var/mob/living/carbon/xenomorph/userxeno = user
+		if(userxeno.client?.prefs?.xenogender < 3)
+			return FALSE
+	else
+		if(user.gender != MALE && !user.sexcon.can_use_penis())
+			return FALSE
 	return TRUE
 
 /datum/sex_action/throat_sex/on_start(mob/living/carbon/user, mob/living/carbon/target)
@@ -30,7 +44,7 @@
 		user.sexcon.cum_into(oral = TRUE)
 		if(isxeno(user))
 			var/mob/living/carbon/xenomorph/X = user
-			X.impregify(target, "mouth")
+			X.impregify(target, HOLE_MOUTH)
 
 	if(user.sexcon.considered_limp())
 		user.sexcon.perform_sex_action(target, 0, 2, FALSE)
@@ -43,7 +57,7 @@
 	target.sexcon.handle_passive_ejaculation(user)
 
 /datum/sex_action/throat_sex/on_finish(mob/living/carbon/user, mob/living/carbon/target)
-	..()
+	playsound(src, pick(list('ntf_modular/sound/misc/cork_pop.ogg','ntf_modular/sound/misc/cork_pop (2).ogg')), 75, TRUE, 7, ignore_walls = FALSE)
 	user.visible_message(span_warning("[user] pulls [user.p_their()] cock out of [target]'s throat."))
 
 /datum/sex_action/throat_sex/is_finished(mob/living/carbon/user, mob/living/carbon/target)

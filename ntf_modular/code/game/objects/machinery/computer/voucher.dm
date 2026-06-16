@@ -65,7 +65,7 @@
 		return TRUE
 	if(istype(I, /obj/item/card/credstick))
 		var/obj/item/card/credstick/cstick = I
-		var/datum/game_mode/infestation/extended_plus/secret_of_life/gaymode = SSticker.mode
+		var/datum/game_mode/infestation/secret_of_life/gaymode = SSticker.mode
 		if(gaymode && cstick.worth)
 			var/datum/individual_stats/the_stats = gaymode.stat_list[user.faction].get_player_stats(user)
 			the_stats.give_funds(cstick.worth)
@@ -149,6 +149,6 @@
 	var/worth = 100
 
 /obj/item/card/credstick/executive
-	name = "executive dredstick"
+	name = "executive credstick"
 	desc = "A credstick which can be redeemed at a voucher console for credits used in skillsoft purchases or everyday needs. This one is an executive version, holding 5000 credits."
 	worth = 5000
