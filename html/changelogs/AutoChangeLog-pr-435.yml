@@ -1,0 +1,8 @@
+author: "Meghan-Rossi"
+delete-after: True
+changes:
+  - balance: "Colonist DB shotgun damage multipliers returned to 0.7, reverting the recent buff to 1.2"
+  - balance: "NTF DB shotgun (SH-34) damage multiplier reduced to 0.9, partially reverting the recent buff from 0.7 to 1.2"
+  - balance: "Colonist DB shotguns can no longer be fired one-handed, reverting a recent change."
+  - balance: "NTF DB shotgun (SH-34) can now be fired one-handed."
+  - balance: "Masterkey shotgun damage multiplier reduced to 1, partially reverting the recent buff from 0.85 to 1.2"

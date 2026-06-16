@@ -8323,7 +8323,7 @@
 /area/shuttle/transport)
 "Hs" = (
 /obj/machinery/marine_selector/clothes/synth{
-	vendor_role = /datum/job/clf/silicon/synthetic/clf
+	vendor_role = /datum/job/survivor/synth
 	},
 /turf/open/floor/plating/ground/dirt,
 /area/antag_ship/icc/hangar/east)

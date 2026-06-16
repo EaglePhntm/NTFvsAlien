@@ -136,7 +136,7 @@
 	gun_features_flags = GUN_IS_ATTACHMENT|GUN_AMMO_COUNTER|GUN_ATTACHMENT_FIRE_ONLY|GUN_WIELDED_STABLE_FIRING_ONLY|GUN_CAN_POINTBLANK|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	default_ammo_type = /datum/ammo/bullet/shotgun/buckshot
 	scatter = 3
-	damage_mult = 1.2
+	damage_mult = 1
 	cock_delay = 1.2 SECONDS
 	fire_delay = 1.5 SECONDS
 	pixel_shift_x = 14
@@ -167,7 +167,7 @@
 		/obj/item/attachable/flashlight/under,
 	)
 
-	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	reciever_flags = AMMO_RECIEVER_TOGGLES_OPEN|AMMO_RECIEVER_TOGGLES_OPEN_EJECTS|AMMO_RECIEVER_HANDFULS
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 21,"rail_x" = 15, "rail_y" = 22, "under_x" = 21, "under_y" = 16, "stock_x" = 21, "stock_y" = 16)
 
@@ -178,7 +178,7 @@
 	recoil = 2
 	recoil_unwielded = 4
 	aim_slowdown = 0.6
-	damage_mult = 1.2
+	damage_mult = 0.7
 
 /obj/item/weapon/gun/shotgun/double/sawn
 	name = "sawn-off shotgun"
@@ -189,7 +189,6 @@
 	attachable_allowed = list()
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 20,"rail_x" = 11, "rail_y" = 22, "under_x" = 18, "under_y" = 16, "stock_x" = 18, "stock_y" = 16)
-	damage_mult = 1.2
 	damage_falloff_mult = 2
 	fire_delay = 0.2 SECONDS
 	accuracy_mult = 0.9
@@ -226,7 +225,7 @@
 		/obj/item/attachable/scope/mini,
 	)
 
-	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 17,"rail_x" = 15, "rail_y" = 19, "under_x" = 21, "under_y" = 13, "stock_x" = 13, "stock_y" = 16)
 
 	fire_delay = 0.65 SECONDS
@@ -235,6 +234,7 @@
 	scatter_unwielded = 10
 	recoil = 0.5
 	recoil_unwielded = 3
+	damage_mult = 0.9
 
 
 //-------------------------------------------------------
@@ -376,9 +376,9 @@
 		/obj/item/attachable/stock/trenchgun,
 	)
 
-	fire_delay = 1.4 SECONDS
+	fire_delay = 1.2 SECONDS
 	max_chamber_items = 5
-	damage_mult = 0.85
+	damage_mult = 1.1
 	accuracy_mult_unwielded = 1
 
 	scatter = 4

@@ -397,6 +397,8 @@
 			return TRUE
 
 /datum/individual_stats/proc/reenable_loadout_select(mob/living/user)
+	if(QDELETED(user))
+		return
 	var/obj/item/card/id/user_id = user.get_idcard()
 	if(user.client)
 		user.playsound_local(user.loc, 'sound/machines/ping.ogg', 25)

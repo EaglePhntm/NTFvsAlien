@@ -38,6 +38,12 @@ ADMIN_VERB(play_warmode_action_music, R_FUN, "Quick-play War Music to Factions",
 	for(var/mob/M AS in GLOB.alive_living_list)
 		if(!M.client)
 			continue
+		if(!isnewplayer(M) && M.client.prefs.toggles_sound & SOUND_MIDI)
+			to_chat(M, span_danger("An admin is about to start war music for your faction, prepare for momentary freezing. It will begin in 10 seconds. This can toggled with toggle admin music in game preferences."))
+	sleep(10 SECONDS)
+	for(var/mob/M AS in GLOB.alive_living_list)
+		if(!M.client)
+			continue
 		switch(M.faction)
 			if(FACTION_TERRAGOV,FACTION_ICC)
 				sound_path = sound(ntmusic, channel = CHANNEL_MIDI, volume = 15)
