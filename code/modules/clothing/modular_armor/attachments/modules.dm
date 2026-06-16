@@ -182,15 +182,6 @@
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "tyr_head_xn", /obj/item/clothing/head/modular/tdf = "")
 
-/obj/item/armor_module/module/tyr_extra_armor/som
-	name = "\improper Lorica armor reinforcement system"
-	desc = "Designed for mounting on modular SOM armor. A substantial amount of additional armor plating designed to grant the user extra protection against all forms of damage. Will definitely impact mobility."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
-	icon_state = "lorica_armor"
-	worn_icon_state = "lorica_armor_a"
-	attachment_layer = null
-	soft_armor = list(MELEE = 10, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 15, BIO = 5, FIRE = 10, ACID = 5)
-
 /*
 	Friendly fire module
 */

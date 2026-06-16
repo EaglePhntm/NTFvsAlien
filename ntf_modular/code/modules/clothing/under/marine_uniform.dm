@@ -165,3 +165,81 @@
 	worn_icon_state = "som_uniform_pilot"
 	cold_protection_flags = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
 	item_map_variant_flags = null
+
+/obj/item/clothing/under/marine/pantsblue
+	name = "Blue Camo Pants"
+	icon = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi'
+	worn_icon_list = list(
+		slot_w_uniform_str = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi',
+	)
+	desc = "Surplus blue camouflage pants."
+	icon_state = "pantsblue"
+<<<<<<< slutty-clothing
+	shows_top_genital = TRUE
+=======
+>>>>>>> master
+
+/obj/item/clothing/under/marine/pantsred
+	name = "Red Camo Pants"
+	icon = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi'
+	worn_icon_list = list(
+		slot_w_uniform_str = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi',
+	)
+	desc = "Surplus red camouflage pants."
+	icon_state = "pantsred"
+<<<<<<< slutty-clothing
+	shows_top_genital = TRUE
+=======
+>>>>>>> master
+
+/obj/item/clothing/under/marine/pantsblack
+	name = "Black Camo Pants"
+	icon = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi'
+	worn_icon_list = list(
+		slot_w_uniform_str = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi',
+	)
+	desc = "Surplus black camouflage pants."
+	icon_state = "pantsblack"
+<<<<<<< slutty-clothing
+	shows_top_genital = TRUE
+=======
+>>>>>>> master
+
+/obj/item/clothing/under/marine/shortsblack
+	name = "Black Tactical Booty Shorts"
+	icon = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi'
+	worn_icon_list = list(
+		slot_w_uniform_str = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi',
+	)
+	desc = "Surplus black tactical booty shorts."
+	icon_state = "shortsblack"
+<<<<<<< slutty-clothing
+	shows_top_genital = TRUE
+=======
+>>>>>>> master
+
+/obj/item/clothing/under/marine/shortsred
+	name = "Red Tactical Booty Shorts"
+	icon = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi'
+	worn_icon_list = list(
+		slot_w_uniform_str = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi',
+	)
+	desc = "Surplus red tactical booty shorts."
+	icon_state = "shortsred"
+<<<<<<< slutty-clothing
+	shows_top_genital = TRUE
+=======
+>>>>>>> master
+
+/obj/item/clothing/under/marine/shortsblue
+	name = "Blue Tactical Booty Shorts"
+	icon = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi'
+	worn_icon_list = list(
+		slot_w_uniform_str = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi',
+	)
+	desc = "Surplus blue tactical booty shorts."
+	icon_state = "shortsblue"
+<<<<<<< slutty-clothing
+	shows_top_genital = TRUE
+=======
+>>>>>>> master

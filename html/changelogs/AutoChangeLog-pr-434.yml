@@ -1,0 +1,4 @@
+author: "SQLandrusk"
+delete-after: True
+changes:
+  - rscadd: "Adds woodland camo along with rolled and no-top versions."

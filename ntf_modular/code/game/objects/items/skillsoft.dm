@@ -31,10 +31,18 @@
 	var/datum/faction_stats/faction_stats = SSticker.mode.stat_list[user.faction]
 	if(!faction_stats)
 		return FALSE
-	var/datum/individual_stats/player_stats = faction_stats.individual_stat_list[user]
-	if(player_stats)
-		if(!player_stats.purchase_perk(/datum/perk/trait/hp_boost, user, TRUE))
-			return FALSE
+	if(!user.ckey)
+		return FALSE
+	var/datum/individual_stats/player_stats = faction_stats.individual_stat_list[user.ckey]
+	if(!player_stats)
+		to_chat(user, span_notice("Something went wrong while using this skillsoft, tell a coder."))
+		return FALSE
+	var/datum/perk/perk = GLOB.campaign_perk_list[granted_campaign_quirk]
+	if(!perk)
+		to_chat(user, span_notice("Something went wrong while using this skillsoft, tell a coder."))
+		return FALSE
+	if(!player_stats.purchase_perk(perk, user, TRUE))
+		return FALSE
 	return TRUE
 
 /obj/item/skillsoft/lightfooted

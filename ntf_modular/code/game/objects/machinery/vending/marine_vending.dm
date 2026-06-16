@@ -383,6 +383,12 @@
 			/obj/item/clothing/glasses/mgoggles/prescription = -1,
 		),
 		"Other" = list(
+			/obj/item/clothing/under/marine/pantsblue = -1,
+			/obj/item/clothing/under/marine/pantsred = -1,
+			/obj/item/clothing/under/marine/pantsblack = -1,
+			/obj/item/clothing/under/marine/shortsblack = -1,
+			/obj/item/clothing/under/marine/shortsred = -1,
+			/obj/item/clothing/under/marine/shortsblue = -1,
 			/obj/item/clothing/under/lewd/panties = -1,
 			/obj/item/clothing/under/lewd/chaps = -1,
 			/obj/item/clothing/under/lewd/corset = -1,
@@ -440,6 +446,7 @@
 			/obj/item/clothing/head/kitty = -1,
 			/obj/item/clothing/shoes/marine/thigh = -1,
 			/obj/item/clothing/shoes/marine/knee = -1,
+			/obj/item/clothing/shoes/marine/heel = -1,
 		),
 		"Underwear" = list(
 			/obj/item/clothing/underwear/socks/white = -1,
@@ -1055,6 +1062,12 @@
 			/obj/item/clothing/glasses/mgoggles/prescription = -1,
 		),
 		"Other" = list(
+			/obj/item/clothing/under/marine/pantsblue = -1,
+			/obj/item/clothing/under/marine/pantsred = -1,
+			/obj/item/clothing/under/marine/pantsblack = -1,
+			/obj/item/clothing/under/marine/shortsblack = -1,
+			/obj/item/clothing/under/marine/shortsred = -1,
+			/obj/item/clothing/under/marine/shortsblue = -1,
 			/obj/item/clothing/under/lewd/panties = -1,
 			/obj/item/clothing/under/lewd/chaps = -1,
 			/obj/item/clothing/under/lewd/corset = -1,
@@ -1112,6 +1125,7 @@
 			/obj/item/clothing/head/kitty = -1,
 			/obj/item/clothing/shoes/marine/thigh = -1,
 			/obj/item/clothing/shoes/marine/knee = -1,
+			/obj/item/clothing/shoes/marine/heel = -1,
 		),
 		"Underwear" = list(
 			/obj/item/clothing/underwear/socks/white = -1,
@@ -1760,6 +1774,12 @@
 			/obj/item/clothing/glasses/mgoggles/prescription = -1,
 		),
 		"Other" = list(
+			/obj/item/clothing/under/marine/pantsblue = -1,
+			/obj/item/clothing/under/marine/pantsred = -1,
+			/obj/item/clothing/under/marine/pantsblack = -1,
+			/obj/item/clothing/under/marine/shortsblack = -1,
+			/obj/item/clothing/under/marine/shortsred = -1,
+			/obj/item/clothing/under/marine/shortsblue = -1,
 			/obj/item/clothing/under/lewd/panties = -1,
 			/obj/item/clothing/under/lewd/chaps = -1,
 			/obj/item/clothing/under/lewd/corset = -1,
@@ -1817,6 +1837,7 @@
 			/obj/item/clothing/head/kitty = -1,
 			/obj/item/clothing/shoes/marine/thigh = -1,
 			/obj/item/clothing/shoes/marine/knee = -1,
+			/obj/item/clothing/shoes/marine/heel = -1,
 		),
 		"Underwear" = list(
 			/obj/item/clothing/underwear/socks/white = -1,
@@ -2265,6 +2286,12 @@
 			/obj/item/clothing/glasses/mgoggles/prescription = -1,
 		),
 		"Other" = list(
+			/obj/item/clothing/under/marine/pantsblue = -1,
+			/obj/item/clothing/under/marine/pantsred = -1,
+			/obj/item/clothing/under/marine/pantsblack = -1,
+			/obj/item/clothing/under/marine/shortsblack = -1,
+			/obj/item/clothing/under/marine/shortsred = -1,
+			/obj/item/clothing/under/marine/shortsblue = -1,
 			/obj/item/clothing/under/lewd/panties = -1,
 			/obj/item/clothing/under/lewd/chaps = -1,
 			/obj/item/clothing/under/lewd/corset = -1,
@@ -2322,6 +2349,7 @@
 			/obj/item/clothing/head/kitty = -1,
 			/obj/item/clothing/shoes/marine/thigh = -1,
 			/obj/item/clothing/shoes/marine/knee = -1,
+			/obj/item/clothing/shoes/marine/heel = -1,
 		),
 		"Underwear" = list(
 			/obj/item/clothing/underwear/socks/white = -1,
