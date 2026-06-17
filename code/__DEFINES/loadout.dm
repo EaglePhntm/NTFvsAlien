@@ -1311,6 +1311,7 @@ GLOBAL_LIST_INIT(synthetic_clothes_listed_products, list(
 		/obj/item/clothing/head/bowlerhat = list(CAT_SHN, "Bowler hat", 0, "black"),
 		/obj/item/clothing/head/hairflower = list(CAT_SHN, "Hairflower pin", 0, "black"),
 		/obj/item/clothing/head/fez = list(CAT_SHN, "Fez", 0, "black"),
+		/obj/item/clothing/head/helmet/HoS/dermal = list(CAT_SHN, "Dermal Armour Patch", 0, "black"),
 		/obj/item/clothing/head/chefhat = list(CAT_SHN, "Chef's hat", 0, "black"),
 		/obj/item/clothing/head/beaverhat = list(CAT_HEL, "Beaver hat", 0, "black"),
 		/obj/item/clothing/mask/surgical = list(CAT_MAS, "Sterile mask", 0, "black"),
