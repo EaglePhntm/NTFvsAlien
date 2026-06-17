@@ -1367,10 +1367,10 @@
 			/obj/item/clothing/suit/modular/style/barrier/lightbarrier = -1,
 			/obj/item/clothing/suit/modular/style/barrier/mediumbarrier = -1,
 			/obj/item/clothing/suit/modular/style/barrier/heavybarrier = -1,
-			/obj/item/clothing/suit/modular/rownin/dermal, -1,
-			/obj/item/clothing/gloves/dermal, -1,
-			/obj/item/clothing/shoes/dermal, -1,
-			/obj/item/clothing/head/helmet/HoS/dermal, -1,
+			/obj/item/clothing/suit/modular/rownin/dermal = -1,
+			/obj/item/clothing/gloves/dermal = -1,
+			/obj/item/clothing/shoes/dermal = -1,
+			/obj/item/clothing/head/helmet/HoS/dermal = -1,
 			/obj/item/clothing/head/modular/marine/kabuto = -1,
 			/obj/item/armor_module/armor/chest/marine/kabuto = -1,
 			/obj/item/armor_module/armor/legs/marine/kabuto = -1,
@@ -1497,10 +1497,10 @@
 		"Style Line" = list(
 			/obj/item/clothing/suit/modular/style/leather_jacket = -1,
 			/obj/item/clothing/suit/modular/style/duster = -1,
-			/obj/item/clothing/suit/modular/rownin/dermal, -1,
-			/obj/item/clothing/gloves/dermal, -1,
-			/obj/item/clothing/shoes/dermal, -1,
-			/obj/item/clothing/head/helmet/HoS/dermal, -1,
+			/obj/item/clothing/suit/modular/rownin/dermal = -1,
+			/obj/item/clothing/gloves/dermal = -1,
+			/obj/item/clothing/shoes/dermal = -1,
+			/obj/item/clothing/head/helmet/HoS/dermal = -1,
 		))
 
 /obj/machinery/vending/uniform_supply
