@@ -43,6 +43,7 @@
 	icon_state = "dermal"
 	worn_icon_state = "dermal"
 	siemens_coefficient = 0.6
+	soft_armor = MARINE_ARMOR_HEAVY
 
 /obj/item/clothing/head/helmet/warden
 	name = "warden's hat"
