@@ -671,7 +671,7 @@
 			/obj/item/clothing/suit/modular/rownin/dermal, -1,
 			/obj/item/clothing/gloves/dermal, -1,
 			/obj/item/clothing/shoes/dermal, -1,
-			/obj/item/clothing/head/helmet/HoS/dermal, -1
+			/obj/item/clothing/head/helmet/HoS/dermal, -1,
 		),
 		"Combat Robot" = list(
 			/obj/item/clothing/suit/modular/robot/light = -1,
@@ -1361,7 +1361,7 @@
 			/obj/item/clothing/suit/modular/rownin/dermal, -1,
 			/obj/item/clothing/gloves/dermal, -1,
 			/obj/item/clothing/shoes/dermal, -1,
-			/obj/item/clothing/head/helmet/HoS/dermal, -1
+			/obj/item/clothing/head/helmet/HoS/dermal, -1,
 		),
 		"Armor modules" = list(
 			/obj/item/armor_module/storage/general = -1,
@@ -2060,7 +2060,7 @@
 			/obj/item/clothing/suit/modular/rownin/dermal, -1,
 			/obj/item/clothing/gloves/dermal, -1,
 			/obj/item/clothing/shoes/dermal, -1,
-			/obj/item/clothing/head/helmet/HoS/dermal, -1
+			/obj/item/clothing/head/helmet/HoS/dermal, -1,
 		),
 		"Armor modules" = list(
 			/obj/item/armor_module/storage/general = -1,
@@ -2564,7 +2564,7 @@
 			/obj/item/clothing/suit/modular/rownin/dermal, -1,
 			/obj/item/clothing/gloves/dermal, -1,
 			/obj/item/clothing/shoes/dermal, -1,
-			/obj/item/clothing/head/helmet/HoS/dermal, -1
+			/obj/item/clothing/head/helmet/HoS/dermal, -1,
 		),
 		"Armor modules" = list(
 			/obj/item/armor_module/storage/general = -1,

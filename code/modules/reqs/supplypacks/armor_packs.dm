@@ -126,9 +126,9 @@ ARMOR
 	)
 	cost = 40
 
-/datum/supply_packs/armor/dermalheadpatcharmor
+/*/datum/supply_packs/armor/dermalheadpatcharmor
 	name = "Dermal Armour Patch"
 	contains = list(
 		/obj/item/clothing/head/helmet/HoS/dermal,
 	)
-	cost = 500
+	cost = 500*/// You have inspired me greatly, but now, you are no longer necessary, goodbye; I love you.
