@@ -442,7 +442,7 @@ Imports
 	cost = 40
 
 /datum/supply_packs/imports/icc_heavyshotgun/flechette
-	name = "6 Gauge Barrikada Shells"
+	name = "6 Gauge Flechette Shells"
 	contains = list(
 	/obj/item/ammo_magazine/shotgun/heavy_flechette,
 	)
