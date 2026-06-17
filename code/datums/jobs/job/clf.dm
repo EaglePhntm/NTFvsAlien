@@ -189,6 +189,8 @@ Your primary goal is to serve the hive, and ultimate goal is to liberate the col
 /datum/job/clf/silicon/synthetic/clf/return_spawn_type(datum/preferences/prefs)
 	if(prefs?.synthetic_type == "Early Synthetic")
 		return /mob/living/carbon/human/species/early_synthetic
+	if(prefs?.synthetic_type == "Robot")
+		return /mob/living/carbon/human/species/robot
 	return /mob/living/carbon/human/species/synthetic
 
 /datum/job/clf/silicon/synthetic/clf/return_skills_type(datum/preferences/prefs)
