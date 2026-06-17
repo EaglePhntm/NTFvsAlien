@@ -179,7 +179,7 @@
 		/obj/item/armor_module/module/eshield/som/overclocked,
 	)
 
-/obj/item/clothing/shoes/dermalshoes
+/obj/item/clothing/shoes/dermal
 	name = "\improper dermal feet pads"
 	desc = "A subdermal layer of reinforcements and modding that strengthens the durability of your tootsies."
 	icon = 'icons/obj/clothing/headwear/hats.dmi'
@@ -194,7 +194,7 @@
 	siemens_coefficient = 0.7
 	soft_armor = list(MELEE = 30, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 30, BIO = 20, FIRE = 20, ACID = 15)
 
-/obj/item/clothing/gloves/dermalgloves
+/obj/item/clothing/gloves/dermal
 	name = "\improper dermal knuckle guards"
 	desc = "A subdermal layer of reinforcements and modding that strengthens the durability of your fingies."
 	icon = 'icons/obj/clothing/headwear/hats.dmi'
