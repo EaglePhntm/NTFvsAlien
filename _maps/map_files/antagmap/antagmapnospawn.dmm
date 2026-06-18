@@ -1292,7 +1292,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/antag_ship/clf_base/medbay)
 "hK" = (
-/obj/structure/bed/chair/kz/imprinter,
+/obj/structure/bed/chair/kz/neural_station,
 /turf/open/floor/prison/darkpurple{
 	dir = 1
 	},
@@ -2400,9 +2400,6 @@
 	pixel_x = 3
 	},
 /obj/structure/cable,
-/obj/machinery/computer/communications/antag{
-	dir = 1
-	},
 /turf/open/floor/plating/ground/desertdam/asphalt/threeside,
 /area/antag_ship/clf_base/hallways/inside)
 "mO" = (
@@ -4880,7 +4877,7 @@
 /turf/open/floor/prison/blackfloor,
 /area/antag_ship/vsd/hall)
 "zl" = (
-/obj/structure/bed/chair/kz/extractor,
+/obj/machinery/computer/neural_station_console,
 /turf/open/floor/prison/darkpurple{
 	dir = 1
 	},
@@ -4927,9 +4924,6 @@
 "zx" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/siding/thinplating_new/dark,
-/obj/machinery/computer/communications/antag{
-	dir = 1
-	},
 /obj/structure/window/reinforced,
 /turf/open/floor/mainship/red/full,
 /area/antag_ship/som/bridge)
@@ -5308,9 +5302,6 @@
 "BI" = (
 /obj/structure/table/wood/fancy,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
-/obj/machinery/computer/communications/antag{
-	dir = 1
-	},
 /turf/open/floor/iron/grimy,
 /area/antag_ship/som/office/commander)
 "BL" = (
@@ -6321,7 +6312,6 @@
 "GJ" = (
 /obj/structure/cable,
 /obj/structure/table/wood/fancy,
-/obj/machinery/computer/communications/antag,
 /turf/open/floor/iron/grimy,
 /area/antag_ship/som/office/commander/field)
 "GK" = (

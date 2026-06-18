@@ -282,6 +282,10 @@ GLOBAL_PROTECT(exp_specialmap)
 /mob/living/proc/apply_assigned_role_to_spawn(datum/job/assigned_role, /datum/language/dt, client/player, datum/squad/assigned_squad, admin_action = FALSE)
 	job = assigned_role
 	set_skills(getSkillsType(job.return_skills_type(player?.prefs)))
+	if(ishuman(src))
+		var/mob/living/carbon/human/H = src
+		if(H.skills)
+			H.base_skills = H.skills.Copy()
 	for(var/shadowlang AS in assigned_role.shadow_languages)
 		language_holder.grant_language(shadowlang, TRUE)
 	if(islist(job.job_traits))

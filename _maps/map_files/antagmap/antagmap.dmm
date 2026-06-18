@@ -12696,7 +12696,7 @@
 /turf/open/floor/prison,
 /area/antag_ship/vsd/engi)
 "XR" = (
-/obj/structure/bed/chair/kz/imprinter,
+/obj/structure/bed/chair/kz/neural_station,
 /turf/open/floor/prison/darkpurple{
 	dir = 1
 	},
@@ -13106,7 +13106,7 @@
 /turf/open/floor/cult,
 /area/antag_ship/clf_base/reedroom)
 "Zy" = (
-/obj/structure/bed/chair/kz/extractor,
+/obj/machinery/computer/neural_station_console,
 /turf/open/floor/prison/darkpurple{
 	dir = 1
 	},
