@@ -61,7 +61,7 @@ const DamageTile = ({ label, value, color }: { label: string; value: number; col
       boxShadow: `0 0 6px ${color}44`,
     }}
   >
-    <Box bold color={color} fontSize="11px" mb={0.5} textTransform="uppercase">
+    <Box bold color={color} fontSize="11px" mb={0.5} style={{ textTransform: 'uppercase' }}>
       {label}
     </Box>
     <Box fontSize="28px" fontWeight={700} color={color}>
@@ -91,7 +91,7 @@ const SkillBar = ({ skill }: { skill: Skill }) => {
     >
       <Stack align="center">
         <Stack.Item grow>
-          <Box bold color="#ffffff" fontSize="14px" textTransform="uppercase">
+          <Box bold color="#ffffff" fontSize="14px" style={{ textTransform: 'uppercase' }}>
             {formatSkillName(skill.name)}
           </Box>
         </Stack.Item>
@@ -145,21 +145,16 @@ export const NeuralStationConsole = () => {
         <Section title="Subject Status">
           <LabeledList>
             <LabeledList.Item label="Health">
-            <ProgressBar
-              value={(data.health || 0) / 100}
-              ranges={{
-                good: [0.75, Infinity],
-                average: [0.45, 0.75],
-                bad: [-Infinity, 0.45],
-              }}
-              style={{
-                '--color-good': '#2d7d2d',
-                '--color-average': '#cc8844',
-                '--color-bad': '#cc3344',
-              }}
-            >
-              {data.health}%
-            </ProgressBar>
+              <ProgressBar
+                value={(data.health || 0) / 100}
+                ranges={{
+                  good: [0.75, Infinity],
+                  average: [0.45, 0.75],
+                  bad: [-Infinity, 0.45],
+                }}
+              >
+                {data.health}%
+              </ProgressBar>
             </LabeledList.Item>
 
             <LabeledList.Item label="NS-92 Neurodisk">
