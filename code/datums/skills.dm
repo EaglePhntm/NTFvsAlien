@@ -403,7 +403,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	combat = SKILL_COMBAT_UNTRAINED
 	medical = SKILL_MEDICAL_EXPERT // Research is a valuable skill, lets let them do that too
 	unarmed = SKILL_UNARMED_MASTER
-	surgery = SKILL_SURGERY_PROFESSIONAL
+	surgery = SKILL_SURGERY_EXPERT
 	pilot = SKILL_PILOT_TRAINED
 	melee_weapons = SKILL_MELEE_WEAK
 	pistols = SKILL_PISTOLS_TRAINED
