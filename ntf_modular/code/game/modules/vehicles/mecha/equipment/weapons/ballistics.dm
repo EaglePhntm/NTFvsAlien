@@ -1,19 +1,25 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_lmg
-	name = "\improper exosuit-mounted LMG"
+	name = "\improper exosuit-mounted R-84 LMG"
 	icon = 'icons/mecha/mecha_equipment_64x32.dmi'
-	desc = "A mounted light machinegun chambered in 5.56x45mm NATO, offering a good combination of mobility and firepower."
+	desc = "A exosuit-mounted light machinegun chambered in 5.56x45mm NATO, offering a good combination of mobility and firepower."
 	icon_state = "smg"
 	muzzle_iconstate = "muzzle_flash"
 	fire_sound = 'sound/mecha/weapons/mech_smg.ogg'
 	mech_flags = EXOSUIT_MODULE_VENDABLE|EXOSUIT_MODULE_COMBAT
-	ammotype = /datum/ammo/bullet/rifle
+	ammotype = /datum/ammo/bullet/rifle/hv
 	max_integrity = 75
 
-	projectiles = 120
-	projectiles_cache = 360
-	projectiles_cache_max = 360
+	flash_offsets = list(
+		MECHA_R_ARM = list("N" = list(33,68), "S" = list(-2,-6), "E" = list(80,13), "W" = list(-50,33)),
+		MECHA_L_ARM = list("N" = list(0,68), "S" = list(32,-6), "E" = list(80,33), "W" = list(-50,13)),
+	)
+
+
+	projectiles = 80
+	projectiles_cache = 240
+	projectiles_cache_max = 240
 	variance = 5
-	projectile_delay = 0.4 SECONDS
+	projectile_delay = 0.3 SECONDS
 	slowdown = 0
 	rearm_time = 1.5 SECONDS
 	harmful = TRUE
@@ -38,7 +44,7 @@
 	projectiles_cache = 720
 	projectiles_cache_max = 720
 	variance = 10
-	projectile_delay = 0.2 SECONDS
+	projectile_delay = 0.15 SECONDS
 	slowdown = 0
 	rearm_time = 2 SECONDS
 	harmful = TRUE
@@ -74,20 +80,20 @@
 	cooldown_key = MECH_COOLDOWN_KEY_RAPIDFIRE
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_br
-	name = "\improper exosuit-mounted battle rifle"
+	name = "\improper exosuit-mounted 'Rangemaster' battle rifle"
 	icon = 'icons/mecha/mecha_equipment_64x32.dmi'
 	desc = "A mounted battle rifle chambered in 7.62x51mm NATO, it offers good precision and stopping power."
 	icon_state = "smg"
 	muzzle_iconstate = "muzzle_flash"
 	fire_sound = 'sound/mecha/weapons/mech_smg.ogg'
 	mech_flags = EXOSUIT_MODULE_VENDABLE|EXOSUIT_MODULE_COMBAT
-	ammotype = /datum/ammo/bullet/rifle/mpi_km
+	ammotype = /datum/ammo/bullet/rifle/mech_br
 	max_integrity = 75
 
-	projectiles = 60
-	projectiles_cache = 180
-	projectiles_cache_max = 180
-	variance = 2
+	projectiles = 40
+	projectiles_cache = 120
+	projectiles_cache_max = 120
+	variance = 1.5
 	projectile_delay = 0.7 SECONDS
 	slowdown = 0
 	rearm_time = 3 SECONDS

@@ -11,7 +11,7 @@
 //	)
 	ammotype = /datum/ammo/energy/lasgun/marine
 	max_integrity = 75
-	energy_drain = 8
+	energy_drain = 16
 	variance = 0
 	projectile_delay = 0.4 SECONDS
 	slowdown = 0
@@ -31,7 +31,7 @@
 //	)
 	ammotype = /datum/ammo/bullet/shotgun/tribeam
 	max_integrity = 75
-	energy_drain = 8
+	energy_drain = 24
 	variance = 5
 	projectile_delay = 0.7 SECONDS
 	slowdown = 0
@@ -48,6 +48,6 @@
 	bonus_projectiles_scatter = 3
 	accuracy_variation = 9
 	accurate_range = 3
-	max_range = 10
+	max_range = 0
 	damage = 0
 	damage_falloff = 0

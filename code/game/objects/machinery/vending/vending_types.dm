@@ -868,6 +868,16 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/nanoammo, (-26))
 		/obj/item/clothing/mask/breath/medical = 5,
 		/obj/item/tool/screwdriver = 5,
 		/obj/item/tool/crowbar = 5,
+		/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_lmg = -1,
+		/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_smg = -1,
+		/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_gl = -1,
+		/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_br = -1,
+		/obj/item/mecha_parts/mecha_equipment/weapon/energy/exosuit_tribeam = -1,
+		/obj/item/mecha_parts/mecha_equipment/weapon/energy/exosuit_laser = -1,
+		/obj/item/mecha_ammo/vendable/small_lmg = -1,
+		/obj/item/mecha_ammo/vendable/small_smg = -1,
+		/obj/item/mecha_ammo/vendable/small_gl = -1,
+		/obj/item/mecha_ammo/vendable/small_br = -1,
 	)
 
 

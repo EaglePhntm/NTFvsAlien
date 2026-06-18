@@ -2616,5 +2616,6 @@
 #include "ntf_modular\code\game\modules\vehicles\mecha\equipment\weapons\ammo_types.dm"
 #include "ntf_modular\code\game\modules\vehicles\mecha\equipment\weapons\ballistics.dm"
 #include "ntf_modular\code\game\modules\vehicles\mecha\equipment\weapons\energy.dm"
+#include "ntf_modular\code\game\modules\vehicles\mecha\equipment\weapons\mech_ammo.dm"
 #include "ntf_modular\code\game\modules\vehicles\mecha\greyscale\greyscale.dm"
 // END_INCLUDE
