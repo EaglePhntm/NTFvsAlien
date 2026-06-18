@@ -2,14 +2,14 @@
 	name = "box of LMG bullets"
 	desc = "A box of LMG bullets."
 	icon_state = "lmg_ammo"
-	rounds = 300
+	rounds = 80
 	ammo_type = EXOSUIT_AMMO_LMG
 
 /obj/item/mecha_ammo/vendable/small_smg
-	name = "box of LMG bullets"
-	desc = "A box of LMG bullets."
+	name = "box of SMG bullets"
+	desc = "A box of SMG bullets."
 	icon_state = "lmg_ammo"
-	rounds = 300
+	rounds = 120
 	ammo_type = EXOSUIT_AMMO_SMG
 
 /obj/item/mecha_ammo/vendable/small_gl

@@ -48,6 +48,6 @@
 	bonus_projectiles_scatter = 3
 	accuracy_variation = 9
 	accurate_range = 3
-	max_range = 1
+	max_range = 15
 	damage = 0
 	damage_falloff = 0

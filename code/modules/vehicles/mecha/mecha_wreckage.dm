@@ -187,6 +187,11 @@
 		return
 	to_chat(user, span_notice("You don't see anything that can be cut with [I]!"))
 
+/obj/structure/mecha_wreckage/ivan
+	name = "\improper Ivan wreckage"
+	icon_state = "ivan-broken"
+	original_mech = /obj/vehicle/sealed/mecha/ntf/ivan
+
 /obj/structure/mecha_wreckage/gygax
 	name = "\improper Gygax wreckage"
 	icon_state = "gygax-broken"

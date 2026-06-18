@@ -1,11 +1,11 @@
 /obj/vehicle/sealed/mecha/ntf/marauder
-	desc = ""
+	desc = "A modernized combat exosuit developed as a replacement for the Durand exosuit, improved in almost every way - except cost."
 	name = "\improper Marauder"
 	icon_state = "marauder"
 	base_icon_state = "marauder"
 	move_delay = 4
 	max_integrity = 500
-	soft_armor = list(MELEE = 75, BULLET = 55, LASER = 40, ENERGY = 30, BOMB = 50, BIO = 0, FIRE = 100, ACID = 100)
+	soft_armor = list(MELEE = 75, BULLET = 55, LASER = 40, ENERGY = 30, BOMB = 55, BIO = 0, FIRE = 100, ACID = 100)
 	max_temperature = 60000
 	wreckage = /obj/structure/mecha_wreckage/marauder
 	mecha_flags = CANSTRAFE | IS_ENCLOSED | HAS_HEADLIGHTS

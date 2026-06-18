@@ -10,7 +10,7 @@
 	max_integrity = 300
 	max_occupants = 2
 	soft_armor = list(MELEE = 40, BULLET = 30, LASER = 40, ENERGY = 30, BOMB = 25, BIO = 0, FIRE = 100, ACID = 100)
-	leg_overload_coeff = 80
+	leg_overload_coeff = 30
 	force = 20
 	wreckage = /obj/structure/mecha_wreckage/gygax
 	step_energy_drain = 6

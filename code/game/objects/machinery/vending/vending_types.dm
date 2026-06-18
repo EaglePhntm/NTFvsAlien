@@ -852,7 +852,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/nanoammo, (-26))
 	icon_state = "robotics"
 	icon_deny = "robotics-deny"
 	icon_vend = "robotics-vend"
-	req_access = list(ACCESS_MARINE_RESEARCH)
+	req_access = list()
 	products = list(
 		/obj/item/clothing/suit/storage/labcoat = 4,
 		/obj/item/clothing/under/rank/roboticist = 4,
@@ -868,18 +868,19 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/nanoammo, (-26))
 		/obj/item/clothing/mask/breath/medical = 5,
 		/obj/item/tool/screwdriver = 5,
 		/obj/item/tool/crowbar = 5,
-		/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_lmg = -1,
-		/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_smg = -1,
-		/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_gl = -1,
-		/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_br = -1,
-		/obj/item/mecha_parts/mecha_equipment/weapon/energy/exosuit_tribeam = -1,
-		/obj/item/mecha_parts/mecha_equipment/weapon/energy/exosuit_laser = -1,
-		/obj/item/mecha_ammo/vendable/small_lmg = -1,
-		/obj/item/mecha_ammo/vendable/small_smg = -1,
-		/obj/item/mecha_ammo/vendable/small_gl = -1,
-		/obj/item/mecha_ammo/vendable/small_br = -1,
+		"Exosuit equipment" = list(
+			/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_lmg = -1,
+			/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_smg = -1,
+			/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_gl = -1,
+			/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_br = -1,
+			/obj/item/mecha_parts/mecha_equipment/weapon/energy/exosuit_tribeam = -1,
+			/obj/item/mecha_parts/mecha_equipment/weapon/energy/exosuit_laser = -1,
+			/obj/item/mecha_ammo/vendable/small_lmg = -1,
+			/obj/item/mecha_ammo/vendable/small_smg = -1,
+			/obj/item/mecha_ammo/vendable/small_gl = -1,
+			/obj/item/mecha_ammo/vendable/small_br = -1,
+		),
 	)
-
 
 // All instances of this vendor will share a single inventory for items in the shared list.
 // Meaning, if an item is taken from one vendor, it will not be available in any others as well.
