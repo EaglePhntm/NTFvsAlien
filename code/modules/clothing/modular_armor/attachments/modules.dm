@@ -671,6 +671,7 @@ obj/item/armor_module/module/style/superheavy_armor
 	worn_icon_state = "style_heavy_a"
 	soft_armor = list(MELEE = 70, BULLET = 75, LASER = 75, ENERGY = 70, BOMB = 65, BIO = 55, FIRE = 65, ACID = 70)
 	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY + 0.3
+	stamina_regen_mod = - 0.4
 /**
  *   Helmet Modules
 */
