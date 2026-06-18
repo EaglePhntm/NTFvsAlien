@@ -6,10 +6,10 @@
 	icon_state = "ivan"
 	base_icon_state = "ivan"
 	allow_diagonal_movement = FALSE
-	move_delay = 3
-	max_integrity = 350
-	soft_armor = list(MELEE = 50, BULLET = 35, LASER = 30, ENERGY = 30, BOMB = 10, BIO = 0, FIRE = 100, ACID = 100)
+	move_delay = 4
+	max_integrity = 400
+	soft_armor = list(MELEE = 50, BULLET = 35, LASER = 25, ENERGY = 30, BOMB = 10, BIO = 0, FIRE = 100, ACID = 100)
 	force = 30
 	wreckage = /obj/structure/mecha_wreckage
 	step_energy_drain = 10
-	cockpit_armor = COCKPIT_TOUGHENED
+	cockpit_armor = COCKPIT_REINFORCED

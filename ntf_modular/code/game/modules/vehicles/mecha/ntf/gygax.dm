@@ -16,6 +16,10 @@
 	step_energy_drain = 6
 	cockpit_armor = COCKPIT_ARMORED
 
+/obj/vehicle/sealed/mecha/ntf/gygax/generate_actions()
+	. = ..()
+	initialize_passenger_action_type(/datum/action/vehicle/sealed/mecha/mech_overload_mode)
+
 /obj/vehicle/sealed/mecha/ntf/gygax/dark
 	desc = "A combat exosuit, commonly used by law enforcement or security firms as a patrol vehicle, or as part of a rapid response team. \
 	It's lightweight polymer and aluminium shell give it adequate protection from most handgun to light rifle threats. It has room for up to two \

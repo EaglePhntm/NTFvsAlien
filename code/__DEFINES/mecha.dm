@@ -146,7 +146,8 @@
 
 /// Multiplier for a mech's armor, used for overpenetration
 
-#define COCKPIT_LIGHT 0.7
+#define COCKPIT_LIGHT 0.5
+#define COCKPIT_REINFORCED 0.7
 #define COCKPIT_TOUGHENED 0.8
 #define COCKPIT_ARMORED 1
 #define COCKPIT_HEAVY 1.15
