@@ -1,4 +1,4 @@
-/obj/vehicle/sealed/mecha/bullet_act(atom/movable/projectile/proj, def_zone, piercing_hit)
+/obj/vehicle/sealed/mecha/ntf/bullet_act(atom/movable/projectile/proj, def_zone, piercing_hit)
 	var/actual_zone = def_zone || proj.def_zone
 	var/armor_rating = soft_armor.getRating(proj.armor_type)
 	var/pen_quality = clamp((proj.penetration - (armor_rating * cockpit_armor)) / max(armor_rating, 1), 0, 1)

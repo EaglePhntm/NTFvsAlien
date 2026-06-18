@@ -1,4 +1,4 @@
-/obj/vehicle/sealed/mecha/combat/marauder/ntf/seraph
+/obj/vehicle/sealed/mecha/ntf/marauder/seraph
 	desc = "Heavy-duty, command-type exosuit. This is a custom model, utilized only by high-ranking military personnel."
 	name = "\improper Seraph"
 	icon_state = "seraph"

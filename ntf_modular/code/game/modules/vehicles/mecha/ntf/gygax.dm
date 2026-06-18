@@ -1,4 +1,4 @@
-/obj/vehicle/sealed/mecha/combat/gygax
+/obj/vehicle/sealed/mecha/ntf/gygax
 	desc = "A combat exosuit, commonly used by law enforcement or security firms as a patrol vehicle, or as part of a rapid response team. \
 	It's lightweight polymer and aluminium shell give it adequate protection from most handgun to light rifle threats. It has room for up to two \
 	occupants."
@@ -16,7 +16,7 @@
 	step_energy_drain = 6
 	cockpit_armor = COCKPIT_ARMORED
 
-/obj/vehicle/sealed/mecha/combat/gygax/dark_ntf
+/obj/vehicle/sealed/mecha/ntf/gygax/dark
 	desc = "A combat exosuit, commonly used by law enforcement or security firms as a patrol vehicle, or as part of a rapid response team. \
 	It's lightweight polymer and aluminium shell give it adequate protection from most handgun to light rifle threats. It has room for up to two \
 	occupants. This one has been painted a darker color."

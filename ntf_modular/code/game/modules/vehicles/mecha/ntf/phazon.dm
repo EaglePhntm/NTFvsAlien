@@ -1,4 +1,4 @@
-/obj/vehicle/sealed/mecha/combat/phazon
+/obj/vehicle/sealed/mecha/ntf/phazon
 	desc = "A light exosuit featuring an experimental composite plating designed by the now-defunct Nanotrasen Corp. \
 	Built from a modified Gygax frame, the armor is ultra-light, yet, can be electrically strengthened to deflect a broad range of \
 	threats from rifle calibers to grenade blasts."

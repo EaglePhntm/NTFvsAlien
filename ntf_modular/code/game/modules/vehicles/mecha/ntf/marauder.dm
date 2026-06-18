@@ -1,4 +1,4 @@
-/obj/vehicle/sealed/mecha/combat/marauder/ntf
+/obj/vehicle/sealed/mecha/ntf/marauder
 	desc = ""
 	name = "\improper Marauder"
 	icon_state = "marauder"

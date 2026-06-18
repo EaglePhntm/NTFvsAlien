@@ -95,6 +95,8 @@
 #define EXOSUIT_MODULE_GREYSCALE (1<<7)
 /// Module is shown in the greyscale mech menu purchasing screen
 #define EXOSUIT_MODULE_VENDABLE (1<<8)
+/// NTF exosuits (aka, classic SS13 mechs)
+#define EXOSUIT_MODULE_NTF (1<<9)
 
 /// Module is compatible with "Working" Exosuit models - Ripley and Clarke
 #define EXOSUIT_MODULE_WORKING EXOSUIT_MODULE_RIPLEY

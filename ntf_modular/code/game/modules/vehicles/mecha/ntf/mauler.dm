@@ -1,4 +1,4 @@
-/obj/vehicle/sealed/mecha/combat/marauder/ntf/mauler
+/obj/vehicle/sealed/mecha/ntf/marauder/mauler
 	desc = "Heavy-duty, combat exosuit, developed off of the existing Marauder model."
 	name = "\improper Mauler"
 	icon_state = "mauler"

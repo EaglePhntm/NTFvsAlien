@@ -1,4 +1,4 @@
-/obj/vehicle/sealed/mecha/combat/ivan
+/obj/vehicle/sealed/mecha/ntf/ivan
 	desc = "An ageing multi-purpose exosuit, the Ivan has been largely superseded by newer models, however \
 	it remains a sight among poorly-funded combat units. Originally designed for materials handling, \
 	the Mk-II features steel inserts over the original aluminium shell to adequately protect against some ballistic threats."

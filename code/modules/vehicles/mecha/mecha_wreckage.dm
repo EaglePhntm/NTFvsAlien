@@ -198,28 +198,28 @@
 		/obj/item/mecha_parts/part/gygax_left_leg,
 		/obj/item/mecha_parts/part/gygax_right_leg,
 	)
-	original_mech = /obj/vehicle/sealed/mecha/combat/gygax
+	original_mech = /obj/vehicle/sealed/mecha/ntf/gygax
 
 /obj/structure/mecha_wreckage/gygax/dark
 	name = "\improper Dark Gygax wreckage"
 	icon_state = "darkgygax-broken"
-	original_mech = /obj/vehicle/sealed/mecha/combat/gygax/dark_ntf
+	original_mech = /obj/vehicle/sealed/mecha/ntf/gygax/dark
 
 /obj/structure/mecha_wreckage/marauder
 	name = "\improper Marauder wreckage"
 	icon_state = "marauder-broken"
-	original_mech = /obj/vehicle/sealed/mecha/combat/marauder/ntf
+	original_mech = /obj/vehicle/sealed/mecha/ntf/marauder
 
 /obj/structure/mecha_wreckage/mauler
 	name = "\improper Mauler wreckage"
 	icon_state = "mauler-broken"
 	desc = "The syndicate won't be very happy about this..."
-	original_mech = /obj/vehicle/sealed/mecha/combat/marauder/ntf/mauler
+	original_mech = /obj/vehicle/sealed/mecha/ntf/marauder/mauler
 
 /obj/structure/mecha_wreckage/seraph
 	name = "\improper Seraph wreckage"
 	icon_state = "seraph-broken"
-	original_mech = /obj/vehicle/sealed/mecha/combat/marauder/ntf/seraph
+	original_mech = /obj/vehicle/sealed/mecha/ntf/marauder/seraph
 
 /obj/structure/mecha_wreckage/reticence
 	name = "\improper Reticence wreckage"
@@ -263,7 +263,7 @@
 		/obj/item/mecha_parts/part/clarke_right_arm,
 		/obj/item/stack/conveyor,
 	)
-	original_mech = /obj/vehicle/sealed/mecha/working/clarke
+	original_mech = /obj/vehicle/sealed/mecha/ntf/clarke
 
 /obj/structure/mecha_wreckage/ripley/deathripley
 	name = "\improper Death-Ripley wreckage"
@@ -283,7 +283,7 @@
 		/obj/item/mecha_parts/part/honker_left_leg,
 		/obj/item/mecha_parts/part/honker_right_leg,
 	)
-	original_mech = /obj/vehicle/sealed/mecha/combat
+	original_mech = /obj/vehicle/sealed/mecha/ntf
 
 /obj/structure/mecha_wreckage/durand
 	name = "\improper Durand wreckage"
@@ -296,7 +296,7 @@
 		/obj/item/mecha_parts/part/durand_left_leg,
 		/obj/item/mecha_parts/part/durand_right_leg,
 	)
-	original_mech = /obj/vehicle/sealed/mecha/combat/durand
+	original_mech = /obj/vehicle/sealed/mecha/ntf/durand
 
 /obj/structure/mecha_wreckage/phazon
 	name = "\improper Phazon wreckage"
@@ -309,7 +309,7 @@
 		/obj/item/mecha_parts/part/phazon_left_leg,
 		/obj/item/mecha_parts/part/phazon_right_leg,
 	)
-	original_mech = /obj/vehicle/sealed/mecha/combat/phazon
+	original_mech = /obj/vehicle/sealed/mecha/ntf/phazon
 
 /obj/structure/mecha_wreckage/savannah_ivanov
 	name = "\improper Savannah-Ivanov wreckage"

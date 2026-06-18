@@ -17,6 +17,7 @@
 	)
 	var/static/list/teleportable_while_anchored_types = list(
 		/obj/vehicle,
+		/obj/vehicle/sealed/mecha/ntf,
 	)
 	///List of banned teleportable types
 	var/static/list/blacklisted_types = list(

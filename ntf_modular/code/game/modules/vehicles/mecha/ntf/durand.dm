@@ -1,4 +1,4 @@
-/obj/vehicle/sealed/mecha/combat/durand
+/obj/vehicle/sealed/mecha/ntf/durand
 	desc = "A rugged design that's seen wide proliferation since the dissolution of the Nanotrasen corporation. \
 	Commonly seen among mercenaries, security companies and PMCs, the Durand is easily recognized by it's \
 	iconic stainless steel outer shell and high-hardness steel inner shell."
