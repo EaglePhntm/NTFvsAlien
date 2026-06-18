@@ -5,7 +5,7 @@
 	icon_state = "smg"
 	muzzle_iconstate = "muzzle_flash"
 	fire_sound = 'sound/mecha/weapons/mech_smg.ogg'
-	mech_flags = EXOSUIT_MODULE_VENDABLE|EXOSUIT_MODULE_COMBAT
+	mech_flags = EXOSUIT_MODULE_NTF
 	ammotype = /datum/ammo/bullet/rifle/hv
 	max_integrity = 75
 
@@ -66,7 +66,7 @@
 	icon_state = "smg"
 	muzzle_iconstate = "muzzle_flash"
 	fire_sound = 'sound/mecha/weapons/mech_smg.ogg'
-	mech_flags = EXOSUIT_MODULE_VENDABLE|EXOSUIT_MODULE_COMBAT
+	mech_flags = EXOSUIT_MODULE_NTF|EXOSUIT_MODULE_COMBAT
 	ammotype = /datum/ammo/grenade_container
 	max_integrity = 75
 
@@ -91,7 +91,7 @@
 	icon_state = "smg"
 	muzzle_iconstate = "muzzle_flash"
 	fire_sound = 'sound/mecha/weapons/mech_smg.ogg'
-	mech_flags = EXOSUIT_MODULE_VENDABLE|EXOSUIT_MODULE_COMBAT
+	mech_flags = EXOSUIT_MODULE_NTF|EXOSUIT_MODULE_COMBAT
 	ammotype = /datum/ammo/bullet/rifle/mech_br
 	max_integrity = 75
 

@@ -4,7 +4,7 @@
 	desc = "A standard laser rifle, adapted to be mounted on an exosuit."
 	icon_state = "lasermg"
 	fire_sound = 'sound/mecha/weapons/mech_laser_heavy.ogg'
-	mech_flags = EXOSUIT_MODULE_VENDABLE|EXOSUIT_MODULE_COMBAT
+	mech_flags = EXOSUIT_MODULE_NTF|EXOSUIT_MODULE_COMBAT
 //	flash_offsets = list(
 //		MECHA_R_ARM = list("N" = list(33,68), "S" = list(-2,-6), "E" = list(80,13), "W" = list(-50,33)),
 //		MECHA_L_ARM = list("N" = list(0,68), "S" = list(32,-6), "E" = list(80,33), "W" = list(-50,13)),
@@ -24,7 +24,7 @@
 	desc = "An exosuit-mounted, tri-beam laser rifle. Fires a burst of three individual lasers, will melt you."
 	icon_state = "lasermg"
 	fire_sound = 'sound/mecha/weapons/mech_laser_heavy.ogg'
-	mech_flags = EXOSUIT_MODULE_VENDABLE|EXOSUIT_MODULE_COMBAT
+	mech_flags = EXOSUIT_MODULE_NTF|EXOSUIT_MODULE_COMBAT
 //	flash_offsets = list(
 //		MECHA_R_ARM = list("N" = list(33,68), "S" = list(-2,-6), "E" = list(80,13), "W" = list(-50,33)),
 //		MECHA_L_ARM = list("N" = list(0,68), "S" = list(32,-6), "E" = list(80,33), "W" = list(-50,13)),

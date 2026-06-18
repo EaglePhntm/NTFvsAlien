@@ -6,7 +6,7 @@
 	soft_armor = list(MELEE = 60, BULLET = 40, LASER = 30, ENERGY = 30, BOMB = 25, BIO = 0, FIRE = 100, ACID = 100)
 	max_temperature = 25000
 	force = 30
-	mech_type = EXOSUIT_MODULE_NTF
+	mech_type = EXOSUIT_MODULE_NTF|EXOSUIT_MODULE_COMBAT
 	max_equip_by_category = list(
 		MECHA_UTILITY = 1,
 		MECHA_POWER = 1,
