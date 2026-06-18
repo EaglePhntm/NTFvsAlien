@@ -12,6 +12,7 @@
 	soft_armor = list(MELEE = 35, BULLET = 10, LASER = 20, ENERGY = 20, BOMB = 40, BIO = 0, FIRE = 100, ACID = 100)
 	wreckage = /obj/structure/mecha_wreckage/clarke
 	possible_int_damage = MECHA_INT_FIRE|MECHA_INT_CONTROL_LOST|MECHA_INT_SHORT_CIRCUIT
+	mech_type = EXOSUIT_MODULE_COMBAT|EXOSUIT_MODULE_WORKING
 	enter_delay = 20
 	exit_delay = 20
 	max_occupants = 2
