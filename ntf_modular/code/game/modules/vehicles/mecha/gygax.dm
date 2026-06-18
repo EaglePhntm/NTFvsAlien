@@ -1,0 +1,25 @@
+/obj/vehicle/sealed/mecha/combat/gygax
+	desc = "A combat exosuit, commonly used by law enforcement or security firms as a patrol vehicle, or as part of a rapid response team. \
+	It's lightweight polymer and aluminium shell give it adequate protection from most handgun to light rifle threats. It has room for up to two \
+	occupants."
+	name = "\improper Gygax"
+	icon_state = "gygax"
+	base_icon_state = "gygax"
+	allow_diagonal_movement = TRUE
+	move_delay = 3
+	max_integrity = 300
+	max_occupants = 2
+	soft_armor = list(MELEE = 40, BULLET = 30, LASER = 40, ENERGY = 30, BOMB = 25, BIO = 0, FIRE = 100, ACID = 100)
+	leg_overload_coeff = 80
+	force = 20
+	wreckage = /obj/structure/mecha_wreckage/gygax
+	step_energy_drain = 6
+	cockpit_armor = COCKPIT_ARMORED
+
+/obj/vehicle/sealed/mecha/combat/gygax/dark_ntf
+	desc = "A combat exosuit, commonly used by law enforcement or security firms as a patrol vehicle, or as part of a rapid response team. \
+	It's lightweight polymer and aluminium shell give it adequate protection from most handgun to light rifle threats. It has room for up to two \
+	occupants. This one has been painted a darker color."
+	name = "\improper Dark Gygax"
+	icon_state = "darkgygax"
+	base_icon_state = "darkgygax"

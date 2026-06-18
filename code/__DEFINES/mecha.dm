@@ -133,3 +133,13 @@
 
 ///Amount added to move_delay by EMP
 #define MECH_EMP_SLOWDOWN 1
+
+/// Prevents overpenetrating through the mecha and into the cockpit using an armour penetrating weapon
+#define CANNOT_OVERPENETRATE (1<<13)
+
+/// Multiplier for a mech's armor, used for overpenetration
+
+#define COCKPIT_LIGHT 0.7
+#define COCKPIT_TOUGHENED 0.8
+#define COCKPIT_ARMORED 1
+#define COCKPIT_HEAVY 1.15
