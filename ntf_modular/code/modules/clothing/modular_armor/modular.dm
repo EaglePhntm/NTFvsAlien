@@ -177,7 +177,11 @@
 		/obj/item/armor_module/module/mimir_environment_protection/som,
 		/obj/item/armor_module/module/eshield/som,
 		/obj/item/armor_module/module/eshield/som/overclocked,
-	)
+// Equalizer Modules
+		/obj/item/armor_module/module/style/light_armor,
+		/obj/item/armor_module/module/style/medium_armor,
+		/obj/item/armor_module/module/style/heavy_armor,
+	) // The people want their equalizer dermal armor, they will get their dermal armor
 
 /obj/item/clothing/shoes/dermal
 	name = "\improper dermal feet pads"
