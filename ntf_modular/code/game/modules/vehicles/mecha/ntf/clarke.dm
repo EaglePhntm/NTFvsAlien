@@ -7,24 +7,15 @@
 	silicon_icon_state = "clarke-empty"
 	move_delay = 2.5
 	max_integrity = 300
-	ui_x = 1200
-	lights_power = 7
+	lights_power = 10
 	soft_armor = list(MELEE = 35, BULLET = 10, LASER = 20, ENERGY = 20, BOMB = 40, BIO = 0, FIRE = 95, ACID = 100)
 	wreckage = /obj/structure/mecha_wreckage/clarke
 	possible_int_damage = MECHA_INT_FIRE|MECHA_INT_CONTROL_LOST|MECHA_INT_SHORT_CIRCUIT
-	mecha_flags = ADDING_ACCESS_POSSIBLE | IS_ENCLOSED | HAS_HEADLIGHTS | OMNIDIRECTIONAL_ATTACKS
 	enter_delay = 20
 	exit_delay = 20
 	max_occupants = 2
 	pivot_step = TRUE
 	/// Custom Clarke step and turning sounds (from NTC)
-	stepsound = 'sound/mecha/powerloader_step.ogg'
+	stepsound = 'ntf_modular\sound\effects\engine.ogg'
 	turnsound = 'sound/mecha/powerloader_turn2.ogg'
-	equip_by_category = list(
-		MECHA_L_ARM = null,
-		MECHA_R_ARM = null,
-		MECHA_UTILITY = list(/obj/item/mecha_parts/mecha_equipment/ejector),
-		MECHA_POWER = list(),
-		MECHA_ARMOR = list(),
-	)
 	cockpit_armor = COCKPIT_TOUGHENED
