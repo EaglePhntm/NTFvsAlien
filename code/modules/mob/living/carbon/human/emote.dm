@@ -115,7 +115,7 @@
 	. = ..()
 	if(!.)
 		return
-	user.AdjustSleeping(1 SECONDS)
+	user.AdjustSleeping(40 SECONDS) // Emote based sleeping
 
 
 /datum/emote/living/carbon/human/frown
