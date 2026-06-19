@@ -49,7 +49,7 @@
 		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
 			continue
 		if(ads.try_intercept(target_turf, src))
-			smoke.set_up(3, target_turf, 3)
+			smoke.set_up(4, target_turf, 3)
 			smoke.start()
 			return
 	smoke.set_up(10, target_turf, 11)
@@ -115,7 +115,7 @@
 		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
 			continue
 		if(ads.try_intercept(target_turf, src))
-			smoke.set_up(3, target_turf, 3)
+			smoke.set_up(4, target_turf, 3)
 			smoke.start()
 			return
 	smoke.set_up(10, target_turf, 11)
@@ -173,7 +173,7 @@
 		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
 			continue
 		if(ads.try_intercept(target_turf, src, 0.1, 3))
-			smoke.set_up(3, target_turf, 3)
+			smoke.set_up(4, target_turf, 3)
 			smoke.start()
 			return
 	smoke.set_up(10, target_turf, 11)

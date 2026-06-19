@@ -657,7 +657,8 @@
 			var/datum/effect_system/smoke_spread/debris/S = new
 			S.set_up(1, impact)
 			S.start()
-			return
+			fire_range *= 0.5 //We want the fire to be weaker if the rocket was intercepted, to reflect the idea of a dudsplosion.
+			fire_range = round(fire_range)
 	flame_radius(fire_range, impact)
 
 /obj/structure/ship_ammo/cas/minirocket/smoke
@@ -680,7 +681,7 @@
 			continue
 		if(ads.try_intercept(impact, src, 0.5, 5))
 			S = new /datum/effect_system/smoke_spread/debris()
-			S.set_up(1, impact)
+			S.set_up(3, impact) //lesser smoke cloud if intercepted, to reflect the idea of a dudsplosion.
 			S.start()
 			return //shit happen anyway
 	S = new
@@ -706,7 +707,7 @@
 		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
 			continue
 		if(ads.try_intercept(impact, src, 0.5, 5))
-			S.set_up(1, impact, 4)
+			S.set_up(4, impact, 4)
 			S.start()
 			return
 	S.set_up(9, impact, 9)// Between grenade and mortar
@@ -734,11 +735,8 @@
 	for(var/obj/machinery/deployable/mounted/sentry/ads_system/ads in range(GLOB.ads_intercept_range,impact))
 		if(!COOLDOWN_FINISHED(ads, intercept_cooldown))
 			continue
-		if(ads.try_intercept(impact, src, 0.5, 5))
-			var/datum/effect_system/smoke_spread/debris/S = new
-			S.set_up(1, impact)
-			S.start()
-			return
+		ads.try_intercept(impact, src, 2, 10) //longer than usual cd cause occupies systems ig
+		//just wastes ammo, what is it gonna do? shoot the flare down?
 	addtimer(CALLBACK(src, PROC_REF(drop_cas_flare), impact), 1.5 SECONDS)
 
 /obj/structure/ship_ammo/cas/minirocket/illumination/proc/drop_cas_flare(turf/impact)

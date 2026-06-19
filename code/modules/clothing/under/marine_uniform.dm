@@ -90,6 +90,17 @@
 	name = "\improper ArcherCorp-brand camo fatigues (desert)"
 	icon_state = "d_marine_jumpsuit"
 
+/obj/item/clothing/under/marine/camo/woodland
+	name = "\improper Old-patterened camo fatigues (woodland)"
+	desc = "A set of formerly issued fatigues from a former nation-state. It appears to lack all the modern amenities."
+	icon_state = "woodland_marine_jumpsuit"
+	worn_icon_state = "woodland_marine_jumpsuit"
+	adjustment_variants = list(
+		"Rolled Sleeves" = "_d",
+		"No Sleeves" = "_h",
+		"No Top" = "_r",
+	)
+
 /obj/item/clothing/under/marine/corpsman
 	name = "\improper ArcherCorp-brand corpsman fatigues"
 	desc = "A standard-issue, kevlar-weaved, hazmat-tested, EMF-augmented combat corpsman fatigues. You suspect it's not as robust-proof as advertised."

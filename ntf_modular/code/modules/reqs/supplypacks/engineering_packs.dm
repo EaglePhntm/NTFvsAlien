@@ -28,5 +28,5 @@
 /datum/supply_packs/engineering/fusion_fuel_cell
 	name = "WL-6 universal fusion fuel cell"
 	notes = "A rechargable fuel cell designed to work as a power source for the Cheyenne-Class transport or for Westingland S-52 Reactors."
-	contains = list(/obj/item/fuel_cell/full)
+	contains = list(/obj/item/fuel_cell)
 	cost = 50

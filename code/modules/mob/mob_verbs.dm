@@ -184,22 +184,21 @@
 	// List of base choosable factions, taken job is a subtype of these.
 	var/list/static/base_faction_list = list(
 		/datum/job/clf,
-		/datum/job/freelancer,
 		/datum/job/pmc,
-		/datum/job/special_forces,
 		/datum/job/icc,
 		/datum/job/vsd,
+		/datum/job/survivor,
 	)
 
 	// List of HvH factions - these are handled differently, using the quick loadout outfits.
 	var/list/static/hvh_faction_list = list(/datum/job/som, /datum/job/terragov)
 	// List of rare factions, not common because they're funny in moderation / stronk.
-	var/list/static/rare_faction_list = list(/datum/job/sectoid, /datum/job/imperial, /datum/job/skeleton, /datum/job/erp, /datum/job/retired)
+	var/list/static/rare_faction_list = list(/datum/job/sectoid, /datum/job/imperial, /datum/job/skeleton, /datum/job/erp, /datum/job/retired, /datum/job/special_forces, /datum/job/freelancer)
 
 
 	var/total_list = base_faction_list + hvh_faction_list
 
-	if(prob(7))
+	if(prob(3))
 		total_list = rare_faction_list
 		if(prob(2))
 			total_list = list(/datum/job/deathsquad) // JACKPOT
@@ -214,19 +213,19 @@
 		switch(rand(100))
 			if(1 to 40)
 				// Standard
-				possible_outfits = is_som ? subtypesof(/datum/outfit/quick/som/marine) : subtypesof(/datum/outfit/quick/tgmc/marine)
+				possible_outfits = is_som ? subtypesof(/datum/outfit/quick/som/marine) :  (subtypesof(/datum/outfit/quick/tgmc/marine) + subtypesof(/datum/outfit/quick/beginner/marine))
 				job_type = is_som ? SSjob.GetJobType(/datum/job/som/squad/standard) : SSjob.GetJobType(/datum/job/terragov/squad/standard)
 			if(41 to 55)
 				// Engineer
-				possible_outfits = is_som ? subtypesof(/datum/outfit/quick/som/engineer) : subtypesof(/datum/outfit/quick/tgmc/engineer)
+				possible_outfits = is_som ? subtypesof(/datum/outfit/quick/som/engineer) : (subtypesof(/datum/outfit/quick/tgmc/engineer) + subtypesof(/datum/outfit/quick/beginner/engineer))
 				job_type = is_som ? SSjob.GetJobType(/datum/job/som/squad/engineer) : SSjob.GetJobType(/datum/job/terragov/squad/engineer)
 			if(56 to 70)
 				// Corpsman
-				possible_outfits = is_som ? subtypesof(/datum/outfit/quick/som/medic) : subtypesof(/datum/outfit/quick/tgmc/corpsman)
+				possible_outfits = is_som ? subtypesof(/datum/outfit/quick/som/medic) : (subtypesof(/datum/outfit/quick/tgmc/corpsman) + subtypesof(/datum/outfit/quick/beginner/corpsman))
 				job_type = is_som ? SSjob.GetJobType(/datum/job/som/squad/medic) : SSjob.GetJobType(/datum/job/terragov/squad/corpsman)
 			if(70 to 85)
 				// Specialist
-				possible_outfits = is_som ? subtypesof(/datum/outfit/quick/som/veteran) : subtypesof(/datum/outfit/quick/tgmc/smartgunner)
+				possible_outfits = is_som ? subtypesof(/datum/outfit/quick/som/veteran) : (subtypesof(/datum/outfit/quick/tgmc/smartgunner) + subtypesof(/datum/outfit/quick/beginner/smartgunner))
 				job_type = is_som ? SSjob.GetJobType(/datum/job/som/squad/veteran) : SSjob.GetJobType(/datum/job/terragov/squad/smartgunner)
 			else
 				// Squad Leader

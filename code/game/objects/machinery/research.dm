@@ -99,6 +99,7 @@
 		return
 
 	replace_init_resource(usr, I)
+	start_research(usr, 5 SECONDS)
 
 /obj/machinery/researchcomp/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -278,6 +279,7 @@
 /obj/item/research_product
 	name = "money"
 	icon_state = "coin_uranium"
+	w_class = WEIGHT_CLASS_TINY // Its coins!
 	///Points provided for exporting the product
 	var/export_points = 1
 

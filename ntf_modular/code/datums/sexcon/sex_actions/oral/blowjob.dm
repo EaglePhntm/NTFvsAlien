@@ -6,8 +6,13 @@
 /datum/sex_action/blowjob/shows_on_menu(mob/living/carbon/user, mob/living/carbon/target)
 	if(user == target)
 		return FALSE
-	if(target.gender != MALE && !target.sexcon.can_use_penis())
-		return FALSE
+	if(isxeno(target))
+		var/mob/living/carbon/xenomorph/targetxeno = target
+		if(targetxeno.client?.prefs?.xenogender < 3)
+			return FALSE
+	else
+		if(target.gender != MALE && !target.sexcon.can_use_penis())
+			return FALSE
 	return TRUE
 
 /datum/sex_action/blowjob/can_perform(mob/living/carbon/user, mob/living/carbon/target)
@@ -15,8 +20,13 @@
 		return FALSE
 
 
-	if(target.gender != MALE && !target.sexcon.can_use_penis())
-		return FALSE
+	if(isxeno(target))
+		var/mob/living/carbon/xenomorph/targetxeno = target
+		if(targetxeno.client?.prefs?.xenogender < 3)
+			return FALSE
+	else
+		if(target.gender != MALE && !target.sexcon.can_use_penis())
+			return FALSE
 	return TRUE
 
 /datum/sex_action/blowjob/on_start(mob/living/carbon/user, mob/living/carbon/target)

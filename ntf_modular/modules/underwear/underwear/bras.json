@@ -11,6 +11,24 @@
 		"icon_state": "bra_alt"
 		}
 	],
+	"bra_skimpy":[
+		{
+		"type": "hyperscale",
+		"icon_state": "bra_skimpy"
+		}
+	],
+	"bra_skimpyblack":[
+		{
+		"type": "hyperscale",
+		"icon_state": "bra_skimpyblack"
+		}
+	],
+	"bra_skimpyblackalt":[
+		{
+		"type": "hyperscale",
+		"icon_state": "bra_skimpyblackalt"
+		}
+	],
 	"bra_thin":[
 		{
 		"type": "hyperscale",

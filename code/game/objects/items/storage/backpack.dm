@@ -266,13 +266,14 @@
 		warning = "<span class='notice'>[src]'s defibrillator recharge unit cheerfully pings as it successfully recharges the defibrillator. "
 	cell.charge -= min(cell.charge, amount)
 	if(mention_charge)
-		to_chat(user, span_notice("[warning]<b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b>"))
+		to_chat(user, span_notice("[warning]<b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b> Energy : [DisplayEnergyFrac(cell.charge * (2/GLOB.CELLRATE), cell.maxcharge * (2/GLOB.CELLRATE))]"))
 	update_icon()
 
 /obj/item/storage/backpack/marine/corpsman/examine(mob/user)
 	. = ..()
 	if(cell)
-		. += span_notice("Its defibrillator recharge unit has a loaded power cell and its readout counter is active. <b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b>")
+		. += span_notice("Its defibrillator recharge unit has a loaded power cell and its readout counter is active. <b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b> Energy : [DisplayEnergyFrac(cell.charge * (2/GLOB.CELLRATE), cell.maxcharge * (2/GLOB.CELLRATE))]")
+		. += span_notice("Cell energy : [DisplayEnergyFrac(cell.charge * (2/GLOB.CELLRATE), cell.maxcharge * (2/GLOB.CELLRATE))]")
 	else
 		. += span_warning("Its defibrillator recharge unit does not have a power cell installed!")
 
@@ -320,7 +321,7 @@
 				cell.update_icon()
 				user.put_in_hands(cell)
 			cell = W
-			to_chat(user, span_notice("[replace_install] <b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b>"))
+			to_chat(user, span_notice("[replace_install] <b>Charge Remaining: [cell.charge]/[cell.maxcharge]</b> Energy : [DisplayEnergyFrac(cell.charge * (2/GLOB.CELLRATE), cell.maxcharge * (2/GLOB.CELLRATE))]"))
 			playsound(user, 'sound/weapons/guns/interact/rifle_reload.ogg', 25, 1, 5)
 			update_icon()
 	return ..()
@@ -852,8 +853,8 @@ GLOBAL_LIST_INIT(stealth_greyscale_matrix,\
 	icon_state = "icc_bag_guard"
 
 /obj/item/storage/backpack/lightpack/vsd
-	name = "\improper Crasher branded combat backpack"
-	desc = "A backpack design from 21st century still proves to be a good design in the 25th century."
+	name = "\improper Crasher branded combat lightweight pack"
+	desc = "A backpack design from 21st century still proves to be a good design in the 25th century. This one was enhanced to be used with powered armors or standalone, it provides ease of access to the contents and is made of a synthetic fiber that is resistant to wear and tear."
 	icon_state = "vsd_bag0"
 
 /obj/item/storage/backpack/lightpack/freelancer

@@ -59,7 +59,7 @@
 
 /datum/outfit/job/som/command/staffofficer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_hand(new /obj/item/binoculars/fire_support/extended/som/sl, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_hand(new /obj/item/binoculars/fire_support/extended/som, SLOT_IN_R_POUCH)
 
 /datum/outfit/job/som/command/pilot
 	name = SOM_PILOT_OFFICER

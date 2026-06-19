@@ -44,8 +44,13 @@ mode Extended Mini
 	votable 0
 endmode
 
-mode Survival
+mode Colony Fall
 	requiredplayers 8
+	votable 1
+endmode
+
+mode Colony Survival
+	requiredplayers 15
 	votable 1
 endmode
 

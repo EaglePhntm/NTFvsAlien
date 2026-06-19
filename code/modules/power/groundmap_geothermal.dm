@@ -121,6 +121,8 @@ GLOBAL_VAR_INIT(corrupted_generators, 0)
 		if(GEOTHERMAL_NO_DAMAGE)
 			if(!is_on)
 				desc = "A thermoelectric generator sitting atop a borehole dug deep in the planet's surface. It generates energy by boiling the plasma steam that rises from the well.\nIt is old technology and has a large failure rate, and must be repaired frequently.\nIt is currently turned off and silent."
+			else
+				desc = "A thermoelectric generator sitting atop a borehole dug deep in the planet's surface. It generates energy by boiling the plasma steam that rises from the well.\nIt is old technology and has a large failure rate, and must be repaired frequently.\nIt has reached [power_gen_percent]% efficiency and is currently producing [power_gen_percent * power_generation_max * (0.01/1000)]kW ([power_gen_percent * power_generation_max * (0.01*3600/1000000)] MJ/h)"
 		if(GEOTHERMAL_HEAVY_DAMAGE)
 			desc = "A thermoelectric generator sitting atop a plasma-filled borehole. This one is heavily damaged. Use a blowtorch, wirecutters, and then a wrench to repair it."
 		if(GEOTHERMAL_MEDIUM_DAMAGE)

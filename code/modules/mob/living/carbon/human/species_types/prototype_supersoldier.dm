@@ -2,7 +2,7 @@
 	name = "Prototype Supersoldier"
 	//slowdown = -0.25
 	inherent_traits = list(TRAIT_TOO_TALL)
-	inherent_actions = list(/datum/action/supersoldier_stims)
+	inherent_actions = list(/datum/action/supersoldier_stims,/datum/action/ability/indominable)
 	namepool = /datum/namepool/prototype_supersoldier
 	species_description = "<br /><br /><b>Lore</b>:<br /><br /> \
 	Prototype Supersoldiers are Novamed's experimental military units made to be superior in strength and speed compared to regular soldiers but their altered neural architecture makes them incompatible with skillsofts, \

@@ -37,6 +37,7 @@
 		. += span_warning("It lacks a battery and will not turn on.")
 		return
 	. += span_notice("There is \a [battery] inside. [battery.charge]/[battery.maxcharge] left.")
+	. += span_notice("Cell energy : [DisplayEnergyFrac(battery.charge * (2/GLOB.CELLRATE), battery.maxcharge * (2/GLOB.CELLRATE))]")
 	. += span_notice("<b>Use</b> inhand or <b>Right-click</b> to remove it.")
 
 /obj/item/tesla_turret/get_mechanics_info()
@@ -128,6 +129,7 @@
 		. += span_warning("It lacks a battery and will not turn on.")
 		return
 	. += span_notice("There is \a [battery] inside. [battery.charge]/[battery.maxcharge] left.")
+	. += span_notice("Cell energy : [DisplayEnergyFrac(battery.charge * (2/GLOB.CELLRATE), battery.maxcharge * (2/GLOB.CELLRATE))]")
 	. += span_notice("<b>Right-click</b> to remove it.")
 	if(!active)
 		return

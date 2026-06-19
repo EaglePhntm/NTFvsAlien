@@ -320,14 +320,35 @@
 	occupant.bodytemperature = 100 //Atmos is long gone, we'll just set temp directly.
 	occupant.Sleeping(20 SECONDS)
 
+	if(ishuman(occupant))
+		var/mob/living/carbon/human/human_occupant = occupant
+		if(human_occupant.can_restore_skills && HAS_TRAIT(human_occupant, TRAIT_SKILLS_EXTRACTED))
+			var/datum/status_effect/skill_modifier/extraction/extract_effect = human_occupant.has_status_effect(/datum/status_effect/skill_modifier/extraction)
+			if(!extract_effect)
+				human_occupant.can_restore_skills = FALSE
+			else
+				var/datum/skills/current_skills = human_occupant.skills
+				var/skills_changed = FALSE
+				var/list/skill_names = list("unarmed","melee_weapons","combat","pistols","shotguns","rifles","smgs","heavy_weapons","smartgun","engineer","construction","leadership","medical","surgery","pilot","police","powerloader","large_vehicle","mech","stamina","sex")
+				for(var/skill in skill_names)
+					var/current_value = current_skills.vars[skill]
+					var/pre_value = extract_effect.pre_extraction_skills[skill]
+					if(current_value < pre_value)
+						current_skills.vars[skill] = min(current_value + 1, pre_value)
+						skills_changed = TRUE
+				if(skills_changed)
+					human_occupant.set_skills(current_skills)
+				var/restored_skills = TRUE
+				for(var/skill in skill_names)
+					if(current_skills.vars[skill] < extract_effect.pre_extraction_skills[skill])
+						restored_skills = FALSE
+						break
+				if(restored_skills)
+					human_occupant.can_restore_skills = FALSE
+					extract_effect.skill_differences.Cut()
+					qdel(extract_effect)
+
 	//You'll heal slowly just from being in an active pod, but chemicals speed it up.
-	if(HAS_TRAIT(occupant, TRAIT_SKILLS_EXTRACTED) && occupant.can_restore_skills)
-		occupant.set_skills(occupant.skills.modifyAllRatings(1))
-		REMOVE_TRAIT(occupant, TRAIT_SKILLS_EXTRACTED, TRAIT_GENERIC)
-		occupant.can_restore_skills = FALSE
-	if(HAS_TRAIT(occupant, TRAIT_SKILLS_IMPRINTED) && occupant.can_restore_skills)
-		REMOVE_TRAIT(occupant, TRAIT_SKILLS_IMPRINTED, TRAIT_GENERIC)
-		occupant.can_restore_skills = FALSE
 	if(occupant.getOxyLoss())
 		occupant.adjustOxyLoss(-1)
 	if (occupant.getToxLoss())

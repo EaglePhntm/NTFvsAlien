@@ -2360,7 +2360,7 @@
 	})
 "bZN" = (
 /obj/machinery/smartfridge/chemistry,
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	id = "researchlockdownext";
 	name = "\improper Research Lockdown"
 	},
@@ -22353,7 +22353,7 @@
 "uBe" = (
 /obj/machinery/door/firedoor/mainship,
 /obj/structure/table/reinforced,
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	id = "researchlockdownext";
 	name = "\improper Research Lockdown"
 	},

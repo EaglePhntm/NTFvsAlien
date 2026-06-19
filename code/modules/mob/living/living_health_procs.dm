@@ -74,8 +74,8 @@
 		return FALSE	//godmode
 
 	var/stamina_loss_adjustment = staminaloss + amount
-	var/health_limit = maxHealth * 2
-	if(stamina_loss_adjustment > health_limit) //If we exceed maxHealth * 2 stamina damage, get hardstunned for 15 seconds, instead of taking oxygen damage.
+	var/health_limit = maxHealth * STAMINA_LOSS_LIMIT_MULTIPLIER
+	if(stamina_loss_adjustment > health_limit) //If we exceed maxHealth * STAMINA_LOSS_LIMIT_MULTIPLIER stamina damage, get hardstunned for 15 seconds, instead of taking oxygen damage.
 		ParalyzeNoChain(15 SECONDS)
 
 	staminaloss = clamp(stamina_loss_adjustment, -max_stamina, health_limit)

@@ -16,3 +16,11 @@
 	item_state_worn = TRUE
 	worn_icon_list = list(
 		slot_shoes_str = 'ntf_modular/icons/mob/clothing/shoes.dmi')
+
+/obj/item/clothing/shoes/marine/heel
+	name = "heeled jackboots"
+	desc = "heeled tactical jackboots."
+	icon_state = "heelboots"
+	icon = 'ntf_modular/icons/obj/clothing/shoes.dmi'
+	worn_icon_state = "marine"
+	item_state_worn = TRUE

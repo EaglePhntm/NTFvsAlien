@@ -6,7 +6,7 @@
 
 	id = /obj/item/card/id/silver
 	ears = /obj/item/radio/headset/mainship/vsd
-	glasses = /obj/item/clothing/glasses/night/vsd
+	glasses = /obj/item/clothing/glasses/mgoggles/kz
 	w_uniform = /obj/item/clothing/under/vsd/webbing
 	shoes = /obj/item/clothing/shoes/marine/vsd/full
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd
@@ -14,7 +14,7 @@
 	head = /obj/item/clothing/head/helmet/marine/vsd
 	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
 	l_pocket = /obj/item/storage/pouch/magazine
-	back = /obj/item/storage/backpack/lightpack/vsd
+	back = /obj/item/storage/backpack/vsd
 	belt = /obj/item/storage/holster/belt/pistol/standard_pistol
 
 	backpack_contents = list(
@@ -69,7 +69,7 @@
 
 /datum/outfit/job/vsd/standard/ksg
 	w_uniform = /obj/item/clothing/under/vsd/shirt/webbing
-	glasses = /obj/item/clothing/glasses/night/vsd/alt
+	glasses = /obj/item/clothing/glasses/mgoggles/kz/alt
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/marmor
 	suit_store = /obj/item/weapon/gun/shotgun/pump/ksg/standard
 	l_pocket = /obj/item/storage/pouch/shotgun
@@ -126,7 +126,7 @@
 
 /datum/outfit/job/vsd/standard/lmg
 	w_uniform = /obj/item/clothing/under/vsd/alt/webbing
-	glasses = /obj/item/clothing/glasses/night/vsd/alt
+	glasses = /obj/item/clothing/glasses/mgoggles/kz/alt
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/marmor
 	suit_store = /obj/item/weapon/gun/rifle/vsd_lmg_main/recoilcomp
 
@@ -182,7 +182,7 @@
 
 /datum/outfit/job/vsd/standard/upp_third
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/marmor
-	glasses = /obj/item/clothing/glasses/night/vsd/alt
+	glasses = /obj/item/clothing/glasses/mgoggles/kz/alt
 	w_uniform = /obj/item/clothing/under/vsd/upp/alt/webbing
 	suit_store = /obj/item/weapon/gun/rifle/lmg_d
 	l_pocket = /obj/item/storage/holster/flarepouch
@@ -211,7 +211,7 @@
 	head = /obj/item/clothing/head/helmet/marine/vsd_two
 	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
 	l_pocket = /obj/item/storage/pouch/magazine
-	back = /obj/item/storage/backpack/lightpack/vsd
+	back = /obj/item/storage/backpack/vsd
 	belt = /obj/item/storage/belt/utility/full
 
 	backpack_contents = list(
@@ -290,7 +290,7 @@
 	head = /obj/item/clothing/head/helmet/marine/vsd_two
 	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
 	l_pocket = /obj/item/storage/pouch/magazine
-	back = /obj/item/storage/backpack/lightpack/vsd
+	back = /obj/item/storage/backpack/vsd
 
 	backpack_contents = list(
 		/obj/item/defibrillator = 1,
@@ -385,7 +385,7 @@
 	shoes = /obj/item/clothing/shoes/marine/vsd/full
 	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
 	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
-	back = /obj/item/storage/backpack/lightpack/vsd
+	back = /obj/item/storage/backpack/vsd
 	belt = /obj/item/storage/holster/belt/pistol/standard_pistol
 
 	suit_contents = list(
@@ -409,7 +409,7 @@
 	head = /obj/item/clothing/head/helmet/marine/vsd/flamer
 	belt = /obj/item/belt_harness/marine
 	suit_store = /obj/item/weapon/gun/flamer/big_flamer/vsd
-	back = /obj/item/ammo_magazine/flamer_tank/backtank/X
+	back = /obj/item/ammo_magazine/flamer_tank/backtank
 	w_uniform = /obj/item/clothing/under/vsd/shirt/webbing
 	l_pocket = /obj/item/storage/pouch/grenade
 
@@ -423,7 +423,7 @@
 	)
 
 	l_pocket_contents = list(
-		/obj/item/explosive/grenade/phosphorus/upp = 6,
+		/obj/item/explosive/grenade/incendiary = 6,
 	)
 
 /datum/outfit/job/vsd/spec/demolitionist
@@ -547,7 +547,7 @@
 	mask = /obj/item/clothing/mask/gas/vsd
 	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
 	l_pocket = /obj/item/storage/pouch/explosive
-	back = /obj/item/storage/backpack/lightpack/vsd
+	back = /obj/item/storage/backpack/vsd
 	belt = /obj/item/belt_harness
 
 	backpack_contents = list(
@@ -583,7 +583,7 @@
 	mask = /obj/item/clothing/mask/gas/vsd
 	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
 	l_pocket = /obj/item/storage/pouch/explosive
-	back = /obj/item/storage/backpack/lightpack/vsd
+	back = /obj/item/storage/backpack/vsd
 
 	backpack_contents = list(
 		/obj/item/ammo_magazine/rifle/vsd_autocannon = 3,

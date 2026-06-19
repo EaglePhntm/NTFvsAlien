@@ -151,3 +151,30 @@ warning: overcharging too much will result in an explosion, accumulated energy d
 
 /obj/item/armor_module/module/antenna/integrated
 	invisible_toggle = TRUE
+
+// Storage module invisible
+
+/obj/item/armor_module/storage
+	var/invisible_toggle = FALSE
+
+/obj/item/armor_module/storage/examine(mob/user)
+	. = ..()
+	. += span_notice("This can be toggled invisible using ALT-RCLICK, it's currently [invisible_toggle ? "invisible" : "visible"].")
+
+/obj/item/armor_module/storage/AltRightClick(mob/user)
+	. = ..()
+	invisible_toggle = !invisible_toggle
+	if(invisible_toggle)
+		balloon_alert(user, "Invisible")
+		worn_icon_state = ""
+		variants_by_parent_type = list(/obj/item = "")
+	else
+		balloon_alert(user, "Visible")
+		worn_icon_state = initial(worn_icon_state)
+		variants_by_parent_type = initial(variants_by_parent_type)
+
+/obj/item/armor_module/storage/Initialize(mapload)
+	if(invisible_toggle)
+		worn_icon_state = ""
+		variants_by_parent_type = list(/obj/item = "")
+	. = ..()

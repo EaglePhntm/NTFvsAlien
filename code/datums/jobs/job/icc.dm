@@ -600,7 +600,3 @@ Make the CM proud!"}
 	head = /obj/item/clothing/head/tgmccap/ro
 	r_pocket = /obj/item/storage/pouch/general/large
 	l_pocket = /obj/item/binoculars/tactical
-
-/datum/outfit/job/administrator/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_hand(new /obj/item/binoculars/fire_support/extended/sl, SLOT_IN_R_POUCH)

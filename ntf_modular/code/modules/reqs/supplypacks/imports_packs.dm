@@ -163,12 +163,12 @@
 /datum/supply_packs/imports/antienergyshield
 	name = "NTC Anti Energy Shield"
 	contains = list(/obj/item/armor_module/module/eshield/absorbant/energy)
-	cost = 500
+	cost = 800
 
 /datum/supply_packs/imports/antiballisticshield
 	name = "KZ Anti Ballsitic Shield"
 	contains = list(/obj/item/armor_module/module/eshield/absorbant/ballistic)
-	cost = 500
+	cost = 800
 
 /datum/supply_packs/imports/m16/ammo/extended
 	name = "FN M16 Assault Rifle Ammo Extended Mag"
@@ -221,6 +221,115 @@
 	name = "Wreckage of Seraph (Repairable)"
 	contains = list(/obj/structure/mecha_wreckage/seraph)
 	cost = 2000
+/datum/supply_packs/imports/famas/ammoext
+	name = "FAMAS Assault Rifle Extended Ammo"
+	contains = list(/obj/item/ammo_magazine/rifle/famasext)
+	cost = 8
+
+/datum/supply_packs/imports/aug/ammoext
+	name = "EM-88 Assault Carbine Extended Ammo"
+	contains = list(/obj/item/ammo_magazine/rifle/icc_assaultcarbinelbar)
+	cost = 7
+
+/datum/supply_packs/imports/katanascabbard
+	name = "Katana"
+	contains = list(/obj/item/storage/holster/blade/katana/full)
+	cost = 50
+
+/datum/supply_packs/imports/plasticfork
+	name = "Plastic Fork"
+	contains = list(/obj/item/tool/kitchen/utensil/pfork)
+	cost = 1
+
+/datum/supply_packs/imports/plasticknife
+	name = "Plastic Knife"
+	contains = list(/obj/item/tool/kitchen/utensil/pknife)
+	cost = 1
+
+/datum/supply_packs/imports/plasticknife
+	name = "Plastic Spoon"
+	contains = list(/obj/item/tool/kitchen/utensil/pspoon)
+	cost = 1
+
+/datum/supply_packs/imports/utensilfork
+	name = "Utensil Fork"
+	contains = list(/obj/item/tool/kitchen/utensil/fork)
+	cost = 3
+
+/datum/supply_packs/imports/untensilknife
+	name = "Utensil Knife"
+	contains = list(/obj/item/tool/kitchen/utensil/knife)
+	cost = 3
+
+/datum/supply_packs/imports/utensilspoon
+	name = "Utensil Spoon"
+	contains = list(/obj/item/tool/kitchen/utensil/spoon)
+	cost = 3
+
+/datum/supply_packs/imports/kitchenknife
+	name = "Kitchen Knife"
+	contains = list(/obj/item/tool/kitchen/knife)
+	cost = 5
+
+/datum/supply_packs/imports/butcherknife
+	name = "Butcher Cleaver"
+	contains = list(/obj/item/tool/kitchen/knife/butcher)
+	cost = 20
+
+/datum/supply_packs/imports/rollingpin
+	name = "Rolling Pin"
+	contains = list(/obj/item/tool/kitchen/rollingpin)
+	cost = 5
+
+/datum/supply_packs/imports/flour
+	name = "Flour Bag"
+	contains = list(/obj/item/reagent_containers/food/snacks/flour)
+	cost = 5
+
+/datum/supply_packs/imports/milk
+	name = "Milk Carton"
+	contains = list(/obj/item/reagent_containers/food/drinks/milk)
+	cost = 5
+
+/datum/supply_packs/imports/soymilk
+	name = "Soy Milk Carton"
+	contains = list(/obj/item/reagent_containers/food/drinks/soymilk)
+	cost = 5
+
+/datum/supply_packs/imports/universalenzyme
+	name = "Universal Enzyme Bottle"
+	contains = list(/obj/item/reagent_containers/food/condiment/enzyme)
+	cost = 5
+
+/datum/supply_packs/imports/hotsauce
+	name = "Hot Sauce Bottle"
+	contains = list(/obj/item/reagent_containers/cup/bottle/capsaicin)
+	cost = 5
+
+/datum/supply_packs/imports/syrup
+	name = "Syrup Bottle"
+	contains = list(/obj/item/reagent_containers/cup/bottle/syrup_bottle)
+	cost = 5
+
+/datum/supply_packs/imports/saltshaker
+	name = "Salt Shaker"
+	contains = list(/obj/item/reagent_containers/food/condiment/saltshaker)
+	cost = 5
+
+/datum/supply_packs/imports/peppermill
+	name = "Pepper Mill"
+	contains = list(/obj/item/reagent_containers/food/condiment/peppermill)
+	cost = 5
+
+/datum/supply_packs/imports/frostoil
+	name = "Frost Oil"
+	contains = list(/obj/item/reagent_containers/cup/bottle/frostoil)
+	cost = 50
+
+/datum/supply_packs/imports/pizzarandom
+	name = "Mystery Pizza"
+	contains = list(/obj/item/pizzabox/random)
+	cost = 25
 
 //faction specific things below here.
 
@@ -228,13 +337,13 @@
 	name = "NTC Anti Energy Shield (Faction Supply)"
 	contains = list(/obj/item/armor_module/module/eshield/absorbant/energy)
 	faction_lock = list(FACTION_TERRAGOV)
-	cost = 350
+	cost = 600
 
 /datum/supply_packs/imports/antiballisticshieldfs
 	name = "KZ Anti Ballsitic Shield (Faction Supply)"
 	contains = list(/obj/item/armor_module/module/eshield/absorbant/ballistic)
 	faction_lock = list(FACTION_VSD)
-	cost = 350
+	cost = 600
 
 /datum/supply_packs/medical/carpotoxin
 	name = "Carpotoxin Bottle"

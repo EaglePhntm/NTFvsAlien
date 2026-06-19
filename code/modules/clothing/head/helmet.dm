@@ -38,11 +38,12 @@
 	item_flags = SYNTH_RESTRICTED
 
 /obj/item/clothing/head/helmet/HoS/dermal
-	name = "Dermal Armour Patch"
+	name = "dermal head guard"
 	desc = "You're not quite sure how you manage to take it on and off, but it implants nicely in your head."
 	icon_state = "dermal"
 	worn_icon_state = "dermal"
 	siemens_coefficient = 0.6
+	soft_armor = MARINE_ARMOR_HEAVY
 
 /obj/item/clothing/head/helmet/warden
 	name = "warden's hat"
@@ -654,7 +655,7 @@
 	worn_icon_list =  list(
 		slot_head_str = 'icons/mob/clothing/headwear/ert_headwear.dmi',
 	)
-	soft_armor = list(MELEE = 50, BULLET = 60, LASER = 60, ENERGY = 60, BOMB = 60, BIO = 60, FIRE = 55, ACID = 40)
+	soft_armor = MARINE_ARMOR_HEAVY
 
 /obj/item/clothing/head/helmet/marine/vsd/heavy
 	name = "\improper Crasher MT-H/43 powered ballistic helmet"

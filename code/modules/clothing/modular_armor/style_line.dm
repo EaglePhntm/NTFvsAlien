@@ -6,7 +6,7 @@
 	desc = "They got that drip, doe."
 	item_map_variant_flags = NONE
 	allowed_uniform_type = /obj/item/clothing/under
-	slowdown = - 0.5
+	slowdown = - 0.3
 	icon = 'icons/obj/clothing/suits/marine_suits.dmi'
 	worn_icon_list = list(
 		slot_wear_suit_str = 'icons/mob/clothing/suits/marine_suits.dmi',
@@ -52,6 +52,7 @@
 		/obj/item/armor_module/module/style/light_armor,
 		/obj/item/armor_module/module/style/medium_armor,
 		/obj/item/armor_module/module/style/heavy_armor,
+		/obj/item/armor_module/module/style/superheavy_armor,
 	)
 
 	var/codex_info = {"<BR>This item is part of the <b>Style Line.</b><BR>
@@ -99,6 +100,21 @@
 		/obj/item/armor_module/armor/stylehat_badge,
 		/obj/item/armor_module/armor/stylehat_badge/classic,
 		/obj/item/armor_module/armor/stylehat_badge/ushanka,
+		/obj/item/armor_module/module/tyr_head,
+		/obj/item/armor_module/module/fire_proof_helmet,
+		/obj/item/armor_module/module/hod_head,
+		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
+		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1,
+		/obj/item/armor_module/module/welding,
+		/obj/item/armor_module/module/welding/superior,
+		/obj/item/armor_module/module/binoculars,
+		/obj/item/armor_module/module/binoculars/artemis_mark_two,
+		/obj/item/armor_module/module/artemis,
+		/obj/item/armor_module/module/antenna,
+		/obj/item/armor_module/module/night_vision,
+		/obj/item/armor_module/storage/helmet,
+		/obj/item/armor_module/armor/badge,
+		/obj/item/armor_module/module/antenna/integrated,
 	)
 	attachments_by_slot = list(
 		ATTACHMENT_SLOT_VISOR,

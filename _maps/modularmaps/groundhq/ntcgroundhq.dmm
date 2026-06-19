@@ -627,7 +627,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = "insidedorm3";
 	name = "\improper Quarters Privacy Shutters"
@@ -1606,7 +1606,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 1001;
 	name = "\improper Quarters Privacy Shutters"
@@ -2250,7 +2250,7 @@
 /area/mainship/groundhq/ntf/shipboard/brig)
 "cAs" = (
 /obj/structure/window/framed/colony,
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 1000;
 	name = "\improper Quarters Privacy Shutters"
@@ -2815,7 +2815,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = "insidedorm2";
 	name = "\improper Quarters Privacy Shutters"
@@ -2973,7 +2973,7 @@
 /area/mainship/medical/lower_medical)
 "dpa" = (
 /obj/structure/window/framed/colony,
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 1003;
 	name = "\improper Quarters Privacy Shutters"
@@ -4485,7 +4485,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 1002;
 	name = "\improper Quarters Privacy Shutters"
@@ -5769,7 +5769,7 @@
 /obj/machinery/door/airlock/mainship/generic{
 	dir = 2
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = "bar1";
 	name = "\improper Privacy Shutters"
@@ -8494,7 +8494,7 @@
 /area/mainship/groundhq/ntf/hallways/bathroom)
 "jEU" = (
 /obj/structure/window/framed/colony,
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 1002;
 	name = "\improper Quarters Privacy Shutters"
@@ -8512,7 +8512,7 @@
 	dir = 2;
 	name = "\improper Patient Room"
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 1103;
 	name = "\improper Quarters Privacy Shutters"
@@ -8710,7 +8710,7 @@
 /obj/machinery/door/airlock/mainship/generic{
 	dir = 2
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = "bar4";
 	name = "\improper Privacy Shutters"
@@ -8790,7 +8790,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = "insidedorm4";
 	name = "\improper Quarters Privacy Shutters"
@@ -9112,7 +9112,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 1005;
 	name = "\improper Quarters Privacy Shutters"
@@ -9853,7 +9853,7 @@
 	dir = 2;
 	name = "\improper Patient Room"
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 1104;
 	name = "\improper Quarters Privacy Shutters"
@@ -9932,7 +9932,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 1003;
 	name = "\improper Quarters Privacy Shutters"
@@ -10408,7 +10408,7 @@
 /area/mainship/groundhq/ntf/medical/medical_science)
 "lRk" = (
 /obj/structure/window/framed/colony,
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 1005;
 	name = "\improper Quarters Privacy Shutters"
@@ -11112,7 +11112,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 998;
 	name = "\improper Quarters Privacy Shutters"
@@ -12524,7 +12524,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 1000;
 	name = "\improper Privacy Shutters"
@@ -12683,7 +12683,7 @@
 	})
 "oAP" = (
 /obj/structure/window/framed/colony,
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 998;
 	name = "\improper Quarters Privacy Shutters"
@@ -12852,7 +12852,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 1006;
 	name = "\improper Privacy Shutters"
@@ -14333,7 +14333,7 @@
 	dir = 2;
 	name = "\improper Patient Room"
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 1100;
 	name = "\improper Quarters Privacy Shutters"
@@ -14984,7 +14984,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = "insidedorm1";
 	name = "\improper Quarters Privacy Shutters"
@@ -15700,7 +15700,7 @@
 	dir = 2;
 	name = "\improper Patient Room"
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 1101;
 	name = "\improper Quarters Privacy Shutters"
@@ -15736,7 +15736,7 @@
 /area/mainship/groundhq/ntf/medical/medical_science)
 "rVa" = (
 /obj/structure/window/framed/colony,
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 1001;
 	name = "\improper Quarters Privacy Shutters"
@@ -17697,7 +17697,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 999;
 	name = "\improper Quarters Privacy Shutters"
@@ -18815,7 +18815,7 @@
 	})
 "vKo" = (
 /obj/structure/window/framed/colony,
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 999;
 	name = "\improper Quarters Privacy Shutters"
@@ -19152,7 +19152,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 998;
 	name = "\improper Quarters Privacy Shutters"
@@ -19264,7 +19264,7 @@
 	id = "bar3";
 	name = "\improper Lockers"
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = "bar2";
 	name = "\improper Privacy Shutters"
@@ -19696,7 +19696,7 @@
 /obj/machinery/door/airlock/mainship/generic{
 	dir = 2
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = "bar2";
 	name = "\improper Privacy Shutters"
@@ -20233,7 +20233,7 @@
 	dir = 2;
 	name = "\improper Patient Room"
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 1102;
 	name = "\improper Quarters Privacy Shutters"
@@ -20418,7 +20418,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = 1004;
 	name = "\improper Quarters Privacy Shutters"

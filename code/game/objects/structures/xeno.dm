@@ -79,7 +79,7 @@
 	return
 
 ///Slows down non xeno crossers
-/obj/alien/proc/slow_down_crosser(atom/movable/crosser, slow_amount = WEED_SLOWDOWN)
+/obj/alien/weeds/proc/slow_down_crosser(atom/movable/crosser, slow_amount = cross_slowdown)
 	SIGNAL_HANDLER
 	if(issamexenohive(crosser))
 		return

@@ -1541,7 +1541,7 @@
 	gear_to_spawn = list(
 		/obj/item/supply_beacon,
 		/obj/item/compass,
-		/obj/item/binoculars/fire_support/campaign/som,
+		/obj/item/binoculars/tactical/scout,
 		/obj/item/explosive/plastique,
 	)
 
@@ -1552,7 +1552,7 @@
 		/obj/item/supply_beacon,
 		/obj/item/whistle,
 		/obj/item/compass,
-		/obj/item/binoculars/fire_support/campaign/som,
+		/obj/item/binoculars/fire_support/extended/som/sl,
 		/obj/item/pinpointer,
 		/obj/item/clothing/glasses/hud/health,
 	)

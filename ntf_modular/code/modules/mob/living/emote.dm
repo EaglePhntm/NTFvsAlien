@@ -115,22 +115,12 @@
 	if(. && isliving(user))
 		var/mob/living/L = user
 		L.Paralyze(450 SECONDS)
-		var/list/modes = list(
-			/datum/game_mode/infestation/nuclear_war,
-			/datum/game_mode/infestation/sovl_war,
-			/datum/game_mode/infestation/crash
-		)
-		for(var/mode in modes)
-			if(istype(SSticker.mode, mode))
-				return
-		if(istype(SSticker.mode, /datum/game_mode/infestation/secret_of_life))
-			var/datum/game_mode/infestation/secret_of_life/sol = SSticker.mode
-			if(sol.pop_lock)
-				return
+		addtimer(CALLBACK(src, PROC_REF(surrender_end), user), 90 SECONDS, TIMER_STOPPABLE)
+		if(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES)
+			return
 		L.ExtinguishMob()
 		L.status_flags |= GODMODE
 		ADD_TRAIT(L, TRAIT_SURRENDERING, "surrender")
-		addtimer(CALLBACK(src, PROC_REF(surrender_end), user), 90 SECONDS, TIMER_STOPPABLE)
 
 /datum/emote/living/carbon/xenomorph/xurrender/run_emote(mob/user, params, type_override, intentional = TRUE, prefix)
 	if(!isxeno(user))
@@ -161,22 +151,12 @@
 	if(. && isliving(user))
 		var/mob/living/L = user
 		L.Paralyze(450 SECONDS)
-		var/list/modes = list(
-			/datum/game_mode/infestation/nuclear_war,
-			/datum/game_mode/infestation/sovl_war,
-			/datum/game_mode/infestation/crash
-		)
-		for(var/mode in modes)
-			if(istype(SSticker.mode, mode))
-				return
-		if(istype(SSticker.mode, /datum/game_mode/infestation/secret_of_life))
-			var/datum/game_mode/infestation/secret_of_life/sol = SSticker.mode
-			if(sol.pop_lock)
-				return
+		addtimer(CALLBACK(src, PROC_REF(surrender_end), user), 90 SECONDS, TIMER_STOPPABLE)
+		if(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES)
+			return
 		L.ExtinguishMob()
 		L.status_flags |= GODMODE
 		ADD_TRAIT(L, TRAIT_SURRENDERING, "surrender")
-		addtimer(CALLBACK(src, PROC_REF(surrender_end), user), 90 SECONDS, TIMER_STOPPABLE)
 
 /datum/emote/living/carbon/xenomorph/xubmit/run_emote(mob/user, params, type_override, intentional = TRUE, prefix)
 	if(!isxeno(user))
@@ -206,22 +186,12 @@
 	if(. && isliving(user))
 		var/mob/living/L = user
 		L.Paralyze(90 SECONDS)
-		var/list/modes = list(
-			/datum/game_mode/infestation/nuclear_war,
-			/datum/game_mode/infestation/sovl_war,
-			/datum/game_mode/infestation/crash
-		)
-		for(var/mode in modes)
-			if(istype(SSticker.mode, mode))
-				return
-		if(istype(SSticker.mode, /datum/game_mode/infestation/secret_of_life))
-			var/datum/game_mode/infestation/secret_of_life/sol = SSticker.mode
-			if(sol.pop_lock)
-				return
+		addtimer(CALLBACK(src, PROC_REF(surrender_end), user), 90 SECONDS, TIMER_STOPPABLE)
+		if(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES)
+			return
 		L.ExtinguishMob()
 		L.status_flags |= GODMODE
 		ADD_TRAIT(L, TRAIT_SURRENDERING, "surrender")
-		addtimer(CALLBACK(src, PROC_REF(surrender_end), user), 90 SECONDS, TIMER_STOPPABLE)
 
 /datum/emote/living/carbon/human/surrender/proc/surrender_end(mob/living/user)
 	user.ExtinguishMob()
@@ -250,22 +220,12 @@
 	if(. && isliving(user))
 		var/mob/living/L = user
 		L.Paralyze(90 SECONDS)
-		var/list/modes = list(
-			/datum/game_mode/infestation/nuclear_war,
-			/datum/game_mode/infestation/sovl_war,
-			/datum/game_mode/infestation/crash
-		)
-		for(var/mode in modes)
-			if(istype(SSticker.mode, mode))
-				return
-		if(istype(SSticker.mode, /datum/game_mode/infestation/secret_of_life))
-			var/datum/game_mode/infestation/secret_of_life/sol = SSticker.mode
-			if(sol.pop_lock)
-				return
+		addtimer(CALLBACK(src, PROC_REF(surrender_end), user), 90 SECONDS, TIMER_STOPPABLE)
+		if(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES)
+			return
 		L.ExtinguishMob()
 		L.status_flags |= GODMODE
 		ADD_TRAIT(L, TRAIT_SURRENDERING, "surrender")
-		addtimer(CALLBACK(src, PROC_REF(surrender_end), user), 90 SECONDS, TIMER_STOPPABLE)
 
 /datum/emote/living/carbon/human/submit/proc/surrender_end(mob/living/user)
 	user.ExtinguishMob()

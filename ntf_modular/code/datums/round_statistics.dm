@@ -25,6 +25,7 @@
 	var/round_length = 0
 	var/points_from_intel = 0
 	var/points_from_ambrosia = 0
+	var/monkey_orgasms = 0
 	var/human_orgasms = 0
 	var/xeno_orgasms = 0
 	var/intel_max_chain = 0

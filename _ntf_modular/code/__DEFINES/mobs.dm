@@ -11,3 +11,4 @@
 #define PANTHER_OZELOMELYN "Ozelomelyn"
 #define PANTHER_SANGUINAL "Sanguinal"
 #define PANTHER_APHROTOXIN "Aphrotoxin"
+#define STAMINA_LOSS_LIMIT_MULTIPLIER 2

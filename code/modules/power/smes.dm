@@ -263,7 +263,7 @@
 /obj/machinery/power/smes/ui_data()
 	var/list/data = list(
 		"capacityPercent" = round(100*charge/capacity, 0.1),
-		"charge" = charge,
+		"charge" = charge * (2 / SMESRATE), //in joules
 		"inputAttempt" = input_attempt,
 		"inputting" = inputting,
 		"inputLevel" = input_level,
@@ -276,6 +276,7 @@
 		"outputLevel_text" = DisplayPower(output_level),
 		"outputLevelMax" = output_level_max,
 		"outputUsed" = output_used,
+		"maxCharge" = capacity * (2 / SMESRATE), //in joules
 	)
 	return data
 
