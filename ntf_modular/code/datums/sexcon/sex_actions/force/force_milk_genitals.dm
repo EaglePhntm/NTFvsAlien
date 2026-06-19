@@ -16,11 +16,10 @@
 
 /datum/sex_action/force_milk_genitals/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	var/holding = user.get_active_held_item()
-	if(!istype(holding, /obj/item/reagent_containers/glass) && !istype(holding, /obj/item/reagent_containers/cup))
+	if(!istype(holding, /obj/item/reagent_containers/glass) && !istype(holding, /obj/item/reagent_containers/cup) && !istype(holding, /obj/item/reagent_containers/food/drinks))
 		return FALSE
 	if(user == target)
 		return FALSE
-
 	if(isxeno(target))
 		var/mob/living/carbon/xenomorph/targetxeno = target
 		if(targetxeno.client?.prefs?.xenogender < 3)
