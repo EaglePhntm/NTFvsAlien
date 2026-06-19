@@ -221,6 +221,58 @@
 	name = "Wreckage of Seraph (Repairable)"
 	contains = list(/obj/structure/mecha_wreckage/seraph)
 	cost = 2000
+
+// SS13 mech weapons
+
+/datum/supply_packs/imports/exosuit_energy_guns
+	name = "Pack of exosuit energy gun"
+	contains = list(/obj/item/storage/box/exosuit_energy_guns)
+	cost = 400
+
+/datum/supply_packs/imports/exosuit_r84
+	name = "Exosuit 'R-84' LMG"
+	contains = list(/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_lmg)
+	cost = 200
+
+/datum/supply_packs/imports/exosuit_smg9
+	name = "Exosuit SMG"
+	contains = list(/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_smg)
+	cost = 200
+
+/datum/supply_packs/imports/exosuit_gl4
+	name = "Exosuit Grenade Launcher"
+	contains = list(/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_gl)
+	cost = 300
+
+/datum/supply_packs/imports/exosuit_rangemaster
+	name = "Exosuit 'Rangemaster' Battle Rifle"
+	contains = list(/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_br)
+	cost = 200
+
+// SS13 mech ammo
+
+/datum/supply_packs/imports/exosuit_lmg_ammo
+	name = "Exosuit LMG Ammo"
+	contains = list(/obj/item/mecha_ammo/vendable/small_lmg)
+	cost = 50
+
+/datum/supply_packs/imports/exosuit_smg_ammo
+	name = "Exosuit SMG Ammo"
+	contains = list(/obj/item/mecha_ammo/vendable/small_smg)
+	cost = 50
+
+/datum/supply_packs/imports/exosuit_gl_ammo
+	name = "Exosuit Grenade Launcher Ammo"
+	contains = list(/obj/item/mecha_ammo/vendable/small_gl)
+	cost = 100
+
+/datum/supply_packs/imports/exosuit_br_ammo
+	name = "Exosuit Battle Rifle Ammo"
+	contains = list(/obj/item/mecha_ammo/vendable/small_br)
+	cost = 50
+
+///
+
 /datum/supply_packs/imports/famas/ammoext
 	name = "FAMAS Assault Rifle Extended Ammo"
 	contains = list(/obj/item/ammo_magazine/rifle/famasext)
