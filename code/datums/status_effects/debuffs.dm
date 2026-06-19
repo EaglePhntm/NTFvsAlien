@@ -149,15 +149,15 @@
 	if(!owner.maxHealth)
 		return
 	var/health_ratio = owner.health / owner.maxHealth
-	var/healing = BASE_HEAL_RATE //set for a base of 0.25 healed per 2-second interval asleep in a bed with covers.
+	var/healing = (2 * BASE_HEAL_RATE) //set for a base of 0.25 healed per 2-second interval asleep in a bed with covers.
 	if((locate(/obj/structure/bed) in owner.loc))
-		healing += (2 * BASE_HEAL_RATE)
+		healing += (4 * BASE_HEAL_RATE)
 	else if((locate(/obj/structure/table) in owner.loc))
-		healing += BASE_HEAL_RATE
+		healing += (2 * BASE_HEAL_RATE)
 	if(locate(/obj/item/bedsheet) in owner.loc)
-		healing += BASE_HEAL_RATE
+		healing += (4 * BASE_HEAL_RATE)
 	if((locate(/obj/item/toy/plush) in owner.loc)) // plushie bonus in bed
-		healing += BASE_HEAL_RATE
+		healing += (4 * BASE_HEAL_RATE)
 	if(health_ratio > -0.5)
 		owner.adjustBruteLoss(healing)
 		owner.adjustFireLoss(healing)
