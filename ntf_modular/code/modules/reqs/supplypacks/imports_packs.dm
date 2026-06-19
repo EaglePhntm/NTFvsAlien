@@ -224,20 +224,25 @@
 
 // SS13 mech weapons
 
-/datum/supply_packs/imports/exosuit_energy_guns
-	name = "Pack of exosuit energy gun"
-	contains = list(/obj/item/storage/box/exosuit_energy_guns)
-	cost = 400
+/datum/supply_packs/imports/exosuit_aer9
+	name = "Exosuit laser rifle"
+	contains = list(/obj/item/mecha_parts/mecha_equipment/weapon/energy/exosuit_laser)
+	cost = 150
+
+/datum/supply_packs/imports/exosuit_tribeam
+	name = "Exosuit tribeam laser"
+	contains = list(/obj/item/mecha_parts/mecha_equipment/weapon/energy/exosuit_tribeam)
+	cost = 150
 
 /datum/supply_packs/imports/exosuit_r84
 	name = "Exosuit 'R-84' LMG"
 	contains = list(/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_lmg)
-	cost = 200
+	cost = 150
 
 /datum/supply_packs/imports/exosuit_smg9
 	name = "Exosuit SMG"
 	contains = list(/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_smg)
-	cost = 200
+	cost = 150
 
 /datum/supply_packs/imports/exosuit_gl4
 	name = "Exosuit Grenade Launcher"
@@ -264,7 +269,7 @@
 /datum/supply_packs/imports/exosuit_gl_ammo
 	name = "Exosuit Grenade Launcher Ammo"
 	contains = list(/obj/item/mecha_ammo/vendable/small_gl)
-	cost = 100
+	cost = 40
 
 /datum/supply_packs/imports/exosuit_br_ammo
 	name = "Exosuit Battle Rifle Ammo"

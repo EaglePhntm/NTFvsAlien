@@ -247,6 +247,9 @@
 			if(!istype(user))
 				to_chat(user, "[icon2html(src, occupants)][span_notice("You can't create a DNA lock with no DNA!.")]")
 				return
+			if(!can_dna_lock)
+				to_chat(user, "[icon2html(src, occupants)][span_notice("This exosuit can't be DNA locked.")]")
+				return
 			dna_lock = md5(REF(user))
 			to_chat(user, "[icon2html(src, occupants)][span_notice("You feel a prick as the needle takes your DNA sample.")]")
 		if("reset_dna")

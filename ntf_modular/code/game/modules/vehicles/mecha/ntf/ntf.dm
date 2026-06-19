@@ -19,6 +19,8 @@
 	list/operation_req_access = list()
 	list/internals_req_access = list()
 
+	can_dna_lock = FALSE
+
 	enter_delay = 25
 	exit_delay = 25
 /// How resistant the hull is to projectile penetration
@@ -27,3 +29,7 @@
 /obj/vehicle/sealed/mecha/ntf/fire_act(burn_level)
 	if(burn_level > 25)
 		take_damage(burn_level, FIRE)
+
+/obj/vehicle/sealed/mecha
+	///Whether or not adding a DNA is possible
+	var/can_dna_lock = TRUE
