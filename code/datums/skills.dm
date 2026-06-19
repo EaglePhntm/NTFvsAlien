@@ -654,20 +654,16 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	leadership = SKILL_LEAD_EXPERT
 	police = SKILL_POLICE_MP
 	smartgun = SKILL_SMART_TRAINED
+	sex = SKILL_SEX_EXPERT
 
 /datum/skills/specialist/escort
 	name = "VSD Combat Escort" // Fucked up mix of slut and AC specialist skills.
 	unarmed = SKILL_UNARMED_TRAINED // Armed melee fighter as opposed to unarmed brawler.
 	combat = SKILL_COMBAT_TRAINED // Both meanings of escort, DUH.
-	melee_weapons = SKILL_MELEE_SUPER //Katana LARP.
-	pistols = SKILL_PISTOLS_TRAINED // mildly trained at everything, but not enough to be a proper specialist.
-	shotguns = SKILL_SHOTGUNS_TRAINED // mildly trained at everything, but not enough to be a proper specialist.
-	rifles = SKILL_RIFLES_TRAINED // mildly trained at everything, but not enough to be a proper specialist.
-	smgs = SKILL_SMGS_TRAINED // mildly trained at everything, but not enough to be a proper specialist.
-	heavy_weapons = SKILL_HEAVY_WEAPONS_TRAINED // mildly trained at everything, but not enough to be a proper specialist.
+	melee_weapons = SKILL_MELEE_TRAINED //Katana LARP.
 	medical = SKILL_MEDICAL_PRACTICED // mildly trained at everything, but not enough to be a proper specialist.
 	leadership = SKILL_LEAD_TRAINED // Still an officer rank, backup in case the actual SL dies (just like vanguard).
-	stamina = SKILL_STAMINA_TRAINED // Sex Marathon professionals.
+	stamina = SKILL_STAMINA_TRAINED // Sex Marathon Pros.
 	sex = SKILL_SEX_EXPERT // Healslut/Corporate fuckdoll.
 
 /datum/skills/specialist/pmc
