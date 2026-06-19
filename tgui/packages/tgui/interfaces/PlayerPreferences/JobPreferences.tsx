@@ -116,6 +116,7 @@ export const JobPreferences = (props) => {
     'KZ Medic',
     'KZ Engineer',
     'KZ Specialist',
+    'KZ Combat Escort',
     'KZ Squad Leader',
     'Kaizoku Liaison',
   ];

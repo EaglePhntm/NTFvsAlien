@@ -135,4 +135,32 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 	id = /obj/item/card/id/dogtag/leader
 	ears = /obj/item/radio/headset/mainship/vsd
 
+//VSD Combat Escort
+/datum/job/vsd_squad/escort
+	title = "KZ Combat Escort"
+	paygrade = "KZ4"
+	comm_title = "LT"
+	skills_type = /datum/skills/specialist/escort
+	access = list (ACCESS_VSD_PREP, ACCESS_VSD_MEDPREP, ACCESS_VSD_ENGPREP, ACCESS_VSD_SPECPREP, ACCESS_VSD_LEADPREP, ACCESS_VSD_CARGO, ACCESS_VSD_TADPOLE, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY, ACCESS_SOM_MEDICAL)
+	minimal_access = list (ACCESS_VSD_PREP, ACCESS_VSD_MEDPREP, ACCESS_VSD_ENGPREP, ACCESS_VSD_SPECPREP, ACCESS_VSD_LEADPREP, ACCESS_VSD_CARGO, ACCESS_VSD_TADPOLE, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY, ACCESS_SOM_MEDICAL)
+	display_order = JOB_DISPLAY_ORDER_SQUAD_MARINE
+	total_positions = 2
+	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_OVERRIDELATEJOINSPAWN
+	outfit = /datum/outfit/job/vsd_squad/escort
+	jobworth = list(
+		/datum/job/xenomorph = LARVA_POINTS_REGULAR,
+		/datum/job/som/squad/veteran = VETERAN_POINTS_REGULAR,
+	)
+
+/datum/outfit/job/vsd_squad/escort
+	name = "KZ Combat Escort"
+	jobtype = /datum/job/vsd_squad/escort
+
+	id = /obj/item/card/id/dogtag/specialist
+	ears = /obj/item/radio/headset/mainship/vsd
+
+/datum/job/vsd_squad/escort/get_spawn_message_information(mob/M)
+	. = ..()
+	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
+	. += {"\nYou are a chosen elite of the Kaizoku Corporation, handpicked for your exceptional combat skills and unwavering loyalty. Protect Valuable Corporate Assets, Relieve pressure from the frontline troops deployed alongside you and broker deals with the factions planetside, especially if it means using your body!"}
 

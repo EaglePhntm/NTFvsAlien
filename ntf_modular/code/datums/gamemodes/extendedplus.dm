@@ -99,6 +99,7 @@
 		/datum/job/vsd_squad/medic = 1,
 		/datum/job/vsd_squad/engineer = 1,
 		/datum/job/vsd_squad/spec = 1,
+		/datum/job/vsd_squad/escort = 1,
 		/datum/job/vsd_squad/leader = 1,
 		/datum/job/usl_squad/standard = 3,
 		/datum/job/usl_squad/spec = 1,

@@ -989,3 +989,15 @@
 
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_mg, SLOT_IN_L_POUCH)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_mg, SLOT_IN_L_POUCH)
+
+/datum/job/vsd/escort
+	title = "KZ Combat Escort"
+	paygrade = "KZ4"
+	skills_type = /datum/skills/specialist/escort
+	outfit = /datum/outfit/job/vsd/leader/one
+	multiple_outfits = FALSE
+	outfits = list(
+		/datum/outfit/job/vsd/leader/one,
+		/datum/outfit/job/vsd/leader/two,
+		/datum/outfit/job/vsd/leader/upp_three,
+	)

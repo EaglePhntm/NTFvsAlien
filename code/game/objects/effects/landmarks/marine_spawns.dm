@@ -287,6 +287,11 @@
 	icon_state = "MP"
 	job = /datum/job/vsd_squad/spec
 
+
+/obj/effect/landmark/start/job/vsd_escort
+	icon_state = "MP"
+	job = /datum/job/vsd_squad/escort
+
 /obj/effect/landmark/start/job/vsd_leader
 	icon_state = "MP"
 	job = /datum/job/vsd_squad/leader

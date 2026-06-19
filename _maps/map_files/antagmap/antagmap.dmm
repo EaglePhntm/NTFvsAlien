@@ -4145,6 +4145,7 @@
 /area/antag_ship/icc/hangar/east)
 "qC" = (
 /obj/effect/landmark/start/job/vsd_leader,
+/obj/effect/landmark/start/job/vsd_escort,
 /obj/structure/flora/pottedplant,
 /turf/open/floor/prison/blackfloor,
 /area/antag_ship/vsd/hall)
