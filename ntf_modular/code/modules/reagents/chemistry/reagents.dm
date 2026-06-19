@@ -65,6 +65,46 @@
 	blood_gain = 0.7
 	color = "#dadada63"
 
+// Start of various cum research options, for squad sluts, or for med researchers
+
+/datum/chemical_reaction/girlresearch
+	results = null
+	required_reagents = list(/datum/reagent/consumable/nutriment/cum/girl = 30)
+	required_catalysts = list(/datum/reagent/medicine/lemoline = 5)
+
+/datum/chemical_reaction/girlresearch/on_reaction(datum/reagents/holder, created_volume)
+	var/location = get_turf(holder.get_holder())
+	new /obj/item/research_resource/humancum(location)
+
+/datum/chemical_reaction/boyresearch
+	results = null
+	required_reagents = list(/datum/reagent/consumable/nutriment/cum = 30)
+	required_catalysts = list(/datum/reagent/medicine/lemoline = 5)
+
+/datum/chemical_reaction/boyresearch/on_reaction(datum/reagents/holder, created_volume)
+	var/location = get_turf(holder.get_holder())
+	new /obj/item/research_resource/humancum(location)
+
+/datum/chemical_reaction/xoyresearch
+	results = null
+	required_reagents = list(/datum/reagent/consumable/nutriment/cum/xeno = 30)
+	required_catalysts = list(/datum/reagent/medicine/lemoline = 5)
+
+/datum/chemical_reaction/xoyresearch/on_reaction(datum/reagents/holder, created_volume)
+	var/location = get_turf(holder.get_holder())
+	new /obj/item/research_resource/xenocum(location)
+
+/datum/chemical_reaction/xirlresearch
+	results = null
+	required_reagents = list(/datum/reagent/consumable/milk/xeno = 30)
+	required_catalysts = list(/datum/reagent/medicine/lemoline = 5)
+
+/datum/chemical_reaction/xirlresearch/on_reaction(datum/reagents/holder, created_volume)
+	var/location = get_turf(holder.get_holder())
+	new /obj/item/research_resource/xenocum(location)
+
+// End of various cum based researches
+
 ///ADRENALINE, basically old synaptizine with buffs?
 /datum/reagent/medicine/adrenaline
 	name = "Adrenaline"

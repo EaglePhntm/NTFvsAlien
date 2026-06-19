@@ -5,6 +5,8 @@
 //Bucket names
 #define RES_MONEY "money"
 #define RES_XENO "xeno"
+#define RES_HUMANCUM "humancum"
+#define RES_XENOCUM "xenocum"
 
 //Reward tiers
 #define RES_TIER_BASIC "basic"
@@ -70,6 +72,38 @@
 			RES_TIER_RARE = list(
 				/obj/item/research_product/money/rare,
 				/obj/item/implanter/cloak,
+			),
+		),
+		RES_XENOCUM = list(
+			RES_TIER_BASIC = list(
+				/obj/item/research_product/money/basic,
+				/obj/item/research_product/money/common,
+			),
+			RES_TIER_COMMON = list(
+				/obj/item/research_product/money/uncommon,
+				/obj/item/research_product/money/basic,
+			),
+			RES_TIER_UNCOMMON = list(
+				/obj/item/research_product/money/uncommon,
+			),
+			RES_TIER_RARE = list(
+				/obj/item/research_product/money/rare,
+			),
+		),
+		RES_HUMANCUM = list(
+			RES_TIER_BASIC = list(
+				/obj/item/research_product/money/basic,
+				/obj/item/research_product/money/common,
+			),
+			RES_TIER_COMMON = list(
+				/obj/item/research_product/money/uncommon,
+				/obj/item/research_product/money/basic,
+			),
+			RES_TIER_UNCOMMON = list(
+				/obj/item/research_product/money/uncommon,
+			),
+			RES_TIER_RARE = list(
+				/obj/item/research_product/money/uncommon,
 			),
 		),
 	)
@@ -267,9 +301,40 @@
 		RES_TIER_RARE = 1,
 	)
 
+
 /obj/item/research_resource/xeno/Initialize(mapload)
 	. = ..()
 	icon_state = "sample_[rand(0, 11)]"
+
+// Start of cum research items
+
+/obj/item/research_resource/humancum
+	name = "Human genetic materials"
+	desc = "Research grade human genetic material, could be useful to secure some funding."
+	research_type = RES_HUMANCUM
+	w_class = WEIGHT_CLASS_TINY
+	color = "#ffffff"
+	icon_state = "paint_white"
+	reward_probs = list(
+		RES_TIER_BASIC = 40,
+		RES_TIER_COMMON = 10,
+		RES_TIER_UNCOMMON = 5,
+		RES_TIER_RARE = 1,
+	) // Pretty decent chance to give nothing for your efforts, since humans are easier to find
+
+/obj/item/research_resource/xenocum
+	name = "Alien genetic materials"
+	desc = "Research grade alien genetic material, could be useful to secure some funding."
+	research_type = RES_XENOCUM
+	w_class = WEIGHT_CLASS_TINY
+	color = "#ffffff"
+	icon_state = "paint_green"
+	reward_probs = list(
+		RES_TIER_BASIC = 100,
+		RES_TIER_COMMON = 30,
+		RES_TIER_UNCOMMON = 20,
+		RES_TIER_RARE = 5,
+	)
 
 ///
 ///Items designed to be products of research
