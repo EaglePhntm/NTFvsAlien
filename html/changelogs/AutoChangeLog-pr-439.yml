@@ -1,5 +1,0 @@
-author: "Colfer1"
-delete-after: True
-changes:
-  - rscadd: "Adds various dermal armors, and adds them to the style line of all vendors. Enjoy!"
-  - bugfix: "Allows modular storages to be turned invisible with alt click"

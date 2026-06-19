@@ -419,3 +419,31 @@ Imports
 	/obj/item/implanter/jump_mod,
 	)
 	cost = 500
+
+/datum/supply_packs/imports/icc_heavyshotgun
+	name = "ML-101 Heavy Shotgun"
+	contains = list(
+	/obj/item/weapon/gun/shotgun/pump/icc_heavyshotgun,
+	)
+	cost = 400
+
+/datum/supply_packs/imports/icc_heavyshotgun/buckshot
+	name = "6 Gauge Buckshot Shells"
+	contains = list(
+	/obj/item/ammo_magazine/shotgun/heavy_buckshot,
+	)
+	cost = 20
+
+/datum/supply_packs/imports/icc_heavyshotgun/barrikada
+	name = "6 Gauge Barrikada Shells"
+	contains = list(
+	/obj/item/ammo_magazine/shotgun/barrikada,
+	)
+	cost = 40
+
+/datum/supply_packs/imports/icc_heavyshotgun/flechette
+	name = "6 Gauge Flechette Shells"
+	contains = list(
+	/obj/item/ammo_magazine/shotgun/heavy_flechette,
+	)
+	cost = 30

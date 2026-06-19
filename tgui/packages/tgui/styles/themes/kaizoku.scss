@@ -1,0 +1,46 @@
+.theme-kaizoku:root {
+  --color-base: #0a0c11;
+  --color-primary: #d4af37;
+  --color-secondary: #161b22;
+  --color-bg: #0a0c11;
+  --color-text: #e8e8e8;
+
+  --button-background: #161b22;
+  --button-background-hover: #1f252e;
+  --button-background-selected: #d4af37;
+  --button-color: #d4af37;
+  --button-color-selected: #0a0c11;
+
+  --progress-bar-background: #161b22;
+  --notice-box-background: #1a2128;
+  --notice-box-color: #d4af37;
+
+  --color-good: #2d7d2d;
+  --color-average: #cc8844;
+  --color-bad: #cc3344;
+
+  .Section {
+    border: 1px solid #d4af3733;
+    box-shadow: 0 2px 8px #00000088;
+  }
+
+  .Button {
+    border: 1px solid #d4af3755;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+.ProgressBar {
+  border: 1px solid #d4af37;
+  background: #161b22;
+}
+
+.NoticeBox {
+  border-left: 4px solid #d4af37;
+}
+
+  .Layout__content {
+    background: linear-gradient(180deg, #1a1a1a 0%, #2a2a2a 100%);
+  }
+}

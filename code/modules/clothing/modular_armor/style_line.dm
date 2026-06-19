@@ -52,6 +52,7 @@
 		/obj/item/armor_module/module/style/light_armor,
 		/obj/item/armor_module/module/style/medium_armor,
 		/obj/item/armor_module/module/style/heavy_armor,
+		/obj/item/armor_module/module/style/superheavy_armor,
 	)
 
 	var/codex_info = {"<BR>This item is part of the <b>Style Line.</b><BR>

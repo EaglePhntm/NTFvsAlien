@@ -426,6 +426,7 @@ GLOBAL_PROTECT(new_client_amia_whitelist_callback)
 	if(!istype(client_checked))
 		//They already logged out
 		return
+	log_admin("Finished amia whitelist check for ckey:[ckey], result:[result]")
 	if((client_checked in GLOB.whitelisted_clients))
 		log_admin("ckey:[ckey] was already marked as whitelisted (reason: [GLOB.whitelisted_clients[client_checked]]) when a whitelist lookup for them [result].")
 	switch(result)

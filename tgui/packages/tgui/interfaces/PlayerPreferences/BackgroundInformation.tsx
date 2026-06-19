@@ -259,7 +259,7 @@ export const BackgroundInformation = (props) => {
               onChange={(value) => setProfilePic(value)}
             />
             {profile_pic ? (
-              <img src={profile_pic} width={350} height={400} />
+              <img src={profile_pic} width={300} height={350} />
             ) : (
               ''
             )}
@@ -295,7 +295,7 @@ export const BackgroundInformation = (props) => {
               onChange={(value) => setNSFWProfilePic(value)}
             />
             {nsfwprofile_pic ? (
-              <img src={nsfwprofile_pic} width={350} height={400} />
+              <img src={nsfwprofile_pic} width={300} height={350} />
             ) : (
               ''
             )}
@@ -331,7 +331,7 @@ export const BackgroundInformation = (props) => {
               onChange={(value) => setXenoProfilePic(value)}
             />
             {xenoprofile_pic ? (
-              <img src={xenoprofile_pic} width={350} height={400} />
+              <img src={xenoprofile_pic} width={300} height={350} />
             ) : (
               ''
             )}

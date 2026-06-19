@@ -371,4 +371,5 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 		"Cultist Mender",
 		"Cult Offering",
 		"Cultist Sect Leader",
+		"Cult Synthetic",
 	)

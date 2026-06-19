@@ -70,3 +70,27 @@
       the recent buff from 0.85 to 1.2
   SQLandrusk:
   - rscadd: Adds woodland camo along with rolled and no-top versions.
+2026-06-18:
+  Colfer1:
+  - bugfix: readds the synthetic selections, including robot synths
+  - rscadd: Allowed standard hats like the NTC Beret to use all modules, like all
+      other hats
+  - rscadd: Adds various dermal armors, and adds them to the style line of all vendors.
+      Enjoy!
+  - bugfix: Allows modular storages to be turned invisible with alt click
+  Lewdissar:
+  - rscadd: Added the ML-101 and 6 gauge ammo to the Req Imports section
+  - balance: Buffed 6 gauge ammunition
+2026-06-19:
+  Colfer1:
+  - rscadd: Adds synth weenies, boobies, and vaganers, bleck!!!!! gross!!!!
+  - balance: dermal armour can now wear armour equalizers.
+  Lefunny:
+  - balance: +5 hard armor to meele, bullet, laser and energy.
+  Lewdissar:
+  - rscadd: Expanded the back of the KZ ship to add a common area.
+  - rscadd: Superheavy Armor Equalizer (YIPPIE)
+  - bugfix: Adds Fingerless Gloves to all clothing vendors, Adds hydrocannon tanks
+      to the KZ vendor (they have the attachment but no tanks)
+  Nokia2Student:
+  - rscadd: KZ Neural Machinery - Bugfixes & Improvements
