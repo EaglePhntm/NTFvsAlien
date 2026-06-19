@@ -190,11 +190,3 @@
 		new /obj/item/facepaint/sniper(src)
 		new /obj/item/storage/backpack/marine/smock(src)
 		new /obj/item/bodybag/tarp(src)
-
-/obj/item/storage/box/crate/exosuit_energy_guns
-	name = "exosuit energy guns"
-	desc = "A case containing two exosuit-mounted energy guns."
-
-/obj/item/storage/box/exosuit_energy_guns/PopulateContents()
-	new /obj/item/mecha_parts/mecha_equipment/weapon/energy/exosuit_laser(src)
-	new /obj/item/mecha_parts/mecha_equipment/weapon/energy/exosuit_tribeam(src)
