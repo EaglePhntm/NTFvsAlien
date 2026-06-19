@@ -180,6 +180,48 @@
 	contains = list(/obj/item/ammo_magazine/rifle/m16_cmag)
 	cost = 10
 
+// SS13 mech wrecks
+
+/datum/supply_packs/imports/gygax_wreck
+	name = "Wreckage of Gygax (Repairable)"
+	contains = list(/obj/structure/mecha_wreckage/gygax)
+	cost = 500
+
+/datum/supply_packs/imports/durand_wreck
+	name = "Wreckage of Durand (Repairable)"
+	contains = list(/obj/structure/mecha_wreckage/durand)
+	cost = 500
+
+/datum/supply_packs/imports/phazon_wreck
+	name = "Wreckage of Phazon (Repairable)"
+	contains = list(/obj/structure/mecha_wreckage/phazon)
+	cost = 700
+
+/datum/supply_packs/imports/clarke_wreck
+	name = "Wreckage of Clarke (Repairable)"
+	contains = list(/obj/structure/mecha_wreckage/clarke)
+	cost = 300
+
+/datum/supply_packs/imports/ivan_wreck
+	name = "Wreckage of Ivan (Repairable)"
+	contains = list(/obj/structure/mecha_wreckage/ivan)
+	cost = 400
+
+/datum/supply_packs/imports/mauler_wreck
+	name = "Wreckage of Mauler (Repairable)"
+	contains = list(/obj/structure/mecha_wreckage/mauler)
+	cost = 1000
+
+/datum/supply_packs/imports/marauder_wreck
+	name = "Wreckage of Marauder (Repairable)"
+	contains = list(/obj/structure/mecha_wreckage/marauder)
+	cost = 1000
+
+/datum/supply_packs/imports/seraph_wreck
+	name = "Wreckage of Seraph (Repairable)"
+	contains = list(/obj/structure/mecha_wreckage/seraph)
+	cost = 2000
+
 //faction specific things below here.
 
 /datum/supply_packs/imports/antienergyshieldfs
