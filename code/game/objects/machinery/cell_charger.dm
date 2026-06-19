@@ -34,6 +34,7 @@
 	. += "There's [charging ? "a" : "no"] cell in the charger."
 	if(charging)
 		. += "Current charge: [charging.charge]"
+		. += "Energy : [DisplayEnergyFrac(charging.charge * (2/GLOB.CELLRATE), charging.maxcharge * (2/GLOB.CELLRATE))]"
 
 /obj/machinery/cell_charger/attackby(obj/item/I, mob/user, params)
 	. = ..()

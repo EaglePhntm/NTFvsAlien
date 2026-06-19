@@ -122,6 +122,8 @@
 /area/shuttle/supply/icc
 	name = "CM Supply Shuttle"
 
+/area/shuttle/supply/kz
+	name = "KZ Supply Shuttle"
 
 /area/shuttle/supply/colony
 	name = "Colony Supply Shuttle"

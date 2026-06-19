@@ -70,6 +70,7 @@ const ApcContent = (props) => {
           </LabeledList.Item>
           <LabeledList.Item label="Power Cell">
             <ProgressBar color="good" value={adjustedCellChange} />
+            {data.powerCellCharge}
           </LabeledList.Item>
           <LabeledList.Item
             label="Charge Mode"

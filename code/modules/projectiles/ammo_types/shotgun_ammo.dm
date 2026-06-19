@@ -202,8 +202,8 @@
 	accuracy_variation = 9
 	accurate_range = 3
 	max_range = 6
-	damage = 55
-	damage_falloff = 7
+	damage = 65
+	damage_falloff = 5
 
 /datum/ammo/bullet/shotgun/heavy_spread
 	name = "additional buckshot"
@@ -211,8 +211,8 @@
 	accuracy_variation = 9
 	accurate_range = 3
 	max_range = 6
-	damage = 50
-	damage_falloff = 7
+	damage = 60
+	damage_falloff = 5
 
 /datum/ammo/bullet/shotgun/heavy_buckshot/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
 	if(iswallturf(target_turf))
@@ -237,9 +237,9 @@
 	ammo_behavior_flags = AMMO_BALLISTIC
 	shell_speed = 3
 	max_range = 13
-	damage = 120
-	penetration = 25
-	sundering = 9
+	damage = 150
+	penetration = 50
+	sundering = 15
 	damage_falloff = 1.5
 	var/vehicle_stun_duration = 1.5 SECONDS
 
@@ -279,13 +279,13 @@
 	bonus_projectiles_scatter = 3
 	accuracy_variation = 8
 	max_range = 10
-	damage = 65
-	penetration = 20
-	sundering = 15
+	damage = 75
+	penetration = 30
+	sundering = 25
 
 /datum/ammo/bullet/shotgun/flechette/heavy_flechette_spread
 	name = "additional flechette"
-	damage = 55
+	damage = 65
 
 /datum/ammo/bullet/shotgun/heavy_flechette/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
 	if(istype(target_obj, /obj/machinery/door))

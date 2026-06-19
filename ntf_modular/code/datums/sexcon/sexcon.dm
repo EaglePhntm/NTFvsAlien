@@ -296,7 +296,10 @@
 	if(isxeno(user))
 		GLOB.round_statistics.xeno_orgasms++
 	if(ishuman(user))
-		GLOB.round_statistics.human_orgasms++
+		if(ismonkey(user))
+			GLOB.round_statistics.monkey_orgasms++
+		else
+			GLOB.round_statistics.human_orgasms++
 
 /datum/sex_controller/proc/after_intimate_climax()
 	if(user == target)

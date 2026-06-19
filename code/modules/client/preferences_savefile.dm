@@ -896,8 +896,8 @@
 	be_special = sanitize_integer(be_special, NONE, MAX_BITFLAG, initial(be_special))
 
 	synthetic_name = reject_bad_name(synthetic_name, TRUE)
-	if(synthetic_type in list("Combat Robot", "Robot"))
-		synthetic_type = "Synthetic"
+/*	if(synthetic_type in list("Combat Robot", "Robot"))
+		synthetic_type = "Robot"*/
 	synthetic_type = sanitize_inlist(synthetic_type, SYNTH_TYPES, initial(synthetic_type))
 	synthetic_body_base = sanitize_inlist(synthetic_body_base, SYNTHETIC_BODY_BASES, initial(synthetic_body_base))
 	robot_type = sanitize_inlist(robot_type, ROBOT_TYPES, initial(robot_type))

@@ -145,6 +145,7 @@
 	reload_delay = 4 SECONDS
 	default_ammo = /datum/ammo/flamethrower
 	icon_state_mini = "tank_orange"
+	bonus_overlay = "c21_otank"
 	fuel_type = DEFAULT_FUEL_TYPE
 
 
@@ -158,3 +159,4 @@
 	default_ammo = /datum/ammo/flamethrower/blue
 	fuel_type = /datum/reagent/fuel/xfuel
 	icon_state_mini = "tank_blue"
+	bonus_overlay = "c21_btank"

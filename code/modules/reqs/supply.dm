@@ -75,6 +75,14 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	dheight = 0
 	height = 1
 
+/obj/docking_port/stationary/supplykz
+	id = "supply_kz"
+	roundstart_template = /datum/map_template/shuttle/supplykz
+	width = 3
+	dwidth = 1
+	dheight = 0
+	height = 1
+
 /obj/docking_port/stationary/supply/som
 	id = "supply_SOM_home"
 	roundstart_template = /datum/map_template/shuttle/supply/som
@@ -115,6 +123,13 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	faction = FACTION_NEUTRAL
 	home_id = "supply_colony"
 	railing_gear_name = "supply_colony"
+
+/obj/docking_port/mobile/supply/kz
+	name = "KZ supply shuttle"
+	id = "supplykz"
+	faction = FACTION_VSD
+	home_id = "supply_KZ_home"
+	railing_gear_name = "supply_KZ"
 
 /obj/docking_port/mobile/supply/Destroy(force)
 	for(var/i in railings)
@@ -670,6 +685,12 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	home_id = "supply_colony"
 	req_access = list(ACCESS_CIVILIAN_LOGISTICS)
 
+/obj/machinery/computer/supplycomp/kz
+	shuttle_id = "supplykz"
+	faction = FACTION_VSD
+	home_id = "supply_kz"
+	req_access = list(ACCESS_VSD_CARGO)
+
 /obj/docking_port/mobile/supply/som
 	dir = 1
 	height = 1
@@ -693,6 +714,18 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	width = 3
 	faction = FACTION_CLF
 	railing_gear_name = "supply_clf"
+
+/obj/docking_port/mobile/supply/kz
+	dir = 1
+	height = 1
+	home_id = "supply_kz"
+	id = "supplykz"
+	name = "kz supply shuttle"
+	dheight = 0
+	dwidth = 0
+	width = 3
+	faction = FACTION_VSD
+	railing_gear_name = "supply_kz"
 
 /obj/docking_port/mobile/supply/icc
 	dir = 2

@@ -180,7 +180,7 @@ export const CharacterCustomization = (props) => {
   const showSupersoldierParts = !!data.custom_supersoldier_parts;
   const isPrototypeSupersoldier = data.species === 'Prototype Supersoldier';
   const showSyntheticJobBody =
-    data.species === 'Synthetic' || data.species === 'Early Synthetic';
+    data.species === 'Synthetic' || data.species === 'Early Synthetic' || data.species === 'Combat Robot';
   const creatorSizeControl = (row: CharacterCreatorOptionRow) => {
     if (!row.size_id) {
       return null;
@@ -659,15 +659,11 @@ export const CharacterCustomization = (props) => {
                   'Body color',
                 )}
               />
-              {showSyntheticJobBody ? (
-                <SelectFieldPreference
-                  label={'Synthetic job body'}
-                  value={'synthetic_body_base'}
-                  action={'synthetic_body_base'}
-                  fallback={'Human'}
-                  tooltip={'Body base used by the Synthetic and Early Synthetic appearance paths.'}
-                />
-              ) : null}
+              <SelectFieldPreference
+                label={'Synth type'}
+                value={'synthetic_type'}
+                action={'synthetic_type'}
+              />
               {showCombatRobotParts ? (
                 <>
                   <SelectFieldPreference

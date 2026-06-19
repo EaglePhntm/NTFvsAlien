@@ -144,6 +144,7 @@
 	dir = 4
 	},
 /obj/effect/ai_node,
+/obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/engineering/engine_core)
 "agX" = (
@@ -829,9 +830,7 @@
 /area/mainship/command/telecomms)
 "aKt" = (
 /obj/structure/cable,
-/obj/machinery/power/smes{
-	output_level = 200000
-	},
+/obj/machinery/power/smes/buildable,
 /turf/open/floor/mainship/tcomms,
 /area/mainship/groundhq/ntf/engineering/lower_engineering)
 "aKB" = (
@@ -1045,11 +1044,11 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/hallways/dorm3)
 "aTb" = (
-/obj/machinery/computer/communications{
-	dir = 4
-	},
 /obj/item/clothing/mask/cigarette/emergency,
 /obj/structure/table/wood/fancy,
+/obj/machinery/computer/communications/ntc{
+	dir = 4
+	},
 /turf/open/floor/wood,
 /area/sulaco/liaison/quarters{
 	outside = 0;
@@ -2397,7 +2396,7 @@
 	})
 "bZN" = (
 /obj/machinery/smartfridge/chemistry,
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	id = "researchlockdownext";
 	name = "\improper Research Lockdown"
 	},
@@ -2533,7 +2532,13 @@
 /area/mainship/groundhq/ntf/shipboard/brig_cells)
 "ceH" = (
 /obj/structure/table/mainship,
-/obj/machinery/computer/emails,
+/obj/machinery/computer/emails{
+	pixel_x = -6
+	},
+/obj/machinery/computer/communications/ntc{
+	pixel_x = 10;
+	pixel_y = -4
+	},
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/command/corporateliaison)
 "cfa" = (
@@ -3534,7 +3539,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = "bigdorm5";
 	name = "\improper Quarters Privacy Shutters"
@@ -3967,8 +3972,6 @@
 	name = "Research"
 	})
 "dnt" = (
-/obj/machinery/power/monitor/grid,
-/obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/engineering/upper_engine_monitoring)
 "dnB" = (
@@ -4442,12 +4445,12 @@
 	outside = 1
 	})
 "dJp" = (
-/obj/structure/cable,
-/obj/machinery/power/terminal{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
 	},
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/groundhq/ntf/engineering/lower_engineering)
+/obj/structure/cable,
+/turf/open/floor/mainship/mono,
+/area/mainship/groundhq/ntf/engineering/upper_engine_monitoring)
 "dJC" = (
 /obj/machinery/vending/medical/shipside,
 /turf/open/floor/mainship/sterile/side,
@@ -4832,9 +4835,6 @@
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "edp" = (
 /obj/structure/cable,
-/obj/machinery/power/terminal{
-	dir = 1
-	},
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk,
 /area/deltastation/engineering/engine_smes{
@@ -4892,9 +4892,6 @@
 "egE" = (
 /obj/machinery/light/small{
 	dir = 1
-	},
-/obj/machinery/power/smes{
-	output_level = 200000
 	},
 /obj/machinery/camera/autoname,
 /obj/structure/cable,
@@ -5175,9 +5172,6 @@
 /turf/open/floor/prison/darkred/full,
 /area/mainship/groundhq/ntf/crimsonveil)
 "esZ" = (
-/obj/machinery/power/smes{
-	output_level = 200000
-	},
 /obj/structure/cable,
 /turf/open/floor/mainship/tcomms,
 /area/mainship/groundhq/ntf/engineering/lower_engineering)
@@ -6255,6 +6249,9 @@
 	})
 "fnl" = (
 /obj/structure/cable,
+/obj/machinery/computer/communications/ntc{
+	pixel_y = 14
+	},
 /turf/open/floor/wood,
 /area/mainship/ntf/fcroom)
 "fnB" = (
@@ -6404,9 +6401,7 @@
 /area/mainship/hallways/hangar)
 "ftl" = (
 /obj/structure/cable,
-/obj/machinery/power/smes{
-	output_level = 200000
-	},
+/obj/machinery/power/smes/buildable,
 /turf/open/floor/plating/plating_catwalk,
 /area/sulaco/engineering/lower_engineering{
 	name = "Lower Power"
@@ -6438,8 +6433,10 @@
 /area/mainship/hull/upper_hull)
 "fwd" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/mainship,
-/turf/open/floor/plating/plating_catwalk,
+/obj/machinery/power/apc/mainship{
+	dir = 1
+	},
+/turf/open/floor/mainship/tcomms,
 /area/mainship/groundhq/ntf/engineering/lower_engineering)
 "fwf" = (
 /obj/effect/turf_decal/warning_stripes/thick/corner{
@@ -6843,6 +6840,10 @@
 	})
 "fKN" = (
 /obj/effect/landmark/start/job/cmo,
+/obj/machinery/computer/communications/ntc{
+	pixel_x = 14;
+	dir = 4
+	},
 /turf/open/floor/wood,
 /area/mainship/medical/upper_medical{
 	name = "Shipside Medbay"
@@ -7580,7 +7581,7 @@
 	name = "Research"
 	})
 "gnT" = (
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = "bigdorm5";
 	name = "\improper Quarters Privacy Shutters"
@@ -9963,7 +9964,7 @@
 	},
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "inR" = (
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = "bigdorm4";
 	name = "\improper Quarters Privacy Shutters"
@@ -12608,7 +12609,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = "bigdorm6";
 	name = "\improper Quarters Privacy Shutters"
@@ -13269,6 +13270,7 @@
 	dir = 4
 	},
 /obj/machinery/camera/autoname,
+/obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/engineering/upper_engine_monitoring)
 "kPG" = (
@@ -15124,9 +15126,7 @@
 	})
 "min" = (
 /obj/structure/cable,
-/obj/machinery/power/smes{
-	output_level = 200000
-	},
+/obj/machinery/power/smes/buildable,
 /turf/open/floor/plating/plating_catwalk,
 /area/deltastation/engineering/engine_smes{
 	outside = 0
@@ -15166,9 +15166,7 @@
 	})
 "mjW" = (
 /obj/structure/cable,
-/obj/machinery/power/smes{
-	output_level = 200000
-	},
+/obj/machinery/power/smes/buildable,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/groundhq/ntf/engineering/lower_engineering)
 "mkj" = (
@@ -15853,13 +15851,9 @@
 /area/mainship/hallways/synthdorms)
 "mJO" = (
 /obj/structure/cable,
-/obj/machinery/power/terminal{
-	dir = 1
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/deltastation/engineering/main{
-	outside = 0
-	})
+/obj/machinery/power/monitor/grid,
+/turf/open/floor/mainship/tcomms,
+/area/mainship/groundhq/ntf/engineering/lower_engineering)
 "mJZ" = (
 /turf/open/floor/mainship,
 /area/mainship/hallways/aft_hallway{
@@ -16137,9 +16131,10 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/upper_hull)
 "mWK" = (
+/obj/structure/window/framed/mainship,
 /obj/structure/cable,
-/turf/open/floor/stairs/rampbottom,
-/area/mainship/groundhq/ntf/engineering/upper_engine_monitoring)
+/turf/open/floor/mainship/mono,
+/area/mainship/groundhq/ntf/engineering/lower_engineering)
 "mWV" = (
 /obj/structure/disposalpipe/junction{
 	dir = 4
@@ -18005,7 +18000,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = "bigdorm4";
 	name = "\improper Quarters Privacy Shutters"
@@ -18044,7 +18039,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = "bigdorm3";
 	name = "\improper Quarters Privacy Shutters"
@@ -18652,9 +18647,6 @@
 /area/mainship/hallways/hangar)
 "pef" = (
 /obj/structure/cable,
-/obj/machinery/power/terminal{
-	dir = 1
-	},
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk,
 /area/sulaco/engineering/lower_engineering{
@@ -18865,9 +18857,6 @@
 "pms" = (
 /obj/machinery/light/small{
 	dir = 1
-	},
-/obj/machinery/power/smes{
-	output_level = 200000
 	},
 /obj/machinery/camera/autoname/mainship,
 /obj/structure/cable,
@@ -19089,6 +19078,17 @@
 	},
 /turf/open/floor/carpet/red,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
+"pxB" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/computer/communications/ntc{
+	pixel_x = 14;
+	dir = 4
+	},
+/turf/open/floor/urban/wood,
+/area/sulaco/command{
+	name = "Captain's Room";
+	outside = 0
+	})
 "pyl" = (
 /obj/structure/table/black,
 /obj/structure/flora/pottedplant/fourteen,
@@ -20016,7 +20016,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = "bigdorm2";
 	name = "\improper Quarters Privacy Shutters"
@@ -23813,6 +23813,13 @@
 	},
 /turf/open/floor/mainship/floor,
 /area/mainship/squads/general)
+"tsv" = (
+/obj/structure/cable,
+/obj/machinery/power/smes/buildable{
+	charge = 1100000
+	},
+/turf/open/floor/mainship/tcomms,
+/area/mainship/groundhq/ntf/engineering/lower_engineering)
 "tsF" = (
 /turf/open/floor/mainship_hull/dir{
 	dir = 10
@@ -24082,6 +24089,9 @@
 	})
 "tGb" = (
 /obj/effect/ai_node,
+/obj/machinery/computer/communications/ntc{
+	pixel_y = 14
+	},
 /turf/open/floor/wood,
 /area/mainship/groundhq/ntf/shipboard/chief_mp_office{
 	name = "CC Office"
@@ -24145,13 +24155,11 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/hangar)
 "tKv" = (
-/obj/structure/cable,
-/obj/machinery/power/terminal,
-/obj/machinery/power/terminal,
 /obj/effect/ai_node,
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/groundhq/ntf/engineering/lower_engineering)
 "tKC" = (
@@ -24449,7 +24457,6 @@
 /turf/open/floor/squares,
 /area/mainship/living/officer_study)
 "tWk" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
@@ -24861,9 +24868,6 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/machinery/power/smes{
-	output_level = 200000
-	},
 /obj/machinery/camera/autoname/mainship,
 /turf/open/floor/plating/plating_catwalk,
 /area/sulaco/engineering/lower_engineering{
@@ -25191,7 +25195,7 @@
 "uBe" = (
 /obj/machinery/door/firedoor/mainship,
 /obj/structure/table/reinforced,
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	id = "researchlockdownext";
 	name = "\improper Research Lockdown"
 	},
@@ -25836,11 +25840,11 @@
 /turf/open/floor/prison/darkred/full,
 /area/mainship/groundhq/ntf/hallways/gardens)
 "vdD" = (
-/obj/structure/cable,
 /obj/machinery/power/apc/mainship,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/groundhq/ntf/engineering/engine_core)
 "veb" = (
@@ -26387,13 +26391,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/upper_hull)
-"vzD" = (
-/obj/machinery/door/airlock/mainship/maint{
-	dir = 2
-	},
-/obj/structure/cable,
-/turf/open/floor/mainship/mono,
-/area/mainship/hull/upper_hull)
 "vzE" = (
 /obj/machinery/flasher/cell1{
 	pixel_y = 30
@@ -26406,9 +26403,7 @@
 	})
 "vzT" = (
 /obj/structure/cable,
-/obj/machinery/power/smes{
-	output_level = 200000
-	},
+/obj/machinery/power/smes/buildable,
 /turf/open/floor/plating/plating_catwalk,
 /area/deltastation/engineering/main{
 	outside = 0
@@ -27009,9 +27004,6 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/machinery/power/smes{
-	output_level = 200000
-	},
 /turf/open/floor/plating/plating_catwalk,
 /area/deltastation/engineering/engine_smes{
 	outside = 0
@@ -28040,7 +28032,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/mainship/open/indestructible{
+/obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = "bigdorm1";
 	name = "\improper Quarters Privacy Shutters"
@@ -28836,6 +28828,7 @@
 "xxC" = (
 /obj/structure/table/mainship,
 /obj/machinery/computer/station_alert,
+/obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/engineering/upper_engine_monitoring)
 "xxE" = (
@@ -34876,7 +34869,7 @@ fYO
 kjD
 slL
 chh
-dRN
+pxB
 cGE
 dRN
 xil
@@ -37249,7 +37242,7 @@ ezq
 qCC
 oAa
 pms
-dJp
+qtj
 nPy
 oAa
 scU
@@ -49031,7 +49024,7 @@ neE
 aMP
 pPt
 egE
-mJO
+kBp
 ltn
 rPy
 shj
@@ -57673,7 +57666,7 @@ aUk
 ulk
 aMa
 iSM
-vzD
+sLq
 tWk
 vqE
 cYG
@@ -57913,7 +57906,7 @@ aMa
 iSM
 aMa
 agV
-gAQ
+vpv
 vpv
 sQz
 fgU
@@ -58150,7 +58143,7 @@ rvl
 aMa
 iSM
 aMa
-upT
+dJp
 tQT
 xQf
 gMs
@@ -58269,7 +58262,7 @@ amS
 aMa
 iSM
 aMa
-upT
+dJp
 tQT
 tQT
 tQT
@@ -58748,7 +58741,7 @@ aMa
 upT
 xSt
 bRd
-aKt
+tsv
 qlu
 wgC
 iNP
@@ -59223,7 +59216,7 @@ gVJ
 pMX
 kEO
 xSt
-xcA
+qtj
 esZ
 grp
 sbM
@@ -59342,7 +59335,7 @@ oPQ
 dIx
 upT
 xSt
-fwd
+wcR
 qtl
 grp
 knB
@@ -59458,11 +59451,11 @@ qBo
 loz
 dIx
 muR
-mWK
+dIx
 upT
 xSt
-xcA
-esZ
+wcR
+mJO
 qlu
 jaO
 mqa
@@ -59580,8 +59573,8 @@ nkm
 vun
 cYA
 xSt
-xcA
-aKt
+wcR
+fwd
 qlu
 sbM
 eOP
@@ -59699,8 +59692,8 @@ sez
 kNS
 tFY
 xSt
-xcA
-aKt
+wcR
+esZ
 grp
 knB
 wAz
@@ -59817,9 +59810,9 @@ aMa
 fIL
 nYc
 cch
-xSt
+mWK
 tKv
-aKt
+esZ
 grp
 jaO
 mqa

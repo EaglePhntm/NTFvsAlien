@@ -177,7 +177,7 @@
 		FIRESUPPORT_TYPE_TELE_COPE_SOLMODE,
 	)
 	faction = FACTION_SOM
-	color = COLOR_TAN_ORANGE
+	color = COLOR_BRIGHT_ORANGE
 
 /obj/item/binoculars/fire_support/extended/som/sl
 	name = "pair of SOM SL laser-designator"

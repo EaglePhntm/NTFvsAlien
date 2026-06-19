@@ -31,3 +31,66 @@
       saved appearance data: Character appearance rebuilds now avoid unsafe startup/shutdown
       timing and will try to log more useful failure context. Hopefully this will
       solve our issue without needing to butcher things up'
+2026-06-13:
+  CaputCapital:
+  - rscadd: kitchen utensils, kitchen knives, rolling pin, ingredients, condiments
+      and mystery pizza boxes (box with a random pizza type)
+2026-06-15:
+  CaputCapital:
+  - rscadd: Added new underwear to the vendors, croptops, bras, thongs, even stirrups
+      half an inch lower
+  - rscadd: KZ now gets ushankas, headbands, bandanas and hardlight gas masks in their
+      vendors
+  - bugfix: The regular thong had a missing side sprite, added back
+  Colfer1:
+  - qol: the research console now instantly starts researching
+2026-06-16:
+  Colfer1:
+  - rscadd: added a survivor armor vendor for mapping in
+  - qol: civilians now have requisitions access to CM now
+  Lewdissar:
+  - rscadd: Red, Blue and Black Booty Shorts and camo pants as standalone uniforms.
+      Heeled jackboots.
+  SpooksAnno:
+  - bugfix: Fixed nanopaste causing a server-crashing infinite loop when used on organic
+      limbs.
+2026-06-17:
+  Lewdissar:
+  - bugfix: adjusted new pants and shorts to show off boobs, made them available on
+      the SoM vendor.
+  Meghan-Rossi:
+  - balance: Colonist DB shotgun damage multipliers returned to 0.7, reverting the
+      recent buff to 1.2
+  - balance: NTF DB shotgun (SH-34) damage multiplier reduced to 0.9, partially reverting
+      the recent buff from 0.7 to 1.2
+  - balance: Colonist DB shotguns can no longer be fired one-handed, reverting a recent
+      change.
+  - balance: NTF DB shotgun (SH-34) can now be fired one-handed.
+  - balance: Masterkey shotgun damage multiplier reduced to 1, partially reverting
+      the recent buff from 0.85 to 1.2
+  SQLandrusk:
+  - rscadd: Adds woodland camo along with rolled and no-top versions.
+2026-06-18:
+  Colfer1:
+  - bugfix: readds the synthetic selections, including robot synths
+  - rscadd: Allowed standard hats like the NTC Beret to use all modules, like all
+      other hats
+  - rscadd: Adds various dermal armors, and adds them to the style line of all vendors.
+      Enjoy!
+  - bugfix: Allows modular storages to be turned invisible with alt click
+  Lewdissar:
+  - rscadd: Added the ML-101 and 6 gauge ammo to the Req Imports section
+  - balance: Buffed 6 gauge ammunition
+2026-06-19:
+  Colfer1:
+  - rscadd: Adds synth weenies, boobies, and vaganers, bleck!!!!! gross!!!!
+  - balance: dermal armour can now wear armour equalizers.
+  Lefunny:
+  - balance: +5 hard armor to meele, bullet, laser and energy.
+  Lewdissar:
+  - rscadd: Expanded the back of the KZ ship to add a common area.
+  - rscadd: Superheavy Armor Equalizer (YIPPIE)
+  - bugfix: Adds Fingerless Gloves to all clothing vendors, Adds hydrocannon tanks
+      to the KZ vendor (they have the attachment but no tanks)
+  Nokia2Student:
+  - rscadd: KZ Neural Machinery - Bugfixes & Improvements

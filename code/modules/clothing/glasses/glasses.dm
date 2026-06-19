@@ -505,7 +505,7 @@
 ///Info regarding battery status; separate proc so that it can be displayed when examining the parent object
 /obj/item/clothing/glasses/night_vision/proc/battery_status()
 	if(battery)
-		return span_notice("Battery: [battery.charge]/[battery.maxcharge]")
+		return span_notice("Battery: [battery.charge]/[battery.maxcharge] ([DisplayEnergyFrac(battery.charge * (2/GLOB.CELLRATE), battery.maxcharge * (2/GLOB.CELLRATE))])")
 	return span_warning("No battery installed!")
 
 /obj/item/clothing/glasses/night_vision/attack_hand(mob/living/user)

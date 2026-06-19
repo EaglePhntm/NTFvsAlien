@@ -57,21 +57,36 @@
 	new /obj/item/stock_parts/subspace/filter(src)
 
 
+/obj/item/storage/box/crate/loot/telecomm_tower_pack/ntc
+	name = parent_type::name +" (" + FACTION_TERRAGOV + ")"
+
 /obj/item/storage/box/crate/loot/telecomm_tower_pack/ntc/Initialize(mapload)
 	. = ..()
 	new /obj/item/circuitboard/machine/telecomms/relay/tower/faction(src)
+
+/obj/item/storage/box/crate/loot/telecomm_tower_pack/som
+	name = parent_type::name +" (" + FACTION_SOM + ")"
 
 /obj/item/storage/box/crate/loot/telecomm_tower_pack/som/Initialize(mapload)
 	. = ..()
 	new /obj/item/circuitboard/machine/telecomms/relay/tower/faction/som(src)
 
+/obj/item/storage/box/crate/loot/telecomm_tower_pack/clf
+	name = parent_type::name +" (" + FACTION_CLF + ")"
+
 /obj/item/storage/box/crate/loot/telecomm_tower_pack/clf/Initialize(mapload)
 	. = ..()
 	new /obj/item/circuitboard/machine/telecomms/relay/tower/faction/clf(src)
 
+/obj/item/storage/box/crate/loot/telecomm_tower_pack/cm
+	name = parent_type::name +" (" + FACTION_ICC + ")"
+
 /obj/item/storage/box/crate/loot/telecomm_tower_pack/cm/Initialize(mapload)
 	. = ..()
 	new /obj/item/circuitboard/machine/telecomms/relay/tower/faction/cm(src)
+
+/obj/item/storage/box/crate/loot/telecomm_tower_pack/kz
+	name = parent_type::name +" (" + FACTION_VSD + ")"
 
 /obj/item/storage/box/crate/loot/telecomm_tower_pack/kz/Initialize(mapload)
 	. = ..()

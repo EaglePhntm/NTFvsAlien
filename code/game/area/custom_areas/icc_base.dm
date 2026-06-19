@@ -46,3 +46,6 @@
 /area/antag_ship/icc/requisition
 	name = "CM Base Requisitions"
 	minimap_color = MINIMAP_AREA_REQ
+
+/area/antag_ship/icc/bathroom
+	name = "CM Bathrooms"

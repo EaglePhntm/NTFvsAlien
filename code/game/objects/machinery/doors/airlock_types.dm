@@ -465,7 +465,7 @@
 	req_one_access = null
 
 /obj/machinery/door/airlock/mainship/medical/glass/NM_CEO
-	req_one_access = list(ACCESS_NM_CEO, ACCESS_NTC_CEO)
+	req_one_access = list(ACCESS_NM_CEO, ACCESS_NTC_CEO, ACCESS_MARINE_CMO, ACCESS_MARINE_BRIDGE)
 
 /obj/machinery/door/airlock/mainship/medical/glass/CMO
 	name = "\improper CMO's Office"
@@ -543,7 +543,7 @@
 /obj/machinery/door/airlock/mainship/generic/corporate
 	name = "Operations Officer's Office"
 	icon = 'icons/obj/doors/mainship/personaldoor.dmi'
-	req_access = list(ACCESS_NT_CORPORATE)
+	req_access = list(ACCESS_NT_CORPORATE, ACCESS_NM_CEO, ACCESS_NTC_CEO, ACCESS_MARINE_BRIDGE)
 
 /obj/machinery/door/airlock/mainship/generic/corporate/quarters
 	name = "Operations Officer's Quarters"

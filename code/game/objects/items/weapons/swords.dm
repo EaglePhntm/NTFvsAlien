@@ -168,7 +168,7 @@
 	desc = "A finely made Japanese sword, with a well sharpened blade. The blade has been filed to a molecular edge, and is extremely deadly. Commonly found in the hands of mercenaries and yakuza."
 	icon_state = "katana"
 	worn_icon_state = "katana"
-	force = 50
+	force = 60
 	penetration = 20
 	throwforce = 40
 	equip_slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK

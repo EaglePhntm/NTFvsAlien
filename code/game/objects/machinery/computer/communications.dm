@@ -503,6 +503,12 @@
 	basic_comms = TRUE
 	faction = FACTION_ICC
 
+/obj/machinery/computer/communications/ntc
+	name = "ntc communications console"
+	req_access = list(ACCESS_MARINE_BRIDGE)
+	basic_comms = TRUE
+	faction = FACTION_TERRAGOV
+
 /obj/machinery/computer/communications/coe
 	name = "coe communications console"
 	req_access = null

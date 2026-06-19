@@ -59,6 +59,12 @@
 		"icon_state": "socks_thigh-stir"
 		}
 	],
+	"socks_thighalt-stir":[
+		{
+		"type": "hyperscale",
+		"icon_state": "socks_thighalt-stir"
+		}
+	],
 	"pantyhose_ripped-stir":[
 		{
 		"type": "hyperscale",

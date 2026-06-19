@@ -77,12 +77,6 @@
 			log_access("Failed Login: [key] - Guests not allowed during panic bunker")
 			return list("reason"="guest", "desc"="\nReason: Sorry but the server is currently not accepting connections from never before seen players or guests. If you have played on this server with a byond account before, please log in to the byond account you have played from.")
 
-	//block connections during startup
-	if(!real_bans_only && !C && !admin)
-		if(!SSticker || SSticker.current_state == GAME_STATE_STARTUP)
-			log_access("Failed Login: [key] - Server initializing")
-			return list("reason"="initializing", "desc"= "\nReason: The server is still initializing, please try again in a few minutes.")
-
 	//Population Cap Checking
 	var/extreme_popcap = CONFIG_GET(number/extreme_popcap)
 	if(!real_bans_only && !C && extreme_popcap && !admin)

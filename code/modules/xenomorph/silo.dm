@@ -206,7 +206,7 @@
 			if(!do_after(user, 1 SECONDS, FALSE, victim, BUSY_ICON_DANGER) || QDELETED(src))
 				return
 
-			larba.ghostize(FALSE, FALSE, TRUE)
+			larba.ghostize(TRUE, FALSE, TRUE)
 			larba.burrow()
 			Shake(1,1, 2 SECONDS)
 

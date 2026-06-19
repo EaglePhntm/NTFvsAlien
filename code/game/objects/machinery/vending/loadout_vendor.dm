@@ -135,4 +135,5 @@
 		"Cultist Mender",
 		"Cult Offering",
 		"Cultist Sect Leader",
+		"Cult Synthetic",
 	)

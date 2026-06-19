@@ -1955,7 +1955,7 @@
 		/obj/item/explosive/grenade/som = 2,
 		/obj/item/storage/box/MRE/som = 1,
 		/obj/item/cell/lasgun/volkite/small = 1,
-		/obj/item/binoculars/fire_support/campaign/som = 1,
+		/obj/item/binoculars/fire_support/extended/som/sl = 1,
 	)
 
 /datum/outfit/quick/som/squad_leader/standard_smg
@@ -1977,7 +1977,7 @@
 	webbing_contents = list(
 		/obj/item/explosive/grenade/som = 3,
 		/obj/item/explosive/grenade/flashbang/stun = 1,
-		/obj/item/binoculars/fire_support/campaign/som = 1,
+		/obj/item/binoculars/fire_support/extended/som/sl = 1,
 	)
 
 
@@ -1998,7 +1998,7 @@
 
 	webbing_contents = list(
 		/obj/item/explosive/grenade/som = 2,
-		/obj/item/binoculars/fire_support/campaign/som = 1,
+		/obj/item/binoculars/fire_support/extended/som/sl = 1,
 		/obj/item/explosive/grenade/flashbang/stun = 1,
 		/obj/item/storage/box/MRE/som = 1,
 	)
@@ -2021,7 +2021,7 @@
 
 	webbing_contents = list(
 		/obj/item/explosive/grenade/som = 2,
-		/obj/item/binoculars/fire_support/campaign/som = 1,
+		/obj/item/binoculars/fire_support/extended/som/sl = 1,
 		/obj/item/explosive/grenade/flashbang/stun = 1,
 		/obj/item/storage/box/MRE/som = 1,
 	)
@@ -2045,7 +2045,7 @@
 
 	webbing_contents = list(
 		/obj/item/explosive/grenade/som = 4,
-		/obj/item/binoculars/fire_support/campaign/som = 1,
+		/obj/item/binoculars/fire_support/extended/som/sl = 1,
 	)
 
 //someone must update these below
@@ -3129,7 +3129,7 @@
 /datum/outfit/quick/vsd/spec/scout
 	name = "T73 'Spetsnaz' KZ Specialist"
 	desc = "Comb the forests with covert intent. Equipped with the rownin skeleton, supplied with valkyrie beta, an overclocked eshield, a Type 73 Commando, smoke grenades, and a UV-T skink for remote scouting."
-	glasses = /obj/item/clothing/glasses/night/vsd/alt
+	glasses = /obj/item/clothing/glasses/night/m56_goggles/vsd
 	w_uniform = /obj/item/clothing/under/vsd/webbing
 	shoes = /obj/item/clothing/shoes/marine/vsd/full
 	wear_suit = /obj/item/clothing/suit/modular/rownin/vsdelite
@@ -3376,7 +3376,7 @@
 	name = "T73 'Komandir' KZ Squad Leader"
 	desc = "You're in charge and look the part, infiltrate and disrupt. Equipped with the rownin skeleton, supplied with valkyrie beta, an overclocked eshield, a Type 73 Commando, GL-81 grenade launcher, smoke and EMP grenades."
 	jobtype = "KZ Squad Leader"
-	glasses = /obj/item/clothing/glasses/night/vsd/alt
+	glasses = /obj/item/clothing/glasses/night/m56_goggles/vsd
 	w_uniform = /obj/item/clothing/under/vsd/webbing
 	shoes = /obj/item/clothing/shoes/marine/vsd/full
 	wear_suit = /obj/item/clothing/suit/modular/rownin/vsdelite

@@ -906,13 +906,17 @@
 	reload_sound = 'sound/weapons/guns/interact/m16_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/m16_cocked.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/rifle/famas
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/famas)
-	aim_slowdown = 0.4
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/famas, /obj/item/ammo_magazine/rifle/famasext)
+	aim_slowdown = 0.2
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/bayonet/converted,
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonet/som,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/marine,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/reddot,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/angledgrip,
 		/obj/item/attachable/gyro,
@@ -923,6 +927,7 @@
 		/obj/item/attachable/compensator,
 		/obj/item/attachable/burstfire_assembly,
 		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/motiondetector,
 		/obj/item/weapon/gun/pistol/plasma_pistol,
 		/obj/item/weapon/gun/shotgun/combat/masterkey,
 		/obj/item/weapon/gun/pistol/g22/tranq,
@@ -936,11 +941,11 @@
 	attachable_offset = list("muzzle_x" = 38, "muzzle_y" = 17,"rail_x" = 22, "rail_y" = 24, "under_x" = 28, "under_y" = 12, "stock_x" = 19, "stock_y" = 13)
 
 	fire_delay = 0.15 SECONDS
-	burst_delay = 0.15 SECONDS
+	burst_delay = 0.1 SECONDS
 	accuracy_mult = 1.15
-	wield_delay = 0.7 SECONDS
+	wield_delay = 0.65 SECONDS
 	damage_mult = 1.2
-	scatter = 1
+	scatter = 2
 	movement_acc_penalty_mult = 4
 
 /obj/item/weapon/gun/rifle/famas/freelancermedic
@@ -2937,7 +2942,7 @@
 
 	caliber = CALIBER_556X45 //codex
 	max_shells = 30 //codex
-	fire_sound = 'sound/weapons/guns/fire/famas.ogg'
+	fire_sound = 'sound/weapons/guns/fire/aug.ogg'
 	unload_sound = 'sound/weapons/guns/interact/m16_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/m16_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/m16_cocked.ogg'
@@ -2945,6 +2950,7 @@
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/icc_assaultcarbine,
 		/obj/item/ammo_magazine/rifle/icc_assaultcarbine/export,
+		/obj/item/ammo_magazine/rifle/icc_assaultcarbinelbar,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
@@ -2982,7 +2988,7 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
 	attachable_offset = list("muzzle_x" = 44, "muzzle_y" = 19,"rail_x" = 8, "rail_y" = 21, "under_x" = 28, "under_y" = 12, "stock_x" = 19, "stock_y" = 13)
 
-	fire_delay = 0.2 SECONDS
+	fire_delay = 0.15 SECONDS
 	burst_delay = 0.1 SECONDS
 	extra_delay = 0.15 SECONDS
 	accuracy_mult = 1.15
@@ -2990,7 +2996,8 @@
 	damage_falloff_mult = 1.5
 	wield_delay = 0.85 SECONDS
 	aim_slowdown = 0.2
-	scatter = 0
+	scatter = 1
+	movement_acc_penalty_mult = 3
 
 /obj/item/weapon/gun/rifle/icc_assaultcarbine/export
 	name = "\improper L&S EM-88 assault carbine"

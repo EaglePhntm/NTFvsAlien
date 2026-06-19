@@ -486,7 +486,7 @@
 	/*
 
 	//Non lethal variant, deals only stamina damage
-	var/stamina_loss_limit = L.maxHealth * 2
+	var/stamina_loss_limit = L.maxHealth * STAMINA_LOSS_LIMIT_MULTIPLIER
 	var/applied_damage = clamp(power, 0, (stamina_loss_limit - L.getStaminaLoss()))
 	var/damage_overflow = power - applied_damage
 	if((damage_overflow > 0) && COOLDOWN_FINISHED(src, neuro_stun_cd))
@@ -497,11 +497,11 @@
 	*/
 
 	//Apply stamina damage, then apply any 'excess' stamina damage beyond our maximum as tox and oxy damage
-	var/stamina_loss_limit = L.maxHealth * 2
+	var/stamina_loss_limit = L.maxHealth * STAMINA_LOSS_LIMIT_MULTIPLIER
 	var/applied_damage = clamp(power, 0, (stamina_loss_limit - L.getStaminaLoss()))
 	L.adjustStaminaLoss(applied_damage) //If we're under our stamina_loss limit, apply the difference between our limit and current stamina damage or power, whichever's less
 	var/damage_overflow = power - applied_damage
-	if(damage_overflow > 0) //If we exceed maxHealth * 2 stamina damage, apply any excess as toxloss and oxyloss
+	if(damage_overflow > 0) //If we exceed maxHealth * STAMINA_LOSS_LIMIT_MULTIPLIER stamina damage, apply any excess as toxloss and oxyloss
 		L.adjustToxLoss(damage_overflow * 0.5)
 		L.adjustOxyLoss(damage_overflow * 0.5)
 		L.Losebreath(2) //So the oxy loss actually means something.

@@ -1674,6 +1674,8 @@
 /area/mainship/hallways/starboard_hallway)
 "bFP" = (
 /obj/machinery/camera/autoname/mainship,
+/obj/structure/cable,
+/obj/machinery/power/monitor/grid,
 /turf/open/floor/mainship/orange{
 	dir = 1
 	},
@@ -2584,9 +2586,13 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/chemistry)
 "cwJ" = (
+/obj/machinery/camera/autoname/mainship{
+	dir = 8
+	},
 /obj/structure/cable,
-/turf/closed/wall/mainship,
-/area/mainship/engineering/engine_core)
+/obj/machinery/power/smes/buildable,
+/turf/open/floor/mainship/tcomms,
+/area/mainship/engineering/lower_engine_monitoring)
 "cxF" = (
 /obj/structure/cable,
 /turf/open/floor/mainship/sterile/dark,
@@ -4105,6 +4111,8 @@
 /turf/open/shuttle/escapepod,
 /area/mainship/hallways/hangar/droppod)
 "dUf" = (
+/obj/structure/cable,
+/obj/machinery/power/monitor/grid,
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/lower_engine_monitoring)
 "dUj" = (
@@ -4971,6 +4979,7 @@
 	phone_id = "CMO";
 	phone_category = "Medical"
 	},
+/obj/machinery/computer/communications/ntc,
 /turf/open/floor/mainship/sterile/corner,
 /area/mainship/medical/cmo_office)
 "eFU" = (
@@ -6842,9 +6851,8 @@
 /turf/open/floor/mainship/cargo,
 /area/mainship/shipboard/brig)
 "goX" = (
-/obj/machinery/power/monitor{
-	name = "Main Power Grid Monitoring"
-	},
+/obj/machinery/power/monitor/core,
+/obj/structure/cable,
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/lower_engine_monitoring)
 "goZ" = (
@@ -7266,6 +7274,13 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
+"gLK" = (
+/obj/structure/table/mainship/nometal,
+/obj/item/storage/box/crate/loot/telecomm_tower_pack/ntc,
+/obj/item/storage/backpack/marine/radiopack,
+/obj/structure/cable,
+/turf/open/floor/mainship/floor,
+/area/mainship/engineering/lower_engine_monitoring)
 "gMh" = (
 /obj/machinery/light/mainship{
 	dir = 8
@@ -8340,7 +8355,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/computer/communications,
+/obj/machinery/computer/communications/ntc,
 /turf/open/floor/carpet{
 	dir = 1;
 	icon_state = "carpetside"
@@ -9140,6 +9155,7 @@
 /obj/machinery/camera/autoname/mainship{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/lower_engine_monitoring)
 "iGV" = (
@@ -10600,6 +10616,12 @@
 	},
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/self_destruct)
+"kaS" = (
+/obj/machinery/computer/communications/ntc{
+	pixel_y = 14
+	},
+/turf/open/floor/urban/wood,
+/area/mainship/groundhq/ntf/engineering/ce_room)
 "kaT" = (
 /obj/machinery/door/airlock/multi_tile/mainship/medidoor/medbay/free_access,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -10703,7 +10725,6 @@
 	},
 /area/mainship/squads/specialist)
 "kez" = (
-/obj/machinery/power/terminal,
 /obj/effect/turf_decal/warning_stripes/thin,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 8
@@ -10711,7 +10732,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 8
 	},
-/obj/structure/cable,
 /turf/open/floor/mainship/tcomms,
 /area/mainship/engineering/lower_engine_monitoring)
 "keJ" = (
@@ -11147,6 +11167,10 @@
 /obj/machinery/door/airlock/mainship/engineering{
 	dir = 2
 	},
+/obj/structure/cable,
+/obj/structure/cable,
+/obj/structure/cable,
+/obj/structure/cable,
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/lower_engine_monitoring)
 "kCI" = (
@@ -12416,10 +12440,10 @@
 	},
 /area/mainship/living/starboard_emb)
 "lHK" = (
-/obj/structure/cable,
 /obj/machinery/light/mainship{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/lower_engine_monitoring)
 "lHL" = (
@@ -13004,11 +13028,9 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/shipboard/brig)
 "mep" = (
-/obj/structure/table/mainship/nometal,
 /obj/structure/cable,
-/obj/item/storage/box/crate/loot/telecomm_tower_pack/ntc,
-/obj/item/storage/backpack/marine/radiopack,
-/turf/open/floor/mainship/floor,
+/obj/machinery/power/smes/buildable,
+/turf/open/floor/mainship/tcomms,
 /area/mainship/engineering/lower_engine_monitoring)
 "mey" = (
 /obj/structure/largecrate/random/case/double,
@@ -13978,9 +14000,11 @@
 /turf/open/floor/plating,
 /area/mainship/hallways/hangar)
 "nbK" = (
-/obj/structure/cable,
-/turf/open/floor/mainship/orange,
-/area/mainship/engineering/lower_engineering)
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 1
+	},
+/turf/open/floor/mainship/tcomms,
+/area/mainship/engineering/lower_engine_monitoring)
 "nbL" = (
 /obj/structure/table/mainship/nometal,
 /obj/effect/spawner/random/misc/paperbin{
@@ -14361,7 +14385,6 @@
 /turf/open/floor/freezer,
 /area/mainship/living/grunt_rnr)
 "ntR" = (
-/obj/machinery/power/smes/preset,
 /obj/structure/cable,
 /turf/open/floor/mainship/tcomms,
 /area/mainship/engineering/lower_engine_monitoring)
@@ -15409,6 +15432,7 @@
 /area/mainship/medical/surgery_hallway)
 "owK" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1,
+/obj/structure/cable,
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/lower_engine_monitoring)
 "oxi" = (
@@ -17377,6 +17401,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/computer/communications/ntc,
 /turf/open/floor/grayscale/darkgray,
 /area/mainship/hull/starboard_hull)
 "qzi" = (
@@ -17617,6 +17642,7 @@
 "qJT" = (
 /obj/effect/urban/decal/dirt,
 /obj/effect/landmark/start/job/crash/shiptech,
+/obj/structure/cable,
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/lower_engine_monitoring)
 "qKF" = (
@@ -17968,10 +17994,12 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/surgery_hallway)
 "raM" = (
-/obj/structure/reagent_dispensers/fueltank,
+/obj/machinery/door/airlock/mainship/engineering{
+	dir = 2
+	},
 /obj/structure/cable,
-/turf/open/floor/mainship/orange,
-/area/mainship/engineering/lower_engineering)
+/turf/open/floor/mainship/floor,
+/area/mainship/engineering/lower_engine_monitoring)
 "rbd" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 9
@@ -18198,7 +18226,6 @@
 /obj/machinery/vending/tool{
 	pixel_x = -21
 	},
-/obj/structure/cable,
 /turf/open/floor/mainship/orange{
 	dir = 6
 	},
@@ -19544,6 +19571,10 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/operating_room_two)
 "swR" = (
+/obj/machinery/computer/communications/ntc{
+	dir = 8;
+	pixel_x = -14
+	},
 /turf/open/floor/carpet{
 	icon_state = "carpetside";
 	dir = 8
@@ -19777,6 +19808,17 @@
 	},
 /turf/open/shuttle/escapepod,
 /area/mainship/nukeroom)
+"sIO" = (
+/obj/effect/turf_decal/warning_stripes/thin,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/mainship/tcomms,
+/area/mainship/engineering/lower_engine_monitoring)
 "sIS" = (
 /obj/machinery/bot/roomba,
 /turf/open/floor/mainship/cargo,
@@ -20129,7 +20171,6 @@
 /turf/open/floor/mainship/sterile,
 /area/mainship/medical/lounge)
 "tab" = (
-/obj/structure/cable,
 /obj/structure/table/mainship/nometal,
 /obj/effect/spawner/random/engineering/tool{
 	pixel_x = -5;
@@ -20816,6 +20857,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/lower_engine_monitoring)
 "tKU" = (
@@ -21189,8 +21231,16 @@
 	dir = 1
 	},
 /area/mainship/engineering/lower_engineering)
+"ube" = (
+/obj/structure/table/wood/fancy,
+/obj/machinery/computer/communications/ntc{
+	dir = 4
+	},
+/turf/open/floor/urban/wood,
+/area/mainship/command/corporateliaison)
 "ubk" = (
 /obj/machinery/door/airlock/mainship/engineering,
+/obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/lower_engine_monitoring)
 "ubK" = (
@@ -21217,6 +21267,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/lower_engineering)
 "ucd" = (
@@ -23634,11 +23685,13 @@
 	},
 /area/mainship/squads/general)
 "wjY" = (
-/obj/machinery/power/smes/preset,
 /obj/machinery/camera/autoname/mainship{
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/machinery/power/smes/buildable{
+	charge = 500000
+	},
 /turf/open/floor/mainship/tcomms,
 /area/mainship/engineering/lower_engine_monitoring)
 "wkA" = (
@@ -24920,11 +24973,12 @@
 /turf/open/floor/stairs/rampbottom,
 /area/mainship/hull/starboard_hull)
 "xvR" = (
-/obj/structure/cable,
-/turf/open/floor/mainship/orange{
+/obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
-/area/mainship/engineering/lower_engineering)
+/obj/structure/cable,
+/turf/open/floor/mainship/tcomms,
+/area/mainship/engineering/lower_engine_monitoring)
 "xvX" = (
 /obj/machinery/hydroponics,
 /obj/item/seeds/goldappleseed,
@@ -28699,7 +28753,7 @@ vav
 vav
 yeI
 vav
-fDD
+ube
 siT
 sDV
 iwa
@@ -46625,7 +46679,7 @@ mlT
 mlT
 xWD
 dhX
-pcl
+kaS
 rKo
 sZg
 qth
@@ -46734,18 +46788,18 @@ bhX
 bdz
 kFg
 lrM
-djH
+oDN
 vrp
 dQf
 wLA
 oDN
 oDN
-djH
+oDN
 jHQ
 oDN
 oDN
 uca
-nbK
+qqG
 dQf
 lrM
 aRK
@@ -46837,11 +46891,11 @@ hHd
 tNk
 dQf
 bAY
-djH
+oDN
 wSc
 dQf
 bhG
-oDN
+djH
 bmF
 tab
 mAD
@@ -46940,18 +46994,18 @@ dhq
 seE
 dQf
 dyT
-djH
+oDN
 wSc
 ayf
 iOU
 ubk
 leC
-iOU
+leC
 leC
 leC
 leC
 tKM
-iOU
+leC
 leC
 lpQ
 aRK
@@ -47043,17 +47097,17 @@ kSn
 vVl
 dQf
 bOC
-djH
+oDN
 wSc
 leC
 ntR
-aVw
-leC
-mep
-goX
+xvR
+raM
+exE
+exE
 iGT
-leC
-kez
+kCi
+sIO
 ntR
 leC
 lpQ
@@ -47145,17 +47199,17 @@ eEo
 hHd
 tNk
 dQf
-xvR
-djH
-raM
+lrM
+oDN
+wSc
 leC
 ntR
-aVw
-kCi
-exE
+nbK
+leC
+gLK
 dGf
 dUf
-kCi
+bGb
 kez
 ntR
 leC
@@ -47250,9 +47304,9 @@ mCE
 gsU
 ijJ
 ijJ
-cwJ
+ijJ
 leC
-ntR
+mep
 fTx
 leC
 lHK
@@ -47260,7 +47314,7 @@ eLg
 wdB
 bGb
 dIY
-ntR
+mep
 leC
 ijJ
 ijJ
@@ -47352,7 +47406,7 @@ mkT
 cqi
 ijJ
 tUk
-eZl
+eal
 uwR
 leC
 wjY
@@ -47363,7 +47417,7 @@ owK
 ony
 vxS
 bOw
-wjY
+cwJ
 leC
 lLY
 lLY

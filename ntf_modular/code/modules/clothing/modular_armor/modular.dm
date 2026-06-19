@@ -132,3 +132,84 @@
 	name = "\improper NTC ablative bikini armor"
 	desc = "A lightweight set of armor that excels in protecting the wearer against laser and energy attacks thanks to it's reflective plating, how does it work? don't ask."
 	greyscale_config = /datum/greyscale_config/xenonaut/bikini
+
+/obj/item/clothing/suit/modular/rownin/dermal
+	name = "\improper dermal torso patch"
+	desc = "A subdermal layer of reinforcements and small holders that allows for the attachment of modules, without restricting or being visible on the wearer."
+	icon = 'icons/obj/clothing/headwear/hats.dmi'
+	icon_state = "dermal"
+	worn_icon_state = "dermal"
+	attachments_allowed = list(
+		/obj/item/armor_module/module/better_shoulder_lamp,
+		/obj/item/armor_module/module/valkyrie_autodoc,
+		/obj/item/armor_module/module/fire_proof,
+		/obj/item/armor_module/module/tyr_extra_armor,
+		/obj/item/armor_module/module/tyr_extra_armor/mark1,
+		/obj/item/armor_module/module/mimir_environment_protection,
+		/obj/item/armor_module/module/mimir_environment_protection/mark1,
+		/obj/item/armor_module/module/hlin_explosive_armor,
+		/obj/item/armor_module/module/ballistic_armor,
+		/obj/item/armor_module/module/chemsystem,
+		/obj/item/armor_module/module/knight,
+		/obj/item/armor_module/module/eshield,
+		/obj/item/armor_module/module/eshield/absorbant/energy,
+		/obj/item/armor_module/module/eshield/absorbant/ballistic,
+		/obj/item/armor_module/module/eshield/overclocked,
+		/obj/item/armor_module/module/mirage,
+		/obj/item/armor_module/module/armorlock,
+
+		/obj/item/armor_module/storage/general,
+		/obj/item/armor_module/storage/ammo_mag,
+		/obj/item/armor_module/storage/engineering,
+		/obj/item/armor_module/storage/medical,
+		/obj/item/armor_module/storage/general/som,
+		/obj/item/armor_module/storage/engineering/som,
+		/obj/item/armor_module/storage/medical/som,
+		/obj/item/armor_module/storage/injector,
+		/obj/item/armor_module/storage/grenade,
+		/obj/item/armor_module/storage/integrated,
+		/obj/item/armor_module/armor/badge,
+
+		/obj/item/armor_module/module/valkyrie_autodoc/som,
+		/obj/item/armor_module/module/fire_proof/som,
+		/obj/item/armor_module/module/tyr_extra_armor/som,
+		/obj/item/armor_module/module/knight/som,
+		/obj/item/armor_module/module/mimir_environment_protection/som,
+		/obj/item/armor_module/module/eshield/som,
+		/obj/item/armor_module/module/eshield/som/overclocked,
+// Equalizer Modules
+		/obj/item/armor_module/module/style/light_armor,
+		/obj/item/armor_module/module/style/medium_armor,
+		/obj/item/armor_module/module/style/heavy_armor,
+		/obj/item/armor_module/module/style/superheavy_armor,
+	) // The people want their equalizer dermal armor, they will get their dermal armor
+
+/obj/item/clothing/shoes/dermal
+	name = "\improper dermal feet pads"
+	desc = "A subdermal layer of reinforcements and modding that strengthens the durability of your tootsies."
+	icon = 'icons/obj/clothing/headwear/hats.dmi'
+	icon_state = "dermal"
+	worn_icon_state = "dermal"
+	armor_protection_flags = FEET
+	cold_protection_flags = FEET
+	heat_protection_flags = FEET
+	inventory_flags = NOQUICKEQUIP|NOSLIPPING
+	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
+	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
+	siemens_coefficient = 0.7
+	soft_armor = list(MELEE = 30, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 30, BIO = 20, FIRE = 20, ACID = 15)
+
+/obj/item/clothing/gloves/dermal
+	name = "\improper dermal knuckle guards"
+	desc = "A subdermal layer of reinforcements and modding that strengthens the durability of your fingies."
+	icon = 'icons/obj/clothing/headwear/hats.dmi'
+	icon_state = "dermal"
+	worn_icon_state = "dermal"
+	siemens_coefficient = 0.6
+	permeability_coefficient = 0.05
+	cold_protection_flags = HANDS
+	heat_protection_flags = HANDS
+	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
+	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
+	armor_protection_flags = HANDS
+	soft_armor = list(MELEE = 30, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 30, BIO = 20, FIRE = 20, ACID = 15)
