@@ -425,6 +425,7 @@
 	START_PROCESSING(SSprocessing, src)
 	RegisterSignal(chassis, COMSIG_ATOM_TAKE_DAMAGE, PROC_REF(on_attacked))
 	chassis.move_delay += movespeed_mod
+	chassis.mecha_flags |= CANNOT_OVERPENETRATE
 	chassis.add_filter("pulsearmor", 2, outline_filter(1, COLOR_BLUE_LIGHT))
 
 /datum/action/vehicle/sealed/mecha/pulsearmor/process(seconds_per_tick)
@@ -461,3 +462,4 @@
 	UnregisterSignal(chassis, COMSIG_ATOM_TAKE_DAMAGE)
 	chassis.remove_filter("pulsearmor")
 	chassis.move_delay -= movespeed_mod
+	chassis.mecha_flags &= ~CANNOT_OVERPENETRATE
