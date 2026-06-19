@@ -665,13 +665,17 @@
 	soft_armor = MARINE_ARMOR_HEAVY
 	slowdown = SLOWDOWN_ARMOR_HEAVY + 0.3
 
-/obj/item/armor_module/module/style/superheavy_armor
+/*/obj/item/armor_module/module/style/superheavy_armor
 	name = "\improper Super Heavy Armor Equalizer"
 	icon_state = "style_heavy"
 	worn_icon_state = "style_heavy_a"
 	soft_armor = list(MELEE = 70, BULLET = 75, LASER = 75, ENERGY = 70, BOMB = 65, BIO = 55, FIRE = 65, ACID = 70)
 	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY + 0.3
-	stamina_regen_mod = - 0.4
+	stamina_regen_mod = - 0.4*/
+// Too much to consider with this; superheavy has specific restrictions on modules, this lets you bypass it
+// By simply putting superheavy equalizer on a leather jacket, then you can double up with tyr
+// that normally you cant get with superheavy armour, plus, you can right click to make this invisible
+
 /**
  *   Helmet Modules
 */

@@ -666,7 +666,7 @@
 			/obj/item/armor_module/module/style/light_armor = -1,
 			/obj/item/armor_module/module/style/medium_armor = -1,
 			/obj/item/armor_module/module/style/heavy_armor = -1,
-			/obj/item/armor_module/module/style/superheavy_armor = -1,
+/*		/obj/item/armor_module/module/style/superheavy_armor,*/
 			/obj/item/clothing/suit/modular/style/barrier/lightbarrier = -1,
 			/obj/item/clothing/suit/modular/style/barrier/mediumbarrier = -1,
 			/obj/item/clothing/suit/modular/style/barrier/heavybarrier = -1,
@@ -1358,7 +1358,7 @@
 			/obj/item/armor_module/module/style/light_armor = -1,
 			/obj/item/armor_module/module/style/medium_armor = -1,
 			/obj/item/armor_module/module/style/heavy_armor = -1,
-			/obj/item/armor_module/module/style/superheavy_armor = -1,
+/*		/obj/item/armor_module/module/style/superheavy_armor,*/
 			/obj/item/clothing/suit/modular/style/barrier/lightbarrier = -1,
 			/obj/item/clothing/suit/modular/style/barrier/mediumbarrier = -1,
 			/obj/item/clothing/suit/modular/style/barrier/heavybarrier = -1,
@@ -2059,7 +2059,7 @@
 			/obj/item/armor_module/module/style/light_armor = -1,
 			/obj/item/armor_module/module/style/medium_armor = -1,
 			/obj/item/armor_module/module/style/heavy_armor = -1,
-			/obj/item/armor_module/module/style/superheavy_armor = -1,
+/*		/obj/item/armor_module/module/style/superheavy_armor,*/
 			/obj/item/clothing/suit/modular/style/barrier/lightbarrier = -1,
 			/obj/item/clothing/suit/modular/style/barrier/mediumbarrier = -1,
 			/obj/item/clothing/suit/modular/style/barrier/heavybarrier = -1,
@@ -2567,7 +2567,7 @@
 			/obj/item/armor_module/module/style/light_armor = -1,
 			/obj/item/armor_module/module/style/medium_armor = -1,
 			/obj/item/armor_module/module/style/heavy_armor = -1,
-			/obj/item/armor_module/module/style/superheavy_armor = -1,
+/*		/obj/item/armor_module/module/style/superheavy_armor,*/
 			/obj/item/clothing/suit/modular/rownin/dermal = -1,
 			/obj/item/clothing/gloves/dermal = -1,
 			/obj/item/clothing/shoes/dermal = -1,

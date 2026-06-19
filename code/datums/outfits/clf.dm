@@ -547,7 +547,7 @@
 		/obj/item/armor_module/module/style/light_armor,
 		/obj/item/armor_module/module/style/medium_armor,
 		/obj/item/armor_module/module/style/heavy_armor,
-		/obj/item/armor_module/module/style/superheavy_armor,
+/*		/obj/item/armor_module/module/style/superheavy_armor,*/
 	)
 	soft_armor = MARINE_ARMOR_LIGHT
 	slowdown = SLOWDOWN_ARMOR_LIGHT
