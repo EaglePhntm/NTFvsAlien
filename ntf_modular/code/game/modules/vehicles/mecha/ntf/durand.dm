@@ -8,7 +8,7 @@
 	allow_diagonal_movement = FALSE
 	move_delay = 4
 	max_integrity = 400
-	soft_armor = list(MELEE = 60, BULLET = 45, LASER = 30, ENERGY = 30, BOMB = 25, BIO = 0, FIRE = 65, ACID = 100)
+	soft_armor = list(MELEE = 60, BULLET = 45, LASER = 30, ENERGY = 30, BOMB = 25, BIO = 0, FIRE = 75, ACID = 100)
 	max_temperature = 25000
 	force = 30
 	wreckage = /obj/structure/mecha_wreckage/durand

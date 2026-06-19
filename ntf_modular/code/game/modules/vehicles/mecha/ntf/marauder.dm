@@ -21,8 +21,6 @@
 		MECHA_ARMOR = list(),
 	)
 
-/obj/vehicle/sealed/mecha/combat/marauder/ntf/generate_actions()
+/obj/vehicle/sealed/mecha/combat/marauder/generate_actions()
 	. = ..()
-
-	initialize_passenger_action_type()
-	initialize_passenger_action_type()
+	initialize_passenger_action_type(/datum/action/vehicle/sealed/mecha/mech_zoom)

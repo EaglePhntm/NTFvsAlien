@@ -51,17 +51,30 @@
 	QDEL_LIST(crowbar_salvage)
 	return ..()
 
+/obj/structure/mecha_wreckage/proc/get_next_repair_step_text()
+	switch(repair_stage)
+		if(REPAIR_STAGE1)
+			return "This wreckage can be repaired - use a multitool initialize the circuitry for repair."
+		if(REPAIR_STAGE2)
+			return "Use a wrench to repair the hydraulics."
+		if(REPAIR_STAGE3)
+			return "Apply 20 sheets of plasteel to refurbish the hull."
+		if(REPAIR_STAGE4)
+			return "Use a blowtorch to complete refurbishing its hull."
+	return null
+
 /obj/structure/mecha_wreckage/examine(mob/user)
 	. = ..()
-	if(!AI)
-		return
-	. += span_notice("The AI recovery beacon is active.")
+	if(AI)
+		. += span_notice("The AI recovery beacon is active.")
 	if(!is_repairable)
 		return
-	.+= span_notice("You can repair this wreck with a multitool, then a wrench, sheets of plasteel, then a blowtorch.")
+	var/next_step = get_next_repair_step_text()
+	if(next_step)
+		. += span_notice("[next_step]")
 
 /obj/structure/mecha_wreckage/attackby(obj/item/I, mob/user)
-	if(!is_repairable || !repair_stage == REPAIR_STAGE3)
+	if(!is_repairable || repair_stage != REPAIR_STAGE3)
 		return ..()
 	var/obj/item/stack/sheet/plasteel/plasteel = I
 	var/skill_diff = SKILL_ENGINEER_ENGI - user.skills.getRating(SKILL_ENGINEER)
@@ -100,7 +113,6 @@
 		playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
 		user.visible_message(span_notice("[user] repairs [src]'s internal hull."),
 		span_notice("You repair [src]'s internal hull."))
-		balloon_alert_to_viewers("mech repaired!")
 		new original_mech(loc)
 		qdel(src)
 		return TRUE
