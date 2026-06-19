@@ -16,6 +16,6 @@
 	max_occupants = 2
 	pivot_step = TRUE
 	/// Custom Clarke step and turning sounds (from NTC)
-	stepsound = 'ntf_modular\sound\effects\engine.ogg'
+	stepsound = 'ntf_modular/sound/effects/engine.ogg'
 	turnsound = 'sound/mecha/powerloader_turn2.ogg'
 	cockpit_armor = COCKPIT_TOUGHENED
