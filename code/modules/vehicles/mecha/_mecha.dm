@@ -333,6 +333,7 @@
 			personal_statistics.mission_mechs_destroyed ++
 
 	spark_system?.start()
+	playsound(loc, 'sound/effects/metal_crash.ogg', 75)
 
 	var/mob/living/silicon/ai/unlucky_ais
 	for(var/mob/living/occupant AS in occupants)
