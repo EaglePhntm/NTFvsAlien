@@ -2609,6 +2609,7 @@
 #include "ntf_modular\code\game\modules\vehicles\mecha\ntf\ivan.dm"
 #include "ntf_modular\code\game\modules\vehicles\mecha\ntf\marauder.dm"
 #include "ntf_modular\code\game\modules\vehicles\mecha\ntf\mauler.dm"
+#include "ntf_modular\code\game\modules\vehicles\mecha\ntf\mecha_actions.dm"
 #include "ntf_modular\code\game\modules\vehicles\mecha\ntf\mecha_defense.dm"
 #include "ntf_modular\code\game\modules\vehicles\mecha\ntf\ntf.dm"
 #include "ntf_modular\code\game\modules\vehicles\mecha\ntf\phazon.dm"

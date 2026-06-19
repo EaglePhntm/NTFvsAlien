@@ -8,12 +8,6 @@
 	mech_flags = EXOSUIT_MODULE_NTF
 	ammotype = /datum/ammo/bullet/rifle/hv
 	max_integrity = 75
-/*
-	flash_offsets = list(
-		MECHA_R_ARM = list("N" = list(14,68), "S" = list(-2,-6), "E" = list(80,13), "W" = list(-50,33)),
-		MECHA_L_ARM = list("N" = list(-14,68), "S" = list(32,-6), "E" = list(80,33), "W" = list(-50,13)),
-	)
-*/
 	projectiles = 80
 	projectiles_cache = 240
 	projectiles_cache_max = 240
@@ -38,12 +32,6 @@
 	mech_flags = EXOSUIT_MODULE_VENDABLE|EXOSUIT_MODULE_COMBAT
 	ammotype = /datum/ammo/bullet/smg
 	max_integrity = 75
-/*
-	flash_offsets = list(
-		MECHA_R_ARM = list("N" = list(11,23), "S" = list(-1,-2), "E" = list(27,4), "W" = list(-17,11)),
-		MECHA_L_ARM = list("N" = list(0,23), "S" = list(11,-2), "E" = list(27,11), "W" = list(-17,4)),
-	)
-*/
 	projectiles = 120
 	projectiles_cache = 720
 	projectiles_cache_max = 720

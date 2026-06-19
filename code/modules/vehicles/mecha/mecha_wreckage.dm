@@ -8,14 +8,14 @@
 ///////////////////////////////////
 /obj/structure/mecha_wreckage
 	name = "exosuit wreckage"
-	desc = "Remains of some unfortunate mecha. Completely irreparable, but perhaps something can be salvaged."
+	desc = "Remains of some unfortunate mecha. Perhaps something can be salvaged."
 	icon = 'icons/mecha/mecha.dmi'
 	hit_sound = 'sound/effects/metal_crash.ogg'
 	density = TRUE
 	anchored = FALSE
 	opacity = FALSE
 	resistance_flags = XENO_DAMAGEABLE
-	max_integrity = 600
+	max_integrity = 1000
 	///list of welder-salvaged items that it can output
 	var/list/welder_salvage = list(/obj/item/stack/sheet/plasteel)
 	/// times we can salvage this mech
@@ -56,8 +56,9 @@
 	if(!AI)
 		return
 	. += span_notice("The AI recovery beacon is active.")
-	if(is_repairable)
-		.+= span_notice("You can repair this wreck with a multitool, then a wrench, sheets of plasteel, then a blowtorch.")
+	if(!is_repairable)
+		return
+	.+= span_notice("You can repair this wreck with a multitool, then a wrench, sheets of plasteel, then a blowtorch.")
 
 /obj/structure/mecha_wreckage/attackby(obj/item/I, mob/user)
 	if(!is_repairable || !repair_stage == REPAIR_STAGE3)

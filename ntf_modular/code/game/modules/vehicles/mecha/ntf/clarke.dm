@@ -9,7 +9,7 @@
 	max_integrity = 300
 	ui_x = 1200
 	lights_power = 7
-	soft_armor = list(MELEE = 35, BULLET = 10, LASER = 20, ENERGY = 20, BOMB = 40, BIO = 0, FIRE = 100, ACID = 100)
+	soft_armor = list(MELEE = 35, BULLET = 10, LASER = 20, ENERGY = 20, BOMB = 40, BIO = 0, FIRE = 95, ACID = 100)
 	wreckage = /obj/structure/mecha_wreckage/clarke
 	possible_int_damage = MECHA_INT_FIRE|MECHA_INT_CONTROL_LOST|MECHA_INT_SHORT_CIRCUIT
 	enter_delay = 20

@@ -405,6 +405,8 @@
 	var/decay_per_second = 15
 	/// How much we slow down the mech while shield is active
 	var/movespeed_mod = 3
+	/// How long the cooldown is, in seconds
+	var/cooldown_time = 90 SECONDS
 
 /datum/action/vehicle/sealed/mecha/pulsearmor/action_activate(trigger_flags)
 	. = ..()
@@ -417,7 +419,7 @@
 		var/time = S_TIMER_COOLDOWN_TIMELEFT(chassis, COOLDOWN_MECHA_EQUIPMENT(type))/10
 		chassis.balloon_alert(owner, "[time] seconds")
 		return
-	S_TIMER_COOLDOWN_START(chassis, COOLDOWN_MECHA_EQUIPMENT(type), 90 SECONDS)
+	S_TIMER_COOLDOWN_START(chassis, COOLDOWN_MECHA_EQUIPMENT(type), cooldown_time)
 	block_remaining = block_max
 	playsound(chassis, 'sound/items/eshield_recharge.ogg', 40)
 	START_PROCESSING(SSprocessing, src)

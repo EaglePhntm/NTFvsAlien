@@ -3,15 +3,11 @@
 	icon = 'icons/mecha/mecha_equipment_64x32.dmi'
 	desc = "A standard laser rifle, adapted to be mounted on an exosuit."
 	icon_state = "lasermg"
-	fire_sound = 'sound/mecha/weapons/mech_laser_heavy.ogg'
+	fire_sound = 'sound/mecha/weapons/mech_laser_light.ogg'
 	mech_flags = EXOSUIT_MODULE_NTF|EXOSUIT_MODULE_COMBAT
-//	flash_offsets = list(
-//		MECHA_R_ARM = list("N" = list(33,68), "S" = list(-2,-6), "E" = list(80,13), "W" = list(-50,33)),
-//		MECHA_L_ARM = list("N" = list(0,68), "S" = list(32,-6), "E" = list(80,33), "W" = list(-50,13)),
-//	)
 	ammotype = /datum/ammo/energy/lasgun/marine
 	max_integrity = 75
-	energy_drain = 16
+	energy_drain = 20
 	variance = 0
 	projectile_delay = 0.4 SECONDS
 	slowdown = 0
@@ -25,14 +21,10 @@
 	icon_state = "lasermg"
 	fire_sound = 'sound/mecha/weapons/mech_laser_heavy.ogg'
 	mech_flags = EXOSUIT_MODULE_NTF|EXOSUIT_MODULE_COMBAT
-//	flash_offsets = list(
-//		MECHA_R_ARM = list("N" = list(33,68), "S" = list(-2,-6), "E" = list(80,13), "W" = list(-50,33)),
-//		MECHA_L_ARM = list("N" = list(0,68), "S" = list(32,-6), "E" = list(80,33), "W" = list(-50,13)),
-//	)
 	ammotype = /datum/ammo/bullet/shotgun/tribeam
 	max_integrity = 75
-	energy_drain = 24
-	variance = 5
+	energy_drain = 36
+	variance = 0
 	projectile_delay = 0.7 SECONDS
 	slowdown = 0
 	harmful = TRUE
