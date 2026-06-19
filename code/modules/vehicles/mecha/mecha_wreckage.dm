@@ -301,7 +301,7 @@
 		/obj/item/mecha_parts/part/honker_left_leg,
 		/obj/item/mecha_parts/part/honker_right_leg,
 	)
-	original_mech = /obj/vehicle/sealed/mecha/ntf
+	original_mech = /obj/vehicle/sealed/mecha/ntf/honker
 
 /obj/structure/mecha_wreckage/durand
 	name = "\improper Durand wreckage"

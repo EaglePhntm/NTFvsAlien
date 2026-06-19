@@ -1,6 +1,3 @@
-#define MECHA_AMMO_46 "4.6x30mm SMG bullet"
-#define MECHA_AMMO_556 "5.56x45mm LMG bullet"
-
 /obj/item/mecha_ammo
 	name = "generic ammo box"
 	desc = "A box of ammo for an unknown weapon."

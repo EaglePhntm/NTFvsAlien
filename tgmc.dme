@@ -2606,6 +2606,7 @@
 #include "ntf_modular\code\game\modules\vehicles\mecha\ntf\clarke.dm"
 #include "ntf_modular\code\game\modules\vehicles\mecha\ntf\durand.dm"
 #include "ntf_modular\code\game\modules\vehicles\mecha\ntf\gygax.dm"
+#include "ntf_modular\code\game\modules\vehicles\mecha\ntf\honker.dm"
 #include "ntf_modular\code\game\modules\vehicles\mecha\ntf\ivan.dm"
 #include "ntf_modular\code\game\modules\vehicles\mecha\ntf\marauder.dm"
 #include "ntf_modular\code\game\modules\vehicles\mecha\ntf\mauler.dm"
