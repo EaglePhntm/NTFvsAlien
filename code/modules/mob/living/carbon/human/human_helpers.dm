@@ -605,7 +605,7 @@
 		return
 	inactive_hand.attackby(active_hand, src)
 
-/mob/living/MouseDrop_T(atom/dropping, mob/user)
+/*/mob/living/MouseDrop_T(atom/dropping, mob/user)
 	. = ..()
 	if(dropping != usr)
 		return
@@ -676,4 +676,4 @@
 			action = pick(/datum/sex_action/scissoring, /datum/sex_action/tailpegging_vaginal, /datum/sex_action/tailpegging_anal, /datum/sex_action/force_cunnilingus)
 	sexcon.force = SEX_FORCE_MAX
 	sexcon.set_target(target)
-	sexcon.try_start_action(action)
+	sexcon.try_start_action(action)*/// HOLY PREFBREAK BATMAN!!!
