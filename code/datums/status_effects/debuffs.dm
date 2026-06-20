@@ -172,12 +172,14 @@
 		healing += (6 * BASE_HEAL_RATE)
 	if((locate(/obj/item/stack/req_jelly) in owner.loc)) // Helps you sleep a little better
 		healing += (2 * BASE_HEAL_RATE)
+	if(isxeno(owner)) // Xenos should get a much higher healing rate for sleeping, its better than resting!
+		healing += (8 * BASE_HEAL_RATE)
 	if(health_ratio > -0.5)
 		owner.adjustBruteLoss(healing)
 		owner.adjustFireLoss(healing)
 		owner.adjustToxLoss(healing * 0.5, TRUE, TRUE)
 		owner.adjustStaminaLoss(healing * 100)
-		owner.adjustCloneLoss(healing * health_ratio * 0.8)
+		owner.adjustCloneLoss(healing * health_ratio * 0.5)
 	if(human_owner?.drunkenness)
 		human_owner.drunkenness *= 0.997 //reduce drunkenness by 0.3% per tick, 6% per 2 seconds
 	if(prob(20))

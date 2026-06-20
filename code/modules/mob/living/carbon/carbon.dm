@@ -234,14 +234,16 @@
 	set name = "Sleep"
 	set category = "IC"
 
-	if(species.species_flags & ROBOTIC_LIMBS)
+/*	if(species.species_flags & ROBOTIC_LIMBS)
 		to_chat(src, span_warning("Your artificial body does not require sleep."))
-		return
+		return*/// This whole thing prevents xenos from sleeping, I cant guess why, but robots don't get nothing from sleeping anyway
 	if(IsSleeping())
-		to_chat(src, span_warning("You are already sleeping"))
-		return
-	if(tgui_alert(src, "You sure you want to sleep for a while?", "Sleep", list("Yes","No")) == "Yes")
-		SetSleeping(40 SECONDS) //Short nap
+		if(alert(src, "Would you like to wake up soon? (You'll wake up after sleeping a little more, be patient and don't spam the button!)", "Wake Up", "Yes", "No") == "Yes")
+			SetSleeping(400)
+			to_chat(src, span_notice("You start to wake up."))
+	else
+		if(alert(src, "Are you sure you want to sleep for a long time? (You can wake up by pressing this button again)", "Sleep", "Yes", "No") == "Yes")
+			SetSleeping(18000)	//puts you to sleep for 30 minutes, better than never waking up in case my code sucks badly.
 
 /mob/living/carbon/Bump(atom/movable/AM)
 	if(now_pushing)
