@@ -33,6 +33,13 @@
 	burn_heal = 1.2
 	blood_gain = 0.4
 
+/datum/reagent/consumable/milk/human
+	name = "Human Milk"
+	description = "An opaque white liquid from the mammary glands of a human being."
+	color = "#ebebeb"
+	taste_description = "warm milk"
+	reagent_ui_priority =  REAGENT_UI_MUNDANE
+
 /datum/reagent/consumable/nutriment/cum/xeno/resin
 	name = "Xenomorphic Resin"
 	description = "Strange xenomorph ejaculate thet numbs the victim, slowing them and also it's extremely hard to clean from orifices due how sticky it is."
@@ -66,6 +73,15 @@
 	color = "#dadada63"
 
 // Start of various cum research options, for squad sluts, or for med researchers
+
+/datum/chemical_reaction/milkresearch
+	results = null
+	required_reagents = list(/datum/reagent/consumable/milk/human = 30)
+	required_catalysts = list(/datum/reagent/medicine/lemoline = 5)
+
+/datum/chemical_reaction/milkresearch/on_reaction(datum/reagents/holder, created_volume)
+	var/location = get_turf(holder.get_holder())
+	new /obj/item/research_resource/humancum(location)
 
 /datum/chemical_reaction/girlresearch
 	results = null

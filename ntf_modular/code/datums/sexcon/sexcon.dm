@@ -263,7 +263,7 @@
 		log_combat(user, blame_mob, "was milked into a container ([logdetails(C)]) by")
 	user.visible_message(span_lovebold("[user] lactates into [C]!"))
 	if(ishuman(user))
-		C.reagents.add_reagent(/datum/reagent/consumable/milk, reagent_amount(blame_mob))
+		C.reagents.add_reagent(/datum/reagent/consumable/milk/human, reagent_amount(blame_mob))
 	else if(isxeno(user))
 		C.reagents.add_reagent(/datum/reagent/consumable/milk/xeno, reagent_amount(blame_mob))
 	handle_ejaculation_drain(blame_mob)
