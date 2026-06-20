@@ -181,15 +181,15 @@
 		if(toggled)
 			toggled = FALSE // requires flipping on again once repaired
 			empulse(loc, 2,4,6,8)
+		if(!(atom_flags & NODECONSTRUCT))
+			//spill your shit cause those are not replacable.
+			deconstruct()
 	if(health < initial(health))
 		desc = "[initial(desc)] [span_warning(" It is damaged and needs a welder for repairs!")]"
 	else
 		desc = initial(desc)
 
 	update_state()
-	if(!(atom_flags & NODECONSTRUCT))
-		//spill your shit cause those are not replacable.
-		deconstruct()
 
 // In any case that might warrant reevaluating working state
 /obj/machinery/telecomms/relay/preset/tower/proc/update_state()

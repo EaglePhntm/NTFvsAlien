@@ -1210,6 +1210,13 @@
 	template_width = 46
 	template_height = 46
 
+/datum/map_template/modular/end_of_round/ntf_arena
+	name = "CR Arena"
+	mappath = "_maps/modularmaps/EORG/arena_clash.dmm"
+	modular_id = "EORG"
+	template_width = 46
+	template_height = 46
+
 /datum/map_template/modular/factionbase/ntcgroundhq
 	name = "NTC ground hq"
 	mappath = "_maps/modularmaps/groundhq/ntcgroundhq.dmm"

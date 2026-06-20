@@ -1,4 +1,0 @@
-author: "githubuser4141"
-delete-after: True
-changes:
-  - rscadd: "Adds exosuit gear to req, tidies robovendor, disables DNA locks on small mechs"
