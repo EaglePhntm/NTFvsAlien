@@ -21,6 +21,7 @@
 
 	can_dna_lock = FALSE
 	drops_gear_on_death = TRUE
+	can_be_moved_in_maints = TRUE
 
 	enter_delay = 25
 	exit_delay = 25

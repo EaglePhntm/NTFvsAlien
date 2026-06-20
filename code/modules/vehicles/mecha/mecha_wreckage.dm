@@ -72,7 +72,7 @@
 	var/next_step = get_next_repair_step_text()
 	if(next_step)
 		. += span_notice("[next_step]")
-	if(crowbar_salvage)
+	if(length(crowbar_salvage))
 		.+= span_notice("It looks like you could probably salvage the equipment with a crowbar.")
 
 /obj/structure/mecha_wreckage/attackby(obj/item/I, mob/user)
