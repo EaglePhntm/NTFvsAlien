@@ -8,7 +8,7 @@
 	allow_diagonal_movement = FALSE
 	move_delay = 4
 	max_integrity = 400
-	soft_armor = list(MELEE = 50, BULLET = 35, LASER = 25, ENERGY = 30, BOMB = 10, BIO = 0, FIRE = 65, ACID = 100)
+	soft_armor = list(MELEE = 50, BULLET = 35, LASER = 25, ENERGY = 30, BOMB = 10, BIO = 0, FIRE = 60, ACID = 100)
 	force = 30
 	wreckage = /obj/structure/mecha_wreckage/ivan
 	step_energy_drain = 10
