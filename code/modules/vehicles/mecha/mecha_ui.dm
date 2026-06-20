@@ -187,7 +187,9 @@
 					construction_state = MECHA_SECURE_BOLTS
 					if(can_be_moved_in_maints) // NTF Edit: Allows mechs to be moved by hand in maints mode
 						move_resist = MOVE_FORCE_NORMAL
-					to_chat(usr, span_notice("The securing bolts are now exposed."))
+						to_chat(usr, span_notice("The securing bolts are now exposed, and the exosuit can be moved by hand."))
+					else
+						to_chat(usr, span_notice("The securing bolts are now exposed."))
 				else if(construction_state == MECHA_SECURE_BOLTS)
 					construction_state = MECHA_LOCKED
 					move_resist = initial(move_resist) // NTF Edit: Allows mechs to be moved by hand in maints mode

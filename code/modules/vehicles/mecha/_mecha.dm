@@ -242,8 +242,6 @@
 	var/dash_cooldown = 10 SECONDS
 	///determines if the mech does the footstep particles
 	var/no_footstep_particle = FALSE
-	///determines if the mech drops gear on death
-	var/drops_gear_on_death = FALSE // NTF EDIT
 	///can the mech be dragged in maintenance mode?
 	var/can_be_moved_in_maints = FALSE // NTF EDIT
 

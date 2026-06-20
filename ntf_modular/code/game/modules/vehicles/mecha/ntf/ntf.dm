@@ -20,7 +20,6 @@
 	internals_req_access = list()
 
 	can_dna_lock = FALSE
-	drops_gear_on_death = TRUE
 	can_be_moved_in_maints = TRUE
 
 	enter_delay = 25
