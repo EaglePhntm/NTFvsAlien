@@ -149,15 +149,29 @@
 	if(!owner.maxHealth)
 		return
 	var/health_ratio = owner.health / owner.maxHealth
-	var/healing = BASE_HEAL_RATE //set for a base of 0.25 healed per 2-second interval asleep in a bed with covers.
+	var/healing = (2 * BASE_HEAL_RATE) //set for a base of 0.25 healed per 2-second interval asleep in a bed with covers.
 	if((locate(/obj/structure/bed) in owner.loc))
-		healing += (2 * BASE_HEAL_RATE)
+		healing += (4 * BASE_HEAL_RATE)
 	else if((locate(/obj/structure/table) in owner.loc))
-		healing += BASE_HEAL_RATE
+		healing += (2 * BASE_HEAL_RATE)
 	if(locate(/obj/item/bedsheet) in owner.loc)
-		healing += BASE_HEAL_RATE
+		healing += (4 * BASE_HEAL_RATE)
 	if((locate(/obj/item/toy/plush) in owner.loc)) // plushie bonus in bed
-		healing += BASE_HEAL_RATE
+		healing += (4 * BASE_HEAL_RATE)
+	if((locate(/obj/alien/weeds/sticky) in owner.loc)) // Sticky weeds suck!
+		healing += (2 * BASE_HEAL_RATE)
+	if((locate(/obj/alien/weeds) in owner.loc)) // Alien weeds are comfy
+		healing += (4 * BASE_HEAL_RATE)
+	if((locate(/obj/alien/weeds/resting) in owner.loc)) // So comfortable!!
+		healing += (8 * BASE_HEAL_RATE)
+	if((locate(/obj/structure/bed/nest/advanced) in owner.loc)) // Can be comfortable?
+		healing += (2 * BASE_HEAL_RATE)
+	if((locate(/obj/structure/bed/nest/advanced/special) in owner.loc)) // Much much nicer
+		healing += (4 * BASE_HEAL_RATE)
+	if((locate(/obj/structure/bed/nest) in owner.loc)) // Nest that doesn't fuck you while you sleep
+		healing += (6 * BASE_HEAL_RATE)
+	if((locate(/obj/item/stack/req_jelly) in owner.loc)) // Helps you sleep a little better
+		healing += (2 * BASE_HEAL_RATE)
 	if(health_ratio > -0.5)
 		owner.adjustBruteLoss(healing)
 		owner.adjustFireLoss(healing)

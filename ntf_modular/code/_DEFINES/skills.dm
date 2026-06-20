@@ -38,10 +38,10 @@
 	construction = SKILL_CONSTRUCTION_METAL //build a cum shack
 	stamina = SKILL_STAMINA_TRAINED //fucking is hard work
 	sex = SKILL_SEX_EXPERT
+	engineer = SKILL_ENGINEER_METAL
 
 /datum/skills/slut/clf
 	name = "Cult Offering"
-	engineer = SKILL_ENGINEER_METAL
 
 /datum/skills/civilian/mo
 	sex = SKILL_SEX_MASTER //Master at work

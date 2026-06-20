@@ -260,7 +260,7 @@
 	if(!isturf(target.loc) || !ismovable(target))
 		return FALSE
 	. = TRUE
-	if(istype(target, /obj/structure/fulton_extraction_point))
+	if(istype(target, /obj/structure/fulton_extraction_point) || istype(target, /obj/item/supply_beacon))
 		if(linked_extraction_point && linked_extraction_point == target)
 			linked_extraction_point = null
 			balloon_alert(user, "Extraction point unlinked")

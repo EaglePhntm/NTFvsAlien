@@ -94,3 +94,23 @@
       to the KZ vendor (they have the attachment but no tanks)
   Nokia2Student:
   - rscadd: KZ Neural Machinery - Bugfixes & Improvements
+2026-06-20:
+  Colfer1:
+  - balance: early synths have late gen synth surgery skill
+  - qol: SOM researchers can now access their own fucking req console for doing research
+      tasks
+  - balance: rub their body and lick their body now heals
+  - balance: You can now process human cum, xeno milk, and xeno cum into research
+      samples with lemoline
+  Lewdissar:
+  - rscadd: KZ Combat Escort, slutty specialist role for the KZ mercenaries.
+  githubuser4141:
+  - rscadd: Adds ss13 mechs (durand, gygax, phazon, ivan, marauders, etc) to the regular
+      gameplay loop by making some mech wreckages repairable with tools and plasteel.
+      Also, adds small mech (exosuit) weapons to the robotics vendors so they don't
+      run out of ammo. Adds overpenetration mechanics to exosuits so the occupant(s)
+      can be hit with high penetration bullets.
+  - imageadd: New ss13 mech sprites
+  - imagedel: Old ss13 mech sprites
+  - rscadd: Adds exosuit gear to req, tidies robovendor, disables DNA locks on small
+      mechs

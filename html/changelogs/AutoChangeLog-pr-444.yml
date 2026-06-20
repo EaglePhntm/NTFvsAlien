@@ -1,6 +1,0 @@
-author: "githubuser4141"
-delete-after: True
-changes:
-  - rscadd: "Adds ss13 mechs (durand, gygax, phazon, ivan, marauders, etc) to the regular gameplay loop by making some mech wreckages repairable with tools and plasteel. Also, adds small mech (exosuit) weapons to the robotics vendors so they don't run out of ammo. Adds overpenetration mechanics to exosuits so the occupant(s) can be hit with high penetration bullets."
-  - imageadd: "New ss13 mech sprites"
-  - imagedel: "Old ss13 mech sprites"
