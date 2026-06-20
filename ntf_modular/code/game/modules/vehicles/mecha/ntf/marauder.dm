@@ -12,6 +12,7 @@
 	force = 30
 	bumpsmash = FALSE
 	cockpit_armor = COCKPIT_HEAVY
+	step_energy_drain = POWER_USAGE_HEAVY
 
 	equip_by_category = list(
 		MECHA_L_ARM = null,

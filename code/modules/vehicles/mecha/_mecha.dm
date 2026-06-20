@@ -242,6 +242,10 @@
 	var/dash_cooldown = 10 SECONDS
 	///determines if the mech does the footstep particles
 	var/no_footstep_particle = FALSE
+	///determines if the mech drops gear on death
+	var/drops_gear_on_death = FALSE // NTF EDIT
+	///can the mech be dragged in maintenance mode?
+	var/can_be_moved_in_maints = FALSE // NTF EDIT
 
 /obj/item/radio/mech //this has to go somewhere
 	subspace_transmission = TRUE
@@ -348,9 +352,9 @@
 	if(wreckage)
 		var/obj/structure/mecha_wreckage/WR = new wreckage(loc, unlucky_ais)
 		for(var/obj/item/mecha_parts/mecha_equipment/E in flat_equipment)
-			if(E.detachable && prob(30))
+			if(E.detachable)
 				WR.crowbar_salvage += E
-				E.detach(WR) //detaches from src into WR
+				E.detach(WR)  // NTF EDIT, forces equipment into wrecks
 				E.activated = TRUE
 			else
 				E.detach(loc)

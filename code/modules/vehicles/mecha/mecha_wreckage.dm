@@ -72,6 +72,8 @@
 	var/next_step = get_next_repair_step_text()
 	if(next_step)
 		. += span_notice("[next_step]")
+	if(crowbar_salvage)
+		.+= span_notice("It looks like you could probably salvage the equipment with a crowbar.")
 
 /obj/structure/mecha_wreckage/attackby(obj/item/I, mob/user)
 	if(!is_repairable || repair_stage != REPAIR_STAGE3)
@@ -208,14 +210,6 @@
 /obj/structure/mecha_wreckage/gygax
 	name = "\improper Gygax wreckage"
 	icon_state = "gygax-broken"
-	parts = list(
-		/obj/item/mecha_parts/part/gygax_torso,
-		/obj/item/mecha_parts/part/gygax_head,
-		/obj/item/mecha_parts/part/gygax_left_arm,
-		/obj/item/mecha_parts/part/gygax_right_arm,
-		/obj/item/mecha_parts/part/gygax_left_leg,
-		/obj/item/mecha_parts/part/gygax_right_leg,
-	)
 	original_mech = /obj/vehicle/sealed/mecha/ntf/gygax
 
 /obj/structure/mecha_wreckage/gygax/dark
@@ -274,13 +268,6 @@
 /obj/structure/mecha_wreckage/clarke
 	name = "\improper Clarke wreckage"
 	icon_state = "clarke-broken"
-	parts = list(
-		/obj/item/mecha_parts/part/clarke_torso,
-		/obj/item/mecha_parts/part/clarke_head,
-		/obj/item/mecha_parts/part/clarke_left_arm,
-		/obj/item/mecha_parts/part/clarke_right_arm,
-		/obj/item/stack/conveyor,
-	)
 	original_mech = /obj/vehicle/sealed/mecha/ntf/clarke
 
 /obj/structure/mecha_wreckage/ripley/deathripley
@@ -293,40 +280,16 @@
 	name = "\improper H.O.N.K wreckage"
 	icon_state = "honker-broken"
 	desc = "All is right in the universe."
-	parts = list(
-		/obj/item/mecha_parts/part/honker_torso,
-		/obj/item/mecha_parts/part/honker_head,
-		/obj/item/mecha_parts/part/honker_left_arm,
-		/obj/item/mecha_parts/part/honker_right_arm,
-		/obj/item/mecha_parts/part/honker_left_leg,
-		/obj/item/mecha_parts/part/honker_right_leg,
-	)
 	original_mech = /obj/vehicle/sealed/mecha/ntf/honker
 
 /obj/structure/mecha_wreckage/durand
 	name = "\improper Durand wreckage"
 	icon_state = "durand-broken"
-	parts = list(
-		/obj/item/mecha_parts/part/durand_torso,
-		/obj/item/mecha_parts/part/durand_head,
-		/obj/item/mecha_parts/part/durand_left_arm,
-		/obj/item/mecha_parts/part/durand_right_arm,
-		/obj/item/mecha_parts/part/durand_left_leg,
-		/obj/item/mecha_parts/part/durand_right_leg,
-	)
 	original_mech = /obj/vehicle/sealed/mecha/ntf/durand
 
 /obj/structure/mecha_wreckage/phazon
 	name = "\improper Phazon wreckage"
 	icon_state = "phazon-broken"
-	parts = list(
-		/obj/item/mecha_parts/part/phazon_torso,
-		/obj/item/mecha_parts/part/phazon_head,
-		/obj/item/mecha_parts/part/phazon_left_arm,
-		/obj/item/mecha_parts/part/phazon_right_arm,
-		/obj/item/mecha_parts/part/phazon_left_leg,
-		/obj/item/mecha_parts/part/phazon_right_leg,
-	)
 	original_mech = /obj/vehicle/sealed/mecha/ntf/phazon
 
 /obj/structure/mecha_wreckage/savannah_ivanov

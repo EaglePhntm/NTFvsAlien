@@ -16,6 +16,7 @@
 	exit_delay = 20
 	max_occupants = 2
 	pivot_step = TRUE
+	step_energy_drain = POWER_USAGE_EFFICIENT
 	/// Custom Clarke step and turning sounds (from NTC)
 	stepsound = 'ntf_modular/sound/effects/engine.ogg'
 	turnsound = 'sound/mecha/powerloader_turn2.ogg'

@@ -12,5 +12,4 @@
 	max_temperature = 25000
 	force = 30
 	wreckage = /obj/structure/mecha_wreckage/durand
-	step_energy_drain = 10
 	cockpit_armor = COCKPIT_TOUGHENED

@@ -11,7 +11,7 @@
 	soft_armor = list(MELEE = 25, BULLET = 5, LASER = 10, ENERGY = 10, BOMB = 0, BIO = 0, FIRE = 25, ACID = 100)
 	force = 10
 	wreckage = /obj/structure/mecha_wreckage/honker
-	step_energy_drain = 10
+	step_energy_drain = POWER_USAGE_EFFICIENT
 	cockpit_armor = COCKPIT_LIGHT
 	stepsound = 'sound/items/bikehorn.ogg'
 	turnsound = 'sound/items/bikehorn.ogg'

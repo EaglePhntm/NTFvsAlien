@@ -12,7 +12,7 @@
 		MECHA_POWER = 1,
 		MECHA_ARMOR = 0,
 	)
-	step_energy_drain = 10
+	step_energy_drain = POWER_USAGE_STANDARD
 
 	facing_modifiers = list(VEHICLE_FRONT_ARMOUR = 0.75, VEHICLE_SIDE_ARMOUR = 1, VEHICLE_BACK_ARMOUR = 1.25)
 
@@ -20,6 +20,7 @@
 	internals_req_access = list()
 
 	can_dna_lock = FALSE
+	drops_gear_on_death = TRUE
 
 	enter_delay = 25
 	exit_delay = 25

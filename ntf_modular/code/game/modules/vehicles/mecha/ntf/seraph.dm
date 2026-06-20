@@ -8,3 +8,4 @@
 	soft_armor = list(MELEE = 70, BULLET = 60, LASER = 50, ENERGY = 30, BOMB = 50, BIO = 0, FIRE = 95, ACID = 100)
 	max_integrity = 550
 	wreckage = /obj/structure/mecha_wreckage/seraph
+	step_energy_drain = POWER_USAGE_STANDARD

@@ -13,7 +13,7 @@
 	leg_overload_coeff = 30
 	force = 20
 	wreckage = /obj/structure/mecha_wreckage/gygax
-	step_energy_drain = 6
+	step_energy_drain = POWER_USAGE_STANDARD
 	cockpit_armor = COCKPIT_ARMORED
 
 /obj/vehicle/sealed/mecha/ntf/gygax/generate_actions()
