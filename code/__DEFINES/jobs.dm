@@ -99,6 +99,7 @@
 #define ICC_GUARD "CM Guardsman"
 #define ICC_MEDIC "CM Medic"
 #define ICC_SQUAD_LEADER "CM Squad Leader"
+#define ICC_FIELD_COMMANDER "CM Militia Captain"
 
 //SOM
 #define SOM_COMMANDER "SOM Commander"
