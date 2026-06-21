@@ -883,11 +883,48 @@
 /obj/item/weapon/gun/rifle/m16/freelancer
 	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/attachable/bayonet/converted, /obj/item/weapon/gun/shotgun/combat/masterkey)
 
+/obj/item/weapon/gun/rifle/m16/cmsl
+	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/compensator, /obj/item/weapon/gun/shotgun/combat/masterkey)
+
 /obj/item/weapon/gun/rifle/m16/ugl
 	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/attachable/bayonet/converted, /obj/item/weapon/gun/grenade_launcher/underslung)
 
 /obj/item/weapon/gun/rifle/m16/spec_op
 	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/attachable/suppressor, /obj/item/weapon/gun/shotgun/combat/masterkey)
+
+/obj/item/weapon/gun/rifle/m16/extinguisher
+	attachable_allowed = list(
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet/converted,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonet/som,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/angledgrip,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/foldable/bipod,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/motiondetector,
+		/obj/item/attachable/m16sight,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/mini,
+		/obj/item/weapon/gun/pistol/plasma_pistol,
+		/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/pistol/g22/tranq,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/attachable/buildasentry,
+		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
+		/obj/item/attachable/shoulder_mount,
+		/obj/item/weapon/gun/flamer/hydro_cannon,
+	)
+	default_ammo_type = /obj/item/ammo_magazine/rifle/m16_quadstack
+	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/attachable/compensator, /obj/item/weapon/gun/flamer/hydro_cannon)
 
 //-------------------------------------------------------
 //FAMAS rifle, based on the F1
@@ -950,6 +987,13 @@
 
 /obj/item/weapon/gun/rifle/famas/freelancermedic
 	starting_attachment_types = list(/obj/item/attachable/lasersight, /obj/item/attachable/magnetic_harness, /obj/item/attachable/bayonet/converted)
+
+/obj/item/weapon/gun/rifle/famas/iccmedic
+	starting_attachment_types = list(/obj/item/attachable/gyro, /obj/item/attachable/magnetic_harness, /obj/item/attachable/compensator)
+
+/obj/item/weapon/gun/rifle/famas/iccsquadlead
+	default_ammo_type = /obj/item/ammo_magazine/rifle/famasext
+	starting_attachment_types = list(/obj/item/attachable/gyro, /obj/item/attachable/motiondetector, /obj/item/attachable/compensator)
 
 //-------------------------------------------------------
 //MG-42 Light Machine Gun
@@ -2708,6 +2752,9 @@
 	scatter = 0
 	movement_acc_penalty_mult = 5
 
+/obj/item/weapon/gun/rifle/icc_sharpshooter/standard
+	starting_attachment_types = list(/obj/item/attachable/stock/icc_sharpshooter, /obj/item/attachable/scope/marine, /obj/item/attachable/angledgrip, /obj/item/attachable/heavy_barrel)
+
 /obj/item/weapon/gun/rifle/icc_sharpshooter/medic
 	starting_attachment_types = list(/obj/item/attachable/stock/icc_sharpshooter, /obj/item/attachable/reddot, /obj/item/attachable/verticalgrip, /obj/item/attachable/heavy_barrel)
 
@@ -2998,6 +3045,9 @@
 	aim_slowdown = 0.2
 	scatter = 1
 	movement_acc_penalty_mult = 3
+
+/obj/item/weapon/gun/rifle/icc_assaultcarbinecm
+	starting_attachment_types = list(/obj/item/attachable/gyro, /obj/item/attachable/compensator, /obj/item/attachable/magnetic_harness)
 
 /obj/item/weapon/gun/rifle/icc_assaultcarbine/export
 	name = "\improper L&S EM-88 assault carbine"
