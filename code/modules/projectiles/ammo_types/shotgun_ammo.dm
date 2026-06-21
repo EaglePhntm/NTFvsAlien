@@ -235,16 +235,16 @@
 	handful_icon_state = "heavy_shotgun_barrikada"
 	hud_state = "shotgun_slug"
 	ammo_behavior_flags = AMMO_BALLISTIC
-	shell_speed = 3
-	max_range = 13
-	damage = 150
-	penetration = 50
-	sundering = 15
-	damage_falloff = 1.5
+	shell_speed = 4
+	max_range = 12
+	damage = 120
+	penetration = 30
+	sundering = 50
+	damage_falloff = 5
 	var/vehicle_stun_duration = 1.5 SECONDS
 
 /datum/ammo/bullet/shotgun/barrikada/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
-	staggerstun(target_mob, proj, slowdown = 2, stagger = 3 SECONDS, knockback = 2)
+	staggerstun(target_mob, proj, slowdown = 2, stagger = 3 SECONDS, knockback = 4)
 
 //already pretty high damage not gonna lie so adding ap and stagger to vehicles
 /datum/ammo/bullet/shotgun/barrikada_slug/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
@@ -280,7 +280,7 @@
 	accuracy_variation = 8
 	max_range = 10
 	damage = 75
-	penetration = 30
+	penetration = 20
 	sundering = 25
 
 /datum/ammo/bullet/shotgun/flechette/heavy_flechette_spread
