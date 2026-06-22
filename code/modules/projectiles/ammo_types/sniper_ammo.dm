@@ -2,7 +2,45 @@
 /*
 //================================================
 					Sniper Ammo
-//========================w
+//================================================
+*/
+
+/datum/ammo/bullet/sniper
+	name = "sniper bullet"
+	icon_state = "bullet_large"
+	hud_state = "sniper"
+	hud_state_empty = "sniper_empty"
+	damage_falloff = 0
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_BETTER_COVER_RNG|AMMO_SNIPER
+	accurate_range_min = 7
+	shell_speed = 4.5
+	accurate_range = 30
+	max_range = 50
+	damage = 90
+	penetration = 50
+	sundering = 15
+
+/datum/ammo/bullet/sniper/incendiary
+	name = "incendiary sniper bullet"
+	hud_state = "sniper_fire"
+	accuracy = 0
+	damage_type = BURN
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY|AMMO_BETTER_COVER_RNG|AMMO_SNIPER
+	accuracy_variation = 7
+	damage = 70
+	penetration = 30
+	sundering = 5
+
+/datum/ammo/bullet/sniper/flak
+	name = "flak sniper bullet"
+	hud_state = "sniper_flak"
+	damage = 90
+	penetration = 0
+	sundering = 30
+
+/datum/ammo/bullet/sniper/flak/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
+	airburst(target_mob, proj, 45)
+
 /datum/ammo/bullet/sniper/svd
 	name = "crude sniper bullet"
 	handful_icon_state = "crude_sniper"
