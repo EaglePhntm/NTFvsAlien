@@ -49,7 +49,15 @@ type LogEntry = {
   changes: SkillChange[];
 };
 
-const DamageTile = ({ label, value, color }: { label: string; value: number; color: string }) => (
+const DamageTile = ({
+  label,
+  value,
+  color,
+}: {
+  label: string;
+  value: number;
+  color: string;
+}) => (
   <Box
     width="92px"
     textAlign="center"
@@ -61,7 +69,13 @@ const DamageTile = ({ label, value, color }: { label: string; value: number; col
       boxShadow: `0 0 6px ${color}44`,
     }}
   >
-    <Box bold color={color} fontSize="11px" mb={0.5} style={{ textTransform: 'uppercase' }}>
+    <Box
+      bold
+      color={color}
+      fontSize="11px"
+      mb={0.5}
+      style={{ textTransform: 'uppercase' }}
+    >
       {label}
     </Box>
     <Box fontSize="28px" fontWeight={700} color={color}>
@@ -75,7 +89,7 @@ const SkillBar = ({ skill }: { skill: Skill }) => {
     return name
       .replace(/_/g, ' ')
       .split(' ')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ');
   };
 
@@ -91,14 +105,25 @@ const SkillBar = ({ skill }: { skill: Skill }) => {
     >
       <Stack align="center">
         <Stack.Item grow>
-          <Box bold color="#ffffff" fontSize="14px" style={{ textTransform: 'uppercase' }}>
+          <Box
+            bold
+            color="#ffffff"
+            fontSize="14px"
+            style={{ textTransform: 'uppercase' }}
+          >
             {formatSkillName(skill.name)}
           </Box>
         </Stack.Item>
         <Stack.Item>
           <ProgressBar
             value={skill.current / 5}
-            color={skill.current > skill.base ? 'good' : skill.current < skill.base ? 'bad' : 'average'}
+            color={
+              skill.current > skill.base
+                ? 'good'
+                : skill.current < skill.base
+                  ? 'bad'
+                  : 'average'
+            }
             width="170px"
           >
             {skill.current}
@@ -117,14 +142,18 @@ export const NeuralStationConsole = () => {
       <Window width={820} height={760} theme="kaizoku">
         <Window.Content>
           <NoticeBox color="orange" textAlign="center" fontSize="18px" bold>
-            <Box as="span" color="#ffffff">No neural subject detected</Box>
+            <Box as="span" color="#ffffff">
+              No neural subject detected
+            </Box>
           </NoticeBox>
         </Window.Content>
       </Window>
     );
   }
 
-  const sortedSkills = [...(data.skills || [])].sort((a, b) => b.current - a.current);
+  const sortedSkills = [...(data.skills || [])].sort(
+    (a, b) => b.current - a.current,
+  );
 
   return (
     <Window width={820} height={760} theme="kaizoku">
@@ -138,7 +167,9 @@ export const NeuralStationConsole = () => {
           }
         >
           <NoticeBox color="orange">
-            <Box as="span" bold color="#ffffff">Subject: {data.target_name}</Box>
+            <Box as="span" bold color="#ffffff">
+              Subject: {data.target_name}
+            </Box>
           </NoticeBox>
         </Section>
 
@@ -158,11 +189,17 @@ export const NeuralStationConsole = () => {
             </LabeledList.Item>
 
             <LabeledList.Item label="NS-92 Neurodisk">
-              {data.has_disk
-                ? data.disk_has_data
-                  ? <Box color="#d4af37" bold>Encoded — {data.disk_name}</Box>
-                  : <Box color="#888">Inserted (Empty)</Box>
-                : <Box color="#888">Not Inserted</Box>}
+              {data.has_disk ? (
+                data.disk_has_data ? (
+                  <Box color="#d4af37" bold>
+                    Encoded — {data.disk_name}
+                  </Box>
+                ) : (
+                  <Box color="#888">Inserted (Empty)</Box>
+                )
+              ) : (
+                <Box color="#888">Not Inserted</Box>
+              )}
             </LabeledList.Item>
           </LabeledList>
         </Section>
@@ -260,7 +297,9 @@ export const NeuralStationConsole = () => {
                         {' → '}
                         <Box
                           as="span"
-                          color={skillChange.direction === 'up' ? 'green' : 'red'}
+                          color={
+                            skillChange.direction === 'up' ? 'green' : 'red'
+                          }
                           bold
                         >
                           {skillChange.to}

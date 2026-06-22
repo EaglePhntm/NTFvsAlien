@@ -27,8 +27,10 @@
 	for(var/obj/structure/droppod/nonmob/droppod AS in GLOB.droppod_list)
 		if(droppod.type != pod_type)
 			continue
+		/* ntf - we spawn turrets after landing now
 		if(!droppod.stored_object)
 			continue
+		*/
 		if(!droppod.set_target(target_turf.x, target_turf.y))
 			return
 		droppod.start_launch_pod()

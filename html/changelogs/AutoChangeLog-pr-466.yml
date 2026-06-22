@@ -1,0 +1,4 @@
+author: "Colfer1"
+delete-after: True
+changes:
+  - balance: "Combat robots no longer bleedout, their healing options have returned to normal, ask someone to repair you or be ready to wait a little bit"

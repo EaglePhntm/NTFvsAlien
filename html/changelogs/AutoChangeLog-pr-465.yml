@@ -1,0 +1,9 @@
+author: "Nokia2Student"
+delete-after: True
+changes:
+  - balance: "6 gauge values lowered across the board"
+  - balance: "Increased 6 gauge ammo amount in vendors"
+  - balance: "Removed stun from shotguns and revolvers, putting those guns focus on stagger and slowdown instead"
+  - balance: "Being staggered now increases your scatter by 10 (previously 5)"
+  - balance: "Being staggered now decreases your accuracy by 10 (previously 0)"
+  - balance: "You can't add attachments to ML101 anymore"

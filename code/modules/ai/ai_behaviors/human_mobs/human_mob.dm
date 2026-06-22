@@ -171,6 +171,12 @@
 		return TRUE
 	if(mob_parent.pulledby?.faction == mob_parent.faction)
 		return TRUE //lets players wrangle NPC's
+	if(HAS_TRAIT(mob_parent, TRAIT_STASIS)) //ntf addition
+		return TRUE
+	if(ishuman(mob_parent))
+		var/mob/living/carbon/human/mob_human = mob_parent
+		if(mob_human.devouring_mob) //ntf addition
+			return TRUE
 	return FALSE
 
 /datum/ai_behavior/human/scheduled_move()

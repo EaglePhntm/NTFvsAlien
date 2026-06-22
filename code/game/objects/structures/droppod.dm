@@ -49,6 +49,7 @@ GLOBAL_DATUM(droppod_reservation, /datum/turf_reservation/transit/droppod)
 	var/respawns = FALSE
 	///was this pod intercepted and damaged
 	var/explosive_entry = FALSE
+	var/launchable_empty = FALSE
 
 /obj/structure/droppod/Initialize(mapload)
 	. = ..()
@@ -212,7 +213,7 @@ GLOBAL_DATUM(droppod_reservation, /datum/turf_reservation/transit/droppod)
 
 ///attempts to launch the drop pod at it's currently set coordinates. commanded_drop is TRUE when the drop is being requested by a command drop pod
 /obj/structure/droppod/proc/start_launch_pod(mob/user, commanded_drop = FALSE)
-	if(!(LAZYLEN(buckled_mobs) || LAZYLEN(contents)))
+	if(!(LAZYLEN(buckled_mobs) || LAZYLEN(contents)) && !launchable_empty)
 		return
 	if((SSticker?.mode?.round_type_flags & MODE_ALAMO_ONLY) && !(SSmapping.level_trait(z, ZTRAIT_ANTAG_MAIN_SHIP)))
 		to_chat(user, span_warning("Drop pods are not usable in this operation."))
@@ -544,15 +545,13 @@ GLOBAL_DATUM(droppod_reservation, /datum/turf_reservation/transit/droppod)
 	desc = "A menacing metal hunk of steel that is used by the NTC for quick tactical redeployment. This one carries a self deploying sentry system."
 	icon_state = "sentrypod"
 	light_color = LIGHT_COLOR_EMISSIVE_RED
-
-/obj/structure/droppod/nonmob/turret_pod/Initialize(mapload)
-	. = ..()
-	new /obj/item/weapon/gun/sentry/pod_sentry(src)
-	if(!LAZYLEN(contents))
-		CRASH("Sentry pod spawned without a sentry!")
-	load_package(contents[1])
+	launchable_empty = TRUE
 
 /obj/structure/droppod/nonmob/turret_pod/completedrop(mob/user)
+	new /obj/item/weapon/gun/sentry/pod_sentry(src)
+	if(!LAZYLEN(contents))
+		CRASH("Sentry pod landed without a sentry!")
+	load_package(contents[1])
 	. = ..()
 	qdel(src)
 
