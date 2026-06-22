@@ -27,7 +27,7 @@
 	icon_state = "dead_robot"
 
 /atom/movable/screen/fullscreen/flash/noise/nvg_weak
-	alpha = 27.5
+	alpha = 25
 
 /atom/movable/screen/fullscreen/flash/noise/nvg
 	alpha = 50

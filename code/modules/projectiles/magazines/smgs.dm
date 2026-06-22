@@ -259,7 +259,7 @@
 	caliber = CALIBER_46X30
 	icon_state = "l40"
 	icon_state_mini = "mag_smg_dark"
-	default_ammo = /datum/ammo/bullet/smg/ap/hv
+	default_ammo = /datum/ammo/bullet/smg/ap
 	max_rounds = 45
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -268,8 +268,8 @@
 
 /obj/item/ammo_magazine/smg/vsd_pdw
 	name = "\improper C17 drum mag (.45 ACP)"
-	desc = "An Armor-Piercing .45 ACP caseless submachinegun magazine."
-	default_ammo = /datum/ammo/bullet/smg/ap/hv
+	desc = "A .45 ACP caseless submachinegun magazine."
+	default_ammo = /datum/ammo/bullet/smg
 	caliber = CALIBER_45ACP
 	icon_state = "ppsh_ext"
 	max_rounds = 55

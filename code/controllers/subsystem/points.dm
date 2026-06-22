@@ -230,7 +230,7 @@ SUBSYSTEM_DEF(points)
 		stack_trace("adding [faction] to supply_points via add_supply_points without new_faction set")
 		message_admins("added new faction \"[faction]\" to supply points list.  This is okay if you meant to do that but might be a bug.  This faction will now be eligible to recive points from supply point increase events.")
 	var/startingsupplypoints = supply_points[faction]
-	if(startingsupplypoints > HUMAN_FACTION_ABSOLUTE_MAX_POINTS)
+	if(startingsupplypoints >= HUMAN_FACTION_ABSOLUTE_MAX_POINTS)
 		return
 	var/simplenewamount1 = startingsupplypoints + amount
 	var/countoverflowfrom = max(HUMAN_FACTION_MAX_POINTS, startingsupplypoints)
@@ -255,7 +255,7 @@ SUBSYSTEM_DEF(points)
 		stack_trace("adding [faction] to dropship_points via add_dropship_points without new_faction set")
 		message_admins("added new faction \"[faction]\" to dropship points list.  This is okay if you meant to do that but might be a bug.")
 	var/startingdropshippoints = dropship_points[faction]
-	if(startingdropshippoints > HUMAN_FACTION_ABSOLUTE_MAX_DROPSHIP_POINTS)
+	if(startingdropshippoints >= HUMAN_FACTION_ABSOLUTE_MAX_DROPSHIP_POINTS)
 		return
 	var/simplenewamount1 = startingdropshippoints + amount
 	var/countoverflowfrom = max(HUMAN_FACTION_MAX_DROPSHIP_POINTS, startingdropshippoints)

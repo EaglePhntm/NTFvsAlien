@@ -483,7 +483,7 @@
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_LEAVE_TURF
 	shell_speed = 2.5
 	max_range = 8
-	damage = 40
+	damage = 30
 	penetration = 0
 	sundering = 0
 	shrapnel_chance = 0
@@ -512,7 +512,8 @@
 	bonus_projectiles_type = /datum/ammo/bullet/shotgun/sh410_buckshot/spread
 	bonus_projectiles_amount = 4
 	bonus_projectiles_scatter = 5
-	accuracy_variation = 10
+	accuracy = -4
+	accuracy_variation = 12
 	max_range = 10
 	damage = 20
 	damage_falloff = 0.5

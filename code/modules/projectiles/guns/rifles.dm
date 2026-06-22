@@ -3523,12 +3523,12 @@
 	gun_skill_category = SKILL_SHOTGUNS
 	fire_delay = 0.6 SECONDS
 	burst_amount = 3
-	burst_scatter_mult = 2
+	burst_scatter_mult = 2.2
 	burst_delay = 0.3 SECONDS
 	extra_delay = 1.3 SECONDS
 	accuracy_mult = 1
-	scatter = 2
-	burst_scatter_mult = 2
+	scatter = 3
+	damage_mult = 0.85
 	damage_falloff_mult = 1
 
 //-------------------------------------------------------
