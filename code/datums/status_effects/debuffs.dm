@@ -191,7 +191,7 @@
 	id = "repairing"
 	tick_interval = 1 SECONDS
 	///How much brute or burn per second
-	var/healing_per_tick = 8 //Robots can now bleedout
+	var/healing_per_tick = 4
 	///Whether the last tick made a sound effect or not
 	var/last_sound
 
