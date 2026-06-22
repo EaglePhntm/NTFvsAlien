@@ -66,9 +66,15 @@ export const Smes = (props) => {
             }}
           />
           <LabeledList>
-            <LabeledList.Item label="Charge"
-            >
-              {formatPower(charge/3600).replace("W", "Wh") + " / " + formatPower(maxCharge/3600).replace("W", "Wh") + " (" + formatPower(charge).replace("W", "J") + " / " + formatPower(maxCharge).replace("W", "J") + ")"}
+            <LabeledList.Item label="Charge">
+              {formatPower(charge / 3600).replace('W', 'Wh') +
+                ' / ' +
+                formatPower(maxCharge / 3600).replace('W', 'Wh') +
+                ' (' +
+                formatPower(charge).replace('W', 'J') +
+                ' / ' +
+                formatPower(maxCharge).replace('W', 'J') +
+                ')'}
             </LabeledList.Item>
           </LabeledList>
         </Section>
@@ -122,7 +128,15 @@ export const Smes = (props) => {
                     maxValue={inputLevelMax / POWER_MUL}
                     step={5}
                     stepPixelSize={4}
-                    format={(value) => (formatPower(value*POWER_MUL, 1) + " (" + (formatPower(value*POWER_MUL*3600, 1).replace("W", "J/h")) + ")")}
+                    format={(value) =>
+                      formatPower(value * POWER_MUL, 1) +
+                      ' (' +
+                      formatPower(value * POWER_MUL * 3600, 1).replace(
+                        'W',
+                        'J/h',
+                      ) +
+                      ')'
+                    }
                     onChange={(e, value) =>
                       act('input', {
                         target: value * POWER_MUL,
@@ -153,7 +167,10 @@ export const Smes = (props) => {
               </Flex>
             </LabeledList.Item>
             <LabeledList.Item label="Available">
-              {formatPower(inputAvailable) + " (" + (formatPower(inputAvailable*3600).replace("W", "J/h")) + ")"}
+              {formatPower(inputAvailable) +
+                ' (' +
+                formatPower(inputAvailable * 3600).replace('W', 'J/h') +
+                ')'}
             </LabeledList.Item>
           </LabeledList>
         </Section>
@@ -208,7 +225,15 @@ export const Smes = (props) => {
                     maxValue={outputLevelMax / POWER_MUL}
                     step={5}
                     stepPixelSize={4}
-                    format={(value) => (formatPower(value*POWER_MUL, 1) + " (" + (formatPower(value*POWER_MUL*3600, 1).replace("W", "J/h"))+")")}
+                    format={(value) =>
+                      formatPower(value * POWER_MUL, 1) +
+                      ' (' +
+                      formatPower(value * POWER_MUL * 3600, 1).replace(
+                        'W',
+                        'J/h',
+                      ) +
+                      ')'
+                    }
                     onChange={(e, value) =>
                       act('output', {
                         target: value * POWER_MUL,
@@ -239,7 +264,10 @@ export const Smes = (props) => {
               </Flex>
             </LabeledList.Item>
             <LabeledList.Item label="Outputting">
-              {(formatPower(outputUsed, 1) + " (" + (formatPower(outputUsed*3600, 1).replace("W", "J/h"))+")")}
+              {formatPower(outputUsed, 1) +
+                ' (' +
+                formatPower(outputUsed * 3600, 1).replace('W', 'J/h') +
+                ')'}
             </LabeledList.Item>
           </LabeledList>
         </Section>
