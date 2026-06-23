@@ -346,6 +346,7 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 		"CM Medic",
 		"CM Guardsman",
 		"CM Squad Leader",
+		"CM Militia Captain",
 	)
 
 
