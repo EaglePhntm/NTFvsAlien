@@ -51,6 +51,11 @@ ENGINEERING
 	contains = list(/obj/item/tool/pickaxe/plasmacutter/)
 	cost = 300
 
+/datum/supply_packs/engineering/handcrank
+	name = "Hand held charger"
+	contains = list(/obj/item/tool/handheld_charger)
+	cost = 500
+
 /datum/supply_packs/engineering/quikdeploycade
 	name = "Quikdeploy barricade"
 	contains = list(/obj/item/quikdeploy/cade)

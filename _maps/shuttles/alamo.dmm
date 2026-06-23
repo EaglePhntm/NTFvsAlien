@@ -378,9 +378,6 @@
 	dir = 8
 	},
 /turf/open/shuttle/dropship/floor,
-/turf/open/shuttle/dropship/floor/out{
-	dir = 1
-	},
 /area/shuttle/dropship/alamo)
 "bJ" = (
 /turf/closed/shuttle/dropship1/wall,

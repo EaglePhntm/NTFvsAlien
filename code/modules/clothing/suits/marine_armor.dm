@@ -529,6 +529,81 @@
 		/obj/item/armor_module/module/mimir_environment_protection/mark1,
 	)
 
+/*=========================== Colonial Militia - toned down and nerfed freelancer armor for balance ================================*/
+
+/obj/item/clothing/suit/storage/marine/cmfreelancer
+	name = "\improper CM3 pattern cuirass"
+	desc = "An armored protective chestplate pieced together from various plates. It keeps up remarkably well, as the craftsmanship is solid, and the design mirrors such armors in the Freelancers and Ninetails. Most of the CM3 series support all storage modules but only have an attachment point for a baldur in exchange for protection."
+	icon = 'icons/obj/clothing/suits/ert_suits.dmi'
+	worn_icon_list = list(
+		slot_wear_suit_str = 'icons/mob/clothing/suits/ert_suits.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/items/items_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items/items_right.dmi',
+	)
+	icon_state = "freelancer_armor"
+	slowdown = SLOWDOWN_ARMOR_LIGHT
+	soft_armor = list(MELEE = 40, BULLET = 60, LASER = 60, ENERGY = 40, BOMB = 35, BIO = 35, FIRE = 35, ACID = 35)
+	armor_features_flags = ARMOR_LAMP_OVERLAY
+	item_map_variant_flags = NONE
+	attachments_by_slot = list(
+		ATTACHMENT_SLOT_STORAGE,
+		ATTACHMENT_SLOT_MODULE,
+	)
+	attachments_allowed = list(
+		/obj/item/armor_module/module/better_shoulder_lamp,
+		/obj/item/armor_module/armor/badge,
+		/obj/item/armor_module/storage/general,
+		/obj/item/armor_module/storage/medical,
+		/obj/item/armor_module/storage/ammo_mag,
+		/obj/item/armor_module/storage/engineering,
+		/obj/item/armor_module/storage/grenade,
+		/obj/item/armor_module/storage/injector,
+	)
+	starting_attachments = list(
+		/obj/item/armor_module/module/better_shoulder_lamp,
+		/obj/item/armor_module/storage/general,
+	)
+	
+/obj/item/clothing/suit/storage/marine/cmfreelancer/heavy
+	name = "\improper CM12 pattern cuirass"
+	desc = "Salvaged metal plates welded together on the CM3 armor for maximum survivability. Not many freelancer mercenaries enjoyed wearing this, but it found a place among Colonial Militia guardsmen as a suprisingly effective instrument in defenses and close quarters fights. Can only support a baldur module but can support storage modules."
+	icon_state = "freelancer_armor_heavy"
+	slowdown = SLOWDOWN_ARMOR_HEAVY
+	soft_armor = list(MELEE = 55, BULLET = 70, LASER = 70, ENERGY = 55, BOMB = 65, BIO = 50, FIRE = 50, ACID = 50)
+	attachments_allowed = list(
+		/obj/item/armor_module/module/better_shoulder_lamp,
+		/obj/item/armor_module/armor/badge,
+		/obj/item/armor_module/storage/general,
+		/obj/item/armor_module/storage/medical,
+		/obj/item/armor_module/storage/ammo_mag,
+		/obj/item/armor_module/storage/engineering,
+		/obj/item/armor_module/storage/grenade,
+		/obj/item/armor_module/storage/injector,
+	)
+	starting_attachments = list(
+		/obj/item/armor_module/module/better_shoulder_lamp,
+		/obj/item/armor_module/storage/general,
+	)
+	
+/obj/item/clothing/suit/storage/marine/cmfreelancer/pyro
+	name = "\improper CMB08 pattern pyro suit"
+	desc = "A repurposed firefighter suit combined with additional flame retardant materials reinforced with metal plates. All of this allows the user to safely walk through fire. A complete psycho would wear the original freelance version, cuts had to be made with the new CMB08."
+	icon_state = "freelancer_armor_pyro"
+	slowdown = SLOWDOWN_ARMOR_HEAVY
+	soft_armor = list(MELEE = 50, BULLET = 65, LASER = 65, ENERGY = 50, BOMB = 45, BIO = 45, FIRE = 100, ACID = 45)
+	attachments_allowed = list(
+		/obj/item/armor_module/armor/badge,
+		/obj/item/armor_module/storage/general,
+		/obj/item/armor_module/storage/medical,
+		/obj/item/armor_module/storage/ammo_mag,
+		/obj/item/armor_module/storage/engineering,
+		/obj/item/armor_module/storage/grenade,
+		/obj/item/armor_module/storage/injector,
+	)
+	starting_attachments = list(
+		/obj/item/armor_module/storage/general,
+	)
+
 /*===========================U.S.L================================*/
 
 /obj/item/clothing/suit/storage/faction

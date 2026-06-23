@@ -288,6 +288,9 @@
 	icon_state = "m240"
 	worn_icon_state = "m240"
 
+/obj/item/weapon/gun/flamer/big_flamer/cm
+	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/attachable/flamer_nozzle/wide,)
+
 /obj/item/weapon/gun/flamer/big_flamer/vsd
 	starting_attachment_types = list(/obj/item/attachable/motiondetector, /obj/item/attachable/flamer_nozzle/wide,)
 

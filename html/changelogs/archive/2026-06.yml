@@ -124,3 +124,32 @@
   - balance: lowered the armors and speeds of a few mechs, small mechs can be moved
       in maintenance mode now, and will move their equipement into their wreck with
       100% chance, removes random mech parts appearing from wrecks (it's useless..)
+2026-06-23:
+  CaputCapital:
+  - balance: reworked the CM weapons to where CM can't get a V-21 SMG nor a TX54 mag-fed
+      grenade launcher anymore, FL-240 & MP-IRL now limited to 1, six-cylinder grenade
+      launchers limited at 2, but the faction gets SMG-2, G22, Desert Eagle, infinite
+      sledgehammers and 2 PTRS anti-mech rifles to compensate
+  - rscadd: CM gets the CM3 armor (slightly nerfed freelancer armor) in their armory
+  - rscadd: weapon subvariants in respective categories
+  - rscadd: 'CM Militia Captain to #define'
+  - rscadd: CM iterations of freelance armor in code (CM3, CM12, CMB08) slightly nerfed/reworked
+      armor values trading off
+  - bugfix: fixed the L88 left sprite face as it was facing wrong
+  - bugfix: can't find a way to cap the handfuls of PTRS ammo to only 5 bullets, so
+      I sprited bullet piles up to 8 total instead
+  - balance: PTRS anti-mech rifle actually gets a scope now so it's made viable for
+      long range sieging/defending
+  - bugfix: CC67, L26 and C21 now have proper back sprites
+  Colfer1:
+  - balance: Combat robots no longer bleedout, their healing options have returned
+      to normal, ask someone to repair you or be ready to wait a little bit
+  - bugfix: synth survivors no longer have their radio explode on spawn
+  Nokia2Student:
+  - balance: 6 gauge values lowered across the board
+  - balance: Increased 6 gauge ammo amount in vendors
+  - balance: Removed stun from shotguns and revolvers, putting those guns focus on
+      stagger and slowdown instead
+  - balance: Being staggered now increases your scatter by 10 (previously 5)
+  - balance: Being staggered now decreases your accuracy by 10 (previously 0)
+  - balance: You can't add attachments to ML101 anymore

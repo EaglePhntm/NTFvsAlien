@@ -125,15 +125,13 @@ export const MESSAGE_TYPES = [
     type: MESSAGE_TYPE_ICANNOUNCE,
     name: 'IC Announcements',
     description: 'Command Reports and similar ic announcements',
-    selector:
-      '.icannounce',
+    selector: '.icannounce',
   },
   {
     type: MESSAGE_TYPE_VOTING,
     name: 'Voting',
     description: 'Messages related to votes',
-    selector:
-      '.voting',
+    selector: '.voting',
   },
   {
     type: MESSAGE_TYPE_UNKNOWN,

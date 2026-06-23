@@ -23,7 +23,7 @@
 
 /datum/ammo/bullet/shotgun/slug/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	if(ishuman(target_mob))
-		staggerstun(target_mob, proj, paralyze = 0, stun = 1 SECONDS, stagger = 2 SECONDS, knockback = 1, slowdown = 2)
+		staggerstun(target_mob, proj, paralyze = 0, stun = 0, stagger = 3 SECONDS, knockback = 1, slowdown = 2)
 	else
 		staggerstun(target_mob, proj, paralyze = 2 SECONDS, stagger = 2 SECONDS, knockback = 1, slowdown = 2)
 
@@ -59,7 +59,7 @@
 
 /datum/ammo/bullet/shotgun/incendiary/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	if(ishuman(target_mob))
-		staggerstun(target_mob, proj, paralyze = 0, stun = 1 SECONDS, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
+		staggerstun(target_mob, proj, paralyze = 0, stun = 0, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
 	else
 		staggerstun(target_mob, proj, paralyze = 2 SECONDS, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
 
@@ -113,7 +113,7 @@
 
 /datum/ammo/bullet/shotgun/buckshot/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	if(ishuman(target_mob))
-		staggerstun(target_mob, proj, paralyze = 0, stun = 1 SECONDS, slowdown = 2, stagger = 3 SECONDS, knockback = 2)
+		staggerstun(target_mob, proj, paralyze = 0, stun = 0, slowdown = 2, stagger = 3 SECONDS, knockback = 2)
 	else
 		staggerstun(target_mob, proj, paralyze = 2 SECONDS, slowdown = 2, stagger = 3 SECONDS, knockback = 2)
 
@@ -202,8 +202,8 @@
 	accuracy_variation = 9
 	accurate_range = 3
 	max_range = 6
-	damage = 65
-	damage_falloff = 5
+	damage = 55
+	damage_falloff = 6
 
 /datum/ammo/bullet/shotgun/heavy_spread
 	name = "additional buckshot"
@@ -211,8 +211,8 @@
 	accuracy_variation = 9
 	accurate_range = 3
 	max_range = 6
-	damage = 60
-	damage_falloff = 5
+	damage = 50
+	damage_falloff = 6
 
 /datum/ammo/bullet/shotgun/heavy_buckshot/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
 	if(iswallturf(target_turf))
@@ -237,9 +237,9 @@
 	ammo_behavior_flags = AMMO_BALLISTIC
 	shell_speed = 3
 	max_range = 13
-	damage = 150
-	penetration = 50
-	sundering = 15
+	damage = 110
+	penetration = 20
+	sundering = 30
 	damage_falloff = 1.5
 	var/vehicle_stun_duration = 1.5 SECONDS
 
@@ -279,13 +279,13 @@
 	bonus_projectiles_scatter = 3
 	accuracy_variation = 8
 	max_range = 10
-	damage = 75
-	penetration = 30
-	sundering = 25
+	damage = 65
+	penetration = 25
+	sundering = 15
 
 /datum/ammo/bullet/shotgun/flechette/heavy_flechette_spread
 	name = "additional flechette"
-	damage = 65
+	damage = 55
 
 /datum/ammo/bullet/shotgun/heavy_flechette/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
 	if(istype(target_obj, /obj/machinery/door))

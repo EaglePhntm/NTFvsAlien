@@ -2733,6 +2733,12 @@
 /obj/effect/decal/cleanable/blood/splatter/girlcum,
 /turf/open/floor/plating/asteroidfloor,
 /area/antag_ship/clf_base/sleeproom)
+"lc" = (
+/obj/effect/turf_decal/arrows/red{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/dirt,
+/area/antag_ship/icc/hangar/east)
 "ld" = (
 /obj/structure/bed/chair,
 /turf/open/floor/urban/carpet,
@@ -3818,6 +3824,12 @@
 /obj/machinery/chem_dispenser/soda,
 /turf/open/floor/urban/carpet,
 /area/antag_ship/vsd/hall)
+"oH" = (
+/obj/structure/sign/pods{
+	dir = 1
+	},
+/turf/closed/mineral/smooth/desertdamrockwall/indestructible,
+/area/antag_ship/icc/hangar/east)
 "oJ" = (
 /obj/machinery/light/mainship{
 	light_color = "#da2f1b"
@@ -6473,6 +6485,13 @@
 	},
 /turf/open/floor/mainship/red/full,
 /area/antag_ship/som/bridge)
+"zy" = (
+/obj/item/trash/mre,
+/obj/effect/turf_decal/arrows/red{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/dirt,
+/area/antag_ship/icc/hangar/east)
 "zz" = (
 /obj/structure/table/reinforced,
 /obj/item/clipboard,
@@ -7032,6 +7051,12 @@
 	dir = 4
 	},
 /area/antag_ship/clf_base/hallways/inside)
+"BN" = (
+/obj/effect/turf_decal/arrows/red{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/dirt,
+/area/antag_ship/icc/hangar/east)
 "BO" = (
 /turf/closed/shuttle/ert/engines/left/three{
 	dir = 1
@@ -8802,6 +8827,13 @@
 /obj/structure/bed/chair/comfy/black,
 /turf/open/floor/wood/fancy,
 /area/antag_ship/clf_base/reedroom)
+"Ij" = (
+/obj/structure/sign/pods{
+	dir = 0;
+	directional = 8
+	},
+/turf/closed/mineral/smooth/desertdamrockwall/indestructible,
+/area/antag_ship/icc/hangar/east)
 "Ik" = (
 /obj/structure/window/reinforced/east,
 /turf/open/floor/grass,
@@ -10612,6 +10644,12 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/antag_ship/icc/hangar/west)
+"Pb" = (
+/obj/effect/turf_decal/warning_stripes/box/arrow{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/antag_ship/icc/hangar/east)
 "Pd" = (
 /obj/effect/landmark/start/job/pmc,
 /obj/effect/turf_decal/woodsiding{
@@ -11706,6 +11744,12 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/hangar)
+"Te" = (
+/obj/effect/turf_decal/arrows/red{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/desertdam/asphalt/open,
+/area/antag_ship/icc/hangar/east)
 "Tf" = (
 /obj/effect/turf_decal/tile/transparent/dark_green/anticorner/contrasted,
 /obj/machinery/bioprinter,
@@ -12768,6 +12812,12 @@
 /obj/item/lightreplacer,
 /turf/open/floor/mainship/cargo,
 /area/antag_ship/som/requisition)
+"WL" = (
+/obj/effect/turf_decal/warning_stripes/box/arrow{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/antag_ship/icc/hangar/east)
 "WM" = (
 /obj/structure/largecrate/supply/ammo/m41a,
 /obj/effect/turf_decal/trimline/brown/filled/warning{
@@ -25107,17 +25157,17 @@ ES
 ES
 ES
 Qd
-fr
+Te
 fr
 fr
 Zb
 OV
-Zb
+BN
 Zb
 Zb
 qB
 Zb
-Zb
+BN
 Qt
 qB
 Qt
@@ -25393,7 +25443,7 @@ uM
 Uk
 YP
 Vk
-Zb
+lc
 Zb
 bp
 cW
@@ -25401,7 +25451,7 @@ Zb
 Zb
 Bq
 Zb
-Zb
+BN
 Zb
 Zb
 eI
@@ -25503,7 +25553,7 @@ Zb
 Zb
 Zb
 XM
-qB
+zy
 eI
 eI
 VK
@@ -25580,21 +25630,21 @@ eI
 eI
 Vk
 Vk
-Vk
-eI
+WL
+Ij
 Vk
 Tv
 Zb
 Vk
 Zb
-eI
+oH
 Dx
 Zb
 Zb
 QW
-Zb
+BN
 qB
-Zb
+BN
 Dx
 qB
 Zb
@@ -25676,16 +25726,16 @@ eI
 Vk
 Vk
 eI
-Vk
-Vk
-Vk
-Zb
+WL
+Pb
+Pb
+BN
 ro
 Dx
 Zb
 Zb
 Zb
-Zb
+BN
 Zb
 Hs
 eI
@@ -25693,7 +25743,7 @@ Zb
 hU
 qB
 Zb
-Zb
+BN
 eI
 eI
 VK
@@ -25778,7 +25828,7 @@ MR
 fh
 BP
 CZ
-Zb
+BN
 Zb
 XM
 eI

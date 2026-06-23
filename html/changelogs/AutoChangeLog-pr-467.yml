@@ -1,0 +1,6 @@
+author: "CaputCapital"
+delete-after: True
+changes:
+  - bugfix: "CM Standard L88 gets an actual assault carbine instead of error"
+  - bugfix: "L40 PDW medic loadout gets an MRE that they were supposed to have"
+  - bugfix: "CM Militia Captain tab is in quik vendor now"
