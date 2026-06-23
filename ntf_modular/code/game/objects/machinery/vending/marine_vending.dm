@@ -694,7 +694,6 @@
 		),
 	)
 
-
 /obj/machinery/vending/weapon/vsd
 	name = "Kaizoku weapons rack"
 	faction = FACTION_VSD
@@ -738,6 +737,9 @@
 		"SMGs" = list(
 			/obj/item/weapon/gun/smg/vsd_pdw = -1,
 			/obj/item/ammo_magazine/smg/vsd_pdw = -1,
+			/obj/item/weapon/gun/smg/minib = 3,
+			/obj/item/ammo_magazine/smg/minib = -1,
+			/obj/item/ammo_magazine/smg/minib/extended = 30,
 		),
 		"Marksman" = list(
 			/obj/item/weapon/gun/rifle/vsd_rifle = -1,
@@ -776,7 +778,7 @@
 			/obj/item/stack/throwing_knife = -1,
 			/obj/item/storage/belt/knifepouch = -1,
 			/obj/item/storage/holster/blade/machete/full = -1,
-			/obj/item/storage/holster/blade/katana/full =1,
+			/obj/item/storage/holster/blade/katana/full = -1,
 		),
 		"Sidearm" = list(
 			/obj/item/weapon/gun/pistol/vsd_pistol = -1,
@@ -822,7 +824,7 @@
 		"Specialized" = list(
 			/obj/item/weapon/gun/flamer/hydro_cannon = -1,
 			/obj/item/ammo_magazine/flamer_tank/water = -1,
-			/obj/item/weapon/gun/launcher/rocket/vsd = 2,
+			/obj/item/weapon/gun/launcher/rocket/vsd = 1,
 			/obj/item/ammo_magazine/rocket/vsd/he = 10,
 			/obj/item/ammo_magazine/rocket/vsd/incendiary = 10,
 			/obj/item/ammo_magazine/rocket/vsd/chemical = 10,
@@ -834,10 +836,12 @@
 			/obj/item/ammo_magazine/rifle/vsd_autocannon/at = 8,
 			/obj/item/weapon/gun/at45 = 1,
 			/obj/item/ammo_magazine/at45 = 4,
-			/obj/item/weapon/gun/flamer/vsd = 2,
-			/obj/item/ammo_magazine/flamer_tank/vsd = 30,
-			/obj/item/ammo_magazine/flamer_tank/vsd/blue = 4,
-			/obj/item/ammo_magazine/flamer_tank/backtank = 4,
+			/obj/item/weapon/gun/flamer/vsd = 1,
+			/obj/item/ammo_magazine/flamer_tank/vsd = 10,
+			/obj/item/ammo_magazine/flamer_tank/vsd/blue = 2,
+			/obj/item/ammo_magazine/flamer_tank/backtank = 2,
+			/obj/item/weapon/gun/clf_heavyrifle = 1,
+			/obj/item/big_ammo_box/shotgun/clf_heavyrifle = 1,
 			/obj/item/bodybag/tarp = 10,
 		),
 		"Heavy Weapons" = list(
