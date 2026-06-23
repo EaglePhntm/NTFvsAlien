@@ -685,6 +685,10 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	home_id = "supply_colony"
 	req_access = list(ACCESS_CIVILIAN_LOGISTICS)
 
+/obj/machinery/computer/supplycomp/colony/Initialize(mapload, _hivenumber)
+	. = ..()
+	SSminimaps.add_marker(src, ((MINIMAP_FLAG_ALL) ^ (MINIMAP_FLAG_SURVIVOR)), image('ntf_modular/icons/UI_icons/map_blips.dmi', null, "reqterminal", MINIMAP_LABELS_LAYER))
+
 /obj/machinery/computer/supplycomp/kz
 	shuttle_id = "supplykz"
 	faction = FACTION_VSD
