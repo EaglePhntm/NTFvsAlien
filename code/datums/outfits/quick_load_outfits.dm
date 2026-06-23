@@ -3954,7 +3954,7 @@
 /datum/outfit/quick/icc/standard/icc_assaultcarbine
 	name = "L-88 Assault Carbine CM Infantryman"
 	desc = "Equipped with an L-88 assault carbine, which though outdated still sees usage through ICCAF reserve personnel and the colonial militia. Also comes with a single-shot grenade launcher with a variety of grenades."
-	suit_store = /obj/item/weapon/gun/rifle/icc_assaultcarbinecm
+	suit_store = /obj/item/weapon/gun/rifle/icc_assaultcarbine
 
 	w_uniform = /obj/item/clothing/under/marine/veteran/cm
 	belt = /obj/item/storage/belt/marine/icc
