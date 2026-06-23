@@ -22762,7 +22762,7 @@
 /obj/machinery/door/airlock/mainship/maint{
 	req_one_access = null
 	},
-/turf/open/space/basic,
+/turf/open/floor/prison,
 /area/mainship/groundhq/ntf/shipboard/brig_cells)
 "sBC" = (
 /obj/structure/cable,
