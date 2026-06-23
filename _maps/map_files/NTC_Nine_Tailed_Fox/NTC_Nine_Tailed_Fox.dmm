@@ -22762,7 +22762,11 @@
 /obj/machinery/door/airlock/mainship/maint{
 	req_one_access = null
 	},
+<<<<<<< NTC-Corpsec-map-update
 /turf/open/floor/prison,
+=======
+/turf/open/space/basic,
+>>>>>>> master
 /area/mainship/groundhq/ntf/shipboard/brig_cells)
 "sBC" = (
 /obj/structure/cable,

@@ -209,6 +209,8 @@
 		/obj/item/ammo_magazine/rifle/nt_halter/laser,
 		/obj/item/ammo_magazine/rifle/nt_halter/laser/extended,
 		/obj/item/ammo_magazine/rifle/nt_halter/laser/drum,
+		/obj/item/ammo_magazine/rifle/nt_halter/rubber,
+		/obj/item/ammo_magazine/rifle/nt_halter/rubber/extended,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
@@ -272,7 +274,7 @@
 	accuracy_mult = 0.9
 	scatter_unwielded = 14
 	wield_delay = 0.4 SECONDS
-	damage_falloff_mult = 0.8
+	damage_falloff_mult = 1
 	akimbo_additional_delay = 1.5
 	damage_mult = 0.9
 
@@ -396,10 +398,18 @@
 	hud_state = "rifle_ap"
 	//bit less crazy than actual heavy ap
 	damage = 20
-	penetration = 20
+	penetration = 15
 	sundering = 3
-	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY
 	bullet_color = COLOR_RED_LIGHT
+	//incendiary was too op for the rof so we make it less likely by using a weaker deflag
+	///Deflagrate AOE damage
+	var/deflag_damage = 10
+	///Multiplier for deflagrate chance
+	var/deflagrate_mult = 0.7
+
+/datum/ammo/bullet/rifle/heavy/ap/foxfire/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
+	deflagrate(target_mob, proj, deflag_damage, deflagrate_mult)
+
 
 //laser mag
 /obj/item/ammo_magazine/rifle/nt_halter/laser
@@ -421,7 +431,7 @@
 	desc = "An extended magazine filled with 7.62x38mm laser emitter rounds for the Halter series of firearms."
 	max_rounds = 50
 	icon_state = "halter_laser_ex"
-	bonus_overlay = "halter_laser_drum"
+	bonus_overlay = "halter_laser_ex"
 
 //extended mag
 /obj/item/ammo_magazine/rifle/nt_halter/laser/drum
@@ -430,6 +440,22 @@
 	max_rounds = 100
 	icon_state = "halter_laser_drum"
 	bonus_overlay = "halter_laser_drum"
+
+//rubber mags
+/obj/item/ammo_magazine/rifle/nt_halter/rubber
+	name = "\improper NT 'Halter' rubber magazine (7.62x38mm rub)"
+	desc = "A magazine filled with 7.62x38mm rubber rifle rounds for the Halter series of firearms."
+	icon_state = "halter_rub"
+	icon = 'ntf_modular/icons/obj/items/ammo/rifle.dmi'
+	bonus_overlay = "halter_rub_mag"
+	default_ammo = /datum/ammo/bullet/rifle/heavy/rubber
+
+/obj/item/ammo_magazine/rifle/nt_halter/rubber/extended
+	name = "\improper NT 'Halter' extended rubber magazine (7.62x38mm rub)"
+	desc = "An extended magazine filled with 7.62x38mm rubber rounds for the Halter series of firearms."
+	max_rounds = 50
+	icon_state = "halter_rub_ex"
+	bonus_overlay = "halter_rub_ex"
 
 //im not making a sprite for this im lazy
 /obj/item/ammo_magazine/packet/halter
@@ -440,11 +466,23 @@
 	default_ammo = /datum/ammo/bullet/rifle/heavy/halter
 	current_rounds = 120
 	max_rounds = 120
+	color = COLOR_MAROON
+
+/obj/item/ammo_magazine/packet/halter/rubber
+	name = "box of 7.62x38mm rub"
+	desc = "A box containing 120 rounds of 7.62x38mm rub."
+	caliber = CALIBER_762X38
+	icon_state = "7.62"
+	default_ammo = /datum/ammo/bullet/rifle/heavy/rubber
+	current_rounds = 120
+	max_rounds = 120
+	color = COLOR_BRIGHT_BLUE
 
 /obj/item/ammo_magazine/packet/halter/laser
 	name = "box of 7.62x38mm LE"
 	desc = "A box containing 120 rounds of 7.62x38mm Laser Emitters."
 	default_ammo = /datum/ammo/energy/lasgun/halter
+	color = COLOR_RED
 
 /obj/item/storage/box/visual/magazine/compact/halter_assaultrifle
 	name = "Halter magazine box"
@@ -556,3 +594,24 @@
 	if(iscarbon(target_mob))
 		var/mob/living/carbon/carbon_victim = target_mob
 		carbon_victim.reagents.add_reagent(/datum/reagent/toxin/poxomelanin, 4, no_overdose = FALSE)
+
+//mg27-e
+/obj/item/weapon/gun/standard_mmg/machinegunner/spec
+	name = "\improper MG-27-E medium machinegun"
+	desc = "The MG-27-E is the home improved version of the olden MG-27, it sports lighter post-factory components and a soulsteel rifle shield that must be installed and uninstalled between deployments, allowing it to take a lot of punishment while deployed and work as if a shield for the gunner, it can be shot without being deployed in a pinch but It's impossible to utilize the gun and the bullet shield together due the weight while undeployed, therefore it is uninstalled while taking the weapon in hand. It uses 10x27mm boxes."
+	icon = 'ntf_modular/icons/obj/machines/deployable/mounted_machinegun.dmi'
+	icon_state = "t27e"
+	worn_icon_state = "t27e"
+	worn_icon_list = list(
+		slot_l_hand_str = 'ntf_modular/icons/mob/inhands/guns/machineguns_left_1.dmi',
+		slot_r_hand_str = 'ntf_modular/icons/mob/inhands/guns/machineguns_right_1.dmi',
+	)
+	scatter = 8
+	deployed_scatter_change = -50
+	wield_delay = 1.8 SECONDS
+	soft_armor = list(MELEE = 30, BULLET = 80, LASER = 80, ENERGY = 70, BOMB = 60, BIO = 100, FIRE = 0, ACID = 0)
+	max_integrity = 500
+	deployable_item = /obj/machinery/deployable/mounted/shielded
+
+/obj/machinery/deployable/mounted/shielded
+	allow_pass_flags = PASS_AIR|PASS_LOW_STRUCTURE

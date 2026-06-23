@@ -77,7 +77,7 @@
 
 	id = /obj/item/card/id/gold
 	belt = /obj/item/storage/belt/utility/full
-	ears = /obj/item/radio/headset/mainship/mcom
+	ears = /obj/item/radio/headset/mainship/marine/icc
 	w_uniform = /obj/item/clothing/under/rank/synthetic
 	shoes = /obj/item/clothing/shoes/white
 	gloves = /obj/item/clothing/gloves/insulated

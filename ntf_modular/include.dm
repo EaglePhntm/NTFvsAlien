@@ -210,6 +210,7 @@
 #include "code\modules\projectiles\ammo_types\xenos\gas_xenoammo.dm"
 #include "code\modules\projectiles\guns\energy.dm"
 #include "code\modules\projectiles\guns\gun_system.dm"
+#include "code\modules\projectiles\guns\other.dm"
 #include "code\modules\projectiles\guns\pistols.dm"
 #include "code\modules\projectiles\guns\rifles.dm"
 #include "code\modules\projectiles\guns\sentries.dm"

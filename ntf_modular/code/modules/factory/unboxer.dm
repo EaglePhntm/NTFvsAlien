@@ -21,6 +21,7 @@
 			balloon_alert(user, "Filler incompatible")
 			return
 		production_type = refill.antag_refill_type
+		ticks_per_object = refill.ticks_per_object
 	var/to_refill = min(max_fill_amount - production_amount_left, refill.refill_amount)
 	production_amount_left += to_refill
 	refill.refill_amount -= to_refill

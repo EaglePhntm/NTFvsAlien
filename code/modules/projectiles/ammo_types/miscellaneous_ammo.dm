@@ -93,7 +93,7 @@
 	ammo_behavior_flags = AMMO_INCENDIARY|AMMO_FLAME|AMMO_TARGET_TURF
 	armor_type = FIRE
 	max_range = 7
-	damage = 31
+	damage = 6
 	damage_falloff = 0
 	incendiary_strength = 30 //Firestacks cap at 20, but that's after armor.
 	bullet_color = LIGHT_COLOR_FIRE

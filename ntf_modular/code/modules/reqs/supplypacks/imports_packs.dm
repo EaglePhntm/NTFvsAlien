@@ -63,6 +63,11 @@
 	contains = list(/obj/item/ammo_magazine/rifle/nt_halter/laser/extended)
 	cost = 15
 
+/datum/supply_packs/imports/halterexrub
+	name = "NT Halter extended rubber mag (x1)"
+	contains = list(/obj/item/ammo_magazine/rifle/nt_halter/rubber/extended)
+	cost = 10
+
 /datum/supply_packs/imports/halterdrumlaser
 	name = "NT Halter drum laser mag (x1)"
 	contains = list(/obj/item/ammo_magazine/rifle/nt_halter/laser/drum)

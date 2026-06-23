@@ -116,9 +116,18 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 		/datum/outfit/quick/icc/standard/icc_assaultcarbine,
 		/datum/outfit/quick/icc/standard/icc_autoshotgun,
 		/datum/outfit/quick/icc/medic/icc_sharpshooter,
+		/datum/outfit/quick/icc/medic/icc_rifleman,
+		/datum/outfit/quick/icc/medic/icc_smg,
+		/datum/outfit/quick/icc/medic/icc_smg2,
 		/datum/outfit/quick/icc/guard/icc_rocket,
 		/datum/outfit/quick/icc/guard/icc_autoshotgun,
+		/datum/outfit/quick/icc/guard/icc_m16fl240,
+		/datum/outfit/quick/icc/guard/icc_hpr,
+		/datum/outfit/quick/icc/leader/icc_famas,
 		/datum/outfit/quick/icc/leader/icc_confrontationrifle,
+		/datum/outfit/quick/icc/leader/icc_m16masterkey,
+		/datum/outfit/quick/icc/leader/icc_lmg,
+		/datum/outfit/quick/icc/fieldcommander/icc_PR11upgraded,
 	)
 
 	for(var/X in loadout_list)
@@ -337,6 +346,7 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 		"CM Medic",
 		"CM Guardsman",
 		"CM Squad Leader",
+		"CM Militia Captain",
 	)
 
 

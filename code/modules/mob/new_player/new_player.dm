@@ -544,6 +544,8 @@
 	mobs_to_check += GLOB.offered_mob_list
 	if(GLOB.ssd_posses_allowed)
 		for(var/mob/living/ssd_mob AS in mobs_to_check)
+			if(isnull(ssd_mob) || QDELETED(ssd_mob))
+				continue
 			if(is_centcom_level(ssd_mob.z) || ssd_mob.afk_status == MOB_RECENTLY_DISCONNECTED)
 				continue
 			if(ishuman(ssd_mob))

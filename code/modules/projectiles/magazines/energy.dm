@@ -102,8 +102,8 @@
 	icon_state_mini = "mag_cell"
 	charge_overlay = "volkite_big"
 	self_recharge = TRUE
-	charge_amount = 24
-	charge_delay = 2 SECONDS
+	charge_amount = 6
+	charge_delay = 8 SECONDS
 
 /obj/item/cell/lasgun/volkite/turret/hover_bike
 	maxcharge = 1500

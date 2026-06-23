@@ -1,4 +1,0 @@
-author: "githubuser4141"
-delete-after: True
-changes:
-  - balance: "lowered the armors and speeds of a few mechs, small mechs can be moved in maintenance mode now, and will move their equipement into their wreck with 100% chance, removes random mech parts appearing from wrecks (it's useless..)"

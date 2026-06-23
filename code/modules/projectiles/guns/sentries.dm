@@ -67,12 +67,14 @@
 	turret_flags = TURRET_HAS_CAMERA|TURRET_ALERTS|TURRET_RADIAL
 	item_flags = IS_DEPLOYABLE|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_PICKUP
 	faction = FACTION_TERRAGOV
-	turret_range = 10
+	turret_range = 8
 	knockdown_threshold = 500
 	max_shells = 500
 	fire_delay = 0.15 SECONDS
 	burst_amount = 1
-	scatter = 12
+	scatter = 3
+	scatter_unwielded = 0
+	burst_scatter_mult = 0
 	ammo_datum_type = /datum/ammo/bullet/turret
 	default_ammo_type = /obj/item/ammo_magazine/sentry
 	allowed_ammo_types = list(/obj/item/ammo_magazine/sentry)
@@ -89,13 +91,13 @@
 		slot_l_hand_str = 'icons/mob/inhands/guns/misc_left_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/guns/misc_right_1.dmi',
 	)
-	max_integrity = 225
+	max_integrity = 150
 	integrity_failure = 50
 	deploy_time = 1 SECONDS
 	throw_range = 3
 	turret_flags = TURRET_HAS_CAMERA|TURRET_ALERTS|TURRET_RADIAL
 	deployable_item = /obj/machinery/deployable/mounted/sentry/cope
-	turret_range = 9
+	turret_range = 8
 	w_class = WEIGHT_CLASS_NORMAL //same as other sentries
 
 	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 80, ACID = 50)
@@ -108,7 +110,9 @@
 	max_shots = 150
 	rounds_per_shot = 12
 	fire_delay = 0.2 SECONDS
-	scatter = -3
+	scatter = 3
+	scatter_unwielded = 0
+	burst_scatter_mult = 0
 	damage_falloff_mult = 0.8
 	ammo_datum_type = /datum/ammo/energy/volkite/light
 	default_ammo_type = /obj/item/cell/lasgun/volkite/turret

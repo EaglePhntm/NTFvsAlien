@@ -80,15 +80,13 @@
 	COOLDOWN_DECLARE(hard_crit_emote_cooldown)
 
 /datum/species/robot/handle_unique_behavior(mob/living/carbon/human/H)
-	if(H.health <= -0 && H.health > -90) // Doesn't kill, purely for sex/capture reasons
-		H.take_overall_damage(rand(2, 6), BURN, updating_health = TRUE, max_limbs = 1) // Melting!!!
 	if(H.health <= 0 && H.health > -50)
 		H.clear_fullscreen("robotlow")
 		H.overlay_fullscreen("robothalf", /atom/movable/screen/fullscreen/robot/machine/robothalf)
 		if(COOLDOWN_FINISHED(H, soft_crit_emote_cooldown))
 			COOLDOWN_START(H, soft_crit_emote_cooldown, 40 SECONDS)
 			H.emote("damaged")
-			to_chat(H, span_warning("Critical damage sustained. Repair damage immediately. <b>Integrity: [round(H.health)]%.</b>"))
+			to_chat(H, span_warning("Major damage sustained. Repair immediately. <b>Integrity: [round(H.health)]%.</b>"))
 		if(prob(25))
 			do_sparks(4, TRUE, H)
 	else if(H.health <= -50)
