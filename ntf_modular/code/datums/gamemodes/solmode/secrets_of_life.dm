@@ -289,14 +289,14 @@
 				apse.cell.charge = apse.cell.maxcharge
 		//repair window frames
 		for(var/obj/structure/window_frame/colony/reinforced/frame in world)
-			if(!is_ground_level(frame.z))
+			if(QDELETED(frame) || !is_ground_level(frame.z))
 				continue
 			if(istype(frame, /obj/structure/window_frame/colony/reinforced))
 				var/obj/structure/window/framed/colony/reinforced/placed_thing = new /obj/structure/window/framed/colony/reinforced(frame.loc)
 				placed_thing.dir = frame.dir
 				qdel(frame)
 		for(var/obj/structure/window_frame/colony/frame in world)
-			if(!is_ground_level(frame.z))
+			if(QDELETED(frame) || !is_ground_level(frame.z))
 				continue
 			if(istype(frame, /obj/structure/window_frame/colony))
 				var/obj/structure/window/framed/colony/placed_thing = new /obj/structure/window/framed/colony(frame.loc)
@@ -304,18 +304,18 @@
 				qdel(frame)
 		//clean blood
 		for(var/obj/effect/decal/cleanable/blood/splatter/blood_splatter in world)
-			if(!is_ground_level(blood_splatter.z))
+			if(QDELETED(blood_splatter) || !is_ground_level(blood_splatter.z))
 				continue
 			if(istype(blood_splatter, /obj/effect/decal/cleanable/blood/splatter))
 				qdel(blood_splatter)
 		for(var/obj/effect/decal/cleanable/blood/gibs in world)
-			if(!is_ground_level(gibs.z))
+			if(QDELETED(gibs) || !is_ground_level(gibs.z))
 				continue
 			if(istype(gibs, /obj/effect/decal/cleanable/blood/gibs))
 				qdel(gibs)
 		//make girders into basic walls?
 		for(var/obj/structure/girder/frame in world)
-			if(!is_ground_level(frame.z))
+			if(QDELETED(frame) || !is_ground_level(frame.z))
 				continue
 			if(istype(frame, /obj/structure/girder))
 				var/obj/structure/girder/placed_thing = new /turf/closed/wall(frame.loc)
