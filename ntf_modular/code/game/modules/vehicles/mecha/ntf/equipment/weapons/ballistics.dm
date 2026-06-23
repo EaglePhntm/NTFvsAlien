@@ -95,3 +95,29 @@
 	hud_icons = list("smg", "smg_empty")
 	fire_mode = GUN_FIREMODE_AUTOMATIC
 	cooldown_key = MECH_COOLDOWN_KEY_RAPIDFIRE
+
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_minigun
+	name = "\improper exosuit-mounted minigun"
+	icon = 'icons/mecha/mecha_equipment_64x32.dmi'
+	desc = "A exosuit-mounted minigun. Requires a longer wind-up before firing, but is excellent for providing large-volume supportive fire."
+	icon_state = "smg"
+	muzzle_iconstate = "muzzle_flash"
+	fire_sound = 'sound/mecha/weapons/mech_smg.ogg'
+	mech_flags = EXOSUIT_MODULE_NTF|EXOSUIT_MODULE_COMBAT
+	ammotype = /datum/ammo/bullet/rifle/hv
+	max_integrity = 75
+
+	projectiles = 100
+	projectiles_cache = 300
+	projectiles_cache_max = 300
+	variance = 2
+	projectile_delay = 0.1 SECONDS
+	slowdown = 0
+	rearm_time = 5 SECONDS
+	harmful = TRUE
+	weight = 5
+	ammo_type = EXOSUIT_AMMO_MINIGUN
+	hud_icons = list("smg", "smg_empty")
+	fire_mode = GUN_FIREMODE_AUTOMATIC
+	windup_delay = 1 SECONDS
+	cooldown_key = MECH_COOLDOWN_KEY_RAPIDFIRE

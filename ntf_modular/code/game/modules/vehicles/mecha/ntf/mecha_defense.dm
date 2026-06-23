@@ -9,6 +9,13 @@
 		proj.damage -= pilot_damage
 		. = ..()
 		proj.damage = pilot_damage
+		if(proj.armor_type == BOMB || proj.damage >= 300 || proj.penetration >= 90)
+			var/occupant_count = length(occupants)
+			proj.damage /= occupant_count
+			for(var/mob/living/hitee in occupants)
+				hitee.bullet_act(proj, actual_zone, piercing_hit)
+			proj.damage = original_damage
+			return
 		occupant.bullet_act(proj, actual_zone, piercing_hit)
 		proj.damage = original_damage
 		return

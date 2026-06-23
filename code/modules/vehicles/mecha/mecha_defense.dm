@@ -300,6 +300,13 @@
 		construction_state = MECHA_LOOSE_BOLTS
 		to_chat(user, span_notice("You close the hatch to the power unit."))
 
+	if(construction_state == MECHA_LOCKED && (length(occupants))) // NTF Edit: Allows using a crowbar to pry out occupants
+		to_chat(user, span_notice("You start prying open the cockpit.."))
+		user.visible_message(span_warning("[user] is attempting to pry open the [src]'s cockpit!"))
+		if(do_after(user, 20, target = src))
+			for(var/ejectee in occupants)
+				mob_exit(ejectee, TRUE, TRUE)
+
 /obj/vehicle/sealed/mecha/welder_act(mob/living/user, obj/item/I)
 	return welder_repair_act(user, I, 100, 4 SECONDS, 0, SKILL_ENGINEER_ENGI, 2, 4 SECONDS)
 

@@ -22,8 +22,8 @@
 	can_dna_lock = FALSE
 	can_be_moved_in_maints = TRUE
 
-	enter_delay = 25
-	exit_delay = 25
+	enter_delay = EGRESS_TIME_STANDARD
+	exit_delay = EGRESS_TIME_STANDARD
 /// How resistant the hull is to projectile penetration
 	var/cockpit_armor = COCKPIT_TOUGHENED
 
@@ -34,3 +34,5 @@
 /obj/vehicle/sealed/mecha
 	///Whether or not adding a DNA is possible
 	var/can_dna_lock = TRUE
+	///Faction icon that's displayed on the mech
+	var/shows_faction_icon = TRUE

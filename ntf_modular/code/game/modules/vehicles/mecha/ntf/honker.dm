@@ -15,3 +15,5 @@
 	cockpit_armor = COCKPIT_LIGHT
 	stepsound = 'sound/items/bikehorn.ogg'
 	turnsound = 'sound/items/bikehorn.ogg'
+	enter_delay = EGRESS_TIME_QUICK
+	exit_delay = EGRESS_TIME_QUICK

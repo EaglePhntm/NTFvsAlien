@@ -76,6 +76,7 @@
 #define EXOSUIT_AMMO_SMG "Small pistol bullet"
 #define EXOSUIT_AMMO_GRENADE "Low-velocity grenade"
 #define EXOSUIT_AMMO_BATTLERIFLE "Battle rifle bullet"
+#define EXOSUIT_AMMO_MINIGUN "Small rifle bullet"
 
 /// Module is compatible with Ripley Exosuit models
 #define EXOSUIT_MODULE_RIPLEY (1<<0)
@@ -152,7 +153,15 @@
 #define COCKPIT_ARMORED 1
 #define COCKPIT_HEAVY 1.15
 
+/// Mech power usage
+
 #define POWER_USAGE_EFFICIENT 4
 #define POWER_USAGE_STANDARD 7
 #define POWER_USAGE_ARMORED 10
-#define POWER_USAGE_HEAVY 14
+#define POWER_USAGE_HEAVY 12
+
+/// Mech exit/enter delays
+
+#define EGRESS_TIME_QUICK 10
+#define EGRESS_TIME_STANDARD 20
+#define EGRESS_TIME_SLOW 30

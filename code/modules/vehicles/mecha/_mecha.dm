@@ -511,6 +511,8 @@
 		for(var/obj/item/mecha_parts/mecha_equipment/ME AS in flat_equipment)
 			. += "[icon2html(ME, user)] \A [ME]."
 	if(enclosed)
+		if(length(occupants))
+			.+="It appears to be occupied. In the event of an emergency, the cockpit's release lever can be pried open."
 		return
 	if(mecha_flags & SILICON_PILOT)
 		. += "[src] appears to be piloting itself..."

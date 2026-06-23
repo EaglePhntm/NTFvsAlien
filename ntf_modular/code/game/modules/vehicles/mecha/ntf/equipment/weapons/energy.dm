@@ -7,7 +7,7 @@
 	mech_flags = EXOSUIT_MODULE_NTF|EXOSUIT_MODULE_COMBAT
 	ammotype = /datum/ammo/energy/lasgun/marine
 	max_integrity = 75
-	energy_drain = 20
+	energy_drain = 12
 	variance = 0
 	projectile_delay = 0.4 SECONDS
 	slowdown = 0
@@ -23,7 +23,7 @@
 	mech_flags = EXOSUIT_MODULE_NTF|EXOSUIT_MODULE_COMBAT
 	ammotype = /datum/ammo/bullet/shotgun/tribeam
 	max_integrity = 75
-	energy_drain = 36
+	energy_drain = 24
 	variance = 0
 	projectile_delay = 0.7 SECONDS
 	slowdown = 0
