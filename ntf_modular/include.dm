@@ -215,6 +215,7 @@
 #include "code\modules\projectiles\guns\pistols.dm"
 #include "code\modules\projectiles\guns\rifles.dm"
 #include "code\modules\projectiles\guns\sentries.dm"
+#include "code\modules\projectiles\guns\smgs.dm"
 #include "code\modules\reagents\chemistry\reagents.dm"
 #include "code\modules\reagents\reagent_containers\glass\glass.dm"
 #include "code\modules\reqs\supplypacks\clothing_packs.dm"
