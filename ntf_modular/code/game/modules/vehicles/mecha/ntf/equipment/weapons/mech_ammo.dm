@@ -25,3 +25,10 @@
 	icon_state = "lmg_ammo"
 	rounds = 60
 	ammo_type = EXOSUIT_AMMO_BATTLERIFLE
+
+/obj/item/mecha_ammo/vendable/small_minigun
+	name = "box of minigun bullets"
+	desc = "A box of pistol bullets, apparently for a minigun."
+	icon_state = "lmg_ammo"
+	rounds = 100
+	ammo_type = EXOSUIT_AMMO_MINIGUN

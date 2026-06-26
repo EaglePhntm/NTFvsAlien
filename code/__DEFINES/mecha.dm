@@ -76,7 +76,7 @@
 #define EXOSUIT_AMMO_SMG "Small pistol bullet"
 #define EXOSUIT_AMMO_GRENADE "Low-velocity grenade"
 #define EXOSUIT_AMMO_BATTLERIFLE "Battle rifle bullet"
-#define EXOSUIT_AMMO_MINIGUN "Small rifle bullet"
+#define EXOSUIT_AMMO_MINIGUN "Small pistol bullet"
 
 /// Module is compatible with Ripley Exosuit models
 #define EXOSUIT_MODULE_RIPLEY (1<<0)

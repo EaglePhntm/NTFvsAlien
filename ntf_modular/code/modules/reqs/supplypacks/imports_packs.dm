@@ -264,6 +264,26 @@
 	contains = list(/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_minigun)
 	cost = 300
 
+/datum/supply_packs/imports/exosuit_zoom
+	name = "Exosuit Optics Enhancement"
+	contains = list(/obj/item/mecha_parts/mecha_equipment/ability/zoom)
+	cost = 150
+
+/datum/supply_packs/imports/exosuit_generator
+	name = "Exosuit Phoron Engine"
+	contains = list(/obj/item/mecha_parts/mecha_equipment/generator/exosuit)
+	cost = 200
+
+/datum/supply_packs/imports/exosuit_smoke
+	name = "Exosuit Smoke Generator"
+	contains = list(/obj/item/mecha_parts/mecha_equipment/ability/smoke/cloak_smoke/exosuit)
+	cost = 150
+
+/datum/supply_packs/imports/exosuit_passenger_compartment
+	name = "Exosuit Passenger Compartment"
+	contains = list(/obj/item/mecha_parts/mecha_equipment/passenger_compartment)
+	cost = 100
+
 // SS13 mech ammo
 
 /datum/supply_packs/imports/exosuit_lmg_ammo
@@ -285,6 +305,11 @@
 	name = "Exosuit Battle Rifle Ammo"
 	contains = list(/obj/item/mecha_ammo/vendable/small_br)
 	cost = 50
+
+/datum/supply_packs/imports/exosuit_minigun_ammo
+	name = "Exosuit Minigun Ammo"
+	contains = list(/obj/item/mecha_ammo/vendable/small_minigun)
+	cost = 75
 
 ///
 
