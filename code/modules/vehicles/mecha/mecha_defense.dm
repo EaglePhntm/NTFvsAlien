@@ -69,7 +69,7 @@
 	// yes we *have* to run the armor calc proc here I love tg projectile code too
 	try_damage_component(
 		modify_by_armor(proj.damage, proj.ammo.armor_type, proj.ammo.penetration, attack_dir = REVERSE_DIR(proj.dir)),
-		proj.def_zone,
+		def_zone = proj.def_zone,
 	)
 	return ..()
 

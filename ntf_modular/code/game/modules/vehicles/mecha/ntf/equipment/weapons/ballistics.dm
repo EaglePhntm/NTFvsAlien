@@ -29,7 +29,7 @@
 	icon_state = "smg"
 	muzzle_iconstate = "muzzle_flash"
 	fire_sound = 'sound/mecha/weapons/mech_smg.ogg'
-	mech_flags = EXOSUIT_MODULE_VENDABLE|EXOSUIT_MODULE_COMBAT
+	mech_flags = EXOSUIT_MODULE_NTF|EXOSUIT_MODULE_COMBAT
 	ammotype = /datum/ammo/bullet/smg
 	max_integrity = 75
 	projectiles = 120

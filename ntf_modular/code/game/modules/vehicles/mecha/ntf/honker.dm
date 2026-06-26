@@ -8,7 +8,7 @@
 	pivot_step = TRUE
 	move_delay = 2
 	max_integrity = 150
-	soft_armor = list(MELEE = 25, BULLET = 5, LASER = 10, ENERGY = 10, BOMB = 0, BIO = 0, FIRE = 25, ACID = 100)
+	soft_armor = list(MELEE = 25, BULLET = 5, LASER = 10, ENERGY = 10, BOMB = 0, BIO = 0, FIRE = 25, ACID = 25)
 	force = 10
 	wreckage = /obj/structure/mecha_wreckage/honker
 	step_energy_drain = POWER_USAGE_EFFICIENT

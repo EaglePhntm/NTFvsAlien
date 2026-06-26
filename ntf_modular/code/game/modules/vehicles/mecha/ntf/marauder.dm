@@ -5,13 +5,13 @@
 	base_icon_state = "marauder"
 	move_delay = 4
 	max_integrity = 500
-	soft_armor = list(MELEE = 60, BULLET = 55, LASER = 40, ENERGY = 30, BOMB = 40, BIO = 0, FIRE = 75, ACID = 100)
+	soft_armor = list(MELEE = 60, BULLET = 55, LASER = 40, ENERGY = 30, BOMB = 40, BIO = 0, FIRE = 75, ACID = 75)
 	max_temperature = 60000
 	wreckage = /obj/structure/mecha_wreckage/marauder
 	force = 30
 	cockpit_armor = COCKPIT_HEAVY
 	step_energy_drain = POWER_USAGE_HEAVY
-
+	destruction_sleep_duration = 4 SECONDS
 	enter_delay = EGRESS_TIME_SLOW
 	exit_delay = EGRESS_TIME_SLOW
 

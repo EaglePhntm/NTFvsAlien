@@ -35,13 +35,15 @@
 	return ..()
 
 ///proc called when a new non-mmi/AI mob enters this mech
-/obj/vehicle/sealed/mecha/proc/moved_inside(mob/living/newoccupant)
-	if(!(newoccupant?.client))
+/obj/vehicle/sealed/mecha/proc/moved_inside(mob/living/newoccupant, is_passenger = FALSE) // NTF Edits: allows drag-dropping people (even dead ones) into mechs
+	if(!(newoccupant?.client) && !is_passenger)
 		return FALSE
 	if(ishuman(newoccupant) && !Adjacent(newoccupant))
 		return FALSE
 	newoccupant.drop_all_held_items()
+	loading_passenger = is_passenger
 	add_occupant(newoccupant)
+	loading_passenger = FALSE
 	if(newoccupant.loc != src)
 		newoccupant.forceMove(src)
 	newoccupant.update_mouse_pointer()
@@ -77,7 +79,7 @@
 	return ..()
 
 /obj/vehicle/sealed/mecha/add_occupant(mob/M, control_flags)
-	RegisterSignal(M, COMSIG_MOB_DEATH, PROC_REF(mob_exit), TRUE)
+//	RegisterSignal(M, COMSIG_MOB_DEATH, PROC_REF(mob_exit), TRUE) // NTF Edit: Occupants no longer fall out when dead
 	RegisterSignal(M, COMSIG_MOB_MOUSEDOWN, PROC_REF(on_mouseclick), TRUE)
 	RegisterSignal(M, COMSIG_MOB_SAY, PROC_REF(display_speech_bubble), TRUE)
 	RegisterSignal(M, COMSIG_LIVING_DO_RESIST, TYPE_PROC_REF(/atom/movable, resisted_against), TRUE)

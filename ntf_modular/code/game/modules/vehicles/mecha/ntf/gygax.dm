@@ -9,8 +9,8 @@
 	move_delay = 3
 	max_integrity = 300
 	max_occupants = 2
-	soft_armor = list(MELEE = 40, BULLET = 30, LASER = 40, ENERGY = 30, BOMB = 25, BIO = 0, FIRE = 60, ACID = 100)
-	leg_overload_coeff = 20
+	soft_armor = list(MELEE = 40, BULLET = 30, LASER = 40, ENERGY = 30, BOMB = 25, BIO = 0, FIRE = 60, ACID = 50)
+	leg_overload_coeff = 5
 	force = 20
 	wreckage = /obj/structure/mecha_wreckage/gygax
 	step_energy_drain = POWER_USAGE_STANDARD

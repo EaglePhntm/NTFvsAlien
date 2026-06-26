@@ -190,37 +190,37 @@
 /datum/supply_packs/imports/gygax_wreck
 	name = "Wreckage of Gygax (Repairable)"
 	contains = list(/obj/structure/mecha_wreckage/gygax)
-	cost = 500
+	cost = 400
 
 /datum/supply_packs/imports/durand_wreck
 	name = "Wreckage of Durand (Repairable)"
 	contains = list(/obj/structure/mecha_wreckage/durand)
-	cost = 500
+	cost = 400
 
 /datum/supply_packs/imports/phazon_wreck
 	name = "Wreckage of Phazon (Repairable)"
 	contains = list(/obj/structure/mecha_wreckage/phazon)
-	cost = 700
+	cost = 600
 
 /datum/supply_packs/imports/clarke_wreck
 	name = "Wreckage of Clarke (Repairable)"
 	contains = list(/obj/structure/mecha_wreckage/clarke)
-	cost = 300
+	cost = 200
 
 /datum/supply_packs/imports/ivan_wreck
 	name = "Wreckage of Ivan (Repairable)"
 	contains = list(/obj/structure/mecha_wreckage/ivan)
-	cost = 400
+	cost = 250
 
 /datum/supply_packs/imports/mauler_wreck
 	name = "Wreckage of Mauler (Repairable)"
 	contains = list(/obj/structure/mecha_wreckage/mauler)
-	cost = 1000
+	cost = 900
 
 /datum/supply_packs/imports/marauder_wreck
 	name = "Wreckage of Marauder (Repairable)"
 	contains = list(/obj/structure/mecha_wreckage/marauder)
-	cost = 1000
+	cost = 900
 
 /datum/supply_packs/imports/seraph_wreck
 	name = "Wreckage of Seraph (Repairable)"
@@ -231,12 +231,12 @@
 
 /datum/supply_packs/imports/exosuit_aer9
 	name = "Exosuit laser rifle"
-	contains = list(/obj/item/mecha_parts/mecha_equipment/weapon/energy/exosuit_laser)
+	contains = list(/obj/item/mecha_parts/mecha_equipment/weapon/energy/exosuit/laser_rifle)
 	cost = 150
 
 /datum/supply_packs/imports/exosuit_tribeam
 	name = "Exosuit tribeam laser"
-	contains = list(/obj/item/mecha_parts/mecha_equipment/weapon/energy/exosuit_tribeam)
+	contains = list(/obj/item/mecha_parts/mecha_equipment/weapon/energy/exosuit/laser_scattershot)
 	cost = 150
 
 /datum/supply_packs/imports/exosuit_r84
@@ -258,6 +258,11 @@
 	name = "Exosuit 'Rangemaster' Battle Rifle"
 	contains = list(/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_br)
 	cost = 200
+
+/datum/supply_packs/imports/exosuit_minigun
+	name = "Non-Articulated Exosuit Minigun"
+	contains = list(/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_minigun)
+	cost = 300
 
 // SS13 mech ammo
 
