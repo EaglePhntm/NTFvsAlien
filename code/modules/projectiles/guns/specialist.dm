@@ -1196,14 +1196,16 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	attachable_allowed = list(/obj/item/attachable/flashlight, /obj/item/attachable/magnetic_harness, /obj/item/attachable/foldable/bipod, /obj/item/attachable/lasersight)
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 19,"rail_x" = 13, "rail_y" = 22, "under_x" = 24, "under_y" = 14, "stock_x" = 24, "stock_y" = 12)
 
-	fire_delay = 0.45 SECONDS
-	wield_delay = 0.85 SECONDS
-	windup_delay = 0.1 SECONDS
+	fire_delay = 0.4 SECONDS
+	wield_delay = 2 SECONDS
+	windup_delay = 0 SECONDS
 	aim_slowdown = 3
 	accuracy_mult = 0.8 //0.9 with lasersight
-	accuracy_mult_unwielded = 0.5
-	movement_acc_penalty_mult = 10
-	damage_falloff_mult = 1.5
-	scatter = 0
+	recoil = 1
+	recoil_unwielded = 5
+	accuracy_mult_unwielded = 0.8
+	movement_acc_penalty_mult = 8
+	damage_falloff_mult = 1.25
+	scatter = 2
 
 	autobalance_monitor_value = null
