@@ -2620,5 +2620,5 @@
 #include "ntf_modular\code\game\modules\vehicles\mecha\ntf\equipment\weapons\energy.dm"
 #include "ntf_modular\code\game\modules\vehicles\mecha\ntf\equipment\weapons\mech_ammo.dm"
 #include "ntf_modular\code\game\modules\vehicles\mecha\ntf\equipment\weapons\tools\ntf_tools.dm"
-#include "ntf_modular\code\game\objects\items\crayons.dm"
+#include "ntf_modular\code\game\objects\items\exosuit_painter.dm"
 // END_INCLUDE

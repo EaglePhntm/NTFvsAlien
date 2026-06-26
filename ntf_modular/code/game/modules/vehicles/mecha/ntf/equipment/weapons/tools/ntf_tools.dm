@@ -1,7 +1,5 @@
 // Most of these modules are the same as, or a adjusted variant of greyscale modules
 
-#warn ntf_tools
-
 /obj/item/mecha_parts/mecha_equipment/ability/zoom
 	name = "enhanced zoom"
 	desc = "A magnifying module that allows the pilot to see much further than with the standard optics. Night vision not included."

@@ -4,25 +4,23 @@
 #define COLOR_COMBINED 3
 #define COLOR_REMOVAL 4
 
-//Spraycan stuff
+//Spraycan stuff, taken from TG
 
-/obj/item/toy/crayon/spraycan
+/obj/item/toy/crayon/exosuit_painter
 	name = "exosuit painter"
 	icon = 'icons/obj/items/paper.dmi'
 	icon_state = "labeler1"
 	var/self_contained = FALSE
 	var/charges = 50
-	var/pre_noise = FALSE
-	var/post_noise = FALSE
 	var/paint_color = null
 	var/paint_mode = COLOR_NORMAL
 	desc = "A metallic container containing tasty paint."
 	w_class = WEIGHT_CLASS_SMALL
 	self_contained = FALSE // Don't disappear when they're empty
-	pre_noise = TRUE
-	post_noise = FALSE
 
-/obj/item/toy/crayon/spraycan/proc/select_mode(mob/user)
+// TG does it better, but you can alt click it to set the saturation mode or remove color
+
+/obj/item/toy/crayon/exosuit_painter/proc/select_mode(mob/user)
 	var/choice = input(user, "Select the painting mode:", "Painting Mode") as null|anything in list(
 		"Apply Paint",
 		"Apply Paint (Override Saturation)",
@@ -40,31 +38,32 @@
 		if("Remove Color")
 			paint_mode = COLOR_REMOVAL
 
-/obj/item/toy/crayon/spraycan/Initialize(mapload)
+/obj/item/toy/crayon/exosuit_painter/Initialize(mapload)
 	. = ..()
-	// If default crayon red colour, pick a more fun spraycan colour
 	refill()
 
-/obj/item/toy/crayon/spraycan/AltClick(mob/user)
+/obj/item/toy/crayon/exosuit_painter/AltClick(mob/user)
 	select_mode(user)
 
-/obj/item/toy/crayon/spraycan/examine(mob/user)
+/obj/item/toy/crayon/exosuit_painter/examine(mob/user)
 	. = ..()
 	if(charges)
 		. += "It has [charges] use\s left."
 	else
 		. += "It is empty."
+	. += "Alt-click the spraycan to set it's color mode."
 
-/obj/item/toy/crayon/spraycan/attack_self(mob/living/user as mob)
-	paint_color = input(user, "Please select the main colour.", "Crayon colour") as color
-//	shadeColour = input(user, "Please select the shade colour.", "Crayon colour") as color
+/obj/item/toy/crayon/exosuit_painter/attack_self(mob/living/user as mob)
+	paint_color = input(user, "Please select the main colour.", "Paint colour") as color
 
-/obj/item/toy/crayon/spraycan/afterattack(atom/target, mob/user, proximity, params)
+/// Ported spraycan from TG/Bee, and also ports TG's saturation code
+
+/obj/item/toy/crayon/exosuit_painter/afterattack(atom/target, mob/user, proximity, params)
 	if(!proximity)
 		return ..()
 
 	if(!charges)
-		to_chat(usr, span_warning("The spray can is empty!"))
+		to_chat(usr, span_warning("The painter is empty!"))
 		return
 
 	if(!istype(target, /obj/vehicle/sealed/mecha/ntf))
@@ -96,25 +95,15 @@
 
 		if(COLOR_REMOVAL)
 			mecha.remove_atom_colour(FIXED_COLOR_PRIORITY)
-			mecha.apply_paint(null)
+			mecha.remove_filter("mech_paint")
 
 	charges--
-	if(!.)
-		return FALSE
-
-	if(pre_noise || post_noise)
-		playsound(user.loc, 'sound/effects/spray.ogg', 5, 1, 5)
+	playsound(user.loc, 'sound/effects/spray.ogg', 5, 1, 5)
 	user.visible_message("[user] coats [target] with spray paint!", span_notice("You coat [mecha] with spray paint."))
-	return FALSE
 
-	. = ..()
-
-/// it checks if a color is dark, but without saturation value.
-/// This uses Brightness only, without Saturation from HSV
 /proc/is_color_dark_without_saturation(color, threshold = 25)
 	return get_color_brightness_from_hex(color) < threshold
 
-/// returns HSV brightness 0 to 100 by color hex
 /proc/get_color_brightness_from_hex(A)
 	if(!A || length(A) != length_char(A))
 		return 0
@@ -123,47 +112,40 @@
 	var/B = hex2num(copytext(A, 6, 8))
 	return round(max(R, G, B)/2.55, 1)
 
-/obj/item/toy/crayon/spraycan/proc/input_preference_color(mob/user, prompt, title, current_color, fallback = "#FFFFFF")
+/obj/item/toy/crayon/exosuit_painter/proc/input_preference_color(mob/user, prompt, title, current_color, fallback = "#FFFFFF")
 	var/new_color = input(user, prompt, title, sanitize_hexcolor(current_color, 6, TRUE, fallback)) as null|color
 	if(!new_color)
 		return null
 	return sanitize_hexcolor(new_color, 6, TRUE, fallback)
 
-/// Applies a paint color to the mech using deep HSL recoloring
 /obj/vehicle/sealed/mecha/proc/apply_paint(paint_color)
 	if(!paint_color)
 		remove_filter("mech_paint")
 		return
 
-	// Decompose paint color into HSL components
 	var/list/hsl = rgb2num(paint_color, COLORSPACE_HSL)
 	var/hue = hsl[1] / 360
 	var/saturation = hsl[2] / 100
 	var/lightness = hsl[3] / 100
-
-	// Base override values
 	var/added_saturation = saturation * 0.75
 	var/deducted_light = saturation * 0.5
 	saturation = min(saturation, 1 - added_saturation)
 
-	// Only boost for light colors that would otherwise do nothing
-	// lightness > 0.6 is roughly where colors start feeling "pale"
 	if(lightness > 0.6)
-		var/light_boost = (lightness - 0.6) / 0.4  // 0-1 range based on how light it is
+		var/light_boost = (lightness - 0.6) / 0.4
 		added_saturation = min(added_saturation + light_boost * 0.3, 0.9)
 
-	// Build HSL color matrix
 	var/list/paint_matrix = list(
-		0, 0, 0,                    // ignore original hue
-		0, saturation, 0,           // multiply original saturation by paint's
-		0, 0, 1 - deducted_light,   // reduce lightness slightly to compensate
-		hue, added_saturation, 0,   // inject our hue and forced saturation
+		0, 0, 0,
+		0, saturation, 0,
+		0, 0, 1 - deducted_light,
+		hue, added_saturation, 0,
 	)
 
 	add_filter("mech_paint", 1, color_matrix_filter(paint_matrix, FILTER_COLOR_HSL))
 
-/// Removes any applied paint, restoring the mech to its base appearance
-/obj/vehicle/sealed/mecha/proc/remove_paint()
-	remove_filter("mech_paint")
-
 #undef AVAILABLE_SPRAYCAN_SPACE
+#undef COLOR_NORMAL
+#undef COLOR_OVERRIDE
+#undef COLOR_COMBINED
+#undef COLOR_REMOVAL
