@@ -6,3 +6,12 @@
 	decay_per_second = 7.5
 	movespeed_mod = 2
 	cooldown_time = 30 SECONDS
+
+/datum/component/jump/exosuit
+	///the how high the jumper visually jumps
+	jump_height = 8
+	///the sound of the jump
+	jump_sound
+	///Special jump behavior flags
+	jumper_allow_pass_flags = null
+	jump_start_time = null
