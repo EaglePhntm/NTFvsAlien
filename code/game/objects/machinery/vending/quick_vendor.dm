@@ -100,6 +100,7 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 		// /datum/outfit/quick/vsd/spec/uslspec_one,
 		// /datum/outfit/quick/vsd/spec/uslspec_two,
 		/datum/outfit/quick/vsd/escort/infiltrator,
+		/datum/outfit/quick/vsd/escort/surveillant,
 		/datum/outfit/quick/vsd/squadlead/juggernaut,
 		/datum/outfit/quick/vsd/squadlead/eod,
 		/datum/outfit/quick/vsd/squadlead/recon,
