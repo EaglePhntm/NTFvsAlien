@@ -1,4 +1,4 @@
-#ifdef USE_TGS
+#ifdef TGS_DISCORD_VERIFICATION
 // IF you have linked your account, this will trigger a verify of the user
 /client/verb/verify_in_discord()
 	set category = "OOC"

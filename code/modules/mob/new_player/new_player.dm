@@ -156,11 +156,16 @@
 				to_chat(usr, span_warning("Spawning currently disabled."))
 				return
 			var/datum/job/job_datum = locate(href_list["job_selected"])
-			if(!isxenosjob(job_datum) && (SSmonitor.gamestate == SHUTTERS_CLOSED || (SSmonitor.gamestate == GROUNDSIDE && SSmonitor.current_state <= XENOS_LOSING)))
-				var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
-				if((xeno_job.total_positions-xeno_job.current_positions) > length(GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL]) * TOO_MUCH_BURROWED_PROPORTION)
-					if(tgui_alert(src, "There is a lack of xeno players on this round, unbalanced rounds are unfun for everyone. Are you sure you want to play as a marine? ", "Warning : the game is unbalanced", list("Yes", "No")) != "Yes")
-						return
+			if(!isxenosjob(job_datum))
+				var/flavorlength = length(client.prefs.flavor_text)
+				if((flavorlength < 100) && (client.prefs.profile_pic == ""))
+					to_chat(usr,span_warning("Your flavor text is too short ([flavorlength]/100 characters) AND you don't have an image reference! You need one or the other at the very least."))
+					return
+				if((SSmonitor.gamestate == SHUTTERS_CLOSED || (SSmonitor.gamestate == GROUNDSIDE && SSmonitor.current_state <= XENOS_LOSING)))
+					var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+					if((xeno_job.total_positions-xeno_job.current_positions) > length(GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL]) * TOO_MUCH_BURROWED_PROPORTION)
+						if(tgui_alert(src, "There is a lack of xeno players on this round, unbalanced rounds are unfun for everyone. Are you sure you want to play as a marine? ", "Warning : the game is unbalanced", list("Yes", "No")) != "Yes")
+							return
 			if(isxenosjob(job_datum))
 				if(XENODEATHTIME_CHECK(usr))
 					if(check_other_rights(usr.client, R_ADMIN, FALSE))
@@ -488,6 +493,11 @@
 		return
 	ready = !ready
 	if(ready)
+		var/flavorlength = length(client.prefs.flavor_text)
+		if((flavorlength < 100) && (client.prefs.profile_pic == ""))
+			to_chat(src,span_warning("Your humanoid flavor text is too short ([flavorlength]/100 characters) AND you don't have an image reference!"))
+			ready = FALSE
+			return
 		if(!WHITELIST_CHECK(client))
 			WHITELIST_MESSAGE(client)
 			ready = FALSE

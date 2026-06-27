@@ -1,4 +1,0 @@
-author: "CaputCapital"
-delete-after: True
-changes:
-  - bugfix: "KZSL quik-e-quip loadouts now properly spawn in EOD and Recon inventory"

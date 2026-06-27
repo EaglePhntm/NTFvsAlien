@@ -1,4 +1,0 @@
-author: "CaputCapital"
-delete-after: True
-changes:
-  - rscadd: "Missing 30 round mag bonus overlay on L88 (thank you aleph for reporting this)"

@@ -323,6 +323,26 @@
 	contains = list(/obj/item/ammo_magazine/smg/minib/extended)
 	cost = 10
 
+/datum/supply_packs/imports/valerian
+	name = "Valerian assault carbine"
+	contains = list(/obj/item/weapon/gun/rifle/valerian)
+	cost = 500
+
+/datum/supply_packs/imports/valerianmag
+	name = "Valerian magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/valerian)
+	cost = 5
+
+/datum/supply_packs/imports/valerianextmag
+	name = "Valerian extended magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/valerian/ext)
+	cost = 10
+
+/datum/supply_packs/imports/valerianlrgext
+	name = "Valerian large magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/valerian/lrg)
+	cost = 20
+
 /datum/supply_packs/imports/plasticfork
 	name = "Plastic Fork"
 	contains = list(/obj/item/tool/kitchen/utensil/pfork)

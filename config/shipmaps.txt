@@ -20,7 +20,7 @@ map theseus
 	minplayers 600
 endmap
 
-map Container
+map container
         minplayers 0
 endmap
 

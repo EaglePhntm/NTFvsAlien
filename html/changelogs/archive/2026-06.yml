@@ -178,3 +178,13 @@
       heads
   Meghan-Rossi:
   - balance: buffed xenomorph disarms
+2026-06-26:
+  CaputCapital:
+  - rscadd: Missing 30 round mag bonus overlay on L88 (thank you aleph for reporting
+      this)
+  - bugfix: KZSL quik-e-quip loadouts now properly spawn in EOD and Recon inventory
+2026-06-27:
+  Ldip999:
+  - code_imp: Linters hopefully fixed
+  - rscadd: Late joining as humanoid or readying now requires you to either have a
+      character image or at least 100 chars worth of flavour text

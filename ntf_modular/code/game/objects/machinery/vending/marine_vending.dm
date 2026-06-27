@@ -720,6 +720,8 @@
 			/obj/item/ammo_magazine/rifle/mpi_km/rubber = -1,
 			/obj/item/weapon/gun/rifle/type71 = -1,
 			/obj/item/ammo_magazine/rifle/type71 = -1,
+			/obj/item/ammo_magazine/rifle/valerian = -1,
+			/obj/item/ammo_magazine/rifle/valerian/ext = 10,
 		),
 		"Energy Weapons" = list(
 			/obj/item/cell/lasgun/lasrifle = -1,
@@ -737,9 +739,9 @@
 		"SMGs" = list(
 			/obj/item/weapon/gun/smg/vsd_pdw = -1,
 			/obj/item/ammo_magazine/smg/vsd_pdw = -1,
-			/obj/item/weapon/gun/smg/minib = 3,
+			/obj/item/weapon/gun/smg/minib = 2,
 			/obj/item/ammo_magazine/smg/minib = -1,
-			/obj/item/ammo_magazine/smg/minib/extended = 30,
+			/obj/item/ammo_magazine/smg/minib/extended = 20,
 		),
 		"Marksman" = list(
 			/obj/item/weapon/gun/rifle/vsd_rifle = -1,
