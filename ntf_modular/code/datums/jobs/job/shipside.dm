@@ -202,7 +202,7 @@
 		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
 		<b>Duty</b>: Create good relations and maintain corporation's image, do paperwork, have sex during meetings...? Reply if you’re called.
 	"}
-	skills_type = /datum/skills/civilian
+	skills_type = /datum/skills/operations_officer
 	display_order = JOB_DISPLAY_ORDER_CORPORATE_LIAISON
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST
 	jobworth = list(
@@ -273,7 +273,7 @@ Archercorp generally takes a more isolationist approach to diplomacy and are gen
 		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
 		<b>Duty</b>: Create good relations and maintain corporation's image, do paperwork, have sex during meetings...? Reply if you’re called.
 	"}
-	skills_type = /datum/skills/doctor
+	skills_type = /datum/skills/operations_officer
 	display_order = JOB_DISPLAY_ORDER_CORPORATE_LIAISON
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST
 	jobworth = list(
@@ -343,7 +343,7 @@ Novamed tends to be cooperative with other corporations, especially mutually wit
 		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
 		<b>Duty</b>: Create good relations and maintain corporation's image, do paperwork, have sex during meetings...? Reply if you’re called.
 	"}
-	skills_type = /datum/skills/civilian
+	skills_type = /datum/skills/operations_officer
 	display_order = JOB_DISPLAY_ORDER_CORPORATE_LIAISON
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST
 	jobworth = list(
@@ -415,7 +415,7 @@ TRANSCo generally tend to be rather hands off with general matters unless they a
 		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
 		<b>Duty</b>: Create good relations and maintain corporation's image, do paperwork, have sex during meetings...? Reply if you’re called.
 	"}
-	skills_type = /datum/skills/civilian
+	skills_type = /datum/skills/operations_officer
 	display_order = JOB_DISPLAY_ORDER_CORPORATE_LIAISON
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_OVERRIDELATEJOINSPAWN
 	jobworth = list(
@@ -490,7 +490,7 @@ Your ranking allows you to know your corporation has vital backing from the crim
 		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
 		<b>Duty</b>: Try not to start not-world war 1, do paperwork, have sex during meetings...? Reply if you’re called.
 	"}
-	skills_type = /datum/skills/civilian
+	skills_type = /datum/skills/operations_officer
 	display_order = JOB_DISPLAY_ORDER_CORPORATE_LIAISON
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST
 	jobworth = list(
@@ -563,7 +563,7 @@ You honestly don't know what you are even here to negoitate, AS called terrorist
 		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
 		<b>Duty</b>: Create good relations, ensure safety of survivors and your faction. do paperwork, have sex during meetings...? Reply if you’re called.
 	"}
-	skills_type = /datum/skills/civilian
+	skills_type = /datum/skills/operations_officer
 	display_order = JOB_DISPLAY_ORDER_CORPORATE_LIAISON
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST
 	jobworth = list(
@@ -635,7 +635,7 @@ Almost all of CM members were colonisers hired by the NTC before all of this hap
 		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
 		<b>Duty</b>: Create good relations, ensure safety of xenomorphs and your cult. try to convert people and fail, have sex during meetings...? Reply if you’re called.
 	"}
-	skills_type = /datum/skills/civilian
+	skills_type = /datum/skills/operations_officer
 	display_order = JOB_DISPLAY_ORDER_CORPORATE_LIAISON
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST
 	jobworth = list(
