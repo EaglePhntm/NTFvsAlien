@@ -1,0 +1,6 @@
+author: "CaputCapital"
+delete-after: True
+changes:
+  - rscadd: "adds Valerian rifle and magazines to the game for KZ specific roles, req imports vendor"
+  - rscadd: "adds new KZ combat escort role with Valerian rifle"
+  - balance: "replaces the KZ SL's Type 73 Command with the Valerian"
