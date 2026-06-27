@@ -131,13 +131,26 @@
 	time_between_round_group = 0
 	time_between_round_group_name = "GROUP_Extended"
 	spawn_xeno_shit = FALSE
+	var/atom/movable/screen/text/screen_timer/nuke_hud_timer = null
+	var/nuking_faction = "Unknown"
+	var/total_war = FALSE
+
+/datum/game_mode/infestation/secret_of_life/proc/setup_nuke_hud_timer(source, thing)
+	SIGNAL_HANDLER
+	var/obj/machinery/nuclearbomb/nuke = thing
+	if(!nuke.timer)
+		CRASH("[logdetails(src)]'s setup_nuke_hud_timer called with invalid nuke object")
+	nuking_faction = nuke.faction
+	nuke_hud_timer = new(null, null, GLOB.whitelisted_clients, nuke.timer, "Nuke ACTIVE: ${timer}\nActivated by:[nuking_faction]")
 
 /datum/game_mode/infestation/secret_of_life/pre_setup()
 	. = ..()
 	RegisterSignals(SSdcs, list(COMSIG_GLOB_PLAYER_ROUNDSTART_SPAWNED, COMSIG_GLOB_PLAYER_LATE_SPAWNED), PROC_REF(things_after_spawn))
+	RegisterSignals(SSdcs, list(COMSIG_GLOB_NUKE_START), PROC_REF(setup_nuke_hud_timer))
 
 /datum/game_mode/infestation/secret_of_life/proc/things_after_spawn(datum/source, mob/living/carbon/human/new_member)
 	SIGNAL_HANDLER
+	nuke_hud_timer?.apply_to(new_member)
 	//no prisoner guns.
 	if(new_member.job in stat_restricted_jobs)
 		return
@@ -311,9 +324,11 @@
 			if(QDELETED(frame) || !is_ground_level(frame.z))
 				continue
 			if(istype(frame, /obj/structure/girder))
-				var/obj/structure/girder/placed_thing = new /turf/closed/wall(frame.loc)
-				placed_thing.dir = frame.dir
-				qdel(frame)
+				var/turf/new_wall_turf = get_turf(frame)
+				if(new_wall_turf)
+					var/obj/structure/girder/placed_thing = new_wall_turf.PlaceOnTop(/turf/closed/wall)
+					placed_thing.dir = frame.dir
+					qdel(frame)
 	else //we got xeno bs all over colony
 		for(var/obj/effect/landmark/corpsespawner/corpse AS in GLOB.corpse_landmarks_list)
 			corpse.create_mob()
@@ -328,6 +343,21 @@
 
 	if(world.time < (SSticker.round_start_time + 5 SECONDS))
 		return FALSE
+
+	if(total_war)
+		switch(planet_nuked)
+			if(INFESTATION_NUKE_COMPLETED)
+				message_admins("Round finished: [nuking_faction] Major Victory") //marines managed to nuke the colony
+				round_finished = "[nuking_faction] Major Victory"
+				return TRUE
+			if(INFESTATION_NUKE_COMPLETED_SHIPSIDE)
+				message_admins("Round finished: [nuking_faction] Major Victory") //marines managed to nuke their own ship
+				round_finished = "[nuking_faction] Major Victory"
+				return TRUE
+			if(INFESTATION_NUKE_COMPLETED_OTHER)
+				message_admins("Round finished: [nuking_faction] Major Victory") //marines managed to nuke transit or something
+				round_finished = "[nuking_faction] Major Victory"
+				return TRUE
 
 	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_ALIVE_SSD|COUNT_IGNORE_XENO_SPECIAL_AREA| COUNT_CLF_TOWARDS_XENOS | COUNT_GREENOS_TOWARDS_MARINES )
 	var/num_xenos = living_player_list[2]

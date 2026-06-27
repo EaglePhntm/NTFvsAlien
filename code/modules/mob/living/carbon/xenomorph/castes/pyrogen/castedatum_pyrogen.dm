@@ -55,6 +55,8 @@
 		/datum/action/ability/activable/xeno/fireball,
 		/datum/action/ability/activable/xeno/firestorm,
 		/datum/action/ability/activable/xeno/inferno,
+		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
 	)
 	///multiplier on plasma amount vs damage that is recieved on attack
 	var/plasma_damage_dealt_mult = 2.5
@@ -96,4 +98,6 @@
 		/datum/action/ability/activable/xeno/firestorm,
 		/datum/action/ability/activable/xeno/inferno,
 		/datum/action/ability/activable/xeno/infernal_trigger,
+		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
 	)
