@@ -657,6 +657,7 @@
 		/obj/item/attachable/scope,
 		/obj/item/attachable/scope/marine,
 		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/scope/nightvision,
 		/obj/item/weapon/gun/pistol/plasma_pistol,
 		/obj/item/weapon/gun/shotgun/combat/masterkey,
 		/obj/item/weapon/gun/pistol/g22/tranq,
@@ -693,8 +694,11 @@
 	accuracy_mult_unwielded = 0.75
 	akimbo_scatter_mod = 16
 
+/obj/item/weapon/gun/rifle/valerian/surveillant
+	starting_attachment_types = list(/obj/item/attachable/stock/valstock/valerian, /obj/item/attachable/verticalgrip, /obj/item/attachable/scope/nightvision)
+
 /obj/item/weapon/gun/rifle/valerian/recon
-	starting_attachment_types = list(/obj/item/attachable/stock/valstock/valerian, /obj/item/attachable/verticalgrip, /obj/item/attachable/reddot)
+	starting_attachment_types = list(/obj/item/attachable/stock/valstock/valerian, /obj/item/attachable/angledgrip, /obj/item/attachable/reddot)
 
 /obj/item/attachable/stock/valstock/valerian
 	name = "\improper Valerian stock"
