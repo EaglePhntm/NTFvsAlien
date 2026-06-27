@@ -3380,7 +3380,7 @@
 
 /datum/outfit/quick/vsd/escort/surveillant
 	name = "KZ Combat Escort Surveyor"
-	desc = "With a plan in your hand and a map of the land, may nobody and nothing escape your gaze. Equipped with a KZ Covert Outfit, KZ Rownin Skeleton and Valerian assault carbine with a night vision scope.
+	desc = "With a plan in your hand and a map of the land, may nobody and nothing escape your gaze. Equipped with a KZ Covert Outfit, KZ Rownin Skeleton and Valerian assault carbine equipped with a night vision scope."
 	suit_store = /obj/item/weapon/gun/rifle/valerian/surveillant
 	gloves = /obj/item/clothing/gloves/marine/fingerless
 	ears = /obj/item/radio/headset/mainship/vsd
