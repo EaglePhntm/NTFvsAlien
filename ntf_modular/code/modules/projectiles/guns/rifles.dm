@@ -697,7 +697,8 @@
 /obj/item/weapon/gun/rifle/valerian/surveillant
 	starting_attachment_types = list(/obj/item/attachable/stock/valstock/valerian, /obj/item/attachable/verticalgrip, /obj/item/attachable/scope/nightvision)
 
-/obj/item/weapon/gun/rifle/valerian/recon
+/obj/item/weapon/gun/rifle/valerian/recon	
+	default_ammo_type = /obj/item/ammo_magazine/rifle/valerian/ext
 	starting_attachment_types = list(/obj/item/attachable/stock/valstock/valerian, /obj/item/attachable/angledgrip, /obj/item/attachable/reddot)
 
 /obj/item/attachable/stock/valstock/valerian
