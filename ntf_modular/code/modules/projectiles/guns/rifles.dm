@@ -676,7 +676,7 @@
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 16,"rail_x" = 10, "rail_y" = 22, "under_x" = 19, "under_y" = 16, "stock_x" = 5, "stock_y" = 14)
 	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.1 SECONDS
-	aim_speed_modifier = 2
+	aim_speed_modifier = 2.25
 
 	fire_delay = 0.2 SECONDS
 	burst_delay = 0.1 SECONDS
@@ -684,10 +684,10 @@
 	accuracy_mult = 0.9
 	recoil = 1
 	recoil_unwielded = 4
-	scatter = 5
+	scatter = 4
 	burst_amount = 3
-	aim_slowdown = 0.5
-	scatter_unwielded = 20
+	aim_slowdown = 0.3
+	scatter_unwielded = 22
 	burst_scatter_mult = 2
 	damage_falloff_mult = 0.9
 	movement_acc_penalty_mult = 5
@@ -697,7 +697,7 @@
 /obj/item/weapon/gun/rifle/valerian/surveillant
 	starting_attachment_types = list(/obj/item/attachable/stock/valstock/valerian, /obj/item/attachable/verticalgrip, /obj/item/attachable/scope/nightvision)
 
-/obj/item/weapon/gun/rifle/valerian/recon	
+/obj/item/weapon/gun/rifle/valerian/recon
 	default_ammo_type = /obj/item/ammo_magazine/rifle/valerian/ext
 	starting_attachment_types = list(/obj/item/attachable/stock/valstock/valerian, /obj/item/attachable/angledgrip, /obj/item/attachable/reddot)
 
@@ -716,6 +716,7 @@
 	name = "heavy subsonic rifle bullet"
 	damage = 35
 	accurate_range = 10
+	shell_speed = 3
 	max_range = 20
 	damage_falloff = 1.25
 	shrapnel_chance = 2
