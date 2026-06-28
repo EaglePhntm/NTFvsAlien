@@ -22,10 +22,10 @@
 
 /obj/item/weapon/gun/launcher/rocket/oneuse/thermobaric
 	name = "\improper RPO-S Disposable Rocket Flamethrower"
-	desc = "This is the premier disposable rocket launcher used throughout the galaxy, it cannot be reloaded or unloaded on the field. This one fires an 84mm explosive rocket. Spacebar to shorten or extend it to make it storeable or fireable, respectively."
+	desc = "An old VSD design still in circulation after being produced by the millions back in the day and still being produced nowdays in the frontier, and by Kaizoku Zaibatsu who inherited the relatively simple, inexpensive design."
 	icon = 'icons/obj/items/guns/special64.dmi'
 	icon_state = "rpo"
-	worn_icon_state = "t72"
+	worn_icon_state = "rpo"
 	max_shells = 1 //codex
 	caliber = CALIBER_93MM //codex
 	load_method = SINGLE_CASING //codex

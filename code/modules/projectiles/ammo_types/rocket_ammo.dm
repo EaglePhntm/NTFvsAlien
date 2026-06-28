@@ -366,7 +366,7 @@
 
 
 /datum/ammo/rocket/oneuse/thermobaric/drop_nade(turf/target_turf, atom/movable/projectile/proj)
-	explosion(target_turf, 0, 4, 5, 0, 4, 4, explosion_cause = proj)
+	explosion(target_turf, 0, 5, 6, 0, 5, 5, explosion_cause = proj)
 
 /datum/ammo/rocket/som/heat //Anti tank, or mech
 	name = "HEAT RPG"
