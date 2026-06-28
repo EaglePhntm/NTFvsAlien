@@ -80,6 +80,7 @@
 
 /obj/vehicle/sealed/mecha/add_occupant(mob/M, control_flags)
 //	RegisterSignal(M, COMSIG_MOB_DEATH, PROC_REF(mob_exit), TRUE) // NTF Edit: Occupants no longer fall out when dead
+	RegisterSignal(M, COMSIG_MOB_DEATH, PROC_REF(play_death_note), TRUE) // NTF Edit: Plays death sound
 	RegisterSignal(M, COMSIG_MOB_MOUSEDOWN, PROC_REF(on_mouseclick), TRUE)
 	RegisterSignal(M, COMSIG_MOB_SAY, PROC_REF(display_speech_bubble), TRUE)
 	RegisterSignal(M, COMSIG_LIVING_DO_RESIST, TYPE_PROC_REF(/atom/movable, resisted_against), TRUE)
@@ -94,6 +95,12 @@
 			var/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/gun = equip_by_category[cat]
 			M.hud_used.add_ammo_hud(gun, gun.hud_icons, gun.projectiles)
 	//tgmc addition end
+
+/obj/vehicle/sealed/mecha/proc/play_death_note(sound)
+	if(occupant_death_note)
+		playsound(loc, occupant_death_note, 50, TRUE)
+	else
+		return
 
 /obj/vehicle/sealed/mecha/remove_occupant(mob/M)
 	//tgmc addition start

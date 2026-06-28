@@ -264,6 +264,8 @@
 	contains = list(/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_minigun)
 	cost = 300
 
+// SS13 mech modules
+
 /datum/supply_packs/imports/exosuit_zoom
 	name = "Exosuit Optics Enhancement"
 	contains = list(/obj/item/mecha_parts/mecha_equipment/ability/zoom)
@@ -283,6 +285,16 @@
 	name = "Exosuit Passenger Compartment"
 	contains = list(/obj/item/mecha_parts/mecha_equipment/passenger_compartment)
 	cost = 100
+
+/datum/supply_packs/imports/exosuit_extinguisher
+	name = "Exosuit Fire Extinguisher"
+	contains = list(/obj/item/mecha_parts/mecha_equipment/extinguisher/exosuit)
+	cost = 100
+
+/datum/supply_packs/imports/exosuit_nightvision
+	name = "Exosuit Night-Vision Module"
+	contains = list(/obj/item/mecha_parts/mecha_equipment/ability/night_vision/exosuit)
+	cost = 300
 
 // SS13 mech ammo
 

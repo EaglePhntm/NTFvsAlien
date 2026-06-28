@@ -17,3 +17,4 @@
 	turnsound = 'sound/items/bikehorn.ogg'
 	enter_delay = EGRESS_TIME_QUICK
 	exit_delay = EGRESS_TIME_QUICK
+	exit_confusion = 0 SECONDS

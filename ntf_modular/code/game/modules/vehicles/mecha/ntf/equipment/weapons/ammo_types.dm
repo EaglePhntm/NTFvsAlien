@@ -5,6 +5,13 @@
 	penetration = 20
 	sundering = 2
 
+/datum/ammo/bullet/mech_minigun
+	name = "light pistol bullet"
+	hud_state = "rifle_ap"
+	damage = 20
+	penetration = 0
+	sundering = 1
+
 /datum/ammo/bullet/shotgun/tribeam
 	name = "tri-beam shell"
 	handful_icon_state = "shotgun_buckshot"

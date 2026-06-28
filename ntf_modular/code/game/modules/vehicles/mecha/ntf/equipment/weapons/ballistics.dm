@@ -104,12 +104,12 @@
 	muzzle_iconstate = "muzzle_flash"
 	fire_sound = 'sound/mecha/weapons/mech_smg.ogg'
 	mech_flags = EXOSUIT_MODULE_NTF|EXOSUIT_MODULE_COMBAT
-	ammotype = /datum/ammo/bullet/rifle/hv
+	ammotype = /datum/ammo/bullet/mech_minigun
 	max_integrity = 75
 
-	projectiles = 100
-	projectiles_cache = 300
-	projectiles_cache_max = 300
+	projectiles = 120
+	projectiles_cache = 360
+	projectiles_cache_max = 360
 	variance = 2
 	projectile_delay = 0.1 SECONDS
 	slowdown = 0

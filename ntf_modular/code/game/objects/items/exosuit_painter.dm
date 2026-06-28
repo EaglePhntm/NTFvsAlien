@@ -54,9 +54,12 @@
 	. += "Alt-click the spraycan to set it's color mode."
 
 /obj/item/toy/crayon/exosuit_painter/attack_self(mob/living/user as mob)
+	if(paint_mode != COLOR_COMBINED && paint_mode != COLOR_OVERRIDE && paint_mode != COLOR_NORMAL)
+		to_chat(user, span_warning("Set a coloring mode first!"))
+		return
 	paint_color = input(user, "Please select the main colour.", "Paint colour") as color
 
-/// Ported spraycan from TG/Bee, and also ports TG's saturation code
+/// Ported spraycan from TG/Bee, and also ports TG's saturation code so you can do that or just add paint.
 
 /obj/item/toy/crayon/exosuit_painter/afterattack(atom/target, mob/user, proximity, params)
 	if(!proximity)

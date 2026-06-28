@@ -12,6 +12,7 @@
 	cockpit_armor = COCKPIT_HEAVY
 	step_energy_drain = POWER_USAGE_HEAVY
 	destruction_sleep_duration = 4 SECONDS
+	exit_confusion = 3 SECONDS
 	enter_delay = EGRESS_TIME_SLOW
 	exit_delay = EGRESS_TIME_SLOW
 

@@ -385,6 +385,11 @@
 		lighting_cutoff = LIGHTING_CUTOFF_MEDIUM
 		see_in_dark = max(see_in_dark, 10)
 
+	if(HAS_TRAIT(src, TRAIT_EXOSUIT_NV))
+		lighting_cutoff = LIGHTING_CUTOFF_MEDIUM
+		lighting_color_cutoffs = list(10, 30, 10)
+		see_in_dark = max(see_in_dark, 10)
+
 	set_sight(new_sight)
 	return ..()
 

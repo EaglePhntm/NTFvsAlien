@@ -59,7 +59,18 @@
 /obj/vehicle/sealed/mecha
 	///Whether or not adding a DNA is possible
 	var/can_dna_lock = TRUE
+	///If the incoming occupant is a passenger or not
 	var/loading_passenger = FALSE
+	///Amount of confusion gained on exiting
+	var/exit_confusion = 2 SECONDS
+	///If there's light amplification (mech NVGs) or not
+	var/light_amplification = FALSE
+	///Settings for mech NVGs
+	var/color_cutoffs = list()
+	///Settings for mech NVGs
+	var/lighting_cutoff = null
+	///Sound effect for when a occupant dies
+	var/occupant_death_note = 'ntf_modular/sound/effects/deadspace_alert.ogg'
 
 /// Passenger loading (via drag-drop)
 
@@ -67,6 +78,11 @@
 	if(loading_passenger)
 		return
 	..()
+
+/obj/vehicle/sealed/mecha/nft/remove_occupant(mob/M)
+	REMOVE_TRAIT(M, TRAIT_EXOSUIT_NV, VEHICLE_TRAIT)
+	M.update_sight()
+	return ..()
 
 /obj/vehicle/sealed/mecha/MouseDrop_T(mob/living/passenger, mob/user)
 	if(!ishuman(passenger) || passenger == user)

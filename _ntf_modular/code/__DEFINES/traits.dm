@@ -9,3 +9,5 @@
 #define TRAIT_SURRENDERING "surrendering"
 #define TRAIT_FRAIL_LARVABURSTS "frail_larvabursts"
 #define TRAIT_CULTIST "cultist"
+
+#define TRAIT_EXOSUIT_NV "exosuit_nightvision" //Able to see in dark

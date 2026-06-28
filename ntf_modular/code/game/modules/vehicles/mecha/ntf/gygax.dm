@@ -15,6 +15,7 @@
 	wreckage = /obj/structure/mecha_wreckage/gygax
 	step_energy_drain = POWER_USAGE_STANDARD
 	cockpit_armor = COCKPIT_ARMORED
+	exit_confusion = 0 SECONDS
 
 /obj/vehicle/sealed/mecha/ntf/gygax/generate_actions()
 	. = ..()
