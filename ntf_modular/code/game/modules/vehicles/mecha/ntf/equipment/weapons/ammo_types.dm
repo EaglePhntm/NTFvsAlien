@@ -8,7 +8,7 @@
 /datum/ammo/bullet/mech_minigun
 	name = "light pistol bullet"
 	hud_state = "rifle_ap"
-	damage = 20
+	damage = 18
 	penetration = 0
 	sundering = 1
 
