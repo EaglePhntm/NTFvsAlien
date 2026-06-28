@@ -70,4 +70,4 @@ if [ "$is_vendored" = "1" ]; then
 else
 	echo "Using system-wide Node $("$NodeExe" --version)"
 fi
-exec "$NodeExe" "$@"
+"$NodeExe" "$@"

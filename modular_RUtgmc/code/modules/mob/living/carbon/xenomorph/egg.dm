@@ -50,3 +50,42 @@
 	F.ghostize()
 	F.death(deathmessage = "get inside the egg", silent = TRUE)
 	qdel(F)
+
+/obj/alien/egg/hugger/verb/transfer_to_facehugger()
+	set name = "Transfer to facehugger"
+	set desc = "Silo yourself if you are a larva and transfer control to a facehugger."
+	set category = "IC.Object"
+	set src in view(1)
+
+	if(QDELETED(usr) || !isliving(usr))
+		return
+	if(usr.incapacitated(TRUE))
+		return
+	if(!isxenolarva(usr))
+		to_chat(usr, span_xenonotice("We should be a larva to do this."))
+		return
+	var/mob/living/carbon/xenomorph/user = usr
+
+	if(maturity_stage != stage_ready_to_burst)
+		balloon_alert(user, "Not fully grown")
+		return
+	if(!hugger_type)
+		balloon_alert(user, "Empty")
+		return
+
+	advance_maturity(stage_ready_to_burst + 1)
+	for(var/turf/turf_to_watch AS in filled_turfs(src, trigger_size, "circle", FALSE))
+		UnregisterSignal(turf_to_watch, COMSIG_ATOM_ENTERED)
+	playsound(loc, "sound/effects/alien_egg_move.ogg", 25)
+	flick("egg opening", src)
+
+	var/mob/living/carbon/xenomorph/facehugger/new_hugger = new(loc)
+	new_hugger.transfer_to_hive(hivenumber)
+	hugger_type = null
+	log_combat(usr, new_hugger, "switched control from a xeno to a facehugger", src)
+
+
+	var/mob/living/carbon/xenomorph/larva/old_body = user
+	user.mind.transfer_to(new_hugger, TRUE)
+	old_body.burrow()
+	return

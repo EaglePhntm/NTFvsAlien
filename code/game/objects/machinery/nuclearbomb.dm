@@ -275,6 +275,8 @@
 		balloon_alert(user, "ineligible detonation site!")
 		return
 	if(!timer_enabled)
+		if(user.faction)
+			faction = user.faction
 		enable(key_name(user))
 		balloon_alert(user, "timer started")
 	else

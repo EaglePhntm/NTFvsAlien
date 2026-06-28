@@ -73,7 +73,11 @@
 			for(var/obj/item/clothing/cloth in mob.contents) //duplicate outfit, only clothes tho and unremovable.
 				var/obj/item/clothing/lecloth = new cloth.type(doppleganger.loc)
 				ADD_TRAIT(lecloth, TRAIT_NODROP, "doppleganger_item")
+				lecloth.item_flags |= DELONDROP
 				doppleganger.equip_to_appropriate_slot(lecloth, TRUE)
+				if(isturf(lecloth.loc))
+					stack_trace("Faile to equip [logdetails(lecloth)] to doppelganger [logdetails(doppleganger)]")
+					qdel(lecloth)
 
 			//replace nested with doppleganger
 			if(istype(mob.buckled, /obj/structure/bed/nest/wall))

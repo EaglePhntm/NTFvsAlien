@@ -55,6 +55,8 @@
 
 /obj/machinery/door_control/proc/handle_door()
 	for(var/obj/machinery/door/airlock/D in range(range))
+		if(QDELETED(D))
+			continue
 		if(D.id_tag == src.id)
 			if(specialfunctions & OPEN)
 				if (D.density)
@@ -84,6 +86,8 @@
 /obj/machinery/door_control/proc/handle_pod()
 	SIGNAL_HANDLER
 	for(var/obj/machinery/door/poddoor/M in GLOB.machines)
+		if(QDELETED(M))
+			continue
 		if(M.id == id)
 			if(M.density)
 				M.open()

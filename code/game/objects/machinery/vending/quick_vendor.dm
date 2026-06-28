@@ -99,9 +99,11 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 		///datum/outfit/quick/vsd/spec/scoutalt,
 		// /datum/outfit/quick/vsd/spec/uslspec_one,
 		// /datum/outfit/quick/vsd/spec/uslspec_two,
-		/datum/outfit/quick/vsd/juggernaut,
-		/datum/outfit/quick/vsd/eod,
-		/datum/outfit/quick/vsd/recon,
+		/datum/outfit/quick/vsd/escort/infiltrator,
+		/datum/outfit/quick/vsd/escort/surveillant,
+		/datum/outfit/quick/vsd/squadlead/juggernaut,
+		/datum/outfit/quick/vsd/squadlead/eod,
+		/datum/outfit/quick/vsd/squadlead/recon,
 		///datum/outfit/quick/vsd/reconalt,
 		/datum/outfit/quick/pmc/standard,
 		/datum/outfit/quick/pmc/engineer,
@@ -116,9 +118,18 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 		/datum/outfit/quick/icc/standard/icc_assaultcarbine,
 		/datum/outfit/quick/icc/standard/icc_autoshotgun,
 		/datum/outfit/quick/icc/medic/icc_sharpshooter,
+		/datum/outfit/quick/icc/medic/icc_rifleman,
+		/datum/outfit/quick/icc/medic/icc_smg,
+		/datum/outfit/quick/icc/medic/icc_smg2,
 		/datum/outfit/quick/icc/guard/icc_rocket,
 		/datum/outfit/quick/icc/guard/icc_autoshotgun,
+		/datum/outfit/quick/icc/guard/icc_m16fl240,
+		/datum/outfit/quick/icc/guard/icc_hpr,
+		/datum/outfit/quick/icc/leader/icc_famas,
 		/datum/outfit/quick/icc/leader/icc_confrontationrifle,
+		/datum/outfit/quick/icc/leader/icc_m16masterkey,
+		/datum/outfit/quick/icc/leader/icc_lmg,
+		/datum/outfit/quick/icc/fieldcommander/icc_PR11upgraded,
 	)
 
 	for(var/X in loadout_list)
@@ -312,6 +323,7 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 		"KZ Medic",
 		"KZ Engineer",
 		"KZ Specialist",
+		"KZ Combat Escort",
 		"KZ Squad Leader",
 	)
 
@@ -337,6 +349,7 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 		"CM Medic",
 		"CM Guardsman",
 		"CM Squad Leader",
+		"CM Militia Captain",
 	)
 
 
@@ -360,6 +373,7 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 		"KZ Medic",
 		"KZ Engineer",
 		"KZ Specialist",
+		"KZ Combat Escort",
 		"KZ Squad Leader",
 	)
 

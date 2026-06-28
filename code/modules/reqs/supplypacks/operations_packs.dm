@@ -161,12 +161,14 @@ OPERATIONS
 	notes = "Contains 5 cubes."
 	contains = list(/obj/item/storage/box/monkeycubes)
 	cost = 500
+	faction_lock = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_ICC, FACTION_VSD, FACTION_NANOTRASEN)
 
 /datum/supply_packs/operations/monkeyboxes/single
 	name = "Monkey Cube"
 	notes = "A single cube, without a box."
 	contains = list(/obj/item/reagent_containers/food/snacks/monkeycube)
 	cost = 100
+	faction_lock = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_ICC, FACTION_VSD, FACTION_NANOTRASEN)
 
 /datum/supply_packs/operations/droppod_mech
 	name = "mech drop pod"

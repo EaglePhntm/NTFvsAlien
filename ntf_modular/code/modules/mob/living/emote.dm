@@ -309,7 +309,7 @@
 
 /datum/emote/living/carbon/human/species/robot/droid/beep/beep2
 	key = "beep2"
-	sound = "sound/items/defib_SafetyOff.ogg"
+	sound = "sound/items/defib_safetyOff.ogg"
 
 /datum/emote/living/carbon/human/species/robot/droid/beep/beep3
 	key = "beep3"

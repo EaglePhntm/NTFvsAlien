@@ -76,7 +76,7 @@
 
 /datum/chemical_reaction/milkresearch
 	results = null
-	required_reagents = list(/datum/reagent/consumable/milk/human = 30)
+	required_reagents = list(/datum/reagent/consumable/milk/human = 10)
 	required_catalysts = list(/datum/reagent/medicine/lemoline = 5)
 
 /datum/chemical_reaction/milkresearch/on_reaction(datum/reagents/holder, created_volume)
@@ -85,7 +85,7 @@
 
 /datum/chemical_reaction/girlresearch
 	results = null
-	required_reagents = list(/datum/reagent/consumable/nutriment/cum/girl = 30)
+	required_reagents = list(/datum/reagent/consumable/nutriment/cum/girl = 10)
 	required_catalysts = list(/datum/reagent/medicine/lemoline = 5)
 
 /datum/chemical_reaction/girlresearch/on_reaction(datum/reagents/holder, created_volume)
@@ -94,7 +94,7 @@
 
 /datum/chemical_reaction/boyresearch
 	results = null
-	required_reagents = list(/datum/reagent/consumable/nutriment/cum = 30)
+	required_reagents = list(/datum/reagent/consumable/nutriment/cum = 10)
 	required_catalysts = list(/datum/reagent/medicine/lemoline = 5)
 
 /datum/chemical_reaction/boyresearch/on_reaction(datum/reagents/holder, created_volume)

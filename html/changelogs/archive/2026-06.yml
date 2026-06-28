@@ -124,3 +124,79 @@
   - balance: lowered the armors and speeds of a few mechs, small mechs can be moved
       in maintenance mode now, and will move their equipement into their wreck with
       100% chance, removes random mech parts appearing from wrecks (it's useless..)
+2026-06-23:
+  CaputCapital:
+  - balance: reworked the CM weapons to where CM can't get a V-21 SMG nor a TX54 mag-fed
+      grenade launcher anymore, FL-240 & MP-IRL now limited to 1, six-cylinder grenade
+      launchers limited at 2, but the faction gets SMG-2, G22, Desert Eagle, infinite
+      sledgehammers and 2 PTRS anti-mech rifles to compensate
+  - rscadd: CM gets the CM3 armor (slightly nerfed freelancer armor) in their armory
+  - rscadd: weapon subvariants in respective categories
+  - rscadd: 'CM Militia Captain to #define'
+  - rscadd: CM iterations of freelance armor in code (CM3, CM12, CMB08) slightly nerfed/reworked
+      armor values trading off
+  - bugfix: fixed the L88 left sprite face as it was facing wrong
+  - bugfix: can't find a way to cap the handfuls of PTRS ammo to only 5 bullets, so
+      I sprited bullet piles up to 8 total instead
+  - balance: PTRS anti-mech rifle actually gets a scope now so it's made viable for
+      long range sieging/defending
+  - bugfix: CC67, L26 and C21 now have proper back sprites
+  Colfer1:
+  - balance: Combat robots no longer bleedout, their healing options have returned
+      to normal, ask someone to repair you or be ready to wait a little bit
+  - bugfix: synth survivors no longer have their radio explode on spawn
+  Nokia2Student:
+  - balance: 6 gauge values lowered across the board
+  - balance: Increased 6 gauge ammo amount in vendors
+  - balance: Removed stun from shotguns and revolvers, putting those guns focus on
+      stagger and slowdown instead
+  - balance: Being staggered now increases your scatter by 10 (previously 5)
+  - balance: Being staggered now decreases your accuracy by 10 (previously 0)
+  - balance: You can't add attachments to ML101 anymore
+2026-06-24:
+  CaputCapital:
+  - bugfix: CM Standard L88 gets an actual assault carbine instead of error
+  - bugfix: L40 PDW medic loadout gets an MRE that they were supposed to have
+  - bugfix: CM Militia Captain tab is in quik vendor now
+  - rscadd: KZ quik-e-quip loadout for Combat Escort
+  - balance: removes NVGs from SL and passes them to Combat Escort
+  - balance: reduce surplus in KZ specialized armament tab of vendor, gives them a
+      single PTRS rifle with a box
+  - rscadd: KZ MINI-B machinepistol for Combat Escort, limited quantity in vendor
+      and for extended mags too
+  - rscadd: requisitions imports update, KZ only weapons (except for MINI-B and ammo
+      for now?) can only be bought by KZ
+  - rscadd: KZ sneaking suit
+  Colfer1:
+  - qol: colony req terminals now show up on the minimap
+  - rscadd: handcrank can now be bought in engineering tab
+2026-06-25:
+  CaputCapital:
+  - bugfix: '**ACTUALLY** fixes the KZ Combat Escort Quick Equip Loadout'
+  Colfer1:
+  - rscadd: changed various combat robot heads and torsos, eliminating many monitor
+      heads
+  Meghan-Rossi:
+  - balance: buffed xenomorph disarms
+2026-06-26:
+  CaputCapital:
+  - rscadd: Missing 30 round mag bonus overlay on L88 (thank you aleph for reporting
+      this)
+  - bugfix: KZSL quik-e-quip loadouts now properly spawn in EOD and Recon inventory
+2026-06-27:
+  Ldip999:
+  - code_imp: Linters hopefully fixed
+  - rscadd: Late joining as humanoid or readying now requires you to either have a
+      character image or at least 100 chars worth of flavour text
+2026-06-28:
+  CaputCapital:
+  - rscadd: adds Valerian rifle and magazines to the game for KZ specific roles, req
+      imports vendor
+  - rscadd: adds new KZ combat escort role with Valerian rifle
+  - balance: replaces the KZ SL's Type 73 Command with the Valerian
+  - balance: reworks the AT32 autocannon to remove minimum range accuracy, windup
+      and fire_delay by 0.5.
+  - balance: reworks AT32 autocannon stats to increase unwielded recoil, unwielded
+      inaccuracy, increases wield delay, slight increase to scatter
+  - balance: KZ Spec no longer has smartgun skill and has decreased unarmed skill
+      in exchange for the much more fitting rifle & heavy_weapons skill

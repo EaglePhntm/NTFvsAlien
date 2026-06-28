@@ -73,12 +73,12 @@
 			/obj/item/ammo_magazine/handful/tracker = 5,
 			/obj/item/ammo_magazine/handful/beanbag = -1,
 			/obj/item/ammo_magazine/handful/rubber_pellet = -1,
-			/obj/item/ammo_magazine/shotgun/heavy_buckshot = 2,
-			/obj/item/ammo_magazine/shotgun/heavy_flechette = 1,
-			/obj/item/ammo_magazine/shotgun/barrikada = 1,
-			/obj/item/ammo_magazine/handful/heavy_buckshot = 5,
-			/obj/item/ammo_magazine/handful/heavy_flechette = 5,
-			/obj/item/ammo_magazine/handful/barrikada = 3,
+			/obj/item/ammo_magazine/shotgun/heavy_buckshot = 3,
+			/obj/item/ammo_magazine/shotgun/heavy_flechette = 3,
+			/obj/item/ammo_magazine/shotgun/barrikada = 2,
+			/obj/item/ammo_magazine/handful/heavy_buckshot = 8,
+			/obj/item/ammo_magazine/handful/heavy_flechette = 8,
+			/obj/item/ammo_magazine/handful/barrikada = 5,
 		),
 		"Machinegun" = list(
 			/obj/item/ammo_magazine/smart_gpmg = -1,
@@ -694,7 +694,6 @@
 		),
 	)
 
-
 /obj/machinery/vending/weapon/vsd
 	name = "Kaizoku weapons rack"
 	faction = FACTION_VSD
@@ -721,6 +720,8 @@
 			/obj/item/ammo_magazine/rifle/mpi_km/rubber = -1,
 			/obj/item/weapon/gun/rifle/type71 = -1,
 			/obj/item/ammo_magazine/rifle/type71 = -1,
+			/obj/item/ammo_magazine/rifle/valerian = -1,
+			/obj/item/ammo_magazine/rifle/valerian/ext = 10,
 		),
 		"Energy Weapons" = list(
 			/obj/item/cell/lasgun/lasrifle = -1,
@@ -738,6 +739,9 @@
 		"SMGs" = list(
 			/obj/item/weapon/gun/smg/vsd_pdw = -1,
 			/obj/item/ammo_magazine/smg/vsd_pdw = -1,
+			/obj/item/weapon/gun/smg/minib = 2,
+			/obj/item/ammo_magazine/smg/minib = -1,
+			/obj/item/ammo_magazine/smg/minib/extended = 20,
 		),
 		"Marksman" = list(
 			/obj/item/weapon/gun/rifle/vsd_rifle = -1,
@@ -776,7 +780,7 @@
 			/obj/item/stack/throwing_knife = -1,
 			/obj/item/storage/belt/knifepouch = -1,
 			/obj/item/storage/holster/blade/machete/full = -1,
-			/obj/item/storage/holster/blade/katana/full =1,
+			/obj/item/storage/holster/blade/katana/full = -1,
 		),
 		"Sidearm" = list(
 			/obj/item/weapon/gun/pistol/vsd_pistol = -1,
@@ -822,7 +826,7 @@
 		"Specialized" = list(
 			/obj/item/weapon/gun/flamer/hydro_cannon = -1,
 			/obj/item/ammo_magazine/flamer_tank/water = -1,
-			/obj/item/weapon/gun/launcher/rocket/vsd = 2,
+			/obj/item/weapon/gun/launcher/rocket/vsd = 1,
 			/obj/item/ammo_magazine/rocket/vsd/he = 10,
 			/obj/item/ammo_magazine/rocket/vsd/incendiary = 10,
 			/obj/item/ammo_magazine/rocket/vsd/chemical = 10,
@@ -834,10 +838,12 @@
 			/obj/item/ammo_magazine/rifle/vsd_autocannon/at = 8,
 			/obj/item/weapon/gun/at45 = 1,
 			/obj/item/ammo_magazine/at45 = 4,
-			/obj/item/weapon/gun/flamer/vsd = 2,
-			/obj/item/ammo_magazine/flamer_tank/vsd = 30,
-			/obj/item/ammo_magazine/flamer_tank/vsd/blue = 4,
-			/obj/item/ammo_magazine/flamer_tank/backtank = 4,
+			/obj/item/weapon/gun/flamer/vsd = 1,
+			/obj/item/ammo_magazine/flamer_tank/vsd = 10,
+			/obj/item/ammo_magazine/flamer_tank/vsd/blue = 2,
+			/obj/item/ammo_magazine/flamer_tank/backtank = 2,
+			/obj/item/weapon/gun/clf_heavyrifle = 1,
+			/obj/item/big_ammo_box/shotgun/clf_heavyrifle = 1,
 			/obj/item/bodybag/tarp = 10,
 		),
 		"Heavy Weapons" = list(
@@ -1455,6 +1461,7 @@
 			/obj/item/weapon/gun/rifle/famas = -1,
 			/obj/item/ammo_magazine/rifle/famas = -1,
 			/obj/item/ammo_magazine/rifle/famasext = 10,
+
 		),
 		"Energy Weapons" = list(
 			/obj/item/cell/lasgun/lasrifle = -1,
@@ -1468,12 +1475,9 @@
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla = 1,
 		),
 		"SMGs" = list(
-			/obj/item/weapon/gun/smg/som = -1,
-			/obj/item/ammo_magazine/smg/som = -1,
-			/obj/item/ammo_magazine/smg/som/rubber = -1,
-			/obj/item/ammo_magazine/smg/som/ap = 20,
-			/obj/item/ammo_magazine/smg/som/incendiary = 10,
-			/obj/item/ammo_magazine/smg/som/squashhead = 3,
+			/obj/item/weapon/gun/smg/uzi = -1,
+			/obj/item/ammo_magazine/smg/uzi = -1,
+			/obj/item/ammo_magazine/smg/uzi/extended = 10,
 			/obj/item/weapon/gun/smg/icc_machinepistol = -1,
 			/obj/item/ammo_magazine/smg/icc_machinepistol = -1,
 			/obj/item/weapon/gun/smg/icc_pdw = -1,
@@ -1487,7 +1491,7 @@
 		),
 		"Shotgun" = list(
 			/obj/item/weapon/gun/shotgun/pump/t35 = -1,
-			/obj/item/weapon/gun/shotgun/pump/trenchgun = 5,
+			/obj/item/weapon/gun/shotgun/pump/trenchgun = 4,
 			/obj/item/ammo_magazine/shotgun = -1,
 			/obj/item/ammo_magazine/shotgun/buckshot = -1,
 			/obj/item/ammo_magazine/shotgun/flechette = -1,
@@ -1506,15 +1510,15 @@
 			/obj/item/ammo_magazine/icc_mg = -1,
 		),
 		"Specialized" = list(
-			/obj/item/weapon/gun/flamer/big_flamer = -1,
-			/obj/item/ammo_magazine/flamer_tank/backtank = -1,
-			/obj/item/weapon/gun/launcher/rocket/icc = 2,
+			/obj/item/weapon/gun/flamer/big_flamer = 1,
+			/obj/item/ammo_magazine/flamer_tank/backtank = 2,
+			/obj/item/weapon/gun/launcher/rocket/icc = 1,
 			/obj/item/ammo_magazine/rocket/icc = 10,
 			/obj/item/ammo_magazine/rocket/icc/light = 20,
 			/obj/item/ammo_magazine/rocket/icc/heat = 15,
 			/obj/item/ammo_magazine/rocket/icc/thermobaric = 5,
-			/obj/item/weapon/gun/rifle/icc_coilgun = -1,
-			/obj/item/ammo_magazine/rifle/icc_coilgun = 30,
+			/obj/item/weapon/gun/rifle/icc_coilgun = 1,
+			/obj/item/ammo_magazine/rifle/icc_coilgun = 12,
 			/obj/item/weapon/gun/launcher/rocket/oneuse = 6,
 		),
 		"Melee" = list(
@@ -1523,19 +1527,19 @@
 			/obj/item/stack/throwing_knife = -1,
 			/obj/item/storage/belt/knifepouch = -1,
 			/obj/item/storage/holster/blade/machete/full = -1,
+			/obj/item/weapon/twohanded/sledgehammer = -1,
 		),
 		"Sidearm" = list(
+			/obj/item/weapon/gun/pistol/g22 = -1,
+			/obj/item/ammo_magazine/pistol/g22 = -1,
 			/obj/item/weapon/gun/pistol/icc_dpistol = -1,
 			/obj/item/ammo_magazine/pistol/icc_dpistol = -1,
+			/obj/item/weapon/gun/pistol/heavy = -1,
+			/obj/item/ammo_magazine/pistol/heavy = -1,
 		),
 		"Grenades" = list(
 			/obj/item/weapon/gun/grenade_launcher/single_shot = -1,
-			/obj/item/weapon/gun/grenade_launcher/multinade_launcher/unloaded = -1,
-			/obj/item/weapon/gun/rifle/tx54 = 2,
-			/obj/item/ammo_magazine/rifle/tx54 = 5,
-			/obj/item/ammo_magazine/rifle/tx54/incendiary = 5,
-			/obj/item/ammo_magazine/rifle/tx54/smoke = 15,
-			/obj/item/ammo_magazine/rifle/tx54/smoke/tangle = 10,
+			/obj/item/weapon/gun/grenade_launcher/multinade_launcher/unloaded = 2,
 			/obj/item/explosive/grenade = 200,
 			/obj/item/explosive/grenade/stick = 5,
 			/obj/item/explosive/grenade/m15 = 30,
@@ -1574,6 +1578,8 @@
 			/obj/item/weapon/gun/heavymachinegun = 1,
 			/obj/item/ammo_magazine/heavymachinegun = 5,
 			/obj/item/ammo_magazine/heavymachinegun/small = 10,
+			/obj/item/weapon/gun/clf_heavyrifle = 2,
+			/obj/item/big_ammo_box/shotgun/clf_heavyrifle = 2,
 		),
 		"Attachments" = list(
 			/obj/item/attachable/bayonet = -1,
@@ -2040,6 +2046,7 @@
 			/obj/item/clothing/suit/storage/marine/icc = -1,
 			/obj/item/clothing/suit/storage/marine/icc/guard = -1,
 			/obj/item/clothing/suit/storage/marine/icc/guard/heavy = -1,
+			/obj/item/clothing/suit/storage/marine/cmfreelancer = -1,
 			/obj/item/clothing/head/modular/m10x = -1,
 			/obj/item/clothing/head/helmet/marine/icc = -1,
 			/obj/item/clothing/head/helmet/marine/icc/guard = -1,

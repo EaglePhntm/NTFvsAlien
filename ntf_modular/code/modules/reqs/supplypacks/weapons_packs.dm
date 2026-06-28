@@ -92,16 +92,16 @@
 	cost = 400
 
 /datum/supply_packs/weapons/moonbeam_ammo
-	name = "Moonbeam NL sniper rifle tranq magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/chamberedrifle/tranq)
+	name = "Moonbeam NL sniper rifle tranq magazine (x3)"
+	contains = list(/obj/item/ammo_magazine/rifle/chamberedrifle/tranq, /obj/item/ammo_magazine/rifle/chamberedrifle/tranq, /obj/item/ammo_magazine/rifle/chamberedrifle/tranq)
 	faction_lock = list(FACTION_TERRAGOV)
-	cost = 30
+	cost = 10 //easily expended
 
 /datum/supply_packs/weapons/moonbeam_ammo_bluescreen
 	name = "Moonbeam NL sniper rifle bluescreen magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/chamberedrifle/bluescreen)
+	contains = list(/obj/item/ammo_magazine/rifle/chamberedrifle/bluescreen, /obj/item/ammo_magazine/rifle/chamberedrifle/bluescreen, /obj/item/ammo_magazine/rifle/chamberedrifle/bluescreen)
 	faction_lock = list(FACTION_TERRAGOV)
-	cost = 60
+	cost = 20
 
 /datum/supply_packs/weapons/bikeautocannonammo
 	name = "heavy motorbike AC-32 autocannon ammo rack (x2)"

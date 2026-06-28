@@ -1169,7 +1169,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 
 /obj/item/weapon/gun/minigun/vsd_autocannon
 	name = "\improper CC/AT32 Handheld Autocannon"
-	desc = "The CC/AT32, a new handheld Autocannon of the Kaizoku Corporation. Firing 20mm rounds and 40mm grenades. Its ammo variety goes from Armor Piercing, Anti-Tank, and Explosives. You will hit nothing while moving with this."
+	desc = "The CC/AT32, a new handheld Autocannon of the Kaizoku Corporation. Firing 20mm rounds and 40mm grenades. Its ammo variety goes from Armor Piercing, Anti-Tank, and Explosives. You will most likely hit nothing while moving with this unless you're specifically trained in doing so."
 	icon = 'icons/obj/items/guns/special64.dmi'
 	icon_state = "at32"
 	worn_icon_state = "at32"
@@ -1193,17 +1193,19 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 		/obj/item/ammo_magazine/rifle/vsd_autocannon/explosive,
 		/obj/item/ammo_magazine/rifle/vsd_autocannon/at,
 		)
-	attachable_allowed = list(/obj/item/attachable/flashlight, /obj/item/attachable/magnetic_harness, /obj/item/attachable/foldable/bipod, /obj/item/attachable/lasersight)
+	attachable_allowed = list(/obj/item/attachable/flashlight, /obj/item/attachable/magnetic_harness, /obj/item/attachable/motiondetector, /obj/item/attachable/foldable/bipod, /obj/item/attachable/lasersight)
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 19,"rail_x" = 13, "rail_y" = 22, "under_x" = 24, "under_y" = 14, "stock_x" = 24, "stock_y" = 12)
 
-	fire_delay = 0.45 SECONDS
-	wield_delay = 0.85 SECONDS
-	windup_delay = 0.1 SECONDS
+	fire_delay = 0.4 SECONDS
+	wield_delay = 2 SECONDS
+	windup_delay = 0 SECONDS
 	aim_slowdown = 3
 	accuracy_mult = 0.8 //0.9 with lasersight
-	accuracy_mult_unwielded = 0.5
-	movement_acc_penalty_mult = 10
-	damage_falloff_mult = 1.5
-	scatter = 0
+	recoil = 1
+	recoil_unwielded = 5
+	accuracy_mult_unwielded = 0.8
+	movement_acc_penalty_mult = 8
+	damage_falloff_mult = 1.25
+	scatter = 2
 
 	autobalance_monitor_value = null
