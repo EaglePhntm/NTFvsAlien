@@ -226,6 +226,18 @@
 /obj/item/ammo_magazine/rocket/oneuse/anti_tank
 	default_ammo = /datum/ammo/rocket/recoilless/heat/mech
 
+//RPO Thermobaric
+
+/obj/item/ammo_magazine/rocket/oneuse/thermobaric
+	name = "\improper 93mm thermobaric Rocket"
+	desc = "A rocket used to reload a one use rocket once returned to an armory."
+	caliber = CALIBER_93MM
+	icon_state = "rocket"
+	w_class = WEIGHT_CLASS_BULKY
+	max_rounds = 1
+	default_ammo = /datum/ammo/rocket/oneuse/thermobaric
+	reload_delay = 30
+
 //-------------------------------------------------------
 //M5 RPG'S MEAN FUCKING COUSIN
 
