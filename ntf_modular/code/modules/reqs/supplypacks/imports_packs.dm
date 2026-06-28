@@ -325,6 +325,11 @@
 
 ///
 
+/datum/supply_packs/imports/exosuit_painter
+	name = "exosuit painter"
+	contains = list(/obj/item/toy/crayon/exosuit_painter)
+	cost = 10
+
 /datum/supply_packs/imports/famas/ammoext
 	name = "FAMAS Assault Rifle Extended Ammo"
 	contains = list(/obj/item/ammo_magazine/rifle/famasext)

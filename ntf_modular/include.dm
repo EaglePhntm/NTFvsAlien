@@ -98,7 +98,7 @@
 #include "code\game\modules\vehicles\mecha\ntf\ntf.dm"
 #include "code\game\modules\vehicles\mecha\ntf\phazon.dm"
 #include "code\game\modules\vehicles\mecha\ntf\seraph.dm"
-#include "ntf_modular\code\game\objects\items\exosuit_painter.dm"
+#include "code\game\objects\items\exosuit_painter.dm"
 #include "code\game\objects\effects\effect_system\smoke.dm"
 #include "code\game\objects\effects\landmarks\landmarks.dm"
 #include "code\game\objects\effects\landmarks\marine_spawns.dm"
