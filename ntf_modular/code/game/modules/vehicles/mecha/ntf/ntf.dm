@@ -50,6 +50,7 @@
 		cooldown *= gravity
 		cost *= gravity
 		height *= gravity * 0.5
+
 	AddComponent(/datum/component/jump/exosuit, _jump_duration = duration, _jump_cooldown = cooldown, _stamina_cost = cost, _jump_height = height, _jump_sound = sound, _jump_flags = flags, _jumper_allow_pass_flags = jump_pass_flags)
 
 /obj/vehicle/sealed/mecha/ntf/fire_act(burn_level)

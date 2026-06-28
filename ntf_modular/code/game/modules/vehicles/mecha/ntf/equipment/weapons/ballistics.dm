@@ -4,7 +4,7 @@
 	desc = "A exosuit-mounted light machinegun chambered in 5.56x45mm NATO, offering a good combination of mobility and firepower."
 	icon_state = "smg"
 	muzzle_iconstate = "muzzle_flash"
-	fire_sound = 'sound/mecha/weapons/mech_smg.ogg'
+	fire_sound = 'sound/weapons/guns/fire/m16.ogg'
 	mech_flags = EXOSUIT_MODULE_NTF
 	ammotype = /datum/ammo/bullet/rifle/hv
 	max_integrity = 75
@@ -28,7 +28,7 @@
 	desc = "A mounted submachinegun chambered in 9x19 Parabellum, it offers excellent portability and stability."
 	icon_state = "smg"
 	muzzle_iconstate = "muzzle_flash"
-	fire_sound = 'sound/mecha/weapons/mech_smg.ogg'
+	fire_sound = 'sound/weapons/guns/fire/colt.ogg'
 	mech_flags = EXOSUIT_MODULE_NTF|EXOSUIT_MODULE_COMBAT
 	ammotype = /datum/ammo/bullet/smg
 	max_integrity = 75
@@ -52,7 +52,7 @@
 	desc = "A exosuit-mounted four-barrel grenade launcher, chambered in low-pressure, high-explosive 40mm grenades."
 	icon_state = "smg"
 	muzzle_iconstate = "muzzle_flash"
-	fire_sound = 'sound/mecha/weapons/mech_smg.ogg'
+	fire_sound = 'sound/weapons/guns/fire/mortar_fire.ogg'
 	mech_flags = EXOSUIT_MODULE_NTF|EXOSUIT_MODULE_COMBAT
 	ammotype = /datum/ammo/grenade_container
 	max_integrity = 75
@@ -102,7 +102,7 @@
 	desc = "A exosuit-mounted minigun. Requires a longer wind-up before firing, but is excellent for providing large-volume supportive fire."
 	icon_state = "smg"
 	muzzle_iconstate = "muzzle_flash"
-	fire_sound = 'sound/mecha/weapons/mech_smg.ogg'
+	fire_sound = 'sound/weapons/guns/fire/ppsh.ogg'
 	mech_flags = EXOSUIT_MODULE_NTF|EXOSUIT_MODULE_COMBAT
 	ammotype = /datum/ammo/bullet/mech_minigun
 	max_integrity = 75

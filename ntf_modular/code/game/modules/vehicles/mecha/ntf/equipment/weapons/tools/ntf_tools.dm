@@ -12,7 +12,7 @@
 	.=..()
 	if(istype(M, /obj/vehicle/sealed/mecha/ntf/marauder))
 		to_chat(user, span_warning("You are unable to attach [src] to [M]!"))
-		return
+		return FALSE
 
 /obj/item/mecha_parts/mecha_equipment/generator/exosuit
 	name = "phoron generator"
@@ -31,6 +31,7 @@
 	smoke_type = /datum/effect_system/smoke_spread/tactical
 	size = 4
 	duration = 5
+	ability_to_grant = /datum/action/vehicle/sealed/mecha/mech_smoke/exosuit
 
 /obj/item/mecha_parts/mecha_equipment/ability/night_vision/exosuit
 	name = "night vision module"

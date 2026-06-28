@@ -136,16 +136,14 @@
 	range = MECHA_MELEE|MECHA_RANGED
 	mech_flags = EXOSUIT_MODULE_WORKING
 	///Minimum amount of reagent needed to activate.
-	var/required_amount = 80
+	var/required_amount = 7
 
 /obj/item/mecha_parts/mecha_equipment/extinguisher/Initialize(mapload)
 	. = ..()
-	create_reagents(400)
-	reagents.add_reagent(/datum/reagent/water, 400)
+	create_reagents(100)
+	reagents.add_reagent(/datum/reagent/water, 100)
 
 /obj/item/mecha_parts/mecha_equipment/extinguisher/proc/spray_extinguisher(mob/user, atom/target)
-	if(!action_checks())
-		return
 	if(reagents.total_volume < required_amount)
 		return
 	var/turf/T = get_ranged_target_turf(chassis, chassis.dir, 7)

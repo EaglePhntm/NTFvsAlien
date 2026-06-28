@@ -59,25 +59,30 @@
 
 // Smoke
 
-/datum/action/vehicle/sealed/mecha/mech_smoke
+/datum/action/vehicle/sealed/mecha/mech_smoke/exosuit
 	var/power_cost = 1000
 	var/cooldown = 15 SECONDS
 
-/datum/action/vehicle/sealed/mecha/mech_smoke/action_activate(trigger_flags)
-	. = ..()
-	if(!.)
+/datum/action/vehicle/sealed/mecha/mech_smoke/exosuit/action_activate(trigger_flags)
+	if(!owner?.client || !chassis || !(owner in chassis.occupants))
+		return
+	if(owner.do_actions)
 		return
 	if(TIMER_COOLDOWN_RUNNING(chassis, COOLDOWN_MECHA_EQUIPMENT(type)))
 		chassis.balloon_alert(owner, "Cooldown")
 		return
-	TIMER_COOLDOWN_START(chassis, COOLDOWN_MECHA_EQUIPMENT(type), cooldown)
 	if(!chassis.use_power(power_cost))
 		chassis.balloon_alert(owner, "No power")
 		return
-	chassis.use_power(power_cost)
+	TIMER_COOLDOWN_START(chassis, COOLDOWN_MECHA_EQUIPMENT(type), cooldown)
+	chassis.smoke_system.start()
 
 // Jumping
 
 /datum/component/jump/exosuit
 	jump_height = 8
-	jumper_allow_pass_flags = null
+	jumper_allow_pass_flags = 0
+
+/datum/component/jump/exosuit/do_jump(atom/movable/jumper)
+    jumper_allow_pass_flags = 0
+    return ..()
