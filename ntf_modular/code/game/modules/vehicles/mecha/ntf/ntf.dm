@@ -62,8 +62,6 @@
 	var/can_dna_lock = TRUE
 	///If the incoming occupant is a passenger or not
 	var/loading_passenger = FALSE
-	///Amount of confusion gained on exiting
-	var/exit_confusion = 2 SECONDS
 	///If there's light amplification (mech NVGs) or not
 	var/light_amplification = FALSE
 	///Settings for mech NVGs

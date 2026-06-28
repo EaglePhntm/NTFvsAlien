@@ -19,7 +19,6 @@
 	mecha_flags = ADDING_ACCESS_POSSIBLE | IS_ENCLOSED | HAS_HEADLIGHTS
 	enter_delay = EGRESS_TIME_QUICK
 	exit_delay = EGRESS_TIME_QUICK
-	exit_confusion = 0 SECONDS
 	max_occupants = 2
 	pivot_step = TRUE
 	step_energy_drain = POWER_USAGE_EFFICIENT
