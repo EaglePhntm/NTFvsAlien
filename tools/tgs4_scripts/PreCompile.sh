@@ -10,6 +10,14 @@ set -x
 original_dir=$PWD
 cd "$1"
 . dependencies.sh
+mkdir -p data
+git rev-parse HEAD > data/revision.txt
+date +"%Y-%b-%m %H:%M:%S" > data/compile_date.txt
+printf "#define DEFINE_REVINFO_REVISION \"" >> _ntf_modular/revinfo.dm
+(git rev-parse HEAD |  tr -d '\n') >> _ntf_modular/revinfo.dm
+printf "\"\r\n#define DEFINE_REVINFO_COMPILE_DATE \"" >> _ntf_modular/revinfo.dm
+(date +"%Y-%b-%m %H:%M:%S" |  tr -d '\n') >> _ntf_modular/revinfo.dm
+printf "\"\r\n" >> _ntf_modular/revinfo.dm
 cd "$original_dir"
 
 #find out what we have (+e is important for this)
@@ -70,3 +78,5 @@ echo "Compiling tgui..."
 cd "$1"
 chmod +x tools/bootstrap/node  # Workaround for https://github.com/tgstation/tgstation-server/issues/1167
 env TG_BOOTSTRAP_CACHE="$original_dir" TG_BOOTSTRAP_NODE_LINUX=1 CBT_BUILD_MODE="TGS" tools/bootstrap/node tools/build/build.js
+
+echo "//Do not edit manually" > _ntf_modular/revinfo.dm

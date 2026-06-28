@@ -84,7 +84,7 @@
 					return
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 25, 1)
 				to_chat(huser, span_notice(" You dismantle the frame..."))
-				new /obj/item/stack/sheet/metal(src.loc, 5)
+				new /obj/item/stack/sheet/metal(src.loc, 3)
 				qdel(src)
 		if(CONSTRUCTION_STATE_PROGRESS)
 			if(istype(P, /obj/item/circuitboard/machine))

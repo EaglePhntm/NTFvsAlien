@@ -9,7 +9,10 @@
 #endif
 
 //Uncomment this if we decide to start using TGS
-//#define USE_TGS
+#define USE_TGS
+
+//Uncomment to use TGS discord verification
+//#define TGS_DISCORD_VERIFICATION
 
 #ifdef TESTING
 #define DATUMVAR_DEBUGGING_MODE

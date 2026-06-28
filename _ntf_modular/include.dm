@@ -11,3 +11,4 @@
 #include "code\__DEFINES\span.dm"
 #include "code\__DEFINES\species.dm"
 #include "code\__DEFINES\traits.dm"
+#include "revinfo.dm"

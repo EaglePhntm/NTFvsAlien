@@ -340,6 +340,51 @@
 	contains = list(/obj/item/storage/holster/blade/katana/full)
 	cost = 50
 
+/datum/supply_packs/imports/ptrsincendammo
+	name = "PTRS emplacement rifle"
+	contains = list(/obj/item/weapon/gun/clf_heavyrifle)
+	cost = 600
+
+/datum/supply_packs/imports/ptrsheavyrifle
+	name = "PTRS incendiary munitions box"
+	contains = list(/obj/item/big_ammo_box/shotgun/clf_heavyrifle)
+	cost = 200
+
+/datum/supply_packs/imports/minibmp
+	name = "MINI-B machinepistol"
+	contains = list(/obj/item/weapon/gun/smg/minib)
+	cost = 300
+
+/datum/supply_packs/imports/minibmpmag
+	name = "MINI-B magazine"
+	contains = list(/obj/item/ammo_magazine/smg/minib)
+	cost = 5
+
+/datum/supply_packs/imports/minibmpmagext
+	name = "MINI-B extended magazine"
+	contains = list(/obj/item/ammo_magazine/smg/minib/extended)
+	cost = 10
+
+/datum/supply_packs/imports/valerian
+	name = "Valerian assault carbine"
+	contains = list(/obj/item/weapon/gun/rifle/valerian)
+	cost = 500
+
+/datum/supply_packs/imports/valerianmag
+	name = "Valerian magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/valerian)
+	cost = 5
+
+/datum/supply_packs/imports/valerianextmag
+	name = "Valerian extended magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/valerian/ext)
+	cost = 10
+
+/datum/supply_packs/imports/valerianlrgext
+	name = "Valerian large magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/valerian/lrg)
+	cost = 20
+
 /datum/supply_packs/imports/plasticfork
 	name = "Plastic Fork"
 	contains = list(/obj/item/tool/kitchen/utensil/pfork)
@@ -442,6 +487,54 @@
 	contains = list(/obj/item/armor_module/module/eshield/absorbant/energy)
 	faction_lock = list(FACTION_TERRAGOV)
 	cost = 600
+
+/datum/supply_packs/imports/kzflamethrower
+	name = "KZ CC/21 flamethrower (Faction Supply)"
+	contains = list(/obj/item/weapon/gun/flamer/vsd)
+	faction_lock = list(FACTION_VSD)
+	cost = 300
+
+/datum/supply_packs/imports/kzfuelreg
+	name = "KZ CC/21 fuel tank (Faction Supply)"
+	contains = list(/obj/item/ammo_magazine/flamer_tank/vsd)
+	faction_lock = list(FACTION_VSD)
+	cost = 50
+
+/datum/supply_packs/imports/kzfuelx
+	name = "KZ CC/21 X fuel tank (Faction Supply)"
+	contains = list(/obj/item/ammo_magazine/flamer_tank/vsd/blue)
+	faction_lock = list(FACTION_VSD)
+	cost = 150
+
+/datum/supply_packs/imports/kzrocketlauncher
+	name = "KZ C153 shoulder launcher (Faction Supply)"
+	contains = list(/obj/item/weapon/gun/launcher/rocket/vsd)
+	faction_lock = list(FACTION_VSD)
+	cost = 800
+
+/datum/supply_packs/imports/kzrockethe
+	name = "KZ C153 shoulder launcher he rocket (Faction Supply)"
+	contains = list(/obj/item/ammo_magazine/rocket/vsd/he)
+	faction_lock = list(FACTION_VSD)
+	cost = 25
+
+/datum/supply_packs/imports/kzrocketincend
+	name = "KZ C153 shoulder launcher incendiary rocket (Faction Supply)"
+	contains = list(/obj/item/ammo_magazine/rocket/vsd/incendiary)
+	faction_lock = list(FACTION_VSD)
+	cost = 50
+
+/datum/supply_packs/imports/kzrocketchem
+	name = "KZ C153 shoulder launcher chemical rocket (Faction Supply)"
+	contains = list(/obj/item/ammo_magazine/rocket/vsd/chemical)
+	faction_lock = list(FACTION_VSD)
+	cost = 50
+
+/datum/supply_packs/imports/kzrocketheat
+	name = "KZ C153 shoulder launcher HEAT rocket (Faction Supply)"
+	contains = list(/obj/item/ammo_magazine/rocket/vsd/heat)
+	faction_lock = list(FACTION_VSD)
+	cost = 50
 
 /datum/supply_packs/imports/antiballisticshieldfs
 	name = "KZ Anti Ballsitic Shield (Faction Supply)"

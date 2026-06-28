@@ -4,7 +4,8 @@
 #define PINGID_CRASH_ROUND_PING "1469068799469818049"
 #define PINGID_ZOMBIE_CRASH_ROUND_PING "1476701184785125499"
 #define PINGID_NUCLEAR_WAR_VARIANT_PING "1476701614025871382"
-#define PINGID_SURVIVAL_PING "1476701856175755364"
+#define PINGID_COLONY_FALL_PING "1476701856175755364"
+#define PINGID_COLONY_SURVIVAL_PING "1519645184827195444"
 #define PINGID_SURVIVOR_HEAVY_PING "1476702539440324720"
 #define PINGID_CLASSIC_MODE_PING "1476702696697237567"
 #define PINGID_SOL_MODE_PING "1476703075640283408"
@@ -18,7 +19,8 @@ GLOBAL_LIST_INIT(mode_to_pingid, list(
 	"Nuclear War Plus" = PINGID_NUCLEAR_WAR_VARIANT_PING,
 	"Sovl War" = PINGID_NUCLEAR_WAR_VARIANT_PING,
 	"Sovl War Plus" = PINGID_NUCLEAR_WAR_VARIANT_PING,
-	"Survival" = PINGID_SURVIVAL_PING,
+	"Colony Fall" = PINGID_COLONY_FALL_PING,
+	"Colony Survival" = PINGID_COLONY_SURVIVAL_PING,
 	"Extended - Survivor-Heavy" = PINGID_SURVIVOR_HEAVY_PING,
 	"Secret of Life - Classic" = PINGID_CLASSIC_MODE_PING,
 	"Secret of Life - Main" = PINGID_SOL_MODE_PING,
@@ -34,6 +36,8 @@ GLOBAL_LIST_INIT(mode_to_pingid, list(
 
 /proc/status_update_server_start()
 	var/datum/getrev/revdata = GLOB?.revdata
+	if(!revdata)
+		log_game("revdata not found during startup")
 	var/compile_date = "[revdata?.date]"
 	var/commit = "[revdata?.commit]"
 	var/rev_data_file = file("data/revision.json")

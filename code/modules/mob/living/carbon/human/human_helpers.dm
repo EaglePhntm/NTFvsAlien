@@ -174,7 +174,7 @@
 	return robot_base in list("Human", "Android", "Dark Android")
 
 /proc/robot_head_uses_human_eyes(robot_base)
-	return robot_base in list("Human", "Lizard", "Anthro")
+	return robot_base in list("Human", "Lizard", "Anthro", "Android", "Dark Android", "Xion Manufacturing Group 2.0", "Morpheus Cyberkinetics")
 
 /proc/get_robot_part_body_icon(robot_base)
 	switch(robot_base)

@@ -139,7 +139,7 @@
 	for(var/obj/item/sucker in loc)
 		qdel(sucker)
 		counter++
-	for(var/mob/sucked in loc)
+	for(var/mob/living/sucked in loc)
 		if(sucked.stat != CONSCIOUS)
 			qdel(sucked)
 			counter++

@@ -476,6 +476,103 @@
 	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 100, FIRE = 90, ACID = 90)
 	inv_hide_flags = HIDEEARS|HIDETOPHAIR|HIDELOWHAIR
 
+/*===========================CM - toned down and nerfed freelancer armor for balance ================================*/
+
+/obj/item/clothing/head/modular/style/booniecm
+	name = "CM3 boonie"
+	desc = "A boonie hat used by the Colonial Militia, purpose made for operations in enviroments with a lot of sun, or dense vegetation."
+	icon_state = "boonie_inhand"
+	worn_icon_state = "boonie"
+	inv_hide_flags = HIDE_EXCESS_HAIR
+	attachments_by_slot = list(
+		ATTACHMENT_SLOT_STORAGE,
+		ATTACHMENT_SLOT_HEAD_MODULE,
+	)
+	attachments_allowed = list(
+		/obj/item/armor_module/module/binoculars,
+		/obj/item/armor_module/storage/helmet,
+	)
+	starting_attachments = list(
+		/obj/item/armor_module/storage/helmet,
+	)
+	
+/obj/item/clothing/head/helmet/marine/cmfreelancer/beret
+	name = "\improper Colonial Militia beret"
+	desc = "A white beret, with a worn out Freelancers emblem. Not many people you can see wear such things, especially when they're not part of an official military force. Additionally issued with an armored platemask."
+	icon = 'icons/obj/clothing/headwear/ert_headwear.dmi'
+	icon_state = "freelancer_beret"
+	soft_armor = list(MELEE = 45, BULLET = 70, LASER = 70, ENERGY = 50, BOMB = 50, BIO = 65, FIRE = 50, ACID = 40)
+	inv_hide_flags = HIDEEARS
+	attachments_by_slot = list(
+		ATTACHMENT_SLOT_STORAGE,
+	)
+	starting_attachments = list(
+		/obj/item/armor_module/storage/helmet,
+	)
+
+/obj/item/clothing/head/helmet/marine/cmfreelancer
+	name = "\improper CM3 pattern helmet"
+	desc = "A sturdy blue helmet, based on the freelancer M3 helmet. Many years ago on the Terra, the sign of that helmet was inspiring hope, but now - a sign of self-preservation."
+	icon = 'icons/mob/clothing/headwear/ert_headwear.dmi'
+	worn_icon_list = list(
+		slot_head_str = 'icons/mob/clothing/headwear/ert_headwear.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/items/items_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items/items_right.dmi',
+	)
+	icon_state = "freelancer_helmet"
+	siemens_coefficient = 2
+	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 50, BOMB = 60, BIO = 50, FIRE = 50, ACID = 55)
+	inv_hide_flags = HIDEEARS|HIDETOPHAIR
+	attachments_by_slot = list(
+		ATTACHMENT_SLOT_STORAGE,
+		ATTACHMENT_SLOT_HEAD_MODULE,
+	)
+	attachments_allowed = list(
+		/obj/item/armor_module/module/binoculars,
+		/obj/item/armor_module/storage/helmet,
+	)
+	
+/obj/item/clothing/head/helmet/marine/cmfreelancer/heavy
+	name = "\improper CM3 pattern heavy helmet"
+	desc = "A sturdy freelancer's helmet with additional plates. Many years ago on the Terra, the sign of that helmet was inspiring hope, but now - only apathy."
+	icon_state = "freelancer_helmet_heavy"
+	soft_armor = list(MELEE = 60, BULLET = 80, LASER = 70, ENERGY = 50, BOMB = 65, BIO = 40, FIRE = 40, ACID = 45)
+	attachments_allowed = list(
+		/obj/item/armor_module/module/binoculars,
+		/obj/item/armor_module/storage/helmet,
+	)
+	starting_attachments = list(
+		/obj/item/armor_module/storage/helmet,
+	)
+
+/obj/item/clothing/head/helmet/marine/cmfreelancer/specialist
+	name = "\improper CM3 pattern rocketeer helmet"
+	desc = "A sturdy freelancer's helmet with additional plates and protective riot visor. Many years ago on the Terra, the sign of that helmet was inspiring hope, but now - only apathy."
+	icon_state = "freelancer_helmet_specialist"
+	soft_armor = list(MELEE = 55, BULLET = 75, LASER = 60, ENERGY = 70, BOMB = 80, BIO = 40, FIRE = 55, ACID = 55)
+	attachments_allowed = list(
+		/obj/item/armor_module/module/binoculars,
+		/obj/item/armor_module/storage/helmet,
+	)
+	starting_attachments = list(
+		/obj/item/armor_module/module/binoculars,
+		/obj/item/armor_module/storage/helmet,
+	)
+
+/obj/item/clothing/head/helmet/marine/cmfreelancer/specialist/pyro
+	name = "\improper CMB08 pyro hood"
+	desc = "A repurposed firefighter helmet combined with additional flame retardant materials reinforced with metal plates. All of this allows the user to safely walk through fire. A complete psycho would wear the original freelance version, cuts had to be made with the new CMB08."
+	icon_state = "freelancer_helmet_pyro"
+	soft_armor = list(MELEE = 55, BULLET = 65, LASER = 65, ENERGY = 50, BOMB = 55, BIO = 50, FIRE = 100, ACID = 50)
+	inv_hide_flags = HIDEEARS|HIDETOPHAIR|HIDELOWHAIR
+	attachments_allowed = list(
+		/obj/item/armor_module/module/binoculars,
+		/obj/item/armor_module/storage/helmet,
+	)
+	starting_attachments = list(
+		/obj/item/armor_module/storage/helmet,
+	)
+
 /*=========================Imperium==================================*/
 
 /obj/item/clothing/head/helmet/marine/imperial

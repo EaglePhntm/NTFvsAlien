@@ -86,7 +86,7 @@
 	for(var/i in GLOB.xeno_encounter_resin_silo_turfs)
 		new /obj/structure/xeno/silo(i)
 
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_HVH_REQ)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(send_global_signal), COMSIG_GLOB_HVH_REQ), 1 SECONDS)
 
 	// Apply Evolution Xeno Population Locks:
 	for(var/datum/xeno_caste/caste AS in evo_requirements)

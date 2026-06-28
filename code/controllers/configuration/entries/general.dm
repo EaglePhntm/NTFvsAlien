@@ -275,7 +275,7 @@ Voting
 	min_val = 0
 
 /datum/config_entry/number/vote_period  // length of voting period (deciseconds, default 1 minute)
-	default = 600
+	default = 1200
 	integer = FALSE
 	min_val = 0
 

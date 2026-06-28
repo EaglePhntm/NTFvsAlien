@@ -697,7 +697,9 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 
 	var/viewfaction = faction
 	if(viewfaction == FACTION_XENO)
-		viewfaction = GLOB.hive_datums[get_xeno_hivenumber()].allied_factions[1]
+		var/datum/hive_status/hive = GLOB.hive_datums[get_xeno_hivenumber()]
+		if(istype(hive))
+			viewfaction = hive.allied_factions[1]
 	var/dat = GLOB.datacore.get_manifest(FALSE, TRUE, viewfaction)
 
 	var/datum/browser/popup = new(src, "manifest", "<div align='center'>Game Manifest</div>", 370, 420)

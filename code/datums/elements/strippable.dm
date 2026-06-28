@@ -153,6 +153,8 @@
 	var/obj/item/item = get_item(source)
 	if(isnull(item))
 		return FALSE
+	if(HAS_TRAIT(item, TRAIT_NODROP))
+		return FALSE
 
 	source.visible_message(
 		"<span class='warning'>[user] tries to remove [source]'s [item.name].</span>",

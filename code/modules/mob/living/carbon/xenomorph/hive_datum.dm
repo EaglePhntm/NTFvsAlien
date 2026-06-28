@@ -605,6 +605,9 @@
 
 /datum/hive_status/proc/setup_nuke_hud_timer(source, thing)
 	SIGNAL_HANDLER
+	var/datum/game_mode/infestation/secret_of_life/gamemode = SSticker.mode
+	if(istype(gamemode))
+		return
 	var/obj/machinery/nuclearbomb/nuke = thing
 	if(!nuke.timer)
 		CRASH("hive_status's setup_nuke_hud_timer called with invalid nuke object")

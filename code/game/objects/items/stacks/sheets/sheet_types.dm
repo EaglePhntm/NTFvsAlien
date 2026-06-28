@@ -17,7 +17,7 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	/obj/structure/barricade/folding/metal = new /datum/stack_recipe("folding metal barricade", /obj/structure/barricade/folding/metal, BUILD_COST_METAL_CADE_FOLDABLE, time = 8 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), \
 	null, \
 	/obj/item/frame/apc = new /datum/stack_recipe("apc frame", /obj/item/frame/apc, 2, crafting_flags = NONE), \
-	/obj/machinery/constructable_frame = new /datum/stack_recipe("machine frame", /obj/machinery/constructable_frame, 4, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), \
+	/obj/machinery/constructable_frame = new /datum/stack_recipe("machine frame", /obj/machinery/constructable_frame, 3, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), \
 	/obj/structure/girder = new /datum/stack_recipe("wall girder", /obj/structure/girder, 8, time = 10 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_ADVANCED), \
 	/obj/structure/window_frame = new /datum/stack_recipe("window frame", /obj/structure/window_frame, 4, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), \
 	/obj/structure/window_frame/colony = new /datum/stack_recipe("colony window frame", /obj/structure/window_frame/colony, 4, time = 2.5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), \

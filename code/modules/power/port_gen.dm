@@ -102,7 +102,7 @@
 	// How much is left of the sheet
 	var/sheet_left = 0
 	// in ticks (2 seconds)
-	var/time_per_sheet = 600
+	var/time_per_sheet = 900
 	var/current_heat = 0
 	var/start_full = TRUE
 	power_gen = 17500
@@ -300,8 +300,8 @@
 	base_icon = "portgen1"
 	circuit = /obj/item/circuitboard/machine/pacman/super
 	sheet_path = /obj/item/stack/sheet/mineral/uranium
-	power_gen = 30000
-	time_per_sheet = 1200
+	power_gen = 35000
+	time_per_sheet = 1800
 
 /obj/machinery/power/port_gen/pacman/super/overheat()
 	explosion(loc, 4, explosion_cause=src)
@@ -315,8 +315,8 @@
 	icon_state = "portgen2"
 	circuit = /obj/item/circuitboard/machine/pacman/mrs
 	sheet_path = /obj/item/stack/sheet/mineral/diamond
-	power_gen = 40000
-	time_per_sheet = 300
+	power_gen = 80000
+	time_per_sheet = 900
 
 /obj/machinery/power/port_gen/pacman/mrs/overheat()
 	explosion(loc, 4, explosion_cause=src)

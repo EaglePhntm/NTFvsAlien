@@ -6,8 +6,8 @@
 	round_type_flags2 = MODE_2_CAMPAIGN_LITE_SUPPORT|MODE_2_NO_GHOSTS|MODE_2_NO_ABDUCT|MODE_2_SINGLE_USE_NUKE_DISK_GENERATOR|MODE_2_CHILL_RULES
 	shutters_drop_time = 15 MINUTES
 	xeno_abilities_flags = ABILITY_NUCLEARWAR|ABILITY_SOLMODE
-	factions = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_XENO, FACTION_CLF, FACTION_ICC, FACTION_VSD, FACTION_NANOTRASEN)
-	human_factions = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_CLF, FACTION_ICC, FACTION_VSD, FACTION_NANOTRASEN)
+	factions = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_XENO, FACTION_CLF, FACTION_ICC, FACTION_VSD)
+	human_factions = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_CLF, FACTION_ICC, FACTION_VSD)
 	valid_job_types = list(
 		/datum/job/terragov/command/ceo = 1,
 		/datum/job/terragov/command/nm_ceo = 1,
@@ -75,29 +75,28 @@
 		/datum/job/som/engineering/tech = 2,
 		/datum/job/som/medical/professor = 1,
 		/datum/job/som/medical/medicalofficer = 2,
-		/datum/job/som/squad/standard = -1,
+		/datum/job/som/squad/standard = 4,
 		/datum/job/som/squad/medic = 2,
 		/datum/job/som/squad/engineer = 2,
 		/datum/job/som/squad/leader = 2,
 		/datum/job/som/squad/veteran = 3,
 		/datum/job/other/prisonersom = 4,
-		/datum/job/clf/breeder = -1,
-		/datum/job/clf/standard = -1,
+		/datum/job/clf/breeder = 2,
+		/datum/job/clf/standard = 4,
 		/datum/job/clf/medic = 2,
-		/datum/job/clf/specialist = 3,
-		/datum/job/clf/tech = 3,
+		/datum/job/clf/specialist = 2,
+		/datum/job/clf/tech = 2,
 		/datum/job/clf/leader = 2,
 		/datum/job/clf/silicon/synthetic/clf = 1,
 		/datum/job/clf/mo = 1,
 		/datum/job/clf/messiah = 1,
-		/datum/job/other/prisonerclf = 4,
-		/datum/job/vsd_squad/standard = -1,
+		/datum/job/other/prisonerclf = 4,,
 		/datum/job/vsd_squad/medic = 1,
 		/datum/job/vsd_squad/engineer = 1,
 		/datum/job/vsd_squad/spec = 1,
 		/datum/job/vsd_squad/escort = 1,
 		/datum/job/vsd_squad/leader = 1,
-		/datum/job/icc_squad/standard = -1,
+		/datum/job/icc_squad/standard = 4,
 		/datum/job/icc_squad/medic = 2,
 		/datum/job/icc_squad/tech = 2,
 		/datum/job/icc_squad/spec = 2,
@@ -112,12 +111,6 @@
 		/datum/job/clf/liaison_clf = 1,
 		/datum/job/som/civilian/liaison_som = 1,
 		/datum/job/vsd_squad/liaison_kaizoku = 1,
-		/datum/job/pmc/squad/standard = -1,
-		/datum/job/pmc/squad/medic = 2,
-		/datum/job/pmc/squad/engineer = 2,
-		/datum/job/pmc/squad/gunner = 1,
-		/datum/job/pmc/squad/sniper = 1,
-		/datum/job/pmc/squad/leader = 1,
 	)
 	enable_fun_tads = TRUE
 	xenorespawn_time = 2 MINUTES
@@ -138,13 +131,26 @@
 	time_between_round_group = 0
 	time_between_round_group_name = "GROUP_Extended"
 	spawn_xeno_shit = FALSE
+	var/atom/movable/screen/text/screen_timer/nuke_hud_timer = null
+	var/nuking_faction = "Unknown"
+	var/total_war = FALSE
+
+/datum/game_mode/infestation/secret_of_life/proc/setup_nuke_hud_timer(source, thing)
+	SIGNAL_HANDLER
+	var/obj/machinery/nuclearbomb/nuke = thing
+	if(!nuke.timer)
+		CRASH("[logdetails(src)]'s setup_nuke_hud_timer called with invalid nuke object")
+	nuking_faction = nuke.faction
+	nuke_hud_timer = new(null, null, GLOB.whitelisted_clients, nuke.timer, "Nuke ACTIVE: ${timer}\nActivated by:[nuking_faction]")
 
 /datum/game_mode/infestation/secret_of_life/pre_setup()
 	. = ..()
 	RegisterSignals(SSdcs, list(COMSIG_GLOB_PLAYER_ROUNDSTART_SPAWNED, COMSIG_GLOB_PLAYER_LATE_SPAWNED), PROC_REF(things_after_spawn))
+	RegisterSignals(SSdcs, list(COMSIG_GLOB_NUKE_START), PROC_REF(setup_nuke_hud_timer))
 
 /datum/game_mode/infestation/secret_of_life/proc/things_after_spawn(datum/source, mob/living/carbon/human/new_member)
 	SIGNAL_HANDLER
+	nuke_hud_timer?.apply_to(new_member)
 	//no prisoner guns.
 	if(new_member.job in stat_restricted_jobs)
 		return
@@ -289,14 +295,14 @@
 				apse.cell.charge = apse.cell.maxcharge
 		//repair window frames
 		for(var/obj/structure/window_frame/colony/reinforced/frame in world)
-			if(!is_ground_level(frame.z))
+			if(QDELETED(frame) || !is_ground_level(frame.z))
 				continue
 			if(istype(frame, /obj/structure/window_frame/colony/reinforced))
 				var/obj/structure/window/framed/colony/reinforced/placed_thing = new /obj/structure/window/framed/colony/reinforced(frame.loc)
 				placed_thing.dir = frame.dir
 				qdel(frame)
 		for(var/obj/structure/window_frame/colony/frame in world)
-			if(!is_ground_level(frame.z))
+			if(QDELETED(frame) || !is_ground_level(frame.z))
 				continue
 			if(istype(frame, /obj/structure/window_frame/colony))
 				var/obj/structure/window/framed/colony/placed_thing = new /obj/structure/window/framed/colony(frame.loc)
@@ -304,23 +310,25 @@
 				qdel(frame)
 		//clean blood
 		for(var/obj/effect/decal/cleanable/blood/splatter/blood_splatter in world)
-			if(!is_ground_level(blood_splatter.z))
+			if(QDELETED(blood_splatter) || !is_ground_level(blood_splatter.z))
 				continue
 			if(istype(blood_splatter, /obj/effect/decal/cleanable/blood/splatter))
 				qdel(blood_splatter)
 		for(var/obj/effect/decal/cleanable/blood/gibs in world)
-			if(!is_ground_level(gibs.z))
+			if(QDELETED(gibs) || !is_ground_level(gibs.z))
 				continue
 			if(istype(gibs, /obj/effect/decal/cleanable/blood/gibs))
 				qdel(gibs)
 		//make girders into basic walls?
 		for(var/obj/structure/girder/frame in world)
-			if(!is_ground_level(frame.z))
+			if(QDELETED(frame) || !is_ground_level(frame.z))
 				continue
 			if(istype(frame, /obj/structure/girder))
-				var/obj/structure/girder/placed_thing = new /turf/closed/wall(frame.loc)
-				placed_thing.dir = frame.dir
-				qdel(frame)
+				var/turf/new_wall_turf = get_turf(frame)
+				if(new_wall_turf)
+					var/obj/structure/girder/placed_thing = new_wall_turf.PlaceOnTop(/turf/closed/wall)
+					placed_thing.dir = frame.dir
+					qdel(frame)
 	else //we got xeno bs all over colony
 		for(var/obj/effect/landmark/corpsespawner/corpse AS in GLOB.corpse_landmarks_list)
 			corpse.create_mob()
@@ -335,6 +343,21 @@
 
 	if(world.time < (SSticker.round_start_time + 5 SECONDS))
 		return FALSE
+
+	if(total_war)
+		switch(planet_nuked)
+			if(INFESTATION_NUKE_COMPLETED)
+				message_admins("Round finished: [nuking_faction] Major Victory") //marines managed to nuke the colony
+				round_finished = "[nuking_faction] Major Victory"
+				return TRUE
+			if(INFESTATION_NUKE_COMPLETED_SHIPSIDE)
+				message_admins("Round finished: [nuking_faction] Major Victory") //marines managed to nuke their own ship
+				round_finished = "[nuking_faction] Major Victory"
+				return TRUE
+			if(INFESTATION_NUKE_COMPLETED_OTHER)
+				message_admins("Round finished: [nuking_faction] Major Victory") //marines managed to nuke transit or something
+				round_finished = "[nuking_faction] Major Victory"
+				return TRUE
 
 	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_ALIVE_SSD|COUNT_IGNORE_XENO_SPECIAL_AREA| COUNT_CLF_TOWARDS_XENOS | COUNT_GREENOS_TOWARDS_MARINES )
 	var/num_xenos = living_player_list[2]
@@ -405,9 +428,9 @@ alt gamemodes
 		/datum/job/terragov/silicon/ai = 1,
 		/datum/job/terragov/squad/engineer = 4,
 		/datum/job/terragov/squad/corpsman = 4,
-		/datum/job/terragov/squad/smartgunner = 2,
-		/datum/job/terragov/squad/leader = 2,
-		/datum/job/terragov/squad/specialist = 2,
+		/datum/job/terragov/squad/smartgunner = 4,
+		/datum/job/terragov/squad/leader = 4,
+		/datum/job/terragov/squad/specialist = 4,
 		/datum/job/terragov/squad/standard = -1,
 		/datum/job/terragov/squad/slut = -1,
 		/datum/job/moraleofficer = -1,
@@ -421,8 +444,8 @@ alt gamemodes
 		/datum/job/clf/tech = 2,
 		/datum/job/clf/medic = 4,
 		/datum/job/clf/mo = 1,
-		/datum/job/clf/standard = -1,
-		/datum/job/clf/breeder = -1,
+		/datum/job/clf/standard = 4,
+		/datum/job/clf/breeder = 2,
 		/datum/job/clf/messiah = 1,
 		/datum/job/other/prisonerclf = 2,
 		/datum/job/som/silicon/synthetic/som = 1,
@@ -437,7 +460,7 @@ alt gamemodes
 		/datum/job/som/engineering/tech = 2,
 		/datum/job/som/medical/professor = 1,
 		/datum/job/som/medical/medicalofficer = 2,
-		/datum/job/som/squad/standard = -1,
+		/datum/job/som/squad/standard = 6,
 		/datum/job/som/squad/medic = 2,
 		/datum/job/som/squad/engineer = 2,
 		/datum/job/som/squad/leader = 2,
@@ -482,9 +505,9 @@ alt gamemodes
 		/datum/job/terragov/silicon/ai = 1,
 		/datum/job/terragov/squad/engineer = 4,
 		/datum/job/terragov/squad/corpsman = 4,
-		/datum/job/terragov/squad/smartgunner = 2,
-		/datum/job/terragov/squad/leader = 2,
-		/datum/job/terragov/squad/specialist = 2,
+		/datum/job/terragov/squad/smartgunner = 4,
+		/datum/job/terragov/squad/leader = 4,
+		/datum/job/terragov/squad/specialist = 4,
 		/datum/job/terragov/squad/standard = -1,
 		/datum/job/terragov/squad/slut = -1,
 		/datum/job/moraleofficer = -1,
@@ -498,9 +521,9 @@ alt gamemodes
 		/datum/job/clf/specialist = 2,
 		/datum/job/clf/tech = 2,
 		/datum/job/clf/medic = 4,
-		/datum/job/clf/standard = -1,
+		/datum/job/clf/standard = 4,
 		/datum/job/clf/mo = 1,
-		/datum/job/clf/breeder = -1,
+		/datum/job/clf/breeder = 2,
 		/datum/job/som/silicon/synthetic/som = 1,
 		/datum/job/som/command/commander = 1,
 		/datum/job/som/command/fieldcommander = 1,
@@ -513,7 +536,7 @@ alt gamemodes
 		/datum/job/som/engineering/tech = 2,
 		/datum/job/som/medical/professor = 1,
 		/datum/job/som/medical/medicalofficer = 2,
-		/datum/job/som/squad/standard = -1,
+		/datum/job/som/squad/standard = 6,
 		/datum/job/som/squad/medic = 2,
 		/datum/job/som/squad/engineer = 2,
 		/datum/job/som/squad/leader = 2,
@@ -554,9 +577,9 @@ alt gamemodes
 		/datum/job/terragov/silicon/ai = 1,
 		/datum/job/terragov/squad/engineer = 4,
 		/datum/job/terragov/squad/corpsman = 4,
-		/datum/job/terragov/squad/smartgunner = 2,
-		/datum/job/terragov/squad/leader = 2,
-		/datum/job/terragov/squad/specialist = 2,
+		/datum/job/terragov/squad/smartgunner = 4,
+		/datum/job/terragov/squad/leader = 4,
+		/datum/job/terragov/squad/specialist = 4,
 		/datum/job/terragov/squad/standard = -1,
 		/datum/job/terragov/squad/slut = -1,
 		/datum/job/moraleofficer = -1,
@@ -600,9 +623,9 @@ alt gamemodes
 		/datum/job/terragov/silicon/ai = 1,
 		/datum/job/terragov/squad/engineer = 4,
 		/datum/job/terragov/squad/corpsman = 4,
-		/datum/job/terragov/squad/leader = 2,
-		/datum/job/terragov/squad/specialist = 2,
-		/datum/job/terragov/squad/smartgunner = 2,
+		/datum/job/terragov/squad/leader = 4,
+		/datum/job/terragov/squad/specialist = 4,
+		/datum/job/terragov/squad/smartgunner = 4,
 		/datum/job/terragov/squad/standard = -1,
 		/datum/job/terragov/squad/slut = -1,
 		/datum/job/moraleofficer = -1,
@@ -643,4 +666,121 @@ alt gamemodes
 		/datum/job/terragov/civilian/liaison_novamed = 1,
 		/datum/job/terragov/civilian/liaison_transco = 1,
 		/datum/job/clf/liaison_clf = 1,
+	)
+
+/datum/game_mode/infestation/secret_of_life/bloat
+	name = "Secret of Life - Faction Bloat"
+	config_tag = "Secret of Life - Faction Bloat"
+	factions = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_XENO, FACTION_CLF, FACTION_ICC, FACTION_VSD, FACTION_NANOTRASEN)
+	human_factions = list(FACTION_TERRAGOV, FACTION_SOM, FACTION_CLF, FACTION_ICC, FACTION_VSD, FACTION_NANOTRASEN)
+	valid_job_types = list(
+		/datum/job/terragov/command/ceo = 1,
+		/datum/job/terragov/command/nm_ceo = 1,
+		/datum/job/terragov/command/captain = 1,
+		/datum/job/terragov/command/fieldcommander = 1,
+		/datum/job/terragov/command/corpseccommander = 1,
+		/datum/job/terragov/command/staffofficer = 4,
+		/datum/job/terragov/command/vanguard = 2,
+		/datum/job/terragov/command/pilot = 1,
+		/datum/job/terragov/command/transportofficer = 2,
+		/datum/job/terragov/command/assault_crewman = 2,
+		/datum/job/terragov/command/transport_crewman = 2,
+		/datum/job/terragov/command/mech_pilot = 1,
+		/datum/job/terragov/engineering/chief = 1,
+		/datum/job/terragov/engineering/tech = 2,
+		/datum/job/terragov/requisitions/officer = 1,
+		/datum/job/terragov/medical/professor = 1,
+		/datum/job/terragov/medical/medicalofficer = 6,
+		/datum/job/terragov/security/security_officer = 6,
+		/datum/job/terragov/medical/researcher = 3,
+		/datum/job/terragov/civilian/liaison = 1,
+		/datum/job/terragov/silicon/synthetic = 4,
+		/datum/job/terragov/silicon/ai = 1,
+		/datum/job/terragov/squad/engineer = 8,
+		/datum/job/terragov/squad/corpsman = 8,
+		/datum/job/terragov/squad/leader = 4,
+		/datum/job/terragov/squad/specialist = 4,
+		/datum/job/terragov/squad/smartgunner = 4,
+		/datum/job/terragov/squad/standard = -1,
+		/datum/job/terragov/squad/slut = -1,
+		/datum/job/moraleofficer = -1,
+		/datum/job/worker = -1,
+		/datum/job/terragov/offduty = -1,
+		/datum/job/survivor/assistant = -1,
+		/datum/job/survivor/scientist = 2,
+		/datum/job/survivor/doctor = 6,
+		/datum/job/survivor/liaison = 1,
+		/datum/job/survivor/security = 6,
+		/datum/job/survivor/civilian = -1,
+		/datum/job/survivor/chef = 1,
+		/datum/job/survivor/botanist = 1,
+		/datum/job/survivor/atmos = 2,
+		/datum/job/survivor/chaplain = 1,
+		/datum/job/survivor/miner = 2,
+		/datum/job/survivor/salesman = 1,
+		/datum/job/survivor/marshal = 1,
+		/datum/job/survivor/non_deployed_operative = 2,
+		/datum/job/survivor/prisoner = 2,
+		/datum/job/survivor/stripper = -1,
+		/datum/job/survivor/maid = 3,
+		/datum/job/other/prisoner = 4,
+		/datum/job/survivor/synth = 2,
+		/datum/job/xenomorph = 8,
+		/datum/job/xenomorph/green = FREE_XENO_AT_START_CORRUPT,
+		/datum/job/xenomorph/queen = 1,
+		/datum/job/som/silicon/synthetic/som = 1,
+		/datum/job/som/command/commander = 1,
+		/datum/job/som/command/fieldcommander = 1,
+		/datum/job/som/command/staffofficer = 2,
+		/datum/job/som/command/pilot = 1,
+		/datum/job/som/command/assault_crewman = 2,
+		/datum/job/som/command/mech_pilot = 1,
+		/datum/job/som/requisitions/officer = 1,
+		/datum/job/som/engineering/chief = 1,
+		/datum/job/som/engineering/tech = 2,
+		/datum/job/som/medical/professor = 1,
+		/datum/job/som/medical/medicalofficer = 2,
+		/datum/job/som/squad/standard = 4,
+		/datum/job/som/squad/medic = 2,
+		/datum/job/som/squad/engineer = 2,
+		/datum/job/som/squad/leader = 2,
+		/datum/job/som/squad/veteran = 3,
+		/datum/job/other/prisonersom = 4,
+		/datum/job/clf/breeder = 2,
+		/datum/job/clf/standard = 4,
+		/datum/job/clf/medic = 2,
+		/datum/job/clf/specialist = 2,
+		/datum/job/clf/tech = 2,
+		/datum/job/clf/leader = 2,
+		/datum/job/clf/silicon/synthetic/clf = 1,
+		/datum/job/clf/mo = 1,
+		/datum/job/clf/messiah = 1,
+		/datum/job/other/prisonerclf = 4,
+		/datum/job/vsd_squad/standard = 2,
+		/datum/job/vsd_squad/medic = 1,
+		/datum/job/vsd_squad/engineer = 1,
+		/datum/job/vsd_squad/spec = 1,
+		/datum/job/vsd_squad/escort = 1,
+		/datum/job/vsd_squad/leader = 1,
+		/datum/job/icc_squad/standard = 4,
+		/datum/job/icc_squad/medic = 2,
+		/datum/job/icc_squad/tech = 2,
+		/datum/job/icc_squad/spec = 2,
+		/datum/job/icc_squad/leader = 2,
+		/datum/job/icc/commander = 1,
+		/datum/job/icc/fieldcommander = 1,
+		/datum/job/icc/administrator = 4,
+		/datum/job/terragov/civilian/liaison_archercorp = 1,
+		/datum/job/terragov/civilian/liaison_novamed = 1,
+		/datum/job/terragov/civilian/liaison_transco = 1,
+		/datum/job/icc/liaison_cm = 1,
+		/datum/job/clf/liaison_clf = 1,
+		/datum/job/som/civilian/liaison_som = 1,
+		/datum/job/vsd_squad/liaison_kaizoku = 1,
+		/datum/job/pmc/squad/standard = 1,
+		/datum/job/pmc/squad/medic = 1,
+		/datum/job/pmc/squad/engineer = 1,
+		/datum/job/pmc/squad/gunner = 1,
+		/datum/job/pmc/squad/sniper = 1,
+		/datum/job/pmc/squad/leader = 1,
 	)

@@ -188,7 +188,7 @@
 	refill_type = /obj/item/factory_part/pizza
 	antag_refill_type = /obj/item/factory_part/pizza
 	refill_amount = 5
-	ticks_per_object = 12
+	ticks_per_object = 18
 
 /obj/item/factory_refill/plastique_refill
 	name = "box of rounded polymer plates (C4)"

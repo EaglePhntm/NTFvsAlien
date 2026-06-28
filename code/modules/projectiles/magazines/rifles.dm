@@ -847,6 +847,7 @@
 	caliber = CALIBER_556X45
 	icon_state = "aug"
 	icon_state_mini = "mag_rifle_olive"
+	bonus_overlay = "l88_mag"
 	default_ammo = /datum/ammo/bullet/rifle
 	max_rounds = 30
 

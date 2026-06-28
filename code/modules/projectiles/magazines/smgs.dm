@@ -70,7 +70,7 @@
 	default_ammo = /datum/ammo/bullet/smg/heavy
 	caliber = CALIBER_41AE
 	icon_state = "t45"
-	max_rounds = 60
+	max_rounds = 65
 	w_class = WEIGHT_CLASS_SMALL
 	icon_state_mini = "mag_heavy_smg"
 	bonus_overlay = "t45_mag"

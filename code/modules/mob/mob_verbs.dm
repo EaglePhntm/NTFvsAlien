@@ -196,7 +196,9 @@
 	var/list/static/rare_faction_list = list(/datum/job/sectoid, /datum/job/imperial, /datum/job/skeleton, /datum/job/erp, /datum/job/retired, /datum/job/special_forces, /datum/job/freelancer)
 
 
-	var/total_list = base_faction_list + hvh_faction_list
+	var/total_list = hvh_faction_list
+	if(prob(40))
+		total_list = base_faction_list
 
 	if(prob(3))
 		total_list = rare_faction_list

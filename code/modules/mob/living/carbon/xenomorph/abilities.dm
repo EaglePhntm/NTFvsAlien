@@ -302,6 +302,7 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 	build_maptext.pixel_y = -5
 	visual_references[VREF_MUTABLE_BUILDING_COUNTER] = build_maptext
 	. = ..()
+	set_resin_type(xeno_owner.selected_resin, TRUE)
 
 	build_maptext.maptext = MAPTEXT(SSresinshaping.quickbuild_points_by_hive[owner.get_xeno_hivenumber()])
 	RegisterSignal(owner, COMSIG_MOB_MOUSEDOWN, PROC_REF(start_resin_drag))
@@ -388,6 +389,8 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 
 ///Sets the resin type to produce
 /datum/action/ability/activable/xeno/secrete_resin/proc/set_resin_type(new_resin, silent = FALSE)
+	if(!(new_resin in buildable_structures))
+		new_resin = buildable_structures[1]
 	xeno_owner.selected_resin = new_resin
 	ability_cost = initial(ability_cost) + GLOB.xeno_resin_costs[new_resin]
 	name = "[initial(name)] ([ability_cost])"

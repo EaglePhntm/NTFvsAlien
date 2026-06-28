@@ -352,7 +352,15 @@
 		/obj/item/armor_module/module/valkyrie_autodoc_beta,
 		/obj/item/armor_module/storage/ammo_mag,
 	)
-	slowdown = -0.15
+	slowdown = -0.3
+
+/obj/item/clothing/suit/modular/rownin/vsdelite/escort
+	name = "\improper KZ Rownin Skeleton"
+	starting_attachments = list(
+		/obj/item/armor_module/module/eshield/vsd/overclocked,
+		/obj/item/armor_module/module/valkyrie_autodoc_beta,
+		/obj/item/armor_module/storage/general,
+	)
 
 /obj/item/clothing/suit/modular/rownin/vsdelitealt
 	name = "\improper Rownin Skeleton"

@@ -287,6 +287,9 @@ allow_vote_groundmap
 allow_vote_shipmap
 allow_vote_mode
 
+##Vote period in deciseconds, default 1200 (2 minutes)
+VOTE_PERIOD 1200
+
 ## If enabled, then when the database is disabled, all players will get tutorials.
 ## This is primarily useful for developing tutorials. If you have a proper DB setup, you
 ## don't need (or want) this.
