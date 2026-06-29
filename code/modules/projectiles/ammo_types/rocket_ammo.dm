@@ -360,14 +360,14 @@
 /datum/ammo/rocket/som/thermobaric/drop_nade(turf/target_turf, atom/movable/projectile/proj)
 	explosion(target_turf, 0, 4, 5, 0, 4, 4, explosion_cause = proj)
 
-/datum/ammo/rocket/oneuse/thermobaric // disposable thermobaric
+/*/datum/ammo/rocket/oneuse/thermobaric // disposable thermobaric
 	name = "thermobaric Rocket"
 	hud_state = "rpg_thermobaric"
 	damage = 30
 
 
 /datum/ammo/rocket/oneuse/thermobaric/drop_nade(turf/target_turf, atom/movable/projectile/proj)
-	explosion(target_turf, 0, 4, 5, 0, 4, 4, explosion_cause = proj)
+	explosion(target_turf, 0, 4, 5, 0, 4, 4, explosion_cause = proj)*/// Until fixed by its developer, this is just a better disposable
 
 /datum/ammo/rocket/som/heat //Anti tank, or mech
 	name = "HEAT RPG"

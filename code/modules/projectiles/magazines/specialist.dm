@@ -228,7 +228,7 @@
 
 //RPO Thermobaric
 
-/obj/item/ammo_magazine/rocket/oneuse/thermobaric
+/*/obj/item/ammo_magazine/rocket/oneuse/thermobaric
 	name = "\improper 93mm thermobaric Rocket"
 	desc = "A rocket used to reload a one use rocket once returned to an armory."
 	caliber = CALIBER_93MM
@@ -236,7 +236,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	max_rounds = 1
 	default_ammo = /datum/ammo/rocket/oneuse/thermobaric
-	reload_delay = 30
+	reload_delay = 30*/// Until fixed by its developer, this is being turned off. Its just a better disposable launcher.
 
 //-------------------------------------------------------
 //M5 RPG'S MEAN FUCKING COUSIN
