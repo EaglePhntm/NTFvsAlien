@@ -572,11 +572,11 @@ WEAPONS
 	cost = 100
 	available_against_xeno_only = TRUE
 
-/datum/supply_packs/weapons/rpgoneuse/thermobaric
+/*/datum/supply_packs/weapons/rpgoneuse/thermobaric
 	name = "RPO-S Disposable Rocket Flamethrower"
 	contains = list(/obj/item/weapon/gun/launcher/rocket/oneuse/thermobaric)
 	cost = 150
-	available_against_xeno_only = TRUE
+	available_against_xeno_only = TRUE*/
 
 /datum/supply_packs/weapons/mateba
 	name = "Mateba Autorevolver belt"
