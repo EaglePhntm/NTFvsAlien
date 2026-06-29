@@ -265,6 +265,10 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
 
+/datum/job/clf/mo/after_spawn(mob/living/carbon/C, mob/M, latejoin = FALSE)
+	. = ..()
+	ADD_TRAIT(C, TRAIT_RESEARCHER, "[type]")
+
 //the bigus dickus leader of the cult
 /datum/job/clf/messiah
 	title = "Cult Messiah"

@@ -534,6 +534,7 @@ Make sure that the doctors and nurses are doing their jobs and keeping the SOM h
 			new_human.wear_id.paygrade = "CHO"
 		if(3001 to INFINITY) // 50 hrs
 			new_human.wear_id.paygrade = "CMO"
+	ADD_TRAIT(new_mob, TRAIT_RESEARCHER, "[type]")
 
 //Medical Officer
 /datum/job/som/medical/medicalofficer

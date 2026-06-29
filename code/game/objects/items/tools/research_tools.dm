@@ -1,9 +1,5 @@
 // Tools used for research
 /obj/item/tool/research
-	///Skill type needed to use the tool
-	var/skill_type = SKILL_MEDICAL
-	///Skill level needed to use the tool
-	var/skill_threshold = SKILL_MEDICAL_EXPERT
 
 /obj/item/tool/research/xeno_analyzer
 	name = "xenolinguistic translator"
@@ -88,8 +84,8 @@
 
 /obj/item/tool/research/excavation_tool/unique_action(mob/user)
 	. = ..()
-	if(user.skills.getRating(skill_type) < skill_threshold)
-		balloon_alert(user, "not skilled enough!")
+	if(HAS_TRAIT(user, TRAIT_RESEARCHER))
+		balloon_alert(user, "not a researcher!")
 		return
 
 	if(!do_after(user, 10 SECONDS, NONE, user.loc, BUSY_ICON_FRIENDLY, null, PROGRESS_BRASS))

@@ -78,6 +78,10 @@ Good luck, but do not expect to survive."}
 	skills_type = /datum/skills/civilian/survivor/scientist
 	outfit = /datum/outfit/job/survivor/scientist
 
+/datum/job/survivor/scientist/after_spawn(mob/living/carbon/C, mob/M, latejoin = FALSE)
+	. = ..()
+	ADD_TRAIT(C, TRAIT_RESEARCHER, "[type]")
+
 //Doctor
 /datum/job/survivor/doctor
 	title = "Doctor Colonist"
