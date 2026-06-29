@@ -10,6 +10,7 @@
 	tier = XENO_TIER_MINION
 	upgrade = XENO_UPGRADE_BASETYPE
 	melee_damage = 12
+	exosuit_slash_damage_multiplier = 0.7
 	accuracy_malus = 65
 	speed = -0.5
 	plasma_max = 100
