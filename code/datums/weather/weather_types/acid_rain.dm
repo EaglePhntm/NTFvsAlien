@@ -10,8 +10,8 @@
 
 	weather_message = span_userdanger("<i>Acidic rain pours down around you! Get inside!</i>")
 	weather_overlay = "acid_rain"
-	weather_duration_lower = 600
-	weather_duration_upper = 1500
+	weather_duration_lower = 300
+	weather_duration_upper = 900
 
 	end_duration = 100
 	end_message = span_danger("The downpour gradually slows to a light shower. It should be safe outside now.")

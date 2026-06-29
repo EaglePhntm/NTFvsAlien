@@ -775,6 +775,7 @@ Make sure that the doctors and nurses are doing their jobs and keeping the marin
 
 /datum/job/terragov/medical/professor/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
+	ADD_TRAIT(new_mob, TRAIT_RESEARCHER, "[type]")
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
@@ -902,6 +903,7 @@ It is also recommended that you gear up like a regular marine, or your 'internsh
 
 /datum/job/terragov/medical/researcher/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
+	ADD_TRAIT(new_mob, TRAIT_RESEARCHER, "[type]")
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
@@ -920,7 +922,6 @@ It is also recommended that you gear up like a regular marine, or your 'internsh
 		if(18001 to INFINITY) // 300 hrs
 			new_human.wear_id.paygrade = "PROF"
 	new_human.wear_id.update_label()
-
 
 /datum/job/terragov/civilian
 	job_category = JOB_CAT_CIVILIAN
@@ -1053,6 +1054,7 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 
 /datum/job/terragov/silicon/synthetic/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
+	ADD_TRAIT(new_mob, TRAIT_RESEARCHER, "[type]")
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob

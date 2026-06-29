@@ -9,8 +9,8 @@
 
 	weather_message = span_warning("<i>Harsh winds pick up as dense snow begins to fall from the sky!</i>")
 	weather_overlay = "snow_storm"
-	weather_duration_lower = 600
-	weather_duration_upper = 1500
+	weather_duration_lower = 300
+	weather_duration_upper = 900
 
 	end_duration = 100
 	end_message = span_danger("The snowfall begins to slow.")

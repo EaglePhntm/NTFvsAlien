@@ -200,6 +200,7 @@ Your primary goal is to serve the hive, and ultimate goal is to liberate the col
 
 /datum/job/clf/silicon/synthetic/clf/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
+	ADD_TRAIT(new_mob, TRAIT_RESEARCHER, "[type]")
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
@@ -264,6 +265,10 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
 		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
+
+/datum/job/clf/mo/after_spawn(mob/living/carbon/C, mob/M, latejoin = FALSE)
+	. = ..()
+	ADD_TRAIT(C, TRAIT_RESEARCHER, "[type]")
 
 //the bigus dickus leader of the cult
 /datum/job/clf/messiah
