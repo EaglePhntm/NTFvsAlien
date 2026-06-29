@@ -1054,6 +1054,7 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 
 /datum/job/terragov/silicon/synthetic/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
+	ADD_TRAIT(new_mob, TRAIT_RESEARCHER, "[type]")
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob

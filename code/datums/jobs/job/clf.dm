@@ -200,6 +200,7 @@ Your primary goal is to serve the hive, and ultimate goal is to liberate the col
 
 /datum/job/clf/silicon/synthetic/clf/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
+	ADD_TRAIT(new_mob, TRAIT_RESEARCHER, "[type]")
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob

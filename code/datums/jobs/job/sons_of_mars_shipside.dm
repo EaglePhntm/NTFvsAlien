@@ -676,6 +676,7 @@ You are also an expert when it comes to botany and hydroponics. If you do not kn
 
 /datum/job/som/silicon/synthetic/som/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
+	ADD_TRAIT(new_mob, TRAIT_RESEARCHER, "[type]")
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
