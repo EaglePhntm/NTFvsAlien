@@ -16,7 +16,7 @@
 	melee_damage = 25
 	melee_ap = 10
 	attack_delay = 7
-	exosuit_slash_damage_multiplier = 2
+	exosuit_slash_damage_multiplier = 1.5
 
 	// *** Speed *** //
 	speed = -1.3

@@ -11,7 +11,6 @@
 
 	// *** Melee Attacks *** //
 	melee_damage = 20
-	exosuit_slash_damage_multiplier = 0.8
 
 	// *** Speed *** //
 	speed = -0.6

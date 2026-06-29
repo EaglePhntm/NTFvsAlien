@@ -10,7 +10,6 @@
 	upgrade = XENO_UPGRADE_BASETYPE
 	wound_type = "warlock"
 	melee_damage = 18
-	exosuit_slash_damage_multiplier = 1
 	speed = -0.5
 	plasma_max = 1700
 	plasma_gain = 60

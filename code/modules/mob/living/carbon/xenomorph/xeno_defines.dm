@@ -33,7 +33,7 @@
 	///number of ticks between attacks for a caste.
 	var/attack_delay = CLICK_CD_MELEE
 	///how much extra damage done to a exosuit from slash attacks
-	var/exosuit_slash_damage_multiplier = 1.5
+	var/exosuit_slash_damage_multiplier = 1
 
 	// *** Tackle *** //
 	///The minimum amount of random paralyze applied to a human upon being 'pulled' multiplied by 20 ticks

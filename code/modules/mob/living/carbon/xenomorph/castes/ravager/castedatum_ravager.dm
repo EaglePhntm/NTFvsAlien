@@ -11,7 +11,7 @@
 
 	// *** Melee Attacks *** //
 	melee_damage = 25
-	exosuit_slash_damage_multiplier = 2.5
+	exosuit_slash_damage_multiplier = 1.5
 	melee_ap = 15
 	attack_delay = 7
 
