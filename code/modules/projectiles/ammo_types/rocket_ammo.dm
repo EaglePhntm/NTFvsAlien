@@ -33,6 +33,8 @@
 	drop_nade(target_turf, proj)
 
 /datum/ammo/rocket/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
+	if(isexosuit(target_obj) && damage > 75)
+		proj.damage *= 1.5
 	drop_nade(target_obj.density ? get_step_towards(target_obj, proj) : target_obj.loc, proj)
 
 /datum/ammo/rocket/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
