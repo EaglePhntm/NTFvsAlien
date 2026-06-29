@@ -84,7 +84,7 @@
 
 /obj/item/tool/research/excavation_tool/unique_action(mob/user)
 	. = ..()
-	if(HAS_TRAIT(user, TRAIT_RESEARCHER))
+	if(!HAS_TRAIT(user, TRAIT_RESEARCHER))
 		balloon_alert(user, "not a researcher!")
 		return
 
