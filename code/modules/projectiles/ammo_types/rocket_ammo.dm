@@ -362,6 +362,7 @@
 
 /datum/ammo/rocket/oneuse/thermobaric // disposable thermobaric
 	name = "thermobaric Rocket"
+	hud_state = "rpg_thermobaric"
 	damage = 30
 
 
