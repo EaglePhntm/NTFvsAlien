@@ -426,6 +426,7 @@
 	burst_amount = 3
 	aim_slowdown = 0.4
 	damage_mult = 1.05 //Has smaller magazines
+	akimbo_scatter_mod = 12
 
 /obj/item/weapon/gun/rifle/m412/freelancer
 	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/weapon/gun/grenade_launcher/underslung, /obj/item/attachable/extended_barrel)
