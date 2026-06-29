@@ -29,11 +29,11 @@
 		return
 	to_chat(L, span_danger("You are battered by the coarse sand!"))
 	if(!ishuman(L))
-		L.adjustBruteLoss(3)
+		L.adjustBruteLoss(6)
 		return
 
-	L.adjustBruteLoss(1)
-	L.Stagger(1 SECONDS)
+	L.adjustBruteLoss(2)
+	L.Stagger(2 SECONDS)
 
 
 /datum/weather/ash_storm/sand/harmless

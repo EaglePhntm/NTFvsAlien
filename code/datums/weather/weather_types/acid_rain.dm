@@ -52,7 +52,7 @@
 		return
 	if(!isxeno(L))
 		if(prob(L.modify_by_armor(100, ACID)))
-			L.adjustFireLoss(2)
+			L.adjustFireLoss(7)
 			to_chat(L, span_danger("You feel the acid rain melting you away!"))
 	L.wash()
 	if(L.fire_stacks > -20)
