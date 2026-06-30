@@ -1088,7 +1088,7 @@
 
 /obj/item/ammo_magazine/rifle/mpar/smart
 	name = "\improper MPAR smart magazine (.308 Smart)"
-	desc = "A .308 MPAR smart magazine."
+	desc = "A .308 MPAR smart magazine, designed with IFF capabilities in mind for frontline support."
 	caliber = CALIBER_308
 	icon_state = "m1a_smartmag"
 	icon_state_mini = "mag_rifle_big"
@@ -1101,7 +1101,7 @@
 
 /obj/item/ammo_magazine/rifle/mpar/bomb
 	name = "\improper MPAR shattering magazine (.308 Shatter)"
-	desc = "A .308 MPAR shattering magazine."
+	desc = "A .308 MPAR shattering magazine, the munitions are designed to weaken and shatter enemy armor."
 	caliber = CALIBER_308
 	icon_state = "m1a_bombmag"
 	icon_state_mini = "mag_rifle_big"
@@ -1112,7 +1112,7 @@
 
 /obj/item/ammo_magazine/rifle/mpar/drain
 	name = "\improper MPAR tanglefoot magazine (.308 Tanglefoot)"
-	desc = "A .308 MPAR tanglefoot magazine."
+	desc = "A .308 MPAR tanglefoot magazine, the ammo drains xenomorphs of plasma."
 	caliber = CALIBER_308
 	icon_state = "m1a_tangmag"
 	icon_state_mini = "mag_rifle_big"
@@ -1123,7 +1123,7 @@
 
 /obj/item/ammo_magazine/rifle/mpar/electromag
 	name = "\improper MPAR shock magazine (.308 Electro)"
-	desc = "A .308 MPAR electromagnetic magazine.."
+	desc = "A .308 MPAR electromagnetic magazine, the ammo is designed to disrupt and weaken robotics through electromagnetic munitions."
 	icon_state = "m1a_empmag"
 	icon_state_mini = "mag_rifle_big"
 	bonus_overlay = "m1a_empmag"
