@@ -408,17 +408,17 @@
 /datum/supply_packs/imports/mparsmartmag
 	name = "Multi-Purpose Adaptive Rifle 20-Round Smart magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/mpar/smart)
-	cost = 40
+	cost = 30
 
 /datum/supply_packs/imports/mparbombmag
 	name = "Multi-Purpose Adaptive Rifle 10-Round Shatter magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/mpar/bomb)
-	cost = 40
+	cost = 30
 
 /datum/supply_packs/imports/mpartanglemag
 	name = "Multi-Purpose Adaptive Rifle 10-Round Tangle magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/mpar/drain)
-	cost = 40
+	cost = 30
 
 /datum/supply_packs/imports/mparelectromag
 	name = "Multi-Purpose Adaptive Rifle 5-Round EMP magazine"
