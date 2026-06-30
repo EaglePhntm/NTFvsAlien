@@ -13560,6 +13560,11 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/antag_ship/pmc_ntf/aft/engiroom/port)
+"ZN" = (
+/obj/structure/cable,
+/obj/machinery/robotic_cradle,
+/turf/open/floor/iron/dark,
+/area/antag_ship/vsd/hall)
 "ZO" = (
 /obj/machinery/sleeper,
 /turf/open/floor/mainship/sterile/dark,
@@ -18367,7 +18372,7 @@ mg
 GB
 GB
 vm
-pG
+ZN
 VJ
 VJ
 IW
