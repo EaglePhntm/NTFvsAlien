@@ -83,9 +83,9 @@ Rules of NTF vs SoL:
 <br>&emsp;
 <br>&emsp;Note on combat escalation and tiered weaponry allowance:
 <br>&emsp;&emsp;Different conflicts allow different responses, certain weapons are only allowed in certain situations, this is there to set them out.
-<br>&emsp;&emsp;Tier 0 (also known as default) is where you just encounter someone in a street and for whatever reason, maybe they insult you, it escalates into violence. In such situations the rules around conflict are: No vehicles, No bombs, No white phosphorous/gas, No mortars, no Cas, No OB's. Basically just guns and other conventional weapons.
+<br>&emsp;&emsp;Tier 0 (also known as default) is where you just encounter someone in a street and for whatever reason, maybe they insult you, it escalates into violence. In such situations the rules around conflict are: No Armed vehicles, No bombs, No white phosphorous/harmful gas, No mortars, no Cas, No OB's. Basically just guns and other conventional weapons.
 <br>&emsp;&emsp;All higher tiers follow the unlocking of the previous.
-<br>&emsp;&emsp;Tier 1: Gas, Non-Destructive Mortars/Cas, unarmed vehicles.
+<br>&emsp;&emsp;Tier 1: Harmful Gas, Non-Destructive Mortars/Cas
 <br>&emsp;&emsp;Tier 2: Anti Tank weapons, Exosuits, Mines
 <br>&emsp;&emsp;Tier 3: Destructive Mortars/Cas, Mechs
 <br>&emsp;&emsp;Tier 4: Tanks, Railgun, Tangle Orbital Strikes
