@@ -818,7 +818,7 @@
 
 	gun_features_flags = GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_CAN_POINTBLANK|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
-	starting_attachment_types = list(/obj/item/attachable/scope/marine, /obj/item/attachable/stock/mparmil)
+	starting_attachment_types = list(/obj/item/attachable/stock/mparmil)
 	attachable_offset = list("muzzle_x" = 41, "muzzle_y" = 17,"rail_x" = 10, "rail_y" = 21, "under_x" = 21, "under_y" = 13, "stock_x" = 5, "stock_y" = 11)
 	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.3 SECONDS
