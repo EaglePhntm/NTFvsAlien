@@ -31,6 +31,13 @@
 	set name = "rules"
 	set hidden = TRUE
 
+	if(CONFIG_GET(string/rulesurl) == "FROM_FILE")
+		var/dat = SSstrings.get_string_from_file("rules")
+		var/datum/browser/popup = new(src, "rules", "<div align='center'>Server Rules</div>", 575, 400)
+		popup.set_content(dat)
+		popup.open(FALSE)
+		return
+
 	if(!CONFIG_GET(string/rulesurl))
 		to_chat(src, span_warning("The rules URL is not set in the server configuration."))
 		return
