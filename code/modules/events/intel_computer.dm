@@ -20,47 +20,29 @@
 	weight *= 432
 
 /datum/round_event_control/intel_computer/proc/recalculate_weight(datum/controller/subsystem/processing/dcs/dcs, obj/machinery/computer/intel_computer/source_computer, obj/item/disk/intel_disk/new_disk)
-	if(istype(source_computer))
-		if(istype(new_disk))
-			active_computers.RemoveAll(source_computer)
-			active_disks |= new_disk
-			RegisterSignal(new_disk, COMSIG_DISK_EXPIRY, PROC_REF(remove_disk))
-			RegisterSignal(new_disk, COMSIG_QDELETING, PROC_REF(remove_disk))
-		else
-			active_computers |= source_computer
-	if(world.time < last_intel_drought_start + INTEL_DROUGHT_LENGTH)
-		weight = initial(weight)
-		return
-	if(istype(new_disk) && (world.time > last_intel_drought_start + INTEL_DROUGHT_LENGTH + INTEL_DROUGHT_COOLDOWN))
-		var/weighted_computers = length(active_computers)
-		if(weighted_computers > 0)
-			weighted_computers++
-		if(prob(100/(2+weighted_computers)))
-			var/longest_chain = 0
-			for(var/obj/item/disk/intel_disk/disk AS in active_disks)
-				if(!istype(disk))
-					stack_trace("non-disk [logdetails(disk)] found in active_disks of [logdetails(src)]!")
-					active_disks.RemoveAll(disk)
-				continue
-				longest_chain = max(longest_chain, disk.max_chain)
-			if(prob(100*(2+weighted_computers)/(2+longest_chain+weighted_computers)))
-				minor_announce("Intel overharvesting has caused an intel drought.  Intel will be much less common for 20 minutes.", title = "Intel Drought")
-				addtimer(CALLBACK(src, PROC_REF(intel_drought_end)), INTEL_DROUGHT_LENGTH + 1)
-				weight = initial(weight)
-				last_intel_drought_start = world.time
-				return
+    if(istype(source_computer))
+        if(istype(new_disk))
+            active_computers.RemoveAll(source_computer)
+            active_disks |= new_disk
+            RegisterSignal(new_disk, COMSIG_DISK_EXPIRY, PROC_REF(remove_disk))
+            RegisterSignal(new_disk, COMSIG_QDELETING, PROC_REF(remove_disk))
+        else
+            active_computers |= source_computer
 
-	switch(length(active_computers))
-		if(0)
-			weight = initial(weight)*432
-		if(1)
-			weight = initial(weight)*432
-		if(2)
-			weight = initial(weight)*12
-		if(3)
-			weight = initial(weight)*6
-		else
-			weight = initial(weight)
+    // The drought logic that used to sit here has been removed.
+    // The proc now skips straight to adjusting weights based on active computers.
+
+    switch(length(active_computers))
+        if(0)
+            weight = initial(weight)*432
+        if(1)
+            weight = initial(weight)*432
+        if(2)
+            weight = initial(weight)*12
+        if(3)
+            weight = initial(weight)*6
+        else
+            weight = initial(weight)
 
 /datum/round_event_control/intel_computer/proc/remove_disk(obj/item/disk/intel_disk/disk_to_remove)
 	active_disks.RemoveAll(disk_to_remove)
