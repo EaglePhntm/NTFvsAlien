@@ -92,7 +92,7 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 	title = "KZ Specialist"
 	paygrade = "KZ4"
 	comm_title = "LT"
-	skills_type = /datum/skills/specialist/vsd
+	skills_type = /datum/skills/specialist_vsd
 	access = list (ACCESS_VSD_PREP, ACCESS_VSD_MEDPREP, ACCESS_VSD_ENGPREP, ACCESS_VSD_SPECPREP, ACCESS_VSD_LEADPREP, ACCESS_VSD_CARGO, ACCESS_VSD_TADPOLE, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY, ACCESS_SOM_MEDICAL)
 	minimal_access = list (ACCESS_VSD_PREP, ACCESS_VSD_MEDPREP, ACCESS_VSD_ENGPREP, ACCESS_VSD_SPECPREP, ACCESS_VSD_LEADPREP, ACCESS_VSD_CARGO, ACCESS_VSD_TADPOLE, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY, ACCESS_SOM_MEDICAL)
 	display_order = JOB_DISPLAY_ORDER_SQUAD_MARINE
@@ -140,7 +140,7 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 	title = "KZ Combat Escort"
 	paygrade = "KZ4"
 	comm_title = "LT"
-	skills_type = /datum/skills/specialist/escort
+	skills_type = /datum/skills/specialist_vsdescort
 	access = list (ACCESS_VSD_PREP, ACCESS_VSD_MEDPREP, ACCESS_VSD_ENGPREP, ACCESS_VSD_SPECPREP, ACCESS_VSD_LEADPREP, ACCESS_VSD_CARGO, ACCESS_VSD_TADPOLE, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY, ACCESS_SOM_MEDICAL)
 	minimal_access = list (ACCESS_VSD_PREP, ACCESS_VSD_MEDPREP, ACCESS_VSD_ENGPREP, ACCESS_VSD_SPECPREP, ACCESS_VSD_LEADPREP, ACCESS_VSD_CARGO, ACCESS_VSD_TADPOLE, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY, ACCESS_SOM_MEDICAL)
 	display_order = JOB_DISPLAY_ORDER_SQUAD_MARINE
@@ -162,9 +162,5 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 /datum/job/vsd_squad/escort/get_spawn_message_information(mob/M)
 	. = ..()
 	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
-	. += {"\nYou are a chosen elite of the Kaizoku Corporation, handpicked for your exceptional combat skills and unwavering loyalty. Protect Valuable Corporate Assets, Secure valuable resources, Relieve pressure from the frontline troops deployed alongside you and broker deals with the factions planetside, especially if it means using your body!"}
-
-/datum/job/vsd_squad/escort/after_spawn(mob/living/carbon/C, mob/M, latejoin = FALSE)
-	. = ..()
-	ADD_TRAIT(C, TRAIT_RESEARCHER, "[type]")
+	. += {"\nYou are a chosen elite of the Kaizoku Corporation, handpicked for your exceptional combat skills and unwavering loyalty. Protect Valuable Corporate Assets, Relieve pressure from the frontline troops deployed alongside you and broker deals with the factions planetside, especially if it means using your body!"}
 

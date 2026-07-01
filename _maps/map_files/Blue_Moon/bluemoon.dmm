@@ -2566,13 +2566,6 @@
 /obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer2,
 /area/bluemoon/outside/s)
-"cWe" = (
-/obj/effect/turf_decal/warning_stripes/linethick{
-	dir = 8
-	},
-/obj/machinery/computer/ordercomp,
-/turf/open/floor,
-/area/bluemoon/outside/building/cargo)
 "cWz" = (
 /obj/effect/landmark/weed_node,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -5876,12 +5869,6 @@
 /obj/machinery/light,
 /turf/open/floor,
 /area/bluemoon/outside/building/cargo)
-"gPe" = (
-/obj/structure/cargo_container/hd_blue{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/bluemoon/outside/building/cargo)
 "gPj" = (
 /obj/structure/sign/safety/maintenance{
 	dir = 4
@@ -8724,8 +8711,8 @@
 /turf/open/floor/tile/dark,
 /area/bluemoon/caves/facility/eta)
 "jRZ" = (
-/obj/structure/cargo_container/hd_blue,
-/turf/open/floor/plating,
+/obj/docking_port/stationary/supplycolony,
+/turf/open/floor/mainship/empty,
 /area/bluemoon/outside/building/cargo)
 "jSs" = (
 /obj/effect/spawner/random/misc/structure/broken_window/colonyspawn,
@@ -11098,10 +11085,7 @@
 /turf/open/floor/wood,
 /area/bluemoon/outside/building/dorms)
 "myo" = (
-/obj/structure/cargo_container/hd_blue{
-	dir = 4
-	},
-/turf/open/floor/plating,
+/turf/open/floor/mainship/empty,
 /area/bluemoon/outside/building/cargo)
 "myt" = (
 /obj/structure/prop/nt_computer/recorder,
@@ -17122,6 +17106,7 @@
 	},
 /obj/machinery/light,
 /obj/effect/landmark/weed_node,
+/obj/machinery/computer/supplycomp/colony,
 /turf/open/floor,
 /area/bluemoon/outside/building/cargo)
 "tVa" = (
@@ -26530,8 +26515,8 @@ idx
 izc
 gQQ
 gxE
-jRZ
 gxE
+myo
 xAc
 eZB
 eZB
@@ -26677,8 +26662,8 @@ oyl
 izc
 gQQ
 gxE
-gPe
-jbw
+gxE
+jRZ
 xAc
 uJX
 eZB
@@ -26824,8 +26809,8 @@ oyl
 izc
 gQQ
 gxE
-myo
 gxE
+myo
 xAc
 uJX
 eZB
@@ -27117,7 +27102,7 @@ qYf
 ije
 deZ
 ipj
-cWe
+ipj
 cPu
 idt
 xAc

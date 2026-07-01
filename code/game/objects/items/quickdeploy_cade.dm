@@ -18,6 +18,7 @@
 		return
 	if(can_place(user)) //can_place() handles sending the error and success messages to the user
 		var/obj/O = new thing_to_deploy(get_turf(user))
+		O.faction = user.faction
 		O.setDir(user.dir)
 		playsound(loc, 'sound/items/ratchet.ogg', 25, TRUE)
 		qdel(src)
