@@ -160,7 +160,7 @@
 /turf/open/floor/tile/white/hall/full,
 /area/antag_ship/icc/bathroom)
 "aI" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/machinery/light{
 	dir = 1
 	},
 /turf/open/floor/mainship/mono,
@@ -174,6 +174,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/vending/SyndiMed,
 /turf/open/floor/mainship/sterile/white,
 /area/antag_ship/som/medbay)
 "aL" = (
@@ -1026,6 +1027,12 @@
 /obj/effect/spawner/random/food_or_drink/burger,
 /turf/open/floor/mainship/sterile/plain,
 /area/antag_ship/pmc_ntf/fore/restroom)
+"dA" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/closed/wall/mainship/gray/outer,
+/area/antag_ship/som/hangar)
 "dB" = (
 /obj/structure/table/mainship,
 /obj/effect/spawner/random/food_or_drink/beer,
@@ -3461,7 +3468,13 @@
 	},
 /area/antag_ship/icc/medical_room)
 "ly" = (
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/segment/corner{
+	dir = 4
+	},
+/obj/machinery/door/poddoor/railing{
+	dir = 8;
+	id = "supply_elevator_railing"
+	},
 /turf/open/floor/plating,
 /area/antag_ship/som/hangar)
 "lz" = (
@@ -4496,8 +4509,10 @@
 /turf/closed/mineral/smooth/desertdamrockwall/indestructible,
 /area/antag_ship/icc/hangar/east)
 "oI" = (
-/obj/structure/disposalpipe/segment/corner{
-	dir = 4
+/obj/effect/ai_node,
+/obj/machinery/door/poddoor/railing{
+	dir = 8;
+	id = "supply_elevator_railing"
 	},
 /turf/open/floor/plating,
 /area/antag_ship/som/hangar)
@@ -4523,6 +4538,10 @@
 	},
 /obj/structure/disposalpipe/segment/corner{
 	dir = 1
+	},
+/obj/machinery/door/poddoor/railing{
+	dir = 8;
+	id = "supply_elevator_railing"
 	},
 /turf/open/floor/plating,
 /area/antag_ship/som/hangar)
@@ -4746,11 +4765,11 @@
 	},
 /area/antag_ship/som/bridge)
 "pu" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 5
+/obj/machinery/dropship_part_fabricator{
+	faction = "Sons of Mars"
 	},
 /turf/open/floor/mainship/mono,
-/area/antag_ship/som/requisition)
+/area/antag_ship/som/hangar)
 "pv" = (
 /obj/structure/window/framed/prison/reinforced,
 /turf/open/floor/grayscale/black,
@@ -4868,7 +4887,20 @@
 /turf/open/floor/plating,
 /area/antag_ship/clf_base/bathroom)
 "pP" = (
-/obj/machinery/vending/SyndiMed,
+/obj/structure/table/reinforced,
+/obj/item/storage/firstaid/adv,
+/obj/item/reagent_containers/spray/cleaner{
+	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
+	name = "Surgery Cleaner";
+	pixel_x = 12;
+	pixel_y = 2
+	},
+/obj/structure/sink{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/open/floor/mainship/sterile,
 /area/antag_ship/som/medbay)
 "pR" = (
@@ -6724,12 +6756,12 @@
 /turf/open/floor/carpet/green,
 /area/antag_ship/som/office/commander)
 "wd" = (
-/obj/structure/table/reinforced,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/open/floor/mainship/mono,
-/area/antag_ship/som/requisition)
+/obj/machinery/optable,
+/obj/item/tank/anesthetic,
+/obj/item/clothing/mask/breath/medical,
+/obj/machinery/iv_drip,
+/turf/open/floor/mainship/sterile,
+/area/antag_ship/som/medbay)
 "we" = (
 /obj/machinery/vending/marineFood/som,
 /turf/open/floor/mainship/mono,
@@ -6752,10 +6784,11 @@
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/requisition)
 "wh" = (
-/obj/machinery/autodoc{
-	dir = 8
+/obj/machinery/door/airlock/mainship/medical/glass{
+	dir = 2;
+	req_one_access = list(206)
 	},
-/turf/open/floor/mainship/sterile,
+/turf/open/floor/mainship/sterile/white,
 /area/antag_ship/som/medbay)
 "wi" = (
 /obj/structure/prop/mainship/invincibleshutter{
@@ -7099,7 +7132,10 @@
 /turf/open/floor/iron/dark/herringbone,
 /area/antag_ship/vsd/port)
 "xo" = (
-/obj/effect/ai_node,
+/obj/machinery/door/poddoor/railing{
+	dir = 8;
+	id = "supply_elevator_railing"
+	},
 /turf/open/floor/plating,
 /area/antag_ship/som/hangar)
 "xq" = (
@@ -7428,9 +7464,6 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/antag_ship/som/hangar)
 "ys" = (
-/obj/machinery/computer/autodoc_console{
-	dir = 8
-	},
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 1;
 	on = 1
@@ -8130,6 +8163,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/door/poddoor/railing{
+	id = "supply_elevator_railing"
+	},
 /turf/open/floor/plating,
 /area/antag_ship/som/hangar)
 "AE" = (
@@ -8283,6 +8319,10 @@
 	on = 1
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/poddoor/railing{
+	dir = 8;
+	id = "supply_elevator_railing"
+	},
 /turf/open/floor/plating,
 /area/antag_ship/som/hangar)
 "Bd" = (
@@ -8957,6 +8997,7 @@
 /area/antag_ship/som/bridge)
 "Db" = (
 /obj/docking_port/stationary/marine_dropship/cas/som,
+/obj/machinery/light/floor,
 /turf/open/floor/plating,
 /area/antag_ship/som/hangar)
 "Dc" = (
@@ -9103,11 +9144,9 @@
 	},
 /area/antag_ship/som/bridge/hall)
 "Dz" = (
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/machinery/quick_vendor/som,
 /turf/open/floor/mainship/mono,
-/area/antag_ship/som/requisition)
+/area/antag_ship/som/preparation)
 "DA" = (
 /obj/effect/landmark/start/job/usl,
 /obj/structure/bed/chair/dropship/passenger{
@@ -9289,11 +9328,15 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/antag_ship/icc/medical_room)
 "Ee" = (
-/obj/structure/closet/secure_closet/req_officer{
-	req_access = list(213)
+/obj/machinery/atmospherics/components/unary/vent_pump/layer1{
+	dir = 8;
+	on = 1
 	},
-/turf/open/floor/mainship/mono,
-/area/antag_ship/som/requisition)
+/obj/structure/table/reinforced,
+/obj/item/storage/surgical_tray,
+/obj/item/reagent_containers/spray/cleaner,
+/turf/open/floor/mainship/sterile,
+/area/antag_ship/som/medbay)
 "Ef" = (
 /obj/structure/table/mainship,
 /obj/item/book/manual/engineering_construction,
@@ -9615,14 +9658,11 @@
 /turf/open/floor/mainship/mono,
 /area/antag_ship/icc/generator_room)
 "Ff" = (
-/obj/machinery/door/airlock/engineering{
-	dir = 2;
-	name = "\improper Requisition Officers Quarters";
-	req_one_access = list(213)
+/obj/machinery/door/poddoor/railing{
+	id = "supply_elevator_railing"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/turf/open/floor/mainship/mono,
-/area/antag_ship/som/requisition)
+/turf/open/floor/plating,
+/area/antag_ship/som/hangar)
 "Fg" = (
 /obj/machinery/vending/medical/kz,
 /turf/open/floor/iron/dark/smooth_edge{
@@ -12532,9 +12572,9 @@
 /turf/open/floor/mainship/mono,
 /area/antag_ship/icc/hangar/west)
 "OE" = (
-/obj/structure/bed,
-/turf/open/floor/mainship/mono,
-/area/antag_ship/som/requisition)
+/obj/machinery/bioprinter/stocked,
+/turf/open/floor/mainship/sterile,
+/area/antag_ship/som/medbay)
 "OF" = (
 /obj/machinery/light{
 	dir = 4
@@ -13156,10 +13196,8 @@
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/office/officers)
 "Qy" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/layer1{
-	on = 1
-	},
-/turf/open/floor/mainship/mono,
+/obj/structure/window/framed/mainship/gray/toughened/hull,
+/turf/open/floor/plating,
 /area/antag_ship/som/requisition)
 "Qz" = (
 /obj/machinery/vending/armor_supply/icc,
@@ -14295,17 +14333,12 @@
 /turf/open/floor/mainship/mono,
 /area/antag_ship/icc/hangar/west)
 "TX" = (
-/obj/structure/table/reinforced,
-/obj/structure/paper_bin{
-	pixel_y = 9
+/obj/machinery/door/poddoor/railing{
+	dir = 1;
+	id = "vehicle_elevator_railing"
 	},
-/obj/item/ashtray/plastic{
-	pixel_y = -5;
-	pixel_x = 5
-	},
-/obj/item/tool/pen/red,
-/turf/open/floor/mainship/mono,
-/area/antag_ship/som/requisition)
+/turf/open/floor/plating,
+/area/antag_ship/som/hangar)
 "TY" = (
 /turf/open/floor/mainship/som,
 /area/antag_ship/som/upperladders)
@@ -16348,9 +16381,9 @@ wn
 wn
 wn
 wn
-uN
-uN
-uN
+CN
+CN
+CN
 CN
 CN
 CN
@@ -16420,7 +16453,7 @@ VK
 CN
 CN
 CN
-AB
+CN
 AB
 AB
 AB
@@ -16443,10 +16476,10 @@ Uc
 BR
 ym
 gj
+nL
 wn
-TX
-en
-uN
+wn
+wn
 CN
 CN
 CN
@@ -16516,13 +16549,13 @@ VK
 CN
 CN
 CN
+CN
 AB
-YD
-YD
-YD
-YD
+Ff
+Ff
+Ff
 AD
-YD
+Ff
 YD
 Uu
 Il
@@ -16538,15 +16571,15 @@ Ih
 Uc
 pH
 Td
-bc
+iH
 nL
 OE
-ul
+pP
+wn
 uN
-uN
-uN
-uN
-uN
+Qy
+Qy
+Qy
 uN
 uN
 CN
@@ -16612,14 +16645,14 @@ VK
 CN
 CN
 CN
+CN
 AB
-YD
 zU
 zU
 zU
 zU
 zU
-YD
+TX
 YD
 Il
 bv
@@ -16634,13 +16667,13 @@ Wr
 wD
 ys
 Lv
-pP
+iH
+wh
+Uc
+Uc
 nL
-wd
-Qy
-Ff
-pu
-Dz
+en
+en
 en
 eV
 BG
@@ -16708,14 +16741,14 @@ VK
 CN
 CN
 CN
+CN
 AB
-YD
 zU
 zU
 zU
 zU
 zU
-YD
+TX
 YD
 Il
 Fj
@@ -16726,16 +16759,16 @@ tL
 gB
 mN
 SA
-iH
+bc
 aK
-wh
-Uc
 ba
+Uc
+iH
 nL
 Ee
-en
-gE
-nS
+wd
+nL
+aI
 en
 ul
 en
@@ -16804,14 +16837,14 @@ VK
 CN
 CN
 CN
-AB
-Xm
+CN
+dA
 zU
 zU
 yQ
 zU
 zU
-YD
+TX
 tA
 Il
 Il
@@ -16828,10 +16861,10 @@ nL
 nL
 nL
 nL
-gE
-gE
-gE
-nS
+nL
+nL
+nL
+en
 en
 en
 en
@@ -16900,14 +16933,14 @@ VK
 CN
 CN
 CN
+CN
 AB
-YD
 zU
 zU
 zU
 zU
 zU
-YD
+TX
 ad
 ad
 ad
@@ -16927,7 +16960,7 @@ ad
 gE
 YW
 YU
-nS
+en
 en
 en
 en
@@ -16996,14 +17029,14 @@ VK
 CN
 CN
 CN
+CN
 AB
-YD
 zU
 zU
 zU
 zU
 zU
-YD
+TX
 ad
 ad
 ad
@@ -17023,7 +17056,7 @@ Rx
 gE
 ww
 en
-aI
+AG
 jR
 Kz
 en
@@ -17092,8 +17125,8 @@ VK
 CN
 CN
 CN
+CN
 AB
-YD
 xo
 oI
 ly
@@ -17188,11 +17221,11 @@ VK
 CN
 CN
 CN
+CN
 AB
 Cx
 mi
 YS
-ad
 ad
 dY
 ad
@@ -17284,7 +17317,7 @@ VK
 CN
 CN
 CN
-AB
+CN
 AB
 AB
 AB
@@ -18059,18 +18092,18 @@ GI
 GI
 lK
 VB
-XC
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
 ad
 XC
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+XC
+ad
 qj
 ad
 ad
@@ -18827,18 +18860,18 @@ GI
 GI
 lK
 VB
-XC
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
 ad
 XC
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+XC
+ad
 qj
 ad
 ad
@@ -19114,7 +19147,7 @@ AB
 AB
 AB
 AB
-za
+vb
 ad
 VB
 ad
@@ -19210,7 +19243,7 @@ CN
 CN
 CN
 AB
-vb
+ad
 ad
 VB
 ad
@@ -19306,7 +19339,7 @@ CN
 CN
 CN
 AB
-ad
+pu
 ad
 VB
 ad
@@ -19498,7 +19531,7 @@ CN
 CN
 CN
 AB
-ad
+za
 ad
 VB
 ad
@@ -20275,7 +20308,7 @@ Li
 Fx
 MX
 Uv
-bD
+CX
 Li
 Xt
 OG
@@ -20569,7 +20602,7 @@ IO
 cO
 RU
 bD
-bD
+Dz
 cH
 Yo
 Yo
@@ -20659,7 +20692,7 @@ Li
 Fx
 MX
 Uv
-bD
+CX
 Li
 bD
 bD
@@ -21043,7 +21076,7 @@ Li
 Fx
 MX
 Uv
-bD
+CX
 Li
 bD
 bD
@@ -21427,7 +21460,7 @@ Li
 Fx
 MX
 Uv
-bD
+CX
 Li
 bD
 bD
@@ -31881,8 +31914,8 @@ WH
 ap
 iE
 Ex
-Ex
 iE
+ye
 ye
 ye
 ye

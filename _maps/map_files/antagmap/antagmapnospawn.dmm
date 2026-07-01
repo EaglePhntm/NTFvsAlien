@@ -5000,9 +5000,6 @@
 	},
 /turf/open/floor/mainship/sterile,
 /area/antag_ship/som/medbay)
-"zR" = (
-/turf/open/floor/mainship/sterile,
-/area/antag_ship/som/requisition)
 "zU" = (
 /turf/open/floor/mainship/empty,
 /area/antag_ship/som/hangar)
@@ -14260,7 +14257,7 @@ oN
 oN
 oN
 oN
-zR
+oN
 wO
 en
 kp
