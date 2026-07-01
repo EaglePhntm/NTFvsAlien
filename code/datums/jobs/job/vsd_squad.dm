@@ -162,9 +162,5 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 /datum/job/vsd_squad/escort/get_spawn_message_information(mob/M)
 	. = ..()
 	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
-	. += {"\nYou are a chosen elite of the Kaizoku Corporation, handpicked for your exceptional combat skills and unwavering loyalty. Protect Valuable Corporate Assets, Secure valuable resources, Relieve pressure from the frontline troops deployed alongside you and broker deals with the factions planetside, especially if it means using your body!"}
-
-/datum/job/vsd_squad/escort/after_spawn(mob/living/carbon/C, mob/M, latejoin = FALSE)
-	. = ..()
-	ADD_TRAIT(C, TRAIT_RESEARCHER, "[type]")
+	. += {"\nYou are a chosen elite of the Kaizoku Corporation, handpicked for your exceptional combat skills and unwavering loyalty. Protect Valuable Corporate Assets, Relieve pressure from the frontline troops deployed alongside you and broker deals with the factions planetside, especially if it means using your body!"}
 
