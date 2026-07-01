@@ -1,0 +1,4 @@
+author: "Therealdoooc213"
+delete-after: True
+changes:
+  - bugfix: "adresses some issues with the SOM ship PR"

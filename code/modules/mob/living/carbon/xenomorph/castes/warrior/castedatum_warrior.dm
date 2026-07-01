@@ -21,7 +21,7 @@
 	plasma_gain = 15
 
 	// *** Health *** //
-	max_health = 400
+	max_health = 420
 
 	// *** Sunder *** //
 	sunder_multiplier = 0.9

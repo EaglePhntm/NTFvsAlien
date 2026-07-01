@@ -18,7 +18,7 @@
 	plasma_gain = 80
 
 	// *** Health *** //
-	max_health = 100
+	max_health = 115
 
 	maximum_active_caste = 1
 	// *** Flags *** //

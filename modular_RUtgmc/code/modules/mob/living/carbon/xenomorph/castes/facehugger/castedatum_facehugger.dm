@@ -22,7 +22,7 @@
 	plasma_max = 100
 
 	// *** Health *** //
-	max_health = 30
+	max_health = 35
 	crit_health = -25
 
 	// *** Flags *** //
@@ -59,7 +59,7 @@
 	melee_damage = 25
 	attack_delay = 7
 	speed = -1.3
-	max_health = 50
+	max_health = 55
 	plasma_max = 50
 
 /datum/xeno_caste/facehugger/neuro
