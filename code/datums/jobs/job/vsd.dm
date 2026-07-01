@@ -1001,3 +1001,13 @@
 		/datum/outfit/job/vsd/leader/two,
 		/datum/outfit/job/vsd/leader/upp_three,
 	)
+
+/datum/job/vsd/synthetic
+	title = "KZ Synthetic"
+	paygrade = "Mk.I"
+	skills_type = /datum/skills/synthetic
+	outfit = /datum/outfit/job/vsd_squad/silicon/synthetic
+	multiple_outfits = FALSE
+	outfits = list(
+		/datum/outfit/job/vsd_squad/silicon/synthetic
+	)

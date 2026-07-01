@@ -292,6 +292,10 @@
 	icon_state = "MP"
 	job = /datum/job/vsd_squad/escort
 
+/obj/effect/landmark/start/job/vsd_synthetic
+	icon_state = "Synth"
+	job = /datum/job/vsd_squad/silicon/synthetic
+
 /obj/effect/landmark/start/job/vsd_leader
 	icon_state = "MP"
 	job = /datum/job/vsd_squad/leader
