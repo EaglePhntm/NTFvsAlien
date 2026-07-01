@@ -68,7 +68,7 @@ PROTECT_LEGACY_RANKS
 ## Add your own URLs here.
 #FORUMURL
 #WIKIURL
-RULESURL https://discord.gg/cDNZXUWjmJ
+RULESURL FROM_FILE
 DISCORDURL https://discord.gg/cDNZXUWjmJ
 #DONATIONURL
 GITHUBURL https://github.com/EaglePhntm/NTFvsAlien

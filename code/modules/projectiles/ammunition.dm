@@ -203,6 +203,7 @@
 
 	name = "handful of [ammo_name + " ([new_caliber])"]"
 	icon_state = ammo.handful_icon_state
+	icon = ammo.handful_icon
 
 	default_ammo = new_ammo
 	caliber = new_caliber
@@ -307,6 +308,7 @@
 /obj/item/ammo_magazine/handful/heavy_buckshot
 	name = "handful of shotgun buckshot shells (6g)"
 	icon_state = "heavy_shotgun_buckshot"
+	icon = 'ntf_modular/icons/obj/items/ammo/handful.dmi'
 	current_rounds = 5
 	default_ammo = /datum/ammo/bullet/shotgun/heavy_buckshot
 	caliber = CALIBER_6G
@@ -314,14 +316,15 @@
 /obj/item/ammo_magazine/handful/barrikada
 	name = "handful of shotgun 'Barrikada' shells (6g)"
 	icon_state = "heavy_shotgun_barrikada"
+	icon = 'ntf_modular/icons/obj/items/ammo/handful.dmi'
 	current_rounds = 5
 	default_ammo = /datum/ammo/bullet/shotgun/barrikada_slug
 	caliber = CALIBER_6G
 
 /obj/item/ammo_magazine/handful/heavy_flechette
 	name = "handful of shotgun flechette shells (6g)"
-	icon = 'ntf_modular/icons/obj/items/ammo/handful.dmi'
 	icon_state = "heavy_shotgun_flechette"
+	icon = 'ntf_modular/icons/obj/items/ammo/handful.dmi'
 	current_rounds = 5
 	default_ammo = /datum/ammo/bullet/shotgun/heavy_flechette
 	caliber = CALIBER_6G

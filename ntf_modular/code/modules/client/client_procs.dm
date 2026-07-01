@@ -120,6 +120,8 @@
 				cmob.set_nutrition(0)
 				cmob.AdjustSleeping(1 MINUTES)
 				to_chat(cmob, span_warning("You feel weak, your body strange, you are in a new yourself again it seems. How did you get here..? Who took your body here?"))
+			for(var/obj/item/weapon/weppy in doppleganger.loc?.contents) //grab dropped weapons if any at doppleganger loc
+				weppy.forceMove(thespot.loc)
 			mob.forceMove(thespot.loc)
 		if("Ghost")
 			var/mob/dead/observer/ghost = mob.ghostize(TRUE, TRUE) //aghost

@@ -9,7 +9,7 @@
 	allow_diagonal_movement = FALSE
 	move_delay = 3.7
 	max_integrity = 400
-	soft_armor = list(MELEE = 50, BULLET = 45, LASER = 30, ENERGY = 30, BOMB = 25, BIO = 0, FIRE = 75, ACID = 50)
+	soft_armor = list(MELEE = 50, BULLET = 45, LASER = 30, ENERGY = 30, BOMB = 15, BIO = 0, FIRE = 75, ACID = 35)
 	max_equip_by_category = list(
 		MECHA_UTILITY = 1,
 		MECHA_POWER = 1,

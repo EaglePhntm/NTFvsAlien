@@ -11,6 +11,7 @@
 
 	unarmed_type = /datum/unarmed_attack/punch/strong
 	total_health = 150
+	brute_mod = 0.9
 
 	cold_level_1 = -1
 	cold_level_2 = -1
@@ -80,8 +81,8 @@
 	COOLDOWN_DECLARE(hard_crit_emote_cooldown)
 
 /datum/species/robot/handle_unique_behavior(mob/living/carbon/human/H)
-	if(H.health <= -0 && H.health > -90) // Doesn't kill, purely for sex/capture reasons
-		H.take_overall_damage(rand(2, 6), BURN, updating_health = TRUE, max_limbs = 1) // Melting!!!
+	if(H.health <= 0 && H.health > -90 && !H.has_status_effect(/datum/status_effect/incapacitating/repair_mode)) // Doesn't kill, purely for sex/capture reasons
+		H.take_overall_damage(rand(2, 4), BURN, updating_health = TRUE, max_limbs = 1) // Melting!!!
 	if(H.health <= 0 && H.health > -50)
 		H.clear_fullscreen("robotlow")
 		H.overlay_fullscreen("robothalf", /atom/movable/screen/fullscreen/robot/machine/robothalf)
@@ -89,8 +90,8 @@
 			COOLDOWN_START(H, soft_crit_emote_cooldown, 40 SECONDS)
 			H.emote("damaged")
 			to_chat(H, span_warning("Critical damage sustained. Repair damage immediately. <b>Integrity: [round(H.health)]%.</b>"))
-		if(prob(25))
-			do_sparks(4, TRUE, H)
+		if(prob(15))
+			do_sparks(3, TRUE, H)
 	else if(H.health <= -50)
 		H.clear_fullscreen("robothalf")
 		H.overlay_fullscreen("robotlow", /atom/movable/screen/fullscreen/robot/machine/robotlow)
@@ -98,7 +99,7 @@
 			COOLDOWN_START(H, hard_crit_emote_cooldown, 40 SECONDS)
 			H.emote("critical")
 			to_chat(H, span_warning("Critical damage sustained. Total system failure imminent. <b>Integrity: [round(H.health)]%.</b>"))
-		if(prob(25))
+		if(prob(30))
 			do_sparks(4, TRUE, H)
 	else
 		H.clear_fullscreen("robothalf")

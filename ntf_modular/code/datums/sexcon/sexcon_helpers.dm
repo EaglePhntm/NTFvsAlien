@@ -44,6 +44,9 @@
 /mob/living/proc/erptime(mob/living/user, mob/living/target)
 	if(!istype(target))
 		return
+	if(!istype(target.sexcon))
+		to_chat(user, span_warning("Unsuitable target."))
+		return
 	var/datum/sex_controller/usersexcon = user.sexcon
 	usersexcon.start(target)
 

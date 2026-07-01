@@ -401,10 +401,27 @@
 			var/choice = tgui_input_list(ui.user, "What slot do you want to load?", "Character slot choice", slots)
 			if(!choice)
 				return
-			if(!load_character(text2num(splittext(choice," - ")[1])))
-				random_character()
-				real_name = random_unique_name(gender)
-				save_character()
+			var/slotchoice = text2num(splittext(choice," - ")[1])
+			if(!load_character(slotchoice))
+				if(splittext(choice," - ")[2] == "\[empty\]")
+					slotchoice = sanitize_integer(slotchoice, 1, MAX_SAVE_SLOTS, initial(default_slot))
+					if(slotchoice != default_slot)
+						WRITE_FILE(S["default_slot"], slotchoice)
+						default_slot = slotchoice
+					S.cd = "/character[slotchoice]"
+					random_character()
+					real_name = random_unique_name(gender)
+					save_character()
+				else
+					var/choice2 = tgui_alert(user,"Your character cannot be loaded at this time. Try again later, possibly reconnect, and if the issue persists, notify staff!", "Character Loading Error!", list("Retry" , "Cancel"))
+					switch(choice2)
+						if("Retry")
+							if(!load_character(text2num(splittext(choice," - ")[1])))
+								tgui_alert(user, "Nope, still nothing... try again later...")
+						if("Cancel")
+							return
+
+
 			update_preview_icon()
 
 		if("tab_change")

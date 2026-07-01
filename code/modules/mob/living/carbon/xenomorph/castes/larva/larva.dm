@@ -28,6 +28,7 @@
 	ADD_TRAIT(src, TRAIT_SILENT_FOOTSTEPS, XENO_TRAIT)
 	if(!mind)
 		LAZYOR(GLOB.ssd_living_mobs, src)
+	QDEL_NULL(sexcon)
 
 
 // ***************************************

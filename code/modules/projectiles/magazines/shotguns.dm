@@ -140,6 +140,7 @@ one type of shotgun ammo, but I think it helps in referencing it. ~N
 	caliber = CALIBER_6G
 	icon_state = "heavy_shotgun_buckshot"
 	default_ammo = /datum/ammo/bullet/shotgun/heavy_buckshot
+	icon = 'ntf_modular/icons/obj/items/ammo/handful.dmi'
 	icon_state_mini = "buckshot"
 	max_rounds = 15
 
@@ -148,6 +149,7 @@ one type of shotgun ammo, but I think it helps in referencing it. ~N
 	desc = "A box filled with high velocity shotgun slugs nicknamed 'Barrikada'. Rated to break through basically everything up to including tank engines. 6 Gauge."
 	caliber = CALIBER_6G
 	icon_state = "heavy_shotgun_barrikada"
+	icon = 'ntf_modular/icons/obj/items/ammo/handful.dmi'
 	default_ammo = /datum/ammo/bullet/shotgun/barrikada_slug
 	icon_state_mini = "buckshot"
 	max_rounds = 15
@@ -157,6 +159,7 @@ one type of shotgun ammo, but I think it helps in referencing it. ~N
 	desc = "A box filled with flechette spread shotgun shells. 6 Gauge."
 	caliber = CALIBER_6G
 	icon_state = "heavy_shotgun_flechette"
+	icon = 'ntf_modular/icons/obj/items/ammo/handful.dmi'
 	default_ammo = /datum/ammo/bullet/shotgun/heavy_flechette
 	icon_state_mini = "buckshot"
 	max_rounds = 15

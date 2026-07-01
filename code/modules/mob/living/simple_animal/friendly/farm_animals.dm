@@ -132,6 +132,7 @@
 	. = ..()
 	pixel_x = rand(-6, 6)
 	pixel_y = rand(0, 10)
+	QDEL_NULL(sexcon)
 
 
 /mob/living/simple_animal/chick/Life(seconds_per_tick, times_fired)

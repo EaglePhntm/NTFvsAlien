@@ -215,7 +215,7 @@ GLOBAL_VAR_INIT(corrupted_generators, 0)
 	if(SEND_SIGNAL(src, COMSIG_OBJ_ATTACK_ALIEN, xeno_attacker, damage_amount) & COMPONENT_NO_ATTACK_ALIEN)
 		return FALSE
 
-	if(is_corruptible && (CHECK_BITFIELD(xeno_attacker.xeno_caste.can_flags, CASTE_CAN_CORRUPT_GENERATOR) || (xeno_attacker.get_hive()?.living_xeno_ruler == xeno_attacker)))
+	if(is_corruptible && ((GLOB.tier_as_number[xeno_attacker.tier] >= 1) || CHECK_BITFIELD(xeno_attacker.xeno_caste.can_flags, CASTE_CAN_CORRUPT_GENERATOR) || (xeno_attacker.get_hive()?.living_xeno_ruler == xeno_attacker)))
 		to_chat(xeno_attacker, span_notice("You start to corrupt [src]"))
 		if(!do_after(xeno_attacker, 10 SECONDS, NONE, src, BUSY_ICON_HOSTILE))
 			return

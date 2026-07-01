@@ -5,7 +5,7 @@
 	icon_state = "seraph"
 	base_icon_state = "seraph"
 	move_delay = 3
-	soft_armor = list(MELEE = 70, BULLET = 60, LASER = 50, ENERGY = 30, BOMB = 50, BIO = 0, FIRE = 95, ACID = 85)
+	soft_armor = list(MELEE = 70, BULLET = 60, LASER = 50, ENERGY = 30, BOMB = 35, BIO = 0, FIRE = 95, ACID = 50)
 	max_integrity = 550
 	max_occupants = 2
 	max_drivers = 2 // Two can pilot it at the same time

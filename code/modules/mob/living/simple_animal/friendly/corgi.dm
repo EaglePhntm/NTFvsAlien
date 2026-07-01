@@ -115,6 +115,10 @@
 	pass_flags = PASS_MOB
 	mob_size = MOB_SIZE_SMALL
 
+/mob/living/simple_animal/corgi/puppy/Initialize(mapload)
+	. = ..()
+	QDEL_NULL(sexcon)
+
 
 /mob/living/simple_animal/corgi/puppy/mrwiggles
 	name = "Mr. Wiggles"

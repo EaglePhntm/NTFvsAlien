@@ -48,6 +48,9 @@
 	pass_flags = PASS_MOB|PASS_LOW_STRUCTURE
 	mob_size = MOB_SIZE_SMALL
 
+/mob/living/simple_animal/cat/kitten/Initialize(mapload)
+	. = ..()
+	QDEL_NULL(sexcon)
 
 /mob/living/simple_animal/cat/Runtime
 	name = "Runtime"

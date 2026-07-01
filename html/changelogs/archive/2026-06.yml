@@ -212,3 +212,11 @@
   - balance: exosuits don't drop people on death, changes some armor and stat values
   - bugfix: removes exosuit SMG from big mech vendor, fixes exosuit equipment not
       being hittable by bullets
+2026-06-30:
+  Meghan-Rossi:
+  - balance: reduced duration of bad weather
+  - balance: Increased pr412 akimbo scatter mod from 8 to 12.
+  githubuser4141:
+  - balance: Adjusted exosuit armor, and increased the damage dealt by aliens to exosuits,
+      and gives most rocket projectiles a 1.5x damage bonus, makes mech NVGs more
+      efficient
