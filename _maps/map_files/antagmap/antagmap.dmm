@@ -2314,6 +2314,11 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/requisition)
+"hF" = (
+/obj/structure/cable,
+/obj/machinery/power/apc,
+/turf/open/floor/wood,
+/area/antag_ship/som/security/chief)
 "hG" = (
 /obj/effect/turf_decal/tile/transparent/dark_green/half/contrasted{
 	dir = 4
@@ -7347,6 +7352,10 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/antag_ship/icc/hangar/west)
+"yg" = (
+/obj/machinery/robotic_cradle,
+/turf/open/floor/mainship/mono,
+/area/antag_ship/som/hangar)
 "yh" = (
 /turf/closed/wall/mainship/gray,
 /area/antag_ship/icc/requisition)
@@ -11259,6 +11268,7 @@
 /obj/machinery/power/apc{
 	dir = 8
 	},
+/obj/machinery/robotic_cradle,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
@@ -16090,11 +16100,6 @@
 /area/antag_ship/pmc_ntf/aft/engiroom/port)
 "ZN" = (
 /obj/structure/cable,
-<<<<<<< HEAD
-=======
-/obj/machinery/power/apc,
->>>>>>> 1cb6cbc9ab16043bb29b5efaf6712ad582bf5c2b
-/turf/open/floor/wood,
 /area/antag_ship/som/security/chief)
 "ZO" = (
 /obj/machinery/sleeper,
@@ -18932,7 +18937,7 @@ AI
 AI
 cQ
 ad
-ad
+yg
 lC
 ji
 ns
@@ -19028,7 +19033,7 @@ WW
 ad
 qj
 ad
-ad
+yg
 lC
 Xf
 jV
@@ -36292,7 +36297,7 @@ WH
 ap
 ap
 Sj
-ZN
+hF
 AR
 bY
 TC
