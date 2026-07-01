@@ -1027,12 +1027,6 @@
 /obj/effect/spawner/random/food_or_drink/burger,
 /turf/open/floor/mainship/sterile/plain,
 /area/antag_ship/pmc_ntf/fore/restroom)
-"dA" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/closed/wall/mainship/gray/outer,
-/area/antag_ship/som/hangar)
 "dB" = (
 /obj/structure/table/mainship,
 /obj/effect/spawner/random/food_or_drink/beer,
@@ -1092,6 +1086,20 @@
 	},
 /turf/open/floor/tile/white/hall/full,
 /area/antag_ship/icc/bathroom)
+"dM" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/item/card/id/captains_spare/som,
+/obj/machinery/door/window/secure{
+	req_access = list(204)
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/open/floor/mainship/mono,
+/area/antag_ship/som/upperladders)
 "dN" = (
 /turf/open/floor/mainship/sterile/side{
 	dir = 8
@@ -4765,10 +4773,10 @@
 	},
 /area/antag_ship/som/bridge)
 "pu" = (
-/obj/machinery/dropship_part_fabricator{
-	faction = "Sons of Mars"
+/obj/machinery/light{
+	dir = 1
 	},
-/turf/open/floor/mainship/mono,
+/turf/closed/wall/mainship/gray/outer,
 /area/antag_ship/som/hangar)
 "pv" = (
 /obj/structure/window/framed/prison/reinforced,
@@ -4887,20 +4895,10 @@
 /turf/open/floor/plating,
 /area/antag_ship/clf_base/bathroom)
 "pP" = (
-/obj/structure/table/reinforced,
-/obj/item/storage/firstaid/adv,
-/obj/item/reagent_containers/spray/cleaner{
-	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
-	name = "Surgery Cleaner";
-	pixel_x = 12;
-	pixel_y = 2
-	},
-/obj/structure/sink{
-	dir = 1
-	},
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/machinery/optable,
+/obj/item/tank/anesthetic,
+/obj/item/clothing/mask/breath/medical,
+/obj/machinery/iv_drip,
 /turf/open/floor/mainship/sterile,
 /area/antag_ship/som/medbay)
 "pR" = (
@@ -6119,6 +6117,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/asteroidfloor,
 /area/antag_ship/clf_base/armory)
+"tW" = (
+/obj/machinery/quick_vendor/som,
+/turf/open/floor/mainship/mono,
+/area/antag_ship/som/preparation)
 "tX" = (
 /obj/machinery/vending/marineFood/som,
 /obj/structure/disposalpipe/segment{
@@ -6756,12 +6758,12 @@
 /turf/open/floor/carpet/green,
 /area/antag_ship/som/office/commander)
 "wd" = (
-/obj/machinery/optable,
-/obj/item/tank/anesthetic,
-/obj/item/clothing/mask/breath/medical,
-/obj/machinery/iv_drip,
-/turf/open/floor/mainship/sterile,
-/area/antag_ship/som/medbay)
+/obj/machinery/door/poddoor/railing{
+	dir = 1;
+	id = "vehicle_elevator_railing"
+	},
+/turf/open/floor/plating,
+/area/antag_ship/som/hangar)
 "we" = (
 /obj/machinery/vending/marineFood/som,
 /turf/open/floor/mainship/mono,
@@ -6784,12 +6786,9 @@
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/requisition)
 "wh" = (
-/obj/machinery/door/airlock/mainship/medical/glass{
-	dir = 2;
-	req_one_access = list(206)
-	},
-/turf/open/floor/mainship/sterile/white,
-/area/antag_ship/som/medbay)
+/obj/structure/window/framed/mainship/gray/toughened/hull,
+/turf/open/floor/plating,
+/area/antag_ship/som/requisition)
 "wi" = (
 /obj/structure/prop/mainship/invincibleshutter{
 	dir = 4
@@ -9144,9 +9143,11 @@
 	},
 /area/antag_ship/som/bridge/hall)
 "Dz" = (
-/obj/machinery/quick_vendor/som,
+/obj/machinery/dropship_part_fabricator{
+	faction = "Sons of Mars"
+	},
 /turf/open/floor/mainship/mono,
-/area/antag_ship/som/preparation)
+/area/antag_ship/som/hangar)
 "DA" = (
 /obj/effect/landmark/start/job/usl,
 /obj/structure/bed/chair/dropship/passenger{
@@ -13196,9 +13197,12 @@
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/office/officers)
 "Qy" = (
-/obj/structure/window/framed/mainship/gray/toughened/hull,
-/turf/open/floor/plating,
-/area/antag_ship/som/requisition)
+/obj/machinery/door/airlock/mainship/medical/glass{
+	dir = 2;
+	req_one_access = list(206)
+	},
+/turf/open/floor/mainship/sterile/white,
+/area/antag_ship/som/medbay)
 "Qz" = (
 /obj/machinery/vending/armor_supply/icc,
 /turf/open/floor/mainship/mono,
@@ -14333,12 +14337,22 @@
 /turf/open/floor/mainship/mono,
 /area/antag_ship/icc/hangar/west)
 "TX" = (
-/obj/machinery/door/poddoor/railing{
-	dir = 1;
-	id = "vehicle_elevator_railing"
+/obj/structure/table/reinforced,
+/obj/item/storage/firstaid/adv,
+/obj/item/reagent_containers/spray/cleaner{
+	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
+	name = "Surgery Cleaner";
+	pixel_x = 12;
+	pixel_y = 2
 	},
-/turf/open/floor/plating,
-/area/antag_ship/som/hangar)
+/obj/structure/sink{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/mainship/sterile,
+/area/antag_ship/som/medbay)
 "TY" = (
 /turf/open/floor/mainship/som,
 /area/antag_ship/som/upperladders)
@@ -16574,12 +16588,12 @@ Td
 iH
 nL
 OE
-pP
+TX
 wn
 uN
-Qy
-Qy
-Qy
+wh
+wh
+wh
 uN
 uN
 CN
@@ -16652,7 +16666,7 @@ zU
 zU
 zU
 zU
-TX
+wd
 YD
 Il
 bv
@@ -16668,7 +16682,7 @@ wD
 ys
 Lv
 iH
-wh
+Qy
 Uc
 Uc
 nL
@@ -16748,7 +16762,7 @@ zU
 zU
 zU
 zU
-TX
+wd
 YD
 Il
 Fj
@@ -16766,7 +16780,7 @@ Uc
 iH
 nL
 Ee
-wd
+pP
 nL
 aI
 en
@@ -16838,13 +16852,13 @@ CN
 CN
 CN
 CN
-dA
+pu
 zU
 zU
 yQ
 zU
 zU
-TX
+wd
 tA
 Il
 Il
@@ -16940,7 +16954,7 @@ zU
 zU
 zU
 zU
-TX
+wd
 ad
 ad
 ad
@@ -17036,7 +17050,7 @@ zU
 zU
 zU
 zU
-TX
+wd
 ad
 ad
 ad
@@ -19339,7 +19353,7 @@ CN
 CN
 CN
 AB
-pu
+Dz
 ad
 VB
 ad
@@ -20602,7 +20616,7 @@ IO
 cO
 RU
 bD
-Dz
+tW
 cH
 Yo
 Yo
@@ -33168,7 +33182,7 @@ gP
 wU
 gP
 dI
-gP
+dM
 wU
 gP
 gP
