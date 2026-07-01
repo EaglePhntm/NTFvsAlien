@@ -16090,6 +16090,10 @@
 /area/antag_ship/pmc_ntf/aft/engiroom/port)
 "ZN" = (
 /obj/structure/cable,
+<<<<<<< HEAD
+=======
+/obj/machinery/power/apc,
+>>>>>>> 1cb6cbc9ab16043bb29b5efaf6712ad582bf5c2b
 /turf/open/floor/wood,
 /area/antag_ship/som/security/chief)
 "ZO" = (
