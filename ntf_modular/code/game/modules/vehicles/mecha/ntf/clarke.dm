@@ -8,7 +8,7 @@
 	move_delay = 2.5
 	max_integrity = 300
 	lights_power = 10
-	soft_armor = list(MELEE = 35, BULLET = 10, LASER = 20, ENERGY = 20, BOMB = 50, BIO = 0, FIRE = 95, ACID = 100)
+	soft_armor = list(MELEE = 35, BULLET = 8, LASER = 20, ENERGY = 20, BOMB = 25, BIO = 0, FIRE = 95, ACID = 100)
 	max_equip_by_category = list(
 		MECHA_UTILITY = 3,
 		MECHA_POWER = 1,

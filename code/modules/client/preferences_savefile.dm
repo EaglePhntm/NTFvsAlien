@@ -515,8 +515,8 @@
 		slot = default_slot
 	slot = sanitize_integer(slot, 1, MAX_SAVE_SLOTS, initial(default_slot))
 	if(slot != default_slot)
-		default_slot = slot
 		WRITE_FILE(S["default_slot"], slot)
+		default_slot = slot
 	S.cd = "/character[slot]"
 
 	READ_FILE(S["be_special"], be_special)

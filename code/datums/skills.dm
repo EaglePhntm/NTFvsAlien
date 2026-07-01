@@ -651,21 +651,20 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	engineer = SKILL_ENGINEER_DEFAULT
 	medical = SKILL_MEDICAL_PRACTICED
 	surgery = SKILL_SURGERY_TRAINED
-	leadership = SKILL_LEAD_EXPERT
+	leadership = SKILL_LEAD_TRAINED
 	police = SKILL_POLICE_MP
 	smartgun = SKILL_SMART_TRAINED
 	sex = SKILL_SEX_EXPERT
 
-/datum/skills/specialist/vsd
+/datum/skills/specialist_vsd
 	name = "VSD Specialist" // Curated to represent the KZ Specialist skillset instead of its NT counterpart
 	unarmed = SKILL_UNARMED_TRAINED // Not a master at CQC, but still trained to a smaller degree.
 	heavy_weapons = SKILL_HEAVY_WEAPONS_TRAINED // They're often packing the big guns, they have the qualifications.
-	rifles = SKILL_RIFLES_TRAINED // When not packing the big guns, they're good with rifles.
 	construction = SKILL_CONSTRUCTION_METAL
 	engineer = SKILL_ENGINEER_METAL // You've picked up some c4. What specialist doesn't use c4?
 	medical = SKILL_MEDICAL_NOVICE
 
-/datum/skills/specialist/escort
+/datum/skills/specialist_vsdescort
 	name = "VSD Combat Escort" // Fucked up mix of slut and AC specialist skills.
 	unarmed = SKILL_UNARMED_TRAINED // Armed melee fighter as opposed to unarmed brawler.
 	combat = SKILL_COMBAT_TRAINED // Both meanings of escort, DUH.

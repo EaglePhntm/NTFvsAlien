@@ -83,7 +83,7 @@ SUBSYSTEM_DEF(minimaps)
 
 	var/level = z_level.z_value
 	minimaps_by_z["[level]"] = new /datum/hud_displays
-	if(!is_mainship_level(level) && !is_ground_level(level) && !is_away_level(level)) //todo: maybe move this around
+	if(!is_mainship_level(level) && !is_ground_level(level) && !is_away_level(level) && !is_antagmainship_level(level)) //todo: maybe move this around
 		return
 	var/icon/icon_gen = new('icons/UI_icons/minimap.dmi') //480x480 blank icon template for drawing on the map
 	for(var/xval = 1 to world.maxx)

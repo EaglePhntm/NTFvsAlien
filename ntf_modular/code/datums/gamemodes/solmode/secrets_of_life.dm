@@ -137,9 +137,8 @@
 	var/nuking_faction = "Unknown"
 	var/total_war = FALSE
 
-/datum/game_mode/infestation/secret_of_life/proc/setup_nuke_hud_timer(source, thing)
-	SIGNAL_HANDLER
-	var/obj/machinery/nuclearbomb/nuke = thing
+/datum/game_mode/infestation/secret_of_life/on_nuke_started(datum/source, obj/machinery/nuclearbomb/nuke)
+	. = ..()
 	if(!nuke.timer)
 		CRASH("[logdetails(src)]'s setup_nuke_hud_timer called with invalid nuke object")
 	nuking_faction = nuke.faction
@@ -148,7 +147,6 @@
 /datum/game_mode/infestation/secret_of_life/pre_setup()
 	. = ..()
 	RegisterSignals(SSdcs, list(COMSIG_GLOB_PLAYER_ROUNDSTART_SPAWNED, COMSIG_GLOB_PLAYER_LATE_SPAWNED), PROC_REF(things_after_spawn))
-	RegisterSignals(SSdcs, list(COMSIG_GLOB_NUKE_START), PROC_REF(setup_nuke_hud_timer))
 
 /datum/game_mode/infestation/secret_of_life/proc/things_after_spawn(datum/source, mob/living/carbon/human/new_member)
 	SIGNAL_HANDLER

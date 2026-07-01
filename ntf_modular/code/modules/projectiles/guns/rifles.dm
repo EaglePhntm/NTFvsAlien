@@ -124,6 +124,7 @@
 	name = "high caliber bluescreen rifle bullet"
 	hud_state = "sniper_heavy"
 	damage = 50
+	penetration = 10
 	damage_falloff = 0.1
 	shrapnel_chance = 1
 
@@ -137,7 +138,7 @@
 	if(human_victim.species.species_flags & ROBOTIC_LIMBS)
 		human_victim.adjustStaminaLoss(proj.damage)
 		human_victim.add_slowdown(0.2,1)
-		human_victim.AdjustStun(0.2 SECONDS)
+		human_victim.AdjustStun(0.3 SECONDS)
 		if(human_victim.getStaminaLoss() > 20)
 			human_victim.overlay_fullscreen_timer(human_victim.getStaminaLoss(), 10, "glitch", /atom/movable/screen/fullscreen/robot_glitch)
 		if((human_victim.getStaminaLoss() >= human_victim.maxHealth*2) && !human_victim.IsUnconscious())
@@ -149,7 +150,7 @@
 		if(prob(50))
 			empulse(target_mob.loc, 0,0,0,1)
 		human_victim.adjustStaminaLoss(proj.damage/2)
-		human_victim.AdjustStun(0.1 SECONDS)
+		human_victim.AdjustStun(0.2 SECONDS)
 		human_victim.jitter(3)
 		human_victim.add_slowdown(0.1,1)
 		human_victim.visible_message(span_warning("[human_victim] shakes with an electric shock!"), span_warning("You feel lightning mess up your nerves, locking your body!"), span_notice("You hear a clanker glitching."))
@@ -751,3 +752,381 @@
 	bonus_overlay = "valerian_lrgmag"
 	aim_speed_mod = 0.15
 	wield_delay_mod = 0.15 SECONDS
+
+//MPA Rifle
+
+/obj/item/weapon/gun/rifle/mpar/mil
+	name = "\improper Milspec Multi-Purpose Adaptive Marksman Rifle"
+	desc = "The Multi-Purpose Adaptive Marksman Rifle is an experimental DMR produced by the Nine-Tailed Fox, intended for frontier and specialist usage. Some specialists prefer the rifle for its ability to take different types of magazines while others look for a DMR that can be better modified to suit specific roles than other platforms. Chambered in the archaic .308, the MPAR is hard-hitting but the specialized rounds cannot be regularly supplied unless through requisitions. The synthetic fiber sling attached to the weapon prevents the operator from losing the weapon. This is the milspec variant of the MPAR, slightly wider bullet grouping but lighter and more versatile than the civilian variant."
+	icon = 'ntf_modular/icons/obj/items/guns/rifles64.dmi'
+	icon_state = "m1amil"
+	worn_icon_state = "m1amil"
+	worn_icon_list = list(
+		slot_l_hand_str = 'ntf_modular/icons/mob/inhands/guns/marksman_left_64.dmi',
+		slot_r_hand_str = 'ntf_modular/icons/mob/inhands/guns/marksman_right_64.dmi',
+		slot_s_store_str = 'ntf_modular/icons/mob/suit_slot.dmi',
+		slot_back_str = 'ntf_modular/icons/mob/clothing/back.dmi',
+	)
+	gun_crosshair = 'icons/UI_Icons/gun_crosshairs/sniper.dmi'
+	inhand_x_dimension = 64
+	inhand_y_dimension = 32
+
+	fire_sound = 'sound/weapons/guns/fire/mpar.ogg'
+	fire_rattle = 'sound/weapons/guns/fire/mparrattle.ogg'
+	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
+	unload_sound = 'sound/weapons/guns/interact/t18_unload.ogg'
+	reload_sound = 'sound/weapons/guns/interact/t18_reload.ogg'
+	caliber = CALIBER_308 //codex
+	aim_slowdown = 0.35
+	wield_delay = 1.175 SECONDS
+	force = 20
+	max_shells = 15 //codex
+	default_ammo_type = /obj/item/ammo_magazine/rifle/mpar
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/mpar, /obj/item/ammo_magazine/rifle/mpar/ext, /obj/item/ammo_magazine/rifle/mpar/smart, /obj/item/ammo_magazine/rifle/mpar/bomb, /obj/item/ammo_magazine/rifle/mpar/drain, /obj/item/ammo_magazine/rifle/mpar/electromag)
+	attachable_allowed = list(
+		/obj/item/attachable/stock/mparmil,
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet/converted,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonet/som,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/angledgrip,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/foldable/bipod,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/marine,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/scope/mini/dmr,
+		/obj/item/attachable/motiondetector,
+		/obj/item/weapon/gun/pistol/plasma_pistol,
+		/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/pistol/g22/tranq,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/attachable/buildasentry,
+		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
+		/obj/item/weapon/gun/flamer/hydro_cannon,
+		/obj/item/attachable/shoulder_mount,
+	)
+
+	gun_features_flags = GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_CAN_POINTBLANK|GUN_SMOKE_PARTICLES
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	starting_attachment_types = list(/obj/item/attachable/stock/mparmil)
+	attachable_offset = list("muzzle_x" = 41, "muzzle_y" = 17,"rail_x" = 10, "rail_y" = 21, "under_x" = 21, "under_y" = 13, "stock_x" = 5, "stock_y" = 11)
+	actions_types = list(/datum/action/item_action/aim_mode)
+	aim_fire_delay = 0.3 SECONDS
+	aim_speed_modifier = 3
+
+	fire_delay = 0.5 SECONDS
+	accuracy_mult = 1.05
+	scatter = 1
+	scatter_unwielded = 14
+	recoil_unwielded = 5
+	burst_amount = 1
+	movement_acc_penalty_mult = 3
+
+/obj/item/weapon/gun/rifle/mpar/export
+	name = "\improper Civilian Multi-Purpose Adaptive Rifle"
+	desc = "The Multi-Purpose Adaptive Marksman Rifle is an experimental DMR produced by the Nine-Tailed Fox, intended for frontier and specialist usage. Some specialists prefer the rifle for its ability to take different types of magazines while others look for a DMR that can be better modified to suit specific roles than other platforms. Chambered in the archaic .308, the MPAR is hard-hitting but the specialized rounds cannot be regularly supplied unless through requisitions. The leather sling prevents the operator from losing the weapon. This is the civilian variant of the MPAR, slightly heavier but more stable with better shot placement."
+	icon = 'ntf_modular/icons/obj/items/guns/rifles64.dmi'
+	icon_state = "m1aexport"
+	worn_icon_state = "m1aexport"
+	worn_icon_list = list(
+		slot_l_hand_str = 'ntf_modular/icons/mob/inhands/guns/marksman_left_64.dmi',
+		slot_r_hand_str = 'ntf_modular/icons/mob/inhands/guns/marksman_right_64.dmi',
+		slot_s_store_str = 'ntf_modular/icons/mob/suit_slot.dmi',
+		slot_back_str = 'ntf_modular/icons/mob/clothing/back.dmi',
+	)
+	gun_crosshair = 'icons/UI_Icons/gun_crosshairs/sniper.dmi'
+	inhand_x_dimension = 64
+	inhand_y_dimension = 32
+
+	fire_sound = 'sound/weapons/guns/fire/mpar.ogg'
+	fire_rattle = 'sound/weapons/guns/fire/mparrattle.ogg'
+	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
+	unload_sound = 'sound/weapons/guns/interact/t18_unload.ogg'
+	reload_sound = 'sound/weapons/guns/interact/t18_reload.ogg'
+	caliber = CALIBER_308 //codex
+	aim_slowdown = 0.425
+	wield_delay = 1.35 SECONDS
+	force = 25
+	max_shells = 15 //codex
+	default_ammo_type = /obj/item/ammo_magazine/rifle/mpar
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/mpar, /obj/item/ammo_magazine/rifle/mpar/ext, /obj/item/ammo_magazine/rifle/mpar/smart, /obj/item/ammo_magazine/rifle/mpar/bomb, /obj/item/ammo_magazine/rifle/mpar/drain, /obj/item/ammo_magazine/rifle/mpar/electromag)
+	attachable_allowed = list(
+		/obj/item/attachable/stock/mparexport,
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet/converted,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonet/som,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/angledgrip,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/foldable/bipod,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/marine,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/scope/mini/dmr,
+		/obj/item/attachable/motiondetector,
+		/obj/item/weapon/gun/pistol/plasma_pistol,
+		/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/pistol/g22/tranq,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/attachable/buildasentry,
+		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
+		/obj/item/weapon/gun/flamer/hydro_cannon,
+		/obj/item/attachable/shoulder_mount,
+	)
+
+	gun_features_flags = GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_CAN_POINTBLANK|GUN_SMOKE_PARTICLES
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	starting_attachment_types = list(/obj/item/attachable/scope/marine, /obj/item/attachable/stock/mparexport)
+	attachable_offset = list("muzzle_x" = 41, "muzzle_y" = 17,"rail_x" = 10, "rail_y" = 21, "under_x" = 21, "under_y" = 13, "stock_x" = 5, "stock_y" = 11)
+	actions_types = list(/datum/action/item_action/aim_mode)
+	aim_fire_delay = 0.5 SECONDS
+	aim_speed_modifier = 4
+
+	fire_delay = 0.5 SECONDS
+	accuracy_mult = 1.1
+	scatter = 0
+	scatter_unwielded = 20
+	recoil_unwielded = 8
+	burst_amount = 1
+	movement_acc_penalty_mult = 5
+
+/obj/item/attachable/stock/mparmil
+	name = "\improper MPAR milspec-variant stock"
+	desc = "An irremovable, polymer milspec stock for the NTF variant of the Multi-Purpose Adaptive Marksman Rifle. Possess a magnetic attachment strip so the operator doesn't lose their rifle."
+	icon = 'ntf_modular/icons/obj/items/guns/attachments/stock.dmi'
+	icon_state = "m1amil"
+	wield_delay_mod = 0.075 SECONDS
+	accuracy_mod = 0.05
+	recoil_mod = -1
+	scatter_mod = 0
+	///Handles the harness functionality for the stock, this allows for the weapon to reattach to the character
+	var/datum/component/reequip/reequip_component
+
+/obj/item/attachable/stock/mparmil/on_attach(attaching_item, mob/user)
+	. = ..()
+	if(!master_gun)
+		return
+	reequip_component = master_gun.AddComponent(/datum/component/reequip, list(SLOT_S_STORE, SLOT_BELT, SLOT_BACK))
+
+/obj/item/attachable/stock/mparmil/on_detach(attaching_item, mob/user)
+	. = ..()
+	if(master_gun)
+		return
+	QDEL_NULL(reequip_component)
+
+/obj/item/attachable/stock/mparexport
+	name = "\improper MPAR export-variant stock"
+	desc = "An irremovable, polished wooden stock for the export variant of the Multi-Purpose Adaptive Marksman Rifle"
+	icon = 'ntf_modular/icons/obj/items/guns/attachments/stock.dmi'
+	icon_state = "m1a"
+	wield_delay_mod = 0.15 SECONDS
+	accuracy_mod = 0.1
+	recoil_mod = -2
+	scatter_mod = -1
+	///Handles the harness functionality for the stock, this allows for the weapon to reattach to the character
+	var/datum/component/reequip/reequip_component
+
+/obj/item/attachable/stock/mparexport/on_attach(attaching_item, mob/user)
+	. = ..()
+	if(!master_gun)
+		return
+	reequip_component = master_gun.AddComponent(/datum/component/reequip, list(SLOT_S_STORE, SLOT_BELT, SLOT_BACK))
+
+/obj/item/attachable/stock/mparexport/on_detach(attaching_item, mob/user)
+	. = ..()
+	if(master_gun)
+		return
+	QDEL_NULL(reequip_component)
+
+/datum/ammo/bullet/rifle/heavy/mpar
+	name = "heavy rifle bullet"
+	damage = 46.5
+	accurate_range = 20
+	shell_speed = 3.5
+	max_range = 40
+	damage_falloff = 1.25
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SNIPER
+	sundering = 1.5
+	penetration = 12.5
+	shrapnel_chance = 5
+	accurate_range_min = 2
+
+/datum/ammo/bullet/rifle/heavy/mpar/smasher
+	name = "heavy shattering rifle bullet"
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SNIPER
+	shell_speed = 2.5
+	damage = 22.5
+	penetration = 7.5
+	armor_type = BOMB
+	sundering = 6
+	damage_falloff = 1.25
+	accurate_range = 15
+	shrapnel_chance = 0
+	accurate_range_min = 2
+	///shatter effection duration when hitting mobs
+	var/shatter_duration = 15 SECONDS
+
+/datum/ammo/bullet/rifle/heavy/mpar/smasher/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
+	if(!isliving(target_mob))
+		return
+
+	var/mob/living/living_victim = target_mob
+	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, shatter_duration)
+
+/datum/ammo/bullet/rifle/heavy/mpar/smart
+	name = "heavy smart rifle bullet"
+	icon_state = "bullet_red"
+	hud_state = "rifle_ap"
+	bullet_color = COLOR_BLUE_GRAY //Blue bullets to distinguish friendly fire restriction
+	damage = 37.5
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SNIPER|AMMO_IFF
+	accurate_range = 15
+	shell_speed = 3
+	max_range = 30
+	damage_falloff = 1
+	penetration = 12.5
+	sundering = 1.25
+	penetration = 10
+	shrapnel_chance = 5
+
+/datum/ammo/bullet/rifle/heavy/mpar/plasmaloss
+	name = "heavy tanglefoot bullet"
+	hud_state = "spotrifle_plasmaloss"
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SNIPER
+	shell_speed = 2.5
+	damage_falloff = 1.25
+	damage = 20
+	penetration = 1
+	sundering = 0.75
+	accurate_range_min = 2
+
+/datum/ammo/bullet/rifle/heavy/mpar/plasmaloss/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
+	if(isxeno(target_mob))
+		var/mob/living/carbon/xenomorph/target_xeno = target_mob
+		target_xeno.use_plasma(20 + 0.20 * target_xeno.xeno_caste.plasma_max * target_xeno.xeno_caste.plasma_regen_limit) // This is draining 20%+20 flat per hit.
+
+/datum/ammo/bullet/rifle/heavy/mpar/electro
+	name = "heavy shocking bullet"
+	hud_state = "rifle_ap"
+	damage = 15
+	penetration = 2.5
+	damage_type = BRUTE
+	sundering = 0.5
+	shrapnel_chance = 2
+	bullet_color = COLOR_BRIGHT_BLUE
+	var/emp_chance = 15
+
+/datum/ammo/bullet/rifle/heavy/mpar/electro/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
+	. = ..()
+	do_sparks(3, TRUE, target_mob)
+	if(!ishuman(target_mob))
+		return
+	var/mob/living/carbon/human/human_victim = target_mob
+	if(human_victim.species.species_flags & ROBOTIC_LIMBS)
+		human_victim.adjustStaminaLoss(proj.damage)
+		human_victim.add_slowdown(0.2,1)
+		human_victim.AdjustStun(0.1 SECONDS)
+		if(human_victim.getStaminaLoss() > 25)
+			human_victim.overlay_fullscreen_timer(human_victim.getStaminaLoss(), 10, "glitch", /atom/movable/screen/fullscreen/robot_glitch)
+		if((human_victim.getStaminaLoss() >= human_victim.maxHealth*2) && !human_victim.IsUnconscious())
+			human_victim.ParalyzeNoChain(15 SECONDS) //fake unconscious basically
+			human_victim.AdjustMute(15 SECONDS)
+			human_victim.overlay_fullscreen_timer(10 SECONDS, 10, "bluescreen", /atom/movable/screen/fullscreen/dead/robot)
+			human_victim.visible_message(span_warning("[human_victim] shudders violently whilst spitting out error text before collapsing, flailing on the ground randomly."), span_blue("You are bluescreening, but you should be able to recover from this by rebooting automatically in about 15s."), span_notice("You hear a clanker glitching."))
+	else
+		if(prob(emp_chance))
+			empulse(target_mob.loc, 0,0,0,1)
+		human_victim.adjustStaminaLoss(proj.damage/2)
+		human_victim.AdjustStun(0.1 SECONDS)
+		human_victim.jitter(3)
+		human_victim.add_slowdown(0.1,1)
+		human_victim.visible_message(span_warning("[human_victim] shakes with an electric shock!"), span_warning("You feel lightning mess up your nerves, locking your body!"), span_notice("You hear a clanker glitching."))
+
+/obj/item/ammo_magazine/rifle/mpar
+	name = "\improper MPAR magazine (.308 FMJ)"
+	desc = "A .308 MPAR magazine."
+	caliber = CALIBER_308
+	icon = 'ntf_modular/icons/obj/items/ammo/rifle.dmi'
+	icon_state = "m1a_mag"
+	icon_state_mini = "mag_rifle_big"
+	bonus_overlay = "m1a_mag"
+	w_class = WEIGHT_CLASS_NORMAL
+	default_ammo = /datum/ammo/bullet/rifle/heavy/mpar
+	max_rounds = 15
+
+/obj/item/ammo_magazine/rifle/mpar/ext
+	name = "\improper MPAR extended magazine (.308 FMJ)"
+	desc = "A .308 MPAR extended magazine."
+	caliber = CALIBER_308
+	icon_state = "m1a_extmag"
+	icon_state_mini = "mag_rifle_big"
+	bonus_overlay = "m1a_extmag"
+	w_class = WEIGHT_CLASS_NORMAL
+	default_ammo = /datum/ammo/bullet/rifle/heavy/mpar
+	max_rounds = 30
+	aim_speed_mod = 0.15
+	wield_delay_mod = 0.15 SECONDS
+
+/obj/item/ammo_magazine/rifle/mpar/smart
+	name = "\improper MPAR smart magazine (.308 Smart)"
+	desc = "A .308 MPAR smart magazine, designed with IFF capabilities in mind for frontline support."
+	caliber = CALIBER_308
+	icon_state = "m1a_smartmag"
+	icon_state_mini = "mag_rifle_big"
+	bonus_overlay = "m1a_smartmag"
+	w_class = WEIGHT_CLASS_NORMAL
+	default_ammo = /datum/ammo/bullet/rifle/heavy/mpar/smart
+	max_rounds = 20
+	aim_speed_mod = 0.05
+	wield_delay_mod = 0.05 SECONDS
+
+/obj/item/ammo_magazine/rifle/mpar/bomb
+	name = "\improper MPAR shattering magazine (.308 Shatter)"
+	desc = "A .308 MPAR shattering magazine, the munitions are designed to weaken and shatter enemy armor."
+	caliber = CALIBER_308
+	icon_state = "m1a_bombmag"
+	icon_state_mini = "mag_rifle_big"
+	bonus_overlay = "m1a_bombmag"
+	w_class = WEIGHT_CLASS_SMALL
+	default_ammo = /datum/ammo/bullet/rifle/heavy/mpar/smasher
+	max_rounds = 10
+
+/obj/item/ammo_magazine/rifle/mpar/drain
+	name = "\improper MPAR tanglefoot magazine (.308 Tanglefoot)"
+	desc = "A .308 MPAR tanglefoot magazine, the ammo drains xenomorphs of plasma."
+	caliber = CALIBER_308
+	icon_state = "m1a_tangmag"
+	icon_state_mini = "mag_rifle_big"
+	bonus_overlay = "m1a_tangmag"
+	w_class = WEIGHT_CLASS_SMALL
+	default_ammo = /datum/ammo/bullet/rifle/heavy/mpar/plasmaloss
+	max_rounds = 10
+
+/obj/item/ammo_magazine/rifle/mpar/electromag
+	name = "\improper MPAR shock magazine (.308 Electro)"
+	desc = "A .308 MPAR electromagnetic magazine, the ammo is designed to disrupt and weaken robotics through electromagnetic munitions."
+	icon_state = "m1a_empmag"
+	icon_state_mini = "mag_rifle_big"
+	bonus_overlay = "m1a_empmag"
+	w_class = WEIGHT_CLASS_SMALL
+	max_rounds = 5
+	default_ammo = /datum/ammo/bullet/rifle/heavy/mpar/electro

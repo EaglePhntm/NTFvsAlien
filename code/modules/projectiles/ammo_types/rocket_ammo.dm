@@ -33,6 +33,8 @@
 	drop_nade(target_turf, proj)
 
 /datum/ammo/rocket/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
+	if(isexosuit(target_obj) && damage > 75)
+		proj.damage *= 1.5
 	drop_nade(target_obj.density ? get_step_towards(target_obj, proj) : target_obj.loc, proj)
 
 /datum/ammo/rocket/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
@@ -363,11 +365,14 @@
 /datum/ammo/rocket/oneuse/thermobaric // disposable thermobaric
 	name = "thermobaric Rocket"
 	hud_state = "rpg_thermobaric"
-	damage = 30
-
+	damage = 15
+	accurate_range = 8
+	penetration = 15
+	sundering = 15
+	max_range = 15
 
 /datum/ammo/rocket/oneuse/thermobaric/drop_nade(turf/target_turf, atom/movable/projectile/proj)
-	explosion(target_turf, 0, 4, 5, 0, 4, 4, explosion_cause = proj)
+	explosion(target_turf, 0, 0, 1, 2, 0, 4, explosion_cause = proj)
 
 /datum/ammo/rocket/som/heat //Anti tank, or mech
 	name = "HEAT RPG"

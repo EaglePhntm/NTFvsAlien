@@ -390,6 +390,41 @@
 	contains = list(/obj/item/ammo_magazine/rifle/valerian/lrg)
 	cost = 20
 
+/datum/supply_packs/imports/mparexport
+	name = "Civilian Multi-Purpose Adaptive Rifle"
+	contains = list(/obj/item/weapon/gun/rifle/mpar/export)
+	cost = 500
+
+/datum/supply_packs/imports/mparmag
+	name = "Multi-Purpose Adaptive Rifle 15-Round magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/mpar)
+	cost = 15
+
+/datum/supply_packs/imports/mparextmag
+	name = "Multi-Purpose Adaptive Rifle 30-Round magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/mpar/ext)
+	cost = 30
+
+/datum/supply_packs/imports/mparsmartmag
+	name = "Multi-Purpose Adaptive Rifle 20-Round Smart magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/mpar/smart)
+	cost = 30
+
+/datum/supply_packs/imports/mparbombmag
+	name = "Multi-Purpose Adaptive Rifle 10-Round Shatter magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/mpar/bomb)
+	cost = 30
+
+/datum/supply_packs/imports/mpartanglemag
+	name = "Multi-Purpose Adaptive Rifle 10-Round Tangle magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/mpar/drain)
+	cost = 30
+
+/datum/supply_packs/imports/mparelectromag
+	name = "Multi-Purpose Adaptive Rifle 5-Round EMP magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/mpar/electromag)
+	cost = 40
+
 /datum/supply_packs/imports/plasticfork
 	name = "Plastic Fork"
 	contains = list(/obj/item/tool/kitchen/utensil/pfork)

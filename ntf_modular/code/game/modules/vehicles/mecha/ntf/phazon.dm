@@ -8,7 +8,7 @@
 	move_delay = 2.5
 	max_integrity = 200
 	allow_diagonal_movement = TRUE
-	soft_armor = list(MELEE = 40, BULLET = 40, LASER = 50, ENERGY = 30, BOMB = 25, BIO = 0, FIRE = 75, ACID = 75)
+	soft_armor = list(MELEE = 40, BULLET = 40, LASER = 50, ENERGY = 30, BOMB = 25, BIO = 0, FIRE = 75, ACID = 50)
 	force = 20
 	cockpit_armor = COCKPIT_ARMORED
 	wreckage = /obj/structure/mecha_wreckage/phazon

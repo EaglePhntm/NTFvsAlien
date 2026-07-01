@@ -22,6 +22,7 @@
 	name = "sentry drop pod"
 	contains = list(/obj/structure/droppod/nonmob/turret_pod)
 	containertype = null
+	faction_lock = list(FACTION_TERRAGOV)
 	cost = 100 //compared to som they need to do labour and wait for the req elevator and shit, while som gets free cope teles.
 
 /datum/supply_packs/operations/droppod/supply

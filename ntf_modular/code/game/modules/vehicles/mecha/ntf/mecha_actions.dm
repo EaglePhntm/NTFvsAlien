@@ -15,7 +15,7 @@
 	action_icon = 'ntf_modular/icons/mob/actions/actions_mecha.dmi'
 	action_icon_state = "mech_nightvision_off"
 	var/list/amplification_traits = list(TRAIT_EXOSUIT_NV)
-	var/power_cost = 40
+	var/power_cost = 25
 
 /datum/action/vehicle/sealed/mecha/light_amplification/action_activate(trigger_flags)
 	if(!owner || !chassis || !(owner in chassis.occupants))

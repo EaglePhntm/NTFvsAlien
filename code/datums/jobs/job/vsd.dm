@@ -499,7 +499,7 @@
 /datum/job/vsd/spec
 	title = "KZ Specialist"
 	paygrade = "KZ4"
-	skills_type = /datum/skills/specialist/vsd
+	skills_type = /datum/skills/specialist_vsd
 	outfit = /datum/outfit/job/vsd/spec/demolitionist
 	multiple_outfits = TRUE
 	outfits = list(
@@ -993,7 +993,7 @@
 /datum/job/vsd/escort
 	title = "KZ Combat Escort"
 	paygrade = "KZ4"
-	skills_type = /datum/skills/specialist/escort
+	skills_type = /datum/skills/specialist_vsdescort
 	outfit = /datum/outfit/job/vsd/leader/one
 	multiple_outfits = FALSE
 	outfits = list(
