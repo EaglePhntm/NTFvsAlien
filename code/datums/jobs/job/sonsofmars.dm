@@ -394,3 +394,48 @@ You are also in charge of communicating with command and letting them know about
 	jobtype = /datum/job/som/squad/leader
 
 	id = /obj/item/card/id/dogtag/som/leader
+
+/datum/job/som/security/militarypolice
+	title = SOM_MP
+	paygrade = "E3"
+	comm_title = "MP"
+	access = ALL_SOM_ACCESS
+	minimal_access = ALL_SOM_ACCESS
+	display_order = JOB_DISPLAY_ORDER_SECURITY_OFFICER
+	skills_type = /datum/skills/security_officer
+	outfit = /datum/outfit/job/som/mp
+	total_positions = 5
+	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS
+	job_category = JOB_CAT_COMMANDSOM
+	html_description = {"
+		<b>Difficulty</b>: Medium<br /><br />
+		<b>You answer to the</b> Chief MP and above.<br /><br />
+		<b>Unlock Requirement</b>: Starting Role<br /><br />
+		<b>Gamemode Availability</b>: Crash, Distress<br /><br /><br />
+		Maintain order in the base.
+		<br />You are a Military Police Officer, what else to say?<br />
+		<b>Duty</b>: Maintain the law aboard the SOM Ship and the Area of Operations.	"}
+	minimap_icon = "corpsec"
+
+/datum/job/som/security/militarypolice/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
+	. = ..()
+	if(!ishuman(new_mob))
+		return
+	var/mob/living/carbon/human/new_human = new_mob
+	var/playtime_mins = user?.client?.get_exp(title)
+	if(!playtime_mins || playtime_mins < 1 )
+		return
+	switch(playtime_mins)
+		if(0 to 1500)
+			new_human.wear_id.paygrade = "SOM_E3"
+		if(1501 to 6000)
+			new_human.wear_id.paygrade = "SOM_E4"
+		if(6001 to 18000)
+			new_human.wear_id.paygrade = "SOM_E5"
+		if(18001 to 60000)
+			new_human.wear_id.paygrade = "SOM_S1"
+
+/datum/outfit/job/som/mp
+	name = "SOM Military Police"
+	ears = /obj/item/radio/headset/mainship/mcom/som
+	id = /obj/item/card/id/dogtag/som

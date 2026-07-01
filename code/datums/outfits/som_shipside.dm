@@ -229,3 +229,12 @@
 	gloves = /obj/item/clothing/gloves/insulated
 	r_pocket = /obj/item/storage/pouch/general/medium
 	l_pocket = /obj/item/storage/pouch/general/medium
+
+/datum/outfit/job/som/command/cmp
+	name = SOM_CHIEF_MP
+	jobtype = /datum/job/som/command/chiefmp
+	id = /obj/item/card/id/silver
+	head = /obj/item/clothing/head/beret/sec/hos
+	ears = /obj/item/radio/headset/mainship/mcom/som
+	w_uniform = /obj/item/clothing/under/som/officer
+	shoes = /obj/item/clothing/shoes/marine/som/knife

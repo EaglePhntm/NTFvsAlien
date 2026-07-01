@@ -270,3 +270,6 @@
 /obj/item/weapon/baton/stunprod/improved/examine(mob/user)
 	. = ..()
 	. += span_notice("It has [charges] charges left.")
+
+/obj/item/weapon/baton/nolock
+	has_user_lock = FALSE

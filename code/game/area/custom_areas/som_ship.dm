@@ -3,6 +3,8 @@
 	requires_power = TRUE
 	always_unpowered = FALSE
 
+/area/antag_ship/som/upperladders
+	name = "SOM Ship Upper Deck Ladders"
 
 /area/antag_ship/som/office
 	name = "SOM Ship Office"
@@ -17,10 +19,19 @@
 /area/antag_ship/som/office/commander/field
 	name = "SOM Ship Field Commander Office"
 
+/area/antag_ship/som/office/staff
+	name = "SOM Ship Staff Officers Quarters"
+
+/area/antag_ship/som/office/officers
+	name = "SOM Ship Officers Quarters"
+
 
 /area/antag_ship/som/bridge
-	name = "SOM Ship Bridge"
+	name = "SOM Ship Combat Information Centre"
 	minimap_color = MINIMAP_AREA_COMMAND
+
+/area/antag_ship/som/bridge/hall
+	name = "SOM Ship Combat Information Centre Hallway"
 
 /area/antag_ship/som/hangar
 	name = "SOM Ship Hangar"
@@ -39,7 +50,7 @@
 	name = "SOM Ship Mechbay"
 
 /area/antag_ship/som/engi
-	name = "SOM Ship Generator Room"
+	name = "SOM Ship Engineering"
 	minimap_color = MINIMAP_AREA_ENGI
 
 /area/antag_ship/som/medbay
@@ -50,16 +61,24 @@
 	name = "SOM Ship Medical Morgue"
 
 /area/antag_ship/som/bathroom
-	name = "SOM Ship Bathroom"
+	name = "SOM Ship Bathroom Upper Deck"
 	minimap_color = MINIMAP_AREA_LIVING
 
+/area/antag_ship/som/bathroom/lower
+	name = "SOM Ship Bathroom Lower Deck"
+
 /area/antag_ship/som/security
-	name = "SOM Ship Security Post"
+	name = "SOM Ship Brig"
 	minimap_color = MINIMAP_AREA_SEC
 
 /area/antag_ship/som/security/cell
-	name = "SOM Ship Prison Cell"
+	name = "SOM Ship Prison Cells"
 	minimap_color = MINIMAP_AREA_CELL_MED
+
+/area/antag_ship/som/security/chief
+	name = "SOM Ship Chief MP's Office"
+
+
 
 /area/antag_ship/som/maintenance
 	name = "SOM Ship Maintenance"
@@ -73,3 +92,14 @@
 /area/antag_ship/som/telecomms
 	name = "SOM Ship Telecomms"
 	minimap_color = MINIMAP_AREA_COMMAND
+
+/area/antag_ship/som/mess
+	name = "SOM Ship Mess Hall"
+	minimap_color = MINIMAP_AREA_LIVING
+
+/area/antag_ship/som/mess/officers
+	name = "SOM Ship Officers Mess Hall"
+
+/area/antag_ship/som/cryobay
+	name = "SOM Ship Cryogenics Bay"
+

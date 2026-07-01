@@ -115,6 +115,11 @@
 #define SOM_MEDICAL_DOCTOR "SOM Medical Doctor"
 #define SOM_CHEF "SOM Chef"
 
+//SOM MP's
+#define SOM_CHIEF_MP "SOM Chief MP"
+#define SOM_MP "SOM Military Police"
+
+//SOM squad
 #define SOM_SQUAD_LEADER "SOM Squad Leader"
 #define SOM_SQUAD_CORPSMAN "SOM Squad Medic"
 #define SOM_SQUAD_ENGINEER "SOM Squad Engineer"
