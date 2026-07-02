@@ -538,7 +538,7 @@
 /datum/supply_packs/imports/steak
 	name = "Raw Meat"
 	contains = list(/obj/item/reagent_containers/food/snacks/meat)
-	cost = 25
+	cost = 20
 	
 /datum/supply_packs/imports/bearsteak
 	name = "Raw Bear Meat"
@@ -554,12 +554,7 @@
 	name = "Mystery Pizza"
 	contains = list(/obj/item/pizzabox/random)
 	cost = 25
-
-/datum/supply_packs/imports/importedsake
-	name = "Imported Harakiri Traditional Styled Sake"
-	contains = list(/obj/item/reagent_containers/food/drinks/bottle/sake)
-	cost = 50
-
+	
 /datum/supply_packs/imports/dozeneggs
 	name = "A Dozen Box of Eggs"
 	contains = list(/obj/item/storage/fancy/egg_box)
@@ -584,7 +579,167 @@
 	name = "Gibber"
 	contains = list(/obj/machinery/gibber)
 	cost = 50
-
+	
+/datum/supply_packs/imports/hydrotray
+	name = "Hydroponics Tray"
+	contains = list(/obj/machinery/hydroponics)
+	cost = 25
+	
+/datum/supply_packs/imports/seedextractor
+	name = "Seed Extractor"
+	contains = list(/obj/machinery/seed_extractor)
+	cost = 50
+	
+/datum/supply_packs/imports/poppyseed
+	name = "Poppy Flower Seed"
+	contains = list(/obj/item/seeds/poppyseed)
+	cost = 5
+	
+/datum/supply_packs/imports/chiliseed
+	name = "Chili Seed"
+	contains = list(/obj/item/seeds/chiliseed)
+	cost = 5
+	
+/datum/supply_packs/imports/grapeseed
+	name = "Grape Seed"
+	contains = list(/obj/item/seeds/grapeseed)
+	cost = 5
+	
+/datum/supply_packs/imports/peanutseed
+	name = "Peanut Seed"
+	contains = list(/obj/item/seeds/peanutseed)
+	cost = 5
+	
+/datum/supply_packs/imports/cabbageseed
+	name = "Cabbage Seed"
+	contains = list(/obj/item/seeds/cabbageseed)
+	cost = 5
+	
+/datum/supply_packs/imports/berryseed
+	name = "Berry Seed"
+	contains = list(/obj/item/seeds/berryseed)
+	cost = 5
+	
+/datum/supply_packs/imports/bananaseed
+	name = "Banana Seed"
+	contains = list(/obj/item/seeds/bananaseed)
+	cost = 5
+	
+/datum/supply_packs/imports/eggplantseed
+	name = "Eggplant Seed"
+	contains = list(/obj/item/seeds/eggplantseed)
+	cost = 5
+	
+/datum/supply_packs/imports/tomatoseed
+	name = "Tomato Seed"
+	contains = list(/obj/item/seeds/tomatoseed)
+	cost = 5
+	
+/datum/supply_packs/imports/cornseed
+	name = "Corn Seed"
+	contains = list(/obj/item/seeds/cornseed)
+	cost = 5
+	
+/datum/supply_packs/imports/potatoseed
+	name = "Potato Seed"
+	contains = list(/obj/item/seeds/potatoseed)
+	cost = 5
+	
+/datum/supply_packs/imports/soyaseed
+	name = "Soybean Seed"
+	contains = list(/obj/item/seeds/soyaseed)
+	cost = 5
+	
+/datum/supply_packs/imports/wheatseed
+	name = "Wheat Seed"
+	contains = list(/obj/item/seeds/wheatseed)
+	cost = 5
+	
+/datum/supply_packs/imports/riceseed
+	name = "Rice Seed"
+	contains = list(/obj/item/seeds/riceseed)
+	cost = 5
+	
+/datum/supply_packs/imports/carrotseed
+	name = "Carrot Seed"
+	contains = list(/obj/item/seeds/carrotseed)
+	cost = 5
+	
+/datum/supply_packs/imports/harebell
+	name = "Harebell Flower Seed"
+	contains = list(/obj/item/seeds/harebell)
+	cost = 5
+	
+/datum/supply_packs/imports/appleseed
+	name = "Apple Seed"
+	contains = list(/obj/item/seeds/appleseed)
+	cost = 5
+	
+/datum/supply_packs/imports/carrotseed
+	name = "Carrot Seed"
+	contains = list(/obj/item/seeds/carrotseed)
+	cost = 5
+	
+/datum/supply_packs/imports/ambrosiavulgarisseed
+	name = "Ambrosia Vulgaris Seed"
+	contains = list(/obj/item/seeds/ambrosiavulgarisseed)
+	cost = 5
+	
+/datum/supply_packs/imports/whitebeetseed
+	name = "White Beet Seed"
+	contains = list(/obj/item/seeds/whitebeetseed)
+	cost = 5
+	
+/datum/supply_packs/imports/sugarcaneseed
+	name = "Sugarcane Seed"
+	contains = list(/obj/item/seeds/sugarcaneseed)
+	cost = 5
+	
+/datum/supply_packs/imports/watermelonseed
+	name = "Watermelon Seed"
+	contains = list(/obj/item/seeds/watermelonseed)
+	cost = 5
+	
+/datum/supply_packs/imports/pumpkinseed
+	name = "Pumpkin Seed"
+	contains = list(/obj/item/seeds/pumpkinseed)
+	cost = 5
+	
+/datum/supply_packs/imports/limeseed
+	name = "Lime Seed"
+	contains = list(/obj/item/seeds/limeseed)
+	cost = 5
+	
+/datum/supply_packs/imports/lemonseed
+	name = "Lemon Seed"
+	contains = list(/obj/item/seeds/lemonseed)
+	cost = 5
+	
+/datum/supply_packs/imports/orangeseed
+	name = "Orange Seed"
+	contains = list(/obj/item/seeds/orangeseed)
+	cost = 5
+	
+/datum/supply_packs/imports/grassseed
+	name = "Grass Seed"
+	contains = list(/obj/item/seeds/grassseed)
+	cost = 5
+	
+/datum/supply_packs/imports/cocoapodseed
+	name = "Cocoa Pod Seed"
+	contains = list(/obj/item/seeds/cocoapodseed)
+	cost = 5
+	
+/datum/supply_packs/imports/cherryseed
+	name = "Cherry Seed"
+	contains = list(/obj/item/seeds/cherryseed)
+	cost = 5
+	
+/datum/supply_packs/imports/towercapseed
+	name = "Tower-Cap Seed"
+	contains = list(/obj/item/seeds/towermycelium)
+	cost = 5
+	
 //faction specific things below here.
 
 /datum/supply_packs/imports/antienergyshieldfs
