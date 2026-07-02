@@ -13,6 +13,7 @@
 	atom_flags = CONDUCT
 	///Ammo datum typepath that the shell uses
 	var/ammo_type
+	var/lethal = TRUE
 
 /obj/item/mortal_shell/he
 	name = "\improper 80mm high explosive mortar shell"
@@ -31,18 +32,21 @@
 	desc = "An 80mm mortar shell, loaded with smoke dispersal agents. Can be fired at marines more-or-less safely. Way slimmer than your typical 80mm."
 	icon_state = "mortar_smk"
 	ammo_type = /datum/ammo/mortar/smoke
+	lethal = FALSE
 
 /obj/item/mortal_shell/plasmaloss
 	name = "\improper 80mm tangle mortar shell"
 	desc = "An 80mm mortar shell, loaded with plasma-draining Tanglefoot gas. Can be fired at marines more-or-less safely."
 	icon_state = "mortar_fsh"
 	ammo_type = /datum/ammo/mortar/smoke/plasmaloss
+	lethal = FALSE
 
 /obj/item/mortal_shell/flare
 	name = "\improper 80mm flare mortar shell"
 	desc = "An 80mm mortar shell, loaded with an illumination flare, far slimmer than your typical 80mm shell. Can be fired out of larger cannons."
 	icon_state = "mortar_flr"
 	ammo_type = /datum/ammo/mortar/flare
+	lethal = FALSE
 
 /obj/item/mortal_shell/howitzer
 	name = "\improper 150mm artillery shell"
@@ -60,6 +64,7 @@
 	desc = "An 150mm artillery shell, loaded with a toxic intoxicating gas, whatever is hit by this will have their abilities sapped slowly. Acommpanied by a small moderate explosion."
 	icon_state = "howitzer_plasmaloss"
 	ammo_type = /datum/ammo/mortar/smoke/howi/plasmaloss
+	lethal = FALSE
 
 /obj/item/mortal_shell/howitzer/incendiary
 	name = "\improper 150mm incendiary artillery shell"
@@ -99,6 +104,7 @@
 	desc = "A 60mm rocket loaded with cloak smoke that hides any friendlies inside of it with advanced chemical technology."
 	icon_state = "mlrs_cloak"
 	ammo_type = /datum/ammo/mortar/rocket/smoke/mlrs/cloak
+	lethal = FALSE
 
 /obj/item/mortal_shell/rocket/mlrs/incendiary
 	name = "\improper 60mm incendiary rocket"

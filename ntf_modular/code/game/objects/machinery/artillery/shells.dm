@@ -14,6 +14,7 @@
 	icon = 'ntf_modular/icons/obj/ammo/artillery.dmi'
 	icon_state = "mortar_ammo_sleep"
 	ammo_type = /datum/ammo/mortar/smoke/sleep
+	lethal = FALSE
 
 /datum/ammo/mortar/smoke/sleep
 	smoketype = /datum/effect_system/smoke_spread/sleepy
@@ -24,6 +25,7 @@
 	icon = 'ntf_modular/icons/obj/ammo/artillery.dmi'
 	icon_state = "mortar_ammo_aphro"
 	ammo_type = /datum/ammo/mortar/smoke/aphrotox
+	lethal = FALSE
 
 /datum/ammo/mortar/smoke/aphrotox
 	smoketype = /datum/effect_system/smoke_spread/xeno/aphrotoxin
@@ -34,6 +36,7 @@
 	icon = 'ntf_modular/icons/obj/ammo/artillery.dmi'
 	icon_state = "mortar_ammo_neuro"
 	ammo_type = /datum/ammo/mortar/smoke/neuro
+	lethal = FALSE
 
 /datum/ammo/mortar/smoke/neuro
 	smoketype = /datum/effect_system/smoke_spread/xeno/neuro/medium
@@ -52,6 +55,7 @@
 		0,0,0,0,
 	)
 	ammo_type = /datum/ammo/mortar/razorburn
+	lethal = FALSE
 
 /datum/ammo/mortar/razorburn
 	var/obj/item/reagent_containers/glass/beaker/large/B1
@@ -81,16 +85,19 @@
 		0,  0,0,0,
 	)
 	ammo_type = /datum/ammo/mortar/razorburn/metalfoam
+	lethal = FALSE
 
 /datum/ammo/mortar/razorburn/metalfoam
 	B1_chems = list(/datum/reagent/aluminum = 90)
 	B2_chems = list(/datum/reagent/foaming_agent = 30, /datum/reagent/toxin/acid/polyacid = 30)
+
 
 /obj/item/mortal_shell/rocket/mlrs/neuro
 	name = "\improper 60mm Neurotoxin rocket"
 	desc = "A 60mm rocket loaded with incapacitating neurotoxin gas."
 	icon_state = "mlrs_gas"
 	ammo_type = /datum/ammo/mortar/rocket/smoke/mlrs/neuro
+	lethal = FALSE
 
 /datum/ammo/mortar/rocket/smoke/mlrs/neuro
 	smoketype = /datum/effect_system/smoke_spread/xeno/neuro/medium
@@ -121,6 +128,7 @@
 	desc = "A 60mm rocket loaded with aphrotoxin gas."
 	icon_state = "mlrs_gas"
 	ammo_type = /datum/ammo/mortar/rocket/smoke/mlrs/aphro
+	lethal = FALSE
 
 /datum/ammo/mortar/rocket/smoke/mlrs/aphro
 	smoketype = /datum/effect_system/smoke_spread/xeno/aphrotoxin
@@ -151,6 +159,7 @@
 	desc = "A 60mm rocket loaded with soporific gas."
 	icon_state = "mlrs_gas"
 	ammo_type = /datum/ammo/mortar/rocket/smoke/mlrs/sleep
+	lethal = FALSE
 
 /datum/ammo/mortar/rocket/smoke/mlrs/sleep
 	smoketype = /datum/effect_system/smoke_spread/sleepy

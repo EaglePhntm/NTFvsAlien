@@ -24,7 +24,7 @@
 	))
 
 /datum/scanner_advice/species/synthetic/can_show(mob/living/carbon/human/patient, mob/user)
-	return issynth(patient)
+	return issynthspecies(patient)
 
 /datum/scanner_advice/species/synthetic/get_data(mob/living/carbon/human/patient, mob/user)
 	. = list()

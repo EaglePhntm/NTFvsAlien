@@ -357,9 +357,23 @@
 	if(!Adjacent(user) || user.incapacitated() || !ishuman(user))
 		return
 
+	var/amount_to_fire = fire_amount
+	if(!amount_to_fire)
+		amount_to_fire = length(chamber_items)
+	if(amount_to_fire > length(chamber_items))
+		amount_to_fire = length(chamber_items)
+
 	if(issynth(user) && !CONFIG_GET(flag/allow_synthetic_gun_use))
-		user.balloon_alert(user, "you can't operate this!")
-		return
+		var/contains_lethal = FALSE
+		if(amount_to_fire)
+			for(var/i = 1 to amount_to_fire)
+				var/obj/item/mortal_shell/arty_shell = chamber_items[i]
+				if(istype(arty_shell) && arty_shell.lethal)
+					contains_lethal = TRUE
+					break
+			if(contains_lethal)
+				user.balloon_alert(user, "programming forbids lethal shells!")
+				return
 
 	if(firing)
 		user.balloon_alert(user, "the gun is still firing!")
@@ -402,11 +416,6 @@
 	var/list/turf_list = RANGE_TURFS(firing_spread, target)
 	var/obj/in_chamber
 	var/next_chamber_position = length(chamber_items)
-	var/amount_to_fire = fire_amount
-	if(!amount_to_fire)
-		amount_to_fire = length(chamber_items)
-	if(amount_to_fire > length(chamber_items))
-		amount_to_fire = length(chamber_items)
 	//Probably easier to declare and update a counter than it is to keep accessing a client and datum multiple times
 	var/shells_fired = 0
 	var/war_crimes_counter = 0

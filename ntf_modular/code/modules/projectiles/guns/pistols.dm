@@ -86,6 +86,7 @@
 	hud_state = "pistol_tranq"
 	armor_type = "bullet"
 	damage = 15
+	damage_type = STAMINA
 	shell_speed = 3.3
 	shrapnel_chance = 0.2
 	var/inject_amount_min = 5

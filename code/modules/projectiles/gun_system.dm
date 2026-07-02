@@ -1758,8 +1758,8 @@
 	if(!user.dextrous)
 		to_chat(user, span_warning("You don't have the dexterity to do this!"))
 		return FALSE
-	if(!(gun_features_flags & GUN_ALLOW_SYNTHETIC) && !CONFIG_GET(flag/allow_synthetic_gun_use) && issynth(user))
-		to_chat(user, span_warning("Your program does not allow you to use this firearm."))
+	if(!((gun_features_flags & GUN_ALLOW_SYNTHETIC) || (ammo_datum_type && (ammo_datum_type.damage_type == STAMINA || ammo_datum_type.damage < 0)) ) && !CONFIG_GET(flag/allow_synthetic_gun_use) && issynth(user))
+		to_chat(user, span_warning("Your program does not allow you to fire this ammunition."))
 		return FALSE
 	if(HAS_TRAIT(user, TRAIT_KNIGHT))
 		to_chat(user, span_warning("Your armor does not allow you to use this firearm!"))
