@@ -916,13 +916,26 @@
 //CC/67
 
 /obj/item/ammo_magazine/rifle/vsd_rifle
-	name = "\improper CC/67 magazine (10x27mm)"
-	desc = "A 10x27mm rifle magazine."
-	caliber = CALIBER_10x27_CASELESS
+	name = "\improper CC/67 magazine (6.8X43mm)"
+	desc = "A 68x43mm rifle magazine."
+	caliber = CALIBER_68X43
 	icon_state = "c550"
 	icon_state_mini = "mag_rifle_big"
 	w_class = WEIGHT_CLASS_NORMAL
 	default_ammo = /datum/ammo/bullet/rifle/vsd_rifle
+	max_rounds = 30
+
+//CC/67 EXPORT
+
+/obj/item/ammo_magazine/rifle/vsd_sbr
+	name = "\improper CC/67 magazine (6.5X39mm)"
+	desc = "A 6.5x39mm rifle magazine."
+	caliber = CALIBER_65X39
+	icon = 'ntf_modular/icons/obj/items/ammo/rifle.dmi'
+	icon_state = "c550_export"
+	icon_state_mini = "mag_rifle_big"
+	w_class = WEIGHT_CLASS_NORMAL
+	default_ammo = /datum/ammo/bullet/rifle/vsd_sbr
 	max_rounds = 30
 
 //CC/74
