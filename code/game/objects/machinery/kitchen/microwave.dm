@@ -5,7 +5,7 @@
 	icon_state = "mw"
 	layer = GIB_LAYER
 	density = TRUE
-	anchored = TRUE
+	anchored = FALSE
 	coverage = 10
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 5
