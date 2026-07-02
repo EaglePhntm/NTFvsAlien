@@ -425,6 +425,16 @@
 	contains = list(/obj/item/ammo_magazine/rifle/mpar/electromag)
 	cost = 40
 
+/datum/supply_packs/imports/cc67export
+	name = "CC/67 CQB Rifle"
+	contains = list(/obj/item/weapon/gun/rifle/vsd_rifle/export)
+	cost = 650
+
+/datum/supply_packs/imports/cc67exportmag
+	name = "CC/67 CQB magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/vsd_sbr)
+	cost = 15
+
 /datum/supply_packs/imports/plasticfork
 	name = "Plastic Fork"
 	contains = list(/obj/item/tool/kitchen/utensil/pfork)
