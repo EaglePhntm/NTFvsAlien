@@ -50,6 +50,7 @@
 	ammo_behavior_flags = AMMO_ENERGY|AMMO_SPECIAL_PROCESS
 	shell_speed = 0.1
 	damage = 20
+	damage_type = STAMINA
 	penetration = 20
 	bullet_color = COLOR_TESLA_BLUE
 

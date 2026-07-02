@@ -82,7 +82,8 @@ GLOBAL_LIST_INIT(turfs_openspace, typecacheof(list(
 
 //Human sub-species
 #define isrobot(H) (is_species(H, /datum/species/robot))
-#define issynth(H) (is_species(H, /datum/species/synthetic) || is_species(H, /datum/species/early_synthetic))
+#define issynthspecies(H) (is_species(H, /datum/species/synthetic) || is_species(H, /datum/species/early_synthetic))
+#define issynth(H) (issynthspecies(H) || (isrobot(H) && H:job && issynthjob(H:job)))
 #define isspeciessynthetic(H) (H.species.species_flags & IS_SYNTHETIC)
 #define islizard(H) (is_species(H, /datum/species/lizard))
 #define ismoth(H) (is_species(H, /datum/species/moth))
@@ -115,6 +116,7 @@ GLOBAL_LIST_INIT(turfs_openspace, typecacheof(list(
 #define issurvivorjob(J) (istype(J, /datum/job/survivor))
 #define ischaplainjob(J) (istype(J, /datum/job/survivor/chaplain))
 #define isxenosjob(J) (istype(J, /datum/job/xenomorph))
+#define issynthjob(J) (istype(J, /datum/job) && findtext((J):rank, "Synthetic"))
 
 //Monkey sub-species
 

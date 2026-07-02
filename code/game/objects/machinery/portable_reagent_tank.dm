@@ -73,7 +73,7 @@
 
 ///Process for drinking reagents directly from the dispenser's nozzle
 /obj/machinery/deployable/reagent_tank/proc/drink_from_nozzle(mob/living/user, is_xeno = FALSE)
-	if(isrobot(user) || issynth(user))
+	if(isrobot(user) || issynthspecies(user))
 		balloon_alert(user, "you can't drink!")
 		return FALSE
 	if(reagents?.total_volume)

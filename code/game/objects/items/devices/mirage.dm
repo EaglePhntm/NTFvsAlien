@@ -4,6 +4,7 @@
 	icon_state = "delivery"
 	worn_icon_state = "delivery"
 	dangerous = FALSE
+	lethal = FALSE
 	///the parent to be copied
 	var/mob/living/current_user
 	///How long the illusory fakes last

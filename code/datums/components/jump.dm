@@ -106,7 +106,7 @@
 		if(living_jumper.status_flags & INCORPOREAL)
 			return FALSE
 		if(stamina_cost && (living_jumper.getStaminaLoss() > -stamina_cost))
-			if(isrobot(living_jumper) || issynth(living_jumper))
+			if(isrobot(living_jumper) || issynthspecies(living_jumper))
 				to_chat(living_jumper, span_warning("Your leg servos do not allow you to jump!"))
 				return FALSE
 			to_chat(living_jumper, span_warning("Catch your breath!"))

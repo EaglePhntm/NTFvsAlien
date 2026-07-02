@@ -206,7 +206,7 @@
 		"species" = list(
 			"name" = patient.species?.name || "Unknown Species",
 			// species types
-			"is_synthetic" = issynth(patient),
+			"is_synthetic" = issynthspecies(patient),
 			"is_combat_robot" = isrobot(patient),
 			// for the robot umbrella which shares a lot of traits
 			"is_robotic_species" = !!(patient.species?.species_flags & ROBOTIC_LIMBS),

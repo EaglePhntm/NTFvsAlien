@@ -572,9 +572,9 @@
 		if(!is_type_in_list(H.species, species_exception))
 			return FALSE
 
-	if(issynth(H) && CHECK_BITFIELD(item_flags, SYNTH_RESTRICTED) && !CONFIG_GET(flag/allow_synthetic_gun_use))
+	/*if(issynth(H) && CHECK_BITFIELD(item_flags, SYNTH_RESTRICTED) && !CONFIG_GET(flag/allow_synthetic_gun_use))
 		to_chat(H, span_warning("Your programming prevents you from wearing this."))
-		return FALSE
+		return FALSE*/ //Not a single item with this flag actually seems worth restricting.
 
 	var/obj/item/selected_slot //the item in the specific slot we're trying to insert into
 	var/equip_to_slot = FALSE

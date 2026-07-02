@@ -7,6 +7,7 @@
 	det_time = 0
 	throwforce = 1
 	dangerous = FALSE
+	lethal = FALSE
 	w_class = WEIGHT_CLASS_TINY
 	hud_state = "grenade_frag"
 	light_system = MOVABLE_LIGHT

@@ -382,6 +382,7 @@ GLOBAL_LIST_INIT(globadier_images_list, list(
 	desc = "A rapidly melting ball of xeno taffy"
 	greyscale_colors = "#6808e6"
 	det_time = 1.5 SECONDS
+	lethal = FALSE
 	minetype = /obj/structure/xeno/acid_mine/resin_mine
 	select_message = "Detonates in a star pattern, spreading thin resin, and launching you in your direction, while randomly launching nearby marines."
 	mine_message = "Violently throws victims back, when detonated, and spreads thick sticky resin."
@@ -423,6 +424,7 @@ GLOBAL_LIST_INIT(globadier_images_list, list(
 	desc = "A smoking ball of acid"
 	greyscale_colors = "#be340a"
 	det_time = 1.5 SECONDS
+	lethal = FALSE
 	minetype = /obj/structure/xeno/acid_mine/neuro_mine
 	select_message = "Spreads thin neurotoxin gas over a large area, when detonated."
 	mine_message = "Spreads thick neurotoxin gas when detonated, and injects its victim with neurotoxin."
@@ -442,6 +444,7 @@ GLOBAL_LIST_INIT(globadier_images_list, list(
 	desc = "A shimmering orb of gelatin that glows with life."
 	greyscale_colors = "#09ffde"
 	det_time = 4 SECONDS
+	lethal = FALSE
 	minetype = /obj/structure/xeno/acid_mine/drain_mine
 	select_message = "Detonates and heals nearby xenos, and applies melting to nearby humans."
 	mine_message = "Debuffs its victim with a effect that grants life to any xeno that damages the victim"

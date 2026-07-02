@@ -6,6 +6,7 @@
 	det_time = 2 SECONDS
 	hud_state = "grenade_smoke"
 	dangerous = FALSE
+	lethal = FALSE
 	icon_state_mini = "grenade_blue"
 	/// smoke type created when the grenade is primed
 	var/datum/effect_system/smoke_spread/smoketype = /datum/effect_system/smoke_spread/bad
@@ -58,6 +59,7 @@
 	hud_state = "grenade_acid"
 	det_time = 4 SECONDS
 	dangerous = TRUE
+	lethal = TRUE
 	smoketype = /datum/effect_system/smoke_spread/xeno/acid/opaque
 	smokeradius = 5
 
