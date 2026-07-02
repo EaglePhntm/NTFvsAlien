@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>ntf_modular/docs/character_creator_modernization.md - byond</title></head><body><header><a href="index.html">byond</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a></header><main><h1>Character Creator Modernization <aside>ntf_modular/docs/character_creator_modernization.md</aside> <a href="https://github.com/EaglePhntm/NTFvsAlien/blob/bc8ef5e7dd48f1f939bf97e7ea387a0b809c89fa/ntf_modular/docs/character_creator_modernization.md"><img src="git.png" width="16" height="16" title="ntf_modular/docs/character_creator_modernization.md"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><p>This project is moving the old preferences UI toward a modular character
+creator without rewriting the whole window at once.</p>
+<p>The old pattern mixed several responsibilities:</p>
+<ul>
+<li>TGUI displayed human labels such as <code>Human</code>.</li>
+<li>Preferences stored sprite ids such as <code>human</code>.</li>
+<li>DM assoc lists mapped labels to ids, such as <code>&quot;Human&quot; = &quot;human&quot;</code>.</li>
+<li>Some controls used modal <code>tgui_input_list()</code> prompts.</li>
+<li>Some controls used direct TGUI dropdowns.</li>
+<li>Icon renderers guessed icon states from saved values.</li>
+</ul>
+<p>That mixture makes bugs likely: the sprite can update while the visible
+selection text stays stale, or an option list can disappear from the TGUI
+payload.</p>
+<h2 id="current-ui-shape">Current UI Shape</h2>
+<p>The character customization page is now a modular island inside the older
+preferences window.</p>
+<p>The current layout is:</p>
+<ul>
+<li>Left side: character preview and rotation controls.</li>
+<li>Right side: focused creator tabs.</li>
+<li>Tabs: <code>Identity</code>, <code>Appearance</code>, <code>Species</code>, <code>Features</code>, <code>Markings</code>, and
+<code>Voice</code>.</li>
+</ul>
+<p>The old four-direction preview strip was replaced with one preview panel. The
+preview can be rotated with TGUI actions instead of opening separate modal
+flows. Rotation actions are debounced in TGUI because older preference actions
+can briefly close and reopen the preferences window if clicked too quickly.</p>
+<p>The preview is still backed by the old preference dummy system. Avoid trying to
+scale the dummy transform directly: SPLURT's current direction is to keep mobs
+native and change the preview canvas/resources around them. The NTF preview is
+intentionally conservative for now because transform scaling caused pixelation
+and alignment drift.</p>
+<h2 id="current-pattern-modular-rows">Current Pattern: Modular Rows</h2>
+<p>Genital customization and body-part customization are now modular islands. The
+backend sends flat top-level row data instead of nested row objects. This is
+intentional: older BYOND/TGUI serialization can turn nested lists into
+numeric-key objects or drop shapes in ways that are hard to debug.</p>
+<p>Each row follows this contract:</p>
+<ul>
+<li><code>id</code>: stable preference/action id, such as <code>genitalia_cock</code>.</li>
+<li><code>label</code>: user-facing row label, such as <code>Penis</code>.</li>
+<li><code>value</code>: stored sprite id, such as <code>human</code>.</li>
+<li><code>display</code>: user-facing selected label, such as <code>Human</code>.</li>
+<li><code>option_labels</code>: user-facing dropdown labels.</li>
+<li><code>option_values</code>: stored sprite ids paired by index with <code>option_labels</code>.</li>
+<li><code>size_id</code>: optional size preference/action id.</li>
+<li><code>size_value</code>: optional current size display value.</li>
+<li><code>size_kind</code>: optional size renderer hint.</li>
+<li><code>size_min</code> / <code>size_max</code>: optional numeric size range.</li>
+</ul>
+<p>Rows are discovered through:</p>
+<pre><code class="language-dm">data[&quot;character_creator_genital_row_ids&quot;] = list(&quot;genitalia_boobs&quot;, &quot;genitalia_ass&quot;)
+data[&quot;character_creator_part_row_ids&quot;] = list(&quot;digitigrade_legs&quot;, &quot;moth_wings&quot;, &quot;tail&quot;)
+</code></pre>
+<p>Each row then stores top-level keys:</p>
+<pre><code class="language-dm">data[&quot;character_creator_genitalia_cock_label&quot;] = &quot;Penis&quot;
+data[&quot;character_creator_genitalia_cock_value&quot;] = &quot;human&quot;
+data[&quot;character_creator_genitalia_cock_display&quot;] = &quot;Human&quot;
+data[&quot;character_creator_genitalia_cock_option_labels&quot;] = list(&quot;Default&quot;, &quot;Human&quot;)
+data[&quot;character_creator_genitalia_cock_option_values&quot;] = list(&quot;&quot;, &quot;human&quot;)
+</code></pre>
+<p>TGUI renders these rows generically and sends changes through:</p>
+<pre><code class="language-ts">act('set_character_creator_value', {
+  field: row.id,
+  value: storedValue,
+});
+
+act('set_character_creator_part_value', {
+  field: row.id,
+  value: storedValue,
+});
+</code></pre>
+<p>The DM side owns validation. TGUI sends stored values, not display labels.</p>
+<h2 id="color-rows">Color Rows</h2>
+<p>Accessory and feature colors are sent as row metadata and rendered by the same
+generic row component. Colors are intentionally kept near their owning option
+instead of being placed in one long global color list.</p>
+<p>Typical color fields are:</p>
+<pre><code class="language-dm">data[&quot;character_creator_tail_color_count&quot;] = 3
+data[&quot;character_creator_tail_color_1&quot;] = tail_color
+data[&quot;character_creator_tail_color_2&quot;] = tail_color_secondary
+data[&quot;character_creator_tail_color_3&quot;] = tail_color_tertiary
+</code></pre>
+<p>TGUI renders color swatches and sends color actions back to DM. Keep color
+validation in DM. The UI should not decide which sprite layer a color maps to.</p>
+<p>For body-part accessories, the common convention is:</p>
+<ul>
+<li>Primary: main part color.</li>
+<li>Secondary: detail or undertail/fluff color.</li>
+<li>Tertiary: accent, markings, or special highlight layer.</li>
+</ul>
+<p>Genital/body feature colors use the same idea but each feature owns its own
+color count. For example breasts and testicles currently use multiple colors,
+while butt and belly are single-color.</p>
+<h2 id="why-labels-are-still-used-by-tgui">Why Labels Are Still Used By TGUI</h2>
+<p>The current <code>Dropdown</code> usage is label-oriented, so TGUI displays
+<code>option_labels</code>. It uses the selected label's index to send the matching stored
+value from <code>option_values</code>. This keeps display text and saved sprite ids
+separate without relying on nested option objects.</p>
+<h2 id="option-registries">Option Registries</h2>
+<p>Character creator controls should render and validate from the same source.
+That source currently lives in
+<code>ntf_modular/code/modules/client/preferences_character_creator.dm</code>:</p>
+<ul>
+<li><code>character_creator_genital_options(id)</code> owns genital labels and stored ids.</li>
+<li><code>character_creator_part_definition(id)</code> owns body-part rows such as tail,
+snout, ears, horns, wings, moth wings, and digitigrade legs.</li>
+<li><code>write_character_creator_genital_data()</code> and
+<code>write_character_creator_part_data()</code> serialize those rows.</li>
+<li><code>handle_character_creator_accessory_action()</code> validates changes against the
+same registries before writing preference vars.</li>
+</ul>
+<p>This follows the SPLURT/Bubber preference-feature philosophy while staying
+compatible with the older NTF preferences window.</p>
+<h2 id="markings">Markings</h2>
+<p>Markings use the same flat serialization philosophy. The backend sends zone ids,
+row ids, available choices, current selected marking, and color values. TGUI only
+renders controls and returns the selected stored marking name.</p>
+<p>Current supported marking zones are driven by DM data and include areas such as:</p>
+<ul>
+<li>Head</li>
+<li>Chest</li>
+<li>Arms</li>
+<li>Hands</li>
+<li>Legs</li>
+</ul>
+<p>Each zone can own multiple marking rows. Add/remove/color actions all route back
+through DM so the saved list shape stays stable.</p>
+<p>When adding new SPLURT/Bubber marking ports, prefer adding a marking datum and
+letting the existing marking serializer discover it instead of adding one-off
+TGUI fields.</p>
+<h2 id="robot-customization">Robot Customization</h2>
+<p>Combat robot appearance customization now uses a saved preference toggle:
+<code>allow_mismatched_parts</code>.</p>
+<p>The UI label is <code>Custom robot parts</code>. When enabled, it shows separate combat
+robot body and head selectors. The value is saved per character slot in
+<code>preferences_savefile.dm</code>, so players do not need to re-enable it every login.</p>
+<p>The name is historical internally because it began as the old
+<code>Allow mismatched parts</code> switch. New UI text should use <code>Custom robot parts</code>.
+Avoid adding a second preference var unless the old one is fully migrated.</p>
+<p>The separate <code>synthetic_body_base</code> value is for Synthetic/Early Synthetic job
+appearance. The <code>robot_body_base</code> and <code>robot_head_base</code> values are for Combat
+Robot custom appearance.</p>
+<h2 id="hair-rendering">Hair Rendering</h2>
+<p>Old TGMC hair coloring bakes colors into an icon with <code>icon.Blend()</code>. That works
+for some older hair masks but breaks white-base SPLURT/Zubbers hairs, producing
+mostly white sprites with faint tinting.</p>
+<p>Imported SPLURT-style hairs use accessory metadata:</p>
+<pre><code class="language-dm">colouration_blend = ICON_MULTIPLY
+colouration_tone = TRUE
+</code></pre>
+<p><code>update_hair()</code> checks that metadata. Problem hairs render as separate
+<code>mutable_appearance</code> overlays with <code>appearance.color</code>, matching SPLURT's
+approach more closely. Older hair still uses the baked icon path where it
+already works.</p>
+<p>This fixes hairs such as <code>Inari</code>, <code>New You</code>, pod hairs, and other white-base
+ports without forcing every legacy hair through the new path at once.</p>
+<h2 id="tail-wagging">Tail Wagging</h2>
+<p>The <code>*wag</code> emote is now a toggle.</p>
+<ul>
+<li>First <code>*wag</code>: enables wagging.</li>
+<li>Second <code>*wag</code>: disables wagging.</li>
+<li>Death: clears wagging through <code>stop_tail_wag()</code>.</li>
+</ul>
+<p>Wagging uses either an explicit old lizard wagging tail datum or a
+<code>m_waggingtail_[state]</code> icon prefix when that animated state exists. Do not keep
+old wagging variants as normal selector options when the same tail can be
+animated by the emote.</p>
+<h2 id="directional-layering">Directional Layering</h2>
+<p>The character creator and in-world mob renderer must both respect direction.
+Treat accessories as body-attached parts, not as independent sprites pivoting
+around themselves.</p>
+<p>Important current rules:</p>
+<ul>
+<li>Facing north: tail should draw in front of the body because the character's
+back is facing the viewer.</li>
+<li>Facing north: wings should sit between tail and body.</li>
+<li>Facing south: front-facing body/genital features can draw over legs/body when
+they are physically on the viewer-facing side.</li>
+<li>Facing east/west: wings generally draw over the body, while tail/body rules
+depend on the part attachment.</li>
+<li>Clothing that covers the torso/limbs needs the same north-facing demotion rule
+as uniforms and suits, otherwise gloves, belts, and other worn items can cover
+the tail incorrectly.</li>
+</ul>
+<p>Relevant helper behavior currently lives around the human icon update path:</p>
+<ul>
+<li><code>ntf_north_body_clothing_layer()</code></li>
+<li><code>ntf_set_worn_appearance_layer()</code></li>
+<li><code>update_accessories()</code></li>
+<li><code>update_tail()</code></li>
+</ul>
+<p>When adding a new body-attached overlay, decide its north/south/east/west layer
+relationship up front. Most recurring visual bugs came from adding a new overlay
+with a static layer and then trying to patch directions later.</p>
+<h2 id="snouts-and-masks">Snouts And Masks</h2>
+<p>Snouts can require special mask or facehugger states because the normal mask
+sprite may sit too close to the face. The current long-term direction is to keep
+snout-aware icon selection in DM, not in TGUI.</p>
+<p>If a worn mask has a snouted variant, <code>update_inv_wear_mask()</code> should select that
+icon file/state before creating the worn appearance. The UI should only expose
+the snout choice and colors.</p>
+<h2 id="adding-a-new-genital-option">Adding A New Genital Option</h2>
+<p>Add the display label and stored sprite id in
+<code>character_creator_genital_options(id)</code>.</p>
+<p>Example:</p>
+<pre><code class="language-dm">GLOBAL_LIST_INIT(possible_vagina_sprites, list(
+  &quot;Default&quot; = null,
+  &quot;Human&quot; = &quot;human&quot;,
+  &quot;Slit&quot; = &quot;slit&quot;,
+))
+</code></pre>
+<p>If the option needs rendering support, update the relevant icon-state logic in
+<code>ntf_modular/code/modules/mob/living/carbon/human/update_icons.dm</code>.</p>
+<p>If the standalone genital menu still needs the same option, also update
+<code>ntf_modular/code/datums/genital_menu.dm</code>.</p>
+<h2 id="adding-a-new-body-part-row">Adding A New Body Part Row</h2>
+<p>Add a new entry to <code>character_creator_part_definition(id)</code>, add the id to
+<code>character_creator_part_ids()</code>, and implement the render/update behavior in the
+mob icon code.</p>
+<p>For each field, prefer a row contract over adding new one-off UI code:</p>
+<ul>
+<li>Backend sends label, current display value, options, colors, and size metadata.</li>
+<li>TGUI renders the row generically.</li>
+<li>One backend action validates and stores changes.</li>
+<li>Rendering procs only render. Preference actions save.</li>
+</ul>
+<h2 id="adding-a-new-species-or-body-base">Adding A New Species Or Body Base</h2>
+<p>Prefer a staged port:</p>
+<ol>
+<li>Add the species/body-base option.</li>
+<li>Add body icon resolution and limb support.</li>
+<li>Add eyes, hands, digitigrade support, and accessory compatibility.</li>
+<li>Add savefile sanitization.</li>
+<li>Enable the option in the UI only after the preview and in-world body both
+render acceptably.</li>
+</ol>
+<p>Several SPLURT species share body bases rather than owning fully separate body
+logic. For example Anthro-like species can share an Anthro body base, and
+synthetic variants can route through synthetic/combat robot body-base selection.
+Avoid duplicating species datums when a body-base option is the actual behavior.</p>
+<p>Roundstart SPLURT-style species are allowed to have deliberate mechanics, but
+those mechanics must be visible in the species datum. <code>Lizard</code>, <code>Akula</code>,
+<code>Anthro</code>, <code>Aquatic</code>, <code>Insectoid</code>, and <code>Skrell</code> currently use claw unarmed
+attacks. Claws do more unarmed damage than a punch, are sharp/edge attacks, use
+slash sounds, and render with claw VFX. Do not remove those as &quot;accidental&quot;
+unless design decides these species should become cosmetic-only.</p>
+<h2 id="disabled-species-placeholders">Disabled Species Placeholders</h2>
+<p>Some species datums are intentionally present but not selectable yet. These keep
+SPLURT/Bubbers type paths, body icon wiring, savefile compatibility, and future
+port targets visible without exposing unfinished species to players.</p>
+<p>Current intentionally disabled placeholders include:</p>
+<ul>
+<li><code>Humanoid</code></li>
+<li><code>Podperson</code></li>
+<li><code>Mushperson</code></li>
+<li><code>Xenomorph Hybrid</code></li>
+<li><code>Tajaran</code></li>
+<li><code>Vulpkanin</code></li>
+<li><code>Teshari</code></li>
+<li><code>Vox Primalis</code></li>
+</ul>
+<p>Do not remove these just because <code>joinable_roundstart = FALSE</code>. Enable one only
+after its body sprites, hands, eyes, digitigrade behavior, accessory defaults,
+and any species mechanics are working in both the preview and in world.</p>
+<p>Copied Skyrat bodypart code files are not used by NTF's current renderer. Keep
+only the icon sheets and data that the NTF code references directly. Species
+that are not on the roadmap, such as dwarf, ghoul, and golem, should be removed
+instead of kept as disabled placeholders.</p>
+<p><code>Prototype Supersoldier</code> is not a placeholder. Its core mechanics live in the
+upstream species/action files: it gets the supersoldier stim action, the tall
+trait, and a lower crit threshold while that species is active.</p>
+<p>Prototype supersoldiers can optionally use custom body/head bases through
+<code>custom_supersoldier_parts</code>, <code>supersoldier_body_base</code>, and
+<code>supersoldier_head_base</code>. This mirrors the combat robot custom-part flow, but it
+uses organic SPLURT body bases instead of robot manufacturer bodies.</p>
+<h2 id="savefile-rule">Savefile Rule</h2>
+<p>Every new visible character option needs four pieces:</p>
+<ul>
+<li>A var in preferences/human data.</li>
+<li>TGUI data output.</li>
+<li>UI action handling.</li>
+<li>Load, sanitize, and save entries in <code>preferences_savefile.dm</code>.</li>
+</ul>
+<p>If any one of those is missing, the UI may appear to work until relog, slot
+switch, or server restart.</p>
+<h2 id="important-rule">Important Rule</h2>
+<p>Do not add new complex controls to the legacy modal-button pattern unless there
+is no practical alternative. New customization should use explicit row data and
+generic TGUI rendering.</p>
+<p>Legacy controls can remain while they are stable, but new feature work should
+prefer modular rows, DM-owned registries, and Skyrat/Bubbers/Splurt-style rendering rules.</p></td></tr></table></main><footer>tgmc.dme <a href="https://github.com/EaglePhntm/NTFvsAlien/tree/bc8ef5e7dd48f1f939bf97e7ea387a0b809c89fa">bc8ef5e</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>
