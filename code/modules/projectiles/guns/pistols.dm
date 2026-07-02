@@ -761,6 +761,10 @@
 	icon = 'ntf_modular/icons/obj/items/guns/pistols.dmi'
 	icon_state = "c104"
 	worn_icon_state = "c104"
+	worn_icon_list = list(
+		slot_l_hand_str = 'ntf_modular/icons/mob/inhands/guns/pistols_left_1.dmi',
+		slot_r_hand_str = 'ntf_modular/icons/mob/inhands/guns/pistols_right_1.dmi',
+	)
 	caliber = CALIBER_357 //codex
 	max_shells = 6
 	default_ammo_type = /obj/item/ammo_magazine/pistol/xmdivider
