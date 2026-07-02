@@ -250,8 +250,12 @@ GLOBAL_LIST_INIT(specialist_gear_listed_products, list(
 	/obj/item/ammo_magazine/rifle/tx8/incendiary = list(CAT_SPSUP, "BR-8 High Velocity Incendiary Magazine", 1, "black"),
 	/obj/item/ammo_magazine/rifle/chamberedrifle/tranq = list(CAT_SPSUP, "Moonbeam tranq sniper magazine", 1, "black"),
 	/obj/item/ammo_magazine/rifle/chamberedrifle/bluescreen = list(CAT_SPSUP, "Moonbeam bluescreen sniper magazine", 1, "black"),
-	/obj/item/ammo_magazine/rifle/boltclip/dragoon = list(CAT_SPSUP, "Dragoon RER ammunition clip", 1, "black"),
-	/obj/item/ammo_magazine/rifle/boltclip/dragoon/pox = list(CAT_SPSUP, "Dragoon RER poxomelanin ammunition clip", 3, "black"),
+	/obj/item/ammo_magazine/rifle/mpar = list(CAT_SPSUP, "MPAR 15-round mag", 1, "black"),
+	/obj/item/ammo_magazine/rifle/mpar/ext = list(CAT_SPSUP, "MPAR 30-round mag", 2, "black"),
+	/obj/item/ammo_magazine/rifle/mpar/smart = list(CAT_SPSUP, "MPAR 20-round smart mag", 2, "black"),
+	/obj/item/ammo_magazine/rifle/mpar/bomb = list(CAT_SPSUP, "MPAR 10-round shatter mag", 2, "black"),
+	/obj/item/ammo_magazine/rifle/mpar/drain = list(CAT_SPSUP, "MPAR 10-round tangle mag", 2, "black"),
+	/obj/item/ammo_magazine/rifle/mpar/electromag = list(CAT_SPSUP, "MPAR 5-round EMP mag", 2, "black"),
 	/obj/item/ammo_magazine/minigun_powerpack = list(CAT_SPSUP, "Minigun Powerpack", 8, "black"),
 	))
 
