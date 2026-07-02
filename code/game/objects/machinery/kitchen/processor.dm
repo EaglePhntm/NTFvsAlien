@@ -4,7 +4,7 @@
 	icon_state = "processor"
 	layer = GIB_LAYER
 	density = TRUE
-	anchored = TRUE
+	anchored = FALSE
 	coverage = 20
 	var/broken = 0
 	var/processing = 0
