@@ -3267,7 +3267,7 @@
 	burst_delay = 0.15 SECONDS
 	extra_delay = 0.2 SECONDS
 	accuracy_mult = 1.1
-	scatter = -1
+	scatter = 0
 	burst_amount = 3
 	movement_acc_penalty_mult = 6
 	damage_falloff_mult = 2
