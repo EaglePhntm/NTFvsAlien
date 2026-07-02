@@ -499,6 +499,11 @@
 	name = "Universal Enzyme Bottle"
 	contains = list(/obj/item/reagent_containers/food/condiment/enzyme)
 	cost = 5
+	
+/datum/supply_packs/imports/sugar
+	name = "Sugar Bottle"
+	contains = list(/obj/item/reagent_containers/food/condiment/sugar)
+	cost = 5
 
 /datum/supply_packs/imports/hotsauce
 	name = "Hot Sauce Bottle"
@@ -524,11 +529,61 @@
 	name = "Frost Oil"
 	contains = list(/obj/item/reagent_containers/cup/bottle/frostoil)
 	cost = 50
-
+	
+/datum/supply_packs/imports/synthsteak
+	name = "Raw Synth Meat"
+	contains = list(/obj/item/reagent_containers/food/snacks/meat/syntiflesh)
+	cost = 10
+	
+/datum/supply_packs/imports/steak
+	name = "Raw Meat"
+	contains = list(/obj/item/reagent_containers/food/snacks/meat)
+	cost = 25
+	
+/datum/supply_packs/imports/bearsteak
+	name = "Raw Bear Meat"
+	contains = list(/obj/item/reagent_containers/food/snacks/bearmeat)
+	cost = 30
+	
+/datum/supply_packs/imports/carpmeat
+	name = "Carp Fillet"
+	contains = list(/obj/item/reagent_containers/food/snacks/carpmeat)
+	cost = 40
+	
 /datum/supply_packs/imports/pizzarandom
 	name = "Mystery Pizza"
 	contains = list(/obj/item/pizzabox/random)
 	cost = 25
+
+/datum/supply_packs/imports/importedsake
+	name = "Imported Harakiri Traditional Styled Sake"
+	contains = list(/obj/item/reagent_containers/food/drinks/bottle/sake)
+	cost = 50
+
+/datum/supply_packs/imports/dozeneggs
+	name = "A Dozen Box of Eggs"
+	contains = list(/obj/item/storage/fancy/egg_box)
+	cost = 36
+	
+/datum/supply_packs/imports/halfdozendonuts
+	name = "A Half-Dozen Box of Donuts"
+	contains = list(/obj/item/storage/donut_box)
+	cost = 18
+	
+/datum/supply_packs/imports/microwave
+	name = "Microwave"
+	contains = list(/obj/machinery/microwave)
+	cost = 50
+
+/datum/supply_packs/imports/processor
+	name = "Food Processor"
+	contains = list(/obj/machinery/processor)
+	cost = 50
+	
+/datum/supply_packs/imports/gibber
+	name = "Gibber"
+	contains = list(/obj/machinery/gibber)
+	cost = 50
 
 //faction specific things below here.
 
