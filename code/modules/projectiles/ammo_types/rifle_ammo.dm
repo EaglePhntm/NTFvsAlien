@@ -261,3 +261,15 @@
 	damage = 50
 	penetration = 15
 	sundering = 2
+
+/datum/ammo/bullet/rifle/vsd_sbr
+	name = "heavy short rifle bullet"
+	hud_state = "rifle_heavy"
+	damage_falloff = 0.5
+	ammo_behavior_flags = AMMO_BALLISTIC
+	accurate_range = 7
+	max_range = 21
+	shell_speed = 2.75
+	damage = 36.5
+	penetration = 12.5
+	sundering = 1.5
