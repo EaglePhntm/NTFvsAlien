@@ -269,7 +269,7 @@
 	ammo_behavior_flags = AMMO_BALLISTIC
 	accurate_range = 7
 	max_range = 21
-	shell_speed = 2.75
+	shell_speed = 3.2
 	damage = 36.5
 	penetration = 12.5
 	sundering = 1.5
