@@ -1274,6 +1274,9 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		else
 			error_viewer.show_to(owner, null, href_list["viewruntime_linear"])
 
+	else if(href_list["view_map_issues"])
+		show_map_issues(owner, href_list["linear"], href_list["filter"])
+
 
 	else if(href_list["addmessage"])
 		if(!check_rights(R_BAN))

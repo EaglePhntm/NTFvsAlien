@@ -19,7 +19,10 @@
 /// Defines whether we are using ass overlay
 	var/cock = null
 	var/cock_size = 3
+	var/cock_storage = null
+	var/cock_state = COCK_STATE_FLACCID
 	var/cock_color = "#FFFFFF"
+	var/cock_color_secondary = "#d98fa3"
 	var/list/cock_emissive = list(FALSE, FALSE, FALSE)
 /// Defines whether we are using vagina overlay
 	var/vagina = null

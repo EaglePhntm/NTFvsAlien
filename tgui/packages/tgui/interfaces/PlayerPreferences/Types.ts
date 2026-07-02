@@ -1,5 +1,6 @@
 type PlayerPreferencesData = {
   slot: number;
+  slot_number: number;
   save_slot_names: AssocStringString;
   tabIndex: number;
 };
@@ -46,10 +47,14 @@ type CharacterCustomizationData = {
   digitigrade_legs: string;
   body_color: string;
   blood_color: string;
+  ethnicity: string;
+  ethnicities: string[] | Record<string, string>;
+  human_skin_tones: Record<string, string>;
   allow_mismatched_parts: boolean;
   use_genital_size_controls: boolean;
   allow_emissives: boolean;
   species: string;
+  human_body_style: string;
   synthetic_type: string;
   synthetic_body_base: string;
   robot_body_base: string;
@@ -78,6 +83,7 @@ type CharacterCreatorOptionRow = {
   size_max?: number;
   color_count?: number;
   emissive_count?: number;
+  group?: string;
 };
 
 type BackgroundInformationData = {

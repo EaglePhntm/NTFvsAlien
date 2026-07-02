@@ -442,7 +442,7 @@
 	name = "Teshari (Thin)"
 	icon_state = "teshari_thin"
 	uses_color_suffixes = TRUE
-	color_count = 2
+	color_count = 3
 
 /datum/sprite_accessory/lizard_tail/skyrat/tiger
 	name = "Tiger"
@@ -479,4 +479,3 @@
 	icon_state = "peacock"
 	uses_color_suffixes = TRUE
 	color_count = 3
-

@@ -160,7 +160,7 @@
 	name = "\improper combat boots"
 	desc = "KZ's standard issue combat boots"
 	icon_state = "boots"
-	worn_icon_state = "boots"
+	worn_icon_state = "kz_boots"
 
 /obj/item/clothing/shoes/marine/vsd/full
 	starting_attachments = list(/obj/item/armor_module/storage/boot/full)

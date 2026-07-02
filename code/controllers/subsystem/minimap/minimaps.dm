@@ -254,8 +254,8 @@ SUBSYSTEM_DEF(minimaps)
 			if(target_turf.z == updator.ztarget)
 				updator.raw_blips += blip
 	if(ismovable(target))
-		RegisterSignal(target, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_z_change))
-		blip.RegisterSignal(target, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/image/blip, minimap_on_move))
+		RegisterSignal(target, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_z_change), override = TRUE)
+		blip.RegisterSignal(target, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/image/blip, minimap_on_move), override = TRUE)
 	removal_cbs[target] = CALLBACK(src, PROC_REF(removeimage), blip, target, hud_flags)
 	RegisterSignal(target, COMSIG_QDELETING, PROC_REF(remove_marker), override = TRUE) //override for atoms that were on a late loaded z-level, overrides the remove_earlyadd above
 
@@ -292,21 +292,25 @@ SUBSYSTEM_DEF(minimaps)
 	SIGNAL_HANDLER
 	var/image/blip
 	for(var/flag in GLOB.all_minimap_flags)
-		if(!minimaps_by_z["[oldz]"]?.images_assoc["[flag]"][source])
+		var/datum/hud_displays/old_minimap = minimaps_by_z["[oldz]"]
+		var/datum/hud_displays/new_minimap = minimaps_by_z["[newz]"]
+		if(!old_minimap || !new_minimap)
+			continue
+		if(!old_minimap.images_assoc["[flag]"][source])
 			continue
 		if(!blip)
-			blip = minimaps_by_z["[oldz]"].images_assoc["[flag]"][source]
+			blip = old_minimap.images_assoc["[flag]"][source]
 		// todo maybe make update_targets also sort by zlevel?
 		for(var/datum/minimap_updator/updator AS in update_targets["[flag]"])
 			if(updator.ztarget == oldz)
 				updator.raw_blips -= blip
 			else if(updator.ztarget == newz)
 				updator.raw_blips += blip
-		minimaps_by_z["[newz]"].images_assoc["[flag]"][source] = blip
-		minimaps_by_z["[oldz]"].images_assoc["[flag]"] -= source
+		new_minimap.images_assoc["[flag]"][source] = blip
+		old_minimap.images_assoc["[flag]"] -= source
 
-		minimaps_by_z["[newz]"].images_raw["[flag]"] += blip
-		minimaps_by_z["[oldz]"].images_raw["[flag]"] -= blip
+		new_minimap.images_raw["[flag]"] += blip
+		old_minimap.images_raw["[flag]"] -= blip
 
 /**
  * Simple proc, updates overlay position on the map when a atom moves
@@ -320,14 +324,17 @@ SUBSYSTEM_DEF(minimaps)
 		target.override_minimap_tracking(movable_loc)
 		movable_loc = movable_loc.loc
 
-	pixel_x = MINIMAP_PIXEL_FROM_WORLD(movable_loc.x) + SSminimaps.minimaps_by_z["[movable_loc.z]"].x_offset + image_offset_x
-	pixel_y = MINIMAP_PIXEL_FROM_WORLD(movable_loc.y) + SSminimaps.minimaps_by_z["[movable_loc.z]"].y_offset + image_offset_y
+	var/datum/hud_displays/current_minimap = SSminimaps.minimaps_by_z["[movable_loc.z]"]
+	if(!current_minimap)
+		return
+	pixel_x = MINIMAP_PIXEL_FROM_WORLD(movable_loc.x) + current_minimap.x_offset + image_offset_x
+	pixel_y = MINIMAP_PIXEL_FROM_WORLD(movable_loc.y) + current_minimap.y_offset + image_offset_y
 
 ///Used to handle minimap tracking inside other movables
 /atom/movable/proc/override_minimap_tracking(atom/movable/loc)
 	var/image/blip/blip = SSminimaps.images_by_source[src]
-	blip.RegisterSignal(loc, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/image/blip, minimap_on_move))
-	RegisterSignal(loc, COMSIG_ATOM_EXITED, PROC_REF(cancel_override_minimap_tracking))
+	blip?.RegisterSignal(loc, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/image/blip, minimap_on_move), override = TRUE)
+	RegisterSignal(loc, COMSIG_ATOM_EXITED, PROC_REF(cancel_override_minimap_tracking), override = TRUE)
 
 ///Stops minimap override tracking
 /atom/movable/proc/cancel_override_minimap_tracking(atom/movable/source, atom/movable/mover)
@@ -454,7 +461,7 @@ SUBSYSTEM_DEF(minimaps)
 /atom/movable/screen/minimap/proc/get_coords_from_click(mob/user)
 	//lord forgive my shitcode
 	var/signal_by_type = isobserver(user) ? COMSIG_OBSERVER_CLICKON : COMSIG_MOB_CLICKON
-	RegisterSignal(user, signal_by_type, PROC_REF(on_click))
+	RegisterSignal(user, signal_by_type, PROC_REF(on_click), override = TRUE)
 	while(!QDELETED(src) && !(choices_by_mob[user] || stop_polling[user]) && user.client && islist(stop_polling))
 		stoplag(1)
 	if(QDELETED(src)) //since we could potentially be qdel'd while waiting for an input
@@ -751,15 +758,19 @@ SUBSYSTEM_DEF(minimaps)
 
 ///Sets our map
 /datum/action/minimap/proc/set_map(z_level)
+	if(map)
+		UnregisterSignal(map, COMSIG_QDELETING)
 	map = SSminimaps.fetch_minimap_object(z_level, minimap_flags)
-	RegisterSignal(map, COMSIG_QDELETING, PROC_REF(on_map_del))
+	if(map)
+		RegisterSignal(map, COMSIG_QDELETING, PROC_REF(on_map_del))
 
 ///Cleans up if our map is deleted
 /datum/action/minimap/proc/on_map_del(datum/source)
 	SIGNAL_HANDLER
+	var/atom/movable/screen/minimap/deleted_map = source
 	if(minimap_displayed)
 		toggle_minimap()
-	set_map(map.tracked_z)
+	set_map(deleted_map.tracked_z)
 
 /**
  * Updates the map when the owner changes zlevel

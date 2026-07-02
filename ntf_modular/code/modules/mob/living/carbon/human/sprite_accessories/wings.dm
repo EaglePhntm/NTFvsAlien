@@ -4,7 +4,7 @@
 	var/color_src = ACCESSORY_COLOR_NONE
 	var/icon_prefix = "m_wings"
 	var/uses_color_suffixes = TRUE
-	var/list/render_layers = list("BEHIND", "ADJ", "FRONT")
+	var/list/render_layers = list(BODY_OVERLAY_LAYER_BEHIND, BODY_OVERLAY_LAYER_ADJ, BODY_OVERLAY_LAYER_FRONT)
 	var/top_icon_state = null
 	var/top_only = FALSE
 	center = TRUE

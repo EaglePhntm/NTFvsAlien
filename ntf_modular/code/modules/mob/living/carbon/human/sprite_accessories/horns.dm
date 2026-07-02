@@ -4,7 +4,7 @@
 	var/color_src = ACCESSORY_COLOR_NONE
 	var/icon_prefix = "m_horns"
 	var/uses_color_suffixes = TRUE
-	var/list/render_layers = list("FRONT")
+	var/list/render_layers = list(BODY_OVERLAY_LAYER_FRONT)
 
 /datum/sprite_accessory/horns/none
 	name = "None"
@@ -46,7 +46,7 @@
 /datum/sprite_accessory/horns/uni
 	name = "Uni"
 	icon_state = "uni"
-	render_layers = list("FRONT", "ADJ")
+	render_layers = list(BODY_OVERLAY_LAYER_FRONT, BODY_OVERLAY_LAYER_ADJ)
 
 /datum/sprite_accessory/horns/oni
 	name = "Oni"
@@ -55,7 +55,7 @@
 /datum/sprite_accessory/horns/oni_large
 	name = "Oni (Large)"
 	icon_state = "oni_large"
-	render_layers = list("FRONT", "ADJ")
+	render_layers = list(BODY_OVERLAY_LAYER_FRONT, BODY_OVERLAY_LAYER_ADJ)
 
 /datum/sprite_accessory/horns/broken
 	name = "Broken"
@@ -91,7 +91,7 @@
 
 /datum/sprite_accessory/horns/big
 	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/horns_big.dmi'
-	render_layers = list("FRONT", "ADJ")
+	render_layers = list(BODY_OVERLAY_LAYER_FRONT, BODY_OVERLAY_LAYER_ADJ)
 
 /datum/sprite_accessory/horns/big/antlers
 	name = "Antlers"
@@ -114,7 +114,7 @@
 	icon_prefix = "m_horns"
 	uses_color_suffixes = FALSE
 	color_count = 3
-	render_layers = list("BEHIND", "ADJ", "FRONT")
+	render_layers = list(BODY_OVERLAY_LAYER_BEHIND, BODY_OVERLAY_LAYER_ADJ, BODY_OVERLAY_LAYER_FRONT)
 
 /datum/sprite_accessory/horns/splurt/demon
 	name = "Demon (Splurt)"

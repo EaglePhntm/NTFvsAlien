@@ -5,7 +5,25 @@ GLOBAL_VAR_INIT(max_larva_count_per_mob, 3) //Added for adminbus reasons
 ///Comment out if you don't want VOX to be enabled and have players download the voice sounds.
 #define AI_VOX
 
+#define COCK_STORAGE_SHEATH "sheath"
+#define COCK_STORAGE_SLIT "slit"
+#define COCK_STATE_STORED "stored"
+#define COCK_STATE_FLACCID "flaccid"
+#define COCK_STATE_PARTIAL "partial"
+#define COCK_STATE_ERECT "erect"
+
+#define TAUR_CLOTHING_SNAKE "snake"
+#define TAUR_CLOTHING_PAW "paw"
+#define TAUR_CLOTHING_HOOF "hoof"
+#define TAUR_CLOTHING_BIG "big"
+
+#define HUMAN_BODY_STYLE_SPLURT "SPLURT"
+#define HUMAN_BODY_STYLE_TGMC "TGMC"
+
 // Overlay Indexes
+#define ACCESSORY_XENOHEAD_LAYER 46
+#define ACCESSORY_XENODORSAL_LAYER 45
+#define ACCESSORY_TAUR_LAYER 44
 #define HAIR_EMISSIVE_LAYER 43
 #define EYE_EMISSIVE_LAYER 42
 #define BODY_MARKINGS_EMISSIVE_LAYER 41
@@ -50,14 +68,25 @@ GLOBAL_VAR_INIT(max_larva_count_per_mob, 3) //Added for adminbus reasons
 #define FIRE_LAYER 2 //If you're on fire
 #define LASER_LAYER 1 //For sniper targeting laser
 
-#define TOTAL_LAYERS 43
+#define TOTAL_LAYERS 46
 
-#define TOTAL_UNDERLAYS 4
+#define TOTAL_UNDERLAYS 6
 #define MOTH_WINGS_BEHIND_LAYER 1
 
 #define LIZARD_TAIL_BEHIND_LAYER 2
 #define ACCESSORY_EARS_BEHIND_LAYER 3
 #define ACCESSORY_WINGS_BEHIND_LAYER 4
+#define ACCESSORY_TAUR_BEHIND_LAYER 5
+#define ACCESSORY_XENODORSAL_BEHIND_LAYER 6
+
+// SPLURT-style visual bodypart render layer names. These are text keys used in
+// sprite icon states, then mapped to TGMC draw layers by visual_overlay_draw_layer().
+#define BODY_OVERLAY_LAYER_BEHIND "BEHIND"
+#define BODY_OVERLAY_LAYER_ADJ "ADJ"
+#define BODY_OVERLAY_LAYER_FRONT "FRONT"
+#define BODY_OVERLAY_LAYER_FRONT_UNDER "FRONT_UNDER"
+#define BODY_OVERLAY_LAYER_FRONT_OVER "FRONT_OVER"
+#define BODY_OVERLAY_LAYER_FRONT_OVER_HAIR "FRONT_OVER_HAIR"
 
 //Mob movement define
 

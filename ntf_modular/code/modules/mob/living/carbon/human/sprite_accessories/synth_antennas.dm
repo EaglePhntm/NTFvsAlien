@@ -4,7 +4,7 @@
 	var/color_src = ACCESSORY_COLOR_NONE
 	var/icon_prefix = "m_ipc_antenna"
 	var/uses_color_suffixes = FALSE
-	var/list/render_layers = list("ADJ")
+	var/list/render_layers = list(BODY_OVERLAY_LAYER_ADJ)
 
 /datum/sprite_accessory/synth_antenna/none
 	name = "None"

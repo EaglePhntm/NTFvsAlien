@@ -4,7 +4,7 @@
 	var/color_src = ACCESSORY_COLOR_NONE
 	var/icon_prefix = "m_snout"
 	var/uses_color_suffixes = FALSE
-	var/list/render_layers = list("ADJ")
+	var/list/render_layers = list(BODY_OVERLAY_LAYER_ADJ)
 	var/restore_body_eyes = FALSE
 
 /datum/sprite_accessory/snout/none
@@ -154,7 +154,7 @@
 /datum/sprite_accessory/snout/skyrat/bug
 	name = "Bug"
 	icon_state = "bug"
-	render_layers = list("ADJ", "FRONT")
+	render_layers = list(BODY_OVERLAY_LAYER_ADJ, BODY_OVERLAY_LAYER_FRONT)
 
 /datum/sprite_accessory/snout/skyrat/bug_no_eyes
 	name = "Bug (No Eyes)"
@@ -233,7 +233,7 @@
 /datum/sprite_accessory/snout/skyrat/otter
 	name = "Otter"
 	icon_state = "otter"
-	render_layers = list("ADJ", "FRONT")
+	render_layers = list(BODY_OVERLAY_LAYER_ADJ, BODY_OVERLAY_LAYER_FRONT)
 
 /datum/sprite_accessory/snout/skyrat/pede
 	name = "Scolipede"
@@ -344,10 +344,10 @@
 	icon_state = "masked"
 	color_count = 1
 	uses_color_suffixes = FALSE
-	render_layers = list("ADJ", "FRONT")
+	render_layers = list(BODY_OVERLAY_LAYER_ADJ, BODY_OVERLAY_LAYER_FRONT)
 
 /datum/sprite_accessory/snout/skyrat/top
-	render_layers = list("FRONT")
+	render_layers = list(BODY_OVERLAY_LAYER_FRONT)
 
 /datum/sprite_accessory/snout/skyrat/top/fbird
 	name = "Beak (Top)"
@@ -360,7 +360,7 @@
 /datum/sprite_accessory/snout/skyrat/top/fbug
 	name = "Bug (Top)"
 	icon_state = "fbug"
-	render_layers = list("ADJ", "FRONT")
+	render_layers = list(BODY_OVERLAY_LAYER_ADJ, BODY_OVERLAY_LAYER_FRONT)
 
 /datum/sprite_accessory/snout/skyrat/top/felephant
 	name = "Elephant (Top)"

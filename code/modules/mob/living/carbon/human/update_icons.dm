@@ -288,7 +288,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	var/burn_state = copytext(damage_state, 2)
 	var/icon/brute_state_icon = icon('icons/mob/dam_human.dmi', "[species.brute_damage_icon_state]_[brute_state]")
 	var/icon/burn_state_icon = icon('icons/mob/dam_human.dmi', "[species.burn_damage_icon_state]_[burn_state]")
-	var/icon/damage_mask_icon = icon(species.damage_mask_icon, body_part)
+	var/icon/damage_mask_icon = icon(species.damage_mask_icon, get_damage_mask_state(body_part))
 	var/icon/DI = icon('icons/mob/dam_human.dmi', "00") //starts blank
 	if(species.species_flags & GREYSCALE_BLOOD)
 		DI.Blend(species.blood_color, ICON_MULTIPLY) 	//coloring with species' blood color
@@ -297,6 +297,41 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	DI.Blend(damage_mask_icon, ICON_MULTIPLY)			//mask with this organ's pixels
 	GLOB.damage_icon_parts["[damage_state]_[species.blood_color]_[body_part]"] = DI
 	return DI
+
+/mob/living/carbon/human/proc/get_damage_mask_state(body_part)
+	if(!body_part)
+		return "blank"
+
+	switch(body_part)
+		if("head", "head_m", "head_f")
+			return "head"
+		if("torso", "torso_m", "torso_f", "chest", "chest_m", "chest_f")
+			return "torso"
+		if("groin", "groin_m", "groin_f")
+			return "groin"
+		if("r_arm", "l_arm", "r_hand", "l_hand", "r_leg", "l_leg", "r_foot", "l_foot")
+			return body_part
+
+	var/static/list/splurt_mask_suffixes = list(
+		"_head_m" = "head",
+		"_head_f" = "head",
+		"_chest_m" = "torso",
+		"_chest_f" = "torso",
+		"_r_arm" = "r_arm",
+		"_l_arm" = "l_arm",
+		"_r_hand" = "r_hand",
+		"_l_hand" = "l_hand",
+		"_r_leg" = "r_leg",
+		"_l_leg" = "l_leg",
+		"_r_foot" = "r_foot",
+		"_l_foot" = "l_foot",
+	)
+	for(var/suffix in splurt_mask_suffixes)
+		var/suffix_start = length(body_part) - length(suffix) + 1
+		if(suffix_start > 0 && copytext(body_part, suffix_start) == suffix)
+			return splurt_mask_suffixes[suffix]
+
+	return body_part
 
 //DAMAGE OVERLAYS
 //constructs damage icon for each organ from mask * damage field and saves it in our overlays_ lists
@@ -308,7 +343,9 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	var/damage_appearance = ""
 
 	for(var/datum/limb/O in limbs)
-		if(O.limb_status & LIMB_DESTROYED)
+		if(visual_bodypart_hidden(O))
+			damage_appearance += "h"
+		else if(O.limb_status & LIMB_DESTROYED)
 			damage_appearance += "d"
 		else
 			damage_appearance += O.damage_state
@@ -329,6 +366,9 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	for(var/o in limbs)
 		var/datum/limb/limb_to_update = o
 		limb_to_update.update_icon()
+
+		if(visual_bodypart_hidden(limb_to_update))
+			continue
 
 		if(limb_to_update.damage_state == "00")
 			continue
@@ -361,13 +401,13 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	stand_icon = new(species.icon_template ? species.icon_template : 'icons/mob/human.dmi',"blank")
 
 	var/race_icon = get_body_icon()
-	var/icon_key = "[species.type]|[species.name]|[race_icon]|[physique_key]|[ethnicity]|[digitigrade_legs]|[synthetic_appearance_species]|[synthetic_body_base]|[robot_body_base]|[robot_head_base]|[custom_supersoldier_parts]|[supersoldier_body_base]|[supersoldier_head_base]"
+	var/icon_key = "[species.type]|[species.name]|[race_icon]|[physique_key]|[ethnicity]|[get_effective_human_body_style()]|[digitigrade_legs]|[synthetic_appearance_species]|[synthetic_body_base]|[robot_body_base]|[robot_head_base]|[custom_supersoldier_parts]|[supersoldier_body_base]|[supersoldier_head_base]"
 	for(var/datum/limb/part in limbs)
 
 		if(istype(part,/datum/limb/head) && !(part.limb_status & LIMB_DESTROYED))
 			has_head = 1
 
-		if(part.limb_status & LIMB_DESTROYED ||	part.invisible)
+		if(visual_bodypart_hidden(part) || part.limb_status & LIMB_DESTROYED ||	part.invisible)
 			icon_key = "[icon_key]0"
 		else if(part.limb_status & LIMB_ROBOT && !(species?.species_flags & IS_SYNTHETIC))
 			icon_key = "[icon_key]2"
@@ -404,7 +444,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 
 			var/icon/temp //Hold the bodypart icon for processing.
 
-			if(part.limb_status & LIMB_DESTROYED ||	part.invisible)
+			if(visual_bodypart_hidden(part) || part.limb_status & LIMB_DESTROYED ||	part.invisible)
 				continue
 
 			if(istype(part, /datum/limb/chest)) //already done above
@@ -663,7 +703,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	if(wear_suit?.inv_hide_flags & HIDEJUMPSUIT)
 		return
 
-	overlays_standing[UNIFORM_LAYER] = ntf_set_worn_appearance_layer(w_uniform.make_worn_icon(species_type = species.name, slot_name = slot_w_uniform_str, default_icon = 'icons/mob/clothing/uniforms/uniform_0.dmi', default_layer = UNIFORM_LAYER), ntf_north_body_clothing_layer(dir))
+	overlays_standing[UNIFORM_LAYER] = ntf_set_worn_appearance_layer(w_uniform.make_worn_icon(species_type = species.name, slot_name = slot_w_uniform_str, default_icon = 'icons/mob/clothing/uniforms/uniform_0.dmi', default_layer = UNIFORM_LAYER, icon_file_override = get_taur_worn_icon_file(w_uniform)), ntf_north_body_clothing_layer(dir))
 
 	apply_overlay(UNIFORM_LAYER)
 	species?.update_inv_w_uniform(src)
@@ -752,6 +792,9 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	if(wear_suit?.inv_hide_flags & HIDESHOES)
 		return
 
+	if(has_taur_body())
+		return
+
 	if(shoes)
 		overlays_standing[SHOES_LAYER] = ntf_set_worn_appearance_layer(shoes.make_worn_icon(species_type = species.name, slot_name = slot_shoes_str, default_icon = 'icons/mob/clothing/feet.dmi', default_layer = SHOES_LAYER), ntf_north_body_clothing_layer(dir))
 	else if(feet_blood_color)
@@ -813,7 +856,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		wear_suit.screen_loc = ui_oclothing
 		client.screen += wear_suit
 
-	overlays_standing[SUIT_LAYER] = ntf_set_worn_appearance_layer(wear_suit.make_worn_icon(species_type = species.name, slot_name = slot_wear_suit_str, default_icon = 'icons/mob/clothing/suits/suit_0.dmi', default_layer = SUIT_LAYER), ntf_north_body_clothing_layer(dir))
+	overlays_standing[SUIT_LAYER] = ntf_set_worn_appearance_layer(wear_suit.make_worn_icon(species_type = species.name, slot_name = slot_wear_suit_str, default_icon = 'icons/mob/clothing/suits/suit_0.dmi', default_layer = SUIT_LAYER, icon_file_override = get_taur_worn_icon_file(wear_suit)), ntf_north_body_clothing_layer(dir))
 
 	apply_overlay(SUIT_LAYER)
 
@@ -920,6 +963,9 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	if(client && hud_used?.hud_shown && hud_used.extra_shown)
 		w_socks.screen_loc = "WEST:6,SOUTH+5:15"
 		client.screen += w_socks
+
+	if(has_taur_body())
+		return
 
 	overlays_standing[SOCKS_LAYER] = ntf_set_worn_appearance_layer(w_socks.make_worn_icon(species_type = species.name, slot_name = slot_socks_str, default_icon = 'ntf_modular/modules/underwear/underwear/underwear.dmi', default_layer = SOCKS_LAYER), ntf_north_body_clothing_layer(dir, SOCKS_LAYER))
 

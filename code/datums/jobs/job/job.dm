@@ -348,6 +348,7 @@ GLOBAL_PROTECT(exp_specialmap)
 	if(!length(valid_outfits))
 		log_runtime("Failed to find valid outfit when applying [assigned_role.title]([assigned_role.type]) to [logdetails(src)](Species: [src.species.name]([src.species.type]))")
 		assigned_role.outfit.equip(src)
+		return
 	var/datum/outfit/chosen_variant = pick(valid_outfits)
 	chosen_variant.equip(src)
 	QDEL_LIST(valid_outfits)

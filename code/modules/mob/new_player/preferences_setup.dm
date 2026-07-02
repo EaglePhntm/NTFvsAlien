@@ -154,6 +154,9 @@
 		debug_ckey = parent?.ckey || "unknown ckey"
 		log_runtime("screen_main.update_body() failed! Character preview update failed for [debug_ckey] slot [default_slot]. prefs=[character_debug_summary()]")
 
+/datum/preferences/proc/queue_preview_icon_update()
+	addtimer(CALLBACK(src, PROC_REF(update_preview_icon)), 1, TIMER_UNIQUE | TIMER_OVERRIDE)
+
 
 /datum/preferences/proc/randomize_species_specific()
 	moth_wings = pick(GLOB.moth_wings_list - "Burnt Off")
@@ -222,8 +225,27 @@
 	fluff_color_tertiary = sanitize_hexcolor(fluff_color_tertiary, 6, TRUE, "#6BA36B")
 	fluff_emissive = sanitize_character_creator_emissive_list(fluff_emissive)
 
+	taur_body = sanitize_inlist(taur_body, GLOB.taur_bodies_list, initial(taur_body))
+	taur_body_color = sanitize_hexcolor(taur_body_color, 6, TRUE, "#6BA36B")
+	taur_body_color_secondary = sanitize_hexcolor(taur_body_color_secondary, 6, TRUE, "#6BA36B")
+	taur_body_color_tertiary = sanitize_hexcolor(taur_body_color_tertiary, 6, TRUE, "#6BA36B")
+	taur_body_emissive = sanitize_character_creator_emissive_list(taur_body_emissive)
+
+	xenodorsal = sanitize_inlist(xenodorsal, GLOB.xenodorsals_list, initial(xenodorsal))
+	xenodorsal_color = sanitize_hexcolor(xenodorsal_color, 6, TRUE, "#525288")
+	xenodorsal_emissive = sanitize_character_creator_emissive_list(xenodorsal_emissive)
+
+	xenohead = sanitize_inlist(xenohead, GLOB.xenoheads_list, initial(xenohead))
+	xenohead_color = sanitize_hexcolor(xenohead_color, 6, TRUE, "#525288")
+	xenohead_color_secondary = sanitize_hexcolor(xenohead_color_secondary, 6, TRUE, "#525288")
+	xenohead_color_tertiary = sanitize_hexcolor(xenohead_color_tertiary, 6, TRUE, "#525288")
+	xenohead_emissive = sanitize_character_creator_emissive_list(xenohead_emissive)
+
 	digitigrade_legs = sanitize_inlist(digitigrade_legs, DIGITIGRADE_LEG_TYPES, initial(digitigrade_legs))
 	if(!(digitigrade_legs in digitigrade_leg_options()))
+		digitigrade_legs = initial(digitigrade_legs)
+	if(taur_body && taur_body != "None")
+		tail = initial(tail)
 		digitigrade_legs = initial(digitigrade_legs)
 	sanitize_body_markings()
 
@@ -238,7 +260,9 @@
 	genitalia_boobs_emissive = sanitize_character_creator_emissive_list(genitalia_boobs_emissive)
 	genitalia_cock = sanitize_inlist_assoc(genitalia_cock, GLOB.possible_cock_sprites, initial(genitalia_cock))
 	genitalia_cock_size = sanitize_integer(genitalia_cock_size, 1, 7, initial(genitalia_cock_size))
+	normalize_cock_storage_state()
 	genitalia_cock_color = sanitize_hexcolor(genitalia_cock_color, 6, TRUE, initial(genitalia_cock_color))
+	genitalia_cock_color_secondary = sanitize_hexcolor(genitalia_cock_color_secondary, 6, TRUE, initial(genitalia_cock_color_secondary))
 	genitalia_cock_emissive = sanitize_character_creator_emissive_list(genitalia_cock_emissive)
 	genitalia_vagina = sanitize_inlist_assoc(genitalia_vagina, GLOB.possible_vagina_sprites, initial(genitalia_vagina))
 	genitalia_vagina_color = sanitize_hexcolor(genitalia_vagina_color, 6, TRUE, initial(genitalia_vagina_color))
@@ -296,6 +320,9 @@
 	character.wings = initial(character.wings)
 	character.synth_antenna = initial(character.synth_antenna)
 	character.fluff = initial(character.fluff)
+	character.taur_body = initial(character.taur_body)
+	character.xenodorsal = initial(character.xenodorsal)
+	character.xenohead = initial(character.xenohead)
 	character.digitigrade_legs = initial(character.digitigrade_legs)
 
 /datum/preferences/proc/copy_to(mob/living/carbon/human/character, safety = FALSE)
@@ -337,6 +364,7 @@
 	character.gender = gender
 	character.physique = get_physique()
 	character.ethnicity = ethnicity
+	character.human_body_style = human_body_style
 
 	character.r_eyes = r_eyes
 	character.g_eyes = g_eyes
@@ -421,6 +449,19 @@
 	character.fluff_color_secondary = fluff_color_secondary
 	character.fluff_color_tertiary = fluff_color_tertiary
 	character.fluff_emissive = fluff_emissive ? fluff_emissive.Copy() : list(FALSE, FALSE, FALSE)
+	character.taur_body = taur_body
+	character.taur_body_color = taur_body_color
+	character.taur_body_color_secondary = taur_body_color_secondary
+	character.taur_body_color_tertiary = taur_body_color_tertiary
+	character.taur_body_emissive = taur_body_emissive ? taur_body_emissive.Copy() : list(FALSE, FALSE, FALSE)
+	character.xenodorsal = xenodorsal
+	character.xenodorsal_color = xenodorsal_color
+	character.xenodorsal_emissive = xenodorsal_emissive ? xenodorsal_emissive.Copy() : list(FALSE, FALSE, FALSE)
+	character.xenohead = xenohead
+	character.xenohead_color = xenohead_color
+	character.xenohead_color_secondary = xenohead_color_secondary
+	character.xenohead_color_tertiary = xenohead_color_tertiary
+	character.xenohead_emissive = xenohead_emissive ? xenohead_emissive.Copy() : list(FALSE, FALSE, FALSE)
 	character.digitigrade_legs = digitigrade_legs
 
 	character.body_color = body_color
@@ -444,7 +485,10 @@
 		character.boobs_emissive = genitalia_boobs_emissive ? genitalia_boobs_emissive.Copy() : list(FALSE, FALSE, FALSE)
 		character.cock = genitalia_cock
 		character.cock_size = genitalia_cock_size
+		character.cock_storage = genitalia_cock_storage
+		character.cock_state = COCK_STATE_FLACCID
 		character.cock_color = genitalia_cock_color
+		character.cock_color_secondary = genitalia_cock_color_secondary
 		character.cock_emissive = genitalia_cock_emissive ? genitalia_cock_emissive.Copy() : list(FALSE, FALSE, FALSE)
 		character.vagina = genitalia_vagina
 		character.vagina_color = genitalia_vagina_color

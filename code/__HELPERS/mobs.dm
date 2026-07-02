@@ -60,8 +60,14 @@
 		return null
 	return pick(voices)
 
-/proc/get_playable_species()
-	return GLOB.roundstart_species
+/proc/get_playable_species(viewer_ckey)
+	if(viewer_ckey != "khanivore")
+		return GLOB.roundstart_species
+
+	var/list/playable_species = GLOB.roundstart_species.Copy()
+	if(GLOB.all_species["Teshari"])
+		playable_species["Teshari"] = GLOB.all_species["Teshari"]
+	return playable_species
 
 
 /proc/do_mob(mob/user, mob/target, delay = 30, user_display, target_display, prog_bar = PROGRESS_GENERIC, ignore_flags = NONE, datum/callback/extra_checks)

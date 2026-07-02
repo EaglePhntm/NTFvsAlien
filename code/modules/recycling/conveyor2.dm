@@ -39,6 +39,10 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 
 /obj/machinery/conveyor/Initialize(mapload, newdir, newid)
 	. = ..()
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(conveyable_enter),
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
 	if(newdir)
 		setDir(newdir)
 	if(newid)
@@ -125,13 +129,43 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 	if(!isturf(loc))
 		return PROCESS_KILL //how
 
-	//get the first 30 items in contents
-	var/list/items_to_move = loc.contents - src
-	if(length(items_to_move) > MAX_CONVEYOR_ITEMS_MOVE)
-		items_to_move = items_to_move.Copy(1, MAX_CONVEYOR_ITEMS_MOVE + 1)
+	var/list/items_to_move = get_conveyable_items()
+	if(!length(items_to_move))
+		return PROCESS_KILL
 
 	conveyor_flags |= CONVEYOR_IS_CONVEYING
 	INVOKE_NEXT_TICK(src, PROC_REF(convey), items_to_move)
+
+///Returns the first movable atoms this conveyor can attempt to move.
+/obj/machinery/conveyor/proc/get_conveyable_items()
+	var/list/items_to_move
+	for(var/am in loc)
+		if(am == src)
+			continue
+		if(!ismovable(am))
+			continue
+		var/atom/movable/movable_thing = am
+		if(QDELETED(movable_thing))
+			continue
+		if(iseffect(movable_thing))
+			continue
+		if(isdead(movable_thing))
+			continue
+		if(movable_thing.anchored)
+			continue
+		LAZYADD(items_to_move, movable_thing)
+		if(length(items_to_move) >= MAX_CONVEYOR_ITEMS_MOVE)
+			break
+	return items_to_move
+
+///Restarts an idle running belt when something enters its turf.
+/obj/machinery/conveyor/proc/conveyable_enter(datum/source, atom/movable/entered)
+	SIGNAL_HANDLER
+	if(!operating || !is_operational() || !isturf(loc))
+		return
+	if(entered == src || entered.loc != loc)
+		return
+	start_processing()
 
 ///Attempts to move a batch of AMs
 /obj/machinery/conveyor/proc/convey(list/affecting)

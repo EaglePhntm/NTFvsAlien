@@ -436,7 +436,8 @@
 /obj/structure/sign/fixedinplace/hangar
 	name = "\improper Hangar bay"
 	desc = "A direction sign, pointing out which way the Hangar bay is."
-	icon_state = "direction_hangar"
+	icon = 'icons/turf/areas.dmi'
+	icon_state = "hangar"
 
 /obj/structure/sign/fixedinplace/cryo
 	name = "\improper Cryogenics bay"

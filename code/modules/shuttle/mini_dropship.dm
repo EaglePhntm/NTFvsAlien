@@ -87,6 +87,8 @@
 	var/origin_port_id = SHUTTLE_TADPOLE
 	/// The user of the ui
 	var/mob/living/ui_user
+	/// Equipment currently selected through the tadpole equipment UI.
+	var/obj/structure/dropship_equipment/selected_equipment
 	/// How long before you can launch tadpole after a landing
 	var/launching_delay = 10 SECONDS
 	///Minimap for use while in landing cam mode

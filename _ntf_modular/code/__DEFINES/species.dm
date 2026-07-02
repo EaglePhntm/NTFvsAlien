@@ -1,4 +1,5 @@
 #define BODYPART_ICON_HUMAN 'modular_skyrat/modules/bodyparts/icons/human_parts_greyscale.dmi'
+#define BODYPART_ICON_MODERN_HUMAN 'modular_zubbers/icons/mob/species/human_parts_greyscale.dmi'
 #define BODYPART_ICON_MAMMAL 'modular_skyrat/modules/bodyparts/icons/mammal_parts_greyscale.dmi'
 #define BODYPART_ICON_AKULA 'modular_skyrat/modules/bodyparts/icons/akula_parts_greyscale.dmi'
 #define BODYPART_ICON_AQUATIC 'modular_skyrat/modules/bodyparts/icons/aquatic_parts_greyscale.dmi'

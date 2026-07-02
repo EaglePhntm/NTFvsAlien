@@ -30,32 +30,54 @@
 			return GLOB.synth_antennas_list
 		if("fluff")
 			return GLOB.fluffs_list
+		if("taur_body")
+			return GLOB.taur_bodies_list
+		if("xenodorsal")
+			return GLOB.xenodorsals_list
+		if("xenohead")
+			return GLOB.xenoheads_list
 	return list()
 
 /datum/preferences/proc/character_creator_part_definition(id)
 	switch(id)
 		if("digitigrade_legs")
-			return list("label" = "Legs", "pref" = "digitigrade_legs", "values" = character_creator_name_options(digitigrade_leg_options()), "fallback" = "Normal")
+			return list("label" = "Legs", "group" = "body_frame", "pref" = "digitigrade_legs", "values" = character_creator_name_options(digitigrade_leg_options()), "fallback" = "Normal")
 		if("moth_wings")
-			return list("label" = "Moth wings", "pref" = "moth_wings", "values" = character_creator_name_options(GLOB.moth_wings_list), "fallback" = "Plain")
+			return list("label" = "Moth wings", "group" = "back_tail", "pref" = "moth_wings", "values" = character_creator_name_options(GLOB.moth_wings_list), "fallback" = "Plain")
 		if("tail")
-			return list("label" = "Tail", "pref" = "tail", "values" = character_creator_name_options(character_creator_tail_options()), "fallback" = "None", "colors" = 3)
+			return list("label" = "Tail", "group" = "back_tail", "pref" = "tail", "values" = character_creator_name_options(character_creator_tail_options()), "fallback" = "None", "colors" = 3)
 		if("snout")
-			return list("label" = "Snout", "pref" = "snout", "values" = character_creator_name_options(GLOB.snouts_list), "fallback" = "None", "colors" = 3)
+			return list("label" = "Snout", "group" = "head_parts", "pref" = "snout", "values" = character_creator_name_options(GLOB.snouts_list), "fallback" = "None", "colors" = 3)
 		if("ears")
-			return list("label" = "Ears", "pref" = "ears", "values" = character_creator_name_options(GLOB.ears_list), "fallback" = "None", "colors" = 3)
+			return list("label" = "Ears", "group" = "head_parts", "pref" = "ears", "values" = character_creator_name_options(GLOB.ears_list), "fallback" = "None", "colors" = 3)
 		if("horns")
-			return list("label" = "Horns", "pref" = "horns", "values" = character_creator_name_options(GLOB.horns_list), "fallback" = "None", "colors" = 3)
+			return list("label" = "Horns", "group" = "head_parts", "pref" = "horns", "values" = character_creator_name_options(GLOB.horns_list), "fallback" = "None", "colors" = 3)
 		if("wings")
-			return list("label" = "Wings", "pref" = "wings", "values" = character_creator_name_options(GLOB.wings_list), "fallback" = "None", "colors" = 3)
+			return list("label" = "Wings", "group" = "back_tail", "pref" = "wings", "values" = character_creator_name_options(GLOB.wings_list), "fallback" = "None", "colors" = 3)
 		if("synth_antenna")
-			return list("label" = "Synth antenna", "pref" = "synth_antenna", "values" = character_creator_name_options(GLOB.synth_antennas_list), "fallback" = "None", "colors" = 3)
+			return list("label" = "Synth antenna", "group" = "head_parts", "pref" = "synth_antenna", "values" = character_creator_name_options(GLOB.synth_antennas_list), "fallback" = "None", "colors" = 3)
 		if("fluff")
-			return list("label" = "Fluff", "pref" = "fluff", "values" = character_creator_name_options(GLOB.fluffs_list), "fallback" = "None", "colors" = 3)
+			return list("label" = "Fluff", "group" = "head_parts", "pref" = "fluff", "values" = character_creator_name_options(GLOB.fluffs_list), "fallback" = "None", "colors" = 3)
+		if("taur_body")
+			return list("label" = "Taur body", "group" = "body_frame", "pref" = "taur_body", "values" = character_creator_name_options(GLOB.taur_bodies_list), "fallback" = "None", "colors" = 3)
+		if("xenodorsal")
+			return list("label" = "Xeno dorsal", "group" = "back_tail", "pref" = "xenodorsal", "values" = character_creator_name_options(GLOB.xenodorsals_list), "fallback" = "None", "colors" = 1)
+		if("xenohead")
+			return list("label" = "Xeno head", "group" = "head_parts", "pref" = "xenohead", "values" = character_creator_name_options(GLOB.xenoheads_list), "fallback" = "None", "colors" = 3)
 	return null
 
 /datum/preferences/proc/character_creator_part_ids()
-	return list("digitigrade_legs", "moth_wings", "tail", "snout", "ears", "horns", "synth_antenna", "wings")
+	return list("digitigrade_legs", "moth_wings", "taur_body", "xenodorsal", "xenohead", "tail", "snout", "ears", "horns", "synth_antenna", "wings")
+
+/datum/preferences/proc/normalize_character_creator_parts(changed_field)
+	if(changed_field == "digitigrade_legs" && digitigrade_legs && digitigrade_legs != "Normal")
+		taur_body = initial(taur_body)
+	else if(changed_field == "taur_body" && taur_body && taur_body != "None")
+		tail = initial(tail)
+		digitigrade_legs = initial(digitigrade_legs)
+	else if(taur_body && taur_body != "None")
+		tail = initial(tail)
+		digitigrade_legs = initial(digitigrade_legs)
 
 /datum/preferences/proc/character_creator_name_options(options)
 	var/list/named_options = list()
@@ -104,7 +126,7 @@
 		if("genitalia_ass")
 			return 1
 		if("genitalia_cock")
-			return 1
+			return 2
 		if("genitalia_vagina")
 			return 1
 		if("genitalia_belly")
@@ -120,7 +142,7 @@
 		if("genitalia_ass")
 			return "genitalia_ass_color"
 		if("genitalia_cock")
-			return "genitalia_cock_color"
+			return color_index == 2 ? "genitalia_cock_color_secondary" : "genitalia_cock_color"
 		if("genitalia_vagina")
 			return "genitalia_vagina_color"
 		if("genitalia_belly")
@@ -189,17 +211,21 @@
 				"Knotted Hemi" = "hemiknot",
 				"Nondescript" = "nondescript",
 			)
+		if("genitalia_cock_storage")
+			if(!cock_style_supports_storage(genitalia_cock))
+				return list()
+			return GLOB.possible_cock_storage
 		if("genitalia_testicles")
 			return list(
 				"None" = null,
 				"Pair" = "pair",
-				"Sheath" = "sheath",
+				"Internal" = "internal",
+				"Sheathed Pair" = "sheath",
 			)
 		if("genitalia_vagina")
 			return list(
 				"Default" = null,
 				"Human" = "human",
-				"Slit" = "slit",
 				"Gaping" = "gaping",
 				"Tentacle" = "tentacle",
 				"Dentata" = "dentata",
@@ -222,7 +248,7 @@
 /// modern creator island intentionally avoids nested row objects for discovery.
 /// `character_creator_genital_row_ids` lists the row ids, and each row stores
 /// its data under `character_creator_<id>_*`.
-/datum/preferences/proc/add_character_creator_flat_row(list/data, list/row_ids, id, label, values, names, selected_value, fallback = "None", size_id = null, size_value = null, size_kind = null, size_min = null, size_max = null)
+/datum/preferences/proc/add_character_creator_flat_row(list/data, list/row_ids, id, label, values, names, selected_value, fallback = "None", size_id = null, size_value = null, size_kind = null, size_min = null, size_max = null, group = null)
 	if(!islist(values))
 		return
 
@@ -241,6 +267,7 @@
 	data["character_creator_[id]_label"] = label
 	data["character_creator_[id]_value"] = isnull(selected_value) ? "" : selected_value
 	data["character_creator_[id]_display"] = display_value
+	data["character_creator_[id]_group"] = group
 	data["character_creator_[id]_option_labels"] = option_labels
 	data["character_creator_[id]_option_values"] = option_values
 
@@ -256,12 +283,14 @@
 	data["character_creator_genital_row_ids"] = row_ids
 	data["character_creator_genital_row_count"] = 0
 
-	add_character_creator_flat_row(data, row_ids, "genitalia_boobs", "Breasts", character_creator_genital_options("genitalia_boobs"), null, genitalia_boobs, "None", "genitalia_boobs_size", character_creator_breast_size_label(genitalia_boobs_size), "breast")
-	add_character_creator_flat_row(data, row_ids, "genitalia_ass", "Butt", character_creator_genital_options("genitalia_ass"), null, genitalia_ass, "None", "genitalia_ass_size", genitalia_ass_size || initial(genitalia_ass_size), "number", 1, 8)
-	add_character_creator_flat_row(data, row_ids, "genitalia_cock", "Penis", character_creator_genital_options("genitalia_cock"), null, genitalia_cock, "Default", "genitalia_cock_size", genitalia_cock_size || initial(genitalia_cock_size), "penis_range")
-	add_character_creator_flat_row(data, row_ids, "genitalia_testicles", "Testicles", character_creator_genital_options("genitalia_testicles"), null, genitalia_testicles, "None", "genitalia_testicles_size", genitalia_testicles_size || initial(genitalia_testicles_size), "number", 0, 8)
-	add_character_creator_flat_row(data, row_ids, "genitalia_vagina", "Vagina", character_creator_genital_options("genitalia_vagina"), null, genitalia_vagina, "Default")
-	add_character_creator_flat_row(data, row_ids, "genitalia_belly", "Belly", character_creator_genital_options("genitalia_belly"), null, genitalia_belly, "None", "genitalia_belly_size", genitalia_belly_size || initial(genitalia_belly_size), "number", 0, 10)
+	add_character_creator_flat_row(data, row_ids, "genitalia_boobs", "Breasts", character_creator_genital_options("genitalia_boobs"), null, genitalia_boobs, "None", "genitalia_boobs_size", character_creator_breast_size_label(genitalia_boobs_size), "breast", null, null, "soft_anatomy")
+	add_character_creator_flat_row(data, row_ids, "genitalia_ass", "Butt", character_creator_genital_options("genitalia_ass"), null, genitalia_ass, "None", "genitalia_ass_size", genitalia_ass_size || initial(genitalia_ass_size), "number", 1, 8, "soft_anatomy")
+	add_character_creator_flat_row(data, row_ids, "genitalia_cock", "Penis", character_creator_genital_options("genitalia_cock"), null, genitalia_cock, "Default", "genitalia_cock_size", genitalia_cock_size || initial(genitalia_cock_size), "penis_range", null, null, "soft_anatomy")
+	if(cock_style_supports_storage(genitalia_cock))
+		add_character_creator_flat_row(data, row_ids, "genitalia_cock_storage", "Penis Sheath", character_creator_genital_options("genitalia_cock_storage"), null, genitalia_cock_storage, "None", group = "soft_anatomy")
+	add_character_creator_flat_row(data, row_ids, "genitalia_testicles", "Testicles", character_creator_genital_options("genitalia_testicles"), null, genitalia_testicles, "None", "genitalia_testicles_size", genitalia_testicles_size || initial(genitalia_testicles_size), "number", 0, 8, "soft_anatomy")
+	add_character_creator_flat_row(data, row_ids, "genitalia_vagina", "Vagina", character_creator_genital_options("genitalia_vagina"), null, genitalia_vagina, "Default", null, null, null, null, null, "soft_anatomy")
+	add_character_creator_flat_row(data, row_ids, "genitalia_belly", "Belly", character_creator_genital_options("genitalia_belly"), null, genitalia_belly, "None", "genitalia_belly_size", genitalia_belly_size || initial(genitalia_belly_size), "number", 0, 10, "soft_anatomy")
 	for(var/id in row_ids)
 		var/color_count = character_creator_genital_color_count(id)
 		data["character_creator_[id]_color_count"] = color_count
@@ -284,7 +313,7 @@
 			continue
 		var/pref = part_definition["pref"]
 		var/fallback = part_definition["fallback"] || "None"
-		add_character_creator_flat_row(data, row_ids, id, part_definition["label"], part_definition["values"], null, vars[pref], fallback)
+		add_character_creator_flat_row(data, row_ids, id, part_definition["label"], part_definition["values"], null, vars[pref], fallback, group = part_definition["group"])
 		var/color_count = part_definition["colors"] || 0
 		data["character_creator_[id]_color_count"] = color_count
 		for(var/color_index in 1 to color_count)
@@ -370,16 +399,51 @@
 
 /datum/preferences/proc/rotate_character_creator_preview(clockwise = TRUE)
 	preference_preview_dir = turn(preference_preview_dir, clockwise ? -90 : 90)
-	update_preview_icon()
+	screen_main?.update_direction()
 
 /datum/preferences/proc/reset_character_creator_preview()
 	preference_preview_dir = SOUTH
-	update_preview_icon()
+	screen_main?.update_direction()
+
+/datum/preferences/proc/character_creator_preview_modes()
+	return list(
+		"Job" = "job",
+		"Naked" = "naked",
+		"Naked - Aroused" = "naked_aroused",
+	)
+
+/datum/preferences/proc/character_creator_preview_mode_label()
+	var/list/modes = character_creator_preview_modes()
+	for(var/mode_name in modes)
+		if(modes[mode_name] == preference_preview_mode)
+			return mode_name
+	return "Job"
+
+/datum/preferences/proc/set_character_creator_preview_mode(mode)
+	var/list/modes = character_creator_preview_modes()
+	var/mode_found = FALSE
+	for(var/mode_name in modes)
+		if(modes[mode_name] == mode)
+			mode_found = TRUE
+			break
+	if(!mode_found)
+		mode = "job"
+	preference_preview_mode = mode
+	queue_preview_icon_update()
+
+/datum/preferences/proc/apply_character_creator_preview_mode(mob/living/carbon/human/dummy/mannequin)
+	switch(preference_preview_mode)
+		if("naked_aroused")
+			mannequin.cock_state = COCK_STATE_ERECT
+		if("naked")
+			mannequin.cock_state = mannequin.cock_storage ? COCK_STATE_STORED : COCK_STATE_FLACCID
+		else
+			mannequin.cock_state = mannequin.cock_storage ? COCK_STATE_STORED : COCK_STATE_FLACCID
 
 /datum/preferences/proc/render_character_creator_preview_body(mob/living/carbon/human/dummy/mannequin)
 	var/datum/job/previewJob
 	var/highest_pref = JOBS_PRIORITY_NEVER
-	if(LAZYLEN(SSjob.occupations))
+	if(preference_preview_mode == "job" && LAZYLEN(SSjob.occupations))
 		for(var/job in job_preferences)
 			if(job_preferences[job] > highest_pref)
 				previewJob = SSjob.GetJob(job)
@@ -387,11 +451,13 @@
 
 	copy_to(mannequin)
 	mannequin.set_species(species)
+	apply_character_creator_preview_mode(mannequin)
 
 	if(previewJob)
 		mannequin.job = previewJob
 		previewJob.equip_dummy(mannequin, preference_source = parent)
 
+	mannequin.update_genitals()
 	return mannequin
 
 /datum/preferences/proc/is_synthetic_species()
@@ -456,6 +522,7 @@
 		"genitalia_ass" = list("label" = "Butt", "pref" = "genitalia_ass"),
 		"genitalia_boobs" = list("label" = "Breasts", "pref" = "genitalia_boobs"),
 		"genitalia_cock" = list("label" = "Penis", "pref" = "genitalia_cock"),
+		"genitalia_cock_storage" = list("label" = "Penis Sheath", "pref" = "genitalia_cock_storage"),
 		"genitalia_vagina" = list("label" = "Vagina", "pref" = "genitalia_vagina"),
 		"genitalia_belly" = list("label" = "Belly", "pref" = "genitalia_belly"),
 		"genitalia_testicles" = list("label" = "Testicles", "pref" = "genitalia_testicles"),
@@ -477,7 +544,11 @@
 		if(!found_value)
 			return TRUE
 		vars[genital_data["pref"]] = chosen_value
-		update_preview_icon()
+		if(field == "genitalia_cock" && !cock_style_supports_storage(genitalia_cock))
+			genitalia_cock_storage = initial(genitalia_cock_storage)
+		if(field in list("genitalia_cock_storage", "genitalia_vagina"))
+			normalize_cock_storage_state()
+		queue_preview_icon_update()
 		return TRUE
 
 	if(action == "set_character_creator_part_value")
@@ -495,7 +566,8 @@
 		if(!found_value)
 			return TRUE
 		vars[part_definition["pref"]] = chosen_value
-		update_preview_icon()
+		normalize_character_creator_parts(field)
+		queue_preview_icon_update()
 		return TRUE
 
 	if(action == "toggle_character_creator_emissive")
@@ -511,7 +583,7 @@
 		var/list/emissive_list = sanitize_character_creator_emissive_list(vars[emissive_var])
 		emissive_list[color_index] = !emissive_list[color_index]
 		vars[emissive_var] = emissive_list
-		update_preview_icon()
+		queue_preview_icon_update()
 		return TRUE
 
 	if(action == "add_character_creator_marking")
@@ -530,7 +602,7 @@
 		var/marking_name = choices[1]
 		var/datum/body_marking/marking = GLOB.body_markings[marking_name]
 		body_markings[zone][marking_name] = list(marking.get_default_color(null), FALSE)
-		update_preview_icon()
+		queue_preview_icon_update()
 		return TRUE
 
 	if(action == "remove_character_creator_marking")
@@ -550,7 +622,7 @@
 			body_markings[zone] = new_markings
 		else
 			body_markings -= zone
-		update_preview_icon()
+		queue_preview_icon_update()
 		return TRUE
 
 	if(action == "set_character_creator_marking")
@@ -570,7 +642,7 @@
 				continue
 			new_markings[marking_name] = body_markings[zone][marking_name]
 		body_markings[zone] = new_markings
-		update_preview_icon()
+		queue_preview_icon_update()
 		return TRUE
 
 	if(action == "color_character_creator_marking")
@@ -587,7 +659,7 @@
 			var/new_color = input_preference_color(user, "Choose your marking color:", "Marking Color", body_marking_entry_color(body_markings[zone][marking_name]))
 			if(new_color)
 				body_markings[zone][marking_name][1] = new_color
-				update_preview_icon()
+				queue_preview_icon_update()
 			return TRUE
 
 	if(action == "toggle_character_creator_marking_emissive")
@@ -602,7 +674,7 @@
 			if(row_id != body_marking_row_id(zone, marking_index))
 				continue
 			body_markings[zone][marking_name][2] = !body_marking_entry_emissive(body_markings[zone][marking_name])
-			update_preview_icon()
+			queue_preview_icon_update()
 			return TRUE
 
 	if(action in genital_actions)
@@ -616,7 +688,11 @@
 		if(!choice)
 			return TRUE
 		vars[genital_data["pref"]] = values[choice]
-		update_preview_icon()
+		if(action == "genitalia_cock" && !cock_style_supports_storage(genitalia_cock))
+			genitalia_cock_storage = initial(genitalia_cock_storage)
+		if(action in list("genitalia_cock_storage", "genitalia_vagina"))
+			normalize_cock_storage_state()
+		queue_preview_icon_update()
 		return TRUE
 
 	switch(action)
@@ -628,7 +704,7 @@
 					var/color_var = character_creator_genital_color_var(field, color_index)
 					if(color_var)
 						vars[color_var] = body_color_to_copy
-				update_preview_icon()
+				queue_preview_icon_update()
 				return TRUE
 			if(field in character_creator_part_ids())
 				var/list/part_definition = character_creator_part_definition(field)
@@ -637,11 +713,11 @@
 					var/color_var = character_creator_color_var(field, color_index)
 					if(color_var)
 						vars[color_var] = body_color_to_copy
-				update_preview_icon()
+				queue_preview_icon_update()
 				return TRUE
 		if("genitalia_ass_size")
 			genitalia_ass_size = sanitize_integer(params["newValue"], 1, 8, initial(genitalia_ass_size))
-			update_preview_icon()
+			queue_preview_icon_update()
 			return TRUE
 		if("genitalia_boobs_size")
 			var/choice = params["newValue"]
@@ -652,19 +728,19 @@
 			if(!(choice in character_creator_breast_sizes()))
 				return TRUE
 			genitalia_boobs_size = character_creator_breast_size_number(choice)
-			update_preview_icon()
+			queue_preview_icon_update()
 			return TRUE
 		if("genitalia_cock_size")
 			genitalia_cock_size = sanitize_integer(params["newValue"], 1, 7, initial(genitalia_cock_size))
-			update_preview_icon()
+			queue_preview_icon_update()
 			return TRUE
 		if("genitalia_belly_size")
 			genitalia_belly_size = sanitize_integer(params["newValue"], 0, 10, initial(genitalia_belly_size))
-			update_preview_icon()
+			queue_preview_icon_update()
 			return TRUE
 		if("genitalia_testicles_size")
 			genitalia_testicles_size = sanitize_integer(params["newValue"], 0, 8, initial(genitalia_testicles_size))
-			update_preview_icon()
+			queue_preview_icon_update()
 			return TRUE
 
 	for(var/genital_id in genital_actions)
@@ -679,7 +755,7 @@
 			if(!new_color)
 				return TRUE
 			vars[color_var] = new_color
-			update_preview_icon()
+			queue_preview_icon_update()
 			return TRUE
 
 	for(var/part_id in character_creator_part_ids())
@@ -690,7 +766,8 @@
 			if(!choice)
 				return TRUE
 			vars[part_definition["pref"]] = choice
-			update_preview_icon()
+			normalize_character_creator_parts()
+			queue_preview_icon_update()
 			return TRUE
 
 		var/color_count = part_definition["colors"] || 0
@@ -704,7 +781,7 @@
 			if(!new_color)
 				return TRUE
 			vars[color_var] = new_color
-			update_preview_icon()
+			queue_preview_icon_update()
 			return TRUE
 
 	return FALSE

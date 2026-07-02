@@ -4,7 +4,7 @@
 	var/color_src = ACCESSORY_COLOR_NONE
 	var/icon_prefix = "m_ears"
 	var/uses_color_suffixes = TRUE
-	var/list/render_layers = list("BEHIND", "ADJ", "ADJs", "FRONT")
+	var/list/render_layers = list(BODY_OVERLAY_LAYER_BEHIND, BODY_OVERLAY_LAYER_ADJ, "ADJs", BODY_OVERLAY_LAYER_FRONT)
 
 /datum/sprite_accessory/ears/none
 	name = "None"
@@ -298,6 +298,48 @@
 /datum/sprite_accessory/ears/mutant_teshari_feathers_thinmaneless
 	name = "Teshari Feathers Thin Mane Fluffless"
 	icon_state = "teshari_feathers_thinmaneless"
+
+/datum/sprite_accessory/ears/chomp_teshari
+	name = "Teshari (CHOMP)"
+	icon = 'ntf_modular/icons/mob/sprite_accessories/chomp_teshari_ears.dmi'
+	icon_state = "chomp_teshari"
+	color_count = 2
+	render_layers = list(BODY_OVERLAY_LAYER_FRONT)
+
+/datum/sprite_accessory/ears/chomp_teshari_high
+	name = "Teshari High (CHOMP)"
+	icon = 'ntf_modular/icons/mob/sprite_accessories/chomp_teshari_ears.dmi'
+	icon_state = "chomp_teshari_high"
+	color_count = 2
+	render_layers = list(BODY_OVERLAY_LAYER_FRONT)
+
+/datum/sprite_accessory/ears/chomp_teshari_low
+	name = "Teshari Low (CHOMP)"
+	icon = 'ntf_modular/icons/mob/sprite_accessories/chomp_teshari_ears.dmi'
+	icon_state = "chomp_teshari_low"
+	color_count = 2
+	render_layers = list(BODY_OVERLAY_LAYER_FRONT)
+
+/datum/sprite_accessory/ears/chomp_teshari_antenna
+	name = "Teshari Antenna (CHOMP)"
+	icon = 'ntf_modular/icons/mob/sprite_accessories/chomp_teshari_ears.dmi'
+	icon_state = "chomp_teshari_antenna"
+	color_count = 1
+	render_layers = list(BODY_OVERLAY_LAYER_FRONT)
+
+/datum/sprite_accessory/ears/chomp_teshari_curly_antenna
+	name = "Teshari Curly Antenna (CHOMP)"
+	icon = 'ntf_modular/icons/mob/sprite_accessories/chomp_teshari_ears.dmi'
+	icon_state = "chomp_teshari_curly_antenna"
+	color_count = 1
+	render_layers = list(BODY_OVERLAY_LAYER_FRONT)
+
+/datum/sprite_accessory/ears/chomp_teshari_bee_antenna
+	name = "Teshari Bee Antenna (CHOMP)"
+	icon = 'ntf_modular/icons/mob/sprite_accessories/chomp_teshari_ears.dmi'
+	icon_state = "chomp_teshari_bee_antenna"
+	color_count = 1
+	render_layers = list(BODY_OVERLAY_LAYER_FRONT)
 
 /datum/sprite_accessory/ears/mutant_deer2
 	name = "Deer 2"

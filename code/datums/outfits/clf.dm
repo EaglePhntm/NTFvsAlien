@@ -5,7 +5,7 @@
 
 	id = /obj/item/card/id/clf
 	ears = /obj/item/radio/headset/distress/dutch
-	w_uniform = /obj/item/clothing/under/colonist
+	w_uniform = /obj/item/clothing/under/colonist/webbing
 	shoes = /obj/item/clothing/shoes/marine/clf/full
 	wear_suit = /obj/item/clothing/suit/modular/clf/cultist_robe
 	gloves = /obj/item/clothing/gloves/black
@@ -19,7 +19,7 @@
 		/obj/item/storage/box/m94 = 1,
 	)
 
-	suit_contents = list(
+	webbing_contents = list(
 		/obj/item/explosive/grenade/stick = 2,
 	)
 
@@ -84,7 +84,7 @@
 	belt = /obj/item/weapon/gun/shotgun/double/sawn
 	suit_store = /obj/item/weapon/gun/smg/skorpion/mag_harness
 
-/datum/outfit/job/clf/standard/shotgun/update_contents()
+/datum/outfit/job/clf/standard/fanatic/update_contents()
 	backpack_contents += list(
 		/obj/item/ammo_magazine/handful/buckshot = 2,
 		/obj/item/explosive/grenade/phosphorus/upp = 1,
@@ -131,7 +131,7 @@
 	belt = /obj/item/storage/belt/lifesaver/full/upp
 	ears = /obj/item/radio/headset/distress/dutch
 	head = /obj/item/clothing/head/tgmcberet/bloodred
-	w_uniform = /obj/item/clothing/under/colonist
+	w_uniform = /obj/item/clothing/under/colonist/webbing
 	shoes = /obj/item/clothing/shoes/marine/clf/full
 	wear_suit = /obj/item/clothing/suit/modular/clf/cultist_robe
 	gloves = /obj/item/clothing/gloves/black
@@ -149,7 +149,7 @@
 		/obj/item/explosive/grenade/incendiary/molotov = 1,
 	)
 
-	suit_contents = list(
+	webbing_contents = list(
 		/obj/item/explosive/grenade/stick = 2,
 	)
 
@@ -221,7 +221,7 @@
 		/obj/item/explosive/plastique = 2,
 	)
 
-	suit_contents = list(
+	webbing_contents = list(
 		/obj/item/explosive/grenade/stick = 2,
 	)
 
@@ -296,9 +296,6 @@
 		/obj/item/explosive/grenade/incendiary/molotov = 2,
 		/obj/item/ammo_magazine/pistol/highpower = 2,
 		/obj/item/explosive/plastique = 2,
-	)
-
-	suit_contents = list(
 		/obj/item/binoculars = 1,
 		/obj/item/radio = 1,
 	)
@@ -486,9 +483,6 @@
 		/obj/item/tool/crowbar/red = 1,
 		/obj/item/storage/box/m94 = 2,
 		/obj/item/ammo_magazine/pistol/highpower = 2,
-	)
-
-	suit_contents = list(
 		/obj/item/binoculars = 1,
 	)
 
