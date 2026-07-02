@@ -3204,7 +3204,7 @@
 
 /obj/item/weapon/gun/rifle/vsd_rifle
 	name = "\improper CC/67 combat rifle"
-	desc = "Crash Core's next-gen combat rifle, chambered in 10x27mm. The KZ SOP manual recommends using the CC/67 at medium range to maximize stopping power and accuracy. The CC/67 has a few caveats for being difficult to handle in close quarters and loses effectiveness at longer distances due to falloff. This Crash Core combat rifle is still hard hitting and suppression worthy, it will pack a kick to anyone standing in front of you."
+	desc = "Crash Core's next-gen combat rifle, chambered in 6.8mm. The KZ SOP manual recommends using the CC/67 at medium range to maximize stopping power and accuracy. The CC/67 has a few caveats for being difficult to handle in close quarters and loses effectiveness at longer distances due to falloff. This Crash Core combat rifle is still hard hitting and suppression worthy, it will pack a kick to anyone standing in front of you."
 	icon = 'icons/obj/items/guns/rifles64.dmi'
 	icon_state = "c550"
 	worn_icon_state = "c550"
@@ -3214,6 +3214,7 @@
 		slot_l_hand_str = 'icons/mob/inhands/guns/rifles_left_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/guns/rifles_right_1.dmi',
 	)
+	caliber = CALIBER_68X43 //codex
 	fire_sound = 'sound/weapons/guns/fire/t21.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/deagle_empty.ogg'
 	unload_sound = 'sound/weapons/guns/interact/m41a_unload.ogg'
@@ -3248,6 +3249,7 @@
 		/obj/item/weapon/gun/pistol/g22/tranq,
 		/obj/item/weapon/gun/flamer/mini_flamer,
 		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/weapon/gun/grenade_launcher/underslung/battle_rifle,
 		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/buildasentry,
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
@@ -3257,17 +3259,18 @@
 
 	attachable_offset = list("muzzle_x" = 63, "muzzle_y" = 19,"rail_x" = 27, "rail_y" = 23, "under_x" = 40, "under_y" = 15, "stock_x" = 8, "stock_y" = 13)
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
+	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.2 SECONDS
 	aim_speed_modifier = 2
 
 	fire_delay = 0.3 SECONDS
-	burst_delay = 0.125 SECONDS
-	extra_delay = 0.225 SECONDS
+	burst_delay = 0.15 SECONDS
+	extra_delay = 0.2 SECONDS
 	accuracy_mult = 1.1
-	scatter = 0
+	scatter = -1
 	burst_amount = 3
 	movement_acc_penalty_mult = 6
-	damage_falloff_mult = 2.5
+	damage_falloff_mult = 2
 
 /obj/item/weapon/gun/rifle/vsd_rifle/standard
 	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/verticalgrip, /obj/item/attachable/extended_barrel)
@@ -3275,15 +3278,44 @@
 /obj/item/weapon/gun/rifle/vsd_rifle/medic
 	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/attachable/verticalgrip, /obj/item/attachable/suppressor)
 
-/obj/item/weapon/gun/rifle/vsd_rifle/export
+/obj/item/weapon/gun/rifle/vsd_rifle/export // Slightly better wield delay, better fire delay, faster burst-cycling, better aim slowdown and slightly better movement accuracy stats in exchange for worse falloff, slightly slower bullet velocity, slightly less base accuracy, less damage, and slightly increased scatter and burst scatter
+	name = "\improper CC/67 exported CQB rifle 'MASADA'"
+	desc = "Crash Core's next-gen combat rifle, chambered in 6.5mm but refurbished for close quarters combat. The rifle maintains its accuracy and has better rate of fire despite the slight increase in spread and different caliber. Fortunately it handles better in close quarters environments than its mass-produced counterpart and has improved ergonomics. Engraved into the receiver lists the name 'MASADA' and notes that it's based on an old-world design."
+	icon = 'ntf_modular/icons/obj/items/guns/rifles64.dmi'
 	icon_state = "c550_export"
 	worn_icon_state = "c550_export"
+	caliber = CALIBER_65X39 //codex
+	fire_sound = 'sound/weapons/guns/fire/t22.ogg'
+	attachable_offset = list("muzzle_x" = 52, "muzzle_y" = 19,"rail_x" = 27, "rail_y" = 23, "under_x" = 40, "under_y" = 15, "stock_x" = 8, "stock_y" = 13)
+	aim_fire_delay = 0.1 SECONDS
+	aim_speed_modifier = 2.5
+	aim_slowdown = 0.45
+	scatter_unwielded = 36
+	akimbo_scatter_mod = 26
+	wield_delay =  1 SECONDS
+	default_ammo_type = /obj/item/ammo_magazine/rifle/vsd_sbr
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/vsd_sbr)
 	worn_icon_list = list(
 		slot_s_store_str = 'ntf_modular/icons/mob/suit_slot.dmi',
 		slot_back_str = 'ntf_modular/icons/mob/clothing/back.dmi',
-		slot_l_hand_str = 'icons/mob/inhands/guns/rifles_left_1.dmi',
-		slot_r_hand_str = 'icons/mob/inhands/guns/rifles_right_1.dmi',
+		slot_l_hand_str = 'ntf_modular/icons/mob/inhands/guns/rifles_left_1.dmi',
+		slot_r_hand_str = 'ntf_modular/icons/mob/inhands/guns/rifles_right_1.dmi',
 	)
+
+	fire_delay = 0.25 SECONDS
+	burst_delay = 0.1 SECONDS
+	extra_delay = 0.2 SECONDS
+	accuracy_mult = 1.05
+	scatter = 4
+	burst_amount = 3
+	movement_acc_penalty_mult = 4
+	damage_falloff_mult = 3
+
+/obj/item/weapon/gun/rifle/vsd_rifle/export/operator
+	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/attachable/verticalgrip, /obj/item/attachable/suppressor)
+
+/obj/item/weapon/gun/rifle/vsd_rifle/export/sof
+	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/angledgrip, /obj/item/attachable/compensator)
 
 // CC/74
 
