@@ -4,7 +4,7 @@
 	desc = "The name isn't descriptive enough?"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "grinder"
-	anchored = TRUE
+	anchored = FALSE
 	density = TRUE
 	coverage = 25
 	var/operating = 0 //Is it on?
