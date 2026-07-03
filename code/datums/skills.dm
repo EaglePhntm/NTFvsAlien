@@ -689,6 +689,17 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	smartgun = SKILL_SMART_TRAINED
 	sex = SKILL_SEX_EXPERT
 
+/datum/skills/champion //to compensate for the lack of specialized starting equipment, the champion is proficient in unarmed, melee, rifles, heavy weapons and smartguns but without building skills has to rely on fellow cultists or the hive for structures & defenses
+	name = "Cultist Champion"
+	unarmed = SKILL_UNARMED_MASTER //What is a champion without capable hands?
+	melee_weapons = SKILL_MELEE_TRAINED //Are you not entertained!?
+	combat = SKILL_COMBAT_TRAINED
+	rifles = SKILL_RIFLES_TRAINED //Champion spawns with at least one weapon this skill will apply to
+	heavy_weapons = SKILL_HEAVY_WEAPONS_TRAINED
+	medical = SKILL_MEDICAL_NOVICE
+	leadership = SKILL_LEAD_BEGINNER
+	smartgun = SKILL_SMART_TRAINED //CoE armory has a chance to spawn a free SG29 the champion can use
+
 /datum/skills/specialist_vsd
 	name = "VSD Specialist" // Curated to represent the KZ Specialist skillset instead of its NT counterpart
 	unarmed = SKILL_UNARMED_TRAINED // Not a master at CQC, but still trained to a smaller degree.
