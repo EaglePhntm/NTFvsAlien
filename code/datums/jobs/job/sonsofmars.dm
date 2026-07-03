@@ -282,7 +282,7 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 	paygrade = "SOM_S1"
 	comm_title = "Vet"
 	total_positions = 8
-	skills_type = /datum/skills/specialist
+	skills_type = /datum/skills/som_specveteran
 	display_order = JOB_DISPLAY_ORDER_SQUAD_SMARTGUNNER
 	minimap_icon = "smartgunner"
 	outfit = /datum/outfit/job/som/squad/veteran
