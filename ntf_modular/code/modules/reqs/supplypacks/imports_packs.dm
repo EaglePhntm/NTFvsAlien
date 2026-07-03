@@ -803,10 +803,28 @@
 	cost = 600
 
 /datum/supply_packs/medical/carpotoxin
-	name = "Carpotoxin Bottle"
+	name = "Carpotoxin Bottle (Faction Supply)"
 	contains = list(/obj/item/reagent_containers/glass/bottle/carpotoxin)
 	faction_lock = list(FACTION_TERRAGOV) //novamed
 	cost = 400
+
+/datum/supply_packs/imports/vx12serpenta
+	name = "VX-12 Serpenta (Faction Supply)"
+	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta)
+	faction_lock = list(FACTION_SOM)
+	cost = 75
+
+/datum/supply_packs/imports/vx32charger
+	name = "VX-32 Charger (Faction Supply)"
+	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/charger)
+	faction_lock = list(FACTION_SOM)
+	cost = 200
+
+/datum/supply_packs/imports/vx33caliver
+	name = "VX-33 Caliver (Faction Supply)"
+	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/caliver)
+	faction_lock = list(FACTION_SOM)
+	cost = 325
 
 /datum/supply_packs/imports/m41a2/ammo/ap
 	name = "PR-412 Pulse Rifle Ammo AP Mag"
