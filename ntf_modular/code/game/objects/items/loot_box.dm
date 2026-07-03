@@ -100,6 +100,7 @@
 
 /obj/item/storage/box/crate/loot/infiltration_lethal_pack_spec/Initialize(mapload)
 	. = ..()
+	new /obj/item/pamphlet/pistoleer(src)
 	new /obj/item/storage/holster/belt/pistol/m4a3/specops(src)
 	new /obj/item/ammo_magazine/pistol/m1911/ap(src)
 	new /obj/item/ammo_magazine/pistol/m1911/ap(src)
