@@ -77,7 +77,7 @@ Your primary goal is to serve the hive, and ultimate goal is to liberate the col
 	)
 
 //Cultist Champion
-/datum/job/clf/champion
+/datum/job/clf/specialist
 	title = "Cultist Champion"
 	paygrade = "CLTC"
 	comm_title = "CLTC"
