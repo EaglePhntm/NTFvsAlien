@@ -34,7 +34,7 @@
 		if(user.skills.getRating(skill) >= max_skills[skill])
 			balloon_alert(user, "nothing to learn!")
 			return
-	if(!do_after(user, 5 SECONDS, NONE, user))
+	if(!do_after(user, 0 SECONDS, NONE, user))
 		return
 	user.set_skills(user.skills.modifyRating(unarmed, melee_weapons, combat, pistols, shotguns, rifles, smgs, heavy_weapons, smartgun, \
 	engineer, construction, leadership, medical, surgery, pilot, police, powerloader, large_vehicle, stamina))
