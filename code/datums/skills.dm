@@ -614,6 +614,10 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	medical = SKILL_MEDICAL_NOVICE
 	surgery = SKILL_SURGERY_AMATEUR
 
+/datum/skills/sl/kz
+	name = "KZ Squad Leader"
+	rifles = SKILL_RIFLES_TRAINED
+
 /datum/skills/sl/clf
 	name = "Cultist Sect Leader"
 	construction = SKILL_CONSTRUCTION_METAL
