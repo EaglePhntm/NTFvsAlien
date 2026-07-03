@@ -3015,7 +3015,7 @@
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
 
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/pamphlet/pistoleer, SLOT_IN_ACCESSORY)
 	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
 
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_R_POUCH)
@@ -3068,9 +3068,7 @@
 	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
 
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/pamphlet/shotgun, SLOT_IN_ACCESSORY)
 	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_ACCESSORY)
 
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/vsd/he, SLOT_IN_L_POUCH)
@@ -3115,7 +3113,7 @@
 	head = /obj/item/clothing/head/helmet/marine/vsd/juggernaut
 	belt = /obj/item/storage/belt/marine
 	suit_store = /obj/item/weapon/gun/minigun/vsd_autocannon
-	l_pocket = /obj/item/storage/pouch/general/large
+	l_pocket = /obj/item/storage/pouch/magazine/large
 	r_pocket = /obj/item/storage/pouch/medical_injectors
 	back = /obj/item/weapon/gun/rifle/som_carbine/black/standard
 	glasses = /obj/item/clothing/glasses/night/vsd/alt
@@ -3130,11 +3128,9 @@
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_HEAD)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_HEAD)
 
-	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/pamphlet/rifleman, SLOT_IN_ACCESSORY)
 	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_ACCESSORY)
 	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_ACCESSORY)
 
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_autocannon, SLOT_IN_L_POUCH)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_autocannon, SLOT_IN_L_POUCH)
@@ -3193,7 +3189,7 @@
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/pamphlet/rifleman, SLOT_IN_BACKPACK)
 
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_SUIT)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, SLOT_IN_SUIT)
