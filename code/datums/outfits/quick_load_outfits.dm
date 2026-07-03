@@ -1688,12 +1688,13 @@
 
 	backpack_contents = list(
 		/obj/item/explosive/plastique = 1,
-		/obj/item/ammo_magazine/pistol/som = 2,
+		/obj/item/ammo_magazine/pistol/som = 1,
 		/obj/item/weapon/gun/pistol/som/standard = 1,
 		/obj/item/ammo_magazine/rifle/som/ap = 2,
 		/obj/item/explosive/grenade/som = 2,
 		/obj/item/storage/box/MRE/som = 1,
 		/obj/item/ammo_magazine/handful/micro_grenade/smoke_burst = 1,
+		/obj/item/pamphlet/rifleman = 1,
 	)
 
 	webbing_contents = list(
@@ -1712,9 +1713,10 @@
 
 	backpack_contents = list(
 		/obj/item/explosive/plastique = 1,
-		/obj/item/ammo_magazine/pistol/som = 2,
+		/obj/item/ammo_magazine/pistol/som = 1,
 		/obj/item/weapon/gun/pistol/som/standard = 1,
 		/obj/item/ammo_magazine/smg/som/ap = 3,
+		/obj/item/pamphlet/smg = 1,
 	)
 
 	webbing_contents = list(
@@ -1830,10 +1832,11 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/MRE/som = 1,
-		/obj/item/ammo_magazine/pistol/som = 2,
+		/obj/item/ammo_magazine/pistol/som = 1,
 		/obj/item/weapon/gun/pistol/som/standard = 1,
 		/obj/item/ammo_magazine/rifle/mpi_km/extended = 1,
 		/obj/item/tool/extinguisher = 1,
+		/obj/item/pamphlet/rifleman = 1,
 	)
 
 	webbing_contents = list(
@@ -1854,6 +1857,7 @@
 		/obj/item/weapon/gun/pistol/som/standard = 1,
 		/obj/item/ammo_magazine/rifle/mpi_km/carbine = 1,
 		/obj/item/tool/extinguisher = 1,
+		/obj/item/pamphlet/rifleman = 1,
 	)
 
 	webbing_contents = list(
@@ -1871,7 +1875,8 @@
 	back = /obj/item/cell/lasgun/volkite/powerpack
 
 	webbing_contents = list(
-		/obj/item/ammo_magazine/handful/buckshot = 3,
+		/obj/item/pamphlet/shotgun = 1,
+		/obj/item/ammo_magazine/handful/buckshot = 2,
 		/obj/item/tool/extinguisher/mini = 1,
 		/obj/item/storage/box/MRE/som = 1,
 	)
@@ -1918,9 +1923,10 @@
 	back = /obj/item/blink_drive
 
 	webbing_contents = list(
-		/obj/item/explosive/grenade/som = 3,
+		/obj/item/explosive/grenade/som = 2,
 		/obj/item/tool/extinguisher/mini = 1,
 		/obj/item/storage/box/MRE/som = 1,
+		/obj/item/pamphlet/pistoleer = 1,
 	)
 
 	belt_contents = list(
@@ -2092,7 +2098,7 @@
 	H.equip_to_slot_or_del(new /obj/item/tool/weldingtool/largetank, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/pamphlet/rifleman, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/volkite, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/som_big, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/som_big, SLOT_IN_BACKPACK)
@@ -4423,8 +4429,8 @@
 
 
 /datum/outfit/quick/icc/guard/icc_rocket
-	name = "MP-IRL & ML-120 Guardsman"
-	desc = "Equipped with an MP-IRL rocket launcher and an ML-120 coilgun. Comes equipped with 5 HE, 2 thermobaric and 2 HE-AT warheads. Serious firepower."
+	name = "MP-IRL & CC67 CQB"
+	desc = "Equipped with an MP-IRL rocket launcher and a CC67 CQB. Comes equipped with 5 HE, 2 thermobaric and 2 HE-AT warheads. Serious firepower."
 
 	belt = /obj/item/storage/belt/marine/icc
 	shoes = /obj/item/clothing/shoes/marine/brown/full
@@ -4433,7 +4439,7 @@
 	head = /obj/item/clothing/head/helmet/marine/cmfreelancer/specialist
 	mask = /obj/item/clothing/mask/bandanna
 	suit_store = /obj/item/weapon/gun/launcher/rocket/icc
-	back = /obj/item/weapon/gun/rifle/icc_coilgun
+	back = /obj/item/weapon/gun/rifle/vsd_rifle/export/sof
 	l_pocket = /obj/item/storage/pouch/explosive/icc
 	r_pocket = /obj/item/storage/pouch/explosive/icc
 
@@ -4445,7 +4451,7 @@
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_HEAD)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
 	
-	H.equip_to_slot_or_del(new /obj/item/deployable_floodlight, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/stack/sandbags/large_stack, SLOT_IN_SUIT)
 	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher, SLOT_IN_SUIT)	
 	
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/icc, SLOT_IN_R_POUCH)
@@ -4456,15 +4462,15 @@
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/icc/thermobaric, SLOT_IN_L_POUCH)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/icc/heat, SLOT_IN_L_POUCH)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/icc/heat, SLOT_IN_L_POUCH)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_sbr, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_sbr, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_sbr, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_sbr, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_sbr, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_sbr, SLOT_IN_BELT)
 	
 	H.equip_to_slot_or_del(new /obj/item/tool/shovel/etool, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/stack/sandbags_empty/half, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/pamphlet/rifleman, SLOT_IN_ACCESSORY)
 	H.equip_to_slot_or_del(new /obj/item/stack/barbed_wire/small_stack, SLOT_IN_ACCESSORY)
 	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_ACCESSORY)
 	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_ACCESSORY)
@@ -4508,7 +4514,7 @@
 	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher, SLOT_IN_SUIT)	
 	
 	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/m15, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/pamphlet/shotgun, SLOT_IN_ACCESSORY)
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/m15, SLOT_IN_ACCESSORY)
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/neuro, SLOT_IN_ACCESSORY)
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/neuro, SLOT_IN_ACCESSORY)
@@ -4556,7 +4562,7 @@
 	
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/pamphlet/rifleman, SLOT_IN_ACCESSORY)
 	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_ACCESSORY)
 	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_ACCESSORY)
 	
@@ -4602,6 +4608,68 @@
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/antigas, SLOT_IN_R_POUCH)
 	
 	H.equip_to_slot_or_del(new /obj/item/tool/shovel/etool, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/binoculars/tactical/range, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/drinks/cans/waterbottle, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_ACCESSORY)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_ACCESSORY)
+
+/datum/outfit/quick/icc/guard/icc_mpar
+	name = "Civilian MPAR & SMG-25 Guardsman"
+	desc = "Equipped with a Civilian Multi-Purpose Adaptive Rifle and SMG-25. Comes equipped with various MPAR mags for long-range protection."
+
+	belt = /obj/item/storage/holster/m25
+	shoes = /obj/item/clothing/shoes/marine/brown/full
+	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
+	head = /obj/item/clothing/head/modular/style/boonie
+	mask = /obj/item/clothing/mask/bandanna
+	wear_suit = /obj/item/clothing/suit/storage/marine/cmfreelancer
+	suit_store = /obj/item/weapon/gun/rifle/mpar/export
+	back = /obj/item/storage/backpack/lightpack/cm
+	l_pocket = /obj/item/storage/pouch/general/large
+	r_pocket = /obj/item/storage/pouch/grenade
+
+/datum/outfit/quick/icc/guard/icc_mpar/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
+	
+	H.equip_to_slot_or_del(new /obj/item/storage/box/explosive_mines/large, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/explosive_mines/antitank, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/stack/sandbags/large_stack, SLOT_IN_SUIT)
+	H.equip_to_slot_or_del(new /obj/item/tool/shovel/etool, SLOT_IN_SUIT)
+	
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/m25/holstered, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25, SLOT_IN_BELT)
+	
+	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpar, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpar, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpar, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpar, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpar, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpar, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpar, SLOT_IN_BACKPACK)
+
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpar/bomb, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpar/bomb, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpar/drain, SLOT_IN_L_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpar/drain, SLOT_IN_L_POUCH)
+	
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/cloak, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/cloak, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/antigas, SLOT_IN_R_POUCH)
+	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/antigas, SLOT_IN_R_POUCH)
+	
+	H.equip_to_slot_or_del(new /obj/item/pamphlet/rifleman, SLOT_IN_ACCESSORY)
 	H.equip_to_slot_or_del(new /obj/item/binoculars/tactical/range, SLOT_IN_ACCESSORY)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/drinks/cans/waterbottle, SLOT_IN_ACCESSORY)
 	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_ACCESSORY)
