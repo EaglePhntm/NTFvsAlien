@@ -165,6 +165,7 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 /datum/job/som/squad/engineer
 	title = SOM_SQUAD_ENGINEER
 	access = list (ACCESS_SOM_DEFAULT,ACCESS_SOM_REQUESITIONS,ACCESS_SOM_ENGINEERING,ACCESS_SOM_REQUESITIONS,ACCESS_MARINE_ENGINEERING,ACCESS_CIVILIAN_ENGINEERING)
+	minimal_access = list(ACCESS_SOM_DEFAULT,ACCESS_SOM_REQUESITIONS,ACCESS_SOM_ENGINEERING,ACCESS_SOM_REQUESITIONS,ACCESS_MARINE_ENGINEERING,ACCESS_CIVILIAN_ENGINEERING)
 	paygrade = "SOM_E3"
 	comm_title = "Eng"
 	total_positions = 12
@@ -222,6 +223,7 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 /datum/job/som/squad/medic
 	title = SOM_SQUAD_CORPSMAN
 	access = list (ACCESS_SOM_DEFAULT,ACCESS_SOM_MEDICAL,ACCESS_SOM_REQUESITIONS)
+	minimal_access = list (ACCESS_SOM_DEFAULT,ACCESS_SOM_MEDICAL,ACCESS_SOM_REQUESITIONS)
 	paygrade = "SOM_E3"
 	comm_title = "Med"
 	total_positions = 16
@@ -278,7 +280,8 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 
 /datum/job/som/squad/veteran
 	title = SOM_SQUAD_VETERAN
-	access = list (ACCESS_SOM_DEFAULT,ACCESS_SOM_VETERAN,ACCESS_SOM_REQUESITIONS,,ACCESS_SOM_TADPOLE)
+	access = list (ACCESS_SOM_DEFAULT,ACCESS_SOM_VETERAN,ACCESS_SOM_REQUESITIONS,ACCESS_SOM_TADPOLE)
+	minimal_access = list (ACCESS_SOM_DEFAULT,ACCESS_SOM_VETERAN,ACCESS_SOM_REQUESITIONS,ACCESS_SOM_TADPOLE)
 	paygrade = "SOM_S1"
 	comm_title = "Vet"
 	total_positions = 8
@@ -331,6 +334,7 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 /datum/job/som/squad/leader
 	title = SOM_SQUAD_LEADER
 	access = list (ACCESS_SOM_DEFAULT,ACCESS_SOM_REQUESITIONS,ACCESS_SOM_SQUADLEADER,ACCESS_SOM_TADPOLE)
+	minimal_access = list (ACCESS_SOM_DEFAULT,ACCESS_SOM_REQUESITIONS,ACCESS_SOM_SQUADLEADER,ACCESS_SOM_TADPOLE)
 	req_admin_notify = TRUE
 	paygrade = "SOM_S3"
 	comm_title = JOB_COMM_TITLE_SQUAD_LEADER
