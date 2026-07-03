@@ -316,6 +316,13 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	pistols = SKILL_PISTOLS_TRAINED
 	police = SKILL_POLICE_MP
 
+/datum/skills/civilian/survivor/nondeployedoperator
+	name = "Non-Deployed Operative Colonist"
+	engineer = SKILL_ENGINEER_ENGI //to hack airlocks so they're never stuck in a room.
+	combat = SKILL_COMBAT_TRAINED //even if non-deployed, they still have combat training
+	construction = SKILL_CONSTRUCTION_METAL
+	medical = SKILL_MEDICAL_NOVICE
+
 /datum/skills/combat_engineer
 	name = SQUAD_ENGINEER
 	engineer = SKILL_ENGINEER_ENGI
@@ -644,6 +651,15 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	police = SKILL_POLICE_MP
 	smgs = SKILL_SMGS_TRAINED
 
+/datum/skills/spec_icc // Depending on the quik-e-quip loadout, may get an additional skill for either rifles or shotguns
+	name = "CM Guardsman"
+	unarmed = SKILL_UNARMED_TRAINED // Not a master at CQC, but still trained to a smaller degree.
+	heavy_weapons = SKILL_HEAVY_WEAPONS_TRAINED
+	construction = SKILL_CONSTRUCTION_METAL
+	medical = SKILL_MEDICAL_NOVICE
+	engineer = SKILL_ENGINEER_METAL
+	leadership = SKILL_LEAD_BEGINNER
+
 /datum/skills/sl/icc
 	name = "CM Leader"
 	combat = SKILL_COMBAT_TRAINED
@@ -961,6 +977,16 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	melee_weapons = SKILL_MELEE_DEFAULT
 	pistols = SKILL_PISTOLS_TRAINED
 	police = SKILL_POLICE_MP
+
+//SOM spec veteran
+/datum/skills/som_specveteran //to distinguish from other spec roles, quik-e-quip loadouts may have a pamphlet for rifle, pistol, or shotgun skill
+	name = "SOM Veteran"
+	leadership = SKILL_LEAD_BEGINNER
+	unarmed = SKILL_UNARMED_TRAINED
+	melee_weapons = SKILL_MELEE_TRAINED
+	construction = SKILL_CONSTRUCTION_METAL
+	engineer = SKILL_ENGINEER_METAL
+	medical = SKILL_MEDICAL_NOVICE
 
 //SOM veterans
 /datum/skills/som_veteran
