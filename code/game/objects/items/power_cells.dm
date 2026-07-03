@@ -76,7 +76,7 @@
 	if(!rigged)
 		return ..()
 
-	if(issynth(user) && !CONFIG_GET(flag/allow_synthetic_gun_use))
+	if(issynth(user) && (SSsecurity_level.get_current_level_as_number() < SEC_LEVEL_RED) && !CONFIG_GET(flag/allow_synthetic_gun_use))
 		to_chat(user, span_warning("Your programming restricts using rigged power cells."))
 		return
 	log_bomber(user, "primed a rigged", src)
@@ -103,7 +103,7 @@
 	if(istype(I, /obj/item/reagent_containers/syringe))
 		var/obj/item/reagent_containers/syringe/S = I
 
-		if(issynth(user) && !CONFIG_GET(flag/allow_synthetic_gun_use))
+		if(issynth(user) && (SSsecurity_level.get_current_level_as_number() < SEC_LEVEL_RED) && !CONFIG_GET(flag/allow_synthetic_gun_use))
 			to_chat(user, span_warning("Your programming restricts rigging of power cells."))
 			return
 
@@ -114,7 +114,7 @@
 		S.reagents.clear_reagents()
 
 	else if(ismultitool(I))
-		if(issynth(user) && !CONFIG_GET(flag/allow_synthetic_gun_use))
+		if(issynth(user) && (SSsecurity_level.get_current_level_as_number() < SEC_LEVEL_RED) && !CONFIG_GET(flag/allow_synthetic_gun_use))
 			to_chat(user, span_warning("Your programming restricts rigging of power cells."))
 			return
 		var/skill = user.skills.getRating(SKILL_ENGINEER)

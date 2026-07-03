@@ -46,7 +46,7 @@
 		balloon_alert(user, "not enough dexterity!")
 		return
 
-	if(issynth(user) && lethal && !CONFIG_GET(flag/allow_synthetic_gun_use))
+	if(issynth(user) && dangerous && (SSsecurity_level.get_current_level_as_number() < SEC_LEVEL_RED) && !CONFIG_GET(flag/allow_synthetic_gun_use))
 		balloon_alert(user, "against your programming!")
 		return
 

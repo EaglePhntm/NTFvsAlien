@@ -123,7 +123,7 @@
 		return TRUE
 	if(human_user.interactee) //Make sure we're not manning two guns at once, tentacle arms.
 		human_user.unset_interaction()
-	if(issynth(human_user) && !CONFIG_GET(flag/allow_synthetic_gun_use))
+	if(issynth(human_user) && (SSsecurity_level.get_current_level_as_number() < SEC_LEVEL_RED) && !CONFIG_GET(flag/allow_synthetic_gun_use))
 		to_chat(human_user, span_warning("Your programming restricts operating heavy weaponry."))
 		return TRUE
 

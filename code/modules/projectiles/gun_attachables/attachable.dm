@@ -485,7 +485,7 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	if(source.Adjacent(object))
 		return
 	var/mob/living/user = master_gun.gun_user
-	if(user.incapacitated() || LAZYACCESS(user.do_actions, src) || !user.dextrous || (!(CHECK_BITFIELD(master_gun.gun_features_flags, GUN_ALLOW_SYNTHETIC) || (master_gun.ammo_datum_type && (master_gun.ammo_datum_type.damage_type == STAMINA || master_gun.ammo_datum_type.damage < 0))) && !CONFIG_GET(flag/allow_synthetic_gun_use) && issynth(user)))
+	if(user.incapacitated() || LAZYACCESS(user.do_actions, src) || !user.dextrous || (!(CHECK_BITFIELD(master_gun.gun_features_flags, GUN_ALLOW_SYNTHETIC) || (master_gun.ammo_datum_type && (master_gun.ammo_datum_type.damage_type == STAMINA || master_gun.ammo_datum_type.damage < 0))) && (SSsecurity_level.get_current_level_as_number() < SEC_LEVEL_RED) && !CONFIG_GET(flag/allow_synthetic_gun_use) && issynth(user)))
 		return
 	var/active_hand = user.get_active_held_item()
 	var/inactive_hand = user.get_inactive_held_item()
@@ -529,6 +529,6 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 		to_chat(user, span_warning("[src] beeps. Guns or shields in your hands are interfering with its targetting. Stopping fire."))
 		master_gun.stop_fire()
 		return
-	if(!user.incapacitated() && !LAZYACCESS(user.do_actions, src) && user.dextrous && (CHECK_BITFIELD(master_gun.gun_features_flags, GUN_ALLOW_SYNTHETIC) || (master_gun.ammo_datum_type && (master_gun.ammo_datum_type.damage_type == STAMINA || master_gun.ammo_datum_type.damage < 0)) || CONFIG_GET(flag/allow_synthetic_gun_use) || !issynth(user)))
+	if(!user.incapacitated() && !LAZYACCESS(user.do_actions, src) && user.dextrous && (CHECK_BITFIELD(master_gun.gun_features_flags, GUN_ALLOW_SYNTHETIC) || (master_gun.ammo_datum_type && (master_gun.ammo_datum_type.damage_type == STAMINA || master_gun.ammo_datum_type.damage < 0)) || CONFIG_GET(flag/allow_synthetic_gun_use) || (SSsecurity_level.get_current_level_as_number() >= SEC_LEVEL_RED) || !issynth(user)))
 		return
 	master_gun.stop_fire()

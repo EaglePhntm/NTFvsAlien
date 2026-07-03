@@ -138,7 +138,7 @@
 	if(istype(I, /obj/item/explosive/grenade))
 		var/obj/item/explosive/grenade/G = I
 
-		if(issynth(user) && G.lethal && !CONFIG_GET(flag/allow_synthetic_gun_use))
+		if(issynth(user) && G.lethal && (SSsecurity_level.get_current_level_as_number() < SEC_LEVEL_RED) && !CONFIG_GET(flag/allow_synthetic_gun_use))
 			to_chat(user, span_warning("Your programming prevents you from doing this."))
 			return
 

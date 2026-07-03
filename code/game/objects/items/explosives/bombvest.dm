@@ -28,7 +28,7 @@
 ///Overwrites the parent function for activating a light. Instead it now detonates the bomb.
 /obj/item/clothing/suit/storage/marine/boomvest/attack_self(mob/user)
 	var/mob/living/carbon/human/activator = user
-	if(issynth(activator) && !CONFIG_GET(flag/allow_synthetic_gun_use))
+	if(issynth(activator) && (SSsecurity_level.get_current_level_as_number() < SEC_LEVEL_RED) && !CONFIG_GET(flag/allow_synthetic_gun_use))
 		balloon_alert(user, "against your programming!")
 		return TRUE
 	if(user.alpha != 255)
