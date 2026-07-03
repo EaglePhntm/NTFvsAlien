@@ -1,0 +1,4 @@
+author: "CaputCapital"
+delete-after: True
+changes:
+  - rscadd: "meats, ingredients, sake, more kitchen appliances, hydroponics and seeds to requisitions imports"

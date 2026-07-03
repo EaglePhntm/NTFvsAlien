@@ -175,6 +175,9 @@
 	/// Should [/datum/component/autobalance_monitor] be given? If so, what value should it use?
 	var/autobalance_monitor_value
 
+	//ntf addition, determines who can see a item from cryo storage
+	var/cryoed_faction
+
 /obj/item/Initialize(mapload)
 	if(species_exception)
 		species_exception = string_list(species_exception)

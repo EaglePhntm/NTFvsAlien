@@ -208,7 +208,7 @@
 		"unarmed","melee_weapons","combat","pistols","shotguns",
 		"rifles","smgs","heavy_weapons","smartgun","engineer",
 		"construction","leadership","medical","surgery","pilot",
-		"police","powerloader","large_vehicle","mech","stamina","sex")
+		"police","powerloader","large_vehicle","mech","stamina","sex","chemistry")
 	var/list/old_values = list()
 	for(var/skill in skill_names)
 		old_values[skill] = target.skills.vars[skill]
@@ -263,7 +263,7 @@
 		"unarmed","melee_weapons","combat","pistols","shotguns",
 		"rifles","smgs","heavy_weapons","smartgun","engineer",
 		"construction","leadership","medical","surgery","pilot",
-		"police","powerloader","large_vehicle","mech","stamina","sex")
+		"police","powerloader","large_vehicle","mech","stamina","sex","chemistry")
 	for(var/skill in skill_names)
 		var/base_value = target_base.vars[skill]
 		var/disk_value = disk_skills.vars[skill]
@@ -366,7 +366,7 @@
 		"unarmed","melee_weapons","combat","pistols","shotguns",
 		"rifles","smgs","heavy_weapons","smartgun","engineer",
 		"construction","leadership","medical","surgery","pilot",
-		"police","powerloader","large_vehicle","mech","stamina","sex")
+		"police","powerloader","large_vehicle","mech","stamina","sex","chemistry")
 	for(var/skill in skill_names)
 		pre_extraction_skills[skill] = current_skills.vars[skill]
 		if(current_skills.vars[skill] > 0)
@@ -513,7 +513,7 @@
 			"unarmed","melee_weapons","combat","pistols","shotguns",
 			"rifles","smgs","heavy_weapons","smartgun","engineer",
 			"construction","leadership","medical","surgery","pilot",
-			"police","powerloader","large_vehicle","mech","stamina","sex")
+			"police","powerloader","large_vehicle","mech","stamina","sex","chemistry")
 		for(var/skill in skill_names)
 			var/base_value = target.base_skills.vars[skill]
 			var/current_value = target.skills.vars[skill]

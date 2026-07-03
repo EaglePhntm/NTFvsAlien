@@ -329,7 +329,7 @@
 			else
 				var/datum/skills/current_skills = human_occupant.skills
 				var/skills_changed = FALSE
-				var/list/skill_names = list("unarmed","melee_weapons","combat","pistols","shotguns","rifles","smgs","heavy_weapons","smartgun","engineer","construction","leadership","medical","surgery","pilot","police","powerloader","large_vehicle","mech","stamina","sex")
+				var/list/skill_names = list("unarmed","melee_weapons","combat","pistols","shotguns","rifles","smgs","heavy_weapons","smartgun","engineer","construction","leadership","medical","surgery","pilot","police","powerloader","large_vehicle","mech","stamina","sex","chemistry")
 				for(var/skill in skill_names)
 					var/current_value = current_skills.vars[skill]
 					var/pre_value = extract_effect.pre_extraction_skills[skill]

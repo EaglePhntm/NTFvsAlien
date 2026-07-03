@@ -89,7 +89,7 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 /obj/machinery/conveyor/wrench_act(mob/living/user, obj/item/I)
 	if(machine_stat & BROKEN)
 		return TRUE
-	I.play_tool_sound(src)
+	I.play_tool_sound(src, 50)
 	setDir(turn(dir,-45))
 	update_move_direction()
 	to_chat(user, span_notice("You rotate [src]."))

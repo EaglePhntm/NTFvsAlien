@@ -51,6 +51,9 @@
 				if(QDELETED(I))
 					GLOB.cryoed_item_list_gun -= I
 					continue
+				if(user && I.cryoed_faction)
+					if(user.faction != I.cryoed_faction)
+						continue
 				dat += "<p style='text-align:left'><a href='byond://?src=[text_ref(src)];item=[text_ref(I)]'>[I.name]</a></p>"
 		if(STATE_AMMO)
 			dat += "<center>Ammo</center><br/>"
@@ -58,6 +61,9 @@
 				if(QDELETED(I))
 					GLOB.cryoed_item_list_ammo -= I
 					continue
+				if(user && I.cryoed_faction)
+					if(user.faction != I.cryoed_faction)
+						continue
 				dat += "<p style='text-align:left'><a href='byond://?src=[text_ref(src)];item=[text_ref(I)]'>[I.name]</a></p>"
 		if(STATE_EXPLOSIVE)
 			dat += "<center>Explosives</center><br/>"
@@ -65,6 +71,9 @@
 				if(QDELETED(I))
 					GLOB.cryoed_item_list_explosive -= I
 					continue
+				if(user && I.cryoed_faction)
+					if(user.faction != I.cryoed_faction)
+						continue
 				dat += "<p style='text-align:left'><a href='byond://?src=[text_ref(src)];item=[text_ref(I)]'>[I.name]</a></p>"
 		if(STATE_MELEE)
 			dat += "<center>Melee</center><br/>"
@@ -72,6 +81,9 @@
 				if(QDELETED(I))
 					GLOB.cryoed_item_list_melee -= I
 					continue
+				if(user && I.cryoed_faction)
+					if(user.faction != I.cryoed_faction)
+						continue
 				dat += "<p style='text-align:left'><a href='byond://?src=[text_ref(src)];item=[text_ref(I)]'>[I.name]</a></p>"
 		if(STATE_CLOTHING)
 			dat += "<center>Clothing</center><br/>"
@@ -79,6 +91,9 @@
 				if(QDELETED(I))
 					GLOB.cryoed_item_list_clothing -= I
 					continue
+				if(user && I.cryoed_faction)
+					if(user.faction != I.cryoed_faction)
+						continue
 				dat += "<p style='text-align:left'><a href='byond://?src=[text_ref(src)];item=[text_ref(I)]'>[I.name]</a></p>"
 		if(STATE_FOOD)
 			dat += "<center>Food</center><br/>"
@@ -86,6 +101,9 @@
 				if(QDELETED(I))
 					GLOB.cryoed_item_list_food -= I
 					continue
+				if(user && I.cryoed_faction)
+					if(user.faction != I.cryoed_faction)
+						continue
 				dat += "<p style='text-align:left'><a href='byond://?src=[text_ref(src)];item=[text_ref(I)]'>[I.name]</a></p>"
 		if(STATE_DRUGS)
 			dat += "<center>Drugs</center><br/>"
@@ -93,6 +111,9 @@
 				if(QDELETED(I))
 					GLOB.cryoed_item_list_drugs -= I
 					continue
+				if(user && I.cryoed_faction)
+					if(user.faction != I.cryoed_faction )
+						continue
 				dat += "<p style='text-align:left'><a href='byond://?src=[text_ref(src)];item=[text_ref(I)]'>[I.name]</a></p>"
 		if(STATE_CONTAINERS)
 			dat += "<center>Containers</center><br/>"
@@ -100,6 +121,9 @@
 				if(QDELETED(I))
 					GLOB.cryoed_item_list_containers -= I
 					continue
+				if(user && I.cryoed_faction)
+					if(user.faction != I.cryoed_faction )
+						continue
 				dat += "<p style='text-align:left'><a href='byond://?src=[text_ref(src)];item=[text_ref(I)]'>[I.name]</a></p>"
 		if(STATE_OTHER)
 			dat += "<center>Other</center><br/>"
@@ -107,6 +131,9 @@
 				if(QDELETED(I))
 					GLOB.cryoed_item_list_other -= I
 					continue
+				if(user && I.cryoed_faction)
+					if(user.faction != I.cryoed_faction )
+						continue
 				dat += "<p style='text-align:left'><a href='byond://?src=[text_ref(src)];item=[text_ref(I)]'>[I.name]</a></p>"
 	dat += "<hr/>"
 
@@ -194,6 +221,9 @@
 			if(STATE_OTHER)
 				combined_list = GLOB.cryoed_item_list_other
 		for(var/obj/item/I in combined_list)
+			if(usr && I.cryoed_faction)
+				if(usr.faction != I.cryoed_faction )
+					continue
 			dispense_item(I, usr, FALSE)
 
 	updateUsrDialog()
@@ -329,7 +359,7 @@
 
 	for(var/obj/item/W in src)
 		temporarilyRemoveItemFromInventory(W)
-		W.store_in_cryo()
+		W.store_in_cryo(faction)
 
 	for(var/datum/data/record/R in GLOB.datacore.medical)
 		if((R.fields["name"] == real_name))
@@ -358,15 +388,17 @@
 	assigned_squad?.remove_from_squad(src)
 	return ..()
 
-/obj/item/proc/store_in_cryo()
+/obj/item/proc/store_in_cryo(to_faction)
 	if(is_type_in_typecache(src, GLOB.do_not_preserve) || HAS_TRAIT(src, TRAIT_NODROP) || (item_flags & (ITEM_ABSTRACT|DELONDROP)))
 		if(!QDELETED(src))
 			qdel(src)
 		return
+	if(to_faction)
+		cryoed_faction = to_faction
 	if(storage_datum)
 		for(var/obj/item/item_in_storage AS in src)
 			storage_datum.remove_from_storage(item_in_storage)
-			item_in_storage.store_in_cryo()
+			item_in_storage.store_in_cryo(to_faction)
 	moveToNullspace()
 	if(istype(src, /obj/item/weapon/gun))
 		GLOB.cryoed_item_list_gun += src

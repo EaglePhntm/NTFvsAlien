@@ -6,7 +6,8 @@
 	icon_state = "juicer1"
 	layer = BELOW_OBJ_LAYER
 	density = FALSE
-	anchored = FALSE
+	anchored = TRUE
+	wrenchable = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 5
 	active_power_usage = 100

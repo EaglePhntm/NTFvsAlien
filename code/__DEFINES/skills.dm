@@ -188,3 +188,9 @@
 #define SKILL_SEX_TRAINED 1
 #define SKILL_SEX_EXPERT 2
 #define SKILL_SEX_MASTER 3
+
+#define SKILL_CHEM "chemistry"
+
+#define SKILL_CHEM_DEFAULT 0
+#define SKILL_CHEM_TRAINED 1
+#define SKILL_CHEM_EXPERT 2

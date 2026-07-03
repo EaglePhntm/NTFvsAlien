@@ -138,7 +138,7 @@
 		return TRUE
 	TOGGLE_BITFIELD(machine_stat, PANEL_OPEN)
 	to_chat(user, span_notice("You screw the camera's panel [CHECK_BITFIELD(machine_stat, PANEL_OPEN) ? "open" : "closed"]."))
-	I.play_tool_sound(src)
+	I.play_tool_sound(src, 50)
 	update_icon()
 	return TRUE
 
@@ -148,7 +148,7 @@
 		return FALSE
 	repair_damage(max_integrity, user)
 	toggle_cam(user, TRUE)
-	I.play_tool_sound(src)
+	I.play_tool_sound(src, 50)
 	update_icon()
 	return TRUE
 

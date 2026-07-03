@@ -401,3 +401,25 @@
 	machine_stat |= DISABLED
 	density = FALSE
 	update_appearance()
+
+//ntf addition why the fuck isnt this a thing
+/obj/machinery/wrench_act(mob/living/user, obj/item/I)
+	if(!user.Adjacent(src))
+		return
+	if(!wrenchable)
+		to_chat(user, span_warning("You can't unanchor [src]."))
+		return
+	if(!do_after(user, 1 SECONDS, NONE, src, BUSY_ICON_BUILD))
+		return
+	I.play_tool_sound(src, 50)
+	anchored = !anchored
+	if(anchored)
+		user.visible_message(
+			"[user] anchors \the [src].",
+			span_notice("You anchor \the [src]."),
+			span_italics("You hear ratchet."))
+	else
+		user.visible_message(
+			"[user] unanchors \the [src].",
+			span_notice("You unanchor \the [src]."),
+			span_italics("You hear ratchet."))

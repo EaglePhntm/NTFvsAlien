@@ -63,7 +63,7 @@
 /obj/machinery/transport/destination_sign/indicator/wrench_act_secondary(mob/living/user, obj/item/tool)
 	. = ..()
 	balloon_alert(user, "[anchored ? "un" : ""]securing...")
-	tool.play_tool_sound(src)
+	tool.play_tool_sound(src, 50)
 	if(tool.use_tool(src, user, 6 SECONDS))
 		playsound(loc, 'sound/items/deconstruct.ogg', 50, vary = TRUE)
 		balloon_alert(user, "[anchored ? "un" : ""]secured")

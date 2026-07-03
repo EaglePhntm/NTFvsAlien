@@ -303,7 +303,7 @@
 
 /obj/item/clothing/suit/modular/rownin/emp_act(severity)
 	. = ..()
-	wearer.add_movespeed_modifier("rownin_emp", 10, override = TRUE, multiplicative_slowdown = slowdown * -1, conflict = TRUE)
+	wearer.add_movespeed_modifier("rownin_emp", TRUE, 10, override = TRUE, multiplicative_slowdown = slowdown * -1, conflict = TRUE)
 	addtimer(CALLBACK(src, PROC_REF(rownin_emp_end), wearer), severity * 2 SECONDS)
 
 /obj/item/clothing/suit/modular/rownin/proc/rownin_emp_end(mob/living/carbon/human/wearussy)
