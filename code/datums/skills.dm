@@ -669,13 +669,12 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	engineer = SKILL_ENGINEER_ENGI
 	stamina = SKILL_STAMINA_TRAINED
 
-/datum/skills/specialist
+/datum/skills/specialist //smartgun skill was cut since NTF spec has two options for smartweaponry that doesn't require smartgun skill, SR-81 autosniper & MPA rifle
 	name = SQUAD_SPECIALIST
 	unarmed = SKILL_UNARMED_MASTER //Snake, remember some of the basics of CQC.
 	construction = SKILL_CONSTRUCTION_METAL
 	engineer = SKILL_ENGINEER_METAL //to use c4 in scout set.
 	medical = SKILL_MEDICAL_NOVICE
-	smartgun = SKILL_SMART_TRAINED
 	leadership = SKILL_LEAD_BEGINNER
 
 /datum/skills/specialist/vanguard
