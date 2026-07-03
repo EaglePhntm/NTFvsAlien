@@ -223,7 +223,7 @@ GLOBAL_LIST_INIT(smartgunner_gear_listed_products, list(
 	/obj/item/ammo_magazine/rifle/standard_spottingrifle/incendiary = list(CAT_SGSUP, "SG-153 Spotting Rifle Incendiary Magazine", 1, "black"),
 	))
 
-//specialists are 2 classes pretty much, was gonna be 3 but people keep bitching.
+//specialists are 2 classes pretty much, was gonna be 3 but people keep bitching. Now it's 4.
 //Hybrid: Specialized Riflemen, be it direct warfare, long range or frontline support, they have the means available.
 //Enforcer (unimplemented): Heavy chunky boys for direct warfare.
 //Recon: Long range specialists, usually snipers, able to find targets with NVG.
@@ -237,7 +237,7 @@ GLOBAL_LIST_INIT(specialist_gear_listed_products, list(
 	/obj/item/storage/box/crate/loot/scoutrifle_pack_spec = list(CAT_SPSUP, "Recon Scout Class 2 (BR-8 Scout Rifle, Mines, NVG)", 25, "black"),
 	/obj/item/storage/box/crate/loot/moonbeam_pack_spec = list(CAT_SPSUP, "Recon Moonbeam Class (Moonbeam Nonlethal sniper, Mines, NVG, Sniper cloak)", 25, "black"),
 	/obj/item/storage/box/crate/loot/infiltration_pack_spec = list(CAT_SPSUP, "Infiltrator Tranq Class (Sneaking suit, G22 Tranq Pistol, Nonlethal Gear, NVG, Scout Cloak)", 25, "black"),
-	/obj/item/storage/box/crate/loot/infiltration_lethal_pack_spec = list(CAT_SPSUP, "Infiltrator Lethal Class (Sneaking suit, M4A3 AP Pistol, Lethal Gear, NVG, Scout Cloak)", 25, "black"),
+	/obj/item/storage/box/crate/loot/infiltration_lethal_pack_spec = list(CAT_SPSUP, "Infiltrator Lethal Class (Sneaking suit, M4A3 AP Pistol, Pistol Pamphlet, Lethal Gear, NVG, Scout Cloak)", 25, "black"),
 	/obj/item/storage/box/crate/loot/gheist_pack_spec = list(CAT_SPSUP, "MPAR Hybrid Class (NVG, Light Footed skillsoft, Rifle Pamphlet, NTF Multi-Purpose Adaptive Rifle)", 25, "orange"),
 	/obj/item/storage/box/crate/loot/mg_pack_spec = list(CAT_SPSUP, "Enforcer Gunner Class (MG27-E, Impr. Constitution skillsoft)", 25, "black"),
 	/obj/item/storage/box/crate/loot/shield_pack_spec = list(CAT_SPSUP, "Enforcer Defender Class (Soulsteel shield, Extreme Constitution skillsoft, valkyrie module)", 25, "black"),
