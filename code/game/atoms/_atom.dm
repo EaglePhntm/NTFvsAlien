@@ -288,7 +288,11 @@ directive is properly returned.
 /atom/proc/set_greyscale_colors(list/colors, update=TRUE)
 	SHOULD_CALL_PARENT(TRUE)
 	if(istype(colors))
+		if(!length(colors))
+			return
 		colors = colors.Join("")
+	if(!colors)
+		return
 	if(greyscale_colors == colors)
 		return
 	greyscale_colors = colors
@@ -1029,4 +1033,3 @@ directive is properly returned.
 		if(new_alpha >= alpha)
 			continue
 		alpha = new_alpha
-

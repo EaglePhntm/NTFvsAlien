@@ -89,6 +89,8 @@ GLOBAL_LIST_INIT(marking_zone_to_bitflag, list(
 
 	var/list/emissive_layers = list()
 	for(var/zone in GLOB.marking_zones)
+		if(visual_bodypart_hidden(zone))
+			continue
 		var/list/zone_markings = body_markings[zone]
 		if(!length(zone_markings))
 			continue
@@ -324,6 +326,8 @@ GLOBAL_LIST_INIT(marking_zone_to_bitflag, list(
 	ensure_body_marking_references()
 
 	for(var/zone in GLOB.marking_zones)
+		if(visual_bodypart_hidden(zone))
+			continue
 		var/list/zone_markings = body_markings[zone]
 		if(!length(zone_markings))
 			continue

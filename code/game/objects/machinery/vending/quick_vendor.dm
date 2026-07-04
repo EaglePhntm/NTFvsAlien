@@ -125,6 +125,7 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 		/datum/outfit/quick/icc/guard/icc_autoshotgun,
 		/datum/outfit/quick/icc/guard/icc_m16fl240,
 		/datum/outfit/quick/icc/guard/icc_hpr,
+		/datum/outfit/quick/icc/guard/icc_mpar,
 		/datum/outfit/quick/icc/leader/icc_famas,
 		/datum/outfit/quick/icc/leader/icc_confrontationrifle,
 		/datum/outfit/quick/icc/leader/icc_m16masterkey,

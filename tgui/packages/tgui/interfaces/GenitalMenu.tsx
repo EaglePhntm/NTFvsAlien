@@ -12,6 +12,8 @@ import { Window } from '../layouts';
 
 interface InputData {
   cockState: string;
+  cockStorage: string;
+  cockDisplayState: string;
   assState: string;
   boobState: string;
   vaginaState: string;
@@ -23,6 +25,8 @@ interface InputData {
   bellySize: number;
   testicleSize: number;
   possibleCockStates: string[];
+  possibleCockStorage: string[];
+  possibleCockDisplayStates: string[];
   possibleAssStates: string[];
   possibleBoobStates: string[];
   possibleVaginaStates: string[];
@@ -35,6 +39,8 @@ export const GenitalMenu = (props: any, context: any) => {
   const { act, data } = useBackend<InputData>();
   const {
     cockState,
+    cockStorage,
+    cockDisplayState,
     assState,
     boobState,
     vaginaState,
@@ -46,6 +52,8 @@ export const GenitalMenu = (props: any, context: any) => {
     bellySize,
     testicleSize,
     possibleCockStates,
+    possibleCockStorage,
+    possibleCockDisplayStates,
     possibleAssStates,
     possibleBoobStates,
     possibleVaginaStates,
@@ -67,6 +75,30 @@ export const GenitalMenu = (props: any, context: any) => {
                   selected={cockState ? cockState : 'Default'}
                   onSelected={(e: string) =>
                     act('changeCock', {
+                      newState: e,
+                    })
+                  }
+                />
+              </LabeledList.Item>
+              {cockState && cockState !== 'Default' && cockState !== 'Human' ? (
+                <LabeledList.Item label="Penis Sheath">
+                  <Dropdown
+                    options={possibleCockStorage}
+                    selected={cockStorage ? cockStorage : 'None'}
+                    onSelected={(e: string) =>
+                      act('changeCockStorage', {
+                        newState: e,
+                      })
+                    }
+                  />
+                </LabeledList.Item>
+              ) : null}
+              <LabeledList.Item label="Penis Display">
+                <Dropdown
+                  options={possibleCockDisplayStates}
+                  selected={cockDisplayState ? cockDisplayState : 'Flaccid'}
+                  onSelected={(e: string) =>
+                    act('changeCockDisplayState', {
                       newState: e,
                     })
                   }

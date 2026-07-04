@@ -269,7 +269,7 @@
 	///The chair that the handcuffs are parented to.
 	var/datum/weakref/parent_chair
 
-/obj/item/restraints/handcuffs/milker/make_worn_icon(species_type, slot_name, inhands, default_icon, default_layer)
+/obj/item/restraints/handcuffs/milker/make_worn_icon(species_type, slot_name, inhands, default_icon, default_layer, icon_file_override)
 	return
 
 /obj/item/restraints/handcuffs/milker/Destroy()

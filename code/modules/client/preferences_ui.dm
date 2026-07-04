@@ -37,6 +37,16 @@
 		return null
 	return sanitize_hexcolor(new_color, 6, TRUE, fallback)
 
+/datum/preferences/proc/human_skin_tone_presets()
+	return list(
+		"Fair" = "#F1D0B5",
+		"Light" = "#E6B98F",
+		"Medium" = "#C8895A",
+		"Tan" = "#A66A43",
+		"Brown" = "#7A4A2E",
+		"Dark" = "#4A2C1F",
+	)
+
 /atom/movable/screen/map_view/preference_preview/proc/update_body()
 	. = FALSE
 	if(!preferences)
@@ -86,6 +96,33 @@
 	dir = preferences.preference_preview_dir
 	return TRUE
 
+/atom/movable/screen/map_view/preference_preview/proc/update_direction()
+	. = FALSE
+	if(!preferences || !body)
+		return update_body()
+
+	body.setDir(preferences.preference_preview_dir)
+	if(canvas)
+		canvas.cut_overlays()
+	else
+		return update_body()
+
+	body.transform = matrix()
+	body.pixel_y = 0
+	switch(last_canvas_size)
+		if(0)
+			body.pixel_x = 0
+		if(1)
+			body.pixel_x = 16
+		else
+			body.pixel_x = 32
+
+	canvas.dir = preferences.preference_preview_dir
+	canvas.add_overlay(body.appearance)
+	appearance = canvas.appearance
+	dir = preferences.preference_preview_dir
+	return TRUE
+
 /atom/movable/screen/map_view/preference_preview/proc/get_canvas_size()
 	// Keep the dummy sprite at native scale. Swap the background canvas instead
 	// of scaling the mob transform:
@@ -126,6 +163,7 @@
 	if(!slotname)
 		slotname = "\[empty\]"
 	data["slot"] = "[default_slot] - [slotname]"
+	data["slot_number"] = default_slot
 
 	data["unique_action_use_active_hand"] = unique_action_use_active_hand
 
@@ -151,6 +189,7 @@
 			data["genitalia_boobs_color"] = genitalia_boobs_color
 			data["genitalia_boobs_color_secondary"] = genitalia_boobs_color_secondary
 			data["genitalia_cock_color"] = genitalia_cock_color
+			data["genitalia_cock_color_secondary"] = genitalia_cock_color_secondary
 			data["genitalia_vagina_color"] = genitalia_vagina_color
 			data["genitalia_belly_color"] = genitalia_belly_color
 			data["genitalia_testicles_color"] = genitalia_testicles_color
@@ -172,11 +211,17 @@
 			data["allow_emissives"] = allow_emissives
 			data["random_name"] = random_name
 			data["preference_preview_dir"] = preference_preview_dir
+			data["preference_preview_mode"] = character_creator_preview_mode_label()
+			data["preference_preview_modes"] = character_creator_preview_modes()
 			data["mapRef"] = map_name
 			data["ai_name"] = ai_name
 			data["gender"] = gender
 			data["physique"] = physique
 			data["species"] = species || "Human"
+			data["human_body_style"] = human_body_style
+			data["ethnicity"] = ethnicity
+			data["ethnicities"] = sortList(GLOB.ethnicities_list)
+			data["human_skin_tones"] = human_skin_tone_presets()
 			data["good_eyesight"] = good_eyesight
 			data["blood_type"] = blood_type
 			data["tts_voice"] = tts_voice
@@ -272,7 +317,7 @@
 			data["toggle_clickdrag"] = !(toggles_gameplay & TOGGLE_CLICKDRAG)
 			data["toggle_xeno_move_intent_keybind"] = !!(toggles_gameplay & TOGGLE_XENO_MOVE_INTENT_KEYBIND)
 			data["scaling_method"] = scaling_method
-			data["pixel_size"] = pixel_size
+			data["pixel_size"] = pixel_size ? "[pixel_size]x" : "Auto"
 			data["parallax"] = parallax
 			data["fullscreen_mode"] = fullscreen_mode
 			data["show_status_bar"] = show_status_bar
@@ -424,6 +469,24 @@
 
 			update_preview_icon()
 
+		if("delete_character_slot")
+			var/slot_to_delete = default_slot
+			if(slot_to_delete <= 1)
+				to_chat(user, span_warning("You cannot delete save slot 1."))
+				return
+			var/slot_name = real_name || "\[empty\]"
+			var/confirm = tgui_alert(user, "Delete save slot [slot_to_delete] - [slot_name]? This cannot be undone.", "Delete character", list("Delete", "Cancel"))
+			if(confirm != "Delete")
+				return
+			if(!delete_character(slot_to_delete))
+				to_chat(user, span_warning("Unable to delete that character slot."))
+				return
+			load_character(slot_to_delete - 1)
+			update_preview_icon()
+			SStgui.update_uis(src)
+			SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+			return TRUE
+
 		if("tab_change")
 			tab_index = params["tabIndex"]
 			if(tab_needs_static_data(tab_index))
@@ -450,6 +513,11 @@
 
 		if("preview_face_front")
 			reset_character_creator_preview()
+			return TRUE
+
+		if("preference_preview_mode")
+			set_character_creator_preview_mode(params["newValue"])
+			SStgui.update_uis(src)
 			return TRUE
 
 		if("name_real")
@@ -558,6 +626,44 @@
 			body_color = new_color
 			update_preview_icon()
 
+		if("bodycolor_preset")
+			if(human_body_style == HUMAN_BODY_STYLE_TGMC && !(species == "Prototype Supersoldier" && custom_supersoldier_parts))
+				return
+			var/new_color = human_skin_tone_presets()[params["newValue"]]
+			if(!new_color)
+				return
+			body_color = new_color
+			update_preview_icon()
+			save_character()
+			SStgui.update_uis(src)
+			SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+			return TRUE
+
+		if("ethnicity")
+			if(human_body_style != HUMAN_BODY_STYLE_TGMC || (species == "Prototype Supersoldier" && custom_supersoldier_parts))
+				return
+			var/new_ethnicity = params["newValue"]
+			if(!(new_ethnicity in GLOB.ethnicities_list))
+				return
+			ethnicity = new_ethnicity
+			update_preview_icon()
+			save_character()
+			SStgui.update_uis(src)
+			SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+			return TRUE
+
+		if("toggle_human_body_style")
+			if(!(species in list("Human", "Vatborn", "Prototype Supersoldier")))
+				return
+			human_body_style = human_body_style == HUMAN_BODY_STYLE_TGMC ? HUMAN_BODY_STYLE_SPLURT : HUMAN_BODY_STYLE_TGMC
+			update_preview_icon()
+			save_preferences()
+			save_character()
+			save_keybinds()
+			SStgui.update_uis(src)
+			SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+			return TRUE
+
 		if("toggle_mismatched_parts")
 			allow_mismatched_parts = !allow_mismatched_parts
 			var/list/leg_options = digitigrade_leg_options()
@@ -665,7 +771,7 @@
 
 		if("species")
 			var/datum/species/old_species = GLOB.all_species[species]
-			var/choice = tgui_input_list(ui.user, "What species do you want to play with?", "Species choice", get_playable_species())
+			var/choice = tgui_input_list(ui.user, "What species do you want to play with?", "Species choice", get_playable_species(ui.user?.ckey))
 			if(!choice || species == choice)
 				return
 			species = choice
@@ -677,7 +783,6 @@
 				body_color = S.flesh_color
 			if(!isnull(S.species_description))
 				to_chat(user, span_notice("Species information: [S.species_description]"))
-			real_name = S.random_name(gender)
 			update_preview_icon()
 
 		if("toggle_eyesight")
@@ -1371,7 +1476,10 @@
 					pixel_size = PIXEL_SCALING_3X
 				if(PIXEL_SCALING_3X)
 					pixel_size = PIXEL_SCALING_AUTO
-			user.client.view_size.apply() //Let's winset() it so it actually works
+			user.client.view_size.update_pixel_format() //Let's winset() it so it actually works
+			save_preferences()
+			SStgui.update_uis(src)
+			return TRUE
 
 		if("parallax")
 			parallax = WRAP(parallax + 1, PARALLAX_INSANE, PARALLAX_DISABLE + 1)

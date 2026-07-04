@@ -446,7 +446,8 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 	for(var/obj/machinery/deployable/mounted/sentry/nearby_sentry AS in cheap_get_sentries_near(src, range))
 		if(nearby_sentry.iff_signal & iff_signal)
 			continue
-		var/datum/hive_status/hive = GLOB.hive_datums[nearby_sentry.get_xeno_hivenumber()]
+		var/sentry_hivenumber = nearby_sentry.get_xeno_hivenumber()
+		var/datum/hive_status/hive = sentry_hivenumber ? GLOB.hive_datums[sentry_hivenumber] : null
 		if(istype(hive) && (faction in hive.allied_factions))
 			continue
 		potential_targets += nearby_sentry

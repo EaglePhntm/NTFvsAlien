@@ -40,9 +40,9 @@
 			/obj/item/ammo_magazine/rifle/tx11/rubber = -1,
 		),
 		"Energy Weapons" = list(
-			/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/charger = -1,
-			/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/caliver = 5,
-			/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta = 5,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/charger = 2,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/caliver = 1,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta = 2,
 			/obj/item/cell/lasgun/volkite/small = -1,
 			/obj/item/cell/lasgun/volkite = -1,
 		),

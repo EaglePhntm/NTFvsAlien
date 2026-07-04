@@ -77,7 +77,7 @@
 			if(item_to_restock.attempt_restock(sucker, null, FALSE))
 				return TRUE
 	//Cryo our item if our restock attempt failed
-	sucker.store_in_cryo()
+	sucker.store_in_cryo(faction)
 	return TRUE
 
 /obj/machinery/bot/roomba/attack_hand(mob/living/user)

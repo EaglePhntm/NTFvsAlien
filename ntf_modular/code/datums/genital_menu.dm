@@ -24,6 +24,9 @@ GLOBAL_LIST_INIT(possible_cock_sprite_names, list(
 	"nondescript" = "Nondescript",
 ))
 
+/proc/cock_style_supports_storage(cock_style)
+	return cock_style && cock_style != "human"
+
 GLOBAL_LIST_INIT(possible_ass_sprites, list(
 	"None" = null,
 	"Pair" = "pair",
@@ -51,7 +54,6 @@ GLOBAL_LIST_INIT(possible_boob_sprite_names, list(
 GLOBAL_LIST_INIT(possible_vagina_sprites, list(
 	"Default" = null,
 	"Human" = "human",
-	"Slit" = "slit",
 	"Gaping" = "gaping",
 	"Tentacle" = "tentacle",
 	"Dentata" = "dentata",
@@ -65,7 +67,6 @@ GLOBAL_LIST_INIT(possible_vagina_sprites, list(
 GLOBAL_LIST_INIT(possible_vagina_sprite_names, list(
 	null = "Default",
 	"human" = "Human",
-	"slit" = "Slit",
 	"gaping" = "Gaping",
 	"tentacle" = "Tentacle",
 	"dentata" = "Dentata",
@@ -89,13 +90,41 @@ GLOBAL_LIST_INIT(possible_belly_sprite_names, list(
 GLOBAL_LIST_INIT(possible_testicle_sprites, list(
 	"None" = null,
 	"Pair" = "pair",
-	"Sheath" = "sheath",
+	"Internal" = "internal",
+	"Sheathed Pair" = "sheath",
 ))
 
 GLOBAL_LIST_INIT(possible_testicle_sprite_names, list(
 	null = "None",
 	"pair" = "Pair",
-	"sheath" = "Sheath",
+	"internal" = "Internal",
+	"sheath" = "Sheathed Pair",
+))
+
+GLOBAL_LIST_INIT(possible_cock_storage, list(
+	"None" = null,
+	"Sheath" = COCK_STORAGE_SHEATH,
+	"Slit" = COCK_STORAGE_SLIT,
+))
+
+GLOBAL_LIST_INIT(possible_cock_storage_names, list(
+	null = "None",
+	COCK_STORAGE_SHEATH = "Sheath",
+	COCK_STORAGE_SLIT = "Slit",
+))
+
+GLOBAL_LIST_INIT(possible_cock_states, list(
+	"Stored" = COCK_STATE_STORED,
+	"Flaccid" = COCK_STATE_FLACCID,
+	"Partial" = COCK_STATE_PARTIAL,
+	"Erect" = COCK_STATE_ERECT,
+))
+
+GLOBAL_LIST_INIT(possible_cock_state_names, list(
+	COCK_STATE_STORED = "Stored",
+	COCK_STATE_FLACCID = "Flaccid",
+	COCK_STATE_PARTIAL = "Partial",
+	COCK_STATE_ERECT = "Erect",
 ))
 
 GLOBAL_LIST_INIT(breast_size_to_number, list(
@@ -170,6 +199,8 @@ GLOBAL_LIST_INIT(breast_number_to_size, list(
 /datum/genital_menu/ui_data(mob/user)
 	var/list/data = list(
 		"cockState" = GLOB.possible_cock_sprite_names[human.cock],
+		"cockStorage" = GLOB.possible_cock_storage_names[human.cock_storage],
+		"cockDisplayState" = GLOB.possible_cock_state_names[human.cock_state],
 		"assState" = GLOB.possible_ass_sprite_names[human.ass],
 		"boobState" = GLOB.possible_boob_sprite_names[human.boobs],
 		"vaginaState" = GLOB.possible_vagina_sprite_names[human.vagina],
@@ -184,6 +215,14 @@ GLOBAL_LIST_INIT(breast_number_to_size, list(
 	data["possibleCockStates"] = list()
 	for(var/entry in GLOB.possible_cock_sprites)
 		data["possibleCockStates"] += entry
+
+	data["possibleCockStorage"] = list()
+	for(var/entry in GLOB.possible_cock_storage)
+		data["possibleCockStorage"] += entry
+
+	data["possibleCockDisplayStates"] = list()
+	for(var/entry in GLOB.possible_cock_states)
+		data["possibleCockDisplayStates"] += entry
 
 	data["possibleAssStates"] = list()
 	for(var/entry in GLOB.possible_ass_sprites)
@@ -226,7 +265,37 @@ GLOBAL_LIST_INIT(breast_number_to_size, list(
 				return TRUE
 
 			human.cock = GLOB.possible_cock_sprites[new_cock]
+			if(!cock_style_supports_storage(human.cock))
+				human.cock_storage = null
+				if(human.cock_state in list(COCK_STATE_STORED, COCK_STATE_PARTIAL))
+					human.cock_state = COCK_STATE_FLACCID
 			human.client?.prefs?.genitalia_cock = human.cock
+			human.client?.prefs?.genitalia_cock_storage = human.cock_storage
+			human.update_genitals()
+			return TRUE
+
+		if("changeCockStorage")
+			if(!cock_style_supports_storage(human.cock))
+				return TRUE
+			var/new_storage = params["newState"]
+			if(!(new_storage in GLOB.possible_cock_storage))
+				return TRUE
+
+			human.cock_storage = GLOB.possible_cock_storage[new_storage]
+			if(!human.cock_storage && (human.cock_state in list(COCK_STATE_STORED, COCK_STATE_PARTIAL)))
+				human.cock_state = COCK_STATE_FLACCID
+			human.client?.prefs?.genitalia_cock_storage = human.cock_storage
+			human.update_genitals()
+			return TRUE
+
+		if("changeCockDisplayState")
+			var/new_state = params["newState"]
+			if(!(new_state in GLOB.possible_cock_states))
+				return TRUE
+
+			human.cock_state = GLOB.possible_cock_states[new_state]
+			if((human.cock_state in list(COCK_STATE_STORED, COCK_STATE_PARTIAL)) && !human.cock_storage)
+				human.cock_state = COCK_STATE_FLACCID
 			human.update_genitals()
 			return TRUE
 
@@ -310,6 +379,8 @@ GLOBAL_LIST_INIT(breast_number_to_size, list(
 			human.boobs = null
 			human.ass = null
 			human.cock = null
+			human.cock_storage = null
+			human.cock_state = initial(human.cock_state)
 			human.vagina = null
 			human.belly = null
 			human.testicles = null
@@ -321,6 +392,7 @@ GLOBAL_LIST_INIT(breast_number_to_size, list(
 			human.client?.prefs?.genitalia_boobs = null
 			human.client?.prefs?.genitalia_ass = null
 			human.client?.prefs?.genitalia_cock = null
+			human.client?.prefs?.genitalia_cock_storage = null
 			human.client?.prefs?.genitalia_vagina = null
 			human.client?.prefs?.genitalia_belly = null
 			human.client?.prefs?.genitalia_testicles = null

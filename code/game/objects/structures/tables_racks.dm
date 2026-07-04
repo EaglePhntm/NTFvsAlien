@@ -33,7 +33,7 @@
 	. = ..()
 	for(var/obj/structure/table/evil_table in loc)
 		if(evil_table != src)
-			stack_trace("Duplicate table found in ([x], [y], [z])")
+			log_mapping("Duplicate table found in ([x], [y], [z]); deleting duplicate [evil_table.type].")
 			qdel(evil_table)
 	if(!flipped)
 		update_icon()

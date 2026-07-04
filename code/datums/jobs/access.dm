@@ -462,7 +462,7 @@
 		if("KZ4")
 			. = size ? "LT" : "KZ Lieutenant"
 		if("KZ5")
-			. = size ? "COLGEN" : "KZ Colonel-General"
+			. = size ? "KZCOMM" : "KZ Commander"
 		if("MRC1")
 			. = size ? "MERC" : "MERC Heavy"
 		if("MRC2")

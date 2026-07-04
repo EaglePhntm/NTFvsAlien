@@ -1,9 +1,0 @@
-author: "CaputCapital"
-delete-after: True
-changes:
-  - rscadd: "export variant of the CC67 rifle."
-  - rscadd: "CC67 CQB and mags can now be purchased through requisitions imports"
-  - balance: "slight tweaks to the regular CC67 rifle"
-  - bugfix: "gives the aforementioned actual calibers defined in the caliber.dm"
-  - bugfix: "NTF spec now can use points to get additional MPAR mags"
-  - bugfix: "inhands sprites for xmdivider and ntdivider have been fixed and repathed appropriately"

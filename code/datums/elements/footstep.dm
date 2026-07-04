@@ -179,6 +179,20 @@
 		volume_multiplier -= 0.5
 		range_adjustment += -3
 
+	var/datum/sprite_accessory/taur/taur_data = source.get_taur_body_data()
+	if(length(taur_data?.step_sounds))
+		var/footstep_volume = taur_data.step_volume * volume * volume_multiplier
+		if(footstep_volume < SOUND_AUDIBLE_VOLUME_MIN)
+			return
+		playsound(
+			source_loc,
+			pick(taur_data.step_sounds),
+			footstep_volume,
+			sound_vary,
+			DEFAULT_FOOTSTEP_SOUND_RANGE + e_range + range_adjustment,
+		)
+		return
+
 	var/override_sound = source_loc.get_footstep_override()
 	var/footstep_type
 

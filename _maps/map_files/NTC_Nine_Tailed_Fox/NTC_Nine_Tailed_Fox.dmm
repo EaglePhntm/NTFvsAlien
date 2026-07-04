@@ -2403,7 +2403,6 @@
 	pixel_y = 3
 	},
 /obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
-	pixel_y = 0;
 	pixel_x = 2
 	},
 /turf/open/floor/urban/wood/redwood,
@@ -12385,6 +12384,7 @@
 	base_lighting_alpha = 0
 	})
 "kgf" = (
+/obj/machinery/chem_dispenser/marine,
 /turf/open/floor/mainship/black/corner{
 	dir = 1
 	},
@@ -17348,10 +17348,10 @@
 /turf/open/floor/plating,
 /area/mainship/squads/specialist)
 "nZy" = (
+/obj/structure/bed/roller/hospital_empty/bigrollerempty3,
 /obj/structure/fulton_extraction_point{
 	pixel_x = -1
 	},
-/obj/structure/bed/roller/hospital_empty/bigrollerempty3,
 /turf/open/floor/mainship/sterile,
 /area/mainship/medical/upper_medical{
 	name = "Shipside Medbay"
@@ -24233,6 +24233,14 @@
 /obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/wood,
 /area/mainship/squads/specialist)
+"tJy" = (
+/obj/machinery/chem_dispenser/marine,
+/turf/open/floor/mainship/sterile/side{
+	dir = 4
+	},
+/area/mainship/medical/upper_medical{
+	name = "Shipside Medbay"
+	})
 "tJQ" = (
 /obj/machinery/door/firedoor/mainship{
 	dir = 2
@@ -36541,7 +36549,7 @@ gAA
 vYS
 vYS
 mpq
-ydF
+tJy
 rOw
 dNM
 vYS

@@ -5,7 +5,7 @@
 	icon_state = "sextractor"
 	density = TRUE
 	anchored = TRUE
-
+	wrenchable = TRUE
 
 /obj/machinery/seed_extractor/attackby(obj/item/I, mob/user, params)
 	. = ..()

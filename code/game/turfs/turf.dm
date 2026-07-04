@@ -59,12 +59,17 @@
 
 	///Icon-smoothing variable to map a diagonal wall corner with a fixed underlay.
 	var/list/fixed_underlay = null
+	var/time_created = null
+	var/creation_logdata = null
 
 /turf/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE) // anti laggies
 	if(atom_flags & INITIALIZED)
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	ENABLE_BITFIELD(atom_flags, INITIALIZED)
+	if(usr)
+		time_created = world.timeofday
+		creation_logdata = logdetails(usr)
 
 	/// We do NOT use the shortcut here, because this is faster
 	if(SSmapping.max_plane_offset)

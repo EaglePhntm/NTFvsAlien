@@ -88,17 +88,30 @@
 
 /obj/machinery/atmospherics/components/pipeline_expansion(datum/pipeline/reference)
 	if(reference)
-		return list(nodes[parents.Find(reference)])
+		var/parent_index = parents.Find(reference)
+		if(parent_index)
+			return list(nodes[parent_index])
+		return list()
 	return ..()
 
 /obj/machinery/atmospherics/components/setPipenet(datum/pipeline/reference, obj/machinery/atmospherics/A)
-	parents[nodes.Find(A)] = reference
+	var/node_index = nodes.Find(A)
+	if(!node_index)
+		log_mapping("setPipenet(): [type] at [AREACOORD(src)] could not find node [A] while assigning a pipenet.")
+		return
+	parents[node_index] = reference
 
 /obj/machinery/atmospherics/components/returnPipenet(obj/machinery/atmospherics/A = nodes[1]) //returns parents[1] if called without argument
-	return parents[nodes.Find(A)]
+	var/node_index = nodes.Find(A)
+	if(!node_index)
+		return null
+	return parents[node_index]
 
 /obj/machinery/atmospherics/components/replacePipenet(datum/pipeline/Old, datum/pipeline/New)
-	parents[parents.Find(Old)] = New
+	var/parent_index = parents.Find(Old)
+	if(!parent_index)
+		return
+	parents[parent_index] = New
 
 // Helpers
 

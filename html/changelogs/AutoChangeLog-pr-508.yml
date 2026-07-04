@@ -1,6 +1,0 @@
-author: "Therealdoooc213"
-delete-after: True
-changes:
-  - bugfix: "The CMP can now opeen their office on the SOM Ship"
-  - bugfix: "The autodoc on the SOM ship now works."
-  - bugfix: "there is no longer random shutters in the reqline"

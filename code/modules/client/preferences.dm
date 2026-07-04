@@ -81,6 +81,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/age = 20
 	var/species = "Human"
 	var/ethnicity = "Western"
+	var/human_body_style = HUMAN_BODY_STYLE_TGMC
 	var/good_eyesight = TRUE
 	var/preferred_squad = "None"
 	///Your preferred squad, when playing SOM
@@ -134,7 +135,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/genitalia_boobs_emissive = list(FALSE, FALSE, FALSE)
 	var/genitalia_cock = null
 	var/genitalia_cock_size = 3
+	var/genitalia_cock_storage = null
+	var/genitalia_cock_state = COCK_STATE_FLACCID
 	var/genitalia_cock_color = "#FFFFFF"
+	var/genitalia_cock_color_secondary = "#d98fa3"
 	var/list/genitalia_cock_emissive = list(FALSE, FALSE, FALSE)
 	var/genitalia_vagina = null
 	var/genitalia_vagina_color = "#FFFFFF"
@@ -191,6 +195,19 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/fluff_color_secondary = "#FFFFFF"
 	var/fluff_color_tertiary = "#FFFFFF"
 	var/list/fluff_emissive = list(FALSE, FALSE, FALSE)
+	var/taur_body = "None"
+	var/taur_body_color = "#FFFFFF"
+	var/taur_body_color_secondary = "#FFFFFF"
+	var/taur_body_color_tertiary = "#FFFFFF"
+	var/list/taur_body_emissive = list(FALSE, FALSE, FALSE)
+	var/xenodorsal = "None"
+	var/xenodorsal_color = "#FFFFFF"
+	var/list/xenodorsal_emissive = list(FALSE, FALSE, FALSE)
+	var/xenohead = "None"
+	var/xenohead_color = "#FFFFFF"
+	var/xenohead_color_secondary = "#FFFFFF"
+	var/xenohead_color_tertiary = "#FFFFFF"
+	var/list/xenohead_emissive = list(FALSE, FALSE, FALSE)
 	var/digitigrade_legs = "Normal"
 	var/body_color = "#FFFFFF"
 	var/spines = "None"
@@ -302,6 +319,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/map_name = "player_pref_map"
 	var/atom/movable/screen/map_view/preference_preview/screen_main
 	var/preference_preview_dir = SOUTH
+	var/preference_preview_mode = "job"
 
 	/// If unique action will only act on the item in the active hand. If false, it will try to act on the item on the inactive hand as well in certain conditions.
 	var/unique_action_use_active_hand = TRUE

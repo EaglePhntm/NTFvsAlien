@@ -51,6 +51,7 @@
 	name = "insulated operative combat gloves"
 	desc = "Insulated marine tactical gloves that protect against electrical shocks."
 	icon_state = "gloves_marine_insulated"
+	worn_icon_state_teshari = "ce_insuls"
 	siemens_coefficient = 0
 
 /obj/item/clothing/gloves/marine/officer
@@ -123,6 +124,7 @@
 /obj/item/clothing/gloves/marine/som/insulated
 	name = "\improper Insulated SOM gloves"
 	desc = "Gloves with origins dating back to the old mining colonies. These ones appear to have an electrically insulating layer built into them."
+	worn_icon_state_teshari = "ce_insuls"
 	siemens_coefficient = 0
 
 /obj/item/clothing/gloves/marine/som/veteran

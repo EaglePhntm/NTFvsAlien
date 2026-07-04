@@ -339,13 +339,12 @@
 	bonus_projectiles_amount = 4
 	bonus_projectiles_scatter = 2
 	max_range = 15
-	damage = 40
+	damage = 20
 	damage_falloff = 0.25
-	penetration = 20
+	penetration = 15
 	sundering = 1.5
 
 /datum/ammo/bullet/shotgun/tx15_flechette/spread
-	name = "additional flechette"
 
 /datum/ammo/bullet/shotgun/tx15_slug
 	name = "shotgun slug"

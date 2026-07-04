@@ -43,10 +43,8 @@
 		return
 	if(!isliving(usr))
 		return
-	if(isliving(usr))
-		var/mob/living/sussy = usr
-		if(!sussy.client.prefs)
-			return
-		sussy.client.prefs.quick_sex_toggle = !sussy.client.prefs.quick_sex_toggle
-		balloon_alert(usr, "QK Sex [sussy.client.prefs.quick_sex_toggle ? "ON" : "OFF"]")
-		sussy.client.prefs.save_preferences()
+	if(!client?.prefs)
+		return
+	client.prefs.quick_sex_toggle = !client.prefs.quick_sex_toggle
+	balloon_alert(usr, "QK Sex [client.prefs.quick_sex_toggle ? "ON" : "OFF"]")
+	client.prefs.save_preferences()

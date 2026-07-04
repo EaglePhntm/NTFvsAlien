@@ -86,6 +86,8 @@
 		clean_operator()
 		return TRUE
 	operator = user
+	UnregisterSignal(operator, list(COMSIG_QDELETING, COMSIG_GUN_USER_UNSET))
+	UnregisterSignal(src, list(COMSIG_ITEM_EQUIPPED_TO_SLOT, COMSIG_ITEM_REMOVED_INVENTORY))
 	RegisterSignals(operator, list(COMSIG_QDELETING, COMSIG_GUN_USER_UNSET), PROC_REF(clean_operator))
 	RegisterSignals(src, list(COMSIG_ITEM_EQUIPPED_TO_SLOT, COMSIG_ITEM_REMOVED_INVENTORY), PROC_REF(clean_operator))
 	UnregisterSignal(operator, COMSIG_GUN_USER_SET)
@@ -181,7 +183,7 @@
 
 ///Prepare the blip to be print on the operator screen
 /obj/item/attachable/motiondetector/proc/prepare_blip(mob/target, status)
-	if(!operator.client)
+	if(!operator?.client || !target)
 		return
 	if(status == MOTION_DETECTOR_HOSTILE)
 		hostile_detected = TRUE
@@ -190,6 +192,8 @@
 	var/viewX = actualview[1]
 	var/viewY = actualview[2]
 	var/turf/center_view = get_view_center(operator)
+	if(!center_view || !target.z)
+		return
 	var/screen_pos_y = target.y - center_view.y + round(viewY * 0.5) + 1
 	var/dir
 	if(screen_pos_y < 1)

@@ -2421,6 +2421,10 @@
 	dir = 1
 	},
 /area/mainship/command/cic)
+"cpA" = (
+/obj/machinery/chem_dispenser/marine,
+/turf/open/floor/mainship/sterile/dark,
+/area/mainship/medical/lower_medical)
 "cpH" = (
 /obj/machinery/shower{
 	pixel_y = 12
@@ -8645,6 +8649,10 @@
 /obj/effect/soundplayer,
 /turf/closed/wall/mainship/outer/canterbury,
 /area/mainship/shipboard/port_point_defense)
+"iho" = (
+/obj/machinery/chem_dispenser/marine,
+/turf/open/floor/mainship/floor,
+/area/mainship/squads/general)
 "iif" = (
 /obj/machinery/door/airlock/mainship/generic{
 	name = "\improper Private Dorm"
@@ -9184,7 +9192,7 @@
 /area/mainship/medical/surgery_hallway)
 "iIB" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/machinery/atmospherics/components/unary/vent_pump/layer1,
 /turf/open/floor/mainship/floor,
 /area/mainship/squads/general)
 "iJj" = (
@@ -12269,8 +12277,8 @@
 /area/mainship/living/bridgebunks)
 "lyQ" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/components/unary/vent_pump/layer1,
 /obj/effect/urban/decal/dirt,
+/obj/machinery/chem_dispenser/marine,
 /turf/open/floor/mainship/floor,
 /area/mainship/squads/general)
 "lzh" = (
@@ -38452,7 +38460,7 @@ hAe
 oTm
 fGN
 gPk
-fGN
+cpA
 fGN
 neS
 ljX
@@ -42488,7 +42496,7 @@ mxt
 ePt
 hMW
 lPR
-gah
+iho
 gah
 qJy
 agt

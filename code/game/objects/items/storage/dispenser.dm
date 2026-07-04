@@ -21,6 +21,20 @@
 
 ///finishes deploying after the deploy timer
 /obj/machinery/deployable/dispenser/proc/deploy()
+	for(var/obj/machinery/deployable/dispenser/otherz in view(4, src)) //prevent stacking same of this in the area
+		if(otherz.type != /obj/machinery/deployable/dispenser) //exact type
+			continue
+		if(otherz == src)
+			continue
+		active = FALSE
+		visible_message(span_warning("There is already a [otherz] in range, this will interefere with operations!"))
+		balloon_alert_to_viewers("Another in range!")
+		sleep(1 SECONDS)
+		flick("dispenser_undeploy", src)
+		playsound(src, 'sound/machines/dispenser/dispenser_undeploy.ogg', 25)
+		addtimer(CALLBACK(src, PROC_REF(disassemble)), 4 SECONDS)
+		return
+
 	affecting_list = list()
 	for(var/mob/living/carbon/human/human in view(2, src))
 		if(!(human.species.species_flags & ROBOTIC_LIMBS)) // can only affect robots

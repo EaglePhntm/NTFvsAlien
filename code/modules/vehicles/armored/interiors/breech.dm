@@ -262,7 +262,7 @@
 		pixel_x = -12
 		pixel_y = -32
 		barrel_overlay.pixel_y = 76
-		ammo_overlay.icon_state = "[icon_state]_[length(weapon_type?.ammo_magazine) + weapon_type.ammo.current_rounds]"
+		ammo_overlay.icon_state = "[icon_state]_[length(weapon_type?.ammo_magazine) + (weapon_type.ammo?.current_rounds || 0)]"
 	else if(weapon_type.type == /obj/item/armored_weapon/particle_lance)
 		pixel_x = -8
 		pixel_y = -7

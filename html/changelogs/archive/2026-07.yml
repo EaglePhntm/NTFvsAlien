@@ -42,3 +42,48 @@
   - bugfix: adresses some issues with the SOM ship PR
   - rscadd: SOM Military Police/chief
   - rscadd: new SOM ship
+2026-07-03:
+  CaputCapital:
+  - rscadd: meats, ingredients, sake, more kitchen appliances, hydroponics and seeds
+      to requisitions imports
+  - rscadd: export variant of the CC67 rifle.
+  - rscadd: CC67 CQB and mags can now be purchased through requisitions imports
+  - balance: slight tweaks to the regular CC67 rifle
+  - bugfix: gives the aforementioned actual calibers defined in the caliber.dm
+  - bugfix: NTF spec now can use points to get additional MPAR mags
+  - bugfix: inhands sprites for xmdivider and ntdivider have been fixed and repathed
+      appropriately
+  SpooksAnno:
+  - rscadd: Reworked the character creator with clearer grouped customization sections.
+  - rscadd: Added taur body customization support.
+  - rscadd: Re-enabled Vatborn character creation support.
+  - rscadd: Added xenomorph hybrid head and dorsal customization support.
+  - rscadd: Added lightweight Teshari species support for testing and development.
+  - rscadd: Added Teshari ears, tails, taur bodies, and related sprite accessory support.
+  - rscadd: Added Teshari-specific worn sprite support for several clothing slots.
+  - rscadd: Added Teshari ID, underwear, and focused armor sprite support.
+  - rscadd: Added species-specific worn icon fallback handling for Teshari.
+  - rscadd: Added lightweight genital display states, including stored, partial, flaccid,
+      and erect visuals.
+  - rscadd: Added sheath and slit storage handling for penis customization.
+  - rscadd: Added a tester-only Teshari species picker whitelist while Teshari remains
+      unavailable for normal roundstart selection.
+  - imageadd: Added new Teshari, taur, xeno hybrid, humanoid greyscale, and clothing
+      sprite assets.
+  - qol: Improved character creator organization so body, head, back/tail/wing, and
+      soft anatomy options are easier to navigate.
+  - bugfix: Fixed several character creator preview, sprite layering, and species
+      customization issues
+  - refactor: Moved the character creator into the native code path instead of keeping
+      it as a modular override.
+  Therealdoooc213:
+  - bugfix: The CMP can now opeen their office on the SOM Ship
+  - bugfix: The autodoc on the SOM ship now works.
+  - bugfix: there is no longer random shutters in the reqline
+2026-07-04:
+  CaputCapital:
+  - rscadd: Adds the CM marksman loadout as intended.
+  Ldip999:
+  - bugfix: SOM squad jobs now have proper access
+  Meghan-Rossi:
+  - balance: Synthetics can no longer fire lethal ammunition, except on red alert

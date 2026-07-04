@@ -43,7 +43,9 @@
 	dir = 2;
 	id = "minidropship_podlocksom"
 	},
-/obj/structure/barricade/folding/metal,
+/obj/structure/barricade/folding/metal{
+	faction = "Sons of Mars"
+	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "k" = (
@@ -76,7 +78,8 @@
 	id = "minidropship_podlocksom"
 	},
 /obj/structure/barricade/folding/metal{
-	dir = 8
+	dir = 8;
+	faction = "Sons of Mars"
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
@@ -260,7 +263,8 @@
 	id = "minidropship_podlocksom"
 	},
 /obj/structure/barricade/folding/metal{
-	dir = 4
+	dir = 4;
+	faction = "Sons of Mars"
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)

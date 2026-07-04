@@ -332,7 +332,7 @@ GLOBAL_VAR_INIT(maps_loaded_data, "")
 
 	var/datum/map_config/antag_map = configs[ANTAG_MAP]
 	INIT_ANNOUNCE("Loading Antag Map : [antag_map.map_name]...")
-	LoadGroup(FailedZs, antag_map.map_name, antag_map.map_path, antag_map.map_file, antag_map.traits, ZTRAITS_ANTAG_SHIP)
+	LoadGroup(FailedZs, antag_map.map_name, antag_map.map_path, antag_map.map_file, antag_map.traits, ZTRAITS_ANTAG_SHIP, height_autosetup = antag_map.height_autosetup)
 
 	if(SSdbcore.Connect())
 		var/datum/db_query/query_round_map_name = SSdbcore.NewQuery({"

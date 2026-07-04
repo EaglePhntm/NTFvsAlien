@@ -165,27 +165,33 @@
 	if(!undeployed_item)
 		CRASH("[src] is missing its internal item.")
 
+	/* ntf removal, let shit disassemble self where necessary
 	if(!user)
 		CRASH("[source] has sent the signal COMSIG_ITEM_UNDEPLOY to [undeployed_item] without the arg 'user'")
-	if(!ishuman(user))
+	*/
+	if(user && !ishuman(user)) //we got a user but not human
 		return
 	var/obj/machinery/deployable/mounted/sentry/sentry
 	if(istype(deployed_machine, /obj/machinery/deployable/mounted/sentry))
 		sentry = deployed_machine
 	sentry?.set_on(FALSE)
-	user.balloon_alert(user, "disassembling...")
-	if(!do_after(user, undeploy_time, NONE, deployed_machine, BUSY_ICON_BUILD))
-		sentry?.set_on(TRUE)
-		return
+	if(user)
+		user.balloon_alert(user, "disassembling...")
+		if(!do_after(user, undeploy_time, NONE, deployed_machine, BUSY_ICON_BUILD))
+			sentry?.set_on(TRUE)
+			return
 
 	deployed_machine.post_disassemble(user)
 	undeployed_item.toggle_deployment_flag()
 
 	UnregisterSignal(undeployed_item, COMSIG_MOVABLE_MOVED)
-	if((get_dist(deployed_machine, user) > 1) || deployed_machine.z != user.z)
-		undeployed_item.forceMove(get_turf(deployed_machine))
+	if(user)
+		if((get_dist(deployed_machine, user) > 1) || deployed_machine.z != user.z)
+			undeployed_item.forceMove(get_turf(deployed_machine))
+		else
+			user.put_in_hands(undeployed_item)
 	else
-		user.put_in_hands(undeployed_item)
+		undeployed_item.forceMove(get_turf(deployed_machine))
 
 	undeployed_item.max_integrity = deployed_machine.max_integrity
 	undeployed_item.obj_integrity = deployed_machine.obj_integrity

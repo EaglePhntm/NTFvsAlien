@@ -1,4 +1,4 @@
-import { Flex, Section, Tabs } from 'tgui-core/components';
+import { Button, Flex, Section, Tabs } from 'tgui-core/components';
 
 import { useBackend } from '../../backend';
 import { Window } from '../../layouts';
@@ -15,7 +15,7 @@ import { KeybindSettings } from './KeybindSettings';
 export const PlayerPreferences = (props) => {
   const { act, data } = useBackend<PlayerPreferencesData>();
 
-  const { slot, tabIndex } = data;
+  const { slot, slot_number, tabIndex } = data;
 
   let affectsSave = false;
   let CurrentTab = CharacterCustomization;
@@ -66,6 +66,19 @@ export const PlayerPreferences = (props) => {
                   label={'Save slot'}
                   value={'slot'}
                   action={'changeslot'}
+                  extra={
+                    <Button
+                      color="bad"
+                      disabled={slot_number <= 1}
+                      icon="trash"
+                      tooltip={
+                        slot_number <= 1
+                          ? 'Save slot 1 cannot be deleted'
+                          : 'Delete this saved character'
+                      }
+                      onClick={() => act('delete_character_slot')}
+                    />
+                  }
                 />
                 <CurrentTab />
               </Section>

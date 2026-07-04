@@ -1,5 +1,5 @@
 /datum/species/human/vatborn
-	joinable_roundstart = FALSE
+	joinable_roundstart = TRUE
 
 /datum/species/human/prototype_supersoldier
 	joinable_roundstart = TRUE
@@ -378,7 +378,7 @@
 	unarmed_type = /datum/unarmed_attack/claws
 	species_flags = HAS_LIPS|HAS_UNDERWEAR|HAS_SKIN_COLOR
 	count_human = TRUE
-	joinable_roundstart = FALSE
+	joinable_roundstart = TRUE
 	has_genital_selection = TRUE
 	limb_type = SPECIES_LIMB_SPLURT
 	screams = list(MALE = SFX_MALE_SCREAM, FEMALE = SFX_FEMALE_SCREAM)
@@ -394,7 +394,7 @@
 	burstscreams = list(MALE = SFX_MALE_PREBURST, FEMALE = SFX_FEMALE_PREBURST)
 	warcries = list(MALE = SFX_MALE_WARCRY, FEMALE = SFX_FEMALE_WARCRY)
 	special_death_message = "<big>You have perished.</big><br><small>But it is not the end of you yet... if you still have your body with your head still attached, wait until somebody can resurrect you...</small>"
-	splurt_limb_prefix = "xenohybrid"
+	splurt_limb_prefix = "xeno"
 	digitigrade_leg_options = list("Normal", "Digitigrade", "Digitigrade 2")
 	digitigrade_limb_prefixes = list(
 		"Digitigrade" = "digitigrade_1",
@@ -466,6 +466,7 @@
 	unarmed_type = /datum/unarmed_attack/claws
 	species_flags = HAS_LIPS|HAS_UNDERWEAR|HAS_SKIN_COLOR
 	count_human = TRUE
+	// Disabled from player selection for now: too much work, god, the armors and sprites.
 	joinable_roundstart = FALSE
 	has_genital_selection = TRUE
 	limb_type = SPECIES_LIMB_SPLURT

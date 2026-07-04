@@ -203,5 +203,5 @@
 
 /datum/greyscale_config/undies
 	icon_file = 'ntf_modular/modules/underwear/underwear/underwear.dmi'
-	json_config = 'ntf_modular/modules/underwear/underwear/socks.json'
+	json_config = 'ntf_modular/modules/underwear/underwear/undies.json'
 	greyscale_flags = HYPERSCALE_ALLOW_GREYSCALE

@@ -7,7 +7,7 @@
 	var/color_count = 3
 	var/pixel_x_offset = 0
 	var/pixel_y_offset = 0
-	var/list/render_layers = list("FRONT")
+	var/list/render_layers = list(BODY_OVERLAY_LAYER_FRONT)
 	center = TRUE
 	dimension_x = 45
 	dimension_y = 34
@@ -41,14 +41,14 @@
 	name = "Cryptid Neck Fur"
 	icon_state = "cryptid"
 	color_count = 1
-	render_layers = list("ADJ", "FRONT")
+	render_layers = list(BODY_OVERLAY_LAYER_ADJ, BODY_OVERLAY_LAYER_FRONT)
 
 /datum/sprite_accessory/fluff/moth
 	icon = 'ntf_modular/icons/mob/sprite_accessories/moth_fluff.dmi'
 	color_count = 1
 	center = FALSE
 	pixel_x_offset = 0
-	render_layers = list("ADJ")
+	render_layers = list(BODY_OVERLAY_LAYER_ADJ)
 
 /datum/sprite_accessory/fluff/moth/plain
 	name = "Plain"
@@ -137,7 +137,7 @@
 /datum/sprite_accessory/fluff/moth/snow_top
 	name = "Snow (Top)"
 	icon_state = "fsnow"
-	render_layers = list("FRONT")
+	render_layers = list(BODY_OVERLAY_LAYER_FRONT)
 
 /datum/sprite_accessory/fluff/moth/snow_dual
 	name = "Snow (Dual-Color)"
@@ -151,4 +151,4 @@
 /datum/sprite_accessory/fluff/moth/teshari_mane_top
 	name = "Teshari Mane (Top)"
 	icon_state = "teshmane_top"
-	render_layers = list("FRONT")
+	render_layers = list(BODY_OVERLAY_LAYER_FRONT)

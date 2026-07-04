@@ -314,6 +314,10 @@
 /obj/structure/bookcase/manuals/medical,
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/office/officers)
+"bk" = (
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/mainship/mono,
+/area/antag_ship/som/preparation)
 "bl" = (
 /obj/effect/decal/cleanable/blood/splatter/girlcum,
 /turf/open/floor/mainship/mono,
@@ -820,6 +824,13 @@
 /area/antag_ship/som/hangar)
 "cR" = (
 /turf/closed/wall/mainship/gray/outer,
+/area/antag_ship/som/engi)
+"cS" = (
+/obj/machinery/door/airlock/multi_tile/mainship/engineering/glass{
+	name = "\improper Engineering";
+	req_one_access = null
+	},
+/turf/closed/wall/mainship/gray,
 /area/antag_ship/som/engi)
 "cT" = (
 /obj/machinery/door/airlock/mainship/security{
@@ -4581,7 +4592,7 @@
 	},
 /area/antag_ship/icc/hangar/east)
 "oP" = (
-/obj/structure/table/black,
+/obj/machinery/chem_dispenser/marine,
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 4
 	},
@@ -5136,6 +5147,10 @@
 	dir = 4
 	},
 /area/antag_ship/vsd/armory)
+"qH" = (
+/obj/machinery/chem_dispenser/marine,
+/turf/open/floor/mainship/sterile,
+/area/antag_ship/som/medbay)
 "qI" = (
 /turf/open/floor/mainship/blue/corner{
 	dir = 1
@@ -5397,6 +5412,10 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/security/cell)
+"rA" = (
+/obj/machinery/chem_dispenser/marine,
+/turf/open/floor/mainship/mono,
+/area/antag_ship/icc/medical_room)
 "rB" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 5
@@ -6876,6 +6895,16 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/freezer,
 /area/antag_ship/som/mess)
+"wy" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/structure/disposalpipe/junction/flipped{
+	dir = 8
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/antag_ship/som/preparation)
 "wz" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/mainship/blue{
@@ -7770,9 +7799,7 @@
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/mess)
 "zq" = (
-/obj/structure/bed/chair/stasis{
-	anchored = 1
-	},
+/obj/machinery/chem_dispenser/marine,
 /turf/open/floor/prison/whitegreen{
 	dir = 4
 	},
@@ -8119,6 +8146,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/machinery/chem_dispenser/marine,
 /turf/open/floor/plating/asteroidfloor,
 /area/antag_ship/clf_base/medbay)
 "Ax" = (
@@ -15059,9 +15087,9 @@
 /area/antag_ship/vsd/med)
 "Wh" = (
 /obj/machinery/floodlight/landing{
-	light_power = 2.5
+	light_power = 4
 	},
-/turf/open/floor/mainship/mono,
+/turf/open/floor/plating,
 /area/antag_ship/som/hangar)
 "Wi" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -15838,6 +15866,10 @@
 /obj/machinery/vending/boozeomat,
 /turf/open/floor/wood,
 /area/antag_ship/som/office/commander)
+"YJ" = (
+/obj/effect/landmark/start/job/vsd_synthetic,
+/turf/open/floor/prison/plate,
+/area/antag_ship/vsd/engi)
 "YK" = (
 /obj/effect/landmark/start/job/som/icc_admin,
 /obj/structure/bed/chair/north,
@@ -16780,7 +16812,7 @@ bc
 aK
 ba
 Uc
-iH
+qH
 nL
 Ee
 pP
@@ -18110,7 +18142,6 @@ GI
 lK
 VB
 ad
-Wh
 ad
 ad
 ad
@@ -18119,7 +18150,8 @@ ad
 ad
 ad
 ad
-Wh
+ad
+ad
 ad
 qj
 ad
@@ -18206,6 +18238,7 @@ YD
 Yf
 VB
 ad
+Wh
 YD
 YD
 YD
@@ -18214,8 +18247,7 @@ YD
 YD
 YD
 YD
-YD
-YD
+Wh
 ad
 qj
 ad
@@ -18782,6 +18814,7 @@ YD
 Yf
 VB
 ad
+Wh
 YD
 YD
 YD
@@ -18790,8 +18823,7 @@ YD
 YD
 YD
 YD
-YD
-YD
+Wh
 ad
 qj
 ad
@@ -18878,7 +18910,6 @@ GI
 lK
 VB
 ad
-Wh
 ad
 ad
 ad
@@ -18887,7 +18918,8 @@ ad
 ad
 ad
 ad
-Wh
+ad
+ad
 ad
 qj
 ad
@@ -19891,7 +19923,7 @@ DR
 Sz
 is
 pk
-Ux
+YJ
 ll
 mg
 sa
@@ -20140,7 +20172,7 @@ bD
 Ni
 bD
 bD
-lC
+cS
 ji
 rm
 GZ
@@ -21481,8 +21513,8 @@ CX
 Li
 bD
 bD
-Ni
-bD
+wy
+bk
 Pc
 cH
 jT
@@ -26325,7 +26357,7 @@ Oo
 Oo
 aa
 KC
-sg
+rA
 sg
 sg
 sg

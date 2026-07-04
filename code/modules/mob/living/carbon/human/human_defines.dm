@@ -41,6 +41,8 @@
 
 	///The character's ethnicity
 	var/ethnicity = "Western"
+	///Human-family body sprite style.
+	var/human_body_style = HUMAN_BODY_STYLE_TGMC
 
 	//Skin colour
 	var/r_skin = 0
@@ -142,6 +144,19 @@
 	var/fluff_color_secondary = "#FFFFFF"
 	var/fluff_color_tertiary = "#FFFFFF"
 	var/list/fluff_emissive = list(FALSE, FALSE, FALSE)
+	var/taur_body = "None"
+	var/taur_body_color = "#FFFFFF"
+	var/taur_body_color_secondary = "#FFFFFF"
+	var/taur_body_color_tertiary = "#FFFFFF"
+	var/list/taur_body_emissive = list(FALSE, FALSE, FALSE)
+	var/xenodorsal = "None"
+	var/xenodorsal_color = "#FFFFFF"
+	var/list/xenodorsal_emissive = list(FALSE, FALSE, FALSE)
+	var/xenohead = "None"
+	var/xenohead_color = "#FFFFFF"
+	var/xenohead_color_secondary = "#FFFFFF"
+	var/xenohead_color_tertiary = "#FFFFFF"
+	var/list/xenohead_emissive = list(FALSE, FALSE, FALSE)
 	var/digitigrade_legs = "Normal"
 	var/body_color = "#FFFFFF"
 	var/spines = "None"

@@ -345,11 +345,15 @@
 	if(.)
 		return
 
-	if(ishuman(user) && user.skills.getRating("medical") < SKILL_MEDICAL_NOVICE)
+	//ntf change, only doctors can use chemistry, medics can fumble around it.
+	if(ishuman(user) && user.skills.getRating("medical") < SKILL_MEDICAL_COMPETENT)
+		to_chat(user, span_warning("You don't understand how to use this machine properly."))
+		return
+	if(ishuman(user) && user.skills.getRating("medical") < SKILL_MEDICAL_EXPERT)
 		if(user.do_actions)
 			return
 		to_chat(user, span_notice("You start fiddling with \the [src]..."))
-		if(!do_after(user, SKILL_TASK_EASY, TRUE, src, BUSY_ICON_UNSKILLED))
+		if(!do_after(user, SKILL_TASK_TOUGH, TRUE, src, BUSY_ICON_UNSKILLED))
 			return
 
 	if(!(user.client in has_sprites))

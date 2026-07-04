@@ -149,6 +149,14 @@
 	icon = 'ntf_modular/icons/mob/sprite_accessories/ponytail8.dmi'
 	icon_state = "ponytail7"
 
+/datum/sprite_accessory/hair/splurt/teshari_mohawk
+	name = "Teshari Mohawk"
+	icon_state = "teshari_mohawk"
+
+/datum/sprite_accessory/hair/splurt/teshari_fluffymohawk
+	name = "Teshari Mohawk Alt"
+	icon_state = "teshari_fluffymohawk"
+
 /datum/sprite_accessory/hair/splurt/pod_ivy
 	name = "Ivy (Pod)"
 	icon_state = "pod_hair_ivy"

@@ -395,6 +395,9 @@
 				miner_integrity = 0.66 * max_miner_integrity
 				src.log_message("was disabled due to lack of empty space", LOG_ATTACK)
 				set_miner_status()
+				for(var/direction in GLOB.cardinals)
+					var/turf/blocking_turf = get_step(loc, direction)
+					src.log_message("blocked by: [blocking_turf] created at [time2text(blocking_turf.time_created, "YYYY-MM-DD hh:mm:ss")] by [blocking_turf.creation_logdata]")
 				return
 		stored_mineral += 1
 		add_tick = 0

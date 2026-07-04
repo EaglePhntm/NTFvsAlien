@@ -41,12 +41,16 @@
 	. = ..()
 	if(.)
 		return
+	if(!isliving(user.mob))
+		return TRUE
 	var/mob/living/L = user.mob
 	L.look_up()
 	return TRUE
 
 /datum/keybinding/living/look_up/up(client/user)
 	. = ..()
+	if(!isliving(user.mob))
+		return TRUE
 	var/mob/living/L = user.mob
 	L.end_look()
 	return TRUE
@@ -62,12 +66,16 @@
 	. = ..()
 	if(.)
 		return
+	if(!isliving(user.mob))
+		return TRUE
 	var/mob/living/L = user.mob
 	L.look_down()
 	return TRUE
 
 /datum/keybinding/living/look_down/up(client/user)
 	. = ..()
+	if(!isliving(user.mob))
+		return TRUE
 	var/mob/living/L = user.mob
 	L.end_look()
 	return TRUE

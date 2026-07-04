@@ -11,7 +11,18 @@
 			return appearance_species
 	return species
 
-/proc/get_limb_icon_name(datum/species/S, gender, limb_name, ethnicity, digitigrade_legs = "Normal", synthetic_body_base = "Human", robot_body_base = "Combat Robot", robot_head_base = "Combat Robot", custom_supersoldier_parts = FALSE, supersoldier_body_base = "Human", supersoldier_head_base = "Human")
+/proc/can_use_human_body_style(datum/species/S)
+	return S?.type in list(/datum/species/human, /datum/species/human/vatborn, /datum/species/human/prototype_supersoldier)
+
+/proc/uses_classic_human_body(datum/species/S, human_body_style)
+	return human_body_style == HUMAN_BODY_STYLE_TGMC && can_use_human_body_style(S)
+
+/mob/living/carbon/human/proc/get_effective_human_body_style()
+	if(istype(species, /datum/species/human/prototype_supersoldier) && custom_supersoldier_parts)
+		return HUMAN_BODY_STYLE_SPLURT
+	return uses_classic_human_body(species, human_body_style) ? HUMAN_BODY_STYLE_TGMC : HUMAN_BODY_STYLE_SPLURT
+
+/proc/get_limb_icon_name(datum/species/S, gender, limb_name, ethnicity, digitigrade_legs = "Normal", synthetic_body_base = "Human", robot_body_base = "Combat Robot", robot_head_base = "Combat Robot", custom_supersoldier_parts = FALSE, supersoldier_body_base = "Human", supersoldier_head_base = "Human", human_body_style = HUMAN_BODY_STYLE_SPLURT)
 	if(istype(S, /datum/species/robot))
 		var/robot_base = get_effective_robot_body_base(limb_name == "head" ? robot_head_base : robot_body_base)
 		if(is_old_robot_body_base(robot_base))
@@ -19,8 +30,14 @@
 		return get_robot_limb_icon_name(robot_base, gender, limb_name, digitigrade_legs)
 	if(istype(S, /datum/species/human/prototype_supersoldier) && custom_supersoldier_parts)
 		var/supersoldier_base = limb_name == "head" ? supersoldier_head_base : supersoldier_body_base
+		if(supersoldier_base == "Human")
+			return get_modern_human_limb_icon_name(gender, limb_name, digitigrade_legs)
 		return get_splurt_limb_icon_name(get_supersoldier_limb_prefix(supersoldier_base), gender, limb_name, digitigrade_legs)
-	if(S.limb_type == SPECIES_LIMB_HUMAN) // todo this section is fucking stupid and can be way more generic easily
+	if(human_body_style == HUMAN_BODY_STYLE_SPLURT && can_use_human_body_style(S))
+		return get_modern_human_limb_icon_name(gender, limb_name, digitigrade_legs)
+	if(human_body_style == HUMAN_BODY_STYLE_TGMC && istype(S, /datum/species/human/vatborn))
+		return get_clone_limb_icon_name(gender, limb_name)
+	if(S.limb_type == SPECIES_LIMB_HUMAN || uses_classic_human_body(S, human_body_style)) // todo this section is fucking stupid and can be way more generic easily
 		switch(limb_name)
 			if ("torso", "chest")
 				return "[ethnicity]_torso_[get_gender_name(gender)]"
@@ -58,39 +75,7 @@
 			else
 				return null
 	else if(S.limb_type == SPECIES_LIMB_CLONE)
-		switch(limb_name)
-			if ("torso", "chest")
-				return "torso_[get_gender_name(gender)]"
-
-			if ("head")
-				return "head_[get_gender_name(gender)]"
-
-			if ("groin")
-				return "groin_[get_gender_name(gender)]"
-
-			if ("r_arm", "right arm")
-				return "right_arm_[get_gender_name(gender)]"
-
-			if ("l_arm", "left arm")
-				return "left_arm_[get_gender_name(gender)]"
-
-			if ("r_leg", "right leg")
-				return "right_leg_[get_gender_name(gender)]"
-
-			if ("l_leg", "left leg")
-				return "left_leg_[get_gender_name(gender)]"
-
-			if ("r_hand", "right hand")
-				return "right_hand_[get_gender_name(gender)]"
-
-			if ("l_hand", "left hand")
-				return "left_hand_[get_gender_name(gender)]"
-
-			if ("r_foot", "right foot")
-				return "right_foot_[get_gender_name(gender)]"
-
-			if ("l_foot", "left foot")
-				return "left_foot_[get_gender_name(gender)]"
+		return get_clone_limb_icon_name(gender, limb_name)
 	else if(S.limb_type == SPECIES_LIMB_SPLURT)
 		return get_splurt_limb_icon_name(S.splurt_limb_prefix, gender, limb_name, digitigrade_legs)
 	else
@@ -113,9 +98,68 @@
 			return "skrell"
 		if("Resurgentis")
 			return "resurgentis"
+		if("Xenomorph Hybrid")
+			return "xeno"
+		if("Teshari")
+			return "teshari"
 	return "human"
 
+/proc/get_modern_human_limb_icon_name(gender, limb_name, digitigrade_legs)
+	switch(limb_name)
+		if("torso", "chest", "groin")
+			return "mhuman_chest_[get_gender_name(gender)]"
+		if("head")
+			return "mhuman_head_[get_gender_name(gender)]"
+		if("r_arm", "right arm")
+			return "mhuman_r_arm"
+		if("l_arm", "left arm")
+			return "mhuman_l_arm"
+		if("r_hand", "right hand")
+			return "mhuman_r_hand"
+		if("l_hand", "left hand")
+			return "mhuman_l_hand"
+		if("r_leg", "right leg", "r_foot", "right foot")
+			if(digitigrade_legs == "Digitigrade" || digitigrade_legs == "Digitigrade 2")
+				return "digitigrade_r_leg"
+			return "mhuman_r_leg"
+		if("l_leg", "left leg", "l_foot", "left foot")
+			if(digitigrade_legs == "Digitigrade" || digitigrade_legs == "Digitigrade 2")
+				return "digitigrade_l_leg"
+			return "mhuman_l_leg"
+	return get_splurt_limb_icon_name("human", gender, limb_name, digitigrade_legs)
+
+/proc/uses_modern_human_limb_icon(limb_name)
+	return limb_name in list("torso", "chest", "groin", "head", "r_arm", "right arm", "l_arm", "left arm", "r_hand", "right hand", "l_hand", "left hand", "r_leg", "right leg", "r_foot", "right foot", "l_leg", "left leg", "l_foot", "left foot")
+
+/proc/get_clone_limb_icon_name(gender, limb_name)
+	switch(limb_name)
+		if("torso", "chest")
+			return "torso_[get_gender_name(gender)]"
+		if("head")
+			return "head_[get_gender_name(gender)]"
+		if("groin")
+			return "groin_[get_gender_name(gender)]"
+		if("r_arm", "right arm")
+			return "right_arm_[get_gender_name(gender)]"
+		if("l_arm", "left arm")
+			return "left_arm_[get_gender_name(gender)]"
+		if("r_leg", "right leg")
+			return "right_leg_[get_gender_name(gender)]"
+		if("l_leg", "left leg")
+			return "left_leg_[get_gender_name(gender)]"
+		if("r_hand", "right hand")
+			return "right_hand_[get_gender_name(gender)]"
+		if("l_hand", "left hand")
+			return "left_hand_[get_gender_name(gender)]"
+		if("r_foot", "right foot")
+			return "right_foot_[get_gender_name(gender)]"
+		if("l_foot", "left foot")
+			return "left_foot_[get_gender_name(gender)]"
+	return null
+
 /proc/get_supersoldier_body_icon(body_base)
+	if(body_base == "Human")
+		return BODYPART_ICON_MODERN_HUMAN
 	switch(body_base)
 		if("Lizard")
 			return BODYPART_ICON_LIZARD
@@ -129,6 +173,10 @@
 			return BODYPART_ICON_INSECT
 		if("Skrell")
 			return BODYPART_ICON_SKRELL
+		if("Xenomorph Hybrid")
+			return BODYPART_ICON_XENO
+		if("Teshari")
+			return BODYPART_ICON_TESHARI
 	return BODYPART_ICON_HUMAN
 
 /proc/get_robot_part_prefix(robot_base)
@@ -322,15 +370,22 @@
 	else
 		e_icon = E.icon_name
 
+	var/effective_human_body_style = get_effective_human_body_style()
 	for(var/datum/limb/L in limbs)
-		L.icon_name = get_limb_icon_name(get_visual_species(), physique, L.display_name, e_icon, digitigrade_legs, synthetic_body_base, robot_body_base, robot_head_base, custom_supersoldier_parts, supersoldier_body_base, supersoldier_head_base)
+		L.icon_name = get_limb_icon_name(get_visual_species(), physique, L.display_name, e_icon, digitigrade_legs, synthetic_body_base, robot_body_base, robot_head_base, custom_supersoldier_parts, supersoldier_body_base, supersoldier_head_base, effective_human_body_style)
 
 /mob/living/carbon/human/proc/get_body_icon()
 	var/datum/species/visual_species = get_visual_species()
+	if(get_effective_human_body_style() == HUMAN_BODY_STYLE_TGMC)
+		if(istype(species, /datum/species/human/vatborn))
+			return 'icons/mob/human_races/r_vatborn.dmi'
+		return 'icons/mob/human_races/r_human.dmi'
 	if(istype(visual_species, /datum/species/robot))
 		return get_splurt_robot_body_icon(get_effective_robot_body_base(robot_body_base))
 	if(istype(visual_species, /datum/species/human/prototype_supersoldier) && custom_supersoldier_parts)
 		return get_supersoldier_body_icon(supersoldier_body_base)
+	if(can_use_human_body_style(species))
+		return BODYPART_ICON_MODERN_HUMAN
 	return visual_species.icobase
 
 /mob/living/carbon/human/proc/get_body_icon_for_limb(limb_name)
@@ -341,6 +396,8 @@
 	if(istype(visual_species, /datum/species/human/prototype_supersoldier) && custom_supersoldier_parts)
 		var/supersoldier_base = limb_name == "head" ? supersoldier_head_base : supersoldier_body_base
 		return get_supersoldier_body_icon(supersoldier_base)
+	if(get_effective_human_body_style() == HUMAN_BODY_STYLE_SPLURT && can_use_human_body_style(species))
+		return uses_modern_human_limb_icon(limb_name) ? BODYPART_ICON_MODERN_HUMAN : BODYPART_ICON_HUMAN
 	return get_body_icon()
 
 /mob/living/carbon/human/proc/get_eye_icon_state()
@@ -353,6 +410,8 @@
 	return visual_species.eyes
 
 /mob/living/carbon/human/proc/get_render_body_color()
+	if(get_effective_human_body_style() == HUMAN_BODY_STYLE_TGMC)
+		return "#FFFFFF"
 	if(species?.name == "Moth" && (!body_color || body_color == "#FFFFFF"))
 		return sanitize_character_recolor(species.flesh_color)
 	return sanitize_character_recolor(body_color)
@@ -607,7 +666,7 @@
 
 /mob/living/MouseDrop_T(atom/dropping, mob/user)
 	. = ..()
-	if(!user.client.prefs)
+	if(!user.client || !user.client.prefs)
 		return
 	if(!user.client.prefs.quick_sex_toggle)
 		return
