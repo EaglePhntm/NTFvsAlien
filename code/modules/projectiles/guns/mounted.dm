@@ -665,11 +665,11 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 
 	attachable_allowed = list(
-		/obj/item/attachable/scope/unremovable/standard_atgun,
+		/obj/item/attachable/scope/unremovable/aim_atgun,
 	)
 
 	starting_attachment_types = list(
-		/obj/item/attachable/scope/unremovable/standard_atgun,
+		/obj/item/attachable/scope/unremovable/aim_atgun,
 	)
 
 	allowed_ammo_types = list(
@@ -680,7 +680,7 @@
 		/obj/item/ammo_magazine/standard_agls/cloak,
 	)
 
-	deploy_time = 6 SECONDS
+	deploy_time = 5 SECONDS
 	undeploy_time = 3 SECONDS
 	deployable_item = /obj/machinery/deployable/mounted
 

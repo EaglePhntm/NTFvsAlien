@@ -171,6 +171,15 @@
 	scope_delay = 2 SECONDS
 	zoom_tile_offset = 7
 
+/obj/item/attachable/scope/unremovable/aim_atgun
+	name = "PAG-37 long range scope"
+	desc = "An integral 2.7x magnification scope mounted on the Kauser AGLS-37, which allows it to fire at the maximum range of it's aurburst grenades. Requires time to aim."
+	icon_state = "sniper_invisible"
+	scope_delay = 1 SECONDS
+	zoom_tile_offset = 9
+	zoom_viewsize = 7
+	add_aim_mode = TRUE
+
 /obj/item/attachable/scope/unremovable/hsg_102
 	name = "HSG-102 smart sight"
 	desc = "An unremovable smart sight built for use with the HSG-102, it does nearly all the aiming work for the gun's integrated IFF systems."
