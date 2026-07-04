@@ -640,7 +640,7 @@
 	max_shells = 20 //codex
 	force = 20
 	default_ammo_type = /obj/item/ammo_magazine/rifle/valerian
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/valerian, /obj/item/ammo_magazine/rifle/valerian/ext, /obj/item/ammo_magazine/rifle/valerian/lrg)
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/valerian, /obj/item/ammo_magazine/rifle/valerian/ext, /obj/item/ammo_magazine/rifle/valerian/lrg, /obj/item/ammo_magazine/rifle/valerian/spp, /obj/item/ammo_magazine/rifle/valerian/spp/ext, /obj/item/ammo_magazine/rifle/valerian/spp/lrg, /obj/item/ammo_magazine/rifle/valerian/pz, /obj/item/ammo_magazine/rifle/valerian/pz/ext, /obj/item/ammo_magazine/rifle/valerian/pz/lrg)
 	attachable_allowed = list(
 		/obj/item/attachable/stock/valstock/valerian,
 		/obj/item/attachable/reddot,
@@ -652,13 +652,11 @@
 		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/foldable/bipod,
 		/obj/item/attachable/magnetic_harness,
-		/obj/item/attachable/bayonet/converted,
-		/obj/item/attachable/bayonet,
-		/obj/item/attachable/bayonet/som,
+		/obj/item/attachable/suppressor/unremovable/invisible,
 		/obj/item/attachable/scope,
 		/obj/item/attachable/scope/marine,
 		/obj/item/attachable/scope/mini,
-		/obj/item/attachable/scope/nightvision,
+		/obj/item/attachable/scope/tac,
 		/obj/item/weapon/gun/pistol/plasma_pistol,
 		/obj/item/weapon/gun/shotgun/combat/masterkey,
 		/obj/item/weapon/gun/pistol/g22/tranq,
@@ -672,8 +670,8 @@
 	)
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
-	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_AUTOBURST)
-	starting_attachment_types = list(/obj/item/attachable/stock/valstock/valerian)
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
+	starting_attachment_types = list(/obj/item/attachable/stock/valstock/valerian, /obj/item/attachable/suppressor/unremovable/invisible)
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 16,"rail_x" = 10, "rail_y" = 22, "under_x" = 19, "under_y" = 16, "stock_x" = 5, "stock_y" = 14)
 	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.1 SECONDS
@@ -695,19 +693,15 @@
 	accuracy_mult_unwielded = 0.75
 	akimbo_scatter_mod = 16
 
-/obj/item/weapon/gun/rifle/valerian/surveillant
-	starting_attachment_types = list(/obj/item/attachable/stock/valstock/valerian, /obj/item/attachable/verticalgrip, /obj/item/attachable/scope/nightvision)
-
 /obj/item/weapon/gun/rifle/valerian/recon
 	default_ammo_type = /obj/item/ammo_magazine/rifle/valerian/ext
-	starting_attachment_types = list(/obj/item/attachable/stock/valstock/valerian, /obj/item/attachable/angledgrip, /obj/item/attachable/reddot)
+	starting_attachment_types = list(/obj/item/attachable/stock/valstock/valerian, /obj/item/attachable/angledgrip, /obj/item/attachable/suppressor/unremovable/invisible, /obj/item/attachable/reddot)
 
 /obj/item/attachable/stock/valstock/valerian
 	name = "\improper Valerian stock"
 	desc = "A specialized stock for the Valerian"
 	icon = 'ntf_modular/icons/obj/items/guns/attachments/stock.dmi'
 	icon_state = "valerian"
-	attach_features_flags = ATTACH_REMOVABLE
 	wield_delay_mod = 0.2 SECONDS
 	accuracy_mod = 0.2
 	recoil_mod = -1
@@ -716,11 +710,83 @@
 /datum/ammo/bullet/rifle/heavy/valerian
 	name = "heavy subsonic rifle bullet"
 	damage = 35
+	hud_state = "hivelo"
 	accurate_range = 10
 	shell_speed = 3
 	max_range = 20
 	damage_falloff = 1.25
 	shrapnel_chance = 2
+
+/datum/ammo/bullet/rifle/heavy/valerian/spp
+	name = "heavy match subsonic rifle bullet"
+	damage = 30
+	hud_state = "hivelo_impact"
+	accurate_range = 20
+	shell_speed = 4
+	max_range = 30
+	damage_falloff = 0.75
+	shrapnel_chance = 2
+
+/datum/ammo/bullet/rifle/heavy/valerian/pz
+	name = "heavy match incendiary rifle bullet"
+	damage = 30
+	hud_state = "hivelo_fire"
+	ammo_behavior_flags = AMMO_INCENDIARY
+	accurate_range = 10
+	shell_speed = 3
+	max_range = 20
+	damage_falloff = 1.5
+	shrapnel_chance = 2
+
+//Vantage (sniper variant)
+/obj/item/weapon/gun/rifle/valerian/vantage
+	name = "\improper Vantage marksman carbine"
+	desc = "The Atsuko-Kalin manufacturing company created the Vantage as a hard-hitting suppressed marksman carbine."
+	icon = 'ntf_modular/icons/obj/items/guns/rifles64.dmi'
+	icon_state = "vantage"
+	worn_icon_state = "valerian"
+	worn_icon_list = list(
+		slot_l_hand_str = 'ntf_modular/icons/mob/inhands/guns/rifles_left_64.dmi',
+		slot_r_hand_str = 'ntf_modular/icons/mob/inhands/guns/rifles_right_64.dmi',
+		slot_s_store_str = 'ntf_modular/icons/mob/suit_slot.dmi',
+		slot_back_str = 'ntf_modular/icons/mob/clothing/back.dmi',
+		)
+
+	attachable_allowed = list(
+		/obj/item/attachable/stock/valstock/vantage,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/angledgrip,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/suppressor/unremovable/invisible,
+		/obj/item/attachable/foldable/bipod,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonet/som,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/marine,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/scope/tac,
+		/obj/item/attachable/motiondetector,
+	)
+
+	starting_attachment_types = list(/obj/item/attachable/stock/valstock/vantage, /obj/item/attachable/suppressor/unremovable/invisible)
+
+/obj/item/attachable/stock/valstock/vantage
+	name = "\improper Vantage stock"
+	desc = "A specialized thumbhole stock for the Vantage"
+	icon = 'ntf_modular/icons/obj/items/guns/attachments/stock.dmi'
+	icon_state = "vantage"
+	wield_delay_mod = 0.4 SECONDS
+	accuracy_mod = 0.5
+	recoil_mod = -2
+	scatter_mod = -2
+
+/obj/item/weapon/gun/rifle/valerian/vantage/surveillant
+	starting_attachment_types = list(/obj/item/attachable/stock/valstock/vantage, /obj/item/attachable/verticalgrip, /obj/item/attachable/suppressor/unremovable/invisible, /obj/item/attachable/scope/tac)
 
 //standard mag
 /obj/item/ammo_magazine/rifle/valerian
@@ -750,6 +816,68 @@
 	max_rounds = 45
 	icon_state = "valerian_lrgmag"
 	bonus_overlay = "valerian_lrgmag"
+	aim_speed_mod = 0.15
+	wield_delay_mod = 0.15 SECONDS
+
+//standard match mag
+/obj/item/ammo_magazine/rifle/valerian/spp
+	name = "\improper Valerian magazine (9x39mm)"
+	desc = "A magazine filled with 9x39mm rifle rounds for the Valerian carbine."
+	caliber = CALIBER_9X39
+	icon_state = "valerian_sppmag"
+	icon = 'ntf_modular/icons/obj/items/ammo/rifle.dmi'
+	bonus_overlay = "valerian_sppmag"
+	default_ammo = /datum/ammo/bullet/rifle/heavy/valerian/spp
+	max_rounds = 20
+
+//extended match mag
+/obj/item/ammo_magazine/rifle/valerian/spp/ext
+	name = "\improper Valerian extended magazine (9x39mm)"
+	desc = "An extended magazine filled with 9x39mm rifle rounds for the Valerian carbine."
+	max_rounds = 30
+	icon_state = "valerian_sppextmag"
+	bonus_overlay = "valerian_sppextmag"
+	aim_speed_mod = 0.06
+	wield_delay_mod = 0.06 SECONDS
+
+//large match mag
+/obj/item/ammo_magazine/rifle/valerian/spp/lrg
+	name = "\improper Valerian large magazine (9x39mm)"
+	desc = "A large magazine filled with 9x39mm rifle rounds for the Valerian carbine."
+	max_rounds = 45
+	icon_state = "valerian_spplrgmag"
+	bonus_overlay = "valerian_spplrgmag"
+	aim_speed_mod = 0.15
+	wield_delay_mod = 0.15 SECONDS
+
+//standard incendiary mag
+/obj/item/ammo_magazine/rifle/valerian/pz
+	name = "\improper Valerian magazine (9x39mm)"
+	desc = "A magazine filled with 9x39mm rifle rounds for the Valerian carbine."
+	caliber = CALIBER_9X39
+	icon_state = "valerian_pzmag"
+	icon = 'ntf_modular/icons/obj/items/ammo/rifle.dmi'
+	bonus_overlay = "valerian_pzmag"
+	default_ammo = /datum/ammo/bullet/rifle/heavy/valerian/pz
+	max_rounds = 20
+
+//extended incendiary mag
+/obj/item/ammo_magazine/rifle/valerian/pz/ext
+	name = "\improper Valerian extended magazine (9x39mm)"
+	desc = "An extended magazine filled with 9x39mm rifle rounds for the Valerian carbine."
+	max_rounds = 30
+	icon_state = "valerian_pzextmag"
+	bonus_overlay = "valerian_pzextmag"
+	aim_speed_mod = 0.06
+	wield_delay_mod = 0.06 SECONDS
+
+//large incendiary mag
+/obj/item/ammo_magazine/rifle/valerian/pz/lrg
+	name = "\improper Valerian large magazine (9x39mm)"
+	desc = "A large magazine filled with 9x39mm rifle rounds for the Valerian carbine."
+	max_rounds = 45
+	icon_state = "valerian_pzlrgmag"
+	bonus_overlay = "valerian_pzlrgmag"
 	aim_speed_mod = 0.15
 	wield_delay_mod = 0.15 SECONDS
 

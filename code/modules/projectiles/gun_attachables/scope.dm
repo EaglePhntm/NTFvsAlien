@@ -99,6 +99,16 @@
 	desc = "A rail-mounted night vision scope developed by Roh-Easy industries for the TGMC. Allows zoom by activating the attachment."
 	has_nightvision = TRUE
 
+/obj/item/attachable/scope/tac
+	name = "OV-120 Night vision scope"
+	icon_state = "tac"
+	desc = "A special side-rail mounted night vision scope developed for use with the Valerian and Vantage, smoother than the clunkier T46 at the cost of only mounting to a few platforms. Allows zoom by activating the attachment."
+	has_nightvision = TRUE
+	aim_speed_mod = 0.3
+	wield_delay_mod = 0.2 SECONDS
+	zoom_tile_offset = 9
+	zoom_viewsize = 7
+
 /obj/item/attachable/scope/optical
 	name = "T-49 Optical imaging scope"
 	icon_state = "imager"

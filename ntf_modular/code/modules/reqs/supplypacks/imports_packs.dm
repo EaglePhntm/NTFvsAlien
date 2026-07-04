@@ -375,6 +375,16 @@
 	contains = list(/obj/item/weapon/gun/rifle/valerian)
 	cost = 500
 
+datum/supply_packs/imports/valerian/vantage
+	name = "Vantage marksman carbine"
+	contains = list(/obj/item/weapon/gun/rifle/valerian/vantage)
+	cost = 500
+
+/datum/supply_packs/imports/tac
+	name = "OV-120 Night vision scope"
+	contains = list(/obj/item/attachable/scope/tac)
+	cost = 300
+
 /datum/supply_packs/imports/valerianmag
 	name = "Valerian magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/valerian)
@@ -389,6 +399,37 @@
 	name = "Valerian large magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/valerian/lrg)
 	cost = 20
+
+/datum/supply_packs/imports/valerianmag/spp
+	name = "Valerian match magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/valerian/spp)
+	cost = 10
+
+/datum/supply_packs/imports/valerianextmag/spp
+	name = "Valerian extended match magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/valerian/spp/ext)
+	cost = 20
+
+/datum/supply_packs/imports/valerianlrgext/spp
+	name = "Valerian large match magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/valerian/spp/lrg)
+	cost = 40
+
+/datum/supply_packs/imports/valerianmag/pz
+	name = "Valerian incendiary magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/valerian/pz)
+	cost = 10
+
+/datum/supply_packs/imports/valerianextmag/pz
+	name = "Valerian extended incendiary magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/valerian/pz/ext)
+	cost = 20
+
+/datum/supply_packs/imports/valerianlrgext/pz
+	name = "Valerian large incendiary magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/valerian/pz/lrg)
+	cost = 40
+
 
 /datum/supply_packs/imports/mparexport
 	name = "Civilian Multi-Purpose Adaptive Rifle"
