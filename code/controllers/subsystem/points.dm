@@ -128,6 +128,8 @@ SUBSYSTEM_DEF(points)
 		supply_shuttle = SSshuttle.getShuttle("supplyicc")
 	if(O.faction == FACTION_NEUTRAL)
 		supply_shuttle = SSshuttle.getShuttle("supplycolony")
+	if(!supply_shuttle)
+		return
 	if(length(shoppinglist[O.faction]) >= supply_shuttle.return_number_of_turfs())
 		return
 	requestlist -= "[O.id]"

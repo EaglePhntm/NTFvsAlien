@@ -226,7 +226,7 @@
 	var/datum/browser/modal/alert/A = new(User, Message, Title, Button1, Button2, Button3, StealFocus, Timeout)
 	A.open()
 	A.wait()
-	switch(A.selectedbutton)
+	switch(A?.selectedbutton)
 		if(1)
 			return Button1
 		if(2)

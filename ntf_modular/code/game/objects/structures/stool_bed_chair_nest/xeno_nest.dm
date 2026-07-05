@@ -364,25 +364,37 @@
 	if(isxeno(user) && istype(attacking_item, /obj/item/grab))
 		var/obj/item/grab/attacker_grab = attacking_item
 		var/mob/living/carbon/xenomorph/user_as_xenomorph = user
-		user_as_xenomorph.do_nesting_host(attacker_grab.grabbed_thing, src)
-		return
+		if(user_as_xenomorph.can_wall_nest_with_intent())
+			user_as_xenomorph.do_nesting_host(attacker_grab.grabbed_thing, src)
+			return TRUE
+		if(user_as_xenomorph.a_intent != INTENT_HARM)
+			return TRUE
 	. = ..()
 
 /obj/alien/weeds/weedwall/attackby(obj/item/attacking_item, mob/living/user, params)
 	if(isxeno(user) && istype(attacking_item, /obj/item/grab))
 		var/obj/item/grab/attacking_grab = attacking_item
 		var/mob/living/carbon/xenomorph/user_as_xenomorph = user
-		user_as_xenomorph.do_nesting_host(attacking_grab.grabbed_thing, src)
-		return
+		if(user_as_xenomorph.can_wall_nest_with_intent())
+			user_as_xenomorph.do_nesting_host(attacking_grab.grabbed_thing, src)
+			return TRUE
+		if(user_as_xenomorph.a_intent != INTENT_HARM)
+			return TRUE
 	. = ..()
 
 /turf/closed/wall/resin/attackby(obj/item/attacking_item, mob/living/user, params)
 	if(isxeno(user) && istype(attacking_item, /obj/item/grab))
 		var/obj/item/grab/attacking_grab = attacking_item
 		var/mob/living/carbon/xenomorph/user_as_xenomorph = user
-		user_as_xenomorph.do_nesting_host(attacking_grab.grabbed_thing, src)
-		return
+		if(user_as_xenomorph.can_wall_nest_with_intent())
+			user_as_xenomorph.do_nesting_host(attacking_grab.grabbed_thing, src)
+			return TRUE
+		if(user_as_xenomorph.a_intent != INTENT_HARM)
+			return TRUE
 	. = ..()
+
+/mob/living/carbon/xenomorph/proc/can_wall_nest_with_intent()
+	return a_intent == INTENT_HELP || a_intent == INTENT_GRAB
 
 /mob/living/carbon/xenomorph/proc/do_nesting_host(mob/current_mob, nest_structural_base)
 	var/list/xeno_hands = list(get_active_held_item(), get_inactive_held_item())

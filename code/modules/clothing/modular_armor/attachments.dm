@@ -112,6 +112,8 @@
 
 /// Called when the module is removed from the armor.
 /obj/item/armor_module/proc/on_detach(obj/item/detaching_from, mob/user)
+	if(!parent)
+		return
 	SEND_SIGNAL(detaching_from, COMSIG_ARMOR_MODULE_DETACHED, user, src)
 	parent.set_light_range(parent.light_range - light_mod)
 	parent.hard_armor = parent.hard_armor.detachArmor(hard_armor)

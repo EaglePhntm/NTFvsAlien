@@ -22,6 +22,9 @@
 /datum/component/blur_protection/proc/equipped_to_slot(datum/source, mob/user, slot)
 	SIGNAL_HANDLER
 	RegisterSignal(user, COMSIG_LIVING_UPDATE_PLANE_BLUR, PROC_REF(cancel_blur))
+	if(isliving(user))
+		var/mob/living/living_user = user
+		living_user.update_eye_blur()
 
 /datum/component/blur_protection/proc/cancel_blur()
 	return COMPONENT_CANCEL_BLUR

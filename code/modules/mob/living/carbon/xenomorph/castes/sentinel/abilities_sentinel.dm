@@ -201,6 +201,9 @@
 /datum/action/ability/activable/xeno/drain_sting/use_ability(atom/A)
 	var/mob/living/carbon/human/human_target = A
 	var/datum/status_effect/stacking/intoxicated/debuff = human_target.has_status_effect(STATUS_EFFECT_INTOXICATED)
+	if(!debuff)
+		human_target.balloon_alert(owner, "Not intoxicated")
+		return FALSE
 
 	var/potency = get_potency(human_target)
 	var/potency_in_sets = round(potency / SENTINEL_DRAIN_MULTIPLIER)
@@ -234,6 +237,8 @@
 /// Returns the potency of Drain Sting which accounts for: base potency, Intoxicated stacks, xeno-chemicals, and range effectiveness.
 /datum/action/ability/activable/xeno/drain_sting/proc/get_potency(mob/living/carbon/human/human_target)
 	var/datum/status_effect/stacking/intoxicated/debuff = human_target.has_status_effect(STATUS_EFFECT_INTOXICATED)
+	if(!debuff)
+		return 0
 	var/potency = base_potency + (debuff.stacks * SENTINEL_DRAIN_MULTIPLIER)
 	if(chemical_potency)
 		for(var/datum/reagent/target_reagent AS in human_target.reagents.reagent_list)

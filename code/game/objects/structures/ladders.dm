@@ -397,6 +397,9 @@
 
 ///throws an item held by a user up or down a ladder
 /obj/structure/ladder/proc/throw_object(obj/item/item, mob/user, going_up=TRUE)
+	if((item.item_flags & ITEM_ABSTRACT) || HAS_TRAIT(item, TRAIT_NODROP))
+		use(user, going_up)
+		return
 	if(going_up && !up)
 		balloon_alert(user, "no stairs above!")
 		return

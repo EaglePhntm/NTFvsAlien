@@ -244,6 +244,8 @@
 			return FALSE
 
 	var/datum/limb/affecting = .
+	if(!istype(affecting))
+		return FALSE
 	if(M == user && ((!user.hand && affecting.body_part == ARM_RIGHT) || (user.hand && affecting.body_part == ARM_LEFT)))
 		user.balloon_alert(user, "you're using that arm!")
 		return

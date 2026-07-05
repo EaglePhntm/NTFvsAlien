@@ -343,10 +343,10 @@ GLOBAL_PROTECT(exp_specialmap)
 	for(var/datum/outfit/variant AS in assigned_role.outfits)
 		if(ispath(variant))
 			variant = new variant
-		if((src.species.species_type) in variant.species)
+		if(src.species && (src.species.species_type in variant.species))
 			valid_outfits += variant
 	if(!length(valid_outfits))
-		log_runtime("Failed to find valid outfit when applying [assigned_role.title]([assigned_role.type]) to [logdetails(src)](Species: [src.species.name]([src.species.type]))")
+		log_runtime("Failed to find valid outfit when applying [assigned_role.title]([assigned_role.type]) to [logdetails(src)](Species: [src.species ? "[src.species.name]([src.species.type])" : "null"])")
 		assigned_role.outfit.equip(src)
 		return
 	var/datum/outfit/chosen_variant = pick(valid_outfits)

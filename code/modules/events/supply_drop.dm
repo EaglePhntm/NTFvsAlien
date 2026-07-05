@@ -18,7 +18,7 @@
 
 	for(var/z in z_levels)
 		while(!target_turf)
-			var/turf/potential_turf = locate(rand(0, world.maxx), rand(0,world.maxy), z)
+			var/turf/potential_turf = locate(rand(1, world.maxx), rand(1,world.maxy), z)
 			if(isclosedturf(potential_turf) || isspaceturf(potential_turf))
 				continue
 			target_turf = potential_turf
@@ -27,6 +27,8 @@
 
 ///sets the target for this event, and notifies the hive
 /datum/round_event/supply_drop/proc/set_target(turf/target_turf)
+	if(!target_turf)
+		return
 	var/supplying_faction = pick(SSticker.mode.factions)
 	priority_announce("Friendly supply drop arriving in AO in [drop_delay / 600] minutes. Drop zone at [target_turf.loc].", "Bluespace Tactical Scanner Status", sound = 'sound/AI/distressreceived.ogg', receivers = (GLOB.alive_human_list_faction[supplying_faction] + GLOB.observer_list))
 	addtimer(CALLBACK(src, PROC_REF(alert_hostiles), target_turf, supplying_faction), alert_delay)

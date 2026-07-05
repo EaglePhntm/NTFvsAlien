@@ -45,7 +45,7 @@
 	log_message("Took [damage_taken] points of damage. Damage type: [damage_type]", LOG_MECHA)
 	if(damage_taken < 5)
 		return damage_taken //its only a scratch
-	spark_system.start()
+	spark_system?.start()
 	try_deal_internal_damage(damage_taken)
 	to_chat(occupants, "[icon2html(src, occupants)][span_userdanger("Taking damage!")]")
 

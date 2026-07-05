@@ -33,18 +33,13 @@
 
 	mob.stop_sound_channel(CHANNEL_MIDI)
 
-/mob/living/verb/toggle_quicksex()
+/client/verb/toggle_quicksex()
 	set name = "Toggle Quicksex"
 	set desc = "Prevents you from dragging yourself to people for quicksex actions."
 	set category = "Preferences"
-	set src = usr
 
-	if(QDELETED(usr))
+	if(!prefs)
 		return
-	if(!isliving(usr))
-		return
-	if(!client?.prefs)
-		return
-	client.prefs.quick_sex_toggle = !client.prefs.quick_sex_toggle
-	balloon_alert(usr, "QK Sex [client.prefs.quick_sex_toggle ? "ON" : "OFF"]")
-	client.prefs.save_preferences()
+	prefs.quick_sex_toggle = !prefs.quick_sex_toggle
+	mob?.balloon_alert(mob, "QK Sex [prefs.quick_sex_toggle ? "ON" : "OFF"]")
+	prefs.save_preferences()

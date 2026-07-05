@@ -18,6 +18,7 @@
 	return ..()
 
 /turf/open/liquid/Destroy(force)
+	UnregisterSignal(src, list(COMSIG_TURF_JUMP_ENDED_HERE, COMSIG_TURF_THROW_ENDED_HERE))
 	if(!(get_submerge_height() - mob_liquid_height) && !(get_submerge_depth() - mob_liquid_depth))
 		RemoveElement(/datum/element/submerge)
 	return ..()
@@ -352,4 +353,3 @@ ww
 	if(!(my_catwalk.atom_flags & INITIALIZED))
 		my_catwalk.Initialize(mapload)
 	. = ..()
-

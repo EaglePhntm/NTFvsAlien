@@ -133,12 +133,20 @@ SUBSYSTEM_DEF(sounds)
 
 /// Random available channel, returns text.
 /datum/controller/subsystem/sounds/proc/random_available_channel_text()
+	if(!length(channel_list))
+		setup_available_channels()
+	if(channel_reserve_high < 1)
+		return
 	if(channel_random_low > channel_reserve_high)
 		channel_random_low = 1
 	. = "[channel_list[channel_random_low++]]"
 
 /// Random available channel, returns number
 /datum/controller/subsystem/sounds/proc/random_available_channel()
+	if(!length(channel_list))
+		setup_available_channels()
+	if(channel_reserve_high < 1)
+		return
 	if(channel_random_low > channel_reserve_high)
 		channel_random_low = 1
 	. = channel_list[channel_random_low++]

@@ -776,7 +776,7 @@
 	debuff_owner.update_eye_blur()
 	debuff_owner.reagents.remove_reagent(/datum/reagent/toxin/xeno_aphrotoxin, 15)
 	debuff_owner.reagents.remove_reagent(/datum/reagent/consumable/larvajelly, 6)
-	debuff_owner.sexcon.ejaculate(debuff_owner)
+	debuff_owner.sexcon?.ejaculate(debuff_owner)
 	if(debuff_owner.getStaminaLoss() > 120)
 		if(prob(5))
 			debuff_owner.visible_message(span_warning("[debuff_owner] manages to black out from cumming too hard..."), 4)

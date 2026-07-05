@@ -48,6 +48,9 @@
 		to_chat(user, span_warning("Unsuitable target."))
 		return
 	var/datum/sex_controller/usersexcon = user.sexcon
+	if(!usersexcon)
+		to_chat(user, span_warning("Unsuitable user."))
+		return
 	usersexcon.start(target)
 
 /* obsolete now

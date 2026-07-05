@@ -64,7 +64,7 @@
 
 		log_combat(user, M, "fed", src, "Reagents: [rgt_list_text]")
 
-		if(reagents.total_volume)
+		if(reagents?.total_volume)
 			record_reagent_consumption(reagents.total_volume, reagents.reagent_list, user, M)
 			reagents.reaction(M, INGEST)
 			reagents.trans_to(M, reagents.total_volume)
