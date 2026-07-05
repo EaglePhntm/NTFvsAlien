@@ -11,7 +11,7 @@
 	worn_icon_state = "chainsaw"
 	attack_verb = list("gores", "tears", "rips", "shreds", "slashes", "cuts")
 	force = 20
-	force_activated = 75
+	force_activated = 50
 	throwforce = 30
 	attack_speed = 20
 	w_class = WEIGHT_CLASS_NORMAL
@@ -26,7 +26,7 @@
 	///amount of fuel used per hit
 	var/fuel_used = 5
 	///additional damage when weapon is active
-	var/additional_damage = 75
+	var/additional_damage = 25
 
 /obj/item/weapon/twohanded/chainsaw/Initialize(mapload)
 	. = ..()
