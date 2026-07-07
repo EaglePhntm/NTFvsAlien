@@ -2919,11 +2919,11 @@
 	starting_attachment_types = list(/obj/item/attachable/lasersight, /obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel)
 
 //-------------------------------------------------------
-//ML-41 Autoshotgun
+//ML-41A Autoshotgun
 
 /obj/item/weapon/gun/rifle/icc_autoshotgun
-	name = "\improper ML-41 autoshotgun"
-	desc = "The ML-41 Automatic Shotgun is used by the ICCAF in fast paced boarding assaults, fielding a wide variety of ammo for all situations. Takes 16-round 12 gauge drums."
+	name = "\improper ML-41A autoshotgun"
+	desc = "The ML-41A Automatic Shotgun is used by the ICCAF in fast paced boarding assaults, fielding a wide variety of ammo for all situations. Takes 20-round 12 gauge drums."
 	icon = 'icons/obj/items/guns/shotguns64.dmi'
 	icon_state = "ml41"
 	worn_icon_state = "ml41"
@@ -2966,13 +2966,19 @@
 	gun_skill_category = SKILL_SHOTGUNS
 
 	fire_delay = 0.7 SECONDS
-	accuracy_mult = 1.15
-	damage_mult = 0.5
-	aim_slowdown = 0.6
-	wield_delay = 0.75 SECONDS
+	accuracy_mult = 1.05
+	accuracy_mult_unwielded = 0.5
+	damage_mult = 0.7
+	damage_falloff_mult = 5.5
+	aim_slowdown = 1.05
+	wield_delay = 1 SECONDS
 	burst_amount = 1
-	scatter = 8
-	movement_acc_penalty_mult = 2
+	movement_acc_penalty_mult = 6
+	
+	min_scatter = 3
+	max_scatter = 15
+	scatter_increase = 1.5
+	scatter_decay = 4
 
 /obj/item/weapon/gun/rifle/icc_autoshotgun/guard
 	default_ammo_type = /obj/item/ammo_magazine/rifle/icc_autoshotgun/frag
