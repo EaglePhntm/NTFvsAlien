@@ -102,7 +102,7 @@
 	unarmed_type = /datum/unarmed_attack/punch
 	slowdown = 1.15 //Slower than Late Synths
 	total_health = 225 //Tough boys, very tough boys
-	//brute_mod = 0.6
+	brute_mod = 0.6
 	burn_mod = 0.6
 	limb_type = SPECIES_LIMB_HUMAN
 
