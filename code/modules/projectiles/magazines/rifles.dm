@@ -815,7 +815,7 @@
 	color = list(1,0,0,0, 0,1,0,0, 0,1.5,1,0, 0,0,0,1) //recolor it green.  New sprites would be better but too much work
 
 //-------------------------------------------------------
-//ML-41 Autoshotgun
+//ML-41A Autoshotgun
 /obj/item/ammo_magazine/rifle/icc_autoshotgun
 	name = "\improper ML-41 Autoshotgun flechette drum magazine (12G)"
 	desc = "A magazine filled with 12G flechette shells for the ML-41."
@@ -824,6 +824,8 @@
 	default_ammo = /datum/ammo/bullet/shotgun/flechette
 	max_rounds = 20
 	icon_state_mini = "mag_rifle"
+	aim_speed_mod = 0.2
+	wield_delay_mod = 0.2 SECONDS
 
 /obj/item/ammo_magazine/rifle/icc_autoshotgun/rubber
 	name = "\improper ML-41 Autoshotgun rubber pellet drum magazine (12G)"
@@ -837,7 +839,9 @@
 	caliber = CALIBER_12G
 	icon_state = "ml41_frag"
 	default_ammo = /datum/ammo/bullet/shotgun/frag
-	max_rounds = 12
+	max_rounds = 20
+	aim_speed_mod = 0.2
+	wield_delay_mod = 0.2 SECONDS
 
 //-------------------------------------------------------
 //L-88 Assault Carbine
