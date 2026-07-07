@@ -107,7 +107,6 @@
 	if(H.health > -25) //Staggerslowed if below crit threshold
 		return
 	H.apply_effect(4 SECONDS, EFFECT_STUTTER) // Added flavor
-	H.Stagger(2 SECONDS)
 	H.adjust_slowdown(1)
 	if(H.health <= -80) //Paralyzes when near death
 		H.Paralyze(6 SECONDS)
