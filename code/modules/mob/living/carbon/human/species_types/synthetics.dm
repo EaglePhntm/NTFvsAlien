@@ -37,7 +37,7 @@
 	has_genital_selection = TRUE
 
 /datum/species/synthetic/handle_unique_behavior(mob/living/carbon/human/H)
-	if(H.health <= SYNTHETIC_CRIT_THRESHOLD && H.stat != DEAD) // Instead of having a critical condition, they overheat and slowly die.
+	if(H.health <= SYNTHETIC_CRIT_THRESHOLD && H.stat != DEAD && !H.has_status_effect(/datum/status_effect/incapacitating/sleeping)) // Instead of having a critical condition, they overheat and slowly die.
 		H.apply_effect(4 SECONDS, EFFECT_STUTTER) // Added flavor
 		H.take_overall_damage(rand(5, 16), BURN, updating_health = TRUE, max_limbs = 1) // Melting!!!
 		if(prob(12))
