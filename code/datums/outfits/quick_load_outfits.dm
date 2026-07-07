@@ -4184,13 +4184,13 @@
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_assaultcarbine, SLOT_IN_BELT)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_assaultcarbine, SLOT_IN_BELT)
 
-/datum/outfit/quick/icc/standard/icc_autoshotgun
-	name = "ML-41ASG Autoshotgun CM Skirmisher"
-	desc = "Equipped with an ML-41ASG autoshotgun and a skorpion SMG, the weapons of choice for fast paced assaults. Loaded with flechette by default, but is sometimes swapped out for frag drums by the ICCAF to really bring on the pain."
-	suit_store = /obj/item/weapon/gun/rifle/icc_autoshotgun
+/datum/outfit/quick/icc/standard/icc_trenchgun
+	name = "L-4034 Trenchgun CM Skirmisher"
+	desc = "Equipped with an L-4034 trenchgun and a skorpion SMG, the weapons of choice for fast paced assaults. Loaded with buckshot by default, but is sometimes swapped out for flechettes by the ICCAF to pierce through hard targets."
+	suit_store = /obj/item/weapon/gun/shotgun/pump/trenchgun/icc_leader
 
 	w_uniform = /obj/item/clothing/under/marine/veteran/cm
-	belt = /obj/item/storage/belt/marine/icc
+	belt = /obj/item/storage/belt/shotgun/icc
 	shoes = /obj/item/clothing/shoes/marine/brown/full
 	wear_suit = /obj/item/clothing/suit/storage/marine/icc/guard
 	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
@@ -4200,7 +4200,7 @@
 	l_pocket = /obj/item/storage/pouch/medical_injectors/icc/firstaid
 	back = /obj/item/storage/backpack/lightpack/cm
 
-/datum/outfit/quick/icc/standard/icc_autoshotgun/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/quick/icc/standard/icc_trenchgun/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/oxycodone, SLOT_IN_HEAD)
@@ -4239,12 +4239,20 @@
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/bullet/hefa, SLOT_IN_R_POUCH)
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/bullet/hefa, SLOT_IN_R_POUCH)
 
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_autoshotgun, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_autoshotgun, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_autoshotgun, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_autoshotgun, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_autoshotgun, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/icc_autoshotgun, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/flechette, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/flechette, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/flechette, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/flechette, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/flechette, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/flechette, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/flechette, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BELT)
 
 /datum/outfit/quick/icc/medic // base, not to be used
 	name = "CM Medic"
