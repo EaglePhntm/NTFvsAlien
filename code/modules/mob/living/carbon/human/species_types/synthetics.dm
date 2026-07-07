@@ -38,7 +38,7 @@
 
 
 /datum/species/robot/handle_unique_behavior(mob/living/carbon/human/H)
-	if(H.health <= 0 && H.health > -90 && !H.has_status_effect(/datum/status_effect/incapacitating/repair_mode)) // Doesn't kill, purely for sex/capture reasons
+	if(H.health <= 0 && H.health > -90 && !H.has_status_effect(/datum/status_effect/incapacitating/sleeping)) // Doesn't kill, purely for sex/capture reasons
 		H.take_overall_damage(rand(1, 2), BURN, updating_health = TRUE, max_limbs = 1) // Melting!!!
 	if(H.health <= 0 && H.health > -50)
 		H.clear_fullscreen("robotlow")
