@@ -81,8 +81,6 @@
 ///Slows down non xeno crossers
 /obj/alien/weeds/proc/slow_down_crosser(atom/movable/crosser, slow_amount = cross_slowdown)
 	SIGNAL_HANDLER
-	if(issamexenohive(crosser))
-		return
 	if(crosser.throwing || crosser.buckled)
 		return
 	if(crosser.pass_flags & PASS_LOW_STRUCTURE)
@@ -96,6 +94,11 @@
 		COOLDOWN_INCREMENT(vehicle, cooldown_vehicle_move, slow_amount)
 		return
 	if(!isliving(crosser))
+		return
+	if(issamexenohive(crosser))
+		if(isxeno(crosser))
+			var/mob/living/carbon/xenomorph/xeno = crosser
+			xeno.next_move_slowdown += xeno?.xeno_caste?.weeds_speed_mod
 		return
 	var/mob/living/carbon/human/victim = crosser
 	if(victim.lying_angle)

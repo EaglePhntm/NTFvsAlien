@@ -34,8 +34,7 @@
 
 /obj/alien/weeds/on_loc_entered(datum/source, atom/movable/crosser)
 	. = ..()
-	if(cross_slowdown > 0)
-		slow_down_crosser(crosser, cross_slowdown)
+	slow_down_crosser(crosser, cross_slowdown)
 
 /obj/alien/weeds/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	GLOB.round_statistics.weeds_destroyed++
