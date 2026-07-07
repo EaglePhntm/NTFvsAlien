@@ -310,9 +310,10 @@
 	if(ishuman(victim) && !(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES))
 		if(victim.getCloneLoss() < 30)
 			victim.adjustCloneLoss(45)
-			if(!(CHECK_BITFIELD(victim.restrained_flags, RESTRAINED_XENO_NEST)))
-				victim.death(FALSE)
-			victim.visible_message(span_warning("[victim]'s body and hole are devastated by the birth."))
+		if(!(CHECK_BITFIELD(victim.restrained_flags, RESTRAINED_XENO_NEST)) || issynth(victim)) //synth dont have cloneloss so only option is to outright kill them.
+			//victim.death(FALSE)
+			victim.adjustCloneLoss(75) //more if not nested
+		victim.visible_message(span_warning("[victim]'s body and hole are devastated by the birth."))
 
 	if(((locate(/obj/structure/bed/nest) in loc) || loc_weeds_type) && !mind)
 		var/suitablesilo = FALSE

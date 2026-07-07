@@ -6,7 +6,7 @@
 
 	total_health = 150 //more health than regular humans
 
-	//brute_mod = 0.7
+	brute_mod = 0.7
 	burn_mod = 0.8 // A slight amount of burn resistance. Changed from 0.7 due to their critical condition phase
 
 	cold_level_1 = -1
@@ -36,23 +36,38 @@
 	special_death_message = "You have been shut down.<br><small>But it is not the end of you yet... if you still have your body, wait until somebody can resurrect you...</small>"
 	has_genital_selection = TRUE
 
-/datum/species/synthetic/handle_unique_behavior(mob/living/carbon/human/H)
-	if(H.health <= SYNTHETIC_CRIT_THRESHOLD && H.stat != DEAD && !H.has_status_effect(/datum/status_effect/incapacitating/sleeping)) // Instead of having a critical condition, they overheat and slowly die.
-		H.apply_effect(4 SECONDS, EFFECT_STUTTER) // Added flavor
-		H.take_overall_damage(rand(5, 16), BURN, updating_health = TRUE, max_limbs = 1) // Melting!!!
-		if(prob(12))
-			H.visible_message(span_boldwarning("[H] shudders violently and shoots out sparks!"), span_warning("Critical damage sustained. Internal temperature regulation systems offline. Shutdown imminent. <b>Estimated integrity: [round(H.health)]%.</b>"))
-			do_sparks(4, TRUE, H)
-	//stolen from robot code, they are still nonorganic so.
+
+/datum/species/robot/handle_unique_behavior(mob/living/carbon/human/H)
+	if(H.health <= 0 && H.health > -90) // Doesn't kill, purely for sex/capture reasons
+		H.take_overall_damage(rand(1, 2), BURN, updating_health = TRUE, max_limbs = 1) // Melting!!!
 	if(H.health <= 0 && H.health > -50)
 		H.clear_fullscreen("robotlow")
 		H.overlay_fullscreen("robothalf", /atom/movable/screen/fullscreen/robot/machine/robothalf)
+		if(COOLDOWN_FINISHED(H, soft_crit_emote_cooldown))
+			COOLDOWN_START(H, soft_crit_emote_cooldown, 40 SECONDS)
+			H.emote("damaged")
+			to_chat(H, span_warning("Critical damage sustained. Repair damage immediately. <b>Integrity: [round(H.health)]%.</b>"))
+		if(prob(15))
+			do_sparks(3, TRUE, H)
 	else if(H.health <= -50)
 		H.clear_fullscreen("robothalf")
 		H.overlay_fullscreen("robotlow", /atom/movable/screen/fullscreen/robot/machine/robotlow)
+		if(COOLDOWN_FINISHED(H, hard_crit_emote_cooldown))
+			COOLDOWN_START(H, hard_crit_emote_cooldown, 40 SECONDS)
+			H.emote("critical")
+			to_chat(H, span_warning("Critical damage sustained. Total system failure imminent. <b>Integrity: [round(H.health)]%.</b>"))
+		if(prob(30))
+			do_sparks(4, TRUE, H)
 	else
 		H.clear_fullscreen("robothalf")
 		H.clear_fullscreen("robotlow")
+	if(H.health > -25) //Staggerslowed if below crit threshold
+		return
+	H.apply_effect(4 SECONDS, EFFECT_STUTTER) // Added flavor
+	H.Stagger(2 SECONDS)
+	H.adjust_slowdown(1)
+	if(H.health <= -80) //Paralyzes when near death
+		H.Paralyze(6 SECONDS)
 
 /datum/species/synthetic/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
 	. = ..()

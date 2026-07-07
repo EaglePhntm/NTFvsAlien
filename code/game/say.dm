@@ -306,6 +306,10 @@ INITIALIZE_IMMEDIATE(/atom/movable/virtualspeaker)
 			job = living_speaker.job.comm_title
 		else
 			job = ""
+		if(ishuman(M))
+			var/mob/living/carbon/human/H = M
+			if(H.get_paygrade())
+				job = "[H.get_paygrade()]"
 	else if(isobj(M))  // Cold, emotionless machines
 		job = "Machine"
 

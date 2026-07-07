@@ -25,3 +25,4 @@
 #define MODE_2_SINGLE_USE_NUKE_DISK_GENERATOR (1<<5)
 ///This flag being present makes things such as larva bursting cloneloss and relevant limits NOT happen. It must not be used in PVP modes.
 #define MODE_2_CHILL_RULES (1<<6)
+#define MODE_2_MINER_RUSH_PROT (1<<7)

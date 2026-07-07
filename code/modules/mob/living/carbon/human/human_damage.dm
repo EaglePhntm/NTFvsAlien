@@ -154,22 +154,28 @@
 
 
 /mob/living/carbon/human/getCloneLoss()
+	/*
 	if(species.species_flags & (IS_SYNTHETIC|NO_SCAN))
 		cloneloss = 0
+	*/
 	return ..()
 
 /mob/living/carbon/human/setCloneLoss(amount)
+	/*
 	if(species.species_flags & (IS_SYNTHETIC|NO_SCAN))
 		cloneloss = 0
 	else
-		..()
+	*/
+	..()
 
 /mob/living/carbon/human/adjustCloneLoss(amount)
 	..()
 
+	/*
 	if(species.species_flags & (IS_SYNTHETIC|NO_SCAN))
 		cloneloss = 0
 		return
+	*/
 
 
 /mob/living/carbon/human/adjustOxyLoss(amount, forced = FALSE)
