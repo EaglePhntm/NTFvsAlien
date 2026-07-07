@@ -867,6 +867,12 @@
 	faction_lock = list(FACTION_SOM)
 	cost = 325
 
+/datum/supply_packs/imports/ml41afrag
+	name = " ML-41A Autoshotgun frag drum (Faction Supply)"
+	contains = list(/obj/item/ammo_magazine/rifle/icc_autoshotgun/frag)
+	faction_lock = list(FACTION_ICC)
+	cost = 50
+
 /datum/supply_packs/imports/m41a2/ammo/ap
 	name = "PR-412 Pulse Rifle Ammo AP Mag"
 	contains = list(/obj/item/ammo_magazine/rifle/ap)
