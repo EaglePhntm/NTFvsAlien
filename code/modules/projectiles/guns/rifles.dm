@@ -2923,7 +2923,7 @@
 
 /obj/item/weapon/gun/rifle/icc_autoshotgun
 	name = "\improper ML-41A autoshotgun"
-	desc = "The ML-41A Automatic Shotgun is used by the ICCAF in fast paced boarding assaults, fielding a wide variety of ammo for all situations. Takes 20-round 12 gauge drums."
+	desc = "The ML-41A Automatic Shotgun is used by the ICCAF in steadily paced boarding assaults, fielding a select variety of ammo for certain situations. Takes 20-round 12 gauge drums."
 	icon = 'icons/obj/items/guns/shotguns64.dmi'
 	icon_state = "ml41"
 	worn_icon_state = "ml41"
