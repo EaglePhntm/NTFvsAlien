@@ -33,17 +33,6 @@
 	burn_heal = 1.2
 	blood_gain = 0.4
 
-//generates genetic material
-/datum/reagent/consumable/nutriment/cum/xeno/strong
-	name = "Xenomorphic Sperm"
-	description = "Xeno cum, not directly harmful when not ejected alongside acid like most xenomorphs do."
-	nutriment_factor = 2
-	color = "#9bd19a"
-	reagent_ui_priority =  REAGENT_UI_MUNDANE
-	brute_heal = 1.2
-	burn_heal = 1.2
-	blood_gain = 0.4
-
 /datum/reagent/consumable/milk/human
 	name = "Human Milk"
 	description = "An opaque white liquid from the mammary glands of a human being."
@@ -87,8 +76,7 @@
 
 /datum/chemical_reaction/milkresearch
 	results = null
-	required_reagents = list(/datum/reagent/consumable/milk/human = 10)
-	required_catalysts = list(/datum/reagent/medicine/lemoline = 5)
+	required_reagents = list(/datum/reagent/consumable/milk/human = 10, /datum/reagent/medicine/lemoline = 5)
 
 /datum/chemical_reaction/milkresearch/on_reaction(datum/reagents/holder, created_volume)
 	var/location = get_turf(holder.get_holder())
@@ -96,8 +84,7 @@
 
 /datum/chemical_reaction/girlresearch
 	results = null
-	required_reagents = list(/datum/reagent/consumable/nutriment/cum/girl = 10)
-	required_catalysts = list(/datum/reagent/medicine/lemoline = 5)
+	required_reagents = list(/datum/reagent/consumable/nutriment/cum/girl = 10, /datum/reagent/medicine/lemoline = 5)
 
 /datum/chemical_reaction/girlresearch/on_reaction(datum/reagents/holder, created_volume)
 	var/location = get_turf(holder.get_holder())
@@ -105,8 +92,7 @@
 
 /datum/chemical_reaction/boyresearch
 	results = null
-	required_reagents = list(/datum/reagent/consumable/nutriment/cum = 10)
-	required_catalysts = list(/datum/reagent/medicine/lemoline = 5)
+	required_reagents = list(/datum/reagent/consumable/nutriment/cum = 10, /datum/reagent/medicine/lemoline = 5)
 
 /datum/chemical_reaction/boyresearch/on_reaction(datum/reagents/holder, created_volume)
 	var/location = get_turf(holder.get_holder())
@@ -114,8 +100,7 @@
 
 /datum/chemical_reaction/xoyresearch
 	results = null
-	required_reagents = list(/datum/reagent/consumable/nutriment/cum/xeno/strong = 30)
-	required_catalysts = list(/datum/reagent/medicine/lemoline = 5)
+	required_reagents = list(/datum/reagent/consumable/nutriment/cum/xeno = 30, /datum/reagent/medicine/lemoline = 5)
 
 /datum/chemical_reaction/xoyresearch/on_reaction(datum/reagents/holder, created_volume)
 	var/location = get_turf(holder.get_holder())
@@ -123,8 +108,7 @@
 
 /datum/chemical_reaction/xirlresearch
 	results = null
-	required_reagents = list(/datum/reagent/consumable/milk/xeno = 30)
-	required_catalysts = list(/datum/reagent/medicine/lemoline = 5)
+	required_reagents = list(/datum/reagent/consumable/milk/xeno = 30, /datum/reagent/medicine/lemoline = 5)
 
 /datum/chemical_reaction/xirlresearch/on_reaction(datum/reagents/holder, created_volume)
 	var/location = get_turf(holder.get_holder())
