@@ -2715,6 +2715,11 @@
 /obj/item/stack/sheet/metal/large_stack,
 /turf/open/floor/mainship,
 /area/mainship/hallways/exoarmor)
+"imd" = (
+/obj/machinery/computer/voucher,
+/obj/structure/table/mainship/nometal,
+/turf/open/floor/mainship,
+/area/mainship/hallways/hangar)
 "itT" = (
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 1
@@ -3547,6 +3552,10 @@
 /obj/effect/turf_decal/warning_stripes/box/small,
 /turf/open/floor/mainship,
 /area/mainship/squads/general)
+"wiF" = (
+/obj/machinery/computer/escalation_terminal,
+/turf/open/floor/mainship,
+/area/mainship/hallways/hangar)
 "wlt" = (
 /obj/machinery/door/poddoor/railing{
 	id = "vehicle_elevator_railing"
@@ -6043,8 +6052,8 @@ lmD
 oPy
 aaC
 fAT
-dwY
-dwY
+wiF
+imd
 acF
 acX
 sAD

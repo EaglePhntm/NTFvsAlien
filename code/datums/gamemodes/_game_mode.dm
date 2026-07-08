@@ -164,6 +164,7 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	for(var/faction in human_factions)
 		SSpoints.dropship_points[faction] = 0
 		SSpoints.supply_points[faction] = 0
+		SSpoints.intel_points[faction] = 0
 	for(var/hivenum in GLOB.hive_datums)
 		var/datum/hive_status/hive = GLOB.hive_datums[hivenum]
 		hive.purchases.setup_upgrades()
@@ -1257,3 +1258,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 /// Adjusts the inputted jobworth list.
 /datum/game_mode/proc/get_adjusted_jobworth_list(list/jobworth_list)
 	return jobworth_list
+
+
+/datum/game_mode/proc/is_escalation()
+	return FALSE

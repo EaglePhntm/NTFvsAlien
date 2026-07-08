@@ -38,6 +38,9 @@ SUBSYSTEM_DEF(points)
 
 	var/list/request_shopping_cart = list()
 
+	///Intel points for generating various opportunities in escalation modes.
+	var/list/intel_points = list()
+
 /datum/controller/subsystem/points/Recover()
 	ordernum = SSpoints.ordernum
 	supply_packs = SSpoints.supply_packs
@@ -49,6 +52,7 @@ SUBSYSTEM_DEF(points)
 	deniedrequests = SSpoints.deniedrequests
 	approvedrequests = SSpoints.approvedrequests
 	request_shopping_cart = SSpoints.request_shopping_cart
+	intel_points = SSpoints.intel_points
 
 /datum/controller/subsystem/points/Initialize()
 	ordernum = rand(1, 9000)
@@ -276,3 +280,6 @@ SUBSYSTEM_DEF(points)
 				faction_announce("Operational dropship budget exceeded normal maximum capacity, 85% of points over [HUMAN_FACTION_MAX_DROPSHIP_POINTS] goes towards factional goals.", title = "[faction] accounting division", should_play_sound = FALSE, to_faction = faction)
 	else
 		dropship_points[faction] = simplenewamount1
+
+/datum/controller/subsystem/points/proc/add_intel_points(faction, amount, new_faction = FALSE)
+	intel_points[faction] += amount

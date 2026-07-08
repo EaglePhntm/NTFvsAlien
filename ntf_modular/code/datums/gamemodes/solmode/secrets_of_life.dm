@@ -794,3 +794,9 @@ alt gamemodes
 		/datum/job/pmc/squad/sniper = 1,
 		/datum/job/pmc/squad/leader = 1,
 	)
+
+
+/datum/game_mode/infestation/secret_of_life/esc
+	name = "Secret of Life - Escalation"
+	config_tag = "Secret of Life - Escalation"
+	escalation = TRUE

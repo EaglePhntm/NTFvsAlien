@@ -247,6 +247,8 @@
 	var/duration = 1 HOURS
 	///length of intel disk chain
 	var/max_chain = 0
+	///Amount of intel points awarded
+	var/intel_reward = 0
 
 /obj/item/disk/intel_disk/Initialize(mapload, supply_reward, dropship_reward, who_printed, where_printed, max_chain)
 	. = ..()
@@ -256,6 +258,7 @@
 	src.who_printed = who_printed
 	src.where_printed = where_printed
 	src.max_chain = max_chain
+	intel_reward = supply_reward / 3.5
 	printed_at = world.time
 	name = "\improper [who_printed] Intelligence diskette ([stationTimestamp("hh:mm", printed_at + duration)])"
 	desc += " According to the label, this disk was printed by [who_printed] in \the [where_printed]. The time stamp suggests that it was printed at [stationTimestamp("hh:mm", printed_at)]. The tactical information within it will cease to have value and soon after self destruct at [stationTimestamp("hh:mm", printed_at + duration)]."
@@ -291,6 +294,7 @@
 	if(gaymode && user)
 		the_stats = gaymode.stat_list[user.faction].get_player_stats(user)
 		the_stats?.give_funds(round(dropship_reward/2))
+	SSpoints.add_intel_points(faction_selling,intel_reward)
 	minor_announce("Classified data disk extracted by [faction_selling] from area of operations. [supply_reward] supply points[the_stats ? "," : " and"] [dropship_reward] dropship points[the_stats ? ", and [dropship_reward/2] credits" : ""] were acquired.  It was [max_chain ? "part of an intel chain of length [max_chain]" : "not part of an intel chain"].", title = "Intel Division")
 	for(var/hivenumber in GLOB.hive_datums)
 		GLOB.hive_datums[hivenumber].xeno_message(

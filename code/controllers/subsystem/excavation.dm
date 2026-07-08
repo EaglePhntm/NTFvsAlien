@@ -18,6 +18,8 @@ SUBSYSTEM_DEF(excavation)
 	var/excavations_count = 0
 
 /datum/controller/subsystem/excavation/fire()
+	if(SSticker.mode.is_escalation())
+		return
 	if(length(excavation_site_spawners) <= 0)
 		return
 	var/spawn_count = min(MAX_ACTIVE_EXCAVATIONS - excavations_count, length(excavation_site_spawners))

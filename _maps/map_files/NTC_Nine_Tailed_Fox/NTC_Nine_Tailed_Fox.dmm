@@ -24709,6 +24709,7 @@
 "uhn" = (
 /obj/machinery/vending/nanomed,
 /obj/structure/cable,
+/obj/machinery/computer/escalation_terminal,
 /turf/open/floor/mainship/mono,
 /area/outpost/cargo{
 	outside = 1
