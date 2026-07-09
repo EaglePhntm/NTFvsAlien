@@ -355,6 +355,16 @@
 	contains = list(/obj/item/big_ammo_box/shotgun/clf_heavyrifle)
 	cost = 200
 
+/datum/supply_packs/imports/icc_hmg
+	name = "KRD-61ES Mobile Heavy Machinegun"
+	contains = list(/obj/item/weapon/gun/icc_hmg)
+	cost = 1000
+
+/datum/supply_packs/imports/icc_hmg/ammo
+	name = "KRD-61ES Ammo Box"
+	contains = list(/obj/item/ammo_magazine/icc_hmg)
+	cost = 50
+
 /datum/supply_packs/imports/minibmp
 	name = "MINI-B machinepistol"
 	contains = list(/obj/item/weapon/gun/smg/minib)
