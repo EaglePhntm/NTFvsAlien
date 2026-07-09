@@ -9,6 +9,12 @@
 	var/faction = FACTION_TERRAGOV
 	///First movers' adventage before all of the server knows what you are up to
 	var/firstmovers = 60 SECONDS
+	var/hidden = FALSE
+	var/datum/escalation/parent
+
+/datum/opportunity/New(datum/escalation/parent)
+	. = ..()
+	src.parent = parent
 
 
 /datum/opportunity/proc/eligible(mob/m)
@@ -16,24 +22,16 @@
 
 /datum/opportunity/proc/tryactivate(mob/m, forced)
 	if(!forced)
+		if(!m)
+			return FALSE
 		if(!eligible(m))
-			return
+			return FALSE
 		if(SSpoints.intel_points[m.faction] < cost)
-			return
+			return FALSE
 		SSpoints.intel_points[m.faction] -= cost
-	activate(m)
-
-	announceselffac()
-	addtimer(CALLBACK(src, PROC_REF(announceenemyfacs)),firstmovers)
-
+	return activate(m)
 
 /datum/opportunity/proc/activate(mob/m)
 	return
 
-/datum/opportunity/proc/announceselffac()
-	minor_announce(announcefac,"[faction] ICAP", GLOB.alive_human_list_faction[faction] + GLOB.observer_list)
-
-/datum/opportunity/proc/announceenemyfacs()
-	minor_announce(announcehumanoid,"Reactive Intelligence Network", GLOB.alive_human_list + GLOB.observer_list)
-	minor_announce(announcexenos, "Sensor Nodules", GLOB.alive_xeno_list + GLOB.observer_list)
 

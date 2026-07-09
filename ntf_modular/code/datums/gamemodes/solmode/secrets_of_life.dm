@@ -800,3 +800,15 @@ alt gamemodes
 	name = "Secret of Life - Escalation"
 	config_tag = "Secret of Life - Escalation"
 	escalation = TRUE
+	randomize_miners = FALSE
+
+
+/datum/game_mode/infestation/secret_of_life/esc/post_setup()
+	. = ..()
+	for(var/obj/machinery/miner/miner in GLOB.miner_list)
+		if(miner.is_platinum())
+			SSescalation.miningsites += new /obj/effect/landmark/miningsite/deep(get_turf(miner))
+		else
+			SSescalation.miningsites += new /obj/effect/landmark/miningsite(get_turf(miner))
+		GLOB.miner_list -= miner
+		qdel(miner)

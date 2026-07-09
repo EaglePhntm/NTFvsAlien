@@ -2,12 +2,17 @@ SUBSYSTEM_DEF(escalation)
 	name = "Escalation"
 	var/list/datum/opportunity/ops = list()
 	var/list/datum/escalation/escs = list()
+	var/list/obj/effect/landmark/miningsite/miningsites = list()
+	var/list/obj/structure/oredeposit/activedeposits = list()
 
 /datum/controller/subsystem/escalation/Initialize()
 	for(var/optocheck in subtypesof(/datum/opportunity))
 		var/datum/opportunity/optypecasted = optocheck
 		if(optypecasted.proper)
 			ops += optypecasted
+
+
+
 
 
 /*
