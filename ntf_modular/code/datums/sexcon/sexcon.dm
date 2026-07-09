@@ -249,7 +249,7 @@
 	if(ishuman(user))
 		C.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum, reagent_amount(blame_mob))
 	else if(isxeno(user))
-		C.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno, reagent_amount(blame_mob))
+		C.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno/strong, reagent_amount(blame_mob))
 	handle_ejaculation_drain(blame_mob)
 	playsound(user, 'ntf_modular/sound/misc/mat/endout.ogg', 50, TRUE, 7, ignore_walls = FALSE)
 	after_ejaculation()

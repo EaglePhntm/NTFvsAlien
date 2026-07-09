@@ -1,0 +1,5 @@
+author: "CaputCapital"
+delete-after: True
+changes:
+  - bugfix: "CM Guardsman MP-IRL loadout belt gives correct ammo now"
+  - balance: "ML-41A stats changed for less falloff"

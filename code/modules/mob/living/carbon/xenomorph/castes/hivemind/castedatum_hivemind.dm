@@ -66,7 +66,10 @@
 		/datum/action/ability/xeno_action/create_edible_jelly,
 		/datum/action/ability/xeno_action/place_stew_pod,
 		/datum/action/ability/activable/xeno/possession,
-/*		/datum/action/ability/activable/xeno/creation,*/// Currently non-operational
+		/datum/action/ability/activable/xeno/creation,
+		/datum/action/ability/activable/xeno/creation/beetle,
+		/datum/action/ability/activable/xeno/creation/mantis,
+		/datum/action/ability/activable/xeno/creation/scorpion,
 	)
 
 /datum/xeno_caste/hivemind/on_caste_applied(mob/xenomorph)

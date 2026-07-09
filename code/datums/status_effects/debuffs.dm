@@ -26,12 +26,10 @@
 		return
 	ADD_TRAIT(owner, TRAIT_STAGGERED, TRAIT_STATUS_EFFECT(id))
 	owner.adjust_mob_scatter(10)
-	owner.adjust_mob_accuracy(-10)
 
 /datum/status_effect/incapacitating/stagger/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_STAGGERED, TRAIT_STATUS_EFFECT(id))
 	owner.adjust_mob_scatter(-10)
-	owner.adjust_mob_accuracy(10)
 
 //STUN
 /datum/status_effect/incapacitating/stun
@@ -177,8 +175,10 @@
 	if(isxeno(owner)) // Xenos should get a much higher healing rate for sleeping, its better than resting!
 		healing += (8 * BASE_HEAL_RATE)
 	if(health_ratio > -0.5)
-		owner.adjustBruteLoss(healing)
-		owner.adjustFireLoss(healing)
+		if(owner.getBruteLoss())
+			owner.heal_limb_damage(-healing, 0, TRUE, TRUE)
+		if(owner.getFireLoss())
+			owner.heal_limb_damage(0, -healing, TRUE, TRUE)
 		owner.adjustToxLoss(healing * 0.5, TRUE, TRUE)
 		owner.adjustStaminaLoss(healing * 100)
 		owner.adjustCloneLoss(healing * health_ratio * 0.5)

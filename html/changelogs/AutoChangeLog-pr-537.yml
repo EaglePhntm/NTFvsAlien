@@ -1,0 +1,5 @@
+author: "Lewdissar"
+delete-after: True
+changes:
+  - rscadd: "lMG-DM, a modernized lMG-D. lMG-D Ammo Pack."
+  - bugfix: "fixes the lMG-D's firing sprite being overwritten by the magazine, fixes the lMG-D's stocks using the AK's sprites, finally adds the heeled jackboots and knee/thigh high jackboots to SOM vendor, changes the on-mob sprite of the heeled jackboots for a more suitable one."

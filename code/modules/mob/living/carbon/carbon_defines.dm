@@ -39,6 +39,8 @@
 
 	///carbon overlay layers
 	var/list/overlays_standing[TOTAL_LAYERS]
+	var/in_paincrit = FALSE
+	var/in_healthcrit = FALSE
 
 /mob/living/carbon/proc/transfer_identity(mob/living/carbon/destination)
 	if(!istype(destination))

@@ -278,8 +278,9 @@
 
 /obj/machinery/miner/wrench_act(mob/living/user, obj/item/I)
 	var/area/cavezone = get_area(src)
-	if((world.time < 30 MINUTES && SSmonitor.gamestate != GROUNDSIDE) && (SSticker.mode.round_type_flags2 & MODE_2_MINER_RUSH_PROT))
-		to_chat(user, span_warning("It's too early for this."))
+	var/timeleft = 30 MINUTES - (world.time - SSticker.round_start_time)
+	if((timeleft > 0) && (SSticker.mode.round_type_flags2 & MODE_2_MINER_RUSH_PROT))
+		to_chat(user, span_warning("It's too early for this.  You can do this in [DisplayTimeText(timeleft)]."))
 		return FALSE
 	if(user.faction == FACTION_CLF && ((cavezone && cavezone.ceiling > CEILING_UNDERGROUND) || is_platinum()))
 		to_chat(user, span_warning("Repairing this would go against your masters' wishes and wellbeing."))

@@ -35,9 +35,14 @@
 	Humans are a bipedal species with a wide range of skin tones, hair colors, and eye colors.<br /><br /> \
 	They are known for their adaptability and resilience, as well as their creativity and ingenuity.<br /><br /> \
 	They have a complex nervous system and a highly developed brain, which allows them to think, reason, and communicate in sophisticated ways.<br /><br /><br /><br /> \
-	They may not be faster, stronger or more durable than other species but humans possess magnificent endurance and stamina, they are able to keep going when others are long exhausted. \
+	They may not be faster, stronger or more durable than other species but humans possess magnificent endurance and stamina, they are able to keep going when others are long exhausted.<br /><br /><br /><br />\
 	<b>Psychology</b>:<br /><br /> \
-	They are capable of great compassion and empathy, as well as great cruelty and aggression. They are the baseline for most measurement.<br /><br />"
+	They are capable of great compassion and empathy, as well as great cruelty and aggression. They are the baseline for most measurement.<br /><br /><br /><br /> \
+	<b>Mechanics:</b><br /><br /> \
+	-Indominable Spirit-<br /><br /> \
+	Humans have the ability to steel their resolve and ignore pain, stagger and slowdown for a while. But this may lead them to end up dead where they stand without realizing it.<br /><br /> \
+	-Persistence Hunters-<br /><br /> \
+	Humans have a slight stamina damage resistance due to being known as persistence hunters, still going after others are long exhausted."
 
 	inherent_actions = list(/datum/action/ability/indominable)
 
@@ -54,6 +59,7 @@
 	desc = "Using your indominable human spirit, you are able to ignore pain, stagger and regenerate stamina faster."
 	cooldown_duration = 2.5 MINUTES
 	use_state_flags = ABILITY_USE_BUCKLED|ABILITY_USE_BUSY|ABILITY_USE_STAGGERED|ABILITY_USE_NOTTURF
+	COOLDOWN_DECLARE(footstep_cd)
 
 /datum/action/ability/indominable/can_use_action(silent, override_flags, selecting)
 	. = ..()
@@ -74,15 +80,28 @@
 	ADD_TRAIT(carbon_owner, TRAIT_STAGGERIMMUNE, "[type]")
 
 	carbon_owner.add_stamina_regen_modifier("indominable", 0.8)
-	carbon_owner.add_filter("indominable_outline", 5, outline_filter(1, COLOR_CYAN)) //Set our cool aura; also confirmation we have the buff
+	carbon_owner.add_filter("indominable_outline", 5, outline_filter(0.5, COLOR_CYAN)) //Set our cool aura; also confirmation we have the buff
+	carbon_owner.set_stagger(0) //remove stagger
+
+	RegisterSignal(carbon_owner, COMSIG_HUMAN_MOVED, PROC_REF(sound_footstep))
 	addtimer(CALLBACK(src, PROC_REF(indominable_deactivate)), 15 SECONDS)
 
 	succeed_activate()
 	add_cooldown()
 
+/mob/living/carbon/human/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
+	. = ..()
+	SEND_SIGNAL(src, COMSIG_HUMAN_MOVED, old_loc, movement_dir, forced, old_locs)
+
+/datum/action/ability/indominable/proc/sound_footstep()
+	if(COOLDOWN_FINISHED(src, footstep_cd))
+		COOLDOWN_START(src, footstep_cd, 0.2 SECONDS)
+		playsound(owner.loc, 'ntf_modular/sound/effects/ut-undyne-step.ogg', 50)
+
 /datum/action/ability/indominable/proc/indominable_deactivate()
 	if(QDELETED(owner))
 		return
+	UnregisterSignal(owner, COMSIG_HUMAN_MOVED)
 	var/mob/living/carbon/carbon_owner = owner
 	carbon_owner.do_jitter_animation(1000)
 	carbon_owner.remove_stamina_regen_modifier("indominable")

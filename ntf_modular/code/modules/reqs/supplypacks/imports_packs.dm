@@ -355,6 +355,16 @@
 	contains = list(/obj/item/big_ammo_box/shotgun/clf_heavyrifle)
 	cost = 200
 
+/datum/supply_packs/imports/icc_hmg
+	name = "KRD-61ES Mobile Heavy Machinegun"
+	contains = list(/obj/item/weapon/gun/icc_hmg)
+	cost = 1000
+
+/datum/supply_packs/imports/icc_hmg/ammo
+	name = "KRD-61ES Ammo Box"
+	contains = list(/obj/item/ammo_magazine/icc_hmg)
+	cost = 50
+
 /datum/supply_packs/imports/minibmp
 	name = "MINI-B machinepistol"
 	contains = list(/obj/item/weapon/gun/smg/minib)
@@ -866,6 +876,12 @@
 	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/caliver)
 	faction_lock = list(FACTION_SOM)
 	cost = 325
+
+/datum/supply_packs/imports/ml41afrag
+	name = " ML-41A Autoshotgun frag drum (Faction Supply)"
+	contains = list(/obj/item/ammo_magazine/rifle/icc_autoshotgun/frag)
+	faction_lock = list(FACTION_ICC)
+	cost = 50
 
 /datum/supply_packs/imports/m41a2/ammo/ap
 	name = "PR-412 Pulse Rifle Ammo AP Mag"

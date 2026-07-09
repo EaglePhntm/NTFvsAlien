@@ -5671,7 +5671,8 @@
 /obj/item/teleporter_kit/premade,
 /obj/effect/remote_teleporter_linker/pair3,
 /obj/structure/sign/fixedinplace/hangar{
-	pixel_x = -30
+	pixel_x = -30;
+	dir = 4
 	},
 /turf/open/floor/mainship/tcomms,
 /area/deltastation/command/teleporter{
@@ -13080,7 +13081,8 @@
 /obj/item/teleporter_kit/premade,
 /obj/effect/remote_teleporter_linker/pair4,
 /obj/structure/sign/fixedinplace/cryo{
-	pixel_x = 30
+	pixel_x = 30;
+	dir = 8
 	},
 /turf/open/floor/mainship/tcomms,
 /area/deltastation/command/teleporter{
@@ -25783,8 +25785,8 @@
 /area/mainship/medical/lower_medical)
 "yjO" = (
 /obj/structure/sign/fixedinplace/command{
-	dir = 4;
-	pixel_x = -30
+	pixel_x = -30;
+	dir = 4
 	},
 /obj/effect/turf_decal/warning_stripes,
 /obj/item/teleporter_kit/premade,

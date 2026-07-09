@@ -116,7 +116,7 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 		/datum/outfit/quick/icc/standard/icc_battlecarbine,
 		/datum/outfit/quick/icc/standard/icc_sharpshooter,
 		/datum/outfit/quick/icc/standard/icc_assaultcarbine,
-		/datum/outfit/quick/icc/standard/icc_autoshotgun,
+		/datum/outfit/quick/icc/standard/icc_trenchgun,
 		/datum/outfit/quick/icc/medic/icc_sharpshooter,
 		/datum/outfit/quick/icc/medic/icc_rifleman,
 		/datum/outfit/quick/icc/medic/icc_smg,

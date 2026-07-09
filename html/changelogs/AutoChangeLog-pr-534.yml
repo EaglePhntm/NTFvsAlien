@@ -1,0 +1,5 @@
+author: "SQLandrusk"
+delete-after: True
+changes:
+  - rscadd: "Added sfw ones"
+  - rscdel: "Removed porn screens"

@@ -81,8 +81,6 @@
 ///Slows down non xeno crossers
 /obj/alien/weeds/proc/slow_down_crosser(atom/movable/crosser, slow_amount = cross_slowdown)
 	SIGNAL_HANDLER
-	if(issamexenohive(crosser))
-		return
 	if(crosser.throwing || crosser.buckled)
 		return
 	if(crosser.pass_flags & PASS_LOW_STRUCTURE)
@@ -90,6 +88,11 @@
 	if(HAS_TRAIT(crosser, TRAIT_TANK_DESANT))
 		return
 	if(CHECK_MULTIPLE_BITFIELDS(crosser.allow_pass_flags, HOVERING))
+		return
+	if(issamexenohive(crosser))
+		if(isxeno(crosser))
+			var/mob/living/carbon/xenomorph/xeno = crosser
+			xeno.next_move_slowdown += xeno?.xeno_caste?.weeds_speed_mod
 		return
 	if(issealedvehicle(crosser))
 		var/obj/vehicle/sealed/vehicle = crosser

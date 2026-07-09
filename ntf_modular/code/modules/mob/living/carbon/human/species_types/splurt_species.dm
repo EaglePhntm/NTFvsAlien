@@ -45,7 +45,12 @@
 	Akulas have a layer of blubber under their skin that makes them more resistant to cold and heat, They also have sharper claws and teeth than normal humans, They are also very sensitive to taste, able to distinguish between different flavors with great precision.<br /><br /> \
 	They have shark-like features, which lets them swim efficiently in water.<br /><br /><br /><br /> \
 	<b>Psychology</b>:<br /><br /> \
-	Akulas are a proud and fierce species, they have a strong sense of loyalty to their pack and to those they consider family. They can be aggressive and territorial, but they are also capable of great compassion and empathy towards those they care about.<br /><br />"
+	Akulas are a proud and fierce species, they have a strong sense of loyalty to their pack and to those they consider family. They can be aggressive and territorial, but they are also capable of great compassion and empathy towards those they care about.<br /><br /> \
+	<br /><br /><b>Mechanics:</b><br /><br /> \
+	-Aquatic-<br /><br /> \
+	Akula are able to swim quickly in water.<br /><br /> \
+	-Blubber-<br /><br /> \
+	Akulas have a layer of blubber under their skin that makes them slightly resistant to burn damage."
 	liquid_slowdown = 0.7 //faster than xenos
 
 /datum/species/anthro
@@ -83,14 +88,19 @@
 	<b>Physiology</b>:<br /><br /> \
 	Anthros have a wide range of physical traits, depending on their specific species, but they all share some common traits such as fur, tails, and animal-like ears. They are generally similiar to humans, not as enduring but slightly more agile.<br /><br /> \
 	<b>Psychology</b>:<br /><br /> \
-	Anthros are a diverse group of species, with a wide range of cultures and societies.<br /><br />"
+	Anthros are a diverse group of species, with a wide range of cultures and societies.<br /><br />\
+	<br /><br /><b>Mechanics:</b><br /><br /> \
+	-Predator Stance-<br /><br /> \
+	Anthro are able to spot motion in the distance for about 2 minutes and increase their movement speed.<br /><br /> \
+	-Agility-<br /><br /> \
+	Anthros are slightly faster than humans with slight (less than humans) stamina resistance."
 	inherent_actions = list(/datum/action/ability/predator_stance)
 
 /datum/action/ability/predator_stance
 	name = "Predator Stance"
 	action_icon = 'icons/Xeno/actions/queen.dmi'
 	action_icon_state = "screech"
-	desc = "You will listen in and start noticing motion in the distance for about 2 minutes. this gives you adrenaline and extra movement speed."
+	desc = "You will listen in and start noticing motion in the distance for about 2 minutes. this gives you extra movement speed."
 	cooldown_duration = 4 MINUTES
 	use_state_flags = ABILITY_USE_BUCKLED|ABILITY_USE_BUSY|ABILITY_USE_LYING|ABILITY_USE_NOTTURF
 	var/obj/item/attachable/motiondetector/natural/sensor
@@ -108,7 +118,8 @@
 
 	sensor = new /obj/item/attachable/motiondetector/natural(owner.contents)
 	sensor.activate(carbon_owner)
-	carbon_owner.reagents.add_reagent(/datum/reagent/medicine/adrenaline, 6, no_overdose = TRUE)
+	carbon_owner.reagents.add_reagent(/datum/reagent/medicine/synaptizine, 3, no_overdose = TRUE)
+	carbon_owner.reagents.add_reagent(/datum/reagent/medicine/hyronalin, 6, no_overdose = TRUE)
 	carbon_owner.reagents.add_reagent(/datum/reagent/medicine/regen, 5, no_overdose = TRUE)
 	playsound(carbon_owner.loc, 'ntf_modular/sound/effects/dt-sonar.ogg', 50)
 	carbon_owner.emote("me", 1, "enters a focused state.")
@@ -154,14 +165,19 @@
 		"Digitigrade" = "digitigrade_1",
 		"Digitigrade 2" = "digitigrade_2",
 	)
-	burn_mod = 0.95
+	burn_mod = 0.9
 	liquid_slowdown = 0.7 //faster than xenos
 	species_description = "<br /><br /><b>Lore</b>:<br /><br /> \
 	Like Anthros, this is a general term for all water-dwelling humanoids, they are not a specific species but rather a collection of different species that share similar traits, they can be found in all parts of the world and have a wide range of cultures and societies.<br /><br /> \
 	<b>Physiology</b>:<br /><br /> \
 	Aquatics have a wide range of physical traits, depending on their specific species, but they all share some common traits such as gills, webbed hands and feet, and fish-like tails. They are generally similar to humans, not as enduring but slightly more agile in water.<br /><br /> \
 	<b>Psychology</b>:<br /><br /> \
-	Aquatics are a diverse group of species, with a wide range of cultures and societies.<br /><br />"
+	Aquatics are a diverse group of species, with a wide range of cultures and societies.<br /><br /> \
+	<br /><br /><b>Mechanics:</b><br /><br /> \
+	-Aquatic-<br /><br /> \
+	Aquatic are able to swim quickly in water.<br /><br /> \
+	-Blubber-<br /><br /> \
+	Aquatic have a layer of blubber under their skin that makes them slightly resistant to burn damage."
 
 /datum/species/insectoid
 	name = "Insectoid"
@@ -192,7 +208,12 @@
 	<b>Physiology</b>:<br /><br /> \
 	Insectoids have a hard exoskeleton that provides protection and support for their bodies from brute damage. Their sensory organs are often highly developed, allowing them to navigate their environment with precision.<br /><br /> \
 	<b>Psychology</b>:<br /><br /> \
-	Insectoids are often highly social creatures, living in colonies or hives with complex hierarchies and division of labor. They communicate through a variety of methods, including pheromones, sounds, and body language. They are sometimes subject to a hive mind...<br /><br />"
+	Insectoids are often highly social creatures, living in colonies or hives with complex hierarchies and division of labor. They communicate through a variety of methods, including pheromones, sounds, and body language. They are sometimes subject to a hive mind...<br /><br /> \
+	<br /><br /><b>Mechanics:</b><br /><br /> \
+	-Pheromones-<br /><br /> \
+	Insectoids are able to emit a burst of pheromones that works as a great support ability.<br /><br /> \
+	-Exoskeleton-<br /><br /> \
+	Insectoids have an hard exoskeleton that grants them slight brute resistance."
 	inherent_actions = list(/datum/action/ability/pheromones)
 
 /datum/action/ability/pheromones
@@ -225,12 +246,21 @@
 	playsound(carbon_owner.loc, 'ntf_modular/sound/effects/dt-pendant.ogg', 50)
 
 	switch(phero_choice)
+		if(AURA_XENO_RECOVERY)
+			carbon_owner.reagents.add_reagent(/datum/reagent/medicine/regen, 15, no_overdose = TRUE)
+			carbon_owner.adjustBruteLoss(-carbon_owner.getBruteLoss(TRUE) * 0.30)
+			carbon_owner.adjustFireLoss(-carbon_owner.getFireLoss(TRUE) * 0.30)
+			carbon_owner.add_filter("insectoid_phero_outline", 1, outline_filter(0.5, COLOR_GREEN))
 		if(AURA_XENO_WARDING)
-			carbon_owner.add_emitted_auras(src, AURA_HUMAN_HOLD)
-			addtimer(CALLBACK(src, PROC_REF(end_auras)), 20 SECONDS)
+			carbon_owner.reagents.add_reagent(/datum/reagent/medicine/tramadol, 5, no_overdose = TRUE)
+			carbon_owner.reagents.add_reagent(/datum/reagent/medicine/oxycodone, 5, no_overdose = TRUE)
+			carbon_owner.add_filter("insectoid_phero_outline", 1, outline_filter(0.5, COLOR_BLUE))
 		if(AURA_XENO_FRENZY)
-			carbon_owner.add_emitted_auras(src, AURA_HUMAN_MOVE)
-			addtimer(CALLBACK(src, PROC_REF(end_auras)), 20 SECONDS)
+			carbon_owner.reagents.add_reagent(/datum/reagent/medicine/synaptizine, 3, no_overdose = TRUE)
+			carbon_owner.reagents.add_reagent(/datum/reagent/medicine/hyronalin, 6, no_overdose = TRUE)
+			carbon_owner.add_filter("insectoid_phero_outline", 1, outline_filter(0.5, COLOR_RED))
+	//addtimer(CALLBACK(src, PROC_REF(end_auras), carbon_owner), 15 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(clear_phero_filter), carbon_owner), 8 SECONDS)
 
 	for(var/mob/living/affected_mob in cheap_get_living_near(carbon_owner, 4))
 		if(carbon_owner.get_iff_signal() != affected_mob.get_iff_signal())
@@ -243,22 +273,33 @@
 				affected_mob.reagents.add_reagent(/datum/reagent/medicine/regen, 15, no_overdose = TRUE)
 				affected_mob.adjustBruteLoss(-affected_mob.getBruteLoss(TRUE) * 0.30)
 				affected_mob.adjustFireLoss(-affected_mob.getFireLoss(TRUE) * 0.30)
+				affected_mob.add_filter("insectoid_phero_outline", 1, outline_filter(0.5, COLOR_GREEN))
 			if(AURA_XENO_WARDING)
 				affected_mob.reagents.add_reagent(/datum/reagent/medicine/tramadol, 5, no_overdose = TRUE)
 				affected_mob.reagents.add_reagent(/datum/reagent/medicine/oxycodone, 5, no_overdose = TRUE)
+				affected_mob.add_filter("insectoid_phero_outline", 1, outline_filter(0.5, COLOR_BLUE))
 			if(AURA_XENO_FRENZY)
-				affected_mob.reagents.add_reagent(/datum/reagent/medicine/adrenaline, 5, no_overdose = TRUE)
+				affected_mob.reagents.add_reagent(/datum/reagent/medicine/synaptizine, 3, no_overdose = TRUE)
+				affected_mob.reagents.add_reagent(/datum/reagent/medicine/hyronalin, 6, no_overdose = TRUE)
+				affected_mob.add_filter("insectoid_phero_outline", 1, outline_filter(0.5, COLOR_RED))
 				affected_mob.setStaminaLoss(-affected_mob.max_stamina)
+		addtimer(CALLBACK(src, PROC_REF(clear_phero_filter), affected_mob), 8 SECONDS)
 
 	succeed_activate()
 	add_cooldown()
 
+/datum/action/ability/pheromones/proc/clear_phero_filter(mob/living/carbon/gooner)
+	gooner.remove_filter("insectoid_phero_outline")
+
+/*
 /datum/action/ability/pheromones/proc/end_auras()
 	var/mob/living/carbon/carbon_owner = owner
 	if(!carbon_owner)		return FALSE
 	carbon_owner.remove_emitted_auras(src, AURA_HUMAN_HOLD)
-	carbon_owner.remove_emitted_auras(src, AURA_HUMAN_MOVE)
+	carbon_owner.remove_emitted_auras(src, AURA_HUMAN_FOCUS)
+	carbon_owner.remove_filter("insectoid_phero_outline")
 	to_chat(carbon_owner, span_notice("You stop emitting pheromones."))
+*/
 
 /datum/species/skrell
 	name = "Skrell"
@@ -283,11 +324,18 @@
 	warcries = list(MALE = SFX_MALE_WARCRY, FEMALE = SFX_FEMALE_WARCRY)
 	special_death_message = "<big>You have perished.</big><br><small>But it is not the end of you yet... if you still have your body with your head still attached, wait until somebody can resurrect you...</small>"
 	splurt_limb_prefix = "skrell"
-	stamina_mod = 0.9
-	burn_mod = 0.9
+	stamina_mod = 0.95
+	burn_mod = 0.95
 	species_description = "<br /><br /><b>Lore</b>:<br /><br /> \
 	<b>Physiology</b>:<br /><br /> \
-	<b>Psychology</b>:<br /><br />"
+	<b>Psychology</b>:<br /><br /> \
+	<br /><br /><b>Mechanics:</b><br /><br /> \
+	-Aquatic-<br /><br /> \
+	Skrell are able to swim relatively quickly in water.<br /><br /> \
+	-Blubber-<br /><br /> \
+	Skrell have a layer of blubber under their skin that makes them -slightly- resistant to burn damage. \
+	-Endurance-<br /><br /> \
+	Skrell have a slight stamina damage resistance."
 	liquid_slowdown = 0.8
 	taste_sensitivity = TASTE_SENSITIVE
 

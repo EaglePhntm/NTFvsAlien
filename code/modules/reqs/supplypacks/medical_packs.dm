@@ -8,16 +8,10 @@ MEDICAL
 /datum/supply_packs/medical/advanced_medical
 	name = "Emergency medical supplies"
 	contains = list(
-		/obj/item/storage/pouch/medical_injectors/medic,
-		/obj/item/storage/pouch/medical_injectors/medic,
-		/obj/item/storage/pouch/medical_injectors/medic,
-		/obj/item/storage/pouch/medical_injectors/medic,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
-		/obj/item/reagent_containers/hypospray/autoinjector/neuraline,
-		/obj/item/stack/nanopaste,
+		/obj/structure/largecrate/supply/medicine/medkits
 	)
-	cost = 300
+	cost = 400
+	containertype = null
 
 /datum/supply_packs/medical/biomass
 	name = "Biomass beaker"

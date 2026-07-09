@@ -11312,6 +11312,9 @@
 /area/antag_ship/clf_base/hallways/inside)
 "Kp" = (
 /obj/structure/table/reinforced/prison,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/open/floor/plating/ground/desertdam/asphalt/tile,
 /area/antag_ship/clf_base/techroom)
 "Kq" = (
@@ -27370,7 +27373,7 @@ GN
 GN
 SP
 Kp
-vR
+Ns
 Ns
 KG
 Ax

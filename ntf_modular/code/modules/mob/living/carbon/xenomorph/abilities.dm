@@ -383,74 +383,75 @@
 	return TRUE
 
 // For the hivemind to create non-AI driven minions, unfortunately this doesn't work right now. Try again later.
-/*/datum/action/ability/activable/xeno/creation
+/datum/action/ability/activable/xeno/creation
 	name = "Minion Creation"
 	action_icon = 'ntf_modular/icons/Xeno/actions.dmi'
-	action_icon_state = "spawn_pod"
+	action_icon_state = "nymph"
 	desc = "Create a brainless minion to be possessed by you."
 
-	ability_cost = 1 // Change later
-	cooldown_duration = 1 SECONDS // Same here
+	ability_cost = 1200
+	cooldown_duration = 80 SECONDS
 	action_type = ACTION_TOGGLE
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CREATE,
 	)
 	target_flags = ABILITY_TURF_TARGET
-	var/list/spawnable_minions = list(
-		/mob/living/carbon/xenomorph/beetle,
-		/mob/living/carbon/xenomorph/nymph,
-		/mob/living/carbon/xenomorph/mantis,
-		/mob/living/carbon/xenomorph/scorpion,)
 
-
-/datum/action/ability/activable/xeno/creation/can_use_action(silent, override_flags, selecting)
+/datum/action/ability/activable/xeno/creation/can_use_ability(atom/target, silent = FALSE, override_flags)
 	. = ..()
 	if(!.)
 		return
+	if(isclosedturf(target))
+		if(!silent)
+			target.balloon_alert(xeno_owner, "dense area")
+		return FALSE
+	if(!xeno_owner.Adjacent(target))
+		if(!silent)
+			xeno_owner.balloon_alert(xeno_owner, "not adjacent!")
+		return FALSE
 	if (owner.status_flags & INCORPOREAL)
+		if(!silent)
+			xeno_owner.balloon_alert(xeno_owner, "cannot while incorporeal!")
 		return FALSE
 
-/datum/action/ability/activable/xeno/creation/action_activate()
-	//Left click on the secrete resin button opens up radial menu (new type of changing structures).
-	if(xeno_owner.selected_ability != src)
-		return ..()
-	. = ..()
-	var/spawn_choice = show_radial_menu(owner, owner, GLOB.spawnable_minion_list, radius = 35)
-	if(!spawn_choice)
-		return
-	set_spawn_type(spawnable_minions[GLOB.spawnable_minion_list.Find(spawn_choice)])
+	xeno_owner.face_atom(target)
+	xeno_owner.visible_message(xeno_owner, span_danger("[xeno_owner] begins to produce a large fluctuation of psychic power!"))
+	if(!do_after(xeno_owner, 10 SECONDS, IGNORE_HELD_ITEM, xeno_owner, BUSY_ICON_DANGER, extra_checks = CALLBACK(xeno_owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = xeno_owner.health))))
+		return FALSE
+	succeed_activate()
 
-/*	var/mob/living/carbon/xenomorph/spiderling/new_spiderling = new(owner.loc, owner, owner)*/
+/datum/action/ability/activable/xeno/creation/use_ability(atom/target)
+	var/turf/target_turf = get_turf(target)
 
-/datum/action/ability/activable/xeno/creation/proc/set_spawn_type(new_spawn, silent = FALSE)
-	var/mob/living/carbon/xenomorph/xeno_owner = owner
-	xeno_owner.spawn_choice = new_spawn
-	update_button_icon()
-	if(silent)
-		return
-	var/atom/spawnn = xeno_owner.spawn_choice
-	xeno_owner.balloon_alert(xeno_owner, lowertext(spawnn::name))
+	var/mob/living/carbon/xenomorph/nymph/creature = new(target_turf, TRUE, owner.get_xeno_hivenumber(), owner)
+	playsound(creature.loc, 'sound/voice/alien/roar_larva2.ogg', 45)
+// Beetle version
+/datum/action/ability/activable/xeno/creation/beetle
+	action_icon_state = "beetle"
 
-	/datum/action/ability/activable/xeno/creation/proc/choose_spawn()
-	var/list/available_spawns = list()
-	for(var/obj/alien/weeds/node/minion_type_possible AS in spawnable_minions)
-		var/minion_image = GLOB.spawnable_minion_list[initial(weed_type_possible.name)]
-		if(!minion_image)
-			continue
-		available_spawns[initial(minion_type_possible.name)] = minion_image
+/datum/action/ability/activable/xeno/creation/beetle/use_ability(atom/target)
+	var/turf/target_turf = get_turf(target)
 
-	var/weed_choice = show_radial_menu(xeno_owner, xeno_owner, available_weeds, radius = 48)
-	if(!weed_choice)
-		return
-	else
-		for(var/obj/alien/weeds/node/weed_type_possible AS in GLOB.weed_type_list)
-			if(initial(weed_type_possible.name) == weed_choice)
-				weed_type = weed_type_possible
-				update_ability_cost()
-				break
-		to_chat(owner, span_xenonotice("We will now spawn <b>[weed_choice]\s</b> when using the plant weeds ability."))
-	update_button_icon()*/
+	var/mob/living/carbon/xenomorph/beetle/creature = new(target_turf, TRUE, owner.get_xeno_hivenumber(), owner)
+	playsound(creature.loc, 'sound/voice/alien/roar_larva4.ogg', 45)
+// Mantis version
+/datum/action/ability/activable/xeno/creation/mantis
+	action_icon_state = "mantis"
 
+/datum/action/ability/activable/xeno/creation/mantis/use_ability(atom/target)
+	var/turf/target_turf = get_turf(target)
+
+	var/mob/living/carbon/xenomorph/mantis/creature = new(target_turf, TRUE, owner.get_xeno_hivenumber(), owner)
+	playsound(creature.loc, 'sound/voice/alien/roar_larva3.ogg', 45)
+// Scorpion version
+/datum/action/ability/activable/xeno/creation/scorpion
+	action_icon_state = "scorpion"
+
+/datum/action/ability/activable/xeno/creation/scorpion/use_ability(atom/target)
+	var/turf/target_turf = get_turf(target)
+
+	var/mob/living/carbon/xenomorph/scorpion/creature = new(target_turf, TRUE, owner.get_xeno_hivenumber(), owner)
+	playsound(creature.loc, 'sound/voice/alien/roar_larva1.ogg', 45)
 /////////////////////////////////
 // Devour/Abduct
 /////////////////////////////////

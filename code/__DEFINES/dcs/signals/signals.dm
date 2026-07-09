@@ -808,6 +808,8 @@
 
 #define COMSIG_HUMAN_MARKSMAN_AURA_CHANGED "human_marksman_aura_changed"
 
+#define COMSIG_HUMAN_MOVED "human_moved"
+
 // shuttle signals
 #define COMSIG_SHUTTLE_SETMODE "shuttle_setmode"
 

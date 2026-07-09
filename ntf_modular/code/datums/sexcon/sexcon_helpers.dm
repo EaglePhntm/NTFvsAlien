@@ -109,7 +109,7 @@
 	if(!istype(victim))
 		return
 	victim.reagents.remove_reagent(/datum/reagent/toxin/xeno_aphrotoxin, 10)
-	victim.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno, 10)
+	victim.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno/strong, 10)
 	if(damaging)
 		new /obj/effect/decal/cleanable/blood/splatter/xenocum(loc)
 		var/aciddamagetodeal = 5

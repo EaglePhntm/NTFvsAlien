@@ -315,7 +315,7 @@
 				victim.reagents.add_reagent(/datum/reagent/medicine/dexalin, 10)
 			if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/spaceacillin) < 5)
 				victim.reagents.add_reagent(/datum/reagent/medicine/spaceacillin, 2)
-		victim.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno, 10)
+		victim.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno, 10) //to not generate genetic material reward on auto
 		victim.reagents.add_reagent(/datum/reagent/toxin/acid/xeno_cum, 2) //need to make xenos not leave people in here unattended instead of using regular nests.
 	else
 		victim.visible_message(span_love("[src] roughly thrusts a tentacle into [victim]'s [target_hole]!"),

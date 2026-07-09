@@ -173,8 +173,74 @@ warning: overcharging too much will result in an explosion, accumulated energy d
 		worn_icon_state = initial(worn_icon_state)
 		variants_by_parent_type = initial(variants_by_parent_type)
 
-/obj/item/armor_module/storage/Initialize(mapload)
+/obj/item/storage/belt
+	var/invisible_toggle = FALSE
+
+/obj/item/storage/belt/Initialize(mapload)
 	if(invisible_toggle)
 		worn_icon_state = ""
-		variants_by_parent_type = list(/obj/item = "")
+	. = ..()
+
+/obj/item/storage/belt/examine(mob/user)
+	. = ..()
+	. += span_notice("This can be toggled invisible using ALT-RCLICK, it's currently [invisible_toggle ? "invisible" : "visible"].")
+
+/obj/item/storage/belt/AltRightClick(mob/user)
+	. = ..()
+	invisible_toggle = !invisible_toggle
+	if(invisible_toggle)
+		balloon_alert(user, "Invisible")
+		worn_icon_state = "invisible"
+		item_state_worn = 1
+	else
+		balloon_alert(user, "Visible")
+		worn_icon_state = initial(worn_icon_state)
+		item_state_worn = 0
+
+/obj/item/storage/backpack
+	var/invisible_toggle = FALSE
+
+/obj/item/storage/backpack/examine(mob/user)
+	. = ..()
+	. += span_notice("This can be toggled invisible using ALT-RCLICK, it's currently [invisible_toggle ? "invisible" : "visible"].")
+
+/obj/item/storage/backpack/AltRightClick(mob/user)
+	. = ..()
+	invisible_toggle = !invisible_toggle
+	if(invisible_toggle)
+		balloon_alert(user, "Invisible")
+		worn_icon_state = "invisible"
+		item_state_worn = 1
+	else
+		balloon_alert(user, "Visible")
+		worn_icon_state = initial(worn_icon_state)
+		item_state_worn = 0
+
+/obj/item/storage/backpack/Initialize(mapload)
+	if(invisible_toggle)
+		worn_icon_state = ""
+	. = ..()
+
+/obj/item/card/id
+	var/invisible_toggle = FALSE
+
+/obj/item/card/id/examine(mob/user)
+	. = ..()
+	. += span_notice("This can be toggled invisible using ALT-RCLICK, it's currently [invisible_toggle ? "invisible" : "visible"].")
+
+/obj/item/card/id/AltRightClick(mob/user)
+	. = ..()
+	invisible_toggle = !invisible_toggle
+	if(invisible_toggle)
+		balloon_alert(user, "Invisible")
+		worn_icon_state = "invisible"
+		item_state_worn = 1
+	else
+		balloon_alert(user, "Visible")
+		worn_icon_state = initial(worn_icon_state)
+		item_state_worn = 0
+
+/obj/item/card/id/Initialize(mapload)
+	if(invisible_toggle)
+		worn_icon_state = ""
 	. = ..()

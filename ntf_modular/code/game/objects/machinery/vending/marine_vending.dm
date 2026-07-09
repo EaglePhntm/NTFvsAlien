@@ -1469,7 +1469,8 @@
 			/obj/item/weapon/gun/rifle/famas = -1,
 			/obj/item/ammo_magazine/rifle/famas = -1,
 			/obj/item/ammo_magazine/rifle/famasext = 10,
-
+			/obj/item/weapon/gun/rifle/m16 = -1,
+			/obj/item/ammo_magazine/rifle/m16 = 15,
 		),
 		"Energy Weapons" = list(
 			/obj/item/cell/lasgun/lasrifle = -1,
@@ -2674,6 +2675,8 @@
 			/obj/item/weapon/gun/rifle/som_carbine/black/standard = 1,
 			/obj/item/ammo_magazine/rifle/mpi_km/black = 25,
 			/obj/item/ammo_magazine/rifle/mpi_km/extended = 7,
+			/obj/item/weapon/gun/rifle/m16 = 3,
+			/obj/item/ammo_magazine/rifle/m16 = 15,
 		),
 		"Energy Weapons" = list(
 			/obj/item/cell/lasgun/lasrifle = 20,

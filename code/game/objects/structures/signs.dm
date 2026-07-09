@@ -436,12 +436,13 @@
 /obj/structure/sign/fixedinplace/hangar
 	name = "\improper Hangar bay"
 	desc = "A direction sign, pointing out which way the Hangar bay is."
-	icon = 'icons/turf/areas.dmi'
-	icon_state = "hangar"
+	icon = 'ntf_modular/icons/obj/decals.dmi'
+	icon_state = "direction_hangar"
 
 /obj/structure/sign/fixedinplace/cryo
 	name = "\improper Cryogenics bay"
 	desc = "A direction sign, pointing out which way the Cryogenics bay is."
+	icon = 'ntf_modular/icons/obj/decals.dmi'
 	icon_state = "direction_cryo"
 
 //end nondirectional signs

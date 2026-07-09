@@ -42,14 +42,23 @@
 	Crossbreeds with resurgentis are usually sterile and with potential for disabilities such as muteness or else, due to the strange genes of resurgentis, and the said dominant genes make the crossbreeds \
 	result in largely resurgentis-appearing offspring with features from the other race. <br /><br />\
 	The resurgentis have extremely low birth rate due to the short lifespan of eggs of females and scarcer ovulation cycles, therefore putting their species at risk of extinction due to the high violence of Phantom City and overall the world, but their high libido is a compensation for such problem, barely.<br /><br /><br /><br /> \
-	They can't have black essence color, and white is considered extremely rare, being more resillient to psionics and mind control for unknown reasons and is seen as a gift from the death god, made to protect themselves from the corruption in the world.<br /><br /> \
+	They can't have black essence color, and white is considered extremely rare, being more resillient to psionics and mind control for unknown reasons and is seen as a gift from the death god, made to protect themselves from the corruption in the world.<br /><br /><br /><br /> \
 	<b>Psychology</b>:<br /><br /> \
 	They are largely human-like behaving although slightly more unhinged in terms of lewdity and more inclined to act on their impulses if not conditioned against it mentally.<br /><br /> \
 	Cryostatis is more disorienting to resurgentis than to other species, mentally and physically.<br /><br /> \
 	Resurgentis are the prime prey of Corrupted (the shadowy monsters that started emerging after the great war.), they are able to be corrupted into one of them through 'mind flayers' fog, except the white essence resurgentis, phantom city had to fight sieges of those things in the past.<br /><br />\
 	They are known for their aggressive behavior and tendency to go into a berserk rage when injured or provoked, especially if they are of weak will.<br /><br /><br /><br /> \
-	<img src=https://images2.imgbox.com/eb/ed/Ej1joSvd_o.png width=100 height=150/> <img src=https://images2.imgbox.com/a1/a1/CRPdB4Ir_o.png width=100 height=150/><br /><img src=https://images2.imgbox.com/3e/34/Grph56ZU_o.png width=100 height=150/> <img src=https://images2.imgbox.com/83/96/oDGu3zmO_o.png width=100 height=150/><br /><img src=https://images2.imgbox.com/66/71/1633KcMb_o.png width=100 height=150/>"
-	//need force emissive on eye, hair, nipples and vaginas somehow
+	<img src=https://images2.imgbox.com/eb/ed/Ej1joSvd_o.png width=100 height=150/> <img src=https://images2.imgbox.com/a1/a1/CRPdB4Ir_o.png width=100 height=150/><br /><img src=https://images2.imgbox.com/3e/34/Grph56ZU_o.png width=100 height=150/> <img src=https://images2.imgbox.com/83/96/oDGu3zmO_o.png width=100 height=150/><br /><img src=https://images2.imgbox.com/66/71/1633KcMb_o.png width=100 height=150/><br /><br /><br /><br />\
+	<br /><br /><b>Mechanics:</b><br /><br /> \
+	-Last Stand-<br /><br />\
+	Resurgentis have a unique ability to go into a berserk rage when critically injured, granting them temporary healing, boosts to their speed and making them withstand dying out of pure rage and determination for its short duration, but leaving them exhausted once the effect ends. Cooldown is automatically refreshed in 5 minutes.<br /><br /> \
+	-Dense Muscles-<br /><br />\
+	Resurgentis have slightly more brute resistance than humans, slight more health and somewhat stronger punches.<br /><br />\
+	-Temperature unregulation-<br /><br />\
+	Resurgentis have poor body insulation and temperature regulation, making them more vulnerable to burning damage due to their larger size and phsiology.<br /><br /> \
+	-Glowing Essence-<br /><br />\
+	Resurgentis have a unique glowing neon colored 'essence' (or the mentioned blood) of many colors, which determine the color of their glowing hair, glowing iris-invisible eyes, (and glowing nipples, inner vagina) colors. <b>This makes them impossible to hide in the dark without covering those up."
+
 	inherent_actions = list(/datum/action/ability/last_stand)
 
 /datum/species/resurgentis/apply_damage(damage, damagetype, def_zone, blocked, sharp, edge, updating_health, penetration, mob/living/attacker, mob/living/carbon/human/victim)
@@ -73,9 +82,10 @@
 /datum/action/ability/last_stand
 	name = "Last Stand"
 	action_icon_state = "frenzy"
-	desc = "Your body is wired to go into a berserk rage when you are critically injured, granting you temporary boosts to your speed and making you withstand dying out of pure rage and determination for it's short duration, but leaving you exhausted once the effect ends. Manual triggering will be less beneficial and may make you not be able to rage when you need it. <br><br> Triggers automatically when your health drops to critical. Cooldown is automatically refreshed in 5 minutes."
+	desc = "Your body is wired to go into a rage when you are critically injured, you are able to withstand dying out of rage and determination for it's short duration, but it leaves you severely exhausted once the effect ends. Power scales with how hurt you are. <br><br> Triggers automatically when your health drops to critical. Cooldown is automatically refreshed in 5 minutes."
 	cooldown_duration = 5 MINUTES
 	use_state_flags = ABILITY_USE_BUCKLED|ABILITY_USE_BUSY|ABILITY_USE_HANDCUFFED|ABILITY_USE_INCAP|ABILITY_USE_LYING|ABILITY_USE_STAGGERED|ABILITY_USE_NOTTURF
+	COOLDOWN_DECLARE(footstep_cd)
 
 //basically stolen from rav but shittier
 /datum/action/ability/last_stand/can_use_action(silent, override_flags, selecting)
@@ -94,24 +104,30 @@
 /datum/action/ability/last_stand/action_activate()
 	var/mob/living/carbon/carbon_owner = owner
 	if(!carbon_owner)		return FALSE
-	var/rage_power = min(0.5, (1 - ((carbon_owner.health - carbon_owner.maxHealth) / carbon_owner.maxHealth)) * 3) // Calculate the power of our rage; scales with difference between current and max HP.
-	var/rage_power_radius = CEILING(rage_power * 7, 1) //Define radius of the SFX
+	var/chealth = carbon_owner.health
+	if(chealth < 0)
+		chealth = ((-1 * chealth) + carbon_owner.maxHealth) //they lost their entire health and went negative so we consider that.
+	else
+		chealth = carbon_owner.maxHealth - chealth
+	var/rage_power = (chealth / carbon_owner.maxHealth)
+	rage_power = max(0.5, rage_power) // Calculate the power of our rage; scales with difference between current and max HP.
+	var/rage_power_radius = CEILING(rage_power, 1) //Define radius of the SFX
 
 	carbon_owner.visible_message(span_danger("\The [carbon_owner] becomes frenzied, bellowing with a roar!"), \
 	span_userdanger("You bellow as your fury overtakes you!"))
 	carbon_owner.do_jitter_animation(1000)
 
-	carbon_owner.reagents.add_reagent(/datum/reagent/medicine/adrenaline, 6, no_overdose = TRUE)
+	carbon_owner.reagents.add_reagent(/datum/reagent/medicine/adrenaline, round(rage_power*4), no_overdose = TRUE)
 	carbon_owner.reagents.add_reagent(/datum/reagent/medicine/regen, 15, no_overdose = TRUE)
 	carbon_owner.reagents.add_reagent(/datum/reagent/medicine/tramadol, 15, no_overdose = TRUE)
-	carbon_owner.adjustBruteLoss(-carbon_owner.getBruteLoss(TRUE) * 0.30) //as if inaprovaline
-	carbon_owner.adjustFireLoss(-carbon_owner.getFireLoss(TRUE) * 0.30)
+	carbon_owner.adjustBruteLoss(-carbon_owner.getBruteLoss(TRUE) * (max(0.30, rage_power/2)))
+	carbon_owner.adjustFireLoss(-carbon_owner.getFireLoss(TRUE) * (max(0.30, rage_power/2)))
 	carbon_owner.Stun(1 SECONDS)
 	carbon_owner.emote("me", 1, "slams their fist to the ground.")
 	carbon_owner.health_threshold_crit = -100 //stop when u dead
 	playsound(carbon_owner.loc, 'ntf_modular/sound/effects/ut-heavy-hit.ogg', 50)
 
-	for(var/turf/affected_tiles AS in RANGE_TURFS(rage_power_radius / 2, carbon_owner.loc))
+	for(var/turf/affected_tiles AS in RANGE_TURFS(rage_power_radius, carbon_owner.loc))
 		affected_tiles.Shake(duration = 1 SECONDS) //SFX
 
 	for(var/mob/living/affected_mob in cheap_get_living_near(carbon_owner, rage_power_radius)) //Roar that applies cool SFX
@@ -134,6 +150,7 @@
 			addtimer(CALLBACK(game_plane_master_controller, TYPE_PROC_REF(/datum, remove_filter), "rage_outcry"), 1 SECONDS)
 
 	carbon_owner.add_filter("last_stand_outline", 5, outline_filter(1.5, COLOR_RED)) //Set our cool aura; also confirmation we have the buff
+	carbon_owner.set_stagger(0)
 
 	//Too angry to be stunned/slowed/staggered/knocked down
 	ADD_TRAIT(carbon_owner, TRAIT_PAIN_IMMUNE, "[type]")
@@ -141,11 +158,18 @@
 	ADD_TRAIT(carbon_owner, TRAIT_SLOWDOWNIMMUNE, "[type]")
 	ADD_TRAIT(carbon_owner, TRAIT_STAGGERIMMUNE, "[type]")
 
+	RegisterSignal(carbon_owner, COMSIG_HUMAN_MOVED, PROC_REF(sound_footstep))
 	addtimer(CALLBACK(src, PROC_REF(rage_warning)), RAVAGER_RAGE_DURATION * RAVAGER_RAGE_WARNING)
 	addtimer(CALLBACK(src, PROC_REF(rage_deactivate)), RAVAGER_RAGE_DURATION)
 
+	log_combat(owner, src, "activated", "strength = [rage_power], radius = [rage_power_radius] (injected [round(rage_power*4)] adrenaline)")
 	succeed_activate()
 	add_cooldown()
+
+/datum/action/ability/last_stand/proc/sound_footstep()
+	if(COOLDOWN_FINISHED(src, footstep_cd))
+		COOLDOWN_START(src, footstep_cd, 0.5 SECONDS)
+		playsound(owner.loc, pick(list('ntf_modular/sound/effects/dt-step-1.ogg', 'ntf_modular/sound/effects/dt-step-2.ogg')), 100)
 
 ///Warns the user when his rage is about to end.
 /datum/action/ability/last_stand/proc/rage_warning()
@@ -157,6 +181,7 @@
 /datum/action/ability/last_stand/proc/rage_deactivate()
 	if(QDELETED(owner))
 		return
+	UnregisterSignal(owner, COMSIG_HUMAN_MOVED)
 	var/mob/living/carbon/carbon_owner = owner
 	carbon_owner.health_threshold_dead = initial(carbon_owner.health_threshold_dead)
 	carbon_owner.health_threshold_crit = initial(carbon_owner.health_threshold_crit)

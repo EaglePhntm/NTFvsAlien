@@ -83,6 +83,9 @@
 		return
 
 	if(status_flags & GODMODE)
+		if(in_healthcrit)
+			in_healthcrit = FALSE
+			log_message("Left healthcrit", LOG_ATTACK, color="orange")
 		return
 
 	if(stat == DEAD)
@@ -108,10 +111,16 @@
 
 	else if(stat == UNCONSCIOUS)
 		set_stat(CONSCIOUS)
+		if(in_healthcrit)
+			in_healthcrit = FALSE
+			log_message("Left healthcrit", LOG_ATTACK, color="orange")
 
 ///called just after this mob goes unconscious due to taking too much dmg
 /mob/living/carbon/proc/on_crit()
+	log_message("Entered healthcrit", LOG_ATTACK, color="orange")
+	in_healthcrit = TRUE
 	if(!HAS_TRAIT(src, TRAIT_CRIT_IS_DEATH))
+		emote("me", EMOTE_TYPE_VISIBLE, "gasps, looking weak and frail!")
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_MOB_ON_CRIT, src)
 		return
 	var/damage_dealt = health - get_death_threshold()
