@@ -1,4 +1,0 @@
-author: "Colfer1"
-delete-after: True
-changes:
-  - rscadd: "hivemind can now spawn minions of varying types"

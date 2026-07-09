@@ -38,6 +38,7 @@
 		/datum/greyscale_config/pillbottlecrate,
 		/datum/greyscale_config/pillbottlebox,
 	)
+	var/requires_medical_skill = TRUE
 
 
 /obj/machinery/chem_master/Initialize(mapload)
@@ -346,15 +347,16 @@
 		return
 
 	//ntf change, only doctors can use chemistry, medics can fumble around it.
-	if(ishuman(user) && (user.skills.getRating("medical") < SKILL_MEDICAL_PRACTICED && user.skills.getRating("chemistry") < SKILL_CHEM_TRAINED))
-		to_chat(user, span_warning("You don't understand how to use this machine properly."))
-		return
-	if(ishuman(user) && user.skills.getRating("chemistry") < SKILL_CHEM_EXPERT)
-		if(user.do_actions)
+	if(requires_medical_skill && ishuman(user))
+		if(user.skills.getRating("medical") < SKILL_MEDICAL_PRACTICED && user.skills.getRating("chemistry") < SKILL_CHEM_TRAINED)
+			to_chat(user, span_warning("You don't understand how to use this machine properly."))
 			return
-		to_chat(user, span_notice("You start fiddling with \the [src]..."))
-		if(!do_after(user, SKILL_TASK_EASY, TRUE, src, BUSY_ICON_UNSKILLED))
-			return
+		if(ishuman(user) && user.skills.getRating("chemistry") < SKILL_CHEM_EXPERT)
+			if(user.do_actions)
+				return
+			to_chat(user, span_notice("You start fiddling with \the [src]..."))
+			if(!do_after(user, SKILL_TASK_EASY, TRUE, src, BUSY_ICON_UNSKILLED))
+				return
 
 	if(!(user.client in has_sprites))
 		spawn()
@@ -430,6 +432,7 @@
 /obj/machinery/chem_master/condimaster
 	name = "CondiMaster 3000"
 	condi = TRUE
+	requires_medical_skill = FALSE
 
 /obj/machinery/chem_master/nopower
 	use_power = NO_POWER_USE
