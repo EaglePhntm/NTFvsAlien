@@ -3019,20 +3019,20 @@
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 26,"rail_x" = 26, "rail_y" = 24, "under_x" = 40, "under_y" = 16, "stock_x" = 26, "stock_y" = 13)
 	gun_skill_category = SKILL_SHOTGUNS
 
-	fire_delay = 0.7 SECONDS
-	accuracy_mult = 1.05
-	accuracy_mult_unwielded = 0.5
-	damage_mult = 0.7
-	damage_falloff_mult = 5.5
-	aim_slowdown = 1.05
-	wield_delay = 1 SECONDS
+	fire_delay = 0.5 SECONDS
+	accuracy_mult = 1.1
+	accuracy_mult_unwielded = 0.45
+	damage_mult = 0.55
+	damage_falloff_mult = 2.25
+	aim_slowdown = 0.75
+	wield_delay = 1.25 SECONDS
 	burst_amount = 1
-	movement_acc_penalty_mult = 6
+	movement_acc_penalty_mult = 4
 
 	min_scatter = 3
 	max_scatter = 15
 	scatter_increase = 1.5
-	scatter_decay = 4
+	scatter_decay = 3
 
 /obj/item/weapon/gun/rifle/icc_autoshotgun/guard
 	default_ammo_type = /obj/item/ammo_magazine/rifle/icc_autoshotgun/frag
