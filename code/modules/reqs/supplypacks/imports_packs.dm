@@ -200,10 +200,20 @@ Imports
 	contains = list(/obj/item/weapon/gun/rifle/lmg_d)
 	cost = 100
 
+/datum/supply_packs/imports/lmg_d/modern
+	name = "lMG-DM Tactical Light Machine Gun"
+	contains = list(/obj/item/weapon/gun/rifle/lmg_d/modern)
+	cost = 250
+
 /datum/supply_packs/imports/lmg_d/ammo
 	name = "lMG-D Light Machine Gun Drum Magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/lmg_d)
 	cost = 10
+
+/datum/supply_packs/imports/lmg_d/ammo/belt
+	name = "lMG-D Light Machine Gun Belt Pack"
+	contains = list(/obj/item/ammo_magazine/rifle/lmg_d/belt)
+	cost = 350
 
 /datum/supply_packs/imports/dp27
 	name = "Degtyaryov 'RP' Machine Gun"

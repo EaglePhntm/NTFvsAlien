@@ -207,8 +207,17 @@
 	icon_state = "rpd"
 	icon = 'icons/obj/items/ammo/machinegun.dmi'
 	icon_state_mini = "mag_drum_big"
-	bonus_overlay = "rpd_100"
 	max_rounds = 100
+
+/obj/item/ammo_magazine/rifle/lmg_d/belt
+	name = "\improper lMG-D ammo buttpack (7.62x39mm)"
+	desc = "A metallic belt pack for the lMG-D which carries a huge amount of ammo inside."
+	icon_state = "rpd_belt"
+	equip_slot_flags = ITEM_SLOT_BELT
+	magazine_flags = MAGAZINE_WORN
+	w_class = WEIGHT_CLASS_HUGE
+	max_rounds = 500
+
 
 //-------------------------------------------------------
 //DP-27

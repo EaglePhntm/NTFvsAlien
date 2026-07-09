@@ -49,9 +49,17 @@
 /obj/item/attachable/stock/lmg_d
 	name = "lMG-D wooden stock"
 	desc = "A metallic stock with a wooden paint coating, made to fit lMG-D."
-	icon_state = "ak47"
+	icon_state = "rpd"
 	pixel_shift_x = 32
 	pixel_shift_y = 13
+
+/obj/item/attachable/stock/lmg_dm
+	name = "lMG-DM polymer stock"
+	desc = "A polymer stock, made to fit lMG-DM."
+	icon_state = "rpdm"
+	pixel_shift_x = 32
+	pixel_shift_y = 13
+
 
 /obj/item/attachable/stock/tx15
 	name = "\improper SH-15 stock"
