@@ -213,7 +213,7 @@ Imports
 /datum/supply_packs/imports/lmg_d/ammo/belt
 	name = "lMG-D Light Machine Gun Belt Pack"
 	contains = list(/obj/item/ammo_magazine/rifle/lmg_d/belt)
-	cost = 350
+	cost = 50
 
 /datum/supply_packs/imports/dp27
 	name = "Degtyaryov 'RP' Machine Gun"
