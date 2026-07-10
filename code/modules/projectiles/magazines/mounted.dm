@@ -210,13 +210,13 @@
 ///Default ammo for the ML-91 and its export variants.
 /obj/item/ammo_magazine/icc_hmg
 	name = "KRD-61ES magazine (10x30mm Caseless)"
-	desc = "A box of 300, 10x30mm caseless tungsten rounds for the KRD-61ESmounted heavy smartgun."
+	desc = "A box of 50, 10x30mm caseless tungsten rounds for the KRD-61ESmounted heavy smartgun."
 	w_class = WEIGHT_CLASS_NORMAL
 	icon_state = "kord"
 	icon = 'icons/obj/items/ammo/machinegun.dmi'
 	magazine_flags = NONE
 	caliber = CALIBER_10X30
-	max_rounds = 300
+	max_rounds = 50
 	default_ammo = /datum/ammo/bullet/machinegun
 	reload_delay = 5 SECONDS
 	icon_state_mini = "mag_hmg"

@@ -698,8 +698,8 @@
 // Non-TGMC HMG
 
 /obj/item/weapon/gun/icc_hmg
-	name = "\improper KRD-61ES mounted heavy machinegun"
-	desc = "The KRD-61ES machinegun is the export variant of the ML-91 HMG. It's too heavy to be wielded or operated without the tripod. No extra work required, just deploy it with Ctrl-Click. Can be repaired with a blowtorch once deployed."
+	name = "\improper KRD-61ES Mobile Heavy Machinegun"
+	desc = "The KRD-61ES machinegun is the export variant of the ML-91 HMG. It's just light enough to be wielded and fired without it's tripod, though it can still employ it for precision shooting. No extra work required, just deploy it with Ctrl-Click. Can be repaired with a blowtorch once deployed."
 	icon = 'icons/obj/machines/deployable/mounted_machinegun.dmi'
 	icon_state = "kord"
 	worn_icon_list = list(
@@ -713,8 +713,8 @@
 	w_class = WEIGHT_CLASS_HUGE
 	equip_slot_flags = ITEM_SLOT_BACK
 
-	scatter = 10
-	deployed_scatter_change = -10
+	scatter = 15
+	deployed_scatter_change = -15
 	accuracy_mult = 1.2 //it's got a bipod
 	fire_delay = 0.25 SECONDS
 
@@ -725,19 +725,22 @@
 	)
 
 	item_flags = IS_DEPLOYABLE|TWOHANDED
-	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
+	gun_features_flags = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.05 SECONDS
 	aim_speed_modifier = 5
 
 	attachable_allowed = list(
-		/obj/item/attachable/scope/unremovable/hsg_102,
+		/obj/item/attachable/scope/tac,
+		/obj/item/attachable/foldable/bipod,
 	)
 
 	starting_attachment_types = list(
-		/obj/item/attachable/scope/unremovable/hsg_102,
+		/obj/item/attachable/foldable/bipod,
 	)
+	attachable_offset = list("muzzle_x" = 41, "muzzle_y" = 17,"rail_x" = 17, "rail_y" = 16, "under_x" = 45, "under_y" = 13, "stock_x" = 5, "stock_y" = 11)
+
 
 	deploy_time = 1.5 SECONDS
 	undeploy_time = 0.5 SECONDS

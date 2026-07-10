@@ -26,12 +26,10 @@
 		return
 	ADD_TRAIT(owner, TRAIT_STAGGERED, TRAIT_STATUS_EFFECT(id))
 	owner.adjust_mob_scatter(10)
-	owner.adjust_mob_accuracy(-10)
 
 /datum/status_effect/incapacitating/stagger/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_STAGGERED, TRAIT_STATUS_EFFECT(id))
 	owner.adjust_mob_scatter(-10)
-	owner.adjust_mob_accuracy(10)
 
 //STUN
 /datum/status_effect/incapacitating/stun

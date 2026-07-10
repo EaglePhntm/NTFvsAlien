@@ -162,6 +162,7 @@
 	addtimer(CALLBACK(src, PROC_REF(rage_warning)), RAVAGER_RAGE_DURATION * RAVAGER_RAGE_WARNING)
 	addtimer(CALLBACK(src, PROC_REF(rage_deactivate)), RAVAGER_RAGE_DURATION)
 
+	log_combat(owner, src, "activated", "strength = [rage_power], radius = [rage_power_radius] (injected [round(rage_power*4)] adrenaline)")
 	succeed_activate()
 	add_cooldown()
 

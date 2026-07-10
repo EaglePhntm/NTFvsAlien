@@ -66,16 +66,20 @@
 			var/obj/item/card/id/I = C.get_active_held_item()
 			if(istype(I))
 				if(check_access(I))
-					authenticated = 1
+					authenticated = 2
+				/*
 				if(ACCESS_MARINE_BRIDGE in I.access)
 					authenticated = 2
+				*/
 			else
 				I = C.wear_id
 				if(istype(I))
 					if(check_access(I))
-						authenticated = 1
+						authenticated = 2
+					/*
 					if(ACCESS_MARINE_BRIDGE in I.access)
 						authenticated = 2
+					*/
 		if("logout")
 			authenticated = 0
 
@@ -499,7 +503,7 @@
 
 /obj/machinery/computer/communications/cm
 	name = "cm communications console"
-	req_access = null
+	req_access = ACCESS_ICC_LEADPREP
 	basic_comms = TRUE
 	faction = FACTION_ICC
 
@@ -517,13 +521,13 @@
 
 /obj/machinery/computer/communications/kz
 	name = "kz communications console"
-	req_access = null
+	req_access = ACCESS_VSD_LEADPREP
 	basic_comms = TRUE
 	faction = FACTION_VSD
 
 /obj/machinery/computer/communications/pmc
 	name = "ac communications console"
-	req_access = null
+	req_access = ACCESS_NT_CORPORATE
 	basic_comms = TRUE
 	faction = FACTION_NANOTRASEN
 

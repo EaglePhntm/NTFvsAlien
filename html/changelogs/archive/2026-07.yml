@@ -129,3 +129,24 @@
 2026-07-09:
   Colfer1:
   - rscadd: hivemind can now spawn minions of varying types
+2026-07-10:
+  CaputCapital:
+  - bugfix: CM Guardsman MP-IRL loadout belt gives correct ammo now
+  - balance: ML-41A stats changed for less falloff
+  Lewdissar:
+  - rscadd: Changes a ton of shit with the KRD-61ES to make it actually mildly balanced
+      and usable by the average joe shooting it from the hip (worse accuracy than
+      the confontation rifle)
+  - rscadd: lMG-DM, a modernized lMG-D. lMG-D Ammo Pack.
+  - bugfix: fixes the lMG-D's firing sprite being overwritten by the magazine, fixes
+      the lMG-D's stocks using the AK's sprites, finally adds the heeled jackboots
+      and knee/thigh high jackboots to SOM vendor, changes the on-mob sprite of the
+      heeled jackboots for a more suitable one.
+  - bugfix: Reduced the price from the belt pack from 350 to 50 since they're UNABLE
+      to be reloaded.
+  SQLandrusk:
+  - rscadd: Added sfw ones
+  - rscdel: Removed porn screens
+  - rscadd: makes a useless copy of old title art
+  SpaghettiNew:
+  - bugfix: fixed missing direction signs on Container ship

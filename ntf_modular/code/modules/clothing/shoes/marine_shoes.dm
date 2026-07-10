@@ -22,5 +22,5 @@
 	desc = "heeled tactical jackboots."
 	icon_state = "heelboots"
 	icon = 'ntf_modular/icons/obj/clothing/shoes.dmi'
-	worn_icon_state = "marine"
+	worn_icon_state = "icc_guard"
 	item_state_worn = TRUE

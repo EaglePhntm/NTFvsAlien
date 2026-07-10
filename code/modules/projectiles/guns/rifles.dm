@@ -727,7 +727,7 @@
 	reload_sound = 'sound/weapons/guns/interact/ak47_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/ak47_cocked.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/rifle/lmg_d
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/lmg_d)
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/lmg_d, /obj/item/ammo_magazine/rifle/lmg_d/belt)
 
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet/converted,
@@ -762,7 +762,7 @@
 	fire_delay = 0.2 SECONDS
 	scatter = 5
 	burst_amount = 1
-	movement_acc_penalty_mult = 6
+	movement_acc_penalty_mult = 4
 
 /obj/item/weapon/gun/rifle/lmg_d/magharness
 	starting_attachment_types = list(
@@ -770,6 +770,60 @@
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/foldable/bipod,
 	)
+
+//RPD-M
+/obj/item/weapon/gun/rifle/lmg_d/modern
+	name = "\improper lMG-DM tactical light machinegun"
+	desc = "A modification of the cheap and robust 'RPD' to bring it up to standard with modern times. Chambers 7.62x39mm. The modification consists of modern polymer furniture, a threaded muzzle and a side-mount for scopes, allowing it to perform to a comparable extent to modern light machineguns in the same weight class. Though upgrading a vintage is cheaper than getting a new gun, it still isn't cheap."
+	icon = 'icons/obj/items/guns/machineguns64.dmi'
+	icon_state = "rpdm"
+	worn_icon_state = "rpdm"
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/guns/machineguns_left_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/guns/machineguns_right_1.dmi',
+	)
+	fire_animation = "rpdm_fire"
+
+	attachable_allowed = list(
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/scope/tac,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet/converted,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonet/som,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/motiondetector,
+		/obj/item/attachable/buildasentry,
+		/obj/item/attachable/stock/lmg_dm,
+		/obj/item/attachable/shoulder_mount,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/foldable/bipod,
+		/obj/item/weapon/gun/pistol/plasma_pistol,
+		/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/pistol/g22/tranq,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
+		/obj/item/weapon/gun/grenade_launcher/underslung/mpi,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/flashlight/under,
+	)
+
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
+
+	attachable_offset = list("muzzle_x" = 35, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 20, "under_x" = 19, "under_y" = 14, "stock_x" = 6, "stock_y" = 14)
+	starting_attachment_types = list(/obj/item/attachable/stock/lmg_dm)
+	actions_types = list(/datum/action/item_action/aim_mode)
+
+	burst_amount = 5
+	burst_delay = 0.15 SECONDS
+	movement_acc_penalty_mult = 4
 
 //-------------------------------------------------------
 //DP-27
@@ -2965,20 +3019,20 @@
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 26,"rail_x" = 26, "rail_y" = 24, "under_x" = 40, "under_y" = 16, "stock_x" = 26, "stock_y" = 13)
 	gun_skill_category = SKILL_SHOTGUNS
 
-	fire_delay = 0.7 SECONDS
-	accuracy_mult = 1.05
-	accuracy_mult_unwielded = 0.5
-	damage_mult = 0.7
-	damage_falloff_mult = 5.5
-	aim_slowdown = 1.05
-	wield_delay = 1 SECONDS
+	fire_delay = 0.5 SECONDS
+	accuracy_mult = 1.1
+	accuracy_mult_unwielded = 0.45
+	damage_mult = 0.55
+	damage_falloff_mult = 2.25
+	aim_slowdown = 0.75
+	wield_delay = 1.25 SECONDS
 	burst_amount = 1
-	movement_acc_penalty_mult = 6
-	
+	movement_acc_penalty_mult = 4
+
 	min_scatter = 3
 	max_scatter = 15
 	scatter_increase = 1.5
-	scatter_decay = 4
+	scatter_decay = 3
 
 /obj/item/weapon/gun/rifle/icc_autoshotgun/guard
 	default_ammo_type = /obj/item/ammo_magazine/rifle/icc_autoshotgun/frag
