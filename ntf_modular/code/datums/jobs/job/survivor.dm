@@ -13,8 +13,16 @@
 //Stripper Survivor
 /datum/job/survivor/stripper
 	title = "Stripper Colonist"
-	skills_type = /datum/skills/civilian/survivor
+	skills_type = /datum/skills/civilian/survivor/stripper
 	outfit = /datum/outfit/job/survivor/stripper
+
+/datum/skills/civilian/survivor/stripper
+	name = "Stripper"
+	engineer = SKILL_ENGINEER_ENGI //to hack airlocks so they're never stuck in a room.
+	combat = SKILL_COMBAT_DEFAULT
+	construction = SKILL_CONSTRUCTION_METAL
+	medical = SKILL_MEDICAL_NOVICE
+	sex = SKILL_SEX_MASTER // They gotta have an upside for being bad!
 
 //Maid Survivor
 /datum/job/survivor/maid
