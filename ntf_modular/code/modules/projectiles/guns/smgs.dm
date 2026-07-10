@@ -72,7 +72,7 @@
 /datum/ammo/bullet/smg/minibap
 	name = "specialized armor-piercing machinepistol bullet"
 	hud_state = "smg_ap"
-	damage = 25
+	damage = 22.5
 	penetration = 12.5
 	sundering = 0.5
 	damage_falloff = 1
