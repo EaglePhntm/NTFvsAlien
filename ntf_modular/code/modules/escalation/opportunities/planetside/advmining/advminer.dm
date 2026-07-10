@@ -10,8 +10,6 @@
 	wrenchable = TRUE
 	var/progress = 0
 	var/obj/structure/oredeposit/dep
-	var/miner_integrity = 100
-	var/max_miner_integrity = 100
 	var/obj/item/advmining_drill/current_drill
 	var/obj/item/cell/powercell
 
@@ -28,12 +26,13 @@
 				if(dep != a)
 					progress = 0
 					dep = a
+					start_processing()
+					return
 	else
 		progress = 0
 		dep = null
 
 /obj/machinery/advminer/process()
-	. = ..()
 	if(!dep || !current_drill || !powercell || !anchored)
 		//update_icon_state()
 		progress = 0
@@ -42,14 +41,35 @@
 		progress = 0
 		stop_processing()
 	else
-		progress += current_drill.speedmod
+		progress += current_drill.speedmod / dep.miningdifficulty
 		if(progress > ADVMINER_PROCESS_REQUIREMENT)
 			progress -= ADVMINER_PROCESS_REQUIREMENT
 			current_drill.durability -= 1
 			powercell.charge -= GetPowerRequirement()
 			dep.GetDrilled(current_drill)
+	update_icon_state()
 
 
+/obj/machinery/advminer/attackby(obj/item/attacking_item, mob/user, params)
+	. = ..()
+	if(istype(attacking_item,/obj/item/advmining_drill))
+		if(do_after(user,5 SECONDS,TRUE, src,BUSY_ICON_BUILD))
+			if(!user.drop_held_item())
+				return
+			current_drill.forceMove(get_turf(user))
+			current_drill = attacking_item
+			current_drill.forceMove(src)
+			playsound(src,'sound/items/ratchet.ogg',SOUND_AUDIBLE_VOLUME_MIN)
+			start_processing()
+	if(istype(attacking_item,/obj/item/cell))
+		if(do_after(user,5 SECONDS,TRUE, src,BUSY_ICON_BUILD))
+			if(!user.drop_held_item())
+				return
+			powercell.forceMove(get_turf(user))
+			powercell = attacking_item
+			powercell.forceMove(src)
+			playsound(src,'sound/machines/click.ogg',SOUND_AUDIBLE_VOLUME_MIN)
+			start_processing()
 
 
 /obj/machinery/advminer/examine(mob/user)

@@ -19,9 +19,9 @@
 	if(progress < SAMPLETIME)
 		handdrill(user)
 	else
-		if(dep && dep.depth == 0 && !dep.surveyed)
+		if(dep && !dep.surveyed)
 			var/choice = tgui_alert(user,"Would you like to prepare a sample data disk, or a survey report? The data disk can be sold for off world companies willing to buy mining rights over this deposit, while keeping the survey report will allow you to tap the vein yourselves... if you can defend it. The disk is projected to be worth [dep.value] requsition points...","Geological Survey Sample Drill",list("Data Disk", "Survey Report"))
-			if(!dep || dep.depth != 0 || dep.surveyed)
+			if(!dep  || dep.surveyed)
 				balloon_alert_to_viewers("Huh?")
 				return
 			if(!can_interact(user))
@@ -45,17 +45,20 @@
 				papyrus.info = "<CENTER><B>SURVEY REPORT:</B></CENTER><BR><HR>"
 				if(dep.CurrentMineralContentsByLayer[1])
 					papyrus.info += "<B>MINERALS AT LAYER 1</B><BR>"
-					for(var/obj/item/ore/key in dep.CurrentMineralContentsByLayer[1])
-						papyrus.info += key.name + " - CONCENTRATION: " + dep.CurrentMineralContentsByLayer[1][key] + "<BR>"
+					for(var/key in dep.CurrentMineralContentsByLayer[1])
+						var/obj/item/ore/typecastedkey = key
+						papyrus.info += "[typecastedkey.name] - CONCENTRATION: [dep.CurrentMineralContentsByLayer[1][key]]<BR>"
 					papyrus.info += "<HR>"
 				papyrus.info += "<B>MINERALS AT LAYER 2</B><BR>"
-				for(var/obj/item/ore/key in dep.CurrentMineralContentsByLayer[2])
-					papyrus.info += key.name + " - CONCENTRATION: " + dep.CurrentMineralContentsByLayer[2][key] + "<BR>"
-					papyrus.info += "<HR>"
+				for(var/key in dep.CurrentMineralContentsByLayer[2])
+					var/obj/item/ore/typecastedkey = key
+					papyrus.info += "[typecastedkey.name] - CONCENTRATION:  [dep.CurrentMineralContentsByLayer[2][key]]<BR>"
+				papyrus.info += "<HR>"
 				papyrus.info += "<B>MINERALS AT LAYER 3</B><BR>"
-				for(var/obj/item/ore/key in dep.CurrentMineralContentsByLayer[3])
-					papyrus.info += key.name + " - CONCENTRATION: " + dep.CurrentMineralContentsByLayer[3][key] + "<BR>"
-					papyrus.info += "<HR>"
+				for(var/key in dep.CurrentMineralContentsByLayer[3])
+					var/obj/item/ore/typecastedkey = key
+					papyrus.info += "[typecastedkey.name] - CONCENTRATION: [dep.CurrentMineralContentsByLayer[3][key]]<BR>"
+				papyrus.info += "<HR>"
 				papyrus.info += "Report Concluded. Deploy a 'Pioneer' miner in order to begin extraction!"
 				dep.surveyed = TRUE
 				setAnchored(FALSE)

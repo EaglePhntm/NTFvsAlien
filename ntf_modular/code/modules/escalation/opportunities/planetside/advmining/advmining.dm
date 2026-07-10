@@ -2,7 +2,7 @@
 	name = "Subterran mineral scan"
 	desc = "Align our scanners for a detailed mineral scan based on possible locations for resource deposit mission sites derived from intel. The scanner arrays will function at the default configuration, which, while will yield an unpredictable result, will also be cheaper."
 	proper = TRUE
-	cost = 300
+	cost = 500
 	firstmovers = 5 MINUTES
 	announcefac = "After a brief recalibration of our sensors using intel found planetside, we have detected a possible mineral extraction site. Please proceed planetside."
 	announcehumanoid = "A Sudden scan pulse has been identified as a mineral scan. After analyzing the scan configuration, we were able to replicate it, and have appended our maps with the new data."
@@ -28,7 +28,7 @@
 /datum/opportunity/planetside/advmining/deep
 	name = "Deep Subterran mineral scan"
 	desc = "Align our scanners for a detailed mineral scan based on possible locations for resource deposit mission sites derived from intel. The scanner arrays will be further calibrated for underground deposits, costing more but with a bigger possible payout."
-	cost = 500
+	cost = 1000
 
 /datum/opportunity/planetside/advmining/deep/activate(mob/m)
 	SSexcavation.spawnExcavation()
@@ -42,7 +42,7 @@
 /datum/opportunity/planetside/advmining/surface
 	name = "Surface Subterran mineral scan"
 	desc = "Align our scanners for a detailed mineral scan based on possible locations for resource deposit mission sites derived from intel. The scanner arrays will be further calibrated for surface deposits, costing more but will find spots that should be easier to defend."
-	cost = 500
+	cost = 750
 
 /datum/opportunity/planetside/advmining/surface/activate(mob/m)
 	SSexcavation.spawnExcavation()

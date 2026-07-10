@@ -1,3 +1,27 @@
+GLOBAL_LIST_INIT(BaseMineralContentsByLayer, list(
+	list(
+		/obj/item/ore/iron = 30,
+		/obj/item/ore/glass = 50,
+		/obj/item/ore/coal = 15,
+		/obj/item/ore/phoron = 10,
+	), list(
+		/obj/item/ore/iron = 100,
+		/obj/item/ore/coal = 50,
+		/obj/item/ore/phoron = 20,
+		/obj/item/ore/silver = 20,
+		/obj/item/ore/gold = 10,
+		/obj/item/ore/uranium = 10
+	), list(
+		/obj/item/ore/coal = 20,
+		/obj/item/ore/phoron = 40,
+		/obj/item/ore/silver = 40,
+		/obj/item/ore/gold = 30,
+		/obj/item/ore/uranium = 50,
+		/obj/item/ore/osmium = 20,
+		/obj/item/ore/diamond = 10
+	)
+))
+
 #define DEPTH_TO_LAYER 30
 #define MINERALS_PER_LAYER 5
 
@@ -13,31 +37,7 @@
 	var/value = 500
 	var/miningdifficulty = 1
 	var/datum/escalation/esc
-	var/list/BaseMineralContentsByLayer = list(
-		list(
-			/obj/item/ore/iron = 30,
-			/obj/item/ore/glass = 50,
-			/obj/item/ore/coal = 15,
-			/obj/item/ore/phoron = 10,
-		), list(
-			/obj/item/ore/iron = 100,
-			/obj/item/ore/coal = 50,
-			/obj/item/ore/phoron = 20,
-			/obj/item/ore/silver = 20,
-			/obj/item/ore/gold = 10,
-			/obj/item/ore/uranium = 10,
-			/obj/item/ore/osmium = 20
-		), list(
-			/obj/item/ore/coal = 50,
-			/obj/item/ore/phoron = 40,
-			/obj/item/ore/silver = 40,
-			/obj/item/ore/gold = 30,
-			/obj/item/ore/uranium = 50,
-			/obj/item/ore/osmium = 40,
-			/obj/item/ore/diamond = 10
-		)
-	)
-	var/list/CurrentMineralContentsByLayer = list()
+	var/list/CurrentMineralContentsByLayer = new /list(3)
 	var/yield = 1
 
 /obj/structure/oredeposit/New(loc, parent, escp, ...)
@@ -49,7 +49,7 @@
 	miningdifficulty = miningdifficulty * randfloat(0.8,2)
 	yield = yield * randfloat(0.4, 1.6)
 	esc = escp
-	if(depth < DEPTH_TO_LAYER)
+	if(depth > DEPTH_TO_LAYER)
 		CurrentMineralContentsByLayer[1] = list()
 	else
 		CurrentMineralContentsByLayer[1] = setupMineralLayer(1)
@@ -59,14 +59,14 @@
 /obj/structure/oredeposit/proc/setupMineralLayer(layer)
 	var/list/NewLayer = list()
 	var/list/keys = list()
-	for(var/key in BaseMineralContentsByLayer[layer])
+	for(var/key in GLOB.BaseMineralContentsByLayer[layer])
 		keys += key
 	for(var/i = 0, i < MINERALS_PER_LAYER, i++)
 		var/currkey = pick(keys)
 		if(!NewLayer[currkey])
-			NewLayer[currkey] = BaseMineralContentsByLayer[layer][currkey]
+			NewLayer[currkey] = GLOB.BaseMineralContentsByLayer[layer][currkey]
 		else
-			NewLayer[currkey] += BaseMineralContentsByLayer[layer][currkey]
+			NewLayer[currkey] += GLOB.BaseMineralContentsByLayer[layer][currkey]
 	return NewLayer
 
 /obj/structure/oredeposit/proc/pickMineralForCurrLayer()
@@ -102,8 +102,11 @@
 	return layerrrr > 3 ? 3 : layerrrr
 
 /obj/structure/oredeposit/proc/GetDrilled(obj/item/advmining_drill/drill)
+	surveyed = TRUE
 	generateRocc(drill)
 	depth += drill.progressmod
+	if(depth >= DEPTH_TO_LAYER * 3)
+		qdel(src)
 
 
 /obj/structure/oredeposit/deep
