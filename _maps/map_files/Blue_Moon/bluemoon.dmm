@@ -3082,7 +3082,6 @@
 /turf/open/floor/wood,
 /area/bluemoon/caves/facility/lambda/s)
 "dxw" = (
-/obj/effect/,
 /turf/open/floor/plating,
 /area/bluemoon/outside/building/cargo)
 "dxx" = (
@@ -3187,7 +3186,6 @@
 /turf/open/floor/wood/fancy,
 /area/bluemoon/outside/building/dorms/chapel)
 "dDV" = (
-/obj/effect/landmark/start/job/survivor,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
@@ -7938,7 +7936,6 @@
 /turf/open/urbanshale/layer2,
 /area/bluemoon/caves/se)
 "jcW" = (
-/obj/effect/landmark/start/job/survivor,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/bluemoon/outside/n)
@@ -9096,7 +9093,6 @@
 /turf/open/floor/wood,
 /area/bluemoon/outside/building/dorms/eat)
 "klg" = (
-/obj/effect/landmark/start/job/survivor,
 /turf/open/floor,
 /area/bluemoon/outside/building/toolshed)
 "kmS" = (
@@ -12078,7 +12074,6 @@
 /area/bluemoon/caves/facility/eta/xeno)
 "nCJ" = (
 /obj/structure/closet/firecloset/full,
-/obj/effect/landmark/start/job/survivor,
 /turf/open/floor/tile/brown{
 	dir = 5
 	},
@@ -15512,7 +15507,6 @@
 /turf/open/floor/plating/ground/snow/layer2,
 /area/bluemoon/caves/facility/eta/xeno)
 "rUl" = (
-/obj/effect/landmark/start/job/survivor,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 4
 	},
@@ -19654,7 +19648,6 @@
 /turf/open/floor/prison,
 /area/bluemoon/caves/facility/omicron)
 "wMT" = (
-/obj/effect/landmark/start/job/survivor,
 /turf/open/floor/wood/fancy,
 /area/bluemoon/outside/building/dorms/chapel)
 "wNd" = (

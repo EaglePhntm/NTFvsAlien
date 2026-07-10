@@ -8071,8 +8071,6 @@
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "cZU" = (
-/obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/air_alarm{
 	dir = 4
@@ -8163,8 +8161,6 @@
 	},
 /area/bigredv2/outside/marshal_office)
 "dkJ" = (
-/obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "dnx" = (
@@ -8434,8 +8430,6 @@
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/southwest)
 "dSP" = (
-/obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
 "dVz" = (
@@ -10244,8 +10238,6 @@
 /area/bigredv2/caves/south)
 "hOL" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor,
 /area/bigredv2/outside/marshal_office)
 "hPq" = (
@@ -11571,8 +11563,6 @@
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "kvX" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "kxw" = (
@@ -12628,8 +12618,6 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/virology)
 "mZU" = (
-/obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/grimy,
 /area/bigredv2/outside/marshal_office)
 "mZZ" = (
@@ -13895,8 +13883,6 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/c)
 "pRP" = (
-/obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/tile/red/redtaupecorner{
 	dir = 4
 	},
@@ -14492,8 +14478,6 @@
 /turf/open/floor,
 /area/bigredv2/outside/hydroponics)
 "rkx" = (
-/obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor,
 /area/bigredv2/outside/engineering)
 "rlw" = (
@@ -17142,8 +17126,6 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/virology)
 "wQm" = (
-/obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "wSJ" = (
