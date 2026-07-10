@@ -3082,7 +3082,7 @@
 /turf/open/floor/wood,
 /area/bluemoon/caves/facility/lambda/s)
 "dxw" = (
-/obj/effect/landmark/start/job/survivor,
+/obj/effect/,
 /turf/open/floor/plating,
 /area/bluemoon/outside/building/cargo)
 "dxx" = (

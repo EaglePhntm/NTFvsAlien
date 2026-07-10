@@ -829,8 +829,7 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "OJ" = (
-/obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
+
 /turf/open/floor/tile/red/redtaupecorner{
 	dir = 8
 	},
@@ -899,8 +898,7 @@
 /area/bigredv2/outside/office_complex)
 "Sh" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
+
 /turf/open/floor,
 /area/bigredv2/outside/office_complex)
 "Sk" = (

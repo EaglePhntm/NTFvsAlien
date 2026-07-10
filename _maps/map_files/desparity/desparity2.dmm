@@ -512,8 +512,7 @@
 /turf/open/floor/tile/green/full,
 /area/lv624/lazarus/hydroponics/aux)
 "cB" = (
-/obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
+
 /turf/open/floor/tile/green/greentaupe{
 	dir = 10
 	},
@@ -2353,8 +2352,7 @@
 /obj/structure/bed/chair/office/light{
 	dir = 4
 	},
-/obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
+
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/engineering)
 "kN" = (
@@ -4020,8 +4018,7 @@
 	},
 /area/lv624/lazarus/medbay)
 "sy" = (
-/obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
+
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/fitness)
 "sA" = (
@@ -4815,8 +4812,7 @@
 /obj/structure/bed/chair/pew{
 	dir = 9
 	},
-/obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
+
 /turf/open/floor/wood,
 /area/lv624/lazarus/chapel)
 "wF" = (
@@ -5910,8 +5906,7 @@
 "BL" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
+
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
@@ -6457,8 +6452,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
+
 /turf/open/floor/tile/bar,
 /area/lv624/lazarus/canteen)
 "Et" = (
@@ -6560,8 +6554,7 @@
 /turf/closed/wall/wood,
 /area/lv624/lazarus/bar)
 "ER" = (
-/obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/start/latejoinsurvivor,
+
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle7)
 "ET" = (
