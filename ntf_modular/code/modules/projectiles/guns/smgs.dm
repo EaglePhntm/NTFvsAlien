@@ -74,6 +74,6 @@
 	hud_state = "smg_ap"
 	damage = 22.5
 	penetration = 12.5
-	sundering = 0.5
+	sundering = 0.75
 	damage_falloff = 1
 	accurate_range = 7
