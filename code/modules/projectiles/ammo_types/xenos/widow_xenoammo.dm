@@ -13,12 +13,13 @@
 	ammo_behavior_flags = AMMO_SKIPS_ALIENS
 	ping = null
 	armor_type = BIO
+	accuracy = 500 // This has specific hand/leg targeting gimmicks and should never miss from targeting these areas
 	accurate_range = 15
 	max_range = 15
 	///For how long the victim will be blinded
 	var/hit_eye_blind = 1
 	///How long the victim will be snared for
-	var/hit_immobilize = 2 SECONDS
+	var/hit_immobilize = 6 SECONDS // To give some reason to ensnare over paralyzing
 	///How long the victim will be KO'd
 	var/hit_paralyze = 2 SECONDS
 	///List for bodyparts that upon being hit cause the target to become weakened
