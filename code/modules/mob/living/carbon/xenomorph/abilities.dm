@@ -1567,6 +1567,18 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 			X.impregify(victim, HOLE_VAGINA, damagemult = 3)
 			log_combat(X, victim, "impregnated", addition="with their impregnate ability")
 		else
+			if(ishuman(victim) && !(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES))
+				if(victim.getCloneLoss() >= 45 || HAS_TRAIT(victim, TRAIT_PSY_DRAINED))
+					to_chat(A, "This person is too devestated to impregnate you anymore!")
+					X.claim_hive_target_reward(victim)
+					return
+				if(victim.status_flags & XENO_HOST)
+					to_chat(A, "This targets pregnancy prevents you from becoming pregnant!")
+					X.claim_hive_target_reward(victim)
+					return
+				if(X.xenoimpregify())
+					victim.adjustCloneLoss(45)
+					victim.Shake(duration = 2 SECONDS)
 			X.xenoimpregify()
 			log_combat(X, victim, "got impregnated by", addition="with their impregnate ability")
 		add_cooldown()
@@ -1586,9 +1598,9 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 		if(victim.stat == CONSCIOUS)
 			to_chat(victim, span_warning("[X] fucks you!"))
 			victim.emote("moan")
-		if(victim.gender == FEMALE)
+		if(victim.gender == FEMALE && (SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES))
 			victim.xenoimpregify()
-		if(X.gender == FEMALE)
+		if(X.gender == FEMALE && (SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES))
 			X.xenoimpregify()
 		succeed_activate()
 /////////////////////////////////
