@@ -16,7 +16,7 @@
 	max_integrity = 600
 	light_range = 10
 	///Tank bitflags
-	var/armored_flags = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_HEADLIGHTS
+	var/armored_flags = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_HEADLIGHTS|ARMORED_SELF_WALL_DAMAGE
 
 	///sound loop that plays when we are not moving with a driver present
 	var/datum/looping_sound/idle_loop = /datum/looping_sound/tank_idle
@@ -657,7 +657,7 @@
 		return
 
 /obj/vehicle/sealed/armored/welder_act(mob/living/user, obj/item/I)
-	return welder_repair_act(user, I, 50, 5 SECONDS, 0, SKILL_ENGINEER_METAL, 5, 2 SECONDS)
+	return welder_repair_act(user, I, 25, 5 SECONDS, 0, SKILL_ENGINEER_METAL, 5, 2 SECONDS)
 
 /obj/vehicle/sealed/armored/crowbar_act(mob/living/user, obj/item/I)
 	. = ..()
