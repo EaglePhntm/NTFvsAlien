@@ -1,7 +1,7 @@
 /datum/sex_action/tonguebath
 	name = "Bathe with tongue"
 	check_incapacitated = FALSE
-	heal_sex = TRUE // Quirked up dogs all over the world rejoice
+	heal_sex = FALSE
 
 /datum/sex_action/tonguebath/shows_on_menu(mob/living/carbon/user, mob/living/carbon/target)
 	if(user == target)
