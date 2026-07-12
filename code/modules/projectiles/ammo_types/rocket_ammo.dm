@@ -185,7 +185,7 @@
 	smoke_system = null
 	target_turf.visible_message(span_danger("The rocket explodes into white gas!") )
 	playsound(target_turf, 'sound/weapons/guns/fire/flamethrower2.ogg', 50, 1, 4)
-	flame_radius(effect_radius, target_turf, 27, 27, 27, 17)
+	flame_radius(effect_radius - 1, target_turf, 20, 20, 15, 10)
 
 /datum/ammo/rocket/wp/quad/som
 	name = "white phosphorous RPG"
