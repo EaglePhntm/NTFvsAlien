@@ -1,6 +1,6 @@
 /obj/vehicle/sealed/armored/multitile/icc_lvrt
 	name = "\improper LVRT 'Fallow' Recce Vehicle"
-	desc = "The Light Vehicle, Recce, Tracked 'Fallow' is an ICC reconnaissance vehicle built to go fast in order to scout out and poke at enemy positions. Accepts either a low velocity tank cannon or a SARDEN as armament."
+	desc = "The Light Vehicle, Recce, Tracked 'Fallow' is an CM reconnaissance vehicle built to go fast in order to scout out and poke at enemy positions. Accepts either a low velocity tank cannon or a SARDEN as armament."
 	icon = 'icons/obj/armored/2x2/icc_lvrt.dmi'
 	icon_state = "icc_lvrt"
 	turret_icon = 'icons/obj/armored/2x2/icc_lvrt_gun.dmi'
@@ -14,6 +14,7 @@
 	minimap_icon_state = "apc"
 	max_integrity = 450
 	soft_armor = list(MELEE = 40, BULLET = 60 , LASER = 60, ENERGY = 60, BOMB = 40, BIO = 60, FIRE = 40, ACID = 40)
+	hard_armor = list(MELEE = 0, BULLET = 5, LASER = 5, ENERGY = 5, BOMB = 10, BIO = 60, FIRE = 0, ACID = 0)
 	max_occupants = 5 //Boy is TINY.
 	pixel_x = 0
 	pixel_y = -40

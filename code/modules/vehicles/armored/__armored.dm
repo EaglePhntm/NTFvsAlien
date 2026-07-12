@@ -480,6 +480,18 @@
 			return FALSE
 	if(src == proj.shot_from)
 		return FALSE
+	if(soft_armor)
+		if(proj.ammo.penetration <= (soft_armor.getRating(proj.ammo.armor_type) / 3) && prob(90))
+			proj.shot_from = src
+			if(proj.ammo.sound_bounce)
+				playsound(loc, proj.ammo.sound_bounce, 15, TRUE, 7, 5, pitch)
+			do_sparks(rand(1,2), TRUE, loc)
+			proj.ammo.bonus_projectiles_type = proj.ammo.type
+			proj.proj_max_range /= rand(2,3)
+			proj.damage_falloff *= 3
+			proj.accuracy /= 3
+			proj.ammo.reflect(get_turf(src), proj, 20)
+			return FALSE
 	if(src == proj.original_target)
 		return TRUE
 	if(!hitbox)
@@ -541,6 +553,13 @@
 	balloon_alert(user, "magazine removed")
 	secondary_weapon.ammo_magazine -= choice
 	user.put_in_hands(choice)
+
+/obj/vehicle/sealed/armored/attacked_by(obj/item/attacking_item, mob/living/user, def_zone)
+	if(istype(attacking_item, /obj/item/weapon) || (ishuman(user) && user.a_intent == INTENT_HARM))
+		to_chat(user, span_warning("Your attack bounces off \the [src]!"))
+		return FALSE
+	. = ..()
+
 
 /obj/vehicle/sealed/armored/attackby(obj/item/I, mob/user, params)
 	. = ..()

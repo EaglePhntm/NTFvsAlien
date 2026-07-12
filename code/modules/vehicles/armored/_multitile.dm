@@ -14,9 +14,9 @@
 	pixel_x = -56
 	pixel_y = -48
 	max_integrity = 1000
-	soft_armor = list(MELEE = 50, BULLET = 100, LASER = 90, ENERGY = 90, BOMB = 60, BIO = 100, FIRE = 100, ACID = 50)
-	hard_armor = list(MELEE = 0, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 0, BIO = 20, FIRE = 0, ACID = 0)
-	facing_modifiers = list(VEHICLE_FRONT_ARMOUR = 0.8, VEHICLE_SIDE_ARMOUR = 1, VEHICLE_BACK_ARMOUR = 1.2)
+	soft_armor = list(MELEE = 50, BULLET = 100, LASER = 100, ENERGY = 90, BOMB = 80, BIO = 100, FIRE = 100, ACID = 50)
+	hard_armor = list(MELEE = 0, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 40, BIO = 100, FIRE = 0, ACID = 0)
+	facing_modifiers = list(VEHICLE_FRONT_ARMOUR = 0.55, VEHICLE_SIDE_ARMOUR = 0.85, VEHICLE_BACK_ARMOUR = 1.6)
 	permitted_mods = list(
 		/obj/item/tank_module/overdrive,
 		/obj/item/tank_module/ability/zoom,
@@ -37,6 +37,7 @@
 	max_occupants = 4
 	move_delay = 0.6 SECONDS
 	glide_size = 2.5
+	faction = FACTION_TERRAGOV
 	ram_damage = 300
 	easy_load_list = list(
 		/obj/item/ammo_magazine/tank,
