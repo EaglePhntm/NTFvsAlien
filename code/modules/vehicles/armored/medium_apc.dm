@@ -15,4 +15,4 @@
 	max_occupants = 5
 	permitted_mods = list(/obj/item/tank_module/ability/zoom)
 	soft_armor = list(MELEE = 50, BULLET = 80, LASER = 80, ENERGY = 70, BOMB = 50, BIO = 100, FIRE = 100, ACID = 50)
-	hard_armor = list(MELEE = 0, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 30, BIO = 100, FIRE = 0, ACID = 0)
+	hard_armor = list(MELEE = 0, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 100, FIRE = 0, ACID = 0)

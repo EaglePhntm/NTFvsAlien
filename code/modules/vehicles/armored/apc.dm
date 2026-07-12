@@ -14,7 +14,7 @@
 	pixel_y = -40
 	max_integrity = 600
 	soft_armor = list(MELEE = 40, BULLET = 100 , LASER = 100, ENERGY = 90, BOMB = 60, BIO = 100, FIRE = 100, ACID = 40)
-	hard_armor = list(MELEE = 0, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 40, BIO = 100, FIRE = 0, ACID = 0)
+	hard_armor = list(MELEE = 0, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 10, BIO = 100, FIRE = 0, ACID = 0)
 	max_occupants = 20 //Clown car? Clown car.
 	enter_delay = 0.4 SECONDS
 	ram_damage = 300
