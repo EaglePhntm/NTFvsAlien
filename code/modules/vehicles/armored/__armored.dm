@@ -481,7 +481,15 @@
 	if(src == proj.shot_from)
 		return FALSE
 	if(soft_armor)
-		if(proj.ammo.penetration <= (soft_armor.getRating(proj.ammo.armor_type) / 3) && prob(90))
+		var/armor_integrity_mod = 3 // one third of armor as ap needed to penetrate, usually 30 due to 100 bullet armor
+		//this may look like double-sided pen adjustion but the integrity mod only changes the minimum integrity required to even NOT bounce off, this makes it actually go through the armor.
+		if(obj_integrity <= (max_integrity/2)) //50% integrity or less, now 1/4 needed to penetrate
+			armor_integrity_mod ++
+			proj.penetration *= 1.5
+		if(obj_integrity <= max_integrity/4) //25% integrity or less, now 1/5 needed to penetrate
+			armor_integrity_mod ++
+			proj.penetration *= 1.5
+		if(proj.ammo.penetration < (soft_armor.getRating(proj.ammo.armor_type) / armor_integrity_mod) && prob(90))
 			proj.shot_from = src
 			if(proj.ammo.sound_bounce)
 				playsound(loc, proj.ammo.sound_bounce, 15, TRUE, 7, 5, pitch)
