@@ -354,7 +354,7 @@
 		/obj/item/armor_module/module/valkyrie_autodoc_beta,
 		/obj/item/armor_module/storage/ammo_mag,
 	)
-	slowdown = -0.3
+	slowdown = -0.15
 
 /obj/item/clothing/suit/modular/rownin/vsdelite/escort
 	name = "\improper KZ Rownin Skeleton"
