@@ -1061,3 +1061,13 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	construction = SKILL_CONSTRUCTION_PLASTEEL
 	engineer = SKILL_ENGINEER_PLASTEEL
 	leadership = SKILL_LEAD_EXPERT
+
+/datum/skills/doctor/ripper
+	unarmed = SKILL_UNARMED_WEAK
+	combat = SKILL_COMBAT_UNTRAINED
+	medical = SKILL_MEDICAL_EXPERT
+	surgery = SKILL_SURGERY_EXPERT
+	melee_weapons = SKILL_MELEE_WEAK
+	chemistry = SKILL_CHEM_EXPERT
+	construction = SKILL_CONSTRUCTION_PLASTEEL
+	engineer = SKILL_ENGINEER_ENGI

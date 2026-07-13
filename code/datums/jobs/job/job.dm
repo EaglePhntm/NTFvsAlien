@@ -343,7 +343,9 @@ GLOBAL_PROTECT(exp_specialmap)
 	for(var/datum/outfit/variant AS in assigned_role.outfits)
 		if(ispath(variant))
 			variant = new variant
-		if(src.species && (src.species.species_type in variant.species))
+		if(isnull(src)) //somehow we had an issue with a runtime saying null.species below so i guess failsafe
+			assigned_role.outfit.equip(src)
+		if(species && (species.species_type in variant.species))
 			valid_outfits += variant
 	if(!length(valid_outfits))
 		log_runtime("Failed to find valid outfit when applying [assigned_role.title]([assigned_role.type]) to [logdetails(src)](Species: [src.species ? "[src.species.name]([src.species.type])" : "null"])")

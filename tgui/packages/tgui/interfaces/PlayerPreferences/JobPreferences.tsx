@@ -121,6 +121,7 @@ export const JobPreferences = (props) => {
     'KZ Combat Escort',
     'KZ Synthetic',
     'KZ Squad Leader',
+    'KZ Ripperdoc',
     'Kaizoku Liaison',
   ];
   const ColonistJobs = [

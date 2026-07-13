@@ -295,6 +295,10 @@
 	icon_state = "Synth"
 	job = /datum/job/vsd_squad/silicon/synthetic
 
+/obj/effect/landmark/start/job/vsd_ripperdoc
+	icon_state = "MP"
+	job = /datum/job/vsd_squad/medical/ripperdoc
+
 /obj/effect/landmark/start/job/vsd_leader
 	icon_state = "MP"
 	job = /datum/job/vsd_squad/leader

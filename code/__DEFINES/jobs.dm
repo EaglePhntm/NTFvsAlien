@@ -184,7 +184,7 @@ MEDICAL_DOCTOR, MEDICAL_RESEARCHER, SQUAD_LEADER, SQUAD_SPECIALIST, SQUAD_SMARTG
 SOM_SQUAD_SLUT, SOM_SQUAD_MARINE, SOM_SQUAD_VETERAN, SOM_SQUAD_ENGINEER, SOM_SQUAD_CORPSMAN, SOM_SQUAD_LEADER, SOM_CHEF, SOM_MEDICAL_DOCTOR, SOM_TECH, SOM_CHIEF_MEDICAL_OFFICER, SOM_CHIEF_ENGINEER, SOM_REQUISITIONS_OFFICER, SOM_MECH_PILOT, SOM_PILOT_OFFICER, SOM_ASSAULT_CREWMAN, SOM_FIELD_COMMANDER, SOM_STAFF_OFFICER, SOM_COMMANDER, \
 PMC_MEDIC, PMC_ENGINEER, PMC_GUNNER, PMC_STANDARD, PMC_SNIPER, PMC_LEADER,\
 "Cult Offering", "Cultist", "Cultist Mender", "Cultist Champion", "Cult Synthetic", "Cultist Sect Leader", "Cultist Technomancer",\
-"KZ Standard", "KZ Engineer", "KZ Medic", "KZ Specialist", "KZ Combat Escort", "KZ Synthetic", "KZ Squad Leader",\
+"KZ Standard", "KZ Engineer", "KZ Medic", "KZ Specialist", "KZ Combat Escort", "KZ Synthetic", "KZ Ripperdoc", "KZ Squad Leader",\
 "CM Standard", "CM Medic", "CM Guardsman", "CM Squad Leader", "CM Base Technician",\
 "Prisoner", "SOM Prisoner", "Cult Prisoner",\
 "Morale Officer", "Worker", "Archercorp Liaison", "Novamed Liaison", "TRANSCo Liaison", "Kaizoku Liaison", "Colonial Militia Representative", "Cult Representative", "Sons of Mars Representative", "Cult Messiah", "CM Commander", "CM Militia Captain", "CM Colony Administrator"))
