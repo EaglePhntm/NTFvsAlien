@@ -246,7 +246,7 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 /datum/job/clf/mo
 	title = "Cultist Archmender"
 	paygrade = "MO"
-	comm_title = "CLTMO"
+	comm_title = "CLTAM"
 	minimap_icon = "CLT2"
 	supervisors = "The Hive."
 	total_positions = 1
