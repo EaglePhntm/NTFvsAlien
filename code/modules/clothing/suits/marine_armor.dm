@@ -563,7 +563,7 @@
 		/obj/item/armor_module/module/better_shoulder_lamp,
 		/obj/item/armor_module/storage/general,
 	)
-	
+
 /obj/item/clothing/suit/storage/marine/cmfreelancer/heavy
 	name = "\improper CM12 pattern cuirass"
 	desc = "Salvaged metal plates welded together on the CM3 armor for maximum survivability. Not many freelancer mercenaries enjoyed wearing this, but it found a place among Colonial Militia guardsmen as a suprisingly effective instrument in defenses and close quarters fights. Can only support a baldur module but can support storage modules."
@@ -584,7 +584,7 @@
 		/obj/item/armor_module/module/better_shoulder_lamp,
 		/obj/item/armor_module/storage/general,
 	)
-	
+
 /obj/item/clothing/suit/storage/marine/cmfreelancer/pyro
 	name = "\improper CMB08 pattern pyro suit"
 	desc = "A repurposed firefighter suit combined with additional flame retardant materials reinforced with metal plates. All of this allows the user to safely walk through fire. A complete psycho would wear the original freelance version, cuts had to be made with the new CMB08."
@@ -942,7 +942,7 @@
 	soft_armor = MARINE_ARMOR_MEDIUM
 
 /obj/item/clothing/suit/storage/marine/icc
-	name = "\improper Modelle/16 combat armor"
+	name = "\improper Modelle/16 medium combat armor"
 	desc = "A piece of ICC body armor, worn durning boarding actions by personnel in close quarters, as most ICC personnel serve dual purpose roles as ad-hoc marines, due to personnel shortages."
 	icon = 'icons/obj/clothing/suits/ert_suits.dmi'
 	worn_icon_list = list(
@@ -959,14 +959,14 @@
 	item_map_variant_flags = NONE
 
 /obj/item/clothing/suit/storage/marine/icc/guard
-	name = "\improper Modelle/19 combat armor"
+	name = "\improper Modelle/19 light combat armor"
 	desc = "A piece of ICCGF body armor, worn by specialized infantry. Most Infantry actions in the ICC forces are done by adhoc personnel due to constant shortages of manpower, however most real Infantry divisions are of high quality, and are better known as 'Guardsmen'."
 	icon_state = "icc_guard"
 	slowdown = SLOWDOWN_ARMOR_LIGHT
 	soft_armor = MARINE_ARMOR_LIGHT
 
 /obj/item/clothing/suit/storage/marine/icc/guard/heavy
-	name = "\improper Modelle/22 'Cuirassier' combat armor"
+	name = "\improper Modelle/22 'Cuirassier' heavy combat armor"
 	desc = "A piece of ICCGF body armor, worn by specialized infantry. Most Infantry actions in the ICC forces are done by adhoc personnel due to constant shortages of manpower, however most real Infantry divisions are of high quality, and are better known as 'Guardsmen'."
 	icon_state = "icc_guard_heavy"
 	slowdown = SLOWDOWN_ARMOR_HEAVY
