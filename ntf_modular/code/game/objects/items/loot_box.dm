@@ -158,7 +158,7 @@
 	new /obj/item/ammo_magazine/rifle/mpar/drain(src)
 	new /obj/item/ammo_magazine/rifle/mpar/electromag(src)
 	new /obj/item/ammo_magazine/rifle/mpar/electromag(src)
-	new /obj/item/clothing/glasses/night/m56_goggles(src)
+	new /obj/item/clothing/glasses/night_vision(src)
 	new /obj/item/skillsoft/lightfooted(src)
 	new /obj/item/fulton_extraction_pack/adminbus/advanced(src)
 	new /obj/item/assembly/signaler (src)

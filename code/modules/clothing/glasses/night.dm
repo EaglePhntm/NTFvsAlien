@@ -223,7 +223,7 @@
 	desc = "Standard issue NTC prescription goggles. This pair has been fitted with an internal optical imaging scanner."
 	prescription = TRUE
 
-/obj/item/clothing/glasses/night/vsd
+/obj/item/clothing/glasses/night_vision/vsd
 	name = "\improper CM-12 night vision goggles"
 	desc = "KZ's night vision goggles, For the extra tacticool feel, Crash Core and your superior officers are not responsible for blindness and burning."
 	icon = 'icons/mob/clothing/eyes.dmi'
@@ -235,7 +235,7 @@
 	color_cutoffs = list(30, 30, 0)
 	worn_layer = COLLAR_LAYER
 
-/obj/item/clothing/glasses/night/vsd/alt
+/obj/item/clothing/glasses/night_vision/vsd/alt
 	name = "\improper CM-13 night vision faceplate"
 	desc = "KZs night vision Faceplate, made for attachments to the Medium armor variant of their armor. Crash Core and your superior officers are not responsible for blindness and burning."
 	icon_state = "vsd_alt"

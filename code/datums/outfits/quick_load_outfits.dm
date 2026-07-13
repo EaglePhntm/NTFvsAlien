@@ -2116,7 +2116,7 @@
 	wear_suit = /obj/item/clothing/suit/modular/som/light/autodoc
 	belt = /obj/item/storage/belt/marine/som
 	suit_store = /obj/item/weapon/gun/rifle/dragoon
-	glasses = /obj/item/clothing/glasses/night/m56_goggles
+	glasses = /obj/item/clothing/glasses/night_vision
 	r_hand = /obj/item/pamphlet/rifleman
 
 /datum/outfit/quick/som/veteran/dragoon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -2860,7 +2860,7 @@
 	l_pocket = /obj/item/storage/pouch/grenade
 	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
 	back = /obj/item/ammo_magazine/flamer_tank/backtank
-	glasses = /obj/item/clothing/glasses/night/vsd/alt
+	glasses = /obj/item/clothing/glasses/mgoggles/kz/alt
 	ears = /obj/item/radio/headset/mainship/vsd
 
 /datum/outfit/quick/vsd/spec/flamer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -2897,7 +2897,7 @@
 	l_pocket = /obj/item/storage/pouch/explosive
 	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
 	back = /obj/item/weapon/gun/shotgun/combat
-	glasses = /obj/item/clothing/glasses/night/vsd/alt
+	glasses = /obj/item/clothing/glasses/mgoggles/kz/alt
 	ears = /obj/item/radio/headset/mainship/vsd
 	w_uniform = /obj/item/clothing/under/vsd/webbing
 
@@ -2949,7 +2949,7 @@
 	l_pocket = /obj/item/storage/pouch/magazine/large
 	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
 	back = /obj/item/weapon/gun/rifle/som_carbine/black/standard
-	glasses = /obj/item/clothing/glasses/night/vsd/alt
+	glasses = /obj/item/clothing/glasses/mgoggles/kz/alt
 	ears = /obj/item/radio/headset/mainship/vsd
 	w_uniform = /obj/item/clothing/under/vsd/webbing
 
@@ -2977,7 +2977,7 @@
 /datum/outfit/quick/vsd/spec/scout
 	name = "T73 'Spetsnaz' KZ Specialist"
 	desc = "Comb the forests with covert intent. Equipped with the rownin skeleton, supplied with valkyrie beta, an overclocked eshield, a Type 73 Commando, smoke grenades, and a UV-T skink for remote scouting."
-	glasses = /obj/item/clothing/glasses/night/m56_goggles/vsd
+	glasses = /obj/item/clothing/glasses/night_vision/vsd
 	w_uniform = /obj/item/clothing/under/vsd/webbing
 	shoes = /obj/item/clothing/shoes/marine/vsd/full
 	wear_suit = /obj/item/clothing/suit/modular/rownin/vsdelite
@@ -3114,7 +3114,7 @@
 	r_pocket = /obj/item/storage/pouch/grenade
 	l_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
 	back = /obj/item/storage/backpack/vsd
-	glasses = /obj/item/clothing/glasses/night/m42_night_goggles/upp
+	glasses = /obj/item/clothing/glasses/night_vision/vsd
 	w_uniform = /obj/item/clothing/under/marine/kzsneaking
 	shoes = /obj/item/clothing/shoes/marine/vsd/full
 	mask = /obj/item/clothing/mask/gas/hardlight

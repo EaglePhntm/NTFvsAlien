@@ -488,7 +488,7 @@ GLOBAL_LIST_INIT(som_veteran_gear_listed_products, list(
 		/obj/item/blink_drive = list(CAT_SPSUP, "Blink Drive Kit", 25, "black"),
 		/obj/item/weapon/energy/sword/som = list(CAT_SPSUP, "Energy Sword", 5, "black"),
 		/obj/item/storage/holster/backholster/rpg/som/war_crimes = list(CAT_SPSUP, "V-71 RPG Kit", 30, "black"),
-		/obj/item/clothing/glasses/night/vsd = list(CAT_SPSUP, "CM-12 Night Vision Goggles", 25, "black"),
+		/obj/item/clothing/glasses/night_vision/vsd = list(CAT_SPSUP, "CM-12 Night Vision Goggles", 25, "black"),
 		/obj/item/ammo_magazine/rifle/som/ap = list(CAT_SPSUP, "V-31 Armor Piercing Magazine", 1, "black"),
 		/obj/item/ammo_magazine/rifle/som/incendiary = list(CAT_SPSUP, "V-31 Incendiary Magazine", 2, "black"),
 		/obj/item/ammo_magazine/rifle/som_big/anti_armour = list(CAT_SPSUP, "V-35 Anti-Armor Magazine", 2, "black"),
@@ -549,7 +549,7 @@ GLOBAL_LIST_INIT(vsd_medic_gear_listed_products, list(
 
 GLOBAL_LIST_INIT(vsd_specialist_gear_listed_products, list(
 		/obj/effect/vendor_bundle/vsd/specialist = list(CAT_ESS, "Essential Specialist Set", 0, "white"),
-		/obj/item/clothing/glasses/night/vsd = list(CAT_SPSUP, "CM-12 Night Vision Goggles", 25, "black"),
+		/obj/item/clothing/glasses/night_vision/vsd = list(CAT_SPSUP, "CM-12 Night Vision Goggles", 25, "black"),
 		/obj/item/weapon/gun/launcher/rocket/vsd = list(CAT_SPSUP, "C153 Shoulder Launcher", 25, "black"),
 		/obj/item/ammo_magazine/rocket/vsd/he = list(CAT_SPSUP, "84mm HE 'Anti-Personnel' case", 2, "black"),
 		/obj/item/ammo_magazine/rocket/vsd/incendiary = list(CAT_SPSUP, "84mm Incendiary 'Anti-Personnel' case", 2, "black"),
@@ -568,7 +568,7 @@ GLOBAL_LIST_INIT(vsd_specialist_gear_listed_products, list(
 
 GLOBAL_LIST_INIT(vsd_leader_gear_listed_products, list(
 		/obj/effect/vendor_bundle/vsd/leader = list(CAT_ESS, "Essential SL Set", 0, "white"),
-		/obj/item/clothing/glasses/night/vsd = list(CAT_LEDSUP, "CM-12 Night Vision Goggles", 30, "black"),
+		/obj/item/clothing/glasses/night_vision/vsd = list(CAT_LEDSUP, "CM-12 Night Vision Goggles", 30, "black"),
 		/obj/item/weapon/gun/launcher/rocket/vsd = list(CAT_LEDSUP, "C153 Shoulder Launcher", 25, "black"),
 		/obj/item/ammo_magazine/rocket/vsd/he = list(CAT_LEDSUP, "84mm HE 'Anti-Personnel' case", 2, "black"),
 		/obj/item/ammo_magazine/rocket/vsd/incendiary = list(CAT_LEDSUP, "84mm Incendiary 'Anti-Personnel' case", 2, "black"),
@@ -2099,12 +2099,12 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 		/obj/item/clothing/glasses/hud/health = 1,
 	),
 	VSD_SPECIALIST = list(
-		/obj/item/clothing/glasses/night/vsd = 1,
+		/obj/item/clothing/glasses/night_vision/vsd = 1,
 		/obj/item/binoculars/tactical/range = 1,
 		/obj/item/explosive/plastique = 2,
 	),
 	VSD_LEADER = list(
-		/obj/item/clothing/glasses/night/vsd = 1,
+		/obj/item/clothing/glasses/night_vision/vsd = 1,
 		/obj/item/explosive/plastique = 1,
 		/obj/item/binoculars/tactical/range = 1,
 		/obj/item/pinpointer = 1,
