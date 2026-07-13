@@ -81,6 +81,9 @@
 
 /datum/ammo/bullet/auto_cannon/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
 	proj.proj_max_range -= 10
+	proj.accuracy *= 0.7
+	proj.damage *= 0.7
+	proj.penetration *= 0.7
 
 	if(istype(target_turf, /turf/closed/wall))
 		var/turf/closed/wall/wall_victim = target_turf
@@ -88,10 +91,16 @@
 
 /datum/ammo/bullet/auto_cannon/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	proj.proj_max_range -= 8
+	proj.accuracy *= 0.8
+	proj.damage *= 0.8
+	proj.penetration *= 0.8
 	staggerstun(target_mob, proj, max_range = 20, stagger = 1)
 
 /datum/ammo/bullet/auto_cannon/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
 	proj.proj_max_range -= 8
+	proj.accuracy *= 0.9
+	proj.damage *= 0.9
+	proj.penetration *= 0.9
 
 /datum/ammo/bullet/bike_autocannon
 	name = "autocannon high-velocity bullet"
