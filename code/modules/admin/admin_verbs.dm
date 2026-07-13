@@ -213,21 +213,33 @@ ADMIN_VERB(logs_folder, R_LOG, "Get Server Logs Folder", "Please use responsibly
 	if(!check_rights(R_LOG))
 		return
 
-	var/path = root
+	var/path = ""
 	for(var/i = 0, i < max_iterations, i++)
-		var/list/choices = flist(path)
-		if(path != root)
+		var/list/choices = flist("[root][path]")
+		sortTim(choices, /proc/cmp_text_asc)
+		if(path != "")
 			choices.Insert(1, "/")
+			choices.Insert(2, "..")
 		var/choice = input("Choose a file to access:", "Download", null) as null|anything in choices
 		switch(choice)
 			if(null)
 				return
 			if("/")
-				path = root
+				path = ""
+				continue
+			if("..")
+				var/list/pathparts = splittext(path, "/")
+				log_world("path = [path], pathparts = [json_encode(pathparts)]")
+				path = "[pathparts.Join("/",1, pathparts.len - 1)]/"
+				log_world("new path = [path]")
+				if(path == "/")
+					path = ""
+					log_world("final path = [path]")
 				continue
 		path += choice
 		if(copytext_char(path, -1) != "/")		//didn't choose a directory, no need to iterate again
 			break
+	path = "[root]/[path]"
 	var/extensions
 	for(var/i in valid_extensions)
 		if(extensions)
