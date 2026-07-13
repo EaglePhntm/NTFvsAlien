@@ -695,7 +695,7 @@
 				if(user.gender == MALE || (isxeno(user) && user.client?.prefs?.xenogender <= 2))
 					action = pick(/datum/sex_action/vaginal_sex, /datum/sex_action/anal_sex, /datum/sex_action/throat_sex)
 				else if(user.gender == FEMALE)
-					action = pick(/datum/sex_action/scissoring, /datum/sex_action/facesitting, /datum/sex_action/cunnilingus)
+					action = pick(/datum/sex_action/scissoring, /datum/sex_action/cunnilingus)
 			user.sexcon.speed = SEX_SPEED_HIGH
 			if(user.a_intent == INTENT_GRAB) //in place of help cuz that opens regular sexcon
 				balloon_alert_to_viewers("QK heal sex")
