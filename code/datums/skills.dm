@@ -1062,7 +1062,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	engineer = SKILL_ENGINEER_PLASTEEL
 	leadership = SKILL_LEAD_EXPERT
 
-/datum/skills/doctor/ripper
+/datum/skills/doctor/ripperdoc
 	unarmed = SKILL_UNARMED_WEAK
 	combat = SKILL_COMBAT_UNTRAINED
 	medical = SKILL_MEDICAL_EXPERT
