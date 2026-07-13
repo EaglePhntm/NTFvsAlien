@@ -13,7 +13,7 @@
 	//wouldnt it be niceeeee aa a a aaa
 	large_vehicle = SKILL_LARGE_VEHICLE_VETERAN
 	mech = SKILL_MECH_TRAINED
-	sex = SKILL_SEX_MASTER
+	sex = SKILL_SEX_EXPERT
 
 /datum/skills/nm_ceo
 	name = NM_CHIEF_EXECUTIVE_OFFICER
@@ -29,22 +29,17 @@
 	smartgun = SKILL_SMART_DEFAULT
 	large_vehicle = SKILL_LARGE_VEHICLE_DEFAULT
 	mech = SKILL_MECH_DEFAULT
-	sex = SKILL_SEX_MASTER
+	sex = SKILL_SEX_EXPERT
 
 /datum/skills/slut
 	name = SQUAD_SLUT
-	medical = SKILL_MEDICAL_NOVICE //gotta keep that puss tended
-	combat = SKILL_COMBAT_DEFAULT //can still use guns
-	construction = SKILL_CONSTRUCTION_METAL //build a cum shack
-	stamina = SKILL_STAMINA_TRAINED //fucking is hard work
-	sex = SKILL_SEX_EXPERT
-	engineer = SKILL_ENGINEER_METAL
+	sex = SKILL_SEX_TRAINED
 
 /datum/skills/slut/clf
 	name = "Cult Offering"
 
 /datum/skills/civilian/mo
-	sex = SKILL_SEX_MASTER //Master at work
+	sex = SKILL_SEX_EXPERT //Master at work
 
 /datum/skills/operations_officer
 	name = CORPORATE_LIAISON
