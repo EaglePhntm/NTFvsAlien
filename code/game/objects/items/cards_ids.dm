@@ -453,7 +453,7 @@
 				to_chat(user, span_notice("occupation set to [assignment]."))
 			if("rank")
 				paygrade = tgui_input_text(user, "Input the rank (ex: PVT).", "Rank", "", 40)
-				to_chat(user, span_notice("rank set to [rank]."))
+				to_chat(user, span_notice("rank set to [paygrade]."))
 	update_label()
 
 /obj/item/card/id/dogtag/examine(mob/user)
