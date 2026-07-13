@@ -3,6 +3,7 @@
 	Features a NBC-proofed chassis and cockpit, designed to operate safely in hazardous environments. Can carry up to two occupants."
 	name = "\improper APLU MK-I \"Clarke\""
 	icon_state = "clarke"
+	icon = 'icons/mecha/exosuits.dmi'
 	base_icon_state = "clarke"
 	silicon_icon_state = "clarke-empty"
 	move_delay = 2.5

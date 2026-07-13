@@ -1,3 +1,6 @@
+#define ENGINE_ON 1
+#define ENGINE_OFF 2
+
 /obj/vehicle/sealed/mecha/ntf
 	desc = "NTF Exosuit"
 	allow_diagonal_movement = FALSE
@@ -16,13 +19,19 @@
 	facing_modifiers = list(VEHICLE_FRONT_ARMOUR = 0.75, VEHICLE_SIDE_ARMOUR = 1, VEHICLE_BACK_ARMOUR = 1.25)
 	operation_req_access = list()
 	internals_req_access = list()
+	destruction_sleep_duration = 6
 	can_dna_lock = FALSE
 	can_be_moved_in_maints = TRUE
 	enter_delay = EGRESS_TIME_STANDARD
 	exit_delay = EGRESS_TIME_STANDARD
+	pixel_x = -8
 
 /// How resistant the hull is to projectile penetration
 	var/cockpit_armor = COCKPIT_TOUGHENED
+
+	var/engine_state = ENGINE_OFF
+	var/datum/looping_sound/exosuit_engine/fuel/soundloop
+	var/engine_starting_sound
 
 /obj/vehicle/sealed/mecha/ntf/Initialize(mapload)
 	.=..()

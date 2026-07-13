@@ -21,3 +21,67 @@
 			proj.damage = original_damage
 			return
 	return ..()
+
+/obj/vehicle/sealed/mecha/ntf/ex_act(severity)
+	log_message("Affected by explosion of severity: [severity].", LOG_MECHA, color="red")
+	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
+		return
+	if(!(atom_flags & PREVENT_CONTENTS_EXPLOSION))
+		contents_explosion(severity)
+	if(QDELETED(src))
+		return
+	var/stagger_duration
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			take_damage(rand(600, 1200), BRUTE, BOMB, 0)
+			stagger_duration = 7 SECONDS
+		if(EXPLODE_HEAVY)
+			take_damage(rand(100, 200), BRUTE, BOMB, 0)
+			stagger_duration = 5 SECONDS
+		if(EXPLODE_LIGHT)
+			take_damage(rand(60, 120), BRUTE, BOMB, 0)
+			stagger_duration = 2 SECONDS
+		if(EXPLODE_WEAK)
+			take_damage(rand(10, 35), BRUTE, BOMB, 0)
+
+	if(!stagger_duration)
+		return
+	for(var/mob/living/living_occupant AS in occupants)
+		living_occupant.Stagger(stagger_duration)
+
+
+
+/obj/vehicle/sealed/mecha/ntf/proc/attempt_flip(chance = 50, push_back, violent = FALSE, direction_fallen = 1)
+	if(!is_flipped && !obj_integrity <= 0)
+		if(prob(chance))
+			animate(src, transform = matrix().Turn(90 * direction_fallen), time = 3, easing = SINE_EASING)
+			is_flipped = TRUE
+		else
+			visible_message(span_warning("[src] wobbles, but stays upright!"))
+		if(!violent) // take_damage proc will shake it if there's enough damage
+			Shake(1, 0.1, 0.2 SECONDS)
+
+/obj/vehicle/sealed/mecha/ntf/proc/attempt_unflip()
+	if(!is_flipped && !obj_integrity <= 0)
+		animate(src, transform = matrix(), pixel_y = initial(pixel_y), time = 5, easing = SINE_EASING)
+		is_flipped = FALSE
+
+///obj/vehicle/sealed/mecha/ntf
+
+#warn move later
+
+/datum/looping_sound/exosuit_engine/fuel
+	start_sound = null
+	start_length = 0
+	mid_sounds = list('sound/machines/generator/generator_mid1.ogg'=1, 'sound/machines/generator/generator_mid2.ogg'=1, 'sound/machines/generator/generator_mid3.ogg'=1)
+	mid_length = 4
+	end_sound = null
+	volume = 15
+
+/datum/looping_sound/exosuit_engine/electric
+	start_sound = null
+	start_length = 0
+	mid_sounds = list('sound/machines/generator/generator_mid1.ogg'=1, 'sound/machines/generator/generator_mid2.ogg'=1, 'sound/machines/generator/generator_mid3.ogg'=1)
+	mid_length = 4
+	end_sound = null
+	volume = 15
