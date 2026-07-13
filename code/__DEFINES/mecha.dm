@@ -36,6 +36,13 @@
 #define MECHA_POWER "mecha_power"
 #define MECHA_ARMOR "mecha_armor"
 
+#define MECHA_VISION "Vision"
+
+#define MECHA_VISION_STANDARD "mecha_vision"
+#define MECHA_VISION_REINFORCED "mecha_vision_reinforced"
+#define MECHA_VISION_HIGHDEF "mecha_vision_highdef"
+#define MECHA_VISION_BROKEN "mecha_vision_broken"
+
 #define MECHA_LOCKED 0
 #define MECHA_SECURE_BOLTS 1
 #define MECHA_LOOSE_BOLTS 2

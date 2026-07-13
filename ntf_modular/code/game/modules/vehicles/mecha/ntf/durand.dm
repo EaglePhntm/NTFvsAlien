@@ -4,6 +4,7 @@
 	iconic stainless steel outer shell and high-hardness steel inner shell. \
 	A jump seat behind the pilot allows it to carry a passenger."
 	name = "\improper Durand"
+	icon = 'icons/mecha/exosuits.dmi'
 	icon_state = "durand"
 	base_icon_state = "durand"
 	allow_diagonal_movement = FALSE

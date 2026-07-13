@@ -3,6 +3,7 @@
 	It's lightweight polymer and aluminium shell give it adequate protection from most handgun to light rifle threats. It has room for up to two \
 	occupants."
 	name = "\improper Gygax"
+	icon = 'icons/mecha/exosuits.dmi'
 	icon_state = "gygax"
 	base_icon_state = "gygax"
 	allow_diagonal_movement = TRUE

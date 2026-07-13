@@ -15,27 +15,32 @@
  */
 
 /// tries to damage mech equipment depending on damage and where is being targetted
-/obj/vehicle/sealed/mecha/proc/try_damage_component(damage, def_zone)
+/obj/vehicle/sealed/mecha/proc/try_damage_component(damage, def_zone, armor_type)
 	if(damage < component_damage_threshold)
 		return
-	var/obj/item/mecha_parts/mecha_equipment/gear
+	var/list/gear = list()
+//	var/obj/item/mecha_parts/mecha_equipment/gear
 	switch(def_zone)
 		if(BODY_ZONE_L_ARM)
 			gear = equip_by_category[MECHA_L_ARM]
 		if(BODY_ZONE_R_ARM)
 			gear = equip_by_category[MECHA_R_ARM]
+		if(BODY_ZONE_HEAD)
+			gear = equip_by_category[MECHA_VISION]
+	if(armor_type == BOMB)
+		gear = flat_equipment.Copy()
 	if(!gear)
 		return
 
+	for(var/obj/item/mecha_parts/mecha_equipment/gear2 as anything in gear)
 	// always leave at least 1 health
-	var/damage_to_deal = min(gear.obj_integrity - 1, damage)
-	if(damage_to_deal <= 0)
-		return
-	gear.take_damage(damage_to_deal)
-
-	if(gear.obj_integrity <= 1)
-		to_chat(occupants, "[icon2html(src, occupants)][span_danger("[gear] is critically damaged!")]")
-		playsound(src, gear.destroy_sound, 50)
+		var/damage_to_deal = min(gear2.obj_integrity - 1, damage)
+		if(damage_to_deal <= 0)
+			return
+		gear2.take_damage(damage_to_deal)
+		if(gear2.obj_integrity <= 1)
+			to_chat(occupants, "[icon2html(src, occupants)][span_danger("[gear2] is critically damaged!")]")
+			playsound(src, gear2.destroy_sound, 50)
 
 /obj/vehicle/sealed/mecha/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = TRUE, attack_dir, armour_penetration, mob/living/blame_mob)
 	var/damage_taken = ..()

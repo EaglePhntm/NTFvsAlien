@@ -8,11 +8,11 @@
 	mech_flags = EXOSUIT_MODULE_NTF|EXOSUIT_MODULE_COMBAT
 	ability_to_grant = /datum/action/vehicle/sealed/mecha/mech_zoom
 
-/obj/item/mecha_parts/mecha_equipment/try_attach_part(mob/user, obj/vehicle/sealed/mecha/M, attach_right = FALSE)
-	.=..()
+/obj/item/mecha_parts/mecha_equipment/ability/zoom/try_attach_part(mob/user, obj/vehicle/sealed/mecha/M, attach_right = FALSE)
 	if(istype(M, /obj/vehicle/sealed/mecha/ntf/marauder))
 		to_chat(user, span_warning("You are unable to attach [src] to [M]!"))
-		return FALSE
+		return
+	return ..()
 
 /obj/item/mecha_parts/mecha_equipment/generator/exosuit
 	name = "phoron generator"
