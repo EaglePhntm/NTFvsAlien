@@ -1760,8 +1760,8 @@
 			/obj/item/clothing/mask/bandanna = -1,
 		),
 		"Backpacks" = list(
-			/obj/item/storage/backpack/lightpack/icc = -1,
-			/obj/item/storage/backpack/lightpack/icc/guard = -1,
+			/obj/item/storage/backpack/icc = -1,
+			/obj/item/storage/backpack/icc/guard = -1,
 			/obj/item/storage/backpack/marine/corpsman/cm = -1,
 			/obj/item/storage/backpack/lightpack/cm = -1,
 		),

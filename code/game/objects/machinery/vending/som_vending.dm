@@ -774,8 +774,8 @@
 		),
 		"Backpacks" = list(
 			/obj/item/storage/backpack/satchel/som = -1,
-			/obj/item/storage/backpack/lightpack/icc = 10,
-			/obj/item/storage/backpack/lightpack/som = 10,
+			/obj/item/storage/backpack/icc = 10,
+			/obj/item/storage/backpack/som = 10,
 			/obj/item/tool/weldpack/marinestandard = -1,
 		),
 		"Instruments" = list(

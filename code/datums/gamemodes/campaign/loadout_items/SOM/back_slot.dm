@@ -9,7 +9,7 @@
 	name = "Mining rucksack"
 	desc = "A rucksack with origins dating back to the mining colonies. Has the storage capacity of a backpack but no draw delay."
 	purchase_cost = 25
-	item_typepath = /obj/item/storage/backpack/lightpack/som
+	item_typepath = /obj/item/storage/backpack/som
 	jobs_supported = list(SOM_SQUAD_MARINE, SOM_SQUAD_SLUT, SOM_SQUAD_VETERAN)
 
 /datum/loadout_item/back/som_combat_pack/free

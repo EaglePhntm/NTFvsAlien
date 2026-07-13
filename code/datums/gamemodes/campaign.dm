@@ -2,6 +2,7 @@
 	name = "Campaign"
 	config_tag = "Campaign"
 	round_type_flags = MODE_TWO_HUMAN_FACTIONS
+	round_type_flags2 = MODE_2_ALLOW_LOADOUTS
 	whitelist_ship_maps = list(MAP_ITERON)
 	whitelist_ground_maps = list(MAP_FORT_PHOBOS)
 	whitelist_antag_maps = list(MAP_ANTAGMAP_NOSPAWN)

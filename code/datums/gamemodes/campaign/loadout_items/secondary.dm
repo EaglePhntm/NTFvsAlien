@@ -8,7 +8,7 @@
 		/obj/item/storage/backpack/marine/tech = ITEM_SLOT_BACK,
 		/obj/item/storage/backpack/marine/corpsman = ITEM_SLOT_BACK,
 		/obj/item/storage/backpack/satchel/som = ITEM_SLOT_BACK,
-		/obj/item/storage/backpack/lightpack/som = ITEM_SLOT_BACK,
+		/obj/item/storage/backpack/som = ITEM_SLOT_BACK,
 		/obj/item/storage/backpack/marine/engineerpack/som = ITEM_SLOT_BACK,
 	)
 	req_desc = "Requires some kind of back storage."

@@ -3,6 +3,7 @@
 /datum/game_mode/hvh/combat_patrol/sensor_capture
 	name = "Sensor Capture"
 	config_tag = "Sensor Capture"
+	round_type_flags2 = MODE_2_ALLOW_LOADOUTS
 	wave_timer_length = 2 MINUTES
 	max_game_time = 10 MINUTES
 	blacklist_ground_maps = list(MAP_WHISKEY_OUTPOST, MAP_OSCAR_OUTPOST, MAP_FORT_PHOBOS, MAP_COLONY1, MAP_CHIGUSA, MAP_CORSAT)

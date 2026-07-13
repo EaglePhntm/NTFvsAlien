@@ -3219,7 +3219,7 @@
 /area/space)
 "kC" = (
 /obj/structure/table/mainship,
-/obj/item/storage/backpack/lightpack/icc,
+/obj/item/storage/backpack/icc,
 /turf/open/floor/plating,
 /area/antag_ship/icc/warehouse)
 "kD" = (
