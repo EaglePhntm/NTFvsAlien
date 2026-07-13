@@ -27,13 +27,13 @@
 	icon_state = "dead_robot"
 
 /atom/movable/screen/fullscreen/flash/noise/nvg_weak
-	alpha = 15
+	alpha = 20
 
 /atom/movable/screen/fullscreen/flash/noise/nvg
-	alpha = 30
+	alpha = 43
 
 /atom/movable/screen/fullscreen/flash/noise/nvg_strong
-	alpha = 65
+	alpha = 66
 
 /atom/movable/screen/fullscreen/damage/brute/nvg
 	color = COLOR_BLACK
