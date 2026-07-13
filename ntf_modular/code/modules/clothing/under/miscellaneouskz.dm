@@ -4,8 +4,7 @@
 	icon = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi'
 	icon_state = "sneak"
 	armor_protection_flags = CHEST|GROIN|LEGS|ARMS|HANDS|FEET
-	soft_armor = list(MELEE = 5, BULLET = 10, LASER = 5, ENERGY = 5, BOMB = 5, BIO = 10, FIRE = 10, ACID = 10)
-	slowdown= -0.1
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 10, BIO = 15, FIRE = 15, ACID = 15)
 	var/variant = 1
 	worn_icon_list = list(slot_w_uniform_str = 'ntf_modular/icons/mob/clothing/uniforms/marine_uniforms.dmi')
 	adjustment_variants = list()

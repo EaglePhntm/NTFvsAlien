@@ -97,7 +97,7 @@
 	staggerstun(target_mob, proj, max_range = 20, stagger = 1)
 
 /datum/ammo/bullet/auto_cannon/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
-	proj.proj_max_range -= 8
+	proj.proj_max_range -= 4
 	proj.accuracy *= 0.9
 	proj.damage *= 0.9
 	proj.penetration *= 0.9
