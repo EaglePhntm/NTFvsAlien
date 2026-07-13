@@ -271,6 +271,8 @@
 	icon_state = "PFC"
 	job = /datum/job/pmc/squad/leader
 
+// kz
+
 /obj/effect/landmark/start/job/vsd
 	icon_state = "MP"
 	job = /datum/job/vsd_squad/standard

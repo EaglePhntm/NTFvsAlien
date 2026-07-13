@@ -274,7 +274,7 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 	supervisors = "Kaizoku Corporation."
 	access = list (ACCESS_VSD_PREP, ACCESS_VSD_MEDPREP, ACCESS_VSD_ENGPREP, ACCESS_VSD_SPECPREP, ACCESS_VSD_LEADPREP, ACCESS_VSD_CARGO, ACCESS_VSD_TADPOLE, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY, ACCESS_SOM_MEDICAL)
 	minimal_access = list (ACCESS_VSD_PREP, ACCESS_VSD_MEDPREP, ACCESS_VSD_ENGPREP, ACCESS_VSD_SPECPREP, ACCESS_VSD_LEADPREP, ACCESS_VSD_CARGO, ACCESS_VSD_TADPOLE, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY, ACCESS_SOM_MEDICAL)
-	skills_type = /datum/skills/doctor
+	skills_type = /datum/skills/doctor/ripperdoc
 	display_order = JOB_DISPLAY_ORDER_DOCTOR
 	outfit = /datum/outfit/job/medical/ripperdoc
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD
@@ -300,7 +300,7 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 
 	id = /obj/item/card/id
 	belt = /obj/item/storage/belt/utility/full
-	ears = /obj/item/radio/headset/mainship/doc
+	ears = /obj/item/radio/headset/mainship/vsd
 	w_uniform = /obj/item/clothing/under/rank/medical/purple
 	wear_suit = /obj/item/clothing/suit/storage/labcoat
 	shoes = /obj/item/clothing/shoes/white
