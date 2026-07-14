@@ -472,7 +472,7 @@
 	visorless_offset_y = 0
 
 /obj/item/clothing/head/modular/m10x/hod
-	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/module/hod_head)
+	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/module/tyr_head)
 
 /obj/item/clothing/head/modular/m10x/binocular
 	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/module/binoculars)
