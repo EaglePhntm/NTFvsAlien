@@ -120,8 +120,8 @@
 	carbon_owner.reagents.add_reagent(/datum/reagent/medicine/adrenaline, round(rage_power*4), no_overdose = TRUE)
 	carbon_owner.reagents.add_reagent(/datum/reagent/medicine/regen, 15, no_overdose = TRUE)
 	carbon_owner.reagents.add_reagent(/datum/reagent/medicine/tramadol, 15, no_overdose = TRUE)
-	carbon_owner.adjustBruteLoss(-carbon_owner.getBruteLoss(TRUE) * (max(0.30, rage_power/2)))
-	carbon_owner.adjustFireLoss(-carbon_owner.getFireLoss(TRUE) * (max(0.30, rage_power/2)))
+	carbon_owner.adjustBruteLoss(-carbon_owner.getBruteLoss(TRUE) * (max(0.30, rage_power/3)))
+	carbon_owner.adjustFireLoss(-carbon_owner.getFireLoss(TRUE) * (max(0.30, rage_power/3)))
 	carbon_owner.Stun(1 SECONDS)
 	carbon_owner.emote("me", 1, "slams their fist to the ground.")
 	carbon_owner.health_threshold_crit = -100 //stop when u dead
