@@ -160,3 +160,10 @@
   - bugfix: Survivors shouldn't spawn on the planet anymore, unless it is colony fall
   - qol: stripper survivors have sex skill now
   - balance: rebalanced some of widows stuff
+2026-07-14:
+  CaputCapital:
+  - soundadd: more neutral, loss, nuclear detonation and triumph themes for round
+      end
+  Meghan-Rossi:
+  - balance: HPDP phosphorous grenades and 84mm phosphorous rockets now produce less
+      intense flames.
