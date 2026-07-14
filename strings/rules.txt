@@ -1,10 +1,12 @@
-Rules of NTF vs SoL:
+<br>Rules of NTF vs SoL:
 <br>
 <br>Summary:
 <br>&emsp;This is an ultra-summarised bulk of the rules, since many ss13 players can't read.
 <br>&emsp;If you ARE going to read the full rules, don't bother reading these and just skip to the detailed ones as the simplified rules are there too.
 <br>&emsp;If you're not going to read full rules, at least read these.
-<hr>&emsp;Basics:
+<br>---
+<br>
+<br>&emsp;Basics:
 <br>&emsp;&emsp;This is not tgmc, dont expect combat all the time.
 <br>&emsp;&emsp;You should only speak english.
 <br>&emsp;&emsp;You must be 18+
@@ -17,6 +19,7 @@ Rules of NTF vs SoL:
 <br>&emsp;&emsp;You must play a believable character. They must be of age and must not have child-like traits, be it physical or psychological.
 <br>&emsp;&emsp;Any human or humanlike character must fear death, avoid pain and know things that are considered common knowledge in the setting. Xenos CAN be semi-feral, but MUST be intelligent, and MUST understand hive concepts.
 <br>&emsp;&emsp;Don't advertise other servers
+<br>&emsp;&emsp;No Metacomming
 <br>
 <br>&emsp;Rules of Combat:
 <br>&emsp;&emsp;Roles with responsibility, such as command must pause their scenes and respond to any crises.
@@ -47,7 +50,7 @@ Rules of NTF vs SoL:
 <br>&emsp;&emsp;You can respawn or be revived, cloning exists for that but you can't remember whatever it is that led to your death (You do however know you died).
 <br>&emsp;&emsp;Wars and conflict exists to serve roleplay, not to be an outlet for those who just want to PvP. Admins can and will step in if we think you're creating conflict just for the sake of PvP.
 <br>&emsp;&emsp;Conflicts should typically follow an attempt at negotiation (see detailed rules)
-<br>&emsp;&emsp;A war/skirmish is won or lost when the attacking side achieves all their goals and holds them for 5 minutes. The defending side holds theirs for 15 minutes. One sides side's leader formally communicates a surrender either in person or over radio/fax/announcement. One side is unable to continue the fight or otherwise communicate their surrender (All members dead, captured or not participating).
+<br>&emsp;&emsp;A war/skirmish is won or lost when the attacking side achieves all their goals and holds them for 5 minutes. The defending side holds theirs for 15 minutes. One sides leader formally communicates a surrender either in person or over radio/fax/announcement. One side is unable to continue the fight or otherwise communicate their surrender (All members dead, captured or not participating).
 <br>&emsp;&emsp;Death is not permanent. No matter who you are or how much you die, you are allowed to respawn and come back from it. You do not remember ANYTHING that has happened in the round though, except the fact that you died.
 <br>
 <br>&emsp;Minor Conflicts
@@ -83,14 +86,16 @@ Rules of NTF vs SoL:
 <br>&emsp;
 <br>&emsp;Note on combat escalation and tiered weaponry allowance:
 <br>&emsp;&emsp;Different conflicts allow different responses, certain weapons are only allowed in certain situations, this is there to set them out.
-<br>&emsp;&emsp;Tier 0 (also known as default) is where you just encounter someone in a street and for whatever reason, maybe they insult you, it escalates into violence. In such situations the rules around conflict are: No Armed vehicles, No bombs, No white phosphorous/harmful gas, No mortars, no Cas, No OB's. Basically just guns and other conventional weapons.
+<br>&emsp;&emsp;Tier 0 (also known as default) is where you just encounter someone in a street and for whatever reason, maybe they insult you, it escalates into violence. In such situations the rules around conflict are: No vehicles, No bombs, No white phosphorous/gas, No mortars, no Cas, No OB's. Basically just guns and other conventional weapons.
 <br>&emsp;&emsp;All higher tiers follow the unlocking of the previous.
-<br>&emsp;&emsp;Tier 1: Harmful Gas, Non-Destructive Mortars/Cas
+<br>&emsp;&emsp;Tier 1: Gas, Non-Destructive Mortars/Cas, unarmed vehicles.
 <br>&emsp;&emsp;Tier 2: Anti Tank weapons, Exosuits, Mines
 <br>&emsp;&emsp;Tier 3: Destructive Mortars/Cas, Mechs
 <br>&emsp;&emsp;Tier 4: Tanks, Railgun, Tangle Orbital Strikes
 <br>&emsp;&emsp;Tier 5: All Orbital Strikes
-<hr>Detailed rules:
+<br>
+<br>
+<br>Detailed rules:
 <br>&emsp;For those interested in exceptions, more detail as well as rulings. The above simplified rules are copy-pasted here with additional context and details added.
 <br>&emsp;In any situation where there is a conflict between the simplified rules and the detailed rules, we will use the detailed ones.
 <br>
@@ -111,6 +116,9 @@ Rules of NTF vs SoL:
 <br>&emsp;&emsp;&emsp;.1  Your character (regardless of race) must also be eligible to work the role you play using them. This means means you can't be an insane CO, a doctor who doesn't know how to heal people (Assuming you actually know medical, if you don't that's fine so long as you show a willingness for your character to learn, we all start somewhere).
 <br>&emsp;&emsp;12. Don't advertise other servers.
 <br>&emsp;&emsp;&emsp;.1  This is mostly for people who say in OOC things such as "This server is bad, go play on (insert other server)". If you're talking to someone in private in LOOC and saying things like how you also play on another server that you like, it's probably fine. Just don't make a habit of telling people to go play on another server.
+<br>&emsp;&emsp;13. No Metacomming information that can be or is related to ongoing IC events.
+<br>&emsp;&emsp;&emsp;.1  The only exception is if you have a new player to SS13 or the TGMC/SOL codebase and are walking them through things, in which case ahelp to staff for permission.
+<br>&emsp;&emsp;&emsp;.2  Being in a VC with someone else playing on the server is fine, so long as you aren't communicating about anything that's going on IC.
 <br>
 <br>&emsp;2-  Rules of combat:
 <br>&emsp;&emsp;1.  If not at war, don't finish off downed players.
@@ -173,7 +181,7 @@ Rules of NTF vs SoL:
 <br>&emsp;&emsp;&emsp;&emsp;.1  In the case of disagreement, the decision to escalate to conflict must be made known along with what the casus belli is for that conflict.
 <br>&emsp;&emsp;&emsp;&emsp;.2  In the case of agreement, both parties should follow the agreement. You may decide to backstab and not follow what was agreed (except in the case of enforced majority mineholder negotiations), but doing so can immediately escalate into a conflict from the betrayed party, with them able to expand their casus belli to a greater demand (EG, if they wanted 1 phoron miner, now they can take your plat instead).
 <br>&emsp;&emsp;&emsp;.4  Taking advantage of negotiations to either pre-emptively move offensive weapons into position or to build/move into place additional defensive WEAPONS is a valid reason for either side to cut off negotiations early, with a defender wronged by this given their own casus belli in the form of a pre-emptive strike.
-<br>&emsp;&emsp;6.  A war/skirmish is considered won or lost when: The attacking side achieves all their goals and holds them for 5 minutes. The defending side holds theirs for 15 minutes. One sides side's leader formally communicates a surrender either in person or over radio/fax/announcement. One side is unable to continue the fight or communicate their surrender (All members dead, captured or not participating).
+<br>&emsp;&emsp;6.  A war/skirmish is considered won or lost when: The attacking side achieves all their goals and holds them for 5 minutes. The defending side holds theirs for 15 minutes. One sides leader formally communicates a surrender either in person or over radio/fax/announcement. One side is unable to continue the fight or communicate their surrender (All members dead, captured or not participating).
 <br>&emsp;&emsp;&emsp;.1  Both sides leaders can call and agree to a temporary ceasefire over radio. In the case either side's leader is dead, the next in command may instead call for a ceasefire on their behalf. These ceasefires if agreed to, should be followed by both sides.
 <br>&emsp;&emsp;&emsp;.2  Unless agreed otherwise in the calls for ceasefire, reviving dead people is allowed if a ceasefire is ongoing.
 <br>&emsp;&emsp;&emsp;&emsp;.1  If you have a dead member of the opposing faction in your area, you should put them into a stasis bag to slow down their DNR timer or revive and then capture them.
@@ -183,24 +191,30 @@ Rules of NTF vs SoL:
 <br>&emsp;&emsp;1.  Minor conflicts (typically miners/intel) can be engaged in without a war.
 <br>&emsp;&emsp;&emsp;.1  Dead MUST be revived after the IMMEDIATE conflict, if their faction cannot revive them then you must.
 <br>&emsp;&emsp;&emsp;.2  Captives can be taken only with OOC consent in this state.
-<br>&emsp;&emsp;2.  You can’t use weapons like artillery, (armed) vehicles, cas, etc.
+<br>&emsp;&emsp;2.  You can’t use weapons like artillery, (armed) vehicles, cas, etc unless the conflict's tier allows it.
 <br>&emsp;&emsp;&emsp;.2  Mines can be used in minor conflict zones that are not civilian areas.
-<br>&emsp;&emsp;4.  Vehicles can not be used to escort or carry intel disks to safety.
-<br>&emsp;&emsp;8.  Miners can only be attacked if you know the enemy is generally prepared for a defensive attempt and are in similiar power.
+<br>&emsp;&emsp;3.  You cannot use vehicles, fultons, medevacs, riding a xenomorph or any other means to either escort or carry intel disks to safety.
+<br>&emsp;&emsp;&emsp;.1  Essentially, disks must be moved back to your base on foot and without vehicle escort, only when they are within your Fob may a teleporter or ship be used to get it back to your faction's base.
+<br>&emsp;&emsp;4.  Miners can only be attacked if you know the enemy is generally prepared for a defensive attempt and are in similiar power.
 <br>&emsp;&emsp;&emsp;.1  You can’t attack a miner that was successfully defended against you for two hours.
 <br>&emsp;&emsp;&emsp;.2  You may still contest a miner if your faction has no miners, all other miners are claimed and they are the majority mineholder with more than one miner.
 <br>&emsp;&emsp;&emsp;&emsp;.1  Plats count as 4, Phorons count as 1 when calculating who has the most, however if a faction only has a single plat, that's still only one miner. In such a situation where they are the majority mineholder with only one plat mine, look to the next faction instead.
 <br>&emsp;&emsp;&emsp;&emsp;.2  If the number 1 majority mineholder still controls less than a third of the overall miner production, then you may not contest any miners.
 <br>&emsp;&emsp;&emsp;.3  You must attempt negotiation first before starting an attack or skirmish for a miner.
-<br>&emsp;&emsp;9.  Players that recover from hard crit (crit that lasts more than 2-3 seconds) mid-fight or are revived by enemies later must not immediately grab their weapon and return to fighting. You have been beaten. Surrender if there are enemies nearby or flee to regroup with the rest of your faction.
-<br>&emsp;&emsp;10. Intel fights start at tier 1 (see section 13), the only increases to the tier are based upon Xenomorphs and faction strength.
+<br>&emsp;&emsp;5.  Players that recover from hard crit (crit that lasts more than 2-3 seconds) mid-fight or are revived by enemies later must not immediately grab their weapon and return to fighting. You have been beaten. Surrender if there are enemies nearby or flee to regroup with the rest of your faction.
+<br>&emsp;&emsp;6. Intel fights start at tier 1 (see section 13), the only increases to the tier are based upon Xenomorphs and faction strength.
 <br>&emsp;&emsp;&emsp;.1  If xenomorphs contest, the tier is increased by highest xenomorph tier minus one.
 <br>&emsp;&emsp;&emsp;&emsp;E.G KZ is defending an intelligence, a Ravager shows up to contest. Ravagers are a tier 3 xenomorph, so the conflict is increased by two tiers (3-1) to allow Tier 3 ordnance.
 <br>&emsp;&emsp;&emsp;.2  If your faction is outnumbered when contesting intelligence by a factor of 1.5 or greater against any SINGLE opposing faction, you are permitted to use one tier above the overall conflict tier.
 <br>&emsp;&emsp;&emsp;&emsp;E.G SOM scouts the intelligence and sees that NTF has 6 members fighting for the intelligence, SOM only has 3 people total. 3 x 1.5 is 4.5, since NTF has more than that contesting it, they are permitted to use Tier 2 weaponry to contest.
 <br>&emsp;&emsp;&emsp;.3  No matter what, conflicts over intel cannot escalate to Tier 5.
-<br>&emsp;&emsp;11. Do not rush to steal and/or fortify the platinum miners from the Xenomorph hive within the first half an hour of the round if the Xenomorph hive does not have at least half the numbers of your faction and that number is greater than 3.
+<br>&emsp;&emsp;7. Do not rush to steal and/or fortify the platinum miners from the Xenomorph hive within the first half an hour of the round if the Xenomorph hive does not have at least half the numbers of your faction and that number is greater than 3.
 <br>&emsp;&emsp;&emsp;.1  A faction may steal one if they place their Fob in the caves around that miner. However, doing so gives the hive a valid reason to create a war for the miner and to force you to relocate your Fob which they can use at any time (negotiation attempt still required)
+<br>&emsp;&emsp;8.  The usage of Artillery to fire at an minor conflict area is permitted so long as the conflict tier permits it.
+<br>&emsp;&emsp;&emsp;.1  All artillery used to fire upon the minor conflict area cannot be inside or directly adjacent (Within the same building or approximately 30 tiles) to any faction's fob.
+<br>&emsp;&emsp;&emsp;.2  Artillery usage makes it so that the artillery pieces are a part of the minor conflict and are therefore allowed to be attacked and destroyed by parties that have been fighting in the conflict until the reason for the conflict has ended
+<br>&emsp;&emsp;&emsp;&emsp;E.G, KZ uses artillery on a intel conflict, the intel is taken by SoM to their ship, but they also send someone to go sabotage the artillery pieces. This isn't allowed because the intel conflict has ended.
+<br>&emsp;&emsp;9.  If the faction you are fighting fortifies (Multiple entrances blockaded and / or the presence of at least one turret) the location of the minor conflict, you are permitted to use both artillery and cas' destructive ordnance up to that allowed by tier 3, regardless of the tier of the conflict; for so long as those fortifications remain.
 <br>
 <br>&emsp;8-  War modes:
 <br>&emsp;&emsp;1.  You can not, as any role; willingly get capped and/or sabotage your team in war modes.
