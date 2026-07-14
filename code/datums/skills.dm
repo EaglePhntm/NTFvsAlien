@@ -1056,5 +1056,5 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	surgery = SKILL_SURGERY_EXPERT
 	melee_weapons = SKILL_MELEE_WEAK
 	chemistry = SKILL_CHEM_EXPERT
-	construction = SKILL_CONSTRUCTION_PLASTEEL
+	construction = SKILL_CONSTRUCTION_METAL
 	engineer = SKILL_ENGINEER_ENGI
