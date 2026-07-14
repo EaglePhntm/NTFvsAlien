@@ -381,6 +381,8 @@
 			. = size ? "CLTW" : "Cultist Technomancer"
 		if("CLTMS")
 			. = size ? "CLTMS" : "Cultist Messiah"
+		if("CLTAM")
+			. = size ? "CLTAM" : "Cultist Archmender"
 		if("SOM_E1")
 			. = size ? "PTE" : "SOM Private"
 		if("SOM_E2")
@@ -511,5 +513,7 @@
 			. = size ? "CSN" : "Cult Sect Member"
 		if("CLTR5")
 			. = size ? "CSL" : "Cult Sect Leader"
+		if("CLNST")
+			. = size ? "CLNST" : "Colonist"
 		else
 			. = paygrade //custom paygrade

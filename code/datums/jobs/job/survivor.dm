@@ -1,7 +1,7 @@
 /datum/job/survivor
 	title = "Generic Colonist"
 	supervisors = "anyone who might rescue you, Colonial Militia"
-	paygrade = "COL"
+	paygrade = "CLNST"
 	access = list(ACCESS_CIVILIAN_PUBLIC, ACCESS_CIVILIAN_RESEARCH, ACCESS_CIVILIAN_ENGINEERING, ACCESS_CIVILIAN_LOGISTICS, ACCESS_ICC_CARGO)
 	minimal_access = list(ACCESS_CIVILIAN_PUBLIC, ACCESS_CIVILIAN_RESEARCH, ACCESS_CIVILIAN_ENGINEERING, ACCESS_CIVILIAN_LOGISTICS, ACCESS_ICC_CARGO)
 	display_order = JOB_DISPLAY_ORDER_SURVIVOR
