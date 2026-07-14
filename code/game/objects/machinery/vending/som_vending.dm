@@ -129,7 +129,6 @@
 			/obj/item/weapon/gun/pistol/som = -1,
 			/obj/item/ammo_magazine/pistol/som = -1,
 			/obj/item/ammo_magazine/pistol/som/extended = 40,
-			/obj/item/ammo_magazine/pistol/som/incendiary = 20,
 			/obj/item/weapon/gun/pistol/plasma_pistol = -1,
 			/obj/item/ammo_magazine/pistol/plasma_pistol = -1,
 			/obj/item/weapon/gun/pistol/standard_pistol = -1,
