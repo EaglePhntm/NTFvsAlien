@@ -2,7 +2,7 @@
 	name = "Colony Fall"
 	config_tag = "Colony Fall"
 	round_type_flags = MODE_INFESTATION|MODE_DISALLOW_RAILGUN|MODE_PSY_POINTS|MODE_XENO_GRAB_DEAD_ALLOWED|MODE_MUTATIONS_OBTAINABLE
-	round_type_flags2 = MODE_2_NO_GHOSTS|MODE_2_SURVIVAL
+	round_type_flags2 = MODE_2_SURVIVAL
 	xeno_abilities_flags = ABILITY_ALL_GAMEMODE
 	factions = list(FACTION_ICC, FACTION_XENO, FACTION_CLF)
 	human_factions = list(FACTION_ICC, FACTION_CLF)
