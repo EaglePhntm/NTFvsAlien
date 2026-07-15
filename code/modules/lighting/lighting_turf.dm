@@ -53,7 +53,7 @@
 		totallums = 1
 
 	var/area/curarea = get_area(src)
-	var/mutable_appearance/muta = astype(curarea.daylight_leaked[src], /mutable_appearance).MA
+	var/mutable_appearance/muta = astype(curarea.daylight_leaked[src]).MA
 	var/obj/daylight_wash_source/wash_source = SSdaylight.wash_source
 	if(wash_source && MA)
 		totallums = wash_source.alpha * 0.5 + muta.alpha * 0.5 / 255
