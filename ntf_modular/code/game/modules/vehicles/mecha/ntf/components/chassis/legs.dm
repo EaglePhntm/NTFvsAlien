@@ -1,5 +1,4 @@
 /obj/item/mecha_parts/mecha_pieces/mecha_legs
-	icon = 'icons/mecha/mecha_pieces.dmi'
 	icon_state = "legs"
 
 	var/movement_delay = 1 SECONDS
@@ -9,7 +8,6 @@
 	max_integrity = 200
 
 /obj/item/mecha_parts/mecha_pieces/mecha_legs/tracks
-	icon = 'icons/mecha/mecha_pieces.dmi'
 	icon_state = "tracks"
 
 	movement_delay = 2 SECONDS
