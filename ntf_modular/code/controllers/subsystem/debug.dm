@@ -55,12 +55,6 @@ ADMIN_VERB(flash_daylight, R_ADMIN, "Flash Daylight", "Temporarily flash areas w
 	log_admin("[key_name(usr)] triggered daylight flash with color [color] for [duration] seconds")
 	message_admins(span_adminnotice("[key_name_admin(usr)] triggered daylight flash with color [color] for [duration] seconds"))
 
-ADMIN_VERB(open_daylight_control_panel, R_ADMIN, "Open Daylight Control Panel", "Open UI panel for day/night and weather control", ADMIN_CATEGORY_FUN)
-	if(!check_rights(R_ADMIN))
-		return
-	var/datum/daylight_control_panel/panel = new
-	panel.ui_interact(usr)
-
 // ================= Daylight debugging (temporary) =================
 // "Status Report" - confirms the daylight SOURCE exists + is registered on your screen, and how many daylight
 //   areas got their per-turf light overlays. If 0 areas are lit, run "Reapply Area Lighting". If the source isn't
