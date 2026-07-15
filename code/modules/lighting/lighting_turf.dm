@@ -55,7 +55,7 @@
 	var/area/curarea = get_area(src)
 	var/mutable_appearance/muta = astype(curarea.daylight_leaked[src]).MA
 	var/obj/daylight_wash_source/wash_source = SSdaylight.wash_source
-	if(wash_source && MA)
+	if(wash_source && muta)
 		totallums = wash_source.alpha * 0.5 + muta.alpha * 0.5 / 255
 
 	for(var/atom/movable/lighting_mask/mask AS in hybrid_lights_affecting)
