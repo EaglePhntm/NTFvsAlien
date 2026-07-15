@@ -52,9 +52,11 @@
 	else
 		totallums = 1
 
-	var/obj/effect/light_emitter/daylight = locate(/obj/effect/light_emitter) in loc
-	if(daylight)
-		totallums = daylight.alpha/225 //makes it between 0 and 1
+	var/area/curarea = get_area(src)
+	var/mutable_appearance/MA = astype(curarea.daylight_leaked[src], /mutable_appearance).MA
+	var/obj/daylight_wash_source/wash_source = SSdaylight.wash_source
+	if(wash_source && MA)
+		totallums = wash_source.alpha * 0.5 + MA.alpha * 0.5 / 255
 
 	for(var/atom/movable/lighting_mask/mask AS in hybrid_lights_affecting)
 		if(mask.blend_mode == BLEND_ADD)
