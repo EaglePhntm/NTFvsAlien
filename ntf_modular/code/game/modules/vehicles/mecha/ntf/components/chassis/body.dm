@@ -1,12 +1,10 @@
 #define DRIVER "driver"
 #define PASSENGER "passenger"
 
-/obj/item/mecha_parts/mecha_body
-	icon = 'icons/mecha/mecha_parts.dm'
+/obj/item/mecha_parts/mecha_pieces/mecha_body
+	name = "body"
 	icon_state = "body"
-	var/base_icon_state
-	var/is_attached = FALSE
-	var/is_functional = TRUE
+	base_icon_state
 
 	var/components_held = list()
 	var/occupants_allowed = list(DRIVER = 1, PASSENGER = 1)
@@ -16,33 +14,27 @@
 
 	var/pilot_coverage = 100
 	var/show_pilot_body = FALSE
-	var/repair_materials = list()
+	repair_materials = list()
 
 	max_integrity = 500
 
-/obj/item/mecha_parts/mecha_body/examine(mob/user)
-	. = ..()
-	if(is_broken)
-		. += span_warning("It looks broken!")
-
-/obj/item/mecha_parts/mecha_body/obj_break()
-	is_functional = FALSE
-	set_broken_states()
+/obj/item/mecha_parts/mecha_pieces/mecha_body/obj_break()
 	pilot_coverage -= 70
+	return ..()
 
-/obj/item/mecha_parts/mecha_body/Destroy()
+///obj/item/mecha_parts/mecha_pieces/mecha_body/Destroy()
 
-/obj/item/mecha_parts/mecha_body/proc/set_broken_states() // sets -broken description and icon
-	if(is_broken)
-		return
-	is_broken = TRUE
-	if(!base_icon_state)
-		base_icon_state = icon_state
-	icon_state = "[base_icon_state]-broken"
-
-/obj/item/mecha_parts/mecha_body/phazon
+/obj/item/mecha_parts/mecha_pieces/mecha_body/phazon
 	name = "phazon body"
 	desc = "The body component for a Phazon exosuit. Sleek, lightweight, whilst retaining respectable armor of a patented composite."
 	base_icon_state = "body_phazon"
 	max_integrity = 200
 	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 30, BOMB = 10, BIO = 0, FIRE = 95, ACID = 50)
+
+/obj/item/mecha_parts/mecha_pieces/mecha_body/clarke
+	name = "clarke body"
+	desc = "The body component for a Clarke exosuit."
+	icon_state = "pod_body"
+	base_icon_state = "pod_body"
+	max_integrity = 200
+	soft_armor = list(MELEE = 40, BULLET = 5, LASER = 15, ENERGY = 0, BOMB = 5, BIO = 0, FIRE = 100, ACID = 95)

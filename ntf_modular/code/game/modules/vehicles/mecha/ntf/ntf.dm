@@ -24,6 +24,7 @@
 	can_be_moved_in_maints = TRUE
 	enter_delay = EGRESS_TIME_STANDARD
 	exit_delay = EGRESS_TIME_STANDARD
+
 	pixel_x = -8
 
 /// How resistant the hull is to projectile penetration
@@ -32,6 +33,24 @@
 	var/engine_state = ENGINE_OFF
 	var/datum/looping_sound/exosuit_engine/fuel/soundloop
 	var/engine_starting_sound
+
+	var/underlying_icon = 'icons/mecha/mech_construct.dmi'
+	var/underlying_icon_state = "backbone"
+
+	var/obj/item/mecha_parts/mecha_pieces/body
+	var/obj/item/mecha_parts/mecha_pieces/head
+	var/obj/item/mecha_parts/mecha_pieces/legs
+	var/obj/item/mecha_parts/mecha_pieces/arms
+
+/obj/vehicle/sealed/mecha/ntf/get_mecha_occupancy_state()
+	return
+
+/obj/vehicle/sealed/mecha/handle_atom_del(atom/A)
+	. = ..()
+	if(A in occupants) //todo does not work and in wrong file
+		LAZYREMOVE(occupants, A)
+//		icon_state = initial(icon_state)+"-open"
+//		setDir(dir_in)
 
 /obj/vehicle/sealed/mecha/ntf/Initialize(mapload)
 	.=..()

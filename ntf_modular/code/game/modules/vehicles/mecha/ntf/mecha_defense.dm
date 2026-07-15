@@ -85,3 +85,71 @@
 	mid_length = 4
 	end_sound = null
 	volume = 15
+
+// Adding/Removing parts
+
+/obj/vehicle/sealed/mecha/ntf/attackby(obj/item/W, mob/user, params)
+	.=..()
+	if(istype(W, /obj/item/mecha_parts/mecha_pieces))
+		if(construction_state == MECHA_OPEN_HATCH)
+			var/obj/item/mecha_parts/mecha_pieces/piece_to_add = W
+
+			switch(piece_to_add.type_of_piece)
+				if(MECHA_ARMS)
+					if(arms)
+						to_chat(user, span_warning("The exosuit already has that type of component installed!"))
+						return
+				if(MECHA_LEGS)
+					if(legs)
+						to_chat(user, span_warning("The exosuit already has that type of component installed!"))
+						return
+				if(MECHA_BODY)
+					if(body)
+						to_chat(user, span_warning("The exosuit already has that type of component installed!"))
+						return
+				if(MECHA_HEAD)
+					if(head)
+						to_chat(user, span_warning("The exosuit already has that type of component installed!"))
+						return
+				else
+					return
+
+			to_chat(user, span_notice("You start installing the [piece_to_add] into [src]."))
+			visible_message(span_notice("[user] starts installing the [piece_to_add] into [src]."))
+
+			if(!do_after(user, 5))
+				user.balloon_alert(user, "interrupted!")
+				return
+
+			if(!user.transferItemToLoc(W, src))
+				return
+
+			switch(piece_to_add.type_of_piece)
+				if(MECHA_ARMS)
+					arms = piece_to_add
+//					add_arms(type = piece_to_add)
+				if(MECHA_LEGS)
+					legs = piece_to_add
+				if(MECHA_BODY)
+					body = piece_to_add
+				if(MECHA_HEAD)
+					head = piece_to_add
+
+			mecha_update_components()
+
+			to_chat(user, span_notice("You install the [piece_to_add] into [src]."))
+	return ..()
+
+/obj/vehicle/sealed/mecha/ntf/update_icon()
+	.=..()
+	var/list/new_overlays = list()
+	for(var/obj/item/mecha_parts/mecha_pieces/pieces as anything in list(body, head, legs, arms))
+		if(pieces)
+			new_overlays += pieces
+	overlays = new_overlays
+
+/obj/vehicle/sealed/mecha/ntf/proc/mecha_update_components()
+	update_icon()
+
+///obj/vehicle/sealed/mecha/ntf/proc/add_arms(type)
+//

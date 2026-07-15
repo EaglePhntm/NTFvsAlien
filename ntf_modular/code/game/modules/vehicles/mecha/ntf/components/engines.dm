@@ -1,7 +1,7 @@
 #define FUELTYPE_GAS 1
 #define FUELTYPE_ELECTRIC 2
 
-#define COOLDOWN_ENGINE_START 1
+#define COOLDOWN_ENGINE_START "engine_start"
 
 /obj/item/mecha_parts/exosuit_engine
 	name = "exosuit fuel engine"
@@ -35,12 +35,12 @@
 	// Max amount of power the engine can 'store'
 	var/engine_abstract_power_max = 500
 
-	var/engine_starter_battery = /obj/item/cell/C
+	var/obj/item/cell/engine_starter_battery
 	var/engine_initial_start_chance = 15
 
-/obj/item/mecha_parts/exosuit_engine/Initialize(mapload)
+///obj/item/mecha_parts/exosuit_engine/Initialize(mapload)
 
-/obj/item/mecha_parts/exosuit_engine/attackby(obj/item/O, mob/user, params)
+///obj/item/mecha_parts/exosuit_engine/attackby(obj/item/O, mob/user, params)
 //	var/obj/item
 //	if(!I.
 
@@ -62,24 +62,24 @@
 	if(!engine_starter_battery)
 		visible_message(span_warning("[src] has no starter battery installed!"))
 		return FALSE
-	if(TIMER_COOLDOWN_RUNNING(src, COOLDOWN_MECHA_ENGINE_START))
+	if(TIMER_COOLDOWN_RUNNING(src, COOLDOWN_ENGINE_START))
 		return
 
-	S_TIMER_COOLDOWN_START(src, COOLDOWN_MECHA_ENGINE_START)
+	S_TIMER_COOLDOWN_START(src, COOLDOWN_ENGINE_START, "engine_start")
 
 	var/can_start = is_functional && fuel_amount <= 0
-	var/current_start_chance = can_start ? engine_start_chance_initial : 0
+	var/current_start_chance = can_start ? engine_initial_start_chance : 0
 
 	visible_message(span_notice("The [src]'s engine attempts to start!"))
 	engine_starter_battery.use(ignition_power_consumption)
 	chassis.flicker_lights(draw = ignition_power_consumption)
-	playsound(src, 'sound/effects/engine.ogg', 50)
-	if(!prob(engine_start_chance))
+//	playsound(src, 'sound/effects/engine.ogg', 50)
+	if(!prob(engine_initial_start_chance))
 		visible_message(span_notice("The [src]'s engine fails to start!"))
 
 /obj/vehicle/sealed/mecha/ntf/proc/flicker_lights(draw = 50)
-	if(chassis.mecha_flags & LIGHTS_ON)
-		chassis.set_flicker(amount, flicker_time_lower = 1, flicker_time_upper = 1.2, flicker_delay = 0.3 SECONDS, ignore_flickering = TRUE)
+//	if(mecha_flags & LIGHTS_ON)
+//		set_flicker(amount, flicker_time_lower = 1, flicker_time_upper = 1.2, flicker_delay = 0.3 SECONDS, ignore_flickering = TRUE)
 
 /obj/item/mecha_parts/exosuit_engine/proc/engine_start()
 	is_running = TRUE
