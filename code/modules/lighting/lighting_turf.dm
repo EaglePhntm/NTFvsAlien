@@ -52,6 +52,10 @@
 	else
 		totallums = 1
 
+	var/obj/effect/light_emitter/daylight = locate(/obj/effect/light_emitter) in loc
+	if(daylight)
+		totallums = daylight.alpha/225 //makes it between 0 and 1
+
 	for(var/atom/movable/lighting_mask/mask AS in hybrid_lights_affecting)
 		if(mask.blend_mode == BLEND_ADD)
 			totallums += LIGHT_POWER_ESTIMATION(mask.alpha, mask.radius, get_dist(src, get_turf(mask.attached_atom)))

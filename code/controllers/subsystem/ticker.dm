@@ -45,6 +45,8 @@ SUBSYSTEM_DEF(ticker)
 
 	var/list/datum/mind/minds = list() //The characters in the game. Used for objective tracking.
 
+	var/station_time_rate_multiplier = 4 //so one day doesnt take actualy 24 hours
+
 /datum/controller/subsystem/ticker/Initialize()
 	load_mode()
 
