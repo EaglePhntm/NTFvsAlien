@@ -172,3 +172,8 @@
 #define EGRESS_TIME_QUICK 10
 #define EGRESS_TIME_STANDARD 20
 #define EGRESS_TIME_SLOW 30
+
+#define MECHA_BODY "mecha_body"
+#define MECHA_HEAD "mecha_head"
+#define MECHA_LEGS "mecha_legs"
+#define MECHA_ARMS "mecha_arms"
