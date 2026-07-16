@@ -140,16 +140,43 @@
 			to_chat(user, span_notice("You install the [piece_to_add] into [src]."))
 	return ..()
 
+/obj/vehicle/sealed/mecha/ntf/attack_hand(mob/living/user, list/modifiers)
+	. = ..()
+	if(.)
+		return
+	if(user.a_intent == INTENT_HARM)
+		user.changeNext_move(CLICK_CD_MELEE) // Ugh. Ideally we shouldn't be setting cooldowns outside of click code.
+		user.do_attack_animation(src, ATTACK_EFFECT_PUNCH)
+		playsound(loc, 'sound/weapons/tap.ogg', 40, TRUE, -1)
+		user.visible_message(span_danger("[user] hits [src]. Nothing happens."), null, null, COMBAT_MESSAGE_RANGE)
+		log_message("Attack by hand/paw (no damage). Attacker - [user].", LOG_MECHA, color="red")
+	else
+		cabin_open = !cabin_open
+		update_icon()
+		user.balloon_alert(user, "toggled hatch")
+
 /obj/vehicle/sealed/mecha/ntf/update_icon()
 	.=..()
-	var/list/new_overlays = list()
+	var/list/overlays_to_make = list()
 	for(var/obj/item/mecha_parts/mecha_pieces/pieces as anything in list(body, head, legs, arms))
 		if(pieces)
-			new_overlays += pieces
-	overlays = new_overlays
+			overlays_to_make += pieces
+
+	if(body)
+		var/image/cabin_overlay = image(icon = body.icon, icon_state = "[body.icon_state]")
+		overlays_to_make += cabin_overlay
+
+		if(cabin_open)
+			var/image/door_overlay = image(icon = body.icon, icon_state = "[body.icon_state]_overlay_open")
+			door_overlay.layer = MECH_COCKPIT_LAYER
+			overlays_to_make += door_overlay
+
+		if(body.extra_overlays && !cabin_open)
+			var/image/extra_overlays = image(icon = body.icon, icon_state = "[body.icon_state]_overlay")
+			extra_overlays.layer = MECH_COCKPIT_LAYER+0.1
+			overlays_to_make += extra_overlays
+
+	overlays = overlays_to_make
 
 /obj/vehicle/sealed/mecha/ntf/proc/mecha_update_components()
 	update_icon()
-
-///obj/vehicle/sealed/mecha/ntf/proc/add_arms(type)
-//

@@ -8,6 +8,8 @@
 	var/action_delay = 1 SECONDS
 	var/action_power_usage = 10
 
+	layer = MECH_ARM_LAYER
+
 	max_integrity = 100
 	soft_armor = list(MELEE = 25, BULLET = 25, LASER = 25, ENERGY = 10, BOMB = 5, BIO = 0, FIRE = 50, ACID = 50)
 

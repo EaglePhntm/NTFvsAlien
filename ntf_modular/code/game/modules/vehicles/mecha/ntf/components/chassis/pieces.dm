@@ -8,6 +8,8 @@
 	var/suitable_mech = /obj/vehicle/sealed/mecha/ntf
 	var/type_of_piece = MECHA_BODY
 
+	var/extra_overlays = FALSE // for pod and light body
+
 /obj/item/mecha_parts/mecha_pieces/proc/set_broken_states() // sets -broken description and icon
 	if(!is_functional)
 		return

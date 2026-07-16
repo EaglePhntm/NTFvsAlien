@@ -2603,4 +2603,10 @@
 #include "modular_RUtgmc\include.dm"
 #include "modular_skyrat\include.dm"
 #include "ntf_modular\include.dm"
+#include "ntf_modular\code\game\modules\vehicles\mecha\ntf\components\engines.dm"
+#include "ntf_modular\code\game\modules\vehicles\mecha\ntf\components\chassis\arms.dm"
+#include "ntf_modular\code\game\modules\vehicles\mecha\ntf\components\chassis\body.dm"
+#include "ntf_modular\code\game\modules\vehicles\mecha\ntf\components\chassis\head.dm"
+#include "ntf_modular\code\game\modules\vehicles\mecha\ntf\components\chassis\legs.dm"
+#include "ntf_modular\code\game\modules\vehicles\mecha\ntf\components\chassis\pieces.dm"
 // END_INCLUDE
