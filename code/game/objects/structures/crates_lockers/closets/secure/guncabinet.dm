@@ -147,7 +147,7 @@
 	new /obj/item/clothing/suit/armor/riot(src)
 	new /obj/item/clothing/suit/armor/riot(src)
 	new /obj/item/clothing/suit/armor/riot(src)
-	new /obj/item/storage/box/flashbangs(src)
+	new /obj/item/storage/box/stuns(src)
 
 /obj/structure/closet/secure_closet/guncabinet/emergency_combat_gear
 	name = "\improper emergency combat gear"

@@ -119,7 +119,7 @@
 			to_chat(M, span_warning("Your ears start to ring!"))
 
 /obj/item/explosive/grenade/flashbang/stun/inner_effect(turf/T , mob/living/carbon/M, ear_safety)
-	if(M.flash_act(duration = 10))
+	if(M.flash_act(duration = 4 SECONDS))
 		M.blur_eyes(7)
 
 	if(ear_safety > 0)
@@ -134,7 +134,7 @@
 			M.adjust_ear_damage(rand(0, 5),10)
 
 /obj/item/explosive/grenade/flashbang/stun/outer_effect(turf/T , mob/living/carbon/M, ear_safety)
-	if(M.flash_act(duration = 10))
+	if(M.flash_act(duration = 4 SECONDS))
 		M.blur_eyes(6)
 
 	if(!ear_safety)
@@ -143,7 +143,7 @@
 		M.adjust_ear_damage(rand(0, 3),8)
 
 /obj/item/explosive/grenade/flashbang/stun/max_range_effect(turf/T , mob/living/carbon/M, ear_safety)
-	if(M.flash_act(duration = 5))
+	if(M.flash_act(duration = 2 SECONDS))
 		M.blur_eyes(4)
 
 	if(!ear_safety)

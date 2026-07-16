@@ -6940,11 +6940,11 @@
 /obj/structure/table/mainship,
 /obj/item/detective_scanner,
 /obj/item/taperecorder,
-/obj/item/storage/box/flashbangs{
+/obj/item/storage/box/stuns{
 	pixel_y = 10
 	},
 /obj/item/storage/box/handcuffs,
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/stuns,
 /turf/open/floor/mainship/mono,
 /area/security/checkpoint{
 	outside = 0;
@@ -14865,7 +14865,7 @@
 	dir = 9
 	},
 /obj/item/weapon/baton/stunprod,
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/stuns,
 /obj/item/flash,
 /obj/item/clothing/glasses/sunglasses/sechud,
 /obj/structure/closet/secure_closet/military_police,
@@ -17436,7 +17436,7 @@
 	dir = 9
 	},
 /obj/item/weapon/baton/stunprod,
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/stuns,
 /obj/item/flash,
 /turf/open/floor/mainship/cargo,
 /area/mainship/groundhq/ntf/shipboard/brig)
@@ -21709,8 +21709,8 @@
 /area/mainship/command/cic)
 "tWN" = (
 /obj/machinery/recharger,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/flashbangs{
+/obj/item/storage/box/stuns,
+/obj/item/storage/box/stuns{
 	pixel_y = 10
 	},
 /obj/item/storage/box/handcuffs,
@@ -23137,10 +23137,10 @@
 /area/mainship/command/cic)
 "vqB" = (
 /obj/structure/rack,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/stuns,
+/obj/item/storage/box/stuns,
+/obj/item/storage/box/stuns,
+/obj/item/storage/box/stuns,
 /obj/item/clothing/head/helmet/marine/riot,
 /obj/item/clothing/head/helmet/marine/riot,
 /obj/item/clothing/head/helmet/marine/riot,

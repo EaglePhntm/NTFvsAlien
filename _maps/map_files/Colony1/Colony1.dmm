@@ -1999,7 +1999,7 @@
 	dir = 9
 	},
 /obj/item/weapon/baton/stunprod,
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/stuns,
 /obj/item/flash,
 /obj/machinery/light{
 	dir = 8
@@ -4816,8 +4816,8 @@
 "gxz" = (
 /obj/structure/table/mainship,
 /obj/machinery/recharger,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/flashbangs{
+/obj/item/storage/box/stuns,
+/obj/item/storage/box/stuns{
 	pixel_y = 10
 	},
 /obj/item/storage/box/handcuffs,
@@ -8374,7 +8374,7 @@
 	dir = 9
 	},
 /obj/item/weapon/baton/stunprod,
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/stuns,
 /obj/item/flash,
 /turf/open/floor/mainship/cargo,
 /area/mainship/groundhq/ntf/shipboard/brig)
@@ -14410,10 +14410,10 @@
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "tyx" = (
 /obj/structure/rack,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/stuns,
+/obj/item/storage/box/stuns,
+/obj/item/storage/box/stuns,
+/obj/item/storage/box/stuns,
 /turf/open/floor/mainship/red,
 /area/mainship/groundhq/ntf/shipboard/brig)
 "tyQ" = (

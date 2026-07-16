@@ -47,7 +47,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/stuns,
 /turf/open/floor/prison/red/full,
 /area/fiorina/station/security)
 "n" = (

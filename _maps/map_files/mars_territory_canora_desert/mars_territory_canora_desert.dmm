@@ -940,7 +940,7 @@
 "dW" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/transparent/dark_red/full,
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/stuns,
 /turf/open/floor/mainship/black/full,
 /area/canora_desert/surface/building/som_armory)
 "dZ" = (

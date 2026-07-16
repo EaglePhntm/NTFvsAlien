@@ -22076,11 +22076,11 @@
 /area/desert_dam/building/security/armory)
 "cJs" = (
 /obj/structure/rack,
-/obj/item/storage/box/flashbangs{
+/obj/item/storage/box/stuns{
 	pixel_x = 3;
 	pixel_y = -2
 	},
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/stuns,
 /turf/open/floor/prison/darkred/full,
 /area/desert_dam/building/security/armory)
 "cJt" = (
