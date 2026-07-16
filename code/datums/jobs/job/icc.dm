@@ -530,7 +530,7 @@ Make the CM proud!"}
 /datum/job/icc/administrator
 	title = "CM Colony Administrator"
 	paygrade = "O1"
-	comm_title = "ADM"
+	comm_title = "ADMN"
 	total_positions = 4
 	access = ALL_ICC_ACCESS
 	minimal_access = ALL_ICC_ACCESS
