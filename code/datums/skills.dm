@@ -513,7 +513,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	powerloader = SKILL_POWERLOADER_PRO
 	police = SKILL_POLICE_MP
 	smartgun = SKILL_SMART_TRAINED
-	sex = SKILL_SEX_TRAINED
+	sex = SKILL_SEX_EXPERT
 
 /datum/skills/pilot
 	name = PILOT_OFFICER
