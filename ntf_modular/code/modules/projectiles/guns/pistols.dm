@@ -190,3 +190,45 @@
 	accuracy_mult = 1.15
 	accuracy_mult_unwielded = 0.95
 	damage_mult = 1
+
+// APS Smart pistol, based on the APS Stetchkin.
+/obj/item/weapon/gun/pistol/apsmart_pistol
+	name = "\improper APS smartpistol"
+	desc = "The APS-SP is an IFF-capable sidearm used by mercenaries and bodyguards. In addition to having an automatic selector, the sidearm doesn't require a KTLD system nor smartweapon training. A cheaper alternative compared to the TX-13 with 20 rounds less and 9x18 smart rounds."
+	icon = 'ntf_modular/icons/obj/items/guns/pistols.dmi'
+	icon_state = "aps"
+	worn_icon_state = "aps"
+	worn_icon_list = list(
+		slot_l_hand_str = 'ntf_modular/icons/mob/inhands/guns/pistols_left_1.dmi',
+		slot_r_hand_str = 'ntf_modular/icons/mob/inhands/guns/pistols_right_1.dmi',
+	)
+	caliber = CALIBER_9X18 //codex
+	max_shells = 20 //codex
+	fire_sound = 'sound/weapons/guns/fire/aps.ogg'
+	dry_fire_sound = 'sound/weapons/guns/fire/beretta_empty.ogg'
+	unload_sound = 'sound/weapons/guns/interact/beretta_unload.ogg'
+	reload_sound = 'sound/weapons/guns/interact/beretta_reload.ogg'
+	default_ammo_type = /obj/item/ammo_magazine/pistol/standard_pistol/apsmart_pistol
+	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/standard_pistol/apsmart_pistol)
+	attachable_allowed = list(
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/lasersight,
+	)
+
+	gun_features_flags = GUN_AMMO_COUNTER|GUN_IFF|GUN_SMOKE_PARTICLES
+	actions_types = list() // Inherits aimmode, but has IFF so..
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_SEMIAUTO)
+
+	attachable_offset = list("muzzle_x" = 29, "muzzle_y" = 20,"rail_x" = 13, "rail_y" = 23, "under_x" = 19, "under_y" = 13, "stock_x" = 21, "stock_y" = 17)
+
+	aim_slowdown = 0.3
+	wield_delay = 0.4 SECONDS
+	fire_delay = 0.15 SECONDS
+	accuracy_mult = 1
+	accuracy_mult_unwielded = 0.8
+	damage_falloff_mult = 1
+	scatter = 1
+	scatter_unwielded = 8
+	recoil_unwielded = 1
