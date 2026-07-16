@@ -1000,7 +1000,7 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 	comm_title = "Syn"
 	paygrade = "Mk.I"
 	supervisors = "the acting captain, Ninetails."
-	total_positions = 1
+	total_positions = 4
 	skills_type = /datum/skills/synthetic
 	access = ALL_ACCESS
 	minimal_access = ALL_ACCESS
