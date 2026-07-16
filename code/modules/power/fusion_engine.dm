@@ -10,7 +10,7 @@
 	name = "\improper S-52 fusion reactor"
 	icon = 'icons/obj/machines/fusion_engine.dmi'
 	icon_state = "off"
-	desc = "A Westingland S-52 Fusion Reactor.  Takes fuels cells and converts them to power for the ship.  Also produces a large amount of heat."
+	desc = "A Westingland S-52 Fusion Reactor.  Takes fuels cells and converts them to power for the ship.  Also produces a large amount of heat. (WARNING: CAUSES A CATASTROPHIC EXPLOSION WHEN DAMAGED)"
 	resistance_flags = UNACIDABLE
 	anchored = TRUE
 	density = TRUE
@@ -26,6 +26,20 @@
 	/// Rate at which fuel is used.  Based mostly on how long the generator has been running.
 	var/fuel_rate = 0
 	var/going_kaboom = FALSE
+
+/obj/item/circuitboard/machine/fusionengine
+	name = "Circuit board (Fusion Engine)"
+	frame_desc = "Requires 1 Scanning Module, 1 Micro Manipulator, 1 Console Screen, 1 Matter Bin, 6 Capacitors, 1 Fuel Cell and 1 Micro-Laser."
+	req_components = list(
+		/obj/item/stock_parts/scanning_module = 1,
+		/obj/item/stock_parts/manipulator = 1,
+		/obj/item/stock_parts/micro_laser = 1,
+		/obj/item/stock_parts/console_screen = 1,
+		/obj/item/stock_parts/matter_bin = 1,
+		/obj/item/stock_parts/capacitor = 6,
+		/obj/item/fuel_cell = 1,
+	)
+	build_path = /obj/machinery/power/fusion_engine
 
 /obj/machinery/power/fusion_engine/Initialize(mapload)
 	. = ..()
@@ -124,9 +138,9 @@
 		if(going_kaboom)
 			buildstate = FUSION_ENGINE_HEAVY_DAMAGE
 			priority_announce("A [src] in [get_area_name(src)] was successfully stopped before meltdown!", "Warning!")
-		going_kaboom = FALSE //reset
-		color = initial(color)
-		do_sparks(5, TRUE, src)
+			going_kaboom = FALSE //reset
+			color = initial(color)
+			do_sparks(5, TRUE, src)
 		power_gen_percent = 0
 		update_icon()
 		stop_processing()
@@ -339,17 +353,23 @@
 	if(!going_kaboom && (obj_integrity < max_integrity * 0.25) && is_on)
 		going_kaboom = TRUE
 		visible_message(span_danger("\the [src] emits a high-pitched whine before sparking violently! It's starting to go critical!"))
-		priority_announce("A [src] is going critical in [get_area_name(src)]! Clear out or turn it off for repairs if possible (within 30 seconds)!", "Warning!")
-		animate(src, color = COLOR_RED, time = 30 SECONDS)
+		priority_announce("A [src] is going critical in [get_area_name(src)]! Clear out or turn it off for repairs if possible! WARNING: -60 SECONDS REMAINING-", "Nuclear Threat!")
+		animate(src, color = COLOR_RED, time = 60 SECONDS)
 		playsound(src, 'sound/machines/alarm.ogg', 50, FALSE, 16)
 		do_sparks(5, TRUE, src)
-		Shake(duration = 30 SECONDS)
-		addtimer(CALLBACK(src, PROC_REF(self_destruct)), 30 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(halfway_destruct)), 30 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(self_destruct)), 60 SECONDS)
 	if(!going_kaboom) //dont take further damage if its gonna explode so it dont be destroyed before it blows
 		return . = ..()
 
+/obj/machinery/power/fusion_engine/proc/halfway_destruct()
+	if((obj_integrity < max_integrity * 0.25) && is_on && going_kaboom)
+		Shake(duration = 30 SECONDS)
+		priority_announce("A [src] in [get_area_name(src)] is about to explode! Civilian Personnel is required to evacuate, run away from the area and/or seek radiation suits. WARNING: -30 SECONDS REMAINING!-", "Nuclear Threat!")
+
+
 /obj/machinery/power/fusion_engine/proc/self_destruct()
-	if((max_integrity < max_integrity * 0.25) && is_on && going_kaboom)
+	if((obj_integrity < max_integrity * 0.25) && is_on && going_kaboom)
 		Destroy()
 
 /obj/machinery/power/fusion_engine/process()
@@ -387,11 +407,11 @@
 
 /obj/machinery/power/fusion_engine/Destroy()
 	if((obj_integrity < max_integrity * 0.25) && is_on && going_kaboom)
-		explosion(src, 4, 6, 8, 12, 18, 8, 14, protect_epicenter = TRUE) //massive explosion
+		explosion(src, 12, 24, 36, 42, 36, 12, 36, protect_epicenter = TRUE) //massive explosion
 		message_admins("[ADMIN_COORDJMP(src)] [src] blew up!")
 		for(var/mob/living/goof in GLOB.mob_living_list)
-			if(is_ground_level(goof.z))
-				var/strength = goof.modify_by_armor(25, BIO, 10)
+			if(z == goof.z) //same level
+				var/strength = goof.modify_by_armor(rand(40,60), BIO, 0)
 				goof.apply_radiation(strength, 4)
 				shake_camera(goof, 0.2 SECONDS, 0.5)
 				goof.playsound_local(goof, 'sound/effects/explosion/far.ogg', 75)
