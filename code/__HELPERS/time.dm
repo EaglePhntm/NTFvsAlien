@@ -68,3 +68,7 @@ GLOBAL_VAR_INIT(rollovercheck_last_timeofday, 0)
 //returns timestamp in a sql and a not-quite-compliant ISO 8601 friendly format
 /proc/SQLtime(timevar)
 	return time2text(timevar || world.timeofday, "YYYY-MM-DD hh:mm:ss")
+
+///returns the current IC station time in a world.time format
+/proc/station_time(wtime = world.time)
+	return (((wtime - SSticker.round_start_time) * SSticker.station_time_rate_multiplier)) % (24 HOURS)

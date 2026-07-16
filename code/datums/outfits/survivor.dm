@@ -81,7 +81,7 @@
 	)
 
 /datum/outfit/job/survivor/liaison
-	name = "Liaison Colonist"
+	name = "Colony Liaison"
 	jobtype = /datum/job/survivor/liaison
 
 	w_uniform = /obj/item/clothing/under/liaison_suit
@@ -104,11 +104,11 @@
 	back = /obj/item/storage/backpack/satchel/sec
 	belt = /obj/item/storage/belt/security/tactical
 	gloves = /obj/item/clothing/gloves/black
-	suit_store = /obj/item/weapon/gun/pistol/g22
+	suit_store = /obj/item/weapon/gun/rifle/famas
 	ears = /obj/item/radio/headset/survivor
 
 	backpack_contents = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/tricordrazine = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/combat = 1,
 		/obj/item/tool/crowbar = 1,
 		/obj/item/stack/medical/heal_pack/gauze = 1,
 		/obj/item/stack/medical/heal_pack/ointment = 1,
@@ -117,7 +117,7 @@
 	)
 
 	belt_contents = list(
-		/obj/item/ammo_magazine/pistol/g22 = 2,
+		/obj/item/ammo_magazine/rifle/famas = 3,
 		/obj/item/flashlight/combat = 1,
 		/obj/item/weapon/telebaton = 1,
 		/obj/item/restraints/handcuffs = 1,

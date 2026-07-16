@@ -329,3 +329,6 @@ Important note: colors can end up significantly different from the basic html pi
 #define COLOR_SQUAD_YANKEE "#009999" // rgb(0, 153, 153)
 #define COLOR_SQUAD_XRAY "#008000" // rgb(0, 128, 0)
 #define COLOR_SQUAD_WHISKEY "#CC00CC" // rgb(204, 0, 204)
+
+//ntf additions lolza
+#define COLOR_LIGHT_YELLOW "#FFFEE0"

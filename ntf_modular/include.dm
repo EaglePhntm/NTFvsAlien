@@ -3,6 +3,8 @@
 #include "code\_DEFINES\skills.dm"
 #include "code\_HELPERS\announce.dm"
 #include "code\_onclick\hud\fullscreen.dm"
+#include "code\controllers\subsystem\debug.dm"
+#include "code\controllers\subsystem\ssdaylight.dm"
 #include "code\datums\components\parasitic.dm"
 #include "code\datums\fire_support\fire_support.dm"
 #include "code\datums\gamemodes\_game_mode.dm"

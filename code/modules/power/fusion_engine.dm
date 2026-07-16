@@ -25,7 +25,7 @@
 	var/obj/item/fuel_cell/fusion_cell
 	/// Rate at which fuel is used.  Based mostly on how long the generator has been running.
 	var/fuel_rate = 0
-
+	var/going_kaboom = FALSE
 
 /obj/machinery/power/fusion_engine/Initialize(mapload)
 	. = ..()
@@ -121,6 +121,7 @@
 	if(is_on)
 		balloon_alert_to_viewers("[usr] shuts off the generator.")
 		is_on = FALSE
+		going_kaboom = FALSE //reset
 		power_gen_percent = 0
 		update_icon()
 		stop_processing()
@@ -327,6 +328,27 @@
 			icon_state = "wire"
 		if(FUSION_ENGINE_LIGHT_DAMAGE)
 			icon_state = "wrench"
+
+//ntf addition, kaboom
+/obj/machinery/power/fusion_engine/take_damage(damage_amount, damage_type, armor_type, effects, attack_dir, armour_penetration, mob/living/blame_mob)
+	if(going_kaboom)
+		return
+	if((max_integrity < max_integrity * 0.25) && is_on)
+		going_kaboom = TRUE
+		visible_message(span_danger("\the [src] emits a high-pitched whine before sparking violently! It's starting to go critical!"))
+		priority_announce("A [src] is going critical in [get_area_name(src)]! Clear out or turn it off for repairs within 15 seconds!", "Warning!")
+		animate(src, color = COLOR_RED, time = 8 SECONDS)
+		playsound(src, 'sound/machines/alarm.ogg', 50)
+		do_sparks(5, TRUE, src)
+		Shake(duration = 8 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(Destroy)), 15 SECONDS)
+	. = ..()
+
+/obj/machinery/power/fusion_engine/Destroy()
+	if((max_integrity < max_integrity * 0.25) && is_on && going_kaboom)
+		explosion(src, 4, 6, 8, 12, 18, 8, 14, protect_epicenter = TRUE) //massive explosion
+		message_admins("[ADMIN_COORDJMP(src)] [src] blew up!")
+	. = ..()
 
 //FUEL CELL
 /obj/item/fuel_cell

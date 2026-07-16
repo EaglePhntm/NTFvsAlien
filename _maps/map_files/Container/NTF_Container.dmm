@@ -2344,7 +2344,7 @@
 /obj/structure/table/mainship,
 /obj/item/detective_scanner,
 /obj/item/taperecorder,
-/obj/item/storage/box/flashbangs{
+/obj/item/storage/box/stuns{
 	pixel_y = 10
 	},
 /obj/item/storage/box/handcuffs,
@@ -5025,7 +5025,7 @@
 	dir = 9
 	},
 /obj/item/weapon/baton/stunprod,
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/stuns,
 /obj/item/flash,
 /obj/item/clothing/glasses/sunglasses/sechud,
 /obj/structure/closet/secure_closet/military_police,
@@ -11271,10 +11271,10 @@
 /area/mainship/hallways/hangar)
 "kGX" = (
 /obj/structure/rack,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/stuns,
+/obj/item/storage/box/stuns,
+/obj/item/storage/box/stuns,
+/obj/item/storage/box/stuns,
 /obj/item/clothing/head/helmet/marine/riot,
 /obj/item/clothing/head/helmet/marine/riot,
 /obj/item/clothing/head/helmet/marine/riot,
