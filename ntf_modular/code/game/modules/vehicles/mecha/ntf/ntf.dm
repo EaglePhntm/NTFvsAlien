@@ -3,6 +3,7 @@
 
 /obj/vehicle/sealed/mecha/ntf
 	desc = "NTF Exosuit"
+	layer = VEHICLE_LAYER
 	allow_diagonal_movement = FALSE
 	move_delay = 3
 	max_integrity = 400
@@ -33,6 +34,8 @@
 	var/engine_state = ENGINE_OFF
 	var/datum/looping_sound/exosuit_engine/fuel/soundloop
 	var/engine_starting_sound
+
+	var/cabin_open = TRUE
 
 	var/underlying_icon = 'icons/mecha/mech_construct.dmi'
 	var/underlying_icon_state = "backbone"
