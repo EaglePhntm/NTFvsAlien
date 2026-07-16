@@ -911,6 +911,7 @@
 		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/m16sight,
 		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/marine,
 		/obj/item/attachable/scope/mini,
 		/obj/item/weapon/gun/pistol/plasma_pistol,
 		/obj/item/weapon/gun/shotgun/combat/masterkey,
@@ -926,14 +927,17 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
 	attachable_offset = list("muzzle_x" = 47, "muzzle_y" = 19,"rail_x" = 18, "rail_y" = 24, "under_x" = 29, "under_y" = 15, "stock_x" = 19, "stock_y" = 13)
 	actions_types = list(/datum/action/item_action/aim_mode)
-	aim_fire_delay = 0.2 SECONDS
+	aim_fire_delay = 0.25 SECONDS
 	aim_speed_modifier = 2.5
 
 	fire_delay = 0.2 SECONDS
-	scatter = 2
-	extra_delay = -0.05 SECONDS
+	scatter = 3
+	scatter_unwielded = 23
+	burst_scatter_mult = -0.3
+	extra_delay = 0.15 SECONDS
 	burst_delay = 0.15 SECONDS
 	accuracy_mult = 1.1
+	recoil_unwielded = 3
 	wield_delay = 0.7 SECONDS
 	damage_mult = 1.2
 
@@ -1043,7 +1047,7 @@
 	fire_delay = 0.15 SECONDS
 	scatter = 7
 	scatter_unwielded = 19
-	burst_scatter_mult = -0.25
+	burst_scatter_mult = -0.15
 	extra_delay = 0.3 SECONDS
 	burst_delay = 0.15 SECONDS
 	accuracy_mult = 0.9
