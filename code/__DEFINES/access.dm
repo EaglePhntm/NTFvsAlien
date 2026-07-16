@@ -45,6 +45,7 @@ GLOBAL_LIST_EMPTY(all_req_one_access)
 #define ACCESS_CIVILIAN_ENGINEERING 102
 #define ACCESS_CIVILIAN_RESEARCH 103
 #define ACCESS_CIVILIAN_MEDICAL 104
+#define ACCESS_CIVILIAN_SECURITY 105
 
 //Special access levels. Should be alright to modify these.
 #define ACCESS_NT_PMC_GREEN 180

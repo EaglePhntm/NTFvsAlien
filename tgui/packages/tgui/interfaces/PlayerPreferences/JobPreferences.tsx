@@ -128,7 +128,7 @@ export const JobPreferences = (props) => {
     'Assistant Colonist',
     'Scientist Colonist',
     'Doctor Colonist',
-    'Liaison Colonist',
+    'Colony Liaison',
     'Security Guard Colonist',
     'Civilian Colonist',
     'Chef Colonist',
