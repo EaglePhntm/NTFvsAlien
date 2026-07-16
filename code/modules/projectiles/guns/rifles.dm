@@ -3261,6 +3261,9 @@
 	burst_scatter_mult = 1.5
 	scatter = 7
 
+/obj/item/weapon/gun/rifle/icc_assaultcarbine/exportautorifle/autorifleman
+	starting_attachment_types = list(/obj/item/attachable/verticalgrip, /obj/item/attachable/compensator, /obj/item/attachable/scope/marine, /obj/item/attachable/foldable/bipod/l88lbar)
+
 //-------------------------------------------------------
 //MG-60 General Purpose Machine Gun
 
