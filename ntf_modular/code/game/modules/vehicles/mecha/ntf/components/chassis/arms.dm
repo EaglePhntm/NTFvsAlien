@@ -8,16 +8,17 @@
 	var/action_delay = 1 SECONDS
 	var/action_power_usage = 10
 
+	type_of_piece = MECHA_ARMS
+
 	layer = MECH_ARM_LAYER
 
 	max_integrity = 100
 	soft_armor = list(MELEE = 25, BULLET = 25, LASER = 25, ENERGY = 10, BOMB = 5, BIO = 0, FIRE = 50, ACID = 50)
 
-/obj/item/mecha_parts/mecha_pieces/mecha_arms
+/obj/item/mecha_parts/mecha_pieces/mecha_arms/loader
 	name = "arms"
 	desc = "The Xion Industrial Digital Interaction Manifolds allow you poke untold dangers from the relative safety of your cockpit."
 	icon_state = "loader_arms"
-	type_of_piece = MECHA_ARMS
 //	melee_sound = 'sound/mecha/mech_punch.ogg'
 	melee_damage = 20
 	action_delay = 15

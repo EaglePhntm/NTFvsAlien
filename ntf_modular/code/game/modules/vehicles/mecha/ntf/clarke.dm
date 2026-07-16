@@ -38,6 +38,6 @@
 	if(!legs)
 		legs = new /obj/item/mecha_parts/mecha_pieces/mecha_legs/tracks(src)
 	if(!body)
-		body = new /obj/item/mecha_parts/mecha_pieces/mecha_body/clarke(src)
+		body = new /obj/item/mecha_parts/mecha_pieces/mecha_body/spherical(src)
 
 	.=..()

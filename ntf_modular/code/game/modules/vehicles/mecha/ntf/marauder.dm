@@ -19,3 +19,18 @@
 /obj/vehicle/sealed/mecha/ntf/marauder/generate_actions()
 	. = ..()
 	initialize_passenger_action_type(/datum/action/vehicle/sealed/mecha/mech_zoom)
+
+/obj/vehicle/sealed/mecha/ntf/prebuilt/marauder/Initialize(mapload)
+	name = "marauder exosuit"
+	desc = "A modernized combat exosuit developed as a replacement for the Durand exosuit, improved in almost every way - except cost."
+
+	if(!arms)
+		arms = new /obj/item/mecha_parts/mecha_pieces/mecha_arms/heavy(src)
+	if(!legs)
+		legs = new /obj/item/mecha_parts/mecha_pieces/mecha_legs/tracks(src)
+	if(!head)
+		head = new /obj/item/mecha_parts/mecha_pieces/mecha_head/heavy(src)
+	if(!body)
+		body = new /obj/item/mecha_parts/mecha_pieces/mecha_body/heavy(src)
+
+	.=..()

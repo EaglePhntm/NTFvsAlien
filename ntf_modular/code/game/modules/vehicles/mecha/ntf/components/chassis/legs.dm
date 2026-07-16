@@ -7,6 +7,8 @@
 	var/stability = 10
 	max_integrity = 200
 
+	type_of_piece = MECHA_LEGS
+
 	layer = MECH_LEG_LAYER
 
 /obj/item/mecha_parts/mecha_pieces/mecha_legs/tracks
@@ -57,7 +59,7 @@
 	stability = 50
 	max_integrity = 100
 
-/obj/item/mecha_parts/mecha_pieces/mecha_legs/loader_legs
+/obj/item/mecha_parts/mecha_pieces/mecha_legs/loader
 	icon_state = "loader_legs"
 
 	movement_delay = 3 SECONDS
