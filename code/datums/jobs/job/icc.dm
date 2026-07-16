@@ -531,7 +531,7 @@ Make the CM proud!"}
 	title = "CM Colony Administrator"
 	paygrade = "O1"
 	comm_title = "ADM"
-	total_positions = 4
+	total_positions = 1
 	access = ALL_ICC_ACCESS
 	minimal_access = ALL_ICC_ACCESS
 	skills_type = /datum/skills/so
