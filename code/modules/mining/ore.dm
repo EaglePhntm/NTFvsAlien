@@ -4,6 +4,11 @@
 	icon_state = "ore2"
 	var/oretag
 
+/obj/item/ore/get_export_value()
+	if(GLOB.ores_to_reqpoints[src.type])
+		return list(GLOB.ores_to_reqpoints[src.type],0)
+	return list(0,0)
+
 /obj/item/ore/uranium
 	name = "pitchblende"
 	icon_state = "Uranium ore"

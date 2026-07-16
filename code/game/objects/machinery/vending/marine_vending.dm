@@ -992,6 +992,9 @@
 			/obj/machinery/unboxer = 1,
 			/obj/item/stack/conveyor/thirty = 10,
 			/obj/item/conveyor_switch_construct = 10,
+			/obj/machinery/advminer = 1,
+			/obj/machinery/advreqtorio/ore_grinder = 1,
+			/obj/machinery/miningsampler = 1
 		),
 		"Grenade Boxes" = list(
 			/obj/item/storage/box/visual/grenade/frag = 2,

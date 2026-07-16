@@ -24,6 +24,9 @@
 	)
 	var/spawn_xeno_shit = TRUE
 
+	//This defines if this gamemode is using the new escalation rework. Put it to false to disable it, keeping the old tgmc like miners and excavs, or set it to true to use the new surveying, mineral, and advanced excavs systems
+	var/escalation = FALSE
+
 /datum/game_mode/infestation/post_setup()
 	. = ..()
 	if(bioscan_interval)
@@ -433,6 +436,9 @@
 		victim.death()
 		CHECK_TICK
 
+/datum/game_mode/infestation/is_escalation()
+	return escalation
+
 #define DISK_CYCLE_REWARD_MIN 100
 #define DISK_CYCLE_REWARD_MAX 300
 
@@ -447,6 +453,7 @@
 	GLOB.round_statistics.points_from_objectives += disk_cycle_reward
 
 	generating_computer.say("Program has execution has rewarded [disk_cycle_reward] requisitions points!")
+
 
 #undef DISK_CYCLE_REWARD_MIN
 #undef DISK_CYCLE_REWARD_MAX

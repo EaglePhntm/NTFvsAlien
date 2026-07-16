@@ -474,3 +474,40 @@ FACTORY
 	name = "500 Cigarettes refill"
 	contains = list(/obj/item/factory_refill/cigarette_refill)
 	cost = 500
+
+/datum/supply_packs/factory/advminer
+	name = "'Pioneer' Mining Drill"
+	contains = list(/obj/machinery/advminer)
+	cost = 500
+
+/datum/supply_packs/factory/advmining_drill
+	name = "L1 Basic Mining Drillhead - Surface"
+	contains = list(/obj/item/advmining_drill)
+	cost = 20
+
+/datum/supply_packs/factory/advmining_drill/rush
+	name = "L1-S 'Rusher' Mining Drillhead"
+	contains = list(/obj/item/advmining_drill/rush)
+	cost = 100
+
+
+/datum/supply_packs/factory/advmining_drill/commoner
+	name = "L1-Y 'Commoner' Mining Drillhead"
+	contains = list(/obj/item/advmining_drill/commoner)
+	cost = 50
+
+
+/datum/supply_packs/factory/advmining_drill/mid
+	name = "L2 Basic Mining Drillhead - Middling Depth"
+	contains = list(/obj/item/advmining_drill/mid)
+	cost = 100
+
+/datum/supply_packs/factory/advmining_drill/dworf
+	name = "L3-D 'Dworf' Mining Drillhead"
+	contains = list(/obj/item/advmining_drill/dworf)
+	cost = 200
+
+/datum/supply_packs/factory/advmining_sampler
+	name = "Geological Survey Sample Drill"
+	contains = list(/obj/machinery/miningsampler)
+	cost = 50
