@@ -121,7 +121,12 @@
 	if(is_on)
 		balloon_alert_to_viewers("[usr] shuts off the generator.")
 		is_on = FALSE
+		if(going_kaboom)
+			buildstate = FUSION_ENGINE_HEAVY_DAMAGE
+			priority_announce("A [src] in [get_area_name(src)] was successfully stopped before meltdown!", "Warning!")
 		going_kaboom = FALSE //reset
+		color = initial(color)
+		do_sparks(5, TRUE, src)
 		power_gen_percent = 0
 		update_icon()
 		stop_processing()
@@ -331,21 +336,57 @@
 
 //ntf addition, kaboom
 /obj/machinery/power/fusion_engine/take_damage(damage_amount, damage_type, armor_type, effects, attack_dir, armour_penetration, mob/living/blame_mob)
-	if(going_kaboom)
-		return
-	if((max_integrity < max_integrity * 0.25) && is_on)
+	if(!going_kaboom && (obj_integrity < max_integrity * 0.25) && is_on)
 		going_kaboom = TRUE
 		visible_message(span_danger("\the [src] emits a high-pitched whine before sparking violently! It's starting to go critical!"))
-		priority_announce("A [src] is going critical in [get_area_name(src)]! Clear out or turn it off for repairs within 15 seconds!", "Warning!")
-		animate(src, color = COLOR_RED, time = 8 SECONDS)
-		playsound(src, 'sound/machines/alarm.ogg', 50)
+		priority_announce("A [src] is going critical in [get_area_name(src)]! Clear out or turn it off for repairs if possible (within 30 seconds)!", "Warning!")
+		animate(src, color = COLOR_RED, time = 30 SECONDS)
+		playsound(src, 'sound/machines/alarm.ogg', 50, FALSE 16)
 		do_sparks(5, TRUE, src)
-		Shake(duration = 8 SECONDS)
-		addtimer(CALLBACK(src, PROC_REF(Destroy)), 15 SECONDS)
+		Shake(duration = 30 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(self_destruct)), 30 SECONDS)
+	if(!going_kaboom) //dont take further damage if its gonna explode so it dont be destroyed before it blows
+		return . = ..()
+
+/obj/machinery/power/fusion_engine/proc/self_destruct()
+	if((max_integrity < max_integrity * 0.25) && is_on && going_kaboom)
+		Destroy()
+
+/obj/machinery/power/fusion_engine/process()
 	. = ..()
+	//rad leak
+	if((obj_integrity < max_integrity * 0.50) && is_on)
+		if(prob(25))
+			do_sparks(3, TRUE, src)
+		///Base strength of the rad effects
+		var/rad_strength = 5
+		///Range for the maximum rad effects
+		var/inner_range = 3
+		///Range for the moderate rad effects
+		var/mid_range = 6
+		///Range for the minimal rad effects
+		var/outer_range = 9
+		if((obj_integrity < max_integrity * 0.25))
+			if(prob(50))
+				do_sparks(5, TRUE, src)
+			rad_strength *= 3
+		for(var/mob/living/victim in hearers(outer_range, loc))
+			var/strength
+			var/sound_level
+			if(get_dist(victim, loc) <= inner_range)
+				strength = rad_strength
+				sound_level = 4
+			else if(get_dist(victim, loc) <= mid_range)
+				strength = rad_strength * 0.7
+				sound_level = 3
+			else
+				strength = rad_strength * 0.3
+				sound_level = 2
+			strength = victim.modify_by_armor(strength, BIO, 25)
+			victim.apply_radiation(strength, sound_level)
 
 /obj/machinery/power/fusion_engine/Destroy()
-	if((max_integrity < max_integrity * 0.25) && is_on && going_kaboom)
+	if((obj_integrity < max_integrity * 0.25) && is_on && going_kaboom)
 		explosion(src, 4, 6, 8, 12, 18, 8, 14, protect_epicenter = TRUE) //massive explosion
 		message_admins("[ADMIN_COORDJMP(src)] [src] blew up!")
 	. = ..()
