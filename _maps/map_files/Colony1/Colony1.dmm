@@ -729,8 +729,7 @@
 	static_lighting = 1
 	})
 "aRY" = (
-/obj/structure/xeno/pherotower,
-/turf/open/floor/plating/ground/snow/layer0,
+/turf/open/space/basic,
 /area/lv624/ground/caves{
 	ceiling = 2;
 	name = "HQ Tunnels";
@@ -24755,7 +24754,7 @@ hKj
 hKj
 hKj
 oGw
-oGw
+mcR
 oGw
 oGw
 hKj
@@ -29132,7 +29131,7 @@ oGw
 oGw
 oGw
 oGw
-oGw
+mcR
 oGw
 oGw
 oGw
@@ -31165,7 +31164,7 @@ hKj
 hKj
 oGw
 oGw
-oGw
+aRY
 oGw
 oGw
 hKj
@@ -31497,7 +31496,7 @@ oGw
 oGw
 oGw
 oGw
-aRY
+oGw
 oGw
 oGw
 oGw
