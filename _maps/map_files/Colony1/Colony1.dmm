@@ -3524,6 +3524,14 @@
 /area/mainship/command/corporateliaison{
 	name = "Ground CEO Office"
 	})
+"ezu" = (
+/obj/structure/xeno/xeno_turret,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/ground/caves{
+	ceiling = 2;
+	name = "HQ Tunnels";
+	always_unpowered = 0
+	})
 "ezw" = (
 /obj/structure/rack,
 /obj/item/weapon/gun/rifle/m16,
@@ -5278,6 +5286,16 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/shipboard/brig)
+"gZH" = (
+/obj/structure/mineral_door/resin/thick{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/ground/caves{
+	ceiling = 2;
+	name = "HQ Tunnels";
+	always_unpowered = 0
+	})
 "gZP" = (
 /obj/machinery/light,
 /turf/open/floor/mainship/sterile/dark,
@@ -9945,6 +9963,14 @@
 /obj/machinery/vending/cigarette,
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/command/corporateliaison)
+"njB" = (
+/obj/alien/weeds/node/sticky,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/ground/caves{
+	ceiling = 2;
+	name = "HQ Tunnels";
+	always_unpowered = 0
+	})
 "njI" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1,
 /turf/open/floor/mainship/sterile/side{
@@ -16918,6 +16944,13 @@
 /turf/open/floor/prison/kitchen,
 /area/mainship/groundhq/ntf/living/captain_mess{
 	name = "Kitchen"
+	})
+"wnV" = (
+/turf/closed/mineral/smooth/resin_hard/indestructible,
+/area/lv624/ground/caves{
+	ceiling = 2;
+	name = "HQ Tunnels";
+	always_unpowered = 0
 	})
 "wpe" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
@@ -30700,8 +30733,8 @@ hKj
 hKj
 hKj
 hKj
-oGw
-oGw
+gZH
+gZH
 hKj
 hKj
 hKj
@@ -31024,7 +31057,7 @@ hKj
 hKj
 oGw
 oGw
-oGw
+njB
 oGw
 oGw
 hKj
@@ -31139,12 +31172,12 @@ hKj
 hKj
 hKj
 hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
+wnV
+wnV
+wnV
+wnV
+wnV
+wnV
 hKj
 hKj
 hKj
@@ -31242,19 +31275,19 @@ oGw
 oGw
 oGw
 oGw
+njB
+oGw
+wnV
+wnV
+wnV
+oGw
+mcR
 oGw
 oGw
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
+wnV
+wnV
+wnV
+wnV
 hKj
 hKj
 hKj
@@ -31351,19 +31384,19 @@ oGw
 oGw
 oGw
 oGw
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
+wnV
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
 hyC
 sWK
 oGw
-hKj
-hKj
-hKj
+wnV
+wnV
+wnV
 hKj
 hKj
 hKj
@@ -31458,19 +31491,19 @@ oGw
 oGw
 oGw
 oGw
+gZH
+mcR
 oGw
 oGw
-hKj
-hKj
-hKj
-hKj
+oGw
+oGw
 aRY
 oGw
 oGw
 oGw
 jAb
 jcT
-hKj
+wnV
 hKj
 hKj
 hKj
@@ -31561,23 +31594,23 @@ hKj
 oGw
 oGw
 oGw
+njB
 oGw
 oGw
 oGw
+gZH
 oGw
 oGw
 oGw
+ezu
 oGw
-oGw
-hKj
-hKj
 hyC
 oGw
 mcR
 oGw
 fux
 oGw
-hKj
+wnV
 hKj
 hKj
 hKj
@@ -31665,14 +31698,14 @@ hKj
 hKj
 hKj
 hKj
+ezu
 oGw
 oGw
 oGw
 oGw
+ezu
 oGw
-oGw
-oGw
-hKj
+wnV
 oGw
 fbc
 oGw
@@ -31684,7 +31717,7 @@ oGw
 oGw
 oGw
 oGw
-hKj
+wnV
 hKj
 hKj
 hKj
@@ -31779,9 +31812,9 @@ oGw
 oGw
 oGw
 oGw
-hKj
-hKj
-hKj
+wnV
+wnV
+wnV
 oGw
 oGw
 sWK
@@ -31791,7 +31824,7 @@ oGw
 oGw
 oGw
 fbc
-hKj
+wnV
 hKj
 hKj
 hKj
@@ -31888,17 +31921,17 @@ oGw
 oGw
 hKj
 hKj
-hKj
-hKj
-hKj
-hKj
+wnV
+oGw
+oGw
+oGw
 oGw
 oGw
 fbc
 mcR
 oGw
 aRY
-hKj
+wnV
 hKj
 hKj
 hKj
@@ -31991,21 +32024,21 @@ hKj
 hKj
 hKj
 oGw
+njB
+oGw
+oGw
+hKj
+wnV
+wnV
 oGw
 oGw
 oGw
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
+oGw
 oGw
 pGc
 oGw
-hKj
-hKj
+wnV
+wnV
 hKj
 hKj
 hKj
@@ -32103,15 +32136,15 @@ oGw
 oGw
 hKj
 hKj
-hKj
-hKj
-hKj
-hKj
-hKj
+wnV
+wnV
+wnV
+wnV
+wnV
 oGw
 oGw
 mcR
-hKj
+wnV
 hKj
 hKj
 hKj
@@ -32206,19 +32239,19 @@ hKj
 doP
 doP
 doP
-oGw
-oGw
+gZH
+gZH
 doP
 hKj
 hKj
 hKj
 hKj
 hKj
-hKj
-hKj
-hKj
-hKj
-hKj
+wnV
+wnV
+wnV
+wnV
+wnV
 hKj
 hKj
 hKj
