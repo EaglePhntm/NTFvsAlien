@@ -341,7 +341,7 @@
 		visible_message(span_danger("\the [src] emits a high-pitched whine before sparking violently! It's starting to go critical!"))
 		priority_announce("A [src] is going critical in [get_area_name(src)]! Clear out or turn it off for repairs if possible (within 30 seconds)!", "Warning!")
 		animate(src, color = COLOR_RED, time = 30 SECONDS)
-		playsound(src, 'sound/machines/alarm.ogg', 50, FALSE 16)
+		playsound(src, 'sound/machines/alarm.ogg', 50, FALSE, 16)
 		do_sparks(5, TRUE, src)
 		Shake(duration = 30 SECONDS)
 		addtimer(CALLBACK(src, PROC_REF(self_destruct)), 30 SECONDS)
