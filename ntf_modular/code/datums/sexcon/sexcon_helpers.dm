@@ -134,9 +134,9 @@
 
 /mob/living/carbon/xenomorph/proc/xenoimpregify()
 	if(!preggo && gender == FEMALE)
-		if(!(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES) && client?.prefs?.xenogender == 4) //futa
+/*		if(!(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES) && client?.prefs?.xenogender == 4) //futa
 			to_chat(src, span_alien("We can't bear larvas during war times, our mixed physiology makes it difficult."))
-			return FALSE
+			return FALSE*/
 		to_chat(src, span_alien("We feel a new larva forming within us."))
 		addtimer(CALLBACK(src, PROC_REF(xenobirth)), 5 MINUTES)
 		Shake(duration = 3 SECONDS)
