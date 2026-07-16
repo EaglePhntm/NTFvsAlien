@@ -389,6 +389,13 @@
 	if((obj_integrity < max_integrity * 0.25) && is_on && going_kaboom)
 		explosion(src, 4, 6, 8, 12, 18, 8, 14, protect_epicenter = TRUE) //massive explosion
 		message_admins("[ADMIN_COORDJMP(src)] [src] blew up!")
+		for(var/mob/living/goof in GLOB.mob_living_list)
+			if(is_ground_level(goof.z))
+				var/strength = goof.modify_by_armor(25, BIO, 10)
+				goof.apply_radiation(strength, 4)
+				shake_camera(goof, 0.2 SECONDS, 0.5)
+				goof.playsound_local(goof, 'sound/effects/explosion/far.ogg', 75)
+		priority_announce("A [src] in [get_area_name(src)] detonated in a nuclear explosion! Rad scrubbers activating...", "Warning!")
 	. = ..()
 
 //FUEL CELL
