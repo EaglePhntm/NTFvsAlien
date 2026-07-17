@@ -309,7 +309,7 @@
 	var/can_use_adv_huggers = FALSE
 	action_icon = 'ntf_modular/icons/Xeno/construction.dmi'
 
-	var/static/list/hugger_to_latching = list(
+GLOBAL_LIST_INIT(hugger_to_latching, list(
 		/obj/item/clothing/mask/facehugger/larval = /obj/item/clothing/mask/facehugger/latching,
 		/obj/item/clothing/mask/facehugger/combat/slash = /obj/item/clothing/mask/facehugger/latching/clawer,
 		/obj/item/clothing/mask/facehugger/combat/chem_injector/neuro = /obj/item/clothing/mask/facehugger/latching/chemical/neuro,
@@ -317,7 +317,7 @@
 		/obj/item/clothing/mask/facehugger/combat/chem_injector/aphrotoxin = /obj/item/clothing/mask/facehugger/latching/chemical/aphrotox,
 		/obj/item/clothing/mask/facehugger/combat/acid = /obj/item/clothing/mask/facehugger/latching/chemical/acid,
 		/obj/item/clothing/mask/facehugger/combat/resin = /obj/item/clothing/mask/facehugger/latching/chemical/resin,
-	)
+		))
 
 /datum/action/ability/xeno_action/lay_egg/alternate_action_activate()
 	. = ..()
@@ -335,7 +335,7 @@
 /datum/action/ability/xeno_action/lay_egg/proc/advanced_plant_egg(turf/current_turf, mob/living/carbon/xenomorph/xeno, mob/living/carbon/xenomorph/user)
 	var/the_hugger = hugger_to_use
 	if(use_selected_hugger && xeno.selected_hugger_type)
-		the_hugger = hugger_to_latching[xeno_owner.selected_hugger_type]
+		the_hugger = GLOB.hugger_to_latching[xeno_owner.selected_hugger_type]
 	new /obj/alien/egg/hugger(current_turf, xeno.get_xeno_hivenumber(), the_hugger, hand_attach_time_multiplier)
 
 //harmless corrupted special pet huggers
