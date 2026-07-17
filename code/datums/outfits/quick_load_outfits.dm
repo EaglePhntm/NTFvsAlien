@@ -1685,6 +1685,7 @@
 	back = /obj/item/storage/backpack/som
 	suit_store = /obj/item/weapon/gun/rifle/som/veteran
 	belt = /obj/item/storage/belt/marine/som/som_rifle_ap
+	r_hand = /obj/item/pamphlet/rifleman
 
 	backpack_contents = list(
 		/obj/item/explosive/plastique = 1,
@@ -1694,7 +1695,6 @@
 		/obj/item/explosive/grenade/som = 2,
 		/obj/item/storage/box/MRE/som = 1,
 		/obj/item/ammo_magazine/handful/micro_grenade/smoke_burst = 1,
-		/obj/item/pamphlet/rifleman = 1,
 	)
 
 	webbing_contents = list(
@@ -1710,13 +1710,13 @@
 
 	suit_store = /obj/item/weapon/gun/smg/som/veteran
 	belt = /obj/item/storage/belt/marine/som/som_smg_ap
+	r_hand = /obj/item/pamphlet/smg
 
 	backpack_contents = list(
 		/obj/item/explosive/plastique = 1,
 		/obj/item/ammo_magazine/pistol/som = 1,
 		/obj/item/weapon/gun/pistol/som/standard = 1,
 		/obj/item/ammo_magazine/smg/som/ap = 3,
-		/obj/item/pamphlet/smg = 1,
 	)
 
 	webbing_contents = list(
@@ -1829,6 +1829,7 @@
 
 	suit_store = /obj/item/weapon/gun/rifle/mpi_km/grenadier
 	belt = /obj/item/storage/belt/marine/som/mpi_plum
+	r_hand = /obj/item/pamphlet/rifleman
 
 	backpack_contents = list(
 		/obj/item/storage/box/MRE/som = 1,
@@ -1836,7 +1837,6 @@
 		/obj/item/weapon/gun/pistol/som/standard = 1,
 		/obj/item/ammo_magazine/rifle/mpi_km/extended = 1,
 		/obj/item/tool/extinguisher = 1,
-		/obj/item/pamphlet/rifleman = 1,
 	)
 
 	webbing_contents = list(
@@ -1850,6 +1850,7 @@
 
 	suit_store = /obj/item/weapon/gun/rifle/som_carbine/mag_harness
 	belt = /obj/item/storage/belt/marine/som/carbine
+	r_hand = /obj/item/pamphlet/rifleman
 
 	backpack_contents = list(
 		/obj/item/storage/box/MRE/som = 1,
@@ -1857,7 +1858,6 @@
 		/obj/item/weapon/gun/pistol/som/standard = 1,
 		/obj/item/ammo_magazine/rifle/mpi_km/carbine = 1,
 		/obj/item/tool/extinguisher = 1,
-		/obj/item/pamphlet/rifleman = 1,
 	)
 
 	webbing_contents = list(
@@ -2092,13 +2092,13 @@
 	wear_suit = /obj/item/clothing/suit/modular/som/heavy/lorica
 	suit_store = /obj/item/weapon/gun/rifle/som_big
 	belt = /obj/item/storage/belt/marine/som/big
+	r_hand = /obj/item/pamphlet/rifleman
 
 /datum/outfit/quick/som/veteran/v35breacher/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	H.equip_to_slot_or_del(new /obj/item/tool/weldingtool/largetank, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/pamphlet/rifleman, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/volkite, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/som_big, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/som_big, SLOT_IN_BACKPACK)
