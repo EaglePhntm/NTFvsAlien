@@ -74,14 +74,14 @@
 
 /datum/ammo/rocket/plasmaloss
 	name = "medium velocity chemical shell"
-	icon_state = "rocket_tanglefoot"
+	icon_state = "rocket_tangle"
 	hud_state = "shell_tanglefoot"
 	damage_falloff = 0
 	shell_speed = 1.5
 	accuracy = 20
 	accurate_range = 20
 	max_range = 14
-	damage = 25
+	damage = 20
 	penetration = 10
 	sundering = 5
 
