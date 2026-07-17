@@ -529,12 +529,12 @@ Make the CM proud!"}
 //be assigned to jobs for colony management
 /datum/job/icc/administrator
 	title = "CM Colony Administrator"
-	paygrade = "O1"
+	paygrade = "CM6"
 	comm_title = "ADMN"
-	total_positions = 4
+	total_positions = 1
 	access = ALL_ICC_ACCESS
 	minimal_access = ALL_ICC_ACCESS
-	skills_type = /datum/skills/so
+	skills_type = /datum/skills/icc_admn
 	display_order = JOB_DISPLAY_ORDER_STAFF_OFFICER
 	outfit = /datum/outfit/job/administrator
 	multiple_outfits = TRUE

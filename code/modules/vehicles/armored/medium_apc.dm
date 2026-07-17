@@ -7,12 +7,12 @@
 	damage_icon_path = null
 	interior = null
 	minimap_icon_state = null
-	armored_flags = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_SECONDARY_WEAPON|ARMORED_HAS_UNDERLAY|ARMORED_PURCHASABLE_TRANSPORT
+	armored_flags = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_SECONDARY_WEAPON|ARMORED_HAS_UNDERLAY|ARMORED_PURCHASABLE_TRANSPORT|ARMORED_SELF_WALL_DAMAGE
 	icon_state = "apc"
 	move_delay = 0.25 SECONDS
 	obj_integrity = 800
 	max_integrity = 800
 	max_occupants = 5
 	permitted_mods = list(/obj/item/tank_module/ability/zoom)
-	soft_armor = list(MELEE = 50, BULLET = 75 , LASER = 75, ENERGY = 60, BOMB = 40, BIO = 100, FIRE = 50, ACID = 50)
-	hard_armor = list(MELEE = 0, BULLET = 5, LASER = 5, ENERGY = 20, BOMB = 0, BIO = 20, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 50, BULLET = 80, LASER = 80, ENERGY = 70, BOMB = 50, BIO = 100, FIRE = 100, ACID = 50)
+	hard_armor = list(MELEE = 0, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 100, FIRE = 0, ACID = 0)

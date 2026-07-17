@@ -88,8 +88,10 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 		if(!xeno_owner.huggers)
 			to_chat(xeno_owner, span_warning("We don't have any facehuggers to use!"))
 			return fail_activate()
-
-		F = new xeno_owner.selected_hugger_type(get_turf(xeno_owner), xeno_owner.hivenumber, xeno_owner)
+		var/huggerpath = xeno_owner.selected_hugger_type
+		if(HAS_TRAIT(owner, TRAIT_LATCHING_HUGGERS_ONLY))
+			huggerpath = GLOB.hugger_to_latching[huggerpath] || huggerpath
+		F = new huggerpath(get_turf(xeno_owner), xeno_owner.hivenumber, xeno_owner)
 		xeno_owner.huggers--
 
 		xeno_owner.put_in_active_hand(F)
@@ -133,6 +135,9 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 /mob/living/carbon/xenomorph/proc/store_hugger(obj/item/clothing/mask/facehugger/F, message = TRUE, forced = FALSE) //todo: wrap this into ability
 	if(istype(F, /obj/item/clothing/mask/facehugger/combat/harmless))
 		to_chat(src, span_notice("This fakehugger is useless to absorb."))
+		return FALSE
+	if(HAS_TRAIT(src, TRAIT_LATCHING_HUGGERS_ONLY) && !(istype(F, /obj/item/clothing/mask/facehugger/latching)))
+		to_chat(src, span_notice("We are currently not capable of absorbing non-latching facehuggers."))
 		return FALSE
 	if(huggers < xeno_caste.huggers_max)
 		if(F.stat == DEAD && !forced)

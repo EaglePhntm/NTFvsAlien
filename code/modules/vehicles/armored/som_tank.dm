@@ -12,13 +12,13 @@
 	interior = /datum/interior/armored/som
 	minimap_icon_state = "som_tank"
 	minimap_flags = MINIMAP_FLAG_MARINE_SOM
-	armored_flags = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_SECONDARY_WEAPON|ARMORED_HAS_HEADLIGHTS|ARMORED_SOM_PURCHASABLE_ASSAULT|ARMORED_WRECKABLE
+	armored_flags = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_SECONDARY_WEAPON|ARMORED_HAS_HEADLIGHTS|ARMORED_SOM_PURCHASABLE_ASSAULT|ARMORED_WRECKABLE|ARMORED_SELF_WALL_DAMAGE
 	pass_flags = PASS_LOW_STRUCTURE|PASS_DEFENSIVE_STRUCTURE|PASS_FIRE
 	pixel_x = -65
 	pixel_y = -80
 	max_integrity = 1000
-	soft_armor = list(MELEE = 40, BULLET = 80, LASER = 80, ENERGY = 80, BOMB = 50, BIO = 100, FIRE = 100, ACID = 40)
-	hard_armor = list(MELEE = 0, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 0, BIO = 20, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 50, BULLET = 100, LASER = 100, ENERGY = 90, BOMB = 50, BIO = 100, FIRE = 100, ACID = 50)
+	hard_armor = list(MELEE = 0, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 100, FIRE = 0, ACID = 0)
 	facing_modifiers = list(VEHICLE_FRONT_ARMOUR = 0.5, VEHICLE_SIDE_ARMOUR = 1, VEHICLE_BACK_ARMOUR = 1.6)
 	permitted_weapons = list(/obj/item/armored_weapon/volkite_carronade, /obj/item/armored_weapon/particle_lance, /obj/item/armored_weapon/coilgun, /obj/item/armored_weapon/secondary_mlrs)
 	permitted_mods = list(/obj/item/tank_module/ability/smoke_launcher)

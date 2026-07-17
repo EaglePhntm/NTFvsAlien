@@ -239,6 +239,7 @@ GLOBAL_LIST_INIT(specialist_gear_listed_products, list(
 	/obj/item/storage/box/crate/loot/infiltration_pack_spec = list(CAT_SPSUP, "Infiltrator Tranq Class (Sneak suit, G22 Tranq Pistol, Nonlethal Gear, NVG, Scout Cloak)", 25, "black"),
 	/obj/item/storage/box/crate/loot/infiltration_lethal_pack_spec = list(CAT_SPSUP, "Infiltrator Lethal Class (Sneak suit, M4A3 AP Pistol, Pistol Pamphlet, Lethal Gear, NVG, Scout Cloak)", 25, "black"),
 	/obj/item/storage/box/crate/loot/gheist_pack_spec = list(CAT_SPSUP, "MPAR Hybrid Class (NVG, Light Footed skillsoft, Rifle Pamphlet, NTF Multi-Purpose Adaptive Rifle)", 25, "orange"),
+	/obj/item/storage/box/crate/loot/at_pack_spec = list(CAT_SPSUP, "KHM4 Hybrid Class (Hlin Explosive Module, Rifle Pamphlet, KHM4 Subcarbine, RL-152 SADAR)", 25, "orange"),
 	/obj/item/storage/box/crate/loot/mg_pack_spec = list(CAT_SPSUP, "Enforcer Gunner Class (MG27-E, Impr. Constitution skillsoft)", 25, "black"),
 	/obj/item/storage/box/crate/loot/shield_pack_spec = list(CAT_SPSUP, "Enforcer Defender Class (Soulsteel shield, Extreme Constitution skillsoft, valkyrie module)", 25, "black"),
 	/obj/item/ammo_magazine/pistol/g22tranq = list(CAT_SPSUP, "G22 Tranq Magazine", 1, "black"),
@@ -256,7 +257,11 @@ GLOBAL_LIST_INIT(specialist_gear_listed_products, list(
 	/obj/item/ammo_magazine/rifle/mpar/bomb = list(CAT_SPSUP, "MPAR 10-round shatter mag", 2, "black"),
 	/obj/item/ammo_magazine/rifle/mpar/drain = list(CAT_SPSUP, "MPAR 10-round tangle mag", 2, "black"),
 	/obj/item/ammo_magazine/rifle/mpar/electromag = list(CAT_SPSUP, "MPAR 5-round EMP mag", 2, "black"),
-	/obj/item/ammo_magazine/minigun_powerpack = list(CAT_SPSUP, "Minigun Powerpack", 8, "black"),
+	/obj/item/ammo_magazine/rifle/m16 = list(CAT_SPSUP, "M16 mag", 1, "black"),
+	/obj/item/ammo_magazine/rifle/m16_quadstack = list(CAT_SPSUP, "M16 extended mag", 2, "black"),
+	/obj/item/ammo_magazine/rocket/sadar/unguided = list(CAT_SPSUP, "SADAR Unguided HE", 4, "black"),
+	/obj/item/ammo_magazine/rocket/sadar/ap = list(CAT_SPSUP, "SADAR Guided AP", 4, "black"),
+	/obj/item/ammo_magazine/rocket/sadar/plasmaloss = list(CAT_SPSUP, "SADAR Guided Tanglefoot", 4, "black"),
 	))
 
 

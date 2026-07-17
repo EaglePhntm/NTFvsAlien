@@ -3,6 +3,7 @@
 // --- Small Arms ---
 
 // Pistols
+#define CALIBER_9X18 "9x18mm Makarov"
 #define CALIBER_9X19 "9x19mm Parabellum"
 #define CALIBER_9X19_TRANQUILIZER "9x19mm Tranquilizer"
 #define CALIBER_45ACP ".45 ACP"

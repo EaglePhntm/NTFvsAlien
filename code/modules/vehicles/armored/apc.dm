@@ -5,7 +5,7 @@
 	icon_state = "apc"
 	damage_icon_path = 'icons/obj/armored/3x3/apc_damage_overlay.dmi'
 	interior = /datum/interior/armored/transport
-	armored_flags = ARMORED_HAS_HEADLIGHTS|ARMORED_PURCHASABLE_TRANSPORT
+	armored_flags = ARMORED_HAS_HEADLIGHTS|ARMORED_PURCHASABLE_TRANSPORT|ARMORED_SELF_WALL_DAMAGE
 	permitted_weapons = list(/obj/item/armored_weapon/secondary_weapon, /obj/item/armored_weapon/secondary_flamer, /obj/item/armored_weapon/tow, /obj/item/armored_weapon/microrocket_pod)
 	permitted_mods = list(/obj/item/tank_module/overdrive, /obj/item/tank_module/ability/zoom, /obj/item/tank_module/interior/medical, /obj/item/tank_module/interior/clone_bay)
 	minimap_icon_state = "apc"
@@ -13,7 +13,8 @@
 	pixel_x = -48
 	pixel_y = -40
 	max_integrity = 600
-	soft_armor = list(MELEE = 40, BULLET = 100 , LASER = 90, ENERGY = 60, BOMB = 60, BIO = 100, FIRE = 40, ACID = 40)
+	soft_armor = list(MELEE = 45, BULLET = 90 , LASER = 90, ENERGY = 90, BOMB = 60, BIO = 100, FIRE = 100, ACID = 40)
+	hard_armor = list(MELEE = 0, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 100, FIRE = 0, ACID = 0)
 	max_occupants = 20 //Clown car? Clown car.
 	enter_delay = 0.4 SECONDS
 	ram_damage = 300
