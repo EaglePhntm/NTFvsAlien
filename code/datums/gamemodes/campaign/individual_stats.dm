@@ -370,6 +370,9 @@
 					to_chat(user, span_warning("Wait for the next mission to be selected!"))
 					return
 			var/obj/item/card/id/user_id = user.get_idcard()
+			if(!(SSticker.mode.round_type_flags2 & MODE_2_ALLOW_LOADOUTS))
+				to_chat(user, span_warning("You don't need to use this in this gamemode."))
+				return
 			if(!(user_id.id_flags & CAN_BUY_LOADOUT))
 				to_chat(user, span_warning("You have already selected a loadout for this mission."))
 				return

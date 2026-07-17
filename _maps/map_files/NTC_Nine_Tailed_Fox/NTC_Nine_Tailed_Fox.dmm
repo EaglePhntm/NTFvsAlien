@@ -4539,7 +4539,7 @@
 /obj/item/tool/taperoll/police,
 /obj/item/taperecorder,
 /obj/item/weapon/baton/stunprod,
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/stuns,
 /obj/item/flash,
 /obj/item/clothing/glasses/sunglasses/sechud,
 /obj/structure/closet/secure_closet/military_police,
@@ -7503,11 +7503,11 @@
 /obj/structure/table/mainship,
 /obj/item/detective_scanner,
 /obj/item/taperecorder,
-/obj/item/storage/box/flashbangs{
+/obj/item/storage/box/stuns{
 	pixel_y = 10
 	},
 /obj/item/storage/box/handcuffs,
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/stuns,
 /turf/open/floor/mainship/mono,
 /area/security/checkpoint{
 	outside = 0;
@@ -9685,10 +9685,10 @@
 /area/mainship/hallways/synthdorms)
 "ibx" = (
 /obj/structure/rack,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/stuns,
+/obj/item/storage/box/stuns,
+/obj/item/storage/box/stuns,
+/obj/item/storage/box/stuns,
 /obj/item/clothing/head/helmet/marine/riot,
 /obj/item/clothing/head/helmet/marine/riot,
 /obj/item/clothing/head/helmet/marine/riot,
@@ -24466,8 +24466,8 @@
 /area/mainship/groundhq/ntf/shipboard/brig)
 "tWN" = (
 /obj/machinery/recharger,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/flashbangs{
+/obj/item/storage/box/stuns,
+/obj/item/storage/box/stuns{
 	pixel_y = 10
 	},
 /obj/item/storage/box/handcuffs,

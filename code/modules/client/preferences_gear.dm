@@ -19,6 +19,12 @@ GLOBAL_LIST_INIT(gear_datums, populate_gear_list())
 	cost = 1
 	slot = SLOT_HEAD
 
+/datum/gear/flowerpink
+	display_name = "Pink Flower Pin"
+	path = /obj/item/clothing/head/hairflowerpink
+	cost = 1
+	slot = SLOT_HEAD
+
 /datum/gear/bandanna_grey
 	display_name = "surplus bandanna (grey)"
 	path = /obj/item/clothing/head/bandanna/grey

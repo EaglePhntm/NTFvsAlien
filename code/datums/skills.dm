@@ -513,6 +513,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	powerloader = SKILL_POWERLOADER_PRO
 	police = SKILL_POLICE_MP
 	smartgun = SKILL_SMART_TRAINED
+	sex = SKILL_SEX_TRAINED
 
 /datum/skills/pilot
 	name = PILOT_OFFICER
@@ -668,16 +669,21 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 
 /datum/skills/sl/icc
 	name = "CM Leader"
-	combat = SKILL_COMBAT_TRAINED
-	shotguns = SKILL_SHOTGUNS_TRAINED
-	heavy_weapons = SKILL_HEAVY_WEAPONS_TRAINED
-	construction = SKILL_CONSTRUCTION_PLASTEEL
+	
+/datum/skills/icc_admn
+	name = "Colony Administrator"
 	engineer = SKILL_ENGINEER_ENGI
-	stamina = SKILL_STAMINA_TRAINED
+	construction = SKILL_CONSTRUCTION_ADVANCED
+	leadership = SKILL_LEAD_MASTER
+	medical = SKILL_MEDICAL_PRACTICED
+	surgery = SKILL_SURGERY_AMATEUR
+	powerloader = SKILL_POWERLOADER_PRO
+	police = SKILL_POLICE_MP
+	sex = SKILL_SEX_EXPERT
 
-/datum/skills/specialist //smartgun skill was cut since NTF spec has two options for smartweaponry that doesn't require smartgun skill, SR-81 autosniper & MPA rifle
+/datum/skills/specialist
 	name = SQUAD_SPECIALIST
-	unarmed = SKILL_UNARMED_MASTER //Snake, remember some of the basics of CQC.
+	unarmed = SKILL_UNARMED_MASTER //Snake, remember some of the basics of CQC. They are trained to be like that specifically.
 	construction = SKILL_CONSTRUCTION_METAL
 	engineer = SKILL_ENGINEER_METAL //to use c4 in scout set.
 	medical = SKILL_MEDICAL_NOVICE
@@ -685,25 +691,23 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 
 /datum/skills/specialist/vanguard
 	name = VANGUARD
-	unarmed = SKILL_UNARMED_MASTER
+	unarmed = SKILL_UNARMED_TRAINED
 	construction = SKILL_CONSTRUCTION_DEFAULT
 	engineer = SKILL_ENGINEER_DEFAULT
 	medical = SKILL_MEDICAL_PRACTICED
 	surgery = SKILL_SURGERY_TRAINED
-	leadership = SKILL_LEAD_TRAINED
 	police = SKILL_POLICE_MP
 	smartgun = SKILL_SMART_TRAINED
-	sex = SKILL_SEX_EXPERT
+	sex = SKILL_SEX_TRAINED
 
-/datum/skills/champion //to compensate for the lack of specialized starting equipment, the champion is proficient in unarmed, melee, rifles, heavy weapons and smartguns but without building skills has to rely on fellow cultists or the hive for structures & defenses
+/datum/skills/champion //they are religious figures capable of leadership and healing.
 	name = "Cultist Champion"
-	unarmed = SKILL_UNARMED_MASTER //What is a champion without capable hands?
-	melee_weapons = SKILL_MELEE_TRAINED //Are you not entertained!?
+	unarmed = SKILL_UNARMED_TRAINED
+	melee_weapons = SKILL_MELEE_TRAINED
 	combat = SKILL_COMBAT_TRAINED
-	rifles = SKILL_RIFLES_TRAINED //Champion spawns with at least one weapon this skill will apply to
-	heavy_weapons = SKILL_HEAVY_WEAPONS_TRAINED
-	medical = SKILL_MEDICAL_NOVICE
-	leadership = SKILL_LEAD_BEGINNER
+	medical = SKILL_MEDICAL_PRACTICED
+	surgery = SKILL_SURGERY_TRAINED
+	leadership = SKILL_LEAD_EXPERT
 	smartgun = SKILL_SMART_TRAINED //CoE armory has a chance to spawn a free SG29 the champion can use
 
 /datum/skills/specialist_vsd
@@ -716,13 +720,9 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 
 /datum/skills/specialist_vsdescort
 	name = "VSD Combat Escort" // Fucked up mix of slut and AC specialist skills.
-	unarmed = SKILL_UNARMED_TRAINED // Armed melee fighter as opposed to unarmed brawler.
-	combat = SKILL_COMBAT_TRAINED // Both meanings of escort, DUH.
 	melee_weapons = SKILL_MELEE_TRAINED //Katana LARP.
 	medical = SKILL_MEDICAL_PRACTICED // mildly trained at everything, but not enough to be a proper specialist.
-	leadership = SKILL_LEAD_TRAINED // Still an officer rank, backup in case the actual SL dies (just like vanguard).
-	stamina = SKILL_STAMINA_TRAINED // Sex Marathon Pros.
-	sex = SKILL_SEX_EXPERT // Healslut/Corporate fuckdoll.
+	sex = SKILL_SEX_TRAINED // Healslut/Corporate fuckdoll.
 
 /datum/skills/specialist/pmc
 	name = "AC Specialist"
@@ -995,11 +995,10 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	police = SKILL_POLICE_MP
 
 //SOM spec veteran
-/datum/skills/som_specveteran //to distinguish from other spec roles, quik-e-quip loadouts may have a pamphlet for rifle, pistol, or shotgun skill
+/datum/skills/som_specveteran //to distinguish from other spec roles, quik-e-quip loadouts may have a pamphlet for rifle, pistol, or shotgun skill, thats their primary skill
 	name = "SOM Veteran"
 	leadership = SKILL_LEAD_BEGINNER
 	unarmed = SKILL_UNARMED_TRAINED
-	melee_weapons = SKILL_MELEE_TRAINED
 	construction = SKILL_CONSTRUCTION_METAL
 	engineer = SKILL_ENGINEER_METAL
 	medical = SKILL_MEDICAL_NOVICE
@@ -1061,3 +1060,13 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	construction = SKILL_CONSTRUCTION_PLASTEEL
 	engineer = SKILL_ENGINEER_PLASTEEL
 	leadership = SKILL_LEAD_EXPERT
+
+/datum/skills/doctor/ripperdoc
+	unarmed = SKILL_UNARMED_WEAK
+	combat = SKILL_COMBAT_UNTRAINED
+	medical = SKILL_MEDICAL_EXPERT
+	surgery = SKILL_SURGERY_EXPERT
+	melee_weapons = SKILL_MELEE_WEAK
+	chemistry = SKILL_CHEM_EXPERT
+	construction = SKILL_CONSTRUCTION_METAL
+	engineer = SKILL_ENGINEER_ENGI

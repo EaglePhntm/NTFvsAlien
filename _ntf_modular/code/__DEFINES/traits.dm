@@ -10,5 +10,7 @@
 #define TRAIT_FRAIL_LARVABURSTS "frail_larvabursts"
 #define TRAIT_CULTIST "cultist"
 #define TRAIT_RESEARCHER "researcher"
+/// Can only store or throw latching huggers
+#define TRAIT_LATCHING_HUGGERS_ONLY "latching_huggers_only"
 
 #define TRAIT_EXOSUIT_NV "exosuit_nightvision" //Able to see in dark

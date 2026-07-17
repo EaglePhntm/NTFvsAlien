@@ -114,6 +114,7 @@ Make your way to the cafeteria for some post-cryosleep chow, and then get equipp
 	total_positions = -1
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS
 	outfit = /datum/outfit/job/som/squad/slut
+	skills_type = /datum/skills/slut
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_REGULAR,
 		/datum/job/som/squad/veteran = VETERAN_POINTS_REGULAR,

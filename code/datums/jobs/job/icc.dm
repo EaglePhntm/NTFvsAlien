@@ -58,7 +58,7 @@ CM believes the other factions to be vultures on top of a stillborn colonization
 	gloves = /obj/item/clothing/gloves/marine/icc/insulated
 	r_pocket = /obj/item/storage/pouch/pistol/icc
 	l_pocket = /obj/item/storage/pouch/medical_injectors/icc/firstaid
-	back = /obj/item/storage/backpack/lightpack/icc
+	back = /obj/item/storage/backpack/icc
 
 
 /datum/outfit/job/icc/standard/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -266,7 +266,7 @@ CM believes the other factions to be vultures on top of a stillborn colonization
 
 	id = /obj/item/card/id/silver
 	gloves = /obj/item/clothing/gloves/marine/icc
-	back = /obj/item/storage/backpack/lightpack/icc
+	back = /obj/item/storage/backpack/icc
 	belt = /obj/item/storage/belt/lifesaver/icc/ert
 	glasses = /obj/item/clothing/glasses/hud/health
 
@@ -529,12 +529,12 @@ Make the CM proud!"}
 //be assigned to jobs for colony management
 /datum/job/icc/administrator
 	title = "CM Colony Administrator"
-	paygrade = "O1"
-	comm_title = "ADM"
-	total_positions = 4
+	paygrade = "CM6"
+	comm_title = "ADMN"
+	total_positions = 1
 	access = ALL_ICC_ACCESS
 	minimal_access = ALL_ICC_ACCESS
-	skills_type = /datum/skills/so
+	skills_type = /datum/skills/icc_admn
 	display_order = JOB_DISPLAY_ORDER_STAFF_OFFICER
 	outfit = /datum/outfit/job/administrator
 	multiple_outfits = TRUE

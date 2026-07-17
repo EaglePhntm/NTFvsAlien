@@ -29,17 +29,16 @@
 			if(!commit)
 				commit = DEFINE_REVINFO_REVISION
 			#endif
-	if(commit)
+	if(!date)
+		date = trim(file2text("data/compile_date.txt"))
+		log_world("REVINFO: No tgs date, file date: date = [date]")
 		if(!date)
-			date = trim(file2text("data/compile_date.txt"))
-			log_world("REVINFO: No tgs date, file date: date = [date]")
+			date = rustg_git_commit_date(commit)
+			log_world("REVINFO: No file date, rust date: date = [date]")
+			#ifdef DEFINE_REVINFO_COMPILE_DATE
 			if(!date)
-				date = rustg_git_commit_date(commit)
-				log_world("REVINFO: No file date, rust date: date = [date]")
-				#ifdef DEFINE_REVINFO_COMPILE_DATE
-				if(!date)
-					date = DEFINE_REVINFO_COMPILE_DATE
-				#endif
+				date = DEFINE_REVINFO_COMPILE_DATE
+			#endif
 	// goes to DD log and config_error.txt
 	log_world(get_log_message())
 

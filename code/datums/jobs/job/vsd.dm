@@ -88,7 +88,7 @@
 
 /datum/outfit/job/vsd/standard/ksg
 	w_uniform = /obj/item/clothing/under/vsd/shirt/webbing
-	glasses = /obj/item/clothing/glasses/night/vsd/alt
+	glasses = /obj/item/clothing/glasses/night_vision/vsd/alt
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/marmor
 	suit_store = /obj/item/weapon/gun/shotgun/pump/ksg/standard
 	l_pocket = /obj/item/storage/pouch/shotgun
@@ -166,7 +166,7 @@
 
 /datum/outfit/job/vsd/standard/lmg
 	w_uniform = /obj/item/clothing/under/vsd/alt/webbing
-	glasses = /obj/item/clothing/glasses/night/vsd/alt
+	glasses = /obj/item/clothing/glasses/night_vision/vsd/alt
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/marmor
 	suit_store = /obj/item/weapon/gun/rifle/vsd_lmg_main/recoilcomp
 	ears = /obj/item/radio/headset/mainship/vsd
@@ -239,7 +239,7 @@
 
 /datum/outfit/job/vsd/standard/upp_third
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/marmor
-	glasses = /obj/item/clothing/glasses/night/vsd/alt
+	glasses = /obj/item/clothing/glasses/night_vision/vsd/alt
 	w_uniform = /obj/item/clothing/under/vsd/upp/alt/webbing
 	suit_store = /obj/item/weapon/gun/rifle/lmg_d
 	l_pocket = /obj/item/storage/holster/flarepouch
@@ -517,7 +517,7 @@
 
 	id = /obj/item/card/id/silver
 	ears = /obj/item/radio/headset/mainship/vsd
-	glasses = /obj/item/clothing/glasses/night/vsd
+	glasses = /obj/item/clothing/glasses/night_vision/vsd
 	w_uniform = /obj/item/clothing/under/vsd/webbing
 	shoes = /obj/item/clothing/shoes/marine/vsd/full
 	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
@@ -922,7 +922,7 @@
 	head = /obj/item/clothing/head/helmet/marine/vsd/heavy
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/harmor
 	mask = /obj/item/clothing/mask/gas/vsd
-	glasses = /obj/item/clothing/glasses/night/vsd
+	glasses = /obj/item/clothing/glasses/night_vision/vsd
 	suit_store = /obj/item/weapon/gun/rifle/vsd_lmg/juggernaut
 	belt = /obj/item/storage/holster/belt/korovin
 	ears = /obj/item/radio/headset/mainship/vsd
@@ -959,7 +959,7 @@
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd
 	w_uniform = /obj/item/clothing/under/vsd/upp/alt/webbing
 	mask = /obj/item/clothing/mask/gas/vsd
-	glasses = /obj/item/clothing/glasses/night/vsd
+	glasses = /obj/item/clothing/glasses/night_vision/vsd
 	suit_store = /obj/item/weapon/gun/rifle/vsd_lmg/juggernaut
 	belt = /obj/item/storage/holster/belt/pistol/standard_pistol
 	ears = /obj/item/radio/headset/mainship/vsd

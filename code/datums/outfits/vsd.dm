@@ -378,7 +378,7 @@
 
 	id = /obj/item/card/id/silver
 	ears = /obj/item/radio/headset/mainship/vsd
-	glasses = /obj/item/clothing/glasses/night/vsd
+	glasses = /obj/item/clothing/glasses/night_vision/vsd
 	w_uniform = /obj/item/clothing/under/vsd/webbing
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd
 	head = /obj/item/clothing/head/helmet/marine/vsd
@@ -721,7 +721,7 @@
 /datum/outfit/job/vsd/leader/two
 	head = /obj/item/clothing/head/helmet/marine/vsd/heavy
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/harmor
-	glasses = /obj/item/clothing/glasses/night/vsd
+	glasses = /obj/item/clothing/glasses/night_vision/vsd
 	suit_store = /obj/item/weapon/gun/rifle/vsd_lmg/juggernaut
 	belt = /obj/item/storage/holster/belt/korovin
 
@@ -747,7 +747,7 @@
 	head = /obj/item/clothing/head/vsd/beret_alt
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd
 	w_uniform = /obj/item/clothing/under/vsd/upp/alt/webbing
-	glasses = /obj/item/clothing/glasses/night/vsd
+	glasses = /obj/item/clothing/glasses/night_vision/vsd
 	suit_store = /obj/item/weapon/gun/rifle/vsd_lmg/juggernaut
 	belt = /obj/item/storage/holster/belt/pistol/standard_pistol
 

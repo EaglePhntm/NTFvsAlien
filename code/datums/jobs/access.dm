@@ -381,6 +381,8 @@
 			. = size ? "CLTW" : "Cultist Technomancer"
 		if("CLTMS")
 			. = size ? "CLTMS" : "Cultist Messiah"
+		if("CLTAM")
+			. = size ? "CLTAM" : "Cultist Archmender"
 		if("SOM_E1")
 			. = size ? "PTE" : "SOM Private"
 		if("SOM_E2")
@@ -453,6 +455,8 @@
 			. = size ? "CML" : "CM Leader"
 		if("CM5")
 			. = size ? "CMT" : "CM Base Technician"
+		if("CM6")
+			. = size ? "ADMN" : "CM Colony Administrator"
 		if("KZ1")
 			. = size ? "JSGT" : "KZ Junior Sergeant"
 		if("KZ2")
@@ -511,5 +515,7 @@
 			. = size ? "CSN" : "Cult Sect Member"
 		if("CLTR5")
 			. = size ? "CSL" : "Cult Sect Leader"
+		if("CLNST")
+			. = size ? "CLNST" : "Colonist"
 		else
 			. = paygrade //custom paygrade

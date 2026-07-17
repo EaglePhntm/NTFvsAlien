@@ -37,7 +37,7 @@
 	var/list/mob/living/carbon/human/grabbing = null
 	COOLDOWN_DECLARE(tentacle_cooldown)
 	COOLDOWN_DECLARE(cum_cooldown)
-	max_integrity = 40
+	max_integrity = 10
 	resist_time = 3 SECONDS //gotta be able to resist quick in case this is used in combat, with the quick capture power, you WILL die so fast.
 	var/capture_time = 1 SECONDS
 	var/cooldown_time = 5 SECONDS
@@ -360,7 +360,7 @@
 	resist_time = 15 SECONDS
 	capture_time = 10 SECONDS
 	cooldown_time = 6 SECONDS
-	max_integrity = 80
+	max_integrity = 40
 
 //wall nest
 /turf/closed/wall/attackby(obj/item/attacking_item, mob/living/user)

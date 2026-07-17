@@ -151,6 +151,21 @@
 	burst_scatter_mod = -4
 	aim_mode_delay_mod = -0.6
 
+/obj/item/attachable/foldable/bipod/l88lbar
+	name = "\improper L88-LBAR bipod"
+	desc = "A bipod for an L88 autorifle."
+	icon = 'ntf_modular/icons/obj/items/guns/attachments/stock.dmi'
+	icon_state = "l88lbar"
+	slot = ATTACHMENT_SLOT_STOCK
+	attach_features_flags = NONE
+	size_mod = 2
+	deploy_time = 1 SECONDS
+	accuracy_mod = 0.5
+	recoil_mod = -3
+	scatter_mod = -6
+	burst_scatter_mod = 0
+	aim_mode_delay_mod = -0.5
+
 /obj/item/attachable/foldable/bipod/activate(mob/living/user, turn_off)
 	if(folded && !(master_gun.item_flags & WIELDED)) //no one handed bipod use
 		if(user)

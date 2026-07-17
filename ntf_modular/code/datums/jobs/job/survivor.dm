@@ -6,7 +6,7 @@
 
 //Prisoner Survivor
 /datum/job/survivor/prisoner
-	title = "Prisoner Colonist"
+	title = "Fugitive Colonist"
 	skills_type = /datum/skills/civilian/survivor
 	outfit = /datum/outfit/job/survivor/prisoner
 

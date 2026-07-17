@@ -2,6 +2,7 @@
 /datum/game_mode/hvh
 	name = "HvH base mode"
 	round_type_flags = MODE_LATE_OPENING_SHUTTER_TIMER|MODE_TWO_HUMAN_FACTIONS|MODE_HUMAN_ONLY
+	round_type_flags2 = MODE_2_ALLOW_LOADOUTS
 	shutters_drop_time = 3 MINUTES
 	xeno_abilities_flags = ABILITY_CRASH
 	factions = list(FACTION_TERRAGOV, FACTION_SOM)

@@ -955,7 +955,7 @@ below 100 is not dizzy
 			REMOVE_TRAIT(src, TRAIT_IMMOBILE, STAT_TRAIT)
 			REMOVE_TRAIT(src, TRAIT_FLOORED, STAT_TRAIT)
 			var/health_from_crit = health - get_crit_threshold()
-			log_message("became unconscious, [health_from_crit] health above crit, was unconscious for [DisplayTimeText(world.time - stat_not_conscious_since)].", LOG_ATTACK, color="orange")
+			log_message("stopped being unconscious, [health_from_crit] health above crit, was unconscious for [DisplayTimeText(world.time - stat_not_conscious_since)].", LOG_ATTACK, color="orange")
 		if(DEAD)
 			on_death()
 			ADD_TRAIT(src, TRAIT_NON_FLAMMABLE, STAT_TRAIT)

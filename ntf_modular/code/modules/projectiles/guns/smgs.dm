@@ -38,10 +38,10 @@
 	fire_delay = 0.1 SECONDS
 	burst_delay =  0.15 SECONDS
 	burst_amount = 5
-	accuracy_mult = 1
-	accuracy_mult_unwielded = 0.8
-	scatter = 4
-	scatter_unwielded = 8
+	accuracy_mult = 0.7
+	accuracy_mult_unwielded = 0.5
+	scatter = 6
+	scatter_unwielded = 12
 	aim_slowdown = 0.15
 	wield_delay = 0.4 SECONDS
 	damage_mult = 1
@@ -72,8 +72,7 @@
 /datum/ammo/bullet/smg/minibap
 	name = "specialized armor-piercing machinepistol bullet"
 	hud_state = "smg_ap"
-	damage = 22.5
-	penetration = 12.5
-	sundering = 0.75
-	damage_falloff = 1
-	accurate_range = 7
+	damage = 15
+	accurate_range = 5
+	sundering = 0.6
+	penetration = 10

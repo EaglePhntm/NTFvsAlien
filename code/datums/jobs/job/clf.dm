@@ -246,7 +246,7 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 /datum/job/clf/mo
 	title = "Cultist Archmender"
 	paygrade = "MO"
-	comm_title = "CLTMO"
+	comm_title = "CLTAM"
 	minimap_icon = "CLT2"
 	supervisors = "The Hive."
 	total_positions = 1
@@ -298,3 +298,13 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
 	. += {"You are the current great leader of the cult of evolution, lead your cult from safety and comfort, get them to kidnap people for breeding and probably sacrifice after,
 	or at the same time, whatever you want, you can do it. Well you are still below the queen and the queen mother of the hive."}
+
+//used for modes like colony fall
+/datum/job/clf/traitor
+	title = "Cultist Agent"
+	paygrade = "CLNST"
+	faction = FACTION_ICC //disguise ig
+	job_category = JOB_CAT_CLF
+	access = list(ALL_CLF_ACCESS, ACCESS_CIVILIAN_MEDICAL, ACCESS_CIVILIAN_ENGINEERING, ACCESS_CIVILIAN_LOGISTICS, ACCESS_CIVILIAN_PUBLIC, ACCESS_CIVILIAN_RESEARCH)
+	minimal_access = list(ALL_CLF_ACCESS, ACCESS_CIVILIAN_MEDICAL, ACCESS_CIVILIAN_ENGINEERING, ACCESS_CIVILIAN_LOGISTICS, ACCESS_CIVILIAN_PUBLIC, ACCESS_CIVILIAN_RESEARCH)
+	skills_type = /datum/skills/crafty

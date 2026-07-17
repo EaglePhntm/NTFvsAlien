@@ -48,6 +48,14 @@
 	shrapnel_chance = 15
 	sundering = 1.5
 
+/datum/ammo/bullet/pistol/aps
+	name = "armor-piercing pistol bullet"
+	hud_state = "pistol_ap"
+	damage = 17.5
+	penetration = 7.5
+	shrapnel_chance = 15
+	sundering = 0.75
+
 /datum/ammo/bullet/pistol/heavy
 	name = "heavy pistol bullet"
 	hud_state = "pistol_heavy"

@@ -744,6 +744,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 		/obj/item/ammo_magazine/rocket/sadar/ap,
 		/obj/item/ammo_magazine/rocket/sadar/wp,
 		/obj/item/ammo_magazine/rocket/sadar/wp/unguided,
+		/obj/item/ammo_magazine/rocket/sadar/plasmaloss,
 	)
 	equip_slot_flags = NONE
 	w_class = WEIGHT_CLASS_HUGE
@@ -1198,7 +1199,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 
 	fire_delay = 0.4 SECONDS
 	wield_delay = 2 SECONDS
-	windup_delay = 0 SECONDS
 	aim_slowdown = 3
 	accuracy_mult = 0.8 //0.9 with lasersight
 	recoil = 1

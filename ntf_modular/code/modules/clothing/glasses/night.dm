@@ -3,21 +3,21 @@
 	desc = "An incredibly expensive night vision goggle for high definition imagery in the dark. You can tell them you saw red when you do murder. Click it to toggle."
 	icon_state = "night_vision"	//i got too lazy to make a sprite
 	deactive_state = "night_vision_off"
-	color_cutoffs = list(40, 10, 10) //seemingly red makes things harder to see when mixed somehow
+	color_cutoffs = list(50, 10, 10) //seemingly red makes things harder to see when mixed somehow
 
 /obj/item/clothing/glasses/night/m42_night_goggles/ntc_g
 	name = "\improper NT 'Stalker-G' HD night-vision goggles"
 	desc = "An incredibly expensive night vision goggle for high definition imagery in the dark. Green as gr-ass. Click it to toggle."
 	icon_state = "night_vision"
 	deactive_state = "night_vision_off"
-	color_cutoffs = list(10, 40, 10)
+	color_cutoffs = list(10, 50, 10)
 
 /obj/item/clothing/glasses/night/m42_night_goggles/ntc_b
 	name = "\improper NT 'Stalker-B' HD night-vision goggles"
 	desc = "An incredibly expensive night vision goggle for high definition imagery in the dark. Blue like your balls. Click it to toggle."
 	icon_state = "night_vision"
 	deactive_state = "night_vision_off"
-	color_cutoffs = list(0, 20, 40)
+	color_cutoffs = list(0, 30, 50)
 
 /obj/item/clothing/glasses/night/m56_goggles/vsd
 	name = "\improper CM-13 night vision goggles"

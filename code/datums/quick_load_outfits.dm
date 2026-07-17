@@ -1439,7 +1439,7 @@
 	glasses = /obj/item/clothing/glasses/meson
 	r_pocket = /obj/item/storage/pouch/firstaid/som/combat_patrol
 	l_pocket = /obj/item/storage/pouch/tools/som/full
-	back = /obj/item/storage/backpack/lightpack/som
+	back = /obj/item/storage/backpack/som
 
 /datum/outfit/quick/som/engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -1619,7 +1619,7 @@
 	glasses = /obj/item/clothing/glasses/hud/health
 	r_pocket = /obj/item/storage/pouch/magazine/large/som
 	l_pocket = /obj/item/storage/pouch/grenade/som/combat_patrol
-	back = /obj/item/storage/backpack/lightpack/som
+	back = /obj/item/storage/backpack/som
 
 /datum/outfit/quick/som/medic/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -1806,7 +1806,7 @@
 	name = "V-31 Veteran Infantryman"
 	desc = "Heavily armed and armored SOM elite. Equipped with a V-31 assault rifle with integrated 'micro grenade' rail launcher, heavy armor, a large variety of grenades as well as AP ammunition. Excellent performance against heavily armored targets, while the plentiful grenade provide greater tactical flexibility."
 
-	back = /obj/item/storage/backpack/lightpack/som
+	back = /obj/item/storage/backpack/som
 	suit_store = /obj/item/weapon/gun/rifle/som/veteran
 	belt = /obj/item/storage/belt/marine/som/som_rifle_ap
 
@@ -2138,7 +2138,7 @@
 	name = "V-31 Squad Leader"
 	desc = "Tactical utility. Equipped with a V-31 assault rifle with integrated 'micro grenade' rail launcher, Gorgon heavy armor with 'Valkyrie' autodoctor module, a large variety of grenades as well as AP ammunition. Excellent performance against heavily armored targets, while the plentiful grenade provide greater tactical flexibility."
 
-	back = /obj/item/storage/backpack/lightpack/som
+	back = /obj/item/storage/backpack/som
 	suit_store = /obj/item/weapon/gun/rifle/som/veteran
 	belt = /obj/item/storage/belt/marine/som/som_rifle_ap
 
@@ -2554,7 +2554,7 @@
 	mask = /obj/item/clothing/mask/gas/icc
 	r_pocket = /obj/item/storage/pouch/pistol/icc
 	l_pocket = /obj/item/storage/pouch/medical_injectors/icc/firstaid
-	back = /obj/item/storage/backpack/lightpack/icc
+	back = /obj/item/storage/backpack/icc
 
 /datum/outfit/quick/icc/standard/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -2646,7 +2646,7 @@
 	mask = /obj/item/clothing/mask/gas/icc
 	r_pocket = /obj/item/storage/pouch/pistol/icc
 	l_pocket = /obj/item/storage/pouch/medical_injectors/icc/firstaid
-	back = /obj/item/storage/backpack/lightpack/icc
+	back = /obj/item/storage/backpack/icc
 	glasses = /obj/item/clothing/glasses/hud/health
 
 /datum/outfit/quick/icc/medic/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -2700,7 +2700,7 @@
 	mask = /obj/item/clothing/mask/gas/icc
 	r_pocket = /obj/item/storage/pouch/pistol/icc
 	l_pocket = /obj/item/storage/pouch/medical_injectors/icc/firstaid
-	back = /obj/item/storage/backpack/lightpack/icc
+	back = /obj/item/storage/backpack/icc
 
 /datum/outfit/quick/icc/guard/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -2784,7 +2784,7 @@
 	wear_suit = /obj/item/clothing/suit/storage/marine/icc/guard
 	gloves = /obj/item/clothing/gloves/marine/icc/guard
 	head = /obj/item/clothing/head/helmet/marine/icc/guard
-	back = /obj/item/storage/backpack/lightpack/icc/guard
+	back = /obj/item/storage/backpack/icc/guard
 	glasses = /obj/item/clothing/glasses/night/m42_night_goggles
 	l_pocket = /obj/item/storage/pouch/medical_injectors/icc/firstaid
 	r_pocket = /obj/item/storage/pouch/construction/icc/full

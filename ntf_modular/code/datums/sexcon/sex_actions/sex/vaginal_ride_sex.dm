@@ -62,8 +62,21 @@
 			X.impregify(user, HOLE_VAGINA)
 		if(isxeno(user) && ishuman(target))
 			var/mob/living/carbon/xenomorph/X = user
+			if(ishuman(target) && !(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES))
+				if(target.getCloneLoss() >= 45 || HAS_TRAIT(target, TRAIT_PSY_DRAINED))
+					to_chat(user, "This person is too devestated to impregnate you anymore!")
+					X.claim_hive_target_reward(target)
+					return
+				if(target.status_flags & XENO_HOST)
+					to_chat(user, "This targets pregnancy prevents you from becoming pregnant!")
+					X.claim_hive_target_reward(target)
+					return
+				if(X.xenoimpregify())
+					target.adjustCloneLoss(45)
+					target.Shake(duration = 2 SECONDS)
 			if(X.xenoimpregify())
 				X.claim_hive_target_reward(target)
+
 
 
 

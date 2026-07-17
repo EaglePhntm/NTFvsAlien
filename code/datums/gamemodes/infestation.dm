@@ -282,23 +282,23 @@
 	var/sound/ghost_track
 	switch(round_finished)
 		if(MODE_INFESTATION_X_MAJOR)
-			xeno_track = pick('sound/theme/winning_triumph1.ogg', 'sound/theme/winning_triumph2.ogg')
-			human_track = pick('sound/theme/sad_loss1.ogg', 'sound/theme/sad_loss2.ogg')
+			xeno_track = pick('sound/theme/winning_triumph1.ogg', 'sound/theme/winning_triumph2.ogg', 'sound/theme/winning_triumph3.ogg', 'sound/theme/winning_triumph4.ogg')
+			human_track = pick('sound/theme/sad_loss1.ogg', 'sound/theme/sad_loss2.ogg', 'sound/theme/sad_loss3.ogg', 'sound/theme/sad_loss4.ogg')
 			ghost_track = xeno_track
 		if(MODE_INFESTATION_M_MAJOR)
-			xeno_track = pick('sound/theme/sad_loss1.ogg', 'sound/theme/sad_loss2.ogg')
-			human_track = pick('sound/theme/winning_triumph1.ogg', 'sound/theme/winning_triumph2.ogg')
+			xeno_track = pick('sound/theme/sad_loss1.ogg', 'sound/theme/sad_loss2.ogg', 'sound/theme/sad_loss3.ogg', 'sound/theme/sad_loss4.ogg')
+			human_track = pick('sound/theme/winning_triumph1.ogg', 'sound/theme/winning_triumph2.ogg', 'sound/theme/winning_triumph3.ogg', 'sound/theme/winning_triumph4.ogg')
 			ghost_track = human_track
 		if(MODE_INFESTATION_X_MINOR)
-			xeno_track = pick('sound/theme/neutral_hopeful1.ogg', 'sound/theme/neutral_hopeful2.ogg')
-			human_track = pick('sound/theme/neutral_melancholy1.ogg', 'sound/theme/neutral_melancholy2.ogg')
+			xeno_track = pick('sound/theme/neutral_hopeful1.ogg', 'sound/theme/neutral_hopeful2.ogg', 'sound/theme/neutral_hopeful3.ogg', 'sound/theme/neutral_hopeful4.ogg')
+			human_track = pick('sound/theme/neutral_melancholy1.ogg', 'sound/theme/neutral_melancholy2.ogg', 'sound/theme/neutral_melancholy3.ogg', 'sound/theme/neutral_melancholy4.ogg')
 			ghost_track = xeno_track
 		if(MODE_INFESTATION_M_MINOR)
-			xeno_track = pick('sound/theme/neutral_melancholy1.ogg', 'sound/theme/neutral_melancholy2.ogg')
-			human_track = pick('sound/theme/neutral_hopeful1.ogg', 'sound/theme/neutral_hopeful2.ogg')
+			xeno_track = pick('sound/theme/neutral_melancholy1.ogg', 'sound/theme/neutral_melancholy2.ogg', 'sound/theme/neutral_melancholy3.ogg', 'sound/theme/neutral_melancholy4.ogg')
+			human_track = pick('sound/theme/neutral_hopeful1.ogg', 'sound/theme/neutral_hopeful2.ogg', 'sound/theme/neutral_hopeful3.ogg','sound/theme/neutral_hopeful4.ogg')
 			ghost_track = human_track
 		if(MODE_INFESTATION_DRAW_DEATH)
-			ghost_track = pick('sound/theme/nuclear_detonation1.ogg', 'sound/theme/nuclear_detonation2.ogg')
+			ghost_track = pick('sound/theme/nuclear_detonation1.ogg', 'sound/theme/nuclear_detonation2.ogg', 'sound/theme/nuclear_detonation3.ogg', 'sound/theme/nuclear_detonation4.ogg')
 			xeno_track = ghost_track
 			human_track = ghost_track
 
@@ -399,7 +399,7 @@
 /datum/game_mode/infestation/proc/play_cinematic(z_level)
 	GLOB.enter_allowed = FALSE
 	priority_announce("DANGER. DANGER. Planetary Antimatter Bomb Activated. DANGER. DANGER. Self destruct in progress. DANGER. DANGER.", "Planetary Warhead Detonation Confirmed", type = ANNOUNCEMENT_PRIORITY)
-	var/sound/S = sound(pick('sound/theme/nuclear_detonation1.ogg','sound/theme/nuclear_detonation2.ogg'), channel = CHANNEL_CINEMATIC)
+	var/sound/S = sound(pick('sound/theme/nuclear_detonation1.ogg','sound/theme/nuclear_detonation2.ogg','sound/theme/nuclear_detonation3.ogg','sound/theme/nuclear_detonation4.ogg'), channel = CHANNEL_CINEMATIC)
 	SEND_SOUND(world, S)
 
 	for(var/mob/seer in GLOB.player_list)

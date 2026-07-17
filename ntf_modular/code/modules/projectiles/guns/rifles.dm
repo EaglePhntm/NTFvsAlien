@@ -24,6 +24,7 @@
 	aim_slowdown = 0.5
 	recoil = 2 //0 with stock
 	recoil_unwielded = 4 //2 with stock
+	damage_falloff_mult = 0.3
 	attachable_allowed = list(
 		/obj/item/attachable/scope/mini,
 		/obj/item/attachable/scope/marine,
@@ -180,7 +181,7 @@
 /obj/item/weapon/gun/rifle/nt_halter
 	//Abomination of AR-21, PR-412, AR-18 and MPI-KM
 	name = "\improper NT 'Halter' assault rifle"
-	desc = "The standardized NTC bullpup AR design made to be used as their default primary firearm Chambered in 7.62x38mm."
+	desc = "The standardized NTC bullpup AR design made to be used as their default primary firearm Chambered in 7.62x39mm."
 	icon = 'ntf_modular/icons/obj/items/guns/rifles64.dmi'
 	icon_state = "halter"
 	worn_icon_state = "halter"
@@ -197,7 +198,7 @@
 	unload_sound = 'sound/weapons/guns/interact/m41a_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/m41a_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/m16_cocked.ogg'
-	caliber = CALIBER_762X38 //codex
+	caliber = CALIBER_762X39 //codex
 	max_shells = 36 //codex
 	default_ammo_type = /obj/item/ammo_magazine/rifle/nt_halter
 	allowed_ammo_types = list(
@@ -254,6 +255,7 @@
 	wield_delay = 0.7 SECONDS
 	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_slowdown = 0.4
+	aim_fire_delay = 0.1 SECONDS
 	akimbo_scatter_mod = 24
 	akimbo_additional_delay = 0.8
 	aim_speed_modifier = 3
@@ -265,26 +267,29 @@
 /obj/item/weapon/gun/rifle/nt_halter/cqb
 	//more accurate but less AP version of v34 basically without stock option since its a bullpup, it IS the stock.
 	name = "\improper NT 'Halter-CQB' carbine"
-	desc = "A variant of Halter series standardized NTC bullpup AR design made into a carbine, Chambered in 7.62x38mm. This one is altered for close combat. The smaller frame make it lighter and easier to handle in close range encounters but it suffers from range reduction and overall accuracy."
+	desc = "A variant of Halter series standardized NTC bullpup AR design made into a carbine, Chambered in 7.62x39mm. This one is altered for close combat. The smaller frame make it lighter and easier to handle in close range encounters but it suffers from range reduction and overall accuracy."
 	icon = 'ntf_modular/icons/obj/items/guns/rifles64.dmi'
 	attachable_offset = list("muzzle_x" = 39, "muzzle_y" = 19,"rail_x" = 19, "rail_y" = 23, "under_x" = 29, "under_y" = 13, "stock_x" = 0, "stock_y" = 13)
 	icon_state = "haltercqb"
 	worn_icon_state = "haltercqb"
 	fire_delay = 0.15 SECONDS
+	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 2.5
 	aim_slowdown = 0.3
-	scatter = 8
-	scatter_unwielded = 14
+	scatter = 10
+	scatter_unwielded = 16
 	wield_delay = 0.4 SECONDS
-	damage_falloff_mult = 1
+	movement_acc_penalty_mult = 4
+	damage_falloff_mult = 1.2 //its a bullpup still
 	akimbo_additional_delay = 1.5
 	damage_mult = 0.9
+	force = 15
 
 //standard mag
 /obj/item/ammo_magazine/rifle/nt_halter
-	name = "\improper NT 'Halter' magazine (7.62x38mm)"
-	desc = "A magazine filled with 7.62x38mm rifle rounds for the Halter series of firearms."
-	caliber = CALIBER_762X38
+	name = "\improper NT 'Halter' magazine (7.62x39mm)"
+	desc = "A magazine filled with 7.62x39mm rifle rounds for the Halter series of firearms."
+	caliber = CALIBER_762X39
 	icon_state = "halter"
 	icon = 'ntf_modular/icons/obj/items/ammo/rifle.dmi'
 	bonus_overlay = "halter_mag"
@@ -295,31 +300,37 @@
 
 /datum/ammo/bullet/rifle/heavy/halter
 	name = "heavy rifle bullet"
+	//same caliber as mpi km
+	penetration = 15
+	sundering = 1.75
 
 //extended mag
 /obj/item/ammo_magazine/rifle/nt_halter/extended
-	name = "\improper NT 'Halter' extended magazine (7.62x38mm)"
-	desc = "An extended magazine filled with 7.62x38mm rifle rounds for the Halter series of firearms."
+	name = "\improper NT 'Halter' extended magazine (7.62x39mm)"
+	desc = "An extended magazine filled with 7.62x39mm rifle rounds for the Halter series of firearms."
 	max_rounds = 58 //close to mpi-km roughly
 	icon_state = "halter_ex"
 	bonus_overlay = "halter_ex"
+	scatter_mod = 1
 	aim_speed_mod = 0.2
 	wield_delay_mod = 0.2 SECONDS
 
 //drum mag
 /obj/item/ammo_magazine/rifle/nt_halter/drum
-	name = "\improper NT 'Halter' drum magazine (7.62x38mm)"
-	desc = "An drum magazine filled with 7.62x38mm rifle rounds for the Halter series of firearms."
+	name = "\improper NT 'Halter' drum magazine (7.62x39mm)"
+	desc = "An drum magazine filled with 7.62x39mm rifle rounds for the Halter series of firearms."
 	max_rounds = 80
 	icon_state = "halter_drum"
 	bonus_overlay = "halter_drum"
+	reload_delay = 1 SECONDS
+	scatter_mod = 2
 	aim_speed_mod = 0.3
 	wield_delay_mod = 0.3 SECONDS
 
 //emp mag
 /obj/item/ammo_magazine/rifle/nt_halter/charged
-	name = "\improper NT 'Halter' taser magazine (7.62x38mm Taser)"
-	desc = "A magazine filled with specialized 7.62x38mm rifle rounds to deliver a powerful shock ontop of blunt force, for the Halter series of firearms."
+	name = "\improper NT 'Halter' taser magazine (7.62x39mm Taser)"
+	desc = "A magazine filled with specialized 7.62x39mm rifle rounds to deliver a powerful shock ontop of blunt force, for the Halter series of firearms."
 	icon_state = "halter_charged"
 	bonus_overlay = "halter_charged"
 	default_ammo = /datum/ammo/bullet/rifle/heavy/halter/charged
@@ -328,7 +339,7 @@
 	name = "heavy shocking rifle bullet"
 	hud_state = "rifle_ap"
 	damage = 20
-	penetration = 5
+	penetration = 10
 	damage_type = BRUTE
 	sundering = 2
 	shrapnel_chance = 2
@@ -363,8 +374,8 @@
 
 //smart mag
 /obj/item/ammo_magazine/rifle/nt_halter/smart
-	name = "\improper NT 'Halter' smart magazine (7.62x38mm Smart)"
-	desc = "A magazine filled with specialized 7.62x38mm rifle rounds that slightly sways to avoid friendlies but loses overall power, for the Halter series of firearms."
+	name = "\improper NT 'Halter' smart magazine (7.62x39mm Smart)"
+	desc = "A magazine filled with specialized 7.62x39mm rifle rounds that slightly sways to avoid friendlies but loses overall power, for the Halter series of firearms."
 	icon_state = "halter_smart"
 	bonus_overlay = "halter_smart"
 	default_ammo = /datum/ammo/bullet/rifle/heavy/halter/smart
@@ -378,8 +389,8 @@
 
 //foxfire mag
 /obj/item/ammo_magazine/rifle/nt_halter/foxfire
-	name = "\improper NT 'Halter' foxfire magazine (7.62x38mm AP-I)"
-	desc = "A magazine filled with specialized 7.62x38mm AP-I rifle rounds that pierce armor and ignite targets, for the Halter series of firearms."
+	name = "\improper NT 'Halter' foxfire magazine (7.62x39mm AP-I)"
+	desc = "A magazine filled with specialized 7.62x39mm AP-I rifle rounds that pierce armor and ignite targets, for the Halter series of firearms."
 	icon_state = "halter_foxfire"
 	bonus_overlay = "halter_foxfire"
 	default_ammo = /datum/ammo/bullet/rifle/heavy/ap/foxfire
@@ -388,7 +399,7 @@
 	name = "armor-piercing foxfire heavy rifle bullet"
 	hud_state = "rifle_ap"
 	//bit less crazy than actual heavy ap
-	damage = 20
+	damage = 25
 	penetration = 20
 	sundering = 3
 	bullet_color = COLOR_RED_LIGHT
@@ -404,8 +415,8 @@
 
 //laser mag
 /obj/item/ammo_magazine/rifle/nt_halter/laser
-	name = "\improper NT 'Halter' laser magazine (7.62x38mm LE)"
-	desc = "A magazine filled with specialized 7.62x38mm single shot laser emitter rounds that shoots laser bolts instead of a standard round."
+	name = "\improper NT 'Halter' laser magazine (7.62x39mm LE)"
+	desc = "A magazine filled with specialized 7.62x39mm single shot laser emitter rounds that shoots laser bolts instead of a standard round."
 	icon_state = "halter_laser"
 	bonus_overlay = "halter_laser"
 	default_ammo = /datum/ammo/energy/lasgun/halter
@@ -413,46 +424,58 @@
 /datum/ammo/energy/lasgun/halter
 	//slightly less damage than regular bullets but except laser standard sundering and bullet speed.
 	name = "halter laser bolt"
-	damage = 27
+	penetration = 15
 	bullet_color = COLOR_RED_LIGHT
 
 //extended mag
 /obj/item/ammo_magazine/rifle/nt_halter/laser/extended
-	name = "\improper NT 'Halter' extended laser magazine (7.62x38mm LE)"
-	desc = "An extended magazine filled with 7.62x38mm laser emitter rounds for the Halter series of firearms."
+	name = "\improper NT 'Halter' extended laser magazine (7.62x39mm LE)"
+	desc = "An extended magazine filled with 7.62x39mm laser emitter rounds for the Halter series of firearms."
 	max_rounds = 58
 	icon_state = "halter_laser_ex"
 	bonus_overlay = "halter_laser_ex"
+	scatter_mod = 1
+	aim_speed_mod = 0.2
+	wield_delay_mod = 0.2 SECONDS
+
 
 //extended mag
 /obj/item/ammo_magazine/rifle/nt_halter/laser/drum
-	name = "\improper NT 'Halter' drum laser magazine (7.62x38mm)"
-	desc = "An drum magazine filled with 7.62x38mm laser emitter rounds for the Halter series of firearms."
+	name = "\improper NT 'Halter' drum laser magazine (7.62x39mm)"
+	desc = "An drum magazine filled with 7.62x39mm laser emitter rounds for the Halter series of firearms."
 	max_rounds = 80
 	icon_state = "halter_laser_drum"
 	bonus_overlay = "halter_laser_drum"
+	reload_delay = 1 SECONDS
+	scatter_mod = 2
+	aim_speed_mod = 0.3
+	wield_delay_mod = 0.3 SECONDS
 
 //rubber mags
 /obj/item/ammo_magazine/rifle/nt_halter/rubber
-	name = "\improper NT 'Halter' rubber magazine (7.62x38mm rub)"
-	desc = "A magazine filled with 7.62x38mm rubber rifle rounds for the Halter series of firearms."
+	name = "\improper NT 'Halter' rubber magazine (7.62x39mm rub)"
+	desc = "A magazine filled with 7.62x39mm rubber rifle rounds for the Halter series of firearms."
 	icon_state = "halter_rub"
 	icon = 'ntf_modular/icons/obj/items/ammo/rifle.dmi'
 	bonus_overlay = "halter_rub_mag"
 	default_ammo = /datum/ammo/bullet/rifle/heavy/rubber
 
+/datum/ammo/bullet/rifle/heavy/rubber/halter
+	penetration = 15
+	sundering = 1.75
+
 /obj/item/ammo_magazine/rifle/nt_halter/rubber/extended
-	name = "\improper NT 'Halter' extended rubber magazine (7.62x38mm rub)"
-	desc = "An extended magazine filled with 7.62x38mm rubber rounds for the Halter series of firearms."
+	name = "\improper NT 'Halter' extended rubber magazine (7.62x39mm rub)"
+	desc = "An extended magazine filled with 7.62x39mm rubber rounds for the Halter series of firearms."
 	max_rounds = 58
 	icon_state = "halter_rub_ex"
 	bonus_overlay = "halter_rub_ex"
 
 //im not making a sprite for this im lazy
 /obj/item/ammo_magazine/packet/halter
-	name = "box of 7.62x38mm"
-	desc = "A box containing 120 rounds of 7.62x38mm."
-	caliber = CALIBER_762X38
+	name = "box of 7.62x39mm"
+	desc = "A box containing 120 rounds of 7.62x39mm."
+	caliber = CALIBER_762X39
 	icon_state = "7.62"
 	default_ammo = /datum/ammo/bullet/rifle/heavy/halter
 	current_rounds = 120
@@ -460,18 +483,18 @@
 	color = COLOR_MAROON
 
 /obj/item/ammo_magazine/packet/halter/rubber
-	name = "box of 7.62x38mm rub"
-	desc = "A box containing 120 rounds of 7.62x38mm rub."
-	caliber = CALIBER_762X38
+	name = "box of 7.62x39mm rub"
+	desc = "A box containing 120 rounds of 7.62x39mm rub."
+	caliber = CALIBER_762X39
 	icon_state = "7.62"
-	default_ammo = /datum/ammo/bullet/rifle/heavy/rubber
+	default_ammo = /datum/ammo/bullet/rifle/heavy/rubber/halter
 	current_rounds = 120
 	max_rounds = 120
 	color = COLOR_BRIGHT_BLUE
 
 /obj/item/ammo_magazine/packet/halter/laser
-	name = "box of 7.62x38mm LE"
-	desc = "A box containing 120 rounds of 7.62x38mm Laser Emitters."
+	name = "box of 7.62x39mm LE"
+	desc = "A box containing 120 rounds of 7.62x39mm Laser Emitters."
 	default_ammo = /datum/ammo/energy/lasgun/halter
 	color = COLOR_RED
 
@@ -597,8 +620,19 @@
 		slot_l_hand_str = 'ntf_modular/icons/mob/inhands/guns/machineguns_left_1.dmi',
 		slot_r_hand_str = 'ntf_modular/icons/mob/inhands/guns/machineguns_right_1.dmi',
 	)
-	scatter = 8
-	deployed_scatter_change = -50
+	attachable_allowed = list(
+		/obj/item/attachable/motiondetector,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/stock/clf_heavyrifle,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/suppressor,
+	)
+	scatter = 18
+	deployed_scatter_change = -60
 	wield_delay = 1.8 SECONDS
 	soft_armor = list(MELEE = 30, BULLET = 80, LASER = 80, ENERGY = 70, BOMB = 60, BIO = 100, FIRE = 0, ACID = 0)
 	max_integrity = 600
@@ -606,12 +640,12 @@
 	deployable_item = /obj/machinery/deployable/mounted/shielded
 
 /obj/machinery/deployable/mounted/shielded/obj_break(damage_flag)
-	. = ..()
 	visible_message("[src] breaks down!")
 	if(operator)
 		on_unset_interaction(operator)
 	obj_integrity = integrity_failure + 5 //so it can be deployed and repaired again or something
 	disassemble()
+	. = ..()
 
 /obj/machinery/deployable/mounted/shielded
 	allow_pass_flags = PASS_AIR|PASS_LOW_STRUCTURE

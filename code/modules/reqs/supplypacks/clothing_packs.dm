@@ -93,7 +93,7 @@ CLOTHING
 
 /datum/supply_packs/clothing/cm12nvg
 	name = "CM-12 KZ night vision goggles"
-	contains = list(/obj/item/clothing/glasses/night/vsd)
+	contains = list(/obj/item/clothing/glasses/night_vision/vsd)
 	cost = 1000
 
 /datum/supply_packs/clothing/m42nvg

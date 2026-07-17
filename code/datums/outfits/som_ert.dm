@@ -15,7 +15,7 @@
 	head = /obj/item/clothing/head/modular/som
 	r_pocket = /obj/item/storage/pouch/firstaid/som/full
 	l_pocket = /obj/item/storage/pouch/grenade/som/ert
-	back = /obj/item/storage/backpack/lightpack/som
+	back = /obj/item/storage/backpack/som
 
 	suit_contents = list(
 		/obj/item/stack/medical/heal_pack/gauze = 1,
@@ -127,7 +127,7 @@
 	glasses = /obj/item/clothing/glasses/hud/health
 	r_pocket = /obj/item/storage/pouch/magazine/large/som
 	l_pocket = /obj/item/storage/pouch/grenade/som/ert
-	back = /obj/item/storage/backpack/lightpack/som
+	back = /obj/item/storage/backpack/som
 
 	head_contents = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus = 1,
@@ -215,7 +215,7 @@
 	glasses = /obj/item/clothing/glasses/meson
 	r_pocket = /obj/item/storage/pouch/firstaid/som/full
 	l_pocket = /obj/item/storage/pouch/grenade/som/ert
-	back = /obj/item/storage/backpack/lightpack/som
+	back = /obj/item/storage/backpack/som
 
 	head_contents = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = 1,

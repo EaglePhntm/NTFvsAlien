@@ -440,7 +440,6 @@
 	contains = list(/obj/item/ammo_magazine/rifle/valerian/pz/lrg)
 	cost = 40
 
-
 /datum/supply_packs/imports/mparexport
 	name = "Civilian Multi-Purpose Adaptive Rifle"
 	contains = list(/obj/item/weapon/gun/rifle/mpar/export)
@@ -481,10 +480,35 @@
 	contains = list(/obj/item/weapon/gun/rifle/vsd_rifle/export)
 	cost = 650
 
+/datum/supply_packs/imports/khm4export
+	name = "K&H KHM4 Subcarbine"
+	contains = list(/obj/item/weapon/gun/rifle/khm4)
+	cost = 300
+
+/datum/supply_packs/imports/lbar88export
+	name = "L&S EM-88 Squad Assault Weapon"
+	contains = list(/obj/item/weapon/gun/rifle/icc_assaultcarbine/exportautorifle)
+	cost = 360
+
+/datum/supply_packs/imports/apssmartpistol
+	name = "APS Smartpistol"
+	contains = list(/obj/item/weapon/gun/pistol/apsmart_pistol)
+	cost = 100
+
+/datum/supply_packs/imports/apsammo
+	name = "APS Smartpistol magazine"
+	contains = list(/obj/item/ammo_magazine/pistol/standard_pistol/apsmart_pistol)
+	cost = 5
+
 /datum/supply_packs/imports/cc67exportmag
 	name = "CC/67 CQB magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/vsd_sbr)
 	cost = 15
+
+/datum/supply_packs/imports/cc67export
+	name = "CC/67 CQB Rifle"
+	contains = list(/obj/item/weapon/gun/rifle/vsd_rifle/export)
+	cost = 650
 
 /datum/supply_packs/imports/plasticfork
 	name = "Plastic Fork"

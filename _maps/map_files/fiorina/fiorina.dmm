@@ -13701,7 +13701,7 @@
 /turf/open/floor/prison/plate,
 /area/fiorina/station/telecomm/lz1_tram)
 "hDw" = (
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/stuns,
 /obj/structure/table/reinforced/prison,
 /turf/open/floor/prison/whitegreen/full{
 	dir = 10
