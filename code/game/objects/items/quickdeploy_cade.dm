@@ -30,6 +30,7 @@
 	return TRUE
 
 /obj/item/quikdeploy/cade
+	name = "Steel QuikDeploy System"
 	thing_to_deploy = /obj/structure/barricade/solid
 	icon_state = "metal"
 	delay = 3 SECONDS
