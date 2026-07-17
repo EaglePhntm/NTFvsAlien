@@ -18,6 +18,15 @@
 	w_class = WEIGHT_CLASS_TINY
 	armor_features_flags = ARMOR_NO_DECAP
 
+/obj/item/clothing/head/hairflowerpink
+	name = "pink hair flower pin"
+	icon_state = "hairflowerpink"
+	desc = "Lotus in pink."
+	worn_icon_state = "hairflowerpink"
+	armor_protection_flags = HEAD
+	w_class = WEIGHT_CLASS_TINY
+	armor_features_flags = ARMOR_NO_DECAP
+
 /obj/item/clothing/head/bunny_ears
 	name = "bunny ears"
 	icon_state = "bunny"
