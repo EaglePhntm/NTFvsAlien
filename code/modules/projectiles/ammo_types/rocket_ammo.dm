@@ -72,6 +72,31 @@
 /datum/ammo/rocket/ap/drop_nade(turf/target_turf, atom/movable/projectile/proj)
 	explosion(target_turf, flash_range = 1, explosion_cause = proj)
 
+/datum/ammo/rocket/plasmaloss
+	name = "medium velocity chemical shell"
+	icon_state = "rocket_tanglefoot"
+	hud_state = "shell_tanglefoot"
+	damage_falloff = 0
+	shell_speed = 1.5
+	accuracy = 20
+	accurate_range = 20
+	max_range = 14
+	damage = 25
+	penetration = 10
+	sundering = 5
+
+	var/effect_radius = 3
+
+	var/datum/effect_system/smoke_spread/smoketype = /datum/effect_system/smoke_spread/plasmaloss
+	/// Radius this smoke will encompass on detonation.
+	var/smokeradius = 7
+
+/datum/ammo/rocket/plasmaloss/drop_nade(turf/target_turf, atom/movable/projectile/proj)
+	var/datum/effect_system/smoke_spread/smoke = new smoketype()
+	playsound(target_turf, 'sound/effects/smoke.ogg', 25, 1, 4)
+	smoke.set_up(smokeradius, target_turf, rand(5,9))
+	smoke.start()
+
 /datum/ammo/rocket/ltb
 	name = "cannon round"
 	icon_state = "ltb"
