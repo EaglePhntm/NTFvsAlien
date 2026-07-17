@@ -1046,15 +1046,15 @@
 
 	fire_delay = 0.15 SECONDS
 	scatter = 7
-	scatter_unwielded = 19
+	scatter_unwielded = 22
 	burst_scatter_mult = -0.15
 	extra_delay = 0.3 SECONDS
 	burst_delay = 0.15 SECONDS
 	accuracy_mult = 0.9
 	recoil_unwielded = 6
 	wield_delay = 0.6 SECONDS
-	movement_acc_penalty_mult = 3
-	damage_mult = 1.1
+	movement_acc_penalty_mult = 2
+	damage_mult = 1.05
 	damage_falloff_mult = 1
 
 /obj/item/weapon/gun/rifle/khm4/operator
