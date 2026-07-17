@@ -4169,7 +4169,7 @@
 
 
 /datum/outfit/quick/icc/guard/icc_rocket
-	name = "MP-IRL & K&H M4"
+	name = "MP-IRL & K&H M4 Guardsman"
 	desc = "Equipped with an MP-IRL rocket launcher and a K&H Subcarbine. Comes equipped with 5 HE, 2 thermobaric and 2 HE-AT warheads. Serious firepower."
 
 	belt = /obj/item/storage/belt/marine/icc
