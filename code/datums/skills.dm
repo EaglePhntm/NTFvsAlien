@@ -671,7 +671,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	name = "CM Leader"
 	
 /datum/skills/icc_admn
-	name = Colony Administrator
+	name = "Colony Administrator"
 	engineer = SKILL_ENGINEER_ENGI
 	construction = SKILL_CONSTRUCTION_ADVANCED
 	leadership = SKILL_LEAD_MASTER
