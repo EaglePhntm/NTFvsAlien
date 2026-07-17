@@ -669,6 +669,17 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 
 /datum/skills/sl/icc
 	name = "CM Leader"
+	
+/datum/skills/icc_admn
+	name = Colony Administrator
+	engineer = SKILL_ENGINEER_ENGI
+	construction = SKILL_CONSTRUCTION_ADVANCED
+	leadership = SKILL_LEAD_MASTER
+	medical = SKILL_MEDICAL_PRACTICED
+	surgery = SKILL_SURGERY_AMATEUR
+	powerloader = SKILL_POWERLOADER_PRO
+	police = SKILL_POLICE_MP
+	sex = SKILL_SEX_EXPERT
 
 /datum/skills/specialist
 	name = SQUAD_SPECIALIST

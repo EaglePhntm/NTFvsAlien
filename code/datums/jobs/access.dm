@@ -455,6 +455,8 @@
 			. = size ? "CML" : "CM Leader"
 		if("CM5")
 			. = size ? "CMT" : "CM Base Technician"
+		if("CM6")
+		    . = size ? "CMA" : "CM Colony Administrator"
 		if("KZ1")
 			. = size ? "JSGT" : "KZ Junior Sergeant"
 		if("KZ2")
