@@ -25,9 +25,7 @@
 		/datum/job/survivor/stripper = 4,
 		/datum/job/survivor/maid = 4,
 		/datum/job/survivor/synth = 1,
-		/datum/job/clf/standard = 1,
-		/datum/job/clf/medic = 1,
-		/datum/job/clf/leader = 1,
+		/datum/job/clf/traitor = 3,
 		/datum/job/xenomorph = 2,//two so they dont wipe by a mistake or maybe duo.
 	)
 	evo_requirements = list(
@@ -158,10 +156,7 @@
 		/datum/job/survivor/stripper = 4,
 		/datum/job/survivor/maid = 4,
 		/datum/job/survivor/synth = 1,
-		/datum/job/clf/standard = 2,
-		/datum/job/clf/medic = 1,
-		/datum/job/clf/specialist = 1,
-		/datum/job/clf/leader = 1,
+		/datum/job/clf/traitor = 6,
 		/datum/job/xenomorph = 5,//five since there will be CM
 		/datum/job/icc_squad/standard = 2,
 		/datum/job/icc_squad/medic = 1,
