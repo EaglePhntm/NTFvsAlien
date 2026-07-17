@@ -1,0 +1,4 @@
+author: "Meghan-Rossi"
+delete-after: True
+changes:
+  - rscadd: "Carriers with the ovipositor mutation no longer convert latching huggers to normal ones when storing them.  They can now only store latching huggers."
