@@ -4169,8 +4169,8 @@
 
 
 /datum/outfit/quick/icc/guard/icc_rocket
-	name = "MP-IRL & CC67 CQB"
-	desc = "Equipped with an MP-IRL rocket launcher and a CC67 CQB. Comes equipped with 5 HE, 2 thermobaric and 2 HE-AT warheads. Serious firepower."
+	name = "MP-IRL & K&H M4"
+	desc = "Equipped with an MP-IRL rocket launcher and a K&H Subcarbine. Comes equipped with 5 HE, 2 thermobaric and 2 HE-AT warheads. Serious firepower."
 
 	belt = /obj/item/storage/belt/marine/icc
 	shoes = /obj/item/clothing/shoes/marine/brown/full
@@ -4179,7 +4179,7 @@
 	head = /obj/item/clothing/head/helmet/marine/cmfreelancer/specialist
 	mask = /obj/item/clothing/mask/bandanna
 	suit_store = /obj/item/weapon/gun/launcher/rocket/icc
-	back = /obj/item/weapon/gun/rifle/vsd_rifle/export/sof
+	back = /obj/item/weapon/gun/rifle/khm4/sof
 	l_pocket = /obj/item/storage/pouch/explosive/icc
 	r_pocket = /obj/item/storage/pouch/explosive/icc
 
@@ -4207,12 +4207,12 @@
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/icc/heat, SLOT_IN_L_POUCH)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/icc/heat, SLOT_IN_L_POUCH)
 
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_sbr, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_sbr, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_sbr, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_sbr, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_sbr, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_sbr, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m16, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m16, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m16, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m16, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m16, SLOT_IN_BELT)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m16, SLOT_IN_BELT)
 
 	H.equip_to_slot_or_del(new /obj/item/tool/shovel/etool, SLOT_IN_ACCESSORY)
 	H.equip_to_slot_or_del(new /obj/item/pamphlet/rifleman, SLOT_IN_ACCESSORY)
