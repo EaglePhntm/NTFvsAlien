@@ -1051,7 +1051,7 @@
 	extra_delay = 0.3 SECONDS
 	burst_delay = 0.15 SECONDS
 	accuracy_mult = 0.9
-	recoil_unwielded = 6
+	recoil_unwielded = 7
 	wield_delay = 0.6 SECONDS
 	movement_acc_penalty_mult = 2
 	damage_mult = 1.05
