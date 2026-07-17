@@ -1,0 +1,5 @@
+author: "tempelers"
+delete-after: True
+changes:
+  - balance: "reduces admin slots."
+  - bugfix: "Fixes sex not being properly 2."
