@@ -266,9 +266,10 @@
 /datum/mutation_upgrade/veil/oviposition/get_desc_for_alert(new_amount)
 	if(!new_amount)
 		return ..()
-	return "Egg Lay now creates eggs with your selected type of hugger inside and can toggle into a new host-lingering series of huggers by right clicking onto the button. The plasma cost is set to [PERCENT(1 + get_multiplier(new_amount))]% of its their original value and its cooldown is set to 50% of its original value. You lose the ability, Spawn Huggers."
+	return "Egg Lay now creates eggs with your selected type of hugger inside and can toggle into a new host-lingering series of huggers by right clicking onto the button. The plasma cost is set to [PERCENT(1 + get_multiplier(new_amount))]% of its their original value and its cooldown is set to 50% of its original value. You lose the ability, Spawn Huggers. You can no longer store non-latching huggers."
 
 /datum/mutation_upgrade/veil/oviposition/on_mutation_enabled()
+	ADD_TRAIT(xenomorph_owner, TRAIT_LATCHING_HUGGERS_ONLY, "[type]")
 	var/datum/action/ability/xeno_action/lay_egg/egg_ability = xenomorph_owner.actions_by_path[/datum/action/ability/xeno_action/lay_egg]
 	if(!egg_ability)
 		return
@@ -284,6 +285,7 @@
 	return ..()
 
 /datum/mutation_upgrade/veil/oviposition/on_mutation_disabled()
+	REMOVE_TRAIT(xenomorph_owner, TRAIT_LATCHING_HUGGERS_ONLY, "[type]")
 	var/datum/action/ability/xeno_action/lay_egg/egg_ability = xenomorph_owner.actions_by_path[/datum/action/ability/xeno_action/lay_egg]
 	if(!egg_ability)
 		return
