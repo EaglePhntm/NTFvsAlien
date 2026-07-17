@@ -104,3 +104,9 @@
 	contains = list(/obj/item/ammo_magazine/bike_minigun, /obj/item/ammo_magazine/bike_minigun)
 	faction_lock = list(FACTION_SOM)
 	cost = 30
+
+/datum/supply_packs/weapons/rpg_tangle
+	name = "RL-152 SADAR tanglefoot rocket"
+	contains = list(/obj/item/ammo_magazine/rocket/sadar/plasmaloss)
+	cost = 125
+	available_against_xeno_only = TRUE

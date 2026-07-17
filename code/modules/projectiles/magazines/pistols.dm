@@ -282,6 +282,17 @@
 	w_class = WEIGHT_CLASS_SMALL
 	default_ammo = /datum/ammo/bullet/pistol/ap
 
+//APS-SP (Stetchkin)
+/obj/item/ammo_magazine/pistol/standard_pistol/apsmart_pistol
+	name = "\improper APS-SP magazine (9mm AP)"
+	icon = 'ntf_modular/icons/obj/items/ammo/pistol.dmi'
+	caliber = CALIBER_9X18
+	icon_state = "aps"
+	icon_state_mini = "mag_pistol_orange"
+	max_rounds = 20
+	w_class = WEIGHT_CLASS_SMALL
+	default_ammo = /datum/ammo/bullet/pistol/aps
+
 //-------------------------------------------------------
 // knife
 /obj/item/ammo_magazine/pistol/knife
