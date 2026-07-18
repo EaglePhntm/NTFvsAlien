@@ -178,8 +178,12 @@
 	if(equipment_slot == MECHA_WEAPON)
 		if(attach_right)
 			to_equip_slot = MECHA_R_ARM
+			if(has_mech_icon) // NTF Edit: adds exosuit gear overlays
+				overlay_state = "[icon_state]_right hand"
 		else
 			to_equip_slot = MECHA_L_ARM
+			if(has_mech_icon) // NTF Edit: adds exosuit gear overlays
+				overlay_state = "[icon_state]_left hand"
 	else if(equipment_slot == MECHA_BACK)
 		if(attach_right)
 			to_equip_slot = MECHA_R_BACK
@@ -196,6 +200,15 @@
 	chassis = M
 	forceMove(M)
 	log_message("[src] initialized.", LOG_MECHA)
+
+#warn to-do: \
+	add equipment sprites,   \
+	add damage processing for components,   \
+	complete flipping/terrain handling,   \
+	complete hatch handling,   \
+	complete engine logic,   \
+	add tank interactions,   \
+	change wreck states
 
 /**
  * called to detach this equipment

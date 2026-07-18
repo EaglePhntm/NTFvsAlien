@@ -2,6 +2,7 @@
 	icon = 'icons/mecha/mecha_pieces.dmi'
 	icon_state = "body"
 	base_icon_state
+	integrity_failure = 1
 	var/repair_materials = list()
 	var/is_attached = FALSE
 	var/is_functional = TRUE

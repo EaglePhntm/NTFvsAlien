@@ -86,6 +86,8 @@
 	mediumxenofootstep = FOOTSTEP_WATER
 	heavyxenofootstep = FOOTSTEP_WATER
 	minimap_color = MINIMAP_WATER
+	///Easy count of how deep the water is, just for mechs
+	var/water_depth = WATER_SHALLOW
 
 /turf/open/liquid/water/Initialize(mapload)
 	. = ..()
@@ -112,6 +114,7 @@
 /turf/open/liquid/water/sea
 	name = "water"
 	icon_state = "seadeep"
+	water_depth = WATER_DEEP
 
 /turf/open/liquid/water/river
 	name = "river"
@@ -123,6 +126,7 @@
 	icon_state = "seashallow_deep"
 	mob_liquid_height = 18
 	mob_liquid_depth = -8
+	water_depth = WATER_DEEP
 
 /turf/open/liquid/water/river/deep/Initialize(mapload)
 	. = ..()
@@ -150,12 +154,14 @@
 	mob_liquid_height = 18
 	mob_liquid_depth = -8
 	slowdown_multiplier = 1.5
+	water_depth = WATER_DEEP
 
 /turf/open/liquid/water/river/autosmooth/deep
 	icon_state = "river_deep-icon"
 	mob_liquid_height = 18
 	mob_liquid_depth = -8
 	slowdown_multiplier = 1.5
+	water_depth = WATER_DEEP
 
 //Desert River
 /turf/open/liquid/water/river/desertdam
@@ -172,6 +178,7 @@
 //shallow water transition to deep
 /turf/open/liquid/water/river/desertdam/clean/shallow_edge
 	icon_state = "shallow_to_deep_clean_water"
+	water_depth = WATER_TRANSITION
 
 /turf/open/liquid/water/river/desertdam/clean/shallow_edge/corner
 	icon_state = "shallowcorner1"
@@ -185,10 +192,12 @@
 //deep water
 /turf/open/liquid/water/river/desertdam/clean/deep_water_clean
 	icon_state = "deep_water_clean"
+	water_depth = WATER_DEEP
 
 //shallow water coast
 /turf/open/liquid/water/river/desertdam/clean/shallow_water_desert_coast
 	icon_state = "shallow_water_desert_coast"
+	water_depth = WATER_SHALLOW
 
 /turf/open/liquid/water/river/desertdam/clean/shallow_water_desert_coast/edge
 	icon_state = "shallow_water_desert_coast_edge"
@@ -220,6 +229,7 @@ ww
 	mob_liquid_height = 0
 	mob_liquid_depth = 0
 	slowdown_multiplier = 0.25
+	water_depth = WATER_SHALLOW
 
 /turf/open/liquid/water/river/desertdam/notliquid/clean/shallow
 	icon_state = "shallow_water_clean"
@@ -229,6 +239,7 @@ ww
 
 /turf/open/liquid/water/river/desertdam/notliquid/clean/shallow_edge
 	icon_state = "shallow_to_deep_clean_water"
+	water_depth = WATER_TRANSITION
 
 /turf/open/liquid/water/river/desertdam/notliquid/clean/shallow_edge/corner
 	icon_state = "shallowcorner1"
@@ -241,6 +252,7 @@ ww
 
 /turf/open/liquid/water/river/desertdam/notliquid/clean/deep_water_clean
 	icon_state = "deep_water_clean"
+	water_depth = WATER_DEEP
 
 /turf/open/liquid/water/river/desertdam/notliquid/clean/shallow_water_desert_coast
 	icon_state = "shallow_water_desert_coast"
@@ -352,4 +364,3 @@ ww
 	if(!(my_catwalk.atom_flags & INITIALIZED))
 		my_catwalk.Initialize(mapload)
 	. = ..()
-
