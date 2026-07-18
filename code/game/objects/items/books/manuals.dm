@@ -718,11 +718,11 @@
 		"}
 
 /obj/item/book/manual/marine_law
-	name = "Space Law"
+	name = "Phantom City Law"
 	desc = "A set of universal guidelines for keeping law and order on civilian, private and military vessels alike. (Laws will need to be adjusted to fit the special circumstances of being off world and corpsec will have to be in place of HOJ.)"
 	icon_state = "bookSpaceLaw"
 	author = "The Company"
-	title = "Space Law"
+	title = "Phantom City Law"
 
 	dat = {"
 

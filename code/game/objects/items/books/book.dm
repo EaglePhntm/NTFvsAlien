@@ -3,11 +3,11 @@
 */
 /obj/item/book
 	name = "book"
-	icon = 'icons/obj/items/books.dmi'
+	icon = 'ntf_modular/icons/obj/items/books.dmi'
 	icon_state ="book"
 	throw_speed = 1
 	throw_range = 5
-	w_class = WEIGHT_CLASS_NORMAL		 //upped to three because books are, y'know, pretty big. (and you could hide them inside eachother recursively forever)
+	w_class = WEIGHT_CLASS_SMALL		 //upped to three because books are, y'know, pretty big. (and you could hide them inside eachother recursively forever)
 	attack_verb = list("bashes", "whacks", "educates")
 	var/dat			 // Actual page content
 	var/due_date = 0 // Game time in 1/10th seconds
@@ -16,6 +16,10 @@
 	var/title		 // The real name of the book.
 	var/carved = 0	 // Has the book been hollowed out for use as a secret storage item?
 	var/obj/item/store	//What's in the book?
+
+/obj/item/book/random/Initialize(mapload)
+	. = ..()
+	icon_state = "book[rand(1,8)]"
 
 /obj/item/book/Destroy()
 	store = null

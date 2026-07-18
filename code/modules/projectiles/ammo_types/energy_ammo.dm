@@ -40,7 +40,7 @@
 	bullet_color = COLOR_VIVID_YELLOW
 
 /datum/ammo/energy/taser/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
-	staggerstun(target_mob, proj, stun = 20 SECONDS)
+	staggerstun(target_mob, proj, stun = 3 SECONDS)
 
 /datum/ammo/energy/tesla
 	name = "energy ball"

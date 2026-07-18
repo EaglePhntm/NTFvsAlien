@@ -142,6 +142,7 @@
 			/obj/item/explosive/grenade/smokebomb/sleep,
 			/obj/item/roller/bedroll,
 			/obj/item/weapon/telebaton,
+			/obj/item/book/manual/marine_law
 		),
 	)
 
