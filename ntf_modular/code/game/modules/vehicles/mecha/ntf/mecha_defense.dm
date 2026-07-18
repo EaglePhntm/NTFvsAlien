@@ -32,9 +32,9 @@
 			gear = equip_by_category[MECHA_R_ARM]
 		if(BODY_ZONE_HEAD)
 			gear = head
-		if(BODY_ZONE_CHEST || BODY_ZONE_PRECISE_GROIN)
+		if(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN)
 			gear = body
-		if(BODY_ZONE_R_LEG || BODY_ZONE_L_LEG)
+		if(BODY_ZONE_R_LEG, BODY_ZONE_L_LEG)
 			gear = legs
 	if(armor_type == BOMB)
 		gear = flat_equipment.Copy()

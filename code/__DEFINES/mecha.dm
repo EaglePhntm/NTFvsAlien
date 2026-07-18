@@ -205,3 +205,7 @@
 #define TERRAIN_WATER "terrain_water"
 #define TERRAIN_DEEPWATER "terrain_deepwater"
 #define TERRAIN_TRANSITIONWATER "terrain_transition"
+
+#define PRIMARY_REPAIR_AMT 15
+#define SECONDARY_REPAIR_AMT 8
+#define TERTIARY_REPAIR_AMT 5
