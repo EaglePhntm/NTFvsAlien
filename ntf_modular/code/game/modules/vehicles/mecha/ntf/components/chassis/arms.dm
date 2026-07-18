@@ -19,6 +19,7 @@
 	name = "arms"
 	desc = "The Xion Industrial Digital Interaction Manifolds allow you poke untold dangers from the relative safety of your cockpit."
 	icon_state = "loader_arms"
+	repair_materials = list(STEEL = SECONDARY_REPAIR_AMT)
 //	melee_sound = 'sound/mecha/mech_punch.ogg'
 	melee_damage = 20
 	action_delay = 15
@@ -30,6 +31,7 @@
 	name = "light arms"
 	desc = "As flexible as they are fragile, these Vey-Med manipulators can follow a pilot's movements in close to real time."
 	icon_state = "light_arms"
+	repair_materials = list(STEEL = SECONDARY_REPAIR_AMT)
 //	melee_sound = 'sound/mecha/mech_punch_fast.ogg'
 	action_delay = 10
 	action_power_usage = 10
@@ -39,6 +41,7 @@
 	name = "heavy arms"
 	desc = "Designed to function where any other piece of equipment would have long fallen apart, the Hephaestus Superheavy Lifter series can take a beating and excel at delivering it."
 	icon_state = "heavy_arms"
+	repair_materials = list(STEEL = SECONDARY_REPAIR_AMT, PLASTEEL = TERTIARY_REPAIR_AMT)
 //	melee_sound = 'sound/mecha/mech_punch_slow.ogg'
 	melee_damage = 30
 	action_delay = 20
@@ -49,5 +52,6 @@
 	name = "combat arms"
 	desc = "Flexible, advanced manipulators built for combat."
 	icon_state = "combat_arms"
+	repair_materials = list(STEEL = SECONDARY_REPAIR_AMT, PLASTEEL = TERTIARY_REPAIR_AMT)
 	action_delay = 10
 	action_power_usage = 50

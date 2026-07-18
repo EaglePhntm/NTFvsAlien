@@ -19,7 +19,7 @@
 
 /obj/item/mecha_parts/mecha_pieces/mecha_legs/tracks
 	icon_state = "tracks"
-
+	repair_materials = list(STEEL = SECONDARY_REPAIR_AMT, PLASTEEL = SECONDARY_REPAIR_AMT)
 	movement_delay = 2
 	turning_delay = 3
 	stability = 50
@@ -32,7 +32,7 @@
 
 /obj/item/mecha_parts/mecha_pieces/mecha_legs/heavy_legs
 	icon_state = "heavy_legs"
-
+	repair_materials = list(STEEL = SECONDARY_REPAIR_AMT, PLASTEEL = SECONDARY_REPAIR_AMT)
 	movement_delay = 3
 	turning_delay = 1.5
 	stability = 30
@@ -42,15 +42,15 @@
 
 /obj/item/mecha_parts/mecha_pieces/mecha_legs/combat_legs
 	icon_state = "combat_legs"
-
+	repair_materials = list(STEEL = SECONDARY_REPAIR_AMT, PLASTEEL = TERTIARY_REPAIR_AMT)
 	movement_delay = 1.5
 	turning_delay = 1
 	stability = 20
 	max_integrity = 150
 
 /obj/item/mecha_parts/mecha_pieces/mecha_legs/light_legs
-	icon_state = "heavy_legs"
-
+	icon_state = "light_legs"
+	repair_materials = list(STEEL = SECONDARY_REPAIR_AMT)
 	movement_delay = 1
 	turning_delay = 1
 	stability = 10
@@ -58,7 +58,7 @@
 
 /obj/item/mecha_parts/mecha_pieces/mecha_legs/quadlegs
 	icon_state = "spiderlegs"
-
+	repair_materials = list(STEEL = SECONDARY_REPAIR_AMT, PLASTEEL = TERTIARY_REPAIR_AMT)
 	movement_delay = 2.5
 	turning_delay = 0.5
 	stability = 75
@@ -67,7 +67,7 @@
 
 /obj/item/mecha_parts/mecha_pieces/mecha_legs/wheels
 	icon_state = "wheels"
-
+	repair_materials = list(STEEL = SECONDARY_REPAIR_AMT)
 	movement_delay = 1.5
 	turning_delay = 1.5
 	stability = 50
@@ -78,7 +78,7 @@
 
 /obj/item/mecha_parts/mecha_pieces/mecha_legs/loader
 	icon_state = "loader_legs"
-
+	repair_materials = list(STEEL = SECONDARY_REPAIR_AMT)
 	movement_delay = 3
 	turning_delay = 2
 	stability = 30
@@ -86,7 +86,7 @@
 
 /obj/item/mecha_parts/mecha_pieces/mecha_legs/ultra
 	icon_state = "ultra_legs"
-
+	repair_materials = list(PLASTEEL = SECONDARY_REPAIR_AMT, URANIUM = TERTIARY_REPAIR_AMT)
 	movement_delay = 2
 	turning_delay = 2
 	stability = 15

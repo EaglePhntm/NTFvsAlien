@@ -208,7 +208,8 @@
 	complete hatch handling,   \
 	complete engine logic,   \
 	add tank interactions,   \
-	change wreck states
+	change wreck states, \
+	add exosuit head benefits (like weapon upgrades)
 
 /**
  * called to detach this equipment
