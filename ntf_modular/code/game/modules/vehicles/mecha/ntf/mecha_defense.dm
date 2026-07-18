@@ -78,7 +78,7 @@
 	for(var/mob/living/living_occupant AS in occupants)
 		living_occupant.Stagger(stagger_duration)
 
-
+///obj/vehicle/sealed/mecha/ntf/proc/handle_terrain(/turf/open
 
 /obj/vehicle/sealed/mecha/ntf/proc/attempt_flip(chance = 50, push_back, violent = FALSE, direction_fallen = 1)
 	if(!is_flipped && !obj_integrity <= 0)
@@ -166,7 +166,87 @@
 			mecha_update_components()
 
 			to_chat(user, span_notice("You install the [piece_to_add] into [src]."))
+
 	return ..()
+
+#define ARMS "arms"
+#define LEGS "legs"
+#define HEAD "head"
+#define BODY "body"
+
+/obj/vehicle/sealed/mecha/ntf/wrench_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(.)
+		balloon_alert(user, "dot referenced!")
+		return
+	if(construction_state != MECHA_OPEN_HATCH)
+		balloon_alert(user, "hatch not open!")
+		return
+	var/thing_to_remove
+	switch(user.zone_selected)
+		if(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM)
+			thing_to_remove = ARMS
+		if(BODY_ZONE_CHEST)
+			thing_to_remove = BODY
+		if(BODY_ZONE_HEAD)
+			thing_to_remove = HEAD
+		if(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
+			thing_to_remove = LEGS
+	if(!thing_to_remove)
+		balloon_alert(user, "no thing to remove!")
+		return
+
+	var/obj/item/mecha_parts/mecha_pieces/piece = get_mecha_part(thing_to_remove)
+	if(!piece)
+		balloon_alert(user, "nothing there!")
+		return
+
+	balloon_alert(user, "removing [thing_to_remove]...")
+	if(!do_after(user, 7 SECONDS, target = src))
+		balloon_alert(user, "interrupted!")
+		return
+
+	// re-check everything after the delay; state may have changed
+	if(construction_state != MECHA_OPEN_HATCH)
+		return
+	piece = get_mecha_part(thing_to_remove)
+	if(!piece)
+		return
+	if(!user.Adjacent(src))
+		return
+
+	set_mecha_part(thing_to_remove, null)
+	user.put_in_hands(piece)
+	mecha_update_components()
+	to_chat(user, span_notice("You remove the [thing_to_remove] from [src]."))
+	return TRUE
+
+/obj/vehicle/sealed/mecha/ntf/proc/get_mecha_part(slot)
+	switch(slot)
+		if(ARMS)
+			return arms
+		if(LEGS)
+			return legs
+		if(HEAD)
+			return head
+		if(BODY)
+			return body
+
+/obj/vehicle/sealed/mecha/ntf/proc/set_mecha_part(slot, obj/item/mecha_parts/mecha_pieces/piece)
+	switch(slot)
+		if(ARMS)
+			arms = piece
+		if(LEGS)
+			legs = piece
+		if(HEAD)
+			head = piece
+		if(BODY)
+			body = piece
+
+#undef ARMS
+#undef BODY
+#undef LEGS
+#undef HEAD
 
 /obj/vehicle/sealed/mecha/ntf/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
@@ -181,10 +261,10 @@
 		return
 	toggle_hatch(user, FALSE)
 
-/obj/vehicle/sealed/mecha/ntf/RightClick(mob/living/user)
-	if(!(user in occupants))
-		return
-	toggle_hatch(user, TRUE)
+//obj/vehicle/sealed/mecha/ntf/RightClick(mob/living/user)
+//	if(!(user in occupants))
+//		return
+//	toggle_hatch(user, TRUE)
 
 /obj/vehicle/sealed/mecha/ntf/proc/toggle_hatch(mob/living/user, toggling_lock = FALSE)
 	if(hatch_status == HATCH_BROKEN)
@@ -207,8 +287,12 @@
 
 /obj/vehicle/sealed/mecha/ntf/on_mouseclick(mob/user, atom/target, turf/location, control, list/modifiers)
 	.=..()
-	if(src == target)
-		toggle_hatch(user)
+	modifiers = params2list(modifiers)
+	if(src != target)
+		return
+	if(modifiers[RIGHT_CLICK])
+		return src.toggle_hatch(user, TRUE)
+	toggle_hatch(user)
 
 /obj/vehicle/sealed/mecha/ntf/update_icon()
 	.=..()
@@ -221,15 +305,20 @@
 		var/image/cabin_overlay = image(icon = body.icon, icon_state = "[body.icon_state]")
 		overlays_to_make += cabin_overlay
 
-		if(hatch_status == HATCH_OPEN || HATCH_BROKEN)
+		if(hatch_status == HATCH_OPEN || hatch_status == HATCH_BROKEN)
 			var/image/door_overlay = image(icon = body.icon, icon_state = "[body.icon_state]_overlay_open")
 			door_overlay.layer = MECH_COCKPIT_LAYER
 			overlays_to_make += door_overlay
 
-		if(body.extra_overlays && hatch_status == HATCH_CLOSED || HATCH_LOCKED)
+		if(body.extra_overlays && (hatch_status == HATCH_CLOSED || hatch_status == HATCH_LOCKED))
 			var/image/extra_overlays = image(icon = body.icon, icon_state = "[body.icon_state]_overlay")
 			extra_overlays.layer = MECH_COCKPIT_LAYER+0.01
 			overlays_to_make += extra_overlays
+
+		for(var/obj/item/mecha_parts/mecha_equipment/weapon/gun in flat_equipment)
+			var/image/gun_overlays = image(icon = gun.overlay_icon, icon_state = gun.overlay_state)
+			gun_overlays.layer = MECH_GEAR_LAYER
+			overlays_to_make += gun_overlays
 
 	overlays = overlays_to_make
 

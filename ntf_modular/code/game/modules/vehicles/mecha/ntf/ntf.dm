@@ -42,6 +42,8 @@
 	var/hatch_location = HATCH_POSITION_FRONT
 	var/flip_status = FLIP_UPRIGHT
 
+	var/mech_terrain_status
+
 	var/underlying_icon = 'icons/mecha/mech_construct.dmi'
 	var/underlying_icon_state = "backbone"
 

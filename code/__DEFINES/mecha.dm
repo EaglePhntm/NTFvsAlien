@@ -197,7 +197,11 @@
 #define HATCH_POSITION_TOP "hatch_top"
 #define HATCH_POSITION_SIDE "hatch_side"
 
-#define HATCH_CLOSED 1
-#define HATCH_OPEN 2
-#define HATCH_LOCKED 3
-#define HATCH_BROKEN 4
+#define HATCH_CLOSED "hatch_closed" // closed
+#define HATCH_OPEN "hatch_open" // open
+#define HATCH_LOCKED "hatch_locked" // closed
+#define HATCH_BROKEN "hatch_broken" // open
+
+#define TERRAIN_WATER "terrain_water"
+#define TERRAIN_DEEPWATER "terrain_deepwater"
+#define TERRAIN_TRANSITIONWATER "terrain_transition"
