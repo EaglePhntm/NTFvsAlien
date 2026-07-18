@@ -260,6 +260,8 @@
 	var/phoron_faction = 0
 	var/platinum_total = 0
 	var/platinum_faction = 0
+	if(!(SSticker.mode.round_type_flags2 & MODE_2_MINER_RUSH_PROT))
+		return TRUE
 
 	for(var/obj/machinery/miner/M in GLOB.miner_list)
 		if(M.type == /obj/machinery/miner/damaged/platinum)
