@@ -10,6 +10,9 @@
 	#ifdef DEFINE_REVINFO_REVISION
 	log_world("REVINFO: Found define revinfo: commit = [DEFINE_REVINFO_REVISION]")
 	#endif
+	#ifdef DEFINE_REVINFO_ORIGIN_REVISION
+	log_world("REVINFO: Found define revinfo: originmastercommit = [DEFINE_REVINFO_ORIGIN_REVISION]")
+	#endif
 	#ifdef DEFINE_REVINFO_COMPILE_DATE
 	log_world("REVINFO: Found define revinfo: date = [DEFINE_REVINFO_COMPILE_DATE]")
 	#endif
@@ -18,16 +21,25 @@
 		originmastercommit = revinfo.origin_commit
 		date = revinfo.timestamp
 		log_world("REVINFO: Found tgs revinfo: commit = [revinfo.commit], originmastercommit = [revinfo.origin_commit], date = [revinfo.timestamp]")
-	else
+	if(!commit)
 		commit = rustg_git_revparse("HEAD")
-		originmastercommit = rustg_git_revparse("origin/master")
-		log_world("REVINFO: No tgs revinfo, rust revinfo: commit = [commit], originmastercommit = [originmastercommit]")
+		log_world("REVINFO: No tgs revinfo, rust revinfo: commit = [commit]")
 		if(!commit)
 			commit = file2text("data/revision.txt")
 			log_world("REVINFO: No rust revinfo, file revinfo: commit = [commit]")
 			#ifdef DEFINE_REVINFO_REVISION
 			if(!commit)
 				commit = DEFINE_REVINFO_REVISION
+			#endif
+	if(!originmastercommit)
+		originmastercommit = rustg_git_revparse("origin/master")
+		log_world("REVINFO: No tgs origin revinfo, rust originmastercommit = [originmastercommit]")
+		if(!originmastercommit)
+			originmastercommit = file2text("data/origin_revision.txt")
+			log_world("REVINFO: No rust origin revinfo, file revinfo: originmastercommit = [originmastercommit]")
+			#ifdef DEFINE_REVINFO_ORIGIN_REVISION
+			if(!originmastercommit)
+				originmastercommit = DEFINE_REVINFO_ORIGIN_REVISION
 			#endif
 	if(!date)
 		date = trim(file2text("data/compile_date.txt"))
