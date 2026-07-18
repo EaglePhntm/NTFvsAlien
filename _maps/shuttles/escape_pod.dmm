@@ -20,10 +20,16 @@
 /turf/closed/shuttle/escapepod/walltwelve,
 /area/shuttle/escape_pod)
 "f" = (
-/obj/machinery/cryopod/evacuation,
-/turf/open/shuttle/escapepod,
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 1
+	},
+/obj/machinery/light/red{
+	dir = 8
+	},
+/turf/open/shuttle/escapepod/eleven,
 /area/shuttle/escape_pod)
 "g" = (
+/obj/structure/bed/chair/dropship/passenger,
 /turf/open/shuttle/escapepod/zero,
 /area/shuttle/escape_pod)
 "h" = (
@@ -32,6 +38,9 @@
 	},
 /area/shuttle/escape_pod)
 "i" = (
+/obj/machinery/cryopod/evacuation{
+	pixel_x = 18
+	},
 /turf/closed/shuttle/escapepod/walleleven,
 /area/shuttle/escape_pod)
 "j" = (
@@ -43,6 +52,9 @@
 /turf/open/floor/plating,
 /area/shuttle/escape_pod)
 "l" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 1
+	},
 /turf/open/shuttle/escapepod/ten,
 /area/shuttle/escape_pod)
 "m" = (
@@ -67,11 +79,15 @@
 /turf/closed/shuttle/escapepod/wallfive,
 /area/shuttle/escape_pod)
 "s" = (
-/obj/machinery/cryopod/evacuation,
-/obj/machinery/light{
+/turf/open/shuttle/escapepod,
+/area/shuttle/escape_pod)
+"W" = (
+/obj/machinery/vending/nanomed,
+/obj/structure/bed/chair/dropship/passenger,
+/obj/machinery/light/red{
 	dir = 8
 	},
-/turf/open/shuttle/escapepod,
+/turf/open/shuttle/escapepod/eight,
 /area/shuttle/escape_pod)
 
 (1,1,1) = {"
@@ -83,7 +99,7 @@ m
 "}
 (2,1,1) = {"
 b
-f
+W
 s
 f
 n

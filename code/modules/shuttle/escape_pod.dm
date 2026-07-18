@@ -67,7 +67,18 @@
 		return
 	playsound(return_center_turf(),'sound/effects/escape_pod_launch.ogg', 25, 1)
 	count_escaped_humans()
-	SSshuttle.moveShuttleToTransit(id, TRUE)
+	var/list/valid_docks = list()
+	for(var/obj/docking_port/stationary/crashmode/potential_crash_site in SSshuttle.stationary)
+		if(!shuttle.check_dock(potential_crash_site, silent = TRUE))
+			continue
+		if(!SSmapping.level_trait(potential_crash_site.z, ZTRAIT_GROUND))
+			continue
+		valid_docks += potential_crash_site
+
+	if(!length(valid_docks))
+		CRASH("No valid crash sides found!")
+	var/obj/docking_port/stationary/crashmode/actual_crash_site = pick(valid_docks)
+	SSshuttle.moveShuttleToDock(id, actual_crash_site, TRUE)
 
 /obj/docking_port/stationary/escape_pod
 	name = "escape pod"
