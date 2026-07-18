@@ -184,7 +184,7 @@
 				xeno.evolution_stored = xeno.xeno_caste.evolution_threshold //free evolution
 		*/
 		for(var/obj/item/teleporter_kit/indestructible/teles in GLOB.indestructible_teleporters)
-			teles.resistance_flags = XENO_DAMAGEABLE
+			teles.set_destructible(TRUE)
 		respawn_time = 10 MINUTES //we have cloning here and small pop so its not 30 minutes.
 		xenorespawn_time = 5 MINUTES
 		bioscan_interval = 15 MINUTES
@@ -199,7 +199,7 @@
 			/datum/xeno_caste/dragon = 0,
 		)
 		for(var/obj/item/teleporter_kit/indestructible/teles in GLOB.indestructible_teleporters)
-			teles.resistance_flags = initial(teles.resistance_flags)
+			teles.set_destructible(FALSE)
 		GLOB.time_before_dnr = SOL_DNR_TIME
 		GLOB.max_larva_count_per_mob = MAX_LARVA_PREGNANCIES_SOL
 		respawn_time = initial(respawn_time)

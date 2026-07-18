@@ -80,6 +80,8 @@
 	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_EXPLODED, PROC_REF(on_nuclear_explosion))
 	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_DEFUSED, PROC_REF(on_nuclear_defuse))
 	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_START, PROC_REF(on_nuke_started))
+	for(var/obj/item/teleporter_kit/indestructible/teles in GLOB.indestructible_teleporters)
+		teles.set_destructible(TRUE)
 
 ///Called by [/datum/hive_status/normal/handle_ruler_timer()] after [NUCLEAR_WAR_HIVEMIND_COLLAPSE] elapses to end the round
 /datum/game_mode/infestation/nuclear_war/orphan_hivemind_collapse()

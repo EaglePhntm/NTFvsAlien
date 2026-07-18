@@ -91,6 +91,8 @@
 	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_EXPLODED, PROC_REF(on_nuclear_explosion))
 	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_DEFUSED, PROC_REF(on_nuclear_defuse))
 	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_START, PROC_REF(on_nuke_started))
+	for(var/obj/item/teleporter_kit/indestructible/teles in GLOB.indestructible_teleporters)
+		teles.set_destructible(TRUE)
 
 /datum/game_mode/infestation/sovl_war/process()
 	//attempt to combat xeno scaling at higher pop levels - silo scale is 2 at 50 pop or under, and scales down to 1.4 at 100+ pop
