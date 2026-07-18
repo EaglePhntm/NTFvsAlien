@@ -100,6 +100,7 @@
 	wear_suit = /obj/item/clothing/suit/armor/patrol
 	head = /obj/item/clothing/head/securitycap
 	shoes = /obj/item/clothing/shoes/marine/full
+	mask = /obj/item/clothing/tie/holobadge/cord
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
 	back = /obj/item/storage/backpack/satchel/sec
 	belt = /obj/item/storage/belt/security/tactical

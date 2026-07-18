@@ -173,6 +173,7 @@
 	equip_slot_flags = ITEM_SLOT_BELT
 
 	var/stored_name = null
+	var/stored_faction = FACTION_TERRAGOV
 
 /obj/item/clothing/tie/holobadge/cord
 	icon_state = "holobadge-cord"
@@ -183,7 +184,7 @@
 		to_chat(user, "Waving around a badge before swiping an ID would be pretty pointless.")
 		return
 	if(isliving(user))
-		user.visible_message(span_warning("[user] displays [user.p_their()] TGMC Internal Security Legal Authorization Badge.\nIt reads: [stored_name], TGMC Security."),span_warning("You display your TGMC Internal Security Legal Authorization Badge.\nIt reads: [stored_name], TGMC Security."))
+		user.visible_message(span_warning("[user] displays [user.p_their()] [stored_faction] Internal Security Legal Authorization Badge.\nIt reads: [stored_name], [stored_faction] Security."),span_warning("You display your [stored_faction] Internal Security Legal Authorization Badge.\nIt reads: [stored_name], [stored_faction] Security."))
 
 /obj/item/clothing/tie/holobadge/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -199,6 +200,7 @@
 
 		to_chat(user, "You imprint your ID details onto the badge.")
 		stored_name = id_card.registered_name
+		stored_faction = user.faction
 		name = "holobadge ([stored_name])"
 		desc = "This glowing blue badge marks [stored_name] as THE LAW."
 
