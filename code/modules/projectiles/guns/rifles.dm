@@ -1054,8 +1054,8 @@
 	recoil_unwielded = 7
 	wield_delay = 0.6 SECONDS
 	movement_acc_penalty_mult = 2
-	damage_mult = 1.05
-	damage_falloff_mult = 1
+	damage_mult = 1
+	damage_falloff_mult = 1.2
 
 /obj/item/weapon/gun/rifle/khm4/operator
 	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/verticalgrip, /obj/item/attachable/suppressor)

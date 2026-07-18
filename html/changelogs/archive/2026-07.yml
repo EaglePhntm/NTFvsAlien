@@ -177,3 +177,17 @@
   - rscadd: Steals day and night cycles from somewhere.
   tempelers:
   - rscadd: Added Sex 2 to SO/Colony Administrator.
+2026-07-18:
+  EaglePhntm:
+  - balance: tanks now have very high HVH armor
+  - balance: tanks now have a 90% chance to deflect projectiles that are less than
+      1/3 of their AP of type.
+  - balance: Tanks can no longer be damaged by melee weapons or anything that a human
+      can hit it using harm intent.
+  Meghan-Rossi:
+  - rscadd: Carriers with the ovipositor mutation no longer convert latching huggers
+      to normal ones when storing them.  They can now only store latching huggers.
+  - balance: Athena APC melee armor increased from 40 to 45
+  tempelers:
+  - balance: reduces admin slots.
+  - bugfix: Fixes sex not being properly 2.
