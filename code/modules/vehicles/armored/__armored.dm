@@ -16,7 +16,7 @@
 	max_integrity = 600
 	light_range = 10
 	///Tank bitflags
-	var/armored_flags = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_HEADLIGHTS|ARMORED_SELF_WALL_DAMAGE
+	var/armored_flags = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_HEADLIGHTS
 
 	///sound loop that plays when we are not moving with a driver present
 	var/datum/looping_sound/idle_loop = /datum/looping_sound/tank_idle

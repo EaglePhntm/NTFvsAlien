@@ -8,7 +8,7 @@
 	damage_icon_path = null
 	interior = null
 	icon_state = "tank"
-	armored_flags = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_UNDERLAY|ARMORED_PURCHASABLE_ASSAULT|ARMORED_SELF_WALL_DAMAGE
+	armored_flags = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_UNDERLAY|ARMORED_PURCHASABLE_ASSAULT
 	pixel_x = -16
 	pixel_y = -32
 	max_integrity = 900

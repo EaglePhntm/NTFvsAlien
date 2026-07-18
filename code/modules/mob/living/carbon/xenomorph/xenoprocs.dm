@@ -299,7 +299,7 @@
 	stun_health_damage = clamp(stun_health_damage + value, 0, health)
 	if(stun_health_damage >= health && !stun_health_crit)
 		stun_health_crit = TRUE
-		Paralyze(45 SECONDS)
+		Paralyze(35 SECONDS)
 		if(!stun_health_crit_timer)
 			stun_health_crit_timer = addtimer(CALLBACK(src, PROC_REF(stun_health_crit_end)), 9 SECONDS, TIMER_STOPPABLE)
 	update_action_button_icons()
