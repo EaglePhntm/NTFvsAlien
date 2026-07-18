@@ -1,6 +1,6 @@
 /obj/item/weapon/baton
 	name = "stunbaton"
-	desc = "A stun baton for incapacitating people with."
+	desc = "A stun baton for incapacitating people with. It's a high tech tool with biometric lock, commonly used by Phantom City Judges to subdue people worthy of living even after defying a judge. More effective when used without harm intent."
 	icon_state = "stunbaton"
 	worn_icon_state = "baton"
 	icon = 'icons/obj/items/weapons/batons.dmi'
@@ -12,11 +12,11 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb = list("beats")
 	req_one_access = list(ACCESS_MARINE_BRIG, ACCESS_MARINE_ARMORY, ACCESS_MARINE_CAPTAIN, ACCESS_NT_CORPORATE, ACCESS_NT_PMC_GREEN)
-	var/stunforce = 5
+	var/stunforce = 10
 	var/agonyforce = 40
 	var/status = 0		//whether the thing is on or not
 	var/obj/item/cell/bcell = null
-	var/hitcost = 1000	//oh god why do power cells carry so much charge? We probably need to make a distinction between "industrial" sized power cells for APCs and power cells for everything else.
+	var/hitcost = 500	//oh god why do power cells carry so much charge? We probably need to make a distinction between "industrial" sized power cells for APCs and power cells for everything else.
 	var/has_user_lock = TRUE //whether the baton prevents people without correct access from using it.
 
 /obj/item/weapon/baton/suicide_act(mob/user)

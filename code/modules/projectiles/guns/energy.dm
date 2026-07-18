@@ -48,24 +48,30 @@
 
 /obj/item/weapon/gun/energy/taser
 	name = "taser gun"
-	desc = "An advanced stun device capable of firing balls of ionized electricity. Used for nonlethal takedowns."
+	desc = "An advanced stun device capable of firing balls of ionized electricity. Used to aid nonlethal takedowns.."
 	icon_state = "taser"
 	worn_icon_state = "taser"
 	muzzle_flash = null //TO DO.
 	fire_sound = 'sound/weapons/guns/fire/taser.ogg'
 	ammo_datum_type = /datum/ammo/energy/taser
-	default_ammo_type = /obj/item/cell/lasgun/lasrifle
-	allowed_ammo_types = list(/obj/item/cell/lasgun/lasrifle)
+	default_ammo_type = /obj/item/cell/taser
+	allowed_ammo_types = list(/obj/item/cell/taser)
 	rounds_per_shot = 250
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_ALLOW_SYNTHETIC|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_AMMO_COUNT_BY_SHOTS_REMAINING
 	gun_skill_category = SKILL_PISTOLS
 	movement_acc_penalty_mult = 0
 	w_class = WEIGHT_CLASS_SMALL
 
-	fire_delay = 10
+	fire_delay = 2 SECONDS
 	accuracy_mult = 1.15
 	scatter = 2
 	scatter_unwielded = 1
+
+/obj/item/cell/taser
+	name = "\improper HomeSec brand rechargable taser batterypack"
+	desc = "It's literally a cell but colored yellow."
+	color = COLOR_YELLOW
+
 
 /* You can use guns you can use a taser.
 /obj/item/weapon/gun/energy/taser/able_to_fire(mob/living/user)
