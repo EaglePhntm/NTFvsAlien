@@ -689,13 +689,21 @@
 			if(gender == MALE)
 				if(user.gender == MALE || (isxeno(user) && user.client?.prefs?.xenogender > 2))
 					action = pick(/datum/sex_action/anal_sex, /datum/sex_action/throat_sex, /datum/sex_action/frotting) //funny frot
+					if(user.a_intent == INTENT_DISARM) //prioritise stamdrain acts
+						action = /datum/sex_action/throat_sex
 				else if(user.gender == FEMALE)
 					action = pick(/datum/sex_action/vaginal_ride_sex, /datum/sex_action/anal_ride_sex, /datum/sex_action/blowjob)
+					if(user.a_intent == INTENT_DISARM)
+						action = /datum/sex_action/facesitting
 			else if(gender == FEMALE)
 				if(user.gender == MALE || (isxeno(user) && user.client?.prefs?.xenogender <= 2))
 					action = pick(/datum/sex_action/vaginal_sex, /datum/sex_action/anal_sex, /datum/sex_action/throat_sex)
+					if(user.a_intent == INTENT_DISARM)
+						action = /datum/sex_action/throat_sex
 				else if(user.gender == FEMALE)
 					action = pick(/datum/sex_action/scissoring, /datum/sex_action/cunnilingus)
+					if(user.a_intent == INTENT_DISARM)
+						action = /datum/sex_action/facesitting
 			user.sexcon.speed = SEX_SPEED_HIGH
 			if(user.a_intent == INTENT_GRAB) //in place of help cuz that opens regular sexcon
 				balloon_alert_to_viewers("QK heal sex")
