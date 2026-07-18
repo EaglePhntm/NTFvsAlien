@@ -183,5 +183,21 @@
 #define MECH_PILOT_LAYER            4.03
 #define MECH_LEG_LAYER              4.04
 #define MECH_COCKPIT_LAYER          4.05
-#define MECH_ARM_LAYER              4.06
-#define MECH_GEAR_LAYER             4.07
+#define MECH_ARM_LAYER              4.07
+#define MECH_GEAR_LAYER             4.08
+
+#define DRIVER "driver"
+#define PASSENGER "passenger"
+
+#define FLIP_UPRIGHT "upright"
+#define FLIP_SIDEWAYS "flipped_sideways"
+#define FLIP_FORWARDS "flipped_forwards"
+
+#define HATCH_POSITION_FRONT "hatch_front"
+#define HATCH_POSITION_TOP "hatch_top"
+#define HATCH_POSITION_SIDE "hatch_side"
+
+#define HATCH_CLOSED 1
+#define HATCH_OPEN 2
+#define HATCH_LOCKED 3
+#define HATCH_BROKEN 4
