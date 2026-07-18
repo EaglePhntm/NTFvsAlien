@@ -29,7 +29,7 @@
 	iconic stainless steel outer shell and high-hardness steel inner shell. \
 	A jump seat behind the pilot allows it to carry a passenger."
 
-/obj/vehicle/sealed/mecha/ntf/prebuilt/clarke/Initialize(mapload)
+/obj/vehicle/sealed/mecha/ntf/prebuilt/durand/Initialize(mapload)
 	if(!arms)
 		arms = new /obj/item/mecha_parts/mecha_pieces/mecha_arms/loader(src)
 	if(!legs)

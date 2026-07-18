@@ -1,6 +1,3 @@
-#define DRIVER "driver"
-#define PASSENGER "passenger"
-
 /obj/item/mecha_parts/mecha_pieces/mecha_body
 	name = "body"
 	icon_state = "body"

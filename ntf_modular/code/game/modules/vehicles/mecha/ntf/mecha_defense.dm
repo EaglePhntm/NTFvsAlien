@@ -22,6 +22,35 @@
 			return
 	return ..()
 
+/// tries to damage mech equipment depending on damage and where is being targetted
+/obj/vehicle/sealed/mecha/ntf/try_damage_component(damage, def_zone, armor_type)
+	var/list/gear = list()
+	switch(def_zone)
+		if(BODY_ZONE_L_ARM)
+			gear = equip_by_category[MECHA_L_ARM]
+		if(BODY_ZONE_R_ARM)
+			gear = equip_by_category[MECHA_R_ARM]
+		if(BODY_ZONE_HEAD)
+			gear = head
+		if(BODY_ZONE_CHEST || BODY_ZONE_PRECISE_GROIN)
+			gear = body
+		if(BODY_ZONE_R_LEG || BODY_ZONE_L_LEG)
+			gear = legs
+	if(armor_type == BOMB)
+		gear = flat_equipment.Copy()
+	if(!gear)
+		return
+
+	for(var/obj/item/mecha_parts/mecha_equipment/gear2 as anything in gear)
+	// always leave at least 1 health
+		var/damage_to_deal = min(gear2.obj_integrity - 1, damage)
+		if(damage_to_deal <= 0)
+			return
+		gear2.take_damage(damage_to_deal)
+		if(gear2.obj_integrity <= 1)
+			to_chat(occupants, "[icon2html(src, occupants)][span_danger("[gear2] is critically damaged!")]")
+			playsound(src, gear2.destroy_sound, 50)
+
 /obj/vehicle/sealed/mecha/ntf/ex_act(severity)
 	log_message("Affected by explosion of severity: [severity].", LOG_MECHA, color="red")
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
@@ -127,7 +156,6 @@
 			switch(piece_to_add.type_of_piece)
 				if(MECHA_ARMS)
 					arms = piece_to_add
-//					add_arms(type = piece_to_add)
 				if(MECHA_LEGS)
 					legs = piece_to_add
 				if(MECHA_BODY)
@@ -150,10 +178,37 @@
 		playsound(loc, 'sound/weapons/tap.ogg', 40, TRUE, -1)
 		user.visible_message(span_danger("[user] hits [src]. Nothing happens."), null, null, COMBAT_MESSAGE_RANGE)
 		log_message("Attack by hand/paw (no damage). Attacker - [user].", LOG_MECHA, color="red")
+		return
+	toggle_hatch(user, FALSE)
+
+/obj/vehicle/sealed/mecha/ntf/RightClick(mob/living/user)
+	if(!(user in occupants))
+		return
+	toggle_hatch(user, TRUE)
+
+/obj/vehicle/sealed/mecha/ntf/proc/toggle_hatch(mob/living/user, toggling_lock = FALSE)
+	if(hatch_status == HATCH_BROKEN)
+		balloon_alert(user, "hatch is broken!")
+		return
+
+	if(toggling_lock)
+		if(hatch_status == HATCH_OPEN)
+			balloon_alert(user, "close it first!")
+			return
+		hatch_status = (hatch_status == HATCH_LOCKED) ? HATCH_CLOSED : HATCH_LOCKED
+		balloon_alert(user, hatch_status == HATCH_LOCKED ? "locked!" : "unlocked!")
 	else
-		cabin_open = !cabin_open
-		update_icon()
-		user.balloon_alert(user, "toggled hatch")
+		if(hatch_status == HATCH_LOCKED)
+			balloon_alert(user, "unlock first!")
+			return
+		hatch_status = (hatch_status == HATCH_OPEN) ? HATCH_CLOSED : HATCH_OPEN
+		balloon_alert(user, hatch_status == HATCH_OPEN ? "opened!" : "closed!")
+	update_icon()
+
+/obj/vehicle/sealed/mecha/ntf/on_mouseclick(mob/user, atom/target, turf/location, control, list/modifiers)
+	.=..()
+	if(src == target)
+		toggle_hatch(user)
 
 /obj/vehicle/sealed/mecha/ntf/update_icon()
 	.=..()
@@ -166,17 +221,60 @@
 		var/image/cabin_overlay = image(icon = body.icon, icon_state = "[body.icon_state]")
 		overlays_to_make += cabin_overlay
 
-		if(cabin_open)
+		if(hatch_status == HATCH_OPEN || HATCH_BROKEN)
 			var/image/door_overlay = image(icon = body.icon, icon_state = "[body.icon_state]_overlay_open")
 			door_overlay.layer = MECH_COCKPIT_LAYER
 			overlays_to_make += door_overlay
 
-		if(body.extra_overlays && !cabin_open)
+		if(body.extra_overlays && hatch_status == HATCH_CLOSED || HATCH_LOCKED)
 			var/image/extra_overlays = image(icon = body.icon, icon_state = "[body.icon_state]_overlay")
-			extra_overlays.layer = MECH_COCKPIT_LAYER+0.1
+			extra_overlays.layer = MECH_COCKPIT_LAYER+0.01
 			overlays_to_make += extra_overlays
 
 	overlays = overlays_to_make
 
 /obj/vehicle/sealed/mecha/ntf/proc/mecha_update_components()
 	update_icon()
+	if(body)
+		update_body_values()
+//	if(head)
+//		update_head_values()
+	if(legs)
+		update_legs_values()
+	if(arms)
+		update_arms_values()
+	return
+
+/obj/vehicle/sealed/mecha/ntf/proc/update_body_values()
+	if(!body)
+		return
+
+//	var/obj/item/mecha_parts/mecha_pieces/mecha_body/the_body
+
+	max_integrity = body.max_integrity
+	obj_integrity = max_integrity
+	max_drivers = body.occupants_allowed[DRIVER]
+	max_occupants = body.occupants_allowed[PASSENGER]
+	exit_delay = body.exit_delay
+	enter_delay = body.enter_delay
+	cockpit_armor = body.cockpit_armor
+	soft_armor = body.soft_armor
+
+/obj/vehicle/sealed/mecha/ntf/proc/update_arms_values()
+	if(!arms)
+		return
+
+	force = arms.melee_damage
+//	melee_delay = the_arms.action_delay
+
+/obj/vehicle/sealed/mecha/ntf/proc/update_legs_values()
+	if(!legs)
+		return
+
+	move_delay = legs.movement_delay
+	pivot_step = legs.pivot_step
+	tank_turns = legs.tank_turns
+	allow_diagonal_movement = legs.can_move_diagonally
+	stepsound = legs.step_sound
+	turnsound = legs.turn_sound
+//	can_strafe = legs.can_strafe

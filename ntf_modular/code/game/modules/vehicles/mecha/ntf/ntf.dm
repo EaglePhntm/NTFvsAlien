@@ -35,15 +35,20 @@
 	var/datum/looping_sound/exosuit_engine/fuel/soundloop
 	var/engine_starting_sound
 
-	var/cabin_open = TRUE
+	var/tank_turns = FALSE
+
+	var/hatch_status = HATCH_OPEN
+
+	var/hatch_location = HATCH_POSITION_FRONT
+	var/flip_status = FLIP_UPRIGHT
 
 	var/underlying_icon = 'icons/mecha/mech_construct.dmi'
 	var/underlying_icon_state = "backbone"
 
-	var/obj/item/mecha_parts/mecha_pieces/body
-	var/obj/item/mecha_parts/mecha_pieces/head
-	var/obj/item/mecha_parts/mecha_pieces/legs
-	var/obj/item/mecha_parts/mecha_pieces/arms
+	var/obj/item/mecha_parts/mecha_pieces/mecha_body/body
+	var/obj/item/mecha_parts/mecha_pieces/mecha_head/head
+	var/obj/item/mecha_parts/mecha_pieces/mecha_legs/legs
+	var/obj/item/mecha_parts/mecha_pieces/mecha_arms/arms
 
 /obj/vehicle/sealed/mecha/ntf/get_mecha_occupancy_state()
 	return
@@ -58,6 +63,7 @@
 /obj/vehicle/sealed/mecha/ntf/Initialize(mapload)
 	.=..()
 	set_jump_component()
+	mecha_update_components()
 
 /obj/vehicle/sealed/mecha/ntf/proc/set_jump_component(duration = 0.2 SECONDS, cooldown = 1 SECONDS, cost = 8, height = 8, sound = null, flags = JUMP_SHADOW, jump_pass_flags = null)
 	var/list/arg_list = list(duration, cooldown, cost, height, sound, flags, jump_pass_flags)
