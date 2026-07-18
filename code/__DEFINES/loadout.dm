@@ -1967,7 +1967,6 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 		/obj/item/clothing/under/marine/corpsman = 1,
 	),
 	VANGUARD = list(
-		/obj/item/clothing/suit/modular/xenonauten/bulletresistant = 1,
 		/obj/item/bodybag/cryobag = 1,
 		/obj/item/defibrillator = 1,
 		/obj/item/healthanalyzer = 1,

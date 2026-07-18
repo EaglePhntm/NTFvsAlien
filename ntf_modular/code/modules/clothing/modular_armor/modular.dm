@@ -16,6 +16,14 @@
 	icon_file = 'ntf_modular/icons/mob/modular/xenonauten.dmi'
 	prefix = "bulletproof_"
 
+/datum/greyscale_config/xenonaut/vestbullet
+	icon_file = 'ntf_modular/icons/mob/modular/xenonauten.dmi'
+	prefix = "bulletproofvest_"
+
+/datum/greyscale_config/xenonaut/vestablative
+	icon_file = 'ntf_modular/icons/mob/modular/xenonauten.dmi'
+	prefix = "ablativevest_"
+
 /datum/greyscale_config/xenonaut/ablative
 	icon_file = 'ntf_modular/icons/mob/modular/xenonauten.dmi'
 	prefix = "ablative_"
@@ -112,6 +120,11 @@
 
 	greyscale_config = /datum/greyscale_config/xenonaut/bulletproof
 
+/obj/item/clothing/suit/modular/xenonauten/bulletresistant/vest
+	name = "\improper NTC bullet-resistant vest"
+	desc = "A lightweight vest that excels in protecting the wearer against high-velocity solid projectiles. This one has bullet resistant padding on the legs aswell but they are hidden away."
+	greyscale_config = /datum/greyscale_config/xenonaut/vestbullet
+
 /obj/item/clothing/suit/modular/xenonauten/bulletresistant/bikini
 	name = "\improper NTC bullet-resistant bikini armor"
 	desc = "A lightweight set of armor that excels in protecting the wearer against high-velocity solid projectiles. This one has bullet resistant padding on the limbs aswell, how does it work? don't ask."
@@ -127,6 +140,11 @@
 	slowdown = 0
 
 	greyscale_config = /datum/greyscale_config/xenonaut/ablative
+
+/obj/item/clothing/suit/modular/xenonauten/ablative/vest
+	name = "\improper NTC bullet-resistant vest"
+	desc = "A lightweight set of armor that excels in protecting the wearer against laser and energy attacks thanks to it's reflective plating. This has platings on the legs aswell but they are hidden away."
+	greyscale_config = /datum/greyscale_config/xenonaut/vestablative
 
 /obj/item/clothing/suit/modular/xenonauten/ablative/bikini
 	name = "\improper NTC ablative bikini armor"
