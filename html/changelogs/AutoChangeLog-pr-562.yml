@@ -1,0 +1,4 @@
+author: "Meghan-Rossi"
+delete-after: True
+changes:
+  - balance: "Reduced direct hit bonus damage for spray flamers by 70%.  (This has no effect on the damage from walking through the flames)"
