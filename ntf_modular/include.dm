@@ -109,7 +109,6 @@
 #include "code\game\modules\vehicles\mecha\ntf\components\chassis\head.dm"
 #include "code\game\modules\vehicles\mecha\ntf\components\chassis\legs.dm"
 #include "code\game\modules\vehicles\mecha\ntf\components\chassis\pieces.dm"
-#include "code\game\objects\items\exosuit_painter.dm"
 #include "code\game\objects\effects\effect_system\smoke.dm"
 #include "code\game\objects\effects\landmarks\landmarks.dm"
 #include "code\game\objects\effects\landmarks\marine_spawns.dm"
