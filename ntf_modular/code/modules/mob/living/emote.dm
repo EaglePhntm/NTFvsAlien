@@ -298,7 +298,7 @@
 	message = "emits a fearful alarm!"
 	sound = "sound/mecha/internaldmgalarm.ogg"
 
-/datum/emote/living/carbon/human/species/robot/droiddamaged
+/datum/emote/living/carbon/human/species/robot/droidcritical
 	key = "critical"
 	message = "emits a fearful alarm!"
 	sound = "ntf_modular/sound/mecha/internaldmgcritalarm.ogg"
