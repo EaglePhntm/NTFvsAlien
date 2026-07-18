@@ -86,7 +86,7 @@
 	if(.)
 		return
 
-	if(istype(I, /obj/item/cell))
+	if(istype(I, /obj/item/cell) && I.w_class < WEIGHT_CLASS_NORMAL)
 		if(bcell)
 			to_chat(user, span_notice("[src] already has a cell."))
 			return
