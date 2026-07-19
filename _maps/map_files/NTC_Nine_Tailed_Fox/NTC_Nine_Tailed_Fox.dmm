@@ -893,9 +893,6 @@
 /turf/closed/wall/mainship,
 /area/mainship/hull/upper_hull)
 "aMe" = (
-/obj/machinery/power/apc/mainship{
-	dir = 1
-	},
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
