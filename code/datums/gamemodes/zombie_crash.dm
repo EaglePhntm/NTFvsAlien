@@ -259,4 +259,5 @@
 
 /mob/living/carbon/xenomorph/New()
 	. = ..()
-	AddComponent(/datum/component/xeno_iff, FACTION_TERRAGOV)
+	if(iszombiecrashgamemode(SSticker.mode))
+		AddComponent(/datum/component/xeno_iff, FACTION_TERRAGOV)
