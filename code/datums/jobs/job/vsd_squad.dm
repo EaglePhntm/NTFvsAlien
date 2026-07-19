@@ -215,7 +215,6 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 /datum/job/vsd_squad/silicon/synthetic/get_special_name(client/preference_source)
 	return preference_source.prefs.synthetic_name
 
-	/*
 /datum/job/vsd_squad/silicon/synthetic/special_check_latejoin(client/C)
 	. = ..()
 	if(!.)
@@ -225,7 +224,6 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 			to_chat(C, span_warning("The ship already has a Synthetic."))
 			return FALSE
 	return TRUE
-	*/
 
 /datum/job/vsd_squad/silicon/synthetic/return_spawn_type(datum/preferences/prefs)
 	if(prefs?.synthetic_type == "Early Synthetic")
