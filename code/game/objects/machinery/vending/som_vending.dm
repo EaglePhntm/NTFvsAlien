@@ -163,6 +163,7 @@
 			/obj/item/explosive/grenade/smokebomb/acid = 5,
 			/obj/item/explosive/grenade/smokebomb/aphrotoxin = 5,
 			/obj/item/explosive/grenade/smokebomb/sleep = 10,
+			/obj/item/explosive/grenade/chem_grenade/teargas = 10,
 			/obj/item/explosive/grenade/bullet/laser = 30,
 			/obj/item/explosive/grenade/bullet/hefa = 5,
 			/obj/item/explosive/grenade/emp = 5,

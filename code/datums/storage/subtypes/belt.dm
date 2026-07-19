@@ -121,6 +121,9 @@
 		can_hold_list = list(
 			/obj/item/explosive/grenade/flashbang,
 			/obj/item/explosive/grenade/chem_grenade/teargas,
+			/obj/item/explosive/grenade/bednade,
+			/obj/item/cell/taser,
+			/obj/item/clothing/ears/earmuffs,
 			/obj/item/reagent_containers/spray/pepper,
 			/obj/item/restraints/handcuffs,
 			/obj/item/flash,
