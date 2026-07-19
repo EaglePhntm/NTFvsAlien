@@ -243,6 +243,7 @@
 #include "code\modules\reqs\supplypacks\clothing_packs.dm"
 #include "code\modules\reqs\supplypacks\engineering_packs.dm"
 #include "code\modules\reqs\supplypacks\factory_packs.dm"
+#include "code\modules\reqs\supplypacks\medical_packs.dm"
 #include "code\modules\reqs\supplypacks\imports_packs.dm"
 #include "code\modules\reqs\supplypacks\operations_packs.dm"
 #include "code\modules\reqs\supplypacks\weapons_packs.dm"
