@@ -99,6 +99,7 @@ GLOBAL_LIST_EMPTY(indestructible_teleporters)
 /obj/item/teleporter_kit/indestructible
 	name = "\improper ASRS Reinforced Bluespace teleporter"
 	resistance_flags = RESIST_ALL
+	var/destructible = FALSE
 
 /obj/item/teleporter_kit/indestructible/Initialize(mapload)
 	. = ..()
@@ -115,7 +116,17 @@ GLOBAL_LIST_EMPTY(indestructible_teleporters)
 		var/obj/machinery/deployable/teleporter/deployed_tele = loc
 		if(!istype(deployed_tele))
 			CRASH("Teleporter kit deployed to wrong type")
-		deployed_tele.resistance_flags = RESIST_ALL
+		if(!destructible)
+			deployed_tele.resistance_flags = RESIST_ALL
+
+/obj/item/teleporter_kit/indestructible/proc/set_destructible(newstate)
+	destructible = newstate
+	var/obj/machinery/deployable/teleporter/deployed_tele = loc
+	if(istype(deployed_tele))
+		if(destructible)
+			deployed_tele.resistance_flags = initial(deployed_tele.resistance_flags)
+		else
+			deployed_tele.resistance_flags = RESIST_ALL
 
 /obj/effect/teleporter_linker/indestructible/Initialize(mapload, skip)
 	if(skip > 0)
