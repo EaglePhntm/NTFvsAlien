@@ -268,7 +268,7 @@ SUBSYSTEM_DEF(vote)
 /datum/controller/subsystem/vote/proc/submit_vote(vote)
 	if(!mode)
 		return
-	if(CONFIG_GET(flag/no_dead_vote) && usr.stat == DEAD && !usr.client.holder)
+	if(CONFIG_GET(flag/no_dead_vote) && usr.stat == DEAD && !(check_rights_for(usr.client, R_ADMIN)))
 		return
 	if(!vote || vote < 1 || vote > length(choices))
 		return
@@ -301,7 +301,8 @@ SUBSYSTEM_DEF(vote)
 	var/lower_admin = FALSE
 	if(initiator_key)
 		var/ckey = ckey(initiator_key)
-		if(GLOB.admin_datums[ckey])
+		var/datum/admins/initiator_holder = GLOB.admin_datums[ckey]
+		if(initiator_holder?.check_for_rights(R_ADMIN))
 			lower_admin = TRUE
 
 	forced_popup = popup_override
@@ -492,7 +493,7 @@ SUBSYSTEM_DEF(vote)
 		"choices" = list(),
 		"vote_counts" = list(),
 		"vote_weights" = list(),
-		"lower_admin" = !!user.client?.holder,
+		"lower_admin" = check_rights_for(user.client, R_ADMIN),
 		"mode" = mode,
 		"question" = question,
 		"selected_choice" = choices_by_ckey[user.client?.ckey] ? choices_by_ckey[user.client?.ckey] : list(),
@@ -507,7 +508,7 @@ SUBSYSTEM_DEF(vote)
 		"vote_happening" = vote_happening,
 	)
 
-	if(!!user.client?.holder)
+	if(check_other_rights(user.client, R_ADMIN, FALSE))
 		data["voting"] = voting
 
 	var/choice_num = 1
@@ -537,63 +538,62 @@ SUBSYSTEM_DEF(vote)
 		return
 
 	var/upper_admin = FALSE
-	if(usr.client.holder)
-		if(check_rights_for(usr.client, R_ADMIN))
-			upper_admin = TRUE
+	if(check_rights_for(usr.client, R_ADMIN))
+		upper_admin = TRUE
 
 	switch(action)
 		if("cancel")
-			if(usr.client.holder)
+			if(upper_admin)
 				usr.log_message("[key_name_admin(usr)] cancelled a vote.", LOG_ADMIN)
 				message_admins("[key_name_admin(usr)] has cancelled the current vote.")
 				reset()
 		if("toggle_restart")
-			if(usr.client.holder && upper_admin)
+			if(upper_admin)
 				CONFIG_SET(flag/allow_vote_restart, !CONFIG_GET(flag/allow_vote_restart))
 		if("toggle_endround")
-			if(usr.client.holder && upper_admin)
+			if(upper_admin)
 				CONFIG_SET(flag/allow_vote_endround, !CONFIG_GET(flag/allow_vote_endround))
 		if("toggle_gamemode")
-			if(usr.client.holder && upper_admin)
+			if(upper_admin)
 				CONFIG_SET(flag/allow_vote_mode, !CONFIG_GET(flag/allow_vote_mode))
 		if("toggle_groundmap")
-			if(usr.client.holder && upper_admin)
+			if(upper_admin)
 				CONFIG_SET(flag/allow_vote_groundmap, !CONFIG_GET(flag/allow_vote_groundmap))
 		if("toggle_shipmap")
-			if(usr.client.holder && upper_admin)
+			if(upper_admin)
 				CONFIG_SET(flag/allow_vote_shipmap, !CONFIG_GET(flag/allow_vote_shipmap))
 		if("restart")
-			if(CONFIG_GET(flag/allow_vote_restart) || usr.client.holder)
+			if(CONFIG_GET(flag/allow_vote_restart) || upper_admin)
 				if(!upper_admin && (world.time < 4 HOURS))
 					to_chat(usr, span_userdanger("You can not start this vote before 4 hours in to a round, unless you are an admin."))
 					return
 				initiate_vote("restart",usr.key)
 		if("endround")
-			if(CONFIG_GET(flag/allow_vote_endround) || usr.client.holder)
+			if(CONFIG_GET(flag/allow_vote_endround) || upper_admin)
 				if(!upper_admin && (world.time < 4 HOURS))
 					to_chat(usr, span_userdanger("You can not start this vote before 4 hours in to a round, unless you are an admin."))
 					return
 				initiate_vote("endround",usr.key)
 		if("gamemode")
-			if(CONFIG_GET(flag/allow_vote_mode) || usr.client.holder)
+			if(CONFIG_GET(flag/allow_vote_mode) || upper_admin)
 				if(!upper_admin && (world.time < 4 HOURS))
 					to_chat(usr, span_userdanger("You can not start this vote before 4 hours in to a round, unless you are an admin."))
 					return
 				initiate_vote("gamemode",usr.key)
 		if("groundmap")
-			if(CONFIG_GET(flag/allow_vote_groundmap) || usr.client.holder)
+			if(CONFIG_GET(flag/allow_vote_groundmap) || upper_admin)
 				if(!upper_admin && (world.time < 4 HOURS))
 					to_chat(usr, span_userdanger("You can not start this vote before 4 hours in to a round, unless you are an admin."))
 					return
 				initiate_vote("groundmap",usr.key)
 		if("shipmap")
-			if(CONFIG_GET(flag/allow_vote_shipmap) || usr.client.holder)
+			if(CONFIG_GET(flag/allow_vote_shipmap) || upper_admin)
 				if(!upper_admin && (world.time < 4 HOURS))
 					to_chat(usr, span_userdanger("You can not start this vote before 4 hours in to a round, unless you are an admin."))
 					return
 				initiate_vote("shipmap",usr.key)
 		if("custom")
-			if(usr.client.holder)
+			if(upper_admin)
 				initiate_vote("custom",usr.key)
 		if("vote")
 			submit_vote(round(text2num(params["index"])))
