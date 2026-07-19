@@ -680,6 +680,13 @@
 		return
 	if(user.incapacitated(TRUE))
 		return
+	//they are just warnings to show your action isnt working on this fucking snowflake
+	if(user.a_intent == INTENT_DISARM && !((client?.prefs.harmful_sex_flags & HARMFUL_SEX_STAMINA_DRAIN) && (client?.prefs.harmful_sex_flags & HARMFUL_SEX_CHOKING)))
+		balloon_alert_to_viewers("Some Stam sex prefs are OFF!")
+		return
+	if(user.a_intent == INTENT_HARM && !(client?.prefs.harmful_sex_flags & HARMFUL_SEX_BLOOD_DRAIN) && ((client?.prefs.harmful_sex_flags & HARMFUL_SEX_ALL) && (client?.prefs.harmful_sex_flags & HARMFUL_SEX_ROUGH_SEX)))
+		balloon_alert_to_viewers("Some Harm sex prefs are OFF!")
+		return
 	if(dropping != src)
 		user.sexcon.set_target(src)
 		if(user.a_intent != INTENT_HELP && !user.sexcon.current_action)
@@ -714,37 +721,19 @@
 			if(user.a_intent == INTENT_HARM)
 				balloon_alert_to_viewers("QK health-drain sex")
 				user.sexcon.drain_style = SEX_DRAIN_STYLE_DRAIN_BLOOD_FAST
-				user.sexcon.force = SEX_FORCE_MAX
+				user.sexcon.force = SEX_FORCE_EXTREME
 			if(user.a_intent == INTENT_DISARM)
 				balloon_alert_to_viewers("QK stam-drain sex")
 				if(!buckled)
 					user.start_pulling(src)
 				user.sexcon.drain_style = SEX_DRAIN_STYLE_DRAIN_STAMINA
-				user.sexcon.force = SEX_FORCE_MID
+				user.sexcon.force = SEX_FORCE_EXTREME
 			if(lying_angle)
-				AdjustParalyzed(2 SECONDS)
-				user.forceMove(loc)
+				AdjustParalyzed(3 SECONDS)
+				user.Move(loc)
 				user.sexcon.speed = SEX_SPEED_EXTREME
 			else
 				AdjustImmobilized(1 SECONDS)
 			user.sexcon.try_start_action(action)
 			return
 	erptime(user, src)
-
-/mob/living/proc/start_quick_fuck(mob/target, sexforce = SEX_FORCE_MID)
-	if(!istype(target))
-		return
-	var/action
-	if(gender == MALE)
-		if(target.gender == MALE || target.sexcon.can_use_penis())
-			action = pick(/datum/sex_action/anal_sex, /datum/sex_action/tailpegging_anal, /datum/sex_action/throat_sex)
-		else if(target.gender == FEMALE)
-			action = pick(/datum/sex_action/vaginal_ride_sex, /datum/sex_action/anal_ride_sex, /datum/sex_action/throat_sex)
-	else if(gender == FEMALE)
-		if(target.gender == MALE || target.sexcon.can_use_penis())
-			action = pick(/datum/sex_action/vaginal_sex, /datum/sex_action/anal_sex, /datum/sex_action/blowjob)
-		else if(target.gender == FEMALE)
-			action = pick(/datum/sex_action/scissoring, /datum/sex_action/tailpegging_vaginal, /datum/sex_action/tailpegging_anal, /datum/sex_action/force_cunnilingus)
-	sexcon.force = SEX_FORCE_MAX
-	sexcon.set_target(target)
-	sexcon.try_start_action(action)
