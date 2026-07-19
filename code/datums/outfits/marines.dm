@@ -80,6 +80,9 @@
 	. = ..()
 	if(isliving(hit_atom))
 		var/mob/living/mafaka = hit_atom
+		mafaka.Stun(1.5 SECONDS)
+		mafaka.adjustStaminaLoss(60)
+		playsound(mafaka.loc, SFX_PUNCH, 25, TRUE)
 		Move(mafaka.loc) //go beneath people
 
 /obj/item/explosive/grenade/bednade/prime()
@@ -94,6 +97,12 @@
 			idiot.dropItemToGround(src, TRUE)
 			loc = idiot.loc
 	var/obj/structure/bed/bedroll/sec/sexbed = new /obj/structure/bed/bedroll/sec(loc)
+	for(var/mob/living/victim in loc)
+		if(ishuman(victim))
+			continue
+		victim.ParalyzeNoChain(4 SECONDS)
+		victim.adjustStaminaLoss(150) //ur caught, fucked up
+		sexbed.buckle_mob(victim)
 	update_icon()
 	qdel(src)
 	sleep(2)
