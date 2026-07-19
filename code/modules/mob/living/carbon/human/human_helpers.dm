@@ -679,7 +679,7 @@
 	if(user.incapacitated(TRUE))
 		return
 	if(dropping != src)
-		if((user.client?.prefs.quick_sex_flags & QUICK_SEX) || !(client?.prefs.harmful_sex_flags & QUICK_SEX))
+		if(!(user.client?.prefs.quick_sex_flags & QUICK_SEX))
 			balloon_alert_to_viewers("QK sex pref is OFF!")
 			return
 		//they are just warnings to show your action isnt working on this fucking snowflake
