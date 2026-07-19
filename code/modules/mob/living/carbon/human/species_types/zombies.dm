@@ -140,6 +140,7 @@
 
 /datum/species/zombie/handle_death(mob/living/carbon/human/H)
 	var/datum/limb/head/head = H.get_limb("head")
+	/*
 	if(H.on_fire)
 		addtimer(CALLBACK(src, PROC_REF(fade_out_and_qdel_in), H), 1 MINUTES)
 		return
@@ -148,6 +149,8 @@
 		addtimer(CALLBACK(src, PROC_REF(fade_out_and_qdel_in), H), 1 MINUTES)
 		return
 	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, revive_to_crit), TRUE, FALSE), revive_time)
+	*/
+	addtimer(CALLBACK(src, PROC_REF(fade_out_and_qdel_in), H), 1 MINUTES)
 
 
 /datum/species/zombie/create_organs(mob/living/carbon/human/organless_human)

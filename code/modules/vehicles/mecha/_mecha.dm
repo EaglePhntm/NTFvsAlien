@@ -303,7 +303,6 @@
 	if(LAZYLEN(flat_equipment))
 		for(var/obj/item/mecha_parts/mecha_equipment/equip AS in flat_equipment)
 			equip.detach(loc)
-			qdel(equip)
 	radio = null
 
 	STOP_PROCESSING(SSobj, src)

@@ -1030,6 +1030,7 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 /datum/job/terragov/silicon/synthetic/get_special_name(client/preference_source)
 	return preference_source.prefs.synthetic_name
 
+	/*
 /datum/job/terragov/silicon/synthetic/special_check_latejoin(client/C)
 	. = ..()
 	if(!.)
@@ -1039,6 +1040,7 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 			to_chat(C, span_warning("The ship already has a Synthetic."))
 			return FALSE
 	return TRUE
+		*/
 
 /datum/job/terragov/silicon/synthetic/return_spawn_type(datum/preferences/prefs)
 	if(prefs?.synthetic_type == "Early Synthetic")
