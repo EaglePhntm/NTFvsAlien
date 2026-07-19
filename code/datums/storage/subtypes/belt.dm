@@ -125,6 +125,7 @@
 			/obj/item/restraints/handcuffs,
 			/obj/item/flash,
 			/obj/item/clothing/glasses,
+			/obj/item/ammo_magazine/rifle,
 			/obj/item/ammo_magazine/pistol,
 			/obj/item/ammo_magazine/handful,
 			/obj/item/reagent_containers/food/snacks/donut,

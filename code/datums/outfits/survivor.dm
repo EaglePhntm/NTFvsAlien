@@ -107,6 +107,7 @@
 	gloves = /obj/item/clothing/gloves/black
 	suit_store = /obj/item/weapon/gun/rifle/famas
 	ears = /obj/item/radio/headset/survivor
+	r_pocket = /obj/item/storage/pouch/magazine/large/pmc_famas
 
 	backpack_contents = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/combat = 1,

@@ -136,7 +136,7 @@
 /obj/item/storage/pouch/survival/full/PopulateContents()
 	new /obj/item/flashlight(src)
 	new /obj/item/reagent_containers/pill/tramadol(src)
-	new /obj/item/stack/medical/heal_pack/gauze(src, 3)
+	new /obj/item/stack/medical/heal_pack/gauze(src, 40)
 	new /obj/item/stack/sheet/metal(src, 40)
 	new /obj/item/stack/sheet/plasteel(src, 15)
 	new /obj/item/tool/weldingtool(src)

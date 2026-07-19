@@ -5,7 +5,7 @@
 	id = /obj/item/card/id
 	w_uniform = /obj/item/clothing/under/colonist
 	shoes = /obj/item/clothing/shoes/marine
-	l_pocket = /obj/item/storage/pouch/survival/full
+	l_pocket = /obj/item/storage/pouch/general/large
 	r_pocket = /obj/item/radio
 
 /datum/outfit/job/other/pizza

@@ -11,7 +11,7 @@
 	id = /obj/item/card/id
 	w_uniform = /obj/item/clothing/under/colonist
 	shoes = /obj/item/clothing/shoes/marine
-	l_pocket = /obj/item/storage/pouch/survival/full
+	l_pocket = /obj/item/storage/pouch/general/large
 	r_pocket = /obj/item/radio
 
 
@@ -179,7 +179,8 @@
 	id = /obj/item/card/id
 	w_uniform = /obj/item/clothing/under/colonist
 	shoes = /obj/item/clothing/shoes/marine
-	l_pocket = /obj/item/storage/pouch/survival/full
+	l_pocket = /obj/item/storage/pouch/tools/full
+	r_pocket = /obj/item/storage/pouch/general/large
 	ears = /obj/item/radio/headset/mainship
 
 /datum/job/worker/get_spawn_message_information(mob/M)

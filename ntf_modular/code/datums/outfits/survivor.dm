@@ -11,7 +11,7 @@
 	glasses = /obj/item/clothing/glasses/welding
 	r_pocket = /obj/item/storage/pouch/tools/full
 	l_pocket = /obj/item/storage/pouch/survival/full
-	id = /obj/item/card/id/captains_spare/survival
+	id = /obj/item/card/id
 	backpack_contents = list(
 		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
 	)
@@ -25,6 +25,8 @@
 	shoes = /obj/item/clothing/shoes/marine/full
 	head = /obj/item/clothing/head/servicecap
 	back = /obj/item/storage/backpack/marine/satchel
+	suit_store = /obj/item/weapon/gun/rifle/nt_halter
+	r_pocket = /obj/item/storage/pouch/magazine/large
 	backpack_contents = list(
 		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
 		/obj/item/tool/pen = 1,
