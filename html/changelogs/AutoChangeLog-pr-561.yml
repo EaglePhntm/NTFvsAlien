@@ -1,4 +1,0 @@
-author: "CaputCapital"
-delete-after: True
-changes:
-  - balance: "KHM4 damage switched from 1.05 to 1, damage falloff mult from 1 to 1.2."

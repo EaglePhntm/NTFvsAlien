@@ -191,3 +191,9 @@
   tempelers:
   - balance: reduces admin slots.
   - bugfix: Fixes sex not being properly 2.
+2026-07-19:
+  CaputCapital:
+  - balance: KHM4 damage switched from 1.05 to 1, damage falloff mult from 1 to 1.2.
+  Meghan-Rossi:
+  - balance: Reduced direct hit bonus damage for spray flamers by 70%.  (This has
+      no effect on the damage from walking through the flames)
