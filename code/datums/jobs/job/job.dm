@@ -339,10 +339,12 @@ GLOBAL_PROTECT(exp_specialmap)
 		return
 
 	var/list/valid_outfits = list()
+	var/list/temp_outfits = list()
 
 	for(var/datum/outfit/variant AS in assigned_role.outfits)
 		if(ispath(variant))
 			variant = new variant
+			temp_outfits += variant
 		if(isnull(src)) //somehow we had an issue with a runtime saying null.species below so i guess failsafe
 			assigned_role.outfit.equip(src)
 		if(species && (species.species_type in variant.species))
@@ -353,7 +355,8 @@ GLOBAL_PROTECT(exp_specialmap)
 		return
 	var/datum/outfit/chosen_variant = pick(valid_outfits)
 	chosen_variant.equip(src)
-	QDEL_LIST(valid_outfits)
+	valid_outfits.Cut()
+	QDEL_LIST(temp_outfits)
 
 
 /datum/job/proc/equip_spawning_squad(mob/living/carbon/human/new_character, datum/squad/assigned_squad, client/player, forced = FALSE)
