@@ -11,13 +11,6 @@
 /datum/sex_action/facesitting/can_perform(mob/living/carbon/user, mob/living/carbon/target)
 	if(user == target)
 		return FALSE
-
-	// Need to stand up
-	if(user.resting)
-		return FALSE
-	// Target can't stand up
-	if(!target.resting)
-		return FALSE
 	return TRUE
 
 /datum/sex_action/facesitting/on_start(mob/living/carbon/user, mob/living/carbon/target)
@@ -76,12 +69,6 @@
 	else
 		if(user.gender != FEMALE)
 			return FALSE
-	// Need to stand up
-	if(user.resting)
-		return FALSE
-	// Target can't stand up
-	if(!target.resting)
-		return FALSE
 	return TRUE
 
 /datum/sex_action/facesittingtwo/on_start(mob/living/carbon/user, mob/living/carbon/target)

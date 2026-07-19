@@ -308,12 +308,13 @@
 	point_to_atom(pointed_atom)
 	return TRUE
 
-/mob/living/verb/toggle_harmful_sex()
-	set name = "Toggle Sex Harm"
-	set desc = "Open a panel that allows toggling different forms of harm from sex"
+/mob/living/verb/sex_prefs()
+	set name = "Sex Prefs"
+	set desc = "Open a panel that allows toggling preferences for sex mechanics."
 	set category = "IC"
 	var/list/dat = list()
 	var/flags = client.prefs.harmful_sex_flags
+	var/flags_qs = client.prefs.quick_sex_flags
 	if(flags & HARMFUL_SEX_ROUGH_SEX)
 		dat += "<center>Harm from rough/forceful sex : Enabled|<a href='?_src_=usr;harmful_sex_toggle_off=[HARMFUL_SEX_ROUGH_SEX]'>Disable</a></center>"
 	else
@@ -330,6 +331,10 @@
 		dat += "<center>Having blood/life drained via sex : Enabled|<a href='?_src_=usr;harmful_sex_toggle_off=[HARMFUL_SEX_BLOOD_DRAIN]'>Disable</a></center>"
 	else
 		dat += "<center>Having blood/life drained via sex : <a href='?_src_=usr;harmful_sex_toggle_on=[HARMFUL_SEX_BLOOD_DRAIN]'>Enable</a>|Disabled</center>"
+	if(flags_qs & QUICK_SEX_HEAL)
+		dat += "<center>Being healed via quick-sex (gives perms to medics w/o the need to ask again.) : Enabled|<a href='?_src_=usr;quick_sex_toggle_off=[QUICK_SEX_HEAL]'>Disable</a></center>"
+	else
+		dat += "<center>Being healed via quick-sex (gives perms to medics w/o the need to ask again.) : <a href='?_src_=usr;quick_sex_toggle_on=[QUICK_SEX_HEAL]'>Enable</a>|Disabled</center>"
 
 	var/datum/browser/popup = new(usr, "sexharmprefs", "<center>Sex Harm Preferences</center>", 400, 150)
 	popup.set_content(dat.Join())
