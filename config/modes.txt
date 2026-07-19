@@ -51,7 +51,7 @@ endmode
 
 mode Prison Fall
 	requiredplayers 15
-	votable 1
+	votable 0
 endmode
 
 mode Colony Survival
