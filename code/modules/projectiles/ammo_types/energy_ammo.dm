@@ -35,8 +35,8 @@
 	penetration = 0
 	damage_type = STAMINA
 	ammo_behavior_flags = AMMO_ENERGY|AMMO_SKIPS_ALIENS
-	max_range = 4
-	accurate_range = 4
+	max_range = 8
+	accurate_range = 8
 	bullet_color = COLOR_VIVID_YELLOW
 
 /datum/ammo/energy/taser/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
