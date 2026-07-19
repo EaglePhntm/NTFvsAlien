@@ -349,7 +349,7 @@
 
 /obj/item/explosive/grenade/chem_grenade/teargas
 	name = "\improper M66 teargas grenade"
-	desc = "Tear gas grenade used for nonlethal riot control. Please wear adequate gas protection."
+	desc = "Tear gas grenade used for nonlethal riot control. Please wear adequate gas protection. (Useless if the target has any sort of gas mask.)"
 	stage = CG_READY
 
 
