@@ -332,6 +332,10 @@
 	else
 		dat += "<center>Having blood/life drained via sex : <a href='?_src_=usr;harmful_sex_toggle_on=[HARMFUL_SEX_BLOOD_DRAIN]'>Enable</a>|Disabled</center>"
 	if(flags_qs & QUICK_SEX_HEAL)
+		dat += "<center>Initiating quick-sex yourself : Enabled|<a href='?_src_=usr;quick_sex_toggle_off=[QUICK_SEX]'>Disable</a></center>"
+	else
+		dat += "<center>Initiating quick-sex yourself  : <a href='?_src_=usr;quick_sex_toggle_on=[QUICK_SEX]'>Enable</a>|Disabled</center>"
+	if(flags_qs & QUICK_SEX_HEAL)
 		dat += "<center>Being healed via quick-sex (gives perms to medics w/o the need to ask again.) : Enabled|<a href='?_src_=usr;quick_sex_toggle_off=[QUICK_SEX_HEAL]'>Disable</a></center>"
 	else
 		dat += "<center>Being healed via quick-sex (gives perms to medics w/o the need to ask again.) : <a href='?_src_=usr;quick_sex_toggle_on=[QUICK_SEX_HEAL]'>Enable</a>|Disabled</center>"
