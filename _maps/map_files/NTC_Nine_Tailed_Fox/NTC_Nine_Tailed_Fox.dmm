@@ -301,9 +301,7 @@
 "aoH" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hull/upper_hull)
 "apV" = (
 /obj/machinery/light/mainship{
@@ -1582,9 +1580,7 @@
 "bqW" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hull/lower_hull)
 "brs" = (
 /turf/open/space/basic,
@@ -2436,9 +2432,7 @@
 /area/mainship/command/cic)
 "cab" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/command/cic)
 "cah" = (
 /obj/structure/window/framed/mainship/requisitions,
@@ -2879,9 +2873,7 @@
 "cue" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hull/upper_hull)
 "cuj" = (
 /obj/structure/table/mainship/nometal,
@@ -4421,9 +4413,7 @@
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/self_destruct)
 "dIx" = (
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/groundhq/ntf/engineering/upper_engine_monitoring)
 "dIz" = (
 /obj/machinery/door/poddoor/mainship/open/cic{
@@ -6612,9 +6602,7 @@
 	id = "lowercargohold";
 	name = "\improper Cargo Hold"
 	},
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hallways/bow_hallway{
 	name = "Ship Floor 1 Hallways"
 	})
@@ -7018,9 +7006,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hallways/bow_hallway{
 	name = "Ship Floor 1 Hallways"
 	})
@@ -7056,9 +7042,7 @@
 /obj/machinery/door/poddoor/mainship/ammo{
 	dir = 2
 	},
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hallways/hangar)
 "fQX" = (
 /obj/structure/table/urban/shiny_black,
@@ -7092,9 +7076,7 @@
 /obj/machinery/door/firedoor/mainship{
 	dir = 2
 	},
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hallways/hangar)
 "fSk" = (
 /obj/structure/flora/ausbushes/sunnybush,
@@ -7425,9 +7407,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hull/lower_hull)
 "ggd" = (
 /turf/open/floor/mainship_hull/dir{
@@ -7973,9 +7953,7 @@
 	id = "lowercargohold2";
 	name = "\improper Cargo Hold"
 	},
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hallways/bow_hallway{
 	name = "Ship Floor 1 Hallways"
 	})
@@ -8114,9 +8092,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/groundhq/ntf/engineering/upper_engine_monitoring)
 "gLc" = (
 /obj/machinery/vending/MarineMed/Blood,
@@ -9292,9 +9268,7 @@
 /obj/machinery/door/poddoor/mainship/ammo{
 	dir = 2
 	},
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hallways/hangar)
 "hIV" = (
 /obj/structure/cable,
@@ -10201,9 +10175,7 @@
 /obj/machinery/door/firedoor/mainship{
 	dir = 2
 	},
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hallways/bow_hallway{
 	name = "Ship Floor 1 Hallways"
 	})
@@ -10919,9 +10891,7 @@
 	id = "lowercargohold2";
 	name = "\improper Cargo Hold"
 	},
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hallways/bow_hallway{
 	name = "Ship Floor 1 Hallways"
 	})
@@ -12165,9 +12135,7 @@
 "jWO" = (
 /obj/effect/ai_node,
 /obj/structure/cable,
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hull/upper_hull)
 "jWX" = (
 /obj/structure/closet/secure_closet/personal/walllocker{
@@ -14287,9 +14255,7 @@
 /area/mainship/living/cafeteria_starboard)
 "lvc" = (
 /obj/structure/cable,
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/living/cryo_cells)
 "lvd" = (
 /obj/machinery/computer/camera_advanced/overwatch/military/delta,
@@ -16952,9 +16918,7 @@
 /area/mainship/engineering/port_atmos)
 "nHD" = (
 /obj/structure/cable,
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hull/lower_hull)
 "nHE" = (
 /obj/structure/bed/chair/sofa/right,
@@ -17370,9 +17334,7 @@
 	id = "cargohold";
 	name = "\improper Shuttle Bay"
 	},
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hallways/port_umbilical{
 	name = "Ship Floor 2 Hallways"
 	})
@@ -18289,9 +18251,7 @@
 	id = "cargohold";
 	name = "\improper Shuttle Bay"
 	},
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hallways/port_umbilical{
 	name = "Ship Floor 2 Hallways"
 	})
@@ -18299,9 +18259,7 @@
 /obj/machinery/door/firedoor/mainship{
 	dir = 2
 	},
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hallways/port_umbilical{
 	name = "Ship Floor 2 Hallways"
 	})
@@ -18672,9 +18630,7 @@
 /obj/machinery/door/poddoor/mainship/ammo{
 	dir = 2
 	},
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hallways/hangar)
 "paa" = (
 /obj/machinery/door/poddoor/shutters/mainship/open/checkpoint{
@@ -19018,9 +18974,7 @@
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hallways/hangar)
 "poX" = (
 /obj/effect/landmark/start/job/assault_crewman,
@@ -19449,9 +19403,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/groundhq/ntf/engineering/upper_engine_monitoring)
 "pNe" = (
 /obj/structure/flora/ausbushes/pointybush,
@@ -20691,9 +20643,7 @@
 "qJw" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/command/cic)
 "qKM" = (
 /obj/structure/bed/urban/bunkbed2{
@@ -22068,9 +22018,7 @@
 /area/mainship/groundhq/ntf/hallways/gardens)
 "rVF" = (
 /obj/structure/cable,
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hull/upper_hull)
 "rVV" = (
 /obj/structure/table/reinforced/fabric,
@@ -22576,9 +22524,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/cable,
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hallways/bow_hallway{
 	name = "Ship Floor 1 Hallways"
 	})
@@ -22929,9 +22875,7 @@
 /area/mainship/groundhq/ntf/hallways/gardens)
 "sBY" = (
 /obj/effect/ai_node,
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hull/upper_hull)
 "sCz" = (
 /obj/machinery/door/airlock/multi_tile/mainship/medidoor/medbay/free_access{
@@ -24418,9 +24362,7 @@
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hallways/port_umbilical{
 	name = "Ship Floor 2 Hallways"
 	})
@@ -24917,9 +24859,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hallways/bow_hallway{
 	name = "Ship Floor 1 Hallways"
 	})
@@ -25827,9 +25767,7 @@
 "uSa" = (
 /obj/effect/ai_node,
 /obj/structure/cable,
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hull/lower_hull)
 "uSI" = (
 /obj/machinery/light/mainship{
@@ -25870,9 +25808,7 @@
 	id = "lowercargohold2";
 	name = "\improper Cargo Hold"
 	},
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hallways/bow_hallway{
 	name = "Ship Floor 1 Hallways"
 	})
@@ -26546,9 +26482,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/groundhq/ntf/engineering/upper_engine_monitoring)
 "vuD" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1,
@@ -26582,9 +26516,7 @@
 /obj/machinery/door/poddoor/mainship/ammo{
 	dir = 2
 	},
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hallways/hangar)
 "vwi" = (
 /obj/structure/bookcase,
@@ -29507,9 +29439,7 @@
 	id = "cargohold";
 	name = "\improper Shuttle Bay"
 	},
-/turf/open/floor/stairs/rampbottom{
-	dir = 4
-	},
+/turf/open/floor/stairs/rampbottom,
 /area/mainship/hallways/port_umbilical{
 	name = "Ship Floor 2 Hallways"
 	})

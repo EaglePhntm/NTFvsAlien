@@ -53,9 +53,7 @@
 			continue
 		if(!D.density)
 			continue
-		D.unlock()
 		D.open()
-		D.lock()
 
 	open = TRUE
 
@@ -72,9 +70,7 @@
 			continue
 		if(D.density)
 			continue
-		D.unlock()
 		D.close()
-		D.lock()
 
 	open = FALSE
 

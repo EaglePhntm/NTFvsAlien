@@ -142,7 +142,7 @@
 	greyscale_config = /datum/greyscale_config/xenonaut/ablative
 
 /obj/item/clothing/suit/modular/xenonauten/ablative/vest
-	name = "\improper NTC bullet-resistant vest"
+	name = "\improper NTC ablative vest"
 	desc = "A lightweight set of armor that excels in protecting the wearer against laser and energy attacks thanks to it's reflective plating. This has platings on the legs aswell but they are hidden away."
 	greyscale_config = /datum/greyscale_config/xenonaut/vestablative
 
