@@ -189,7 +189,7 @@
 		xenorespawn_time = 5 MINUTES
 		bioscan_interval = 15 MINUTES
 		round_type_flags &= ~MODE_XENO_GRAB_DEAD_ALLOWED
-		round_type_flags2 &= ~MODE_2_CHILL_RULES
+		round_type_flags2 &= ~(MODE_2_CHILL_RULES|MODE_2_MINER_RUSH_PROT)
 		GLOB.time_before_dnr = STANDARD_DNR_TIME
 		GLOB.max_larva_count_per_mob = MAX_LARVA_PREGNANCIES
 	else
@@ -206,7 +206,7 @@
 		xenorespawn_time = initial(xenorespawn_time)
 		bioscan_interval = initial(bioscan_interval)
 		round_type_flags |= MODE_XENO_GRAB_DEAD_ALLOWED
-		round_type_flags2 |= MODE_2_CHILL_RULES
+		round_type_flags2 |= (MODE_2_CHILL_RULES|MODE_2_MINER_RUSH_PROT)
 
 	for(var/datum/xeno_caste/caste AS in evo_requirements)
 		GLOB.xeno_caste_datums[caste][XENO_UPGRADE_BASETYPE].evolve_min_xenos = evo_requirements[caste]
