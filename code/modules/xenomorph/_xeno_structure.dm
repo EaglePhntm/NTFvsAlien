@@ -66,6 +66,8 @@
 
 ///Alerts the Hive when hostiles get too close to this structure
 /obj/structure/xeno/HasProximity(atom/movable/hostile)
+	if(iszombiecrashgamemode(SSticker.mode))
+		return
 	if(!COOLDOWN_FINISHED(src, proxy_alert_cooldown))
 		return
 

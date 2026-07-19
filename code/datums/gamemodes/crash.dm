@@ -56,6 +56,7 @@
 		/datum/xeno_caste/king = 14,
 		/datum/xeno_caste/queen = 10,
 	)
+	spawn_xeno_shit = TRUE
 
 /datum/game_mode/infestation/crash/pre_setup()
 	. = ..()
@@ -115,23 +116,24 @@
 	if(!(round_type_flags & MODE_INFESTATION))
 		return
 
-	for(var/i in GLOB.xeno_resin_silo_turfs)
-		new /obj/structure/xeno/silo(i)
-		new /obj/structure/xeno/pherotower(i)
-
-	for(var/i in GLOB.xeno_spawner_turfs)
-		new /obj/structure/xeno/spawner(i, XENO_HIVE_NORMAL)
+	if(spawn_xeno_shit) //for zombie crash
+		for(var/i in GLOB.xeno_resin_silo_turfs)
+			new /obj/structure/xeno/silo(i)
+			new /obj/structure/xeno/pherotower(i)
+		for(var/i in GLOB.xeno_spawner_turfs)
+			new /obj/structure/xeno/spawner(i, XENO_HIVE_NORMAL)
 
 	for(var/obj/effect/landmark/corpsespawner/corpse AS in GLOB.corpse_landmarks_list)
 		corpse.create_mob()
 
-	for(var/i in GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])
-		if(isxenolarva(i)) // Larva
-			var/mob/living/carbon/xenomorph/larva/X = i
-			X.evolution_stored = X.xeno_caste.evolution_threshold //Immediate roundstart evo for larva.
-		else // Handles Shrike etc
-			var/mob/living/carbon/xenomorph/X = i
-			X.upgrade_stored = X.xeno_caste.upgrade_threshold
+	if(spawn_xeno_shit) //for zombie crash
+		for(var/i in GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])
+			if(isxenolarva(i)) // Larva
+				var/mob/living/carbon/xenomorph/larva/X = i
+				X.evolution_stored = X.xeno_caste.evolution_threshold //Immediate roundstart evo for larva.
+			else // Handles Shrike etc
+				var/mob/living/carbon/xenomorph/X = i
+				X.upgrade_stored = X.xeno_caste.upgrade_threshold
 
 
 /datum/game_mode/infestation/crash/announce()

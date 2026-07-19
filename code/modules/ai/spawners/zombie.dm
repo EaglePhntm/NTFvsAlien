@@ -18,7 +18,8 @@
 	)
 	spawnamount = 2
 	spawndelay = 25 SECONDS
-	maxamount = 30
+	maxamount = 10
+	max_integrity = 100
 	///Currently is considered under threat
 	var/threat_warning = FALSE
 	///proxy sensor holder
