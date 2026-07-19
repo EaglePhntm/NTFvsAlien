@@ -61,6 +61,10 @@
 #define PAIN_MINIMUM_FOR_DAMAGE PAIN_MED_EFFECT
 #define PAIN_DAMAGE_DIVISOR 50
 
+#define QUICK_SEX (1 << 0)
+#define QUICK_SEX_HEAL (1 << 1)
+#define QUICK_SEX_ALL ((1 << 2) - 1)
+
 #define HARMFUL_SEX_ROUGH_SEX (1 << 0)
 #define HARMFUL_SEX_CHOKING (1 << 1)
 #define HARMFUL_SEX_STAMINA_DRAIN (1 << 2)

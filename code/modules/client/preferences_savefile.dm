@@ -270,9 +270,6 @@
 	READ_FILE(S["tgui_input"], tgui_input)
 	READ_FILE(S["tgui_input_big_buttons"], tgui_input_big_buttons)
 	READ_FILE(S["tgui_input_buttons_swap"], tgui_input_buttons_swap)
-	READ_FILE(S["quick_sex_toggle"], quick_sex_toggle)
-
-	READ_FILE(S["quick_sex_toggle"], quick_sex_toggle)
 
 	//try to fix any outdated data if necessary
 	if(needs_update >= 0)
@@ -705,6 +702,7 @@
 	READ_FILE(S["genitalia_testicles_color_secondary"], genitalia_testicles_color_secondary)
 	READ_FILE(S["genitalia_testicles_emissive"], genitalia_testicles_emissive)
 	READ_FILE(S["harmful_sex_allowed"], harmful_sex_flags)
+	READ_FILE(S["quick_sex_allowed"], quick_sex_flags)
 	READ_FILE(S["burst_screams_enabled"], burst_screams_enabled)
 	READ_FILE(S["xeno_edible_jelly_name"], xeno_edible_jelly_name)
 	READ_FILE(S["r_jelly"], r_jelly)
@@ -719,7 +717,6 @@
 	READ_FILE(S["metadata_maybes"], metadata_maybes)
 	READ_FILE(S["metadata_favs"], metadata_favs)
 	READ_FILE(S["metadata_ooc_style"], metadata_ooc_style)
-	READ_FILE(S["quick_sex_toggle"], quick_sex_toggle)
 
 	be_special = sanitize_integer(be_special, NONE, MAX_BITFLAG, initial(be_special))
 
@@ -914,6 +911,7 @@
 	genitalia_testicles_color_secondary = sanitize_hexcolor(genitalia_testicles_color_secondary, 6, TRUE, initial(genitalia_testicles_color_secondary))
 	genitalia_testicles_emissive = sanitize_character_creator_emissive_list(genitalia_testicles_emissive)
 	harmful_sex_flags = sanitize_text(harmful_sex_flags, initial(harmful_sex_flags))
+	quick_sex_flags = sanitize_text(quick_sex_flags, initial(quick_sex_flags))
 	burst_screams_enabled = sanitize_text(burst_screams_enabled, initial(burst_screams_enabled))
 
 	metadata = sanitize_text(metadata, initial(metadata))
@@ -922,7 +920,6 @@
 	metadata_maybes = sanitize_text(metadata_maybes, initial(metadata_maybes))
 	metadata_favs = sanitize_text(metadata_favs, initial(metadata_favs))
 	metadata_ooc_style = sanitize_integer(metadata_ooc_style, FALSE, TRUE, initial(metadata_ooc_style))
-	quick_sex_toggle = sanitize_integer(quick_sex_toggle, FALSE, TRUE, initial(quick_sex_toggle))
 	if(parent && isnewplayer(parent.mob))
 		parent.mob.ooc_notes = metadata
 		parent.mob.ooc_notes_likes = metadata_likes
@@ -1134,6 +1131,7 @@
 	genitalia_testicles_color_secondary = sanitize_hexcolor(genitalia_testicles_color_secondary, 6, TRUE, initial(genitalia_testicles_color_secondary))
 	genitalia_testicles_emissive = sanitize_character_creator_emissive_list(genitalia_testicles_emissive)
 	harmful_sex_flags = sanitize_text(harmful_sex_flags, initial(harmful_sex_flags))
+	quick_sex_flags = sanitize_text(quick_sex_flags, initial(quick_sex_flags))
 	burst_screams_enabled = sanitize_text(burst_screams_enabled, initial(burst_screams_enabled))
 
 	metadata = sanitize_text(metadata, initial(metadata))
@@ -1142,7 +1140,6 @@
 	metadata_maybes = sanitize_text(metadata_maybes, initial(metadata_maybes))
 	metadata_favs = sanitize_text(metadata_favs, initial(metadata_favs))
 	metadata_ooc_style = sanitize_integer(metadata_ooc_style, FALSE, TRUE, initial(metadata_ooc_style))
-	quick_sex_toggle = sanitize_integer(quick_sex_toggle, FALSE, TRUE, initial(quick_sex_toggle))
 
 	WRITE_FILE(S["be_special"], be_special)
 
@@ -1303,6 +1300,7 @@
 	WRITE_FILE(S["genitalia_testicles_color_secondary"], genitalia_testicles_color_secondary)
 	WRITE_FILE(S["genitalia_testicles_emissive"], genitalia_testicles_emissive)
 	WRITE_FILE(S["harmful_sex_allowed"], harmful_sex_flags)
+	WRITE_FILE(S["quick_sex_allowed"], quick_sex_flags)
 	WRITE_FILE(S["burst_screams_enabled"], burst_screams_enabled)
 
 	WRITE_FILE(S["metadata"], metadata)
@@ -1317,7 +1315,6 @@
 	WRITE_FILE(S["b_jelly"], b_jelly)
 	WRITE_FILE(S["xeno_edible_jelly_desc"], xeno_edible_jelly_desc)
 	WRITE_FILE(S["xeno_edible_jelly_flavors"], xeno_edible_jelly_flavors)
-	WRITE_FILE(S["quick_sex_toggle"], quick_sex_toggle)
 
 	return TRUE
 

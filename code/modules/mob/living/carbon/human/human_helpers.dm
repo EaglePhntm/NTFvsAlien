@@ -668,7 +668,8 @@
 	. = ..()
 	if(!user.client || !user.client.prefs)
 		return
-	if(!user.client.prefs.quick_sex_toggle)
+	if((user.client?.prefs.quick_sex_flags & QUICK_SEX) || !(client?.prefs.harmful_sex_flags & QUICK_SEX))
+		balloon_alert_to_viewers("QK sex pref is OFF!")
 		return
 	if(dropping != usr)
 		return
@@ -681,6 +682,9 @@
 	if(user.incapacitated(TRUE))
 		return
 	//they are just warnings to show your action isnt working on this fucking snowflake
+	if(user.a_intent == INTENT_DISARM && !((client?.prefs.quick_sex_flags & QUICK_SEX_HEAL)))
+		balloon_alert(user, "Their QK Heal sex is off!")
+		return
 	if(user.a_intent == INTENT_DISARM && !((client?.prefs.harmful_sex_flags & HARMFUL_SEX_STAMINA_DRAIN) && (client?.prefs.harmful_sex_flags & HARMFUL_SEX_CHOKING)))
 		balloon_alert_to_viewers("Some Stam sex prefs are OFF!")
 		return
