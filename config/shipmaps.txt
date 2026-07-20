@@ -49,6 +49,9 @@ map arachne
 	minplayers 600
 endmap
 
+map legacy_of_spring
+endmap
+
 map combat_patrol_base
 	minplayers 0
 endmap
