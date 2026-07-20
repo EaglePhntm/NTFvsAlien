@@ -305,8 +305,11 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 	paygrade = "CLNST"
 	faction = FACTION_ICC //disguise ig
 	job_category = JOB_CAT_CLF
-	outfit = /datum/outfit/job/survivor/assistant
+	outfit = /datum/outfit/job/survivor/assistant/cultagent
 	job_flags = JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_LATEJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_OVERRIDELATEJOINSPAWN|JOB_FLAG_PROVIDES_SQUAD_HUD
 	access = list(ALL_CLF_ACCESS, ACCESS_CIVILIAN_MEDICAL, ACCESS_CIVILIAN_ENGINEERING, ACCESS_CIVILIAN_LOGISTICS, ACCESS_CIVILIAN_PUBLIC, ACCESS_CIVILIAN_RESEARCH)
 	minimal_access = list(ALL_CLF_ACCESS, ACCESS_CIVILIAN_MEDICAL, ACCESS_CIVILIAN_ENGINEERING, ACCESS_CIVILIAN_LOGISTICS, ACCESS_CIVILIAN_PUBLIC, ACCESS_CIVILIAN_RESEARCH)
 	skills_type = /datum/skills/crafty
+
+/datum/outfit/job/survivor/assistant/cultagent
+	id = /obj/item/card/id/clf
