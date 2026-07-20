@@ -139,8 +139,8 @@
 	H.updatehealth()
 
 /datum/species/zombie/handle_death(mob/living/carbon/human/H)
-	var/datum/limb/head/head = H.get_limb("head")
 	/*
+	var/datum/limb/head/head = H.get_limb("head")
 	if(H.on_fire)
 		addtimer(CALLBACK(src, PROC_REF(fade_out_and_qdel_in), H), 1 MINUTES)
 		return

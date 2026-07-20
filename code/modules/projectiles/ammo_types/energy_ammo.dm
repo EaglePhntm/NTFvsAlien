@@ -43,8 +43,7 @@
 	if(iscarbon(target_mob))
 		var/mob/living/carbon/cmob = target_mob
 		cmob.jitter(25)
-		var/stamdamage = modify_by_armor(100, ENERGY, 10)
-		cmob.adjustStaminaLoss(stamdamage)
+		cmob.adjustStaminaLoss(cmob.modify_by_armor(100, ENERGY, 10))
 	playsound(target_mob, 'ntf_modular/sound/items/taser.ogg', 50, TRUE)
 	staggerstun(target_mob, proj, stun = 1 SECONDS, stagger = 2 SECONDS, slowdown = 2)
 
