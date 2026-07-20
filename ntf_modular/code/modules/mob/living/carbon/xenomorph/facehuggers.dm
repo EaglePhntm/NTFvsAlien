@@ -436,7 +436,7 @@ GLOBAL_LIST_INIT(hugger_to_latching, list(
 	if(isreagentcontainer(I))
 		return
 	if(istype(I, /obj/item/healthanalyzer))
-		to_chat("Registered Xenomorph, reagents found: [english_list(reagents.reagent_list)].")
+		to_chat(user,"Registered Xenomorph, reagents found: [english_list(reagents.reagent_list)].")
 		playsound(user.loc, 'sound/items/healthanalyzer.ogg', 45)
 		return
 	. = ..()
