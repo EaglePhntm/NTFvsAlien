@@ -84,6 +84,7 @@
 #include "code\datums\sexcon\sexcon.dm"
 #include "code\datums\sexcon\sexcon_helpers.dm"
 #include "code\game\areas\lava_outpost_v1.dm"
+#include "code\game\areas\mainship.dm"
 #include "code\game\modules\vehicles\mecha\ntf\clarke.dm"
 #include "code\game\modules\vehicles\mecha\ntf\durand.dm"
 #include "code\game\modules\vehicles\mecha\ntf\equipment\weapons\ammo_types.dm"
