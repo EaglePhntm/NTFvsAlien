@@ -7051,10 +7051,6 @@
 "jiG" = (
 /obj/structure/table/reinforced,
 /obj/structure/table/reinforced,
-/obj/structure/window/reinforced/tinted{
-	dir = 1;
-	layer = 2
-	},
 /obj/machinery/faxmachine/warden,
 /obj/machinery/light{
 	dir = 1
@@ -7666,10 +7662,6 @@
 /area/mainship/groundhq/ntf/medical/medical_science)
 "jST" = (
 /obj/machinery/computer/camera_advanced,
-/obj/structure/window/reinforced/tinted{
-	dir = 1;
-	layer = 2
-	},
 /obj/structure/table/reinforced,
 /turf/open/floor/wood,
 /area/mainship/groundhq/ntf/shipboard/brig)
@@ -9700,13 +9692,6 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/living/officer_study)
 "mQZ" = (
-/obj/structure/window/reinforced/tinted{
-	dir = 1
-	},
-/obj/structure/window/reinforced/tinted{
-	dir = 1;
-	layer = 2
-	},
 /obj/machinery/computer/prisoner,
 /turf/open/floor/wood,
 /area/mainship/groundhq/ntf/shipboard/brig)
