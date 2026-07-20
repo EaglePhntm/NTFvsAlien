@@ -3762,10 +3762,10 @@
 /obj/item/tool/pickaxe,
 /obj/item/tool/pickaxe/drill,
 /obj/item/tool/hatchet,
-/obj/item/clothing/glasses/material,
+/obj/item/clothing/glasses/meson,
 /obj/item/clothing/head/hardhat/orange,
 /obj/item/clothing/head/hardhat/orange,
-/obj/item/clothing/glasses/material,
+/obj/item/clothing/glasses/meson,
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/item/clothing/suit/storage/hazardvest,
 /turf/open/floor/plating/ground/snow/layer1,
@@ -9186,7 +9186,7 @@
 	static_lighting = 1
 	})
 "mfo" = (
-/obj/machinery/gibber,
+/obj/machinery/gibber/apc,
 /turf/open/floor/freezer,
 /area/mainship/groundhq/ntf/living/captain_mess{
 	name = "Kitchen"
@@ -12942,10 +12942,10 @@
 /obj/item/tool/pickaxe/jackhammer,
 /obj/item/tool/shovel,
 /obj/item/tool/shovel/spade,
-/obj/item/clothing/glasses/material,
+/obj/item/clothing/glasses/meson,
 /obj/item/clothing/head/hardhat/orange,
 /obj/item/clothing/head/hardhat/orange,
-/obj/item/clothing/glasses/material,
+/obj/item/clothing/glasses/meson,
 /obj/item/clothing/suit/storage/hazardvest,
 /turf/open/floor/plating/ground/snow/layer1,
 /area/desert_dam/exterior/valley/valley_wilderness)
