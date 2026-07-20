@@ -64,8 +64,8 @@
 	)
 
 /datum/action/skill/issue_order/move/ai_should_use(atom/target)
-	return FALSE //test only
-	//the fact the only arg is the current walk to target is not ideal... add a new arg of goal_node?
+	var/mob/living/carbon/human/human_owner = owner
+	return (istype(human_owner) && human_owner.marksman_aura && (human_owner.protection_aura && !(human_owner.mobility_aura)))
 
 /datum/action/skill/issue_order/hold
 	name = "Issue Hold Order"
@@ -75,14 +75,8 @@
 	)
 
 /datum/action/skill/issue_order/hold/ai_should_use(atom/target)
-	if(!isliving(target))
-		return FALSE
-	var/mob/living/living_target = target
-	if(living_target.faction == owner.faction)
-		return FALSE
-	if(living_target.stat)
-		return FALSE
-	return ..()
+	var/mob/living/carbon/human/human_owner = owner
+	return (istype(human_owner) && (human_owner.marksman_aura && !(human_owner.protection_aura)))
 
 /datum/action/skill/issue_order/focus
 	name = "Issue Focus Order"
@@ -92,7 +86,8 @@
 	)
 
 /datum/action/skill/issue_order/focus/ai_should_use(atom/target)
-	return FALSE //test only
+	var/mob/living/carbon/human/human_owner = owner
+	return (istype(human_owner) && !(human_owner.marksman_aura))
 
 /datum/action/skill/toggle_orders
 	name = "Show/Hide Order Options"

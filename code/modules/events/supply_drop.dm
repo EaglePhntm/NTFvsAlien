@@ -2,10 +2,9 @@
 /datum/round_event_control/supply_drop
 	name = "Supply drop"
 	typepath = /datum/round_event/supply_drop
-	weight = 10
-	earliest_start = 5 MINUTES
-
-	gamemode_whitelist = list("Combat Patrol", "Sensor Capture")
+	weight = 12
+	min_players = 5
+	earliest_start = 30 MINUTES
 
 /datum/round_event/supply_drop
 	///How long between the event firing and the supply drop actually landing
@@ -19,7 +18,7 @@
 
 	for(var/z in z_levels)
 		while(!target_turf)
-			var/turf/potential_turf = locate(rand(0, world.maxx), rand(0,world.maxy), z)
+			var/turf/potential_turf = locate(rand(1, world.maxx), rand(1,world.maxy), z)
 			if(isclosedturf(potential_turf) || isspaceturf(potential_turf))
 				continue
 			target_turf = potential_turf
@@ -28,6 +27,8 @@
 
 ///sets the target for this event, and notifies the hive
 /datum/round_event/supply_drop/proc/set_target(turf/target_turf)
+	if(!target_turf)
+		return
 	var/supplying_faction = pick(SSticker.mode.factions)
 	priority_announce("Friendly supply drop arriving in AO in [drop_delay / 600] minutes. Drop zone at [target_turf.loc].", "Bluespace Tactical Scanner Status", sound = 'sound/AI/distressreceived.ogg', receivers = (GLOB.alive_human_list_faction[supplying_faction] + GLOB.observer_list))
 	addtimer(CALLBACK(src, PROC_REF(alert_hostiles), target_turf, supplying_faction), alert_delay)
@@ -35,7 +36,7 @@
 
 ///Alerts the hostile faction(s)
 /datum/round_event/supply_drop/proc/alert_hostiles(turf/target_turf, supplying_faction)
-	var/list/humans_to_alert = GLOB.alive_human_list
+	var/list/humans_to_alert = GLOB.alive_human_list.Copy()
 	for(var/mob/living/carbon/human/alerted_human AS in humans_to_alert)
 		if(alerted_human.faction == supplying_faction)
 			humans_to_alert -= alerted_human
@@ -45,14 +46,16 @@
 
 ///deploys the actual supply drop
 /datum/round_event/supply_drop/proc/drop_supplies(turf/target_turf, faction)
-	priority_announce("[faction] supply drop Materialisation detected at [target_turf.loc].", "Bluespace Tactical Scanner Status", sound = 'sound/AI/distressreceived.ogg', receivers = (GLOB.alive_human_list + GLOB.observer_list))
+	priority_announce("[faction] supply drop Materialisation detected at [target_turf.loc].", "Bluespace Tactical Scanner Status", sound = 'sound/AI/distressreceived.ogg', receivers = (GLOB.alive_human_list + GLOB.observer_list + GLOB.alive_xeno_list))
 	new /obj/item/explosive/grenade/flare/on(target_turf)
 	switch(faction)
 		if(FACTION_SOM)
 			new /obj/item/loot_box/supply_drop/som(target_turf)
 		if(FACTION_ALIEN)
 			new /obj/effect/supply_drop/xenomorph(target_turf)
+		if(FACTION_XENO)
+			new /obj/effect/supply_drop/xenomorph(target_turf)
 		else
 			new /obj/item/loot_box/supply_drop(target_turf) //Marine box is the default
 	playsound(target_turf,'sound/effects/phasein.ogg', 80, FALSE)
-
+	qdel(src)

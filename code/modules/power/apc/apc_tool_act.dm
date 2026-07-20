@@ -10,7 +10,7 @@
 				var/fumbling_time = 5 SECONDS * ( SKILL_ENGINEER_ENGI - user.skills.getRating(SKILL_ENGINEER) )
 				if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED))
 					return
-			I.play_tool_sound(src)
+			I.play_tool_sound(src, 50)
 			balloon_alert(user, "Removing APC board")
 			if(I.use_tool(src, user, 50))
 				if(has_electronics == APC_ELECTRONICS_INSTALLED)
@@ -65,12 +65,12 @@
 				if(APC_ELECTRONICS_INSTALLED)
 					has_electronics = APC_ELECTRONICS_SECURED
 					machine_stat &= ~MAINT
-					I.play_tool_sound(src)
+					I.play_tool_sound(src, 50)
 					balloon_alert(user, "Screws circuit board in")
 				if(APC_ELECTRONICS_SECURED)
 					has_electronics = APC_ELECTRONICS_INSTALLED
 					machine_stat |= MAINT
-					I.play_tool_sound(src)
+					I.play_tool_sound(src, 50)
 					balloon_alert(user, "Unfastens electronics")
 				else
 					balloon_alert(user, "Nothing securable")

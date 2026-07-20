@@ -155,7 +155,7 @@
 	desc = "It's a secure wall locker for personnel. The first card swiped gains control."
 	icon = 'icons/obj/wallframes.dmi'
 	icon_state = "sec_locker1"
-	icon_closed = "secure"
+	icon_closed = "sec_locker"
 	icon_locked = "sec_locker1"
 	icon_opened = "sec_locker_opened"
 	icon_broken = "sec_locker_broken"

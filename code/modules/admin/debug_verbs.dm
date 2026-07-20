@@ -45,7 +45,7 @@ ADMIN_VERB(generate_powernets, R_DEBUG, "Generate Powernets", "Regenerate all po
 
 
 ADMIN_VERB(debug_mob_lists, R_DEBUG, "Debug Mob Lists", "Debug mob globals", ADMIN_CATEGORY_DEBUG)
-	var/list/options = list("Players", "Observers", "New Players", "Admins", "Clients", "Mobs", "Living Mobs", "Alive Living Mobs", "Dead Mobs", "Xenos", "Alive Xenos", "Dead Xenos", "Humans", "Alive Humans", "Dead Humans")
+	var/list/options = list("Players", "Observers", "Players in lobby", "Admins", "Clients", "Mobs", "Living Mobs", "Alive Living Mobs", "Dead Mobs", "Xenos", "Alive Xenos", "Dead Xenos", "Humans", "Alive Humans", "Dead Humans")
 	var/choice = tgui_input_list(user, "Which list?", "Global Mob List debugging", options)
 	if(!choice)
 		return
@@ -60,7 +60,7 @@ ADMIN_VERB(debug_mob_lists, R_DEBUG, "Debug Mob Lists", "Debug mob globals", ADM
 			for(var/i in GLOB.observer_list)
 				var/mob/M = i
 				dat += "[M] [ADMIN_VV(M)]<br>"
-		if("New Players")
+		if("Players in lobby")
 			for(var/i in GLOB.new_player_list)
 				var/mob/M = i
 				dat += "[M] [ADMIN_VV(M)]<br>"
@@ -243,6 +243,156 @@ ADMIN_VERB(view_runtimes, R_DEBUG, "View Runtimes", "Opens the runtime viewer.",
 			warning = "There are a TON of runtimes, clicking any button (especially \"linear\") WILL LIKELY crash the server"
 		// Not using TGUI alert, because it's view runtimes, stuff is probably broken
 		alert(user, "[warning]. Proceed with caution. If you really need to see the runtimes, download the runtime log and view it in a text editor.", "HEED THIS WARNING CAREFULLY MORTAL")
+
+ADMIN_VERB(view_map_issues, R_DEBUG, "View Map Issues", "Opens the mapping issue viewer.", ADMIN_CATEGORY_DEBUG)
+	show_map_issues(user)
+
+/proc/show_map_issues(client/user, linear = FALSE, filter = "all")
+	if(!filter)
+		filter = "all"
+
+	var/list/entries = mapping_issue_filtered_entries(filter)
+	var/list/dat = list()
+	var/filter_param = filter != "all" ? ";filter=[filter]" : ""
+	dat += "<b>[length(entries)]</b> shown from <b>[length(GLOB.mapping_issue_logs)]</b> mapping issues tracked this round. "
+	dat += "<a href='byond://?_src_=holder;[HrefToken()];view_map_issues=1[linear ? ";linear=1" : ""][filter_param]'>Refresh</a> | "
+	dat += linear ? "<a href='byond://?_src_=holder;[HrefToken()];view_map_issues=1[filter_param]'>Grouped</a>" : "<a href='byond://?_src_=holder;[HrefToken()];view_map_issues=1;linear=1[filter_param]'>Linear</a>"
+	dat += "<br>"
+	dat += mapping_issue_filter_link("All", "all", filter, linear)
+	dat += " | [mapping_issue_filter_link("Duplicates", "duplicates", filter, linear)]"
+	dat += " | [mapping_issue_filter_link("Atmos duplicates", "atmos_duplicates", filter, linear)]"
+	dat += " | [mapping_issue_filter_link("Other duplicates", "other_duplicates", filter, linear)]"
+	dat += "<hr>"
+
+	if(!length(entries))
+		dat += "No mapping issues match this filter."
+	else if(!linear)
+		dat += mapping_issue_grouped_html(entries)
+	else
+		for(var/index in length(entries) to 1 step -1)
+			var/list/entry = entries[index]
+			var/message = entry["message"]
+			dat += "<div class='mapissue'><b>\[[entry["time"]]\]</b> [mapping_issue_jumps(message)]<br>[html_encode(message)]</div>"
+
+	var/datum/browser/browser = new(user.mob, "map_issues", "<div align='center'>Map Issues</div>", 800, 500)
+	browser.set_content(dat.Join())
+	browser.add_head_content({"
+	<style>
+	.mapissue
+	{
+		background-color: #171717;
+		border: solid 1px #202020;
+		font-family: "Courier New";
+		margin-bottom: 10px;
+		padding: 6px;
+		color: #CCCCCC;
+	}
+	</style>
+	"})
+	browser.open()
+
+/proc/mapping_issue_filter_link(label, filter, current_filter, linear)
+	if(filter == current_filter)
+		return "<b>[label]</b>"
+
+	var/filter_param = filter != "all" ? ";filter=[filter]" : ""
+	return "<a href='byond://?_src_=holder;[HrefToken()];view_map_issues=1[linear ? ";linear=1" : ""][filter_param]'>[label]</a>"
+
+/proc/mapping_issue_filtered_entries(filter)
+	var/list/entries = list()
+	for(var/list/entry as anything in GLOB.mapping_issue_logs)
+		var/message = entry["message"]
+		if(mapping_issue_matches_filter(message, filter))
+			entries += list(entry)
+	return entries
+
+/proc/mapping_issue_matches_filter(text, filter)
+	switch(filter)
+		if("duplicates")
+			return mapping_issue_is_duplicate(text)
+		if("atmos_duplicates")
+			return mapping_issue_is_atmos_duplicate(text)
+		if("other_duplicates")
+			return mapping_issue_is_duplicate(text) && !mapping_issue_is_atmos_duplicate(text)
+	return TRUE
+
+/proc/mapping_issue_is_duplicate(text)
+	var/lower_text = lowertext(text)
+	return findtext(lower_text, "duplicate") || findtext(lower_text, "multiple times") || findtext(lower_text, "stacking in one turf") || findtext(lower_text, "already")
+
+/proc/mapping_issue_is_atmos_duplicate(text)
+	return findtext(text, "build_pipeline():") && findtext(text, "added to pipenet multiple times")
+
+/proc/mapping_issue_grouped_html(list/entries)
+	var/list/groups = list()
+	var/list/group_order = list()
+
+	for(var/list/entry as anything in entries)
+		var/message = entry["message"]
+		var/key = mapping_issue_group_key(message)
+		var/list/group = groups[key]
+		if(!group)
+			group = list(
+				"count" = 0,
+				"title" = mapping_issue_group_title(message),
+				"first_time" = entry["time"],
+				"last_time" = entry["time"],
+				"jumps" = mapping_issue_jumps(message),
+				"samples" = list(),
+			)
+			groups[key] = group
+			group_order += key
+
+		group["count"]++
+		group["last_time"] = entry["time"]
+
+		var/list/samples = group["samples"]
+		if(length(samples) < 5)
+			samples += "<li><b>\[[entry["time"]]\]</b> [mapping_issue_jumps(message)]<br>[html_encode(message)]</li>"
+
+	var/list/dat = list()
+	for(var/key in group_order)
+		var/list/group = groups[key]
+		var/list/samples = group["samples"]
+		dat += "<div class='mapissue'>"
+		dat += "<b>[group["count"]]x</b> [html_encode(group["title"])] [group["jumps"]]<br>"
+		dat += "<small>First: [group["first_time"]] | Last: [group["last_time"]]</small>"
+		if(length(samples))
+			dat += "<ul>[samples.Join()]</ul>"
+		dat += "</div>"
+
+	return dat.Join()
+
+/proc/mapping_issue_group_key(text)
+	var/static/regex/pipeline_regex = regex(@"^build_pipeline\(\): (.+?) added to pipenet multiple times\..*Base:(.+?) \((-?\d+)\s*,\s*(-?\d+)\s*,\s*(-?\d+)\)")
+	if(pipeline_regex.Find(text))
+		return "build_pipeline|[pipeline_regex.group[1]]|[pipeline_regex.group[3]],[pipeline_regex.group[4]],[pipeline_regex.group[5]]"
+
+	return text
+
+/proc/mapping_issue_group_title(text)
+	var/static/regex/pipeline_regex = regex(@"^build_pipeline\(\): (.+?) added to pipenet multiple times\..*Base:(.+?) \((-?\d+)\s*,\s*(-?\d+)\s*,\s*(-?\d+)\)")
+	if(pipeline_regex.Find(text))
+		return "Duplicate pipenet member: [pipeline_regex.group[1]]; base [pipeline_regex.group[2]] ([pipeline_regex.group[3]], [pipeline_regex.group[4]], [pipeline_regex.group[5]])"
+
+	return text
+
+/proc/mapping_issue_jumps(text)
+	var/static/regex/coord_regex = regex(@"\((-?\d+)\s*,\s*(-?\d+)\s*,\s*(-?\d+)\)", "g")
+	var/list/links = list()
+	var/start = 1
+	while(coord_regex.Find(text, start))
+		if(length(coord_regex.group) >= 3)
+			var/x = text2num(coord_regex.group[1])
+			var/y = text2num(coord_regex.group[2])
+			var/z = text2num(coord_regex.group[3])
+			if(x || y || z)
+				links += "<a href='byond://?_src_=holder;[HrefToken()];observecoordjump=1;X=[x];Y=[y];Z=[z]'>JMP [x],[y],[z]</a>"
+		start = coord_regex.index + length(coord_regex.match)
+
+	if(!length(links))
+		return ""
+	return "\[[links.Join(" | ")]\]"
 
 ADMIN_VERB(spatial_agent, R_FUN, "Spatial Agent", "Become a spatial agent", ADMIN_CATEGORY_DEBUG)
 	var/mob/M = user.mob

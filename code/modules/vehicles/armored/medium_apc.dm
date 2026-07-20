@@ -6,9 +6,13 @@
 	turret_icon_state = "apc_turret"
 	damage_icon_path = null
 	interior = null
-	required_entry_skill = SKILL_LARGE_VEHICLE_DEFAULT
 	minimap_icon_state = null
-	armored_flags = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_SECONDARY_WEAPON|ARMORED_HAS_UNDERLAY
+	armored_flags = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_SECONDARY_WEAPON|ARMORED_HAS_UNDERLAY|ARMORED_PURCHASABLE_TRANSPORT
 	icon_state = "apc"
 	move_delay = 0.25 SECONDS
+	obj_integrity = 800
+	max_integrity = 800
 	max_occupants = 5
+	permitted_mods = list(/obj/item/tank_module/ability/zoom)
+	soft_armor = list(MELEE = 50, BULLET = 80, LASER = 80, ENERGY = 70, BOMB = 50, BIO = 100, FIRE = 100, ACID = 50)
+	hard_armor = list(MELEE = 0, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 100, FIRE = 0, ACID = 0)

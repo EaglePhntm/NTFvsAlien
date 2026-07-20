@@ -48,7 +48,7 @@
 	W.do_pickup_animation(src)
 	if(status_flags & INCORPOREAL) // INCORPOREAL things don't have hands
 		return FALSE
-	if(lying_angle)
+	if(incapacitated())
 		return FALSE
 	if(!istype(W))
 		return FALSE
@@ -75,7 +75,7 @@
 	W.do_pickup_animation(src)
 	if(status_flags & INCORPOREAL) // INCORPOREAL things don't have hands
 		return FALSE
-	if(lying_angle)
+	if(incapacitated())
 		return FALSE
 	if(!istype(W))
 		return FALSE

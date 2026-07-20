@@ -96,9 +96,9 @@
 	data["mech_view"] = ui_view.assigned_map
 	if(radio)
 		data["mech_electronics"] = list(
-			"microphone" = radio.broadcasting,
-			"speaker" = radio.listening,
-			"frequency" = radio.frequency,
+			"microphone" = radio.get_broadcasting(),
+			"speaker" = radio.get_listening(),
+			"frequency" = radio.get_frequency(),
 		)
 	if(equip_by_category[MECHA_L_ARM])
 		var/obj/item/mecha_parts/mecha_equipment/l_gun = equip_by_category[MECHA_L_ARM]
@@ -185,9 +185,14 @@
 					return FALSE
 				if(construction_state == MECHA_LOCKED)
 					construction_state = MECHA_SECURE_BOLTS
-					to_chat(usr, span_notice("The securing bolts are now exposed."))
+					if(can_be_moved_in_maints) // NTF Edit: Allows mechs to be moved by hand in maints mode
+						move_resist = MOVE_FORCE_NORMAL
+						to_chat(usr, span_notice("The securing bolts are now exposed, and the exosuit can be moved by hand."))
+					else
+						to_chat(usr, span_notice("The securing bolts are now exposed."))
 				else if(construction_state == MECHA_SECURE_BOLTS)
 					construction_state = MECHA_LOCKED
+					move_resist = initial(move_resist) // NTF Edit: Allows mechs to be moved by hand in maints mode
 					to_chat(usr, span_notice("The securing bolts are now hidden."))
 			if("drop_cell")
 				if(construction_state != MECHA_OPEN_HATCH)
@@ -247,6 +252,9 @@
 			if(!istype(user))
 				to_chat(user, "[icon2html(src, occupants)][span_notice("You can't create a DNA lock with no DNA!.")]")
 				return
+			if(!can_dna_lock)
+				to_chat(user, "[icon2html(src, occupants)][span_notice("This exosuit can't be DNA locked.")]")
+				return
 			dna_lock = md5(REF(user))
 			to_chat(user, "[icon2html(src, occupants)][span_notice("You feel a prick as the needle takes your DNA sample.")]")
 		if("reset_dna")
@@ -282,9 +290,9 @@
 		if("toggle_id_panel")
 			mecha_flags ^= ADDING_ACCESS_POSSIBLE
 		if("toggle_microphone")
-			radio.broadcasting = !radio.broadcasting
+			radio.set_broadcasting(!radio.get_broadcasting())
 		if("toggle_speaker")
-			radio.listening = !radio.listening
+			radio.set_listening(!radio.get_listening())
 		if("set_frequency")
 			radio.set_frequency(sanitize_frequency(params["new_frequency"], radio.freerange))
 		if("repair_int_damage")

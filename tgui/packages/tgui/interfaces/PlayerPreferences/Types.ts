@@ -1,5 +1,6 @@
 type PlayerPreferencesData = {
   slot: number;
+  slot_number: number;
   save_slot_names: AssocStringString;
   tabIndex: number;
 };
@@ -21,15 +22,94 @@ type CharacterCustomizationData = {
   r_eyes: number;
   g_eyes: number;
   b_eyes: number;
+  hair_emissive: boolean;
+  eye_emissive: boolean;
+  tail: string;
+  tail_color: string;
+  tail_color_secondary: string;
+  tail_color_tertiary: string;
+  snout: string;
+  snout_color: string;
+  snout_color_secondary: string;
+  snout_color_tertiary: string;
+  ears: string;
+  ears_color: string;
+  ears_color_secondary: string;
+  ears_color_tertiary: string;
+  horns: string;
+  horns_color: string;
+  horns_color_secondary: string;
+  horns_color_tertiary: string;
+  wings: string;
+  wings_color: string;
+  wings_color_secondary: string;
+  wings_color_tertiary: string;
+  digitigrade_legs: string;
+  body_color: string;
+  blood_color: string;
+  ethnicity: string;
+  ethnicities: string[] | Record<string, string>;
+  human_skin_tones: Record<string, string>;
+  allow_mismatched_parts: boolean;
+  use_genital_size_controls: boolean;
+  allow_emissives: boolean;
+  species: string;
+  human_body_style: string;
+  synthetic_type: string;
+  synthetic_body_base: string;
+  robot_body_base: string;
+  robot_head_base: string;
+  custom_supersoldier_parts: boolean;
+  supersoldier_body_base: string;
+  supersoldier_head_base: string;
+  character_creator_genital_row_ids: string[] | Record<string, string>;
+  character_creator_genital_row_count: number;
+  character_creator_part_row_ids: string[] | Record<string, string>;
+  character_creator_part_row_count: number;
+  [key: string]: any;
+};
+
+type CharacterCreatorOptionRow = {
+  id: string;
+  label: string;
+  value: string;
+  display: string;
+  option_labels: string[];
+  option_values: string[];
+  size_id?: string;
+  size_value?: string | number;
+  size_kind?: 'breast' | 'number' | 'penis_range';
+  size_min?: number;
+  size_max?: number;
+  color_count?: number;
+  emissive_count?: number;
+  group?: string;
 };
 
 type BackgroundInformationData = {
   slot: number;
+  age: number;
+  citizenship: string;
+  religion: string;
   flavor_text: string;
   med_record: string;
   gen_record: string;
   sec_record: string;
   exploit_record: string;
+  xeno_desc: string;
+  profile_pic: string;
+  nsfwprofile_pic: string;
+  xenoprofile_pic: string;
+};
+
+type FlavorCustomizationData = {
+  slot: number;
+  xeno_edible_jelly_name: string;
+  r_jelly: number;
+  g_jelly: number;
+  b_jelly: number;
+  xeno_edible_jelly_desc: string;
+  xeno_edible_jelly_flavors: string;
 };
 
 type GameSettingData = {
@@ -135,10 +215,10 @@ type PreferencesUnderShirtTypes = {
 };
 
 type PreferencesSpecialOccupations = {
-  'Latejoin Xenomorph': number;
-  'Xenomorph when unrevivable': number;
-  'End of Round Deathmatch': number;
-  'Prefer Squad over Role': number;
+  [key: string]: {
+    flag: number;
+    tooltip?: string;
+  };
 };
 
 type AssocStringString = {

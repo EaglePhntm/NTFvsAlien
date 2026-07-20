@@ -2,6 +2,7 @@
 	jobs_supported = list(SQUAD_SMARTGUNNER)
 
 /datum/loadout_item/suit_store/main_gun/smartgunner/role_post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
+	. = ..()
 	wearer.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_ACCESSORY)
 	wearer.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
 
@@ -17,13 +18,14 @@
 
 /datum/loadout_item/suit_store/main_gun/smartgunner/smartmachinegun
 	name = "SG-29"
-	desc = "Equipped with a motion sensor and laser sight. The SG-29 is the TGMC's current standard IFF-capable medium machine gun. \
+	desc = "Equipped with a motion sensor and laser sight. The SG-29 is the NTF's current standard IFF-capable medium machine gun. \
 	It has good mobility for a machinegun, and is extremely effective on the move. Its innate IFF, good damage application and attached motion sensor makes it a powerful support weapon. \
 	Has somewhat poor falloff however, and although it has an excellent capacity, has slow reloading. It uses 10x26mm caseless ammunition. \
 	Requires special training and it cannot turn off IFF. It uses 10x26mm ammunition."
 	ui_icon = "sg29"
 	item_typepath = /obj/item/weapon/gun/rifle/standard_smartmachinegun/patrol
-	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION|LOADOUT_ITEM_DEFAULT_CHOICE
+	loadout_item_flags = LOADOUT_ITEM_ROUNDSTART_OPTION
+	jobs_supported = list(SQUAD_SMARTGUNNER, VANGUARD)
 
 /datum/loadout_item/suit_store/main_gun/smartgunner/smartmachinegun/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
 	. = ..()
@@ -61,6 +63,7 @@
 	It uses high velocity 10x27mm caseless ammunition and 12x66mm ammunition for the underslung rifle."
 	ui_icon = "smartgun"
 	item_typepath = /obj/item/weapon/gun/rifle/standard_smarttargetrifle/motion
+	jobs_supported = list(SQUAD_SMARTGUNNER, VANGUARD)
 
 /datum/loadout_item/suit_store/main_gun/smartgunner/smarttargetrifle/post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
 	. = ..()
@@ -83,6 +86,7 @@
 		wearer.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
 
 /datum/loadout_item/suit_store/main_gun/smartgunner/smarttargetrifle/role_post_equip(mob/living/carbon/human/wearer, datum/outfit/quick/loadout, datum/outfit_holder/holder)
+	. = ..()
 	wearer.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_ACCESSORY)
 	wearer.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
 

@@ -5,6 +5,7 @@
 	icon_state = "computer_small"
 	screen_overlay = "atmos"
 	circuit = /obj/item/circuitboard/computer/stationalert
+	process_on_init = TRUE
 	var/alarms = list("Fire"=list(), "Atmosphere"=list(), "Power"=list())
 
 

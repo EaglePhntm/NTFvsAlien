@@ -394,9 +394,6 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	if(!ishuman(user))
 		return COMPONENT_NO_MOUSEDROP
 
-	if(user.lying_angle)
-		return COMPONENT_NO_MOUSEDROP
-
 	if(over_object == user && parent.Adjacent(user)) // this must come before the screen objects only block
 		open(user)
 		return COMPONENT_NO_MOUSEDROP
@@ -728,10 +725,10 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		return FALSE
 
 	if(!alert_user)
-		return do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, parent)
+		return do_mob(user, accessed, access_delay, ignore_flags = IGNORE_USER_LOC_CHANGE)
 
 	to_chat(user, "<span class='notice'>You begin to [taking_out ? "take" : "put"] [accessed] [taking_out ? "out of" : "into"] \the [parent.name]")
-	if(!do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, parent))
+	if(!do_mob(user, accessed, access_delay, ignore_flags = IGNORE_USER_LOC_CHANGE))
 		to_chat(user, span_warning("You fumble [accessed]!"))
 		return FALSE
 	return TRUE

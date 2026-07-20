@@ -16,15 +16,21 @@
 			/mob/living/carbon/human/species/zombie/ai/strong/patrol = 1,
 		) = 5,
 	)
-	spawnamount = 3
-	spawndelay = 34 SECONDS
-	maxamount = 50
+	spawnamount = 2
+	spawndelay = 25 SECONDS
+	maxamount = 10
+	max_integrity = 100
 	///Currently is considered under threat
 	var/threat_warning = FALSE
 	///proxy sensor holder
 	var/datum/proximity_monitor/proximity_monitor
 	COOLDOWN_DECLARE(proxy_alert_cooldown)
 	COOLDOWN_DECLARE(defender_spawn_cooldown)
+	use_postspawn = TRUE
+
+/obj/effect/ai_node/spawner/zombie/postspawn(list/squad)
+	for(var/mob/living/living_spawned in squad)
+		living_spawned.offer_mob()
 
 /obj/effect/ai_node/spawner/zombie/Initialize(mapload)
 	. = ..()

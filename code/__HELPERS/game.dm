@@ -6,7 +6,7 @@
 
 
 /// Checks all conditions if a spot is valid for construction , will return TRUE
-/proc/is_valid_for_resin_structure(turf/target, needs_support = FALSE, planned_building)
+/proc/is_valid_for_resin_structure(turf/target, needs_support = FALSE, planned_building, hivenumber)
 	if(!target || !istype(target))
 		return ERROR_JUST_NO
 	if(ispath(planned_building, /turf/closed/wall/resin) && istype(target, /turf/closed/wall/resin))
@@ -17,12 +17,14 @@
 		return ERROR_NOT_ALLOWED
 	if(!alien_weeds)
 		return ERROR_NO_WEED
+	if(alien_weeds.hivenumber != hivenumber)
+		return ERROR_ENEMY_WEED
 	if(!target.is_weedable())
 		return ERROR_CANT_WEED
 	for(var/obj/effect/forcefield/fog/F in range(1, target))
 		return ERROR_FOG
 	for(var/mob/living/carbon/xenomorph/blocker in target)
-		if(blocker.stat != DEAD && !CHECK_BITFIELD(blocker.xeno_caste.caste_flags, CASTE_IS_BUILDER))
+		if(blocker.stat != DEAD && (!CHECK_BITFIELD(blocker.xeno_caste.caste_flags, CASTE_IS_BUILDER) && !CHECK_BITFIELD(blocker.get_hive().hive_flags, HIVE_ALL_CAN_BUILD)))
 			return ERROR_BLOCKER
 	if(!target.check_alien_construction(null, TRUE, planned_building))
 		return ERROR_CONSTRUCT

@@ -405,6 +405,8 @@
 	var/decay_per_second = 15
 	/// How much we slow down the mech while shield is active
 	var/movespeed_mod = 3
+	/// How long the cooldown is, in seconds
+	var/cooldown_time = 90 SECONDS
 
 /datum/action/vehicle/sealed/mecha/pulsearmor/action_activate(trigger_flags)
 	. = ..()
@@ -416,12 +418,14 @@
 	if(TIMER_COOLDOWN_RUNNING(chassis, COOLDOWN_MECHA_EQUIPMENT(type)))
 		var/time = S_TIMER_COOLDOWN_TIMELEFT(chassis, COOLDOWN_MECHA_EQUIPMENT(type))/10
 		chassis.balloon_alert(owner, "[time] seconds")
-	S_TIMER_COOLDOWN_START(chassis, COOLDOWN_MECHA_EQUIPMENT(type), 90 SECONDS)
+		return
+	S_TIMER_COOLDOWN_START(chassis, COOLDOWN_MECHA_EQUIPMENT(type), cooldown_time)
 	block_remaining = block_max
 	playsound(chassis, 'sound/items/eshield_recharge.ogg', 40)
 	START_PROCESSING(SSprocessing, src)
 	RegisterSignal(chassis, COMSIG_ATOM_TAKE_DAMAGE, PROC_REF(on_attacked))
 	chassis.move_delay += movespeed_mod
+	chassis.mecha_flags |= CANNOT_OVERPENETRATE
 	chassis.add_filter("pulsearmor", 2, outline_filter(1, COLOR_BLUE_LIGHT))
 
 /datum/action/vehicle/sealed/mecha/pulsearmor/process(seconds_per_tick)
@@ -458,3 +462,4 @@
 	UnregisterSignal(chassis, COMSIG_ATOM_TAKE_DAMAGE)
 	chassis.remove_filter("pulsearmor")
 	chassis.move_delay -= movespeed_mod
+	chassis.mecha_flags &= ~CANNOT_OVERPENETRATE

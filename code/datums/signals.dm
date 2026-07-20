@@ -70,6 +70,8 @@
  * * sig_typeor_types Signal string key or list of signal keys to stop listening to specifically
  */
 /datum/proc/UnregisterSignal(datum/target, sig_type_or_types)
+	if(!target)
+		return
 	var/list/lookup = target._listen_lookup
 	if(!_signal_procs || !_signal_procs[target] || !lookup)
 		return
@@ -127,4 +129,3 @@
 		queued_calls.Add(listening_datum, listening_datum._signal_procs[src][sigtype])
 	for(var/i in 1 to length(queued_calls) step 2)
 		. |= call(queued_calls[i], queued_calls[i + 1])(arglist(arguments))
-

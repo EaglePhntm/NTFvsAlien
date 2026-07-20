@@ -92,7 +92,11 @@
 	var/movement = movement_keys[_key]
 	if(movement)
 		calculate_move_dir()
-		if(!movement_locked && !(next_move_dir_add & movement))
+		if(keys_held["Ctrl"])
+			intended_direction = NONE
+			next_move_dir_add = NONE
+			next_move_dir_sub = NONE
+		else if(!movement_locked && !(next_move_dir_add & movement))
 			next_move_dir_sub |= movement
 
 	// We don't do full key for release, because for mod keys you
@@ -113,4 +117,3 @@
 
 	for(var/key in keys_held)
 		keyUp(key)
-

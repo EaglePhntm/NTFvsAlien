@@ -1,6 +1,6 @@
 /obj/vehicle/sealed/armored
 	name = "\improper MT - Shortstreet MK4"
-	desc = "An adorable chunk of metal with an alarming amount of firepower designed to crush, immolate, destroy and maim anything that Nanotrasen wants it to. This model contains advanced Bluespace technology which allows a TARDIS-like amount of room on the inside."
+	desc = "An adorable chunk of metal with an alarming amount of firepower designed to crush, immolate, destroy and maim anything that Ninetails wants it to. This model contains advanced Bluespace technology which allows a TARDIS-like amount of room on the inside."
 	icon = 'icons/obj/armored/1x1/tinytank.dmi'
 	icon_state = "tank"
 	pixel_x = -16
@@ -49,7 +49,7 @@
 	///reference to our interior datum if set, uses the typepath its set to
 	var/datum/interior/armored/interior
 	///Skill required to enter this vehicle
-	var/required_entry_skill = SKILL_LARGE_VEHICLE_DEFAULT
+	var/required_entry_skill = 0
 	///What weapon we have in our primary slot
 	var/obj/item/armored_weapon/primary_weapon
 	///What weapon we have in our secondary slot
@@ -69,7 +69,8 @@
 	var/list/permitted_mods = list(
 		/obj/item/tank_module/overdrive,
 		/obj/item/tank_module/passenger,
-		/obj/item/tank_module/ability/zoom
+		/obj/item/tank_module/ability/zoom,
+		/obj/item/tank_module/ability/smoke_launcher
 	)
 	///Minimap flags to use for this vehcile
 	var/minimap_flags = MINIMAP_FLAG_MARINE
@@ -81,6 +82,8 @@
 	var/zoom_mode = FALSE
 	/// damage done by rams
 	var/ram_damage = 20
+	///the timer used for ram cooldown
+	var/ram_cooldown = 0
 	/**
 	 * List for storing all item typepaths that we may "easy load" into the tank by attacking its entrance
 	 * This will be turned into a typeCache on  initialize
@@ -393,6 +396,7 @@
 		RegisterSignal(M, COMSIG_MOB_DEATH, PROC_REF(mob_exit), TRUE)
 		RegisterSignal(M, COMSIG_LIVING_DO_RESIST, TYPE_PROC_REF(/atom/movable, resisted_against), TRUE)
 	. = ..()
+	update_minimap_icon()
 	if(primary_weapon)
 		var/list/primary_icons
 		if(primary_weapon.ammo)
@@ -446,7 +450,8 @@
 	UnregisterSignal(M, COMSIG_LIVING_DO_RESIST)
 	idle_inside_loop?.output_atoms -= M
 	drive_inside_loop?.output_atoms -= M
-	return ..()
+	. = ..()
+	update_minimap_icon()
 
 /obj/vehicle/sealed/armored/relaymove(mob/living/user, direction)
 	. = ..()
@@ -475,6 +480,27 @@
 			return FALSE
 	if(src == proj.shot_from)
 		return FALSE
+	if(soft_armor)
+		var/armor_integrity_mod = 3 // one third of armor as ap needed to penetrate, usually 30 due to 100 bullet armor
+		var/proj_initial_penetration = proj.penetration
+		//this may look like double-sided pen adjustion but the integrity mod only changes the minimum integrity required to even NOT bounce off, this makes it actually go through the armor.
+		if(obj_integrity <= (max_integrity/2)) //50% integrity or less, now 1/4 needed to penetrate
+			armor_integrity_mod ++
+			proj.penetration *= 1.5
+		if(obj_integrity <= max_integrity/4) //25% integrity or less, now 1/5 needed to penetrate
+			armor_integrity_mod ++
+			proj.penetration *= 1.5
+		if(proj_initial_penetration < (soft_armor.getRating(proj.ammo.armor_type) / armor_integrity_mod) && prob(90))
+			proj.shot_from = src
+			if(proj.ammo.sound_bounce)
+				playsound(loc, proj.ammo.sound_bounce, 15, TRUE, 7, 5, pitch)
+			do_sparks(rand(1,2), TRUE, loc)
+			proj.ammo.bonus_projectiles_type = proj.ammo.type
+			proj.proj_max_range /= rand(2,3)
+			proj.damage_falloff *= 3
+			proj.accuracy /= 3
+			proj.ammo.reflect(get_turf(src), proj, 20)
+			return FALSE
 	if(src == proj.original_target)
 		return TRUE
 	if(!hitbox)
@@ -536,6 +562,13 @@
 	balloon_alert(user, "magazine removed")
 	secondary_weapon.ammo_magazine -= choice
 	user.put_in_hands(choice)
+
+/obj/vehicle/sealed/armored/attacked_by(obj/item/attacking_item, mob/living/user, def_zone)
+	if(istype(attacking_item, /obj/item/weapon) || (ishuman(user) && user.a_intent == INTENT_HARM))
+		to_chat(user, span_warning("Your attack bounces off \the [src]!"))
+		return FALSE
+	. = ..()
+
 
 /obj/vehicle/sealed/armored/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -626,14 +659,14 @@
 			balloon_alert(user, "no gunner utility module")
 			return
 		balloon_alert(user, "detaching gunner utility")
-		if(!do_after(user, 2 SECONDS, NONE, src))
+		if(!do_after(user, 40 SECONDS, NONE, src))
 			return
 		gunner_utility_module.on_unequip(user)
 		balloon_alert(user, "detached")
 		return
 
 /obj/vehicle/sealed/armored/welder_act(mob/living/user, obj/item/I)
-	return welder_repair_act(user, I, 50, 5 SECONDS, 0, SKILL_ENGINEER_METAL, 5, 2 SECONDS)
+	return welder_repair_act(user, I, 25, 5 SECONDS, 0, SKILL_ENGINEER_METAL, 5, 2 SECONDS)
 
 /obj/vehicle/sealed/armored/crowbar_act(mob/living/user, obj/item/I)
 	. = ..()
@@ -644,7 +677,7 @@
 		balloon_alert(user, "no primary weapon")
 		return
 	balloon_alert(user, "detaching primary")
-	if(!do_after(user, 2 SECONDS, NONE, src))
+	if(!do_after(user, 40 SECONDS, NONE, src))
 		return
 	var/obj/item/armored_weapon/gun = primary_weapon
 	primary_weapon.detach(loc)
@@ -663,7 +696,7 @@
 		balloon_alert(user, "no secondary weapon")
 		return
 	balloon_alert(user, "detaching secondary")
-	if(!do_after(user, 2 SECONDS, NONE, src))
+	if(!do_after(user, 40 SECONDS, NONE, src))
 		return
 	var/obj/item/armored_weapon/gun = secondary_weapon
 	secondary_weapon.detach(loc)
@@ -679,7 +712,7 @@
 		balloon_alert(user, "no driver utility module")
 		return
 	balloon_alert(user, "detaching driver utility")
-	if(!do_after(user, 2 SECONDS, NONE, src))
+	if(!do_after(user, 40 SECONDS, NONE, src))
 		return
 	driver_utility_module.on_unequip(user)
 	balloon_alert(user, "detached")
@@ -762,6 +795,26 @@
 		return
 	INVOKE_ASYNC(selected, TYPE_PROC_REF(/obj/item/armored_weapon, begin_fire), user, target, modifiers)
 
+/obj/vehicle/sealed/armored/proc/update_minimap_flags()
+	minimap_flags = 0
+	var/list/candidate_occupants = (return_controllers_with_flag(VEHICLE_CONTROL_DRIVE) | return_controllers_with_flag(VEHICLE_CONTROL_MELEE) | return_controllers_with_flag(VEHICLE_CONTROL_EQUIPMENT) | return_controllers_with_flag(VEHICLE_CONTROL_SETTINGS)) | occupants
+	for(var/mob/occupant in candidate_occupants)
+		minimap_flags = GLOB.faction_to_minimap_flag[occupant.faction]
+		if(minimap_flags)
+			break
+	if(!minimap_flags)
+		minimap_flags = initial(minimap_flags)
+
+/obj/vehicle/sealed/armored/add_control_flags(mob/controller, flags)
+	. = ..()
+	if(.)
+		update_minimap_icon()
+
+/obj/vehicle/sealed/armored/remove_control_flags(mob/controller, flags)
+	. = ..()
+	if(.)
+		update_minimap_icon()
+
 ///Updates the vehicles minimap icon
 /obj/vehicle/sealed/armored/proc/update_minimap_icon()
 	if(!minimap_icon_state)
@@ -770,6 +823,7 @@
 	minimap_icon_state = initial(minimap_icon_state)
 	if(armored_flags & ARMORED_IS_WRECK)
 		minimap_icon_state += "_wreck"
+	update_minimap_flags()
 	SSminimaps.add_marker(src, minimap_flags, image('icons/UI_icons/map_blips_large.dmi', null, minimap_icon_state, MINIMAP_BLIPS_LAYER))
 
 /atom/movable/vis_obj/turret_overlay

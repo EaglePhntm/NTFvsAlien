@@ -7,7 +7,7 @@
 /datum/outfit/quick/beginner
 	name = "Beginner loadout base"
 	desc = "The base loadout for beginners. You shouldn't be able to see this"
-	jobtype = "Squad Marine"
+	jobtype = "Squad Operative"
 
 	w_uniform = /obj/item/clothing/under/marine
 	shoes = /obj/item/clothing/shoes/marine/full
@@ -32,7 +32,7 @@
 	Wields the AR-12, a versatile all-rounder assault rifle with a powerful underbarrel grenade launcher attached. \
 	Also carries the strong P-23 sidearm and a variety of flares, medical equipment, and more for every situation."
 
-	wear_suit = /obj/item/clothing/suit/modular/xenonauten/hodgrenades
+	wear_suit = /obj/item/clothing/suit/modular/xenonauten/svalgrenades
 	head = /obj/item/clothing/head/modular/m10x/hod
 	w_uniform = /obj/item/clothing/under/marine/holster
 	suit_store = /obj/item/weapon/gun/rifle/standard_assaultrifle/medic

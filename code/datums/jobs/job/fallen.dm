@@ -17,6 +17,11 @@
 					return /mob/living/carbon/human/species/robot/deltad
 				if("Sterling")
 					return /mob/living/carbon/human/species/robot/bravada
+				if("Synskin")
+					return /mob/living/carbon/human/species/robot/synskin
+		if("Mothellian")
+			if(!(SSticker.mode?.round_type_flags & MODE_HUMAN_ONLY))
+				return /mob/living/carbon/human/species/moth
 		if("Vatborn")
 			return /mob/living/carbon/human/species/vatborn
 		if("Prototype Supersoldier")
@@ -107,6 +112,8 @@
 /datum/job/fallen/marine/synthetic/return_spawn_type(datum/preferences/prefs)
 	if(prefs?.synthetic_type == "Early Synthetic")
 		return /mob/living/carbon/human/species/early_synthetic
+	if(prefs?.synthetic_type == "Robot")
+		return /mob/living/carbon/human/species/robot
 	return /mob/living/carbon/human/species/synthetic
 
 /datum/job/fallen/marine/synthetic/return_skills_type(datum/preferences/prefs)

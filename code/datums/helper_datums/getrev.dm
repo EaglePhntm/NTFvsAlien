@@ -7,15 +7,50 @@
 /datum/getrev/New()
 	testmerge = world.TgsTestMerges()
 	var/datum/tgs_revision_information/revinfo = world.TgsRevision()
+	#ifdef DEFINE_REVINFO_REVISION
+	log_world("REVINFO: Found define revinfo: commit = [DEFINE_REVINFO_REVISION]")
+	#endif
+	#ifdef DEFINE_REVINFO_ORIGIN_REVISION
+	log_world("REVINFO: Found define revinfo: originmastercommit = [DEFINE_REVINFO_ORIGIN_REVISION]")
+	#endif
+	#ifdef DEFINE_REVINFO_COMPILE_DATE
+	log_world("REVINFO: Found define revinfo: date = [DEFINE_REVINFO_COMPILE_DATE]")
+	#endif
 	if(revinfo)
 		commit = revinfo.commit
 		originmastercommit = revinfo.origin_commit
-	else
+		date = revinfo.timestamp
+		log_world("REVINFO: Found tgs revinfo: commit = [revinfo.commit], originmastercommit = [revinfo.origin_commit], date = [revinfo.timestamp]")
+	if(!commit)
 		commit = rustg_git_revparse("HEAD")
-		if(commit)
-			date = rustg_git_commit_date(commit)
+		log_world("REVINFO: No tgs revinfo, rust revinfo: commit = [commit]")
+		if(!commit)
+			commit = file2text("data/revision.txt")
+			log_world("REVINFO: No rust revinfo, file revinfo: commit = [commit]")
+			#ifdef DEFINE_REVINFO_REVISION
+			if(!commit)
+				commit = DEFINE_REVINFO_REVISION
+			#endif
+	if(!originmastercommit)
 		originmastercommit = rustg_git_revparse("origin/master")
-
+		log_world("REVINFO: No tgs origin revinfo, rust originmastercommit = [originmastercommit]")
+		if(!originmastercommit)
+			originmastercommit = file2text("data/origin_revision.txt")
+			log_world("REVINFO: No rust origin revinfo, file revinfo: originmastercommit = [originmastercommit]")
+			#ifdef DEFINE_REVINFO_ORIGIN_REVISION
+			if(!originmastercommit)
+				originmastercommit = DEFINE_REVINFO_ORIGIN_REVISION
+			#endif
+	if(!date)
+		date = trim(file2text("data/compile_date.txt"))
+		log_world("REVINFO: No tgs date, file date: date = [date]")
+		if(!date)
+			date = rustg_git_commit_date(commit)
+			log_world("REVINFO: No file date, rust date: date = [date]")
+			#ifdef DEFINE_REVINFO_COMPILE_DATE
+			if(!date)
+				date = DEFINE_REVINFO_COMPILE_DATE
+			#endif
 	// goes to DD log and config_error.txt
 	log_world(get_log_message())
 
@@ -23,9 +58,9 @@
 	testmerge = world.TgsTestMerges()
 	var/datum/tgs_revision_information/revinfo = world.TgsRevision()
 	if(revinfo)
-		commit = revinfo.commit
+		commit = revinfo.commit || commit || rustg_git_revparse("HEAD")
 		originmastercommit = revinfo.origin_commit
-		date = revinfo.timestamp || rustg_git_commit_date(commit)
+		date = revinfo.timestamp || date || trim(file2text("data/compile_date.txt")) || rustg_git_commit_date(commit)
 
 	// goes to DD log and config_error.txt
 	log_world(get_log_message())

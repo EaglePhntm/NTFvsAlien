@@ -49,9 +49,17 @@
 /obj/item/attachable/stock/lmg_d
 	name = "lMG-D wooden stock"
 	desc = "A metallic stock with a wooden paint coating, made to fit lMG-D."
-	icon_state = "ak47"
+	icon_state = "rpd"
 	pixel_shift_x = 32
 	pixel_shift_y = 13
+
+/obj/item/attachable/stock/lmg_dm
+	name = "lMG-DM polymer stock"
+	desc = "A polymer stock, made to fit lMG-DM."
+	icon_state = "rpdm"
+	pixel_shift_x = 32
+	pixel_shift_y = 13
+
 
 /obj/item/attachable/stock/tx15
 	name = "\improper SH-15 stock"
@@ -116,6 +124,13 @@
 	pixel_shift_x = 32
 	pixel_shift_y = 13
 
+/obj/item/attachable/stock/sh23
+	name = "\improper SH-23 stock"
+	desc = "A irremovable SH-23 stock."
+	icon_state = "sh23"
+	pixel_shift_x = 32
+	pixel_shift_y = 13
+
 /obj/item/attachable/stock/icc_pdw
 	name = "\improper L-40 stock"
 	desc = "A irremovable L-40 stock."
@@ -124,9 +139,16 @@
 	pixel_shift_y = 13
 
 /obj/item/attachable/stock/icc_sharpshooter
-	name = "\improper L-1 stock"
+	name = "\improper L-11 stock"
 	desc = "A irremovable L-11 stock."
 	icon_state = "l11"
+	pixel_shift_x = 32
+	pixel_shift_y = 13
+
+/obj/item/attachable/stock/dragoon
+	name ="\improper Dragoon stock"
+	desc = "A irremovable Dragoon stock"
+	icon_state = "dragoon"
 	pixel_shift_x = 32
 	pixel_shift_y = 13
 

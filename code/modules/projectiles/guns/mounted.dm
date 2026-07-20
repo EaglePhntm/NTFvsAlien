@@ -54,10 +54,12 @@
 
 	attachable_allowed = list(
 		/obj/item/attachable/scope/unremovable/hsg_102,
+		/obj/item/attachable/motiondetector/advanced/sg,
 	)
 
 	starting_attachment_types = list(
 		/obj/item/attachable/scope/unremovable/hsg_102,
+		/obj/item/attachable/motiondetector/advanced/sg,
 	)
 
 	allowed_ammo_types = list(
@@ -121,7 +123,8 @@
 	item_flags = IS_DEPLOYABLE|TWOHANDED
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
-	aim_time = 2 SECONDS
+	actions_types = list(/datum/action/item_action/aim_mode)
+	aim_time = parent_type::aim_time * 2
 	aim_fire_delay = 0.05 SECONDS
 
 	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg_102)
@@ -451,6 +454,7 @@
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	deployable_item = /obj/machinery/deployable/mounted
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.05 SECONDS
 	aim_speed_modifier = 5
 	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 0, ACID = 0)
@@ -469,17 +473,12 @@
 	max_integrity = 200
 	actions_types = list(/datum/action/item_action/aim_mode)
 
-/obj/item/weapon/gun/standard_mmg/toggle_auto_aim_mode(mob/living/carbon/human/user) //somewhat redundant, but just for clarity to the user
-	if(!(item_flags & IS_DEPLOYED))
-		user.balloon_alert(user, "Not deployed")
-		return
-	return ..()
-
-/obj/item/weapon/gun/standard_mmg/toggle_aim_mode(mob/living/carbon/human/user)
-	if(!HAS_TRAIT(src, TRAIT_GUN_IS_AIMING) && !(item_flags & IS_DEPLOYED))
-		user.balloon_alert(user, "Not deployed")
-		return
-	return ..()
+/obj/item/weapon/gun/standard_mmg/toggle_deployment_flag(deployed)
+	if(deployed)
+		aim_time = 1 SECONDS
+	else
+		aim_time = initial(aim_time)
+	. = ..()
 
 /obj/item/weapon/gun/standard_mmg/machinegunner
 	starting_attachment_types = list(/obj/item/attachable/stock/t27, /obj/item/attachable/scope/unremovable/mmg)
@@ -498,8 +497,8 @@
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
 	caliber = CALIBER_14X5 // codex
-	max_shells = 5 //codex
-	max_chamber_items = 5
+	max_shells = 6 //codex
+	max_chamber_items = 6
 	force = 30
 	fire_sound = 'sound/weapons/guns/fire/ptrs.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
@@ -518,7 +517,7 @@
 		/obj/item/attachable/scope,
 	)
 
-	starting_attachment_types = list(/obj/item/attachable/stock/clf_heavyrifle)
+	starting_attachment_types = list(/obj/item/attachable/stock/clf_heavyrifle, /obj/item/attachable/scope)
 	attachable_offset = list("muzzle_x" = 45, "muzzle_y" = 19,"rail_x" = 18, "rail_y" = 24, "under_x" = 28, "under_y" = 13, "stock_x" = 8, "stock_y" = 0)
 
 	item_flags = IS_DEPLOYABLE|TWOHANDED
@@ -548,7 +547,7 @@
 
 /obj/item/weapon/gun/standard_atgun
 	name = "\improper AT-36 anti tank gun"
-	desc = "The AT-36 is a light dual purpose anti tank and anti personnel weapon used by the TGMC. Used for light vehicle or bunker busting on a short notice. Best used by two people. It can move around with wheels, and has an ammo rack intergral to the weapon. CANNOT BE UNDEPLOYED ONCE DEPLOYED! It uses several types of 37mm shells boxes. Alt-right click on it to anchor it so that it cannot be moved by anyone, then alt-right click again to move it."
+	desc = "The AT-36 is a light dual purpose anti tank and anti personnel weapon used by the NTC. Used for light vehicle or bunker busting on a short notice. Best used by two people. It can move around with wheels, and has an ammo rack intergral to the weapon. CANNOT BE UNDEPLOYED ONCE DEPLOYED! It uses several types of 37mm shells boxes. Alt-right click on it to anchor it so that it cannot be moved by anyone, then alt-right click again to move it."
 	w_class = WEIGHT_CLASS_BULKY
 	icon = 'icons/obj/machines/deployable/at36.dmi'
 	icon_state = "at36"
@@ -573,6 +572,7 @@
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 
 	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO)
+	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_time = 6 SECONDS
 	reciever_flags = AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_AUTO_EJECT
 	soft_armor = list(MELEE = 60, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 0, ACID = 0)
@@ -665,11 +665,11 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 
 	attachable_allowed = list(
-		/obj/item/attachable/scope/unremovable/standard_atgun,
+		/obj/item/attachable/scope/unremovable/aim_atgun,
 	)
 
 	starting_attachment_types = list(
-		/obj/item/attachable/scope/unremovable/standard_atgun,
+		/obj/item/attachable/scope/unremovable/aim_atgun,
 	)
 
 	allowed_ammo_types = list(
@@ -680,7 +680,7 @@
 		/obj/item/ammo_magazine/standard_agls/cloak,
 	)
 
-	deploy_time = 6 SECONDS
+	deploy_time = 5 SECONDS
 	undeploy_time = 3 SECONDS
 	deployable_item = /obj/machinery/deployable/mounted
 
@@ -698,8 +698,8 @@
 // Non-TGMC HMG
 
 /obj/item/weapon/gun/icc_hmg
-	name = "\improper KRD-61ES mounted heavy machinegun"
-	desc = "The KRD-61ES machinegun is the export variant of the ML-91 HMG. It's too heavy to be wielded or operated without the tripod. No extra work required, just deploy it with Ctrl-Click. Can be repaired with a blowtorch once deployed."
+	name = "\improper KRD-61ES Mobile Heavy Machinegun"
+	desc = "The KRD-61ES machinegun is the export variant of the ML-91 HMG. It's just light enough to be wielded and fired without it's tripod, though it can still employ it for precision shooting. No extra work required, just deploy it with Ctrl-Click. Can be repaired with a blowtorch once deployed."
 	icon = 'icons/obj/machines/deployable/mounted_machinegun.dmi'
 	icon_state = "kord"
 	worn_icon_list = list(
@@ -713,9 +713,8 @@
 	w_class = WEIGHT_CLASS_HUGE
 	equip_slot_flags = ITEM_SLOT_BACK
 
-	scatter = 10
-	deployed_scatter_change = -10
-	accuracy_mult = 1.2 //it's got a bipod
+	scatter = 15
+	deployed_scatter_change = -15
 	fire_delay = 0.25 SECONDS
 
 	default_ammo_type = /obj/item/ammo_magazine/icc_hmg
@@ -725,18 +724,22 @@
 	)
 
 	item_flags = IS_DEPLOYABLE|TWOHANDED
-	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
+	gun_features_flags = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	actions_types = list(/datum/action/item_action/aim_mode)
 	aim_fire_delay = 0.05 SECONDS
 	aim_speed_modifier = 5
 
 	attachable_allowed = list(
-		/obj/item/attachable/scope/unremovable/hsg_102,
+		/obj/item/attachable/scope/tac,
+		/obj/item/attachable/foldable/bipod,
 	)
 
 	starting_attachment_types = list(
-		/obj/item/attachable/scope/unremovable/hsg_102,
+		/obj/item/attachable/foldable/bipod,
 	)
+	attachable_offset = list("muzzle_x" = 41, "muzzle_y" = 17,"rail_x" = 17, "rail_y" = 16, "under_x" = 45, "under_y" = 13, "stock_x" = 5, "stock_y" = 11)
+
 
 	deploy_time = 1.5 SECONDS
 	undeploy_time = 0.5 SECONDS
@@ -758,6 +761,7 @@
 	icon = 'icons/obj/machines/deployable/at45.dmi'
 	icon_state = "at45"
 	worn_icon_list = list(
+		slot_back_str = 'ntf_modular/icons/mob/clothing/back.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/guns/misc_left_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/guns/misc_right_1.dmi',
 	)
@@ -788,11 +792,13 @@
 	attachable_allowed = list(
 		/obj/item/attachable/at45barrel,
 		/obj/item/attachable/stock/at45stock,
+		/obj/item/attachable/motiondetector/advanced/sg,
 	)
 
 	starting_attachment_types = list(
 		/obj/item/attachable/at45barrel,
 		/obj/item/attachable/stock/at45stock,
+		/obj/item/attachable/motiondetector/advanced/sg,
 	)
 	attachable_offset = list("muzzle_x" = 56, "muzzle_y" = 16,"rail_x" = 18, "rail_y" = 24, "under_x" = 28, "under_y" = 13, "stock_x" = -11, "stock_y" = 0)
 

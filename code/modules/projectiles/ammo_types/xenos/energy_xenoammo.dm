@@ -40,7 +40,7 @@
 	var/list/throw_list = list()
 
 	for(var/turf/cone_turf AS in generate_cone(target_turf, aoe_range, -1, 359, 359, pass_flags_checked = PASS_AIR))
-		for(var/target in cone_turf)
+		for(var/atom/movable/target in cone_turf)
 			if(isliving(target))
 				if(isxeno(target))
 					continue
@@ -61,7 +61,14 @@
 					continue
 				if(isarmoredvehicle(target))
 					dam_mult -= 0.5
-				obj_victim.take_damage(aoe_damage * dam_mult, BURN, ENERGY, TRUE, armour_penetration = penetration)
+				if(proj.firer.issamexenohive(target) && (is_type_in_typecache(target.type,GLOB.xeno_object_list)))
+					continue
+				obj_victim.take_damage(aoe_damage * dam_mult, BURN, ENERGY, TRUE, armour_penetration = penetration, blame_mob = proj.firer)
+			if(target.anchored)
+				continue
+		if(istype(target_turf, /turf/closed/wall/resin) && !proj.issamexenohive(target_turf))
+			var/turf/closed/wall/target_wall = target_turf
+			target_wall.take_damage(aoe_damage, BURN, ENERGY, penetration, blame_mob = proj.firer)
 
 	new /obj/effect/temp_visual/shockwave(target_turf, aoe_range + 2)
 

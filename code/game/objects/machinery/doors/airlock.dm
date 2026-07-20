@@ -124,9 +124,14 @@
 /obj/machinery/door/airlock/proc/canAIControl(mob/user)
 	if(hackProof)
 		return
-	if(z != user.z)
+	if(!SSmapping.level_trait(z,ZTRAIT_MARINE_MAIN_SHIP))
 		return
 	return ((aiControlDisabled != 1) && !isAllPowerCut())
+
+/obj/machinery/door/window/proc/canAIControl(mob/user)
+	if(!SSmapping.level_trait(z,ZTRAIT_MARINE_MAIN_SHIP))
+		return
+	return TRUE
 
 
 /obj/machinery/door/airlock/proc/canAIHack()
@@ -280,8 +285,10 @@
 
 
 //Prying open doors
-/obj/machinery/door/airlock/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/machinery/door/airlock/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(xeno_attacker.status_flags & INCORPOREAL)
+		return FALSE
+	if(xeno_attacker.handcuffed)
 		return FALSE
 
 	var/turf/cur_loc = xeno_attacker.loc
@@ -435,7 +442,7 @@
 			span_notice("You fumble around figuring out how to deconstruct [src]."))
 
 			var/fumbling_time = 50 * ( SKILL_ENGINEER_ENGI - user.skills.getRating(SKILL_ENGINEER) )
-			if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED))
+			if(!do_after(user, fumbling_time, TRUE, src, BUSY_ICON_UNSKILLED))
 				return
 
 		if(width > 1)
@@ -445,7 +452,7 @@
 		playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
 		user.visible_message("[user] starts removing the electronics from the airlock assembly.", "You start removing electronics from the airlock assembly.")
 
-		if(!do_after(user, 40, NONE, src, BUSY_ICON_BUILD))
+		if(!do_after(user,40, TRUE, src, BUSY_ICON_BUILD))
 			return
 
 		to_chat(user, span_notice("You removed the airlock electronics!"))
@@ -639,6 +646,23 @@
 
 
 /obj/machinery/door/airlock/proc/user_toggle_open(mob/user)
+	if(!canAIControl(user))
+		return
+
+	if(welded)
+		to_chat(user, span_warning("The airlock has been welded shut."))
+		return
+
+	if(locked)
+		to_chat(user, span_warning("The door bolts are down."))
+		return
+
+	if(!density)
+		close()
+	else
+		open()
+
+/obj/machinery/door/window/proc/user_toggle_open(mob/user)
 	if(!canAIControl(user))
 		return
 

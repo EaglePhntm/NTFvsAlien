@@ -93,7 +93,7 @@ SUBSYSTEM_DEF(job)
 		JobDebug("AR job doesn't exist! Player: [player], Job: [job]")
 		return FALSE
 	JobDebug("Running AR, Player: [player], Job: [job.title], LJ: [latejoin]")
-	if(!player.IsJobAvailable(job))
+	if(!player.IsJobAvailable(job, latejoin))
 		return FALSE
 	if(is_banned_from(player.ckey, job.title))
 		JobDebug("AR isbanned failed, Player: [player], Job:[job.title]")
@@ -104,6 +104,10 @@ SUBSYSTEM_DEF(job)
 	if(!job.player_old_enough(player.client))
 		JobDebug("AR player not old enough, Player: [player], Job:[job.title]")
 		return FALSE
+	if(!WHITELIST_CHECK(player.client))
+		WHITELIST_MESSAGE(player.client)
+		JobDebug("AR player not whitelisted for the server, Player: [player], Job:[job.title]")
+		return FALSE
 	if(ismarinejob(job) || issommarinejob(job))
 		if(!handle_initial_squad(player, job, latejoin, job.faction))
 			JobDebug("Failed to assign marine role to a squad. Player: [player.key] Job: [job.title]")
@@ -112,7 +116,8 @@ SUBSYSTEM_DEF(job)
 	if(!latejoin)
 		unassigned -= player
 	if(job.job_category != JOB_CAT_XENO && !GLOB.joined_player_list.Find(player.ckey))
-		SSpoints.supply_points[job.faction] += SUPPLY_POINT_MARINE_SPAWN
+		SSpoints.add_supply_points(job.faction, SUPPLY_POINT_MARINE_SPAWN)
+	log_game("Occupying 1 [job.title] slot due to it being assigned to [player.ckey], respawn = [GLOB.joined_player_list.Find(player.ckey) ? "TRUE" : "FALSE"].")
 	job.occupy_job_positions(1, GLOB.joined_player_list.Find(player.ckey))
 	player.mind?.assigned_role = job
 	player.assigned_role = job
@@ -280,8 +285,14 @@ SUBSYSTEM_DEF(job)
 
 	job.after_spawn(new_character, player, joined_late) // note: this happens before new_character has a key!
 
-	return new_character
+	if(!isxenosjob(job))
+		// try to give them their medals
+		var/datum/medal_persistence/medals = get_medal_persistence_for_ckey(player.ckey)
+		ASYNC
+			medals.load_medals_from_db(player)
+			medals.give_medals_to(new_character)
 
+	return new_character
 
 /datum/controller/subsystem/job/proc/PopcapReached()
 	var/hpc = CONFIG_GET(number/hard_popcap)
@@ -336,10 +347,22 @@ SUBSYSTEM_DEF(job)
 
 
 /datum/controller/subsystem/job/proc/SendToLateJoin(mob/M, datum/job/assigned_role)
+	if(issurvivorjob(assigned_role))
+		if(length(GLOB.latejoinsurvivor))
+			SendToAtom(M, pick(GLOB.latejoinsurvivor))
+			return
 	switch(assigned_role.faction)
 		if(FACTION_SOM)
 			if(length(GLOB.latejoinsom))
 				SendToAtom(M, pick(GLOB.latejoinsom))
+				return
+		if(FACTION_CLF)
+			if(length(GLOB.latejoinclf))
+				SendToAtom(M, pick(GLOB.latejoinclf))
+				return
+		if(FACTION_MOTHELLIAN)
+			if(length(GLOB.latejoinmoff))
+				SendToAtom(M, pick(GLOB.latejoinmoff))
 				return
 		else
 			if(length(GLOB.latejoin))

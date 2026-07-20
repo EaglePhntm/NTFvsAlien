@@ -28,7 +28,7 @@
 	var/constrdir = REVERSE_DIR(user.dir)
 	var/constrloc = user.loc
 
-	if(!do_after(user, 30, NONE, wall, BUSY_ICON_BUILD))
+	if(!do_after(user, 30, TRUE, wall, BUSY_ICON_BUILD))
 		return
 
 	new /obj/structure/camera_assembly(constrloc, constrdir)
@@ -124,7 +124,7 @@
 	if(state != STATE_WIRED)
 		return FALSE
 
-	tool.play_tool_sound(src)
+	tool.play_tool_sound(src, 50)
 	var/input = stripped_input(user, "Which networks would you like to connect this camera to? Separate networks with a comma. No Spaces!\nFor example: marinemainship, marine, dropship1, dropship2", "Set Network", "marinemainship")
 	if(!input)
 		to_chat(user, span_warning("No network entered."))
@@ -148,7 +148,7 @@
 		return FALSE
 
 	new /obj/item/stack/cable_coil(drop_location(), 2)
-	I.play_tool_sound(src)
+	I.play_tool_sound(src, 50)
 	to_chat(user, span_notice("You cut the wires from the circuits."))
 	state = STATE_WELDED
 	return TRUE
@@ -157,7 +157,7 @@
 /obj/structure/camera_assembly/wrench_act(mob/user, obj/item/I)
 	if(state != STATE_WRENCHED)
 		return FALSE
-	I.play_tool_sound(src)
+	I.play_tool_sound(src, 50)
 	to_chat(user, span_notice("You detach [src] from its place."))
 	new /obj/item/frame/camera(drop_location())
 

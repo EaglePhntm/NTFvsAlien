@@ -10,9 +10,6 @@
 /datum/species/human/vatgrown
 	name = "Vat-Grown Human"
 	icobase = 'icons/mob/human_races/r_vatgrown.dmi'
-	brute_mod = 1.05
-	burn_mod = 1.05
-	slowdown = 0.05
 	joinable_roundstart = FALSE
 	limb_type = SPECIES_LIMB_CLONE
 
@@ -24,7 +21,6 @@
 
 /datum/species/human/vatgrown/handle_post_spawn(mob/living/carbon/human/H)
 	. = ..()
-	H.h_style = "Bald"
 	H.set_skills(getSkillsType(/datum/skills/vatgrown))
 
 /datum/species/human/vatgrown/early
@@ -38,7 +34,7 @@
 /datum/species/human/vatgrown/early/handle_post_spawn(mob/living/carbon/human/H)
 	. = ..()
 	H.set_skills(getSkillsType(/datum/skills/vatgrown/early))
-	timerid = addtimer(CALLBACK(src, PROC_REF(handle_age), H), 15 MINUTES, TIMER_STOPPABLE)
+	timerid = addtimer(CALLBACK(src, PROC_REF(handle_age), H), 10 MINUTES, TIMER_STOPPABLE)
 
 /datum/species/human/vatgrown/early/post_species_loss(mob/living/carbon/human/H)
 	. = ..()

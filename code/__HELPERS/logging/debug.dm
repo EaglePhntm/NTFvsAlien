@@ -16,7 +16,18 @@
 	logger.Log(LOG_CATEGORY_DEBUG_JOB, text, data)
 
 /// Logging for mapping errors
+#define MAX_MAPPING_ISSUE_LOGS 1000
+
+GLOBAL_LIST_EMPTY(mapping_issue_logs)
+
 /proc/log_mapping(text, skip_world_log)
+	GLOB.mapping_issue_logs += list(list(
+		"time" = time_stamp(),
+		"message" = "[text]",
+	))
+	if(length(GLOB.mapping_issue_logs) > MAX_MAPPING_ISSUE_LOGS)
+		GLOB.mapping_issue_logs.Cut(1, length(GLOB.mapping_issue_logs) - MAX_MAPPING_ISSUE_LOGS + 1)
+
 #ifdef UNIT_TESTS
 	GLOB.unit_test_mapping_logs += text
 #endif
@@ -50,3 +61,5 @@
 	logger.Log(LOG_CATEGORY_RUNTIME, text, data)
 #endif
 	SEND_TEXT(world.log, text)
+
+#undef MAX_MAPPING_ISSUE_LOGS

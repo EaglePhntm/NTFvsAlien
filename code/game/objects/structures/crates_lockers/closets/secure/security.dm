@@ -1,5 +1,5 @@
 /obj/structure/closet/secure_closet/captains
-	name = "Captain's Locker"
+	name = "Commander's Locker"
 	req_access = list(ACCESS_MARINE_CAPTAIN)
 	icon_state = "capsecure1"
 	icon_closed = "capsecure"
@@ -101,7 +101,7 @@
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
 	new /obj/item/tool/taperoll/police(src)
 	new /obj/item/weapon/shield/riot(src)
-	new /obj/item/storage/box/flashbangs(src)
+	new /obj/item/storage/box/stuns(src)
 	new /obj/item/storage/belt/security(src)
 	new /obj/item/flash(src)
 	new /obj/item/weapon/baton(src)
@@ -133,7 +133,7 @@
 	new /obj/item/clothing/head/helmet/warden(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
 	new /obj/item/tool/taperoll/police(src)
-	new /obj/item/storage/box/flashbangs(src)
+	new /obj/item/storage/box/stuns(src)
 	new /obj/item/storage/belt/security(src)
 	new /obj/item/reagent_containers/spray/pepper(src)
 	new /obj/item/weapon/baton(src)
@@ -190,6 +190,12 @@
 	new /obj/item/armor_module/storage/uniform/black_vest(src)
 	new /obj/item/clothing/head/soft/sec/corp(src)
 	new /obj/item/clothing/under/rank/security/corp(src)
+	new /obj/item/clothing/under/lewd/stripper/slutcurity(src)
+	new /obj/item/clothing/tie/holobadge(src)
+	new /obj/item/clothing/tie/holobadge/cord(src)
+	new /obj/item/clothing/suit/modular/xenonauten/bulletresistant/vest(src)
+	new /obj/item/cell/taser(src)
+	new /obj/item/book/manual/marine_law(src)
 
 
 /obj/structure/closet/secure_closet/security/cargo/PopulateContents()

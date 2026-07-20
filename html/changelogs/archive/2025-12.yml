@@ -6,6 +6,9 @@
   mudzbe:
   - balance: Reduce wired barricade damage to zombies
   - bugfix: Zombies cant strip things anymore
+2025-12-02:
+  Colfer1:
+  - balance: psydrain and cacoon no longer require the target to be dead to use
 2025-12-03:
   DaTruRiZZoB:
   - rscadd: Added ERP to EORD
@@ -21,6 +24,10 @@
   mudzbe:
   - bugfix: Gamemodes cant start on maps with a blacklisted ground map (without bypass)
 2025-12-04:
+  Colfer1:
+  - rscadd: Requisition jelly (ambrosia jelly) now revives humans that are dead
+  - rscadd: Adds synthetic survivors to the game on a few select gamemodes
+  - balance: Gave research survivors & Early gen synths the ability to do research
   Lewdcifer:
   - bugfix: Runners and Hunters should get their Pounce ability again.
   Lumipharon:
@@ -28,8 +35,10 @@
       later
   - bugfix: fixed NPC's trying to pickup things with missing limbs
 2025-12-05:
-  mudzbe:
-  - balance: Threatened zombie spawners have a higher spawning capacity
+  Nokia2Student:
+  - rscadd: KZ Neural Extractor, KZ Neural Imprinter
+  - rscadd: KZ Torture Chamber
+  - balance: Nerfed neurodisks
 2025-12-06:
   Despong & Lumi:
   - balance: added the Sambar MRAP - a speedy but unarmed alternative to the APC
@@ -44,15 +53,44 @@
   - bugfix: fixed not being able to hit fuel tanks
   - bugfix: fixed some unneeded fuel tank balloon alerts
   - qol: chairs layer under objects
-2025-12-09:
-  Lumipharon:
-  - balance: removed special resin wall types
-  mudzbe:
-  - balance: Reduced zombie limb regrow speed
+2025-12-07:
+  Colfer1:
+  - balance: The TAV - Nike and THV - Hades are no longer the best vehicles in the
+      game without competition
+2025-12-08:
+  Colfer1:
+  - rscadd: Adds all laser weapons to the various factions, now you can have standardized
+      loadouts!
+  Nokia2Student:
+  - bugfix: L12 Back sprite is no longer missing
+  - balance: CC/67 Rifle -> CC/67 Sniper Rifle (Gun rework)
+  - rscadd: Extended rubber magazine for cc/77
+  - balance: L12 damage increased, ammo capacity reduced
+  - balance: All kz rocket types now share the exact same reload delay
+  - balance: Kz chemical warhead smoke lifetime increased
+  - balance: Xp5 shrap nade now explodes in shrap
+  - rscadd: Added TARP to KZ Vendor
+  - rscadd: Added KPX/47 Spectra for KZ
+2025-12-10:
+  Colfer1:
+  - balance: Lets all factions see excavations on the minimap
+  DrCrawler:
+  - bugfix: fixes many of the visual issues with the dragoon
+  - bugfix: fixes the hybrid specialist class loadout not having ammo for the gun
+      it comes with
+  - balance: reduces the price of dragoon stripper clips in req
+  Nokia2Student:
+  - bugfix: Skill exploit fix
 2025-12-11:
   mudzbe:
   - rscadd: Razorwire now hurts zombies
   - bugfix: Zombies can unbuckle themselves
+2025-12-12:
+  DrCrawler:
+  - bugfix: The dragoon sprites have been finally fixed.
+2025-12-13:
+  Colfer1:
+  - rscadd: Adds regular robot synths, like combat robots, without the combat
 2025-12-14:
   Lumipharon:
   - bugfix: fixed limbs losing armour on species change
@@ -71,6 +109,97 @@
   - code_imp: Cleaned up some weapon and two hander code
   mudzbe:
   - rscadd: Move silo back in the crashed syndicate shuttle on icy caves
+2025-12-17:
+  Nokia2Student:
+  - rscadd: New helmets and armors added to ac vendors
+  - rscadd: New loadouts for ac gunner, ac specialist and ac sl.
+  - rscadd: New lightpacks for ac loadouts
+  - balance: Antihug protection was removed from ac masks
+  - balance: 'Ac standard slots: 3-> -1'
+  - balance: 'Ac medic slots: 1 -> 2'
+  - balance: 'Ac engineer slots: 1 -> 2'
+2025-12-19:
+  Belgiumdoggo:
+  - rscadd: New uniform, helmet, vest, and rebreather for the SOM Pilot Officer.
+  - bugfix: fixed SOM Pilot Officer spawning with a tablet with access to NTC cams.
+  - code_imp: updated the loadout spawn of the SOM Pilot Officer.
+2025-12-20:
+  Colfer1:
+  - balance: Non-chest limbs now have a significantly higher miss chance, targeting
+      the eyes forces you to miss all your shots
+2025-12-21:
+  Ducky-Momo:
+  - code_imp: added SOM modules to list of allowed attachments of exoskeletons
+  Nokia2Student:
+  - balance: Bio resistance values were increased massively on ac armors
+  - balance: Base resistance values were increased slightly on ac armors
+  - balance: Princeps ac armor slowdown value was changed from light to medium
+2025-12-22:
+  Colfer1:
+  - rscadd: All laser weapons now have new modes to play with, including the tesla
+      shock rifle
+  - balance: Combat robots can now repair as long as they aren't dead or already repairing
+  - balance: EMP damage is moderately less effective against robots to make way for
+      dedicated EMP guns (Tesla shock rifle)
+  - bugfix: Fixed combat robot damage screens not showing up
+  - soundadd: Combat robots now play noises when in crit/hard crit
+2025-12-23:
+  Colfer1:
+  - rscadd: Added barrier armor to the style line of armors, try it out and see how
+      you like it
+  - rscadd: Added style line & select armor modules to all armor vendors, now even
+      the CLF can have a medical pouch on their colorable jacket
+  - balance: supersoldier speed stims now have downsides
+  - soundadd: shields play a funny noise when broken
+2025-12-24:
+  Colfer1:
+  - rscadd: Added a new "Alien Pheromones" and "Crit Threshold" stim to supersoldier
+  DrCrawler:
+  - rscadd: You can now use linebreaks in your subtlers, but only subtlers.
+  Nokia2Student:
+  - qol: Xenos don't scoop up weeds by default anymore
+2025-12-25:
+  OrbisAnima:
+  - code_imp: Added Proof of Testing section to the Github PR template.
+2025-12-26:
+  Colfer1:
+  - rscadd: Added the ability to possess minions for hivemind, puppeteer, widow
+  - rscadd: Puppeteer can now make puppets that sound like people in the world
+  - balance: Puppeteer puppets no longer have a range limit.
+2025-12-28:
+  Colfer1:
+  - balance: Spiderlings no longer deal stamina damage when disarming you, instead
+      they just provide an extremely intense slowdown
+2025-12-29:
+  Colfer1:
+  - balance: barrier armor now has a melee modifier, increasing melee damage done
+      to the shield
+  - bugfix: Most cleanables now layer over weeds, good thing there is soap
+2025-12-30:
+  DrCrawler:
+  - rscadd: Added a new CEO position,
+  - rscadd: Implemented sex skill.
+  - balance: Changed CLF Breeder skills a bit.
+  - spellcheck: Fixes larva being described as popping out of the father's pussy when
+      an impregnated xeno gives birth.
+2025-12-31:
+  Colfer1:
+  - bugfix: puppeteer and widow get possession when primordial too
+  - qol: Puppets and spiderlings now appear on hive status for the purpose of possession
+      ability
+  - balance: Xenos now give ALOT more money when exported, a price hike of 4x. A drone
+      is now worth 300
+  - bugfix: primordial puppeteers can no longer summon 10 billion puppets
+  Ducky-Momo:
+  - rscadd: added transparent gas masks to CLF and CM vendors, adds two PTR anti-mech
+      rifles and ammo boxes to CLF, adds anti-smoke/gas grenades to SOM
+  - balance: gave PTR one more round in the mag, removed autocannon from KZ weapon
+      vendor
+  Nokia2Student:
+  - balance: Buffed xenomorph damage against resin structures
+  - balance: Adjusted xeno regeneration debuff applied in xvx
+  - bugfix: Weed nodes now properly respect destroy weeds toggle
+  - bugfix: Fixed dragon issues related to flying and weed
 2025-12-23:
   Lumipharon:
   - bugfix: Fixes extinguishers refueling with the wrong fuel

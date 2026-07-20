@@ -3,8 +3,9 @@
 	var/tint_state = TRUE
 	var/mob_tinted = FALSE
 	var/mob/living/tinted_mob
+	var/the_slot
 
-/datum/component/clothing_tint/Initialize(tint, tint_state)
+/datum/component/clothing_tint/Initialize(tint, tint_state, slot)
 	. = ..()
 	if(!isitem(parent))
 		return COMPONENT_INCOMPATIBLE
@@ -12,6 +13,8 @@
 		src.tint = tint
 	if(!isnull(tint_state))
 		src.tint_state = tint_state
+	if(slot)
+		the_slot = slot
 
 /datum/component/clothing_tint/Destroy(force, silent)
 	remove_tint()
@@ -59,8 +62,9 @@
 
 /datum/component/clothing_tint/proc/equipped_to_slot(datum/source, mob/user, slot)
 	SIGNAL_HANDLER
-	tinted_mob = user
-	add_tint()
+	if(!the_slot || slot == the_slot)
+		tinted_mob = user
+		add_tint()
 
 /datum/component/clothing_tint/proc/removed_from_slot(datum/source, mob/user)
 	SIGNAL_HANDLER

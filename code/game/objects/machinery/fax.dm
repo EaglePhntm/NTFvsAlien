@@ -16,11 +16,19 @@
 	var/obj/item/paper/message = null
 	var/sendcooldown = FALSE
 
-	var/department = CORPORATE_LIAISON
-	var/selected = "Nanotrasen"
+	var/department = ""
+	var/selected = "Ninetails"
 
 /obj/machinery/faxmachine/Initialize(mapload)
 	. = ..()
+	if(!department)
+		department = ""
+		if(is_ground_level(z))
+			department += "[SSmapping.configs[GROUND_MAP].map_name] - "
+		if(is_mainship_level(z))
+			department += "[SSmapping.configs[SHIP_MAP].map_name] - "
+		department += "[get_area_name(src, TRUE)]"
+	name += " ([department])"
 	GLOB.faxmachines += src
 	var/static/list/connections = list(
 		COMSIG_OBJ_TRY_ALLOW_THROUGH = PROC_REF(can_climb_over),
@@ -70,7 +78,7 @@
 	dat += "<hr>"
 
 	if(authenticated)
-		dat += "<b>Logged in to:</b> Nanotrasen Private Corporate Network<br><br>"
+		dat += "<b>Logged in to:</b> XF-69 Planetary Fax Network<br><br>"
 		if(message)
 			dat += "<a href='byond://?src=[text_ref(src)];remove=1'>Remove Paper</a><br><br>"
 			if(sendcooldown)
@@ -133,7 +141,10 @@
 		authenticated = FALSE
 
 	if(href_list["dept"])
-		var/choice = tgui_input_list(usr, "Who do you want to message?", "Fax", list("Nanotrasen", "TGMC High Command", "TGMC Provost Marshall"))
+		var/list/fax_machine_departments = list("Ninetails Human Resources", "NTC Intel Division", "NTC Misc")
+		for(var/obj/machinery/faxmachine/machine in GLOB.faxmachines)
+			fax_machine_departments |= machine.department
+		var/choice = tgui_input_list(usr, "Who do you want to message?", "Fax", fax_machine_departments)
 		if(!choice)
 			return
 		selected = choice
@@ -174,18 +185,46 @@
 		anchored = !anchored
 		to_chat(user, span_notice("You [anchored ? "wrench" : "unwrench"] \the [src]."))
 
+/obj/machinery/faxmachine/liasion
+	department = CORPORATE_LIAISON
+	faction = FACTION_TERRAGOV
 
 /obj/machinery/faxmachine/cic
 	department = "Combat Information Center"
+	faction = FACTION_TERRAGOV
 
 /obj/machinery/faxmachine/cmp
-	department = "Brig"
+	department = "Corpsec Commander"
+	faction = FACTION_TERRAGOV
 
 /obj/machinery/faxmachine/brig
-	department = "Brig"
+	department = "Corpsec Brig"
+	faction = FACTION_TERRAGOV
 
 /obj/machinery/faxmachine/research
-	department = "Research"
+	department = "NTC Research"
+	faction = FACTION_TERRAGOV
 
 /obj/machinery/faxmachine/warden //Prison Station
 	department = "Warden"
+	faction = FACTION_TERRAGOV
+
+/obj/machinery/faxmachine/som
+	department = "SOM"
+	faction = FACTION_SOM
+
+/obj/machinery/faxmachine/kz
+	department = "KZ"
+	faction = FACTION_VSD
+
+/obj/machinery/faxmachine/pmc
+	department = "pmc"
+	faction = FACTION_NANOTRASEN
+
+/obj/machinery/faxmachine/cm
+	department = "CM"
+	faction = FACTION_ICC
+
+/obj/machinery/faxmachine/clf
+	department = "Cult"
+	faction = FACTION_CLF

@@ -48,6 +48,10 @@
 		balloon_alert(user, "against your programming!")
 		return
 
+	if(HAS_TRAIT(user, TRAIT_KNIGHT))
+		balloon_alert(user, "can't, armor's too restrictive")
+		return
+
 	activate(user)
 
 	if(initial(dangerous) && ishumanbasic(user))
@@ -79,8 +83,8 @@
 	if(active)
 		return
 
+	log_bomber(user, "primed", src)
 	if(user?.client)
-		log_bomber(user, "primed", src)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[user.ckey]
 		personal_statistics.grenades_primed ++
 		personal_statistics.mission_grenades_primed ++

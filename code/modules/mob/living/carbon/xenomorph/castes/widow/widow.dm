@@ -12,9 +12,9 @@
 	upgrade = XENO_UPGRADE_NORMAL
 	buckle_flags = CAN_BUCKLE
 	pixel_x = -16
-	max_buckled_mobs = 5
+	max_buckled_mobs = 8
 
-/mob/living/carbon/xenomorph/widow/Initialize(mapload)
+/mob/living/carbon/xenomorph/widow/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_LIGHT_STEP, XENO_TRAIT)
 

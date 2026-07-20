@@ -1,5 +1,8 @@
 /mob/living/carbon/human/Initialize(mapload)
-	blood_type = pick(7;"O-", 38;"O+", 6;"A-", 34;"A+", 2;"B-", 9;"B+", 1;"AB-", 3;"AB+")
+	if(client)
+		blood_type = client.prefs.blood_type
+	else
+		blood_type = pick(7;"O-", 38;"O+", 6;"A-", 34;"A+", 2;"B-", 9;"B+", 1;"AB-", 3;"AB+")
 
 	set_jump_component()
 	if(!species)
@@ -70,6 +73,7 @@
 
 	GLOB.huds[DATA_HUD_BASIC].add_hud_to(src)
 	GLOB.huds[DATA_HUD_XENO_HEART].add_to_hud(src)
+	GLOB.huds[DATA_HUD_XENO_HUMAN_SHARED].add_hud_to(src)
 
 /mob/living/carbon/human/register_init_signals()
 	. = ..()
@@ -81,6 +85,8 @@
 	RegisterSignal(src, COMSIG_KB_GIVE, PROC_REF(give_signal_handler))
 
 /mob/living/carbon/human/Destroy()
+	log_game("Marking [logdetails(src)] as undefibbable because their body is being deleted.")
+	set_undefibbable()
 	assigned_squad?.remove_from_squad(src)
 	remove_from_all_mob_huds()
 	GLOB.human_mob_list -= src
@@ -213,7 +219,7 @@
 
 //gets paygrade from ID
 //paygrade is a user's actual rank, as defined on their ID.  size 1 returns an abbreviation, size 0 returns the full rank name, the third input is used to override what is returned if no paygrade is assigned.
-/mob/living/carbon/human/get_paygrade(size = 1)
+/mob/living/carbon/human/get_paygrade(size = PAYGRADE_SHORT)
 	var/obj/item/card/id/id = wear_id
 	if(istype(id))
 		return get_paygrades(id.paygrade, size, gender)
@@ -252,21 +258,24 @@
 //Gets ID card from a human. If hand_first is false the one in the id slot is prioritized, otherwise inventory slots go first.
 /mob/living/carbon/human/get_idcard(hand_first = TRUE)
 	var/obj/item/card/id/id_card = get_active_held_item()
-	if(!istype(id_card)) // If there is no id, check the other hand.
+	if(!id_card) //If there is no id, check the other hand
 		id_card = get_inactive_held_item()
+
+	if(istype(id_card, /obj/item/storage/wallet))
+		var/obj/item/storage/wallet/W = id_card
+		id_card = W.front_id
 
 	if(istype(id_card) && hand_first)
 		return id_card
 
 	if(wear_id)
 		id_card = wear_id
-	else if(belt && isidcard(belt))
+	else if(belt)
 		id_card = belt
 
 	if(istype(id_card, /obj/item/storage/wallet))
 		var/obj/item/storage/wallet/W = id_card
-		if(W.front_id)
-			id_card = W.front_id
+		id_card = W.front_id
 
 	return istype(id_card) ? id_card : null
 
@@ -632,7 +641,7 @@
 	visible_message(span_notice("[src] starts lifting [target] onto [p_their()] back..."),
 	span_notice("You start to lift [target] onto your back..."))
 	var/delay = 5 SECONDS - LERP(0 SECONDS, 4 SECONDS, skills.getPercent(SKILL_MEDICAL, SKILL_MEDICAL_MASTER))
-	if(!do_after(src, delay, NONE, target, target_display = BUSY_ICON_HOSTILE))
+	if(!do_mob(src, target, delay, target_display = BUSY_ICON_HOSTILE))
 		visible_message(span_warning("[src] fails to fireman carry [target]!"))
 		return
 	//Second check to make sure they're still valid to be carried
@@ -733,18 +742,24 @@
 
 	to_chat(usr, "You must[self ? "" : " both"] remain still until counting is finished.")
 
-	if(!do_after(usr, 6 SECONDS, NONE, src))
+	if(!do_mob(usr, src, 6 SECONDS))
 		to_chat(usr, span_warning("You failed to check the pulse. Try again."))
 		return
 
 	to_chat(usr, span_notice("[self ? "Your" : "[src]'s"] pulse is [get_pulse(GETPULSE_HAND)]."))
 
 
-/mob/living/carbon/human/verb/view_manifest()
+///mob/living/carbon/human/verb/view_manifest()
+/mob/living/verb/view_manifest()
 	set name = "View Crew Manifest"
 	set category = "IC"
 
-	var/dat = GLOB.datacore.get_manifest()
+	var/viewfaction = job?.faction || faction
+	if(viewfaction == FACTION_XENO)
+		var/datum/hive_status/hive = GLOB.hive_datums[get_xeno_hivenumber()]
+		if(istype(hive))
+			viewfaction = hive.allied_factions[1]
+	var/dat = GLOB.datacore.get_manifest(ooc = FALSE, viewfaction = job?.faction)
 
 	var/datum/browser/popup = new(src, "manifest", "<div align='center'>Crew Manifest</div>", 370, 420)
 	popup.set_content(dat)
@@ -846,7 +861,7 @@
 		return FALSE
 	return ..()
 
-/mob/living/carbon/human/smokecloak_on()
+/mob/living/carbon/human/smokecloak_on(smokecloak_alpha)
 	var/obj/item/storage/backpack/marine/satchel/scout_cloak/S = back
 	if(istype(S) && S.camo_active)
 		return FALSE

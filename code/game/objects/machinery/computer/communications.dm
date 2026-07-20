@@ -37,6 +37,8 @@
 	var/status_display_freq = "1435"
 	var/stat_msg1
 	var/stat_msg2
+	faction = FACTION_TERRAGOV
+	var/basic_comms = FALSE
 
 /obj/machinery/computer/communications/bee
 	machine_stat = BROKEN
@@ -64,16 +66,20 @@
 			var/obj/item/card/id/I = C.get_active_held_item()
 			if(istype(I))
 				if(check_access(I))
-					authenticated = 1
+					authenticated = 2
+				/*
 				if(ACCESS_MARINE_BRIDGE in I.access)
 					authenticated = 2
+				*/
 			else
 				I = C.wear_id
 				if(istype(I))
 					if(check_access(I))
-						authenticated = 1
+						authenticated = 2
+					/*
 					if(ACCESS_MARINE_BRIDGE in I.access)
 						authenticated = 2
+					*/
 		if("logout")
 			authenticated = 0
 
@@ -99,7 +105,7 @@
 					to_chat(usr, span_warning("Please allow at least [COOLDOWN_COMM_MESSAGE*0.1] second\s to pass between announcements."))
 					return FALSE
 
-				var/input = tgui_input_text(usr, "Please write a message to announce to the station crew.", "Priority Announcement", "",multiline = TRUE, encode = FALSE, max_length = 100)
+				var/input = tgui_input_text(usr, "Please write a message to announce to the the public.", "Announcement", "",multiline = TRUE, encode = FALSE, max_length = 100)
 				if(!input || !(usr in view(1,src)) || authenticated != 2 || world.time < cooldown_message + COOLDOWN_COMM_MESSAGE)
 					return FALSE
 
@@ -116,9 +122,9 @@
 					return FALSE
 
 				var/mob/living/carbon/human/sender = usr
-				priority_announce(input, subtitle = "Sent by [sender.get_paygrade(0) ? sender.get_paygrade(0) : sender.job.title] [sender.real_name]", type = ANNOUNCEMENT_COMMAND)
-				message_admins("[ADMIN_TPMONTY(usr)] has just sent a command announcement")
-				log_game("[key_name(usr)] has just sent a command announcement.")
+				priority_announce(input, subtitle = "Sent by [sender.get_paygrade(PAYGRADE_FULL) ? sender.get_paygrade(PAYGRADE_FULL) : sender.job.title] [sender.real_name]")
+				message_admins("[ADMIN_TPMONTY(usr)] has just sent a public announcement")
+				log_game("[key_name(usr)] has just sent a public announcement.")
 				TIMER_COOLDOWN_START(usr, COOLDOWN_HUD_ORDER, CIC_ORDER_COOLDOWN)
 				cooldown_message = world.time
 
@@ -127,17 +133,17 @@
 				to_chat(usr, span_warning("Only the Captain can award medals."))
 				return
 			var/mob/living/user = usr
-			if(!ismarinecaptainjob(user.job))
+			if(!ismarinecommandjob(user.job))
 				to_chat(usr, span_warning("Only the Captain can award medals."))
 				return
 
-			if(give_medal_award(loc))
+			if(do_award_medal(usr))
 				visible_message(span_notice("[src] prints a medal."))
 
 		if("evacuation_start")
 			if(state == STATE_EVACUATION)
 				if(world.time < EVACUATION_TIME_LOCK) //Cannot call it early in the round.
-					to_chat(usr, span_warning("TGMC protocol does not allow immediate evacuation. Please wait another [round((EVACUATION_TIME_LOCK-world.time)/600)] minutes before trying again."))
+					to_chat(usr, span_warning("NTC protocol does not allow immediate evacuation. Please wait another [round((EVACUATION_TIME_LOCK-world.time)/600)] minutes before trying again."))
 					return FALSE
 
 				if(!SSticker?.mode)
@@ -148,12 +154,14 @@
 					to_chat(usr, span_warning("The ship must be under red alert in order to enact evacuation procedures."))
 					return FALSE
 
+				/*
 				if(SSevacuation.scuttle_flags & FLAGS_SDEVAC_TIMELOCK)
 					to_chat(usr, span_warning("The sensors do not detect a sufficient threat present."))
 					return FALSE
+				*/
 
 				if(SSevacuation.scuttle_flags & FLAGS_EVACUATION_DENY)
-					to_chat(usr, span_warning("The TGMC has placed a lock on deploying the evacuation pods."))
+					to_chat(usr, span_warning("The NTC has placed a lock on deploying the evacuation pods."))
 					return FALSE
 
 				if(!SSevacuation.initiate_evacuation())
@@ -208,15 +216,19 @@
 					to_chat(usr, span_warning("The distress beacon is currently recalibrating."))
 					return FALSE
 
-				var/Ship[] = SSticker.mode.count_humans_and_xenos(SSmapping.levels_by_trait(ZTRAIT_MARINE_MAIN_SHIP))
-				var/ShipMarines[] = Ship[1]
-				var/ShipXenos[] = Ship[2]
-				var/All[] = SSticker.mode.count_humans_and_xenos()
+				//ntf removal
+				//var/Ship[] = SSticker.mode.count_humans_and_xenos(SSmapping.levels_by_trait(ZTRAIT_MARINE_MAIN_SHIP), COUNT_CLF_TOWARDS_XENOS | COUNT_GREENOS_TOWARDS_MARINES )
+				//var/ShipMarines[] = Ship[1]
+				//var/ShipXenos[] = Ship[2]
+				var/All[] = SSticker.mode.count_humans_and_xenos(null, COUNT_CLF_TOWARDS_XENOS | COUNT_GREENOS_TOWARDS_MARINES)
 				var/AllMarines[] = All[1]
 				var/AllXenos[] = All[2]
+				//ntf removal
+				/* this shit just doesnt work with us.
 				if((AllXenos < round(AllMarines * 0.8)) && (ShipXenos < round(ShipMarines * 0.5))) //If there's less humans (weighted) than xenos, humans get home-turf advantage
 					to_chat(usr, span_warning("The sensors aren't picking up enough of a threat to warrant a distress beacon."))
-					return FALSE
+					return TRUE
+				*/
 
 				SSticker.mode.distress_cancelled = FALSE
 				just_called = TRUE
@@ -292,20 +304,20 @@
 		if("setmsg2")
 			stat_msg2 = reject_bad_text(tgui_input_text(usr, "Line 2", "Enter Message Text", stat_msg2, 40, encode = FALSE))
 
-		if("messageTGMC")
+		if("messageNTC")
 			if(authenticated == 2)
 				if(world.time < cooldown_central + COOLDOWN_COMM_CENTRAL)
 					to_chat(usr, span_warning("Arrays recycling.  Please stand by."))
 					return FALSE
 
-				var/msg = tgui_input_text(usr, "Please choose a message to transmit to the TGMC High Command.  Please be aware that this process is very expensive, and abuse will lead to termination.  Transmission does not guarantee a response. There is a small delay before you may send another message. Be clear and concise.", "To abort, send an empty message.", "", encode = FALSE)
+				var/msg = tgui_input_text(usr, "Please choose a message to transmit to the NTC High Command.  Please be aware that this process is very expensive, and abuse will lead to termination.  Transmission does not guarantee a response. There is a small delay before you may send another message. Be clear and concise.", "To abort, send an empty message.", "", encode = FALSE)
 				if(!msg || !usr.Adjacent(src) || authenticated != 2 || world.time < cooldown_central + COOLDOWN_COMM_CENTRAL)
 					return FALSE
 
 
 				tgmc_message(msg, usr)
 				to_chat(usr, span_notice("Message transmitted."))
-				usr.log_talk(msg, LOG_SAY, tag = "TGMC announcement")
+				usr.log_talk(msg, LOG_SAY, tag = "NTC announcement")
 				cooldown_central = world.time
 
 		if("securitylevel")
@@ -321,6 +333,38 @@
 
 		if("changeseclevel")
 			state = STATE_ALERT_LEVEL
+
+		if("factionannounce")
+			if(authenticated == 2)
+				if(TIMER_COOLDOWN_RUNNING(usr, COOLDOWN_HUD_ORDER))
+					to_chat(usr, span_warning("You've sent an announcement or message too recently!"))
+					return
+				if(world.time < cooldown_message + COOLDOWN_COMM_MESSAGE)
+					to_chat(usr, span_warning("Please allow at least [COOLDOWN_COMM_MESSAGE*0.1] second\s to pass between announcements."))
+					return FALSE
+
+				var/input = tgui_input_text(usr, "Please write a message to announce to the console's faction..", "Announcement", "",multiline = TRUE, encode = FALSE, max_length = 100)
+				if(!input || !(usr in view(1,src)) || authenticated != 2 || world.time < cooldown_message + COOLDOWN_COMM_MESSAGE)
+					return FALSE
+
+				var/filter_result = CAN_BYPASS_FILTER(usr) ? null : is_ic_filtered(input)
+				if(filter_result)
+					to_chat(usr, span_warning("That announcement contained a word prohibited in IC chat! Consider reviewing the server rules.\n<span replaceRegex='show_filtered_ic_chat'>\"[input]\"</span>"))
+					SSblackbox.record_feedback(FEEDBACK_TALLY, "ic_blocked_words", 1, lowertext(config.ic_filter_regex.match))
+					REPORT_CHAT_FILTER_TO_USER(src, filter_result)
+					log_filter("IC", input, filter_result)
+					return FALSE
+
+				if(NON_ASCII_CHECK(input))
+					to_chat(usr, span_warning("That announcement contained characters prohibited in IC chat! Consider reviewing the server rules."))
+					return FALSE
+
+				var/mob/living/carbon/human/sender = usr
+				faction_announce(input, subtitle = "Sent by [sender.get_paygrade(PAYGRADE_FULL) ? sender.get_paygrade(PAYGRADE_FULL) : sender.job.title] [sender.real_name]", to_faction = faction)
+				message_admins("[ADMIN_TPMONTY(usr)] has just sent a faction announcement")
+				log_game("[key_name(usr)] has just sent a faction announcement.")
+				TIMER_COOLDOWN_START(usr, COOLDOWN_HUD_ORDER, CIC_ORDER_COOLDOWN)
+				cooldown_message = world.time
 
 		else
 			return FALSE
@@ -342,20 +386,23 @@
 		if(STATE_DEFAULT)
 			if(authenticated)
 				dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=logout'>LOG OUT</A> \]"
-				dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=changeseclevel'>Change alert level</A> \]"
-				dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=status'>Set status display</A> \]"
-				dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=messagelist'>Message list</A> \]"
+				if(!basic_comms)
+					dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=changeseclevel'>Change alert level</A> \]"
+					dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=status'>Set status display</A> \]"
+					dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=messagelist'>Message list</A> \]"
 				dat += "<BR><hr>"
 
 				if(authenticated == 2)
-					dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=announce'>Make an announcement</A> \]"
-					dat += length(GLOB.admins) > 0 ? "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=messageTGMC'>Send a message to TGMC</A> \]" : "<BR>\[ TGMC communication offline \]"
-					dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=award'>Award a medal</A> \]"
-					if(CONFIG_GET(flag/infestation_ert_allowed)) // We only add the UI if the flag is allowed
-						dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=distress'>Send Distress Beacon</A> \]"
-					switch(SSevacuation.evac_status)
-						if(EVACUATION_STATUS_STANDING_BY) dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=evacuation_start'>Initiate emergency evacuation</A> \]"
-						if(EVACUATION_STATUS_INITIATING) dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=delta_cancel'>Cancel Delta Alert</A> \]"
+					dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=announce'>Make a public announcement</A> \]"
+					dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=factionannounce'>Make \a [faction] announcement</A> \]"
+					dat += length(GLOB.admins) > 0 ? "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=messageNTC'>Send a message to [faction] high command</A> \]" : "<BR>\[ [faction] communication offline \]"
+					if(!basic_comms)
+						dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=award'>Award a medal</A> \]"
+						if(CONFIG_GET(flag/infestation_ert_allowed)) // We only add the UI if the flag is allowed
+							dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=distress'>Send Distress Beacon</A> \]"
+						switch(SSevacuation.evac_status)
+							if(EVACUATION_STATUS_STANDING_BY) dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=evacuation_start'>Initiate emergency evacuation</A> \]"
+							if(EVACUATION_STATUS_INITIATING) dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=delta_cancel'>Cancel Delta Alert</A> \]"
 
 			else
 				dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=login'>LOG IN</A> \]"
@@ -447,6 +494,42 @@
 		return //Only notify the admins if an actual change happened
 	log_game("[key_name(usr)] has changed the security level from [old_level] to [SSsecurity_level.get_current_level_as_text()].")
 	message_admins("[ADMIN_TPMONTY(usr)] has changed the security level from [old_level] to [SSsecurity_level.get_current_level_as_text()].")
+
+/obj/machinery/computer/communications/som
+	name = "som communications console"
+	req_access = list(ACCESS_SOM_COMMAND)
+	basic_comms = TRUE
+	faction = FACTION_SOM
+
+/obj/machinery/computer/communications/cm
+	name = "cm communications console"
+	req_access = ACCESS_ICC_LEADPREP
+	basic_comms = TRUE
+	faction = FACTION_ICC
+
+/obj/machinery/computer/communications/ntc
+	name = "ntc communications console"
+	req_access = list(ACCESS_MARINE_BRIDGE)
+	basic_comms = TRUE
+	faction = FACTION_TERRAGOV
+
+/obj/machinery/computer/communications/coe
+	name = "coe communications console"
+	req_access = null
+	basic_comms = TRUE
+	faction = FACTION_CLF
+
+/obj/machinery/computer/communications/kz
+	name = "kz communications console"
+	req_access = ACCESS_VSD_LEADPREP
+	basic_comms = TRUE
+	faction = FACTION_VSD
+
+/obj/machinery/computer/communications/pmc
+	name = "ac communications console"
+	req_access = ACCESS_NT_CORPORATE
+	basic_comms = TRUE
+	faction = FACTION_NANOTRASEN
 
 
 #undef STATE_DEFAULT

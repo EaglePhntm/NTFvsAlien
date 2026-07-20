@@ -147,11 +147,11 @@
 	new /obj/item/clothing/suit/armor/riot(src)
 	new /obj/item/clothing/suit/armor/riot(src)
 	new /obj/item/clothing/suit/armor/riot(src)
-	new /obj/item/storage/box/flashbangs(src)
+	new /obj/item/storage/box/stuns(src)
 
 /obj/structure/closet/secure_closet/guncabinet/emergency_combat_gear
 	name = "\improper emergency combat gear"
-	desc = "Kept in cases of extreme emergency. Tends to feature surplus, second rate gear. Not for regular TGMC squad marines."
+	desc = "Kept in cases of extreme emergency. Tends to feature surplus, second rate gear. Not for regular NTF squad marines."
 	req_access = null
 
 /obj/structure/closet/secure_closet/guncabinet/emergency_combat_gear/PopulateContents()

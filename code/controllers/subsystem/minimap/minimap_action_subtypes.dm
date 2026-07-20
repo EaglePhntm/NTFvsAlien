@@ -1,6 +1,11 @@
 
 /datum/action/minimap/xeno
-	minimap_flags = MINIMAP_FLAG_XENO|MINIMAP_FLAG_EXCAVATION_ZONE
+	minimap_flags = MINIMAP_FLAG_XENO|MINIMAP_FLAG_EXCAVATION_ZONE|MINIMAP_FLAG_MARINE_CLF
+
+
+/datum/action/minimap/survivor
+	minimap_flags = MINIMAP_FLAG_ICC
+	marker_flags = MINIMAP_FLAG_SURVIVOR
 
 /datum/action/minimap/researcher
 	minimap_flags = MINIMAP_FLAG_MARINE|MINIMAP_FLAG_EXCAVATION_ZONE
@@ -27,11 +32,27 @@
 	minimap_flags = MINIMAP_FLAG_MARINE_SOM
 	marker_flags = MINIMAP_FLAG_MARINE_SOM
 
+/datum/action/minimap/vsd
+	minimap_flags = MINIMAP_FLAG_KZ
+	marker_flags = MINIMAP_FLAG_KZ
+
+/datum/action/minimap/icc
+	minimap_flags = MINIMAP_FLAG_ICC|MINIMAP_FLAG_SURVIVOR
+	marker_flags = MINIMAP_FLAG_ICC
+
+/datum/action/minimap/clf
+	minimap_flags = MINIMAP_FLAG_MARINE_CLF|MINIMAP_FLAG_XENO|MINIMAP_FLAG_EXCAVATION_ZONE
+	marker_flags = MINIMAP_FLAG_MARINE_CLF
+
+/datum/action/minimap/zombie
+	minimap_flags = MINIMAP_FLAG_ZOMBIE
+	marker_flags = MINIMAP_FLAG_ZOMBIE
+
 /datum/action/minimap/lone
 	minimap_flags = MINIMAP_FLAG_LONE
 
 /datum/action/minimap/observer
-	minimap_flags = MINIMAP_FLAG_XENO|MINIMAP_FLAG_MARINE|MINIMAP_FLAG_MARINE_SOM|MINIMAP_FLAG_EXCAVATION_ZONE
+	minimap_flags = MINIMAP_FLAG_ALL
 	marker_flags = NONE
 
 /datum/action/minimap/observer/action_activate()

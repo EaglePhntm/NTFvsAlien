@@ -1,0 +1,206 @@
+//assassin things
+
+// ***************************************
+// *********** Lunge
+// ***************************************
+
+/datum/action/ability/activable/xeno/pounce/lunge
+	name = "Lunge"
+	action_icon = 'icons/Xeno/actions/hunter.dmi'
+	action_icon_state = "assassin_lunge"
+	desc = "Swiftly lunge at your destination, if on a target, attack them. This breaks invisibility and may deliver a sneak attack."
+	ability_cost = 10
+	cooldown_duration = 6 SECONDS
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_HUNTER_LUNGE,
+	)
+	use_state_flags = ABILITY_USE_BUCKLED
+
+//Triggers the effect of a successful pounce on the target.
+/datum/action/ability/activable/xeno/pounce/lunge/trigger_pounce_effect(mob/living/living_target)
+	playsound(get_turf(living_target), 'sound/voice/alien/roar4.ogg', 25, TRUE)
+	var/mob/living/carbon/xenomorph/xeno_owner = owner
+	xeno_owner.UnarmedAttack(living_target)
+	step_away(living_target, xeno_owner, 1, 3)
+	xeno_owner.face_atom(living_target)
+	GLOB.round_statistics.runner_pounce_victims++
+	SSblackbox.record_feedback("tally", "round_statistics", 1, "runner_pounce_victims")
+
+#define ASSASSIN_SNEAK_SLASH_ARMOR_PEN 30
+
+// ***************************************
+// *********** Phase Out
+// ***************************************
+
+/datum/action/ability/xeno_action/stealth/phaseout
+	name = "Phase Out"
+	action_icon_state = "hunter_invisibility"
+	action_icon = 'icons/Xeno/actions/hunter.dmi'
+	desc = "Become fully invisible for 10 seconds, or until damaged. Attacking does not break invisibility."
+	ability_cost = 10
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_PHASEOUT,
+	)
+	cooldown_duration = 6 SECONDS
+	stealth_duration = 10 SECONDS
+	disable_on_signals = list(
+		COMSIG_LIVING_IGNITED,
+		COMSIG_LIVING_ADD_VENTCRAWL,
+	)
+	stealth_flags = DIS_POUNCE_SLASH
+	sneak_attack_armor_pen = ASSASSIN_SNEAK_SLASH_ARMOR_PEN
+
+///Updates or cancels stealth
+/datum/action/ability/xeno_action/stealth/phaseout/handle_stealth()
+	xeno_owner.set_alpha_source(ALPHA_SOURCE_HUNTER_STEALTH, HUNTER_STEALTH_STILL_ALPHA) // instant full stealth regardless of movement.
+	return
+
+/datum/action/ability/xeno_action/stealth/phaseout/handle_stealth_move()
+	if(!xeno_owner.plasma_stored)
+		to_chat(xeno_owner, span_xenodanger("We lack sufficient plasma to remain camouflaged."))
+		cancel_stealth()
+	return
+
+/datum/action/ability/xeno_action/stealth/phaseout/action_activate()
+	. = ..()
+	if(stealth_duration != -1)
+		stealth_timer = addtimer(CALLBACK(src, PROC_REF(cancel_stealth)), stealth_duration, TIMER_STOPPABLE)
+
+/datum/action/ability/xeno_action/stealth/phaseout/can_use_action(silent, override_flags, selecting)
+	if(HAS_TRAIT_FROM(owner, TRAIT_TURRET_HIDDEN, STEALTH_TRAIT))
+		return FALSE
+	. = ..()
+
+///Duration for the mark.
+#define DEATH_MARK_TIMEOUT 15 SECONDS
+// ***************************************
+// *********** Death Mark
+// ***************************************
+/datum/action/ability/activable/xeno/hunter_mark/assassin
+	name = "Death Mark"
+	action_icon_state = "death_mark"
+	action_icon = 'icons/Xeno/actions/hunter.dmi'
+	desc = "Psionically disturb a creature for 15 seconds, allowing you to deal a stronger sneak attack. They will know you are coming for them."
+	ability_cost = 50
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_HUNTER_MARK,
+	)
+	cooldown_duration = HUNTER_SILENCE_COOLDOWN
+	require_los = FALSE
+	var/death_mark_multiplier = 1
+	var/death_mark_damage_multiplier = 2
+	var/turn_off_lights = FALSE
+	var/light_off_range = 3
+
+/datum/action/ability/activable/xeno/hunter_mark/assassin/can_use_ability(atom/A, silent = FALSE, override_flags)
+	var/mob/living/carbon/xenomorph/X = owner
+	if(require_los && !line_of_sight(X, A)) //Need line of sight.
+		if(!silent)
+			to_chat(X, span_xenowarning("We require line of sight to mark them!"))
+		return FALSE
+	return ..()
+
+
+/datum/action/ability/activable/xeno/hunter_mark/assassin/use_ability(atom/A)
+	. = ..()
+	var/mob/living/carbon/xenomorph/X = owner
+
+	RegisterSignal(marked_target, COMSIG_QDELETING, PROC_REF(unset_target)) //For var clean up
+
+	var/the_duration = DEATH_MARK_TIMEOUT * death_mark_multiplier
+	to_chat(X, span_xenodanger("We will be able to maintain the mark for [the_duration / 10] seconds."))
+	if(turn_off_lights)
+		for(var/atom/light AS in GLOB.nightfall_toggleable_lights)
+			if(isnull(light.loc) || (marked_target.loc.z != light.loc.z) || (get_dist(marked_target, light) >= light_off_range))
+				continue
+			light.turn_light(null, FALSE, the_duration/3, TRUE, TRUE, TRUE)
+	addtimer(CALLBACK(src, PROC_REF(unset_target)), the_duration)
+
+	playsound(marked_target, 'sound/effects/alien/new_larva.ogg', 50, 0, 1)
+	to_chat(marked_target, span_danger("You feel uneasy."))
+
+///Nulls the target of our hunter's mark
+/datum/action/ability/activable/xeno/hunter_mark/assassin/proc/unset_target()
+	SIGNAL_HANDLER
+	to_chat(owner, span_xenodanger("We cannot maintain our focus on [marked_target] any longer."))
+	owner.balloon_alert(owner, "Death mark expired!")
+	UnregisterSignal(marked_target, COMSIG_QDELETING)
+	marked_target = null //Nullify hunter's mark target and clear the var
+
+// ***************************************
+// *********** Displacement
+// ***************************************
+
+/datum/action/ability/xeno_action/displacement
+	name = "Displacement"
+	action_icon_state = "hunter_invisibility"
+	action_icon = 'icons/Xeno/actions/hunter.dmi'
+	desc = "Become incorporeal by shifting into another plane until you decide to reappear on another weed, reappearing on lighted areas will disorient you and flicker the lights. being out of weeds will consume plasma until you ultimately die."
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOMORPH_HUNTER_DISPLACEMENT,
+	)
+	use_state_flags = ABILITY_USE_SOLIDOBJECT
+
+/datum/action/ability/xeno_action/displacement/action_activate()
+	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
+	change_form(xenomorph_owner)
+
+/datum/action/ability/xeno_action/displacement/proc/change_form(mob/living/carbon/xenomorph/X)
+	if(!X.loc_weeds_type)
+		X.balloon_alert(X, "We need to be on weeds.")
+		return
+	X.wound_overlay.icon_state = "none"
+	var/turf/whereweat = get_turf(X)
+	if(X.status_flags & INCORPOREAL) //will alert if the xeno will get disoriented due lit turf, if phasing in.
+		if(whereweat.get_lumcount() > 0.3) //is it a lit turf
+			X.balloon_alert(X, "We will be disoriented and sensed in this light.") //so its more visible to xeno.
+			//Marines can sense the manifestation if it's in lit-enough turf nearby.
+			X.visible_message(span_danger("Something begins to manifest nearby!"), span_xenodanger("We begin to manifest in the light... talls sense us!"))
+	else
+		if(whereweat.get_lumcount() > 0.4) //cant shift out a lit turf.
+			X.balloon_alert(X, "We need a darker spot.") //so its more visible to xeno.
+			return
+	if(do_after(X, 4 SECONDS, IGNORE_HELD_ITEM, X, BUSY_ICON_BAR, NONE, PROGRESS_GENERIC, extra_checks = CALLBACK(owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = X.health)))) //dont move
+		do_change_form(X)
+
+///Finish the form changing of the hunter and give the needed stats
+/datum/action/ability/xeno_action/displacement/proc/do_change_form(mob/living/carbon/xenomorph/X)
+	playsound(get_turf(X), 'sound/effects/alien/new_larva.ogg', 25, 0, 1)
+	if(X.status_flags & INCORPOREAL)
+		var/turf/whereweat = get_turf(X)
+		if(whereweat.get_lumcount() > 0.3) //is it a lit turf
+			X.balloon_alert(X, "Light disorients us!")
+			X.adjust_stagger(6 SECONDS)
+			X.add_slowdown(4)
+		for(var/obj/machinery/light/light in GLOB.nightfall_toggleable_lights)
+			if(!istype(light))
+				continue
+			if(isnull(light.loc) || (X.loc.z != light.loc.z) || (get_dist(whereweat, light) >= rand(10,15)))
+				continue
+			light.set_flicker(4 SECONDS, 2, 3, rand(2,4))
+		X.status_flags = initial(X.status_flags)
+		X.pass_flags = initial(X.pass_flags)
+		X.density = TRUE
+		REMOVE_TRAIT(X, TRAIT_HANDS_BLOCKED, X)
+		X.alpha = 255
+		X.remove_filter("displacement_filter")
+		X.update_wounds()
+		X.update_icon()
+		X.update_action_buttons()
+		return
+	var/turf/whereweat = get_turf(X)
+	for(var/obj/machinery/light/light in GLOB.nightfall_toggleable_lights)
+		if(!istype(light))
+			continue
+		if(isnull(light.loc) || (X.loc.z != light.loc.z) || (get_dist(whereweat, light) >= rand(10,15)))
+			continue
+		light.set_flicker(4 SECONDS, 2, 3, rand(2,4))
+	ADD_TRAIT(X, TRAIT_HANDS_BLOCKED, X)
+	X.status_flags = INCORPOREAL
+	X.alpha = SCOUT_CLOAK_WALK_ALPHA
+	X.add_filter("displacement_filter", 20, color_matrix_filter(rgb(108, 0, 108)))
+	X.pass_flags = PASS_MOB|PASS_XENO|PASS_FIRE|PASS_LOW_STRUCTURE|PASS_TANK|PASS_DEFENSIVE_STRUCTURE|PASS_GLASS|PASS_GRILLE
+	X.density = FALSE
+	X.update_wounds()
+	X.update_icon()
+	X.update_action_buttons()

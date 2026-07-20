@@ -886,7 +886,7 @@
 
 	if(machine_stat & PANEL_OPEN && cover_open)
 		balloon_alert(user, "unsecuring...")
-		tool.play_tool_sound(src)
+		tool.play_tool_sound(src, 50)
 		if(!tool.use_tool(src, user, 6 SECONDS))
 			return
 		playsound(loc, 'sound/items/deconstruct.ogg', 50, vary = TRUE)
@@ -899,7 +899,7 @@
 	if(!cover_open)
 		return
 
-	tool.play_tool_sound(src)
+	tool.play_tool_sound(src, 50)
 	machine_stat ^= PANEL_OPEN
 	balloon_alert(user, "[machine_stat & PANEL_OPEN ? "mounting bolts exposed" : "mounting bolts hidden"]")
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN

@@ -60,8 +60,7 @@
 #define ARMORED_HAS_HEADLIGHTS (1<<6)
 #define ARMORED_PURCHASABLE_ASSAULT (1<<7)
 #define ARMORED_PURCHASABLE_TRANSPORT (1<<8)
-///Turns into a wreck instead of being destroyed
-#define ARMORED_WRECKABLE (1<<9)
+#define ARMORED_SOM_PURCHASABLE_ASSAULT (1<<9)
 ///Is currently a wreck
 #define ARMORED_IS_WRECK (1<<10)
 ///Wreck can be prepped for extraction
@@ -70,6 +69,10 @@
 #define ARMORED_WRECK_PREP_STAGE_TWO (1<<12)
 ///Vehicle damages itself when ramming walls
 #define ARMORED_SELF_WALL_DAMAGE (1<<13)
+#define ARMORED_SOM_PURCHASABLE_TRANSPORT (1<<14)
+///Turns into a wreck instead of being destroyed
+#define ARMORED_WRECKABLE (1<<15)
+
 
 #define MODULE_PRIMARY (1<<0)
 #define MODULE_SECONDARY (1<<1)

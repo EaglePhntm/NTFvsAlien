@@ -144,3 +144,28 @@
 		return crunch + repeat_string(desired_format, "0")
 
 	return crunch + .
+
+/// Returns a valid, render-safe hex color for body and mutant part recolors.
+/// Player preference colors stay untouched; this only softens colors before they tint sprite art.
+/proc/sanitize_character_recolor(color, default = "#FFFFFF")
+	var/safe_color = sanitize_hexcolor(color, 6, TRUE, default)
+	var/list/rgb_values = ReadRGB(safe_color)
+	if(!rgb_values)
+		return default
+
+	var/r = rgb_values[1]
+	var/g = rgb_values[2]
+	var/b = rgb_values[3]
+
+	// Full black and fully saturated colors multiply sprite shading too harshly.
+	// Mix a little white into render colors so recolorable sprites keep readable texture.
+	r = round(r + ((255 - r) * 0.17))
+	g = round(g + ((255 - g) * 0.17))
+	b = round(b + ((255 - b) * 0.17))
+
+	return rgb(r, g, b)
+
+/// Returns a valid hex color for hair overlays.
+/// Hair sprites already carry their own shading, so unlike body recolors this does not brighten the chosen color.
+/proc/sanitize_hair_recolor(color, default = "#000000")
+	return sanitize_hexcolor(color, 6, TRUE, default)

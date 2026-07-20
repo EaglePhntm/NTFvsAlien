@@ -24,4 +24,11 @@ SUBSYSTEM_DEF(greyscale)
 	type = "[type]"
 	if(istype(colors)) // It's the color list format
 		colors = colors.Join()
-	return configurations[type].Generate(colors)
+	var/datum/greyscale_config/config = configurations[type]
+	if(!config)
+		stack_trace("Missing greyscale config [type].")
+		return icon('icons/blanks/32x32.dmi', "nothing")
+	if(!colors)
+		stack_trace("Missing greyscale colors for [type].")
+		return icon('icons/blanks/32x32.dmi', "nothing")
+	return config.Generate(colors)

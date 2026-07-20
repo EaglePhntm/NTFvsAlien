@@ -5,7 +5,7 @@
 /obj/machinery/atmospherics/components/unary/cryo_cell
 	name = "cryo cell"
 	icon = 'icons/obj/machines/cryogenics2.dmi'
-	icon_state = "cell_mapper"
+	icon_state = "cell-off"
 	density = TRUE
 	max_integrity = 350
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 100, BOMB = 0, BIO = 100, FIRE = 30, ACID = 30)
@@ -192,11 +192,14 @@
 
 /obj/machinery/atmospherics/components/unary/cryo_cell/can_crawl_through()
 	return // can't ventcrawl in or out of cryo.
-
-/obj/machinery/atmospherics/components/unary/cryo_cell/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/machinery/atmospherics/components/unary/cryo_cell/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(!occupant)
 		to_chat(xeno_attacker, span_xenowarning("There is nothing of interest in there."))
 		return
+
+	if(xeno_attacker.handcuffed)
+		return
+
 	if(xeno_attacker.status_flags & INCORPOREAL || xeno_attacker.do_actions)
 		return
 	visible_message(span_warning("[xeno_attacker] begins to pry the [src]'s cover!"), 3)
@@ -304,6 +307,7 @@
 	stop_processing()
 	update_icon()
 
+
 ///Heals the occupant
 /obj/machinery/atmospherics/components/unary/cryo_cell/proc/process_occupant()
 	if(!occupant)
@@ -313,8 +317,37 @@
 	if(!occupant.getBruteLoss(TRUE) && !occupant.getFireLoss(TRUE) && !occupant.getCloneLoss() && autoeject) //release the patient automatically when brute and burn are handled on non-robotic limbs
 		go_out(TRUE)
 		return
-	occupant.bodytemperature = CRYO_TEMP //Atmos is long gone, we'll just set temp directly.
+	occupant.bodytemperature = 100 //Atmos is long gone, we'll just set temp directly.
 	occupant.Sleeping(20 SECONDS)
+
+	if(ishuman(occupant))
+		var/mob/living/carbon/human/human_occupant = occupant
+		if(human_occupant.can_restore_skills && HAS_TRAIT(human_occupant, TRAIT_SKILLS_EXTRACTED))
+			var/datum/status_effect/skill_modifier/extraction/extract_effect = human_occupant.has_status_effect(/datum/status_effect/skill_modifier/extraction)
+			if(!extract_effect)
+				human_occupant.can_restore_skills = FALSE
+			else
+				var/datum/skills/current_skills = human_occupant.skills
+				var/skills_changed = FALSE
+				var/list/skill_names = list("unarmed","melee_weapons","combat","pistols","shotguns","rifles","smgs","heavy_weapons","smartgun","engineer","construction","leadership","medical","surgery","pilot","police","powerloader","large_vehicle","mech","stamina","sex","chemistry")
+				for(var/skill in skill_names)
+					var/current_value = current_skills.vars[skill]
+					var/pre_value = extract_effect.pre_extraction_skills[skill]
+					if(current_value < pre_value)
+						current_skills.vars[skill] = min(current_value + 1, pre_value)
+						skills_changed = TRUE
+				if(skills_changed)
+					human_occupant.set_skills(current_skills)
+				var/restored_skills = TRUE
+				for(var/skill in skill_names)
+					if(current_skills.vars[skill] < extract_effect.pre_extraction_skills[skill])
+						restored_skills = FALSE
+						break
+				if(restored_skills)
+					human_occupant.can_restore_skills = FALSE
+					extract_effect.skill_differences.Cut()
+					qdel(extract_effect)
+
 	//You'll heal slowly just from being in an active pod, but chemicals speed it up.
 	if(occupant.getOxyLoss())
 		occupant.adjustOxyLoss(-1)
@@ -359,6 +392,9 @@
 /obj/machinery/atmospherics/components/unary/cryo_cell/proc/go_out(auto_eject = null, dead = null)
 	if(!occupant)
 		return
+	if (occupant.client)
+		occupant.client.set_eye(occupant.client.mob)
+		occupant.client.perspective = MOB_PERSPECTIVE
 	if(occupant in contents)
 		occupant.forceMove(get_step(loc, dir))
 	occupant.bodytemperature = max(occupant.bodytemperature, BODYTEMP_COLD_DAMAGE_LIMIT_ONE + 1)

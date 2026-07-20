@@ -25,9 +25,9 @@ export const JobPreferences = (props) => {
   } = data;
   const [shownDescription, setShownDescription] = useState(null);
 
-  const xenoJobs = ['Xeno Queen', 'Xenomorph'];
+  const xenoJobs = ['Xeno Queen', 'Xenomorph', 'Corrupted Xenomorph'];
   const commandRoles = [
-    'Captain',
+    'Commander',
     'Field Commander',
     'Staff Officer',
     'Pilot Officer',
@@ -35,6 +35,7 @@ export const JobPreferences = (props) => {
     'Synthetic',
     'AI',
     'Mech Pilot',
+    'Vanguard Unit',
   ];
   const supportRoles = [
     'Chief Ship Engineer',
@@ -45,12 +46,15 @@ export const JobPreferences = (props) => {
     'Medical Researcher',
     'Assault Crewman',
     'Transport Crewman',
+    'CorpSec Officer',
   ];
   const marineJobs = [
-    'Squad Marine',
+    'Squad Slut',
+    'Squad Operative',
     'Squad Engineer',
     'Squad Corpsman',
     'Squad Smartgunner',
+    'Squad Specialist',
     'Squad Leader',
   ];
   const somJobs = [
@@ -59,11 +63,98 @@ export const JobPreferences = (props) => {
     'SOM Squad Medic',
     'SOM Squad Veteran',
     'SOM Squad Leader',
-    'SOM Field Commander',
+    'SOM Synthetic',
+    'SOM Technician',
+    'SOM Medical Doctor',
+    'SOM Mech Pilot',
     'SOM Staff Officer',
+    'SOM Pilot Officer',
+    'SOM Assault Crewman',
+    'Sons of Mars Representative',
+    'SOM Chief Medical Officer',
+    'SOM Chief Engineer',
+    'SOM Requisitions Officer',
+    'SOM Military Police',
+    'SOM Chief MP',
+    'SOM Field Commander',
     'SOM Commander',
   ];
-  const flavourJobs = ['Corporate Liaison'];
+  const flavourJobs = [
+    'Operations Officer',
+    'Archercorp Liaison',
+    'Novamed Liaison',
+    'TRANSCo Liaison',
+    'Worker',
+    'Morale Officer',
+    'Prisoner',
+    'SOM Prisoner',
+    'Cult Prisoner',
+  ];
+  const clfJobs = [
+    'Cult Offering',
+    'Cultist',
+    'Cultist Mender',
+    'Cultist Champion',
+    'Cult Synthetic',
+    'Cultist Archmender',
+    'Cultist Sect Leader',
+    'Cultist Technomancer',
+    'Cult Representative',
+    'Cult Messiah',
+  ];
+  const cmJobs = [
+    'CM Standard',
+    'CM Medic',
+    'CM Guardsman',
+    'CM Squad Leader',
+    'CM Base Technician',
+    'Colonial Militia Representative',
+    'CM Commander',
+    'CM Militia Captain',
+    'CM Colony Administrator',
+  ];
+  const kzJobs = [
+    'KZ Standard',
+    'KZ Medic',
+    'KZ Engineer',
+    'KZ Specialist',
+    'KZ Combat Escort',
+    'KZ Synthetic',
+    'KZ Squad Leader',
+    'KZ Ripperdoc',
+    'Kaizoku Liaison',
+  ];
+  const ColonistJobs = [
+    'Assistant Colonist',
+    'Scientist Colonist',
+    'Doctor Colonist',
+    'Colony Liaison',
+    'Security Guard Colonist',
+    'Civilian Colonist',
+    'Chef Colonist',
+    'Botanist Colonist',
+    'Technician Colonist',
+    'Chaplain Colonist',
+    'Miner Colonist',
+    'Salesman Colonist',
+    'Colonial Marshal Colonist',
+    'Bartender Colonist',
+    'Pharmacy Technician Colonist',
+    'Roboticist Colonist',
+    'Non-Deployed Operative Colonist',
+    'Fugitive Colonist',
+    'Stripper Colonist',
+    'Maid Colonist',
+    'Synthetic Colonist',
+  ];
+  const pmcJobs = [
+    'AC Standard',
+    'AC Medic',
+    'AC Engineer',
+    'AC Gunner',
+    'AC Specialist',
+    'AC Squad Leader',
+  ];
 
   const JobList = ({ name, jobs }) => (
     <Section title={name}>
@@ -168,24 +259,26 @@ export const JobPreferences = (props) => {
               </Flex.Item>
               <Flex.Item>
                 <h4>Occupational choices</h4>
-                {Object.keys(special_occupations).map((special, idx) => (
-                  <>
-                    <Button.Checkbox
-                      key={special_occupations[special]}
-                      inline
-                      content={special}
-                      checked={
-                        special_occupation & special_occupations[special]
-                      }
-                      onClick={() =>
-                        act('be_special', {
-                          flag: special_occupations[special],
-                        })
-                      }
-                    />
-                    {idx === 1 && <br />}
-                  </>
-                ))}
+                {Object.keys(special_occupations).map((special, idx) => {
+                  const specialOccupation = special_occupations[special];
+                  return (
+                    <>
+                      <Button.Checkbox
+                        key={specialOccupation.flag}
+                        inline
+                        content={special}
+                        tooltip={specialOccupation.tooltip}
+                        checked={special_occupation & specialOccupation.flag}
+                        onClick={() =>
+                          act('be_special', {
+                            flag: specialOccupation.flag,
+                          })
+                        }
+                      />
+                      {idx === 1 && <br />}
+                    </>
+                  );
+                })}
               </Flex.Item>
             </Flex>
           </Section>
@@ -194,6 +287,25 @@ export const JobPreferences = (props) => {
       <Stack>
         <Stack.Item grow>
           <JobList name="SOM Jobs" jobs={somJobs} />
+        </Stack.Item>
+        <Stack.Item grow>
+          <JobList name="Colonist Jobs" jobs={ColonistJobs} />
+        </Stack.Item>
+      </Stack>
+      <Stack>
+        <Stack.Item grow>
+          <JobList name="Cult Jobs" jobs={clfJobs} />
+        </Stack.Item>
+        <Stack.Item grow>
+          <JobList name="AC Jobs" jobs={pmcJobs} />
+        </Stack.Item>
+      </Stack>
+      <Stack>
+        <Stack.Item grow>
+          <JobList name="CM Jobs" jobs={cmJobs} />
+        </Stack.Item>
+        <Stack.Item grow>
+          <JobList name="KZ Jobs" jobs={kzJobs} />
         </Stack.Item>
       </Stack>
     </Section>
@@ -206,6 +318,38 @@ const JobPreference = (props) => {
   const { job, setShownDescription } = props;
   const jobData = jobs[job];
   const preference = job_preferences[job];
+
+  if (!jobData) {
+    return (
+      <LabeledList.Item label={job}>
+        <Box align="right">
+          <Button.Checkbox
+            inline
+            icon="exclamation-triangle"
+            color="bad"
+            content={'Sorry, coders fucked this up'}
+            onClick={() =>
+              setShownDescription(
+                'failed to find /datum/job with title "' +
+                  job +
+                  '" in SSjob.joinable_occupations in /datum/preferences/ui_static_data(mob/user) ',
+              )
+            }
+          />
+          <Button
+            content="?"
+            onClick={() =>
+              setShownDescription(
+                'failed to find /datum/job with title "' +
+                  job +
+                  '" in SSjob.joinable_occupations in /datum/preferences/ui_static_data(mob/user) ',
+              )
+            }
+          />
+        </Box>
+      </LabeledList.Item>
+    );
+  }
 
   if (jobData.banned) {
     return (

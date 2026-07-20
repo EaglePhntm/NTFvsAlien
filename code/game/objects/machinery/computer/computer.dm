@@ -2,9 +2,11 @@
 	name = "computer"
 	icon = 'icons/obj/machines/computer.dmi'
 	icon_state = "computer"
+	dir = 2
 	density = TRUE
 	anchored = TRUE
 	use_power = IDLE_POWER_USE
+	use_static_power = TRUE
 	layer = BELOW_OBJ_LAYER
 	idle_power_usage = 300
 	active_power_usage = 300
@@ -21,18 +23,33 @@
 	var/screen_overlay
 	///The destroyed computer sprite. Defaults based on the icon_state if not specified
 	var/broken_icon
+	///If true has a chance to break from any bullet
+	var/fragile = TRUE
+	///Whether this computer needs normal SSmachines processing immediately on init.
+	var/process_on_init = FALSE
 
 /obj/machinery/computer/Initialize(mapload)
 	. = ..()
 	if(!broken_icon)
 		broken_icon = "[initial(icon_state)]_broken"
-	start_processing()
+	if(process_on_init)
+		start_processing()
 	update_icon()
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/computer/LateInitialize()
 	. = ..()
 	power_change()
+
+/obj/machinery/computer/Destroy()
+	return ..()
+
+/obj/machinery/computer/on_tgui_open(mob/user, datum/tgui/ui)
+	update_use_power(ACTIVE_POWER_USE)
+
+/obj/machinery/computer/on_tgui_close(mob/user, datum/tgui/ui)
+	if(length(open_uis) <= 1)
+		update_use_power(IDLE_POWER_USE)
 
 /obj/machinery/computer/examine(mob/user)
 	. = ..()
@@ -55,6 +72,8 @@
 
 /obj/machinery/computer/emp_act(severity)
 	. = ..()
+	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
+		return FALSE
 	if(prob(20/severity))
 		set_broken()
 
@@ -86,6 +105,8 @@
 
 
 /obj/machinery/computer/bullet_act(atom/movable/projectile/proj)
+	if(!fragile)
+		return ..()
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		visible_message("[proj] ricochets off [src]!")
 		return 0
@@ -115,8 +136,10 @@
 		return
 	if(machine_stat & (BROKEN|DISABLED|NOPOWER))
 		return
-	. += emissive_appearance(icon, screen_overlay, src, alpha = src.alpha)
-	. += mutable_appearance(icon, screen_overlay, alpha = src.alpha)
+	if(dir == NORTH)
+		return
+	. += emissive_appearance(icon, screen_overlay, offset_spokesman = src, alpha = src.alpha)
+	. += mutable_appearance(icon, screen_overlay, offset_spokesman = src, alpha = src.alpha)
 
 ///Breaks the computer
 /obj/machinery/computer/proc/set_broken()
@@ -128,7 +151,7 @@
 ///Unbreaks the computer
 /obj/machinery/computer/proc/repair()
 	machine_stat &= ~BROKEN
-	density = TRUE
+	density = initial(density)
 	durability = initial(durability)
 	set_ai_block()
 	update_appearance(UPDATE_ICON)
@@ -152,8 +175,8 @@
 		return FALSE
 
 	if(user.skills.getRating(SKILL_ENGINEER) < SKILL_ENGINEER_EXPERT)
-		user.visible_message(span_notice("[user] fumbles around figuring out how to deconstruct [src]."),
-		span_notice("You fumble around figuring out how to deconstruct [src]."))
+		user.visible_message(span_notice("[user] fumbles around figuring out how to repair [src]."),
+		span_notice("You fumble around figuring out how to repair [src]."))
 		var/fumbling_time = 5 SECONDS * (SKILL_ENGINEER_EXPERT - user.skills.getRating(SKILL_ENGINEER))
 		if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED))
 			return
@@ -162,7 +185,7 @@
 	span_notice("You begin repairing the damage to [src]."))
 	playsound(loc, 'sound/items/welder2.ogg', 25, 1)
 
-	if(!do_after(user, 5 SECONDS, NONE, src, BUSY_ICON_BUILD))
+	if(!do_after(user, 5 SECONDS, TRUE, src, BUSY_ICON_BUILD))
 		return
 
 	if(!welder.remove_fuel(2, user))
@@ -173,6 +196,7 @@
 	span_notice("You repair [src]."))
 	machine_stat &= ~DISABLED //Remove the disabled flag
 	durability = initial(durability) //Reset its durability to its initial value
+	density = initial(density)
 	update_icon()
 	playsound(loc, 'sound/items/welder2.ogg', 25, 1)
 
@@ -181,7 +205,7 @@
 	if(.)
 		return
 
-	if(isscrewdriver(I) && circuit)
+	if(isscrewdriver(I) && circuit && !(atom_flags & NODECONSTRUCT))
 		if(user.skills.getRating(SKILL_ENGINEER) < SKILL_ENGINEER_EXPERT)
 			user.visible_message(span_notice("[user] fumbles around figuring out how to deconstruct [src]."),
 			span_notice("You fumble around figuring out how to deconstruct [src]."))
@@ -191,7 +215,7 @@
 
 		playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
 
-		if(!do_after(user, 20, NONE, src, BUSY_ICON_BUILD))
+		if(!do_after(user, 20, TRUE, src, BUSY_ICON_BUILD))
 			return
 
 		var/obj/structure/computerframe/A = new(loc)
@@ -220,6 +244,7 @@
 
 	else
 		return attack_hand(user)
+	update_icon()
 
 
 /obj/machinery/computer/attack_hand(mob/living/user)
@@ -230,8 +255,10 @@
 		pick(playsound(src, 'sound/machines/computer_typing1.ogg', 5, 1), playsound(src, 'sound/machines/computer_typing2.ogg', 5, 1), playsound(src, 'sound/machines/computer_typing3.ogg', 5, 1))
 
 ///So Xenos can smash computers out of the way without actually breaking them
-/obj/machinery/computer/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/machinery/computer/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(xeno_attacker.status_flags & INCORPOREAL)
+		return FALSE
+	if(xeno_attacker.handcuffed)
 		return FALSE
 
 	if(resistance_flags & INDESTRUCTIBLE)

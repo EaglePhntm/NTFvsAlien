@@ -26,6 +26,13 @@
 		/obj/item/mortal_shell/howitzer/incendiary,
 		/obj/item/mortal_shell/howitzer/plasmaloss,
 		/obj/item/mortal_shell/flare,
+		/obj/item/mortal_shell/smoke,
+		/obj/item/mortal_shell/smoke/satrapine,
+		/obj/item/mortal_shell/smoke/aphrotox,
+		/obj/item/mortal_shell/smoke/neuro,
+		/obj/item/mortal_shell/smoke/sleep,
+		/obj/item/mortal_shell/razorburn,
+		/obj/item/mortal_shell/metalfoam,
 	)
 	tally_type = TALLY_HOWITZER
 	cool_off_time = 10 SECONDS
@@ -33,7 +40,7 @@
 	max_spread = 8
 
 /obj/machinery/deployable/mortar/howitzer/AltRightClick(mob/living/user)
-	if(!Adjacent(user) || user.lying_angle || user.incapacitated() || !ishuman(user))
+	if(!Adjacent(user) || user.incapacitated() || !ishuman(user))
 		return
 
 	if(!anchored)

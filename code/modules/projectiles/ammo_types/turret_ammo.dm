@@ -35,7 +35,7 @@
 	name = "antimaterial bullet"
 	icon_state = "bullet_large_red"
 	bullet_color = COLOR_SOFT_RED
-	ammo_behavior_flags = AMMO_SNIPER
+	ammo_behavior_flags = AMMO_SNIPER_TURRET
 	accurate_range = 21
 	damage = 80
 	penetration = 50
@@ -81,13 +81,13 @@
 
 
 /datum/ammo/flamer/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
-	drop_nade(get_turf(target_mob))
+	drop_nade(get_turf(target_mob), proj)
 
 /datum/ammo/flamer/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
-	drop_nade(target_obj.density ? get_step_towards(target_obj, proj) : target_obj.loc)
+	drop_nade(target_obj.density ? get_step_towards(target_obj, proj) : target_obj.loc, proj)
 
 /datum/ammo/flamer/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
-	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj)
 
 /datum/ammo/flamer/do_at_max_range(turf/target_turf, atom/movable/projectile/proj)
-	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj)

@@ -1,0 +1,273 @@
+<br>Rules of NTF vs SoL:
+<br>
+<br>Summary:
+<br>&emsp;This is an ultra-summarised bulk of the rules, since many ss13 players can't read.
+<br>&emsp;If you ARE going to read the full rules, don't bother reading these and just skip to the detailed ones as the simplified rules are there too.
+<br>&emsp;If you're not going to read full rules, at least read these.
+<br>---
+<br>
+<br>&emsp;Basics:
+<br>&emsp;&emsp;This is not tgmc, dont expect combat all the time.
+<br>&emsp;&emsp;You should only speak english.
+<br>&emsp;&emsp;You must be 18+
+<br>&emsp;&emsp;Only use original characters, no references to popular media or existing characters/people not your own.
+<br>&emsp;&emsp;Don't mention irl events and/or politics IC or in OOC (You may discuss them in private areas however)
+<br>&emsp;&emsp;no OOC racism, ic racism only within reason.
+<br>&emsp;&emsp;don't be a dick
+<br>&emsp;&emsp;stay in character, mrp to hrp standards
+<br>&emsp;&emsp;Don't use irl pics for headshots etc
+<br>&emsp;&emsp;You must play a believable character. They must be of age and must not have child-like traits, be it physical or psychological.
+<br>&emsp;&emsp;Any human or humanlike character must fear death, avoid pain and know things that are considered common knowledge in the setting. Xenos CAN be semi-feral, but MUST be intelligent, and MUST understand hive concepts.
+<br>&emsp;&emsp;Don't advertise other servers
+<br>&emsp;&emsp;No Metacomming
+<br>
+<br>&emsp;Rules of Combat:
+<br>&emsp;&emsp;Roles with responsibility, such as command must pause their scenes and respond to any crises.
+<br>&emsp;&emsp;If not at war, don't finish off downed players.
+<br>&emsp;&emsp;Likewise, don't get back up to fight the guy who spared you.
+<br>&emsp;&emsp;Don't steal people's equipment.
+<br>&emsp;&emsp;Spare surrendering or unarmed enemies.
+<br>&emsp;&emsp;Don't touch SSD/AFK people unless OOCly allowed prior (or they are in a stasis frame with OOC notes that permit it)
+<br>&emsp;&emsp;Synths are only allowed to use any sort of weapon to defend themselves or their allies. You may have high combat skills, but you are not a combat robot.
+<br>&emsp;&emsp;As a synth, you should also not gear up or be prepared for a fight. You can wear some very light armor and carry a machete at most.
+<br>&emsp;&emsp;Don't remove items such as the headset or ID from corpses.
+<br>
+<br>&emsp;Captivity & Death
+<br>&emsp;&emsp;If you are captured and want to be rescued, you should notify your faction through either IC or OOC (MOOC/XMOOC) means if so.
+<br>&emsp;&emsp;Factions are only allowed (outside war modes) to try to rescue captives if they are notified that they want to be rescued.
+<br>&emsp;&emsp;Captives should not be left to rot and cannot be kept indefinitely; they may be kept only until their reason for captivity is fulfilled.
+<br>
+<br>&emsp;Canonisation of Rounds:
+<br>&emsp;&emsp;Every round is canon, however you can not use past events as justification for conflict.
+<br>
+<br>&emsp;Construction rules:
+<br>&emsp;&emsp;FoB's and mini-bases (such as those made by Xenomorphs) should encompass only a single building and not obstruct walkways around them.
+<br>&emsp;&emsp;You are allowed to integrate nearby intel / miners into a FoB or mini-base you build.
+<br>
+<br>&emsp;Warfare
+<br>&emsp;&emsp;To declare wars, command of a faction must make a ahelp or fax with reasons and to enable war mode.
+<br>&emsp;&emsp;&emsp;If no admins are on, they can proceed as is if reasons are justified.
+<br>&emsp;&emsp;You can respawn or be revived, cloning exists for that but you can't remember whatever it is that led to your death (You do however know you died).
+<br>&emsp;&emsp;Wars and conflict exists to serve roleplay, not to be an outlet for those who just want to PvP. Admins can and will step in if we think you're creating conflict just for the sake of PvP.
+<br>&emsp;&emsp;Conflicts should typically follow an attempt at negotiation (see detailed rules)
+<br>&emsp;&emsp;A war/skirmish is won or lost when the attacking side achieves all their goals and holds them for 5 minutes. The defending side holds theirs for 15 minutes. One sides leader formally communicates a surrender either in person or over radio/fax/announcement. One side is unable to continue the fight or otherwise communicate their surrender (All members dead, captured or not participating).
+<br>&emsp;&emsp;Death is not permanent. No matter who you are or how much you die, you are allowed to respawn and come back from it. You do not remember ANYTHING that has happened in the round though, except the fact that you died.
+<br>
+<br>&emsp;Minor Conflicts
+<br>&emsp;&emsp;Minor conflicts (typically miners/intel) can be engaged in without a war.
+<br>&emsp;&emsp;&emsp;Dead must be revived after the immediate conflict, if their faction can not revive them then you must.
+<br>&emsp;&emsp;&emsp;Captives can be taken only with OOC consent in this state.
+<br>&emsp;&emsp;Vehicles can not be used to escort or carry intel disks to safety. Mines can be used in minor conflict zones that are not civilian areas.
+<br>&emsp;&emsp;OBs can not be authorized for use for minor conflicts, not worth it + damages.
+<br>&emsp;&emsp;If you are crit or killed during a minor conflict, you have been beaten and should surrender or retreat.
+<br>&emsp;&emsp;Do not rush to steal and fortify plat miners at the start of the round if there aren't many Xenomorphs.
+<br>
+<br>&emsp;War modes:
+<br>&emsp;&emsp;You can not, as any role; willingly get capped and/or sabotage your team in war modes.
+<br>&emsp;&emsp;&emsp;You may however Ahelp to be sent somewhere if you and a xeno-player want to do a scene that you've pre arranged.
+<br>&emsp;
+<br>&emsp;ERP Policy:
+<br>&emsp;&emsp;Roles with responsibility, such as command must pause their scenes and respond to any crises.
+<br>&emsp;&emsp;OOC consent for erp necessary
+<br>&emsp;
+<br>&emsp;Administrative Executive Rule and ban appeal rules:
+<br>&emsp;&emsp;Spirit of the rules and Quality Control:
+<br>&emsp;&emsp;&emsp;Remember, the rules physically cannot cover every single edge case that may arise from now until the edge of time.
+<br>&emsp;&emsp;&emsp;Thus, you should read these and interpret them not as a literal guidebook, but as a way to get you to understand the kind of behaviour we want here.
+<br>&emsp;&emsp;&emsp;If staff believe you are intentionally griefing, repeatedly abusing loopholes in the rules, or are generally a bad fit for the server then they may issue a Quality Control ban.
+<br>&emsp;&emsp;&emsp;Remember, staff word is final. If you don't like a staffmember's decision, feel free to create an ticket and complain about it. But during that round, their word is law on the matter.
+<br>&emsp;&emsp;Ban Appeals:
+<br>&emsp;&emsp;&emsp;Any ban can be appealed immediately after being issued on the server discord.
+<br>&emsp;&emsp;&emsp;If your appeal is rejected, you will be told when: if ever, you will be allowed to re-appeal the ban.
+<br>
+<br>&emsp;Important notes for roleplay and Lore:
+<br>&emsp;&emsp;Everything inside of the caves is owned by the Xenomorph hive.
+<br>&emsp;&emsp;Everything inside of the colony is owned by the CM
+<br>&emsp;
+<br>&emsp;Note on combat escalation and tiered weaponry allowance:
+<br>&emsp;&emsp;Different conflicts allow different responses, certain weapons are only allowed in certain situations, this is there to set them out.
+<br>&emsp;&emsp;Tier 0 (also known as default) is where you just encounter someone in a street and for whatever reason, maybe they insult you, it escalates into violence. In such situations the rules around conflict are: No vehicles, No bombs, No white phosphorous/gas, No mortars, no Cas, No OB's. Basically just guns and other conventional weapons.
+<br>&emsp;&emsp;All higher tiers follow the unlocking of the previous.
+<br>&emsp;&emsp;Tier 1: Gas, Non-Destructive Mortars/Cas, unarmed vehicles.
+<br>&emsp;&emsp;Tier 2: Anti Tank weapons, Exosuits, Mines
+<br>&emsp;&emsp;Tier 3: Destructive Mortars/Cas, Mechs
+<br>&emsp;&emsp;Tier 4: Tanks, Railgun, Tangle Orbital Strikes
+<br>&emsp;&emsp;Tier 5: All Orbital Strikes
+<br>
+<br>
+<br>Detailed rules:
+<br>&emsp;For those interested in exceptions, more detail as well as rulings. The above simplified rules are copy-pasted here with additional context and details added.
+<br>&emsp;In any situation where there is a conflict between the simplified rules and the detailed rules, we will use the detailed ones.
+<br>
+<br>&emsp;1-  Basics:
+<br>&emsp;&emsp;1.  This is not TGMC, dont expect combat all the time. Remember, this is a roleplay server first and foremost.
+<br>&emsp;&emsp;2.  You should only speak english.
+<br>&emsp;&emsp;3.  You must be 18+
+<br>&emsp;&emsp;4.  Only use original characters, no references to popular media or existing characters/people not your own.
+<br>&emsp;&emsp;5.  Don't mention irl events and/or politics IC or in OOC
+<br>&emsp;&emsp;&emsp;.1  You may discuss them in private areas, such as a dorm room or a chamber within the hive, unless asked otherwise.
+<br>&emsp;&emsp;6.  No OOC racism or racism towards IRL races. IC racism only towards made up races and only within reason.
+<br>&emsp;&emsp;&emsp;.1  If someone asks you to stop with the made up racism for any reason in LOOC, you should do so.
+<br>&emsp;&emsp;7.  don't be a dick
+<br>&emsp;&emsp;8.  stay in character, mrp to hrp standards
+<br>&emsp;&emsp;9.  Don't use irl pics for headshots etc
+<br>&emsp;&emsp;10. You must play a believable character. They must be of age and must not have child-like traits, be it physical or psychological.
+<br>&emsp;&emsp;11. Any human or humanlike character must fear death, avoid pain and know things that are considered common knowledge in the setting. Xenos CAN be semi-feral, but MUST be intelligent, and MUST understand hive concepts.
+<br>&emsp;&emsp;&emsp;.1  Your character (regardless of race) must also be eligible to work the role you play using them. This means means you can't be an insane CO, a doctor who doesn't know how to heal people (Assuming you actually know medical, if you don't that's fine so long as you show a willingness for your character to learn, we all start somewhere).
+<br>&emsp;&emsp;12. Don't advertise other servers.
+<br>&emsp;&emsp;&emsp;.1  This is mostly for people who say in OOC things such as "This server is bad, go play on (insert other server)". If you're talking to someone in private in LOOC and saying things like how you also play on another server that you like, it's probably fine. Just don't make a habit of telling people to go play on another server.
+<br>&emsp;&emsp;13. No Metacomming information that can be or is related to ongoing IC events.
+<br>&emsp;&emsp;&emsp;.1  The only exception is if you have a new player to SS13 or the TGMC/SOL codebase and are walking them through things, in which case ahelp to staff for permission.
+<br>&emsp;&emsp;&emsp;.2  Being in a VC with someone else playing on the server is fine, so long as you aren't communicating about anything that's going on IC.
+<br>
+<br>&emsp;2-  Rules of combat:
+<br>&emsp;&emsp;1.  If not at war, don't finish off downed players.
+<br>&emsp;&emsp;2.  Likewise, don't get back up to fight the guy who spared you.
+<br>&emsp;&emsp;3.  Don't steal people's equipment.
+<br>&emsp;&emsp;4.  Spare surrendering or unarmed enemies.
+<br>&emsp;&emsp;&emsp;.1  Xenomorphs are technically always armed, instead a Xenomorph may say they are not interfering to count as unarmed (in which case they cannot fight until they entirely leave and re-enter)
+<br>&emsp;&emsp;5.  Don't touch ssd people unless OOCly allowed prior (or they are in a stasis frame with OOC notes that permit it)
+<br>&emsp;&emsp;&emsp;.1  Don't drag someone's stasis frame across the map or into another faction base without their explicit IC/LOOC consent.
+<br>&emsp;&emsp;6.  Xenomorphs cannot use human equipment, nor can they loot a dead human, for the sake of combat.
+<br>&emsp;&emsp;&emsp;.1  You can 100% use it in a scene or for roleplay, but not for actual combat.
+<br>&emsp;&emsp;7.  Synths are only allowed to use any sort of weapon to defend themselves or their allies. You may have high combat skills, but you are not a combat robot. Likewise, as a synth, you should also not gear up or be prepared for a fight. You can wear some very light armor and carry a machete at most.
+<br>&emsp;&emsp;8.  Don't remove items such as the headset or ID from corpses.
+<br>
+<br>&emsp;3-  Captivity & Death
+<br>&emsp;&emsp;1.  If you are captured and want to be rescued, you should notify your faction through either IC or OOC (MOOC/XMOOC) means if so.
+<br>&emsp;&emsp;2.  Factions are only allowed (outside war modes) to try to rescue captives if they are notified that they want to be rescued.
+<br>&emsp;&emsp;3.  Captives should not be left to rot and cannot be kept indefinitely; they may be kept only until their reason for captivity is fulfilled.
+<br>&emsp;&emsp;&emsp;.1  Example reasons for captivity: Ransom, Hostage Exchange, thinning enemy numbers during a war, ERP.
+<br>&emsp;&emsp;4.  Captives cannot cause trouble during wars.
+<br>&emsp;&emsp;&emsp;.1  You may only attempt to break out when there is no ongoing war or if there is a prison guard during a war.
+<br>&emsp;&emsp;5.  Captives should be provided a radio that connects to at least the Civilian radio bands.
+<br>
+<br>&emsp;4-  Canonisation of Rounds:
+<br>&emsp;&emsp;1.  Every round is canon, however you can not use past events as justification for conflict.
+<br>&emsp;&emsp;&emsp;.1  You may however use this as an example of something having happened if new trouble is brewing.
+<br>&emsp;&emsp;&emsp;&emsp;E.G. Jack grey from SoM asks to be let in by the Xenomorphs into the caves. he then sets up a turreted FOB deep in the caves and captures a plat. The next round, he asks the Xenomorphs to let him into the caves. They say no.
+<br>&emsp;&emsp;&emsp;.2  Any conflict that arose during the previous round is entirely over and cannot be brought into the new round.
+<br>
+<br>&emsp;5-  Construction rules:
+<br>&emsp;&emsp;Note: These are suggestions, but you open yourself up for conflict if another faction draws issue with your constructions.
+<br>&emsp;&emsp;1.  FoB's and mini-bases (such as those often made by Xenomorphs) should encompass only a single building and not obstruct walkways around them.
+<br>&emsp;&emsp;&emsp;.1  You may expand a small perimeter beyond this, but should not obstruct walkways.
+<br>&emsp;&emsp;&emsp;&emsp;.1  This includes de jure leaving it open but de facto obstructing it with huggers and/or turrets.
+<br>&emsp;&emsp;2.  You are allowed to integrate nearby intel / miners into a FoB or mini-base you build.
+<br>&emsp;&emsp;&emsp;.1  In both instances, should another faction desire to contest the intel or miner inside your base, you are opened up for them to use T3 weaponry to contest.
+<br>
+<br>&emsp;6-  Warfare
+<br>&emsp;&emsp;1.  To declare wars, command of a faction must make a ahelp or fax with reasons and to enable war mode.
+<br>&emsp;&emsp;&emsp;.1  If no admins are on, they can proceed as is if reasons are justified.
+<br>&emsp;&emsp;&emsp;.2  In order for a war to be valid, you must have a clear goal of what you want from the war and make your intentions known to the other side.
+<br>&emsp;&emsp;&emsp;.3  The war must be agreed upon by the majority of active faction members.
+<br>&emsp;&emsp;2.  You can respawn or be revived, cloning exists for that but you can't remember whatever it is that led to your death (You do however know you died).
+<br>&emsp;&emsp;&emsp;.1  Death is rarely if ever permanent in this setting (especially so if you work for NTC). This means no matter how you die or how gruesome it is, you may respawn and come back from it.
+<br>&emsp;&emsp;3.  Do not completely round remove a faction under any circumnstances without direct admin approval (which will almost never be granted)
+<br>&emsp;&emsp;&emsp;.1  This means you cannot destroy their way back to their ship/base, such as their teleporter. You may however damage/destroy their FoB.
+<br>
+<br>&emsp;&emsp;4.  This is a roleplay server, not a combat server. Conflict exists to create roleplay, not to generate PvP for its own sake.
+<br>&emsp;&emsp;&emsp;.1  All hostile actions, from personal disputes to faction warfare, must have a clear and reasonable in-character objective. Characters and factions are expected to pursue goals such as territorial claims, resource disputes, criminal investigations, political leverage, self defense, rescue operations, or other meaningful interests. Hostilities initiated primarily for entertainment, destruction, disruption, or the pursuit of combat are not valid roleplay.
+<br>&emsp;&emsp;&emsp;.2  Conflict should be escalated reasonably. Diplomacy, negotiation, intimidation, demands, sanctions, and limited actions should be considered before major hostilities whenever circumstances allow. Warfare should be treated as a last resort, not a first response.
+<br>&emsp;&emsp;&emsp;.3  Staff may intervene if a character's or faction's actions appear to be driven primarily by a desire to create combat, destroy assets, or disrupt roleplay rather than pursue a coherent in-character objective.
+<br>&emsp;&emsp;5.  Negotiations that a faction may wish to escalate to combat if not responded to should follow a 3 step process: Call for negotiations, Negotiations, Resolution.
+<br>&emsp;&emsp;Note: This is mostly a set of suggestions of how things should happen. Things don't need to follow this exact scheme, but the core ideas such as not attacking during negotiations, waiting for the other faction to send a negotiator and such should still be followed.
+<br>&emsp;&emsp;&emsp;.1  Call for Negotiation: A faction's appointed leader may call another faction for negotiations around a particular topic. The topic and goal must be laid out here.
+<br>&emsp;&emsp;&emsp;&emsp;.1  A reasonable amount of time must be given for the other faction to respond. If your leader requested them in person to the other faction's leader, a time of 5 minutes is reasonable. Your leader in person to another faction's member, 10 minutes to acquire / appoint the other faction's leader. Over radio from your leader to their faction (over the civilian radio or their faction radio if available), 15 minutes is reasonable.
+<br>&emsp;&emsp;&emsp;&emsp;.2  During this time, a neutral ground should be set out for both parties to begin discussions, or they could happen over the radio. Either way, attacking the other faction under the guise of negotiations or having other members of your faction perform attacks during negotiations is prohibited.
+<br>&emsp;&emsp;&emsp;&emsp;.3  If the other faction doesn't send a negotiator or respond to requests for negotiation, you may escalate to conflict.
+<br>&emsp;&emsp;&emsp;.2  Negotiations: Both factions should negotiate what they want out of the arrangement. Feel free to be as reasonable or unreasonable as you wish in the discussions, the only exception being a majority mineholder to a WEAKER non-mineholding faction (as defined in 7-8), in which case the majority mineholder must offer a reasonable exchange for their least productive miner.
+<br>&emsp;&emsp;&emsp;.3  Resolution: Once both parties have agreed or come to the conclusion no agreement can be made, the resolution MUST be clear to both negotiators.
+<br>&emsp;&emsp;&emsp;&emsp;.1  In the case of disagreement, the decision to escalate to conflict must be made known along with what the casus belli is for that conflict.
+<br>&emsp;&emsp;&emsp;&emsp;.2  In the case of agreement, both parties should follow the agreement. You may decide to backstab and not follow what was agreed (except in the case of enforced majority mineholder negotiations), but doing so can immediately escalate into a conflict from the betrayed party, with them able to expand their casus belli to a greater demand (EG, if they wanted 1 phoron miner, now they can take your plat instead).
+<br>&emsp;&emsp;&emsp;.4  Taking advantage of negotiations to either pre-emptively move offensive weapons into position or to build/move into place additional defensive WEAPONS is a valid reason for either side to cut off negotiations early, with a defender wronged by this given their own casus belli in the form of a pre-emptive strike.
+<br>&emsp;&emsp;6.  A war/skirmish is considered won or lost when: The attacking side achieves all their goals and holds them for 5 minutes. The defending side holds theirs for 15 minutes. One sides leader formally communicates a surrender either in person or over radio/fax/announcement. One side is unable to continue the fight or communicate their surrender (All members dead, captured or not participating).
+<br>&emsp;&emsp;&emsp;.1  Both sides leaders can call and agree to a temporary ceasefire over radio. In the case either side's leader is dead, the next in command may instead call for a ceasefire on their behalf. These ceasefires if agreed to, should be followed by both sides.
+<br>&emsp;&emsp;&emsp;.2  Unless agreed otherwise in the calls for ceasefire, reviving dead people is allowed if a ceasefire is ongoing.
+<br>&emsp;&emsp;&emsp;&emsp;.1  If you have a dead member of the opposing faction in your area, you should put them into a stasis bag to slow down their DNR timer or revive and then capture them.
+<br>&emsp;&emsp;7.  Death is not normally permanent. No matter who you are, how much you die or how gruesome. Almost everyone will be either a clone or if not a clone, have clones available for usage; especially so if you're part of the NTC. As such, everyone is are allowed to respawn/reclone and come back from death. You do not remember ANYTHING that has happened in the round though if you do, except the fact that you died.
+<br>
+<br>&emsp;7-  Minor Conflicts
+<br>&emsp;&emsp;1.  Minor conflicts (typically miners/intel) can be engaged in without a war.
+<br>&emsp;&emsp;&emsp;.1  Dead MUST be revived after the IMMEDIATE conflict, if their faction cannot revive them then you must.
+<br>&emsp;&emsp;&emsp;.2  Captives can be taken only with OOC consent in this state.
+<br>&emsp;&emsp;2.  You can’t use weapons like artillery, (armed) vehicles, cas, etc unless the conflict's tier allows it.
+<br>&emsp;&emsp;&emsp;.2  Mines can be used in minor conflict zones that are not civilian areas.
+<br>&emsp;&emsp;3.  You cannot use vehicles, fultons, medevacs, riding a xenomorph or any other means to either escort or carry intel disks to safety.
+<br>&emsp;&emsp;&emsp;.1  Essentially, disks must be moved back to your base on foot and without vehicle escort, only when they are within your Fob may a teleporter or ship be used to get it back to your faction's base.
+<br>&emsp;&emsp;4.  Miners can only be attacked if you know the enemy is generally prepared for a defensive attempt and are in similiar power.
+<br>&emsp;&emsp;&emsp;.1  You can’t attack a miner that was successfully defended against you for two hours.
+<br>&emsp;&emsp;&emsp;.2  You may still contest a miner if your faction has no miners, all other miners are claimed and they are the majority mineholder with more than one miner.
+<br>&emsp;&emsp;&emsp;&emsp;.1  Plats count as 4, Phorons count as 1 when calculating who has the most, however if a faction only has a single plat, that's still only one miner. In such a situation where they are the majority mineholder with only one plat mine, look to the next faction instead.
+<br>&emsp;&emsp;&emsp;&emsp;.2  If the number 1 majority mineholder still controls less than a third of the overall miner production, then you may not contest any miners.
+<br>&emsp;&emsp;&emsp;.3  You must attempt negotiation first before starting an attack or skirmish for a miner.
+<br>&emsp;&emsp;5.  Players that recover from hard crit (crit that lasts more than 2-3 seconds) mid-fight or are revived by enemies later must not immediately grab their weapon and return to fighting. You have been beaten. Surrender if there are enemies nearby or flee to regroup with the rest of your faction.
+<br>&emsp;&emsp;6. Intel fights start at tier 1 (see section 13), the only increases to the tier are based upon Xenomorphs and faction strength.
+<br>&emsp;&emsp;&emsp;.1  If xenomorphs contest, the tier is increased by highest xenomorph tier minus one.
+<br>&emsp;&emsp;&emsp;&emsp;E.G KZ is defending an intelligence, a Ravager shows up to contest. Ravagers are a tier 3 xenomorph, so the conflict is increased by two tiers (3-1) to allow Tier 3 ordnance.
+<br>&emsp;&emsp;&emsp;.2  If your faction is outnumbered when contesting intelligence by a factor of 1.5 or greater against any SINGLE opposing faction, you are permitted to use one tier above the overall conflict tier.
+<br>&emsp;&emsp;&emsp;&emsp;E.G SOM scouts the intelligence and sees that NTF has 6 members fighting for the intelligence, SOM only has 3 people total. 3 x 1.5 is 4.5, since NTF has more than that contesting it, they are permitted to use Tier 2 weaponry to contest.
+<br>&emsp;&emsp;&emsp;.3  No matter what, conflicts over intel cannot escalate to Tier 5.
+<br>&emsp;&emsp;7. Do not rush to steal and/or fortify the platinum miners from the Xenomorph hive within the first half an hour of the round if the Xenomorph hive does not have at least half the numbers of your faction and that number is greater than 3.
+<br>&emsp;&emsp;&emsp;.1  A faction may steal one if they place their Fob in the caves around that miner. However, doing so gives the hive a valid reason to create a war for the miner and to force you to relocate your Fob which they can use at any time (negotiation attempt still required)
+<br>&emsp;&emsp;8.  The usage of Artillery to fire at an minor conflict area is permitted so long as the conflict tier permits it.
+<br>&emsp;&emsp;&emsp;.1  All artillery used to fire upon the minor conflict area cannot be inside or directly adjacent (Within the same building or approximately 30 tiles) to any faction's fob.
+<br>&emsp;&emsp;&emsp;.2  Artillery usage makes it so that the artillery pieces are a part of the minor conflict and are therefore allowed to be attacked and destroyed by parties that have been fighting in the conflict until the reason for the conflict has ended
+<br>&emsp;&emsp;&emsp;&emsp;E.G, KZ uses artillery on a intel conflict, the intel is taken by SoM to their ship, but they also send someone to go sabotage the artillery pieces. This isn't allowed because the intel conflict has ended.
+<br>&emsp;&emsp;9.  If the faction you are fighting fortifies (Multiple entrances blockaded and / or the presence of at least one turret) the location of the minor conflict, you are permitted to use both artillery and cas' destructive ordnance up to that allowed by tier 3, regardless of the tier of the conflict; for so long as those fortifications remain.
+<br>
+<br>&emsp;8-  War modes:
+<br>&emsp;&emsp;1.  You can not, as any role; willingly get capped and/or sabotage your team in war modes.
+<br>&emsp;&emsp;&emsp;.1  ERP with a fellow marine does not count as sabotage
+<br>&emsp;
+<br>&emsp;9-  ERP Policy:
+<br>&emsp;&emsp;1.  You must follow other people's OOC preferences, this includes the preferences of any watching party.
+<br>&emsp;&emsp;2.  You must have the player's OOC consent to have a scene.
+<br>&emsp;&emsp;3.  You must not make drama out of a non-con scene where OOC consent was given.
+<br>&emsp;&emsp;&emsp;.1  If OOC consent has not been given, ahelp immediately. Do not make drama about it IC though.
+<br>&emsp;&emsp;&emsp;&emsp;.1  In the specific case there is no staff online or that they've not responded to your ahelp, you have permission to do whatever it takes to stop things immediately, including calling for help IC and OOC.
+<br>&emsp;&emsp;4.  Parties involved in ERP are allowed to ignore anything that happens outside of their scene, be it being called or hearing commotion.
+<br>&emsp;&emsp;&emsp;.1  Roles with responsibility, such as command or the Xenomorph Queen must pause their scenes and respond to any crises.
+<br>&emsp;&emsp;5.  You cannot interrupt an erotic scene, unless you have received permission to do so via LOOC.
+<br>&emsp;&emsp;6.  Following people with the explicit intent to either make them uncomfortable or to prevent ERP is not allowed.
+<br>&emsp;&emsp;&emsp;.1  This also includes shaming people for such things.
+<br>&emsp;&emsp;&emsp;.2  E.G John Greytide follows Jane Doe as she walks into the hive, knowing she intends to get "Unwillingly" captured by the xenomorphs in order to then attack the Xenomorphs and "save" her.
+<br>&emsp;&emsp;&emsp;.3  This rule DOES apply in warmodes.
+<br>&emsp;
+<br>&emsp;10-  ERP in warmodes:
+<br>&emsp;&emsp;1.  All regular ERP rules are enforced in warmodes with the following changes
+<br>&emsp;&emsp;2.  Command roles cannot willingly IC, engage in a scene at all.
+<br>&emsp;&emsp;3.  Xenomorph rulers cannot ERP at all. If you want to ERP, devolve from a ruler caste.
+<br>&emsp;&emsp;4.  If you have a xenomorph (or marine) you know you would like to do a scene with or have contacted or pre-arranged a scene with OOC and you would like to do so during 4.  a war-round. You MUST contact staff through an ahelp.
+<br>&emsp;&emsp;&emsp;.1  This is so we can give the xenomorphs a larva to make up for going -1 xenomorph, we'll make the marine unable to host a larva or be psydrained to prevent 1.  xenomorphs gaining an advantage from that scene.
+<br>&emsp;&emsp;&emsp;.1  If your scene comes to an end, let us know so we can remove the compensation larva and make the marine able to host larva again (and teleport back to ship if in hive)
+<br>&emsp;&emsp;5.  If you have not contacted staff about a pre-arranged scene: You MUST fight as though it was for your life as both a marine and a xenomorph. Using the surrender verbs is only allowed if you are in a position where you are either about to crit/die or are already in crit. This means that Intentionally getting captured with the hopes of getting a scene is strictly against the rules.
+<br>&emsp;&emsp;6.  In the case of a Xeno and human scene going on between a captured human and a Xeno, other members of the hive are allowed to interrupt solely to demand that the captured human be impregnated to generate a larva.
+<br>&emsp;&emsp;&emsp;.1  Reminder that if a human is bound to a nest, when the larva emerges in warmodes, it won't kill them.
+<br>
+<br>&emsp;11- Administrative Executive Rule and ban appeal rules:
+<br>&emsp;&emsp;Spirit of the rules and Quality Control:
+<br>&emsp;&emsp;1.  Remember, the rules physically cannot cover every single edge case that may arise from now until the edge of time. Thus, you should read these and interpret them not as a literal guidebook, but as a way to get you to understand the kind of behaviour we want here. If staff believe you are intentionally griefing, repeatedly abusing loopholes in the rules, or are generally a bad fit for the server then they may issue a Quality Control (QC) ban.
+<br>&emsp;&emsp;&emsp;.1  With the exception of obvious griefers (New player killing multiple people, saying slurs, etc), such bans should not be made lightly and will always be discussed within internal staff channels before being dealt out.
+<br>&emsp;&emsp;&emsp;.2  Other punishments must and will always be considered before a QC ban is issued.
+<br>&emsp;&emsp;&emsp;.3  The reasoning behind why the QC ban is being issued must be made clear in the ban and any ticket that was made in the buildup to the ban.
+<br>&emsp;&emsp;&emsp;.4  The staffmember/s who perform the QC ban are responsible for the reason why it was needed if it isn't as a result of a specific rulebreak, this could be anything but it's on their head if it's found to be overzealous.
+<br>&emsp;&emsp;2.  Any ban can be appealed immediately on the server discord, if your appeal is rejected, you will be told when: if ever, you will be allowed to re-appeal the ban.
+<br>&emsp;&emsp;&emsp;.1  This includes a QC ban.
+<br>
+<br>&emsp;12- Important notes for roleplay and Lore:
+<br>&emsp;&emsp;1.  Everything inside of the caves is owned by the Xenomorph hive.
+<br>&emsp;&emsp;&emsp;.1  This means claiming or taking control over parts of the cave, such as a platinum miner, without negotiations can be escalated into a declaration of war or a skirmish by the Xenomorphs.
+<br>&emsp;&emsp;2.  Everything inside of the colony is owned by the CM
+<br>&emsp;&emsp;&emsp;.1  The miners inside of the colony were sold mining rights to the NTC by the Colonial Administration, they then setup the miners. The recent conflicts between factions have however resulted in them losing de facto control over the miners, even if they hold de jure ownership over them.
+<br>&emsp;&emsp;&emsp;.2  The Geothermal vents were setup by the NTC for the Colony as part of the mining rights deal made with the CM, since the Hive was established however, they have come under contested control between the Hive and the colony, giving both sides nominal ownership over them.
+<br>
+<br>&emsp;13- Note on combat escalation and tiered weaponry allowance:
+<br>&emsp;&emsp;Different conflicts allow different responses, certain weapons are only allowed in certain situations, this is there to set them out.
+<br>&emsp;&emsp;Tier 0 (also known as default) is where you just encounter someone in a street and for whatever reason, maybe they insult you, it escalates into violence. In such situations the rules around conflict are: No Armed vehicles, No bombs, No white phosphorous/harmful gas, No mortars, no Cas, No OB's. Basically just guns and other conventional weapons.
+<br>&emsp;&emsp;All higher tiers follow the unlocking of the previous.
+<br>&emsp;&emsp;Tier 1: Harmful Gas, Non-Destructive Mortars/Cas
+<br>&emsp;&emsp;Tier 2: Anti Tank weapons, Exosuits, Mines
+<br>&emsp;&emsp;Tier 3: Destructive Mortars/Cas, Mechs
+<br>&emsp;&emsp;Tier 4: Tanks, Railgun, Tangle Orbital Strikes
+<br>&emsp;&emsp;Tier 5: All Orbital Strikes

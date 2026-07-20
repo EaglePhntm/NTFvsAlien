@@ -11,6 +11,10 @@
   - bugfix: fixed a visual issue for south facing wallmount objects
   ivanmixo:
   - balance: Capsule barricade deconstruction doesn't yield as many materials
+2026-05-03:
+  kiwedespars:
+  - imageadd: black/navy conqueror
+  - imagedel: green conqueror
 2026-05-05:
   Joe13413:
   - balance: The lever action rifle seasonal shoots 2x faster, holds 4 more rounds,
@@ -84,7 +88,60 @@
   - qol: changes the description of nanite injectors to better reflect the negative
       side effects of medical nanites.
   - qol: you cant use nanites on other players.
+2026-05-20:
+  Lumipharon:
+  - balance: Abduct windup now scales with range
+  - balance: Abduct CD increased to 18 seconds from 12
+  - balance: Abduct stagger reduced to 1 second from 3 seconds per human caught
+  - bugfix: Abduct can be properly cancelled by stuns and stagger
+  - balance: Multitile vehicles are not slowed by sticky weeds/resin
+  - bugfix: fixed tail lash going through walls
+  - bugfix: fixed abduct not working if you clicked too far away
+  - bugfix: fixed a silo runtime
+  Runian:
+  - bugfix: Xenomorphs no longer permanently lose health from radiation (cloneloss
+      / toxin / oxygen damage). It is converted to brute or burn.
+  SpooksAnno:
+  - rscadd: Added expanded character customization options including new tails, snouts,
+      ears, horns, wings, markings, synth antennas, digitigrade legs, and body features.
+  - rscadd: Added toggleable tail wagging.
+  - rscadd: Added Ctrl + direction facing so characters can turn without walking.
+  - rscadd: Added emissive toggles for supported character customization parts.
+  - qol: Reworked the character creator into a cleaner tabbed layout with a larger
+      rotating preview.
+  - qol: Added more compact color controls for character customization.
+  - bugfix: Fixed several character accessory layering issues involving tails, wings,
+      clothing, belts, backpacks, markings, and body overlays.
+  - bugfix: Fixed multiple customization options not updating or saving correctly.
+  - imageadd: Added new character customization sprites from SPLURT/Skyrat-style sources.
+  - code_imp: Added modular character creator helpers and documentation for future
+      customization work.
+  - rscadd: Emissives with all its piping process for hairs
 2026-05-21:
   Lumipharon:
   - bugfix: The Ripley powerloader has had it's hover engines removed
   - bugfix: Fixed a runtime whenever exiting a ripley
+2026-05-27:
+  SpooksAnno:
+  - rscadd: Added body color matching controls for genital/accessory color customization.
+  - rscadd: Added genital size controls to character customization and the in-game
+      genital selection menu.
+  - bugfix: Fixed synthetics losing their intended synthetic species traits after
+      spawning.
+  - bugfix: Fixed underwear/body overlays rendering above clothing.
+  - bugfix: Fixed night vision goggles causing runtime noise during initialization.
+  - bugfix: Fixed a stylesheet compile warning from an invalid color value.
+  - admin: Improved xeno hive ability syncing to avoid duplicate ability actions.
+2026-05-30:
+  SpooksAnno:
+  - rscadd: Added Combat Robot as a separate silicon job path from Synthetic.
+  - qol: Character creator color pickers now reopen with the currently saved color.
+  - bugfix: Fixed Synthetic and Combat Robot species/job handling crossing into each
+      other.
+  - bugfix: Fixed Combat Robot eyewear and back-slot items using old robot-specific
+      worn sprites.
+  - bugfix: Fixed backpacks rendering through the normal back slot layer.
+2026-05-31:
+  SpooksAnno:
+  - bugfix: Reduced input lag caused by human diagonal movement repeatedly refreshing
+      directional overlays.

@@ -31,12 +31,14 @@
 	return ..()
 
 /datum/action/ability/activable/sectoid/mindmeld/can_use_action(silent, override_flags, selecting)
+	. = ..()
+	if(!.)
+		return
 	var/mob/living/carbon/carbon_owner = owner
 	if(melded_mob)
 		return FALSE
 	if(HAS_TRAIT(carbon_owner, TRAIT_MINDMELDED))
 		return FALSE
-	return ..()
 
 /datum/action/ability/activable/sectoid/mindmeld/can_use_ability(atom/A, silent = FALSE, override_flags)
 	. = ..()
@@ -234,7 +236,7 @@
 	carbon_target.notransform = FALSE
 	carbon_target.status_flags &= ~GODMODE
 	REMOVE_TRAIT(carbon_target, TRAIT_HANDS_BLOCKED, REF(src))
-	carbon_target.set_move_resist(initial(carbon_target.move_resist))
+	carbon_target.set_move_resist(carbon_target.get_initial_move_resist())
 	carbon_target.remove_atom_colour(TEMPORARY_COLOR_PRIORITY, COLOR_GRAY)
 	carbon_target.overlays -= stone_overlay
 
@@ -405,7 +407,7 @@
 		return fail_activate()
 
 	QDEL_NULL(particle_holder)
-	playsound(owner, 'sound/effects/petrify_activate.ogg', 50)
+	playsound(owner, 'sound/effects/magic.ogg', 10)
 
 	var/list/outcome = target.psi_act(psi_strength, owner)
 	if(!outcome)

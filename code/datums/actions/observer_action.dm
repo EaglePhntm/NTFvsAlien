@@ -38,6 +38,10 @@
 /datum/action/observer_action/take_ssd_mob/action_activate()
 	var/mob/dead/observer/dead_owner = owner
 
+	if(!WHITELIST_CHECK(owner.client))
+		WHITELIST_MESSAGE(owner.client)
+		return
+
 	if(!GLOB.ssd_posses_allowed)
 		to_chat(owner, span_warning("Taking over SSD mobs is currently disabled."))
 		return
@@ -47,10 +51,16 @@
 		return
 
 	var/list/mob/living/free_ssd_mobs = list()
-	for(var/mob/living/ssd_mob AS in GLOB.ssd_living_mobs)
-		if(is_centcom_level(ssd_mob.z) || ssd_mob.afk_status == MOB_RECENTLY_DISCONNECTED)
-			continue
-		free_ssd_mobs += ssd_mob
+	var/list/mob/living/mobs_to_check = GLOB.ssd_living_mobs
+	mobs_to_check += GLOB.offered_mob_list
+	if(GLOB.ssd_posses_allowed)
+		for(var/mob/living/ssd_mob AS in mobs_to_check)
+			if(is_centcom_level(ssd_mob.z) || ssd_mob.afk_status == MOB_RECENTLY_DISCONNECTED)
+				continue
+			if(ishuman(ssd_mob))
+				if(length(ssd_mob.ckey_history) && !(owner.key in ssd_mob.ckey_history)) //can only take your own human characters' control unless they are empty mobs from the get go.
+					continue
+			free_ssd_mobs += ssd_mob
 
 	if(!length(free_ssd_mobs))
 		to_chat(owner, span_warning("There aren't any SSD mobs."))
@@ -63,8 +73,18 @@
 	if(new_mob.stat == DEAD)
 		to_chat(owner, span_warning("You cannot join if the mob is dead."))
 		return FALSE
+
+	if(iszombie(new_mob) && (length(GLOB.possessed_sentient_zombie_list) >= GLOB.maximum_allowed_possessed_zombies))
+		to_chat(owner, span_warning("There are too few marines. Possessing additional zombies is currently disabled."))
+		return FALSE
+
 	if(tgui_alert(owner, "Are you sure you want to take " + new_mob.real_name +" ("+new_mob.job.title+")?", "Take SSD mob", list("Yes", "No",)) != "Yes")
 		return
+	if(isxeno(new_mob))
+		var/mob/living/carbon/xenomorph/ssd_xeno = new_mob
+		if(ssd_xeno.tier != XENO_TIER_MINION && XENODEATHTIME_CHECK(owner))
+			XENODEATHTIME_MESSAGE(owner)
+			return
 
 	if(HAS_TRAIT(new_mob, TRAIT_POSSESSING))
 		to_chat(owner, span_warning("That mob is currently possessing a different mob."))
@@ -94,6 +114,8 @@
 
 	message_admins(span_adminnotice("[owner.key] took control of [new_mob.name] as [new_mob.p_they()] was ssd."))
 	log_admin("[owner.key] took control of [new_mob.name] as [new_mob.p_they()] was ssd.")
+	if(iszombie(new_mob))
+		GLOB.possessed_sentient_zombie_list += new_mob
 	var/mob/living/carbon/human/new_human = new_mob
 	var/datum/job/j = new_human.job
 	var/datum/outfit/job/o = j.outfit
@@ -103,7 +125,7 @@
 		new_human.transfer_mob(owner)
 		return
 	new_human.transfer_mob(owner)
-	new_human.on_transformation()
+	// new_human.on_transformation()
 	o.handle_id(new_human)
 
 //respawn button for campaign gamemode

@@ -219,7 +219,7 @@
 
 /obj/item/explosive/grenade/chem_grenade/metalfoam
 	name = "Metal-Foam Grenade"
-	desc = "Used for emergency sealing of air breaches."
+	desc = "Used for emergency sealing of air breaches, or to provide cover from snipers."
 	dangerous = FALSE
 	stage = CG_READY
 
@@ -296,7 +296,7 @@
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
 
 	B1.reagents.add_reagent(/datum/reagent/aluminum, 30)
-	B1.reagents.add_reagent(/datum/reagent/toxin/acid,30)
+	B1.reagents.add_reagent(/datum/reagent/toxin/acid/xeno_cum,30)
 	B2.reagents.add_reagent(/datum/reagent/toxin/phoron, 60)
 
 	beakers += B1
@@ -349,7 +349,7 @@
 
 /obj/item/explosive/grenade/chem_grenade/teargas
 	name = "\improper M66 teargas grenade"
-	desc = "Tear gas grenade used for nonlethal riot control. Please wear adequate gas protection."
+	desc = "Tear gas grenade used for nonlethal riot control. Please wear adequate gas protection. (Useless if the target has any sort of gas mask.)"
 	stage = CG_READY
 
 

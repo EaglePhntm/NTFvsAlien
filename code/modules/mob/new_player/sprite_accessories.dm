@@ -33,6 +33,8 @@
 			if(initial(P.locked))
 				continue
 		var/datum/sprite_accessory/D = new path()
+		if(!D.name)
+			continue
 
 		if(D.icon_state)
 			L[D.name] = D
@@ -58,8 +60,14 @@
 	var/gender = NEUTER // Determines if the accessory will be skipped or included in random hair generations
 	var/locked = FALSE		//Is this part locked from roundstart selection? Used for parts that apply effects
 
-	var/list/species_allowed = list("Human","Human Hero", "Synthetic", "Early Synthetics", "Vat-Grown", "Vatborn", "Prototype Supersoldier") // Restrict some styles to specific species
+	var/list/species_allowed = list("Human","Human Hero", "Synthetic", "Early Synthetics", "Vat-Grown", "Vatborn", "Mothellian", "Prototype Supersoldier") // Restrict some styles to specific species
 	var/do_colouration = TRUE	// Whether or not the accessory can be affected by colouration
+	var/colouration_blend = ICON_ADD
+	var/colouration_tone = FALSE
+	var/center = FALSE // Center sprites wider than the base 32px mob icon.
+	var/dimension_x = 32
+	var/dimension_y = 32
+	var/has_inner = FALSE
 
 	var/datum/greyscale_config/greyscale_config
 
@@ -73,7 +81,7 @@
 */
 
 /datum/sprite_accessory/hair
-	species_allowed = list("Human","Synthetic","Early Synthetic", "Vat-Grown", "Vatborn", "Prototype Supersoldier")
+	species_allowed = list("Human","Synthetic","Early Synthetic", "Vat-Grown", "Vatborn", "Mothellian", "Prototype Supersoldier")
 	icon = 'icons/mob/Human_face.dmi'
 
 /datum/sprite_accessory/hair/bald
@@ -184,6 +192,11 @@
 /datum/sprite_accessory/hair/bobcutalt
 	name = "Bobcut Alternate"
 	icon_state = "hair_bobcutalt"
+	gender = FEMALE
+
+/datum/sprite_accessory/hair/bobshy
+	name = "Bobcut Shy"
+	icon_state = "hair_bobshy"
 	gender = FEMALE
 
 /datum/sprite_accessory/hair/boddicker
@@ -920,6 +933,10 @@
 	name = "Short Hair 2"
 	icon_state = "hair_short2"
 
+/datum/sprite_accessory/hair/short2_alt
+	name = "Short Hair 2 Alt"
+	icon_state = "hair_short2_alt"
+
 /datum/sprite_accessory/hair/short3
 	name = "Short Hair 3"
 	icon_state = "hair_short3"
@@ -1065,6 +1082,11 @@
 	icon_state = "hair_wisp"
 	gender = FEMALE
 
+/datum/sprite_accessory/hair/ladylike
+	name = "Ladylike"
+	icon_state = "hair_ladylike"
+	gender = FEMALE
+
 /datum/sprite_accessory/hair/wheeler
 	name = "Wheeler"
 	icon_state = "hair_wheeler"
@@ -1175,7 +1197,6 @@
 /datum/sprite_accessory/hair_gradient
 	icon = 'icons/mob/hair_gradients.dmi'
 	gender = NEUTER
-	species_allowed = list("Human","Synthetic", "Early Synthetic", "Vat-Grown", "Vatborn")
 
 /datum/sprite_accessory/hair_gradient/none
 	name = "None"
@@ -1226,7 +1247,6 @@
 	name = "Shaved"
 	icon_state = "bald"
 	gender = NEUTER
-	species_allowed = list("Human","Synthetic", "Early Synthetic", "Vat-Grown", "Vatborn")
 
 /datum/sprite_accessory/facial_hair/watson
 	name = "Watson Mustache"
@@ -1340,9 +1360,15 @@
 	species_allowed = list("Human", "Prototype Supersoldier")
 
 /datum/sprite_accessory/moth_wings
-	species_allowed = list("Moth")
+	species_allowed = list("Mothellian")
 	do_colouration = FALSE
-	icon = 'icons/mob/species/moth/wings.dmi'
+	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/moth_wings.dmi'
+	center = TRUE
+	dimension_x = 45
+	dimension_y = 34
+	var/icon_prefix = "m_wings"
+	var/pixel_w_offset = 6
+	var/pixel_z_offset = 0
 
 /datum/sprite_accessory/moth_wings/plain
 	name = "Plain"
@@ -1382,7 +1408,7 @@
 
 /datum/sprite_accessory/moth_wings/punished
 	name = "Burnt Off"
-	icon_state = "punished"
+	icon_state = "burnt_off"
 
 /datum/sprite_accessory/moth_wings/firewatch
 	name = "Firewatch"

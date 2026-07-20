@@ -211,6 +211,10 @@
 /obj/effect/spawner/random/engineering/technology_scanner,
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/quart)
+"bK" = (
+/obj/docking_port/stationary/supplycolony,
+/turf/open/floor/mainship/empty,
+/area/vapor_processing/cargo3)
 "bL" = (
 /obj/structure/table,
 /obj/item/storage/box/donkpockets,
@@ -387,6 +391,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/wood,
 /area/shuttle/drop2/lz2)
 "dc" = (
@@ -961,6 +966,11 @@
 	dir = 1
 	},
 /area/vapor_processing/cargo2)
+"fS" = (
+/obj/effect/ai_node,
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/floor,
+/area/storage/tools)
 "fT" = (
 /turf/closed/wall,
 /area/lv624/lazarus/quart)
@@ -1026,6 +1036,7 @@
 /area/lv624/ground/caves/central2)
 "gO" = (
 /obj/structure/table,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/quart)
 "gP" = (
@@ -1088,9 +1099,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/lv624/lazarus/medbay)
 "hg" = (
-/obj/structure/computerframe{
-	anchored = 1
-	},
+/obj/structure/computerframe,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -1129,6 +1138,7 @@
 /obj/item/reagent_containers/hypospray,
 /obj/structure/table,
 /obj/item/healthanalyzer,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/green/whitegreen,
 /area/lv624/lazarus/medbay)
 "hw" = (
@@ -1642,13 +1652,11 @@
 	},
 /area/vapor_processing/cargo3)
 "jT" = (
-/obj/structure/largecrate/supply/supplies/water,
-/turf/open/floor/tile/whiteyellow/corner{
-	dir = 1
-	},
+/turf/open/floor/mainship/empty,
 /area/vapor_processing/cargo3)
 "jU" = (
 /obj/structure/table/reinforced,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/red/redtaupe,
 /area/lv624/lazarus/security)
 "jV" = (
@@ -2123,6 +2131,11 @@
 /obj/machinery/floodlight/colony,
 /turf/open/floor/grass,
 /area/lv624/ground/compound/se)
+"mq" = (
+/obj/structure/table/flipped,
+/obj/structure/transmitter/colony_net/desk/auto_id,
+/turf/open/floor/prison/sterilewhite,
+/area/lv624/lazarus/fitness)
 "mr" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor,
@@ -2878,6 +2891,7 @@
 	dir = 4
 	},
 /obj/structure/table/flipped,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/plating,
 /area/vapor_processing/cargo_maint_s)
 "qT" = (
@@ -2939,6 +2953,10 @@
 /obj/structure/cable,
 /turf/open/ground/grass/grass2,
 /area/vapor_processing/south_compound)
+"rg" = (
+/obj/effect/landmark/static_comms/net_two,
+/turf/open/floor/prison/sterilewhite,
+/area/lv624/lazarus/fitness)
 "rh" = (
 /obj/machinery/door/poddoor/mainship{
 	id = "secure_blast";
@@ -3364,6 +3382,11 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/grass,
 /area/vapor_processing/south_compound)
+"sI" = (
+/obj/structure/table/flipped,
+/obj/structure/transmitter/colony_net/desk/auto_id,
+/turf/open/floor/prison/whitepurple,
+/area/lv624/lazarus/engineering)
 "sK" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor,
@@ -3662,12 +3685,18 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/wood,
 /area/crew_quarters/sleep_male)
 "uD" = (
 /obj/structure/window_frame/wood,
 /turf/open/floor/wood,
 /area/crew_quarters/sleep_male)
+"uE" = (
+/obj/structure/table/flipped,
+/obj/structure/transmitter/colony_net/desk/auto_id,
+/turf/open/floor/grimy,
+/area/lv624/lazarus/internal_affairs)
 "uJ" = (
 /obj/machinery/door/window,
 /obj/machinery/door/window{
@@ -3681,6 +3710,7 @@
 /area/lv624/ground/caves/central1)
 "uU" = (
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/ground,
 /area/vapor_processing/west_compound)
 "uV" = (
@@ -3740,6 +3770,7 @@
 /area/maintenance/substation)
 "vE" = (
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/grass,
 /area/lv624/ground/compound/c)
 "vM" = (
@@ -3799,12 +3830,21 @@
 	dir = 8;
 	on = 1
 	},
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor,
 /area/storage/tools)
 "wD" = (
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor,
 /area/shuttle/drop1/lz1)
+"wG" = (
+/obj/structure/prop/mainship/railing{
+	dir = 8
+	},
+/turf/open/floor/tile/whiteyellow/corner{
+	dir = 1
+	},
+/area/vapor_processing/cargo3)
 "wI" = (
 /obj/effect/ai_node,
 /obj/machinery/landinglight/lz1{
@@ -3888,6 +3928,12 @@
 /obj/effect/landmark/corpsespawner/chef,
 /turf/open/floor/carpet,
 /area/lv624/lazarus/canteen)
+"yx" = (
+/obj/effect/spawner/random/engineering/toolbox,
+/obj/structure/table,
+/obj/structure/transmitter/colony_net/desk/auto_id,
+/turf/open/floor,
+/area/lv624/lazarus/research)
 "yz" = (
 /obj/item/storage/backpack/satchel/med,
 /obj/effect/ai_node,
@@ -3903,6 +3949,7 @@
 /area/lv624/ground/caves/west1)
 "yH" = (
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -3976,6 +4023,10 @@
 /obj/effect/ai_node,
 /turf/open/ground,
 /area/lv624/ground/compound/se)
+"zI" = (
+/obj/effect/landmark/patrol_point/xeno/xeno_11,
+/turf/open/ground,
+/area/lv624/ground/caves/central2)
 "zS" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -4226,6 +4277,7 @@
 /area/lv624/lazarus/medbay)
 "Dr" = (
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -4420,6 +4472,10 @@
 /obj/effect/ai_node,
 /turf/open/floor,
 /area/lv624/lazarus/research)
+"Gr" = (
+/obj/effect/landmark/patrol_point/xeno/xeno_21,
+/turf/open/floor/grass,
+/area/vapor_processing/south_compound)
 "Gu" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -5254,10 +5310,12 @@
 /area/lv624/lazarus/engineering)
 "Th" = (
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /obj/machinery/light{
 	dir = 8
 	},
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /obj/effect/ai_node,
 /turf/open/floor/prison/yellow,
 /area/lv624/lazarus/engineering)
@@ -5407,6 +5465,7 @@
 /area/shuttle/drop1/lz1)
 "VC" = (
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 8;
 	on = 1
@@ -5513,6 +5572,7 @@
 /area/lv624/ground/caves/central2)
 "WQ" = (
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/grass,
 /area/lv624/ground/compound/se)
 "WR" = (
@@ -5601,6 +5661,15 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/prison/yellow,
 /area/lv624/lazarus/engineering)
+"XV" = (
+/obj/structure/prop/mainship/railing{
+	dir = 4
+	},
+/obj/machinery/computer/supplycomp/colony,
+/turf/open/floor/tile/whiteyellow/corner{
+	dir = 1
+	},
+/area/vapor_processing/cargo3)
 "XX" = (
 /obj/effect/landmark/patrol_point/tgmc_21,
 /turf/open/ground/grass/grass2,
@@ -5633,7 +5702,6 @@
 	dir = 1
 	},
 /obj/effect/landmark/corpsespawner/security{
-	corpsebelt = null;
 	corpsesuit = /obj/item/clothing/suit/storage/CMB;
 	corpseuniform = /obj/item/clothing/under/CM_uniform;
 	name = "Deputy Edgar Nogi"
@@ -9038,7 +9106,7 @@ km
 cx
 cx
 cx
-cF
+mq
 bS
 cK
 bQ
@@ -9140,7 +9208,7 @@ kn
 vb
 cx
 cx
-cF
+cx
 cx
 cx
 bQ
@@ -9152,7 +9220,7 @@ cV
 dh
 dy
 dz
-dy
+uE
 dz
 dz
 cV
@@ -9242,7 +9310,7 @@ kE
 cx
 vb
 cx
-cx
+rg
 cx
 cx
 cx
@@ -9446,7 +9514,7 @@ kn
 cC
 cC
 cC
-kE
+cC
 cC
 cC
 jM
@@ -9594,7 +9662,7 @@ le
 lH
 lQ
 lQ
-PZ
+fS
 sQ
 lQ
 lQ
@@ -10230,7 +10298,7 @@ le
 lh
 lh
 lh
-le
+Gr
 le
 le
 lf
@@ -10907,8 +10975,8 @@ im
 im
 rH
 im
-im
 UG
+XV
 hO
 ep
 ep
@@ -11062,7 +11130,7 @@ bc
 bc
 bc
 bc
-bc
+zI
 bc
 bc
 Pr
@@ -11112,7 +11180,7 @@ YL
 rH
 im
 im
-im
+bK
 hO
 ep
 Za
@@ -11316,7 +11384,7 @@ im
 rK
 im
 im
-im
+wG
 hO
 ep
 ep
@@ -12761,7 +12829,7 @@ mw
 Kz
 Kz
 mo
-XF
+yx
 uY
 XF
 LO
@@ -13348,7 +13416,7 @@ eO
 eU
 eM
 fY
-hF
+sI
 hR
 hG
 fY

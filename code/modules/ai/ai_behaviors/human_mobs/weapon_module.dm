@@ -246,7 +246,7 @@
 		return AI_FIRE_NO_LOS
 
 	//ammo_datum_type is always populated, with the last loaded ammo type. This shouldnt be an issue since we check ammo first
-	if((human_ai_behavior_flags & HUMAN_AI_NO_FF) && !(gun.gun_features_flags & GUN_IFF) && !(gun.ammo_datum_type::ammo_behavior_flags & AMMO_IFF) && !check_path_ff(mob_parent, target))
+	if((human_ai_behavior_flags & HUMAN_AI_NO_FF) && !(gun.gun_features_flags & GUN_IFF) && !(HAS_TRAIT(gun, TRAIT_GUN_IS_AIMING)) && !(gun.ammo_datum_type::ammo_behavior_flags & AMMO_IFF) && !check_path_ff(mob_parent, target))
 		return AI_FIRE_FRIENDLY_BLOCKED
 	return AI_FIRE_CAN_HIT
 
@@ -317,6 +317,6 @@
 	turf_line.Cut(1, 2) //don't count our own turf
 	for(var/turf/line_turf AS in turf_line)
 		for(var/mob/line_mob in line_turf) //todo: add checks for vehicles etc
-			if(line_mob.faction == mob_parent.faction)
+			if(GLOB.faction_to_iff[line_mob.faction] & GLOB.faction_to_iff[mob_parent.faction])
 				return FALSE
 	return TRUE

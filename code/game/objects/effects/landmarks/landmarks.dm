@@ -68,6 +68,21 @@
 	GLOB.latejoinsom += loc
 	return INITIALIZE_HINT_QDEL
 
+/obj/effect/landmark/start/latejoinclf/Initialize(mapload)
+	. = ..()
+	GLOB.latejoinclf += loc
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/landmark/start/latejoinsurvivor/Initialize(mapload)
+	. = ..()
+	GLOB.latejoinsurvivor += loc
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/landmark/start/latejoinmoff/Initialize(mapload)
+	. = ..()
+	GLOB.latejoinmoff += loc
+	return INITIALIZE_HINT_QDEL
+
 /obj/effect/landmark/start/latejoin_gateway/Initialize(mapload)
 	. = ..()
 	GLOB.latejoin_gateway += loc
@@ -166,6 +181,16 @@
 
 /obj/effect/landmark/xeno_silo_spawn/Initialize(mapload)
 	GLOB.xeno_resin_silo_turfs += loc
+	. = ..()
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/landmark/encounter_silo_spawn
+	name = "encounter xeno silo spawn landmark"
+	icon = 'icons/Xeno/resin_silo.dmi'
+	icon_state = "weed_silo"
+
+/obj/effect/landmark/encounter_silo_spawn/Initialize(mapload)
+	GLOB.xeno_encounter_resin_silo_turfs += loc
 	. = ..()
 	return INITIALIZE_HINT_QDEL
 
@@ -339,6 +364,7 @@
 		/obj/item/weapon/gun/revolver/standard_magnum,
 		/obj/item/weapon/gun/smg/standard_machinepistol,
 		/obj/item/weapon/gun/smg/standard_smg,
+		/obj/item/weapon/gun/smg/standard_heavysmg/guardian,
 		/obj/item/weapon/gun/smg/m25,
 		/obj/item/weapon/gun/smg/mp7,
 		/obj/item/weapon/gun/smg/skorpion,
@@ -369,6 +395,8 @@
 		/obj/item/weapon/gun/rifle/standard_assaultrifle,
 		/obj/item/weapon/gun/rifle/standard_dmr,
 		/obj/item/weapon/gun/rifle/standard_br,
+		/obj/item/weapon/gun/rifle/nt_halter,
+		/obj/item/weapon/gun/rifle/nt_halter/cqb,
 		/obj/item/weapon/gun/rifle/m412,
 		/obj/item/weapon/gun/rifle/m41a,
 		/obj/item/weapon/gun/rifle/mpi_km,
@@ -418,6 +446,7 @@
 		/obj/item/weapon/gun/rifle/lmg_d,
 		/obj/item/weapon/gun/rifle/type71/commando,
 		/obj/item/weapon/gun/rifle/m412/elite,
+		/obj/item/weapon/gun/rifle/sniper/pmc_railgun,
 		/obj/item/weapon/gun/smg/m25/elite,
 		/obj/item/weapon/gun/rifle/sniper/antimaterial,
 		/obj/item/weapon/gun/rifle/railgun,

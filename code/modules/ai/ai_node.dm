@@ -34,8 +34,6 @@
 
 /obj/effect/ai_node/LateInitialize()
 	make_adjacents()
-	if(SSadvanced_pathfinding.initialized)
-		rustg_add_node_astar(json_encode(serialize()))
 
 /// Serialize nodes information
 /obj/effect/ai_node/proc/serialize()
@@ -59,7 +57,6 @@
 
 /obj/effect/ai_node/Destroy()
 	GLOB.all_nodes[unique_id + 1] = null
-	rustg_remove_node_astar("[unique_id]")
 	//Remove our reference to self from nearby adjacent node's adjacent nodes
 	for(var/direction AS in adjacent_nodes)
 		var/obj/effect/ai_node/node = adjacent_nodes[direction]

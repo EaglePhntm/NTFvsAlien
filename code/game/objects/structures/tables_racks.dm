@@ -33,7 +33,7 @@
 	. = ..()
 	for(var/obj/structure/table/evil_table in loc)
 		if(evil_table != src)
-			stack_trace("Duplicate table found in ([x], [y], [z])")
+			log_mapping("Duplicate table found in ([x], [y], [z]); deleting duplicate [evil_table.type].")
 			qdel(evil_table)
 	if(!flipped)
 		update_icon()
@@ -265,7 +265,7 @@
 		if(isobserver(i))
 			continue
 		var/atom/movable/thing_to_throw = i
-		if(thing_to_throw.anchored || thing_to_throw.move_resist == INFINITY)
+		if(thing_to_throw.anchored || thing_to_throw.get_move_resist() == INFINITY)
 			continue
 		thing_to_throw.throw_at(pick(targets), 1, 1)
 

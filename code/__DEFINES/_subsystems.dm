@@ -30,6 +30,15 @@
 /// Used to trigger object removal from a processing list
 #define PROCESS_KILL 26
 
+#define SSMACHINES_POWERNETS 1
+#define SSMACHINES_MACHINES_EARLY 2
+#define SSMACHINES_MACHINES 3
+#define SSMACHINES_MACHINES_POWER 4
+#define SSMACHINES_APCS 5
+#define SSMACHINES_APCS_CHARGE 6
+#define SSMACHINES_APCS_LATE 7
+#define SSMACHINES_MACHINES_LATE 8
+
 //For servers that can't do with any additional lag, set this to none in flightpacks.dm in subsystem/processing.
 #define FLIGHTSUIT_PROCESSING_NONE 0
 #define FLIGHTSUIT_PROCESSING_FULL 1

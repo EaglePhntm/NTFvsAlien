@@ -177,11 +177,10 @@
 	interactee.client?.screen += map
 	handle_locator(interactee)
 
-/obj/item/paper_map/marine
-	minimap_flag = MINIMAP_FLAG_MARINE
-
-/obj/item/paper_map/som
-	minimap_flag = MINIMAP_FLAG_MARINE_SOM
-
 /obj/item/paper_map/shipside
 	targetted_zlevel = 4
+
+/obj/item/paper_map/excavation
+	name = "excavation site chart"
+	desc = "A map detailing the various excavation sites. Best paired with the subterrain scanner and excavator, and unreasonable levels of skill."
+	minimap_flag = MINIMAP_FLAG_EXCAVATION_ZONE

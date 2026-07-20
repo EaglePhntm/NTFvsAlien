@@ -35,7 +35,7 @@
 	sundering = 15
 
 /datum/ammo/rocket/mech/drop_nade(turf/target_turf, atom/movable/projectile/proj)
-	explosion(target_turf, 0, 0, 4, 0, 0, explosion_cause=src)
+	explosion(target_turf, 0, 0, 4, 0, 0, explosion_cause=proj)
 
 /datum/ammo/rocket/mech/heavy
 	name = "large heavy explosive rocket"
@@ -43,7 +43,7 @@
 	penetration = 30
 
 /datum/ammo/rocket/mech/heavy/drop_nade(turf/target_turf, atom/movable/projectile/proj)
-	explosion(target_turf, 0, 2, 4, 0, 0, explosion_cause=src)
+	explosion(target_turf, 0, 2, 4, 0, 0, explosion_cause=proj)
 
 /*
 //================================================

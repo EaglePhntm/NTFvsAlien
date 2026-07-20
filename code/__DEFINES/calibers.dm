@@ -3,6 +3,7 @@
 // --- Small Arms ---
 
 // Pistols
+#define CALIBER_9X18 "9x18mm Makarov"
 #define CALIBER_9X19 "9x19mm Parabellum"
 #define CALIBER_9X19_TRANQUILIZER "9x19mm Tranquilizer"
 #define CALIBER_45ACP ".45 ACP"
@@ -38,15 +39,19 @@
 #define CALIBER_10x265_CASELESS "10x26.5mm caseless"
 #define CALIBER_762X39 "7.62x39mm"
 #define CALIBER_556X45 "5.56x45mm"
+#define CALIBER_68X43 "6.8x43mm SPC"
+#define CALIBER_65X39 "6.5x39mm"
 #define CALIBER_16G "16 gauge" //Autoshotty, but coded like a rifle so eeh
 #define CALIBER_4570 ".45-70 Government"
 #define CALIBER_3006 ".30-06"
+#define CALIBER_308 ".308"
 #define CALIBER_492X34_CASELESS "4.92x34mm caseless"
 #define CALIBER_10X28_CASELESS "10x28mm caseless" //Spec scout and OG Smartgun
 #define CALIBER_127X55 "12.7x55mm"
 #define CALIBER_762X51 "7.62x51mm" //Minigun
 #define CALIBER_10X27_INCENDIARY_CASELESS "10x27mm incendiary caseless"
 #define CALIBER_10x26_CASELESS "10x26mm caseless" //GPMG and SG
+#define CALIBER_98x22 "9.8x22mm"
 #define CALIBER_ALIEN "alien alloy"
 
 // --- Shotguns ---
@@ -66,6 +71,7 @@
 // --- Explosives ---
 #define CALIBER_20MM "20x28mm grenade"
 #define CALIBER_40MM "40mm grenade"
+#define CALIBER_93MM "93mm rocket"
 #define CALIBER_84MM "84mm rocket"
 #define CALIBER_67MM "67mm shell"
 #define CALIBER_68MM "68mm rocket"

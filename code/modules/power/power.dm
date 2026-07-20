@@ -98,10 +98,93 @@
 	var/area/A = get_area(src)
 	if(!A)
 		return
-	//A.addStaticPower(value, powerchannel) //TODO
+	A.addStaticPower(value, powerchannel)
 
 /obj/machinery/proc/removeStaticPower(value, powerchannel)
 	addStaticPower(-value, powerchannel)
+
+/obj/machinery/proc/static_channel_from_power_channel(chan = power_channel)
+	switch(chan)
+		if(STATIC_EQUIP, EQUIP)
+			return STATIC_EQUIP
+		if(STATIC_LIGHTS, LIGHT)
+			return STATIC_LIGHTS
+		if(STATIC_ENVIRON, ENVIRON)
+			return STATIC_ENVIRON
+	return STATIC_EQUIP
+
+/obj/machinery/proc/current_power_usage()
+	switch(use_power)
+		if(IDLE_POWER_USE)
+			return idle_power_usage
+		if(ACTIVE_POWER_USE)
+			return active_power_usage
+	return 0
+
+/obj/machinery/proc/clear_static_power()
+	if(!registered_static_power_area || !static_power_usage)
+		static_power_usage = 0
+		registered_static_power_area = null
+		return
+	registered_static_power_area.addStaticPower(-static_power_usage, registered_static_power_channel)
+	static_power_usage = 0
+	registered_static_power_area = null
+
+/obj/machinery/proc/update_current_power_usage()
+	if(!use_static_power)
+		return FALSE
+	clear_static_power()
+	var/new_power_usage = current_power_usage()
+	if(!new_power_usage)
+		return FALSE
+	var/area/current_area = get_area(src)
+	if(!current_area)
+		return FALSE
+	static_power_usage = new_power_usage
+	registered_static_power_channel = static_channel_from_power_channel(power_channel)
+	registered_static_power_area = current_area
+	current_area.addStaticPower(static_power_usage, registered_static_power_channel)
+	return TRUE
+
+/obj/machinery/proc/update_use_power(new_use_power)
+	if(use_power == new_use_power)
+		return FALSE
+	if(use_static_power)
+		clear_static_power()
+	use_power = new_use_power
+	if(use_static_power)
+		update_current_power_usage()
+	return TRUE
+
+/obj/machinery/proc/update_power_channel(new_power_channel)
+	if(power_channel == new_power_channel)
+		return FALSE
+	if(use_static_power)
+		clear_static_power()
+	power_channel = new_power_channel
+	if(use_static_power)
+		update_current_power_usage()
+	return TRUE
+
+/obj/machinery/proc/update_mode_power_usage(new_power_usage, power_mode = use_power)
+	switch(power_mode)
+		if(IDLE_POWER_USE)
+			if(idle_power_usage == new_power_usage)
+				return FALSE
+			if(use_static_power)
+				clear_static_power()
+			idle_power_usage = new_power_usage
+		if(ACTIVE_POWER_USE)
+			if(active_power_usage == new_power_usage)
+				return FALSE
+			if(use_static_power)
+				clear_static_power()
+			active_power_usage = new_power_usage
+		else
+			return FALSE
+	if(use_static_power)
+		update_current_power_usage()
+	return TRUE
 
 // connect the machine to a powernet if a node cable or a terminal is present on the turf
 /obj/machinery/power/proc/connect_to_network()

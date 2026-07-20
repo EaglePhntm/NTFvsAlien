@@ -15,8 +15,13 @@
 	damage = 40 //Reduced damage due to vastly increased mobility
 	penetration = 40 //Reduced penetration due to vastly increased mobility
 	accuracy = 5
-	barricade_clear_distance = 2
 	sundering = 5
+
+/datum/ammo/bullet/machinegun/mob_hmg
+	damage = 35
+	penetration = 35
+	accurate_range_min = 2
+	sundering = 3
 
 /datum/ammo/bullet/minigun
 	name = "minigun bullet"
@@ -64,28 +69,38 @@
 	hud_state = "minigun"
 	hud_state_empty = "smartgun_empty"
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
-	accurate_range_min = 6
 	accuracy_variation = 3
-	damage = 30
+	damage = 50
 	penetration = 50
-	sundering = 1
-	max_range = 35
+	sundering = 5
+	shrapnel_chance = 0
+	max_range = 22
+	///4 range accuracy minimum to hit a single target with windup? No and if not, see culverin stats.
 	///Bonus flat damage to walls, balanced around resin walls.
 	var/autocannon_wall_bonus = 50
 
 /datum/ammo/bullet/auto_cannon/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
-	proj.proj_max_range -= 20
+	proj.proj_max_range -= 10
+	proj.accuracy *= 0.7
+	proj.damage *= 0.7
+	proj.penetration *= 0.7
 
 	if(istype(target_turf, /turf/closed/wall))
 		var/turf/closed/wall/wall_victim = target_turf
 		wall_victim.take_damage(autocannon_wall_bonus, proj.damtype, proj.armor_type)
 
 /datum/ammo/bullet/auto_cannon/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
-	proj.proj_max_range -= 5
-	staggerstun(target_mob, proj, max_range = 20, slowdown = 1)
+	proj.proj_max_range -= 8
+	proj.accuracy *= 0.8
+	proj.damage *= 0.8
+	proj.penetration *= 0.8
+	staggerstun(target_mob, proj, max_range = 20, stagger = 1)
 
 /datum/ammo/bullet/auto_cannon/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
-	proj.proj_max_range -= 5
+	proj.proj_max_range -= 4
+	proj.accuracy *= 0.9
+	proj.damage *= 0.9
+	proj.penetration *= 0.9
 
 /datum/ammo/bullet/bike_autocannon
 	name = "autocannon high-velocity bullet"
@@ -101,10 +116,10 @@
 	name = "autocannon smart-detonating bullet"
 	hud_state = "sniper_flak"
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_TARGET_TURF
-	damage = 50
-	penetration = 30
-	sundering = 5
-	max_range = 30
+	damage = 65
+	penetration = 35
+	sundering = 7.5
+
 	autocannon_wall_bonus = 25
 	///Damage done via airburst
 	var/burst_damage = 50
@@ -119,9 +134,14 @@
 	name = "autocannon solid-shot bullet"
 	hud_state = "railgun_hvap"
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_TARGET_TURF
-	damage = 85
-	penetration = 75
+	damage = 50
+	penetration = 30
+	sundering = 17.5
+	shrapnel_chance = 25
 	autocannon_wall_bonus = 100
+
+/datum/ammo/bullet/auto_cannon/anti_tank/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
+	staggerstun(target_mob, proj, stagger = 2.5 SECONDS, slowdown = 1.5)
 
 /datum/ammo/bullet/railgun
 	name = "armor piercing railgun slug"
@@ -267,13 +287,13 @@
 /datum/ammo/bullet/sarden/high_explosive/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	var/target_turf = get_turf(target_mob)
 	staggerstun(target_mob, proj, max_range, knockback = 1, hard_size_threshold = 3)
-	drop_nade(target_turf)
+	drop_nade(target_turf, proj)
 
 /datum/ammo/bullet/sarden/high_explosive/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
-	drop_nade(target_obj.density ? get_step_towards(target_obj, proj) : target_obj.loc)
+	drop_nade(target_obj.density ? get_step_towards(target_obj, proj) : target_obj.loc, proj)
 
 /datum/ammo/bullet/sarden/high_explosive/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
-	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj)
 
 /datum/ammo/bullet/sarden/high_explosive/do_at_max_range(turf/target_turf, atom/movable/projectile/proj)
-	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj)

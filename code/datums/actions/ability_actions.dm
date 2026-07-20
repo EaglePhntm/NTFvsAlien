@@ -99,6 +99,11 @@
 			carbon_owner.balloon_alert(carbon_owner, "burrowed!")
 		return FALSE
 
+	if(!(to_check_flags & ABILITY_USE_HANDCUFFED) && carbon_owner.handcuffed)
+		if(!silent)
+			carbon_owner.balloon_alert(carbon_owner, "restrained!")
+		return FALSE
+
 	if(!(to_check_flags & ABILITY_USE_SOLIDOBJECT))
 		var/turf/current_turf = get_turf(carbon_owner)
 		if(!current_turf) //we are in nullspace when first spawning in
@@ -157,7 +162,7 @@
 	if(cooldown_timer || !cooldown_length) // stop doubling up or waiting on zero
 		return
 	cooldown_timer = addtimer(CALLBACK(src, PROC_REF(on_cooldown_finish)), cooldown_length, TIMER_STOPPABLE)
-	countdown.start()
+	countdown?.start()
 	update_button_icon()
 
 ///Time remaining on cooldown
@@ -167,7 +172,7 @@
 ///override this for cooldown completion
 /datum/action/ability/proc/on_cooldown_finish()
 	cooldown_timer = null
-	countdown.stop()
+	countdown?.stop()
 	if(!button)
 		return
 	update_button_icon()
@@ -245,6 +250,9 @@
 		return FALSE
 	. = can_use_action(silent, override_flags)
 	if(!CHECK_BITFIELD(to_check_flags, ABILITY_TARGET_SELF) && A == owner)
+		return FALSE
+	//ntf addition
+	if(istype(A) && HAS_TRAIT(A, TRAIT_HAULED))
 		return FALSE
 
 ///the thing to do when the selected action ability is selected and triggered by middle_click

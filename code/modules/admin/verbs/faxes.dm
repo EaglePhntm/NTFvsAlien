@@ -56,6 +56,10 @@ GLOBAL_LIST_EMPTY(faxes)
 
 		flick("faxreceive", F)
 
+		if(!isnull(FM.faction))
+			for(var/mob/living/carbon/human/homon in GLOB.alive_human_list_faction[FM.faction])
+				to_chat(homon, span_warning("(N-UI) Notice: '[FM.department]' at [get_area(FM)] received a fax."))
+
 		var/obj/item/paper/P = new /obj/item/paper(FM.loc)
 		P.name = "[title]"
 		P.info = "[message]"
@@ -95,7 +99,7 @@ ADMIN_VERB(view_faxes, R_ADMIN|R_MENTOR, "View Faxes", "View or send faxes", ADM
 	var/fax_html = {"
 		<font face="Verdana" color="black" size="1">
 			<center>
-				<img src='[SSassets.transport.get_asset_url("tgmclogo.png")]' />
+				<img src='[SSassets.transport.get_asset_url("ntclogo.png")]' />
 			</center>
 			<center>
 				Secure Communication SC-CLTMGC-01b
@@ -125,7 +129,7 @@ ADMIN_VERB(view_faxes, R_ADMIN|R_MENTOR, "View Faxes", "View or send faxes", ADM
 			<hr />
 			<font size ="1">
 				<i>
-					This message is intended only for the Corporate Liason aboard the [SSmapping.configs[SHIP_MAP].map_name],
+					This message is intended only for the Operations Officer aboard the [SSmapping.configs[SHIP_MAP].map_name],
 					all other suchs persons should not read, receive a copy, or be exposed to this communication in any form.
 					Failing to adhere to this warning will result in liquidation of division under Act 09.B-4.
 					By authoring a reply to this transmission, such person confirms they abide by the regulations as set forth to them.

@@ -79,14 +79,17 @@
  *
  * return bool - TRUE if a new pooled window is opened, FALSE in all other situations including if a new pooled window didn't open because one already exists.
  */
-/datum/tgui/proc/open()
+/datum/tgui/proc/open(ignore_status = FALSE)
 	if(!user.client)
 		return FALSE
 	if(window)
 		return FALSE
-	process_status()
-	if(status < UI_UPDATE)
-		return FALSE
+	if(!ignore_status)
+		process_status()
+		if(status < UI_UPDATE)
+			return FALSE
+	else
+		status = UI_INTERACTIVE
 	window = SStgui.request_pooled_window(user)
 	if(!window)
 		return FALSE
@@ -105,6 +108,9 @@
 		with_data = TRUE,
 		with_static_data = TRUE))
 	SStgui.on_open(src)
+	if(ismachinery(src_object))
+		var/obj/machinery/machine = src_object
+		machine.on_tgui_open(user, src)
 
 	return TRUE
 
@@ -137,6 +143,9 @@
 		// the error message properly.
 		window.release_lock()
 		window.close(can_be_suspended)
+		if(ismachinery(src_object))
+			var/obj/machinery/machine = src_object
+			machine.on_tgui_close(user, src)
 		src_object.ui_close(user)
 		SStgui.on_close(src)
 	state = null

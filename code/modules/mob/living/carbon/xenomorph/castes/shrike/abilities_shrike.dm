@@ -17,10 +17,7 @@
 
 
 /datum/action/ability/xeno_action/call_of_the_burrowed/action_activate()
-	if(!isnormalhive(xeno_owner.hive))
-		to_chat(xeno_owner, span_warning("Burrowed larva? What a strange concept... It's not for our hive."))
-		return FALSE
-	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+	var/datum/job/xeno_job = SSjob.GetJobType(GLOB.hivenumber_to_job_type[owner.get_xeno_hivenumber()])
 	var/stored_larva = xeno_job.total_positions - xeno_job.current_positions
 	if(!stored_larva)
 		to_chat(xeno_owner, span_warning("Our hive currently has no burrowed to call forth!"))
@@ -32,8 +29,8 @@
 	span_xenodanger("We call forth the larvas to rise from their slumber!"))
 
 	if(stored_larva)
-		RegisterSignals(xeno_owner.hive, list(COMSIG_HIVE_XENO_MOTHER_PRE_CHECK, COMSIG_HIVE_XENO_MOTHER_CHECK), PROC_REF(is_burrowed_larva_host))
-		xeno_owner.hive.give_larva_to_next_in_queue()
+		RegisterSignals(xeno_owner.get_hive(), list(COMSIG_HIVE_XENO_MOTHER_PRE_CHECK, COMSIG_HIVE_XENO_MOTHER_CHECK), PROC_REF(is_burrowed_larva_host))
+		xeno_owner.get_hive().give_larva_to_next_in_queue()
 		notify_ghosts("\The <b>[xeno_owner]</b> is calling for the burrowed larvas to wake up!", enter_link = "join_larva=1", enter_text = "Join as Larva", source = xeno_owner, action = NOTIFY_JOIN_AS_LARVA, flashwindow = TRUE)
 		addtimer(CALLBACK(src, PROC_REF(calling_larvas_end), xeno_owner), CALLING_BURROWED_DURATION)
 
@@ -42,7 +39,7 @@
 
 
 /datum/action/ability/xeno_action/call_of_the_burrowed/proc/calling_larvas_end(mob/living/carbon/xenomorph/xeno_owner)
-	UnregisterSignal(xeno_owner.hive, list(COMSIG_HIVE_XENO_MOTHER_PRE_CHECK, COMSIG_HIVE_XENO_MOTHER_CHECK))
+	UnregisterSignal(xeno_owner.get_hive(), list(COMSIG_HIVE_XENO_MOTHER_PRE_CHECK, COMSIG_HIVE_XENO_MOTHER_CHECK))
 
 
 /datum/action/ability/xeno_action/call_of_the_burrowed/proc/is_burrowed_larva_host(datum/source, list/mothers, list/silos) //Should only register while a viable candidate.
@@ -97,7 +94,7 @@
 		return FALSE
 	if(isxeno(target) && (target != xeno_owner) && !collusion_xenos_only)
 		return FALSE
-	if(target.move_resist >= MOVE_FORCE_OVERPOWERING)
+	if(target.get_move_resist() >= MOVE_FORCE_OVERPOWERING)
 		return FALSE
 	var/max_dist = SHRIKE_FLING_RANGE //the distance only goes to 3 now, since this is more of a utility then an attack.
 	if(!line_of_sight(owner, target, max_dist))
@@ -206,6 +203,21 @@
 		if(collusion_paralyze_duration)
 			living_source.Paralyze(collusion_paralyze_duration)
 
+/datum/action/ability/activable/xeno/psychic_fling/ai_should_start_consider()
+	return TRUE
+
+/datum/action/ability/activable/xeno/psychic_fling/ai_should_use(atom/target)
+	if(!ismob(target))
+		return FALSE
+	if(get_dist(target, owner) > 6)
+		return FALSE
+	if(!line_of_sight(owner, target))
+		return FALSE
+	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
+		return FALSE
+	return TRUE
+
+
 // ***************************************
 // *********** Unrelenting Force
 // ***************************************
@@ -239,8 +251,8 @@
 	return ..()
 
 /datum/action/ability/activable/xeno/unrelenting_force/use_ability(atom/target)
-	addtimer(CALLBACK(xeno_owner, TYPE_PROC_REF(/mob, update_icons)), 1 SECONDS)
-	xeno_owner.icon_state = "[xeno_owner.xeno_caste.caste_name][(xeno_owner.xeno_flags & XENO_ROUNY) ? " rouny" : ""] Screeching"
+	addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob, update_icons)), 1 SECONDS)
+	owner.icon_state = "[xeno_owner.xeno_caste.caste_name][xeno_owner.is_a_rouny ? " rouny" : ""] Screeching"
 	if(target) // Keybind use doesn't have a target
 		xeno_owner.face_atom(target)
 	starting_direction = xeno_owner.dir
@@ -261,7 +273,7 @@
 			if(!ishuman(affected) && !istype(affected, /obj/item) && !isdroid(affected))
 				affected.Shake(duration = 0.5 SECONDS)
 				continue
-			if(affected.move_resist >= MOVE_FORCE_OVERPOWERING)
+			if(affected.get_move_resist() >= MOVE_FORCE_OVERPOWERING)
 				continue
 			if(ishuman(affected))
 				var/mob/living/carbon/human/H = affected
@@ -318,6 +330,20 @@
 		throw_location = get_step(throw_location, starting_direction)
 	movable_source.throw_at(throw_location, throwing_distance, 1, xeno_owner, TRUE)
 
+/datum/action/ability/activable/xeno/unrelenting_force/ai_should_start_consider()
+	return TRUE
+
+/datum/action/ability/activable/xeno/unrelenting_force/ai_should_use(atom/target)
+	if(!ismob(target))
+		return FALSE
+	if(get_dist(target, owner) > 6)
+		return FALSE
+	if(!line_of_sight(owner, target))
+		return FALSE
+	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
+		return FALSE
+	return TRUE
+
 // ***************************************
 // *********** Psychic Cure
 // ***************************************
@@ -357,17 +383,17 @@
 	. = ..()
 	if(!.)
 		return FALSE
+	if(!ismob(target))
+		return FALSE
 	if(QDELETED(target))
 		return FALSE
 	if(!check_distance(target, silent))
 		return FALSE
-	if(!isxeno(target))
-		return FALSE
-	var/mob/living/carbon/xenomorph/patient = target
+/*	var/mob/living/patient = target
 	if(!CHECK_BITFIELD(use_state_flags|override_flags, ABILITY_IGNORE_DEAD_TARGET) && patient.stat == DEAD)
 		if(!silent)
-			to_chat(owner, span_warning("It's too late. This sister won't be coming back."))
-		return FALSE
+			to_chat(owner, span_warning("It's too late. This won't be coming back."))
+		return FALSE*/// We want xenomorphs to be able to heal the dead now
 
 /datum/action/ability/activable/xeno/psychic_cure/proc/check_distance(atom/target, silent)
 	var/dist = get_dist(owner, target)
@@ -402,16 +428,19 @@
 	playsound(target,'sound/effects/magic.ogg', 75, 1)
 	new /obj/effect/temp_visual/telekinesis(get_turf(target))
 	var/mob/living/carbon/xenomorph/patient = target
-	var/healing_results = patient.heal_wounds(xeno_owner == patient ? SHRIKE_CURE_HEAL_MULTIPLIER * self_heal_multiplier : SHRIKE_CURE_HEAL_MULTIPLIER)
-	patient.adjust_sunder(xeno_owner == patient ?  -SHRIKE_CURE_HEAL_MULTIPLIER * self_heal_multiplier : -SHRIKE_CURE_HEAL_MULTIPLIER)
-	if(patient.health > 0) //If they are not in crit after the heal, let's remove evil debuffs.
-		patient.SetUnconscious(0)
-		patient.SetStun(0)
-		patient.SetParalyzed(0)
-		patient.set_stagger(0)
-		patient.set_slowdown(0)
-	patient.updatehealth()
-
+	var/healing_results = list(0,0)
+	if(isxeno(target))
+		healing_results = patient.heal_wounds(xeno_owner == patient ? SHRIKE_CURE_HEAL_MULTIPLIER * self_heal_multiplier : SHRIKE_CURE_HEAL_MULTIPLIER)
+		patient.adjust_sunder(xeno_owner == patient ?  -SHRIKE_CURE_HEAL_MULTIPLIER * self_heal_multiplier : -SHRIKE_CURE_HEAL_MULTIPLIER)
+		if(patient.health > 0) //If they are not in crit after the heal, let's remove evil debuffs.
+			patient.SetUnconscious(0)
+			patient.SetStun(0)
+			patient.SetParalyzed(0)
+			patient.set_stagger(0)
+			patient.set_slowdown(0)
+		patient.updatehealth()
+	else
+		healing_results = patient.psychic_cure()
 	var/amount_healed = healing_results[2] - healing_results[1]
 	if(rebound_percentage && amount_healed)
 		var/amount_to_heal = amount_healed * rebound_percentage
@@ -473,6 +502,29 @@
 
 // COMSIG_LIVING_STATUS_STAGGER
 
+/datum/action/ability/activable/xeno/psychic_cure/ai_should_start_consider()
+	return TRUE
+
+/datum/action/ability/activable/xeno/psychic_cure/ai_should_use(atom/target)
+	if(!ismob(target))
+		return FALSE
+	if(get_dist(target, owner) > 6)
+		return FALSE
+	if(!line_of_sight(owner, target))
+		return FALSE
+	if(target.get_xeno_hivenumber() != owner.get_xeno_hivenumber())
+		return FALSE
+	return TRUE
+
+/mob/living/proc/psychic_cure()
+	var/amount = 100
+	var/remainder = max(0, amount - getBruteLoss())
+	var/final_remainder = max(0, remainder - getFireLoss())
+	if(ishuman(src))
+		adjustBruteLoss(-amount)
+		adjustFireLoss(-remainder, updating_health = TRUE)
+	return list(final_remainder, 100)
+
 
 // ***************************************
 // *********** Construct Acid Well
@@ -491,6 +543,8 @@
 
 /datum/action/ability/xeno_action/place_acidwell/can_use_action(silent, override_flags, selecting)
 	. = ..()
+	if(!.)
+		return
 	var/turf/T = get_turf(owner)
 	if(!T || !T.is_weedable() || T.density)
 		if(!silent)
@@ -502,7 +556,7 @@
 			to_chat(owner, span_warning("We can only shape on weeds. We must find some resin before we start building!"))
 		return FALSE
 
-	if(!T.check_alien_construction(owner, silent, /obj/structure/xeno/acidwell))
+	if(!T.check_alien_construction(owner, silent, well_type))
 		return FALSE
 
 	if(!T.check_disallow_alien_fortification(owner, silent))
@@ -513,9 +567,9 @@
 	succeed_activate()
 
 	playsound(T, SFX_ALIEN_RESIN_BUILD, 25)
-	new /obj/structure/xeno/acidwell(T, owner)
+	var/obj/structure/xeno/acidwell/new_well = new well_type(T, xeno_owner.get_xeno_hivenumber(), owner)
 
-	to_chat(owner, span_xenonotice("We place an acid well; it can be filled with more acid."))
+	to_chat(owner, span_xenonotice("We place \an [new_well]; it can be filled with more [new_well.content_name]."))
 	GLOB.round_statistics.xeno_acid_wells++
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "xeno_acid_wells")
 	owner.record_traps_created()
@@ -531,6 +585,8 @@
 	name = "Pyschic vortex"
 	action_icon_state = "vortex"
 	action_icon = 'icons/Xeno/actions/shrike.dmi'
+	desc = "Channel a sizable vortex of psychic energy, drawing in nearby enemies."
+
 	ability_cost = 600
 	cooldown_duration = 2 MINUTES
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
@@ -561,11 +617,11 @@
 	if(target) // Keybind use doesn't have a target
 		owner.face_atom(target)
 	ADD_TRAIT(owner, TRAIT_IMMOBILE, VORTEX_ABILITY_TRAIT)
-	if(do_after(owner, VORTEX_INITIAL_CHARGE, IGNORE_HELD_ITEM, owner, BUSY_ICON_DANGER))
+	if(do_after(owner, VORTEX_INITIAL_CHARGE, FALSE, owner, BUSY_ICON_DANGER))
 		vortex_pull()
-	if(do_after(owner, VORTEX_POST_INITIAL_CHARGE, IGNORE_HELD_ITEM, owner, BUSY_ICON_DANGER))
+	if(do_after(owner, VORTEX_POST_INITIAL_CHARGE, FALSE, owner, BUSY_ICON_DANGER))
 		vortex_push()
-	if(do_after(owner, VORTEX_POST_INITIAL_CHARGE, IGNORE_HELD_ITEM, owner, BUSY_ICON_DANGER))
+	if(do_after(owner, VORTEX_POST_INITIAL_CHARGE, FALSE, owner, BUSY_ICON_DANGER))
 		vortex_pull()
 	QDEL_NULL(particle_holder)
 	REMOVE_TRAIT(owner, TRAIT_IMMOBILE, VORTEX_ABILITY_TRAIT)
@@ -579,7 +635,7 @@
 /datum/action/ability/activable/xeno/psychic_vortex/proc/vortex_pull()
 	playsound(owner, 'sound/effects/seedling_chargeup.ogg', 60)
 	for(var/atom/movable/movable_victim in range(VORTEX_RANGE, owner.loc))
-		if(movable_victim.anchored || isxeno(movable_victim) || movable_victim.move_resist > MOVE_FORCE_STRONG)
+		if(movable_victim.anchored || isxeno(movable_victim) || movable_victim.get_move_resist() > MOVE_FORCE_STRONG)
 			continue
 		if(ishuman(movable_victim))
 			var/mob/living/carbon/human/H = movable_victim
@@ -597,7 +653,7 @@
 /// Randomly throws movable atoms in the radius of the vortex abilites range, different each use.
 /datum/action/ability/activable/xeno/psychic_vortex/proc/vortex_push()
 	for(var/atom/movable/movable_victim in range(VORTEX_RANGE, owner.loc))
-		if(movable_victim.anchored || isxeno(movable_victim) || movable_victim.move_resist == INFINITY)
+		if(movable_victim.anchored || isxeno(movable_victim) || movable_victim.get_move_resist() == INFINITY)
 			continue
 		if(ishuman(movable_victim))
 			var/mob/living/carbon/human/human_victim = movable_victim
@@ -607,6 +663,20 @@
 		targetturf = locate(targetturf.x + rand(1, 4), targetturf.y + rand(1, 4), targetturf.z)
 		movable_victim.throw_at(targetturf, 4, 1, owner, FALSE, FALSE)
 
+
+/datum/action/ability/activable/xeno/psychic_vortex/ai_should_start_consider()
+	return TRUE
+
+/datum/action/ability/activable/xeno/psychic_vortex/ai_should_use(atom/target)
+	if(!ismob(target))
+		return FALSE
+	if(get_dist(target, owner) > 6)
+		return FALSE
+	if(!line_of_sight(owner, target))
+		return FALSE
+	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
+		return FALSE
+	return TRUE
 
 #define PSYCHIC_CHOKE_DAMAGE_THRESHOLD 5
 
@@ -729,6 +799,20 @@
 	damage_taken_so_far += damage_amount
 	if(damage_taken_so_far >= damage_threshold)
 		end_choke()
+
+/datum/action/ability/activable/xeno/psychic_choke/ai_should_start_consider()
+	return TRUE
+
+/datum/action/ability/activable/xeno/psychic_choke/ai_should_use(atom/target)
+	if(!ismob(target))
+		return FALSE
+	if(get_dist(target, owner) > 6)
+		return FALSE
+	if(!line_of_sight(owner, target))
+		return FALSE
+	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
+		return FALSE
+	return TRUE
 
 /particles/psychic_choke
 	icon = 'icons/effects/particles/generic_particles.dmi'

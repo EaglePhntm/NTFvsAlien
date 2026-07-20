@@ -10,8 +10,8 @@
 
 	weather_message = span_userdanger("<i>Acidic rain pours down around you! Get inside!</i>")
 	weather_overlay = "acid_rain"
-	weather_duration_lower = 600
-	weather_duration_upper = 1500
+	weather_duration_lower = 300
+	weather_duration_upper = 900
 
 	end_duration = 100
 	end_message = span_danger("The downpour gradually slows to a light shower. It should be safe outside now.")
@@ -47,12 +47,13 @@
 	. = ..()
 	sound_active_acidrain.stop()
 
-/datum/weather/acid_rain/weather_act(mob/living/L)
+/datum/weather/acid_rain/weather_act(mob/living/carbon/human/L)
 	if(L.stat == DEAD)
 		return
-	if(prob(L.modify_by_armor(100, ACID)))
-		L.adjustFireLoss(7)
-		to_chat(L, span_danger("You feel the acid rain melting you away!"))
+	if(!isxeno(L))
+		if(prob(L.modify_by_armor(100, ACID)))
+			L.adjustFireLoss(7)
+			to_chat(L, span_danger("You feel the acid rain melting you away!"))
 	L.wash()
 	if(L.fire_stacks > -20)
 		L.adjust_fire_stacks(-1)

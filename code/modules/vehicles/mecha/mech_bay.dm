@@ -8,14 +8,15 @@
 	///Weakref to currently recharging mech on our recharging_turf
 	var/datum/weakref/recharging_mech_ref
 	///Ref to charge console for seeing charge for this port, cyclical reference
-	var/obj/machinery/computer/mech_bay_power_console/recharge_console
+	var/obj/machinery/computer/mech_bay_power_console/recharge_console // NTF Edit: removes need for console
 	///Power unit per second to charge by
-	var/recharge_power = 25
+	var/recharge_power = 100
 	///turf that will be checked when a mech wants to charge. directly one turf in the direction it is facing
 	var/turf/recharging_turf
 
 /obj/machinery/mech_bay_recharge_port/Initialize(mapload)
 	. = ..()
+	start_processing() // NTF Edit: removes need for console + adds processing
 	recharging_turf = get_step(loc, dir)
 
 /obj/machinery/mech_bay_recharge_port/Destroy()
@@ -40,25 +41,25 @@
 		. += span_notice("The status display reads: Recharge power <b>[siunit(recharge_power, "W", 1)]</b>.")
 
 /obj/machinery/mech_bay_recharge_port/process(delta_time)
-	if(machine_stat & NOPOWER || !recharge_console)
+	if(machine_stat & NOPOWER)// || !recharge_console) // NTF Edit: removes need for console
 		return
 	var/obj/vehicle/sealed/mecha/recharging_mech = recharging_mech_ref?.resolve()
 	if(!recharging_mech)
 		recharging_mech = locate(/obj/vehicle/sealed/mecha) in recharging_turf
 		if(recharging_mech)
 			recharging_mech_ref = WEAKREF(recharging_mech)
-			recharge_console.update_icon()
+//			recharge_console.update_icon() // NTF Edit: removes need for console
 	if(!recharging_mech?.cell)
 		return
 	if(recharging_mech.cell.charge < recharging_mech.cell.maxcharge)
 		var/delta = min(recharge_power * delta_time, recharging_mech.cell.maxcharge - recharging_mech.cell.charge)
 		recharging_mech.give_power(delta)
 		use_power(delta + active_power_usage)
-	else
-		recharge_console.update_icon()
+//	else
+//		recharge_console.update_icon() // NTF Edit: removes need for console
 	if(recharging_mech.loc != recharging_turf)
 		recharging_mech_ref = null
-		recharge_console.update_icon()
+//		recharge_console.update_icon() // NTF Edit: removes need for console
 
 /obj/machinery/mech_bay_recharge_port/attackby(obj/item/I, mob/user, params)
 	if(default_change_direction_wrench(user, I))

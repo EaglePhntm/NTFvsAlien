@@ -11,6 +11,7 @@
 	var/authenticated = 0
 	var/mode = 0
 	var/printing = null
+	faction = FACTION_TERRAGOV
 
 
 /obj/machinery/computer/marine_card/attackby(obj/item/I, mob/user, params)
@@ -55,7 +56,7 @@
 		dat += "<h4>Crew Manifest</h4>"
 		dat += "Entries cannot be modified from this terminal.<br><br>"
 		if(GLOB.datacore)
-			dat += GLOB.datacore.get_manifest(0) // make it monochrome
+			dat += GLOB.datacore.get_manifest(TRUE, FALSE, faction) // make it monochrome
 		dat += "<br>"
 		dat += "<a href='byond://?src=[text_ref(src)];choice=print'>Print</a><br>"
 		dat += "<br>"
@@ -227,18 +228,18 @@
 		if ("scan")
 			if (scan)
 				if(ishuman(usr))
-					modify.forceMove(drop_location())
+					modify?.forceMove(drop_location())
 					if(!usr.get_active_held_item())
 						usr.put_in_hands(scan)
 					scan = null
 				else
-					modify.forceMove(drop_location())
+					modify?.forceMove(drop_location())
 					scan = null
 			else
 				var/obj/item/I = usr.get_active_held_item()
 				if (istype(I, /obj/item/card/id))
 					usr.drop_held_item()
-					modify.forceMove(src)
+					modify?.forceMove(src)
 					scan = I
 			authenticated = 0
 		if ("auth")
@@ -319,7 +320,7 @@
 				var/t1 = "<h4>Crew Manifest</h4>"
 				t1 += "<br>"
 				if(GLOB.datacore)
-					t1 += GLOB.datacore.get_manifest(0) // make it monochrome
+					t1 += GLOB.datacore.get_manifest(TRUE, FALSE, faction) // make it monochrome
 
 				P.info = t1
 				P.name = "paper- 'Crew Manifest'"
@@ -442,7 +443,7 @@
 						to_chat(usr, "Old squad access removed.")
 
 				if(selected) //Now we have a proper squad. Change their ID to it.
-					modify.assignment = "[selected.name] [modify.rank]" //Change the assignment - "Alpha Squad Marine"
+					modify.assignment = "[selected.name] [modify.rank]" //Change the assignment - "Alpha Squad Operative"
 					modify.access += selected.access //Add their new squad access (if anything) to their ID.
 					to_chat(usr, "[selected.name] Squad added to card.")
 				else

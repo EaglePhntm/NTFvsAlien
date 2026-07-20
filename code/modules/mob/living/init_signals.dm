@@ -23,6 +23,15 @@
 	SIGNAL_HANDLER
 	if(stat < UNCONSCIOUS)
 		set_stat(UNCONSCIOUS)
+	drop_all_held_items()
+	var/health_from_crit = health - get_crit_threshold()
+	var/healthcritmsg = "."
+	if(health_from_crit <= 0)
+		healthcritmsg = ", not yet registered as in healthcrit."
+	if(in_healthcrit_since)
+		var/time_in_healthcrit = world.time - in_healthcrit_since
+		healthcritmsg = ", [(time_in_healthcrit < 1 ? "0 seconds" : DisplayTimeText(time_in_healthcrit))] into healthcrit."
+	log_message("was knocked out, [health_from_crit] health above crit[healthcritmsg]", LOG_ATTACK, color="orange")
 	last_unconscious = world.time
 
 ///Called when TRAIT_KNOCKEDOUT is removed from the mob.
@@ -48,6 +57,7 @@
 /mob/living/proc/on_fakedeath_trait_gain(datum/source)
 	SIGNAL_HANDLER
 	ADD_TRAIT(src, TRAIT_FLOORED, TRAIT_FAKEDEATH)
+	drop_all_held_items()
 
 ///Called when TRAIT_FAKEDEATH is removed from the mob.
 /mob/living/proc/on_fakedeath_trait_loss(datum/source)
@@ -62,7 +72,7 @@
 		set_lying_angle(buckled.buckle_lying) //Might not actually be laying down, like with chairs, but the rest of the logic applies.
 	else if(!lying_angle)
 		set_lying_angle(pick(90, 270))
-	set_canmove(FALSE)
+	add_movespeed_modifier("resting_mod", TRUE, 10, NONE, TRUE, 10)
 	last_rested = world.time
 
 ///Called when TRAIT_FLOORED is removed from the mob.
@@ -70,8 +80,7 @@
 	SIGNAL_HANDLER
 	if(lying_angle)
 		set_lying_angle(0)
-	if(!HAS_TRAIT(src, TRAIT_IMMOBILE))
-		set_canmove(TRUE)
+	remove_movespeed_modifier("resting_mod")
 	record_time_lying_down()
 
 
@@ -83,5 +92,4 @@
 ///Called when TRAIT_LEGLESS is removed from the mob.
 /mob/living/proc/on_immobile_trait_loss(datum/source)
 	SIGNAL_HANDLER
-	if(!HAS_TRAIT(src, TRAIT_FLOORED))
-		set_canmove(TRUE)
+	set_canmove(TRUE)

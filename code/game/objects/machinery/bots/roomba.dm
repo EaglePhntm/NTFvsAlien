@@ -1,14 +1,14 @@
 /// A cheap little roomba that runs around and keeps prep clean to decrease maptick and prep always being a fucking mess
 /obj/machinery/bot/roomba
-	name = "Nanotrasen roomba"
-	desc = "A robot vacuum cleaner designed by Nanotrasen. The roomba is designed to keep areas clean from dirty marines."
+	name = "Ninetails roomba"
+	desc = "A robot vacuum cleaner designed by Ninetails. The roomba is designed to keep areas clean from dirty marines."
 	icon = 'icons/obj/aibots.dmi'
 	icon_state = "roomba"
 	voice_filter = "alimiter=0.9,acompressor=threshold=0.2:ratio=20:attack=10:release=50:makeup=2,highpass=f=1000"
 	///The mine we have attached to this roomba
 	var/obj/item/explosive/mine/claymore //Claymore roomb
 	///Admins can let it have a claymore
-	var/allow_claymore = FALSE
+	var/allow_claymore = TRUE
 	sentences = list(
 		"Clean up your bloody mess you ANIMAL!",
 		"Who teached you to leave your trash behind you? Your mom should be ashamed!",
@@ -77,7 +77,7 @@
 			if(item_to_restock.attempt_restock(sucker, null, FALSE))
 				return TRUE
 	//Cryo our item if our restock attempt failed
-	sucker.store_in_cryo()
+	sucker.store_in_cryo(faction)
 	return TRUE
 
 /obj/machinery/bot/roomba/attack_hand(mob/living/user)
@@ -100,7 +100,7 @@
 		return
 	visible_message(span_warning("[user] begins to try to attach [I] to [src]..."))
 	stop_processing()
-	if(!do_after(user, 1 SECONDS, NONE, src, BUSY_ICON_HOSTILE))
+	if(!do_after(user, 1 SECONDS, TRUE, src, BUSY_ICON_HOSTILE))
 		start_processing()
 		return
 	start_processing()
@@ -139,7 +139,7 @@
 	for(var/obj/item/sucker in loc)
 		qdel(sucker)
 		counter++
-	for(var/mob/sucked in loc)
+	for(var/mob/living/sucked in loc)
 		if(sucked.stat != CONSCIOUS)
 			qdel(sucked)
 			counter++

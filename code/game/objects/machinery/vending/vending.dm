@@ -69,6 +69,7 @@
 	layer = BELOW_OBJ_LAYER
 
 	use_power = IDLE_POWER_USE
+	use_static_power = TRUE
 	idle_power_usage = 10
 	active_power_usage = 100
 	obj_flags = CAN_BE_HIT
@@ -150,7 +151,9 @@
 	///Last time we spoke our slogan
 	var/last_slogan = 0
 	///The interval between slogans.
-	var/slogan_delay = 1 MINUTES
+	var/slogan_delay = 15 MINUTES
+	///Timer id for the next slogan pitch.
+	var/slogan_timer
 	///Icon state when successfuly vending
 	var/icon_vend
 	///Icon state when failing to vend, be it by no access or money.
@@ -207,7 +210,7 @@
 	premium = null
 	products = null
 	contraband = null
-	start_processing()
+	schedule_slogan()
 	update_icon()
 	return INITIALIZE_HINT_LATELOAD
 
@@ -217,6 +220,9 @@
 	power_change()
 
 /obj/machinery/vending/Destroy()
+	if(slogan_timer)
+		deltimer(slogan_timer)
+		slogan_timer = null
 	QDEL_NULL(wires)
 	return ..()
 
@@ -302,8 +308,10 @@
 	for(var/season in seasonal_items)
 		products[seasonal_items[season]] += SSpersistence.season_items[season]
 
-/obj/machinery/vending/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/machinery/vending/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(xeno_attacker.status_flags & INCORPOREAL)
+		return FALSE
+	if(xeno_attacker.handcuffed)
 		return FALSE
 
 	if(xeno_attacker.a_intent == INTENT_HARM)
@@ -399,7 +407,7 @@
 		if(!wrenchable)
 			return
 
-		if(!do_after(user, 20, NONE, src, BUSY_ICON_BUILD))
+		if(!do_after(user, 20, TRUE, src, BUSY_ICON_BUILD))
 			return
 
 		playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
@@ -572,6 +580,10 @@
 	switch(faction)
 		if(FACTION_SOM)
 			ui_theme = "som"
+		if(FACTION_VSD)
+			ui_theme = "syndicate"
+		if(FACTION_CLF)
+			ui_theme = "xeno"
 		else
 			ui_theme = "main"
 	.["ui_theme"] = ui_theme
@@ -675,7 +687,7 @@
 	if(machine_stat & (BROKEN|NOPOWER))
 		return
 
-	if(user.stat || user.restrained() || user.lying_angle)
+	if(user.stat || user.restrained())
 		return
 
 	if(get_dist(user, src) > 1 || get_dist(src, A) > 1)
@@ -868,14 +880,44 @@
 	if(seconds_electrified > 0)
 		seconds_electrified--
 
-	//Pitch to the people!  Really sell it!
-	if(((last_slogan + slogan_delay) <= world.time) && (length(slogan_list) > 0) && (!shut_up) && prob(5))
-		var/slogan = pick(slogan_list)
-		speak(slogan)
-		last_slogan = world.time
-
 	if(shoot_inventory && prob(2) && !hacking_safety)
 		throw_item()
+
+	update_processing()
+
+/obj/machinery/vending/proc/update_processing()
+	if((seconds_electrified > 0) || (shoot_inventory && !hacking_safety))
+		start_processing()
+		return
+	stop_processing()
+
+/obj/machinery/vending/proc/schedule_slogan(wait_time)
+	if(slogan_timer)
+		deltimer(slogan_timer)
+		slogan_timer = null
+
+	if(!length(slogan_list) || shut_up)
+		return
+
+	if(isnull(wait_time))
+		wait_time = max(1, last_slogan + slogan_delay - world.time)
+
+	slogan_timer = addtimer(CALLBACK(src, PROC_REF(handle_slogan)), wait_time, TIMER_STOPPABLE)
+
+/obj/machinery/vending/proc/handle_slogan()
+	slogan_timer = null
+
+	if(QDELETED(src))
+		return
+
+	if(machine_stat & (BROKEN|NOPOWER) || !active || shut_up || !length(slogan_list))
+		schedule_slogan(1 MINUTES)
+		return
+
+	//Pitch to the people, but without keeping every vendor in SSmachines forever.
+	speak(pick(slogan_list))
+	last_slogan = world.time
+	schedule_slogan(slogan_delay + rand(0, slogan_delay))
 
 /obj/machinery/vending/proc/speak(message)
 	if(machine_stat & NOPOWER)

@@ -17,31 +17,31 @@
 		/mob/living/carbon/xenomorph/proc/hijack,
 	)
 
-/mob/living/carbon/xenomorph/king/Initialize(mapload)
+/mob/living/carbon/xenomorph/king/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	spawn_cry()
 
 /mob/living/carbon/xenomorph/king/generate_name()
 	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
-	var/prefix = (hive.prefix || xeno_caste.upgrade_name) ? "[hive.prefix][xeno_caste.upgrade_name] " : ""
+	var/prefix = "[hive.prefix][xeno_caste.upgrade_name ? "[xeno_caste.upgrade_name] " : ""]"
 	if(!client?.prefs.show_xeno_rank || !client)
-		name = prefix + "King ([nicknumber])"
+		name = "[prefix]King[src == hive.living_xeno_ruler ? " Regnant" :""] ([nicknumber])"
 		real_name = name
 		if(mind)
 			mind.name = name
 		return
 	switch(playtime_mins)
 		if(601 to 1500)
-			name = prefix + "Mature King ([nicknumber])"
+			name = prefix + "Mature King"
 		if(1501 to 4200)
-			name = prefix + "Elder Emperor ([nicknumber])"
+			name = prefix + "Elder Emperor"
 		if(4201 to 10500)
-			name = prefix + "Ancient Emperor ([nicknumber])"
+			name = prefix + "Ancient Emperor"
 		if(10501 to INFINITY)
-			name = prefix + "Prime Emperor ([nicknumber])"
+			name = prefix + "Prime Emperor"
 		else
-			name = prefix + "Young King ([nicknumber])"
-
+			name = prefix + "Young King"
+	name ="[name][src == hive.living_xeno_ruler ? " Regnant" :""] ([nicknumber])"
 	real_name = name
 	if(mind)
 		mind.name = name
@@ -67,13 +67,7 @@
 /mob/living/carbon/xenomorph/king/conqueror/generate_name()
 	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
 	var/rank_name
-	var/prefix = (hive.prefix || xeno_caste.upgrade_name) ? "[hive.prefix][xeno_caste.upgrade_name] " : ""
-	if(!client?.prefs.show_xeno_rank || !client)
-		name = prefix + "[xeno_caste.display_name] ([nicknumber])"
-		real_name = name
-		if(mind)
-			mind.name = name
-		return
+	var/prefix = "[hive.prefix][xeno_caste.upgrade_name ? "[xeno_caste.upgrade_name] " : ""]"
 	switch(playtime_mins)
 		if(601 to 1500) //10 hours
 			rank_name = "Mature"
@@ -85,7 +79,9 @@
 			rank_name = "Exalted"
 		else
 			rank_name = "Young"
-	name = prefix + "[rank_name ? "[rank_name] " : ""][xeno_caste.display_name] ([nicknumber])"
+	if(!client?.prefs.show_xeno_rank || !client)
+		rank_name = ""
+	name = prefix + "[rank_name ? "[rank_name] " : ""][xeno_caste.display_name][src == hive.living_xeno_ruler ? " Regnant" :""] ([nicknumber])"
 	real_name = name
 	if(mind)
 		mind.name = name

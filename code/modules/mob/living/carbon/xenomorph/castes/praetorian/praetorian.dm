@@ -2,7 +2,7 @@
 	caste_base_type = /datum/xeno_caste/praetorian
 	name = "Praetorian"
 	desc = "A huge, looming beast of an alien."
-	icon = 'icons/Xeno/castes/praetorian.dmi'
+	icon = 'ntf_modular/icons/Xeno/castes/praetorian.dmi'
 	icon_state = "Praetorian Walking"
 	health = 210
 	maxHealth = 210
@@ -17,7 +17,7 @@
 /mob/living/carbon/xenomorph/praetorian/dancer
 	caste_base_type = /datum/xeno_caste/praetorian/dancer
 
-/mob/living/carbon/xenomorph/praetorian/dancer/Initialize(mapload)
+/mob/living/carbon/xenomorph/praetorian/dancer/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	. = ..()
 	RegisterSignal(src, COMSIG_XENOMORPH_POSTATTACK_LIVING, PROC_REF(on_postattack))
 

@@ -46,6 +46,8 @@ SUBSYSTEM_DEF(persistence)
 		/datum/season_datum/weapons/guns/copsandrobbers_seasonal,
 		/datum/season_datum/weapons/guns/shotgun_seasonal,
 		/datum/season_datum/weapons/guns/lever_seasonal,
+		/datum/season_datum/weapons/guns/arms_race_seasonal_one,
+		/datum/season_datum/weapons/guns/arms_race_seasonal_two,
 		),
 		SEASONAL_HEAVY = list(
 		/datum/season_datum/weapons/guns/heavy_defualt,
@@ -84,12 +86,18 @@ SUBSYSTEM_DEF(persistence)
 		last_modes_round_date = list()
 		return
 	last_modes_round_date = json_decode(file2text(json_file))
+	for(var/key in last_modes_round_date)
+		if(istext(last_modes_round_date[key]))
+			last_modes_round_date[key] = text2num(last_modes_round_date[key])
 
 ///Save the date of the last gamemode's round
 /datum/controller/subsystem/persistence/proc/save_last_game_mode_round_time()
+	var/list/last_modes_round_date_text = list()
+	for(var/key in last_modes_round_date)
+		last_modes_round_date_text[key] = num2text(last_modes_round_date[key], 20)
 	var/json_file = file("data/last_modes_round_date.json")
 	fdel(json_file)
-	WRITE_FILE(json_file, json_encode(last_modes_round_date))
+	WRITE_FILE(json_file, json_encode(last_modes_round_date_text))
 
 ///Loads the list of custom outfits names
 /datum/controller/subsystem/persistence/proc/load_custom_loadouts_list()
@@ -247,10 +255,12 @@ SUBSYSTEM_DEF(persistence)
 	name = "Cold War"
 	description = "Hot guns from the Cold War"
 	item_list = list(
-		/obj/item/weapon/gun/rifle/mpi_km= -1,
+		/obj/item/weapon/gun/rifle/mpi_km = -1,
+		/obj/item/weapon/gun/rifle/som_carbine = -1,
 		/obj/item/ammo_magazine/rifle/mpi_km/plum = -1,
 		/obj/item/ammo_magazine/packet/pwarsaw = -1,
 		/obj/item/weapon/gun/rifle/m16 = -1,
+		/obj/item/weapon/gun/rifle/khm4 = -1,
 		/obj/item/ammo_magazine/rifle/m16 = -1,
 		/obj/item/ammo_magazine/packet/pnato = -1,
 		)
@@ -268,11 +278,13 @@ SUBSYSTEM_DEF(persistence)
 		/obj/item/ammo_magazine/revolver/judge/buckshot = -1,
 		/obj/item/weapon/gun/revolver/upp = -1,
 		/obj/item/ammo_magazine/revolver/upp = -1,
+		/obj/item/weapon/gun/revolver/cmb = -1,
+		/obj/item/ammo_magazine/revolver/cmb = -1,
 		)
 
 /datum/season_datum/weapons/guns/copsandrobbers_seasonal
 	name = "SWAT and Terrorists"
-	description = "Four classic SMGs, and no one's favorite burst revolver."
+	description = "Five classic SMGs."
 	item_list = list(
 		/obj/item/weapon/gun/smg/uzi = -1,
 		/obj/item/ammo_magazine/smg/uzi = -1,
@@ -283,8 +295,8 @@ SUBSYSTEM_DEF(persistence)
 		/obj/item/ammo_magazine/smg/mp7 = -1,
 		/obj/item/weapon/gun/smg/skorpion = -1,
 		/obj/item/ammo_magazine/smg/skorpion = -1,
-		/obj/item/weapon/gun/revolver/cmb = -1,
-		/obj/item/ammo_magazine/revolver/cmb = -1,
+		/obj/item/weapon/gun/smg/minib = -1,
+		/obj/item/ammo_magazine/smg/minib = -1,
 		)
 
 /datum/season_datum/weapons/guns/shotgun_seasonal
@@ -307,11 +319,49 @@ SUBSYSTEM_DEF(persistence)
 		/obj/item/ammo_magazine/shotgun/mbx900/tracking = -1,
 		)
 
+/datum/season_datum/weapons/guns/arms_race_seasonal_one
+	name = "Arms Race Western"
+	description = "Exotic Firearms of western origin ready for an arms race."
+	item_list = list(
+		/obj/item/weapon/gun/rifle/vsd_rifle/export = 1,
+		/obj/item/ammo_magazine/rifle/vsd_sbr = -1,
+		/obj/item/weapon/gun/rifle/icc_assaultcarbine/export = 1,
+		/obj/item/weapon/gun/rifle/icc_assaultcarbine/exportautorifle = 1,
+		/obj/item/ammo_magazine/rifle/icc_assaultcarbine/export = -1,
+		/obj/item/ammo_magazine/rifle/icc_assaultcarbinelbar = -1,
+		/obj/item/weapon/gun/rifle/mpar/mil = 1,
+		/obj/item/weapon/gun/rifle/mpar/export = 1,
+		/obj/item/ammo_magazine/rifle/mpar = -1,
+		/obj/item/ammo_magazine/rifle/mpar/smart = -1,
+		/obj/item/weapon/gun/pistol/g22 = -1,
+		/obj/item/ammo_magazine/pistol/g22 = -1,
+		/obj/item/weapon/gun/pistol/highpower = -1,
+		/obj/item/ammo_magazine/pistol/highpower = -1,
+		)
+
+/datum/season_datum/weapons/guns/arms_race_seasonal_two
+	name = "Arms Race Eastern"
+	description = "Exotic Firearms of eastern origin ready for the arms race."
+	item_list = list(
+		/obj/item/weapon/gun/rifle/valerian = 1,
+		/obj/item/weapon/gun/rifle/valerian/vantage = 1,
+		/obj/item/ammo_magazine/rifle/valerian = -1,
+		/obj/item/weapon/gun/rifle/lmg_d = 1,
+		/obj/item/weapon/gun/rifle/lmg_d/modern = 1,
+		/obj/item/ammo_magazine/rifle/lmg_d = -1,
+		/obj/item/weapon/gun/rifle/sniper/svd = 1,
+		/obj/item/ammo_magazine/sniper/svd = -1,
+		/obj/item/weapon/gun/pistol/c99 = -1,
+		/obj/item/ammo_magazine/pistol/c99 = -1,
+		/obj/item/weapon/gun/pistol/apsmart_pistol = -1,
+		/obj/item/ammo_magazine/pistol/standard_pistol/apsmart_pistol = -1,
+		)
+
 // Heavy Weapons Seasonals //
 
 /datum/season_datum/weapons/guns/heavy_defualt
 	name = "Default Heavy Weapons"
-	description = "The generic set of roundstart TGMC heavy weapons, TAT and RR."
+	description = "The generic set of roundstart NTC heavy weapons, TAT and RR."
 	item_list = list(
 		/obj/structure/largecrate/supply/weapons/standard_atgun = 1,
 		/obj/item/storage/holster/backholster/rpg/full = 2,
@@ -380,13 +430,9 @@ SUBSYSTEM_DEF(persistence)
 		/obj/item/unmanned_vehicle_remote = 6,
 		/obj/vehicle/unmanned = 1,
 		/obj/vehicle/unmanned/medium = 1,
-		/obj/vehicle/unmanned/heavy = 1,
+		/obj/vehicle/unmanned/heavy = 2,
 		/obj/item/deployable_vehicle/tiny = 3,
-		/obj/item/uav_turret = 1,
-		/obj/item/ammo_magazine/box11x35mm = 3,
-		/obj/item/uav_turret/heavy = 1,
-		/obj/item/ammo_magazine/box12x40mm = 3,
-		/obj/item/uav_turret/claw = 1,
+		/obj/item/uav_turret/claw = 4,
 		/obj/structure/closet/crate/mortar_ammo/mlrs_kit = 2,
 		/obj/item/storage/box/mlrs_rockets/gas = 4,
 	)

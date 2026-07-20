@@ -87,7 +87,7 @@
 	inventory_flags = COVEREYES|COVERMOUTH
 	inv_hide_flags = HIDEFACE|HIDEMASK|HIDEEARS|HIDEALLHAIR
 	armor_protection_flags = HEAD|FACE|EYES
-	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 60, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 150, FIRE = 0, ACID = 0)
 
 
 /obj/item/clothing/suit/radiation
@@ -101,5 +101,5 @@
 	armor_protection_flags = CHEST|GROIN|LEGS|ARMS|HANDS|FEET
 	allowed = list(/obj/item/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/clothing/head/radiation,/obj/item/clothing/mask/gas)
 	slowdown = 1.5
-	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 60, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 150, FIRE = 0, ACID = 0)
 	inv_hide_flags = HIDEJUMPSUIT

@@ -1,6 +1,6 @@
 #define DEBUG_STAGGER_SLOWDOWN 0
 
-GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/facehugger, /obj/alien/egg, /obj/structure/mineral_door, /obj/alien/resin, /obj/structure/bed/nest))) //For sticky/acid spit
+GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/facehugger, /obj/alien/egg, /obj/structure/mineral_door, /obj/alien/resin, /obj/structure/bed/nest, /obj/structure/bed/nest/wall, /turf/closed/wall/resin/membrane))) //For sticky/acid spit
 
 /**
  * # The base ammo datum
@@ -13,6 +13,8 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	var/icon_state = "bullet"
 	///used in icons/obj/items/ammo for use in generating handful sprites
 	var/handful_icon_state = "bullet"
+	///used in icons/obj/items/ammo for use in generating handful sprites
+	var/handful_icon = 'icons/obj/items/ammo/handful.dmi'
 	///how much of this ammo you can carry in a handful
 	var/handful_amount = 8
 	///Bullet type on the Ammo HUD
@@ -85,6 +87,8 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	var/projectile_greyscale_colors = null
 	///Base fire stacks added on hit if the projectile has AMMO_INCENDIARY
 	var/incendiary_strength = 10
+	///Plasma drained from xenos on hit
+	var/plasma_drain = 0
 
 /datum/ammo/proc/do_at_max_range(turf/target_turf, atom/movable/projectile/proj)
 	return
@@ -349,4 +353,3 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	shrapnel_chance = 10
 	bullet_color = COLOR_VERY_SOFT_YELLOW
 	barricade_clear_distance = 2
-

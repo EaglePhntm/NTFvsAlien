@@ -1,4 +1,222 @@
+2026-06-01:
+  SpooksAnno:
+  - server: Reduced idle machinery processing overhead in SSmachines.
 2026-06-05:
   Lumipharon:
   - rscadd: Added the sledgehammer to req for 50 points
   - bugfix: fixed some platform layering issues
+2026-06-06:
+  Valen417:
+  - bugfix: KZ Striped Shirt
+  - bugfix: KZ Alternative Uniform
+  - rscadd: SOM Helmet options
+  - rscadd: SOM Striped Uniform option.
+2026-06-07:
+  SpooksAnno:
+  - rscadd: Alien ambrosia can now be used by xenos to heal living humans and xenos.
+  - rscadd: Alien ambrosia can now treat infections, internal bleeding, and delayed
+      bone mending on humans.
+  - rscadd: Alien ambrosia can revive dead humans, with monkeys limited to one ambrosia
+      revival.
+  - rscadd: Alien ambrosia now leaves visible alien residue after use and can be detected
+      by medical scanners.
+  - rscadd: Added ambrosia dependence effects for repeated human use.
+  - qol: Alien ambrosia now auto-stacks
+  - qol: Xenos can now toggle hive target participation through the hive menu.
+  - balance: Alien ambrosia stacks are capped at 125 and living healing has a 10 second
+      per-target cooldown.
+2026-06-09:
+  SpooksAnno:
+  - bugfix: 'Makes it harder for the character creator to create invalid or legacy
+      saved appearance data: Character appearance rebuilds now avoid unsafe startup/shutdown
+      timing and will try to log more useful failure context. Hopefully this will
+      solve our issue without needing to butcher things up'
+2026-06-13:
+  CaputCapital:
+  - rscadd: kitchen utensils, kitchen knives, rolling pin, ingredients, condiments
+      and mystery pizza boxes (box with a random pizza type)
+2026-06-15:
+  CaputCapital:
+  - rscadd: Added new underwear to the vendors, croptops, bras, thongs, even stirrups
+      half an inch lower
+  - rscadd: KZ now gets ushankas, headbands, bandanas and hardlight gas masks in their
+      vendors
+  - bugfix: The regular thong had a missing side sprite, added back
+  Colfer1:
+  - qol: the research console now instantly starts researching
+2026-06-16:
+  Colfer1:
+  - rscadd: added a survivor armor vendor for mapping in
+  - qol: civilians now have requisitions access to CM now
+  Lewdissar:
+  - rscadd: Red, Blue and Black Booty Shorts and camo pants as standalone uniforms.
+      Heeled jackboots.
+  SpooksAnno:
+  - bugfix: Fixed nanopaste causing a server-crashing infinite loop when used on organic
+      limbs.
+2026-06-17:
+  Lewdissar:
+  - bugfix: adjusted new pants and shorts to show off boobs, made them available on
+      the SoM vendor.
+  Meghan-Rossi:
+  - balance: Colonist DB shotgun damage multipliers returned to 0.7, reverting the
+      recent buff to 1.2
+  - balance: NTF DB shotgun (SH-34) damage multiplier reduced to 0.9, partially reverting
+      the recent buff from 0.7 to 1.2
+  - balance: Colonist DB shotguns can no longer be fired one-handed, reverting a recent
+      change.
+  - balance: NTF DB shotgun (SH-34) can now be fired one-handed.
+  - balance: Masterkey shotgun damage multiplier reduced to 1, partially reverting
+      the recent buff from 0.85 to 1.2
+  SQLandrusk:
+  - rscadd: Adds woodland camo along with rolled and no-top versions.
+2026-06-18:
+  Colfer1:
+  - bugfix: readds the synthetic selections, including robot synths
+  - rscadd: Allowed standard hats like the NTC Beret to use all modules, like all
+      other hats
+  - rscadd: Adds various dermal armors, and adds them to the style line of all vendors.
+      Enjoy!
+  - bugfix: Allows modular storages to be turned invisible with alt click
+  Lewdissar:
+  - rscadd: Added the ML-101 and 6 gauge ammo to the Req Imports section
+  - balance: Buffed 6 gauge ammunition
+2026-06-19:
+  Colfer1:
+  - rscadd: Adds synth weenies, boobies, and vaganers, bleck!!!!! gross!!!!
+  - balance: dermal armour can now wear armour equalizers.
+  Lefunny:
+  - balance: +5 hard armor to meele, bullet, laser and energy.
+  Lewdissar:
+  - rscadd: Expanded the back of the KZ ship to add a common area.
+  - rscadd: Superheavy Armor Equalizer (YIPPIE)
+  - bugfix: Adds Fingerless Gloves to all clothing vendors, Adds hydrocannon tanks
+      to the KZ vendor (they have the attachment but no tanks)
+  Nokia2Student:
+  - rscadd: KZ Neural Machinery - Bugfixes & Improvements
+2026-06-20:
+  Colfer1:
+  - balance: early synths have late gen synth surgery skill
+  - qol: SOM researchers can now access their own fucking req console for doing research
+      tasks
+  - balance: rub their body and lick their body now heals
+  - balance: You can now process human cum, xeno milk, and xeno cum into research
+      samples with lemoline
+  Lewdissar:
+  - rscadd: KZ Combat Escort, slutty specialist role for the KZ mercenaries.
+  githubuser4141:
+  - rscadd: Adds ss13 mechs (durand, gygax, phazon, ivan, marauders, etc) to the regular
+      gameplay loop by making some mech wreckages repairable with tools and plasteel.
+      Also, adds small mech (exosuit) weapons to the robotics vendors so they don't
+      run out of ammo. Adds overpenetration mechanics to exosuits so the occupant(s)
+      can be hit with high penetration bullets.
+  - imageadd: New ss13 mech sprites
+  - imagedel: Old ss13 mech sprites
+  - rscadd: Adds exosuit gear to req, tidies robovendor, disables DNA locks on small
+      mechs
+2026-06-21:
+  Colfer1:
+  - balance: women can be milked just the same as guys for research purposes
+  - balance: sleeping is MUCH better, and works on alien structures. Cloneloss be
+      gone!!!
+  - balance: Xenos can now indulge in the mimir, and use the sleep verb
+  githubuser4141:
+  - balance: lowered the armors and speeds of a few mechs, small mechs can be moved
+      in maintenance mode now, and will move their equipement into their wreck with
+      100% chance, removes random mech parts appearing from wrecks (it's useless..)
+2026-06-23:
+  CaputCapital:
+  - balance: reworked the CM weapons to where CM can't get a V-21 SMG nor a TX54 mag-fed
+      grenade launcher anymore, FL-240 & MP-IRL now limited to 1, six-cylinder grenade
+      launchers limited at 2, but the faction gets SMG-2, G22, Desert Eagle, infinite
+      sledgehammers and 2 PTRS anti-mech rifles to compensate
+  - rscadd: CM gets the CM3 armor (slightly nerfed freelancer armor) in their armory
+  - rscadd: weapon subvariants in respective categories
+  - rscadd: 'CM Militia Captain to #define'
+  - rscadd: CM iterations of freelance armor in code (CM3, CM12, CMB08) slightly nerfed/reworked
+      armor values trading off
+  - bugfix: fixed the L88 left sprite face as it was facing wrong
+  - bugfix: can't find a way to cap the handfuls of PTRS ammo to only 5 bullets, so
+      I sprited bullet piles up to 8 total instead
+  - balance: PTRS anti-mech rifle actually gets a scope now so it's made viable for
+      long range sieging/defending
+  - bugfix: CC67, L26 and C21 now have proper back sprites
+  Colfer1:
+  - balance: Combat robots no longer bleedout, their healing options have returned
+      to normal, ask someone to repair you or be ready to wait a little bit
+  - bugfix: synth survivors no longer have their radio explode on spawn
+  Nokia2Student:
+  - balance: 6 gauge values lowered across the board
+  - balance: Increased 6 gauge ammo amount in vendors
+  - balance: Removed stun from shotguns and revolvers, putting those guns focus on
+      stagger and slowdown instead
+  - balance: Being staggered now increases your scatter by 10 (previously 5)
+  - balance: Being staggered now decreases your accuracy by 10 (previously 0)
+  - balance: You can't add attachments to ML101 anymore
+2026-06-24:
+  CaputCapital:
+  - bugfix: CM Standard L88 gets an actual assault carbine instead of error
+  - bugfix: L40 PDW medic loadout gets an MRE that they were supposed to have
+  - bugfix: CM Militia Captain tab is in quik vendor now
+  - rscadd: KZ quik-e-quip loadout for Combat Escort
+  - balance: removes NVGs from SL and passes them to Combat Escort
+  - balance: reduce surplus in KZ specialized armament tab of vendor, gives them a
+      single PTRS rifle with a box
+  - rscadd: KZ MINI-B machinepistol for Combat Escort, limited quantity in vendor
+      and for extended mags too
+  - rscadd: requisitions imports update, KZ only weapons (except for MINI-B and ammo
+      for now?) can only be bought by KZ
+  - rscadd: KZ sneaking suit
+  Colfer1:
+  - qol: colony req terminals now show up on the minimap
+  - rscadd: handcrank can now be bought in engineering tab
+2026-06-25:
+  CaputCapital:
+  - bugfix: '**ACTUALLY** fixes the KZ Combat Escort Quick Equip Loadout'
+  Colfer1:
+  - rscadd: changed various combat robot heads and torsos, eliminating many monitor
+      heads
+  Meghan-Rossi:
+  - balance: buffed xenomorph disarms
+2026-06-26:
+  CaputCapital:
+  - rscadd: Missing 30 round mag bonus overlay on L88 (thank you aleph for reporting
+      this)
+  - bugfix: KZSL quik-e-quip loadouts now properly spawn in EOD and Recon inventory
+2026-06-27:
+  Ldip999:
+  - code_imp: Linters hopefully fixed
+  - rscadd: Late joining as humanoid or readying now requires you to either have a
+      character image or at least 100 chars worth of flavour text
+2026-06-28:
+  CaputCapital:
+  - rscadd: adds Valerian rifle and magazines to the game for KZ specific roles, req
+      imports vendor
+  - rscadd: adds new KZ combat escort role with Valerian rifle
+  - balance: replaces the KZ SL's Type 73 Command with the Valerian
+  - balance: reworks the AT32 autocannon to remove minimum range accuracy, windup
+      and fire_delay by 0.5.
+  - balance: reworks AT32 autocannon stats to increase unwielded recoil, unwielded
+      inaccuracy, increases wield delay, slight increase to scatter
+  - balance: KZ Spec no longer has smartgun skill and has decreased unarmed skill
+      in exchange for the much more fitting rifle & heavy_weapons skill
+2026-06-29:
+  Lewdissar:
+  - rscadd: RPO-S Disposable Rocket Flamethrower, a single use rocket that sets shit
+      on fire, only available through REQ for every faction, 150 a piece.
+  githubuser4141:
+  - rscadd: adds new exosuit modules, allows adding/removing passengers to exosuits,
+      adds a exosuit minigun, adds a exosuit painter to broadly change the color of
+      exosuits. fixes bullets not hitting exosuit weapons, adds exosuit jumping (can't
+      go over obstacles)
+  - balance: exosuits don't drop people on death, changes some armor and stat values
+  - bugfix: removes exosuit SMG from big mech vendor, fixes exosuit equipment not
+      being hittable by bullets
+2026-06-30:
+  Meghan-Rossi:
+  - balance: reduced duration of bad weather
+  - balance: Increased pr412 akimbo scatter mod from 8 to 12.
+  githubuser4141:
+  - balance: Adjusted exosuit armor, and increased the damage dealt by aliens to exosuits,
+      and gives most rocket projectiles a 1.5x damage bonus, makes mech NVGs more
+      efficient

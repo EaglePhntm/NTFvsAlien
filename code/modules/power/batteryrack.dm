@@ -38,7 +38,7 @@
 	. = ..()
 	add_parts()
 	RefreshParts()
-	start_processing()
+	start_processing(SSMACHINES_MACHINES_EARLY)
 
 
 //Maybe this should be moved up to obj/machinery
@@ -106,7 +106,7 @@
 			return
 
 		playsound(get_turf(src), 'sound/items/crowbar.ogg', 25, 1)
-		var/obj/machinery/constructable_frame/machine_frame/M = new(loc)
+		var/obj/machinery/constructable_frame/M = new(loc)
 		M.state = 2
 		M.icon_state = "box_1"
 		for(var/obj/O in component_parts)

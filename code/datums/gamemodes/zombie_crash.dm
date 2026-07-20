@@ -1,25 +1,33 @@
 /datum/game_mode/infestation/crash/zombie
 	name = "Zombie Crash"
 	config_tag = "Zombie Crash"
-	round_type_flags = MODE_ALLOW_MARINE_QUICKBUILD|MODE_APC_ALL_ACCESS
-	xeno_abilities_flags = ABILITY_CRASH
+	round_type_flags = MODE_ALLOW_MARINE_QUICKBUILD|MODE_XENO_GRAB_DEAD_ALLOWED|MODE_INFESTATION|MODE_PSY_POINTS|MODE_SILO_RESPAWN|MODE_MUTATIONS_OBTAINABLE|MODE_BUFFED_XENO_ABILITIES
+	xeno_abilities_flags = ABILITY_ALL_GAMEMODE //Non pvp
+	round_type_flags2 = MODE_2_CAMPAIGN_LITE_SUPPORT|MODE_2_SINGLE_USE_NUKE_DISK_GENERATOR|MODE_2_CHILL_RULES|MODE_2_ALLOW_LOADOUTS
 	required_players = 1
 	valid_job_types = list(
 		/datum/job/terragov/squad/standard = -1,
 		/datum/job/terragov/squad/engineer = 3,
 		/datum/job/terragov/squad/corpsman = 1,
 		/datum/job/terragov/squad/smartgunner = 1,
+		/datum/job/terragov/squad/specialist = 1,
 		/datum/job/terragov/squad/leader = 1,
 		/datum/job/terragov/medical/professor = 1,
 		/datum/job/terragov/silicon/synthetic = 1,
 		/datum/job/terragov/command/fieldcommander = 1,
+		/datum/job/xenomorph/green = 3,
 	)
 	job_points_needed_by_job_type = list(
 		/datum/job/terragov/squad/smartgunner = 20,
+		/datum/job/terragov/squad/specialist = 20,
 		/datum/job/terragov/squad/corpsman = 5,
 		/datum/job/terragov/squad/engineer = 5,
+		/datum/job/xenomorph = CRASH_LARVA_POINTS_NEEDED,
 	)
-	blacklist_ground_maps = list(MAP_BIG_RED, MAP_DELTA_STATION, MAP_LV_624, MAP_WHISKEY_OUTPOST, MAP_OSCAR_OUTPOST, MAP_FORT_PHOBOS, MAP_CHIGUSA, MAP_LAVA_OUTPOST, MAP_CORSAT, MAP_KUTJEVO_REFINERY, MAP_BLUESUMMERS)
+	whitelist_ship_maps = null
+	blacklist_ground_maps = list(MAP_COLONY1, MAP_BIG_RED, MAP_DELTA_STATION, MAP_LV_624, MAP_LV_624BASES, MAP_WHISKEY_OUTPOST, MAP_OSCAR_OUTPOST, MAP_FORT_PHOBOS, MAP_CHIGUSA, MAP_LAVA_OUTPOST, MAP_CORSAT, MAP_KUTJEVO_REFINERY, MAP_BLUESUMMERS)
+	time_between_round = 1 HOURS
+	xenorespawn_time = 3 MINUTES
 
 /datum/game_mode/infestation/crash/zombie/can_start(bypass_checks = FALSE)
 	if(!(config_tag in SSmapping.configs[GROUND_MAP].gamemodes) && !bypass_checks)
@@ -49,11 +57,26 @@
 	for(var/i in GLOB.zombie_crash_vendor_landmarks)
 		new /obj/machinery/marine_selector/zombie_crash(get_turf(i))
 
+	new /obj/structure/xeno/silo(get_turf(shuttle))
+
+	for(var/i in GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])
+		if(isxenolarva(i)) // Larva
+			var/mob/living/carbon/xenomorph/larva/X = i
+			X.evolution_stored = X.xeno_caste.evolution_threshold //Immediate roundstart evo for larva.
+		else // Handles Shrike etc
+			var/mob/living/carbon/xenomorph/X = i
+			X.upgrade_stored = X.xeno_caste.upgrade_threshold
+
 	addtimer(CALLBACK(src, PROC_REF(balance_scales)), 1 SECONDS)
 	RegisterSignal(SSdcs, COMSIG_GLOB_ZOMBIE_TUNNEL_DESTROYED, PROC_REF(on_tunnel_destroyed))
+	RegisterSignal(SSdcs, COMSIG_GLOB_DISK_GENERATED, PROC_REF(disk_printed))
+
 
 /datum/game_mode/infestation/crash/zombie/on_nuke_started(datum/source, obj/machinery/nuclearbomb/nuke)
-	return
+	var/datum/hive_status/normal/HS = GLOB.hive_datums[XENO_HIVE_NORMAL]
+	var/area_name = get_area_name(nuke)
+	HS.xeno_message("An overwhelming wave of acknowledgement ripples throughout the hive... A antimatter bomb been activated[area_name ? " in [area_name]":""]!")
+	HS.set_all_xeno_trackers(nuke)
 
 /// When any zombie tunnel is destroyed, check if the round should end & grant vendor points.
 /datum/game_mode/infestation/crash/zombie/proc/on_tunnel_destroyed(datum/source)
@@ -100,8 +123,6 @@
 				continue
 			if(count_flags & COUNT_IGNORE_HUMAN_SSD && !H.client && H.afk_status == MOB_DISCONNECTED)
 				continue
-			if(H.status_flags & XENO_HOST)
-				continue
 			if(isspaceturf(H.loc))
 				continue
 			num_humans++
@@ -114,6 +135,9 @@
 	var/list/living_player_list = count_humans_and_zombies(count_flags = COUNT_IGNORE_HUMAN_SSD)
 	var/num_humans = living_player_list[1]
 	var/num_zombies = living_player_list[2]
+
+	GLOB.maximum_allowed_possessed_zombies = floor(num_humans / ZOMBIE_SENTIENT_TO_HUMAN_RATIO)
+
 	if(num_zombies * 0.125 >= num_humans) // if there's too much zombies, don't spawn even more
 		for(var/obj/effect/ai_node/spawner/zombie/spawner AS in GLOB.zombie_spawners)
 			if(!spawner.threat_warning)
@@ -141,7 +165,7 @@
 		round_finished = MODE_INFESTATION_M_MAJOR
 		return TRUE
 
-	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_HUMAN_SSD)
+	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_HUMAN_SSD| COUNT_GREENOS_TOWARDS_MARINES)
 	var/num_humans = living_player_list[1]
 	if(num_humans && planet_nuked == INFESTATION_NUKE_NONE && marines_evac == CRASH_EVAC_NONE && !force_end)
 		return FALSE
@@ -174,33 +198,66 @@
 
 /datum/game_mode/infestation/crash/zombie/announce()
 	to_chat(world, span_round_header("The current map is - [SSmapping.configs[GROUND_MAP].map_name]!"))
-	priority_announce("Scheduled for landing in T-10 Minutes. Prepare for landing. Phrenetic reports about an unidentified disease rapidly spreading throughout the site were received before it went silent. Your mission is to contain and destroy the source of the contagion by any means necessary, including use of the on-site nuclear device. Bio-warfare protocols active. Detonation Protocol Active, planet disposable. Marines disposable.",
+	priority_announce("Scheduled for landing in T-10 Minutes. Prepare for landing. Phrenetic reports about a zombie outbreak rapidly spreading throughout the site were received before it went silent. Your mission is to contain and destroy the source of the contagion by any means necessary, including use of the on-site antimatter device. Bio-warfare protocols active. Detonation Protocol Active.<br><br> Additionally, Xenomorphic alliance was formed and are shipped with your shuttle pre-iff'd to the security systems. But be prepared to eliminate them aswell if they turn uncooperative.",
 	title = "Mission classification: TOP SECRET",
 	type = ANNOUNCEMENT_PRIORITY,
 	color_override = "red")
+	var/sound/sound = sound(get_sfx(SFX_QUEEN), channel = CHANNEL_ANNOUNCEMENTS, volume = 50)
+	for(var/mob/hearer in GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])
+		SEND_SOUND(hearer, sound)
+		to_chat(hearer, assemble_alert(
+			title = "Queen Mother Report",
+			subtitle = "The Queen Mother reaches into your mind...",
+
+			message = "To my children and their Queen,<br> The situation regarding this location has became dire and we can not contain the diseased tall outbreak. \
+			As you know, you departed with the talls from your remote hive not long ago, in agreement to cleanse this disease from our planet... In approximately ten minutes the bird will land. Cooperate with the metal hive and eliminate the common enemy...",
+
+			color_override = "purple"
+		))
 	playsound(shuttle, 'sound/machines/warning-buzzer.ogg', 75, 0, 30)
+	for(var/mob/living/person in GLOB.alive_living_list)
+		if(!person.client)
+			continue
+		SEND_SOUND(person, pick('ntf_modular/sound/music/war_mode/adminmusic/zombies/Damned.ogg', 'ntf_modular/sound/music/war_mode/adminmusic/zombies/Lovesong_for_a_Deadman.ogg'))
 	balance_scales()
+
+/datum/game_mode/infestation/crash/zombie/crash_shuttle(obj/docking_port/stationary/target)
+	. = ..()
+	for(var/mob/living/person in GLOB.alive_living_list)
+		if(!person.client)
+			continue
+		SEND_SOUND(person, 'ntf_modular/sound/music/war_mode/adminmusic/zombies/cod_zombies_round.ogg')
 
 /datum/game_mode/infestation/crash/zombie/end_round_fluff()
 	. = ..()
-	if(round_finished == MODE_INFESTATION_M_MAJOR  || round_finished == MODE_INFESTATION_M_MINOR || round_finished == MODE_INFESTATION_DRAW_DEATH)
-		return
+	var/sound/endround_music
+	switch(round_finished)
+		if(MODE_ZOMBIE_Z_MAJOR)
+			endround_music = sound('ntf_modular/sound/music/war_mode/adminmusic/zombies/nacht.ogg')
+		if(MODE_ZOMBIE_Z_MINOR)
+			endround_music = sound('ntf_modular/sound/music/war_mode/adminmusic/zombies/tranzit.ogg')
+		if(MODE_INFESTATION_M_MAJOR)
+			endround_music = sound('ntf_modular/sound/music/war_mode/adminmusic/zombies/buried.ogg')
+		if(MODE_INFESTATION_M_MINOR)
+			endround_music = sound('ntf_modular/sound/music/war_mode/adminmusic/zombies/der_riese.ogg')
+		if(MODE_GENERIC_DRAW_NUKE)
+			endround_music = sound('ntf_modular/sound/music/war_mode/adminmusic/zombies/nacht.ogg')
 
-	var/sound/human_track = sound(pick('sound/theme/zombies_loss.ogg', 'sound/theme/sad_loss2.ogg'))
-	var/sound/zombie_track = sound(pick('sound/theme/neutral_melancholy1.ogg', 'sound/theme/neutral_melancholy2.ogg'))
-	var/sound/ghost_track = zombie_track
-
-	zombie_track.channel = CHANNEL_CINEMATIC
-	human_track.channel = CHANNEL_CINEMATIC
-	ghost_track.channel = CHANNEL_CINEMATIC
+	endround_music.channel = CHANNEL_CINEMATIC
 
 	for(var/mob/hearer AS in GLOB.player_list)
 		if(hearer.client?.prefs?.toggles_sound & SOUND_NOENDOFROUND)
 			continue
-		switch(hearer.faction)
-			if(FACTION_ZOMBIE)
-				SEND_SOUND(hearer, zombie_track)
-			if(FACTION_TERRAGOV)
-				SEND_SOUND(hearer, human_track)
-			else
-				SEND_SOUND(hearer, ghost_track)
+		SEND_SOUND(hearer, endround_music)
+
+/datum/game_mode/infestation/crash/zombie/proc/disk_printed()
+	SIGNAL_HANDLER
+	for(var/mob/hearer AS in GLOB.player_list)
+		if(hearer.client?.prefs?.toggles_sound & SOUND_NOENDOFROUND)
+			continue
+		SEND_SOUND(hearer, 'ntf_modular/sound/music/war_mode/adminmusic/zombies/round_switch.ogg')
+
+/mob/living/carbon/xenomorph/New()
+	. = ..()
+	if(iszombiecrashgamemode(SSticker.mode))
+		AddComponent(/datum/component/xeno_iff, TGMC_LOYALIST_IFF)

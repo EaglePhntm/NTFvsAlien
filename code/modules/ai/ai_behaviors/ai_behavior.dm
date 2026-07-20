@@ -60,6 +60,8 @@ Registers signals, handles the pathfinding element addition/removal alongside ma
 	var/list/ability_list = list()
 	///Count of how many times we've failed to form a path to our goal node
 	var/fail_goal_path_count = 0
+	///Will not look for targets to attack
+	var/non_aggressive = FALSE
 
 /datum/ai_behavior/New(loc, mob/parent_to_assign, atom/escorted_atom)
 	..()
@@ -358,9 +360,11 @@ Registers signals, handles the pathfinding element addition/removal alongside ma
 		return
 	//we blacklist our current node in case its orphaned or otherwise not linked to our goal. This is not foolproof for mapping issues however
 	var/previous_current_node = current_node
-	var/goal_nodes_serialized = rustg_generate_path_astar("[current_node.unique_id]", "[goal_node.unique_id]")
-	if(rustg_json_is_valid(goal_nodes_serialized))
-		goal_nodes = json_decode(goal_nodes_serialized)
+	var/list/obj/effect/ai_node/node_path = get_path(current_node, goal_node)
+	if(length(node_path))
+		goal_nodes = list()
+		for(var/obj/effect/ai_node/node AS in node_path)
+			goal_nodes += node.unique_id
 	else
 		goal_nodes = list()
 		set_current_node(null)
@@ -383,6 +387,8 @@ Registers signals, handles the pathfinding element addition/removal alongside ma
 
 //Generic process(), this is used for mainly looking at the world around the AI and determining if a new action must be considered and executed
 /datum/ai_behavior/process()
+	if(!mob_parent)
+		return
 	if(!escorted_atom || (get_dist(mob_parent, escorted_atom) > AI_ESCORTING_BREAK_DISTANCE) || mob_parent.z != escorted_atom.z || isainode(escorted_atom))
 		set_escort()
 	var/atom/next_target = get_nearest_target(mob_parent, target_distance, TARGET_HOSTILE, mob_parent.faction, mob_parent.get_xeno_hivenumber(), TRUE)
@@ -413,6 +419,8 @@ Registers signals, handles the pathfinding element addition/removal alongside ma
 
 ///Returns true if a combat target is no longer valid
 /datum/ai_behavior/proc/need_new_combat_target()
+	if(non_aggressive)
+		return FALSE
 	if(!combat_target)
 		return TRUE
 
@@ -479,7 +487,7 @@ These are parameter based so the ai behavior can choose to (un)register the sign
 		return TRUE
 	if(HAS_TRAIT(mob_parent, TRAIT_IS_CLIMBING))
 		return TRUE
-	if(mob_parent.pulledby?.faction == mob_parent.faction)
+	if(mob_parent.pulledby?.faction && (GLOB.faction_to_iff[mob_parent.pulledby.faction] == GLOB.faction_to_iff[mob_parent.faction]))
 		return TRUE //lets players wrangle NPC's
 	return FALSE
 
@@ -553,6 +561,8 @@ These are parameter based so the ai behavior can choose to (un)register the sign
 
 ///Finds the most suitable thing to escort
 /datum/ai_behavior/proc/get_atom_to_escort()
+	if(!mob_parent)
+		return
 	var/list/goal_list = list()
 	if(GLOB.goal_nodes[mob_parent.faction] && (fail_goal_path_count < AI_MAX_GOAL_PATH_FAILS))
 		goal_list[GLOB.goal_nodes[mob_parent.faction]] = AI_ESCORT_RATING_FACTION_GOAL
@@ -665,4 +675,3 @@ These are parameter based so the ai behavior can choose to (un)register the sign
 		atom_to_walk_to = null
 		if(current_action == MOVING_TO_ATOM && need_new_state)
 			look_for_new_state()
-

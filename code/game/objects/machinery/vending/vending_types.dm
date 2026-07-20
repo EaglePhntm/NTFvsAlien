@@ -100,7 +100,7 @@
 /obj/machinery/vending/snack
 	name = "\improper Hot Foods machine"
 	desc = "A vending machine full of ready to cook meals, mhmmmm taste the nutritional goodness!"
-	product_slogans = "Kepler Crisps! Try a snack that's out of this world!;Eat an EAT!;Eat a Nanotrasen brand packaged hamburger.;Eat a Nanotrasen brand packaged hot dog.;Eat a Nanotrasen brand packaged burrito.;"
+	product_slogans = "Kepler Crisps! Try a snack that's out of this world!;Eat an EAT!;Eat a Ninetails brand packaged hamburger.;Eat a Ninetails brand packaged hot dog.;Eat a Ninetails brand packaged burrito.;"
 	icon_state = "snack"
 	icon_vend = "snack-vend"
 	icon_deny = "snack-deny"
@@ -126,7 +126,7 @@
 	name = "\improper Souto Softdrinks"
 	desc = "A softdrink vendor provided by Souto Soda Company, Havana."
 	icon_state = "Cola_Machine"
-	product_slogans = "Souto Soda: Have a Souto and be taken away to a tropical paradise!;Souto Classic. You can't beat that tangerine goodness!;Souto Cherry. The sweet flavor of a cool winter morning!;Souto Lime. For that sweet and sour flavor that you know and love!;Souto Grape. There's nothing better than a grape soda.;Nanotrasen Fruit Beer. Nothing came from that lawsuit!;Nanotrasen Spring Water. It came from a spring!"
+	product_slogans = "Souto Soda: Have a Souto and be taken away to a tropical paradise!;Souto Classic. You can't beat that tangerine goodness!;Souto Cherry. The sweet flavor of a cool winter morning!;Souto Lime. For that sweet and sour flavor that you know and love!;Souto Grape. There's nothing better than a grape soda.;Ninetails Fruit Beer. Nothing came from that lawsuit!;Ninetails Spring Water. It came from a spring!"
 	icon_deny = "Cola_Machine-deny"
 	icon_vend = "Cola_Machine-vend"
 	products = list(
@@ -147,8 +147,8 @@
 		wrenchable = FALSE
 
 /obj/machinery/vending/medical
-	name = "\improper NanotrasenMed Plus"
-	desc = "Medical Pharmaceutical dispenser.  Provided by Nanotrasen Pharmaceuticals Division(TM)."
+	name = "\improper NovaMed Plus"
+	desc = "Medical Pharmaceutical dispenser.  Provided by Novamed Pharmaceuticals."
 	icon_state = "med"
 	icon_deny = "med-deny"
 	icon_vend = "med-vend"
@@ -169,6 +169,7 @@
 			/obj/item/storage/pill_bottle/imidazoline = 6,
 			/obj/item/storage/pill_bottle/quickclot = 6,
 			/obj/item/storage/pill_bottle/hypervene = 6,
+			/obj/item/storage/pill_bottle/aphrotoxin = 6,
 		),
 		"Hypospray" = list (
 			/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus = 10,
@@ -179,6 +180,7 @@
 			/obj/item/reagent_containers/hypospray/advanced/tramadol = 5,
 			/obj/item/reagent_containers/hypospray/advanced/tricordrazine = 5,
 			/obj/item/reagent_containers/hypospray/advanced/dylovene = 5,
+			/obj/item/reagent_containers/hypospray/advanced/aphrotoxin = 5,
 		),
 		"Reagent Bottle" = list(
 			/obj/item/reagent_containers/glass/bottle/bicaridine = -1,
@@ -195,6 +197,7 @@
 			/obj/item/reagent_containers/glass/bottle/oxycodone = 6,
 			/obj/item/reagent_containers/glass/bottle/sleeptoxin = 6,
 			/obj/item/reagent_containers/glass/bottle/polyhexanide = 6,
+			/obj/item/reagent_containers/glass/bottle/aphrotoxin = 6,
 		),
 		"Chemistry Equipment" = list(
 			/obj/item/reagent_containers/syringe = -1,
@@ -210,12 +213,23 @@
 			/obj/item/storage/reagent_tank/tricordrazine = 1,
 			/obj/item/storage/reagent_tank/bktt = 1,
 		),
+		"Misc" = list(
+			/obj/item/tool/research/xeno_analyzer = 2,
+//			/obj/item/tool/research/xeno_probe = -1,
+			/obj/item/tool/research/excavation_tool = -1,
+			/obj/item/paper_map/excavation = -1,
+			/obj/item/clothing/glasses/hud/health = 6,
+			/obj/item/clothing/ears/earmuffs = 5,
+		),
 		"Surgical Equipment" = list(
 			/obj/item/storage/pouch/surgery = -1,
 			/obj/item/armor_module/storage/uniform/surgery_webbing = -1,
+			/obj/item/armor_module/storage/uniform/surgery_webbing/sling = -1,
+			/obj/item/tweezers = 15,
 			/obj/item/reagent_containers/spray/surgery = -1,
 			/obj/item/tool/soap = 3,
 			/obj/item/roller = 6,
+			/obj/item/stack/nanopaste = 15,
 			/obj/item/tool/surgery/scalpel/manager = -1,
 			/obj/item/tool/surgery/hemostat = -1,
 			/obj/item/tool/surgery/retractor = -1,
@@ -226,11 +240,6 @@
 			/obj/item/tool/surgery/bonesetter = -1,
 			/obj/item/tool/surgery/FixOVein = -1,
 			/obj/item/tool/surgery/suture = -1,
-		),
-		"Misc" = list(
-			/obj/item/tool/research/xeno_analyzer = 2,
-			/obj/item/tool/research/excavation_tool = -1,
-			/obj/item/clothing/glasses/hud/health = 6,
 		),
 	)
 	idle_power_usage = 211
@@ -297,9 +306,18 @@
 			/obj/item/stack/medical/heal_pack/gauze = -1,
 			/obj/item/stack/medical/splint = -1,
 		),
+		"Misc" = list(
+			/obj/item/tool/research/xeno_analyzer = -1,
+			/obj/item/tool/research/excavation_tool = -1,
+			/obj/item/paper_map/excavation = -1,
+			/obj/item/clothing/glasses/hud/health = -1,
+			/obj/item/clothing/ears/earmuffs = -1,
+		),
 		"Surgical Equipment" = list(
 			/obj/item/storage/pouch/surgery = -1,
 			/obj/item/armor_module/storage/uniform/surgery_webbing = -1,
+			/obj/item/armor_module/storage/uniform/surgery_webbing/sling = -1,
+			/obj/item/tweezers = -1,
 			/obj/item/reagent_containers/spray/surgery = -1,
 			/obj/item/tool/soap = -1,
 			/obj/item/roller = -1,
@@ -314,11 +332,6 @@
 			/obj/item/tool/surgery/bonesetter = -1,
 			/obj/item/tool/surgery/FixOVein = -1,
 			/obj/item/tool/surgery/suture = -1,
-		),
-		"Misc" = list(
-			/obj/item/tool/research/xeno_analyzer = -1,
-			/obj/item/tool/research/excavation_tool = -1,
-			/obj/item/clothing/glasses/hud/health = -1,
 		),
 		"Chemistry Equipment" = list(
 			/obj/item/reagent_containers/syringe = -1,
@@ -385,6 +398,7 @@
 		/obj/item/stack/medical/heal_pack/ointment = 2,
 		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/splint = 1,
+		/obj/item/tweezers = 1,
 	)
 	mouse_over_pointer = MOUSE_HAND_POINTER
 
@@ -436,6 +450,7 @@
 			/obj/item/stack/medical/heal_pack/advanced/burn_pack = 5,
 			/obj/item/healthanalyzer = 1,
 			/obj/item/stack/medical/splint = 1,
+			/obj/item/tweezers = 1,
 		),
 	)
 
@@ -457,6 +472,7 @@
 			/obj/item/ammo_magazine/rifle/standard_assaultrifle = 30,
 			/obj/item/ammo_magazine/rifle/standard_carbine = 30,
 			/obj/item/ammo_magazine/rifle/standard_skirmishrifle = 30,
+			/obj/item/ammo_magazine/rifle/nt_halter = 30,
 			/obj/item/ammo_magazine/rifle/tx11 = 30,
 			/obj/item/ammo_magazine/packet/p4570 = 16,
 		),
@@ -465,6 +481,7 @@
 			/obj/item/ammo_magazine/smg/standard_machinepistol = 40,
 			/obj/item/ammo_magazine/smg/standard_heavysmg = 40,
 			/obj/item/ammo_magazine/smg/standard_heavysmg/squashhead = 40,
+			/obj/item/ammo_magazine/smg/standard_heavysmg/rubber = 40,
 		),
 		"Marksman" = list(
 			/obj/item/ammo_magazine/rifle/standard_dmr = 30,
@@ -479,6 +496,8 @@
 			/obj/item/ammo_magazine/shotgun/buckshot = 16,
 			/obj/item/ammo_magazine/shotgun/flechette = 16,
 			/obj/item/ammo_magazine/shotgun/tracker = 16,
+			/obj/item/ammo_magazine/shotgun/beanbag = 16,
+			/obj/item/ammo_magazine/shotgun/rubber_pellet = 16,
 			/obj/item/ammo_magazine/rifle/tx15_flechette = 30,
 			/obj/item/ammo_magazine/rifle/tx15_slug = 30,
 		),
@@ -509,6 +528,7 @@
 			/obj/item/ammo_magazine/revolver/judge/buckshot = 0,
 			/obj/item/ammo_magazine/revolver/upp = 0,
 			/obj/item/ammo_magazine/rifle/mpi_km/plum = 0,
+			/obj/item/ammo_magazine/rifle/mpi_km/rubber = 0,
 			/obj/item/ammo_magazine/rifle/m16 = 0,
 			/obj/item/ammo_magazine/rifle/mkh = 0,
 			/obj/item/ammo_magazine/smg/ppsh = 0,
@@ -539,6 +559,7 @@
 		/obj/item/ammo_magazine/smg/standard_machinepistol = 80,
 		/obj/item/ammo_magazine/smg/standard_heavysmg = 80,
 		/obj/item/ammo_magazine/smg/standard_heavysmg/squashhead = 80,
+		/obj/item/ammo_magazine/smg/standard_heavysmg/rubber = 80,
 		/obj/item/ammo_magazine/rifle/standard_dmr = 60,
 		/obj/item/ammo_magazine/rifle/standard_br = 60,
 		/obj/item/ammo_magazine/rifle/chamberedrifle = 60,
@@ -549,6 +570,8 @@
 		/obj/item/ammo_magazine/shotgun/buckshot = 32,
 		/obj/item/ammo_magazine/shotgun/flechette = 32,
 		/obj/item/ammo_magazine/shotgun/tracker = 32,
+		/obj/item/ammo_magazine/shotgun/beanbag = 32,
+		/obj/item/ammo_magazine/shotgun/rubber_pellet = 32,
 		/obj/item/ammo_magazine/rifle/tx15_flechette = 60,
 		/obj/item/ammo_magazine/rifle/tx15_slug = 60,
 		/obj/item/ammo_magazine/standard_lmg = 60,
@@ -567,6 +590,7 @@
 		/obj/item/ammo_magazine/revolver/standard_magnum = 80,
 		/obj/item/ammo_magazine/revolver/upp = 80,
 		/obj/item/ammo_magazine/rifle/mpi_km/plum = 60,
+		/obj/item/ammo_magazine/rifle/mpi_km/rubber = 60,
 		/obj/item/ammo_magazine/rifle/m16 = 60,
 		/obj/item/ammo_magazine/rifle/mkh = 60,
 		/obj/item/ammo_magazine/smg/ppsh = 80,
@@ -630,7 +654,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/nanoammo, (-26))
 			break
 		random_product = (random_product % product_records.len) + 1
 
-/obj/machinery/vending/nanoammo/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/machinery/vending/nanoammo/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	. = ..()
 	if (.)	// The parent proc does not allow vending machines to take integrity damage from slashes due to not calling the grandparent proc
 		attack_generic(xeno_attacker, damage_amount, damage_type, armor_type, FALSE, armor_penetration)
@@ -693,6 +717,21 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/nanoammo, (-26))
 		/obj/item/radio/headset = 6,
 		/obj/item/clothing/glasses/sunglasses = 2,
 		/obj/item/storage/donut_box = 2,
+		/obj/item/clothing/under/lewd/stripper/slutcurity = -1,
+		/obj/item/storage/belt/security = -1,
+		/obj/item/clothing/ears/earmuffs = 3,
+		/obj/item/explosive/grenade/flashbang/stun = 4,
+		/obj/item/explosive/grenade/smokebomb/sleep = 4,
+		/obj/item/explosive/grenade/chem_grenade/teargas = 8,
+		/obj/item/roller/bedroll/sec = -1,
+		/obj/item/explosive/grenade/bednade = 20,
+		/obj/item/clothing/under/rank/warden/corp = 1,
+		/obj/item/clothing/under/rank/security/corp = 2,
+		/obj/item/clothing/under/marine/mp = 2,
+		/obj/item/tool/taperoll/police = 2,
+		/obj/item/clothing/suit/armor/patrol = 2,
+		/obj/item/cell/taser = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/combat = 8,
 	)
 
 /obj/machinery/vending/hydronutrients
@@ -856,24 +895,37 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/nanoammo, (-26))
 	icon_state = "robotics"
 	icon_deny = "robotics-deny"
 	icon_vend = "robotics-vend"
-	req_access = list(ACCESS_MARINE_RESEARCH)
+	req_access = list()
 	products = list(
-		/obj/item/clothing/suit/storage/labcoat = 4,
-		/obj/item/clothing/under/rank/roboticist = 4,
-		/obj/item/stack/cable_coil = 4,
-		/obj/item/flash = 4,
-		/obj/item/cell/high = 12,
-		/obj/item/assembly/prox_sensor = 3,
-		/obj/item/assembly/signaler = 3,
-		/obj/item/healthanalyzer = 3,
-		/obj/item/tool/surgery/scalpel = 2,
-		/obj/item/tool/surgery/circular_saw = 2,
-		/obj/item/tank/anesthetic = 2,
-		/obj/item/clothing/mask/breath/medical = 5,
-		/obj/item/tool/screwdriver = 5,
-		/obj/item/tool/crowbar = 5,
+		"General" = list(
+			/obj/item/clothing/suit/storage/labcoat = 4,
+			/obj/item/clothing/under/rank/roboticist = 4,
+			/obj/item/stack/cable_coil = 4,
+			/obj/item/flash = 4,
+			/obj/item/cell/high = 12,
+			/obj/item/assembly/prox_sensor = 3,
+			/obj/item/assembly/signaler = 3,
+			/obj/item/healthanalyzer = 3,
+			/obj/item/tool/surgery/scalpel = 2,
+			/obj/item/tool/surgery/circular_saw = 2,
+			/obj/item/tank/anesthetic = 2,
+			/obj/item/clothing/mask/breath/medical = 5,
+			/obj/item/tool/screwdriver = 5,
+			/obj/item/tool/crowbar = 5,
+		),
+		"Exosuit equipment" = list(
+			/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_lmg = 3,
+			/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_smg = 3,
+			/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_gl = 3,
+			/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/exosuit_br = 3,
+			/obj/item/mecha_parts/mecha_equipment/weapon/energy/exosuit/laser_scattershot = 3,
+			/obj/item/mecha_parts/mecha_equipment/weapon/energy/exosuit/laser_rifle = 3,
+			/obj/item/mecha_ammo/vendable/small_lmg = 6,
+			/obj/item/mecha_ammo/vendable/small_smg = 6,
+			/obj/item/mecha_ammo/vendable/small_gl = 6,
+			/obj/item/mecha_ammo/vendable/small_br = 6,
+		),
 	)
-
 
 // All instances of this vendor will share a single inventory for items in the shared list.
 // Meaning, if an item is taken from one vendor, it will not be available in any others as well.

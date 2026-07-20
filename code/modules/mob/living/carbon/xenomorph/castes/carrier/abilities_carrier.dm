@@ -4,6 +4,7 @@
 #define ACID_HUGGER "acid hugger"
 #define RESIN_HUGGER "resin hugger"
 #define OZELOMELYN_HUGGER "ozelomelyn hugger"
+#define APHROTOXIN_HUGGER "aphrotoxin hugger"
 
 //List of huggie types
 GLOBAL_LIST_INIT(hugger_type_list, list(
@@ -11,6 +12,7 @@ GLOBAL_LIST_INIT(hugger_type_list, list(
 		/obj/item/clothing/mask/facehugger/combat/slash,
 		/obj/item/clothing/mask/facehugger/combat/chem_injector/neuro,
 		/obj/item/clothing/mask/facehugger/combat/chem_injector/ozelomelyn,
+		/obj/item/clothing/mask/facehugger/combat/chem_injector/aphrotoxin,
 		/obj/item/clothing/mask/facehugger/combat/acid,
 		/obj/item/clothing/mask/facehugger/combat/resin,
 		))
@@ -20,6 +22,7 @@ GLOBAL_LIST_INIT(hugger_to_ammo, list(
 	/obj/item/clothing/mask/facehugger/combat/slash = /datum/ammo/xeno/hugger/slash,
 	/obj/item/clothing/mask/facehugger/combat/chem_injector/neuro = /datum/ammo/xeno/hugger/neuro,
 	/obj/item/clothing/mask/facehugger/combat/chem_injector/ozelomelyn = /datum/ammo/xeno/hugger/ozelomelyn,
+	/obj/item/clothing/mask/facehugger/combat/chem_injector/aphrotoxin = /datum/ammo/xeno/hugger/aphrotoxin,
 	/obj/item/clothing/mask/facehugger/combat/acid = /datum/ammo/xeno/hugger/acid,
 	/obj/item/clothing/mask/facehugger/combat/resin = /datum/ammo/xeno/hugger/resin,
 ))
@@ -30,6 +33,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	CLAWED_HUGGER = image('icons/Xeno/actions/carrier.dmi', icon_state = CLAWED_HUGGER),
 	NEURO_HUGGER = image('icons/Xeno/actions/carrier.dmi', icon_state = NEURO_HUGGER),
 	OZELOMELYN_HUGGER = image('icons/Xeno/actions/carrier.dmi', icon_state = OZELOMELYN_HUGGER),
+	APHROTOXIN_HUGGER = image('ntf_modular/icons/Xeno/actions.dmi', icon_state = APHROTOXIN_HUGGER),
 	ACID_HUGGER = image('icons/Xeno/actions/carrier.dmi', icon_state = ACID_HUGGER),
 	RESIN_HUGGER = image('icons/Xeno/actions/carrier.dmi', icon_state = RESIN_HUGGER),
 ))
@@ -67,14 +71,16 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 
 /datum/action/ability/activable/xeno/throw_hugger/use_ability(atom/A)
 	//target a hugger on the ground to store it directly (unless its a fake/harmless hugger)
-	if(istype(A, /obj/item/clothing/mask/facehugger) && !istype(A, /obj/item/clothing/mask/facehugger/combat/harmless))
+	if(istype(A, /obj/item/clothing/mask/facehugger))
 		if(isturf(get_turf(A)) && xeno_owner.Adjacent(A))
 			if(!xeno_owner.issamexenohive(A))
 				to_chat(xeno_owner, span_warning("That facehugger is tainted!"))
 				xeno_owner.dropItemToGround(A)
 				return fail_activate()
-			xeno_owner.store_hugger(A)
-			return succeed_activate()
+			if(xeno_owner.store_hugger(A))
+				return succeed_activate()
+			else
+				return fail_activate()
 
 	var/obj/item/clothing/mask/facehugger/F = xeno_owner.get_active_held_item()
 	if(!istype(F) || F.stat == DEAD) //empty active hand
@@ -82,8 +88,10 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 		if(!xeno_owner.huggers)
 			to_chat(xeno_owner, span_warning("We don't have any facehuggers to use!"))
 			return fail_activate()
-
-		F = new xeno_owner.selected_hugger_type(get_turf(xeno_owner), xeno_owner.hivenumber, xeno_owner)
+		var/huggerpath = xeno_owner.selected_hugger_type
+		if(HAS_TRAIT(owner, TRAIT_LATCHING_HUGGERS_ONLY))
+			huggerpath = GLOB.hugger_to_latching[huggerpath] || huggerpath
+		F = new huggerpath(get_turf(xeno_owner), xeno_owner.hivenumber, xeno_owner)
 		xeno_owner.huggers--
 
 		xeno_owner.put_in_active_hand(F)
@@ -107,7 +115,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 		F.facehugger_register_source(xeno_owner) //Set us as the source
 		F.throw_at(A, CARRIER_HUGGER_THROW_DISTANCE, CARRIER_HUGGER_THROW_SPEED)
 		if(fake_hugger_gradiant_percentage > 0 && !istype(F, /obj/item/clothing/mask/facehugger/combat/harmless))
-			var/obj/item/clothing/mask/facehugger/combat/harmless/fake = new(get_turf(xeno_owner), xeno_owner.hivenumber, xeno_owner)
+			var/obj/item/clothing/mask/facehugger/combat/harmless/fake = new(get_turf(xeno_owner), xeno_owner.get_xeno_hivenumber(), xeno_owner)
 			fake.set_fire_immunity(F.fire_immune)
 			fake.impact_time = F.impact_time
 			fake.activate_time = F.activate_time
@@ -118,24 +126,59 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 			fake.facehugger_register_source(xeno_owner)
 			fake.throw_at(get_step(A, pick(CARDINAL_ALL_DIRS)), CARRIER_HUGGER_THROW_DISTANCE, CARRIER_HUGGER_THROW_SPEED)
 			fake.color = gradient(initial(fake.color), initial(F.color), fake_hugger_gradiant_percentage)
+			fake.lifecycle /= 3
 		xeno_owner.visible_message(span_xenowarning("\The [xeno_owner] throws something towards \the [A]!"), \
 		span_xenowarning("We throw a facehugger towards \the [A]!"))
 		add_cooldown()
 		return succeed_activate()
 
 /mob/living/carbon/xenomorph/proc/store_hugger(obj/item/clothing/mask/facehugger/F, message = TRUE, forced = FALSE) //todo: wrap this into ability
+	if(istype(F, /obj/item/clothing/mask/facehugger/combat/harmless))
+		to_chat(src, span_notice("This fakehugger is useless to absorb."))
+		return FALSE
+	if(HAS_TRAIT(src, TRAIT_LATCHING_HUGGERS_ONLY) && !(istype(F, /obj/item/clothing/mask/facehugger/latching)))
+		to_chat(src, span_notice("We are currently not capable of absorbing non-latching facehuggers."))
+		return FALSE
 	if(huggers < xeno_caste.huggers_max)
 		if(F.stat == DEAD && !forced)
 			to_chat(src, span_notice("This facehugger has already expired, we cannot salvage it."))
-			return
+			return FALSE
 		F.kill_hugger()
 		huggers++
 		if(message)
 			playsound(src, 'sound/voice/alien/drool2.ogg', 50, 0, 1)
 			to_chat(src, span_notice("We salvage this facehugger's biomass to produce another. Now sheltering: [huggers] / [xeno_caste.huggers_max]."))
+		return TRUE
 	else if(message)
 		to_chat(src, span_warning("We can't carry any more facehuggers!"))
+		return FALSE
 
+GLOBAL_LIST_INIT(ai_hugger_selection, list(
+		/obj/item/clothing/mask/facehugger/larval = 40,
+		/obj/item/clothing/mask/facehugger/combat/slash = 2,
+		/obj/item/clothing/mask/facehugger/combat/chem_injector/neuro = 5,
+		/obj/item/clothing/mask/facehugger/combat/chem_injector/ozelomelyn = 2,
+		/obj/item/clothing/mask/facehugger/combat/chem_injector/aphrotoxin = 5,
+		/obj/item/clothing/mask/facehugger/combat/acid = 1,
+		/obj/item/clothing/mask/facehugger/combat/resin = 30,
+		))
+
+/datum/action/ability/activable/xeno/throw_hugger/ai_should_start_consider()
+	return TRUE
+
+/datum/action/ability/activable/xeno/throw_hugger/ai_should_use(target)
+	var/held = xeno_owner.get_active_held_item()
+	if(!held && can_use_ability(src, TRUE))
+		if(xeno_owner.huggers)
+			xeno_owner.selected_hugger_type = pickweight(GLOB.ai_hugger_selection)
+			held = new xeno_owner.selected_hugger_type(get_turf(xeno_owner), xeno_owner.hivenumber, xeno_owner)
+			xeno_owner.huggers--
+			xeno_owner.put_in_hands(held)
+	if(!ishuman(target))
+		return FALSE
+	if(!istype(held, /obj/item/clothing/mask/facehugger))
+		return FALSE
+	return TRUE
 // ***************************************
 // ********* Trap
 // ***************************************
@@ -154,6 +197,8 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 
 /datum/action/ability/xeno_action/place_trap/can_use_action(silent, override_flags, selecting)
 	. = ..()
+	if(!.)
+		return
 	var/turf/T = get_turf(owner)
 	if(!T || !T.is_weedable() || T.density)
 		if(!silent)
@@ -224,6 +269,12 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[owner.ckey]
 		personal_statistics.huggers_created++
 
+/datum/action/ability/xeno_action/spawn_hugger/ai_should_start_consider()
+	return TRUE
+
+/datum/action/ability/xeno_action/spawn_hugger/ai_should_use(target)
+	return TRUE
+
 // ***************************************
 // *********** Drop all hugger, panic button
 // ***************************************
@@ -273,7 +324,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 
 	xeno_owner.visible_message(span_xenowarning("A chittering mass of tiny aliens is trying to escape [xeno_owner]!"))
 	while(xeno_owner.huggers > 0)
-		var/obj/item/clothing/mask/facehugger/new_hugger = new /obj/item/clothing/mask/facehugger/larval(get_turf(xeno_owner), xeno_owner.hivenumber, xeno_owner)
+		var/obj/item/clothing/mask/facehugger/new_hugger = new /obj/item/clothing/mask/facehugger/larval(get_turf(xeno_owner), xeno_owner.get_xeno_hivenumber(), xeno_owner)
 		step_away(new_hugger, xeno_owner, 1)
 		addtimer(CALLBACK(new_hugger, TYPE_PROC_REF(/obj/item/clothing/mask/facehugger, go_active), TRUE), new_hugger.jump_cooldown)
 		xeno_owner.huggers--
@@ -285,6 +336,12 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	if(succeed_cost > 0)
 		desc += (succeed_cost == 1 ? " Uses all remaining plasma!" : " Uses [PERCENT(succeed_cost)]% of your maximum plasma!")
 	return ..()
+
+/datum/action/ability/xeno_action/carrier_panic/ai_should_start_consider()
+	return TRUE
+
+/datum/action/ability/xeno_action/carrier_panic/ai_should_use(target)
+	return TRUE
 
 // ***************************************
 // *********** Choose Hugger Type
@@ -351,6 +408,8 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 
 /datum/action/ability/xeno_action/build_hugger_turret/can_use_action(silent, override_flags, selecting)
 	. = ..()
+	if(!.)
+		return
 	var/turf/T = get_turf(owner)
 	var/mob/living/carbon/xenomorph/blocker = locate() in T
 	if(blocker && blocker != owner && blocker.stat != DEAD)
@@ -369,21 +428,20 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	if(!T.check_alien_construction(owner, silent, /obj/structure/xeno/xeno_turret) || !T.check_disallow_alien_fortification(owner))
 		return FALSE
 
-	for(var/obj/structure/xeno/xeno_turret/turret AS in GLOB.xeno_resin_turrets_by_hive[blocker.hivenumber])
+	for(var/obj/structure/xeno/xeno_turret/turret AS in GLOB.xeno_resin_turrets_by_hive[blocker.get_xeno_hivenumber()])
 		if(get_dist(turret, owner) < XENO_TURRET_EXCLUSION_RANGE)
 			if(!silent)
 				to_chat(owner, span_xenowarning("Another turret is too close!"))
 			return FALSE
 
 /datum/action/ability/xeno_action/build_hugger_turret/action_activate()
-	if(!do_after(owner, 10 SECONDS, NONE, owner, BUSY_ICON_BUILD))
+	if(!do_after(owner, 10 SECONDS, TRUE, owner, BUSY_ICON_BUILD))
 		return FALSE
 
 	if(!can_use_action())
 		return FALSE
 
-	var/obj/structure/xeno/xeno_turret/hugger_turret/turret = new (get_turf(owner), xeno_owner.hivenumber)
-	turret.ammo = GLOB.ammo_list[GLOB.hugger_to_ammo[xeno_owner.selected_hugger_type]]
+	new /obj/structure/xeno/xeno_turret/hugger_turret(get_turf(owner), xeno_owner.get_xeno_hivenumber(), GLOB.ammo_list[GLOB.hugger_to_ammo[xeno_owner.selected_hugger_type]])
 	succeed_activate()
 	add_cooldown()
 
@@ -397,7 +455,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	action_icon = 'icons/Xeno/actions/carrier.dmi'
 	desc = "Appeals to the larva inside a hugged target. The target loses their balance, gets pulled towards you, and their larva's growth progress accelerates."
 	ability_cost = 150
-	cooldown_duration = 20 SECONDS
+	cooldown_duration = 10 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CALL_YOUNGER,
 	)
@@ -450,7 +508,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	owner.visible_message(span_xenowarning("\the [owner] emits an unusual roar!"), \
 	span_xenowarning("We called out to the younger one inside [victim]!"))
 	victim.visible_message(span_xenowarning("\The [victim] loses [victim.p_their()] balance, falling to the side!"), \
-	span_xenowarning("You feel like something inside you is tearing out!"))
+	span_xenowarning("You feel like something inside you is moving!"))
 
 	victim.apply_effects(2 SECONDS, 1 SECONDS)
 	victim.adjust_stagger(debuff SECONDS)
@@ -460,7 +518,8 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	var/datum/internal_organ/O
 	for(var/i in list(ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_LIVER))
 		O = victim.get_organ_slot(i)
-		O.take_damage(debuff, TRUE)
+		if(istype(O))
+			O.take_damage(debuff, TRUE)
 
 	young.adjust_boost_timer(20, 40)
 
@@ -473,3 +532,9 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 
 	succeed_activate()
 	add_cooldown()
+
+/datum/action/ability/activable/xeno/call_younger/ai_should_start_consider()
+	return TRUE
+
+/datum/action/ability/activable/xeno/call_younger/ai_should_use(target)
+	return ishuman(target)

@@ -1,7 +1,8 @@
 /obj/item/clothing/shoes/magboots
-	desc = "Magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle."
+	desc = "Magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle. Too bad they are broken."
 	name = "magboots"
 	icon_state = "magboots0"
+/* bugged
 	var/magpulse = 0
 	actions_types = list(/datum/action/item_action/toggle)
 
@@ -29,3 +30,4 @@
 	if(inventory_flags&NOSLIPPING)
 		state = "enabled"
 	. += "Its mag-pulse traction system appears to be [state]."
+*/

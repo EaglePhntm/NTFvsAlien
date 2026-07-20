@@ -72,6 +72,12 @@
 #define MECHA_AMMO_GRENADE "Frag grenade"
 #define MECHA_AMMO_FLAMER "Napalm"
 
+#define EXOSUIT_AMMO_LMG "Small rifle bullet"
+#define EXOSUIT_AMMO_SMG "Small pistol bullet"
+#define EXOSUIT_AMMO_GRENADE "Low-velocity grenade"
+#define EXOSUIT_AMMO_BATTLERIFLE "Battle rifle bullet"
+#define EXOSUIT_AMMO_MINIGUN "Small pistol bullet"
+
 /// Module is compatible with Ripley Exosuit models
 #define EXOSUIT_MODULE_RIPLEY (1<<0)
 /// Module is compatible with Odyseeus Exosuit models
@@ -90,6 +96,8 @@
 #define EXOSUIT_MODULE_GREYSCALE (1<<7)
 /// Module is shown in the greyscale mech menu purchasing screen
 #define EXOSUIT_MODULE_VENDABLE (1<<8)
+/// NTF exosuits (aka, classic SS13 mechs)
+#define EXOSUIT_MODULE_NTF (1<<9)
 
 /// Module is compatible with "Working" Exosuit models - Ripley and Clarke
 #define EXOSUIT_MODULE_WORKING EXOSUIT_MODULE_RIPLEY
@@ -133,3 +141,27 @@
 
 ///Amount added to move_delay by EMP
 #define MECH_EMP_SLOWDOWN 1
+
+/// Prevents overpenetrating through the mecha and into the cockpit using an armour penetrating weapon
+#define CANNOT_OVERPENETRATE (1<<13)
+
+/// Multiplier for a mech's armor, used for overpenetration
+
+#define COCKPIT_LIGHT 0.4
+#define COCKPIT_REINFORCED 0.5
+#define COCKPIT_TOUGHENED 0.6
+#define COCKPIT_ARMORED 0.9
+#define COCKPIT_HEAVY 1
+
+/// Mech power usage
+
+#define POWER_USAGE_EFFICIENT 4
+#define POWER_USAGE_STANDARD 7
+#define POWER_USAGE_ARMORED 10
+#define POWER_USAGE_HEAVY 12
+
+/// Mech exit/enter delays
+
+#define EGRESS_TIME_QUICK 10
+#define EGRESS_TIME_STANDARD 20
+#define EGRESS_TIME_SLOW 30

@@ -1,3 +1,4 @@
+
 /*!
  * # Mecha defence explanation
  * Mechs focus is on a more heavy-but-slower damage approach
@@ -44,7 +45,7 @@
 	log_message("Took [damage_taken] points of damage. Damage type: [damage_type]", LOG_MECHA)
 	if(damage_taken < 5)
 		return damage_taken //its only a scratch
-	spark_system.start()
+	spark_system?.start()
 	try_deal_internal_damage(damage_taken)
 	to_chat(occupants, "[icon2html(src, occupants)][span_userdanger("Taking damage!")]")
 
@@ -68,7 +69,7 @@
 	// yes we *have* to run the armor calc proc here I love tg projectile code too
 	try_damage_component(
 		modify_by_armor(proj.damage, proj.ammo.armor_type, proj.ammo.penetration, attack_dir = REVERSE_DIR(proj.dir)),
-		proj.def_zone,
+		def_zone = proj.def_zone,
 	)
 	return ..()
 
@@ -136,7 +137,7 @@
 	. = ..()
 	playsound(src, 'sound/magic/lightningshock.ogg', 50, FALSE)
 	use_power((cell.maxcharge * 0.4) / (severity))
-	take_damage(600 / severity, BURN, ENERGY)
+	take_damage(100 / severity, BURN, ENERGY)
 
 	for(var/mob/living/living_occupant AS in occupants)
 		living_occupant.Stagger((8 - severity) SECONDS)
@@ -298,6 +299,13 @@
 	if(construction_state == MECHA_OPEN_HATCH)
 		construction_state = MECHA_LOOSE_BOLTS
 		to_chat(user, span_notice("You close the hatch to the power unit."))
+
+	if(construction_state == MECHA_LOCKED && (length(occupants))) // NTF Edit: Allows using a crowbar to pry out occupants
+		to_chat(user, span_notice("You start prying open the cockpit.."))
+		user.visible_message(span_warning("[user] is attempting to pry open the [src]'s cockpit!"))
+		if(do_after(user, 20, target = src))
+			for(var/ejectee in occupants)
+				mob_exit(ejectee, TRUE, TRUE)
 
 /obj/vehicle/sealed/mecha/welder_act(mob/living/user, obj/item/I)
 	return welder_repair_act(user, I, 100, 4 SECONDS, 0, SKILL_ENGINEER_ENGI, 2, 4 SECONDS)

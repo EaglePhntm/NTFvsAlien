@@ -12,6 +12,10 @@
 	var/safeties_enabled = TRUE	// If 0 modifications can be done without discharging the SMES, at risk of critical failure.
 	var/failing = FALSE			// If 1 critical failure has occured and SMES explosion is imminent.
 	resistance_flags = UNACIDABLE|CRUSHER_IMMUNE
+	input_level = 150000
+	input_level_max = 250000
+	output_level = 250000
+	output_level_max = 250000
 
 /obj/machinery/power/smes/buildable/empty
 	charge = 0
@@ -179,11 +183,13 @@
 		to_chat(user, span_warning("The [src]'s screen is flashing with alerts. It seems to be overloaded! Touching it now is probably not a good idea."))
 		return
 	// If parent returned 1:
-	// - Hatch is open, so we can modify the SMES
-	// - No action was taken in parent function (terminal de/construction atm).
+	//action was taken in parent function (terminal de/construction atm).
 	. = ..()
 
-	if(!.)
+	if(.)
+		return
+
+	if(!CHECK_BITFIELD(machine_stat, PANEL_OPEN))
 		return
 
 	// Charged above 1% and safeties are enabled.
@@ -211,20 +217,21 @@
 		playsound(get_turf(src), 'sound/items/crowbar.ogg', 25, 1)
 		to_chat(user, span_warning("You begin to disassemble the [src]!"))
 
-		if(!do_after(user, 10 SECONDS * cur_coils, NONE, src, BUSY_ICON_BUILD)) // More coils = takes longer to disassemble. It's complex so largest one with 5 coils will take 50s
+		if(!do_after(user, 10 SECONDS * cur_coils, TRUE, src, BUSY_ICON_BUILD)) // More coils = takes longer to disassemble. It's complex so largest one with 5 coils will take 50s
 			return
 
 		if(failure_probability && prob(failure_probability))
 			total_system_failure(failure_probability, user)
-			return
+			return TRUE
 
 		to_chat(user, span_warning("You have disassembled the SMES cell!"))
-		var/obj/machinery/constructable_frame/machine_frame/M = new(loc)
+		var/obj/machinery/constructable_frame/M = new(loc)
 		M.state = 2
 		M.icon_state = "box_1"
 		for(var/obj/O in component_parts)
 			O.forceMove(loc)
 		qdel(src)
+		return TRUE
 
 	// Superconducting Magnetic Coil - Upgrade the SMES
 	else if(istype(I, /obj/item/stock_parts/smes_coil))
@@ -234,7 +241,7 @@
 
 		if(failure_probability && prob(failure_probability))
 			total_system_failure(failure_probability, user)
-			return
+			return TRUE
 
 		to_chat(user, "You install the coil into the SMES unit!")
 		if(!user.transferItemToLoc(I, src))
@@ -243,6 +250,7 @@
 		cur_coils ++
 		component_parts += I
 		recalc_coils()
+		return TRUE
 
 	// Multitool - Toggle the safeties.
 	else if(ismultitool(I))

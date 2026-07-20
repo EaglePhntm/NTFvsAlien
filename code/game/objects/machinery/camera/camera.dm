@@ -28,6 +28,9 @@
 
 	setDir(newDir ? newDir : dir)
 
+	if(length(network) == 1 && network[1] == "marinemainship" && is_ground_level(z))
+		network = list("colony")
+
 	for(var/i in network)
 		network -= i
 		network += lowertext(i)
@@ -135,7 +138,7 @@
 		return TRUE
 	TOGGLE_BITFIELD(machine_stat, PANEL_OPEN)
 	to_chat(user, span_notice("You screw the camera's panel [CHECK_BITFIELD(machine_stat, PANEL_OPEN) ? "open" : "closed"]."))
-	I.play_tool_sound(src)
+	I.play_tool_sound(src, 50)
 	update_icon()
 	return TRUE
 
@@ -145,7 +148,7 @@
 		return FALSE
 	repair_damage(max_integrity, user)
 	toggle_cam(user, TRUE)
-	I.play_tool_sound(src)
+	I.play_tool_sound(src, 50)
 	update_icon()
 	return TRUE
 
@@ -176,8 +179,10 @@
 	return TRUE
 
 
-/obj/machinery/camera/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/machinery/camera/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(xeno_attacker.status_flags & INCORPOREAL)
+		return FALSE
+	if(xeno_attacker.handcuffed)
 		return FALSE
 
 	if(obj_integrity <= 0)
@@ -212,7 +217,8 @@
 	if(isarea(myarea))
 		LAZYREMOVE(myarea.cameras, src)
 	var/turf/camnet_turf = get_turf(src)
-	parent_cameranet.updateChunk(camnet_turf.x, camnet_turf.y, camnet_turf.z)
+	if(camnet_turf)
+		parent_cameranet.updateChunk(camnet_turf.x, camnet_turf.y, camnet_turf.z)
 	update_icon()
 
 	for(var/i in GLOB.player_list)
@@ -459,3 +465,21 @@
 /obj/machinery/camera/autoname/thunderdome/hidden/update_appearance(updates)
 	SHOULD_CALL_PARENT(FALSE)
 	return
+
+//ntf
+/obj/machinery/camera/projectile_hit(atom/movable/projectile/proj, cardinal_move, uncrossing)
+	. = ..()
+	if(powered())
+		if(!CHECK_BITFIELD(machine_stat, PANEL_OPEN))
+			ENABLE_BITFIELD(machine_stat, PANEL_OPEN)
+			update_icon()
+			visible_message(span_danger("\The [src]'s cover swings open, exposing the wires!"))
+			return
+
+		var/datum/effect_system/spark_spread/sparks = new
+		sparks.set_up(2, 0, src)
+		sparks.attach(src)
+		sparks.start()
+
+		deactivate()
+		visible_message(span_danger("\The [src]'s wires snap apart in a rain of sparks!"))

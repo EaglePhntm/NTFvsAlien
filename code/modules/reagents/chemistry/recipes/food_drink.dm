@@ -5,7 +5,7 @@
 	required_reagents = list(/datum/reagent/consumable/soymilk = 10)
 	required_catalysts = list(/datum/reagent/consumable/enzyme = 5)
 
-/datum/chemical_reaction/tofu/on_reaction(datum/reagents/holder, created_volume)
+/datum/chemical_reaction/tofurecipe/on_reaction(datum/reagents/holder, created_volume)
 	var/location = get_turf(holder.get_holder())
 	for(var/i = 1, i <= created_volume, i++)
 		new /obj/item/reagent_containers/food/snacks/tofu(location)
@@ -15,7 +15,7 @@
 	results = null
 	required_reagents = list(/datum/reagent/consumable/soymilk = 2, /datum/reagent/consumable/coco = 2, /datum/reagent/consumable/sugar = 2)
 
-/datum/chemical_reaction/chocolate_bar/on_reaction(datum/reagents/holder, created_volume)
+/datum/chemical_reaction/chocolate_barrecipe/on_reaction(datum/reagents/holder, created_volume)
 	var/location = get_turf(holder.get_holder())
 	for(var/i = 1, i <= created_volume, i++)
 		new /obj/item/reagent_containers/food/snacks/chocolatebar(location)
@@ -25,7 +25,7 @@
 	results = null
 	required_reagents = list(/datum/reagent/consumable/milk = 2, /datum/reagent/consumable/coco = 2, /datum/reagent/consumable/sugar = 2)
 
-/datum/chemical_reaction/chocolate_bar2/on_reaction(datum/reagents/holder, created_volume)
+/datum/chemical_reaction/chocolate_bar2recipe/on_reaction(datum/reagents/holder, created_volume)
 	var/location = get_turf(holder.get_holder())
 	for(var/i = 1, i <= created_volume, i++)
 		new /obj/item/reagent_containers/food/snacks/chocolatebar(location)
@@ -48,7 +48,7 @@
 	required_reagents = list(/datum/reagent/consumable/milk = 40)
 	required_catalysts = list(/datum/reagent/consumable/enzyme = 5)
 
-/datum/chemical_reaction/cheesewheel/on_reaction(datum/reagents/holder, created_volume)
+/datum/chemical_reaction/cheesewheelrecipe/on_reaction(datum/reagents/holder, created_volume)
 	var/location = get_turf(holder.get_holder())
 	new /obj/item/reagent_containers/food/snacks/sliceable/cheesewheel(location)
 
@@ -57,7 +57,7 @@
 	results = null
 	required_reagents = list(/datum/reagent/blood = 5, /datum/reagent/medicine/clonexadone = 1)
 
-/datum/chemical_reaction/syntiflesh/on_reaction(datum/reagents/holder, created_volume)
+/datum/chemical_reaction/syntifleshrecipe/on_reaction(datum/reagents/holder, created_volume)
 	var/location = get_turf(holder.get_holder())
 	new /obj/item/reagent_containers/food/snacks/meat/syntiflesh(location)
 

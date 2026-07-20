@@ -11,6 +11,7 @@
 
 	// *** Melee Attacks *** //
 	melee_damage = 25
+	exosuit_slash_damage_multiplier = 1.25
 
 	// *** Speed *** //
 	speed = -0.4
@@ -20,7 +21,7 @@
 	plasma_gain = 15
 
 	// *** Health *** //
-	max_health = 400
+	max_health = 420
 
 	// *** Sunder *** //
 	sunder_multiplier = 0.9
@@ -44,13 +45,19 @@
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/psychic_influence,
+		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/activable/xeno/devour,
+		/datum/action/ability/activable/xeno/tail_stab,
 		/datum/action/ability/xeno_action/toggle_agility,
 		/datum/action/ability/activable/xeno/warrior/lunge,
 		/datum/action/ability/activable/xeno/warrior/fling,
 		/datum/action/ability/activable/xeno/warrior/grapple_toss,
 		/datum/action/ability/activable/xeno/warrior/punch,
+		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
 	)
 
 	mutations = list(
@@ -70,13 +77,18 @@
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/psychic_influence,
+		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/xeno_action/empower,
+		/datum/action/ability/activable/xeno/devour,
+		/datum/action/ability/activable/xeno/tail_stab,
 		/datum/action/ability/xeno_action/toggle_agility,
 		/datum/action/ability/activable/xeno/warrior/lunge,
 		/datum/action/ability/activable/xeno/warrior/fling,
 		/datum/action/ability/activable/xeno/warrior/grapple_toss,
 		/datum/action/ability/activable/xeno/warrior/punch,
 		/datum/action/ability/activable/xeno/warrior/punch/flurry,
+		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
 	)

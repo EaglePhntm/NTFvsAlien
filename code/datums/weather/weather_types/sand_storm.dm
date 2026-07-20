@@ -7,8 +7,8 @@
 	telegraph_sound = 'sound/effects/siren.ogg'
 
 	weather_message = span_userdanger("<i>Hot sand and wind batter you! Get inside!</i>")
-	weather_duration_lower = 600
-	weather_duration_upper = 1200
+	weather_duration_lower = 300
+	weather_duration_upper = 900
 	weather_overlay = "dust_high"
 
 	end_message = span_danger("The shrieking wind whips away the last of the sand and falls to its usual murmur. It should be safe to go outside now.")

@@ -25,11 +25,11 @@
 	if(!.)
 		return
 	ADD_TRAIT(owner, TRAIT_STAGGERED, TRAIT_STATUS_EFFECT(id))
-	owner.adjust_mob_scatter(5)
+	owner.adjust_mob_scatter(10)
 
 /datum/status_effect/incapacitating/stagger/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_STAGGERED, TRAIT_STATUS_EFFECT(id))
-	owner.adjust_mob_scatter(-5)
+	owner.adjust_mob_scatter(-10)
 
 //STUN
 /datum/status_effect/incapacitating/stun
@@ -55,6 +55,7 @@
 	. = ..()
 	if(!.)
 		return
+	owner.drop_all_held_items()
 	ADD_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
 	ADD_TRAIT(owner, TRAIT_FLOORED, TRAIT_STATUS_EFFECT(id))
 
@@ -85,6 +86,7 @@
 	. = ..()
 	if(!.)
 		return
+	owner.drop_all_held_items()
 	ADD_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
 	ADD_TRAIT(owner, TRAIT_IMMOBILE, TRAIT_STATUS_EFFECT(id))
 	ADD_TRAIT(owner, TRAIT_FLOORED, TRAIT_STATUS_EFFECT(id))
@@ -147,21 +149,39 @@
 	if(!owner.maxHealth)
 		return
 	var/health_ratio = owner.health / owner.maxHealth
-	var/healing = BASE_HEAL_RATE //set for a base of 0.25 healed per 2-second interval asleep in a bed with covers.
+	var/healing = (2 * BASE_HEAL_RATE) //set for a base of 0.25 healed per 2-second interval asleep in a bed with covers.
 	if((locate(/obj/structure/bed) in owner.loc))
-		healing += (2 * BASE_HEAL_RATE)
+		healing += (4 * BASE_HEAL_RATE)
 	else if((locate(/obj/structure/table) in owner.loc))
-		healing += BASE_HEAL_RATE
+		healing += (2 * BASE_HEAL_RATE)
 	if(locate(/obj/item/bedsheet) in owner.loc)
-		healing += BASE_HEAL_RATE
-		if((locate(/obj/item/toy/plush) in owner.loc)) // plushie bonus in bed with a blanket
-			healing += 0.75 * BASE_HEAL_RATE // plushie bonus in bed with a blanket
+		healing += (4 * BASE_HEAL_RATE)
+	if((locate(/obj/item/toy/plush) in owner.loc)) // plushie bonus in bed
+		healing += (4 * BASE_HEAL_RATE)
+	if((locate(/obj/alien/weeds/sticky) in owner.loc)) // Sticky weeds suck!
+		healing += (2 * BASE_HEAL_RATE)
+	if((locate(/obj/alien/weeds) in owner.loc)) // Alien weeds are comfy
+		healing += (4 * BASE_HEAL_RATE)
+	if((locate(/obj/alien/weeds/resting) in owner.loc)) // So comfortable!!
+		healing += (8 * BASE_HEAL_RATE)
+	if((locate(/obj/structure/bed/nest/advanced) in owner.loc)) // Can be comfortable?
+		healing += (2 * BASE_HEAL_RATE)
+	if((locate(/obj/structure/bed/nest/advanced/special) in owner.loc)) // Much much nicer
+		healing += (4 * BASE_HEAL_RATE)
+	if((locate(/obj/structure/bed/nest) in owner.loc)) // Nest that doesn't fuck you while you sleep
+		healing += (6 * BASE_HEAL_RATE)
+	if((locate(/obj/item/stack/req_jelly) in owner.loc)) // Helps you sleep a little better
+		healing += (2 * BASE_HEAL_RATE)
+	if(isxeno(owner)) // Xenos should get a much higher healing rate for sleeping, its better than resting!
+		healing += (8 * BASE_HEAL_RATE)
 	if(health_ratio > -0.5)
-		owner.adjustBruteLoss(healing)
-		owner.adjustFireLoss(healing)
+		if(owner.getBruteLoss())
+			owner.heal_limb_damage(-healing, 0, TRUE, TRUE)
+		if(owner.getFireLoss())
+			owner.heal_limb_damage(0, -healing, TRUE, TRUE)
 		owner.adjustToxLoss(healing * 0.5, TRUE, TRUE)
 		owner.adjustStaminaLoss(healing * 100)
-		owner.adjustCloneLoss(healing * health_ratio * 0.8)
+		owner.adjustCloneLoss(healing * health_ratio * 0.5)
 	if(human_owner?.drunkenness)
 		human_owner.drunkenness *= 0.997 //reduce drunkenness by 0.3% per tick, 6% per 2 seconds
 	if(prob(20))
@@ -175,7 +195,7 @@
 	id = "repairing"
 	tick_interval = 1 SECONDS
 	///How much brute or burn per second
-	var/healing_per_tick = 4
+	var/healing_per_tick = 4 //Robots can now bleedout
 	///Whether the last tick made a sound effect or not
 	var/last_sound
 
@@ -567,8 +587,8 @@
 		return
 	if(length(debuff_owner.do_actions))
 		return
-	if(!do_after(debuff_owner, 5 SECONDS, NONE, debuff_owner, BUSY_ICON_GENERIC))
-		debuff_owner?.balloon_alert(debuff_owner, "interrupted!")
+	if(!do_after(debuff_owner, 5 SECONDS, TRUE, debuff_owner, BUSY_ICON_GENERIC))
+		debuff_owner?.balloon_alert(debuff_owner, "Interrupted!")
 		return
 	if(QDELETED(src))
 		return
@@ -992,6 +1012,40 @@
 /datum/status_effect/incapacitating/dancer_tagged
 	id = "dancer_tagged"
 	duration = 15 SECONDS
+
+// ***************************************
+// *********** Xeno healing debuff
+// ***************************************
+/datum/status_effect/nohealthregen
+	id = "nohealthregen"
+	alert_type = /atom/movable/screen/alert/status_effect/nohealthregen
+	status_type = STATUS_EFFECT_REPLACE
+
+/atom/movable/screen/alert/status_effect/nohealthregen
+	name = "Health Regeneration Stopped"
+	desc = "Your health regeneration was temporarily lost because of enemy xeno toxin!"
+
+/datum/status_effect/nohealthregen/on_creation(mob/living/new_owner, set_duration)
+	if(isxeno(new_owner))
+		var/mob/living/carbon/xenomorph/xeno = new_owner
+		if(xeno.no_health_regen_grace_period)
+			qdel(src)
+			return
+		owner = xeno
+		duration = set_duration
+		return ..()
+	else
+		CRASH("something applied nohealthregen on a nonxeno, dont do that")
+
+/datum/status_effect/nohealthregen/on_apply()
+	. = ..()
+	if(!.)
+		return
+	ADD_TRAIT(owner, TRAIT_NOHEALTHREGEN, TRAIT_STATUS_EFFECT(id))
+
+/datum/status_effect/nohealthregen/on_remove()
+	REMOVE_TRAIT(owner, TRAIT_NOHEALTHREGEN, TRAIT_STATUS_EFFECT(id))
+	return ..()
 
 // ***************************************
 // *********** Acid Melting

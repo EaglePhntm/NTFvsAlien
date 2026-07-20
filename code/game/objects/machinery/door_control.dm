@@ -55,6 +55,8 @@
 
 /obj/machinery/door_control/proc/handle_door()
 	for(var/obj/machinery/door/airlock/D in range(range))
+		if(QDELETED(D))
+			continue
 		if(D.id_tag == src.id)
 			if(specialfunctions & OPEN)
 				if (D.density)
@@ -84,6 +86,8 @@
 /obj/machinery/door_control/proc/handle_pod()
 	SIGNAL_HANDLER
 	for(var/obj/machinery/door/poddoor/M in GLOB.machines)
+		if(QDELETED(M))
+			continue
 		if(M.id == id)
 			if(M.density)
 				M.open()
@@ -277,6 +281,17 @@
 	name = "RO Line Shutters"
 	id = "ROlobby"
 	req_one_access = list(ACCESS_MARINE_CARGO, ACCESS_MARINE_LOGISTICS)
+
+/obj/machinery/door_control/mainship/req_hvh
+	name = "TGMC Requisition Shutters"
+	id = "req_hvh"
+
+/obj/machinery/door_control/mainship/req_hvh/som
+	name = "SOM Requisition Shutters"
+
+/obj/machinery/door_control/mainship/req_hvh/som/Initialize()
+	. = ..()
+	RegisterSignal(SSdcs, COMSIG_GLOB_HVH_REQ, PROC_REF(handle_pod))
 
 /obj/machinery/door_control/mainship/req/ro1
 	name = "RO Line 1 Shutters"

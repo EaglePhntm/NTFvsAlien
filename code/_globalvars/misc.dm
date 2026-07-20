@@ -30,6 +30,9 @@ GLOBAL_PROTECT(key_to_time_of_role_death)
 GLOBAL_LIST_EMPTY(key_to_time_of_death)
 GLOBAL_PROTECT(key_to_time_of_death)
 
+GLOBAL_LIST_EMPTY(key_to_time_of_xeno_death)
+GLOBAL_PROTECT(key_to_time_of_xeno_death)
+
 GLOBAL_LIST_EMPTY(key_to_time_of_caste_swap)
 GLOBAL_PROTECT(key_to_time_of_caste_swap)
 
@@ -38,3 +41,6 @@ GLOBAL_PROTECT(key_to_time_of_strain_swap)
 
 ///List of ssd living mobs
 GLOBAL_LIST_EMPTY(ssd_living_mobs)
+
+///Maximum allowed number of possessed sentient zombies
+GLOBAL_VAR_INIT(maximum_allowed_possessed_zombies, 10)

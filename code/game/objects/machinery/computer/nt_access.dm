@@ -66,6 +66,7 @@
 	completed_segments = min(completed_segments + 1, total_segments)
 	update_minimap_icon()
 	running = FALSE
+	stop_processing()
 
 	if(completed_segments == total_segments)
 		visible_message(span_notice("[src] beeps as security override code is ready to send."))

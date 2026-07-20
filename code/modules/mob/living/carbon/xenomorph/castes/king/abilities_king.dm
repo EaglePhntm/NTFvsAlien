@@ -47,6 +47,7 @@
 	name = "Petrify"
 	action_icon_state = "petrify"
 	action_icon = 'icons/Xeno/actions/king.dmi'
+	desc = "After a windup, petrifies all humans looking at you. While petrified humans are immune to damage, but also can't attack."
 
 	ability_cost = 100
 	cooldown_duration = 30 SECONDS
@@ -77,7 +78,7 @@
 	REMOVE_TRAIT(owner, TRAIT_STAGGER_RESISTANT, XENO_TRAIT)
 	ADD_TRAIT(owner, TRAIT_IMMOBILE, PETRIFY_ABILITY_TRAIT)
 
-	if(!do_after(owner, PETRIFY_WINDUP_TIME, IGNORE_HELD_ITEM, owner, BUSY_ICON_DANGER, extra_checks = CALLBACK(src, PROC_REF(can_use_action), FALSE, ABILITY_USE_BUSY)))
+	if(!do_after(owner, PETRIFY_WINDUP_TIME, FALSE, owner, BUSY_ICON_DANGER, extra_checks = CALLBACK(src, PROC_REF(can_use_action), FALSE, ABILITY_USE_BUSY)))
 		flick("eye_closing", eye)
 		addtimer(CALLBACK(src, PROC_REF(remove_eye), eye), 7, TIMER_CLIENT_TIME)
 		finish_charging()
@@ -147,7 +148,7 @@
 	victim.notransform = FALSE
 	victim.status_flags &= ~GODMODE
 	REMOVE_TRAIT(victim, TRAIT_HANDS_BLOCKED, REF(src))
-	victim.set_move_resist(initial(victim.move_resist))
+	victim.set_move_resist(victim.get_initial_move_resist())
 	victim.remove_atom_colour(TEMPORARY_COLOR_PRIORITY, COLOR_GRAY)
 	victim.overlays -= petrified_humans[victim]
 	petrified_humans -= victim
@@ -173,6 +174,20 @@
 /datum/action/ability/xeno_action/petrify/proc/remove_eye(obj/effect/eye)
 	owner.vis_contents -= eye
 
+/datum/action/ability/xeno_action/petrify/ai_should_start_consider()
+	return TRUE
+
+/datum/action/ability/xeno_action/petrify/ai_should_use(atom/target)
+	if(!ismob(target))
+		return FALSE
+	if(get_dist(target, owner) > 6)
+		return FALSE
+	if(!line_of_sight(owner, target))
+		return FALSE
+	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
+		return FALSE
+	return TRUE
+
 // ***************************************
 // *********** Off-Guard
 // ***************************************
@@ -181,7 +196,8 @@
 	name = "Off-guard"
 	action_icon_state = "off_guard"
 	action_icon = 'icons/Xeno/actions/king.dmi'
-	desc = "Muddles the mind of an enemy, making it harder for them to focus their aim and movement for a while."
+	desc = "Muddles the mind of an enemy, making it harder for them to focus their aim for a while."
+
 	ability_cost = 100
 	cooldown_duration = 20 SECONDS
 	target_flags = ABILITY_MOB_TARGET
@@ -223,6 +239,20 @@
 	add_cooldown()
 	succeed_activate()
 
+/datum/action/ability/activable/xeno/off_guard/ai_should_start_consider()
+	return TRUE
+
+/datum/action/ability/activable/xeno/off_guard/ai_should_use(atom/target)
+	if(!ishuman(target))
+		return FALSE
+	if(get_dist(target, owner) > 6)
+		return FALSE
+	if(!line_of_sight(owner, target))
+		return FALSE
+	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
+		return FALSE
+	return TRUE
+
 // ***************************************
 // *********** Psychic roar
 // ***************************************
@@ -238,6 +268,7 @@
 	action_icon_state = "shattering_roar"
 	action_icon = 'icons/Xeno/actions/king.dmi'
 	desc = "Unleash a mighty psychic roar, knocking down any foes in your path and weakening them."
+
 	ability_cost = 225
 	cooldown_duration = 45 SECONDS
 	target_flags = ABILITY_TURF_TARGET
@@ -258,7 +289,7 @@
 	REMOVE_TRAIT(owner, TRAIT_STAGGER_RESISTANT, XENO_TRAIT) //Vulnerable while charging up
 	ADD_TRAIT(owner, TRAIT_IMMOBILE, SHATTERING_ROAR_ABILITY_TRAIT)
 
-	if(!do_after(owner, SHATTERING_ROAR_CHARGE_TIME, NONE, owner, BUSY_ICON_DANGER, extra_checks = CALLBACK(src, PROC_REF(can_use_action), FALSE, ABILITY_USE_BUSY)))
+	if(!do_after(owner, SHATTERING_ROAR_CHARGE_TIME, TRUE, owner, BUSY_ICON_DANGER, extra_checks = CALLBACK(src, PROC_REF(can_use_action), FALSE, ABILITY_USE_BUSY)))
 		owner.balloon_alert(owner, "interrupted!")
 		finish_charging()
 		add_cooldown(10 SECONDS)
@@ -343,6 +374,20 @@
 /obj/effect/temp_visual/shattering_roar/Initialize(mapload)
 	. = ..()
 	flick("smash", src)
+
+/datum/action/ability/activable/xeno/shattering_roar/ai_should_start_consider()
+	return TRUE
+
+/datum/action/ability/activable/xeno/shattering_roar/ai_should_use(atom/target)
+	if(!ismob(target))
+		return FALSE
+	if(get_dist(target, owner) > 6)
+		return FALSE
+	if(!line_of_sight(owner, target))
+		return FALSE
+	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
+		return FALSE
+	return TRUE
 
 // ***************************************
 // *********** Zero form energy beam
@@ -441,7 +486,7 @@
 	REMOVE_TRAIT(owner, TRAIT_STAGGER_RESISTANT, XENO_TRAIT)
 	ADD_TRAIT(owner, TRAIT_IMMOBILE, ZERO_FORM_BEAM_ABILITY_TRAIT)
 
-	if(!do_after(owner, ZEROFORM_CHARGE_TIME, IGNORE_HELD_ITEM, owner, BUSY_ICON_DANGER, extra_checks = CALLBACK(src, PROC_REF(can_use_action), FALSE, ABILITY_USE_BUSY)))
+	if(!do_after(owner, ZEROFORM_CHARGE_TIME, FALSE, owner, BUSY_ICON_DANGER, extra_checks = CALLBACK(src, PROC_REF(can_use_action), FALSE, ABILITY_USE_BUSY)))
 		QDEL_NULL(beam)
 		QDEL_NULL(particles)
 		targets = null
@@ -499,6 +544,20 @@
 	if(xeno_owner.xeno_caste.caste_flags & CASTE_STAGGER_RESISTANT)
 		ADD_TRAIT(owner, TRAIT_STAGGER_RESISTANT, XENO_TRAIT)
 
+/datum/action/ability/xeno_action/zero_form_beam/ai_should_start_consider()
+	return TRUE
+
+/datum/action/ability/xeno_action/zero_form_beam/ai_should_use(atom/target)
+	if(!ismob(target))
+		return FALSE
+	if(get_dist(target, owner) > 6)
+		return FALSE
+	if(!line_of_sight(owner, target))
+		return FALSE
+	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
+		return FALSE
+	return TRUE
+
 /particles/zero_form
 	width = 400
 	height = 400
@@ -535,7 +594,8 @@
 	action_icon_state = "stomp"
 	action_icon = 'icons/Xeno/actions/crusher.dmi'
 	desc = "Summons all xenos in a hive to the caller's location, uses all plasma to activate."
-	ability_cost = 900
+
+	ability_cost = 900 //uses all an young kings plasma
 	cooldown_duration = 10 MINUTES
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
 	keybinding_signals = list(
@@ -562,7 +622,7 @@
 	. = ..()
 	if(!.)
 		return
-	if(length(xeno_owner.hive.get_all_xenos()) <= 1)
+	if(length(xeno_owner.get_hive().get_all_xenos()) <= 1)
 		if(!silent)
 			owner.balloon_alert(owner, "noone to call")
 		return FALSE
@@ -572,8 +632,9 @@ GLOBAL_LIST_EMPTY(active_summons)
 /datum/action/ability/xeno_action/psychic_summon/action_activate()
 
 	log_game("[key_name(owner)] has begun summoning hive in [AREACOORD(owner)]")
-	xeno_message("King: \The [owner] has begun a psychic summon in <b>[get_area(owner)]</b>!", hivenumber = xeno_owner.hivenumber)
-	var/list/allxenos = xeno_owner.hive.get_all_xenos()
+	xeno_message("King: \The [owner] has begun a psychic summon in <b>[get_area(owner)]</b>!", hivenumber = xeno_owner.get_xeno_hivenumber())
+	var/datum/hive_status/hive = xeno_owner.get_hive()
+	var/list/allxenos = hive.get_all_xenos()
 	for(var/mob/living/carbon/xenomorph/sister AS in allxenos)
 		if(minions_only && sister.tier != XENO_TIER_MINION)
 			continue
@@ -591,7 +652,7 @@ GLOBAL_LIST_EMPTY(active_summons)
 			sister.remove_filter("summonoutline")
 		return fail_activate()
 
-	allxenos = xeno_owner.hive.get_all_xenos() //refresh the list to account for any changes during the channel
+	allxenos = hive.get_all_xenos() //refresh the list to account for any changes during the channel
 	var/sisters_teleported = 0
 	for(var/mob/living/carbon/xenomorph/sister AS in allxenos)
 		if(minions_only && sister.tier != XENO_TIER_MINION)

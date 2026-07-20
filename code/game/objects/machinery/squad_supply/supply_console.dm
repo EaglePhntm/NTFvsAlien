@@ -22,6 +22,9 @@
 	var/y_offset = 0
 	COOLDOWN_DECLARE(next_fire)
 
+/obj/machinery/computer/supplydrop_console/som
+	faction = FACTION_SOM
+
 /obj/machinery/computer/supplydrop_console/Initialize(mapload)
 	. = ..()
 	RegisterSignal(SSdcs, COMSIG_GLOB_SUPPLY_BEACON_CREATED, PROC_REF(ping_beacon))
@@ -77,6 +80,9 @@
 			for(var/beacon_name in beacon_list)
 				var/datum/supply_beacon/beacon = beacon_list[beacon_name]
 				if(!is_ground_level(beacon.drop_location.z))
+					beacon_list -= beacon_name
+					continue
+				if(beacon.faction != faction)
 					beacon_list -= beacon_name
 					continue
 			var/datum/supply_beacon/supply_beacon_choice = beacon_list[tgui_input_list(ui.user, "Select the beacon to send supplies", "Beacon choice", beacon_list)]
@@ -199,10 +205,10 @@
 		supply.forceMove(droploc)
 		supply.pixel_z = 400
 		supply.add_overlay(anim_overlays)
-		animate(supply, time = 4 SECONDS, pixel_z = 0, easing=SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+		animate(supply, time = 3 SECONDS, pixel_z = 0, easing=SINE_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
 	supply_pad.visible_message("[icon2html(supply_pad, viewers(src))] [span_boldnotice("Supply drop launched! Another launch will be available in [launch_cooldown/10] seconds.")]")
 	addtimer(CALLBACK(droploc, TYPE_PROC_REF(/turf, ceiling_debris)), 2.5 SECONDS)
-	addtimer(CALLBACK(src, PROC_REF(clean_supplydrop), supplies, anim_overlays), 4 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(clean_supplydrop), supplies, anim_overlays), 3 SECONDS)
 
 /// handles cleanup of post-animation stuff (ie just after it lands)
 /obj/machinery/computer/supplydrop_console/proc/clean_supplydrop(list/supplies, anim_overlays)

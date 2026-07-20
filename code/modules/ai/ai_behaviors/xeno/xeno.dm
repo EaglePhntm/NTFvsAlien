@@ -30,20 +30,31 @@
 		return ..()
 
 	for(var/datum/action/action in ability_list)
-		if(!action.ai_should_use(atom_to_walk_to))
+		if(action.ai_should_use(combat_target))
+			//xeno_action/activable is activated with a different proc for keybinded actions, so we gotta use the correct proc
+			if(istype(action, /datum/action/ability/activable))
+				var/datum/action/ability/activable/xeno_action = action
+				if(xeno_action.can_use_ability(combat_target, TRUE, ABILITY_IGNORE_SELECTED_ABILITY))
+					xeno_action.use_ability(combat_target)
+			else
+				if(action.can_use_action(TRUE, ABILITY_IGNORE_SELECTED_ABILITY, FALSE))
+					action.action_activate()
 			continue
-		//xeno_action/activable is activated with a different proc for keybinded actions, so we gotta use the correct proc
-		if(istype(action, /datum/action/ability/activable))
-			var/datum/action/ability/activable/xeno_action = action
-			xeno_action.use_ability(atom_to_walk_to)
-		else
-			action.action_activate()
+		if(action.ai_should_use(atom_to_walk_to))
+			//xeno_action/activable is activated with a different proc for keybinded actions, so we gotta use the correct proc
+			if(istype(action, /datum/action/ability/activable))
+				var/datum/action/ability/activable/xeno_action = action
+				if(xeno_action.can_use_ability(atom_to_walk_to, TRUE, ABILITY_IGNORE_SELECTED_ABILITY))
+					xeno_action.use_ability(atom_to_walk_to)
+			else
+				if(action.can_use_action(TRUE, ABILITY_IGNORE_SELECTED_ABILITY, FALSE))
+					action.action_activate()
 	return ..()
 
 /datum/ai_behavior/xeno/state_process(next_target)
 	if(current_action != MOVING_TO_NODE && current_action != FOLLOWING_PATH)
 		return
-	if(can_heal && mob_parent.health <= minimum_health * 2 * mob_parent.maxHealth)
+	if(can_heal && mob_parent.health < min(minimum_health * 2 * mob_parent.maxHealth, mob_parent.maxHealth))
 		try_to_heal() //If we have some damage, look for some healing
 		return
 

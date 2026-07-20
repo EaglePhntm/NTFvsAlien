@@ -34,7 +34,7 @@ GLOBAL_LIST_EMPTY(remote_fob_computers)
 	toggle_wiring = new()
 	eject_metal_action = new()
 	eject_plasteel_action = new()
-	RegisterSignal(SSdcs, COMSIG_GLOB_DROPSHIP_TRANSIT, PROC_REF(disable_drone_creation))
+	//RegisterSignal(SSdcs, COMSIG_GLOB_DROPSHIP_TRANSIT, PROC_REF(disable_drone_creation))
 
 /obj/machinery/computer/camera_advanced/remote_fob/proc/disable_drone_creation()
 	SIGNAL_HANDLER

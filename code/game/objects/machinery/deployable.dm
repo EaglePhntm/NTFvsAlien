@@ -7,6 +7,7 @@
 	var/default_icon_state
 	///Weakref to item that is deployed to create src.
 	var/datum/weakref/internal_item
+	var/ownerflag = MINIMAP_FLAG_MARINE
 
 /obj/machinery/deployable/Initialize(mapload, _internal_item, mob/deployer)
 	. = ..()
@@ -34,6 +35,7 @@
 
 	prepare_huds()
 	if(istype(deployer))
+		ownerflag = GLOB.faction_to_minimap_flag[deployer.faction] || ownerflag
 		var/datum/atom_hud/sentry_status_hud = GLOB.huds[GLOB.faction_to_data_hud[deployer.faction]] //we find the faction squad hud
 		if(sentry_status_hud)
 			sentry_status_hud.add_to_hud(src)
@@ -56,7 +58,8 @@
 
 /obj/machinery/deployable/disassemble(mob/user)
 	if(get_self_acid())
-		balloon_alert(user, "it's melting!")
+		if(user)
+			balloon_alert(user, "it's melting!")
 		return
 	return ..()
 

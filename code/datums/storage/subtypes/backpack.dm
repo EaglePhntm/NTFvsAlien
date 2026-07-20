@@ -4,7 +4,7 @@
 	max_w_class = WEIGHT_CLASS_NORMAL
 	storage_slots = null
 	max_storage_space = 24
-	access_delay = 1.5 SECONDS
+	access_delay = 2 SECONDS
 
 /datum/storage/backpack/should_access_delay(obj/item/item, mob/user, taking_out)
 	if(!taking_out) // Always allow items to be tossed in instantly
@@ -37,7 +37,6 @@
 		/obj/item/ammo_magazine/sentry,
 		/obj/item/ammo_magazine/minisentry,
 		/obj/item/mortal_shell,
-		/obj/item/mortar_kit,
 		/obj/item/stack/razorwire,
 		/obj/item/stack/sandbags,
 		/obj/item/teleporter_kit,

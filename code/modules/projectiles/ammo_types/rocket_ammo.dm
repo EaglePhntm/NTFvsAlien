@@ -33,6 +33,8 @@
 	drop_nade(target_turf, proj)
 
 /datum/ammo/rocket/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
+	if(isexosuit(target_obj) && damage > 75)
+		proj.damage *= 1.5
 	drop_nade(target_obj.density ? get_step_towards(target_obj, proj) : target_obj.loc, proj)
 
 /datum/ammo/rocket/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
@@ -69,6 +71,31 @@
 
 /datum/ammo/rocket/ap/drop_nade(turf/target_turf, atom/movable/projectile/proj)
 	explosion(target_turf, flash_range = 1, explosion_cause = proj)
+
+/datum/ammo/rocket/plasmaloss
+	name = "medium velocity chemical shell"
+	icon_state = "rocket_tangle"
+	hud_state = "shell_tanglefoot"
+	damage_falloff = 0
+	shell_speed = 1.5
+	accuracy = 20
+	accurate_range = 20
+	max_range = 14
+	damage = 20
+	penetration = 10
+	sundering = 5
+
+	var/effect_radius = 3
+
+	var/datum/effect_system/smoke_spread/smoketype = /datum/effect_system/smoke_spread/plasmaloss
+	/// Radius this smoke will encompass on detonation.
+	var/smokeradius = 7
+
+/datum/ammo/rocket/plasmaloss/drop_nade(turf/target_turf, atom/movable/projectile/proj)
+	var/datum/effect_system/smoke_spread/smoke = new smoketype()
+	playsound(target_turf, 'sound/effects/smoke.ogg', 25, 1, 4)
+	smoke.set_up(smokeradius, target_turf, rand(5,9))
+	smoke.start()
 
 /datum/ammo/rocket/ltb
 	name = "cannon round"
@@ -183,7 +210,7 @@
 	smoke_system = null
 	target_turf.visible_message(span_danger("The rocket explodes into white gas!") )
 	playsound(target_turf, 'sound/weapons/guns/fire/flamethrower2.ogg', 50, 1, 4)
-	flame_radius(effect_radius, target_turf, 27, 27, 27, 17)
+	flame_radius(effect_radius - 1, target_turf, 20, 20, 15, 10)
 
 /datum/ammo/rocket/wp/quad/som
 	name = "white phosphorous RPG"
@@ -359,6 +386,18 @@
 
 /datum/ammo/rocket/som/thermobaric/drop_nade(turf/target_turf, atom/movable/projectile/proj)
 	explosion(target_turf, 0, 4, 5, 0, 4, 4, explosion_cause = proj)
+
+/datum/ammo/rocket/oneuse/thermobaric // disposable thermobaric
+	name = "thermobaric Rocket"
+	hud_state = "rpg_thermobaric"
+	damage = 15
+	accurate_range = 8
+	penetration = 15
+	sundering = 15
+	max_range = 15
+
+/datum/ammo/rocket/oneuse/thermobaric/drop_nade(turf/target_turf, atom/movable/projectile/proj)
+	explosion(target_turf, 0, 0, 1, 2, 0, 4, explosion_cause = proj)
 
 /datum/ammo/rocket/som/heat //Anti tank, or mech
 	name = "HEAT RPG"
@@ -577,7 +616,7 @@
 
 /datum/ammo/rocket/homing/microrocket /// this is basically a tgmc version of the above
 	name = "homing HE microrocket"
-	shell_speed = 0.3
+	shell_speed = 0.4
 	damage = 75
 	penetration = 40
 	sundering = 5
@@ -596,6 +635,9 @@
 
 /datum/ammo/rocket/homing/microrocket/mech/drop_nade(turf/target_turf, atom/movable/projectile/proj)
 	explosion(target_turf, 0, 0, 0, 2, 1, explosion_cause = proj)
+
+/datum/ammo/rocket/homing/microrocket/mech
+	name = "homing mech HE microrocket"
 
 /datum/ammo/rocket/homing/tow
 	name = "TOW-III missile"

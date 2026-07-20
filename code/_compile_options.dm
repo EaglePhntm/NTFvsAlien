@@ -8,6 +8,15 @@
 #define USE_CUSTOM_ERROR_HANDLER
 #endif
 
+//for debugging electrical power
+//#define POWERDEBUG
+
+//Uncomment this if we decide to start using TGS
+#define USE_TGS
+
+//Uncomment to use TGS discord verification
+//#define TGS_DISCORD_VERIFICATION
+
 #ifdef TESTING
 #define DATUMVAR_DEBUGGING_MODE
 

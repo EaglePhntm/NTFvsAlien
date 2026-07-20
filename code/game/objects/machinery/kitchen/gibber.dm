@@ -6,6 +6,7 @@
 	icon_state = "grinder"
 	anchored = TRUE
 	density = TRUE
+	wrenchable = TRUE
 	coverage = 25
 	var/operating = 0 //Is it on?
 	var/dirty = 0 // Does it need cleaning?
@@ -238,7 +239,9 @@
 	internal_beaker = null
 
 /obj/machinery/gibber/apc/grab_interact(obj/item/grab/grab, mob/user, base_damage = BASE_OBJ_SLAM_DAMAGE, is_sharp = FALSE)
+	/* just use em
 	if(HAS_TRAIT(grab.grabbed_thing, TRAIT_MAPSPAWNED))
 		balloon_alert(user, "bad meat!")
 		return FALSE
+	*/
 	return ..()

@@ -2,22 +2,133 @@
 /atom/movable/screen/map_view/preference_preview
 	/// All the plane masters that need to be applied.
 	var/atom/movable/screen/background/screen_bg
-
+	/// Preferences datum that owns and renders this preview.
+	var/datum/preferences/preferences
+	/// Dedicated dummy body used only for this preview.
+	var/mob/living/carbon/human/dummy/body
+	/// Composited background canvas used to frame the preview body.
+	var/image/canvas
+	/// Last canvas tier used by the composited preview.
+	var/last_canvas_size
 /atom/movable/screen/map_view/preference_preview/Destroy()
+	canvas?.cut_overlays()
+	QDEL_NULL(canvas)
+	QDEL_NULL(body)
 	QDEL_NULL(screen_bg)
+	preferences = null
 	return ..()
 
 /atom/movable/screen/map_view/preference_preview/generate_view(map_key)
 	. = ..()
+	set_position(2, 2)
 	screen_bg = new
 	screen_bg.del_on_map_removal = FALSE
 	screen_bg.assigned_map = assigned_map
 	screen_bg.icon_state = "clear"
-	screen_bg.fill_rect(1, 1, 4, 1)
+	screen_bg.fill_rect(1, 1, 3, 3)
 
 /atom/movable/screen/map_view/preference_preview/display_to_client(client/show_to)
 	show_to.register_map_obj(screen_bg)
 	return ..()
+
+/datum/preferences/proc/input_preference_color(mob/user, prompt, title, current_color, fallback = "#FFFFFF")
+	var/new_color = input(user, prompt, title, sanitize_hexcolor(current_color, 6, TRUE, fallback)) as null|color
+	if(!new_color)
+		return null
+	return sanitize_hexcolor(new_color, 6, TRUE, fallback)
+
+/datum/preferences/proc/human_skin_tone_presets()
+	return list(
+		"Fair" = "#F1D0B5",
+		"Light" = "#E6B98F",
+		"Medium" = "#C8895A",
+		"Tan" = "#A66A43",
+		"Brown" = "#7A4A2E",
+		"Dark" = "#4A2C1F",
+	)
+
+/atom/movable/screen/map_view/preference_preview/proc/update_body()
+	. = FALSE
+	if(!preferences)
+		return
+
+	if(!body)
+		body = new
+	else
+		body.wipe_state()
+
+	body.dir = preferences.preference_preview_dir
+	preferences.render_character_creator_preview_body(body)
+	body.setDir(preferences.preference_preview_dir)
+
+	if(canvas)
+		canvas.cut_overlays()
+
+	body.transform = matrix()
+	body.pixel_y = 0
+
+	var/canvas_size = get_canvas_size()
+	if(!canvas || last_canvas_size != canvas_size)
+		QDEL_NULL(canvas)
+		switch(canvas_size)
+			if(0)
+				body.pixel_x = 0
+				canvas = image('ntf_modular/icons/customization/template.dmi')
+			if(1)
+				body.pixel_x = 16
+				canvas = image('ntf_modular/icons/customization/template_64x64.dmi')
+			else
+				body.pixel_x = 32
+				canvas = image('ntf_modular/icons/customization/template_96x96.dmi')
+		last_canvas_size = canvas_size
+	else
+		switch(canvas_size)
+			if(0)
+				body.pixel_x = 0
+			if(1)
+				body.pixel_x = 16
+			else
+				body.pixel_x = 32
+
+	canvas.dir = preferences.preference_preview_dir
+	canvas.add_overlay(body.appearance)
+	appearance = canvas.appearance
+	dir = preferences.preference_preview_dir
+	return TRUE
+
+/atom/movable/screen/map_view/preference_preview/proc/update_direction()
+	. = FALSE
+	if(!preferences || !body)
+		return update_body()
+
+	body.setDir(preferences.preference_preview_dir)
+	if(canvas)
+		canvas.cut_overlays()
+	else
+		return update_body()
+
+	body.transform = matrix()
+	body.pixel_y = 0
+	switch(last_canvas_size)
+		if(0)
+			body.pixel_x = 0
+		if(1)
+			body.pixel_x = 16
+		else
+			body.pixel_x = 32
+
+	canvas.dir = preferences.preference_preview_dir
+	canvas.add_overlay(body.appearance)
+	appearance = canvas.appearance
+	dir = preferences.preference_preview_dir
+	return TRUE
+
+/atom/movable/screen/map_view/preference_preview/proc/get_canvas_size()
+	// Keep the dummy sprite at native scale. Swap the background canvas instead
+	// of scaling the mob transform:
+	// 0 = 32x32 normal, 1 = 64x64 large, 2 = 96x96 oversized.
+	// Future body-size or taur-style prefs should choose tier 1 or 2 here.
+	return 0
 
 /datum/preferences/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -39,20 +150,20 @@
 /datum/preferences/ui_data(mob/user)
 	var/list/data = list()
 	data["tabIndex"] = tab_index
-	data["slot"] = default_slot
-	data["save_slot_names"] = list()
 	if(!path)
-		return data
+		. = data
+		CRASH("no path")
 	var/savefile/S = new (path)
 	if(!S)
-		return data
-	var/name
-	for(var/i in 1 to MAX_SAVE_SLOTS)
-		S.cd = "/character[i]"
-		S["real_name"] >> name
-		if(!name)
-			continue
-		data["save_slot_names"]["[i]"] = name
+		. = data
+		CRASH("no savefile for path [path]")
+	var/slotname
+	S.cd = "/character[default_slot]"
+	S["real_name"] >> slotname
+	if(!slotname)
+		slotname = "\[empty\]"
+	data["slot"] = "[default_slot] - [slotname]"
+	data["slot_number"] = default_slot
 
 	data["unique_action_use_active_hand"] = unique_action_use_active_hand
 
@@ -70,33 +181,75 @@
 			data["r_eyes"] = r_eyes
 			data["g_eyes"] = g_eyes
 			data["b_eyes"] = b_eyes
+			data["hair_emissive"] = hair_emissive
+			data["eye_emissive"] = eye_emissive
 			data["real_name"] = real_name
+			data["body_color"] = body_color
+			data["genitalia_ass_color"] = genitalia_ass_color
+			data["genitalia_boobs_color"] = genitalia_boobs_color
+			data["genitalia_boobs_color_secondary"] = genitalia_boobs_color_secondary
+			data["genitalia_cock_color"] = genitalia_cock_color
+			data["genitalia_cock_color_secondary"] = genitalia_cock_color_secondary
+			data["genitalia_vagina_color"] = genitalia_vagina_color
+			data["genitalia_belly_color"] = genitalia_belly_color
+			data["genitalia_testicles_color"] = genitalia_testicles_color
+			data["genitalia_testicles_color_secondary"] = genitalia_testicles_color_secondary
+			write_character_creator_accessory_data(data)
 			data["xeno_name"] = xeno_name
 			data["synthetic_name"] = synthetic_name
 			data["synthetic_type"] = synthetic_type
+			data["synthetic_body_base"] = synthetic_body_base
 			data["robot_type"] = robot_type
+			data["robot_body_base"] = robot_body_base
+			data["robot_head_base"] = robot_head_base
+			data["custom_supersoldier_parts"] = custom_supersoldier_parts
+			data["supersoldier_body_base"] = supersoldier_body_base
+			data["supersoldier_head_base"] = supersoldier_head_base
+			data["moth_wings"] = moth_wings
+			data["allow_mismatched_parts"] = allow_mismatched_parts
+			data["use_genital_size_controls"] = use_genital_size_controls
+			data["allow_emissives"] = allow_emissives
 			data["random_name"] = random_name
+			data["preference_preview_dir"] = preference_preview_dir
+			data["preference_preview_mode"] = character_creator_preview_mode_label()
+			data["preference_preview_modes"] = character_creator_preview_modes()
+			data["mapRef"] = map_name
 			data["ai_name"] = ai_name
-			data["age"] = age
 			data["gender"] = gender
 			data["physique"] = physique
-			data["ethnicity"] = ethnicity
 			data["species"] = species || "Human"
+			data["human_body_style"] = human_body_style
+			data["ethnicity"] = ethnicity
+			data["ethnicities"] = sortList(GLOB.ethnicities_list)
+			data["human_skin_tones"] = human_skin_tone_presets()
 			data["good_eyesight"] = good_eyesight
-			data["citizenship"] = citizenship
+			data["blood_type"] = blood_type
 			data["tts_voice"] = tts_voice
 			data["tts_pitch"] = "[tts_pitch]"
-			data["religion"] = religion
 			data["h_style"] = h_style
 			data["grad_style"] = grad_style
 			data["f_style"] = f_style
+			data["blood_color"] = blood_color
 		if(BACKGROUND_INFORMATION)
-			data["slot"] = default_slot
-			data["flavor_text"] = flavor_text
-			data["med_record"] = med_record
-			data["gen_record"] = gen_record
-			data["sec_record"] = sec_record
-			data["exploit_record"] = exploit_record
+			data["age"] = age
+			data["citizenship"] = citizenship
+			data["religion"] = religion
+			data["flavor_text"] = html_decode(flavor_text)
+			data["xeno_desc"] = html_decode(xeno_desc)
+			data["profile_pic"] = html_decode(profile_pic)
+			data["nsfwprofile_pic"] = html_decode(nsfwprofile_pic)
+			data["xenoprofile_pic"] = html_decode(xenoprofile_pic)
+			data["med_record"] = html_decode(med_record)
+			data["gen_record"] = html_decode(gen_record)
+			data["sec_record"] = html_decode(sec_record)
+			data["exploit_record"] = html_decode(exploit_record)
+		if(FLAVOR_CUSTOMIZATION)
+			data["xeno_edible_jelly_name"] = xeno_edible_jelly_name
+			data["r_jelly"] = r_jelly
+			data["g_jelly"] = g_jelly
+			data["b_jelly"] = b_jelly
+			data["xeno_edible_jelly_desc"] = xeno_edible_jelly_desc
+			data["xeno_edible_jelly_flavors"] = xeno_edible_jelly_flavors
 		if(GEAR_CUSTOMIZATION)
 			data["gearsets"] = list()
 			for(var/g in GLOB.gear_datums)
@@ -107,8 +260,10 @@
 					"slot" = gearset.slot,
 				)
 			data["gear"] = gear || list()
+			/*NTF removal
 			data["undershirt"] = undershirt
 			data["underwear"] = underwear
+			*/
 			data["backpack"] = backpack
 			data["physique_used"] = get_physique()
 		if(JOB_PREFERENCES)
@@ -162,7 +317,7 @@
 			data["toggle_clickdrag"] = !(toggles_gameplay & TOGGLE_CLICKDRAG)
 			data["toggle_xeno_move_intent_keybind"] = !!(toggles_gameplay & TOGGLE_XENO_MOVE_INTENT_KEYBIND)
 			data["scaling_method"] = scaling_method
-			data["pixel_size"] = pixel_size
+			data["pixel_size"] = pixel_size ? "[pixel_size]x" : "Auto"
 			data["parallax"] = parallax
 			data["fullscreen_mode"] = fullscreen_mode
 			data["show_status_bar"] = show_status_bar
@@ -202,14 +357,6 @@
 			.["mapRef"] = "player_pref_map"
 		if(GEAR_CUSTOMIZATION)
 			.["clothing"] = list(
-				"underwear" = list(
-					"male" = GLOB.underwear_m,
-					"female" = GLOB.underwear_f,
-				),
-				"undershirt" = list(
-					"male" = GLOB.undershirt_m,
-					"female" = GLOB.undershirt_f,
-				),
 				"backpack" = GLOB.backpacklist,
 				)
 			.["gearsets"] = list()
@@ -238,11 +385,19 @@
 				)
 			.["overflow_job"] = SSjob?.overflow_role?.title
 			.["special_occupations"] = list(
-				"Latejoin Xenomorph" = BE_ALIEN,
-				"Xenomorph when unrevivable" = BE_ALIEN_UNREVIVABLE,
-				"End of Round Deathmatch" = BE_DEATHMATCH,
-				"Prefer Squad over Role" = BE_SQUAD_STRICT,
-				"Use random name when taking SSD mobs" = BE_SSD_RANDOM_NAME
+				"Latejoin Xenomorph" = list("flag" = BE_ALIEN),
+				"Xenomorph when unrevivable" = list("flag" = BE_ALIEN_UNREVIVABLE),
+				"End of Round Deathmatch" = list("flag" = BE_DEATHMATCH),
+				"Become Hive Target" = list(
+					"flag" = BE_HIVE_TARGET,
+					"tooltip" = "Allow your character to be selected as the xenomorph faction's hive target during small hunt missions.",
+				),
+				"Receive Hive Target" = list(
+					"flag" = BE_HIVE_TARGET_XENO,
+					"tooltip" = "Opt your xenomorph into small hive hunt missions. Participating xenos receive the target directive and can earn the faction reward.",
+				),
+				"Prefer Squad over Role" = list("flag" = BE_SQUAD_STRICT),
+				//"Use random name when taking SSD mobs" = BE_SSD_RANDOM_NAME
 			)
 		if(KEYBIND_SETTINGS)
 			.["all_keybindings"] = list()
@@ -255,6 +410,9 @@
 					category = kb.category,
 				))
 
+/datum/preferences/proc/tab_needs_static_data(tab)
+	return tab == GEAR_CUSTOMIZATION || tab == JOB_PREFERENCES || tab == KEYBIND_SETTINGS
+
 /datum/preferences/ui_act(action, list/params, datum/tgui/ui)
 	. = ..()
 	if(.)
@@ -262,22 +420,105 @@
 	var/client/current_client = CLIENT_FROM_VAR(usr)
 	var/mob/user = current_client.mob
 
+	if(handle_character_creator_accessory_action(action, user, params))
+		save_preferences()
+		save_character()
+		save_keybinds()
+		SStgui.update_uis(src)
+		SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+		return TRUE
+
 	switch(action)
 		if("changeslot")
-			if(!load_character(text2num(params["changeslot"])))
-				random_character()
-				real_name = random_unique_name(gender)
-				save_character()
-				update_preview_icon()
+			var/list/slots = list()
+			if(!path)
+				CRASH("no path")
+			var/savefile/S = new (path)
+			if(!S)
+				CRASH("no savefile for path [path]")
+			var/slotname
+			for(var/i in 1 to MAX_SAVE_SLOTS)
+				S.cd = "/character[i]"
+				S["real_name"] >> slotname
+				if(!slotname)
+					slotname = "\[empty\]"
+				slots += "[i] - [slotname]"
+			var/choice = tgui_input_list(ui.user, "What slot do you want to load?", "Character slot choice", slots)
+			if(!choice)
+				return
+			var/slotchoice = text2num(splittext(choice," - ")[1])
+			if(!load_character(slotchoice))
+				if(splittext(choice," - ")[2] == "\[empty\]")
+					slotchoice = sanitize_integer(slotchoice, 1, MAX_SAVE_SLOTS, initial(default_slot))
+					if(slotchoice != default_slot)
+						WRITE_FILE(S["default_slot"], slotchoice)
+						default_slot = slotchoice
+					S.cd = "/character[slotchoice]"
+					random_character()
+					real_name = random_unique_name(gender)
+					save_character()
+				else
+					var/choice2 = tgui_alert(user,"Your character cannot be loaded at this time. Try again later, possibly reconnect, and if the issue persists, notify staff!", "Character Loading Error!", list("Retry" , "Cancel"))
+					switch(choice2)
+						if("Retry")
+							if(!load_character(text2num(splittext(choice," - ")[1])))
+								tgui_alert(user, "Nope, still nothing... try again later...")
+						if("Cancel")
+							return
+
+
+			update_preview_icon()
+
+		if("delete_character_slot")
+			var/slot_to_delete = default_slot
+			if(slot_to_delete <= 1)
+				to_chat(user, span_warning("You cannot delete save slot 1."))
+				return
+			var/slot_name = real_name || "\[empty\]"
+			var/confirm = tgui_alert(user, "Delete save slot [slot_to_delete] - [slot_name]? This cannot be undone.", "Delete character", list("Delete", "Cancel"))
+			if(confirm != "Delete")
+				return
+			if(!delete_character(slot_to_delete))
+				to_chat(user, span_warning("Unable to delete that character slot."))
+				return
+			load_character(slot_to_delete - 1)
+			update_preview_icon()
+			SStgui.update_uis(src)
+			SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+			return TRUE
 
 		if("tab_change")
 			tab_index = params["tabIndex"]
-			update_static_data(ui.user, ui)
+			if(tab_needs_static_data(tab_index))
+				update_static_data(ui.user, ui)
+			save_preferences()
+			save_character()
+			save_keybinds()
+			SStgui.update_uis(src)
+			SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+			return TRUE
 
 		if("random")
 			randomize_appearance_for()
 			save_character()
 			update_preview_icon()
+
+		if("preview_rotate_left")
+			rotate_character_creator_preview(FALSE)
+			return TRUE
+
+		if("preview_rotate_right")
+			rotate_character_creator_preview(TRUE)
+			return TRUE
+
+		if("preview_face_front")
+			reset_character_creator_preview()
+			return TRUE
+
+		if("preference_preview_mode")
+			set_character_creator_preview_mode(params["newValue"])
+			SStgui.update_uis(src)
+			return TRUE
 
 		if("name_real")
 			var/newValue = params["newValue"]
@@ -290,6 +531,10 @@
 		if("randomize_name")
 			var/datum/species/S = GLOB.all_species[species]
 			real_name = S.random_name(gender)
+			save_character()
+			SStgui.update_uis(src)
+			SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+			return TRUE
 
 		if("toggle_always_random")
 			random_name = !random_name
@@ -312,6 +557,14 @@
 				return
 			synthetic_type = choice
 			update_preview_icon()
+		if("synthetic_body_base")
+			var/choice = tgui_input_list(ui.user, "What synthetic body base do you want?", "Synthetic body base", SYNTHETIC_BODY_BASES)
+			if(!choice)
+				return
+			synthetic_body_base = choice
+			if(!(digitigrade_legs in synthetic_digitigrade_leg_options()))
+				digitigrade_legs = "Normal"
+			update_preview_icon()
 
 		if("robot_type")
 			var/choice = tgui_input_list(ui.user, "What model of robot do you want to play with?", "Robot model choice", ROBOT_TYPES)
@@ -320,6 +573,157 @@
 			robot_type = choice
 			update_preview_icon()
 
+		if("robot_body_base")
+			var/choice = tgui_input_list(ui.user, "What robot body base do you want?", "Robot body base", ROBOT_BODY_BASES)
+			if(!choice)
+				return
+			robot_body_base = choice
+			if(!(digitigrade_legs in digitigrade_leg_options()))
+				digitigrade_legs = "Normal"
+			update_preview_icon()
+
+		if("robot_head_base")
+			var/choice = tgui_input_list(ui.user, "What robot head base do you want?", "Robot head base", ROBOT_HEAD_BASES)
+			if(!choice)
+				return
+			robot_head_base = choice
+			update_preview_icon()
+
+		if("supersoldier_body_base")
+			var/choice = tgui_input_list(ui.user, "What supersoldier body base do you want?", "Supersoldier body base", SUPERSOLDIER_BODY_BASES)
+			if(!choice)
+				return
+			supersoldier_body_base = choice
+			if(!(digitigrade_legs in digitigrade_leg_options()))
+				digitigrade_legs = "Normal"
+			update_preview_icon()
+
+		if("supersoldier_head_base")
+			var/choice = tgui_input_list(ui.user, "What supersoldier head base do you want?", "Supersoldier head base", SUPERSOLDIER_HEAD_BASES)
+			if(!choice)
+				return
+			supersoldier_head_base = choice
+			update_preview_icon()
+
+		if("moth_wings")
+			var/choice = tgui_input_list(ui.user, "What kind of moth wings do you want to play with? Only useable as a moth.", "Moth with type choice", GLOB.moth_wings_list)
+			if(!choice)
+				return
+			moth_wings = choice
+			update_preview_icon()
+		if("digitigrade_legs")
+			var/list/leg_options = digitigrade_leg_options()
+			var/choice = tgui_input_list(ui.user, "Choose your leg shape.", "Digitigrade Legs", leg_options)
+			if(!choice)
+				return
+			digitigrade_legs = choice
+			update_preview_icon()
+		if("bodycolor")
+			var/new_color = input_preference_color(user, "Choose your body color:", "Body Color", body_color, initial(body_color))
+			if(!new_color)
+				return
+
+			body_color = new_color
+			update_preview_icon()
+
+		if("bodycolor_preset")
+			if(human_body_style == HUMAN_BODY_STYLE_TGMC && !(species == "Prototype Supersoldier" && custom_supersoldier_parts))
+				return
+			var/new_color = human_skin_tone_presets()[params["newValue"]]
+			if(!new_color)
+				return
+			body_color = new_color
+			update_preview_icon()
+			save_character()
+			SStgui.update_uis(src)
+			SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+			return TRUE
+
+		if("ethnicity")
+			if(human_body_style != HUMAN_BODY_STYLE_TGMC || (species == "Prototype Supersoldier" && custom_supersoldier_parts))
+				return
+			var/new_ethnicity = params["newValue"]
+			if(!(new_ethnicity in GLOB.ethnicities_list))
+				return
+			ethnicity = new_ethnicity
+			update_preview_icon()
+			save_character()
+			SStgui.update_uis(src)
+			SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+			return TRUE
+
+		if("toggle_human_body_style")
+			if(!(species in list("Human", "Vatborn", "Prototype Supersoldier")))
+				return
+			human_body_style = human_body_style == HUMAN_BODY_STYLE_TGMC ? HUMAN_BODY_STYLE_SPLURT : HUMAN_BODY_STYLE_TGMC
+			update_preview_icon()
+			save_preferences()
+			save_character()
+			save_keybinds()
+			SStgui.update_uis(src)
+			SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+			return TRUE
+
+		if("toggle_mismatched_parts")
+			allow_mismatched_parts = !allow_mismatched_parts
+			var/list/leg_options = digitigrade_leg_options()
+			if(!(digitigrade_legs in leg_options))
+				digitigrade_legs = "Normal"
+			update_preview_icon()
+			save_preferences()
+			save_character()
+			save_keybinds()
+			SStgui.update_uis(src)
+			SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+			return TRUE
+		if("toggle_supersoldier_parts")
+			custom_supersoldier_parts = !custom_supersoldier_parts
+			var/list/leg_options = digitigrade_leg_options()
+			if(!(digitigrade_legs in leg_options))
+				digitigrade_legs = "Normal"
+			update_preview_icon()
+			save_preferences()
+			save_character()
+			save_keybinds()
+			SStgui.update_uis(src)
+			SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+			return TRUE
+		if("toggle_genital_size_controls")
+			use_genital_size_controls = !use_genital_size_controls
+			update_preview_icon()
+			save_preferences()
+			save_character()
+			save_keybinds()
+			SStgui.update_uis(src)
+			SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+			return TRUE
+		if("toggle_emissives")
+			allow_emissives = !allow_emissives
+			update_preview_icon()
+			save_preferences()
+			save_character()
+			save_keybinds()
+			SStgui.update_uis(src)
+			SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+			return TRUE
+		if("toggle_hair_emissive")
+			hair_emissive = !hair_emissive
+			update_preview_icon()
+			save_preferences()
+			save_character()
+			save_keybinds()
+			SStgui.update_uis(src)
+			SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+			return TRUE
+		if("toggle_eye_emissive")
+			eye_emissive = !eye_emissive
+			update_preview_icon()
+			save_preferences()
+			save_character()
+			save_keybinds()
+			SStgui.update_uis(src)
+			SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
+			return TRUE
 		if("xeno_name")
 			var/newValue = params["newValue"]
 			if(newValue == "")
@@ -356,27 +760,29 @@
 
 		if("toggle_physique")
 			physique = params["newphysique"]
+			/* NTF Removal
 			var/physique_to_check = get_physique()
 			if(physique_to_check == FEMALE)
 				f_style = "Shaved"
 			else
 				underwear = 1
-			update_preview_icon()
-
-		if("ethnicity")
-			var/choice = tgui_input_list(ui.user, "What ethnicity do you want to play with?", "Ethnicity choice", GLOB.ethnicities_list)
-			if(!choice)
-				return
-			ethnicity = choice
+			*/
 			update_preview_icon()
 
 		if("species")
-			var/choice = tgui_input_list(ui.user, "What species do you want to play with?", "Species choice", get_playable_species())
+			var/datum/species/old_species = GLOB.all_species[species]
+			var/choice = tgui_input_list(ui.user, "What species do you want to play with?", "Species choice", get_playable_species(ui.user?.ckey))
 			if(!choice || species == choice)
 				return
 			species = choice
+			sync_synthetic_type_to_species()
 			var/datum/species/S = GLOB.all_species[species]
-			real_name = S.random_name(gender)
+			if(!(digitigrade_legs in digitigrade_leg_options()))
+				digitigrade_legs = "Normal"
+			if(should_refresh_species_body_color(old_species, S))
+				body_color = S.flesh_color
+			if(!isnull(S.species_description))
+				to_chat(user, span_notice("Species information: [S.species_description]"))
 			update_preview_icon()
 
 		if("toggle_eyesight")
@@ -400,6 +806,8 @@
 			preferred_squad_som = "None"
 			alternate_option = 2 // return to lobby
 			update_preview_icon()
+
+		/** NTF removal - we are using our own fancy underwear system
 
 		if("underwear")
 			var/list/underwear_options
@@ -428,6 +836,7 @@
 				return
 			undershirt = new_undershirt
 			update_preview_icon()
+		*/
 
 		if("backpack")
 			var/new_backpack = GLOB.backpacklist.Find(params["newValue"])
@@ -479,7 +888,7 @@
 			ui_style = choice
 
 		if("uicolor")
-			var/ui_style_color_new = input(user, "Choose your UI color, dark colors are not recommended!", "UI Color") as null|color
+			var/ui_style_color_new = input_preference_color(user, "Choose your UI color, dark colors are not recommended!", "UI Color", ui_style_color, initial(ui_style_color))
 			if(!ui_style_color_new)
 				return
 			ui_style_color = ui_style_color_new
@@ -495,7 +904,7 @@
 			var/list/valid_hairstyles = list()
 			for(var/hairstyle in GLOB.hair_styles_list)
 				var/datum/sprite_accessory/S = GLOB.hair_styles_list[hairstyle]
-				if(!(species in S.species_allowed))
+				if(!can_use_hair_accessory(S, species))
 					continue
 
 				valid_hairstyles[hairstyle] = GLOB.hair_styles_list[hairstyle]
@@ -506,15 +915,16 @@
 			update_preview_icon()
 
 		if("haircolor")
-			var/new_color = input(user, "Choose your character's hair colour:", "Hair Color") as null|color
+			var/new_color = input_preference_color(user, "Choose your character's hair colour:", "Hair Color", rgb(r_hair, g_hair, b_hair))
 			if(!new_color)
 				return
 			r_hair = hex2num(copytext(new_color, 2, 4))
 			g_hair = hex2num(copytext(new_color, 4, 6))
 			b_hair = hex2num(copytext(new_color, 6, 8))
+			update_preview_icon()
 
 		if("grad_color")
-			var/new_grad = input(user, "Choose your character's secondary hair color:", "Gradient Color") as null|color
+			var/new_grad = input_preference_color(user, "Choose your character's secondary hair color:", "Gradient Color", rgb(r_grad, g_grad, b_grad))
 			if(!new_grad)
 				return
 			r_grad = hex2num(copytext(new_grad, 2, 4))
@@ -526,7 +936,7 @@
 			var/list/valid_grads = list()
 			for(var/grad in GLOB.hair_gradients_list)
 				var/datum/sprite_accessory/S = GLOB.hair_gradients_list[grad]
-				if(!(species in S.species_allowed))
+				if(!can_use_hair_accessory(S, species))
 					continue
 
 				valid_grads[grad] = GLOB.hair_gradients_list[grad]
@@ -542,7 +952,7 @@
 				var/datum/sprite_accessory/S = GLOB.facial_hair_styles_list[facialhairstyle]
 				if(physique == FEMALE && S.gender == MALE)
 					continue
-				if(!(species in S.species_allowed))
+				if(!can_use_hair_accessory(S, species))
 					continue
 
 				valid_facialhairstyles[facialhairstyle] = GLOB.facial_hair_styles_list[facialhairstyle]
@@ -554,7 +964,7 @@
 			update_preview_icon()
 
 		if("facialcolor")
-			var/facial_color = input(user, "Choose your character's facial-hair colour:", "Facial Hair Color") as null|color
+			var/facial_color = input_preference_color(user, "Choose your character's facial-hair colour:", "Facial Hair Color", rgb(r_facial, g_facial, b_facial))
 			if(!facial_color)
 				return
 			r_facial = hex2num(copytext(facial_color, 2, 4))
@@ -563,7 +973,7 @@
 			update_preview_icon()
 
 		if("eyecolor")
-			var/eyecolor = input(user, "Choose your character's eye colour:", "Character Preference") as null|color
+			var/eyecolor = input_preference_color(user, "Choose your character's eye colour:", "Character Preference", rgb(r_eyes, g_eyes, b_eyes))
 			if(!eyecolor)
 				return
 			r_eyes = hex2num(copytext(eyecolor, 2, 4))
@@ -576,6 +986,12 @@
 			if(!choice)
 				return
 			citizenship = choice
+
+		if("blood_type")
+			var/choice = tgui_input_list(ui.user, "Your favorite blood type.", "Type of Blood", list("O-", "O+", "A-", "A+", "B-", "B+", "AB-", "AB+"))
+			if(!choice)
+				return
+			blood_type = choice
 
 		if("religion")
 			var/choice = tgui_input_list(ui.user, "What religion do you belive in?", "Belief", RELIGION_CHOICES)
@@ -649,6 +1065,73 @@
 			if(!new_record)
 				return
 			flavor_text = new_record
+
+		if("xeno_desc")
+			var/new_record = trim(html_encode(params["xenoDesc"]), MAX_MESSAGE_LEN)
+			if(!new_record)
+				return
+			xeno_desc = new_record
+
+		if("profile_pic")
+			var/new_record = trim(html_encode(params["profilePic"]), MAX_MESSAGE_LEN)
+			if(!new_record)
+				return
+			if(new_record == "!clear")
+				new_record = ""
+			profile_pic = new_record
+
+		if("nsfwprofile_pic")
+			var/new_record = trim(html_encode(params["nsfwprofilePic"]), MAX_MESSAGE_LEN)
+			if(!new_record)
+				return
+			if(new_record == "!clear")
+				new_record = ""
+			nsfwprofile_pic = new_record
+
+		if("xenoprofile_pic")
+			var/new_record = trim(html_encode(params["xenoprofilePic"]), MAX_MESSAGE_LEN)
+			if(!new_record)
+				return
+			if(new_record == "!clear")
+				new_record = ""
+			xenoprofile_pic = new_record
+
+		if("xenogender")
+			var/new_xgender = text2num(params["newValue"])
+			if(!isnum(new_xgender))
+				return
+			new_xgender = round(new_xgender)
+			xenogender = new_xgender
+		if("xeno_edible_jelly_name")
+			var/newValue = params["newValue"]
+			newValue = reject_bad_name(newValue, TRUE)
+			if(!newValue)
+				tgui_alert(user, "<font color='red'>Invalid name. The name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>", "Invalid name", list("Ok"))
+				return
+			xeno_edible_jelly_name = newValue
+
+		if("xeno_edible_jelly_colors")
+			var/jelly_color = input_preference_color(user, "Choose the color of the jelly:", "Jelly Color", rgb(r_jelly, g_jelly, b_jelly))
+			if(!jelly_color)
+				return
+			r_jelly = hex2num(copytext(jelly_color, 2, 4))
+			g_jelly = hex2num(copytext(jelly_color, 4, 6))
+			b_jelly = hex2num(copytext(jelly_color, 6, 8))
+
+		if("xeno_edible_jelly_desc")
+			var/new_record = trim(html_encode(params["xenoJellyDesc"]), MAX_MESSAGE_LEN)
+			if(!new_record)
+				return
+			xeno_edible_jelly_desc = new_record
+
+		if("xeno_edible_jelly_flavors")
+			var/new_record = trim(html_encode(params["xenoJellyFlav"]), 256)
+			if(!new_record)
+				return
+			xeno_edible_jelly_flavors = new_record
+
+		if("xeno_edible_jelly_preview")
+			usr.edible_jelly_preview("chat")
 
 		if("windowflashing")
 			windowflashing = !windowflashing
@@ -993,7 +1476,10 @@
 					pixel_size = PIXEL_SCALING_3X
 				if(PIXEL_SCALING_3X)
 					pixel_size = PIXEL_SCALING_AUTO
-			user.client.view_size.apply() //Let's winset() it so it actually works
+			user.client.view_size.update_pixel_format() //Let's winset() it so it actually works
+			save_preferences()
+			SStgui.update_uis(src)
+			return TRUE
 
 		if("parallax")
 			parallax = WRAP(parallax + 1, PARALLAX_INSANE, PARALLAX_DISABLE + 1)
@@ -1022,6 +1508,13 @@
 		if("hear_ooc_anywhere_as_staff")
 			hear_ooc_anywhere_as_staff = !hear_ooc_anywhere_as_staff
 
+		if("bloodcolor")
+			var/bloodcolor = input_preference_color(user, "Choose your character's blood colour:", "Character Preference", blood_color, initial(blood_color))
+			if(!bloodcolor)
+				return
+			blood_color = bloodcolor
+			update_preview_icon()
+
 		else //  Handle the unhandled cases
 			return
 
@@ -1029,5 +1522,8 @@
 	save_character()
 	save_keybinds()
 	ui_interact(user, ui)
+	if(ui)
+		ui.send_full_update(null, TRUE)
+	SStgui.update_uis(src)
 	SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)
 	return TRUE

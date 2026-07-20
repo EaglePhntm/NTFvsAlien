@@ -10754,7 +10754,7 @@
 /area/campaign/jungle_outpost/outpost/science/south)
 "XL" = (
 /obj/structure/table/wood/fancy,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/wood/alt_seven,
 /area/campaign/jungle_outpost/outpost/science/office)
 "XM" = (

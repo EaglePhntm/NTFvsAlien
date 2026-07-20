@@ -59,12 +59,17 @@
 
 	///Icon-smoothing variable to map a diagonal wall corner with a fixed underlay.
 	var/list/fixed_underlay = null
+	var/time_created = null
+	var/creation_logdata = null
 
 /turf/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE) // anti laggies
 	if(atom_flags & INITIALIZED)
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	ENABLE_BITFIELD(atom_flags, INITIALIZED)
+	if(usr)
+		time_created = world.timeofday
+		creation_logdata = logdetails(usr)
 
 	/// We do NOT use the shortcut here, because this is faster
 	if(SSmapping.max_plane_offset)
@@ -273,7 +278,7 @@
 	//We do this here so anything that doesn't want to persist can clear itself
 	var/list/old__listen_lookup = _listen_lookup?.Copy()
 	var/list/old_signal_procs = _signal_procs?.Copy()
-	var/turf/W = new path(src)
+	var/turf/W = new path(src, usr?.get_xeno_hivenumber())
 
 	// WARNING WARNING
 	// Turfs DO NOT lose their signals when they get replaced, REMEMBER THIS
@@ -521,8 +526,8 @@
 /turf/closed/wall/is_weedable()
 	return TRUE
 
-/turf/closed/wall/resin/is_weedable()
-	return FALSE
+/turf/closed/mineral/is_weedable()
+	return TRUE
 
 /turf/open/space/is_weedable()
 	return FALSE

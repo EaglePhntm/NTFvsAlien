@@ -21,12 +21,11 @@
 		adjustOxyLoss(4)
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_SLEEP))
 		adjustDrowsyness(6)
-		if(drowsyness >= 18)
-			Sleeping(10 SECONDS)
+		reagents.add_reagent(/datum/reagent/toxin/sleeptoxin, GAS_INHALE_REAGENT_TRANSFER_AMOUNT * S.strength)
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_BLISTERING) || CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_PYROGEN))
 		adjustFireLoss(12)
 		blur_eyes(2)
-	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_PLASMALOSS))
+	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_PLASMALOSS) && ((!CHECK_BITFIELD(S.smoke_traits, SMOKE_CAMO)) || CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO)))
 		blur_eyes(2)
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))
 		adjustOxyLoss(4 + S.strength * 2)
@@ -35,9 +34,9 @@
 			to_chat(src, span_danger("Your eyes sting. You can't see!"))
 			blind_eyes(2)
 			blur_eyes(4)
-			reagents.add_reagent(/datum/reagent/toxin/xeno_neurotoxin, GAS_INHALE_REAGENT_TRANSFER_AMOUNT * S.strength)
+			reagents.add_reagent(/datum/reagent/toxin/xeno_neurotoxin, GAS_INHALE_REAGENT_TRANSFER_AMOUNT * S.strength * 1.2)
 		else
-			reagents.add_reagent(/datum/reagent/toxin/xeno_neurotoxin, GAS_INHALE_REAGENT_TRANSFER_AMOUNT * S.strength)
+			reagents.add_reagent(/datum/reagent/toxin/xeno_neurotoxin, GAS_INHALE_REAGENT_TRANSFER_AMOUNT * S.strength * 1.2)
 		if(prob(10 * S.strength)) //Likely to momentarily freeze up/fall due to arms/hands seizing up
 			to_chat(src, span_danger("You feel your body going numb and lifeless!"))
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_TOXIC))
@@ -55,6 +54,8 @@
 		reagents.add_reagent(/datum/reagent/toxin/xeno_sanguinal, GAS_INHALE_REAGENT_TRANSFER_AMOUNT * S.strength)
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_OZELOMELYN))
 		reagents.add_reagent(/datum/reagent/toxin/xeno_ozelomelyn, GAS_INHALE_REAGENT_TRANSFER_AMOUNT * S.strength)
+	if(CHECK_BITFIELD(S.smoke_traits2, SMOKE_XENO_APHROTOXIN))
+		reagents.add_reagent(/datum/reagent/toxin/xeno_aphrotoxin, GAS_INHALE_REAGENT_TRANSFER_AMOUNT * S.strength)
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_SATRAPINE))
 		to_chat(src, span_danger("Your eyes are burning!"))
 		blur_eyes(4)
@@ -66,9 +67,9 @@
 	var/bio_protection = ..()
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_NEURO) && (internal || has_smoke_protection())) //either inhaled or this.
 		if(CHECK_BITFIELD(S.smoke_traits, SMOKE_NEURO_LIGHT))
-			reagents.add_reagent(/datum/reagent/toxin/xeno_neurotoxin, round(GAS_INHALE_REAGENT_TRANSFER_AMOUNT * 0.6 * S.strength * bio_protection, 0.1))
+			reagents.add_reagent(/datum/reagent/toxin/xeno_neurotoxin, round(GAS_INHALE_REAGENT_TRANSFER_AMOUNT * 0.72 * S.strength * bio_protection, 0.1))
 		else
-			reagents.add_reagent(/datum/reagent/toxin/xeno_neurotoxin, round(GAS_INHALE_REAGENT_TRANSFER_AMOUNT * 0.6 * S.strength * bio_protection, 0.1))
+			reagents.add_reagent(/datum/reagent/toxin/xeno_neurotoxin, round(GAS_INHALE_REAGENT_TRANSFER_AMOUNT * 0.72 * S.strength * bio_protection, 0.1))
 		if(prob(10 * S.strength * bio_protection))
 			to_chat(src, span_danger("Your body goes numb where the gas touches it!"))
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_HEMODILE) && (internal || has_smoke_protection())) //either inhaled or this.
@@ -87,6 +88,14 @@
 		reagents.add_reagent(/datum/reagent/toxin/xeno_ozelomelyn, round(GAS_INHALE_REAGENT_TRANSFER_AMOUNT * 0.6 * S.strength * bio_protection, 0.1))
 		if(prob(10 * S.strength * bio_protection))
 			to_chat(src, span_danger("Your veins and skin itch where the gas touches them!"))
+	if(CHECK_BITFIELD(S.smoke_traits2, SMOKE_XENO_APHROTOXIN) && (internal || has_smoke_protection())) //either inhaled or this.
+		reagents.add_reagent(/datum/reagent/toxin/xeno_aphrotoxin, round(GAS_INHALE_REAGENT_TRANSFER_AMOUNT * 0.6 * S.strength * bio_protection, 0.1))
+		if(prob(10 * S.strength * bio_protection))
+			to_chat(src, span_danger("Your genitals feel hot and bothered where the gas touches them!"))
+	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_SLEEP) && (internal || has_smoke_protection())) //either inhaled or this.
+		reagents.add_reagent(/datum/reagent/toxin/sleeptoxin, round(GAS_INHALE_REAGENT_TRANSFER_AMOUNT * 0.6 * S.strength * bio_protection, 0.1))
+		if(prob(10 * S.strength * bio_protection))
+			to_chat(src, span_danger("Your body starts to feel numb..!"))
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_PYROGEN))
 		var/datum/status_effect/stacking/melting_fire/debuff = src.has_status_effect(STATUS_EFFECT_MELTING_FIRE)
 		if(debuff)

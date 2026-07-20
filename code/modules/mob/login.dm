@@ -37,6 +37,8 @@
 	enable_client_mobs_in_contents(client)
 
 	if(key != client.key)
+		if(key)
+			GLOB.mobs_by_ckey_list -= ckey(key)
 		key = client.key
 	reset_perspective(loc)
 
@@ -56,7 +58,7 @@
 				var/datum/callback/CB = foo
 				CB.Invoke()
 			log_played_names(client.ckey, name, real_name)
-		if(SSvote.vote_happening && !actions_by_path[/datum/action/innate/vote])
+		if(SSvote.vote_happening && !actions_by_path[/datum/action/innate/vote] && !is_banned_from(client.ckey, "Voting"))
 			var/datum/action/innate/vote/vote = new
 			if(SSvote.question)
 				vote.name = "Vote: [SSvote.question]"
@@ -68,3 +70,4 @@
 	SEND_SIGNAL(client, COMSIG_CLIENT_MOB_LOGIN)
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_MOB_LOGIN, src)
 	client.init_verbs()
+	GLOB.mobs_by_ckey_list[ckey] = src

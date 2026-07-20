@@ -287,13 +287,13 @@ SUBSYSTEM_DEF(spatial_grid)
 			for(var/row in BOUNDING_BOX_MIN(center_y) to BOUNDING_BOX_MAX(center_y, cells_on_y_axis))
 				for(var/x_index in BOUNDING_BOX_MIN(center_x) to BOUNDING_BOX_MAX(center_x, cells_on_x_axis))
 
-					. += grid_level[row][x_index].client_contents
+					UNLINT(. += grid_level[row][x_index].client_contents)
 
 		if(SPATIAL_GRID_CONTENTS_TYPE_HEARING)
 			for(var/row in BOUNDING_BOX_MIN(center_y) to BOUNDING_BOX_MAX(center_y, cells_on_y_axis))
 				for(var/x_index in BOUNDING_BOX_MIN(center_x) to BOUNDING_BOX_MAX(center_x, cells_on_x_axis))
 
-					. += grid_level[row][x_index].hearing_contents
+					UNLINT(. += grid_level[row][x_index].hearing_contents)
 
 	return .
 
@@ -411,13 +411,17 @@ SUBSYSTEM_DEF(spatial_grid)
 		switch(type)
 			if(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS)
 				var/list/new_target_contents = new_target.important_recursive_contents //cache for sanic speeds (lists are references anyways)
-				GRID_CELL_SET(intersecting_cell.client_contents, new_target_contents[SPATIAL_GRID_CONTENTS_TYPE_CLIENTS])
-				SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_ENTERED(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS), new_target_contents[SPATIAL_GRID_CONTENTS_TYPE_CLIENTS])
+				var/list/client_contents = new_target_contents?[SPATIAL_GRID_CONTENTS_TYPE_CLIENTS]
+				if(client_contents)
+					GRID_CELL_SET(intersecting_cell.client_contents, client_contents)
+					SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_ENTERED(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS), client_contents)
 
 			if(SPATIAL_GRID_CONTENTS_TYPE_HEARING)
 				var/list/new_target_contents = new_target.important_recursive_contents
-				GRID_CELL_SET(intersecting_cell.hearing_contents, new_target.important_recursive_contents[SPATIAL_GRID_CONTENTS_TYPE_HEARING])
-				SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_ENTERED(SPATIAL_GRID_CONTENTS_TYPE_HEARING), new_target_contents[SPATIAL_GRID_CONTENTS_TYPE_HEARING])
+				var/list/hearing_contents = new_target_contents?[SPATIAL_GRID_CONTENTS_TYPE_HEARING]
+				if(hearing_contents)
+					GRID_CELL_SET(intersecting_cell.hearing_contents, hearing_contents)
+					SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_ENTERED(SPATIAL_GRID_CONTENTS_TYPE_HEARING), hearing_contents)
 
 ///acts like enter_cell() but only adds the target to a specified type of grid cell contents list
 /datum/controller/subsystem/spatial_grid/proc/add_single_type(atom/movable/new_target, turf/target_turf, exclusive_type)
@@ -437,13 +441,17 @@ SUBSYSTEM_DEF(spatial_grid)
 	switch(exclusive_type)
 		if(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS)
 			var/list/new_target_contents = new_target.important_recursive_contents //cache for sanic speeds (lists are references anyways)
-			GRID_CELL_SET(intersecting_cell.client_contents, new_target_contents[SPATIAL_GRID_CONTENTS_TYPE_CLIENTS])
-			SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_ENTERED(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS), new_target_contents[SPATIAL_GRID_CONTENTS_TYPE_CLIENTS])
+			var/list/client_contents = new_target_contents?[SPATIAL_GRID_CONTENTS_TYPE_CLIENTS]
+			if(client_contents)
+				GRID_CELL_SET(intersecting_cell.client_contents, client_contents)
+				SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_ENTERED(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS), client_contents)
 
 		if(SPATIAL_GRID_CONTENTS_TYPE_HEARING)
 			var/list/new_target_contents = new_target.important_recursive_contents
-			GRID_CELL_SET(intersecting_cell.hearing_contents, new_target.important_recursive_contents[SPATIAL_GRID_CONTENTS_TYPE_HEARING])
-			SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_ENTERED(SPATIAL_GRID_CONTENTS_TYPE_HEARING), new_target_contents[SPATIAL_GRID_CONTENTS_TYPE_HEARING])
+			var/list/hearing_contents = new_target_contents?[SPATIAL_GRID_CONTENTS_TYPE_HEARING]
+			if(hearing_contents)
+				GRID_CELL_SET(intersecting_cell.hearing_contents, hearing_contents)
+				SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_ENTERED(SPATIAL_GRID_CONTENTS_TYPE_HEARING), hearing_contents)
 
 	return intersecting_cell
 

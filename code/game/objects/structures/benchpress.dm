@@ -18,7 +18,7 @@
 	update_icon()
 
 /obj/structure/benchpress/wrench_act(mob/living/user, obj/item/tool)
-	tool.play_tool_sound(src)
+	tool.play_tool_sound(src, 50)
 	if(anchored)
 		balloon_alert(user, "unsecured")
 		anchored = FALSE
@@ -31,7 +31,7 @@
 	if(anchored)
 		balloon_alert(user, "unsecure first!")
 		return FALSE
-	tool.play_tool_sound(src)
+	tool.play_tool_sound(src, 50)
 	balloon_alert(user, "deconstructing...")
 	if(!do_after(user, 10 SECONDS, target = src))
 		return FALSE
@@ -85,7 +85,7 @@
 		return
 	do_workout_set(user)
 
-/obj/structure/benchpress/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/structure/benchpress/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	. = ..()
 	if(.)
 		return

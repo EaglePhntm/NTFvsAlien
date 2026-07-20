@@ -99,9 +99,11 @@
 	if(!CHECK_BITFIELD(magazine_flags, MAGAZINE_REFILLABLE)) //and a refillable magazine
 		return
 
+	/*
 	if(src != user.get_inactive_held_item() && !CHECK_BITFIELD(magazine_flags, MAGAZINE_HANDFUL)) //It has to be held.
 		to_chat(user, span_notice("Try holding [src] before you attempt to restock it."))
 		return
+	*/
 
 	var/obj/item/ammo_magazine/mag = I
 	if(default_ammo != mag.default_ammo)
@@ -201,6 +203,7 @@
 
 	name = "handful of [ammo_name + " ([new_caliber])"]"
 	icon_state = ammo.handful_icon_state
+	icon = ammo.handful_icon
 
 	default_ammo = new_ammo
 	caliber = new_caliber
@@ -274,6 +277,27 @@
 	default_ammo = /datum/ammo/bullet/shotgun/flechette
 	caliber = CALIBER_12G
 
+/obj/item/ammo_magazine/handful/rubber_pellet
+	name = "handful of shotgun rubber pellet shells (12g)"
+	icon_state = "shotgun_flechette"
+	current_rounds = 5
+	default_ammo = /datum/ammo/bullet/shotgun/flechette/rubber
+	caliber = CALIBER_12G
+
+/obj/item/ammo_magazine/handful/tracker
+	name = "handful of shotgun tracker shells (12g)"
+	icon_state = "shotgun_flechette"
+	current_rounds = 5
+	default_ammo = /datum/ammo/bullet/shotgun/tracker
+	caliber = CALIBER_12G
+
+/obj/item/ammo_magazine/handful/beanbag
+	name = "handful of beanbag slugs (12g)"
+	icon_state = "beanbag_slug"
+	current_rounds = 5
+	default_ammo = /datum/ammo/bullet/shotgun/beanbag
+	caliber = CALIBER_12G
+
 /obj/item/ammo_magazine/handful/incendiary
 	name = "handful of shotgun incendiary shells (12g)"
 	icon_state = "incendiary_slug"
@@ -284,6 +308,7 @@
 /obj/item/ammo_magazine/handful/heavy_buckshot
 	name = "handful of shotgun buckshot shells (6g)"
 	icon_state = "heavy_shotgun_buckshot"
+	icon = 'ntf_modular/icons/obj/items/ammo/handful.dmi'
 	current_rounds = 5
 	default_ammo = /datum/ammo/bullet/shotgun/heavy_buckshot
 	caliber = CALIBER_6G
@@ -291,10 +316,18 @@
 /obj/item/ammo_magazine/handful/barrikada
 	name = "handful of shotgun 'Barrikada' shells (6g)"
 	icon_state = "heavy_shotgun_barrikada"
+	icon = 'ntf_modular/icons/obj/items/ammo/handful.dmi'
 	current_rounds = 5
 	default_ammo = /datum/ammo/bullet/shotgun/barrikada_slug
 	caliber = CALIBER_6G
 
+/obj/item/ammo_magazine/handful/heavy_flechette
+	name = "handful of shotgun flechette shells (6g)"
+	icon_state = "heavy_shotgun_flechette"
+	icon = 'ntf_modular/icons/obj/items/ammo/handful.dmi'
+	current_rounds = 5
+	default_ammo = /datum/ammo/bullet/shotgun/heavy_flechette
+	caliber = CALIBER_6G
 
 /obj/item/ammo_magazine/handful/martini
 	name = "The handful of crude heavy sniper bullet (.557/440)"

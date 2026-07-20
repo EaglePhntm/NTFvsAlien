@@ -1,14 +1,28 @@
 # Settings for modes. deploytimelock is in minutes
 
 mode Crash
-	requiredplayers 2
-	squadmaxnumber 1
-	maximumplayers 40
-	deploytimelock 45
+	requiredplayers 4
+	votable 1
 endmode
 
 mode Nuclear War
-	requiredplayers 2
+	requiredplayers 8
+	votable 0
+endmode
+
+mode Sovl War
+	requiredplayers 12
+	votable 0
+endmode
+
+mode Nuclear War Plus
+	requiredplayers 8
+	votable 0
+endmode
+
+mode Sovl War Plus
+	requiredplayers 12
+	votable 0
 endmode
 
 mode Sovl War
@@ -20,14 +34,87 @@ mode Extended
 	votable 0
 endmode
 
+mode Extended Plus
+	requiredplayers 0
+	votable 0
+endmode
+
+mode Extended Mini
+	requiredplayers 0
+	votable 0
+endmode
+
+mode Colony Fall
+	requiredplayers 8
+	votable 1
+endmode
+
+mode Prison Fall
+	requiredplayers 15
+	votable 0
+endmode
+
+mode Colony Survival
+	requiredplayers 15
+	votable 1
+endmode
+
+mode Extended - Survivor-Heavy
+	requiredplayers 0
+	votable 1
+endmode
+
+mode Zombie Crash
+	requiredplayers 1
+	votable 1
+endmode
+
 mode Combat Patrol
-	requiredplayers 2
+	requiredplayers 65
+	votable 0
 endmode
 
 mode Sensor Capture
-	requiredplayers 2
+	requiredplayers 65
+	votable 0
 endmode
 
 mode Campaign
-	requiredplayers 2
+	requiredplayers 65
+	votable 0
+endmode
+
+mode Secret of Life - Main
+	requiredplayers 0
+	default
+endmode
+
+mode Secret of Life - Faction Bloat
+	requiredplayers 20
+	default
+endmode
+
+mode Secret of Life - NTF vs Alien only
+	requiredplayers 0
+	votable 1
+endmode
+
+mode Secret of Life - No Subfactions
+	requiredplayers 0
+	votable 1
+endmode
+
+mode Secret of Life - Classic
+	requiredplayers 0
+	votable 1
+endmode
+
+mode Secret of Life - NTF vs Cult
+	requiredplayers 0
+	votable 1
+endmode
+
+mode Encounter
+	requiredplayers 4
+	votable 1
 endmode

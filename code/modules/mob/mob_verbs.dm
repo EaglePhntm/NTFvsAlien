@@ -82,7 +82,6 @@
 	else
 		to_chat(src, "You don't have a mind datum for some reason, so you can't add a note to it.")
 
-
 /mob/verb/respawn()
 	set name = "Respawn"
 	set category = "OOC"
@@ -96,7 +95,7 @@
 
 	if(DEATHTIME_CHECK(usr))
 		if(check_other_rights(usr.client, R_ADMIN, FALSE))
-			if(tgui_alert(usr, "You wouldn't normally qualify for this respawn. Are you sure you want to bypass it with your admin powers?", "Bypass Respawn", list("Yes", "No"), 0) != "Yes")
+			if(tgui_alert(usr, "You wouldn't normally qualify for this respawn. Are you sure you want to bypass it with your admin powers?", "Bypass Respawn", list("Yes", "No")) != "Yes")
 				DEATHTIME_MESSAGE(usr)
 				return
 			var/admin_message = "[key_name(usr)] used his admin power to bypass respawn before his timer was over"
@@ -106,6 +105,15 @@
 			DEATHTIME_MESSAGE(usr)
 			return
 
+	if(tgui_alert(usr, "This will return you to the lobby so you can rejoin.  You will not be able to reclone.  Are you sure you wish to continue?", "Return to lobby", list("Yes", "No")) != "Yes")
+		return
+	var/mob/living/carbon/human/humancorpse = src
+	var/mob/dead/observer/ghost = src
+	if(isobserver(ghost))
+		humancorpse = ghost.can_reenter_corpse?.resolve()
+	if(ishuman(humancorpse) && humancorpse.mind == mind)
+		log_game("Marking [logdetails(humancorpse)] as undefibbable because it[isobserver(ghost) ? "'s ghost, [logdetails(ghost)]," : ""] is using the Respawn verb.")
+		humancorpse.set_undefibbable()
 	to_chat(usr, span_notice("You can respawn now, enjoy your new life!<br><b>Make sure to play a different character, and please roleplay correctly.</b>"))
 	GLOB.round_statistics.total_human_respawns++
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "total_human_respawns")
@@ -118,19 +126,20 @@
 		return
 
 	var/mob/new_player/M = new /mob/new_player()
-	if(SSticker.mode?.round_type_flags & MODE_TWO_HUMAN_FACTIONS)
-		M.faction = faction
-	if(!client)
-		qdel(M)
-		return
 
 	M.key = key
-
+	M.name = key
+	if(!M.client)
+		qdel(M)
+		return
 
 /// This is only available to mobs once they join EORD.
 /mob/proc/eord_respawn()
 	set name = "EORD Respawn"
 	set category = "OOC"
+	if(!istype(get_area(src),/area/deathmatch))
+		do_eord_respawn(src)
+		return
 
 	var/mob/living/liver
 	if(isliving(usr))
@@ -151,12 +160,20 @@
 
 	var/spawn_location = pick(GLOB.deathmatch)
 	var/mob/living/carbon/human/eord_body
-	if(ishuman(respawner) && !is_centcom_level(respawner.z)) // Wont take
+	var/mob/living/carbon/xenomorph/X
+	if((ishuman(respawner)||isxeno(respawner)) && !is_centcom_level(respawner.z)) // Wont take
+		if(isxeno(respawner))
+			X = respawner
+			X.transfer_to_hive(pick(XENO_HIVE_NORMAL, XENO_HIVE_CORRUPTED, XENO_HIVE_ALPHA, XENO_HIVE_BETA, XENO_HIVE_ZETA, XENO_HIVE_FORSAKEN))
 		eord_body = respawner
-		eord_body.forceMove(spawn_location)
+		var/obj/vehicle/driven_vehicle = respawner.loc
+		if(istype(driven_vehicle) && (!(istype(driven_vehicle, /obj/vehicle/sealed/armored/multitile))))
+			driven_vehicle.forceMove(spawn_location)
+		else
+			eord_body.forceMove(spawn_location)
 		eord_body.revive()
-		if(eord_body.w_uniform)
-			return
+		eord_body.mind.bypass_ff = TRUE
+		return
 	else
 		eord_body = new(spawn_location)
 		respawner.mind.transfer_to(eord_body, TRUE)
@@ -167,22 +184,23 @@
 	// List of base choosable factions, taken job is a subtype of these.
 	var/list/static/base_faction_list = list(
 		/datum/job/clf,
-		/datum/job/freelancer,
-		/datum/job/pmc,
-		/datum/job/special_forces,
 		/datum/job/icc,
 		/datum/job/vsd,
+		/datum/job/survivor,
 	)
 
 	// List of HvH factions - these are handled differently, using the quick loadout outfits.
 	var/list/static/hvh_faction_list = list(/datum/job/som, /datum/job/terragov)
 	// List of rare factions, not common because they're funny in moderation / stronk.
-	var/list/static/rare_faction_list = list(/datum/job/sectoid, /datum/job/imperial, /datum/job/skeleton, /datum/job/erp, /datum/job/retired)
+	var/list/static/rare_faction_list = list(/datum/job/sectoid, /datum/job/imperial, /datum/job/skeleton, /datum/job/erp, /datum/job/retired, /datum/job/special_forces, /datum/job/freelancer)
 
 
-	var/total_list = base_faction_list + hvh_faction_list
-
-	if(prob(7))
+	var/total_list = hvh_faction_list
+	if(prob(40))
+		total_list = base_faction_list
+		if(prob(30))
+			total_list += /datum/job/pmc
+	if(prob(3))
 		total_list = rare_faction_list
 		if(prob(2))
 			total_list = list(/datum/job/deathsquad) // JACKPOT
@@ -197,19 +215,19 @@
 		switch(rand(100))
 			if(1 to 40)
 				// Standard
-				possible_outfits = is_som ? subtypesof(/datum/outfit/quick/som/marine) : subtypesof(/datum/outfit/quick/tgmc/marine)
+				possible_outfits = is_som ? subtypesof(/datum/outfit/quick/som/marine) :  (subtypesof(/datum/outfit/quick/tgmc/marine) + subtypesof(/datum/outfit/quick/beginner/marine))
 				job_type = is_som ? SSjob.GetJobType(/datum/job/som/squad/standard) : SSjob.GetJobType(/datum/job/terragov/squad/standard)
 			if(41 to 55)
 				// Engineer
-				possible_outfits = is_som ? subtypesof(/datum/outfit/quick/som/engineer) : subtypesof(/datum/outfit/quick/tgmc/engineer)
+				possible_outfits = is_som ? subtypesof(/datum/outfit/quick/som/engineer) : (subtypesof(/datum/outfit/quick/tgmc/engineer) + subtypesof(/datum/outfit/quick/beginner/engineer))
 				job_type = is_som ? SSjob.GetJobType(/datum/job/som/squad/engineer) : SSjob.GetJobType(/datum/job/terragov/squad/engineer)
 			if(56 to 70)
 				// Corpsman
-				possible_outfits = is_som ? subtypesof(/datum/outfit/quick/som/medic) : subtypesof(/datum/outfit/quick/tgmc/corpsman)
+				possible_outfits = is_som ? subtypesof(/datum/outfit/quick/som/medic) : (subtypesof(/datum/outfit/quick/tgmc/corpsman) + subtypesof(/datum/outfit/quick/beginner/corpsman))
 				job_type = is_som ? SSjob.GetJobType(/datum/job/som/squad/medic) : SSjob.GetJobType(/datum/job/terragov/squad/corpsman)
 			if(70 to 85)
 				// Specialist
-				possible_outfits = is_som ? subtypesof(/datum/outfit/quick/som/veteran) : subtypesof(/datum/outfit/quick/tgmc/smartgunner)
+				possible_outfits = is_som ? subtypesof(/datum/outfit/quick/som/veteran) : (subtypesof(/datum/outfit/quick/tgmc/smartgunner) + subtypesof(/datum/outfit/quick/beginner/smartgunner))
 				job_type = is_som ? SSjob.GetJobType(/datum/job/som/squad/veteran) : SSjob.GetJobType(/datum/job/terragov/squad/smartgunner)
 			else
 				// Squad Leader
@@ -289,3 +307,47 @@
 	TIMER_COOLDOWN_START(src, COOLDOWN_POINT, 1 SECONDS)
 	point_to_atom(pointed_atom)
 	return TRUE
+
+/mob/living/verb/sex_prefs()
+	set name = "Sex Prefs"
+	set desc = "Open a panel that allows toggling preferences for sex mechanics."
+	set category = "IC"
+	var/list/dat = list()
+	var/flags = client.prefs.harmful_sex_flags
+	var/flags_qs = client.prefs.quick_sex_flags
+	if(flags & HARMFUL_SEX_ROUGH_SEX)
+		dat += "<center>Harm from rough/forceful sex : Enabled|<a href='?_src_=usr;harmful_sex_toggle_off=[HARMFUL_SEX_ROUGH_SEX]'>Disable</a></center>"
+	else
+		dat += "<center>Harm from rough/forceful sex : <a href='?_src_=usr;harmful_sex_toggle_on=[HARMFUL_SEX_ROUGH_SEX]'>Enable</a>|Disabled</center>"
+	if(flags & HARMFUL_SEX_CHOKING)
+		dat += "<center>Oxygen loss from rough oral : Enabled|<a href='?_src_=usr;harmful_sex_toggle_off=[HARMFUL_SEX_CHOKING]'>Disable</a></center>"
+	else
+		dat += "<center>Oxygen loss from rough oral : <a href='?_src_=usr;harmful_sex_toggle_on=[HARMFUL_SEX_CHOKING]'>Enable</a>|Disabled</center>"
+	if(flags & HARMFUL_SEX_STAMINA_DRAIN)
+		dat += "<center>Having stamina drained via sex : Enabled|<a href='?_src_=usr;harmful_sex_toggle_off=[HARMFUL_SEX_STAMINA_DRAIN]'>Disable</a></center>"
+	else
+		dat += "<center>Having stamina drained via sex : <a href='?_src_=usr;harmful_sex_toggle_on=[HARMFUL_SEX_STAMINA_DRAIN]'>Enable</a>|Disabled</center>"
+	if(flags & HARMFUL_SEX_BLOOD_DRAIN)
+		dat += "<center>Having blood/life drained via sex : Enabled|<a href='?_src_=usr;harmful_sex_toggle_off=[HARMFUL_SEX_BLOOD_DRAIN]'>Disable</a></center>"
+	else
+		dat += "<center>Having blood/life drained via sex : <a href='?_src_=usr;harmful_sex_toggle_on=[HARMFUL_SEX_BLOOD_DRAIN]'>Enable</a>|Disabled</center>"
+	if(flags_qs & QUICK_SEX)
+		dat += "<center>Initiating quick-sex yourself : Enabled|<a href='?_src_=usr;quick_sex_toggle_off=[QUICK_SEX]'>Disable</a></center>"
+	else
+		dat += "<center>Initiating quick-sex yourself  : <a href='?_src_=usr;quick_sex_toggle_on=[QUICK_SEX]'>Enable</a>|Disabled</center>"
+	if(flags_qs & QUICK_SEX_HEAL)
+		dat += "<center>Being healed via quick-sex (gives perms to medics w/o the need to ask again.) : Enabled|<a href='?_src_=usr;quick_sex_toggle_off=[QUICK_SEX_HEAL]'>Disable</a></center>"
+	else
+		dat += "<center>Being healed via quick-sex (gives perms to medics w/o the need to ask again.) : <a href='?_src_=usr;quick_sex_toggle_on=[QUICK_SEX_HEAL]'>Enable</a>|Disabled</center>"
+
+	var/datum/browser/popup = new(usr, "sexharmprefs", "<center>Sex Preferences</center>", 400, 150)
+	popup.set_content(dat.Join())
+	popup.open()
+
+/mob/living/verb/toggle_burst_scream()
+	set name = "Toggle Burst Screams"
+	set desc = "Toggle screaming from bursts."
+	set category = "IC"
+
+	client.prefs.burst_screams_enabled = !client.prefs.burst_screams_enabled
+	to_chat(src, span_notice("Screams from larva bursting are now [client.prefs.burst_screams_enabled ? "enabled" : "disabled"]"))

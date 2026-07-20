@@ -26,12 +26,15 @@
 
 /datum/fire_support/tele_cope/New()
 	. = ..()
-	disable_use()
+	if(iscampaigngamemode(SSticker.mode))
+		disable_use()
+	else
+		enable_use()
 
 ///Enabled the datum for use
 /datum/fire_support/tele_cope/proc/enable_use(datum/source, obj/structure/teleporter_array/teleporter)
 	SIGNAL_HANDLER
-	if(teleporter.faction != FACTION_SOM)
+	if(teleporter && teleporter.faction != FACTION_SOM)
 		return
 	RegisterSignal(SSdcs, COMSIG_GLOB_CAMPAIGN_MISSION_ENDED, PROC_REF(disable_use))
 	UnregisterSignal(SSdcs, COMSIG_GLOB_TELEPORTER_ARRAY_ENABLED)

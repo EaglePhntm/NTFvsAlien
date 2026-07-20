@@ -203,11 +203,18 @@
 	ammo_overlay = new()
 	ammo_overlay.icon = icon
 	vis_contents += ammo_overlay
+	addtimer(CALLBACK(src, PROC_REF(post_init_fix)), 5 SECONDS)
 
 /obj/structure/gun_breech/som/Destroy()
 	weapon_type = null
 	QDEL_NULL(barrel_overlay)
 	return ..()
+
+/obj/structure/gun_breech/som/proc/post_init_fix()
+	update_icon_state()
+	update_overlays()
+	update_gun_appearance(weapon_type)
+
 
 /obj/structure/gun_breech/som/update_icon_state()
 	. = ..()
@@ -255,7 +262,7 @@
 		pixel_x = -12
 		pixel_y = -32
 		barrel_overlay.pixel_y = 76
-		ammo_overlay.icon_state = "[icon_state]_[length(weapon_type?.ammo_magazine) + weapon_type.ammo.current_rounds]"
+		ammo_overlay.icon_state = "[icon_state]_[length(weapon_type?.ammo_magazine) + (weapon_type.ammo?.current_rounds || 0)]"
 	else if(weapon_type.type == /obj/item/armored_weapon/particle_lance)
 		pixel_x = -8
 		pixel_y = -7

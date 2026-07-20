@@ -247,3 +247,11 @@
 	worn_icon_state = "ammoboxblank"
 	base_icon_state = "blank"
 	ammo_type = /datum/ammo/bullet/shotgun/blank
+
+/obj/item/big_ammo_box/shotgun/clf_heavyrifle
+	name = "big ammo box (14.5mm API)"
+	caliber = CALIBER_14X5
+	icon_state = "145"
+	worn_icon_state = "ammobox_145"
+	base_icon_state = "145"
+	ammo_type = /datum/ammo/bullet/sniper/clf_heavyrifle

@@ -34,6 +34,7 @@
 	. += "There's [charging ? "a" : "no"] cell in the charger."
 	if(charging)
 		. += "Current charge: [charging.charge]"
+		. += "Energy : [DisplayEnergyFrac(charging.charge * (2/GLOB.CELLRATE), charging.maxcharge * (2/GLOB.CELLRATE))]"
 
 /obj/machinery/cell_charger/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -69,13 +70,20 @@
 		updateicon()
 
 	else if(iswrench(I))
-		if(charging)
-			to_chat(user, span_warning("Remove the cell first!"))
-			return
+		return wrench_act(user, I)
 
-		anchored = !anchored
-		to_chat(user, "You [anchored ? "attach" : "detach"] the cell charger [anchored ? "to" : "from"] the ground")
-		playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
+/obj/machinery/cell_charger/wrench_act(mob/living/user, obj/item/I)
+	if(!user.Adjacent(src))
+		return TRUE
+	if(charging)
+		to_chat(user, span_warning("Remove the cell first!"))
+		return TRUE
+	if(!do_after(user, 1 SECONDS, NONE, src, BUSY_ICON_BUILD))
+		return TRUE
+	I.play_tool_sound(src, 50)
+	anchored = !anchored
+	to_chat(user, "You [anchored ? "attach" : "detach"] the cell charger [anchored ? "to" : "from"] the ground")
+	return TRUE
 
 /obj/machinery/cell_charger/attack_hand(mob/living/user)
 	. = ..()

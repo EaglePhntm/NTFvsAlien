@@ -54,15 +54,17 @@
 	var/aidisabled = FALSE
 	///Reference to our cable terminal
 	var/obj/machinery/power/terminal/terminal = null
-	///Amount of power used by the lighting channel
+	///Amount of power used by the lighting channel in watts
 	var/lastused_light = 0
-	///Amount of power used by the equipment channel
+	///Amount of power used by the equipment channel in watts
 	var/lastused_equip = 0
-	///Amount of power used by the environmental channel
+	///Amount of power used by the environmental channel in watts
 	var/lastused_environ = 0
-	///Total amount of power used by the three channels
+	///Total amount of power used by the three channels in watts
 	var/lastused_total = 0
 	var/main_status = APC_EXTERNAL_POWER_NONE
+	///Grid excess calculated during the power accounting phase.
+	var/last_power_excess = 0
 	///State of the electronics inside (missing, installed, secured)
 	var/has_electronics = APC_ELECTRONICS_MISSING
 	///Used for counting how many times it has been hit, used for Aliens at the moment
@@ -75,8 +77,16 @@
 	var/update_overlay = NONE
 	///Used to stop the icon from updating too much
 	var/icon_update_needed = FALSE
+	///Set when the APC needs to apply channel power changes after power accounting.
+	var/power_update_needed = FALSE
 	///Probability of APC being broken by a shuttle crash on the same z-level
-	var/crash_break_probability = 85
+	var/crash_break_probability = 5
+#ifdef POWERDEBUG
+	var/total_charge_added_chargescale = 0
+	var/total_charge_added_availscale = 0
+	var/total_charge_outputted_chargescale = 0
+	var/total_charge_outputted_availscale = 0
+#endif
 
 /obj/machinery/power/apc/connect_to_network()
 	//Override because the APC does not directly connect to the network; it goes through a terminal.
@@ -168,6 +178,17 @@
 
 	return ..()
 
+/obj/machinery/power/apc/start_processing()
+	if(datum_flags & DF_ISPROCESSING)
+		return
+	datum_flags |= DF_ISPROCESSING
+	SSmachines.processing_apcs += src
+
+/obj/machinery/power/apc/stop_processing()
+	datum_flags &= ~DF_ISPROCESSING
+	SSmachines.processing_apcs -= src
+	SSmachines.currentrun -= src
+
 ///Wrapper to guarantee powercells are properly nulled and avoid hard deletes.
 /obj/machinery/power/apc/proc/set_cell(obj/item/cell/new_cell)
 	if(cell)
@@ -212,6 +233,13 @@
 
 	if(CHECK_BITFIELD(machine_stat, PANEL_OPEN))
 		. += span_info("The wiring is exposed.")
+#ifdef POWERDEBUG
+	. += span_notice("it contains [cell ? "[DisplayEnergyFrac(cell.charge * (2 / GLOB.CELLRATE), cell.maxcharge * (2/GLOB.CELLRATE))] of electrical energy." : "No cell!"]")
+	. += span_notice("It has been charged by a total of [DisplayEnergy(total_charge_added_chargescale * (2 / GLOB.CELLRATE))] (based on [total_charge_added_chargescale] charge units)")
+	. += span_notice("It has been charged by a total of [DisplayEnergy(total_charge_added_availscale * 2)] (based on [total_charge_added_availscale] avail charge units)")
+	. += span_notice("It has outputted a total of [DisplayEnergy(total_charge_outputted_chargescale * (2 / GLOB.CELLRATE))] (based on [total_charge_outputted_chargescale] charge units)")
+	. += span_notice("It has outputted a total of [DisplayEnergy(total_charge_outputted_availscale * 2)] (based on [total_charge_outputted_availscale] avail charge units)")
+#endif
 
 /obj/machinery/power/apc/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -263,7 +291,8 @@
 					"off" = list("env" = 1)
 				)
 			)
-		)
+		),
+		"powerCellCharge" = cell ? DisplayEnergyFrac(cell.charge * (2/GLOB.CELLRATE), cell.maxcharge * (2/GLOB.CELLRATE)) : "No cell!"
 	)
 	return data
 
@@ -383,8 +412,11 @@
 
 
 /obj/machinery/power/apc/process()
-	if(icon_update_needed)
-		update_appearance()
+	process_power()
+	process_charge()
+	process_late()
+
+/obj/machinery/power/apc/proc/process_power(seconds_per_tick)
 	if(machine_stat & (BROKEN|MAINT))
 		return
 	if(!area.requires_power)
@@ -407,6 +439,7 @@
 	var/last_ch = charging
 
 	var/excess = surplus()
+	last_power_excess = excess
 
 	if(!avail())
 		main_status = APC_EXTERNAL_POWER_NONE
@@ -419,17 +452,33 @@
 		// draw power from cell as before to power the area
 		var/cellused = min(cell.charge, GLOB.CELLRATE * lastused_total)	// clamp deduction to a max, amount left in cell
 		cell.use(cellused)
-
+		if(is_ground_level(z))
+			GLOB.round_statistics.apc_output_ground += cellused * 2 / GLOB.CELLRATE // avail is in watts, 1 avail for 1 tick is 2 watt-seconds = 2 joules
+#ifdef POWERDEBUG
+		total_charge_outputted_chargescale += cellused
+		total_charge_outputted_availscale += cellused / GLOB.CELLRATE
+#endif
 		if(excess > lastused_total)		// if power excess recharge the cell
 										// by the same amount just used
 			cell.give(cellused)
 			add_load(cellused / GLOB.CELLRATE)		// add the load used to recharge the cell
-
+			if(is_ground_level(z))
+				GLOB.round_statistics.apc_input_ground += cellused * 2 / GLOB.CELLRATE // avail is in watts, 1 avail for 1 tick is 2 watt-seconds = 2 joules
+#ifdef POWERDEBUG
+			total_charge_added_chargescale += cellused
+			total_charge_added_availscale += cellused / GLOB.CELLRATE
+#endif
 
 		else		// no excess, and not enough per-apc
 			if((cell.charge / GLOB.CELLRATE + excess) >= lastused_total)		// can we draw enough from cell+grid to cover last usage?
 				cell.charge = min(cell.maxcharge, cell.charge + GLOB.CELLRATE * excess)	//recharge with what we can
 				add_load(excess)		// so draw what we can from the grid
+				if(is_ground_level(z))
+					GLOB.round_statistics.apc_input_ground += excess * 2 // avail is in watts, 1 avail for 1 tick is 2 watt-seconds = 2 joules
+#ifdef POWERDEBUG
+				total_charge_added_chargescale += excess * GLOB.CELLRATE
+				total_charge_added_availscale += excess
+#endif
 				charging = APC_NOT_CHARGING
 
 			else	// not enough power available to run the last tick!
@@ -472,39 +521,6 @@
 			if(cell.percent() > 75)
 				area.poweralert(1, src)
 
-		// now trickle-charge the cell
-		if(chargemode && charging == APC_CHARGING && operating)
-			if(excess > 0)		// check to make sure we have enough to charge
-				// Max charge is capped to % per second constant
-				var/ch = min(excess*GLOB.CELLRATE, cell.maxcharge*GLOB.CHARGELEVEL)
-				add_load(ch/GLOB.CELLRATE) // Removes the power we're taking from the grid
-				cell.give(ch) // actually recharge the cell
-
-			else
-				charging = APC_NOT_CHARGING		// stop charging
-				chargecount = 0
-
-		// show cell as fully charged if so
-		if(cell.charge >= cell.maxcharge)
-			cell.charge = cell.maxcharge
-			charging = APC_FULLY_CHARGED
-
-		if(chargemode)
-			if(!charging)
-				if(excess > cell.maxcharge * GLOB.CHARGELEVEL)
-					chargecount++
-				else
-					chargecount = 0
-
-				if(chargecount == 10)
-
-					chargecount = 0
-					charging = APC_CHARGING
-
-		else // chargemode off
-			charging = APC_NOT_CHARGING
-			chargecount = 0
-
 	else // no cell, switch everything off
 		charging = APC_NOT_CHARGING
 		chargecount = 0
@@ -515,10 +531,71 @@
 
 	// update icon & area power if anything changed
 	if(last_lt != lighting || last_eq != equipment || last_en != environ)
-		queue_icon_update()
-		update()
+		power_update_needed = TRUE
 	else if(last_ch != charging)
 		queue_icon_update()
+
+/obj/machinery/power/apc/proc/process_charge(seconds_per_tick)
+	if(machine_stat & (BROKEN|MAINT))
+		return
+	if(!area.requires_power)
+		return
+	if(!cell || shorted)
+		return
+
+	var/last_ch = charging
+	var/excess = last_power_excess
+
+	// now trickle-charge the cell
+	if(chargemode && charging == APC_CHARGING && operating)
+		if(excess > 0)		// check to make sure we have enough to charge
+			// Max charge is capped to % per second constant
+			var/ch = min(excess*GLOB.CELLRATE, cell.maxcharge*GLOB.CHARGELEVEL)
+			add_load(ch/GLOB.CELLRATE) // Removes the power we're taking from the grid
+			cell.give(ch) // actually recharge the cell
+			if(is_ground_level(z))
+				GLOB.round_statistics.apc_input_ground += ch * 2 / GLOB.CELLRATE // avail is in watts, 1 avail for 1 tick is 2 watt-seconds = 2 joules
+#ifdef POWERDEBUG
+			total_charge_added_chargescale += ch
+			total_charge_added_availscale += ch / GLOB.CELLRATE
+#endif
+
+		else
+			charging = APC_NOT_CHARGING		// stop charging
+			chargecount = 0
+
+	// show cell as fully charged if so
+	if(cell.charge >= cell.maxcharge)
+		cell.charge = cell.maxcharge
+		charging = APC_FULLY_CHARGED
+
+	if(chargemode)
+		if(!charging)
+			if(excess > cell.maxcharge * GLOB.CHARGELEVEL)
+				chargecount++
+			else
+				chargecount = 0
+
+			if(chargecount == 10)
+
+				chargecount = 0
+				charging = APC_CHARGING
+
+	else // chargemode off
+		charging = APC_NOT_CHARGING
+		chargecount = 0
+
+	if(last_ch != charging)
+		queue_icon_update()
+
+/obj/machinery/power/apc/process_late(seconds_per_tick)
+	if(power_update_needed)
+		power_update_needed = FALSE
+		queue_icon_update()
+		update()
+
+	if(icon_update_needed)
+		update_appearance()
 
 //val 0 = off, 1 = off(auto) 2 = on, 3 = on(auto)
 //on 0 = off, 1 = auto-on, 2 = auto-off

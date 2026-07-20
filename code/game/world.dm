@@ -69,7 +69,7 @@ GLOBAL_VAR(restart_counter)
 	Profile(PROFILE_RESTART, type = "sendmaps")
 
 	// Write everything to this log file until we get to SetupLogs() later
-	_initialize_log_files("data/logs/config_error.[GUID()].log")
+	_initialize_log_files("data/logs/config_error.[time2text(world.timeofday, "YYYY-MM-DD", TIMEZONE_UTC)].[num2text(world.timeofday,100)].[GUID()].log")
 
 	// Init the debugger first so we can debug Master
 	init_debugger()
@@ -165,8 +165,10 @@ GLOBAL_VAR(restart_counter)
 /world/proc/SetupLogs()
 	var/override_dir = params[OVERRIDE_LOG_DIRECTORY_PARAMETER]
 	if(!override_dir)
-		var/realtime = world.realtime
-		var/texttime = time2text(realtime, "YYYY/MM/DD", TIMEZONE_UTC)
+		var/real_time = world.realtime
+		if(world.byond_build > 1667  && world.byond_build < 1670)
+			real_time = world.timeofday // workaround for byond bug ID:2981407
+		var/texttime = time2text(real_time, "YYYY/MM/DD", TIMEZONE_UTC)
 		GLOB.log_directory = "data/logs/[texttime]/round-"
 		GLOB.picture_logging_prefix = "L_[time2text(realtime, "YYYYMMDD", TIMEZONE_UTC)]_"
 		GLOB.picture_log_directory = "data/picture_logs/[texttime]/round-"
@@ -195,7 +197,10 @@ GLOBAL_VAR(restart_counter)
 	// This was printed early in startup to the world log and config_error.log,
 	// but those are both private, so let's put the commit info in the runtime
 	// log which is ultimately public.
+	/*NTF edit - status_update_server_start() handles this
 	log_runtime(GLOB.revdata.get_log_message())
+	*/
+	status_update_server_start()
 
 #ifndef USE_CUSTOM_ERROR_HANDLER
 	world.log = file("[GLOB.log_directory]/dd.log")
@@ -205,7 +210,9 @@ GLOBAL_VAR(restart_counter)
 #endif
 
 /world/Topic(T, addr, master, key)
+	#ifdef USE_TGS
 	TGS_TOPIC	//redirect to server tools if necessary
+	#endif
 
 	var/static/list/topic_handlers = TopicHandlers()
 
@@ -293,12 +300,13 @@ GLOBAL_VAR(restart_counter)
 			msg += "Game Mode: [SSticker.mode.name]"
 			msg += "Round End State: [SSticker.mode.round_finished]"
 
-		if(length(GLOB.clients))
-			msg += "Players: [length(GLOB.clients)]"
+		if(length(GLOB.whitelisted_clients))
+			msg += "Players: [length(GLOB.whitelisted_clients)]"
 
 		if(length(msg))
 			send2chat(msg.Join(" | "), CONFIG_GET(string/end_of_round_channel))
 
+	status_update_next_gamemode(GLOB.next_gamemode, TRUE)
 	to_chat(world, span_boldannounce("Rebooting world..."))
 	Master.Shutdown()
 
@@ -307,6 +315,7 @@ GLOBAL_VAR(restart_counter)
 	return
 	#endif
 
+	log_world("World rebooting with [length(GLOB.amia_requests_outstanding)] outstanding amia requests")
 	if(check_hard_reboot())
 		log_world("World hard rebooted at [time_stamp()]")
 		shutdown_logging() // See comment below.
@@ -328,12 +337,14 @@ GLOBAL_VAR(restart_counter)
 		if(Lines[1])
 			GLOB.master_mode = Lines[1]
 			log_config("Saved mode is '[GLOB.master_mode]'")
+			GLOB.next_gamemode = GLOB.master_mode
 
 
 /world/proc/save_mode(the_mode)
 	var/F = file("data/mode.txt")
 	fdel(F)
 	WRITE_FILE(F, the_mode)
+	GLOB.next_gamemode = the_mode
 
 
 /world/proc/update_status()
@@ -342,27 +353,35 @@ GLOBAL_VAR(restart_counter)
 		// If you didn't see a server name, or the master controller
 		// is stilling initing, we don't update the hub.
 		return
+	var/name_without_wl = replacetext(server_name, "(WL at Discord)", "")
+	if(CONFIG_GET(flag/amia_whitelist_enabled))
+		if(server_name == name_without_wl)
+			server_name += "(WL at Discord)"
+	else
+		server_name = name_without_wl
+	server_name = trim(server_name)
+
 
 	// Start generating the hub status
 	// Note: Hub content is limited to 254 characters, including HTML/CSS. Image width is limited to 450 pixels.
 	// Current outputt should look like
 	/*
-	Something — Lost in space...	|	TerraGov Marine Corps — Sulaco
+	Something — Lost in space...	|	Nine Tailed Fox — Sulaco
 	Map: Loading...					|	Map: Icy Caves
 	Mode: Lobby						|	Mode: Crash
 	Round time: 0:0					|	Round time: 4:54
 	*/
 	var/discord_url = CONFIG_GET(string/discordurl)
-	var/webmap_host = CONFIG_GET(string/webmap_host)
+	//var/webmap_host = CONFIG_GET(string/webmap_host)
 	var/shipname = length(SSmapping?.configs) && SSmapping.configs[SHIP_MAP] ? SSmapping.configs[SHIP_MAP].map_name : "Lost in space..."
 	var/map_name = length(SSmapping.configs) && SSmapping.configs[GROUND_MAP] ? SSmapping.configs[GROUND_MAP].map_name : "Loading..."
-	var/ground_map_file = length(SSmapping.configs) && SSmapping.configs[GROUND_MAP] ? SSmapping.configs[GROUND_MAP].map_file : ""
+	//var/ground_map_file = length(SSmapping.configs) && SSmapping.configs[GROUND_MAP] ? SSmapping.configs[GROUND_MAP].map_file : ""
 
 	var/new_status = ""
-	new_status += "<b><a href='[discord_url ? discord_url : "#"]'>[server_name] &#8212; [shipname]</a></b>"
-	new_status += "<br>Map: <a href='[webmap_host][ground_map_file]'><b>[map_name]</a></b>"
-	new_status += "<br>Mode: <b>[SSticker.mode ? SSticker.mode.name : "Lobby"]</b>"
-	new_status += "<br>Round time: <b>[gameTimestamp("hh:mm")]</b>"
+	new_status += "<b><a href='[discord_url ? discord_url : "#"]'>[server_name] - [shipname]</a></b>"
+	new_status += "<br>Map: [map_name]"
+	new_status += "<br>Mode: [SSticker.mode ? SSticker.mode.name : "Lobby"]"
+	new_status += "<br>Round time: [duration2text(world.time - SSticker.round_start_time)]"
 
 	// Finally set the new status
 	status = new_status

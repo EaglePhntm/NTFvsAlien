@@ -20,8 +20,11 @@
 	var/charging = FALSE
 	///What xeno created this well
 	var/mob/living/carbon/xenomorph/creator = null
+	///type of smoke produced
+	var/smoketype = /datum/effect_system/smoke_spread/xeno/acid/opaque
+	var/lightcolor = LIGHT_COLOR_GREEN
 
-/obj/structure/xeno/acidwell/Initialize(mapload, _creator)
+/obj/structure/xeno/acidwell/Initialize(mapload, _hivenumber, _creator)
 	. = ..()
 	creator = _creator
 	RegisterSignal(creator, COMSIG_QDELETING, PROC_REF(clear_creator))
@@ -50,10 +53,10 @@
 	if(!QDELETED(creator) && creator.stat == CONSCIOUS && creator.z == z)
 		var/area/A = get_area(src)
 		if(A)
-			to_chat(creator, span_xenoannounce("You sense your acid well at [A.name] has been destroyed!") )
+			to_chat(creator, span_xenoannounce("You sense your [name] at [A.name] has been destroyed!") )
 
 	if(damage_amount || damage_flag) //Spawn the gas only if we actually get destroyed by damage
-		var/datum/effect_system/smoke_spread/xeno/acid/opaque/A = new(get_turf(src))
+		var/datum/effect_system/smoke_spread/A = new smoketype(get_turf(src))
 		A.set_up(clamp(CEILING(charges*0.5, 1),0,3),src) //smoke scales with charges
 		A.start()
 	return ..()
@@ -62,7 +65,7 @@
 	. = ..()
 	if(!isxeno(user) && !isobserver(user))
 		return
-	. += span_xenonotice("An acid well made by [creator]. It currently has <b>[charges]/[XENO_ACID_WELL_MAX_CHARGES] charges</b>.")
+	. += span_xenonotice("\An [name] made by [creator]. It currently has <b>[charges]/[XENO_ACID_WELL_MAX_CHARGES] charges</b>.")
 
 /obj/structure/xeno/acidwell/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	visible_message(span_danger("[src] suddenly collapses!") )
@@ -70,7 +73,7 @@
 
 /obj/structure/xeno/acidwell/update_icon()
 	. = ..()
-	set_light(charges , charges / 2, LIGHT_COLOR_GREEN)
+	set_light(charges , charges / 2, lightcolor)
 
 /obj/structure/xeno/acidwell/update_overlays()
 	. = ..()
@@ -91,7 +94,7 @@
 	charges--
 	update_icon()
 	var/turf/T = get_turf(src)
-	var/datum/effect_system/smoke_spread/xeno/acid/opaque/acid_smoke = new(T) //spawn acid smoke when charges are actually used
+	var/datum/effect_system/smoke_spread/xeno/acid_smoke = new smoketype(T) //spawn acid smoke when charges are actually used
 	acid_smoke.set_up(0, src) //acid smoke in the immediate vicinity
 	acid_smoke.start()
 
@@ -103,8 +106,14 @@
 		return ..()
 	attack_alien(user)
 
-/obj/structure/xeno/acidwell/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
-	if(xeno_attacker.a_intent == INTENT_HARM && (CHECK_BITFIELD(xeno_attacker.xeno_caste.caste_flags, CASTE_IS_BUILDER) || xeno_attacker == creator) ) //If we're a builder caste or the creator and we're on harm intent, deconstruct it.
+/obj/structure/xeno/acidwell/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
+		return
+	if(xeno_attacker.handcuffed)
+		return
+	if(!issamexenohive(xeno_attacker))
+		return ..()
+	if(xeno_attacker.a_intent == INTENT_HARM && (xeno_attacker.xeno_flags & XENO_DESTROY_OWN_STRUCTURES)) //If we're on harm and have the toggle active, destroy the structure.
 		balloon_alert(xeno_attacker, "Removing...")
 		if(!do_after(xeno_attacker, XENO_ACID_WELL_FILL_TIME, IGNORE_HELD_ITEM, src, BUSY_ICON_HOSTILE))
 			balloon_alert(xeno_attacker, "Stopped removing")
@@ -142,11 +151,13 @@
 	charging = FALSE
 	update_icon()
 	balloon_alert(xeno_attacker, "Now has [charges] / [XENO_ACID_WELL_MAX_CHARGES] charges")
-	to_chat(xeno_attacker,span_xenonotice("We add acid to [src]. It is currently has <b>[charges] / [XENO_ACID_WELL_MAX_CHARGES] charges</b>.") )
+	to_chat(xeno_attacker,span_xenonotice("We refill [src]. It is currently has <b>[charges] / [XENO_ACID_WELL_MAX_CHARGES] charges</b>.") )
 
 /obj/structure/xeno/acidwell/proc/on_cross(datum/source, atom/movable/A, oldloc, oldlocs)
 	SIGNAL_HANDLER
 	if(CHECK_MULTIPLE_BITFIELDS(A.allow_pass_flags, HOVERING))
+		return
+	if(A.status_flags & GODMODE || A.status_flags & INCORPOREAL)
 		return
 	if(iscarbon(A))
 		HasProximity(A)
@@ -174,22 +185,25 @@
 		stepper.ExtinguishMob()
 		charges_used++
 
-	if(!isxeno(stepper))
-		stepper.next_move_slowdown += charges * 2 //Acid spray has slow down so this should too; scales with charges, Min 2 slowdown, Max 10
-		stepper.apply_damage(charges * 10, BURN, BODY_ZONE_PRECISE_L_FOOT, ACID, penetration = 33)
-		stepper.apply_damage(charges * 10, BURN, BODY_ZONE_PRECISE_R_FOOT, ACID, penetration = 33)
-		stepper.visible_message(span_danger("[stepper] is immersed in [src]'s acid!") , \
-		span_danger("We are immersed in [src]'s acid!") , null, 5)
-		playsound(stepper, "sound/bullets/acid_impact1.ogg", 10 * charges)
-		new /obj/effect/temp_visual/acid_bath(get_turf(stepper))
+	if(!issamexenohive(stepper))
+		punish_stepper(stepper)
 		charges_used = charges //humans stepping on it empties it out
 
 	if(!charges_used)
 		return
 
-	var/datum/effect_system/smoke_spread/xeno/acid/opaque/acid_smoke = new(get_turf(stepper)) //spawn acid smoke when charges are actually used
+	var/datum/effect_system/smoke_spread/acid_smoke = new smoketype(get_turf(stepper)) //spawn acid smoke when charges are actually used
 	acid_smoke.set_up(0, src) //acid smoke in the immediate vicinity
 	acid_smoke.start()
 
 	charges -= charges_used
 	update_icon()
+
+/obj/structure/xeno/acidwell/proc/punish_stepper(mob/living/stepper)
+	stepper.next_move_slowdown += charges * 2 //Acid spray has slow down so this should too; scales with charges, Min 2 slowdown, Max 10
+	stepper.apply_damage(charges * 10, BURN, BODY_ZONE_PRECISE_L_FOOT, ACID, penetration = 33)
+	stepper.apply_damage(charges * 10, BURN, BODY_ZONE_PRECISE_R_FOOT, ACID, penetration = 33)
+	stepper.visible_message(span_danger("[stepper] is immersed in [src]'s acid!") , \
+	span_danger("We are immersed in [src]'s acid!") , null, 5)
+	playsound(stepper, "sound/bullets/acid_impact1.ogg", 10 * charges)
+	new /obj/effect/temp_visual/acid_bath(get_turf(stepper))

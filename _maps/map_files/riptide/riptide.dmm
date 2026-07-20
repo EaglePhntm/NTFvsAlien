@@ -12,6 +12,12 @@
 /obj/effect/ai_node,
 /turf/open/ground,
 /area/riptide/outside/westislands)
+"aaV" = (
+/obj/structure/transmitter/colony_net/auto_id,
+/turf/closed/wall/r_wall{
+	color = "#f5d08c"
+	},
+/area/riptide/inside/engineering)
 "abe" = (
 /obj/structure/table/wood,
 /obj/item/weapon/gun/shotgun/double/derringer,
@@ -732,6 +738,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
 /area/riptide/inside/southtower)
+"aBZ" = (
+/obj/structure/transmitter/colony_net/auto_id,
+/turf/closed/wall,
+/area/riptide/inside/medical/surgery)
 "aCu" = (
 /turf/open/ground/grass/weedable,
 /area/riptide/outside/northjungle)
@@ -857,6 +867,10 @@
 /obj/structure/cable,
 /turf/open/floor/wood/darker,
 /area/riptide/inside/beachbar)
+"aGO" = (
+/obj/structure/transmitter/colony_net/auto_id,
+/turf/closed/wall/r_wall/chigusa,
+/area/riptide/inside/engineering/cave)
 "aGU" = (
 /obj/structure/platform_decoration{
 	dir = 8
@@ -2346,6 +2360,7 @@
 /area/riptide/inside/abandonedsec)
 "bHm" = (
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/wood/thatch,
 /area/riptide/inside/tikihut)
 "bHr" = (
@@ -2855,6 +2870,10 @@
 /obj/structure/cargo_container/gorg,
 /turf/open/floor/plating/ground/desertdam/asphalt/tile,
 /area/riptide/inside/landingzoneone)
+"bYe" = (
+/obj/docking_port/stationary/supplycolony,
+/turf/open/floor/mainship/empty,
+/area/riptide/inside/engineering/bridge)
 "bYk" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -2868,6 +2887,9 @@
 /obj/structure/bed/bunkbed,
 /turf/open/floor/wood,
 /area/riptide/inside/syndicateport)
+"bYW" = (
+/turf/open/floor/mainship/empty,
+/area/riptide/inside/engineering/bridge)
 "bZj" = (
 /obj/structure/table/wood/gambling,
 /obj/item/toy/deck,
@@ -3995,6 +4017,10 @@
 /obj/structure/largecrate/supply/ammo/shotgun,
 /turf/open/floor/wood,
 /area/riptide/caves/piratecove)
+"cMC" = (
+/obj/structure/transmitter/colony_net/auto_id,
+/turf/closed/wall/mainship/gray,
+/area/riptide/inside/engineering/bridge)
 "cNa" = (
 /obj/structure/table/wood,
 /turf/open/floor/wood/thatch,
@@ -4194,6 +4220,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
 /area/riptide/caves/pmc/lobby)
+"cUm" = (
+/obj/structure/transmitter/colony_net/auto_id,
+/turf/closed/wall/variable/adobe,
+/area/riptide/inside/beachbar)
 "cUJ" = (
 /obj/effect/spawner/random/engineering/structure/powergenerator,
 /turf/open/floor/tile/green,
@@ -5427,6 +5457,13 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/riptide/caves/north2)
+"dNh" = (
+/obj/structure/prop/mainship/railing{
+	dir = 4
+	},
+/obj/machinery/computer/supplycomp/colony,
+/turf/open/floor/plating/ground/desertdam/asphalt/tile,
+/area/riptide/inside/engineering/bridge)
 "dNn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood,
@@ -6190,6 +6227,7 @@
 	},
 /obj/item/tool/stamp,
 /obj/effect/decal/cleanable/cobweb2,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/prison/plate,
 /area/riptide/inside/abandonedsec)
 "enk" = (
@@ -6310,6 +6348,7 @@
 	pixel_y = -3
 	},
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/wood/alt_three,
 /area/riptide/inside/beachmotel)
 "erK" = (
@@ -6651,6 +6690,7 @@
 /area/riptide/inside/syndicatestarboard)
 "eDg" = (
 /obj/machinery/power/terminal,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/riptide/inside/engineering/cave)
 "eDH" = (
@@ -8178,6 +8218,9 @@
 /obj/structure/flora/drought/tall_cactus,
 /turf/open/floor/plating/ground/dirt,
 /area/riptide/outside/volcano)
+"fHh" = (
+/turf/open/ground/grass/weedable,
+/area/riptide/inside/lighttower)
 "fHi" = (
 /obj/structure/rock/basalt/pile/alt3,
 /turf/open/ground/grass/weedable,
@@ -9332,6 +9375,9 @@
 	},
 /turf/open/ground,
 /area/riptide/outside/volcano)
+"gtL" = (
+/turf/open/ground/grass/weedable,
+/area/riptide/inside/chapel)
 "gtN" = (
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -9985,6 +10031,11 @@
 	dir = 1
 	},
 /area/riptide/inside/medical)
+"gUW" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/turf/open/floor/plating/ground/desertdam/asphalt/open,
+/area/riptide/inside/engineering/cave)
 "gVk" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/ground/coast{
@@ -12818,6 +12869,10 @@
 /obj/structure/window/framed/wood,
 /turf/open/floor/plating,
 /area/riptide/inside/abandonedcottage)
+"jao" = (
+/obj/structure/transmitter/colony_net/auto_id,
+/turf/closed/wall,
+/area/riptide/inside/medical/offices)
 "jas" = (
 /obj/effect/spawner/random/misc/structure/supplycrate,
 /turf/open/floor/dark2,
@@ -13777,6 +13832,7 @@
 /area/riptide/outside/southislands)
 "jJc" = (
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/freezer,
 /area/riptide/inside/medical/offices)
 "jJg" = (
@@ -14699,6 +14755,7 @@
 /obj/item/storage/bag/trash,
 /obj/item/trash/cigbutt,
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/grimy,
 /area/riptide/inside/syndicatestarboard)
 "kog" = (
@@ -15691,7 +15748,6 @@
 /turf/open/floor/tile/bar,
 /area/riptide/inside/medical/offices)
 "kVA" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/riptide/inside/telecomms)
 "kVD" = (
@@ -15897,9 +15953,7 @@
 /turf/open/floor/iron/herringbone,
 /area/riptide/caves/pmc/rnd)
 "laA" = (
-/obj/machinery/vending/phoronresearch{
-	req_one_access = null
-	},
+/obj/machinery/vending/phoronresearch,
 /turf/open/floor/iron/smooth_large,
 /area/riptide/caves/pmc/toxins)
 "laB" = (
@@ -17354,6 +17408,7 @@
 	dir = 8
 	},
 /obj/structure/table/mainship,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/wood,
 /area/riptide/inside/southtower)
 "mbH" = (
@@ -17509,6 +17564,10 @@
 	},
 /turf/open/floor/plating,
 /area/riptide/inside/boatdock)
+"mie" = (
+/obj/structure/transmitter/colony_net/auto_id,
+/turf/closed/wall/wood,
+/area/riptide/inside/luxurybar)
 "miw" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/desertdam/grate/alternate,
@@ -17763,6 +17822,7 @@
 /area/riptide/caves/syndicatemining)
 "mrK" = (
 /obj/structure/table/wood,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/cult,
 /area/riptide/inside/chapel)
 "mrV" = (
@@ -18916,9 +18976,7 @@
 /area/riptide/inside/engineering/bridge)
 "nhq" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window{
-	dir = 4
-	},
+/obj/machinery/door/window,
 /obj/machinery/door/window{
 	dir = 8
 	},
@@ -19469,6 +19527,7 @@
 	pixel_x = 5;
 	pixel_y = -3
 	},
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/darkgreen,
 /area/riptide/inside/beachmotel)
 "nzS" = (
@@ -19933,6 +19992,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/small,
 /area/riptide/caves/pmc/rnd)
+"nOW" = (
+/obj/effect/landmark/static_comms/net_one,
+/turf/open/ground/grass/weedable,
+/area/riptide/inside/lighttower)
 "nPc" = (
 /obj/structure/barricade/wooden{
 	dir = 8
@@ -20413,6 +20476,10 @@
 	},
 /turf/open/floor/tile/cmo,
 /area/riptide/inside/medical/offices)
+"ogD" = (
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/riptide/inside/engineering/cave)
 "ogN" = (
 /obj/structure/table/wood,
 /obj/item/paper,
@@ -20562,6 +20629,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/wood,
 /area/riptide/inside/tikihut)
 "ooc" = (
@@ -21135,9 +21203,7 @@
 /area/riptide/outside/northbeach)
 "oFD" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/medevac_beacon{
-	faction = null
-	},
+/obj/item/medevac_beacon,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 8
 	},
@@ -21617,6 +21683,7 @@
 /area/riptide/inside/warehouse)
 "oVL" = (
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/plating/ground/concrete,
 /area/riptide/inside/warehouse)
 "oWL" = (
@@ -23664,6 +23731,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/riptide/outside/southislands)
+"qll" = (
+/obj/structure/prop/mainship/railing{
+	dir = 8
+	},
+/turf/open/floor/plating/ground/desertdam/asphalt/tile,
+/area/riptide/inside/engineering/bridge)
 "qln" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
@@ -26342,6 +26415,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced/weak,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/dark2,
 /area/riptide/inside/guardcheck)
 "rUb" = (
@@ -26707,6 +26781,11 @@
 	},
 /turf/open/floor/plating/ground/drought,
 /area/riptide/outside/northbeach)
+"sfX" = (
+/obj/effect/landmark/weed_node,
+/obj/structure/cable,
+/turf/open/floor/plating/ground/desertdam/asphalt/open,
+/area/riptide/inside/engineering/cave)
 "sfY" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /obj/effect/ai_node,
@@ -27029,6 +27108,7 @@
 	dir = 8
 	},
 /obj/item/clothing/mask/cigarette/pipe/cobpipe/curved,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/bar,
 /area/riptide/inside/medical)
 "sqs" = (
@@ -27970,6 +28050,11 @@
 	dir = 4
 	},
 /area/riptide/outside/westislands)
+"sWx" = (
+/obj/effect/landmark/static_comms/net_two,
+/obj/structure/cable,
+/turf/open/ground/grass/weedable,
+/area/riptide/inside/chapel)
 "sWA" = (
 /obj/machinery/vending/cigarette,
 /turf/open/floor,
@@ -29363,6 +29448,7 @@
 "tSX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 8
 	},
@@ -31039,6 +31125,7 @@
 "veQ" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/tech_supply,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/brown{
 	dir = 1
 	},
@@ -32235,6 +32322,7 @@
 /obj/machinery/colony_floodlight_switch{
 	pixel_y = 30
 	},
+/obj/structure/cable,
 /turf/open/floor/plating/ground/desertdam/asphalt/open,
 /area/riptide/inside/engineering/cave)
 "vVT" = (
@@ -32493,6 +32581,10 @@
 /obj/structure/cable,
 /turf/open/liquid/water/river,
 /area/riptide/inside/medical)
+"wfx" = (
+/obj/structure/transmitter/colony_net/auto_id,
+/turf/closed/wall/wood,
+/area/riptide/inside/luxurybaroverlook)
 "wfy" = (
 /turf/closed/wall/wood,
 /area/riptide/caves/sea)
@@ -33244,6 +33336,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/ground,
 /area/riptide/outside/northislands)
 "wHe" = (
@@ -33675,6 +33768,7 @@
 /area/riptide/inside/medical/surgery)
 "wWe" = (
 /obj/machinery/power/smes/buildable/empty/dist,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/riptide/inside/engineering/cave)
 "wWh" = (
@@ -34749,6 +34843,10 @@
 	dir = 1
 	},
 /area/riptide/caves/north)
+"xGV" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/open/ground/grass/weedable,
+/area/riptide/inside/chapel)
 "xHB" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -35193,6 +35291,11 @@
 /obj/structure/cable,
 /turf/open/floor/wood/alt_two,
 /area/riptide/inside/recroom)
+"ybY" = (
+/obj/structure/table/wood,
+/obj/structure/transmitter/colony_net/desk/auto_id,
+/turf/open/floor/wood/thatch,
+/area/riptide/inside/canteen)
 "yce" = (
 /turf/closed/wall/wood,
 /area/riptide/outside/southislands)
@@ -39634,8 +39737,8 @@ heA
 pdT
 soJ
 iBx
-uOQ
-uOQ
+fHh
+nOW
 iNR
 qeS
 uOQ
@@ -39813,8 +39916,8 @@ xHB
 pdT
 soJ
 iMN
-qeS
-qeS
+fHh
+fHh
 bLI
 ren
 teY
@@ -41337,7 +41440,7 @@ fvr
 xCu
 xCu
 aQB
-aQB
+cUm
 jih
 qzV
 kjj
@@ -42579,7 +42682,7 @@ vjY
 wJu
 hTm
 aod
-lNh
+gsG
 wtT
 eWo
 bmf
@@ -42757,8 +42860,8 @@ bmY
 dHY
 ooZ
 kQG
-swI
-swI
+gtL
+sWx
 swI
 lNh
 wtT
@@ -42936,8 +43039,8 @@ jnX
 acS
 bfA
 iwj
-swI
-nxp
+gtL
+xGV
 swI
 swI
 swI
@@ -47360,7 +47463,7 @@ dCV
 dCV
 dCV
 dCV
-dCV
+aBZ
 pHY
 jeA
 tPI
@@ -48621,7 +48724,7 @@ vYF
 oir
 bZx
 blJ
-tPI
+jao
 pfq
 cma
 hoh
@@ -48722,7 +48825,7 @@ lCn
 hbs
 cPy
 hpT
-vtt
+ybY
 uHx
 czK
 iRE
@@ -53794,7 +53897,7 @@ qOR
 qOR
 qOR
 qOR
-azQ
+aaV
 uYK
 fad
 fad
@@ -56693,7 +56796,7 @@ nWa
 wRn
 wRn
 wRn
-nxc
+mie
 nUE
 ciN
 gui
@@ -57029,7 +57132,7 @@ tLy
 bJm
 iTq
 uaN
-hTT
+dNh
 bJm
 tLy
 tLy
@@ -57208,7 +57311,7 @@ efU
 bJm
 iTq
 uaN
-hTT
+bYW
 bJm
 hak
 hak
@@ -57387,7 +57490,7 @@ kHF
 bJm
 iTq
 uaN
-vkw
+bYe
 bJm
 aiN
 aiN
@@ -57566,7 +57669,7 @@ nWh
 bJm
 iTq
 uaN
-lsl
+bYW
 bJm
 nWh
 nWh
@@ -57745,7 +57848,7 @@ lcd
 lEG
 lsl
 xxJ
-hTT
+qll
 jcP
 eJX
 eJX
@@ -58126,7 +58229,7 @@ wJG
 wJG
 wJG
 wJG
-gbN
+wfx
 phw
 ddx
 ddx
@@ -58449,7 +58552,7 @@ rSI
 sWV
 ocU
 nkZ
-bJm
+cMC
 nhp
 nhp
 nhp
@@ -60775,14 +60878,14 @@ sTP
 xKn
 eDg
 wWe
-doH
+ogD
 xKn
 ffm
 aqb
 ffm
 ubG
 ffm
-xKn
+aGO
 dZV
 dZV
 dZV
@@ -60954,7 +61057,7 @@ sTP
 xKn
 eDg
 wWe
-doH
+ogD
 gdz
 mkX
 lZS
@@ -61669,8 +61772,8 @@ sTP
 sTP
 xKn
 vVR
-aCy
-lZS
+sfX
+gUW
 doH
 dZV
 lZS
@@ -61849,7 +61952,7 @@ sTP
 xKn
 eDg
 wWe
-doH
+ogD
 xKn
 ndT
 aCy
@@ -62028,7 +62131,7 @@ sTP
 xKn
 eDg
 wWe
-doH
+ogD
 gdz
 oSo
 rJj

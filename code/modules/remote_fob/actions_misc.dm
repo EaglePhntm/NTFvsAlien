@@ -57,7 +57,17 @@
 			continue
 		fobdrone.balloon_alert(owner, "No space here for a barricade")
 		return
-	if(!do_after(fobdrone, 1.5 SECONDS, IGNORE_HELD_ITEM, buildplace, BUSY_ICON_BUILD))
+	if(!do_after(fobdrone, 1.5 SECONDS, FALSE, buildplace, BUSY_ICON_BUILD))
+		return
+	for(var/obj/thing in buildplace)
+		if(!thing.density) //not dense, move on
+			continue
+		if(!(thing.atom_flags & ON_BORDER)) //dense and non-directional, end
+			fobdrone.balloon_alert(owner, "No space here for a barricade")
+			return
+		if(thing.dir != fobdrone.dir)
+			continue
+		fobdrone.balloon_alert(owner, "No space here for a barricade")
 		return
 	console.metal_remaining -= 4
 	cade = new /obj/structure/barricade/solid(buildplace, owner)
@@ -98,7 +108,17 @@
 			continue
 		fobdrone.balloon_alert(owner, "No space here for a barricade")
 		return
-	if(!do_after(fobdrone, 1.5 SECONDS, IGNORE_HELD_ITEM, buildplace, BUSY_ICON_BUILD))
+	if(!do_after(fobdrone, 1.5 SECONDS, FALSE, buildplace, BUSY_ICON_BUILD))
+		return
+	for(var/obj/thing in buildplace)
+		if(!thing.density) //not dense, move on
+			continue
+		if(!(thing.atom_flags & ON_BORDER)) //dense and non-directional, end
+			fobdrone.balloon_alert(owner, "No space here for a barricade")
+			return
+		if(thing.dir != fobdrone.dir)
+			continue
+		fobdrone.balloon_alert(owner, "No space here for a barricade")
 		return
 	console.plasteel_remaining -= 5
 	cade = new /obj/structure/barricade/folding(buildplace, owner)

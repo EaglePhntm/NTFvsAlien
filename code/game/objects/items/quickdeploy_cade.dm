@@ -1,6 +1,6 @@
 //An item thats meant to be a template for quickly deploying stuff like barricades
 /obj/item/quikdeploy
-	name = "QuikDeploy System"
+	name = "Steel QuikDeploy System"
 	desc = "This is a QuikDeploy system, allows for extremely fast placement of various objects."
 	icon = 'icons/obj/items/quikdeploy_cade.dmi'
 	w_class = WEIGHT_CLASS_SMALL //While this is small, normal 50 stacks of metal is NORMAL so this is a bit on the bad space to cade ratio
@@ -13,11 +13,12 @@
 
 /obj/item/quikdeploy/attack_self(mob/user)
 	balloon_alert_to_viewers("deploying barricade...")
-	if(!do_after(user, delay, NONE, src, BUSY_ICON_BUILD))
+	if(!do_after(user, delay, TRUE, src, BUSY_ICON_BUILD))
 		balloon_alert(user, "stopped deploying")
 		return
 	if(can_place(user)) //can_place() handles sending the error and success messages to the user
 		var/obj/O = new thing_to_deploy(get_turf(user))
+		O.faction = user.faction
 		O.setDir(user.dir)
 		playsound(loc, 'sound/items/ratchet.ogg', 25, TRUE)
 		qdel(src)
@@ -29,6 +30,7 @@
 	return TRUE
 
 /obj/item/quikdeploy/cade
+	name = "Steel QuikDeploy System"
 	thing_to_deploy = /obj/structure/barricade/solid
 	icon_state = "metal"
 	delay = 3 SECONDS
@@ -63,5 +65,6 @@
 	return TRUE
 
 /obj/item/quikdeploy/cade/plasteel
+	name = "Plasteel QuikDeploy System"
 	thing_to_deploy = /obj/structure/barricade/folding
 	icon_state = "plasteel"

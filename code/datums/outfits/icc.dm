@@ -26,7 +26,7 @@
 	gloves = /obj/item/clothing/gloves/marine/icc/insulated
 	r_pocket = /obj/item/storage/pouch/pistol/icc
 	l_pocket = /obj/item/storage/pouch/medical_injectors/icc/firstaid
-	back = /obj/item/storage/backpack/lightpack/icc
+	back = /obj/item/storage/backpack/icc
 
 	backpack_contents = list(
 		/obj/item/explosive/grenade/som = 5,
@@ -91,7 +91,7 @@
 	wear_suit = /obj/item/clothing/suit/storage/marine/icc/guard
 	gloves = /obj/item/clothing/gloves/marine/icc/guard
 	head = /obj/item/clothing/head/helmet/marine/icc/guard
-	back = /obj/item/storage/backpack/lightpack/icc
+	back = /obj/item/storage/backpack/icc
 
 	backpack_contents = list(
 		/obj/item/tool/crowbar/red = 1,
@@ -179,7 +179,7 @@
 
 	id = /obj/item/card/id/silver
 	gloves = /obj/item/clothing/gloves/marine/icc
-	back = /obj/item/storage/backpack/lightpack/icc
+	back = /obj/item/storage/backpack/icc
 	belt = /obj/item/storage/belt/lifesaver/icc/ert
 	glasses = /obj/item/clothing/glasses/hud/health
 

@@ -7198,7 +7198,7 @@
 /area/campaign/som_raiding/ground/jungle)
 "JF" = (
 /obj/structure/table/black,
-/obj/item/phone,
+/obj/structure/transmitter/colony_net/desk/auto_id,
 /turf/open/floor/tile/dark/blue2{
 	dir = 1
 	},

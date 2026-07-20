@@ -16,7 +16,7 @@
 	ammo_behavior_flags = AMMO_TARGET_TURF|AMMO_BETTER_COVER_RNG
 	armor_type = BOMB
 	damage_falloff = 0.5
-	shell_speed = 2
+	shell_speed = 2.5
 	accurate_range = 12
 	max_range = 15
 	damage = 12			//impact damage from a grenade to the dome
@@ -111,7 +111,7 @@
 	projectile_greyscale_colors = COLOR_AMMO_HIGH_EXPLOSIVE
 
 /datum/ammo/tx54/he/drop_nade(turf/target_turf, atom/movable/projectile/proj)
-	explosion(target_turf, 0, 0, 1, 3, 1, explosion_cause=src)
+	explosion(target_turf, 0, 0, 1, 3, 1, explosion_cause=proj)
 
 /datum/ammo/tx54/he/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	drop_nade(get_turf(target_mob), proj)
@@ -132,7 +132,7 @@
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB
 	accuracy_variation = 5
 	max_range = 4
-	shell_speed = 3
+	shell_speed = 3.5
 	damage = 20
 	penetration = 20
 	sundering = 1.5

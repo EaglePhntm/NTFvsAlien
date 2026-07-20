@@ -200,7 +200,7 @@ to destroy them and players will be able to make replacements.
 	//Board
 /obj/item/circuitboard/machine/smes
 	name = "Circuit board (SMES Cell)"
-	build_path = /obj/machinery/power/smes/buildable
+	build_path = /obj/machinery/power/smes/buildable/empty
 	frame_desc = "Requires 1 superconducting magnetic coil and 30 wires."
 	req_components = list(/obj/item/stock_parts/smes_coil = 1, /obj/item/stack/cable_coil = 30)
 

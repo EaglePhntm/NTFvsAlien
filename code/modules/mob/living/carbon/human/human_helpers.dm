@@ -4,8 +4,40 @@
 		g = "f"
 	return g
 
-/proc/get_limb_icon_name(datum/species/S, gender, limb_name, ethnicity)
-	if(S.limb_type == SPECIES_LIMB_HUMAN) // todo this section is fucking stupid and can be way more generic easily
+/mob/living/carbon/human/proc/get_visual_species()
+	if(species?.species_flags & IS_SYNTHETIC)
+		var/datum/species/appearance_species = GLOB.all_species[synthetic_appearance_species]
+		if(appearance_species && !(appearance_species.species_flags & IS_SYNTHETIC))
+			return appearance_species
+	return species
+
+/proc/can_use_human_body_style(datum/species/S)
+	return S?.type in list(/datum/species/human, /datum/species/human/vatborn, /datum/species/human/prototype_supersoldier)
+
+/proc/uses_classic_human_body(datum/species/S, human_body_style)
+	return human_body_style == HUMAN_BODY_STYLE_TGMC && can_use_human_body_style(S)
+
+/mob/living/carbon/human/proc/get_effective_human_body_style()
+	if(istype(species, /datum/species/human/prototype_supersoldier) && custom_supersoldier_parts)
+		return HUMAN_BODY_STYLE_SPLURT
+	return uses_classic_human_body(species, human_body_style) ? HUMAN_BODY_STYLE_TGMC : HUMAN_BODY_STYLE_SPLURT
+
+/proc/get_limb_icon_name(datum/species/S, gender, limb_name, ethnicity, digitigrade_legs = "Normal", synthetic_body_base = "Human", robot_body_base = "Combat Robot", robot_head_base = "Combat Robot", custom_supersoldier_parts = FALSE, supersoldier_body_base = "Human", supersoldier_head_base = "Human", human_body_style = HUMAN_BODY_STYLE_SPLURT)
+	if(istype(S, /datum/species/robot))
+		var/robot_base = get_effective_robot_body_base(limb_name == "head" ? robot_head_base : robot_body_base)
+		if(is_old_robot_body_base(robot_base))
+			return get_generic_limb_icon_name(gender, limb_name, null)
+		return get_robot_limb_icon_name(robot_base, gender, limb_name, digitigrade_legs)
+	if(istype(S, /datum/species/human/prototype_supersoldier) && custom_supersoldier_parts)
+		var/supersoldier_base = limb_name == "head" ? supersoldier_head_base : supersoldier_body_base
+		if(supersoldier_base == "Human")
+			return get_modern_human_limb_icon_name(gender, limb_name, digitigrade_legs)
+		return get_splurt_limb_icon_name(get_supersoldier_limb_prefix(supersoldier_base), gender, limb_name, digitigrade_legs)
+	if(human_body_style == HUMAN_BODY_STYLE_SPLURT && can_use_human_body_style(S))
+		return get_modern_human_limb_icon_name(gender, limb_name, digitigrade_legs)
+	if(human_body_style == HUMAN_BODY_STYLE_TGMC && istype(S, /datum/species/human/vatborn))
+		return get_clone_limb_icon_name(gender, limb_name)
+	if(S.limb_type == SPECIES_LIMB_HUMAN || uses_classic_human_body(S, human_body_style)) // todo this section is fucking stupid and can be way more generic easily
 		switch(limb_name)
 			if ("torso", "chest")
 				return "[ethnicity]_torso_[get_gender_name(gender)]"
@@ -43,102 +75,290 @@
 			else
 				return null
 	else if(S.limb_type == SPECIES_LIMB_CLONE)
-		switch(limb_name)
-			if ("torso", "chest")
-				return "torso_[get_gender_name(gender)]"
-
-			if ("head")
-				return "head_[get_gender_name(gender)]"
-
-			if ("groin")
-				return "groin_[get_gender_name(gender)]"
-
-			if ("r_arm", "right arm")
-				return "right_arm_[get_gender_name(gender)]"
-
-			if ("l_arm", "left arm")
-				return "left_arm_[get_gender_name(gender)]"
-
-			if ("r_leg", "right leg")
-				return "right_leg_[get_gender_name(gender)]"
-
-			if ("l_leg", "left leg")
-				return "left_leg_[get_gender_name(gender)]"
-
-			if ("r_hand", "right hand")
-				return "right_hand_[get_gender_name(gender)]"
-
-			if ("l_hand", "left hand")
-				return "left_hand_[get_gender_name(gender)]"
-
-			if ("r_foot", "right foot")
-				return "right_foot_[get_gender_name(gender)]"
-
-			if ("l_foot", "left foot")
-				return "left_foot_[get_gender_name(gender)]"
+		return get_clone_limb_icon_name(gender, limb_name)
+	else if(S.limb_type == SPECIES_LIMB_SPLURT)
+		return get_splurt_limb_icon_name(S.splurt_limb_prefix, gender, limb_name, digitigrade_legs)
 	else
-		switch(limb_name)
-			if ("torso")
-				return "[limb_name]_[get_gender_name(gender)]"
+		var/digitigrade_prefix = S.digitigrade_limb_prefixes[digitigrade_legs]
+		return get_generic_limb_icon_name(gender, limb_name, digitigrade_prefix)
 
-			if ("chest")
-				return "[limb_name]_[get_gender_name(gender)]"
+/proc/get_supersoldier_limb_prefix(body_base)
+	switch(body_base)
+		if("Lizard")
+			return "lizard"
+		if("Anthro")
+			return "mammal"
+		if("Akula")
+			return "akula"
+		if("Aquatic")
+			return "aquatic"
+		if("Insectoid")
+			return "insect"
+		if("Skrell")
+			return "skrell"
+		if("Resurgentis")
+			return "resurgentis"
+		if("Xenomorph Hybrid")
+			return "xeno"
+		if("Teshari")
+			return "teshari"
+	return "human"
 
-			if ("head")
-				return "head_[get_gender_name(gender)]"
+/proc/get_modern_human_limb_icon_name(gender, limb_name, digitigrade_legs)
+	switch(limb_name)
+		if("torso", "chest", "groin")
+			return "mhuman_chest_[get_gender_name(gender)]"
+		if("head")
+			return "mhuman_head_[get_gender_name(gender)]"
+		if("r_arm", "right arm")
+			return "mhuman_r_arm"
+		if("l_arm", "left arm")
+			return "mhuman_l_arm"
+		if("r_hand", "right hand")
+			return "mhuman_r_hand"
+		if("l_hand", "left hand")
+			return "mhuman_l_hand"
+		if("r_leg", "right leg", "r_foot", "right foot")
+			if(digitigrade_legs == "Digitigrade" || digitigrade_legs == "Digitigrade 2")
+				return "digitigrade_r_leg"
+			return "mhuman_r_leg"
+		if("l_leg", "left leg", "l_foot", "left foot")
+			if(digitigrade_legs == "Digitigrade" || digitigrade_legs == "Digitigrade 2")
+				return "digitigrade_l_leg"
+			return "mhuman_l_leg"
+	return get_splurt_limb_icon_name("human", gender, limb_name, digitigrade_legs)
 
-			if ("groin")
-				return "[limb_name]_[get_gender_name(gender)]"
+/proc/uses_modern_human_limb_icon(limb_name)
+	return limb_name in list("torso", "chest", "groin", "head", "r_arm", "right arm", "l_arm", "left arm", "r_hand", "right hand", "l_hand", "left hand", "r_leg", "right leg", "r_foot", "right foot", "l_leg", "left leg", "l_foot", "left foot")
 
-			if ("r_arm")
-				return "[limb_name]"
+/proc/get_clone_limb_icon_name(gender, limb_name)
+	switch(limb_name)
+		if("torso", "chest")
+			return "torso_[get_gender_name(gender)]"
+		if("head")
+			return "head_[get_gender_name(gender)]"
+		if("groin")
+			return "groin_[get_gender_name(gender)]"
+		if("r_arm", "right arm")
+			return "right_arm_[get_gender_name(gender)]"
+		if("l_arm", "left arm")
+			return "left_arm_[get_gender_name(gender)]"
+		if("r_leg", "right leg")
+			return "right_leg_[get_gender_name(gender)]"
+		if("l_leg", "left leg")
+			return "left_leg_[get_gender_name(gender)]"
+		if("r_hand", "right hand")
+			return "right_hand_[get_gender_name(gender)]"
+		if("l_hand", "left hand")
+			return "left_hand_[get_gender_name(gender)]"
+		if("r_foot", "right foot")
+			return "right_foot_[get_gender_name(gender)]"
+		if("l_foot", "left foot")
+			return "left_foot_[get_gender_name(gender)]"
+	return null
 
-			if ("right arm")
-				return "r_arm"
+/proc/get_supersoldier_body_icon(body_base)
+	if(body_base == "Human")
+		return BODYPART_ICON_MODERN_HUMAN
+	switch(body_base)
+		if("Lizard")
+			return BODYPART_ICON_LIZARD
+		if("Anthro")
+			return BODYPART_ICON_MAMMAL
+		if("Akula")
+			return BODYPART_ICON_AKULA
+		if("Aquatic")
+			return BODYPART_ICON_AQUATIC
+		if("Insectoid")
+			return BODYPART_ICON_INSECT
+		if("Skrell")
+			return BODYPART_ICON_SKRELL
+		if("Xenomorph Hybrid")
+			return BODYPART_ICON_XENO
+		if("Teshari")
+			return BODYPART_ICON_TESHARI
+	return BODYPART_ICON_HUMAN
 
-			if ("l_arm")
-				return "[limb_name]"
+/proc/get_robot_part_prefix(robot_base)
+	switch(robot_base)
+		if("Android")
+			return "ipc"
+		if("Dark Android")
+			return "synth"
+		if("Human")
+			return "human"
+		if("Lizard")
+			return "synthliz"
+		if("Anthro")
+			return "synthmammal"
+		if("Morpheus Cyberkinetics")
+			return "mcgipc"
+		if("Bishop Cyberkinetics")
+			return "bshipc"
+		if("Bishop Cyberkinetics 2.0")
+			return "bs2ipc"
+		if("Hephaestus Industries")
+			return "hsiipc"
+		if("Hephaestus Industries 2.0")
+			return "hi2ipc"
+		if("Shellguard Munitions")
+			return "sgmipc"
+		if("Ward-Takahashi Manufacturing")
+			return "wtmipc"
+		if("Xion Manufacturing Group")
+			return "xmgipc"
+		if("Xion Manufacturing Group 2.0")
+			return "xm2ipc"
+		if("Zeng-Hu Pharmaceuticals")
+			return "zhpipc"
+		if("E3N AI")
+			return "e3n"
+	return "ipc"
 
-			if ("left arm")
-				return "l_arm"
+/proc/robot_part_uses_dimorphic_states(robot_base)
+	return robot_base in list("Human", "Lizard", "Anthro")
 
-			if ("r_leg")
-				return "[limb_name]"
+/proc/robot_part_uses_split_hand_states(robot_base)
+	return robot_base in list("Human", "Android", "Dark Android")
 
-			if ("right leg")
-				return "r_leg"
+/proc/robot_head_uses_human_eyes(robot_base)
+	return robot_base in list("Human", "Lizard", "Anthro", "Android", "Dark Android", "Xion Manufacturing Group 2.0", "Morpheus Cyberkinetics")
 
-			if ("l_leg")
-				return "[limb_name]"
+/proc/get_robot_part_body_icon(robot_base)
+	switch(robot_base)
+		if("Human")
+			return BODYPART_ICON_HUMAN
+		if("Lizard")
+			return BODYPART_ICON_SYNTHLIZARD
+		if("Anthro")
+			return BODYPART_ICON_SYNTHMAMMAL
+	return BODYPART_ICON_IPC
 
-			if ("left leg")
-				return "l_leg"
+/proc/is_old_robot_body_base(robot_base)
+	return robot_base in list("Combat Robot", "Hammerhead", "Chilvaris", "Ratcher", "Sterling", "Synskin")
 
-			if ("r_hand")
-				return "[limb_name]"
+/proc/get_old_robot_body_icon(robot_base)
+	switch(robot_base)
+		if("Hammerhead")
+			return 'icons/mob/human_races/r_robot_alpharii.dmi'
+		if("Chilvaris")
+			return 'icons/mob/human_races/r_robot_charlit.dmi'
+		if("Ratcher")
+			return 'icons/mob/human_races/r_robot_deltad.dmi'
+		if("Sterling")
+			return 'icons/mob/human_races/r_robot_bravada.dmi'
+		if("Synskin")
+			return 'ntf_modular/icons/mob/human_races/r_synthetic.dmi'
+	return 'icons/mob/human_races/r_robot.dmi'
 
-			if ("right hand")
-				return "r_hand"
+/proc/get_splurt_robot_body_icon(robot_base)
+	if(is_old_robot_body_base(robot_base))
+		return get_old_robot_body_icon(robot_base)
+	return get_robot_part_body_icon(robot_base)
 
-			if ("l_hand")
-				return "[limb_name]"
+/proc/get_effective_robot_body_base(robot_base)
+	return robot_base || "Combat Robot"
 
-			if ("left hand")
-				return "l_hand"
+/proc/get_robot_limb_icon_name(robot_base, gender, limb_name, digitigrade_legs)
+	var/robot_prefix = get_robot_part_prefix(robot_base)
+	if(robot_base == "Lizard" || robot_base == "Anthro")
+		return get_splurt_limb_icon_name(robot_prefix, gender, limb_name, digitigrade_legs)
+	var/dimorphic = robot_part_uses_dimorphic_states(robot_base)
+	switch(limb_name)
+		if("torso", "chest", "groin")
+			if(dimorphic)
+				return "[robot_prefix]_chest_[get_gender_name(gender)]"
+			return "[robot_prefix]_chest"
+		if("head")
+			if(dimorphic)
+				return "[robot_prefix]_head_[get_gender_name(gender)]"
+			return "[robot_prefix]_head"
+		if("r_arm", "right arm")
+			return "[robot_prefix]_r_arm"
+		if("l_arm", "left arm")
+			return "[robot_prefix]_l_arm"
+		if("r_hand", "right hand")
+			if(robot_part_uses_split_hand_states(robot_base))
+				return "[robot_prefix]_r_hand"
+			return "[robot_prefix]_r_arm"
+		if("l_hand", "left hand")
+			if(robot_part_uses_split_hand_states(robot_base))
+				return "[robot_prefix]_l_hand"
+			return "[robot_prefix]_l_arm"
+		if("r_leg", "right leg", "r_foot", "right foot")
+			return "[robot_prefix]_r_leg"
+		if("l_leg", "left leg", "l_foot", "left foot")
+			return "[robot_prefix]_l_leg"
+	return null
 
-			if ("r_foot")
-				return "[limb_name]"
+/proc/get_splurt_limb_icon_name(prefix, gender, limb_name, digitigrade_legs)
+	switch(limb_name)
+		if("torso", "chest", "groin")
+			return "[prefix]_chest_[get_gender_name(gender)]"
+		if("head")
+			return "[prefix]_head_[get_gender_name(gender)]"
+		if("r_arm", "right arm")
+			return "[prefix]_r_arm"
+		if("l_arm", "left arm")
+			return "[prefix]_l_arm"
+		if("r_hand", "right hand")
+			return "[prefix]_r_hand"
+		if("l_hand", "left hand")
+			return "[prefix]_l_hand"
+		if("r_leg", "right leg", "r_foot", "right foot")
+			if(digitigrade_legs == "Tallboy")
+				return "tallboy_r_leg"
+			if(digitigrade_legs == "Digitigrade")
+				return "digitigrade_1_r_leg"
+			if(digitigrade_legs == "Digitigrade 2")
+				return "digitigrade_2_r_leg"
+			return "[prefix]_r_leg"
+		if("l_leg", "left leg", "l_foot", "left foot")
+			if(digitigrade_legs == "Tallboy")
+				return "tallboy_l_leg"
+			if(digitigrade_legs == "Digitigrade")
+				return "digitigrade_1_l_leg"
+			if(digitigrade_legs == "Digitigrade 2")
+				return "digitigrade_2_l_leg"
+			return "[prefix]_l_leg"
+	return null
 
-			if ("right foot")
-				return "r_foot"
-
-			if ("l_foot")
-				return "[limb_name]"
-
-			if ("left foot")
-				return "l_foot"
-			else
-				return null
+/proc/get_generic_limb_icon_name(gender, limb_name, digitigrade_prefix)
+	switch(limb_name)
+		if ("torso")
+			return "[limb_name]_[get_gender_name(gender)]"
+		if ("chest")
+			return "torso_[get_gender_name(gender)]"
+		if ("head")
+			return "head_[get_gender_name(gender)]"
+		if ("groin")
+			return "[limb_name]_[get_gender_name(gender)]"
+		if ("r_arm", "right arm")
+			return "r_arm"
+		if ("l_arm", "left arm")
+			return "l_arm"
+		if ("r_leg", "right leg")
+			if(digitigrade_prefix)
+				return "[digitigrade_prefix]_r_leg"
+			return "r_leg"
+		if ("l_leg", "left leg")
+			if(digitigrade_prefix)
+				return "[digitigrade_prefix]_l_leg"
+			return "l_leg"
+		if ("r_hand", "right hand")
+			return "r_hand"
+		if ("l_hand", "left hand")
+			return "l_hand"
+		if ("r_foot", "right foot")
+			if(digitigrade_prefix)
+				return "[digitigrade_prefix]_r_leg"
+			return "r_foot"
+		if ("l_foot", "left foot")
+			if(digitigrade_prefix)
+				return "[digitigrade_prefix]_l_leg"
+			return "l_foot"
+		else
+			return null
 
 /mob/living/carbon/human/proc/set_limb_icons()
 	var/datum/ethnicity/E = GLOB.ethnicities_list[ethnicity]
@@ -150,8 +370,60 @@
 	else
 		e_icon = E.icon_name
 
+	var/effective_human_body_style = get_effective_human_body_style()
 	for(var/datum/limb/L in limbs)
-		L.icon_name = get_limb_icon_name(species, physique, L.display_name, e_icon)
+		L.icon_name = get_limb_icon_name(get_visual_species(), physique, L.display_name, e_icon, digitigrade_legs, synthetic_body_base, robot_body_base, robot_head_base, custom_supersoldier_parts, supersoldier_body_base, supersoldier_head_base, effective_human_body_style)
+
+/mob/living/carbon/human/proc/get_body_icon()
+	var/datum/species/visual_species = get_visual_species()
+	if(get_effective_human_body_style() == HUMAN_BODY_STYLE_TGMC)
+		if(istype(species, /datum/species/human/vatborn))
+			return 'icons/mob/human_races/r_vatborn.dmi'
+		return 'icons/mob/human_races/r_human.dmi'
+	if(istype(visual_species, /datum/species/robot))
+		return get_splurt_robot_body_icon(get_effective_robot_body_base(robot_body_base))
+	if(istype(visual_species, /datum/species/human/prototype_supersoldier) && custom_supersoldier_parts)
+		return get_supersoldier_body_icon(supersoldier_body_base)
+	if(can_use_human_body_style(visual_species))
+		return BODYPART_ICON_MODERN_HUMAN
+	return visual_species.icobase
+
+/mob/living/carbon/human/proc/get_body_icon_for_limb(limb_name)
+	var/datum/species/visual_species = get_visual_species()
+	if(istype(visual_species, /datum/species/robot))
+		var/robot_base = get_effective_robot_body_base(limb_name == "head" ? robot_head_base : robot_body_base)
+		return get_splurt_robot_body_icon(robot_base)
+	if(istype(visual_species, /datum/species/human/prototype_supersoldier) && custom_supersoldier_parts)
+		var/supersoldier_base = limb_name == "head" ? supersoldier_head_base : supersoldier_body_base
+		return get_supersoldier_body_icon(supersoldier_base)
+	if(get_effective_human_body_style() == HUMAN_BODY_STYLE_SPLURT && can_use_human_body_style(visual_species))
+		return uses_modern_human_limb_icon(limb_name) ? BODYPART_ICON_MODERN_HUMAN : BODYPART_ICON_HUMAN
+	return get_body_icon()
+
+/mob/living/carbon/human/proc/get_eye_icon_state()
+	var/datum/species/visual_species = get_visual_species()
+	if(istype(visual_species, /datum/species/robot))
+		var/robot_base = get_effective_robot_body_base(robot_head_base)
+		if(robot_head_uses_human_eyes(robot_base))
+			return "eyes_s"
+		return "blank_eyes"
+	return visual_species.eyes
+
+/mob/living/carbon/human/proc/get_render_body_color()
+	if(get_effective_human_body_style() == HUMAN_BODY_STYLE_TGMC)
+		return "#FFFFFF"
+	if(species?.name == "Moth" && (!body_color || body_color == "#FFFFFF"))
+		return sanitize_character_recolor(species.flesh_color)
+	return sanitize_character_recolor(body_color)
+
+/mob/living/carbon/human/proc/get_render_hair_color()
+	return sanitize_hair_recolor(rgb(r_hair, g_hair, b_hair))
+
+/mob/living/carbon/human/proc/get_render_gradient_color()
+	return sanitize_hair_recolor(rgb(r_grad, g_grad, b_grad))
+
+/mob/living/carbon/human/proc/get_render_facial_hair_color()
+	return sanitize_hair_recolor(rgb(r_facial, g_facial, b_facial))
 
 /mob/living/carbon/human/get_reagent_tags()
 	. = ..()
@@ -299,6 +571,7 @@
 	updatehealth() //One more time, so it doesn't show the target as dead on HUDs
 	dead_ticks = 0 //We reset the DNR timer
 	REMOVE_TRAIT(src, TRAIT_PSY_DRAINED, TRAIT_PSY_DRAINED)
+	clear_fullscreen("death")
 
 /**
  * Proc for checking parameters of a human for defibrillation.
@@ -390,3 +663,81 @@
 		inactive_hand.attack_hand(src)
 		return
 	inactive_hand.attackby(active_hand, src)
+
+/mob/living/MouseDrop_T(atom/dropping, mob/user)
+	. = ..()
+	if(!user.client || !user.client.prefs)
+		return
+	if(dropping != usr)
+		return
+	if(!isliving(dropping))
+		return
+	if(!isliving(user))
+		return
+	if(!user.sexcon || !sexcon)
+		return
+	if(user.incapacitated(TRUE))
+		return
+	if(dropping != src)
+		if(!(user.client?.prefs.quick_sex_flags & QUICK_SEX))
+			balloon_alert(user,"Your QK sex pref is OFF!")
+			return
+		//they are just warnings to show your action isnt working on this fucking snowflake
+		if(user.a_intent == INTENT_DISARM && !((client?.prefs.quick_sex_flags & QUICK_SEX_HEAL)))
+			balloon_alert_to_viewers("QK Heal sex is off!")
+			return
+		if(user.a_intent == INTENT_DISARM && !((client?.prefs.harmful_sex_flags & HARMFUL_SEX_STAMINA_DRAIN) && (client?.prefs.harmful_sex_flags & HARMFUL_SEX_CHOKING)))
+			balloon_alert_to_viewers("Some Stam sex prefs are OFF!")
+			return
+		if(user.a_intent == INTENT_HARM && !(client?.prefs.harmful_sex_flags & HARMFUL_SEX_BLOOD_DRAIN) && ((client?.prefs.harmful_sex_flags & HARMFUL_SEX_ALL) && (client?.prefs.harmful_sex_flags & HARMFUL_SEX_ROUGH_SEX)))
+			balloon_alert_to_viewers("Some Harm sex prefs are OFF!")
+			return
+		user.sexcon.set_target(src)
+		if(user.a_intent != INTENT_HELP && !user.sexcon.current_action)
+			user.face_atom(src)
+			face_atom(user)
+			var/action = /datum/sex_action/rimming // neuter things ig
+			if(gender == MALE)
+				if(user.gender == MALE || (isxeno(user) && user.client?.prefs?.xenogender > 2))
+					action = pick(/datum/sex_action/anal_sex, /datum/sex_action/throat_sex, /datum/sex_action/frotting) //funny frot
+					if(user.a_intent == INTENT_DISARM) //prioritise stamdrain acts
+						action = /datum/sex_action/throat_sex
+				else if(user.gender == FEMALE)
+					action = pick(/datum/sex_action/vaginal_ride_sex, /datum/sex_action/anal_ride_sex, /datum/sex_action/blowjob)
+					if(user.a_intent == INTENT_DISARM)
+						action = /datum/sex_action/facesitting
+			else if(gender == FEMALE)
+				if(user.gender == MALE || (isxeno(user) && user.client?.prefs?.xenogender <= 2))
+					action = pick(/datum/sex_action/vaginal_sex, /datum/sex_action/anal_sex, /datum/sex_action/throat_sex)
+					if(user.a_intent == INTENT_DISARM)
+						action = /datum/sex_action/throat_sex
+				else if(user.gender == FEMALE)
+					action = pick(/datum/sex_action/scissoring, /datum/sex_action/cunnilingus)
+					if(user.a_intent == INTENT_DISARM)
+						action = /datum/sex_action/facesitting
+			user.sexcon.speed = SEX_SPEED_HIGH
+			if(user.a_intent == INTENT_GRAB) //in place of help cuz that opens regular sexcon
+				balloon_alert_to_viewers("QK heal sex")
+				if(!buckled)
+					user.start_pulling(src)
+				user.sexcon.drain_style = SEX_DRAIN_STYLE_HEAL_TARGET
+				user.sexcon.force = SEX_FORCE_LOW
+			if(user.a_intent == INTENT_HARM)
+				balloon_alert_to_viewers("QK health-drain sex")
+				user.sexcon.drain_style = SEX_DRAIN_STYLE_DRAIN_BLOOD_FAST
+				user.sexcon.force = SEX_FORCE_EXTREME
+			if(user.a_intent == INTENT_DISARM)
+				balloon_alert_to_viewers("QK stam-drain sex")
+				if(!buckled)
+					user.start_pulling(src)
+				user.sexcon.drain_style = SEX_DRAIN_STYLE_DRAIN_STAMINA
+				user.sexcon.force = SEX_FORCE_EXTREME
+			if(lying_angle)
+				AdjustParalyzed(3 SECONDS)
+				user.Move(loc)
+				user.sexcon.speed = SEX_SPEED_EXTREME
+			else
+				AdjustImmobilized(1 SECONDS)
+			user.sexcon.try_start_action(action)
+			return
+	erptime(user, src)

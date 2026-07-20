@@ -17,6 +17,7 @@
 	circuit = /obj/item/circuitboard/computer/cryopodcontrol
 	resistance_flags = RESIST_ALL
 	var/state = STATE_GUN
+	dir = 2
 
 /obj/machinery/computer/cryopod/interact(mob/user)
 	. = ..()
@@ -50,6 +51,9 @@
 				if(QDELETED(I))
 					GLOB.cryoed_item_list_gun -= I
 					continue
+				if(user && I.cryoed_faction)
+					if(user.faction != I.cryoed_faction)
+						continue
 				dat += "<p style='text-align:left'><a href='byond://?src=[text_ref(src)];item=[text_ref(I)]'>[I.name]</a></p>"
 		if(STATE_AMMO)
 			dat += "<center>Ammo</center><br/>"
@@ -57,6 +61,9 @@
 				if(QDELETED(I))
 					GLOB.cryoed_item_list_ammo -= I
 					continue
+				if(user && I.cryoed_faction)
+					if(user.faction != I.cryoed_faction)
+						continue
 				dat += "<p style='text-align:left'><a href='byond://?src=[text_ref(src)];item=[text_ref(I)]'>[I.name]</a></p>"
 		if(STATE_EXPLOSIVE)
 			dat += "<center>Explosives</center><br/>"
@@ -64,6 +71,9 @@
 				if(QDELETED(I))
 					GLOB.cryoed_item_list_explosive -= I
 					continue
+				if(user && I.cryoed_faction)
+					if(user.faction != I.cryoed_faction)
+						continue
 				dat += "<p style='text-align:left'><a href='byond://?src=[text_ref(src)];item=[text_ref(I)]'>[I.name]</a></p>"
 		if(STATE_MELEE)
 			dat += "<center>Melee</center><br/>"
@@ -71,6 +81,9 @@
 				if(QDELETED(I))
 					GLOB.cryoed_item_list_melee -= I
 					continue
+				if(user && I.cryoed_faction)
+					if(user.faction != I.cryoed_faction)
+						continue
 				dat += "<p style='text-align:left'><a href='byond://?src=[text_ref(src)];item=[text_ref(I)]'>[I.name]</a></p>"
 		if(STATE_CLOTHING)
 			dat += "<center>Clothing</center><br/>"
@@ -78,6 +91,9 @@
 				if(QDELETED(I))
 					GLOB.cryoed_item_list_clothing -= I
 					continue
+				if(user && I.cryoed_faction)
+					if(user.faction != I.cryoed_faction)
+						continue
 				dat += "<p style='text-align:left'><a href='byond://?src=[text_ref(src)];item=[text_ref(I)]'>[I.name]</a></p>"
 		if(STATE_FOOD)
 			dat += "<center>Food</center><br/>"
@@ -85,6 +101,9 @@
 				if(QDELETED(I))
 					GLOB.cryoed_item_list_food -= I
 					continue
+				if(user && I.cryoed_faction)
+					if(user.faction != I.cryoed_faction)
+						continue
 				dat += "<p style='text-align:left'><a href='byond://?src=[text_ref(src)];item=[text_ref(I)]'>[I.name]</a></p>"
 		if(STATE_DRUGS)
 			dat += "<center>Drugs</center><br/>"
@@ -92,6 +111,9 @@
 				if(QDELETED(I))
 					GLOB.cryoed_item_list_drugs -= I
 					continue
+				if(user && I.cryoed_faction)
+					if(user.faction != I.cryoed_faction )
+						continue
 				dat += "<p style='text-align:left'><a href='byond://?src=[text_ref(src)];item=[text_ref(I)]'>[I.name]</a></p>"
 		if(STATE_CONTAINERS)
 			dat += "<center>Containers</center><br/>"
@@ -99,6 +121,9 @@
 				if(QDELETED(I))
 					GLOB.cryoed_item_list_containers -= I
 					continue
+				if(user && I.cryoed_faction)
+					if(user.faction != I.cryoed_faction )
+						continue
 				dat += "<p style='text-align:left'><a href='byond://?src=[text_ref(src)];item=[text_ref(I)]'>[I.name]</a></p>"
 		if(STATE_OTHER)
 			dat += "<center>Other</center><br/>"
@@ -106,6 +131,9 @@
 				if(QDELETED(I))
 					GLOB.cryoed_item_list_other -= I
 					continue
+				if(user && I.cryoed_faction)
+					if(user.faction != I.cryoed_faction )
+						continue
 				dat += "<p style='text-align:left'><a href='byond://?src=[text_ref(src)];item=[text_ref(I)]'>[I.name]</a></p>"
 	dat += "<hr/>"
 
@@ -193,6 +221,9 @@
 			if(STATE_OTHER)
 				combined_list = GLOB.cryoed_item_list_other
 		for(var/obj/item/I in combined_list)
+			if(usr && I.cryoed_faction)
+				if(usr.faction != I.cryoed_faction )
+					continue
 			dispense_item(I, usr, FALSE)
 
 	updateUsrDialog()
@@ -278,7 +309,7 @@
 /obj/machinery/cryopod/Initialize(mapload)
 	. = ..()
 	radio = new(src)
-	radio.set_frequency(FREQ_COMMON)
+	radio.set_frequency(FREQ_CIV_GENERAL)
 	update_icon()
 	RegisterSignal(src, COMSIG_MOVABLE_SHUTTLE_CRUSH, PROC_REF(shuttle_crush))
 
@@ -319,12 +350,19 @@
 
 ///Despawn the mob, remove its job and store its item
 /mob/living/proc/despawn()
+	/*This is done when the body is dnrd, so this was doing it twice
 	//Handle job slot/tater cleanup.
 	if(job in SSjob.active_joinable_occupations)
+		log_game("Freeing 1 [job.title] slot due to [logdetails(src)] being cryoed.")
+		job.free_job_positions(1)
+	*/
+	if(job in SSjob.active_joinable_occupations && issynth(src)) //synths get early return on undefib
+		log_game("Freeing 1 [job.title] slot due to [logdetails(src)] being cryoed.")
 		job.free_job_positions(1)
 
 	for(var/obj/item/W in src)
-		W.store_in_cryo()
+		temporarilyRemoveItemFromInventory(W)
+		W.store_in_cryo(faction)
 
 	for(var/datum/data/record/R in GLOB.datacore.medical)
 		if((R.fields["name"] == real_name))
@@ -341,9 +379,11 @@
 
 	GLOB.real_names_joined -= real_name
 
+/* NTF EDIT
 	GLOB.key_to_time_of_role_death[key] = world.time
-
 	ghostize(FALSE) //We want to make sure they are not kicked to lobby.
+*/
+	ghostize(TRUE, FALSE, TRUE) //NTF EDIT - We want to make sure they *are* kicked to lobby.
 
 	qdel(src)
 
@@ -351,15 +391,17 @@
 	assigned_squad?.remove_from_squad(src)
 	return ..()
 
-/obj/item/proc/store_in_cryo()
+/obj/item/proc/store_in_cryo(to_faction)
 	if(is_type_in_typecache(src, GLOB.do_not_preserve) || HAS_TRAIT(src, TRAIT_NODROP) || (item_flags & (ITEM_ABSTRACT|DELONDROP)))
 		if(!QDELETED(src))
 			qdel(src)
 		return
+	if(to_faction)
+		cryoed_faction = to_faction
 	if(storage_datum)
 		for(var/obj/item/item_in_storage AS in src)
 			storage_datum.remove_from_storage(item_in_storage)
-			item_in_storage.store_in_cryo()
+			item_in_storage.store_in_cryo(to_faction)
 	moveToNullspace()
 	if(istype(src, /obj/item/weapon/gun))
 		GLOB.cryoed_item_list_gun += src
@@ -451,16 +493,16 @@
 		span_notice("You start climbing into [src]."))
 
 	var/mob/initiator = helper ? helper : user
-	if(!do_after(initiator, 20, NONE, user, BUSY_ICON_GENERIC))
+	log_combat(initiator, user, "begun to cryo", src)
+	if(!do_after(initiator, 20, TRUE, user, BUSY_ICON_GENERIC))
 		return FALSE
+	log_combat(initiator, user, "cryoed", src)
 
 	if(!QDELETED(occupant))
 		to_chat(initiator, span_warning("[src] is occupied."))
 		return FALSE
 
-	user.forceMove(src)
-	occupant = user
-	update_icon()
+	user.despawn()
 	return TRUE
 
 /obj/machinery/cryopod/proc/go_out()
@@ -477,11 +519,13 @@
 	occupant = null
 	update_icon()
 
-/obj/machinery/cryopod/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/machinery/cryopod/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(!occupant)
 		to_chat(xeno_attacker, span_xenowarning("There is nothing of interest in there."))
 		return
 	if(xeno_attacker.status_flags & INCORPOREAL || xeno_attacker.do_actions)
+		return
+	if(xeno_attacker.handcuffed)
 		return
 	visible_message(span_warning("[xeno_attacker] begins to pry the [src]'s cover!"), 3)
 	playsound(src,'sound/effects/metal_creaking.ogg', 25, 1)

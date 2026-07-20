@@ -10,7 +10,7 @@
 	name = "\improper S-52 fusion reactor"
 	icon = 'icons/obj/machines/fusion_engine.dmi'
 	icon_state = "off"
-	desc = "A Westingland S-52 Fusion Reactor.  Takes fuels cells and converts them to power for the ship.  Also produces a large amount of heat."
+	desc = "A Westingland S-52 Fusion Reactor.  Takes fuels cells and converts them to power for the ship.  Also produces a large amount of heat. (WARNING: CAUSES A CATASTROPHIC EXPLOSION WHEN DAMAGED)"
 	resistance_flags = UNACIDABLE
 	anchored = TRUE
 	density = TRUE
@@ -25,7 +25,21 @@
 	var/obj/item/fuel_cell/fusion_cell
 	/// Rate at which fuel is used.  Based mostly on how long the generator has been running.
 	var/fuel_rate = 0
+	var/going_kaboom = FALSE
 
+/obj/item/circuitboard/machine/fusionengine
+	name = "Circuit board (Fusion Engine)"
+	frame_desc = "Requires 1 Scanning Module, 1 Micro Manipulator, 1 Console Screen, 1 Matter Bin, 6 Capacitors, 1 Fuel Cell and 1 Micro-Laser."
+	req_components = list(
+		/obj/item/stock_parts/scanning_module = 1,
+		/obj/item/stock_parts/manipulator = 1,
+		/obj/item/stock_parts/micro_laser = 1,
+		/obj/item/stock_parts/console_screen = 1,
+		/obj/item/stock_parts/matter_bin = 1,
+		/obj/item/stock_parts/capacitor = 6,
+		/obj/item/fuel_cell = 1,
+	)
+	build_path = /obj/machinery/power/fusion_engine
 
 /obj/machinery/power/fusion_engine/Initialize(mapload)
 	. = ..()
@@ -41,7 +55,7 @@
 	is_on = TRUE
 	power_gen_percent = 99//will get to 100 on first tick, updating fuel_rate in the process
 	update_icon()
-	start_processing()
+	start_processing(SSMACHINES_MACHINES_EARLY)
 
 /obj/machinery/power/fusion_engine/random/Initialize(mapload)
 	. = ..()
@@ -78,17 +92,16 @@
 
 	if(power_gen_percent < 100)
 		power_gen_percent++
+		fuel_rate = FUSION_ENGINE_FULL_STRENGTH_FULL_RATE * 0.01 * power_gen_percent
 
 		switch(power_gen_percent) //Flavor text!
 			if(10)
 				balloon_alert_to_viewers("begins to whirr as it powers up")
-				fuel_rate = FUSION_ENGINE_FULL_STRENGTH_FULL_RATE * 0.1
 			if(50)
 				balloon_alert_to_viewers("hums as it reaches half capacity")
-				fuel_rate = FUSION_ENGINE_FULL_STRENGTH_FULL_RATE * 0.5
 			if(100)
 				balloon_alert_to_viewers("rumbles as it reaches full strength")
-				fuel_rate = FUSION_ENGINE_FULL_STRENGTH_FULL_RATE
+
 
 
 	add_avail(FUSION_ENGINE_MAX_POWER_GEN * (power_gen_percent / 100) ) //Nope, all good, just add the power
@@ -122,6 +135,12 @@
 	if(is_on)
 		balloon_alert_to_viewers("[usr] shuts off the generator.")
 		is_on = FALSE
+		if(going_kaboom)
+			buildstate = FUSION_ENGINE_HEAVY_DAMAGE
+			priority_announce("A [src] in [get_area_name(src)] was successfully stopped before meltdown!", "Warning!")
+			going_kaboom = FALSE //reset
+			color = initial(color)
+			do_sparks(5, TRUE, src)
 		power_gen_percent = 0
 		update_icon()
 		stop_processing()
@@ -137,11 +156,11 @@
 	if(fusion_cell.fuel_amount <= 10)
 		balloon_alert_to_viewers("Fuel levels critically low")
 	balloon_alert_to_viewers("turns the generator on")
-	fuel_rate = FUSION_ENGINE_FULL_STRENGTH_FULL_RATE * 0.1
+	fuel_rate = 0
 
 	is_on = TRUE
 	update_icon()
-	start_processing()
+	start_processing(SSMACHINES_MACHINES_EARLY)
 	return TRUE
 
 /obj/machinery/power/fusion_engine/attackby(obj/item/I, mob/user, params)
@@ -277,7 +296,7 @@
 
 /obj/machinery/power/fusion_engine/examine(mob/user)
 	. = ..()
-	if(!ishuman(user))
+	if(!ishuman(user) && !isobserver(user))
 		return
 	if(buildstate != FUSION_ENGINE_NO_DAMAGE)
 		. += span_info("It's broken.")
@@ -292,24 +311,13 @@
 
 	if(!is_on)
 		. += span_info("It seems like it's offline.")
+		. += span_info("At max power it would produce [DisplayPower(FUSION_ENGINE_MAX_POWER_GEN)]")
 	else
 		. += span_info("The power gauge reads: [power_gen_percent]%")
+		. += span_info("It is outputting [DisplayPower(FUSION_ENGINE_MAX_POWER_GEN * 0.01 * power_gen_percent)]")
 	if(fusion_cell)
 		. += span_info("You can see a fuel cell in the receptacle.")
-		if(user.skills.getRating(SKILL_ENGINEER) >= SKILL_ENGINEER_EXPERT)
-			switch(fusion_cell.fuel_amount)
-				if(0 to 10)
-					. += span_danger("The fuel cell is critically low.")
-				if(11 to 25)
-					. += span_warning("The fuel cell is running low.")
-				if(26 to 50)
-					. += span_info("The fuel cell is a little under halfway.")
-				if(51 to 75)
-					. += span_info("The fuel cell is a little above halfway.")
-				if(76 to 99)
-					. += span_info("The fuel cell is nearly full.")
-				if(100)
-					. += span_info("The fuel cell is full.")
+		. += span_info("Cell Energy: [DisplayEnergyFrac(fusion_cell.fuel_amount * FUSION_ENGINE_MAX_POWER_GEN * 2 / FUSION_ENGINE_FULL_STRENGTH_FULL_RATE, fusion_cell.max_fuel_amount * FUSION_ENGINE_MAX_POWER_GEN * 2 / FUSION_ENGINE_FULL_STRENGTH_FULL_RATE)]")
 	else
 		. += span_info("There is no fuel cell in the receptacle.")
 
@@ -340,12 +348,75 @@
 		if(FUSION_ENGINE_LIGHT_DAMAGE)
 			icon_state = "wrench"
 
-#undef FUSION_ENGINE_MAX_POWER_GEN
-#undef FUSION_ENGINE_FAIL_CHECK_TICKS
-#undef FUSION_ENGINE_NO_DAMAGE
-#undef FUSION_ENGINE_LIGHT_DAMAGE
-#undef FUSION_ENGINE_MEDIUM_DAMAGE
-#undef FUSION_ENGINE_HEAVY_DAMAGE
+//ntf addition, kaboom
+/obj/machinery/power/fusion_engine/take_damage(damage_amount, damage_type, armor_type, effects, attack_dir, armour_penetration, mob/living/blame_mob)
+	if(!going_kaboom && (obj_integrity < max_integrity * 0.25) && is_on)
+		going_kaboom = TRUE
+		visible_message(span_danger("\the [src] emits a high-pitched whine before sparking violently! It's starting to go critical!"))
+		priority_announce("A [src] is going critical in [get_area_name(src)]! Clear out or turn it off for repairs if possible! WARNING: -60 SECONDS REMAINING-", "Nuclear Threat!")
+		animate(src, color = COLOR_RED, time = 60 SECONDS)
+		playsound(src, 'sound/machines/alarm.ogg', 50, FALSE, 16)
+		do_sparks(5, TRUE, src)
+		addtimer(CALLBACK(src, PROC_REF(halfway_destruct)), 30 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(self_destruct)), 60 SECONDS)
+	if(!going_kaboom) //dont take further damage if its gonna explode so it dont be destroyed before it blows
+		return . = ..()
+
+/obj/machinery/power/fusion_engine/proc/halfway_destruct()
+	if((obj_integrity < max_integrity * 0.25) && is_on && going_kaboom)
+		Shake(duration = 30 SECONDS)
+		priority_announce("A [src] in [get_area_name(src)] is about to explode! Civilian Personnel is required to evacuate, run away from the area and/or seek radiation suits. WARNING: -30 SECONDS REMAINING!-", "Nuclear Threat!")
+
+
+/obj/machinery/power/fusion_engine/proc/self_destruct()
+	if((obj_integrity < max_integrity * 0.25) && is_on && going_kaboom)
+		Destroy()
+
+/obj/machinery/power/fusion_engine/process()
+	. = ..()
+	//rad leak
+	if((obj_integrity < max_integrity * 0.50) && is_on)
+		if(prob(25))
+			do_sparks(3, TRUE, src)
+		///Base strength of the rad effects
+		var/rad_strength = 5
+		///Range for the maximum rad effects
+		var/inner_range = 3
+		///Range for the moderate rad effects
+		var/mid_range = 6
+		///Range for the minimal rad effects
+		var/outer_range = 9
+		if((obj_integrity < max_integrity * 0.25))
+			if(prob(50))
+				do_sparks(5, TRUE, src)
+			rad_strength *= 3
+		for(var/mob/living/victim in hearers(outer_range, loc))
+			var/strength
+			var/sound_level
+			if(get_dist(victim, loc) <= inner_range)
+				strength = rad_strength
+				sound_level = 4
+			else if(get_dist(victim, loc) <= mid_range)
+				strength = rad_strength * 0.7
+				sound_level = 3
+			else
+				strength = rad_strength * 0.3
+				sound_level = 2
+			strength = victim.modify_by_armor(strength, BIO, 25)
+			victim.apply_radiation(strength, sound_level)
+
+/obj/machinery/power/fusion_engine/Destroy()
+	if((obj_integrity < max_integrity * 0.25) && is_on && going_kaboom)
+		explosion(src, 12, 24, 36, 42, 36, 12, 36, protect_epicenter = TRUE) //massive explosion
+		message_admins("[ADMIN_COORDJMP(src)] [src] blew up!")
+		for(var/mob/living/goof in GLOB.mob_living_list)
+			if(z == goof.z) //same level
+				var/strength = goof.modify_by_armor(rand(40,60), BIO, 0)
+				goof.apply_radiation(strength, 4)
+				shake_camera(goof, 0.2 SECONDS, 0.5)
+				goof.playsound_local(goof, 'sound/effects/explosion/far.ogg', 75)
+		priority_announce("A [src] in [get_area_name(src)] detonated in a nuclear explosion! Rad scrubbers activating...", "Warning!")
+	. = ..()
 
 //FUEL CELL
 /obj/item/fuel_cell
@@ -395,8 +466,9 @@
 
 /obj/item/fuel_cell/examine(mob/user)
 	. = ..()
-	if(ishuman(user))
+	if(ishuman(user) || isobserver(user))
 		. += "The fuel indicator reads: [get_fuel_percent()]%"
+		. += "Stored Energy: [DisplayEnergyFrac(fuel_amount * FUSION_ENGINE_MAX_POWER_GEN * 2 / FUSION_ENGINE_FULL_STRENGTH_FULL_RATE, max_fuel_amount * FUSION_ENGINE_MAX_POWER_GEN * 2 / FUSION_ENGINE_FULL_STRENGTH_FULL_RATE)]"
 
 /obj/item/fuel_cell/proc/get_fuel_percent()
 	return round(100*fuel_amount/max_fuel_amount)
@@ -414,3 +486,10 @@
 	if(amount < 0 || amount > max_fuel_amount)
 		return
 	fuel_amount = amount
+
+#undef FUSION_ENGINE_MAX_POWER_GEN
+#undef FUSION_ENGINE_FAIL_CHECK_TICKS
+#undef FUSION_ENGINE_NO_DAMAGE
+#undef FUSION_ENGINE_LIGHT_DAMAGE
+#undef FUSION_ENGINE_MEDIUM_DAMAGE
+#undef FUSION_ENGINE_HEAVY_DAMAGE

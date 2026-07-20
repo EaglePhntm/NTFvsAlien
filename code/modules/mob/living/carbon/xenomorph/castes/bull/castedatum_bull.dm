@@ -11,6 +11,7 @@
 
 	// *** Melee Attacks *** //
 	melee_damage = 24
+	exosuit_slash_damage_multiplier = 1.5
 
 	// *** Speed *** //
 	speed = -0.8
@@ -20,7 +21,7 @@
 	plasma_gain = 24
 
 	// *** Health *** //
-	max_health = 450
+	max_health = 445
 
 	// *** Sunder *** //
 	sunder_multiplier = 0.9
@@ -30,6 +31,7 @@
 	upgrade_threshold = TIER_TWO_THRESHOLD
 
 	deevolves_to = /datum/xeno_caste/runner
+
 
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_MUTATIONS_ALLOWED
@@ -44,13 +46,19 @@
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/psychic_influence,
+		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/activable/xeno/devour,
+		/datum/action/ability/activable/xeno/tail_stab,
 		/datum/action/ability/xeno_action/ready_charge/bull_charge,
 		/datum/action/ability/activable/xeno/bull_charge,
 		/datum/action/ability/activable/xeno/bull_charge/headbutt,
 		/datum/action/ability/activable/xeno/bull_charge/gore,
 		/datum/action/ability/xeno_action/toggle_long_range/bull,
+		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
 	)
 
 	mutations = list(

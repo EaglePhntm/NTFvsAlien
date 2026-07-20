@@ -32,11 +32,16 @@
 	var/minimum_effect_delay = 1 SECONDS
 	///The original source of the smoke. Used for smoke spread checks
 	var/atom/movable/origin
+	///Special effect traits
+	var/smokecloak_alpha = 5
 
 	//Remove this bit to use the old smoke
 	icon = 'icons/effects/96x96.dmi'
 	pixel_x = -32
 	pixel_y = -32
+
+	//ntf
+	var/smoke_traits2 = NONE
 
 /obj/effect/particle_effect/smoke/Initialize(mapload, range, smoketime, smokecloud)
 	. = ..()
@@ -288,7 +293,10 @@
 /////////////////////////////////////////////
 
 /obj/effect/particle_effect/smoke/sleepy
-	smoke_traits = SMOKE_COUGH|SMOKE_SLEEP|SMOKE_OXYLOSS
+	alpha = 180
+	opacity = FALSE
+	color = "#007194"
+	smoke_traits = SMOKE_COUGH|SMOKE_SLEEP|SMOKE_OXYLOSS|SMOKE_PLASMALOSS|SMOKE_HUGGER_PACIFY
 
 /////////////////////////////////////////////
 // Phosphorus Gas
@@ -311,10 +319,21 @@
 //////////////////////////////////////////
 
 /obj/effect/particle_effect/smoke/plasmaloss
-	alpha = 90
+	alpha = 20
 	opacity = FALSE
 	color = "#791697"
-	smoke_traits = SMOKE_PLASMALOSS
+	smoke_traits = SMOKE_PLASMALOSS | SMOKE_CAMO
+	smokecloak_alpha = 60
+	hud_possible = list(HEALTH_HUD_XENO)
+
+/obj/effect/particle_effect/smoke/plasmaloss/Initialize(mapload, range, smoketime, smokecloud)
+	. = ..()
+	var/image/hudimage = image(src, src)
+	hudimage.alpha = 255
+	hudimage.layer = layer + 0.001
+	hud_list = list(HEALTH_HUD_XENO = hudimage)
+	var/datum/atom_hud/xeno/xeno_status_hud = GLOB.huds[DATA_HUD_XENO_STATUS]
+	xeno_status_hud.add_to_hud(src)
 
 //////////////////////////////////////
 // ANTIGAS SMOKE
@@ -342,14 +361,14 @@
 	color = "#b02828"
 	lifetime = 6
 	expansion_speed = 3
-	strength = 1.5
+	strength = 1
 	smoke_traits = SMOKE_SATRAPINE|SMOKE_GASP|SMOKE_COUGH
 
 //VSD chemical
 
 /obj/effect/particle_effect/smoke/vyacheslav
 	color = "#92a94d"
-	lifetime = 6
+	lifetime = 8
 	expansion_speed = 3
 	strength = 2
 	smoke_traits = SMOKE_BLISTERING|SMOKE_XENO_NEURO|SMOKE_OXYLOSS|SMOKE_GASP|SMOKE_COUGH

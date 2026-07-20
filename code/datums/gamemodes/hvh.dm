@@ -2,9 +2,11 @@
 /datum/game_mode/hvh
 	name = "HvH base mode"
 	round_type_flags = MODE_LATE_OPENING_SHUTTER_TIMER|MODE_TWO_HUMAN_FACTIONS|MODE_HUMAN_ONLY
+	round_type_flags2 = MODE_2_ALLOW_LOADOUTS
 	shutters_drop_time = 3 MINUTES
 	xeno_abilities_flags = ABILITY_CRASH
 	factions = list(FACTION_TERRAGOV, FACTION_SOM)
+	human_factions = list(FACTION_TERRAGOV, FACTION_SOM)
 	valid_job_types = list(
 		/datum/job/terragov/squad/engineer = 8,
 		/datum/job/terragov/squad/corpsman = 8,
@@ -23,8 +25,10 @@
 	)
 	/// Time between two bioscan
 	var/bioscan_interval = 3 MINUTES
+	/*NTF edit - moved to game_mode
 	///campaign stats organised by faction
 	var/list/datum/faction_stats/stat_list = list()
+	*/
 	///List of death times by ckey. Used for respawn time
 	var/list/player_death_times = list()
 
@@ -36,8 +40,11 @@
 /datum/game_mode/hvh/pre_setup()
 	. = ..()
 	RegisterSignals(SSdcs, list(COMSIG_GLOB_MOB_DEATH, COMSIG_MOB_GHOSTIZE), PROC_REF(record_death))
+
+	/*NTF edit - moved to game_mode
 	for(var/faction in factions)
 		stat_list[faction] = new /datum/faction_stats(faction)
+	*/
 
 /datum/game_mode/hvh/setup()
 	. = ..()
@@ -51,7 +58,7 @@
 /datum/game_mode/hvh/ghost_verbs(mob/dead/observer/observer)
 	return list(/datum/action/campaign_loadout)
 
-//sets TGMC and SOM squads
+//sets NTC and SOM squads
 /datum/game_mode/hvh/set_valid_squads()
 	SSjob.active_squads[FACTION_TERRAGOV] = list()
 	SSjob.active_squads[FACTION_SOM] = list()
@@ -142,10 +149,10 @@
 		som_accuracy_stat = ", for an accuracy of [(GLOB.round_statistics.total_projectile_hits[FACTION_TERRAGOV] / GLOB.round_statistics.total_projectiles_fired[FACTION_SOM]) * 100]%!."
 
 	var/list/dat = list({"[span_round_body("The end of round statistics are:")]<br>
-		<br>[GLOB.round_statistics.total_humans_created[FACTION_TERRAGOV]] TGMC personel deployed for the patrol, and [GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV] ? GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV] : "no"] TGMC personel were killed. [tgmc_survival_stat ? tgmc_survival_stat : ""]
+		<br>[GLOB.round_statistics.total_humans_created[FACTION_TERRAGOV]] NTC personel deployed for the patrol, and [GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV] ? GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV] : "no"] NTC personel were killed. [tgmc_survival_stat ? tgmc_survival_stat : ""]
 		<br>[GLOB.round_statistics.total_humans_created[FACTION_SOM]] SOM personel deployed for the patrol, and [GLOB.round_statistics.total_human_deaths[FACTION_SOM] ? GLOB.round_statistics.total_human_deaths[FACTION_SOM] : "no"] SOM personel were killed. [som_survival_stat ? som_survival_stat : ""]
-		<br>The TGMC fired [GLOB.round_statistics.total_projectiles_fired[FACTION_TERRAGOV] ? GLOB.round_statistics.total_projectiles_fired[FACTION_TERRAGOV] : "no"] projectiles. [GLOB.round_statistics.total_projectile_hits[FACTION_SOM] ? GLOB.round_statistics.total_projectile_hits[FACTION_SOM] : "No"] projectiles managed to hit members of the SOM[tgmc_accuracy_stat ? tgmc_accuracy_stat : "."]
-		<br>The SOM fired [GLOB.round_statistics.total_projectiles_fired[FACTION_SOM] ? GLOB.round_statistics.total_projectiles_fired[FACTION_SOM] : "no"] projectiles. [GLOB.round_statistics.total_projectile_hits[FACTION_TERRAGOV] ? GLOB.round_statistics.total_projectile_hits[FACTION_TERRAGOV] : "No"] projectiles managed to hit members of the TGMC[som_accuracy_stat ? som_accuracy_stat : "."]
+		<br>The NTC fired [GLOB.round_statistics.total_projectiles_fired[FACTION_TERRAGOV] ? GLOB.round_statistics.total_projectiles_fired[FACTION_TERRAGOV] : "no"] projectiles. [GLOB.round_statistics.total_projectile_hits[FACTION_SOM] ? GLOB.round_statistics.total_projectile_hits[FACTION_SOM] : "No"] projectiles managed to hit members of the SOM[tgmc_accuracy_stat ? tgmc_accuracy_stat : "."]
+		<br>The SOM fired [GLOB.round_statistics.total_projectiles_fired[FACTION_SOM] ? GLOB.round_statistics.total_projectiles_fired[FACTION_SOM] : "no"] projectiles. [GLOB.round_statistics.total_projectile_hits[FACTION_TERRAGOV] ? GLOB.round_statistics.total_projectile_hits[FACTION_TERRAGOV] : "No"] projectiles managed to hit members of the NTC[som_accuracy_stat ? som_accuracy_stat : "."]
 		"})
 	if(GLOB.round_statistics.grenades_thrown)
 		dat += "[GLOB.round_statistics.grenades_thrown] grenades were detonated."
@@ -225,7 +232,7 @@ Sensors indicate [num_tgmc_delta || "no"] unknown lifeform signature[num_tgmc_de
 	if(announce_som)
 		priority_announce(som_scan_input, som_scan_name, sound = 'sound/AI/bioscan.ogg', color_override = "orange", receivers = (som_list + GLOB.observer_list))
 
-	//announcement for TGMC
+	//announcement for NTC
 	var/marine_scan_name = "Long Range Tactical Bioscan Status"
 	var/marine_scan_input = {"Bioscan complete.
 
@@ -234,7 +241,7 @@ Sensors indicate [num_som_delta || "no"] unknown lifeform signature[num_som_delt
 	if(announce_marines)
 		priority_announce(marine_scan_input, marine_scan_name, sound = 'sound/AI/bioscan.ogg', color_override = "blue", receivers = (tgmc_list + GLOB.observer_list))
 
-	log_game("Bioscan. [num_tgmc] active TGMC personnel[tgmc_location ? " Location: [tgmc_location]":""] and [num_som] active SOM personnel[som_location ? " Location: [som_location]":""]")
+	log_game("Bioscan. [num_tgmc] active NTC personnel[tgmc_location ? " Location: [tgmc_location]":""] and [num_som] active SOM personnel[som_location ? " Location: [som_location]":""]")
 
 	for(var/i in GLOB.observer_list)
 		var/mob/M = i
@@ -245,7 +252,7 @@ Sensors indicate [num_som_delta || "no"] unknown lifeform signature[num_som_delt
 			color_override = "orange"
 		))
 
-	message_admins("Bioscan - Marines: [num_tgmc] active TGMC personnel[tgmc_location ? " .Location:[tgmc_location]":""]")
+	message_admins("Bioscan - Marines: [num_tgmc] active NTC personnel[tgmc_location ? " .Location:[tgmc_location]":""]")
 	message_admins("Bioscan - SOM: [num_som] active SOM personnel[som_location ? " .Location:[som_location]":""]")
 
 ///Messages a mob when they deploy groundside. only called if the specific gamemode register for the signal
@@ -254,8 +261,12 @@ Sensors indicate [num_som_delta || "no"] unknown lifeform signature[num_som_delt
 	var/message = get_deploy_point_message(user)
 	if(!message)
 		return
-	user.playsound_local(user, "sound/effects/CIC_order.ogg", 10, 1)
-	user.play_screen_text(HUD_ANNOUNCEMENT_FORMATTING("OVERWATCH", message, LEFT_ALIGN_TEXT), GLOB.faction_to_portrait[user.faction])
+
+	var/sound = SFX_QUEEN
+	if(!isxeno(user))
+		sound = "sound/effects/CIC_order.ogg"
+	user.playsound_local(user, sound, 10, 1)
+	user.play_screen_text(HUD_ANNOUNCEMENT_FORMATTING(isxeno(user) ? "Queen Mother" : "OVERWATCH", message, LEFT_ALIGN_TEXT), GLOB.faction_to_portrait[user.faction])
 
 ///Returns a message to play to a mob when they deploy into the AO
 /datum/game_mode/hvh/proc/get_deploy_point_message(mob/living/user)
@@ -278,8 +289,9 @@ Sensors indicate [num_som_delta || "no"] unknown lifeform signature[num_som_delt
 	return TRUE
 
 ///Allows all the dead to respawn together
-/datum/game_mode/hvh/proc/respawn_wave()
-	wave_timer = addtimer(CALLBACK(src, PROC_REF(respawn_wave)), wave_timer_length, TIMER_STOPPABLE)
+/datum/game_mode/hvh/proc/respawn_wave(repeat = TRUE)
+	if(repeat)
+		wave_timer = addtimer(CALLBACK(src, PROC_REF(respawn_wave)), wave_timer_length, TIMER_STOPPABLE)
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_HVH_RESPAWN_WAVE, src)
 
 	var/respawn_list = player_death_times.Copy()

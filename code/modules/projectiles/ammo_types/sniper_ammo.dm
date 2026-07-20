@@ -1,3 +1,4 @@
+
 /*
 //================================================
 					Sniper Ammo
@@ -12,9 +13,9 @@
 	damage_falloff = 0
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_BETTER_COVER_RNG|AMMO_SNIPER
 	accurate_range_min = 7
-	shell_speed = 4
+	shell_speed = 4.5
 	accurate_range = 30
-	max_range = 40
+	max_range = 50
 	damage = 90
 	penetration = 50
 	sundering = 15
@@ -26,7 +27,6 @@
 	damage_type = BURN
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY|AMMO_BETTER_COVER_RNG|AMMO_SNIPER
 	accuracy_variation = 7
-	max_range = 20
 	damage = 70
 	penetration = 30
 	sundering = 5
@@ -103,6 +103,8 @@
 /datum/ammo/bullet/sniper/clf_heavyrifle
 	name = "high velocity incendiary sniper bullet"
 	handful_icon_state = "ptrs"
+	handful_icon = 'ntf_modular/icons/obj/items/ammo/handful.dmi'
+	handful_amount = 5
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY|AMMO_BETTER_COVER_RNG|AMMO_SNIPER
 	hud_state = "sniper_fire"
 	accurate_range_min = 4

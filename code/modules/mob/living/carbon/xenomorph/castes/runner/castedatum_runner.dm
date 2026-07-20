@@ -24,7 +24,7 @@
 	plasma_gain = 11
 
 	// *** Health *** //
-	max_health = 300
+	max_health = 330
 
 	// *** Evolution *** //
 	evolution_threshold = 100
@@ -44,11 +44,18 @@
 	// *** Abilities *** ///
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/psychic_influence,
+		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/activable/xeno/devour,
+		/datum/action/ability/xeno_action/runner_zoom,
+		/datum/action/ability/activable/xeno/tail_stab,
 		/datum/action/ability/xeno_action/xenohide,
 		/datum/action/ability/xeno_action/evasion,
 		/datum/action/ability/activable/xeno/pounce/runner,
+		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
 	)
 
 	mutations = list(
@@ -75,12 +82,19 @@
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/psychic_influence,
+		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/activable/xeno/devour,
+		/datum/action/ability/xeno_action/runner_zoom,
+		/datum/action/ability/activable/xeno/tail_stab,
 		/datum/action/ability/xeno_action/xenohide,
 		/datum/action/ability/xeno_action/evasion,
 		/datum/action/ability/activable/xeno/pounce/runner,
 		/datum/action/ability/activable/xeno/snatch,
+		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
 	)
 
 /datum/xeno_caste/runner/melter
@@ -103,7 +117,7 @@
 	caste_flags = CASTE_ACID_BLOOD|CASTE_EVOLUTION_ALLOWED|CASTE_MUTATIONS_ALLOWED
 
 	// +50 health
-	max_health = 350
+	max_health = 385
 
 	// +5 armor across the board
 	soft_armor = list(MELEE = 35, BULLET = 35, LASER = 35, ENERGY = 35, BOMB = 5, BIO = 10, FIRE = 25, ACID = 10)
@@ -111,12 +125,17 @@
 	// Loses pounce and evasion for acid-themed abilities.
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/psychic_influence,
+		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/activable/xeno/devour,
 		/datum/action/ability/activable/xeno/corrosive_acid/melter,
 		/datum/action/ability/activable/xeno/charge/acid_dash/melter,
 		/datum/action/ability/activable/xeno/melter_shroud,
 		/datum/action/ability/xeno_action/xenohide,
+		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
 	)
 
 	mutations = list(
@@ -136,11 +155,16 @@
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/psychic_influence,
+		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/activable/xeno/devour,
 		/datum/action/ability/activable/xeno/corrosive_acid/melter,
 		/datum/action/ability/activable/xeno/charge/acid_dash/melter,
 		/datum/action/ability/activable/xeno/melter_shroud,
 		/datum/action/ability/activable/xeno/acidic_missile,
 		/datum/action/ability/xeno_action/xenohide,
+		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
 	)

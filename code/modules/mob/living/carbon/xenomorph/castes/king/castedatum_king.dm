@@ -12,6 +12,7 @@
 
 	// *** Melee Attacks *** //
 	melee_damage = 33
+	exosuit_slash_damage_multiplier = 2.5
 
 	// *** Speed *** //
 	speed = -0.1
@@ -21,7 +22,7 @@
 	plasma_gain = 90
 
 	// *** Health *** //
-	max_health = 700
+	max_health = 600
 
 	// *** Sunder *** //
 	sunder_multiplier = 0.8
@@ -29,11 +30,17 @@
 	// *** Evolution *** //
 	upgrade_threshold = TIER_THREE_THRESHOLD
 	maximum_active_caste = 1
+/* NTF EDIT - No minimum for evolution
 	evolve_min_xenos = 12
+*/
+	deevolves_to = /datum/xeno_caste/drone //NTF Edit - allow evolution/regression
 	death_evolution_delay = 15 MINUTES
 
 	// *** Flags *** //
+/* NTF Edit - allow evolution/regression, building
 	caste_flags = CASTE_IS_INTELLIGENT|CASTE_STAGGER_RESISTANT|CASTE_LEADER_TYPE|CASTE_INSTANT_EVOLUTION|CASTE_HAS_WOUND_MASK|CASTE_MUTATIONS_ALLOWED
+*/
+	caste_flags = CASTE_IS_INTELLIGENT|CASTE_STAGGER_RESISTANT|CASTE_LEADER_TYPE|CASTE_INSTANT_EVOLUTION|CASTE_HAS_WOUND_MASK|CASTE_MUTATIONS_ALLOWED|CASTE_EVOLUTION_ALLOWED|CASTE_IS_BUILDER
 	caste_traits = list(TRAIT_STOPS_TANK_COLLISION, TRAIT_CAN_TEAR_HOLE, TRAIT_CAN_DISABLE_MINER)
 	can_flags = parent_type::can_flags|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_CORRUPT_GENERATOR|CASTE_CAN_BE_RULER
 
@@ -50,12 +57,18 @@
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/psychic_influence,
+		/datum/action/ability/xeno_action/psychic_radiance,
+		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/activable/xeno/devour,
 		/datum/action/ability/activable/xeno/cocoon,
 		/datum/action/ability/activable/xeno/plant_weeds,
+		/datum/action/ability/activable/xeno/secrete_resin,
 		/datum/action/ability/xeno_action/call_of_the_burrowed,
 		/datum/action/ability/activable/xeno/corrosive_acid/strong,
+		/datum/action/ability/activable/xeno/tail_stab,
 		/datum/action/ability/activable/xeno/nightfall,
 		/datum/action/ability/xeno_action/petrify,
 		/datum/action/ability/activable/xeno/off_guard,
@@ -68,6 +81,11 @@
 		/datum/action/ability/xeno_action/rally_hive,
 		/datum/action/ability/xeno_action/rally_minion,
 		/datum/action/ability/xeno_action/blessing_menu,
+		/datum/action/ability/activable/psionic_interact,
+		/datum/action/ability/activable/xeno/impregnatequeen,
+		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
+		/datum/action/ability/activable/xeno/place_pattern,
 	)
 
 	mutations = list(
@@ -88,12 +106,18 @@
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/psychic_influence,
+		/datum/action/ability/xeno_action/psychic_radiance,
+		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/activable/xeno/devour,
 		/datum/action/ability/activable/xeno/cocoon,
 		/datum/action/ability/activable/xeno/plant_weeds,
+		/datum/action/ability/activable/xeno/secrete_resin,
 		/datum/action/ability/xeno_action/call_of_the_burrowed,
 		/datum/action/ability/activable/xeno/corrosive_acid/strong,
+		/datum/action/ability/activable/xeno/tail_stab,
 		/datum/action/ability/activable/xeno/nightfall,
 		/datum/action/ability/xeno_action/petrify,
 		/datum/action/ability/activable/xeno/off_guard,
@@ -108,8 +132,10 @@
 		/datum/action/ability/xeno_action/rally_hive,
 		/datum/action/ability/xeno_action/rally_minion,
 		/datum/action/ability/xeno_action/blessing_menu,
+		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
+		/datum/action/ability/activable/xeno/place_pattern,
 	)
-
 
 // ***************************************
 // *********** Conqueror
@@ -118,7 +144,7 @@
 	caste_name = "Conqueror"
 	display_name = "Conqueror"
 	caste_type_path = /mob/living/carbon/xenomorph/king/conqueror
-	wound_type = "conqueror"
+	wound_type = "king"
 	caste_desc = "A primordial beast, sculpted by countless fights, intent on conquering the battlefield."
 
 	// *** Melee Attacks *** //
@@ -135,7 +161,7 @@
 	plasma_gain = 60
 
 	// *** Health *** //
-	max_health = 650
+	max_health = 560
 
 	// *** Sunder *** //
 	sunder_multiplier = 1.0
@@ -144,7 +170,10 @@
 	evolve_min_xenos = 0
 
 	// *** Flags *** //
+/*NTF Edit - allow evolution/regression, building
 	caste_flags = CASTE_IS_INTELLIGENT|CASTE_LEADER_TYPE|CASTE_INSTANT_EVOLUTION|CASTE_MUTATIONS_ALLOWED
+*/
+	caste_flags = CASTE_IS_INTELLIGENT|CASTE_LEADER_TYPE|CASTE_INSTANT_EVOLUTION|CASTE_MUTATIONS_ALLOWED|CASTE_EVOLUTION_ALLOWED|CASTE_IS_BUILDER
 	caste_traits = list(TRAIT_STAGGERIMMUNE, TRAIT_STOPS_TANK_COLLISION, TRAIT_CAN_TEAR_HOLE, TRAIT_CAN_DISABLE_MINER)
 
 	// *** Defense *** //
@@ -155,9 +184,14 @@
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/psychic_influence,
+		/datum/action/ability/xeno_action/psychic_radiance,
+		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/activable/xeno/devour,
 		/datum/action/ability/activable/xeno/plant_weeds,
+		/datum/action/ability/activable/xeno/secrete_resin,
 		/datum/action/ability/activable/xeno/corrosive_acid/strong,
 		/datum/action/ability/xeno_action/hive_message,
 		/datum/action/ability/xeno_action/rally_hive,
@@ -171,6 +205,11 @@
 		/datum/action/ability/activable/xeno/conqueror_will,
 		/datum/action/ability/xeno_action/conqueror_endurance,
 		/datum/action/ability/activable/xeno/conqueror_domination,
+		/datum/action/ability/activable/psionic_interact,
+		/datum/action/ability/activable/xeno/impregnatequeen,
+		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
+		/datum/action/ability/activable/xeno/place_pattern,
 	)
 
 	mutations = list(
@@ -190,9 +229,14 @@
 	// *** Abilities *** //
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/psychic_influence,
+		/datum/action/ability/xeno_action/psychic_radiance,
+		/datum/action/ability/activable/xeno/impregnate,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/activable/xeno/devour,
 		/datum/action/ability/activable/xeno/plant_weeds,
+		/datum/action/ability/activable/xeno/secrete_resin,
 		/datum/action/ability/activable/xeno/corrosive_acid/strong,
 		/datum/action/ability/xeno_action/hive_message,
 		/datum/action/ability/xeno_action/rally_hive,
@@ -207,4 +251,9 @@
 		/datum/action/ability/xeno_action/conqueror_endurance,
 		/datum/action/ability/activable/xeno/conqueror_domination,
 		/datum/action/ability/xeno_action/conqueror_obliteration,
+		/datum/action/ability/activable/psionic_interact,
+		/datum/action/ability/activable/xeno/impregnatequeen,
+		/datum/action/ability/xeno_action/create_edible_jelly,
+		/datum/action/ability/xeno_action/place_stew_pod,
+		/datum/action/ability/activable/xeno/place_pattern,
 	)

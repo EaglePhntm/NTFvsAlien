@@ -37,7 +37,7 @@
 
 /mob/living/carbon/human/Moved(atom/old_loc, movement_dir, forced = FALSE, list/old_locs)
 	// Moving around increases germ_level faster
-	if(germ_level < GERM_LEVEL_MOVE_CAP && prob(8))
+	if(germ_level < GERM_LEVEL_MOVE_CAP && prob(2))
 		germ_level++
 	return ..()
 

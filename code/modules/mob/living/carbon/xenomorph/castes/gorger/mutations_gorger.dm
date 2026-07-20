@@ -36,7 +36,7 @@
 	link_ability.movement_resistance = initial(link_ability.movement_resistance)
 	if(!link_ability.psychic_link_status_effect)
 		return
-	xenomorph_owner.set_move_resist(initial(xenomorph_owner.move_resist))
+	xenomorph_owner.set_move_resist(xenomorph_owner.get_initial_move_resist())
 	if(link_ability.attached_armor)
 		xenomorph_owner.soft_armor = xenomorph_owner.soft_armor.detachArmor(link_ability.attached_armor)
 		link_ability.attached_armor = null

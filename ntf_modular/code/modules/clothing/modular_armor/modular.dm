@@ -1,0 +1,233 @@
+/obj/item/clothing/suit/modular/goon
+	name = "\improper NTC G0-0N combat exoskeleton"
+	desc = "Designed to be less constricting while being able to mount a variety of modular armor components and support systems. It comes installed with light-plating and a shoulder lamp. Mount armor pieces to it by clicking on the frame with the components. Use Alt-Click to remove any attached items."
+	icon = 'ntf_modular/icons/mob/modular/modular_armor.dmi'
+	worn_icon_list = list(slot_wear_suit_str = 'ntf_modular/icons/mob/modular/modular_armor.dmi')
+
+/obj/item/clothing/suit/modular/xenonauten/light/bikini
+	name = "\improper NTC-B bikini armor"
+	desc = "A NTC-B vest, a set... of extra-light bikini armor? with modular attachments made to work in many enviroments. This one seems to be a bikini variant. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
+	greyscale_config = /datum/greyscale_config/xenonaut/bikini
+	slowdown = SLOWDOWN_ARMOR_VERY_LIGHT
+	soft_armor = list(MELEE = 35, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 40, BIO = 40, FIRE = 50, ACID = 40)
+	shows_butt = TRUE
+
+/datum/greyscale_config/xenonaut/bulletproof
+	icon_file = 'ntf_modular/icons/mob/modular/xenonauten.dmi'
+	prefix = "bulletproof_"
+
+/datum/greyscale_config/xenonaut/vestbullet
+	icon_file = 'ntf_modular/icons/mob/modular/xenonauten.dmi'
+	prefix = "bulletproofvest_"
+
+/datum/greyscale_config/xenonaut/vestablative
+	icon_file = 'ntf_modular/icons/mob/modular/xenonauten.dmi'
+	prefix = "ablativevest_"
+
+/datum/greyscale_config/xenonaut/ablative
+	icon_file = 'ntf_modular/icons/mob/modular/xenonauten.dmi'
+	prefix = "ablative_"
+
+/datum/greyscale_config/xenonaut/bikini
+	icon_file = 'ntf_modular/icons/mob/modular/xenonauten.dmi'
+	prefix = "bikini_"
+
+/obj/item/clothing/suit/modular/xenonauten/light/bikini/som
+	name = "\improper SOM M-69 Bikini-pattern light armor"
+	desc = "An unusal armor made by the " + FACTION_SOM + ", apparently based on an NTC design. Extra-light bikini armor with modular attachments made to work in many enviroments. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
+	attachments_allowed = list(
+		/obj/item/armor_module/module/better_shoulder_lamp,
+		/obj/item/armor_module/module/valkyrie_autodoc/som,
+		/obj/item/armor_module/module/fire_proof/som,
+		/obj/item/armor_module/module/tyr_extra_armor/som,
+		/obj/item/armor_module/module/knight/som,
+		/obj/item/armor_module/module/mimir_environment_protection/som,
+		/obj/item/armor_module/module/hlin_explosive_armor,
+		/obj/item/armor_module/module/chemsystem,
+		/obj/item/armor_module/module/eshield/som,
+		/obj/item/armor_module/module/eshield/som/overclocked,
+		/obj/item/armor_module/module/eshield/absorbant/energy,
+		/obj/item/armor_module/module/eshield/absorbant/ballistic,
+		/obj/item/armor_module/storage/general,
+		/obj/item/armor_module/storage/ammo_mag,
+		/obj/item/armor_module/storage/engineering,
+		/obj/item/armor_module/storage/medical,
+		/obj/item/armor_module/storage/general/som,
+		/obj/item/armor_module/storage/engineering/som,
+		/obj/item/armor_module/storage/medical/som,
+		/obj/item/armor_module/storage/injector,
+		/obj/item/armor_module/storage/grenade,
+		/obj/item/armor_module/storage/integrated,
+		/obj/item/armor_module/armor/badge,
+	)
+
+/obj/item/clothing/suit/modular/xenonauten/light/bikini/neutral
+	attachments_allowed = list(
+		/obj/item/armor_module/module/better_shoulder_lamp,
+		/obj/item/armor_module/module/valkyrie_autodoc,
+		/obj/item/armor_module/module/fire_proof,
+		/obj/item/armor_module/module/tyr_extra_armor,
+		/obj/item/armor_module/module/tyr_extra_armor/mark1,
+		/obj/item/armor_module/module/mimir_environment_protection,
+		/obj/item/armor_module/module/mimir_environment_protection/mark1,
+		/obj/item/armor_module/module/hlin_explosive_armor,
+		/obj/item/armor_module/module/ballistic_armor,
+		/obj/item/armor_module/module/chemsystem,
+		/obj/item/armor_module/module/knight,
+		/obj/item/armor_module/module/eshield,
+		/obj/item/armor_module/module/eshield/absorbant/energy,
+		/obj/item/armor_module/module/eshield/absorbant/ballistic,
+		/obj/item/armor_module/module/eshield/overclocked,
+		/obj/item/armor_module/module/mirage,
+		/obj/item/armor_module/module/armorlock,
+
+		/obj/item/armor_module/storage/general,
+		/obj/item/armor_module/storage/ammo_mag,
+		/obj/item/armor_module/storage/engineering,
+		/obj/item/armor_module/storage/medical,
+		/obj/item/armor_module/storage/general/som,
+		/obj/item/armor_module/storage/engineering/som,
+		/obj/item/armor_module/storage/medical/som,
+		/obj/item/armor_module/storage/injector,
+		/obj/item/armor_module/storage/grenade,
+		/obj/item/armor_module/storage/integrated,
+		/obj/item/armor_module/armor/badge,
+
+		/obj/item/armor_module/module/valkyrie_autodoc/som,
+		/obj/item/armor_module/module/fire_proof/som,
+		/obj/item/armor_module/module/tyr_extra_armor/som,
+		/obj/item/armor_module/module/knight/som,
+		/obj/item/armor_module/module/mimir_environment_protection/som,
+		/obj/item/armor_module/module/eshield/som,
+		/obj/item/armor_module/module/eshield/som/overclocked,
+	)
+
+/obj/item/clothing/suit/modular/xenonauten/light/bikini/neutral/vsd
+	name = "\improper Crasher MT-B/69 bikini armor"
+	desc = "An unusal armor made by the " + FACTION_VSD + ", apparently based on an NTC design. Extra-light bikini armor with modular attachments made to work in many enviroments. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
+
+/obj/item/clothing/suit/modular/xenonauten/light/bikini/neutral/icc
+	name = "\improper Modelle/69 'Bikini' combat armor"
+	desc = "An unusal armor made by the " + FACTION_ICC + ", apparently based on an NTC design. Extra-light bikini armor with modular attachments made to work in many enviroments. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
+
+/obj/item/clothing/suit/modular/xenonauten/bulletresistant
+	name = "\improper NTC bullet-resistant armor"
+	desc = "A lightweight set of armor that excels in protecting the wearer against high-velocity solid projectiles. This one has bullet resistant padding on the limbs aswell."
+	blood_overlay_type = "armor"
+	soft_armor = list(MELEE = 35, BULLET = 55, LASER = 35, ENERGY = 30, BOMB = 45, BIO = 45, FIRE = 45, ACID = 45)
+	hard_armor = list(MELEE = 0, BULLET = 20, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 5)
+	slowdown = 0
+
+	greyscale_config = /datum/greyscale_config/xenonaut/bulletproof
+
+/obj/item/clothing/suit/modular/xenonauten/bulletresistant/vest
+	name = "\improper NTC bullet-resistant vest"
+	desc = "A lightweight vest that excels in protecting the wearer against high-velocity solid projectiles. This one has bullet resistant padding on the legs aswell but they are hidden away."
+	greyscale_config = /datum/greyscale_config/xenonaut/vestbullet
+
+/obj/item/clothing/suit/modular/xenonauten/bulletresistant/bikini
+	name = "\improper NTC bullet-resistant bikini armor"
+	desc = "A lightweight set of armor that excels in protecting the wearer against high-velocity solid projectiles. This one has bullet resistant padding on the limbs aswell, how does it work? don't ask."
+
+	greyscale_config = /datum/greyscale_config/xenonaut/bikini
+
+/obj/item/clothing/suit/modular/xenonauten/ablative
+	name = "\improper NTC ablative armor"
+	desc = "A lightweight set of armor that excels in protecting the wearer against laser and energy attacks thanks to it's reflective plating."
+	blood_overlay_type = "armor"
+	soft_armor = list(MELEE = 35, BULLET = 35, LASER = 55, ENERGY = 50, BOMB = 45, BIO = 45, FIRE = 45, ACID = 45)
+	hard_armor = list(MELEE = 0, BULLET = 0, LASER = 15, ENERGY = 10, BOMB = 0, BIO = 0, FIRE = 0, ACID = 5)
+	slowdown = 0
+
+	greyscale_config = /datum/greyscale_config/xenonaut/ablative
+
+/obj/item/clothing/suit/modular/xenonauten/ablative/vest
+	name = "\improper NTC ablative vest"
+	desc = "A lightweight set of armor that excels in protecting the wearer against laser and energy attacks thanks to it's reflective plating. This has platings on the legs aswell but they are hidden away."
+	greyscale_config = /datum/greyscale_config/xenonaut/vestablative
+
+/obj/item/clothing/suit/modular/xenonauten/ablative/bikini
+	name = "\improper NTC ablative bikini armor"
+	desc = "A lightweight set of armor that excels in protecting the wearer against laser and energy attacks thanks to it's reflective plating, how does it work? don't ask."
+	greyscale_config = /datum/greyscale_config/xenonaut/bikini
+
+/obj/item/clothing/suit/modular/rownin/dermal
+	name = "\improper dermal torso patch"
+	desc = "A subdermal layer of reinforcements and small holders that allows for the attachment of modules, without restricting or being visible on the wearer."
+	icon = 'icons/obj/clothing/headwear/hats.dmi'
+	icon_state = "dermal"
+	worn_icon_state = "dermal"
+	attachments_allowed = list(
+		/obj/item/armor_module/module/better_shoulder_lamp,
+		/obj/item/armor_module/module/valkyrie_autodoc,
+		/obj/item/armor_module/module/fire_proof,
+		/obj/item/armor_module/module/tyr_extra_armor,
+		/obj/item/armor_module/module/tyr_extra_armor/mark1,
+		/obj/item/armor_module/module/mimir_environment_protection,
+		/obj/item/armor_module/module/mimir_environment_protection/mark1,
+		/obj/item/armor_module/module/hlin_explosive_armor,
+		/obj/item/armor_module/module/ballistic_armor,
+		/obj/item/armor_module/module/chemsystem,
+		/obj/item/armor_module/module/knight,
+		/obj/item/armor_module/module/eshield,
+		/obj/item/armor_module/module/eshield/absorbant/energy,
+		/obj/item/armor_module/module/eshield/absorbant/ballistic,
+		/obj/item/armor_module/module/eshield/overclocked,
+		/obj/item/armor_module/module/mirage,
+		/obj/item/armor_module/module/armorlock,
+
+		/obj/item/armor_module/storage/general,
+		/obj/item/armor_module/storage/ammo_mag,
+		/obj/item/armor_module/storage/engineering,
+		/obj/item/armor_module/storage/medical,
+		/obj/item/armor_module/storage/general/som,
+		/obj/item/armor_module/storage/engineering/som,
+		/obj/item/armor_module/storage/medical/som,
+		/obj/item/armor_module/storage/injector,
+		/obj/item/armor_module/storage/grenade,
+		/obj/item/armor_module/storage/integrated,
+		/obj/item/armor_module/armor/badge,
+
+		/obj/item/armor_module/module/valkyrie_autodoc/som,
+		/obj/item/armor_module/module/fire_proof/som,
+		/obj/item/armor_module/module/tyr_extra_armor/som,
+		/obj/item/armor_module/module/knight/som,
+		/obj/item/armor_module/module/mimir_environment_protection/som,
+		/obj/item/armor_module/module/eshield/som,
+		/obj/item/armor_module/module/eshield/som/overclocked,
+// Equalizer Modules
+		/obj/item/armor_module/module/style/light_armor,
+		/obj/item/armor_module/module/style/medium_armor,
+		/obj/item/armor_module/module/style/heavy_armor,
+/*		/obj/item/armor_module/module/style/superheavy_armor,*/
+	) // The people want their equalizer dermal armor, they will get their dermal armor
+
+/obj/item/clothing/shoes/dermal
+	name = "\improper dermal feet pads"
+	desc = "A subdermal layer of reinforcements and modding that strengthens the durability of your tootsies."
+	icon = 'icons/obj/clothing/headwear/hats.dmi'
+	icon_state = "dermal"
+	worn_icon_state = "dermal"
+	armor_protection_flags = FEET
+	cold_protection_flags = FEET
+	heat_protection_flags = FEET
+	inventory_flags = NOQUICKEQUIP|NOSLIPPING
+	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
+	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
+	siemens_coefficient = 0.7
+	soft_armor = list(MELEE = 30, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 30, BIO = 20, FIRE = 20, ACID = 15)
+
+/obj/item/clothing/gloves/dermal
+	name = "\improper dermal knuckle guards"
+	desc = "A subdermal layer of reinforcements and modding that strengthens the durability of your fingies."
+	icon = 'icons/obj/clothing/headwear/hats.dmi'
+	icon_state = "dermal"
+	worn_icon_state = "dermal"
+	siemens_coefficient = 0.6
+	permeability_coefficient = 0.05
+	cold_protection_flags = HANDS
+	heat_protection_flags = HANDS
+	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
+	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
+	armor_protection_flags = HANDS
+	soft_armor = list(MELEE = 30, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 30, BIO = 20, FIRE = 20, ACID = 15)

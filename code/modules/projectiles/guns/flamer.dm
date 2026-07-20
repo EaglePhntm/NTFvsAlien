@@ -28,6 +28,7 @@
 		/obj/item/attachable/flamer_nozzle,
 		/obj/item/attachable/flamer_nozzle/wide,
 		/obj/item/attachable/flamer_nozzle/wide/red,
+		/obj/item/attachable/shoulder_mount,
 		)
 	attachments_by_slot = list(
 		ATTACHMENT_SLOT_MUZZLE,
@@ -287,12 +288,15 @@
 	icon_state = "m240"
 	worn_icon_state = "m240"
 
+/obj/item/weapon/gun/flamer/big_flamer/cm
+	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/attachable/flamer_nozzle/wide,)
+
 /obj/item/weapon/gun/flamer/big_flamer/vsd
 	starting_attachment_types = list(/obj/item/attachable/motiondetector, /obj/item/attachable/flamer_nozzle/wide,)
 
 /obj/item/weapon/gun/flamer/som
 	name = "\improper V-62 incinerator"
-	desc = "The V-62 is a deadly weapon employed in close quarter combat, favoured as much for the terror it inspires as the actual damage it inflicts. It has good range for a flamer, but lacks the integrated extinguisher of its TGMC equivalent."
+	desc = "The V-62 is a deadly weapon employed in close quarter combat, favoured as much for the terror it inspires as the actual damage it inflicts. It has good range for a flamer, but lacks the integrated extinguisher of its AC equivalent."
 	icon = 'icons/obj/items/guns/special64.dmi'
 	icon_state = "v62"
 	worn_icon_state = "v62"
@@ -395,7 +399,7 @@
 
 /obj/item/weapon/gun/flamer/big_flamer/marinestandard
 	name = "\improper FL-84 flamethrower"
-	desc = "The FL-84 flamethrower is the current standard issue flamethrower of the TGMC, and is used for area control and urban combat. Use unique action to use hydro cannon"
+	desc = "The FL-84 flamethrower is the current standard issue flamethrower of the NTC, and is used for area control and urban combat. Use unique action to use hydro cannon"
 	default_ammo_type = /obj/item/ammo_magazine/flamer_tank/large
 	icon_state = "tl84"
 	worn_icon_state = "tl84"
@@ -430,7 +434,7 @@
 ///Flamer windup called before firing
 /obj/item/weapon/gun/flamer/big_flamer/marinestandard/proc/do_windup()
 	windup_checked = WEAPON_WINDUP_CHECKING
-	if(!do_after(gun_user, 1 SECONDS, IGNORE_USER_LOC_CHANGE, src))
+	if(!do_after(gun_user, 1 SECONDS, TRUE, src))
 		windup_checked = WEAPON_WINDUP_NOT_CHECKED
 		return
 	windup_checked = WEAPON_WINDUP_CHECKED
@@ -551,11 +555,13 @@ GLOBAL_LIST_EMPTY(flamer_particles)
 	icon = 'icons/obj/items/guns/special64.dmi'
 	icon_state = "c21"
 	worn_icon_state = "c21"
-	gun_features_flags = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_WIELDED_STABLE_FIRING_ONLY|GUN_SHOWS_LOADED
 	worn_icon_list = list(
+		slot_s_store_str = 'ntf_modular/icons/mob/suit_slot.dmi',
+		slot_back_str = 'ntf_modular/icons/mob/clothing/back.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/guns/special_left_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/guns/special_right_1.dmi',
 	)
+	gun_features_flags = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_WIELDED_STABLE_FIRING_ONLY|GUN_SHOWS_LOADED
 	lit_overlay_icon_state = "c21_lit"
 	lit_overlay_offset_x = 0
 	flame_max_range = 8
@@ -563,10 +569,22 @@ GLOBAL_LIST_EMPTY(flamer_particles)
 	starting_attachment_types = list(/obj/item/attachable/flamer_nozzle/wide)
 	default_ammo_type = /obj/item/ammo_magazine/flamer_tank/vsd
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/flamer_tank/vsd
+		/obj/item/ammo_magazine/flamer_tank/backtank,
+		/obj/item/ammo_magazine/flamer_tank/backtank/X,
+		/obj/item/ammo_magazine/flamer_tank/vsd,
+		/obj/item/ammo_magazine/flamer_tank/large/X,
+		/obj/item/ammo_magazine/flamer_tank/vsd/blue,
 	)
 	attachable_offset = list("rail_x" = 11, "rail_y" = 25, "stock_x" = 16, "stock_y" = 13, "flamer_nozzle_x" = 33, "flamer_nozzle_y" = 20, "under_x" = 24, "under_y" = 15)
 	attachable_allowed = list(
+		/obj/item/attachable/flashlight,
 		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/motiondetector,
+		/obj/item/attachable/buildasentry,
+		/obj/item/attachable/stock/t84stock,
+		/obj/item/attachable/flamer_nozzle,
 		/obj/item/attachable/flamer_nozzle/wide,
+		/obj/item/attachable/flamer_nozzle/wide/red,
+		/obj/item/attachable/flamer_nozzle/long,
+		/obj/item/weapon/gun/flamer/hydro_cannon,
 	)

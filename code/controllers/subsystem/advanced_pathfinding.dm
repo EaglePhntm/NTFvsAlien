@@ -12,10 +12,6 @@ SUBSYSTEM_DEF(advanced_pathfinding)
 	var/list/datum/ai_behavior/node_pathfinding_to_do = list()
 
 /datum/controller/subsystem/advanced_pathfinding/Initialize()
-	var/list/nodes = list()
-	for(var/obj/effect/ai_node/ai_node AS in GLOB.all_nodes)
-		nodes += list(ai_node.serialize())
-	rustg_register_nodes_astar(json_encode(nodes))
 	return SS_INIT_SUCCESS
 
 #ifdef TESTING
@@ -173,7 +169,6 @@ GLOBAL_LIST_EMPTY(goal_nodes)
 
 /obj/effect/ai_node/goal/LateInitialize()
 	make_adjacents(TRUE)
-	rustg_add_node_astar(json_encode(serialize()))
 
 /obj/effect/ai_node/goal/Destroy()
 	GLOB.goal_nodes -= faction

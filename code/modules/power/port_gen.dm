@@ -14,6 +14,12 @@
 	var/consumption = 0
 	var/base_icon = "portgen0"
 	var/datum/looping_sound/generator/soundloop
+	var/sheet_name = ""
+#ifdef POWERDEBUG
+	var/sheets_used = 0
+	var/total_charge_outputted_availscale = 0
+	var/time_operated_processscale = 0
+#endif
 
 /obj/machinery/power/port_gen/Initialize(mapload)
 	. = ..()
@@ -30,7 +36,7 @@
 	record_generator_sabotages(user)
 	return TRUE
 
-/obj/machinery/power/port_gen/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/machinery/power/port_gen/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -80,6 +86,16 @@
 			return
 		if(powernet)
 			add_avail(power_gen * power_output)
+			if(is_ground_level(z) && sheet_name)
+				if(!(sheet_name in GLOB.round_statistics.portable_stats_by_sheet_name))
+					GLOB.round_statistics.portable_stats_by_sheet_name += sheet_name
+					GLOB.round_statistics.portable_stats_by_sheet_name[sheet_name] = list("fuel used" = 0, "power output" = 0)
+				GLOB.round_statistics.portable_stats_by_sheet_name[sheet_name]["power output"] += power_gen * power_output * 2  // avail is in watts, 1 avail for 1 tick is 2 watt-seconds = 2 joules
+#ifdef POWERDEBUG
+		if(sheet_name)
+			time_operated_processscale++
+			total_charge_outputted_availscale += power_gen * power_output
+#endif
 		UseFuel()
 		SEND_SIGNAL(src, COMSIG_PORTGEN_PROCESS)
 	else
@@ -97,12 +113,14 @@
 	circuit = /obj/item/circuitboard/machine/pacman
 	var/sheets = 0
 	var/max_sheets = 10
-	var/sheet_name = ""
 	var/sheet_path = /obj/item/stack/sheet/mineral/phoron
-	var/sheet_left = 0 // How much is left of the sheet
-	var/time_per_sheet = 300
+	// How much is left of the sheet
+	var/sheet_left = 0
+	// in ticks (2 seconds)
+	var/time_per_sheet = 900
 	var/current_heat = 0
-	power_gen = 15000
+	var/start_full = TRUE
+	power_gen = 17500
 	interaction_flags = INTERACT_MACHINE_TGUI
 
 /obj/machinery/power/port_gen/pacman/Initialize(mapload)
@@ -116,6 +134,8 @@
 	component_parts += new /obj/item/stack/cable_coil(src)
 	component_parts += new /obj/item/stock_parts/capacitor(src)
 	RefreshParts()
+	if(start_full)
+		sheets = max_sheets
 
 	var/obj/S = sheet_path
 	sheet_name = initial(S.name)
@@ -139,11 +159,22 @@
 
 /obj/machinery/power/port_gen/pacman/examine(mob/user)
 	. = ..()
-	. += span_notice("The generator has [sheets] units of [sheet_name] fuel left, producing [DisplayPower(power_gen)] per cycle.")
+	. += span_notice("The generator has [sheets+sheet_left] units of [sheet_name] fuel left[active ? ", producing [DisplayPower(power_gen * power_output)]" : ". It is not on but if switched on would produce [DisplayPower(power_gen)] on the lowest setting" ].")
+	. += span_notice("Each sheet lasts [DisplayTimeText(time_per_sheet * 2 SECONDS)] at the lowest power setting and provides [DisplayEnergy(power_gen * time_per_sheet * 2)].")
+	if(active)
+		. += span_notice("The generator will keep running for another [DisplayTimeText(time_per_sheet * 2 SECONDS * (sheets+sheet_left) / power_output)], providing [DisplayEnergy((sheets+sheet_left) * power_gen * time_per_sheet * 2)].")
+	else
+		. += span_notice("If switched on, on the lowest setting, the generator would run for [DisplayTimeText(time_per_sheet * 2 SECONDS * (sheets+sheet_left))], providing [DisplayEnergy((sheets+sheet_left) * power_gen * time_per_sheet * 2)]. ")
 	if(anchored)
 		. += span_notice("It is anchored to the ground.")
 	if(in_range(user, src) || isobserver(user))
 		. += span_notice("The status display reads: Fuel efficiency increased by <b>[(consumption*100)-100]%</b>.")
+#ifdef POWERDEBUG
+	. += span_notice("It has outputted a total of [DisplayEnergy(sheets_used * power_gen * time_per_sheet * 2)] (based on [sheets_used] sheets consumed)")
+	. += span_notice("It has outputted a total of [DisplayEnergy(total_charge_outputted_availscale * 2)] (based on [total_charge_outputted_availscale] avail charge units)")
+	. += span_notice("It has been operated for a total of [DisplayTimeText(time_operated_processscale * 2 SECONDS)] (based on [time_operated_processscale] process ticks)")
+	. += span_notice("It has been operated for a total of [DisplayTimeText(sheets_used * time_per_sheet * 2 SECONDS)] (based on [sheets_used] sheets consumed)")
+#endif
 
 /obj/machinery/power/port_gen/pacman/HasFuel()
 	if(sheets >= 1 / (time_per_sheet / power_output) - sheet_left)
@@ -165,6 +196,15 @@
 	if (sheet_left <= 0 && sheets > 0)
 		sheet_left = 1 - needed_sheets
 		sheets--
+	if(is_ground_level(z) && sheet_name)
+		if(!(sheet_name in GLOB.round_statistics.portable_stats_by_sheet_name))
+			GLOB.round_statistics.portable_stats_by_sheet_name += sheet_name
+			GLOB.round_statistics.portable_stats_by_sheet_name[sheet_name] = list("fuel used" = 0, "power output" = 0)
+		GLOB.round_statistics.portable_stats_by_sheet_name[sheet_name]["fuel used"] += temp
+#ifdef POWERDEBUG
+	if(sheet_name)
+		sheets_used += temp
+#endif
 
 	var/lower_limit = 56 + power_output * 10
 	var/upper_limit = 76 + power_output * 10
@@ -219,7 +259,7 @@
 			return
 		else if(O.tool_behaviour == TOOL_SCREWDRIVER)
 			TOGGLE_BITFIELD(machine_stat, PANEL_OPEN)
-			O.play_tool_sound(src)
+			O.play_tool_sound(src, 50)
 			if(machine_stat & PANEL_OPEN)
 				to_chat(user, span_notice("You open the access panel."))
 			else
@@ -253,6 +293,8 @@
 	data["power_output"] = DisplayPower(power_gen * power_output)
 	data["power_available"] = (powernet == null ? 0 : DisplayPower(avail()))
 	data["current_heat"] = current_heat
+	data["charge_left"] = DisplayEnergy((sheets+sheet_left) * power_gen * time_per_sheet * 2)
+	data["time_left"] = active ? DisplayTimeText(time_per_sheet * 2 SECONDS * (sheets+sheet_left) / power_output) : "N/A"
 	. = data
 
 /obj/machinery/power/port_gen/pacman/ui_act(action, list/params)
@@ -279,17 +321,23 @@
 				power_output++
 				. = TRUE
 
+/obj/machinery/power/port_gen/pacman/empty
+	start_full = FALSE
+
 /obj/machinery/power/port_gen/pacman/super
 	name = "\improper S.U.P.E.R.P.A.C.M.A.N.-type portable generator"
 	icon_state = "portgen1"
 	base_icon = "portgen1"
 	circuit = /obj/item/circuitboard/machine/pacman/super
 	sheet_path = /obj/item/stack/sheet/mineral/uranium
-	power_gen = 15000
-	time_per_sheet = 85
+	power_gen = 35000
+	time_per_sheet = 1800
 
 /obj/machinery/power/port_gen/pacman/super/overheat()
 	explosion(loc, 4, explosion_cause=src)
+
+/obj/machinery/power/port_gen/pacman/super/empty
+	start_full = FALSE
 
 /obj/machinery/power/port_gen/pacman/mrs
 	name = "\improper M.R.S.P.A.C.M.A.N.-type portable generator"
@@ -297,8 +345,8 @@
 	icon_state = "portgen2"
 	circuit = /obj/item/circuitboard/machine/pacman/mrs
 	sheet_path = /obj/item/stack/sheet/mineral/diamond
-	power_gen = 40000
-	time_per_sheet = 80
+	power_gen = 80000
+	time_per_sheet = 900
 
 /obj/machinery/power/port_gen/pacman/mrs/overheat()
 	explosion(loc, 4, explosion_cause=src)

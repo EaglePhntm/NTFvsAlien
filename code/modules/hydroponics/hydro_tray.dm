@@ -1,4 +1,5 @@
-#define HYDRO_SPEED_MULTIPLIER 1
+#define HYDRO_SPEED_MULTIPLIER_GOOD (is_ground_level(src.z) ? 3 : 1)
+#define HYDRO_SPEED_MULTIPLIER_BAD 1
 /obj/machinery/hydroponics
 	name = "hydroponics tray"
 	icon = 'icons/obj/machines/hydroponics.dmi'
@@ -9,6 +10,7 @@
 	layer = BELOW_OBJ_LAYER
 	resistance_flags = XENO_DAMAGEABLE
 	allow_pass_flags = PASS_LOW_STRUCTURE|PASSABLE|PASS_WALKOVER
+	use_static_power = TRUE
 	max_integrity = 40
 	soft_armor = list(MELEE = 0, BULLET = 80, LASER = 80, ENERGY = 80, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 
@@ -159,7 +161,7 @@
 	// Weeds like water and nutrients, there's a chance the weed population will increase.
 	// Bonus chance if the tray is unoccupied.
 	if(waterlevel > 10 && nutrilevel > 2 && prob(isnull(seed) ? 5 : 1))
-		weedlevel += 1 * HYDRO_SPEED_MULTIPLIER
+		weedlevel += 1 * HYDRO_SPEED_MULTIPLIER_BAD
 
 	// There's a chance for a weed explosion to happen if the weeds take over.
 	// Plants that are themselves weeds (weed_tolerance > 10) are unaffected.
@@ -174,7 +176,7 @@
 		return
 
 	// Advance plant age.
-	if(prob(30)) age += 1 * HYDRO_SPEED_MULTIPLIER
+	if(prob(30)) age += 1 * HYDRO_SPEED_MULTIPLIER_GOOD
 
 	//Highly mutable plants have a chance of mutating every tick.
 	if(seed.immutable == -1)
@@ -189,17 +191,17 @@
 
 	// Maintain tray nutrient and water levels.
 	if(seed.nutrient_consumption > 0 && nutrilevel > 0 && prob(25))
-		nutrilevel -= max(0,seed.nutrient_consumption * HYDRO_SPEED_MULTIPLIER)
+		nutrilevel -= max(0,seed.nutrient_consumption * HYDRO_SPEED_MULTIPLIER_BAD)
 	if(seed.water_consumption > 0 && waterlevel > 0  && prob(25))
-		waterlevel -= max(0,seed.water_consumption * HYDRO_SPEED_MULTIPLIER)
+		waterlevel -= max(0,seed.water_consumption * HYDRO_SPEED_MULTIPLIER_BAD)
 
 	// Make sure the plant is not starving or thirsty. Adequate
 	// water and nutrients will cause a plant to become healthier.
-	var/healthmod = rand(1,3) * HYDRO_SPEED_MULTIPLIER
+	var/healthmod = rand(1,3)
 	if(seed.requires_nutrients && prob(35))
-		health += (nutrilevel < 2 ? -healthmod : healthmod)
+		health += (nutrilevel < 2 ? -healthmod * HYDRO_SPEED_MULTIPLIER_BAD : healthmod * HYDRO_SPEED_MULTIPLIER_GOOD)
 	if(seed.requires_water && prob(35))
-		health += (waterlevel < 10 ? -healthmod : healthmod)
+		health += (waterlevel < 10 ? -healthmod * HYDRO_SPEED_MULTIPLIER_BAD : healthmod * HYDRO_SPEED_MULTIPLIER_GOOD)
 
 	// Check that pressure, heat and light are all within bounds.
 	// First, handle an open system or an unconnected closed system.
@@ -227,30 +229,30 @@
 	// Some carnivorous plants happily eat pests.
 	if(pestlevel > 0)
 		if(seed.carnivorous)
-			health += HYDRO_SPEED_MULTIPLIER
-			pestlevel -= HYDRO_SPEED_MULTIPLIER
+			health += HYDRO_SPEED_MULTIPLIER_GOOD
+			pestlevel -= HYDRO_SPEED_MULTIPLIER_GOOD
 		else if (pestlevel >= seed.pest_tolerance)
-			health -= HYDRO_SPEED_MULTIPLIER
+			health -= HYDRO_SPEED_MULTIPLIER_BAD
 
 	// Some plants thrive and live off of weeds.
 	if(weedlevel > 0)
 		if(seed.parasite)
-			health += HYDRO_SPEED_MULTIPLIER
-			weedlevel -= HYDRO_SPEED_MULTIPLIER
+			health += HYDRO_SPEED_MULTIPLIER_GOOD
+			weedlevel -= HYDRO_SPEED_MULTIPLIER_GOOD
 		else if (weedlevel >= seed.weed_tolerance)
-			health -= HYDRO_SPEED_MULTIPLIER
+			health -= HYDRO_SPEED_MULTIPLIER_BAD
 
 	// Handle life and death.
 	// If the plant is too old, it loses health fast.
 	if(age > seed.lifespan)
-		health -= rand(3,5) * HYDRO_SPEED_MULTIPLIER
+		health -= rand(3,5) * HYDRO_SPEED_MULTIPLIER_BAD
 
 	// When the plant dies, weeds thrive and pests die off.
 	if(health <= 0)
 		dead = 1
 		mutation_level = 0
 		harvest = 0
-		weedlevel += 1 * HYDRO_SPEED_MULTIPLIER
+		weedlevel += 1 * HYDRO_SPEED_MULTIPLIER_BAD
 		pestlevel = 0
 
 	// If enough time (in cycles, not ticks) has passed since the plant was harvested, we're ready to harvest again.
@@ -260,7 +262,7 @@
 		lastproduce = age
 
 	if(prob(3))  // On each tick, there's a chance the pest population will increase
-		pestlevel += 0.1 * HYDRO_SPEED_MULTIPLIER
+		pestlevel += 0.1 * HYDRO_SPEED_MULTIPLIER_BAD
 
 	check_level_sanity()
 	update_icon()
@@ -682,4 +684,5 @@
 	resistance_flags = XENO_DAMAGEABLE
 	max_integrity = 80
 
-#undef HYDRO_SPEED_MULTIPLIER
+#undef HYDRO_SPEED_MULTIPLIER_GOOD
+#undef HYDRO_SPEED_MULTIPLIER_BAD

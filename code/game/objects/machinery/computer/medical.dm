@@ -20,7 +20,7 @@
 	set name = "Eject ID Card"
 	set src in oview(1)
 
-	if(!usr || usr.stat || usr.lying_angle)
+	if(!usr || usr.stat)
 		return
 
 	if(scan)
@@ -483,7 +483,7 @@
 
 /obj/machinery/computer/med_data/laptop
 	name = "Medical Laptop"
-	desc = "Cheap Nanotrasen Laptop."
+	desc = "Cheap Ninetails Laptop."
 	icon_state = "computer_small"
 	screen_overlay = "medlaptop"
 	density = FALSE

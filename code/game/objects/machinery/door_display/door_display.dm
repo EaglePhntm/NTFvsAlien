@@ -48,7 +48,9 @@
 	if(machine_stat & (NOPOWER|BROKEN))
 		return FALSE
 
-	for(var/obj/machinery/door/D in targets)
+	for(var/obj/machinery/door/airlock/D in targets)
+		if(!istype(D))
+			continue
 		if(!D.density)
 			continue
 		D.open()
@@ -63,7 +65,9 @@
 	if(machine_stat & (NOPOWER|BROKEN))
 		return FALSE
 
-	for(var/obj/machinery/door/D in targets)
+	for(var/obj/machinery/door/airlock/D in targets)
+		if(!istype(D))
+			continue
 		if(D.density)
 			continue
 		D.close()
@@ -253,3 +257,15 @@
 /obj/machinery/door_display/research_cell/cell/cell2
 	name = "Containment Cell 2 Control"
 	id = "Containment Cell 2"
+
+/obj/machinery/door_display/research_cell/brig/cell1
+	name = "Brig Cell 1 Control"
+	id = "Brig Cell 1"
+
+/obj/machinery/door_display/research_cell/brig/cell2
+	name = "Brig Cell 2 Control"
+	id = "Brig Cell 2"
+
+/obj/machinery/door_display/research_cell/brig/cell3
+	name = "Brig Cell 3 Control"
+	id = "Brig Cell 3"

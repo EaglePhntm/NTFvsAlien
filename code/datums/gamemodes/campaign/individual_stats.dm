@@ -1,5 +1,5 @@
 #define TAB_LOADOUT "Loadout"
-#define TAB_PERKS "Perks"
+#define TAB_PERKS "Skillsoft"
 
 /datum/individual_stats
 	interaction_flags = INTERACT_UI_INTERACT
@@ -60,7 +60,8 @@
 	currency += amount
 	if(!current_mob)
 		return
-	to_chat(current_mob, span_warning("You have received a cash bonus of [amount]."))
+	to_chat(current_mob, span_warning("(N-UI) Transaction: +[amount] credits."))
+	current_mob.playsound_local(current_mob, 'sound/effects/perk_unlock.ogg', 60)
 
 ///uses some funtokens, returns the amount missing, if insufficient funds
 /datum/individual_stats/proc/use_funds(amount)
@@ -69,13 +70,18 @@
 	currency -= amount
 
 ///Adds a perk if able
-/datum/individual_stats/proc/purchase_perk(datum/perk/new_perk, mob/living/user)
+/datum/individual_stats/proc/purchase_perk(datum/perk/new_perk, mob/living/user, for_free = FALSE)
 	. = TRUE
 	if(!istype(new_perk))
 		return FALSE
 	if(new_perk in unlocked_perks)
 		to_chat(user, span_warning("Perk already purchased."))
 		return FALSE
+	if(ishuman(user))
+		var/mob/living/carbon/human/huser = user
+		if(isspeciessynthetic(huser) || isrobot(huser) || is_species(huser, /datum/species/human/prototype_supersoldier))
+			to_chat(user, span_warning("Your species can't benefit from skillsofts."))
+			return FALSE
 	if(length(new_perk.prereq_perks))
 		var/perk_found
 		for(var/prereq in new_perk.prereq_perks)
@@ -87,9 +93,10 @@
 			if(!perk_found)
 				to_chat(user, span_warning("One or more prerequisites missing for this perk."))
 				return FALSE
-	if(use_funds(new_perk.unlock_cost))
-		to_chat(user, span_warning("Insufficient funds for this perk."))
-		return FALSE
+	if(!for_free)
+		if(use_funds(new_perk.unlock_cost))
+			to_chat(user, span_warning("Insufficient funds for this perk."))
+			return FALSE
 
 	new_perk.unlock_bonus(user, src)
 	unlocked_perks += new_perk
@@ -357,19 +364,22 @@
 			if(!istype(user) || user.stat)
 				to_chat(user, span_warning("Must be alive to do this!"))
 				return
-			if(iscampaigngamemode(SSticker.mode))
-				var/datum/campaign_mission/current_mission = get_current_mission()
-				if(!current_mission || current_mission.mission_state == MISSION_STATE_FINISHED)
+			var/datum/campaign_mission/current_mission = get_current_mission()
+			if(current_mission)
+				if(current_mission.mission_state == MISSION_STATE_FINISHED)
 					to_chat(user, span_warning("Wait for the next mission to be selected!"))
 					return
 			var/obj/item/card/id/user_id = user.get_idcard()
+			if(!(SSticker.mode.round_type_flags2 & MODE_2_ALLOW_LOADOUTS))
+				to_chat(user, span_warning("You don't need to use this in this gamemode."))
+				return
 			if(!(user_id.id_flags & CAN_BUY_LOADOUT))
 				to_chat(user, span_warning("You have already selected a loadout for this mission."))
 				return
 			if(user.job.title != job)
 				to_chat(user, span_warning("Invalid job. This outfit is for [job]."))
 				return
-			if(!is_mainship_level(user.z))
+			if(!is_mainship_level(user.z) && !is_antagmainship_level(user.z) && !istype(get_area(user), /area/shuttle/canterbury))
 				to_chat(user, span_warning("You can't equip a new loadout in the field!"))
 				return
 			if(!loadouts[job].check_full_loadout())
@@ -382,7 +392,22 @@
 			loadouts[job].equip_loadout(user)
 			user.playsound_local(user, 'sound/effects/menu_click.ogg', 50)
 			user_id.id_flags &= ~CAN_BUY_LOADOUT
+			if(!iscampaigngamemode(SSticker.mode))
+				//those can practically give special op gear to others if rebought, sorry bros. (quick equip vendor moment)
+				if(user.job.title in list(SOM_SQUAD_VETERAN))
+					return
+				addtimer(CALLBACK(src, PROC_REF(reenable_loadout_select), user), 1 HOURS)
 			return TRUE
+
+/datum/individual_stats/proc/reenable_loadout_select(mob/living/user)
+	if(QDELETED(user))
+		return
+	var/obj/item/card/id/user_id = user.get_idcard()
+	if(user.client)
+		user.playsound_local(user.loc, 'sound/machines/ping.ogg', 25)
+		user.balloon_alert(user, "You are now authorized to another loadout purchase.")
+		to_chat(user, span_nicegreen("You are now authorized to another loadout purchase."))
+	user_id.id_flags |= CAN_BUY_LOADOUT
 
 //loadout/perk UI for campaign gamemode
 /datum/action/campaign_loadout

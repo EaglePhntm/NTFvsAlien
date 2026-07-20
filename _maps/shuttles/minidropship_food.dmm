@@ -202,7 +202,6 @@
 "P" = (
 /obj/machinery/door_control/minidropship{
 	dir = 4;
-	id = "minidropship_podlock";
 	name = "inner door-control";
 	pixel_x = -25;
 	pixel_y = 8
@@ -220,7 +219,6 @@
 /obj/structure/dropship_piece/tadpole/rearright{
 	dir = 1
 	},
-/obj/machinery/telecomms/relay/preset/telecomms/onboard,
 /turf/template_noop,
 /area/shuttle/minidropship)
 "V" = (

@@ -80,7 +80,7 @@
 
 /datum/reagent/consumable/ethanol/nt_beer
 	name = "Aspen Beer"
-	description = "Pretty good when you get past the fact that it tastes like piss. Canned by the Nanotrasen Corporation."
+	description = "Pretty good when you get past the fact that it tastes like piss. Canned by the Ninetails Corporation."
 	color = "#ffcc66"
 	boozepwr = 5 //Space Europeans hate it
 	taste_description = "dish water"
@@ -313,7 +313,7 @@
 			L.hallucination = max(L.hallucination, 60)
 			L.jitter(4)
 			L.dizzy(4)
-			L.druggy = max(L.druggy, 60)
+			L.druggy(60)
 			if(prob(10))
 				L.emote(pick("twitch","giggle"))
 			if(prob(30))
@@ -330,7 +330,7 @@
 			L.hallucination = max(L.hallucination, 60)
 			L.jitter(4)
 			L.dizzy(4)
-			L.druggy = max(L.druggy, 60)
+			L.druggy(60)
 			if(ishuman(L) && prob(10))
 				var/mob/living/carbon/human/H = L
 				var/datum/internal_organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
@@ -433,7 +433,7 @@
 	boozepwr = 55
 
 /datum/reagent/consumable/ethanol/bloody_mary/on_mob_life(mob/living/L, metabolism)
-	if(L.blood_volume < BLOOD_VOLUME_NORMAL)
+	if(L.get_blood_volume() < BLOOD_VOLUME_NORMAL)
 		L.adjust_blood_volume(0.3) //Bloody Mary slowly restores blood loss.
 	return ..()
 
@@ -670,7 +670,7 @@
 
 /datum/reagent/consumable/ethanol/grog
 	name = "Grog"
-	description = "Watered-down rum, Nanotrasen approves!"
+	description = "Watered-down rum, Ninetails approves!"
 	color = "#e0e058" // rgb: 224,224,88
 	taste_description = "a poor excuse for alcohol"
 	boozepwr = 1
@@ -705,7 +705,7 @@
 
 /datum/reagent/consumable/ethanol/amasec
 	name = "Amasec"
-	description = "Official drink of the NanoTrasen Gun-Club!"
+	description = "Official drink of the Ninetails Gun-Club!"
 	color = "#e0e058" // rgb: 224,224,88
 	taste_description = "dark and metallic"
 	boozepwr = 35

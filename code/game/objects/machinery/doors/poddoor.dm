@@ -246,6 +246,9 @@
 /obj/machinery/door/poddoor/mainship/indestructible
 	resistance_flags = RESIST_ALL
 
+/obj/machinery/door/poddoor/mainship/req_hvh
+	id = "req_hvh"
+	resistance_flags = RESIST_ALL
 
 /obj/machinery/door/poddoor/timed_late
 	icon = 'icons/obj/doors/mainship/blastdoors_shutters.dmi'
@@ -291,7 +294,7 @@
 
 ///Faction signals for campaign mode doors
 GLOBAL_LIST_INIT(faction_to_campaign_door_signal, list(
-	FACTION_TERRAGOV = COMSIG_GLOB_OPEN_CAMPAIGN_SHUTTERS_TGMC,
+	FACTION_TERRAGOV = COMSIG_GLOB_OPEN_CAMPAIGN_SHUTTERS_NTC,
 	FACTION_SOM = COMSIG_GLOB_OPEN_CAMPAIGN_SHUTTERS_SOM,
 ))
 

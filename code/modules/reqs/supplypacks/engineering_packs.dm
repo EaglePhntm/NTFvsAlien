@@ -36,10 +36,25 @@ ENGINEERING
 	contains = list(/obj/item/stack/sheet/wood/large_stack)
 	cost = 100
 
+/datum/supply_packs/engineering/plastic50
+	name = "50 plastic sheets"
+	contains = list(/obj/item/stack/sheet/mineral/plastic/large_stack)
+	cost = 100
+
+/datum/supply_packs/engineering/cloth50
+	name = "50 cloth sheets"
+	contains = list(/obj/item/stack/sheet/cloth/large_stack)
+	cost = 100
+
 /datum/supply_packs/engineering/plasmacutter
 	name = "Plasma cutter"
 	contains = list(/obj/item/tool/pickaxe/plasmacutter/)
 	cost = 300
+
+/datum/supply_packs/engineering/handcrank
+	name = "Hand held charger"
+	contains = list(/obj/item/tool/handheld_charger)
+	cost = 500
 
 /datum/supply_packs/engineering/quikdeploycade
 	name = "Quikdeploy barricade"
@@ -48,14 +63,29 @@ ENGINEERING
 
 /datum/supply_packs/engineering/pacman
 	name = "P.A.C.M.A.N. Portable Generator"
-	contains = list(/obj/machinery/power/port_gen/pacman)
+	notes = "Uses phoron sheets as fuel to produce power. Fuel not included, buy it separately."
+	contains = list(/obj/machinery/power/port_gen/pacman/empty)
 	cost = 150
 	containertype = null
 
 /datum/supply_packs/engineering/phoron
 	name = "30 phoron sheets"
+	notes = "Fuel for the P.A.C.M.A.N. Portable Generator"
 	contains = list(/obj/item/stack/sheet/mineral/phoron/medium_stack)
 	cost = 200
+
+/datum/supply_packs/engineering/pacman_super
+	name = "S.U.P.E.R.P.A.C.M.A.N. Portable Generator"
+	notes = "Uses uranium sheets as fuel to produce power. Fuel not included, buy it separately."
+	contains = list(/obj/machinery/power/port_gen/pacman/super/empty)
+	cost = 750
+	containertype = null
+
+/datum/supply_packs/engineering/uranium
+	name = "30 uranium sheets"
+	notes = "Fuel for the S.U.P.E.R.P.A.C.M.A.N. Portable Generator"
+	contains = list(/obj/item/stack/sheet/mineral/uranium/medium_stack)
+	cost = 775
 
 /datum/supply_packs/engineering/electrical
 	name = "Electrical maintenance supplies"
@@ -107,12 +137,12 @@ ENGINEERING
 	cost = 50
 
 /datum/supply_packs/engineering/foam_grenade
-	name = "Foam grenade"
+	name = "Foam Grenade"
 	contains = list(/obj/item/explosive/grenade/chem_grenade/metalfoam)
-	cost = 30
+	cost = 20
 
 /datum/supply_packs/engineering/floodlight
-	name = "Deployable floodlight"
+	name = "Deployable Floodlight"
 	contains = list(/obj/item/deployable_floodlight)
 	cost = 30
 

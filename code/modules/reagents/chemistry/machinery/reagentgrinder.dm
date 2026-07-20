@@ -6,7 +6,8 @@
 	icon_state = "juicer1"
 	layer = BELOW_OBJ_LAYER
 	density = FALSE
-	anchored = FALSE
+	anchored = TRUE
+	wrenchable = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 5
 	active_power_usage = 100
@@ -25,6 +26,8 @@
 		/obj/item/grown/nettle/death = list(/datum/reagent/toxin/acid/polyacid = 0),
 		/obj/item/grown/nettle = list(/datum/reagent/toxin/acid = 0),
 		/obj/item/alien_embryo = list(/datum/reagent/consumable/larvajelly = 5),
+		/obj/item/resin_jelly = list(/datum/reagent/consumable/larvajelly = 10),
+		/obj/item/reagent_containers/food/snacks/nutrient_jelly = list(/datum/reagent/consumable/larvajelly = 15),
 
 		//Blender Stuff
 		/obj/item/reagent_containers/food/snacks/grown/soybeans = list(/datum/reagent/consumable/soymilk = 0),

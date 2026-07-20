@@ -1,3 +1,131 @@
+2026-07-01:
+  Ldip999:
+  - bugfix: Failsafes added to slot changes.
+  Lewdissar:
+  - bugfix: Gives KZ Combat Escort their intended research ability, fixes an oversight
+      in their join text.
+  Meghan-Rossi:
+  - rscadd: All (T1+) Xenos can now corrupt geothermal generators
+  - rscadd: Added in-game rules, click the rules button to see them.
+2026-07-02:
+  Lewdissar:
+  - rscadd: Added two new types of crop top turtlenecks with two color variants each
+      (Black and White)
+  - rscadd: KZ Synth role and related bullshit shipside. It does the exact same shit
+      as a normal synth dog.
+  Meghan-Rossi:
+  - balance: Bull health increased from 425 to 445
+  - balance: Carrier health increased from 425 to 445
+  - balance: Defender health increased from 420 to 460
+  - balance: Drone health increased from 380 to 415
+  - balance: Hivelord health increased from 380 to 395
+  - balance: Hivemind health increased from 100 to 115
+  - balance: Hunter health increased from 360 to 375
+  - balance: Larva health increased from 50 to 60
+  - balance: Puppeteer health increased from 365 to 380
+  - balance: Primordial puppeteer health increased from 380 to 415
+  - balance: Pyrogen health increased from 380 to 395
+  - balance: Runner health increased from 300 to 330
+  - balance: Melter health increased from 350 to 385
+  - balance: Sentinel health increased from 370 to 405
+  - balance: Spitter health increased from 360 to 375
+  - balance: Globadier health increased from 320 to 335
+  - balance: Warrior health increased from 400 to 420
+  - balance: Wraith health increased from 340 to 355
+  - balance: Player-controlled facehugger health increased from 30 to 35
+  - balance: Player-controlled slash facehugger health increased from 50 to 55
+  - balance: Assassain health increased from 300 to 315
+  - balance: Panther health increased from 240 to 260
+  SQLandrusk:
+  - rscdel: Removed intel drought processes
+  Therealdoooc213:
+  - bugfix: adresses some issues with the SOM ship PR
+  - rscadd: SOM Military Police/chief
+  - rscadd: new SOM ship
+2026-07-03:
+  CaputCapital:
+  - rscadd: meats, ingredients, sake, more kitchen appliances, hydroponics and seeds
+      to requisitions imports
+  - rscadd: export variant of the CC67 rifle.
+  - rscadd: CC67 CQB and mags can now be purchased through requisitions imports
+  - balance: slight tweaks to the regular CC67 rifle
+  - bugfix: gives the aforementioned actual calibers defined in the caliber.dm
+  - bugfix: NTF spec now can use points to get additional MPAR mags
+  - bugfix: inhands sprites for xmdivider and ntdivider have been fixed and repathed
+      appropriately
+  SpooksAnno:
+  - rscadd: Reworked the character creator with clearer grouped customization sections.
+  - rscadd: Added taur body customization support.
+  - rscadd: Re-enabled Vatborn character creation support.
+  - rscadd: Added xenomorph hybrid head and dorsal customization support.
+  - rscadd: Added lightweight Teshari species support for testing and development.
+  - rscadd: Added Teshari ears, tails, taur bodies, and related sprite accessory support.
+  - rscadd: Added Teshari-specific worn sprite support for several clothing slots.
+  - rscadd: Added Teshari ID, underwear, and focused armor sprite support.
+  - rscadd: Added species-specific worn icon fallback handling for Teshari.
+  - rscadd: Added lightweight genital display states, including stored, partial, flaccid,
+      and erect visuals.
+  - rscadd: Added sheath and slit storage handling for penis customization.
+  - rscadd: Added a tester-only Teshari species picker whitelist while Teshari remains
+      unavailable for normal roundstart selection.
+  - imageadd: Added new Teshari, taur, xeno hybrid, humanoid greyscale, and clothing
+      sprite assets.
+  - qol: Improved character creator organization so body, head, back/tail/wing, and
+      soft anatomy options are easier to navigate.
+  - bugfix: Fixed several character creator preview, sprite layering, and species
+      customization issues
+  - refactor: Moved the character creator into the native code path instead of keeping
+      it as a modular override.
+  Therealdoooc213:
+  - bugfix: The CMP can now opeen their office on the SOM Ship
+  - bugfix: The autodoc on the SOM ship now works.
+  - bugfix: there is no longer random shutters in the reqline
+2026-07-04:
+  CaputCapital:
+  - rscadd: Adds the CM marksman loadout as intended.
+  Ldip999:
+  - bugfix: SOM squad jobs now have proper access
+  Meghan-Rossi:
+  - balance: Synthetics can no longer fire lethal ammunition, except on red alert
+2026-07-05:
+  Lewdissar:
+  - bugfix: Fixes the CC/67 Import version's sprites having been deleted
+  - bugfix: Gives AGLS it's aim mode back and allows it's scope to look at the maximum
+      range of it's grenades.
+  - rscadd: Added the new Vantage Marksman carbine, OV-120 Night vision scope and
+      SPP and PZ ammunition types for 9x39mm
+  - balance: ' Valerian no longer takes bayonets, stock no longer removable, new specific
+      scope type with less range but less movespeed penalty'
+  - bugfix: Valerian and Vantage now integrally suppressed.
+2026-07-06:
+  Colfer1:
+  - rscadd: Surrender now actually works, your welcome
+  - balance: Synths can have sex now (They get sex skill)
+  SpooksAnno:
+  - bugfix: Fixed active factory conveyors not picking up newly-produced factory parts.
+  - bugfix: Fixed hivelords not naturally regenerating to their displayed maximum
+      plasma.
+  - bugfix: Fixed 14x5mm ammo handfuls using the wrong world sprite amount.
+  - bugfix: Fixed xeno wall slams/nesting behavior so intent determines whether a
+      dragged target is nested or slammed.
+  - bugfix: Fixed some flashbang blur cases persisting longer than intended.
+  - bugfix: Fixed Ripley cargo arms being dropped when climbing ladders.
+  - qol: Fixed the Quicksex preference toggle not toggling properly.
+  - code_imp: Added safeguards for several reported runtimes.
+  - bugfix: Defines what the (large) ears are, now shown in game.
+  - bugfix: Corrects bad behavior shown on cell charger
+  - bugfix: Synthetic jobs now pull from the updated character visualizer, instead
+      of the old one
+  - bugfix: Fixed syndicate factory unboxers falling back to invalid filler output
+      when using refills without a specific antag refill type.
+  Therealdoooc213:
+  - balance: Chainsaw damage nerfed from 150 to 75
+2026-07-08:
+  Colfer1:
+  - qol: you can now make ID's and backpacks/belts invisible too
+  - balance: robots benefit from sleeping too
+  Meghan-Rossi:
+  - balance: weeds speed xenos up again
 2026-07-09:
   AzonStarfall:
   - rscadd: Added the TGS Legacy of Spring
@@ -7,3 +135,74 @@
       arrival/departure.
   - imageadd: Added various flavor mapping props.
   - config: Added new configuration settings for the TGS Legacy of Spring
+  Colfer1:
+  - rscadd: hivemind can now spawn minions of varying types
+2026-07-10:
+  CaputCapital:
+  - bugfix: CM Guardsman MP-IRL loadout belt gives correct ammo now
+  - balance: ML-41A stats changed for less falloff
+  Lewdissar:
+  - rscadd: Changes a ton of shit with the KRD-61ES to make it actually mildly balanced
+      and usable by the average joe shooting it from the hip (worse accuracy than
+      the confontation rifle)
+  - rscadd: lMG-DM, a modernized lMG-D. lMG-D Ammo Pack.
+  - bugfix: fixes the lMG-D's firing sprite being overwritten by the magazine, fixes
+      the lMG-D's stocks using the AK's sprites, finally adds the heeled jackboots
+      and knee/thigh high jackboots to SOM vendor, changes the on-mob sprite of the
+      heeled jackboots for a more suitable one.
+  - bugfix: Reduced the price from the belt pack from 350 to 50 since they're UNABLE
+      to be reloaded.
+  SQLandrusk:
+  - rscadd: Added sfw ones
+  - rscdel: Removed porn screens
+  - rscadd: makes a useless copy of old title art
+  SpaghettiNew:
+  - bugfix: fixed missing direction signs on Container ship
+2026-07-11:
+  SQLandrusk:
+  - rscadd: Ghost title screens.
+2026-07-12:
+  CaputCapital:
+  - balance: nerfs MINIB 9MM spec damage and slight buff to sunder
+  Colfer1:
+  - bugfix: Survivors shouldn't spawn on the planet anymore, unless it is colony fall
+  - qol: stripper survivors have sex skill now
+  - balance: rebalanced some of widows stuff
+2026-07-14:
+  CaputCapital:
+  - soundadd: more neutral, loss, nuclear detonation and triumph themes for round
+      end
+  Meghan-Rossi:
+  - balance: HPDP phosphorous grenades and 84mm phosphorous rockets now produce less
+      intense flames.
+2026-07-15:
+  destrucktoid:
+  - rscadd: Added new rules
+2026-07-17:
+  Colfer1:
+  - qol: war no longer makes xeno wives sad
+  EaglePhntm:
+  - rscadd: Steals day and night cycles from somewhere.
+  tempelers:
+  - rscadd: Added Sex 2 to SO/Colony Administrator.
+2026-07-18:
+  EaglePhntm:
+  - balance: tanks now have very high HVH armor
+  - balance: tanks now have a 90% chance to deflect projectiles that are less than
+      1/3 of their AP of type.
+  - balance: Tanks can no longer be damaged by melee weapons or anything that a human
+      can hit it using harm intent.
+  Meghan-Rossi:
+  - rscadd: Carriers with the ovipositor mutation no longer convert latching huggers
+      to normal ones when storing them.  They can now only store latching huggers.
+  - balance: Athena APC melee armor increased from 40 to 45
+  tempelers:
+  - balance: reduces admin slots.
+  - bugfix: Fixes sex not being properly 2.
+2026-07-19:
+  CaputCapital:
+  - balance: KHM4 damage switched from 1.05 to 1, damage falloff mult from 1 to 1.2.
+  Meghan-Rossi:
+  - balance: Reduced direct hit bonus damage for spray flamers by 70%.  (This has
+      no effect on the damage from walking through the flames)
+

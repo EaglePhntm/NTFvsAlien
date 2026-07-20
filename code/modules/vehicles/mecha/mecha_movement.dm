@@ -122,13 +122,15 @@
 	. = ..()
 	if(phasing) //Theres only one cause for phasing canpass fails
 		to_chat(occupants, "[icon2html(src, occupants)][span_warning("A dull, universal force is preventing you from [phasing] here!")]")
-		spark_system.start()
+		spark_system?.start()
 		return
 	if(.) //mech was thrown/door/whatever
 		return
 	if(bumpsmash) //Need a pilot to push the PUNCH button.
 		if(COOLDOWN_FINISHED(src, mecha_bump_smash))
 			var/list/mob/mobster = return_drivers()
+			if(!length(mobster))
+				return
 			obstacle.mech_melee_attack(src, mobster[1])
 			COOLDOWN_START(src, mecha_bump_smash, smashcooldown)
 			if(!obstacle || obstacle.CanPass(src, get_dir(obstacle, src) || dir)) // The else is in case the obstacle is in the same turf.

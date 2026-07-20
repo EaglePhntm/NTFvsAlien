@@ -28,7 +28,9 @@
 /turf/open/floor/marking/loadingarea{
 	dir = 4
 	},
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "ag" = (
 /obj/structure/flora/ausbushes/fernybush{
 	pixel_y = 11
@@ -476,6 +478,7 @@
 /area/lv624/lazarus/hydroponics)
 "cB" = (
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 10
 	},
@@ -1019,9 +1022,6 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/research/caves)
 "fq" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 4
 	},
@@ -1195,7 +1195,9 @@
 "gl" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/marking/bot,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "gm" = (
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_x = -2;
@@ -1552,7 +1554,9 @@
 /turf/open/floor/marking/warning{
 	dir = 8
 	},
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "hZ" = (
 /obj/structure/window/framed/colony/reinforced,
 /turf/open/floor/tile/red/redtaupe{
@@ -1947,7 +1951,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/largecrate/random/case/small,
 /turf/open/floor,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "kb" = (
 /obj/structure/flora/ausbushes/genericbush{
 	pixel_x = -7;
@@ -2074,6 +2080,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/engineering)
 "kN" = (
@@ -2127,7 +2134,9 @@
 "la" = (
 /obj/effect/landmark/corpsespawner/colonist/regular,
 /turf/open/floor/marking/bot,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "lb" = (
 /obj/structure/largecrate/random,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -2168,10 +2177,10 @@
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable,
 /area/lv624/ground/jungle5)
 "lm" = (
-/obj/vehicle/train/cargo/trolley,
-/obj/structure/cable,
 /turf/open/floor/marking/bot,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "lp" = (
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_x = -9;
@@ -2536,7 +2545,9 @@
 "ni" = (
 /obj/structure/fence,
 /turf/open/floor/marking/warning,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "nj" = (
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
 	dir = 1
@@ -2974,7 +2985,9 @@
 "pu" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "pv" = (
 /obj/structure/table,
 /obj/machinery/reagentgrinder,
@@ -3015,7 +3028,9 @@
 "pF" = (
 /obj/structure/largecrate/random/case/double,
 /turf/open/floor,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "pG" = (
 /turf/open/floor/tile/white/warningstripe{
 	dir = 1
@@ -3085,11 +3100,16 @@
 /turf/open/ground/grass/weedable,
 /area/lv624/ground/jungle9)
 "qb" = (
-/obj/machinery/light,
 /obj/effect/landmark/corpsespawner/colonist/regular,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/machinery/power/apc/drained{
+	dir = 1
+	},
 /turf/open/floor,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "qc" = (
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 5
@@ -3128,6 +3148,10 @@
 	dir = 1
 	},
 /area/lv624/ground/river3)
+"ql" = (
+/obj/effect/landmark/patrol_point/xeno/xeno_21,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/jungle9)
 "qm" = (
 /obj/structure/flora/jungle/vines,
 /turf/open/liquid/water/river,
@@ -3544,9 +3568,7 @@
 /area/lv624/ground/jungle10)
 "ss" = (
 /obj/effect/landmark/corpsespawner/pmc,
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
+/turf/open/floor/engine/cult,
 /area/lv624/ground/caves/west1/garbledradio)
 "st" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -3571,6 +3593,7 @@
 /area/lv624/lazarus/security)
 "sw" = (
 /obj/item/toy/beach_ball/basketball,
+/obj/effect/landmark/static_comms/net_two,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/fitness)
 "sx" = (
@@ -3581,6 +3604,7 @@
 /area/lv624/lazarus/medbay)
 "sy" = (
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/fitness)
 "sA" = (
@@ -3596,9 +3620,6 @@
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable,
 /area/lv624/ground/jungle7)
 "sC" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -4151,6 +4172,11 @@
 	dir = 4
 	},
 /area/lv624/lazarus/fitness)
+"vs" = (
+/obj/effect/landmark/weed_node,
+/obj/effect/landmark/patrol_point/xeno/xeno_11,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/central1)
 "vt" = (
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/west1)
@@ -4342,6 +4368,7 @@
 	dir = 9
 	},
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/wood,
 /area/lv624/lazarus/chapel)
 "wF" = (
@@ -4862,11 +4889,6 @@
 	dir = 9
 	},
 /area/lv624/lazarus/sleep_male)
-"zg" = (
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
-/area/lv624/ground/caves/west1/garbledradio)
 "zi" = (
 /obj/structure/window_frame/wood,
 /obj/item/shard,
@@ -5172,10 +5194,6 @@
 /obj/effect/turf_decal/warning_stripes/thick,
 /turf/open/floor,
 /area/lv624/lazarus/spaceport)
-"Ay" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/closed/mineral/smooth/indestructible,
-/area/storage/testroom)
 "Az" = (
 /obj/effect/landmark/zombie_spawner,
 /turf/open/floor/plating/ground/dirt,
@@ -5406,6 +5424,7 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/wood,
 /area/lv624/lazarus/bar)
 "BM" = (
@@ -5422,12 +5441,12 @@
 /area/lv624/ground/caves/west1/garbledradio)
 "BO" = (
 /obj/effect/landmark/weed_node,
+/obj/vehicle/train/cargo/engine,
 /turf/open/floor/marking/bot,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "BP" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
 /turf/open/floor/tile/red/redtaupe{
 	dir = 9
 	},
@@ -5891,6 +5910,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/tile/bar,
 /area/lv624/lazarus/canteen)
 "Et" = (
@@ -5987,6 +6007,7 @@
 /area/lv624/lazarus/bar)
 "ER" = (
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/start/latejoinsurvivor,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle7)
 "EU" = (
@@ -5999,6 +6020,13 @@
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1/garbledradio)
+"EX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/turf/open/floor/marking/bot,
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "EY" = (
 /obj/effect/ai_node,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -6277,6 +6305,15 @@
 /obj/structure/stairs,
 /turf/open/floor/wood,
 /area/lv624/lazarus/chapel)
+"Gv" = (
+/obj/structure/prop/mainship/railing{
+	dir = 4
+	},
+/obj/machinery/computer/supplycomp/colony,
+/turf/open/floor,
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "Gx" = (
 /obj/structure/catwalk,
 /turf/open/ground/coast,
@@ -6403,7 +6440,9 @@
 "GY" = (
 /obj/structure/largecrate/random/case,
 /turf/open/floor,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "GZ" = (
 /obj/structure/table/reinforced/flipped{
 	dir = 4
@@ -6539,9 +6578,7 @@
 	dir = 1
 	},
 /obj/item/clothing/shoes/cult,
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
+/turf/open/floor/engine/cult,
 /area/lv624/ground/caves/west1/garbledradio)
 "HL" = (
 /obj/machinery/door/airlock/mainship/secure/free_access,
@@ -6998,7 +7035,9 @@
 /turf/open/floor/marking/loadingarea{
 	dir = 4
 	},
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "JM" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
@@ -7338,6 +7377,7 @@
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 1
 	},
+/obj/effect/landmark/static_comms/net_one,
 /turf/open/floor,
 /area/lv624/lazarus/security)
 "LM" = (
@@ -7367,8 +7407,11 @@
 	},
 /area/lv624/ground/jungle9)
 "LR" = (
+/obj/vehicle/train/cargo/trolley,
 /turf/open/floor/marking/bot,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "LT" = (
 /obj/structure/window/framed/colony,
 /turf/open/floor/plating,
@@ -7460,7 +7503,9 @@
 	dir = 8
 	},
 /turf/open/floor,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "Mm" = (
 /obj/structure/flora/ausbushes/fernybush,
 /turf/open/ground/grass/weedable,
@@ -7533,7 +7578,9 @@
 	dir = 4
 	},
 /turf/open/floor,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "MA" = (
 /obj/structure/flora/ausbushes/leafybush{
 	pixel_x = -9;
@@ -7808,7 +7855,9 @@
 "NK" = (
 /obj/structure/largecrate/random/case,
 /turf/open/floor/marking/bot,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "NL" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -7850,9 +7899,7 @@
 /obj/machinery/computer3{
 	name = "Family Guy Reruns TV"
 	},
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
+/turf/open/floor/engine/cult,
 /area/lv624/ground/caves/west1/garbledradio)
 "NW" = (
 /obj/effect/turf_decal/siding{
@@ -7961,9 +8008,7 @@
 	dir = 1
 	},
 /obj/item/storage/backpack/cultpack,
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
+/turf/open/floor/engine/cult,
 /area/lv624/ground/caves/west1/garbledradio)
 "Oz" = (
 /obj/structure/bed/chair{
@@ -8210,7 +8255,9 @@
 "PG" = (
 /obj/structure/largecrate/random/case/small,
 /turf/open/floor,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "PI" = (
 /obj/structure/flora/jungle/vines,
 /turf/closed/mineral/smooth/indestructible,
@@ -8478,12 +8525,9 @@
 /turf/open/floor/marking/warning{
 	dir = 1
 	},
-/area/lv624/lazarus/quartstorage/outdoors)
-"Ri" = (
-/obj/vehicle/train/cargo/engine,
-/obj/structure/cable,
-/turf/open/floor/marking/bot,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "Rj" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
@@ -8515,7 +8559,9 @@
 /area/lv624/lazarus/medbay)
 "Rp" = (
 /turf/closed/wall,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "Rr" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -8601,7 +8647,9 @@
 "RN" = (
 /obj/structure/largecrate/random,
 /turf/open/floor/marking/bot,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "RO" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -8866,12 +8914,15 @@
 	on = 1
 	},
 /turf/open/floor,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "Tc" = (
-/obj/effect/landmark/weed_node,
-/obj/effect/landmark/corpsespawner/colonist/regular,
-/turf/open/floor,
-/area/lv624/lazarus/quartstorage/outdoors)
+/obj/docking_port/stationary/supplycolony,
+/turf/open/floor/mainship/empty,
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "Te" = (
 /obj/structure/flora/jungle/vines,
 /turf/open/ground/grass/weedable,
@@ -9167,7 +9218,9 @@
 	dir = 8
 	},
 /turf/open/floor,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "UC" = (
 /turf/open/floor/tile/green/greentaupe,
 /area/lv624/lazarus/hydroponics)
@@ -9296,7 +9349,9 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/marking/bot,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "Vf" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -9304,7 +9359,9 @@
 	},
 /obj/effect/landmark/weed_node,
 /turf/open/floor/marking/bot,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "Vg" = (
 /obj/structure/catwalk,
 /turf/open/ground/coast{
@@ -9348,12 +9405,10 @@
 /turf/open/ground/grass/weedable,
 /area/lv624/ground/jungle9)
 "Vs" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 4
-	},
-/obj/structure/cable,
-/turf/open/floor,
-/area/lv624/lazarus/quartstorage/outdoors)
+/turf/open/floor/mainship/empty,
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "Vu" = (
 /turf/open/floor/tile/green/greentaupe{
 	dir = 6
@@ -9595,7 +9650,9 @@
 /area/lv624/ground/jungle7)
 "Wy" = (
 /turf/open/floor,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "Wz" = (
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 4
@@ -9838,9 +9895,7 @@
 /area/lv624/ground/jungle10)
 "XM" = (
 /obj/machinery/floodlight/colony,
-/turf/open/floor/engine/cult{
-	dir = 2
-	},
+/turf/open/floor/engine/cult,
 /area/lv624/ground/caves/west1/garbledradio)
 "XO" = (
 /turf/closed/wall,
@@ -9914,7 +9969,9 @@
 /obj/effect/landmark/weed_node,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/marking/bot,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "Yc" = (
 /obj/structure/flora/jungle/vines,
 /obj/structure/flora/ausbushes/fullgrass,
@@ -9925,7 +9982,9 @@
 	dir = 4
 	},
 /turf/open/floor,
-/area/lv624/lazarus/quartstorage/outdoors)
+/area/lv624/lazarus/quartstorage/outdoors{
+	always_unpowered = 0
+	})
 "Ye" = (
 /obj/structure/curtain/medical,
 /turf/open/floor/tile/blue/whitebluefull,
@@ -10486,7 +10545,7 @@ wh
 (3,1,1) = {"
 wh
 hD
-Ay
+hD
 hD
 FC
 FC
@@ -12073,8 +12132,8 @@ Tq
 pb
 sR
 sR
-zg
-zg
+Sh
+Sh
 sR
 sR
 Tq
@@ -12177,9 +12236,9 @@ Tq
 Tq
 sR
 XM
-zg
-zg
-zg
+Sh
+Sh
+Sh
 sR
 PF
 Tq
@@ -12279,12 +12338,12 @@ ae
 Tq
 PF
 Tq
-zg
-zg
+Sh
+Sh
 ss
 tM
-zg
-zg
+Sh
+Sh
 Tq
 Tq
 oN
@@ -12383,12 +12442,12 @@ ae
 pb
 Tq
 Tq
-zg
-zg
-zg
+Sh
+Sh
+Sh
 Jc
-zg
-zg
+Sh
+Sh
 Tq
 Tq
 FC
@@ -12489,7 +12548,7 @@ Tq
 Tq
 sR
 NV
-zg
+Sh
 Oy
 XM
 sR
@@ -12593,7 +12652,7 @@ Tq
 Tq
 sR
 QO
-zg
+Sh
 HK
 sR
 sR
@@ -15064,7 +15123,7 @@ wh
 ah
 nR
 ua
-qI
+vs
 ua
 ah
 wh
@@ -15554,7 +15613,7 @@ GQ
 ft
 gc
 QQ
-yZ
+uT
 jO
 bH
 uT
@@ -15677,7 +15736,7 @@ Va
 OF
 EH
 ft
-ft
+ql
 VW
 Om
 Om
@@ -20207,7 +20266,7 @@ UI
 Rh
 Tb
 Vf
-gl
+EX
 qb
 Rp
 hY
@@ -20309,7 +20368,7 @@ WX
 WX
 UI
 Rh
-Wy
+Gv
 lm
 LR
 pu
@@ -20413,16 +20472,16 @@ WX
 WX
 Qx
 Rh
-Tc
+Vs
 lm
 LR
-LR
-LR
-LR
+lm
+lm
+lm
 Yb
 gl
-LR
-LR
+lm
+lm
 GY
 ni
 Ya
@@ -20517,15 +20576,15 @@ WX
 IV
 WX
 Rh
-Wy
-Ri
+Tc
+lm
 BO
-LR
-LR
-LR
+lm
+lm
+lm
 la
 NK
-LR
+lm
 RN
 pF
 ni
@@ -20622,7 +20681,7 @@ WX
 WX
 Rp
 Vs
-Vs
+Yd
 Yd
 Yd
 Yd

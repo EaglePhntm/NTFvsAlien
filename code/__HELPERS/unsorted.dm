@@ -79,6 +79,21 @@
 				return "\[[url_encode(thing.tag)]\]"
 	return text_ref(input)
 
+/proc/track_href(input)
+	. = "track=[REF(input)]"
+	if(isxeno(input))
+		var/mob/living/carbon/xenomorph/input_xeno = input
+		. += ";track_xeno_name=[input_xeno.nicknumber]"
+		var/hivenumber = input_xeno.get_xeno_hivenumber()
+		if(hivenumber != XENO_HIVE_NORMAL)
+			. += ";track_hive=[hivenumber]"
+	else
+		var/obj/structure/xeno/silo/input_silo = input
+		if(istype(input_silo))
+			. += ";track_silo_number=[input_silo.number_silo]"
+			var/hivenumber = input_silo.get_xeno_hivenumber()
+			if(hivenumber != XENO_HIVE_NORMAL)
+				. += ";track_hive=[hivenumber]"
 
 //Returns the middle-most value
 /proc/dd_range(low, high, num)
@@ -97,14 +112,20 @@
 /proc/Get_Angle(atom/start, atom/end)//For beams.
 	if(!start || !end)
 		CRASH("Get_Angle called for inexisting atoms: [isnull(start) ? "null" : start] to [isnull(end) ? "null" : end].")
+	var/startturf
+	var/endturf
 	if(!start.z)
-		start = get_turf(start)
+		startturf = get_turf(start)
 		if(!start)
 			CRASH("Get_Angle called for inexisting atoms (start): [isnull(start.loc) ? "null loc" : start.loc] [start] to [isnull(end.loc) ? "null loc" : end.loc] [end].") //Atoms are not on turfs.
 	if(!end.z)
-		end = get_turf(end)
+		endturf = get_turf(end)
 		if(!end)
 			CRASH("Get_Angle called for inexisting atoms (end): [isnull(start.loc) ? "null loc" : start.loc] [start] to [isnull(end.loc) ? "null loc" : end.loc] [end].") //Atoms are not on turfs.
+	if(startturf)
+		start = startturf
+	if(endturf)
+		end = endturf
 	var/dy = (32 * end.y + end.pixel_y) - (32 * start.y + start.pixel_y)
 	var/dx = (32 * end.x + end.pixel_x) - (32 * start.x + start.pixel_x)
 	if(!dy)
@@ -207,12 +228,13 @@
 // Ensure the frequency is within bounds of what it should be sending/receiving at
 /proc/sanitize_frequency(frequency, free = FALSE)
 	. = round(frequency)
+	if(!(. % 2)) // Ensure the last digit is an odd number
+		. += 1
 	if(free)
 		. = clamp(frequency, MIN_FREE_FREQ, MAX_FREE_FREQ)
 	else
 		. = clamp(frequency, MIN_FREQ, MAX_FREQ)
-	if(!(. % 2)) // Ensure the last digit is an odd number
-		. += 1
+
 
 
 // Format frequency by moving the decimal.
@@ -862,15 +884,26 @@ GLOBAL_LIST_INIT(wallitems, typecacheof(list(
 	return GLOB.sorted_areas
 
 
-// Format a power value in W, kW, MW, or GW.
+// Format a power value in W, kW, MW, or GW. Plust J/h similarly
 /proc/DisplayPower(powerused)
+	return "[DisplayUnit(powerused)]W ([DisplayUnit(powerused*3600)]J/h)"
+
+// input in joules
+/proc/DisplayEnergy(powerused)
+	return "[DisplayUnit(powerused/3600)]Wh ([DisplayUnit(powerused)]J)"
+
+// input in joules
+/proc/DisplayEnergyFrac(powerused, maxpower)
+	return "[DisplayUnit(powerused/3600)]Wh / [DisplayUnit(maxpower/3600)]Wh ([DisplayUnit(powerused)]J / [DisplayUnit(maxpower)]J)"
+
+/proc/DisplayUnit(powerused)
 	if(powerused < 1000) //Less than a kW
-		return "[powerused] W"
+		return "[powerused] "
 	else if(powerused < 1000000) //Less than a MW
-		return "[round((powerused * 0.001),0.01)] kW"
+		return "[round((powerused * 0.001),0.01)] k"
 	else if(powerused < 1000000000) //Less than a GW
-		return "[round((powerused * 0.000001),0.001)] MW"
-	return "[round((powerused * 0.000000001),0.0001)] GW"
+		return "[round((powerused * 0.000001),0.001)] M"
+	return "[round((powerused * 0.000000001),0.0001)] G"
 
 
 // Bucket a value within boundary
@@ -1055,7 +1088,7 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 		if(M.client?.holder)
 			if(M.client.holder.fakekey || M.client.holder.invisimined) //stealthmins
 				continue
-		var/name = avoid_assoc_duplicate_keys(M.name, namecounts)
+		var/name = avoid_assoc_duplicate_keys("[M.name || "??SOMETHING??"]", namecounts)
 
 		if(M.real_name && M.real_name != M.name)
 			name += " \[[M.real_name]\]"

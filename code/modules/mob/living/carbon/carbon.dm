@@ -234,14 +234,16 @@
 	set name = "Sleep"
 	set category = "IC"
 
-	if(species.species_flags & ROBOTIC_LIMBS)
+	/*if(species.species_flags & ROBOTIC_LIMBS)
 		to_chat(src, span_warning("Your artificial body does not require sleep."))
-		return
+		return*/// This whole thing prevents xenos from sleeping, I cant guess why, but robots don't get nothing from sleeping anyway
 	if(IsSleeping())
-		to_chat(src, span_warning("You are already sleeping"))
-		return
-	if(tgui_alert(src, "You sure you want to sleep for a while?", "Sleep", list("Yes","No")) == "Yes")
-		SetSleeping(40 SECONDS) //Short nap
+		if(alert(src, "Would you like to wake up soon? (You'll wake up after sleeping a little more, be patient and don't spam the button!)", "Wake Up", "Yes", "No") == "Yes")
+			SetSleeping(400)
+			to_chat(src, span_notice("You start to wake up."))
+	else
+		if(alert(src, "Are you sure you want to sleep for a long time? (You can wake up by pressing this button again)", "Sleep", "Yes", "No") == "Yes")
+			SetSleeping(18000)	//puts you to sleep for 30 minutes, better than never waking up in case my code sucks badly.
 
 /mob/living/carbon/Bump(atom/movable/AM)
 	if(now_pushing)
@@ -336,8 +338,9 @@
 		return
 
 	if(stat == DEAD)
-		set_sight(SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		set_invis_see(SEE_INVISIBLE_OBSERVER)
+		if(client && check_rights_for(client, R_ADMIN)) // no getting to know what you shouldn't unless you are an admin.
+			set_sight(SEE_TURFS|SEE_MOBS|SEE_OBJS)
+			set_invis_see(SEE_INVISIBLE_OBSERVER)
 		return
 
 	var/new_sight = initial(sight)
@@ -380,6 +383,12 @@
 
 	if(HAS_TRAIT(src, TRAIT_SEE_IN_DARK))
 		lighting_cutoff = LIGHTING_CUTOFF_MEDIUM
+		see_in_dark = max(see_in_dark, 10)
+
+	if(HAS_TRAIT(src, TRAIT_EXOSUIT_NV))
+		lighting_cutoff = LIGHTING_CUTOFF_MEDIUM // NTF Edit: Exosuit NVGs
+		lighting_color_cutoffs = list(10, 30, 10)
+		see_in_dark = max(see_in_dark, 10)
 
 	set_sight(new_sight)
 	return ..()
@@ -395,6 +404,7 @@
 		adjust_blindness(-1)
 		disabilities &= ~DEAF
 
+/* NTF Edit - allow dragging unconscious people
 /mob/living/carbon/human/set_stat(new_stat) //registers/unregisters critdragging signals
 	. = ..()
 	if(new_stat == UNCONSCIOUS)
@@ -402,6 +412,7 @@
 		return
 	if(. == UNCONSCIOUS)
 		UnregisterSignal(src, COMSIG_MOVABLE_MOVED)
+*/
 
 /// Handles when the player clicks on themself with the grab item
 /mob/living/carbon/proc/grabbed_self_attack(mob/living/user)

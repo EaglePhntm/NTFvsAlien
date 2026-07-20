@@ -15,7 +15,18 @@
 
 	///Icon state for mob worn overlays, if null the normal icon_state will be used.
 	var/worn_icon_state = null
-	///The icon state used to represent this image in "icons/obj/items/items_mini.dmi" Used in /obj/item/storage/box/visual to display tiny items in the box
+	/// Optional taur-friendly worn icon files, selected by the wearer's taur body category.
+	var/icon/worn_icon_taur_snake
+	var/icon/worn_icon_taur_paw
+	var/icon/worn_icon_taur_hoof
+	var/icon/worn_icon_taur_big
+	/// Optional Teshari-specific worn icon file for items that need a custom sprite.
+	var/icon/worn_icon_teshari
+	/// Optional Teshari-specific worn icon state for items that need a custom sprite.
+	var/worn_icon_state_teshari = null
+	/// the file containing the mini icon for icon_state_mini. Used in /obj/item/storage/box/visual to display tiny items in the box.
+	var/icon_mini = 'icons/obj/items/items_mini.dmi'
+	///The icon state used to represent this image in icon_mini. Used in /obj/item/storage/box/visual to display tiny items in the box.
 	var/icon_state_mini = "item"
 	///Byond tick delay between left click attacks
 	var/attack_speed = CLICK_CD_MELEE_WEAPON_DEFAULT
@@ -116,6 +127,10 @@
 	var/list/worn_item_state_slots
 	///>LazyList< Used to specify the icon file to be used when the item is worn in a certain slot. icon_override or sprite_sheets are set they will take precendence over this, assuming they apply to the slot in question.
 	var/list/worn_icon_list
+	///Icon file for mob worn overlays on snouted characters.
+	var/icon/worn_icon_muzzled
+	///Slot-specific worn icon files for snouted characters.
+	var/list/worn_icon_muzzled_list
 	///specific layer for on-mob icon.
 	var/worn_layer
 	///tells if the item shall use worn_icon_state for non-inhands, needed due to some items using worn_icon_state only for inhands and not worn.
@@ -159,6 +174,9 @@
 	var/current_variant
 	/// Should [/datum/component/autobalance_monitor] be given? If so, what value should it use?
 	var/autobalance_monitor_value
+
+	//ntf addition, determines who can see a item from cryo storage
+	var/cryoed_faction
 
 /obj/item/Initialize(mapload)
 	if(species_exception)
@@ -323,8 +341,7 @@
 
 	pickup(user)
 	if(!user.put_in_active_hand(src))
-		user.dropItemToGround(src)
-		dropped(user)
+		return
 
 
 /obj/item/update_icon_state()
@@ -553,12 +570,12 @@
 	if(H.species.hud?.equip_slots)
 		mob_equip = H.species.hud.equip_slots
 
-	if(!H.has_limb_for_slot(slot))
-		return FALSE
-
 	if(bitslot)
 		var/old_slot = slot
 		slot = slotbit2slotdefine(old_slot)
+
+	if(!H.has_limb_for_slot(slot))
+		return FALSE
 
 	if(H.species && !(slot in mob_equip))
 		return FALSE
@@ -629,6 +646,23 @@
 			equip_to_slot = TRUE
 		if(SLOT_WEAR_ID)
 			if(H.wear_id)
+				return FALSE
+			equip_to_slot = TRUE
+		// NTF EDIT START
+		if(SLOT_UNDERWEAR)
+			if(H.w_underwear)
+				return FALSE
+			equip_to_slot = TRUE
+		if(SLOT_SOCKS)
+			if(H.w_socks)
+				return FALSE
+			equip_to_slot = TRUE
+		if(SLOT_SHIRT)
+			if(H.w_undershirt)
+				return FALSE
+			equip_to_slot = TRUE
+		if(SLOT_BRA)
+			if(H.bra)
 				return FALSE
 			equip_to_slot = TRUE
 
@@ -1048,7 +1082,11 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 //This proc is here to prevent Xenomorphs from picking up objects (default attack_hand behaviour)
 //Note that this is overriden by every proc concerning a child of obj unless inherited
-/obj/item/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+/obj/item/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage * xeno_attacker.xeno_melee_damage_modifier, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+	if(xeno_attacker.handcuffed)
+		return FALSE
+	if(xeno_attacker.a_intent != INTENT_HARM)
+		attack_hand(xeno_attacker)
 	return FALSE
 
 
@@ -1170,7 +1208,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		// Create a callback with checks that would be called every tick by do_after.
 		var/datum/callback/tool_check = CALLBACK(src, PROC_REF(tool_check_callback), user, amount, extra_checks)
 
-		if(!do_after(user, delay, target = target, extra_checks = tool_check, user_display=user_display))
+		if(!do_after(user, delay, target=target, extra_checks=tool_check))
 			return
 
 	else if(extra_checks && !extra_checks.Invoke()) // Invoke the extra checks once, just in case.
@@ -1241,10 +1279,11 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	return TRUE
 
 ///Generates worn icon for sprites on-mob.
-/obj/item/proc/make_worn_icon(species_type, slot_name, inhands, default_icon, default_layer)
+/obj/item/proc/make_worn_icon(species_type, slot_name, inhands, default_icon, default_layer, icon_file_override)
 	//Get the required information about the base icon
-	var/iconfile2use = get_worn_icon_file(species_type = species_type, slot_name = slot_name, default_icon = default_icon, inhands = inhands)
+	var/iconfile2use = get_worn_icon_file(species_type = species_type, slot_name = slot_name, default_icon = default_icon, inhands = inhands, icon_file_override = icon_file_override)
 	var/state2use = get_worn_icon_state(slot_name = slot_name, inhands = inhands)
+	state2use = get_species_worn_icon_state(species_type, slot_name, iconfile2use, state2use, inhands)
 	var/layer2use = !inhands && worn_layer ? -worn_layer : -default_layer
 
 	//Snowflakey inhand icons in a specific slot
@@ -1257,7 +1296,12 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	//testing("[src] (\ref[src]) - Slot: [slot_name], Inhands: [inhands], Worn Icon:[iconfile2use], Worn State:[state2use], Worn Layer:[layer2use]")
 
-	var/mutable_appearance/standing = mutable_appearance(iconfile2use, state2use, layer2use)
+	var/mutable_appearance/standing = mutable_appearance(null, null, layer2use)
+	var/mutable_appearance/standing_colored = mutable_appearance(iconfile2use, state2use, layer2use)
+	standing_colored.color = color
+	standing_colored.filter_data = filter_data
+	standing_colored.update_filters()
+	standing.overlays += standing_colored
 
 	//Apply any special features
 	apply_custom(standing, inhands, iconfile2use, state2use) //image overrideable proc to customize the onmob icon.
@@ -1271,13 +1315,12 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	standing.pixel_w += inhands ? inhand_x_offset : worn_x_offset
 	standing.pixel_z += inhands ? inhand_y_offset : worn_y_offset
 	standing.alpha = alpha
-	standing.color = color
 
 	//Return our icon
 	return standing
 
 ///gets what icon dmi file shall be used for the on-mob sprite
-/obj/item/proc/get_worn_icon_file(species_type,slot_name,default_icon,inhands)
+/obj/item/proc/get_worn_icon_file(species_type,slot_name,default_icon,inhands, icon_file_override)
 
 	//1: icon_override var
 	if(icon_override)
@@ -1288,17 +1331,367 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(. && !inhands)
 		return
 
-	//3: slot-specific sprite sheets
+	//3: caller-provided override, such as snouted worn icon variants.
+	if(icon_file_override)
+		return icon_file_override
+
+	//4: species-specific slot fallback sheets.
+	. = get_species_worn_icon_file(species_type, slot_name, inhands)
+	if(.)
+		return
+
+	//5: slot-specific sprite sheets
 	. = LAZYACCESS(worn_icon_list, slot_name)
 	if(.)
 		return
 
-	//5: provided default_icon
+	//6: provided default_icon
 	if(default_icon)
 		return default_icon
 
-	//6: give error
+	//7: give error
 	CRASH("[src] dind't manage to find a icon file for worn onmob icon.")
+
+///Returns a species-specific worn icon file for this item and slot, if the sheet has the current worn state.
+/obj/item/proc/get_species_worn_icon_file(species_type, slot_name, inhands)
+	if(inhands || species_type != "Teshari")
+		return
+
+	var/state_to_use = get_worn_icon_state(slot_name, FALSE)
+	if(worn_icon_teshari && (state_to_use in icon_states(worn_icon_teshari)))
+		return worn_icon_teshari
+	if(worn_icon_teshari && worn_icon_state_teshari && (worn_icon_state_teshari in icon_states(worn_icon_teshari)))
+		return worn_icon_teshari
+	var/teshari_state_to_use = get_teshari_worn_icon_state(slot_name, state_to_use)
+	if(worn_icon_teshari && teshari_state_to_use && (teshari_state_to_use in icon_states(worn_icon_teshari)))
+		return worn_icon_teshari
+
+	var/extra_icon_file = get_teshari_extra_worn_icon_file(slot_name, teshari_state_to_use || state_to_use)
+	if(extra_icon_file)
+		return extra_icon_file
+
+	var/icon_file = get_teshari_worn_icon_file(slot_name)
+	if(!icon_file)
+		return
+
+	if(state_to_use in icon_states(icon_file))
+		return icon_file
+	if(worn_icon_state_teshari && (worn_icon_state_teshari in icon_states(icon_file)))
+		return icon_file
+	if(teshari_state_to_use && (teshari_state_to_use in icon_states(icon_file)))
+		return icon_file
+
+///Returns the species-specific icon state to use for a worn item, if the species sheet names it differently.
+/obj/item/proc/get_species_worn_icon_state(species_type, slot_name, icon_file, state_to_use, inhands)
+	if(inhands || species_type != "Teshari")
+		return state_to_use
+
+	if(worn_icon_state_teshari && icon_file && (worn_icon_state_teshari in icon_states(icon_file)))
+		return worn_icon_state_teshari
+	var/teshari_state_to_use = get_teshari_worn_icon_state(slot_name, state_to_use)
+	if(teshari_state_to_use && icon_file && (teshari_state_to_use in icon_states(icon_file)))
+		return teshari_state_to_use
+	return state_to_use
+
+/proc/get_teshari_worn_icon_file(slot_name)
+	var/static/list/teshari_worn_icon_by_slot = list(
+		slot_w_uniform_str = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/uniform.dmi',
+		slot_wear_suit_str = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/suit.dmi',
+		slot_back_str = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/back.dmi',
+		slot_shoes_str = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/feet.dmi',
+		slot_gloves_str = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/hands.dmi',
+		slot_head_str = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/head.dmi',
+		slot_wear_mask_str = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/mask.dmi',
+		slot_wear_id_str = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/id.dmi',
+		slot_belt_str = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/belt.dmi',
+		slot_glasses_str = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/eyes.dmi',
+		slot_ear_str = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/ears.dmi',
+		slot_accessory_str = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/accessories.dmi',
+		slot_tie_str = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/neck.dmi',
+		slot_underwear_str = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/underwear.dmi',
+		slot_socks_str = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/underwear.dmi',
+		slot_shirt_str = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/underwear.dmi',
+		slot_bra_str = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/underwear.dmi',
+	)
+	return teshari_worn_icon_by_slot[slot_name]
+
+/proc/get_teshari_extra_worn_icon_file(slot_name, state_to_use)
+	if(slot_name != slot_wear_suit_str && slot_name != slot_head_str)
+		return
+
+	var/static/icon/ntf_armor_icon = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/ntf_armors.dmi'
+	if(state_to_use in icon_states(ntf_armor_icon))
+		return ntf_armor_icon
+
+/proc/get_teshari_worn_icon_state(slot_name, state_to_use)
+	if(slot_name == slot_wear_suit_str)
+		var/static/list/teshari_suit_state_aliases = list(
+			"armor" = "current_cm_m3_webvest",
+			"pilot_chest" = "current_cm_pilot_explorer",
+			"mech_pilot_suit" = "current_cm_mech_ce_rig",
+			"assault_crewman_suit" = "current_cm_tanker_h2armor",
+			"transport_crewman_suit" = "current_cm_transport_h2armor",
+			"marine_riot" = "current_cm_riot_riot",
+			"xarmor" = "current_cm_b18_aegis",
+			"grenadier" = "current_cm_grenadier_alt_seva",
+			"tanker" = "current_cm_shiptech_rig_engineering_con",
+			"officer" = "current_cm_officer_caparmor",
+		)
+		return teshari_suit_state_aliases[state_to_use]
+	if(slot_name == slot_head_str)
+		var/static/list/teshari_head_state_aliases = list(
+			"minigunner_helmet" = "current_cm_b18_aegis_helmet",
+		)
+		return teshari_head_state_aliases[state_to_use]
+	if(slot_name == slot_wear_id_str)
+		var/static/list/teshari_id_state_aliases = list(
+			"dogtag" = "dogtag_cm",
+			"dogtag_som" = "dogtag_som",
+			"silver_id" = "dogtag_ntf",
+			"gold_id" = "dogtag_ntf",
+			"card-id" = "dogtag_ntf",
+			"id2" = "dogtag_ntf",
+		)
+		return teshari_id_state_aliases[state_to_use]
+	if(slot_name == slot_shoes_str)
+		var/static/list/teshari_shoe_state_aliases = list(
+			"marine" = "combat",
+			"marine_brown" = "combat",
+			"marine_armored" = "combat",
+			"commando_boots" = "security_boots",
+			"som" = "syndiemag0",
+			"kz_boots" = "syndiemag1",
+			"boots" = "combat",
+			"swat" = "security_boots",
+			"cboots" = "jackboots",
+			"som_officer_boots" = "jackboots",
+			"icc" = "combat",
+			"icc_guard" = "security_boots",
+			"tdf" = "combat",
+			"tp_boots" = "combat",
+			"black" = "laceups",
+			"brown" = "laceups",
+			"heels_red" = "heels",
+			"leather" = "laceups",
+			"white" = "laceups",
+		)
+		return teshari_shoe_state_aliases[state_to_use]
+	if(slot_name == slot_gloves_str)
+		var/static/list/teshari_glove_state_aliases = list(
+			"insulated" = "ce_insuls",
+			"latex" = "nitrile",
+			"bluelatex" = "gloves_blue",
+			"white" = "gloves_white",
+			"blue" = "gloves_blue",
+			"orange" = "gloves_black",
+			"red" = "gloves_black",
+			"rainbow" = "gloves_black",
+			"purple" = "gloves_black",
+			"green" = "gloves_black",
+			"gray" = "gloves_black",
+			"lightbrown" = "gloves_black",
+			"brown" = "gloves_black",
+			"medscan_gloves" = "ert_ntrauma",
+			"defib_gloves" = "ert_ntrauma",
+			"gloves_marine" = "combat",
+			"gloves_marine_insulated" = "ce_insuls",
+			"hyperscale_glove_mob" = "combat",
+			"armored" = "combat",
+			"armored_tdf" = "combat",
+			"armored_pmc" = "infiltrator",
+			"death_squad" = "infiltrator",
+			"som" = "combat",
+			"som_veteran" = "combat",
+			"som_officer_gloves" = "black",
+			"icc" = "combat",
+			"icc_guard" = "combat",
+			"tdf" = "combat",
+			"leather" = "bracers",
+			"tp_gloves" = "combat",
+			"boxing" = "boxing",
+			"boxingblue" = "boxingblue",
+			"boxinggreen" = "boxinggreen",
+			"boxingyellow" = "boxingyellow",
+		)
+		return teshari_glove_state_aliases[state_to_use]
+	if(slot_name == slot_belt_str)
+		var/static/list/teshari_belt_state_aliases = list(
+			"utility1" = "utility",
+			"utilityOld" = "utility",
+			"security" = "peacekeeper_webbing",
+			"swatbelt" = "peacekeeper_webbing",
+			"marinebelt" = "militarywebbing",
+			"m_marinebelt" = "militarywebbing",
+			"s_marinebelt" = "militarywebbing",
+			"upp_belt" = "russian_green_belt",
+			"som_belt" = "militarywebbing",
+			"icc_belt" = "militarywebbing",
+			"medicbag" = "medical",
+			"m_medicbag" = "medical",
+			"medicbag_upp" = "medical",
+			"medicbag_som" = "medical",
+			"medicbag_icc" = "medical",
+			"hypospraybelt" = "medical",
+			"shotgunbelt" = "bandolier",
+			"m_shotgunbelt" = "bandolier",
+			"s_shotgunbelt" = "bandolier",
+			"shotgunbelt_som" = "bandolier",
+			"shotgunbelt_icc" = "bandolier",
+			"martini_belt" = "bandolier",
+			"knifebelt" = "sheath",
+			"grenadebelt" = "militarywebbing",
+			"grenadebelt_old" = "militarywebbing",
+			"grenadebelt_som" = "militarywebbing",
+			"sparepouch" = "belt_black",
+			"heavy_harness" = "militarywebbing",
+			"gun_sling" = "militarywebbing",
+			"machete_holster" = "sheath",
+			"katana_holster" = "sheath-sabre",
+			"katana_holster_full" = "sheath-sabre",
+			"sheathe_katana_red_full" = "sheath-sabre",
+			"katana" = "sheath-sabre",
+			"katana_red" = "sheath-sabre",
+			"officer_sheath" = "sheath-sabre",
+			"officer_sheath_full" = "sheath-sabre",
+			"m4a3_holster" = "militarywebbing",
+			"m4a3_holster_full" = "militarywebbing",
+			"m_m4a3_holster" = "militarywebbing",
+			"m_m4a3_holster_full" = "militarywebbing",
+			"s_m4a3_holster" = "militarywebbing",
+			"s_m4a3_holster_full" = "militarywebbing",
+			"m44_holster" = "militarywebbing",
+			"m44_holster_full" = "militarywebbing",
+			"m_m44_holster" = "militarywebbing",
+			"m_m44_holster_full" = "militarywebbing",
+			"s_m44_holster" = "militarywebbing",
+			"s_m44_holster_full" = "militarywebbing",
+			"mateba_holster" = "militarywebbing",
+			"mateba_holster_full" = "militarywebbing",
+			"c_mateba_holster" = "militarywebbing",
+			"c_mateba_holster_full" = "militarywebbing",
+			"s_c_mateba_holster" = "militarywebbing",
+			"s_c_mateba_holster_full" = "militarywebbing",
+			"a_mateba_holster" = "militarywebbing",
+			"a_mateba_holster_full" = "militarywebbing",
+			"korovin_holster" = "russian_green_belt",
+			"korovin_holster_full" = "russian_green_belt",
+			"m39_holster" = "militarywebbing",
+			"m39_holster_full" = "militarywebbing",
+			"m25_holster" = "militarywebbing",
+			"m25_holster_full" = "militarywebbing",
+			"t19_holster" = "militarywebbing",
+			"t19_holster_full" = "militarywebbing",
+			"tp14_holster" = "militarywebbing",
+			"tp14_holster_full" = "militarywebbing",
+			"tp44_holster" = "militarywebbing",
+			"tp44_holster_full" = "militarywebbing",
+			"ts34_holster" = "militarywebbing",
+			"ts34_holster_full" = "militarywebbing",
+			"som_belt_pistol" = "militarywebbing",
+			"som_belt_pistol_full" = "militarywebbing",
+			"som_belt_pistol_fancy" = "militarywebbing",
+			"som_belt_pistol_fancy_full" = "militarywebbing",
+		)
+		return teshari_belt_state_aliases[state_to_use]
+	if(slot_name == slot_glasses_str)
+		var/static/list/teshari_glasses_state_aliases = list(
+			"glasses" = "glasses_regular",
+			"hipster_glasses" = "glasses_hipster",
+			"sunglasses" = "sunglasses",
+			"bigsunglasses" = "bigsunglasses",
+			"gglasses" = "gglasses_thin",
+			"3d" = "glasses_regular",
+			"monocle" = "monocle",
+			"thermoncle" = "thermoncle",
+			"jensenshades" = "jensenshades",
+			"securityhud" = "security_hud",
+			"sunhud" = "sunhudsec",
+			"medgoggles" = "healthhud",
+			"medpatchhud" = "medpatch",
+			"medglasses" = "healthhud",
+			"medsunglasses" = "sunhudmed",
+			"enggoggles" = "meson",
+			"patchmeson" = "mesonpatch",
+			"mesonsunglasses" = "nvgmeson",
+			"night_vision" = "night",
+			"night_vision_off" = "night",
+			"night_vision_mounted" = "night",
+			"night_vision_mounted_off" = "night",
+			"vsd_nvg" = "security_hud_nv",
+			"vsd_nvg_off" = "security_hud_nv",
+			"vsd_alt" = "security_hud_nv",
+			"vsd_alt_off" = "security_hud_nv",
+			"mgoggles" = "mgoggles",
+			"m56_goggles" = "AR_visor_tesh",
+			"m56_goggles_0" = "AR_visor_tesh",
+			"swatgoggles" = "AR_visor_tesh",
+			"upp_goggles" = "upp_goggles",
+			"upp_goggles_0" = "upp_goggles_0",
+			"optgoggles" = "diagnostichudnight",
+			"degoggles_optgoggles" = "diagnostichudnight",
+			"aviator" = "sunglasses",
+			"aviator_yellow" = "sunglasses",
+			"thermal" = "glasses_regular",
+			"material" = "glasses_regular",
+			"purple" = "glasses_regular",
+		)
+		return teshari_glasses_state_aliases[state_to_use]
+	if(slot_name == slot_back_str)
+		var/static/list/teshari_back_state_aliases = list(
+			"medicalpack" = "backpack",
+			"toxpack" = "backpack",
+			"hydpack" = "backpack",
+			"genpack" = "backpack",
+			"viropack" = "backpack",
+			"chempack" = "backpack",
+			"satchel" = "satchel-norm",
+			"som_satchel" = "satchel-explorer",
+			"satchel-eng" = "satchel-engineering",
+			"satchel-med" = "satchel-medical",
+			"satchel-vir" = "satchel-virology",
+			"satchel-chem" = "satchel-chemistry",
+			"satchel-gen" = "satchel-genetics",
+			"satchel-tox" = "satchel-science",
+			"satchel-sec" = "security_satchel",
+			"satchel_hyd" = "satchel-hydroponics",
+			"satchel-cap" = "satchel-captain",
+			"marinepack" = "backpack",
+			"marinepackm" = "backpack",
+			"marinepackt" = "backpack",
+			"marinesat" = "satchel-norm",
+			"marinesat_green" = "satchel-norm",
+			"marinesatm" = "satchel-medical",
+			"marinesatt" = "satchel-engineering",
+			"freelancer_packm" = "backpack",
+			"ERT_satchel" = "satchel-norm",
+			"pmc_bag" = "satchel-norm",
+			"som_lightpack" = "satchel-explorer",
+			"icc_bag" = "satchel-norm",
+			"icc_bag_guard" = "satchel-norm",
+			"vsd_bag0" = "satchel-norm",
+			"freelancer_satchel" = "satchel-norm",
+		)
+		return teshari_back_state_aliases[state_to_use]
+	return
+
+///Returns a snout-compatible worn icon file for this item and slot, if one is defined.
+/obj/item/proc/get_snouted_worn_icon_file(slot_name)
+	. = LAZYACCESS(worn_icon_muzzled_list, slot_name)
+	if(.)
+		return
+	return worn_icon_muzzled
+
+///Returns a taur-compatible worn icon file for this item, if one is defined.
+/obj/item/proc/get_taur_worn_icon_file(taur_clothing_type)
+	switch(taur_clothing_type)
+		if(TAUR_CLOTHING_SNAKE)
+			return worn_icon_taur_snake
+		if(TAUR_CLOTHING_PAW)
+			return worn_icon_taur_paw
+		if(TAUR_CLOTHING_HOOF)
+			return worn_icon_taur_hoof
+		if(TAUR_CLOTHING_BIG)
+			return worn_icon_taur_big
 
 ///Returns the state that should be used for the on-mob icon
 /obj/item/proc/get_worn_icon_state(slot_name, inhands)
@@ -1372,7 +1765,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	else
 		user.visible_message(span_info("<b>[user]</b> fumbles with [src] like a huge idiot!"))
 
-	TIMER_COOLDOWN_START(user, COOLDOWN_ITEM_TRICK, 6)
+	TIMER_COOLDOWN_START(user, COOLDOWN_ITEM_TRICK, 3)
 
 	return TRUE
 
@@ -1475,7 +1868,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			if(!variant)
 				return
 
-			if(!do_after(user, 1 SECONDS, NONE, src, BUSY_ICON_GENERIC))
+			if(!do_after(user, 1 SECONDS, TRUE, src, BUSY_ICON_GENERIC))
 				return
 
 			current_variant = variant
@@ -1499,7 +1892,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		if(COLOR_WHEEL)
 			new_color = input(user, "Pick a color", "Pick color") as null|color
 
-	if(!new_color || !do_after(user, 1 SECONDS, NONE, src, BUSY_ICON_GENERIC))
+	if(!new_color || !do_after(user, 1 SECONDS, TRUE, src, BUSY_ICON_GENERIC))
 		return
 
 	set_greyscale_colors(new_color)

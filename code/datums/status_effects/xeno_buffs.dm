@@ -42,6 +42,146 @@
 	return ..()
 
 // ***************************************
+// *********** Ambrosia Residue
+// ***************************************
+/datum/status_effect/ambrosia_residue
+	id = "ambrosia_residue"
+	duration = 5 MINUTES
+	status_type = STATUS_EFFECT_REFRESH
+	alert_type = null
+
+/datum/status_effect/ambrosia_dependence
+	id = "ambrosia_dependence"
+	duration = 20 MINUTES
+	tick_interval = 30 SECONDS
+	status_type = STATUS_EFFECT_UNIQUE
+	alert_type = null
+	///How many recent ambrosia treatments are still troubling the patient.
+	var/ambrosia_stacks = 0
+	///When the next dependence stack should fade.
+	var/next_stack_decay = 0
+	///How long each exposure stack lingers.
+	var/stack_decay_time = 5 MINUTES
+	///Maximum stored exposure stacks.
+	var/max_stacks = 8
+
+/datum/status_effect/ambrosia_dependence/on_creation(mob/living/new_owner, stacks_to_apply = 1)
+	. = ..()
+	if(.)
+		add_stacks(stacks_to_apply)
+
+/datum/status_effect/ambrosia_dependence/on_apply()
+	if(!ishuman(owner))
+		return FALSE
+	return TRUE
+
+/datum/status_effect/ambrosia_dependence/refresh()
+	duration = world.time + initial(duration)
+
+/datum/status_effect/ambrosia_dependence/proc/add_stacks(stacks_to_apply = 1)
+	ambrosia_stacks = clamp(ambrosia_stacks + stacks_to_apply, 1, max_stacks)
+	next_stack_decay = world.time + stack_decay_time
+	refresh()
+	if(ambrosia_stacks >= 6)
+		to_chat(owner, span_warning("The alien resin hums beneath your skin, hungry and warm."))
+	else if(ambrosia_stacks >= 4)
+		to_chat(owner, span_warning("Your wounds ache with a sweet amber warmth."))
+	else if(ambrosia_stacks >= 2)
+		to_chat(owner, span_notice("For a moment, you miss the warmth of the ambrosia."))
+
+/datum/status_effect/ambrosia_dependence/tick(delta_time)
+	if(!owner || owner.stat == DEAD)
+		qdel(src)
+		return
+
+	if(next_stack_decay && world.time >= next_stack_decay)
+		ambrosia_stacks--
+		if(ambrosia_stacks <= 0)
+			to_chat(owner, span_notice("The last of the ambrosia craving fades from your body."))
+			qdel(src)
+			return
+		next_stack_decay = world.time + stack_decay_time
+
+	switch(ambrosia_stacks)
+		if(2 to 3)
+			if(prob(10))
+				to_chat(owner, span_notice("[pick("The old amber warmth calls faintly from your wounds.", "Your healed flesh feels strangely hollow.", "Another taste of ambrosia would feel comforting.")]"))
+			if(prob(5))
+				owner.emote(pick("shiver", "twitch"))
+				owner.adjustStaminaLoss(10)
+		if(4 to 5)
+			if(prob(10))
+				to_chat(owner, span_warning("[pick("Your skin prickles where the ambrosia touched you.", "The resin's warmth feels painfully absent.", "You feel restless without the alien jelly.")]"))
+			if(prob(8))
+				owner.emote("me", EMOTE_TYPE_VISIBLE, pick("shivers.", "grimaces.", "winces."))
+				owner.adjustStaminaLoss(20)
+			if(prob(10))
+				owner.hallucination += 5
+		if(6 to 7)
+			if(prob(12))
+				to_chat(owner, span_warning("[pick("You need that amber warmth again.", "Your wounds itch for more alien resin.", "The thought of ambrosia coils in the back of your mind.")]"))
+			if(prob(10))
+				owner.emote("me", EMOTE_TYPE_VISIBLE, pick("trembles.", "groans softly.", "clutches at old wounds."))
+				owner.Stun(1 SECONDS)
+			if(prob(15))
+				owner.hallucination += 10
+				owner.dizzy(40)
+			owner.adjustToxLoss(0.1)
+			if(ishuman(owner))
+				var/mob/living/carbon/human/human_owner = owner
+				human_owner.adjustCloneLoss(0.05)
+		if(8 to INFINITY)
+			if(prob(15))
+				to_chat(owner, span_danger("[pick("Your body aches for ambrosia.", "The amber hunger twists through your nerves.", "You need the resin back in your wounds.")]"))
+			if(prob(12))
+				owner.emote("me", EMOTE_TYPE_VISIBLE, pick("convulses with a painful shiver!", "groans painfully!", "trembles violently!"))
+				owner.Stun(3 SECONDS)
+				owner.do_jitter_animation(100)
+			if(prob(20))
+				owner.hallucination += 15
+				owner.dizzy(60)
+			owner.adjustToxLoss(0.2)
+			if(ishuman(owner))
+				var/mob/living/carbon/human/human_owner = owner
+				human_owner.adjustCloneLoss(0.1)
+
+/datum/status_effect/ambrosia_bone_mend
+	id = "ambrosia_bone_mend"
+	duration = 2 MINUTES
+	status_type = STATUS_EFFECT_REFRESH
+	alert_type = null
+
+/datum/status_effect/ambrosia_bone_mend/on_creation(mob/living/new_owner, set_duration)
+	if(set_duration)
+		duration = set_duration
+	return ..()
+
+/datum/status_effect/ambrosia_bone_mend/on_apply()
+	if(!ishuman(owner))
+		return FALSE
+	return TRUE
+
+/datum/status_effect/ambrosia_bone_mend/on_remove()
+	var/mob/living/carbon/human/human_owner = owner
+	if(!istype(human_owner) || human_owner.stat == DEAD)
+		return ..()
+
+	var/fractures_mended = 0
+	for(var/datum/limb/limb AS in human_owner.limbs)
+		if(!(limb.limb_status & LIMB_BROKEN) || (limb.limb_status & (LIMB_DESTROYED|LIMB_ROBOT)))
+			continue
+		limb.remove_limb_flags(LIMB_BROKEN | LIMB_SPLINTED | LIMB_STABILIZED)
+		limb.add_limb_flags(LIMB_REPAIRED)
+		limb.bone_repair_stage = 0
+		limb.update_wounds()
+		fractures_mended++
+
+	if(fractures_mended)
+		human_owner.visible_message(span_notice("[human_owner]'s amber-bound bones settle back into place."),
+			span_notice("The amber resin threaded through your bones hardens, then finally settles."))
+	return ..()
+
+// ***************************************
 // *********** Essence Link
 // ***************************************
 /obj/effect/ebeam/essence_link
@@ -358,11 +498,11 @@
 /// Toggles the buff on or off.
 /datum/status_effect/drone_enhancement/proc/toggle_buff(toggle)
 	if(!toggle)
-		buffed_xeno.xeno_melee_damage_modifier = initial(buffed_xeno.xeno_melee_damage_modifier)
+		buffed_xeno.xeno_melee_damage_modifier -= (enhancement_action.damage_multiplier - 1)
 		buffed_xeno.remove_movespeed_modifier(MOVESPEED_ID_ENHANCEMENT)
 		toggle_particles(FALSE)
 		return
-	buffed_xeno.xeno_melee_damage_modifier = enhancement_action.damage_multiplier
+	buffed_xeno.xeno_melee_damage_modifier += (enhancement_action.damage_multiplier - 1)
 	buffed_xeno.add_movespeed_modifier(MOVESPEED_ID_ENHANCEMENT, TRUE, 0, NONE, FALSE, enhancement_action.speed_addition)
 	toggle_particles(TRUE)
 
@@ -565,9 +705,9 @@
 	if(plasma_mod >= HIGN_THRESHOLD)
 		owner_xeno.AdjustImmobilized(KNOCKDOWN_DURATION)
 		ADD_TRAIT(owner_xeno, TRAIT_HANDS_BLOCKED, src)
-		target.AdjustKnockdown(KNOCKDOWN_DURATION)
+		target.AdjustParalyzed(KNOCKDOWN_DURATION)
 
-		if(do_after(owner_xeno, KNOCKDOWN_DURATION, IGNORE_HELD_ITEM, target))
+		if(do_after(owner_xeno, KNOCKDOWN_DURATION, FALSE, target, ignore_turf_checks = FALSE))
 			owner_xeno.gain_plasma(plasma_gain_on_hit)
 			SEND_SIGNAL(target, COMSIG_XENO_CARNAGE_HIT, owner_xeno.xeno_caste.drain_plasma_gain, owner_xeno)
 	if(owner_xeno.has_status_effect(STATUS_EFFECT_XENO_FEAST))
@@ -657,7 +797,7 @@
 	SIGNAL_HANDLER
 
 	var/mob/living/carbon/xenomorph/X = owner
-	if(HAS_TRAIT(X,TRAIT_NOPLASMAREGEN)) //No bonus plasma if you're on a diet
+	if(HAS_TRAIT(X, TRAIT_NOPLASMAREGEN)) //No bonus plasma if you're on a diet
 		return
 	var/bonus_plasma = X.xeno_caste.plasma_gain * bonus_regen * (1 + X.recovery_aura * 0.05) * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD //Recovery aura multiplier; 5% bonus per full level
 	X.gain_plasma(bonus_plasma)
@@ -687,8 +827,8 @@
 	var/innate_healing = FALSE
 
 /datum/status_effect/healing_infusion/on_creation(mob/living/new_owner, set_duration = HIVELORD_HEALING_INFUSION_DURATION, stacks_to_apply = HIVELORD_HEALING_INFUSION_TICKS, new_innate_healing)
-	if(!isxeno(new_owner))
-		CRASH("something applied [id] on a nonxeno, dont do that")
+	if(!iscarbon(new_owner))
+		CRASH("something applied [id] on a noncarbon, dont do that")
 
 	duration = set_duration
 	owner = new_owner
@@ -704,18 +844,20 @@
 	if(!.)
 		return
 	ADD_TRAIT(owner, TRAIT_HEALING_INFUSION, TRAIT_STATUS_EFFECT(id))
-	if(innate_healing)
-		ADD_TRAIT(owner, TRAIT_INNATE_HEALING, TRAIT_STATUS_EFFECT(id))
 	owner.add_filter("hivelord_healing_infusion_outline", 3, outline_filter(1, COLOR_VERY_PALE_LIME_GREEN)) //Set our cool aura; also confirmation we have the buff
-	RegisterSignal(owner, COMSIG_XENOMORPH_HEALTH_REGEN, PROC_REF(healing_infusion_regeneration)) //Register so we apply the effect whenever the target heals
-	RegisterSignal(owner, COMSIG_XENOMORPH_SUNDER_REGEN, PROC_REF(healing_infusion_sunder_regeneration)) //Register so we apply the effect whenever the target heals
+	if(isxeno(owner))
+		if(innate_healing)
+			ADD_TRAIT(owner, TRAIT_INNATE_HEALING, TRAIT_STATUS_EFFECT(id))
+		RegisterSignal(owner, COMSIG_XENOMORPH_HEALTH_REGEN, PROC_REF(healing_infusion_regeneration)) //Register so we apply the effect whenever the target heals
+		RegisterSignal(owner, COMSIG_XENOMORPH_SUNDER_REGEN, PROC_REF(healing_infusion_sunder_regeneration)) //Register so we apply the effect whenever the target heals
 
 /datum/status_effect/healing_infusion/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_HEALING_INFUSION, TRAIT_STATUS_EFFECT(id))
-	if(innate_healing)
-		REMOVE_TRAIT(owner, TRAIT_INNATE_HEALING, TRAIT_STATUS_EFFECT(id))
 	owner.remove_filter("hivelord_healing_infusion_outline")
-	UnregisterSignal(owner, list(COMSIG_XENOMORPH_HEALTH_REGEN, COMSIG_XENOMORPH_SUNDER_REGEN))
+	if(isxeno(owner))
+		if(innate_healing)
+			REMOVE_TRAIT(owner, TRAIT_INNATE_HEALING, TRAIT_STATUS_EFFECT(id))
+		UnregisterSignal(owner, list(COMSIG_XENOMORPH_HEALTH_REGEN, COMSIG_XENOMORPH_SUNDER_REGEN))
 
 	new /obj/effect/temp_visual/telekinesis(get_turf(owner)) //Wearing off VFX
 	new /obj/effect/temp_visual/healing(get_turf(owner))
@@ -729,6 +871,9 @@
 /datum/status_effect/healing_infusion/proc/healing_infusion_regeneration(mob/living/carbon/xenomorph/patient, heal_data, seconds_per_tick)
 	SIGNAL_HANDLER
 
+	if(HAS_TRAIT(patient, TRAIT_NOHEALTHREGEN)) //No regen if you're on a diet
+		return
+
 	if(!health_ticks_remaining)
 		qdel(src)
 		return
@@ -738,12 +883,20 @@
 	new /obj/effect/temp_visual/healing(get_turf(patient)) //Cool SFX
 
 	var/total_heal_amount = 6 + (patient.maxHealth * 0.03) * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD //Base amount 6 HP plus 3% of max
-	if(patient.recovery_aura)
+	if(isxeno(patient) && patient.recovery_aura)
 		total_heal_amount *= (1 + patient.recovery_aura * 0.05) //Recovery aura multiplier; 5% bonus per full level
 
 	var/leftover_healing = total_heal_amount
 	HEAL_XENO_DAMAGE(patient, leftover_healing, FALSE)
 	GLOB.round_statistics.hivelord_healing_infusion += (total_heal_amount - leftover_healing)
+	heal_data[1] += leftover_healing
+	heal_data[2] += total_heal_amount
+
+/mob/living/carbon/human/Life(seconds_per_tick, times_fired)
+	. = ..()
+	if(HAS_TRAIT(src, TRAIT_HEALING_INFUSION))
+		src.heal_overall_damage(1.5, 1.5, TRUE, TRUE) // On par with 20u+ bica and kelo
+
 
 ///Called when the target xeno regains Sunder via heal_wounds in life.dm
 /datum/status_effect/healing_infusion/proc/healing_infusion_sunder_regeneration(mob/living/carbon/xenomorph/patient, seconds_per_tick)
@@ -951,29 +1104,33 @@
 	var/obj/effect/abstract/particle_holder/particle_holder
 
 /datum/status_effect/baton_pass/on_apply()
-	if(!isxeno(owner))
-		return FALSE
-	var/mob/living/carbon/xenomorph/owner_xeno = owner
-
-	particle_holder = new(owner_xeno, /particles/baton_pass)
-	var/particle_x = abs(owner_xeno.pixel_x)
+	particle_holder = new(owner, /particles/baton_pass)
+	var/particle_x = abs(owner.pixel_x)
 	particle_holder.pixel_x = particle_x
 	particle_holder.pixel_y = -3
-
+	var/movespeed_mod //Hold this here; as we'll want to apply seperate code for humans. Just incase.
 	//only slower xenos get better movespeed amplify. No gigaspeed runners
-	var/movespeed_mod =((owner_xeno.xeno_caste.speed <= -1) ? -0.1 : (owner_xeno.xeno_caste.speed <= -0.8) ? -0.2 : -0.4)
-	owner_xeno.add_movespeed_modifier(MOVESPEED_ID_PRAETORIAN_DANCER_BATON_PASS, TRUE, 1, NONE, TRUE, movespeed_mod)
+	if(isxeno(owner))
+		var/mob/living/carbon/xenomorph/owner_xeno = owner
+		movespeed_mod =((owner_xeno.xeno_caste.speed <= -1) ? -0.1 : (owner_xeno.xeno_caste.speed <= -0.8) ? -0.2 : -0.4)
+		owner.emote("roar")
+	else
+		movespeed_mod = -0.18 //Less effective than on slow castes for humans.
+		owner.emote("warcry")
+	owner.add_movespeed_modifier(MOVESPEED_ID_PRAETORIAN_DANCER_BATON_PASS, TRUE, 1, NONE, TRUE, movespeed_mod)
 
-	to_chat(owner, span_notice("We feel on top of the world! Go, go, go!"))
-	owner_xeno.Shake(duration = 6 SECONDS, shake_interval = 0.08 SECONDS)
-	owner_xeno.emote("roar")
+	to_chat(owner, span_notice("You feel on top of the world! Go, go, go!"))
+	owner.Shake(duration = 6 SECONDS, shake_interval = 0.08 SECONDS)
 
 	return ..()
 
 /datum/status_effect/baton_pass/on_remove()
 	. = ..()
 	var/mob/living/carbon/xenomorph/owner_xeno = owner
-	owner_xeno.remove_movespeed_modifier(MOVESPEED_ID_PRAETORIAN_DANCER_BATON_PASS)
+	if(isxeno(owner))
+		owner_xeno.remove_movespeed_modifier(MOVESPEED_ID_PRAETORIAN_DANCER_BATON_PASS)
+	else
+		owner.remove_movespeed_modifier(MOVESPEED_ID_PRAETORIAN_DANCER_BATON_PASS) //ensure to correctly handle this so we dont get infinite speed
 	to_chat(owner, span_notice("We come down from our adrenaline high."))
 	QDEL_NULL(particle_holder)
 
