@@ -1359,9 +1359,8 @@
 /area/mainship/groundhq/ntf/shipboard/brig)
 "bNI" = (
 /obj/machinery/computer/supplycomp{
-	shuttle_id = "supplyhq";
-	req_access = null;
-	home_id = "supplyhq"
+	home_id = "supply_hq";
+	shuttle_id = "supplyhq"
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/req)
@@ -4920,6 +4919,10 @@
 	},
 /obj/item/detective_scanner,
 /obj/item/reagent_scanner/adv,
+/obj/structure/transmitter/colony_net/desk{
+	phone_category = "Security";
+	phone_id = "Central Checkpoint"
+	},
 /turf/open/floor/mainship/red{
 	dir = 4
 	},
@@ -22377,7 +22380,7 @@ hKj
 hKj
 hKj
 oGw
-hKj
+oGw
 hKj
 gfR
 adO
