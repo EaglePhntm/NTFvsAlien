@@ -965,11 +965,14 @@
 	},
 /area/mainship/groundhq/ntf/shipboard/brig)
 "bkS" = (
-/obj/structure/mineral_door/wood,
 /obj/machinery/door/firedoor/mainship{
 	dir = 2
 	},
 /obj/structure/cable,
+/obj/machinery/door/airlock/mainship/security{
+	dir = 1;
+	req_access = list(105)
+	},
 /turf/open/floor/mainship/mono,
 /area/mainship/shipboard/sensors)
 "bla" = (
