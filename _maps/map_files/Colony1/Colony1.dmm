@@ -7756,7 +7756,9 @@
 	})
 "kaD" = (
 /obj/structure/cable,
-/obj/machinery/door/airlock/mainship/maint/free_access,
+/obj/machinery/door/airlock/mainship/maint/free_access{
+	req_one_access = null
+	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/groundhq/ntf/hallways/aft_hallway{
 	name = "HQ Northeast Hallways"
@@ -11321,7 +11323,8 @@
 "oWb" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/maint/free_access{
-	dir = 1
+	dir = 1;
+	req_one_access = null
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/groundhq/ntf/hallways/aft_hallway{
@@ -13958,7 +13961,9 @@
 	name = "HQ Eastern hallways"
 	})
 "sjA" = (
-/obj/machinery/door/airlock/mainship/maint/free_access,
+/obj/machinery/door/airlock/mainship/maint/free_access{
+	req_one_access = null
+	},
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/hallways/aft_hallway{
 	name = "HQ Northeast Hallways"
@@ -14477,7 +14482,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/maint/free_access{
-	dir = 1
+	dir = 1;
+	req_one_access = null
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/groundhq/ntf/hallways/stern_hallway{
@@ -15153,7 +15159,8 @@
 "tZQ" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/maint/free_access{
-	dir = 1
+	dir = 1;
+	req_one_access = null
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/centcom/practice/medical{
@@ -17728,7 +17735,8 @@
 "xmL" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/maint/free_access{
-	dir = 1
+	dir = 1;
+	req_one_access = null
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/hallways/aft_hallway{
