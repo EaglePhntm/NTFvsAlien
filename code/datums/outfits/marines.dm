@@ -80,7 +80,7 @@
 	. = ..()
 	if(isliving(hit_atom))
 		var/mob/living/mafaka = hit_atom
-		mafaka.Stun(1.5 SECONDS)
+		mafaka.ImmobilizeNoChain(1.5 SECONDS)
 		mafaka.adjustStaminaLoss(60)
 		playsound(mafaka.loc, SFX_PUNCH, 25, TRUE)
 		Move(mafaka.loc) //go beneath people
@@ -102,7 +102,7 @@
 			continue
 		victim.ParalyzeNoChain(4 SECONDS)
 		victim.adjustStaminaLoss(300) //ur caught, fucked up
-		sexbed.buckle_mob(victim)
+		sexbed.user_buckle_mob(victim, victim, TRUE, TRUE)
 	update_icon()
 	qdel(src)
 	sleep(2)
