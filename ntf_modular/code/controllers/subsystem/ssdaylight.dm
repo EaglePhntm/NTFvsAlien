@@ -510,7 +510,7 @@ SUBSYSTEM_DEF(daylight)
 				SEND_SIGNAL(src, COMSIG_DAYLIGHT_NEW_DAY)
 				SEND_SIGNAL(src, COMSIG_DAYLIGHT_DAY_START)
 
-			else if(last_cycle_progress < daylight_fraction && cycle_progress >= daylight_fraction && (cycle_progress - 0.1) < daylight_fraction) //tryinna make it night just once or so in a specific time
+			else if(last_cycle_progress < daylight_fraction && cycle_progress > daylight_fraction)
 				message_admins("Night has fallen on the station.")
 				SEND_SIGNAL(src, COMSIG_DAYLIGHT_NIGHT_START)
 
