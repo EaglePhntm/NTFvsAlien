@@ -32,6 +32,7 @@
 #define MAP_SULACO "Sulaco"
 #define MAP_THESEUS "Theseus"
 #define MAP_ARACHNE "Arachne"
+#define MAP_LEGACY_OF_SPRING "Legacy of Spring"
 #define MAP_COMBAT_PATROL_BASE "Combat Patrol Base"
 #define MAP_NTF "NTC Nine Tailed Fox"
 #define MAP_EAGLE "Eagle"
