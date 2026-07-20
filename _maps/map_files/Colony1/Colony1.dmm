@@ -4368,6 +4368,7 @@
 	})
 "fFH" = (
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/groundhq/ntf/engineering/lower_engineering)
 "fGf" = (
@@ -5599,12 +5600,7 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/groundhq/ntf/medical/medical_science)
 "hyi" = (
@@ -6636,6 +6632,9 @@
 	dir = 4
 	},
 /obj/structure/inflatable/door,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
 /turf/open/floor/mainship,
 /area/mainship/groundhq/ntf/hallways/starboard_hallway{
 	name = "HQ Central Hallways"
@@ -6777,6 +6776,15 @@
 /turf/open/floor/tile/hydro,
 /area/sulaco/hydro{
 	outside = 0
+	})
+"iQO" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/layer1{
+	dir = 8;
+	on = 1
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/groundhq/ntf/hallways/starboard_hallway{
+	name = "HQ Central Hallways"
 	})
 "iQZ" = (
 /obj/structure/cable,
@@ -9907,6 +9915,13 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/engineering/upper_engine_monitoring)
+"nfj" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/turf/open/floor/mainship/sterile/dark,
+/area/mainship/groundhq/ntf/medical/medical_science)
 "nfL" = (
 /obj/machinery/power/monitor/core,
 /obj/structure/cable,
@@ -10782,6 +10797,14 @@
 /obj/effect/landmark/start/job/squadsmartgunner,
 /turf/open/floor/wood,
 /area/mainship/hallways/ntf/dorm1)
+"oqe" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/groundhq/ntf/hallways/starboard_hallway{
+	name = "HQ Central Hallways"
+	})
 "oqJ" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/bottle/vodka,
@@ -13832,9 +13855,6 @@
 "scJ" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 1
-	},
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/groundhq/ntf/medical/medical_science)
 "scO" = (
@@ -17636,6 +17656,9 @@
 	dir = 4
 	},
 /obj/structure/inflatable/door,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
 /turf/open/floor/mainship,
 /area/mainship/groundhq/ntf/hallways/starboard_hallway{
 	name = "HQ Central Hallways"
@@ -25857,7 +25880,7 @@ rTJ
 oZX
 pWX
 nHg
-eOe
+nfj
 eOQ
 rTJ
 dkl
@@ -25964,7 +25987,7 @@ rTJ
 cBe
 pWX
 rSP
-eOe
+nfj
 rSP
 gbv
 jfy
@@ -26071,7 +26094,7 @@ rTJ
 bBe
 pWX
 rSP
-eOe
+nfj
 lEt
 rTJ
 rTJ
@@ -26178,7 +26201,7 @@ rTJ
 hJa
 oVM
 rSP
-eOe
+nfj
 wIj
 rTJ
 dtc
@@ -26285,7 +26308,7 @@ rTJ
 brc
 rSP
 rSP
-eOe
+nfj
 mTV
 toR
 jEH
@@ -27571,12 +27594,12 @@ lxp
 lxp
 dZi
 lxp
-lxp
+oqe
 lxp
 lxp
 lxp
 dZi
-lxp
+oqe
 lxp
 lxp
 frD
@@ -27678,12 +27701,12 @@ lxp
 lxp
 dZi
 lxp
-lxp
+oqe
 lxp
 lxp
 lxp
 dZi
-lxp
+oqe
 lxp
 lxp
 frD
@@ -27785,12 +27808,12 @@ lxp
 lxp
 dZi
 lxp
-lxp
-lxp
+oqe
+oqe
 lxp
 lxp
 dZi
-lxp
+oqe
 lxp
 lxp
 frD
@@ -27892,12 +27915,12 @@ lxp
 lxp
 dZi
 lxp
-lxp
-lxp
+iQO
+oqe
 lxp
 lxp
 dZi
-lxp
+iQO
 lxp
 lxp
 frD
