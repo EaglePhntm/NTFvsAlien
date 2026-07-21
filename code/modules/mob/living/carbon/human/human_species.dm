@@ -37,6 +37,30 @@
 /mob/living/carbon/human/species/anthro
 	race = "Anthro"
 
+/mob/living/carbon/human/ai/neutral
+
+/mob/living/carbon/human/ai/neutral/Initialize(mapload, datum/outfit/job/outfit)
+	. = ..()
+	a_intent = INTENT_HARM
+	ASYNC
+		if(!outfit)
+			outfit = pick(GLOB.civilian_outfits)
+		outfit = new outfit()
+		var/datum/job/outfit_job = SSjob.type_occupations[outfit.jobtype]
+		job = outfit_job
+		if(SSticker.mode.zombie_ids)
+			outfit.equip(src, FALSE, TRUE)
+			outfit.handle_id(src)
+			if(wear_id)
+				wear_id.access = list()
+				wear_id.iff_signal = NONE
+		else
+			outfit.equip(src, FALSE, FALSE)
+			if(wear_id)
+				QDEL_NULL(wear_id)
+			job = SSjob.type_occupations[/datum/job/civilian]
+	AddComponent(/datum/component/ai_controller, /datum/ai_behavior/human/monkey) //give me civilians, neutral humans AI damn it!
+
 /mob/living/carbon/human/species/vatgrown
 	race = "Vat-Grown Human"
 
