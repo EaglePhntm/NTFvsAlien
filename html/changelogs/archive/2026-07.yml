@@ -205,4 +205,6 @@
   Meghan-Rossi:
   - balance: Reduced direct hit bonus damage for spray flamers by 70%.  (This has
       no effect on the damage from walking through the flames)
-
+2026-07-21:
+  Lumipharon:
+  - code_imp: fixed the install_byond.sh
