@@ -115,7 +115,7 @@ GLOBAL_VAR_INIT(max_larva_count_per_mob, 3) //Added for adminbus reasons
 #define NUTRITION_STARVING 150
 #define NUTRITION_HUNGRY 250
 #define NUTRITION_WELLFED 400
-#define NUTRITION_OVERFED 450
+#define NUTRITION_OVERFED 500
 
 //=================================================
 /*

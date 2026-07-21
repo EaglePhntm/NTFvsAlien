@@ -9,7 +9,7 @@
 
 /mob/living/carbon/proc/adjust_nutrition(amount)
 	. = nutrition
-	nutrition = max(nutrition + amount, 0)
+	nutrition = max(nutrition + (amount*species.hunger_mult), 0)
 	adjust_nutrition_speed(.)
 
 /mob/living/carbon/proc/set_nutrition(amount)
