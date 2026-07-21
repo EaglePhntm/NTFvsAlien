@@ -53,7 +53,6 @@
 	desc = "A beret, an artists favorite headwear."
 	icon_state = "beret"
 	siemens_coefficient = 0.9
-	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 10, BIO = 5, FIRE = 5, ACID = 5)
 	armor_features_flags = ARMOR_NO_DECAP
 
 //Security
@@ -111,10 +110,6 @@
 	name = "hat"
 	desc = "Someone who wears this will look very smart."
 	icon_state = "detective"
-	allowed = list(/obj/item/reagent_containers/food/snacks/candy_corn, /obj/item/tool/pen)
-	soft_armor = list(MELEE = 50, BULLET = 5, LASER = 25, ENERGY = 10, BOMB = 0, BIO = 0, FIRE = 10, ACID = 10)
-	siemens_coefficient = 0.9
-	armor_protection_flags = NONE
 
 /obj/item/clothing/head/det_hat/black
 	icon_state = "detective2"
