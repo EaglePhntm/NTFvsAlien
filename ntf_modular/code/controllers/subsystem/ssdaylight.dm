@@ -501,17 +501,17 @@ SUBSYSTEM_DEF(daylight)
 	var/auto_cycle = (manual_time < 0 && !time_locked && !cycle_locked)
 	var/cycle_progress = get_cycle_progress()
 
+	var/msg
 	if(auto_cycle)
 		if(last_cycle_progress < 0)
 			last_cycle_progress = cycle_progress
 		else
-			var/msg
 			if(cycle_progress < last_cycle_progress - 0.01)
 				msg = "A new day has dawned on the station!"
 				SEND_SIGNAL(src, COMSIG_DAYLIGHT_NEW_DAY)
 				SEND_SIGNAL(src, COMSIG_DAYLIGHT_DAY_START)
 
-			else if(last_cycle_progress < daylight_fraction && cycle_progress > daylight_fraction)
+			else if(last_cycle_progress < daylight_fraction && cycle_progress >= daylight_fraction)
 				msg = "Night has fallen on the station."
 				SEND_SIGNAL(src, COMSIG_DAYLIGHT_NIGHT_START)
 
@@ -522,7 +522,7 @@ SUBSYSTEM_DEF(daylight)
 
 	if(!auto_cycle)
 		return
-	if(abs(cycle_progress - last_cycle_progress) < delta_cycle_progress)
+	if((abs(cycle_progress - last_cycle_progress) < delta_cycle_progress) && !msg)
 		return
 	resolve_phase()
 	var/current_phase_name = current_phase ? current_phase.name : null
