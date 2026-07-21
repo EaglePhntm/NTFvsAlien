@@ -590,9 +590,6 @@
 "aCo" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment/corner,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
 	dir = 1
 	},
@@ -4602,6 +4599,9 @@
 	})
 "dRN" = (
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 6
+	},
 /turf/open/floor/urban/wood,
 /area/sulaco/command{
 	name = "Captain's Room";
@@ -8583,6 +8583,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/urban/wood,
 /area/sulaco/command{
 	name = "Captain's Room";
@@ -9572,6 +9573,9 @@
 /obj/structure/disposalpipe/junction/flipped{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
 /turf/open/floor/mainship/sterile/side{
 	dir = 9
 	},
@@ -10470,6 +10474,16 @@
 /area/mainship/medical/surgery_hallway{
 	name = "Research"
 	})
+"iDT" = (
+/obj/structure/cable,
+/obj/structure/disposalpipe/junction,
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+	dir = 4
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/hallways/bow_hallway{
+	name = "Ship Floor 1 Hallways"
+	})
 "iEd" = (
 /obj/structure/table/mainship/nometal,
 /obj/machinery/computer/med_data/laptop,
@@ -10507,6 +10521,15 @@
 	},
 /area/mainship/medical/upper_medical{
 	name = "Shipside Medbay"
+	})
+"iGd" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/turf/open/floor/urban/wood,
+/area/sulaco/command{
+	name = "Captain's Room";
+	outside = 0
 	})
 "iGg" = (
 /obj/machinery/light/mainship{
@@ -13264,6 +13287,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/urban/wood,
 /area/sulaco/command{
 	name = "Captain's Room";
@@ -14007,21 +14031,6 @@
 /area/sulaco/command{
 	name = "Captain's Room";
 	outside = 0
-	})
-"lkp" = (
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
-	dir = 1
-	},
-/turf/open/floor/mainship/sterile/dark,
-/area/mainship/medical/upper_medical{
-	name = "Shipside Medbay"
 	})
 "lkK" = (
 /obj/structure/bed/chair/wood/wings{
@@ -17524,9 +17533,6 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
-	dir = 1
-	},
 /obj/machinery/firealarm,
 /turf/open/floor/mainship/sterile/side{
 	dir = 1
@@ -18030,6 +18036,9 @@
 	})
 "oyH" = (
 /obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/urban/wood,
@@ -20848,9 +20857,6 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
-	dir = 8
-	},
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/upper_medical{
 	name = "Shipside Medbay"
@@ -22133,6 +22139,16 @@
 	dir = 1
 	},
 /area/mainship/medical/operating_room_four)
+"rXp" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/layer1{
+	dir = 8;
+	on = 1
+	},
+/turf/open/floor/urban/wood,
+/area/sulaco/command{
+	name = "Captain's Room";
+	outside = 0
+	})
 "rXt" = (
 /obj/structure/window/framed/mainship/hull,
 /turf/open/floor/mainship_hull/dir{
@@ -23063,6 +23079,9 @@
 /obj/structure/cable,
 /obj/effect/landmark/start/job/vanguard,
 /obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -24259,6 +24278,9 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+	dir = 8
+	},
 /turf/open/floor/urban/wood,
 /area/sulaco/command{
 	name = "Captain's Room";
@@ -24336,6 +24358,9 @@
 	dir = 4
 	},
 /obj/machinery/camera/autoname,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/bow_hallway{
 	name = "Ship Floor 1 Hallways"
@@ -25917,6 +25942,9 @@
 /obj/machinery/door/airlock/mainship/command/CPTstudy{
 	name = "\improper Commander's Study"
 	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
 /turf/open/floor/urban/wood,
 /area/sulaco/command{
 	name = "Captain's Room";
@@ -26493,6 +26521,15 @@
 	},
 /turf/open/floor/prison/kitchen,
 /area/mainship/groundhq/ntf/shipboard/brig_cells)
+"vqC" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/layer1{
+	on = 1
+	},
+/turf/open/floor/urban/wood,
+/area/sulaco/command{
+	name = "Captain's Room";
+	outside = 0
+	})
 "vqE" = (
 /obj/structure/cable,
 /obj/machinery/power/fusion_engine/preset,
@@ -26715,7 +26752,6 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/upper_medical{
@@ -28599,6 +28635,9 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 9
+	},
 /turf/open/floor/urban/wood,
 /area/sulaco/command{
 	name = "Captain's Room";
@@ -28910,6 +28949,9 @@
 /obj/effect/ai_node,
 /obj/structure/disposalpipe/segment/corner{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 5
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/bow_hallway{
@@ -29243,6 +29285,7 @@
 	dir = 2;
 	name = "\improper Commander's Office"
 	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/urban/wood,
 /area/sulaco/command{
 	name = "Captain's Room";
@@ -34757,7 +34800,7 @@ slL
 scY
 jIr
 xlz
-eSQ
+vqC
 tAw
 hch
 kNA
@@ -35000,7 +35043,7 @@ oyH
 rlb
 oyt
 unY
-lOR
+aHt
 kyS
 sIF
 ltZ
@@ -35119,7 +35162,7 @@ xil
 bJO
 osi
 unY
-lOR
+aHt
 kyS
 sIF
 sIF
@@ -35238,7 +35281,7 @@ slL
 slL
 slL
 slL
-lOR
+aHt
 rZs
 sIF
 hMj
@@ -35352,12 +35395,12 @@ wnH
 wMI
 rdh
 fzz
-eSQ
+iGd
 slL
 qMb
 kXS
 slL
-lOR
+aHt
 kyS
 sIF
 poX
@@ -35471,12 +35514,12 @@ wnH
 lxq
 nTM
 eSQ
-eSQ
+rXp
 fOp
 smP
 vDu
 slL
-lOR
+aHt
 kyS
 sIF
 sIF
@@ -35714,7 +35757,7 @@ slL
 slL
 uxD
 slL
-lOR
+aHt
 kyS
 wZr
 orA
@@ -35833,7 +35876,7 @@ kyS
 kyS
 aXE
 kyS
-lOR
+aHt
 kyS
 kyS
 kyS
@@ -35952,7 +35995,7 @@ qPn
 tlR
 tlR
 tlR
-oYl
+iDT
 oES
 oES
 mZZ
@@ -37507,7 +37550,7 @@ hZA
 uzt
 xHJ
 xHv
-lkp
+lqb
 cje
 xHJ
 xXf
