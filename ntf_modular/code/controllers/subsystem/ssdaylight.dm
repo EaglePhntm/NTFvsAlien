@@ -505,14 +505,20 @@ SUBSYSTEM_DEF(daylight)
 		if(last_cycle_progress < 0)
 			last_cycle_progress = cycle_progress
 		else
+			var/msg
 			if(cycle_progress < last_cycle_progress - 0.01)
-				message_admins("A new day has dawned on the station!")
+				msg = "A new day has dawned on the station!"
 				SEND_SIGNAL(src, COMSIG_DAYLIGHT_NEW_DAY)
 				SEND_SIGNAL(src, COMSIG_DAYLIGHT_DAY_START)
 
 			else if(last_cycle_progress < daylight_fraction && cycle_progress > daylight_fraction)
-				message_admins("Night has fallen on the station.")
+				msg = "Night has fallen on the station."
 				SEND_SIGNAL(src, COMSIG_DAYLIGHT_NIGHT_START)
+
+			if(msg)
+				msg += "(cycle_progress = [cycle_progress], last_cycle_progress = [last_cycle_progress], daylight_fraction = [daylight_fraction])"
+				message_admins(msg)
+				log_game(msg)
 
 	if(!auto_cycle)
 		return

@@ -680,7 +680,7 @@
 	color = COLOR_TOXIN_APHROTOXIN
 	overdose_threshold = 10000
 	scannable = TRUE
-	custom_metabolism = REAGENTS_METABOLISM
+	custom_metabolism = REAGENTS_METABOLISM*0.3
 	toxpwr = 0
 	var/mob/living/carbon/debuff_owner
 	var/obj/effect/abstract/particle_holder/particle_holder
