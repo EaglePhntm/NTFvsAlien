@@ -250,7 +250,7 @@
 /turf/open/floor/plating,
 /area/mainship/hallways/hangar)
 "alb" = (
-/obj/machinery/gibber,
+/obj/machinery/gibber/apc,
 /turf/open/floor/freezer,
 /area/mainship/groundhq/ntf/living/captain_mess{
 	name = "Kitchen"
@@ -2934,6 +2934,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/processor,
 /turf/open/floor/freezer,
 /area/mainship/groundhq/clf/living/cafeteria)
 "cwf" = (
@@ -4107,6 +4108,10 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/structure/sink,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
 /turf/open/floor/freezer,
 /area/mainship/groundhq/clf/living/cafeteria)
 "dxx" = (
@@ -6419,6 +6424,8 @@
 /obj/structure/table/reinforced/fabric,
 /obj/item/tool/kitchen/knife/butcher,
 /obj/item/reagent_containers/food/condiment/enzyme,
+/obj/item/reagent_containers/food/condiment/saltshaker,
+/obj/item/reagent_containers/food/condiment/saltshaker,
 /turf/open/floor/freezer,
 /area/mainship/groundhq/clf/living/cafeteria)
 "fvh" = (
@@ -6818,6 +6825,10 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/upper_hull)
+"fIP" = (
+/obj/machinery/smartfridge,
+/turf/closed/wall/mainship,
+/area/mainship/groundhq/clf/living/cafeteria)
 "fJb" = (
 /obj/structure/closet/cabinet,
 /obj/item/reagent_containers/food/drinks/bottle/specialwhiskey,
@@ -9348,7 +9359,20 @@
 	name = "Ship Floor 3 Hallways"
 	})
 "hNA" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
 /turf/open/floor/freezer,
 /area/mainship/groundhq/ntf/living/captain_mess{
 	name = "Kitchen"
@@ -9751,6 +9775,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/wood,
 /area/mainship/hallways/synthdorms)
+"ibw" = (
+/obj/machinery/smartfridge/drinks,
+/turf/closed/wall/mainship,
+/area/mainship/groundhq/clf/living/cafeteria)
 "ibx" = (
 /obj/structure/rack,
 /obj/item/storage/box/stuns,
@@ -10030,6 +10058,14 @@
 /obj/effect/spawner/random/food_or_drink/sugary_snack,
 /obj/effect/spawner/random/food_or_drink/sugary_snack,
 /obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
 /turf/open/floor/freezer,
 /area/mainship/groundhq/clf/living/cafeteria)
 "inB" = (
@@ -11218,7 +11254,16 @@
 /area/mainship/hull/upper_hull)
 "jiX" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
-/turf/open/floor/prison/kitchen,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/turf/open/floor/freezer,
 /area/mainship/groundhq/ntf/living/captain_mess{
 	name = "Kitchen"
 	})
@@ -13155,6 +13200,10 @@
 /area/outpost/cargo{
 	outside = 1
 	})
+"kLx" = (
+/obj/machinery/smartfridge/drinks,
+/turf/closed/wall/mainship/outer,
+/area/mainship/groundhq/ntf/living/grunt_rnr)
 "kMd" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
@@ -13860,18 +13909,6 @@
 "lhX" = (
 /obj/structure/table/reinforced/fabric,
 /obj/machinery/microwave,
-/obj/item/reagent_containers/food/snacks/meat{
-	pixel_x = -1;
-	pixel_y = 2
-	},
-/obj/item/reagent_containers/food/snacks/meat{
-	pixel_x = -1;
-	pixel_y = 2
-	},
-/obj/item/reagent_containers/food/snacks/meat{
-	pixel_x = -1;
-	pixel_y = 2
-	},
 /turf/open/floor/freezer,
 /area/mainship/groundhq/clf/living/cafeteria)
 "lik" = (
@@ -17045,6 +17082,19 @@
 /obj/effect/spawner/random/food_or_drink/sugary_snack,
 /turf/open/floor/mainship,
 /area/mainship/living/cafeteria_starboard)
+"nOx" = (
+/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/turf/open/floor/freezer,
+/area/mainship/groundhq/clf/living/cafeteria)
 "nPi" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/disposalpipe/segment,
@@ -19987,6 +20037,13 @@
 "qjs" = (
 /turf/open/floor/tile/barber,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
+"qjw" = (
+/obj/structure/kitchenspike,
+/obj/item/storage/box/monkeycubes,
+/turf/open/floor/freezer,
+/area/mainship/groundhq/ntf/living/captain_mess{
+	name = "Kitchen"
+	})
 "qld" = (
 /obj/effect/turf_decal/warning_stripes/thick/corner{
 	dir = 8
@@ -21307,6 +21364,32 @@
 /obj/machinery/light/floor,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
+"rok" = (
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/item/reagent_containers/food/snacks/meat{
+	pixel_x = -1;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/snacks/meat{
+	pixel_x = -1;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/snacks/meat{
+	pixel_x = -1;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/snacks/meat{
+	pixel_x = -1;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/snacks/meat{
+	pixel_x = -1;
+	pixel_y = 2
+	},
+/turf/open/floor/freezer,
+/area/mainship/groundhq/ntf/living/captain_mess{
+	name = "Kitchen"
+	})
 "roB" = (
 /obj/structure/disposalpipe/segment/corner{
 	dir = 1
@@ -22583,6 +22666,9 @@
 /obj/item/reagent_containers/food/snacks/grown/potato,
 /obj/item/reagent_containers/food/snacks/grown/potato,
 /obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/structure/extinguisher_cabinet{
+	dir = 8
+	},
 /turf/open/floor/freezer,
 /area/mainship/groundhq/clf/living/cafeteria)
 "ssx" = (
@@ -23341,6 +23427,9 @@
 /area/mainship/squads/specialist)
 "sVR" = (
 /obj/structure/reagent_dispensers/beerkeg,
+/obj/structure/extinguisher_cabinet{
+	dir = 8
+	},
 /turf/open/floor/freezer,
 /area/mainship/groundhq/ntf/living/captain_mess{
 	name = "Kitchen"
@@ -25922,7 +26011,27 @@
 	name = "Kitchen"
 	})
 "uYf" = (
-/obj/structure/table/reinforced/fabric,
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/item/reagent_containers/food/snacks/meat{
+	pixel_x = -1;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/snacks/meat{
+	pixel_x = -1;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/snacks/meat{
+	pixel_x = -1;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/snacks/meat{
+	pixel_x = -1;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/snacks/meat{
+	pixel_x = -1;
+	pixel_y = 2
+	},
 /turf/open/floor/freezer,
 /area/mainship/groundhq/clf/living/cafeteria)
 "uYj" = (
@@ -27492,9 +27601,7 @@
 /turf/open/ground/grass,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "wqG" = (
-/obj/structure/table/reinforced/fabric,
-/obj/item/reagent_containers/food/condiment/saltshaker,
-/obj/item/reagent_containers/food/condiment/saltshaker,
+/obj/machinery/griddle,
 /turf/open/floor/freezer,
 /area/mainship/groundhq/clf/living/cafeteria)
 "wqO" = (
@@ -27878,10 +27985,10 @@
 	name = "Ship Floor 2 Hallways"
 	})
 "wKX" = (
-/obj/machinery/gibber,
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/gibber/apc,
 /turf/open/floor/freezer,
 /area/mainship/groundhq/clf/living/cafeteria)
 "wKZ" = (
@@ -28754,6 +28861,11 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
+"xoN" = (
+/obj/structure/kitchenspike,
+/obj/item/storage/box/monkeycubes,
+/turf/open/floor/freezer,
+/area/mainship/groundhq/clf/living/cafeteria)
 "xoO" = (
 /obj/effect/ai_node,
 /turf/open/floor/mainship/black{
@@ -57250,12 +57362,12 @@ oJY
 kiN
 aMa
 fFy
+xoN
 inm
-inm
-oAJ
+ibw
 oXC
-aYG
-aYG
+nOx
+uYf
 cwe
 dxV
 kJf
@@ -57375,7 +57487,7 @@ pje
 aYG
 aYG
 aYG
-taF
+aYG
 kJf
 kJf
 tBd
@@ -57490,7 +57602,7 @@ aMa
 sEn
 sso
 wKX
-oAJ
+fIP
 ruP
 aYG
 aYG
@@ -57612,8 +57724,8 @@ oAJ
 rzN
 lhX
 fuv
+taF
 pLc
-uYf
 kJf
 kJf
 nss
@@ -57723,8 +57835,8 @@ rXt
 reV
 aMa
 wXt
-fFk
-fFk
+qjw
+rok
 hNA
 uXI
 trc
@@ -59379,7 +59491,7 @@ nwr
 nwr
 nwr
 iqJ
-iqJ
+kLx
 nQA
 tLN
 taI
