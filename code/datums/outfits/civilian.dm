@@ -319,7 +319,6 @@
 
 	w_uniform = /obj/item/clothing/under/rank/bartender
 	back = /obj/item/storage/backpack/satchel
-	belt = /obj/item/ammo_magazine/shotgun/buckshot
 	shoes = /obj/item/clothing/shoes/marine/clf
 	head = /obj/item/clothing/head/collectable/tophat
 	ears = /obj/item/radio/headset/survivor
