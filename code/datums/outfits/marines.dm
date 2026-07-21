@@ -75,6 +75,7 @@
 	color = COLOR_RED
 	desc = "Unfolds into a quik-clap bedroll, to be used by security forces for emergency field administration of cock upon lawbreakers. The very dense grenade itself is good as a nonlethal throwable that stuns and tires enemies, if it manages to capture someone, it will automatically present the lawbreaker on the bed but... It does not really bind them."
 	hit_sound = null
+	det_time = 3 SECONDS
 
 /obj/item/explosive/grenade/bednade/throw_impact(atom/hit_atom, speed, bounce)
 	. = ..()
