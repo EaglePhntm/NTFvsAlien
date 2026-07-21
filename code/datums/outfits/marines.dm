@@ -98,7 +98,7 @@
 			loc = idiot.loc
 	var/obj/structure/bed/bedroll/sec/sexbed = new /obj/structure/bed/bedroll/sec(loc)
 	for(var/mob/living/victim in loc)
-		if(ishuman(victim))
+		if(!ishuman(victim))
 			continue
 		victim.ParalyzeNoChain(4 SECONDS)
 		victim.adjustStaminaLoss(300) //ur caught, fucked up

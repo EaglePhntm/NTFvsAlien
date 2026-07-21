@@ -4107,6 +4107,10 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/structure/sink,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
 /turf/open/floor/freezer,
 /area/mainship/groundhq/clf/living/cafeteria)
 "dxx" = (
@@ -10030,6 +10034,14 @@
 /obj/effect/spawner/random/food_or_drink/sugary_snack,
 /obj/effect/spawner/random/food_or_drink/sugary_snack,
 /obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
 /turf/open/floor/freezer,
 /area/mainship/groundhq/clf/living/cafeteria)
 "inB" = (
@@ -17045,6 +17057,19 @@
 /obj/effect/spawner/random/food_or_drink/sugary_snack,
 /turf/open/floor/mainship,
 /area/mainship/living/cafeteria_starboard)
+"nOx" = (
+/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/turf/open/floor/freezer,
+/area/mainship/groundhq/clf/living/cafeteria)
 "nPi" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/disposalpipe/segment,
@@ -27878,10 +27903,10 @@
 	name = "Ship Floor 2 Hallways"
 	})
 "wKX" = (
-/obj/machinery/gibber,
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/gibber/apc,
 /turf/open/floor/freezer,
 /area/mainship/groundhq/clf/living/cafeteria)
 "wKZ" = (
@@ -28754,6 +28779,10 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
+"xoN" = (
+/obj/structure/closet/secure_closet/freezer/meat,
+/turf/open/floor/freezer,
+/area/mainship/groundhq/clf/living/cafeteria)
 "xoO" = (
 /obj/effect/ai_node,
 /turf/open/floor/mainship/black{
@@ -57250,11 +57279,11 @@ oJY
 kiN
 aMa
 fFy
-inm
+xoN
 inm
 oAJ
 oXC
-aYG
+nOx
 aYG
 cwe
 dxV
