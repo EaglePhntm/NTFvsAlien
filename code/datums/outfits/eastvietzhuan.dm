@@ -218,16 +218,6 @@
 		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
 	)
 
-	belt_contents = list(
-		/obj/item/tool/screwdriver = 1,
-		/obj/item/tool/wrench = 1,
-		/obj/item/tool/wirecutters = 1,
-		/obj/item/tool/crowbar = 1,
-		/obj/item/tool/weldingtool = 1,
-		/obj/item/tool/multitool = 1,
-		/obj/item/stack/cable_coil = 1,
-	)
-
 	l_pocket_contents = list(
 		/obj/item/stack/sheet/metal/medium_stack = 1,
 		/obj/item/stack/sheet/plasteel/small_stack = 1,
