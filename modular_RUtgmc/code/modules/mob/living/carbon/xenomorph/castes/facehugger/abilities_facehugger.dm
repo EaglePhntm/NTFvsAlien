@@ -67,8 +67,13 @@
 	var/mob/living/carbon/xenomorph/caster = owner
 
 	prepare_to_pounce()
+
+	LAZYINCREMENT(owner.do_actions, target)
+	addtimer(CALLBACK(src, PROC_REF(decrease_do_action), target), windup_time, TIMER_STOPPABLE)
 	if(!do_after(caster, windup_time, FALSE, caster, BUSY_ICON_DANGER, extra_checks = CALLBACK(src, PROC_REF(can_use_ability), A, FALSE, ABILITY_USE_BUSY)))
+		LAZYDECREMENT(owner.do_actions, target)
 		return fail_activate()
+	LAZYDECREMENT(owner.do_actions, target)
 	playsound(caster.loc, 'ntf_modular/sound/voice/alien/headcrab-jump.ogg', 20, TRUE)
 
 	caster.icon_state = "[caster.xeno_caste.caste_name] Thrown"
@@ -91,8 +96,6 @@
 	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
 		return FALSE
 	action_activate()
-	LAZYINCREMENT(owner.do_actions, target)
-	addtimer(CALLBACK(src, PROC_REF(decrease_do_action), target), windup_time, TIMER_STOPPABLE)
 	return TRUE
 
 ///Decrease the do_actions of the owner
