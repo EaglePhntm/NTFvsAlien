@@ -1,4 +1,4 @@
-/datum/job/civilian // not a job meant for players, but rather AI civilians who roam the map
+/datum/job/civindep // not a job meant for players, but rather AI civilians who roam the map
 	title = "Generic Civilian"
 	supervisors = "anyone who might rescue you, Colonial Militia"
 	paygrade = "CLNST"
@@ -69,112 +69,113 @@ Good luck, but do not expect to survive."}
 
 
 //Assistant
-/datum/job/civilian/assistant
+/datum/job/civindep/assistant
 	title = "Assistant Colonist"
-	outfit = /datum/outfit/job/civilian/assistant
+	outfit = /datum/outfit/job/civindep/assistant
 
 //Scientist
-/datum/job/civilian/scientist
+/datum/job/civindep/scientist
 	title = "Scientist Colonist"
 	skills_type = /datum/skills/civilian/survivor/scientist
-	outfit = /datum/outfit/job/civilian/scientist
+	outfit = /datum/outfit/job/civindep/scientist
 
-/datum/job/civilian/scientist/after_spawn(mob/living/carbon/C, mob/M, latejoin = FALSE)
+/datum/job/civindep/scientist/after_spawn(mob/living/carbon/C, mob/M, latejoin = FALSE)
 	. = ..()
 	ADD_TRAIT(C, TRAIT_RESEARCHER, "[type]")
 
 //Doctor
-/datum/job/civilian/doctor
+/datum/job/civindep/doctor
 	title = "Doctor Colonist"
 	skills_type = /datum/skills/civilian/survivor/doctor
-	outfit = /datum/outfit/job/civilian/doctor
+	outfit = /datum/outfit/job/civindep/doctor
 
 //Liaison
-/datum/job/civilian/liaison
+/datum/job/civindep/officeworker
+	title = "Office Worker Colonist"
+	outfit = /datum/outfit/job/civindep/officeworker
+
+//Liaison
+/datum/job/civindep/liaison
 	title = "Liaison Colonist"
-	outfit = /datum/outfit/job/civilian/liaison
+	outfit = /datum/outfit/job/civindep/liaison
 
 //Security Guard
-/datum/job/civilian/security
+/datum/job/civindep/security
 	title = "Security Guard Colonist"
 	access = list(ACCESS_CIVILIAN_PUBLIC, ACCESS_CIVILIAN_RESEARCH, ACCESS_CIVILIAN_ENGINEERING, ACCESS_CIVILIAN_LOGISTICS, ACCESS_MARINE_BRIG, ACCESS_ICC_SECURITY, ACCESS_ICC_CARGO)
 	minimal_access = list(ACCESS_CIVILIAN_PUBLIC, ACCESS_CIVILIAN_RESEARCH, ACCESS_CIVILIAN_ENGINEERING, ACCESS_CIVILIAN_LOGISTICS, ACCESS_MARINE_BRIG, ACCESS_ICC_SECURITY, ACCESS_ICC_CARGO)
 	skills_type = /datum/skills/civilian/survivor/marshal
-	outfit = /datum/outfit/job/civilian/security
+	outfit = /datum/outfit/job/civindep/security
 
 //Civilian
-/datum/job/civilian/civilian
+/datum/job/civindep/civilian
 	title = "Civilian Colonist"
-	outfit = /datum/outfit/job/civilian/civilian
+	outfit = /datum/outfit/job/civindep/civilian
 
 //Chef
-/datum/job/civilian/chef
+/datum/job/civindep/chef
 	title = "Chef Colonist"
 	skills_type = /datum/skills/civilian/survivor/chef
-	outfit = /datum/outfit/job/civilian/chef
+	outfit = /datum/outfit/job/civindep/chef
 
 //Botanist
-/datum/job/civilian/botanist
+/datum/job/civindep/botanist
 	title = "Botanist Colonist"
-	outfit = /datum/outfit/job/civilian/botanist
-
-
-/datum/job/civilian/botanist
-	title = "Botanist Colonist"
+	outfit = /datum/outfit/job/civindep/botanist
 
 //Atmospherics Technician
-/datum/job/civilian/atmos
+/datum/job/civindep/atmos
 	title = "Technician Colonist"
 	skills_type = /datum/skills/civilian/survivor/atmos
-	outfit = /datum/outfit/job/civilian/atmos
+	outfit = /datum/outfit/job/civindep/atmos
 
 //Chaplain
-/datum/job/civilian/chaplain
+/datum/job/civindep/chaplain
 	title = "Chaplain Colonist"
-	outfit = /datum/outfit/job/civilian/chaplain
+	outfit = /datum/outfit/job/civindep/chaplain
 
 //Miner
-/datum/job/civilian/miner
+/datum/job/civindep/miner
 	title = "Miner Colonist"
 	skills_type = /datum/skills/civilian/survivor/miner
-	outfit = /datum/outfit/job/civilian/miner
+	outfit = /datum/outfit/job/civindep/miner
 
 //Salesman
-/datum/job/civilian/salesman
+/datum/job/civindep/salesman
 	title = "Salesman Colonist"
-	outfit = /datum/outfit/job/civilian/salesman
+	outfit = /datum/outfit/job/civindep/salesman
 
 //Colonial Marshal
-/datum/job/civilian/marshal
+/datum/job/civindep/marshal
 	title = "Colonial Marshal Colonist"
 	skills_type = /datum/skills/civilian/survivor/marshal
-	outfit = /datum/outfit/job/civilian/marshal
+	outfit = /datum/outfit/job/civindep/marshal
 
 //Bartender Survivor
-/datum/job/civilian/bartender
+/datum/job/civindep/bartender
 	title = "Bartender Colonist"
-	outfit = /datum/outfit/job/civilian/bartender
+	outfit = /datum/outfit/job/civindep/bartender
 
 //Chemist Survivor
-/datum/job/civilian/chemist
+/datum/job/civindep/chemist
 	title = "Pharmacy Technician Colonist"
 	skills_type = /datum/skills/civilian/survivor/scientist
-	outfit = /datum/outfit/job/civilian/chemist
+	outfit = /datum/outfit/job/civindep/chemist
 
 //Assistant
-/datum/job/civilian/assistant
+/datum/job/civindep/assistant
 	title = "Assistant Colonist"
-	outfit = /datum/outfit/job/civilian/assistant
+	outfit = /datum/outfit/job/civindep/assistant
 
 //Roboticist Survivor
-/datum/job/civilian/roboticist
+/datum/job/civindep/roboticist
 	title = "Roboticist Colonist"
 	skills_type = /datum/skills/civilian/survivor/atmos
-	outfit = /datum/outfit/job/civilian/roboticist
+	outfit = /datum/outfit/job/civindep/roboticist
 
 // Rambo Survivor - pretty overpowered, pls spawn with caution
-/datum/job/civilian/rambo
+/datum/job/civindep/rambo
 	title = "Rambo Colonist"
 	skills_type = /datum/skills/civilian/survivor/master
-	outfit = /datum/outfit/job/civilian/rambo
+	outfit = /datum/outfit/job/civindep/rambo
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_OVERRIDELATEJOINSPAWN
