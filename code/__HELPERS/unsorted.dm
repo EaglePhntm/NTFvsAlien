@@ -1204,6 +1204,8 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 GLOBAL_LIST_INIT(survivor_outfits, typecacheof(/datum/outfit/job/survivor))
 GLOBAL_LIST_INIT(civindep_outfits, typecacheof(/datum/outfit/job/civindep))
 GLOBAL_LIST_INIT(eastvietzhuan_outfits, typecacheof(/datum/outfit/job/eastvietzhuan))
+GLOBAL_LIST_EMPTY(spawn_civneutral)
+GLOBAL_LIST_EMPTY(spawn_evzcivneutral)
 
 /**
  * Draws a line between two atoms, then checks if the path is blocked
