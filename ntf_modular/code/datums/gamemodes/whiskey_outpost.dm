@@ -33,3 +33,8 @@
 
 /datum/game_mode/infestation/secret_of_life/alienonly/whiskey_outpost/generate_nuke_disk_spawners()
 	return //Just skip it.  They're not needed and the map's a bit small to fit the computers.
+
+/datum/game_mode/infestation/secret_of_life/whiskey_outpost/post_setup()
+	. = ..()
+	for(var/i in GLOB.xeno_resin_silo_turfs)
+		new /obj/structure/xeno/silo
