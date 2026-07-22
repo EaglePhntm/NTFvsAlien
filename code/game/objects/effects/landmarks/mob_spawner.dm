@@ -31,14 +31,10 @@
 	icon = 'icons/effects/landmarks_static.dmi'
 	icon_state = "x2"
 	mob_spawn = /mob/living/carbon/human/ai/neutral
-	spawn_prob = 100
 
-/obj/effect/landmark/mob_spawner/neutralcivilian/Initialize(mapload)
+/obj/effect/landmark/mob_spawner/neutralevzcivilian/Initialize(mapload)
 	. = ..()
-	RegisterSignal(SSdcs, COMSIG_GLOB_GAMEMODE_LOADED, PROC_REF(spawn_civneutral))
-
-/obj/effect/landmark/mob_spawner/neutralcivilian/proc/spawn_civneutral(dcs)
-	sleep(5 SECONDS) //let shit settle
+	GLOB.spawn_civneutral += src
 
 /obj/effect/landmark/mob_spawner/neutralevzcivilian
 	name = "neutral east vietzhuan civilian spawner"
@@ -49,7 +45,4 @@
 
 /obj/effect/landmark/mob_spawner/neutralevzcivilian/Initialize(mapload)
 	. = ..()
-	RegisterSignal(SSdcs, COMSIG_GLOB_GAMEMODE_LOADED, PROC_REF(spawn_evzneutral))
-
-/obj/effect/landmark/mob_spawner/neutralevzcivilian/proc/spawn_evzneutral(dcs)
-	sleep(5 SECONDS) //let shit settle
+	GLOB.spawn_evzcivneutral += src
