@@ -1,11 +1,10 @@
-/datum/outfit/job/civilian/assistant
+/datum/outfit/job/civindep/assistant
 	name = "Assistant Colonist"
-	jobtype = /datum/job/survivor/assistant
+	jobtype = /datum/job/civindep/assistant
 
 	w_uniform = /obj/item/clothing/under/color/grey
 	shoes = /obj/item/clothing/shoes/marine/clf
 	back = /obj/item/storage/backpack/satchel/norm
-	wear_suit = /obj/item/clothing/suit/armor/vest
 	ears = /obj/item/radio/headset/survivor
 	belt = /obj/item/storage/belt/utility/full
 	l_pocket = /obj/item/flashlight
@@ -14,9 +13,9 @@
 		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
 	)
 
-/datum/outfit/job/civilian/scientist
+/datum/outfit/job/civindep/scientist
 	name = "Scientist Colonist"
-	jobtype = /datum/job/survivor/scientist
+	jobtype = /datum/job/civindep/scientist
 
 	w_uniform = /obj/item/clothing/under/rank/scientist
 	wear_suit = /obj/item/clothing/suit/storage/labcoat/researcher
@@ -39,9 +38,9 @@
 	)
 
 
-/datum/outfit/job/civilian/doctor
+/datum/outfit/job/civindep/doctor
 	name = "Doctor's Assistant Colonist"
-	jobtype = /datum/job/survivor/doctor
+	jobtype = /datum/job/civindep/doctor
 
 	w_uniform = /obj/item/clothing/under/rank/medical/blue
 	wear_suit = /obj/item/clothing/suit/storage/labcoat
@@ -80,21 +79,31 @@
 		/obj/item/tweezers = 1,
 	)
 
-/datum/outfit/job/civilian/liaison
-	name = "Liaison Colonist"
-	jobtype = /datum/job/survivor/liaison
+/datum/outfit/job/civindep/officeworker
+	name = "Office Worker Colonist"
+	jobtype = /datum/job/civindep/officeworker
 
 	w_uniform = /obj/item/clothing/under/liaison_suit
 	shoes = /obj/item/clothing/shoes/marine/clf
 	back = /obj/item/storage/backpack/satchel/norm
 	ears = /obj/item/radio/headset/survivor
-	belt = /obj/item/storage/holster/belt/pistol/m4a3/vp78
 	l_hand = /obj/item/flashlight/combat
 	l_pocket = /obj/item/tool/crowbar
 
-/datum/outfit/job/civilian/security
+/datum/outfit/job/civindep/liaison
+	name = "Liaison Colonist"
+	jobtype = /datum/job/civindep/liaison
+
+	w_uniform = /obj/item/clothing/under/liaison_suit
+	shoes = /obj/item/clothing/shoes/marine/clf
+	back = /obj/item/storage/backpack/satchel/norm
+	ears = /obj/item/radio/headset/survivor
+	l_hand = /obj/item/flashlight/combat
+	l_pocket = /obj/item/tool/crowbar
+
+/datum/outfit/job/civindep/security
 	name = "Security Guard Colonist"
-	jobtype = /datum/job/survivor/security
+	jobtype = /datum/job/civindep/security
 
 	w_uniform = /obj/item/clothing/under/rank/security
 	wear_suit = /obj/item/clothing/suit/armor/patrol
@@ -124,9 +133,9 @@
 		/obj/item/flash = 1,
 	)
 
-/datum/outfit/job/civilian/civilian
+/datum/outfit/job/civindep/civilian
 	name = "Civilian Colonist"
-	jobtype = /datum/job/survivor/civilian
+	jobtype = /datum/job/civindep/civilian
 
 	w_uniform = /obj/item/clothing/under/colonist
 	shoes = /obj/item/clothing/shoes/marine/clf
@@ -141,9 +150,9 @@
 	)
 
 
-/datum/outfit/job/civilian/chef
+/datum/outfit/job/civindep/chef
 	name = "Chef Colonist"
-	jobtype = /datum/job/survivor/chef
+	jobtype = /datum/job/civindep/chef
 
 	w_uniform = /obj/item/clothing/under/rank/chef
 	wear_suit = /obj/item/clothing/suit/storage/chef
@@ -168,9 +177,9 @@
 	)
 
 
-/datum/outfit/job/civilian/botanist
+/datum/outfit/job/civindep/botanist
 	name = "Botanist Colonist"
-	jobtype = /datum/job/survivor/botanist
+	jobtype = /datum/job/civindep/botanist
 
 	w_uniform = /obj/item/clothing/under/rank/hydroponics
 	wear_suit = /obj/item/clothing/suit/storage/apron/overalls
@@ -186,9 +195,9 @@
 		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
 	)
 
-/datum/outfit/job/civilian/atmos
+/datum/outfit/job/civindep/atmos
 	name = "Atmospherics Technician Colonist"
-	jobtype = /datum/job/survivor/atmos
+	jobtype = /datum/job/civindep/atmos
 
 	w_uniform = /obj/item/clothing/under/rank/atmospheric_technician
 	wear_suit = /obj/item/clothing/suit/storage/hazardvest
@@ -225,9 +234,9 @@
 	)
 
 
-/datum/outfit/job/civilian/chaplain
+/datum/outfit/job/civindep/chaplain
 	name = "Chaplain Colonist"
-	jobtype = /datum/job/survivor/chaplain
+	jobtype = /datum/job/civindep/chaplain
 
 	w_uniform = /obj/item/clothing/under/rank/chaplain
 	shoes = /obj/item/clothing/shoes/marine/clf
@@ -245,9 +254,9 @@
 		/obj/item/reagent_containers/cup/glass/bottle/holywater = 1,
 	)
 
-/datum/outfit/job/civilian/miner
+/datum/outfit/job/civindep/miner
 	name = "Miner Colonist"
-	jobtype = /datum/job/survivor/miner
+	jobtype = /datum/job/civindep/miner
 
 	w_uniform = /obj/item/clothing/under/rank/miner
 	head = /obj/item/clothing/head/helmet/space/rig/mining
@@ -268,9 +277,9 @@
 	)
 
 
-/datum/outfit/job/civilian/salesman
+/datum/outfit/job/civindep/salesman
 	name = "Salesman Colonist"
-	jobtype = /datum/job/survivor/salesman
+	jobtype = /datum/job/civindep/salesman
 
 	w_uniform = /obj/item/clothing/under/lawyer/purpsuit
 	wear_suit = /obj/item/clothing/suit/storage/lawyer/purpjacket
@@ -289,9 +298,9 @@
 	)
 
 
-/datum/outfit/job/civilian/marshal
+/datum/outfit/job/civindep/marshal
 	name = "Colonial Marshal Colonist"
-	jobtype = /datum/job/survivor/marshal
+	jobtype = /datum/job/civindep/marshal
 
 	w_uniform = /obj/item/clothing/under/CM_uniform
 	wear_suit = /obj/item/clothing/suit/storage/CMB
@@ -313,12 +322,13 @@
 
 	backpack_contents = list(/obj/item/book/manual/marine_law = 1,)
 
-/datum/outfit/job/civilian/bartender
+/datum/outfit/job/civindep/bartender
 	name = "Bartender Colonist"
-	jobtype = /datum/job/survivor/bartender
+	jobtype = /datum/job/civindep/bartender
 
 	w_uniform = /obj/item/clothing/under/rank/bartender
 	back = /obj/item/storage/backpack/satchel
+	belt = /obj/item/ammo_magazine/shotgun/buckshot
 	shoes = /obj/item/clothing/shoes/marine/clf
 	head = /obj/item/clothing/head/collectable/tophat
 	ears = /obj/item/radio/headset/survivor
@@ -333,9 +343,9 @@
 		/obj/item/weapon/gun/pistol/highpower = 1,
 	)
 
-/datum/outfit/job/civilian/chemist
+/datum/outfit/job/civindep/chemist
 	name = "Pharmacy Technician Colonist"
-	jobtype = /datum/job/survivor/chemist
+	jobtype = /datum/job/civindep/chemist
 
 	w_uniform = /obj/item/clothing/under/rank/chemist
 	wear_suit = /obj/item/clothing/suit/storage/labcoat/chemist
@@ -379,9 +389,9 @@
 		/obj/item/storage/syringe_case/empty = 2,
 	)
 
-/datum/outfit/job/civilian/roboticist
+/datum/outfit/job/civindep/roboticist
 	name = "Roboticist Colonist"
-	jobtype = /datum/job/survivor/roboticist
+	jobtype = /datum/job/civindep/roboticist
 
 	w_uniform = /obj/item/clothing/under/rank/roboticist
 	wear_suit = /obj/item/clothing/suit/storage/labcoat/science
@@ -401,7 +411,7 @@
 		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
 	)
 
-/datum/outfit/job/civilian/roboticist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/civindep/roboticist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(prob(50))
 		H.equip_to_slot_or_del(new /obj/item/deployable_vehicle/tiny, SLOT_IN_BACKPACK)
@@ -410,9 +420,9 @@
 		H.equip_to_slot_or_del(new /obj/item/attachable/buildasentry, SLOT_IN_BACKPACK)
 
 
-/datum/outfit/job/civilian/rambo
-	name = "Overpowered Colonist"
-	jobtype = /datum/job/survivor/rambo
+/datum/outfit/job/civindep/rambo
+	name = "Veteran Colonist"
+	jobtype = /datum/job/civindep/rambo
 	w_uniform = /obj/item/clothing/under/marine/striped
 	wear_suit = /obj/item/clothing/suit/armor/patrol
 	shoes = /obj/item/clothing/shoes/marine/clf
