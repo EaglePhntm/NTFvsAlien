@@ -28,6 +28,7 @@
 
 	respawn_time = 90 SECONDS
 	randomize_miners = FALSE
+	round_type_flags = parent_type::round_type_flags | MODE_SILOS_SPAWN_MINIONS
 	round_type_flags2 = MODE_2_CHILL_RULES
 
 /datum/game_mode/infestation/secret_of_life/alienonly/whiskey_outpost/generate_nuke_disk_spawners()

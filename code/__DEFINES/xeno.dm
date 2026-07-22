@@ -216,11 +216,15 @@ GLOBAL_LIST_INIT(puppeteer_phero_images_list, list(
 #define UPGRADE_FLAG_MUST_BE_HIVE_RULER (1<<3)
 
 GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
-	/mob/living/carbon/xenomorph/beetle/ai,
-	/mob/living/carbon/xenomorph/mantis/ai,
-	/mob/living/carbon/xenomorph/scorpion/ai,
-	/mob/living/carbon/xenomorph/nymph/ai,
-	/mob/living/carbon/xenomorph/baneling/ai,
+	/mob/living/carbon/xenomorph/beetle/ai = 6,
+	/mob/living/carbon/xenomorph/mantis/ai = 6,
+	/mob/living/carbon/xenomorph/scorpion/ai = 6,
+	/mob/living/carbon/xenomorph/nymph/ai = 12,
+	/mob/living/carbon/xenomorph/baneling/ai = 6,
+	/mob/living/carbon/xenomorph/facehugger/ai = 6,
+	/mob/living/carbon/xenomorph/facehugger/chemical/neurotoxin/ai = 1,
+	/mob/living/carbon/xenomorph/facehugger/chemical/aphrotoxin/ai = 4,
+	/mob/living/carbon/xenomorph/facehugger/combat/resin/ai = 1,
 ))
 
 ///Heals a xeno, respecting different types of damage
