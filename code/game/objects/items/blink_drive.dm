@@ -1,6 +1,6 @@
 #define BLINK_DRIVE_RANGE 7
 #define BLINK_DRIVE_MAX_CHARGES 3
-#define BLINK_DRIVE_CHARGE_TIME 3 SECONDS
+#define BLINK_DRIVE_CHARGE_TIME 6 SECONDS
 
 /obj/item/blink_drive
 	name = "blink drive"
@@ -101,6 +101,7 @@
 
 	var/instability = 0 //certain factors can make the teleport unreliable
 	var/blink_stability_time = 1 SECONDS
+	var/recharge_time = BLINK_DRIVE_CHARGE_TIME
 	if(target_distance > BLINK_DRIVE_RANGE - 2)
 		instability ++
 	if(!COOLDOWN_FINISHED(src, blink_stability_cooldown))
@@ -108,7 +109,8 @@
 	if(!line_of_sight(user, target_turf, 9))
 		instability ++
 		charges = max(1, charges - 1)
-		blink_stability_time = rand(blink_stability_time, blink_stability_time * 5)
+		blink_stability_time = rand(blink_stability_time, blink_stability_time * 30)
+		recharge_time *= 3
 
 	target_turf = pick(RANGE_TURFS(instability, target_turf))
 
@@ -123,7 +125,6 @@
 	teleport_debuff_aoe(user)
 	user.forceMove(target_turf)
 
-	var/recharge_time = BLINK_DRIVE_CHARGE_TIME
 	var/source_turf = user.loc
 	if(!target_turf.can_teleport_here())
 		//user.emote("gored")
