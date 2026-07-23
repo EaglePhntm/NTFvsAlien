@@ -153,50 +153,53 @@
 
 /datum/sex_controller/proc/handle_ejaculation_drain(mob/living/blame_mob)
 	if(istype(blame_mob) && blame_mob.sexcon && blame_mob != user)
+		var/blame_mob_sexskill = 0
+		if(blame_mob.skills)
+			blame_mob_sexskill = blame_mob.skills.sex
 		switch(blame_mob.sexcon.drain_style)
 			if(SEX_DRAIN_STYLE_HEAL_TARGET)
 				if(ishuman(user))
-					user.heal_overall_damage(rand(5, 10)+(10*blame_mob.skills.sex), rand(5, 10)+(10*blame_mob.skills.sex), TRUE, TRUE)
+					user.heal_overall_damage(rand(5, 10)+(10*blame_mob_sexskill), rand(5, 10)+(10*blame_mob_sexskill), TRUE, TRUE)
 				else if(isxeno(user))
 					var/mob/living/carbon/xenomorph/xeno_user = user
-					var/heal_amount = rand(10, 20) + (20*blame_mob.skills.sex) + (xeno_user.recovery_aura * xeno_user.maxHealth * 0.01)
+					var/heal_amount = rand(10, 20) + (10*blame_mob_sexskill) + (xeno_user.recovery_aura * xeno_user.maxHealth * 0.01)
 					HEAL_XENO_DAMAGE(xeno_user, heal_amount, FALSE)
 				if(!isxeno(blame_mob) || SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES)
-					user.adjustCloneLoss(-(rand(5,10)+(5*blame_mob.skills.sex)))
+					user.adjustCloneLoss(-(rand(5,10)+(5*blame_mob_sexskill)))
 			if(SEX_DRAIN_STYLE_DRAIN_STAMINA)
 				if((!(user.mind)) || (user.client?.prefs.harmful_sex_flags & HARMFUL_SEX_STAMINA_DRAIN))
-					to_chat(user, span_warning("You feel weak as [blame_mob] drains your stamina through your orgasm."))
+					to_chat(user, span_warning("You feel weak as [blame_mob] exhausts you through your orgasm."))
 					log_combat(blame_mob, user, "drained stamina from", "an orgasm")
-					blame_mob.heal_overall_damage(rand(20, 40)+(30*blame_mob.skills.sex), rand(20, 40)+(30*blame_mob.skills.sex), TRUE, TRUE)
+					blame_mob.heal_overall_damage(rand(10, 20)+ (10*blame_mob_sexskill), rand(10, 20)+(10*blame_mob_sexskill), TRUE, TRUE)
 					to_chat(blame_mob, span_infoplain("You feel healthier as you drain [user]'s stamina through [user.p_their()] orgasm."))
 					if(isxeno(user))
 						var/mob/living/carbon/xenomorph/xeno_user = user
-						xeno_user.use_stun_health(rand(80,160)+(100*blame_mob.skills.sex))
+						xeno_user.use_stun_health(rand(80,160)+(100*blame_mob_sexskill))
 					else
-						user.adjustStaminaLoss(rand(40,80)+(60*blame_mob.skills.sex))
+						user.adjustStaminaLoss(rand(40,80)+(60*blame_mob_sexskill))
 			if(SEX_DRAIN_STYLE_DRAIN_BLOOD_FAST)
 				if((!(user.mind)) || (user.client?.prefs.harmful_sex_flags & HARMFUL_SEX_BLOOD_DRAIN))
 					to_chat(user, span_userdanger("You feel weak and dizzy as [blame_mob] drains your life force through your orgasm!"))
 					log_combat(blame_mob, user, "drained life from", "an orgasm")
-					blame_mob.heal_overall_damage(rand(40, 80)+(30*blame_mob.skills.sex), rand(40, 80)+(30*blame_mob.skills.sex), TRUE, TRUE)
+					blame_mob.heal_overall_damage(rand(20, 40)+(20*blame_mob_sexskill), rand(20, 40)+(20*blame_mob_sexskill), TRUE, TRUE)
 					blame_mob.adjustStaminaLoss(-rand(10,40))
 					to_chat(blame_mob, span_infoplain("You feel healthier as you drain [user]'s life force through [user.p_their()] orgasm."))
 					if(isxeno(user))
-						user.adjustBruteLoss(115+(15*blame_mob.skills.sex))
+						user.adjustBruteLoss(115+(15*blame_mob_sexskill))
 					else
-						user.adjust_blood_volume(-(115+(15*blame_mob.skills.sex)))
-					blame_mob.adjust_blood_volume(20+blame_mob.skills.sex)
+						user.adjust_blood_volume(-(115+(15*blame_mob_sexskill)))
+					blame_mob.adjust_blood_volume(20+blame_mob_sexskill)
 			if(SEX_DRAIN_STYLE_DRAIN_BLOOD_SLOW)
 				if((!(user.mind)) || (user.client?.prefs.harmful_sex_flags & HARMFUL_SEX_BLOOD_DRAIN))
 					to_chat(user, span_userdanger("You feel weak and dizzy as [blame_mob] drains your life force through your orgasm!"))
 					log_combat(blame_mob, user, "drained life from", "an orgasm")
-					blame_mob.heal_overall_damage(rand(40, 80)+(30*blame_mob.skills.sex), rand(40, 80)+(30*blame_mob.skills.sex), TRUE, TRUE)
+					blame_mob.heal_overall_damage(rand(20, 40)+(20*blame_mob_sexskill), rand(20, 40)+(20*blame_mob_sexskill), TRUE, TRUE)
 					blame_mob.adjustStaminaLoss(-rand(10,40))
 					to_chat(blame_mob, span_infoplain("You feel healthier as you drain [user]'s life force through [user.p_their()] orgasm."))
 					if(isxeno(user))
-						user.adjustBruteLoss(100-(30*blame_mob.skills.sex))
+						user.adjustBruteLoss(100-(30*blame_mob_sexskill))
 					else
-						user.adjust_blood_volume(-(100-(30*blame_mob.skills.sex)))
+						user.adjust_blood_volume(-(100-(30*blame_mob_sexskill)))
 					blame_mob.adjust_blood_volume(20)
 
 /datum/sex_controller/proc/cum_into(oral = FALSE, mob/filled)
@@ -365,6 +368,10 @@
 	pain_amt *= get_force_pain_multiplier(applied_force)
 	pain_amt *= get_speed_pain_multiplier(applied_speed)
 
+	var/blame_mob_sexskill = 0
+	if(blame_mob.skills)
+		blame_mob_sexskill = blame_mob.skills.sex
+
 	SEND_SIGNAL(user, COMSIG_RECEIVED_SEX, blame_mob)
 	if(healing_amount)
 		//go go gadget sex healing.. magic?
@@ -374,36 +381,36 @@
 					if(user.buckled || user.lying_angle) //gooder resting
 						healing_amount *= 2
 					if(ishuman(user))
-						user.heal_overall_damage(healing_amount*(1+blame_mob.skills.sex), healing_amount*(1+blame_mob.skills.sex), TRUE, TRUE)
+						user.heal_overall_damage(healing_amount*(1+blame_mob_sexskill), healing_amount*(1+blame_mob_sexskill), TRUE, TRUE)
 					if(isxeno(user))
 						var/mob/living/carbon/xenomorph/xeno_user = user
-						xeno_user.gain_stun_health(5*(1+blame_mob.skills.sex), TRUE)
-						var/heal_amount = (healing_amount*2)*(1+blame_mob.skills.sex) + (xeno_user.recovery_aura * xeno_user.maxHealth * 0.01)
+						xeno_user.gain_stun_health(5*(1+blame_mob_sexskill), TRUE)
+						var/heal_amount = (healing_amount*2)*(1+blame_mob_sexskill) + (xeno_user.recovery_aura * xeno_user.maxHealth * 0.01)
 						HEAL_XENO_DAMAGE(xeno_user, heal_amount, FALSE)
 				if(SEX_DRAIN_STYLE_DRAIN_STAMINA)
 					if((!(user.mind)) || (user.client?.prefs.harmful_sex_flags & HARMFUL_SEX_STAMINA_DRAIN))
-						blame_mob.heal_overall_damage((healing_amount*0.5)+(3*blame_mob.skills.sex), (healing_amount*0.3)+(3*blame_mob.skills.sex), TRUE, TRUE)
+						blame_mob.heal_overall_damage((healing_amount*0.5)+(3*blame_mob_sexskill), (healing_amount*0.3)+(3*blame_mob_sexskill), TRUE, TRUE)
 						if(isxeno(user))
 							var/mob/living/carbon/xenomorph/xeno_user = user
-							xeno_user.use_stun_health(healing_amount*(2+blame_mob.skills.sex))
+							xeno_user.use_stun_health(healing_amount*(2+blame_mob_sexskill))
 						else
-							user.adjustStaminaLoss(healing_amount*(1+blame_mob.skills.sex))
+							user.adjustStaminaLoss(healing_amount*(1+blame_mob_sexskill))
 				if(SEX_DRAIN_STYLE_DRAIN_BLOOD_FAST)
 					if((!(user.mind)) || (user.client?.prefs.harmful_sex_flags & HARMFUL_SEX_BLOOD_DRAIN))
-						blame_mob.heal_overall_damage(healing_amount*(1+blame_mob.skills.sex), healing_amount*(1+blame_mob.skills.sex), TRUE, TRUE)
+						blame_mob.heal_overall_damage(healing_amount*(1+blame_mob_sexskill), healing_amount*(1+blame_mob_sexskill), TRUE, TRUE)
 						if(isxeno(user))
-							user.adjustBruteLoss(healing_amount/10)
+							user.adjustBruteLoss(healing_amount/2)
 						else
-							user.adjust_blood_volume(-healing_amount/10)
+							user.adjust_blood_volume(-healing_amount/2)
 				if(SEX_DRAIN_STYLE_DRAIN_BLOOD_SLOW)
 					if((!(user.mind)) || (user.client?.prefs.harmful_sex_flags & HARMFUL_SEX_BLOOD_DRAIN))
-						blame_mob.heal_overall_damage(healing_amount*(1+blame_mob.skills.sex), healing_amount*(1+blame_mob.skills.sex), TRUE, TRUE)
+						blame_mob.heal_overall_damage(healing_amount*(1+blame_mob_sexskill), healing_amount*(1+blame_mob_sexskill), TRUE, TRUE)
 						if(isxeno(user))
-							user.adjustBruteLoss(healing_amount/10)
+							user.adjustBruteLoss(healing_amount/2)
 						else
-							user.adjust_blood_volume(-healing_amount/10)
+							user.adjust_blood_volume(-healing_amount/2)
 
-	adjust_arousal(arousal_amt+blame_mob.skills.sex)
+	adjust_arousal(arousal_amt+blame_mob_sexskill)
 	if((!(user.mind)) || (user.client?.prefs.harmful_sex_flags & HARMFUL_SEX_ROUGH_SEX))
 		damage_from_pain(pain_amt)
 	try_do_moan(arousal_amt, pain_amt, applied_force, giving)
