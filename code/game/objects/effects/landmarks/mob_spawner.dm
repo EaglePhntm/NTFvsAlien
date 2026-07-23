@@ -25,24 +25,3 @@
 	icon_state = "monke"
 	mob_spawn = /mob/living/carbon/human/species/monkey/farwa
 	spawn_prob = 50
-
-/obj/effect/landmark/mob_spawner/neutralcivilian/
-	name = "neutral civilian spawner"
-	icon = 'icons/effects/landmarks_static.dmi'
-	icon_state = "x2"
-	mob_spawn = /mob/living/carbon/human/ai/neutral
-
-/obj/effect/landmark/mob_spawner/neutralevzcivilian/Initialize(mapload)
-	. = ..()
-	GLOB.spawn_civneutral += src
-
-/obj/effect/landmark/mob_spawner/neutralevzcivilian
-	name = "neutral east vietzhuan civilian spawner"
-	icon = 'icons/effects/landmarks_static.dmi'
-	icon_state = "x2"
-	mob_spawn = /mob/living/carbon/human/ai/evzneutral
-	spawn_prob = 100
-
-/obj/effect/landmark/mob_spawner/neutralevzcivilian/Initialize(mapload)
-	. = ..()
-	GLOB.spawn_evzcivneutral += src

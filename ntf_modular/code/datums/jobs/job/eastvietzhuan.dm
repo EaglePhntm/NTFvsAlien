@@ -1,3 +1,21 @@
+/obj/effect/landmark/spawn_marker/neutralcivilian
+	name = "neutral civilian spawner"
+	icon = 'icons/effects/landmarks_static.dmi'
+	icon_state = "x2"
+
+/obj/effect/landmark/spawn_marker/neutralevzcivilian/Initialize(mapload)
+	. = ..()
+	GLOB.spawn_civneutral += src
+
+/obj/effect/landmark/spawn_marker/neutralevzcivilian
+	name = "neutral east vietzhuan civilian spawner"
+	icon = 'icons/effects/landmarks_static.dmi'
+	icon_state = "x2"
+
+/obj/effect/landmark/spawn_marker/neutralevzcivilian/Initialize(mapload)
+	. = ..()
+	GLOB.spawn_evzcivneutral += src
+
 /datum/job/eastvietzhuan // not a job meant for players, but rather AI civilians who roam the map
 	title = "Generic East Vietzhuan"
 	supervisors = "For anyone who cares enough, maybe SOM."

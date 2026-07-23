@@ -1,3 +1,9 @@
+GLOBAL_LIST_INIT(survivor_outfits, typecacheof(/datum/outfit/job/survivor))
+GLOBAL_LIST_INIT(civindep_outfits, typecacheof(/datum/outfit/job/civindep))
+GLOBAL_LIST_INIT(eastvietzhuan_outfits, typecacheof(/datum/outfit/job/eastvietzhuan))
+GLOBAL_LIST_EMPTY(spawn_civneutral)
+GLOBAL_LIST_EMPTY(spawn_evzcivneutral)
+
 /datum/job/civindep // not a job meant for players, but rather AI civilians who roam the map
 	title = "Generic Civilian"
 	supervisors = "anyone who might rescue you, Colonial Militia"
