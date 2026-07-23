@@ -741,3 +741,25 @@
 			user.sexcon.try_start_action(action)
 			return
 	erptime(user, src)
+
+/mob/living/carbon/human/proc/npc_characterise()
+	//gives extra stuff to npc appearance, maybe one day updated to randomise race but too much work rn
+	body_color = pick(38;"#F1D0B5",34;"#E6B98F",9;"#C8895A",6;"#A66A43",2;"#7A4A2E",1;"#4A2C1F") //ghetto npc skin randomiser
+	if(gender == MALE)
+		cock = "human"
+		cock_size = rand(1,7)
+		cock_color = body_color
+		testicles = "pair"
+		testicles_color = body_color
+		testicles_size = cock_size //proportional ig
+	else
+		boobs = "pair"
+		boobs_size = rand(1,8) //goes up to 19 but lets not go nuts
+		boobs_color = body_color
+		vagina = pick("human","gaping","hairy","extrahairy")
+		vagina_color = COLOR_PINK
+		if(vagina == "hairy" || vagina == "extrahairy")
+			vagina_color = get_render_hair_color()
+		ass = "pair"
+		ass_color = body_color
+		ass_size = boobs_size //proportions

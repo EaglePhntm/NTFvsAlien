@@ -3,6 +3,10 @@
 	name = "sommie civilian spawner"
 	occupation = /datum/job/civindep/eastvietzhuan
 
+/obj/effect/landmark/spawn_marker/civilian/viet/random/Initialize(mapload)
+	. = ..()
+	occupation = pick(GLOB.eastvietzhuan_npc_jobs)
+
 /obj/effect/landmark/spawn_marker/civilian/viet/doctor
 	name = "sommie civilian doctor spawner"
 	occupation = /datum/job/civindep/eastvietzhuan/doctor
@@ -35,7 +39,7 @@
 	title = "East Vietzhuan Doctor"
 	skills_type = /datum/skills/civilian/survivor/doctor
 	outfit = /datum/outfit/job/eastvietzhuan/doctor
-	occupation = "doctor"
+	npc_type = "doctor"
 
 //Liaison
 /datum/job/civindep/eastvietzhuan/liaison
@@ -71,7 +75,7 @@
 	title = "East Vietzhuan Technician"
 	skills_type = /datum/skills/civilian/survivor/atmos
 	outfit = /datum/outfit/job/eastvietzhuan/technician
-	occupation = "engineer"
+	npc_type = "engineer"
 
 //Monk
 /datum/job/civindep/eastvietzhuan/monk
