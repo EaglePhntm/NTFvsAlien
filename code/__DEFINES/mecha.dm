@@ -36,6 +36,13 @@
 #define MECHA_POWER "mecha_power"
 #define MECHA_ARMOR "mecha_armor"
 
+#define MECHA_VISION "Vision"
+
+#define MECHA_VISION_STANDARD "mecha_vision"
+#define MECHA_VISION_REINFORCED "mecha_vision_reinforced"
+#define MECHA_VISION_HIGHDEF "mecha_vision_highdef"
+#define MECHA_VISION_BROKEN "mecha_vision_broken"
+
 #define MECHA_LOCKED 0
 #define MECHA_SECURE_BOLTS 1
 #define MECHA_LOOSE_BOLTS 2
@@ -165,3 +172,48 @@
 #define EGRESS_TIME_QUICK 10
 #define EGRESS_TIME_STANDARD 20
 #define EGRESS_TIME_SLOW 30
+
+#define MECHA_BODY "mecha_body"
+#define MECHA_HEAD "mecha_head"
+#define MECHA_LEGS "mecha_legs"
+#define MECHA_ARMS "mecha_arms"
+
+#define MECH_BASE_LAYER             4.01
+#define MECH_INTERMEDIATE_LAYER     4.02
+#define MECH_PILOT_LAYER            4.03
+#define MECH_LEG_LAYER              4.04
+#define MECH_COCKPIT_LAYER          4.05
+#define MECH_ARM_LAYER              4.07
+#define MECH_GEAR_LAYER             4.08
+
+#define DRIVER "driver"
+#define PASSENGER "passenger"
+
+#define FRONT_POSITION "front position"
+#define SIDE_POSITION "side position"
+#define BACK_POSITION "back position"
+
+#define NOT_FLIPPED "not_flipped"
+
+// If the hatch pos is the same as the flip pos, when flipped, it will be a obstacle
+
+#define HATCH_CLOSED "hatch_closed" // closed
+#define HATCH_OPEN "hatch_open" // open
+#define HATCH_LOCKED "hatch_locked" // closed
+#define HATCH_BROKEN "hatch_broken" // open
+
+#define TERRAIN_WATER "terrain_water"
+#define TERRAIN_DEEPWATER "terrain_deepwater"
+#define TERRAIN_TRANSITIONWATER "terrain_transition"
+
+#define PRIMARY_REPAIR_AMT 15
+#define SECONDARY_REPAIR_AMT 8
+#define TERTIARY_REPAIR_AMT 5
+
+#define EXOSUIT_SENSORS_BASIC /datum/exo_sensors/basic
+#define EXOSUIT_SENSORS_ADV /datum/exo_sensors/adv
+#define EXOSUIT_SENSORS_ULTRA /datum/exo_sensors/ultra
+#define EXOSUIT_SENSORS_NONE /datum/exo_sensors/none
+
+#define MECHA_IS_WRECK "mech_wrecked"
+#define MECHA_IS_WRECKABLE (1<<14)

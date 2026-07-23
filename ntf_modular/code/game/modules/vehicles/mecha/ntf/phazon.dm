@@ -3,6 +3,7 @@
 	Built from a modified Gygax frame, the armor is ultra-light, yet, can be electrically strengthened to deflect a broad range of \
 	threats from rifle calibers to grenade blasts."
 	name = "\improper Phazon"
+	icon = 'icons/mecha/exosuits.dmi'
 	icon_state = "phazon"
 	base_icon_state = "phazon"
 	move_delay = 2.5

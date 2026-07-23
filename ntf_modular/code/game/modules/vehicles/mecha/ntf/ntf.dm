@@ -1,9 +1,14 @@
+#define ENGINE_ON 1
+#define ENGINE_OFF 2
+
 /obj/vehicle/sealed/mecha/ntf
 	desc = "NTF Exosuit"
+	layer = VEHICLE_LAYER
 	allow_diagonal_movement = FALSE
 	move_delay = 3
 	max_integrity = 400
 	soft_armor = list(MELEE = 60, BULLET = 40, LASER = 30, ENERGY = 30, BOMB = 25, BIO = 0, FIRE = 50, ACID = 50)
+	mecha_flags = ADDING_ACCESS_POSSIBLE | CANSTRAFE | IS_ENCLOSED | HAS_HEADLIGHTS | MECHA_IS_WRECKABLE
 	max_temperature = 25000
 	force = 30
 	mech_type = EXOSUIT_MODULE_NTF|EXOSUIT_MODULE_COMBAT
@@ -16,17 +21,52 @@
 	facing_modifiers = list(VEHICLE_FRONT_ARMOUR = 0.75, VEHICLE_SIDE_ARMOUR = 1, VEHICLE_BACK_ARMOUR = 1.25)
 	operation_req_access = list()
 	internals_req_access = list()
+	destruction_sleep_duration = 6
 	can_dna_lock = FALSE
 	can_be_moved_in_maints = TRUE
 	enter_delay = EGRESS_TIME_STANDARD
 	exit_delay = EGRESS_TIME_STANDARD
 
+	pixel_x = -8
+
 /// How resistant the hull is to projectile penetration
 	var/cockpit_armor = COCKPIT_TOUGHENED
+
+	var/engine_state = ENGINE_OFF
+	var/datum/looping_sound/exosuit_engine/fuel/soundloop
+	var/engine_starting_sound
+
+	var/tank_turns = FALSE
+
+	var/hatch_status = HATCH_OPEN
+
+	var/hatch_location = FRONT_POSITION
+	var/flip_status = NOT_FLIPPED
+
+	var/mech_terrain_status
+
+	var/underlying_icon = 'icons/mecha/mech_construct.dmi'
+	var/underlying_icon_state = "backbone"
+
+	var/obj/item/mecha_parts/mecha_pieces/mecha_body/body
+	var/obj/item/mecha_parts/mecha_pieces/mecha_head/head
+	var/obj/item/mecha_parts/mecha_pieces/mecha_legs/legs
+	var/obj/item/mecha_parts/mecha_pieces/mecha_arms/arms
+
+/obj/vehicle/sealed/mecha/ntf/get_mecha_occupancy_state()
+	return
+
+/obj/vehicle/sealed/mecha/ntf/handle_atom_del(atom/A)
+	. = ..()
+	if(A in occupants) //todo does not work and in wrong file
+		LAZYREMOVE(occupants, A)
+//		icon_state = initial(icon_state)+"-open"
+//		setDir(dir_in)
 
 /obj/vehicle/sealed/mecha/ntf/Initialize(mapload)
 	.=..()
 	set_jump_component()
+	mecha_update_components()
 
 /obj/vehicle/sealed/mecha/ntf/proc/set_jump_component(duration = 0.2 SECONDS, cooldown = 1 SECONDS, cost = 8, height = 8, sound = null, flags = JUMP_SHADOW, jump_pass_flags = null)
 	var/list/arg_list = list(duration, cooldown, cost, height, sound, flags, jump_pass_flags)
