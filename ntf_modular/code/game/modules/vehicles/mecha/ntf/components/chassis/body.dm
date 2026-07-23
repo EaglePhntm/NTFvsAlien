@@ -1,7 +1,6 @@
 /obj/item/mecha_parts/mecha_pieces/mecha_body
 	name = "body"
 	icon_state = "body"
-	base_icon_state
 
 	var/components_held = list()
 	var/occupants_allowed = list(DRIVER = 1, PASSENGER = 1)

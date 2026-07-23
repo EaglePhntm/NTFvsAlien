@@ -1,4 +1,4 @@
-/datum/looping_sound/exosuit_engine/fuel
+/datum/looping_sound/exosuit_engine_fuel/sound_loop
 	start_sound = null
 	start_length = 0
 	mid_sounds = list('sound/machines/generator/generator_mid1.ogg'=1, 'sound/machines/generator/generator_mid2.ogg'=1, 'sound/machines/generator/generator_mid3.ogg'=1)
@@ -6,7 +6,7 @@
 	end_sound = null
 	volume = 15
 
-/datum/looping_sound/exosuit_engine/electric
+/datum/looping_sound/exosuit_engine_electric/sound_loop
 	start_sound = null
 	start_length = 0
 	mid_sounds = list('sound/machines/generator/generator_mid1.ogg'=1, 'sound/machines/generator/generator_mid2.ogg'=1, 'sound/machines/generator/generator_mid3.ogg'=1)

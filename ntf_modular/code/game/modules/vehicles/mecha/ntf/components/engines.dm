@@ -1,5 +1,5 @@
-#define FUELTYPE_GAS 1
-#define FUELTYPE_ELECTRIC 2
+#define FUELTYPE_GAS /datum/reagent/fuel
+//#define FUELTYPE_ELECTRIC 2
 
 #define COOLDOWN_ENGINE_START "engine_start"
 
@@ -10,7 +10,7 @@
 	max_integrity = 100
 
 	var/fuel_type = FUELTYPE_GAS
-	var/fuel_max_amount = 100
+	var/fuel_max = 1000
 	var/fuel_amount = 0
 	var/fuel_high_consumption = 2
 	var/fuel_idle_consumption = 0.1
@@ -22,7 +22,7 @@
 	var/ignition_power_consumption = 100
 	var/ignition_cycle_attempts = 2
 
-//	var/engine_running_sound = /datum/looping_sound/exosuit_engine/fuel/soundloop
+	var/datum/looping_sound/engine_running_sound = /datum/looping_sound/exosuit_engine_fuel/sound_loop
 	var/engine_starting_sound = 'sound/machines/generator/generator_start.ogg'
 	var/engine_stop_sound = 'sound/machines/generator/generator_end.ogg'
 
@@ -38,11 +38,19 @@
 	var/obj/item/cell/engine_starter_battery
 	var/engine_initial_start_chance = 15
 
-///obj/item/mecha_parts/exosuit_engine/Initialize(mapload)
+/obj/item/mecha_parts/exosuit_engine/Destroy()
+	engine_stop()
+	return ..()
 
-///obj/item/mecha_parts/exosuit_engine/attackby(obj/item/O, mob/user, params)
-//	var/obj/item
-//	if(!I.
+/obj/item/mecha_parts/exosuit_engine/Initialize(mapload)
+	.=..()
+	if(engine_running_sound)
+		engine_running_sound = new engine_running_sound(list(src))
+	if(comes_prefilled)
+		create_reagents(fuel_max, AMOUNT_VISIBLE, list(/datum/reagent/fuel = fuel_max))
+
+/obj/item/mecha_parts/exosuit_engine/get_fueltype()
+	return fuel_type
 
 /obj/item/mecha_parts/exosuit_engine/process()
 	if(is_functional && is_running)
@@ -83,9 +91,32 @@
 
 /obj/item/mecha_parts/exosuit_engine/proc/engine_start()
 	is_running = TRUE
+	if(engine_running_sound)
+		engine_running_sound?.start(skip_starsound = TRUE)
 	START_PROCESSING(SSobj, src)
 
 /obj/item/mecha_parts/exosuit_engine/proc/engine_stop()
 	is_running = FALSE
 	STOP_PROCESSING(SSobj, src)
 
+#define FUEL_PER_CAN_POUR 100
+
+/obj/item/mecha_parts/exosuit_engine/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/reagent_containers/jerrycan))
+		var/obj/item/reagent_containers/jerrycan/gascan = I
+		if(gascan.reagents.total_volume == 0)
+			balloon_alert(user, "Out of fuel!")
+			return
+		if(fuel_amount >= fuel_max)
+			balloon_alert(user, "Already full!")
+			return
+
+		var/fuel_transfer_amount = min(gascan.fuel_usage*2, gascan.reagents.total_volume)
+		gascan.reagents.remove_reagent(/datum/reagent/fuel, fuel_transfer_amount)
+		fuel_amount = min(fuel_amount + FUEL_PER_CAN_POUR, fuel_max)
+		playsound(loc, 'sound/effects/refill.ogg', 25, 1, 3)
+		balloon_alert(user, "[fuel_amount/fuel_max*100]%")
+		return TRUE
+	return ..()
+
+#undef FUEL_PER_CAN_POUR
