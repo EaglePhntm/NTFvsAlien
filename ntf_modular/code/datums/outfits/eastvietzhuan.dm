@@ -1,6 +1,6 @@
 /datum/outfit/job/eastvietzhuan/villager
 	name = "East Vietzhuan Villager"
-	jobtype = /datum/job/eastvietzhuan/villager
+	jobtype = /datum/job/civindep/eastvietzhuan/villager
 
 	w_uniform = /obj/item/clothing/under/color/grey
 	shoes = /obj/item/clothing/shoes/sandal
@@ -16,7 +16,7 @@
 
 /datum/outfit/job/eastvietzhuan/archaelogist
 	name = "East Vietzhuan Archaelogist"
-	jobtype = /datum/job/eastvietzhuan/archaelogist
+	jobtype = /datum/job/civindep/eastvietzhuan/archaelogist
 
 	w_uniform = /obj/item/clothing/under/syndicate/tacticool
 	wear_suit = /obj/item/clothing/suit/storage/labcoat/researcher
@@ -43,7 +43,7 @@
 
 /datum/outfit/job/eastvietzhuan/doctor
 	name = "East Vietzhuan Clinician"
-	jobtype = /datum/job/eastvietzhuan/doctor
+	jobtype = /datum/job/civindep/eastvietzhuan/doctor
 
 	w_uniform = /obj/item/clothing/under/rank/medical/purple
 	wear_suit = /obj/item/clothing/suit/storage/labcoat
@@ -83,7 +83,7 @@
 
 /datum/outfit/job/eastvietzhuan/liaison
 	name = "East Vietzhuan Liaison"
-	jobtype = /datum/job/eastvietzhuan/liaison
+	jobtype = /datum/job/civindep/eastvietzhuan/liaison
 
 	w_uniform = /obj/item/clothing/under/liaison_suit/outing
 	shoes = /obj/item/clothing/shoes/marine/clf
@@ -103,7 +103,7 @@
 
 /datum/outfit/job/eastvietzhuan/security
 	name = "East Vietzhuan Guard"
-	jobtype = /datum/job/eastvietzhuan/security
+	jobtype = /datum/job/civindep/eastvietzhuan/security
 
 	w_uniform = /obj/item/clothing/under/rank/security/navyblue
 	wear_suit = /obj/item/clothing/suit/armor/vest
@@ -133,7 +133,7 @@
 
 /datum/outfit/job/eastvietzhuan/civilian
 	name = "East Vietzhuan Civilian"
-	jobtype = /datum/job/eastvietzhuan/civilian
+	jobtype = /datum/job/civindep/eastvietzhuan/civilian
 
 	w_uniform = /obj/item/clothing/under/colonist
 	shoes = /obj/item/clothing/shoes/sandal
@@ -151,7 +151,7 @@
 
 /datum/outfit/job/eastvietzhuan/chef
 	name = "East Vietzhuan Chef"
-	jobtype = /datum/job/eastvietzhuan/chef
+	jobtype = /datum/job/civindep/eastvietzhuan/chef
 
 	w_uniform = /obj/item/clothing/under/rank/chef
 	wear_suit = /obj/item/clothing/suit/storage/chef
@@ -178,7 +178,7 @@
 
 /datum/outfit/job/eastvietzhuan/botanist
 	name = "East Vietzhuan Botanist"
-	jobtype = /datum/job/eastvietzhuan/botanist
+	jobtype = /datum/job/civindep/eastvietzhuan/botanist
 
 	w_uniform = /obj/item/clothing/under/colonist
 	wear_suit = /obj/item/clothing/suit/storage/apron/overalls
@@ -196,7 +196,7 @@
 
 /datum/outfit/job/eastvietzhuan/technician
 	name = "East Vietzhuan Technician"
-	jobtype = /datum/job/eastvietzhuan/technician
+	jobtype = /datum/job/civindep/eastvietzhuan/technician
 
 	w_uniform = /obj/item/clothing/under/colonist
 	wear_suit = /obj/item/clothing/suit/storage/hazardvest
@@ -226,7 +226,7 @@
 
 /datum/outfit/job/eastvietzhuan/monk
 	name = "East Vietzhuan Monk"
-	jobtype = /datum/job/eastvietzhuan/monk
+	jobtype = /datum/job/civindep/eastvietzhuan/monk
 
 	w_uniform = /obj/item/clothing/under/marine/pantsred
 	wear_suit = /obj/item/clothing/suit/pirate
@@ -243,7 +243,7 @@
 
 /datum/outfit/job/eastvietzhuan/miner
 	name = "East Vietzhuan Miner"
-	jobtype = /datum/job/eastvietzhuan/miner
+	jobtype = /datum/job/civindep/eastvietzhuan/miner
 
 	w_uniform = /obj/item/clothing/under/rank/miner
 	head = /obj/item/clothing/head/hardhat/orange
@@ -265,7 +265,7 @@
 
 /datum/outfit/job/eastvietzhuan/merchant
 	name = "East Vietzhuan Merchant"
-	jobtype = /datum/job/eastvietzhuan/merchant
+	jobtype = /datum/job/civindep/eastvietzhuan/merchant
 
 	w_uniform = /obj/item/clothing/under/gentlesuit
 	wear_suit = /obj/item/clothing/suit/modular/style/duster
@@ -287,7 +287,7 @@
 
 /datum/outfit/job/eastvietzhuan/watchman
 	name = "East Vietzhuan Watchman"
-	jobtype = /datum/job/eastvietzhuan/watchman
+	jobtype = /datum/job/civindep/eastvietzhuan/watchman
 
 	w_uniform = /obj/item/clothing/under/CM_uniform
 	wear_suit = /obj/item/clothing/suit/replica
@@ -310,7 +310,7 @@
 
 /datum/outfit/job/eastvietzhuan/bartender
 	name = "East Vietzhuan Bartender"
-	jobtype = /datum/job/eastvietzhuan/bartender
+	jobtype = /datum/job/civindep/eastvietzhuan/bartender
 
 	w_uniform = /obj/item/clothing/under/rank/bartender
 	back = /obj/item/storage/backpack/satchel
@@ -330,7 +330,7 @@
 
 /datum/outfit/job/eastvietzhuan/drugdealer
 	name = "East Vietzhuan Drug Dealer"
-	jobtype = /datum/job/eastvietzhuan/drugdealer
+	jobtype = /datum/job/civindep/eastvietzhuan/drugdealer
 
 	w_uniform = /obj/item/clothing/under/rank/chemist
 	wear_suit = /obj/item/clothing/suit/modular/style/leather_jacket
@@ -365,7 +365,7 @@
 
 /datum/outfit/job/eastvietzhuan/profiteer
 	name = "East Vietzhuan Profiteer"
-	jobtype = /datum/job/eastvietzhuan/profiteer
+	jobtype = /datum/job/civindep/eastvietzhuan/profiteer
 
 	w_uniform = /obj/item/clothing/under/rank/vice
 	wear_suit = /obj/item/clothing/suit/modular/style/leather_jacket
@@ -395,7 +395,7 @@
 
 /datum/outfit/job/eastvietzhuan/guitarist
 	name = "East Vietzhuan Guitarist"
-	jobtype = /datum/job/eastvietzhuan/guitarist
+	jobtype = /datum/job/civindep/eastvietzhuan/guitarist
 
 	w_uniform = /obj/item/clothing/under/rank/roboticist
 	wear_suit = /obj/item/clothing/suit/modular/style/leather_jacket
@@ -418,7 +418,7 @@
 
 /datum/outfit/job/eastvietzhuan/vietzhong
 	name = "East Vietzhuo Vietzhong"
-	jobtype = /datum/job/eastvietzhuan/vietzhong
+	jobtype = /datum/job/civindep/eastvietzhuan/vietzhong
 	w_uniform = /obj/item/clothing/under/marine/pantsblack
 	wear_suit = /obj/item/clothing/suit/storage/marine/som
 	shoes = /obj/item/clothing/shoes/marine/som/knife

@@ -257,11 +257,10 @@
 		SSpoints.add_tactical_psy_points(hivenumber, 300)
 		SSpoints.add_biomass_points(hivenumber, 0) // Solely to make sure it isn't null.
 
-	for(var/obj/effect/landmark/spawn_marker/neutralcivilian/civneu in GLOB.spawn_civneutral)
-		new /obj/effect/landmark/spawn_marker/neutralcivilian(civneu.loc)
+	for(var/obj/effect/landmark/spawn_marker/civilian/civneu in GLOB.spawn_civneutral)
+		var/mob/living/carbon/human/new_human = new(civneu.loc)
+		new_human.apply_assigned_role_to_spawn(civneu.occupation)
 
-	for(var/obj/effect/landmark/spawn_marker/neutralevzcivilian/evzcivneu in GLOB.spawn_evzcivneutral)
-		new /obj/effect/landmark/spawn_marker/neutralevzcivilian(evzcivneu.loc)
 
 //NTF addition start
 	if(randomize_miners)

@@ -156,6 +156,7 @@
 #include "code\game\objects\structures\stool_bed_chair_nest\xeno_nest.dm"
 #include "code\game\objects\structures\teleporter.dm"
 #include "code\modules\admin\admin_verbs.dm"
+#include "code\modules\ai\ai_behaviors\human_mobs\neutral_human_mob.dm"
 #include "code\modules\amia_discordbot\config.dm"
 #include "code\modules\amia_discordbot\internaltools\ahelprelay.dm"
 #include "code\modules\amia_discordbot\internaltools\whitelost.dm"

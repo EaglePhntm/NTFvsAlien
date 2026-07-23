@@ -28,5 +28,5 @@
 		if(wear_id)
 			wear_id.access = job.access
 			wear_id.iff_signal = NONE
-		job = SSjob.type_occupations[/datum/job/eastvietzhuan]
+		job = SSjob.type_occupations[/datum/job/civindep/eastvietzhuan]
 	AddComponent(/datum/component/ai_controller, /datum/ai_behavior/human/monkey) //give me civilians, neutral humans AI damn it!
