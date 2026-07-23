@@ -6,7 +6,7 @@
 	icon_state = "gas_alt"
 	worn_icon_state = "gas_alt"
 	inventory_flags = COVERMOUTH | COVEREYES | BLOCKGASEFFECT
-	inv_hide_flags = HIDEEARS|HIDEFACE|HIDELOWHAIR
+	inv_hide_flags = HIDEEARS|HIDELOWHAIR //doesnt hide face
 	cold_protection_flags = HEAD
 	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
 	w_class = WEIGHT_CLASS_SMALL
@@ -38,6 +38,7 @@
 	name = "Tactical gas mask"
 	icon_state = "gas_alt_tactical"
 	voice_filter = "lowpass=f=750,volume=2"
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDELOWHAIR
 
 /obj/item/clothing/mask/gas/tactical/coif
 	name = "Tactical coifed gas mask"
@@ -81,10 +82,12 @@
 	icon_state = "wolf_mask"
 	anti_hug = 2
 	breathy = FALSE
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDEALLHAIR
 
 /obj/item/clothing/mask/gas/icc
 	name = "\improper Modelle/60 gas mask"
 	desc = "A gasmask worn by ICC personnel."
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDELOWHAIR
 	icon_state = "icc"
 
 /obj/item/clothing/mask/gas/vsd
@@ -106,6 +109,7 @@
 	desc = "A modernised version of the classic design, this mask will not only filter out phoron but it can also be connected to an air supply."
 	icon_state = "plaguedoctor"
 	worn_icon_state = "gas_mask"
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDEALLHAIR
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 2, ENERGY = 2, BOMB = 0, BIO = 75, FIRE = 2, ACID = 2)
 	armor_protection_flags = HEAD|FACE
 
@@ -129,12 +133,14 @@
 	worn_icon_state = "specop"
 	siemens_coefficient = 0.7
 	voice_filter = "lowpass=f=750,volume=2"
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDELOWHAIR
 
 /obj/item/clothing/mask/gas/syndicate
 	name = "syndicate mask"
 	desc = "A close-fitting tactical mask that can be connected to an air supply."
 	icon_state = "swat"
 	siemens_coefficient = 0.7
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDELOWHAIR
 
 /obj/item/clothing/mask/gas/voice
 	name = "gas mask"
@@ -150,6 +156,7 @@
 	worn_icon_state = "s-ninja_mask"
 	vchange = 1
 	siemens_coefficient = 0.2
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDELOWHAIR
 
 /obj/item/clothing/mask/gas/clown_hat
 	name = "clown wig and mask"
@@ -157,6 +164,7 @@
 	icon_state = "clown"
 	worn_icon_state = "clown_hat"
 	breathy = FALSE
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDELOWHAIR
 
 /obj/item/clothing/mask/gas/sexyclown
 	name = "sexy-clown wig and mask"
@@ -164,6 +172,7 @@
 	icon_state = "sexyclown"
 	worn_icon_state = "sexyclown"
 	breathy = FALSE
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDELOWHAIR
 
 /obj/item/clothing/mask/gas/mime
 	name = "mime mask"
@@ -171,6 +180,7 @@
 	icon_state = "mime"
 	worn_icon_state = "mime"
 	breathy = FALSE
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDELOWHAIR
 
 /obj/item/clothing/mask/gas/monkeymask
 	name = "monkey mask"
@@ -179,6 +189,7 @@
 	worn_icon_state = "monkeymask"
 	armor_protection_flags = HEAD|FACE|EYES
 	breathy = FALSE
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDEALLHAIR
 
 /obj/item/clothing/mask/gas/sexymime
 	name = "sexy mime mask"
@@ -186,6 +197,7 @@
 	icon_state = "sexymime"
 	worn_icon_state = "sexymime"
 	breathy = FALSE
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDELOWHAIR
 
 /obj/item/clothing/mask/gas/death_commando
 	name = "Death Commando Mask"
@@ -198,8 +210,10 @@
 	desc = "Beep boop"
 	icon_state = "death"
 	breathy = FALSE
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDELOWHAIR
 
 /obj/item/clothing/mask/gas/owl_mask
 	name = "owl mask"
 	desc = "Twoooo!"
 	icon_state = "owl"
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDELOWHAIR

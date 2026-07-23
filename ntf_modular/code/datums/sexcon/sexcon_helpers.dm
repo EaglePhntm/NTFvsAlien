@@ -108,7 +108,6 @@
 /mob/living/carbon/xenomorph/proc/impregify(mob/living/carbon/victim, hole_target = HOLE_VAGINA, maxlarvas = MAX_LARVA_PREGNANCIES, damaging = TRUE, damagemult = 1, damageloc = BODY_ZONE_PRECISE_GROIN)
 	if(!istype(victim))
 		return
-	victim.reagents.remove_reagent(/datum/reagent/toxin/xeno_aphrotoxin, 10)
 	victim.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno/strong, 10)
 	if(damaging)
 		new /obj/effect/decal/cleanable/blood/splatter/xenocum(loc)

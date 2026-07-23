@@ -104,25 +104,25 @@
 	switch(arousal)
 		if(0)
 			severity = 0
-		if(1 to 20)
+		if(1 to MAX_AROUSAL*0.1)
 			severity = 1
-		if(20 to 40)
+		if(MAX_AROUSAL*0.1 to MAX_AROUSAL*0.2)
 			severity = 2
-		if(40 to 60)
+		if(MAX_AROUSAL*0.2 to MAX_AROUSAL*0.3)
 			severity = 3
-		if(60 to 80)
+		if(MAX_AROUSAL*0.3 to MAX_AROUSAL*0.4)
 			severity = 4
-		if(80 to 100)
+		if(MAX_AROUSAL*0.4 to MAX_AROUSAL*0.5)
 			severity = 5
-		if(100 to 120)
+		if(MAX_AROUSAL*0.5 to MAX_AROUSAL*0.6)
 			severity = 6
-		if(120 to 140)
+		if(MAX_AROUSAL*0.6 to MAX_AROUSAL*0.7)
 			severity = 7
-		if(140 to 160)
+		if(MAX_AROUSAL*0.7 to MAX_AROUSAL*0.8)
 			severity = 8
-		if(160 to 180)
+		if(MAX_AROUSAL*0.8 to MAX_AROUSAL*0.9)
 			severity = 9
-		if(180 to INFINITY)
+		if(MAX_AROUSAL*0.9 to MAX_AROUSAL)
 			severity = 10
 	if(severity > 0)
 		user.overlay_fullscreen("horny", /atom/movable/screen/fullscreen/love, severity)
@@ -809,7 +809,7 @@
 				return 1.0
 		if(SEX_FORCE_EXTREME)
 			if(giving)
-				return 1.8
+				return 1.6
 			else
 				return 0.6
 

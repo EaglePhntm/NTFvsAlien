@@ -20,7 +20,6 @@
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_OXYLOSS))
 		adjustOxyLoss(4)
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_SLEEP))
-		adjustDrowsyness(6)
 		reagents.add_reagent(/datum/reagent/toxin/sleeptoxin, GAS_INHALE_REAGENT_TRANSFER_AMOUNT * S.strength)
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_BLISTERING) || CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_PYROGEN))
 		adjustFireLoss(12)
@@ -84,18 +83,18 @@
 		reagents.add_reagent(/datum/reagent/toxin/satrapine, round(GAS_INHALE_REAGENT_TRANSFER_AMOUNT * 0.6 * S.strength * bio_protection, 0.1))
 		if(prob(10 * S.strength * bio_protection))
 			to_chat(src, span_danger("Your whole body feels like it's burning!"))
-	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_OZELOMELYN) && (internal || has_smoke_protection())) //either inhaled or this.
-		reagents.add_reagent(/datum/reagent/toxin/xeno_ozelomelyn, round(GAS_INHALE_REAGENT_TRANSFER_AMOUNT * 0.6 * S.strength * bio_protection, 0.1))
-		if(prob(10 * S.strength * bio_protection))
-			to_chat(src, span_danger("Your veins and skin itch where the gas touches them!"))
-	if(CHECK_BITFIELD(S.smoke_traits2, SMOKE_XENO_APHROTOXIN) && (internal || has_smoke_protection())) //either inhaled or this.
-		reagents.add_reagent(/datum/reagent/toxin/xeno_aphrotoxin, round(GAS_INHALE_REAGENT_TRANSFER_AMOUNT * 0.6 * S.strength * bio_protection, 0.1))
-		if(prob(10 * S.strength * bio_protection))
-			to_chat(src, span_danger("Your genitals feel hot and bothered where the gas touches them!"))
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_SLEEP) && (internal || has_smoke_protection())) //either inhaled or this.
 		reagents.add_reagent(/datum/reagent/toxin/sleeptoxin, round(GAS_INHALE_REAGENT_TRANSFER_AMOUNT * 0.6 * S.strength * bio_protection, 0.1))
 		if(prob(10 * S.strength * bio_protection))
 			to_chat(src, span_danger("Your body starts to feel numb..!"))
+	if(CHECK_BITFIELD(S.smoke_traits2, SMOKE_XENO_APHROTOXIN) && (internal || has_smoke_protection())) //either inhaled or this.
+		reagents.add_reagent(/datum/reagent/toxin/xeno_aphrotoxin, round(GAS_INHALE_REAGENT_TRANSFER_AMOUNT * 0.6 * S.strength * bio_protection, 0.1))
+		if(prob(10 * S.strength * bio_protection))
+			to_chat(src, span_danger("Your genitals feel tingly where the gas touches them!"))
+	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_OZELOMELYN) && (internal || has_smoke_protection())) //either inhaled or this.
+		reagents.add_reagent(/datum/reagent/toxin/xeno_ozelomelyn, round(GAS_INHALE_REAGENT_TRANSFER_AMOUNT * 0.6 * S.strength * bio_protection, 0.1))
+		if(prob(10 * S.strength * bio_protection))
+			to_chat(src, span_danger("Your veins and skin itch where the gas touches them!"))
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_PYROGEN))
 		var/datum/status_effect/stacking/melting_fire/debuff = src.has_status_effect(STATUS_EFFECT_MELTING_FIRE)
 		if(debuff)

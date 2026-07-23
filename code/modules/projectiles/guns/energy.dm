@@ -54,8 +54,8 @@
 	muzzle_flash = null //TO DO.
 	fire_sound = 'sound/weapons/guns/fire/taser.ogg'
 	ammo_datum_type = /datum/ammo/energy/taser
-	default_ammo_type = /obj/item/cell/taser
-	allowed_ammo_types = list(/obj/item/cell/taser)
+	default_ammo_type = /obj/item/cell/lasgun/taser
+	allowed_ammo_types = list(/obj/item/cell/lasgun/taser)
 	rounds_per_shot = 250
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_ALLOW_SYNTHETIC|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_AMMO_COUNT_BY_SHOTS_REMAINING
 	gun_skill_category = SKILL_PISTOLS
@@ -67,10 +67,11 @@
 	scatter = 2
 	scatter_unwielded = 1
 
-/obj/item/cell/taser
+/obj/item/cell/lasgun/taser
 	name = "\improper HomeSec brand rechargable taser batterypack"
 	desc = "It's literally a cell but colored yellow."
 	color = COLOR_YELLOW
+	reload_delay = 1 SECONDS
 
 
 /* You can use guns you can use a taser.

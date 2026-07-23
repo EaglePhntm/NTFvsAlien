@@ -563,10 +563,11 @@
 		msg += "OOC Notes: <a href='?src=\ref[src];ooc_notes=1'>\[View\]</a> - <a href='?src=\ref[src];print_ooc_notes_to_chat=1'>\[Print\]</a>"
 	else if(user == src)
 		msg += "You have not set your OOC Notes yet! <a href='?src=\ref[src];ooc_notes=1'>\[Edit\]</a>"
-	if(profile_pic && (w_uniform || !nsfwprofile_pic)) //should appear when wearing suit and when no nsfw pic but not wearing suit.
-		msg += "<span class='info'><img src=[profile_pic] width=300 height=350/></span>"
-	if(nsfwprofile_pic && !w_uniform)
-		msg += "<span class='info'><img src=[nsfwprofile_pic] width=300 height=350/></span>"
+	if(!skipface)
+		if(profile_pic && (w_uniform || !nsfwprofile_pic)) //should appear when wearing suit and when no nsfw pic but not wearing suit.
+			msg += "<span class='info'><img src=[profile_pic] width=300 height=350/></span>"
+		if(nsfwprofile_pic && !w_uniform)
+			msg += "<span class='info'><img src=[nsfwprofile_pic] width=300 height=350/></span>"
 
 // removed hollow examine from humans
 	if(HAS_TRAIT(src, TRAIT_HOLLOW))
@@ -619,7 +620,7 @@
 		if(reagents.get_reagent_amount(/datum/reagent/toxin/xeno_sanguinal))
 			msg += "Sanguinal([reagents.get_reagent_amount(/datum/reagent/toxin/xeno_sanguinal)]u): Causes brute damage and bleeding from the brute damage. Does additional damage types in the presence of other xeno-based toxins. Toxin damage for Neuro, Stamina damage for Hemodile, and Burn damage for Transvitox.\n"
 		if(reagents.get_reagent_amount(/datum/reagent/toxin/xeno_aphrotoxin))
-			msg += "Aphrotoxin([reagents.get_reagent_amount(/datum/reagent/toxin/xeno_aphrotoxin)]u): A strong aphrodisiac, will cause legs to go weak and increase arousal.\n"
+			msg += "Aphrotoxin([reagents.get_reagent_amount(/datum/reagent/toxin/xeno_aphrotoxin)]u): A strong aphrodisiac, will cause shuffling around, exhaustion, difficulty to focus and increase arousal. Metabolizes very slowly.\n"
 		if(embryocount < 1)
 			if(reagents.get_reagent_amount(/datum/reagent/consumable/larvajelly))
 				msg += "Growth toxin: Makes the little ones grow faster while affected, but the host has no little ones inside..\n"

@@ -171,7 +171,7 @@
 	playsound(loc, 'sound/bullets/acid_impact1.ogg', 50, 1)
 
 	for(var/turf/acid_tile AS in RANGE_TURFS(1, loc))
-		xenomorph_spray(acid_tile, 6 SECONDS, 16, null, TRUE)
+		xenomorph_spray(acid_tile, 4 SECONDS, 10, null, TRUE)
 
 	var/datum/effect_system/smoke_spread/xeno/acid/light/A = new(get_turf(src)) //Spawn acid smoke
 	A.set_up(1,src)
