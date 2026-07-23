@@ -34,18 +34,6 @@ GLOBAL_LIST_EMPTY(spawn_evzcivneutral)
 	skills_type = /datum/skills/civilian/survivor
 	var/occupation = "normal" //normal, doctor, engineer (for ai)
 
-/datum/job/civindep/after_spawn(mob/living/carbon/spawned_carbon, mob/M, latejoin = FALSE)
-	. = ..()
-	if(ishuman(spawned_carbon))
-		var/mob/living/carbon/human/shuman = spawned_carbon
-		switch(occupation)
-			if("normal")
-				shuman.AddComponent(/datum/component/ai_controller, /datum/ai_behavior/human/civilian) //not monkey business
-			if("doctor")
-				shuman.AddComponent(/datum/component/ai_controller, /datum/ai_behavior/human/civilian/doctor)
-			if("engineer")
-				shuman.AddComponent(/datum/component/ai_controller, /datum/ai_behavior/human/civilian/engineer)
-
 //Assistant
 /datum/job/civindep/assistant
 	title = "Assistant Colonist"

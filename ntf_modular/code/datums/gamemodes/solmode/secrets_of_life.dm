@@ -259,8 +259,14 @@
 
 	for(var/obj/effect/landmark/spawn_marker/civilian/civneu in GLOB.spawn_civneutral)
 		var/mob/living/carbon/human/new_human = new(civneu.loc)
-		new_human.apply_assigned_role_to_spawn(civneu.occupation)
-
+		new_human.apply_assigned_role_to_spawn(civneu.occupation, new_human.client, admin_action = TRUE)
+		switch(civneu.occupation)
+			if("normal")
+				new_human.AddComponent(/datum/component/ai_controller, /datum/ai_behavior/human/civilian) //not monkey business
+			if("doctor")
+				new_human.AddComponent(/datum/component/ai_controller, /datum/ai_behavior/human/civilian/doctor)
+			if("engineer")
+				new_human.AddComponent(/datum/component/ai_controller, /datum/ai_behavior/human/civilian/engineer)
 
 //NTF addition start
 	if(randomize_miners)
