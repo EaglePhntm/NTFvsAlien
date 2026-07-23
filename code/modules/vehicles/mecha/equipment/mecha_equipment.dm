@@ -209,7 +209,10 @@
 	complete engine logic,   \
 	add tank interactions,   \
 	change wreck states, \
-	add exosuit head benefits (like weapon upgrades)
+	add exosuit head benefits (like weapon upgrades) \
+	wreck states: first, breaks down when it loses all its hp.\
+	the mech breaks and becomes a wreck once it loses all its hp. \
+	the mech doesnt take damage from non-torso hits.
 
 /**
  * called to detach this equipment

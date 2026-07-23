@@ -8,6 +8,7 @@
 	move_delay = 3
 	max_integrity = 400
 	soft_armor = list(MELEE = 60, BULLET = 40, LASER = 30, ENERGY = 30, BOMB = 25, BIO = 0, FIRE = 50, ACID = 50)
+	mecha_flags = ADDING_ACCESS_POSSIBLE | CANSTRAFE | IS_ENCLOSED | HAS_HEADLIGHTS | MECHA_IS_WRECKABLE
 	max_temperature = 25000
 	force = 30
 	mech_type = EXOSUIT_MODULE_NTF|EXOSUIT_MODULE_COMBAT
@@ -39,8 +40,8 @@
 
 	var/hatch_status = HATCH_OPEN
 
-	var/hatch_location = HATCH_POSITION_FRONT
-	var/flip_status = FLIP_UPRIGHT
+	var/hatch_location = FRONT_POSITION
+	var/flip_status = NOT_FLIPPED
 
 	var/mech_terrain_status
 
@@ -55,7 +56,7 @@
 /obj/vehicle/sealed/mecha/ntf/get_mecha_occupancy_state()
 	return
 
-/obj/vehicle/sealed/mecha/handle_atom_del(atom/A)
+/obj/vehicle/sealed/mecha/ntf/handle_atom_del(atom/A)
 	. = ..()
 	if(A in occupants) //todo does not work and in wrong file
 		LAZYREMOVE(occupants, A)

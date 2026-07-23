@@ -88,3 +88,4 @@
 /obj/item/mecha_parts/exosuit_engine/proc/engine_stop()
 	is_running = FALSE
 	STOP_PROCESSING(SSobj, src)
+

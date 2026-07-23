@@ -312,6 +312,7 @@
 			for(var/ejectee in occupants)
 				mob_exit(ejectee, TRUE, TRUE)
 
+
 /obj/vehicle/sealed/mecha/welder_act(mob/living/user, obj/item/I)
 	return welder_repair_act(user, I, 100, 4 SECONDS, 0, SKILL_ENGINEER_ENGI, 2, 4 SECONDS)
 

@@ -13,6 +13,8 @@
 	var/turn_sound = 'sound/mecha/mechturn.ogg'
 	max_integrity = 200
 
+	var/flip_position = FRONT_POSITION
+
 	type_of_piece = MECHA_LEGS
 
 	layer = MECH_LEG_LAYER
@@ -27,6 +29,7 @@
 	pivot_step = TRUE
 	tank_turns = TRUE
 	can_move_diagonally = FALSE
+	flip_position = SIDE_POSITION
 	step_sound = 'ntf_modular/sound/effects/engine.ogg'
 	turn_sound = 'sound/mecha/powerloader_turn2.ogg'
 
@@ -63,6 +66,7 @@
 	turning_delay = 0.5
 	stability = 75
 	max_integrity = 100
+	flip_position = SIDE_POSITION
 	pivot_step = TRUE
 
 /obj/item/mecha_parts/mecha_pieces/mecha_legs/wheels
@@ -73,6 +77,7 @@
 	stability = 50
 	max_integrity = 100
 	pivot_step = TRUE
+	flip_position = SIDE_POSITION
 	step_sound = 'ntf_modular/sound/effects/engine.ogg'
 	turn_sound = 'sound/mecha/powerloader_turn2.ogg'
 

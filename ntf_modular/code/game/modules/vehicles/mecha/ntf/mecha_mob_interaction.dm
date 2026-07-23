@@ -30,3 +30,22 @@
 	is_currently_ejecting = FALSE
 */
 /obj/vehicle/sealed/mecha/ntf/proc/attempt_jammed_exit(mob/living/user)
+
+/obj/vehicle/sealed/mecha/ntf/mob_try_enter(mob/entering_mob, mob/user, loc_override = FALSE)
+	.=..()
+	if(hatch_status == HATCH_LOCKED | hatch_status == HATCH_CLOSED)
+		balloon_alert(user, "open hatch first")
+		return ..()
+
+/obj/vehicle/sealed/mecha/ntf/resisted_against(mob/living/user)
+	if(hatch_status == HATCH_LOCKED | hatch_status == HATCH_CLOSED)
+		balloon_alert(user, "open hatch first")
+		return
+	to_chat(user, span_notice("You begin the ejection procedure. Equipment is disabled during this process. Hold still to finish ejecting."))
+	is_currently_ejecting = TRUE
+	if(do_after(user, exit_delay, target = src))
+		to_chat(user, span_notice("You exit the mech."))
+		mob_exit(user, TRUE)
+	else
+		to_chat(user, span_notice("You stop exiting the mech. Weapons are enabled again."))
+	is_currently_ejecting = FALSE

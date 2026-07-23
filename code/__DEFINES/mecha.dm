@@ -189,13 +189,13 @@
 #define DRIVER "driver"
 #define PASSENGER "passenger"
 
-#define FLIP_UPRIGHT "upright"
-#define FLIP_SIDEWAYS "flipped_sideways"
-#define FLIP_FORWARDS "flipped_forwards"
+#define FRONT_POSITION "front position"
+#define SIDE_POSITION "side position"
+#define BACK_POSITION "back position"
 
-#define HATCH_POSITION_FRONT "hatch_front"
-#define HATCH_POSITION_TOP "hatch_top"
-#define HATCH_POSITION_SIDE "hatch_side"
+#define NOT_FLIPPED "not_flipped"
+
+// If the hatch pos is the same as the flip pos, when flipped, it will be a obstacle
 
 #define HATCH_CLOSED "hatch_closed" // closed
 #define HATCH_OPEN "hatch_open" // open
@@ -209,3 +209,11 @@
 #define PRIMARY_REPAIR_AMT 15
 #define SECONDARY_REPAIR_AMT 8
 #define TERTIARY_REPAIR_AMT 5
+
+#define EXOSUIT_SENSORS_BASIC /datum/exo_sensors/basic
+#define EXOSUIT_SENSORS_ADV /datum/exo_sensors/adv
+#define EXOSUIT_SENSORS_ULTRA /datum/exo_sensors/ultra
+#define EXOSUIT_SENSORS_NONE /datum/exo_sensors/none
+
+#define MECHA_IS_WRECK "mech_wrecked"
+#define MECHA_IS_WRECKABLE (1<<14)

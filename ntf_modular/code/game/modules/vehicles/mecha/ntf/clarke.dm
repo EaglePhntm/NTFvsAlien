@@ -16,7 +16,7 @@
 	)
 	wreckage = /obj/structure/mecha_wreckage/clarke
 	possible_int_damage = MECHA_INT_FIRE|MECHA_INT_CONTROL_LOST|MECHA_INT_SHORT_CIRCUIT
-	mecha_flags = ADDING_ACCESS_POSSIBLE | IS_ENCLOSED | HAS_HEADLIGHTS
+	mecha_flags = ADDING_ACCESS_POSSIBLE | IS_ENCLOSED | HAS_HEADLIGHTS | MECHA_IS_WRECKABLE
 	enter_delay = EGRESS_TIME_QUICK
 	exit_delay = EGRESS_TIME_QUICK
 	max_occupants = 2
