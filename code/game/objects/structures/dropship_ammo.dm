@@ -309,9 +309,9 @@
 	transferable_ammo = TRUE
 	point_cost = 0
 	ammo_type = RAILGUN_AMMO
-	devastating_explosion_range = 0
-	heavy_explosion_range = 2
-	light_explosion_range = 4
+	devastating_explosion_range = 1
+	heavy_explosion_range = 3
+	light_explosion_range = 5
 	prediction_type = CAS_AMMO_EXPLOSIVE
 
 /obj/structure/ship_ammo/railgun/detonate_on(turf/impact, attackdir = NORTH)

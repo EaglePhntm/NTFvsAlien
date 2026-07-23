@@ -275,8 +275,9 @@
 		var/mob/living/living_target = A
 		GLOB.round_statistics.warrior_grabs++
 		SSblackbox.record_feedback("tally", "round_statistics", 1, "warrior_grabs")
-		xeno_owner.setGrabState(GRAB_NECK)
-		living_target.resistance_flags |= RESTRAINED_NECKGRAB
+		if(ishuman(living_target))
+			xeno_owner.setGrabState(GRAB_NECK)
+			living_target.resistance_flags |= RESTRAINED_NECKGRAB
 		living_target.drop_all_held_items()
 		living_target.Paralyze(0.1 SECONDS)
 		living_target.balloon_alert(xeno_owner, "Grabbed [living_target]")
