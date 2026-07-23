@@ -18,7 +18,7 @@
 			continue
 		if(ads.try_intercept(target_turf, src, 2, 30))
 			return
-	explosion(target_turf, 6, 8, 12, 16, 6, 3, 8 explosion_cause="cruise missile")
+	explosion(target_turf, 6, 8, 12, 16, 6, 3, 8, explosion_cause="cruise missile")
 
 /datum/fire_support/cruise_missile/unlimited
 	fire_support_type = FIRESUPPORT_TYPE_CRUISE_MISSILE_UNLIMITED
