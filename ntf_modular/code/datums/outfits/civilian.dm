@@ -1,6 +1,6 @@
 /datum/outfit/job/civindep/assistant
 	name = "Assistant Colonist"
-	jobtype = /datum/job/civindep/assistant
+	jobtype = /datum/job/civindep/west/assistant
 
 	w_uniform = /obj/item/clothing/under/color/grey
 	shoes = /obj/item/clothing/shoes/marine/clf
@@ -15,7 +15,7 @@
 
 /datum/outfit/job/civindep/scientist
 	name = "Scientist Colonist"
-	jobtype = /datum/job/civindep/scientist
+	jobtype = /datum/job/civindep/west/scientist
 
 	w_uniform = /obj/item/clothing/under/rank/scientist
 	wear_suit = /obj/item/clothing/suit/storage/labcoat/researcher
@@ -40,7 +40,7 @@
 
 /datum/outfit/job/civindep/doctor
 	name = "Doctor's Assistant Colonist"
-	jobtype = /datum/job/civindep/doctor
+	jobtype = /datum/job/civindep/west/doctor
 
 	w_uniform = /obj/item/clothing/under/rank/medical/blue
 	wear_suit = /obj/item/clothing/suit/storage/labcoat
@@ -81,7 +81,7 @@
 
 /datum/outfit/job/civindep/officeworker
 	name = "Office Worker Colonist"
-	jobtype = /datum/job/civindep/officeworker
+	jobtype = /datum/job/civindep/west/officeworker
 
 	w_uniform = /obj/item/clothing/under/liaison_suit
 	shoes = /obj/item/clothing/shoes/marine/clf
@@ -92,7 +92,7 @@
 
 /datum/outfit/job/civindep/liaison
 	name = "Liaison Colonist"
-	jobtype = /datum/job/civindep/liaison
+	jobtype = /datum/job/civindep/west/liaison
 
 	w_uniform = /obj/item/clothing/under/liaison_suit
 	shoes = /obj/item/clothing/shoes/marine/clf
@@ -103,7 +103,7 @@
 
 /datum/outfit/job/civindep/security
 	name = "Security Guard Colonist"
-	jobtype = /datum/job/civindep/security
+	jobtype = /datum/job/civindep/west/security
 
 	w_uniform = /obj/item/clothing/under/rank/security
 	wear_suit = /obj/item/clothing/suit/armor/patrol
@@ -135,7 +135,7 @@
 
 /datum/outfit/job/civindep/civilian
 	name = "Civilian Colonist"
-	jobtype = /datum/job/civindep/civilian
+	jobtype = /datum/job/civindep/west/civilian
 
 	w_uniform = /obj/item/clothing/under/colonist
 	shoes = /obj/item/clothing/shoes/marine/clf
@@ -152,7 +152,7 @@
 
 /datum/outfit/job/civindep/chef
 	name = "Chef Colonist"
-	jobtype = /datum/job/civindep/chef
+	jobtype = /datum/job/civindep/west/chef
 
 	w_uniform = /obj/item/clothing/under/rank/chef
 	wear_suit = /obj/item/clothing/suit/storage/chef
@@ -179,7 +179,7 @@
 
 /datum/outfit/job/civindep/botanist
 	name = "Botanist Colonist"
-	jobtype = /datum/job/civindep/botanist
+	jobtype = /datum/job/civindep/west/botanist
 
 	w_uniform = /obj/item/clothing/under/rank/hydroponics
 	wear_suit = /obj/item/clothing/suit/storage/apron/overalls
@@ -197,7 +197,7 @@
 
 /datum/outfit/job/civindep/atmos
 	name = "Atmospherics Technician Colonist"
-	jobtype = /datum/job/civindep/atmos
+	jobtype = /datum/job/civindep/west/atmos
 
 	w_uniform = /obj/item/clothing/under/rank/atmospheric_technician
 	wear_suit = /obj/item/clothing/suit/storage/hazardvest
@@ -236,7 +236,7 @@
 
 /datum/outfit/job/civindep/chaplain
 	name = "Chaplain Colonist"
-	jobtype = /datum/job/civindep/chaplain
+	jobtype = /datum/job/civindep/west/chaplain
 
 	w_uniform = /obj/item/clothing/under/rank/chaplain
 	shoes = /obj/item/clothing/shoes/marine/clf
@@ -256,7 +256,7 @@
 
 /datum/outfit/job/civindep/miner
 	name = "Miner Colonist"
-	jobtype = /datum/job/civindep/miner
+	jobtype = /datum/job/civindep/west/miner
 
 	w_uniform = /obj/item/clothing/under/rank/miner
 	head = /obj/item/clothing/head/helmet/space/rig/mining
@@ -279,7 +279,7 @@
 
 /datum/outfit/job/civindep/salesman
 	name = "Salesman Colonist"
-	jobtype = /datum/job/civindep/salesman
+	jobtype = /datum/job/civindep/west/salesman
 
 	w_uniform = /obj/item/clothing/under/lawyer/purpsuit
 	wear_suit = /obj/item/clothing/suit/storage/lawyer/purpjacket
@@ -300,7 +300,7 @@
 
 /datum/outfit/job/civindep/marshal
 	name = "Colonial Marshal Colonist"
-	jobtype = /datum/job/civindep/marshal
+	jobtype = /datum/job/civindep/west/marshal
 
 	w_uniform = /obj/item/clothing/under/CM_uniform
 	wear_suit = /obj/item/clothing/suit/storage/CMB
@@ -324,7 +324,7 @@
 
 /datum/outfit/job/civindep/bartender
 	name = "Bartender Colonist"
-	jobtype = /datum/job/civindep/bartender
+	jobtype = /datum/job/civindep/west/bartender
 
 	w_uniform = /obj/item/clothing/under/rank/bartender
 	back = /obj/item/storage/backpack/satchel
@@ -345,7 +345,7 @@
 
 /datum/outfit/job/civindep/chemist
 	name = "Pharmacy Technician Colonist"
-	jobtype = /datum/job/civindep/chemist
+	jobtype = /datum/job/civindep/west/chemist
 
 	w_uniform = /obj/item/clothing/under/rank/chemist
 	wear_suit = /obj/item/clothing/suit/storage/labcoat/chemist
@@ -391,7 +391,7 @@
 
 /datum/outfit/job/civindep/roboticist
 	name = "Roboticist Colonist"
-	jobtype = /datum/job/civindep/roboticist
+	jobtype = /datum/job/civindep/west/roboticist
 
 	w_uniform = /obj/item/clothing/under/rank/roboticist
 	wear_suit = /obj/item/clothing/suit/storage/labcoat/science
@@ -422,7 +422,7 @@
 
 /datum/outfit/job/civindep/rambo
 	name = "Veteran Colonist"
-	jobtype = /datum/job/civindep/rambo
+	jobtype = /datum/job/civindep/west/rambo
 	w_uniform = /obj/item/clothing/under/marine/striped
 	wear_suit = /obj/item/clothing/suit/armor/patrol
 	shoes = /obj/item/clothing/shoes/marine/clf

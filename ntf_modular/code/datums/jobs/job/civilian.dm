@@ -15,6 +15,7 @@ GLOBAL_LIST_EMPTY(spawn_evzcivneutral)
 
 /obj/effect/landmark/spawn_marker/civilian/random/Initialize(mapload)
 	occupation = pick(GLOB.civindep_npc_jobs)
+	. = ..()
 
 /obj/effect/landmark/spawn_marker/civilian/proc/trigger_now()
 	occupation = SSjob.GetJobType(occupation) //get true job type ig
