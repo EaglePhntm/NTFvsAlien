@@ -44,11 +44,14 @@
 	. = ..()
 	if(!target_mounting)
 		user = pulling
-	if(!isxeno(user))
-		return FALSE
-	var/mob/living/carbon/xenomorph/grabbed = user
-	if(grabbed.incapacitated() || !(grabbed.xeno_caste.can_flags & CASTE_CAN_RIDE_CRUSHER))
-		return FALSE
+	if(ishuman(user))
+		var/mob/living/carbon/human/human_pulled = user
+		if(human_pulled.stat == DEAD)
+			return FALSE
+	if(isxeno(user))
+		var/mob/living/carbon/xenomorph/grabbed = user
+		if(grabbed.incapacitated() || !(grabbed.xeno_caste.can_flags & CASTE_CAN_RIDE_CRUSHER))
+			return FALSE
 	return TRUE
 
 /mob/living/carbon/xenomorph/crusher/resisted_against(datum/source)

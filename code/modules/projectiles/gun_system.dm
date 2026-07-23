@@ -1903,7 +1903,7 @@
 
 		if(ishuman(gun_user))
 			var/mob/living/carbon/human/shooter_human = gun_user
-			gun_accuracy_mod -= round(min(20, (shooter_human.shock_stage * 0.2))) //Accuracy declines with pain, being reduced by 0.2% per point of pain.
+			gun_accuracy_mod -= round(min(20, (shooter_human.shock_stage * 0.1))) //Accuracy declines with pain, being reduced by 0.1% per point of pain.
 			if(shooter_human.marksman_aura)
 				gun_accuracy_mod += 10 + max(5, shooter_human.marksman_aura * 5)
 				gun_scatter -= shooter_human.marksman_aura * 2

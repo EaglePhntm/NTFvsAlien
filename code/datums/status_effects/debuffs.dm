@@ -26,6 +26,17 @@
 		return
 	ADD_TRAIT(owner, TRAIT_STAGGERED, TRAIT_STATUS_EFFECT(id))
 	owner.adjust_mob_scatter(10)
+	if(isxeno(owner))
+		var/mob/living/carbon/xenomorph/beno = owner
+		if(length(beno.buckled_mobs))
+			beno.unbuckle_all_mobs(TRUE)
+			beno.ParalyzeNoChain(3 SECONDS)
+		if(beno.eaten_mob)
+			var/datum/action/ability/activable/xeno/devour/devussy = locate() in beno.actions
+			if(devussy)
+				devussy.release_haul(FALSE)
+				beno.ParalyzeNoChain(3 SECONDS)
+
 
 /datum/status_effect/incapacitating/stagger/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_STAGGERED, TRAIT_STATUS_EFFECT(id))

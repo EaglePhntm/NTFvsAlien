@@ -507,15 +507,19 @@ SUBSYSTEM_DEF(daylight)
 			last_cycle_progress = cycle_progress
 		else
 			if(cycle_progress < last_cycle_progress - 0.01)
-				msg = "A new day has dawned on the station!"
+				msg = "A new day has dawned on the colony!"
 				SEND_SIGNAL(src, COMSIG_DAYLIGHT_NEW_DAY)
 				SEND_SIGNAL(src, COMSIG_DAYLIGHT_DAY_START)
 
 			else if(last_cycle_progress < daylight_fraction && cycle_progress >= daylight_fraction)
-				msg = "Night has fallen on the station."
+				msg = "Night has fallen on the colony."
 				SEND_SIGNAL(src, COMSIG_DAYLIGHT_NIGHT_START)
 
 			if(msg)
+				for(var/target_mob in GLOB.player_list)
+					if(isnewplayer(target_mob))
+						continue
+					to_chat(target_mob, span_infoplain(msg))
 				msg += "(cycle_progress = [cycle_progress], last_cycle_progress = [last_cycle_progress], daylight_fraction = [daylight_fraction])"
 				message_admins(msg)
 				log_game(msg)

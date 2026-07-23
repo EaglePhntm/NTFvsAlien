@@ -5,7 +5,7 @@
 	face_tint = TINT_5 //we want those to let more sight since they are persistent
 	var/filter_color
 	var/datum/reagent/injected_chemical_type
-	var/amount_injected = 5
+	var/amount_injected = 8
 	var/special_effect_delay = 20 SECONDS
 	var/mob/living/carbon/human/wearer
 	var/cock_flavor = "girthy cock"
@@ -128,7 +128,7 @@
 	filter_color = COLOR_RED
 	special_effect_delay = 15 SECONDS
 	cock_flavor = "ribbed cock"
-	strip_delay = 4 SECONDS
+	strip_delay = 4 SECONDS //some claws are busy clawing instead of holding i guess
 
 /obj/item/clothing/mask/facehugger/latching/clawer/special_effect()
 	wearer.emote("scream")
@@ -167,7 +167,7 @@
 /obj/item/clothing/mask/facehugger/latching/chemical
 	name = "evolved chemical facehugger base"
 	desc = "It has some sort of weird slimy wriggly thick alien cock with MASSIVE balls storing chemicals..."
-	injected_chemical_type = /datum/reagent/toxin/acid
+	injected_chemical_type = /datum/reagent/toxin/acid/potent_xenocum
 	filter_color = COLOR_GREEN
 	special_effect_delay = 20 SECONDS
 	strip_delay = 6 SECONDS
@@ -178,7 +178,7 @@
 		/datum/reagent/toxin/xeno_transvitox = /datum/effect_system/smoke_spread/xeno/transvitox,
 		/datum/reagent/toxin/xeno_ozelomelyn = /datum/effect_system/smoke_spread/xeno/ozelomelyn,
 		/datum/reagent/toxin/xeno_aphrotoxin = /datum/effect_system/smoke_spread/xeno/aphrotoxin,
-		/datum/reagent/toxin/acid = /datum/effect_system/smoke_spread/xeno/acid/light,
+		/datum/reagent/toxin/acid/potent_xenocum = /datum/effect_system/smoke_spread/xeno/acid/light,
 	)
 
 
@@ -247,15 +247,17 @@
 	proximity_time = 0.5 SECONDS
 	special_effect_delay = 20 SECONDS
 	strip_delay = 6 SECONDS
+	injected_chemical_type = /datum/reagent/toxin/acid/potent_xenocum
+	amount_injected = 5
 
 /obj/item/clothing/mask/facehugger/latching/chemical/acid/special_effect()
 	wearer.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno, 10)
-	wearer.reagents.add_reagent(/datum/reagent/toxin/acid/xeno_cum, 1)
 	wearer.emote("scream")
 	wearer.visible_message(span_loveextreme("[src] slams it's [cock_flavor] ballsdeep into [wearer]'s [target_hole] and it's balls start to throb strongly, pumping thick globs of something inside!"),span_loveextreme("[src] slams it's [cock_flavor] ballsdeep into your [target_hole] and it's balls start to throb strongly, pumping thick globs of something inside!"), vision_distance = 5)
 	wearer.visible_message(span_danger("Acid spurts from [wearer]'s [target_hole] around [src]'s [cock_flavor]!!!"),span_danger("Acid spurts from your [target_hole] around [src]'s [cock_flavor]!!!"), vision_distance = 5)
 	playsound(loc, 'sound/bullets/acid_impact1.ogg', 50, 1)
-	xenomorph_spray(get_turf(wearer), 3 SECONDS, 16, null, TRUE)
+	for(var/turf/acid_tile AS in RANGE_TURFS(1, loc))
+		xenomorph_spray(acid_tile, 2 SECONDS, 5, null, TRUE)
 	if(wearer.reagents.get_reagent_amount(injected_chemical_type) < 50)
 		wearer.reagents.add_reagent(injected_chemical_type, amount_injected, no_overdose = TRUE)
 //resin

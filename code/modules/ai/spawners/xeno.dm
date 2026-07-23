@@ -48,6 +48,12 @@
 	spawndelay = 10 SECONDS
 	maxamount = 10
 
+/obj/effect/ai_node/spawner/xeno/spitter/globadier
+	spawntypes = list(/mob/living/carbon/xenomorph/spitter/globadier/ai)
+	spawnamount = 4
+	spawndelay = 10 SECONDS
+	maxamount = 10
+
 /obj/effect/ai_node/spawner/xeno/warrior
 	spawntypes = list(/mob/living/carbon/xenomorph/warrior/ai)
 	spawnamount = 4
@@ -66,8 +72,21 @@
 	spawndelay = 10 SECONDS
 	maxamount = 10
 
+/obj/effect/ai_node/spawner/xeno/bull
+	spawntypes = list(/mob/living/carbon/xenomorph/bull/ai)
+	spawnamount = 4
+	spawndelay = 10 SECONDS
+	maxamount = 10
+
 /obj/effect/ai_node/spawner/xeno/tiertwos
-	spawntypes = list(/mob/living/carbon/xenomorph/hunter/ai, /mob/living/carbon/xenomorph/warrior/ai, /mob/living/carbon/xenomorph/spitter/ai, /mob/living/carbon/xenomorph/carrier/ai)
+	spawntypes = list(
+		/mob/living/carbon/xenomorph/hunter/ai,
+		/mob/living/carbon/xenomorph/warrior/ai,
+		/mob/living/carbon/xenomorph/spitter/ai,
+		/mob/living/carbon/xenomorph/spitter/globadier/ai,
+		/mob/living/carbon/xenomorph/bull/ai,
+		/mob/living/carbon/xenomorph/carrier/ai,
+		)
 	spawnamount = 4
 	spawndelay = 10 SECONDS
 	maxamount = 10
@@ -113,38 +132,61 @@
 
 /////////////Tier 4s
 
-/obj/effect/ai_node/spawner/xeno/queen
-	spawntypes = list(/mob/living/carbon/xenomorph/queen/ai)
+/obj/effect/ai_node/spawner/xeno
 	spawnamount = 4
 	spawndelay = 10 SECONDS
 	maxamount = 10
+
+/obj/effect/ai_node/spawner/xeno/queen
+	spawntypes = list(/mob/living/carbon/xenomorph/queen/ai)
 
 /obj/effect/ai_node/spawner/xeno/king
 	spawntypes = list(/mob/living/carbon/xenomorph/king/ai)
-	spawnamount = 4
-	spawndelay = 10 SECONDS
-	maxamount = 10
 
 /obj/effect/ai_node/spawner/xeno/king/conqueror
 	spawntypes = list(/mob/living/carbon/xenomorph/king/conqueror/ai)
-	spawnamount = 4
-	spawndelay = 10 SECONDS
-	maxamount = 10
 
 /obj/effect/ai_node/spawner/xeno/shrike
 	spawntypes = list(/mob/living/carbon/xenomorph/shrike/ai)
-	spawnamount = 4
-	spawndelay = 10 SECONDS
-	maxamount = 10
 
-/obj/effect/ai_node/spawner/dragon
+/obj/effect/ai_node/spawner/xeno/dragon
 	spawntypes = list(/mob/living/carbon/xenomorph/dragon/ai)
-	spawnamount = 4
-	spawndelay = 10 SECONDS
-	maxamount = 10
 
-/obj/effect/ai_node/spawner/tierfours
+/obj/effect/ai_node/spawner/xeno/tierfours
 	spawntypes = list(/mob/living/carbon/xenomorph/queen/ai,/mob/living/carbon/xenomorph/king/ai,/mob/living/carbon/xenomorph/king/conqueror/ai,/mob/living/carbon/xenomorph/shrike/ai,/mob/living/carbon/xenomorph/dragon/ai)
-	spawnamount = 4
-	spawndelay = 10 SECONDS
-	maxamount = 10
+
+
+/obj/effect/ai_node/spawner/xeno/facehuggers
+	spawntypes = list(
+		/mob/living/carbon/xenomorph/facehugger/ai,
+		/mob/living/carbon/xenomorph/facehugger/combat/slash/ai,
+		/mob/living/carbon/xenomorph/facehugger/chemical/neurotoxin/ai,
+		/mob/living/carbon/xenomorph/facehugger/chemical/aphrotoxin/ai,
+		/mob/living/carbon/xenomorph/facehugger/chemical/ozelomelyn/ai,
+		/mob/living/carbon/xenomorph/facehugger/combat/acid/ai,
+		/mob/living/carbon/xenomorph/facehugger/combat/resin/ai,
+		)
+
+/obj/effect/ai_node/spawner/xeno/facehuggers/less_lethal
+	spawntypes = list(
+		/mob/living/carbon/xenomorph/facehugger/ai,
+		/mob/living/carbon/xenomorph/facehugger/chemical/neurotoxin/ai,
+		/mob/living/carbon/xenomorph/facehugger/chemical/aphrotoxin/ai,
+		/mob/living/carbon/xenomorph/facehugger/combat/resin/ai,
+		)
+
+/obj/effect/ai_node/spawner/xeno/facehuggers/less_lethal/alt1
+	spawntypes = list(
+		/mob/living/carbon/xenomorph/facehugger/ai = 3,
+		/mob/living/carbon/xenomorph/facehugger/chemical/neurotoxin/ai = 1,
+		/mob/living/carbon/xenomorph/facehugger/chemical/aphrotoxin/ai = 1,
+		/mob/living/carbon/xenomorph/facehugger/combat/resin/ai = 1,
+		)
+
+/obj/effect/ai_node/spawner/xeno/facehuggers/less_lethal/alt2
+	spawntypes = list(
+		/mob/living/carbon/xenomorph/facehugger/ai = 6,
+		/mob/living/carbon/xenomorph/facehugger/chemical/neurotoxin/ai = 1,
+		/mob/living/carbon/xenomorph/facehugger/chemical/aphrotoxin/ai = 4,
+		/mob/living/carbon/xenomorph/facehugger/combat/resin/ai = 1,
+		)

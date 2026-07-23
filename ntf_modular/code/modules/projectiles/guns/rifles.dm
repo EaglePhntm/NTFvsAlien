@@ -621,16 +621,26 @@
 		slot_r_hand_str = 'ntf_modular/icons/mob/inhands/guns/machineguns_right_1.dmi',
 	)
 	attachable_allowed = list(
+		/obj/item/attachable/reddot,
 		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/flashlight,
 		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/lasersight,
-		/obj/item/attachable/stock/clf_heavyrifle,
 		/obj/item/attachable/scope,
 		/obj/item/attachable/compensator,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet/converted,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonet/som,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/scope/unremovable/mmg,
+		/obj/item/attachable/stock/t27,
 	)
+
+	starting_attachment_types = list(/obj/item/attachable/stock/t27)
 	scatter = 18
 	deployed_scatter_change = -60
 	wield_delay = 1.8 SECONDS

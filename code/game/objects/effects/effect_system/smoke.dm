@@ -293,9 +293,10 @@
 /////////////////////////////////////////////
 
 /obj/effect/particle_effect/smoke/sleepy
-	alpha = 180
+	alpha = 145
 	opacity = FALSE
 	color = "#007194"
+	strength = 0.25
 	smoke_traits = SMOKE_COUGH|SMOKE_SLEEP|SMOKE_OXYLOSS|SMOKE_PLASMALOSS|SMOKE_HUGGER_PACIFY
 
 /////////////////////////////////////////////

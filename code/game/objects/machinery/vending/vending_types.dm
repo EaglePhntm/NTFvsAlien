@@ -730,7 +730,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/nanoammo, (-26))
 		/obj/item/clothing/under/marine/mp = 2,
 		/obj/item/tool/taperoll/police = 2,
 		/obj/item/clothing/suit/armor/patrol = 2,
-		/obj/item/cell/taser = 2,
+		/obj/item/cell/lasgun/taser = 2,
 		/obj/item/reagent_containers/hypospray/autoinjector/combat = 8,
 	)
 

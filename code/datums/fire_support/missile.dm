@@ -18,7 +18,7 @@
 			continue
 		if(ads.try_intercept(target_turf, src, 2, 30))
 			return
-	explosion(target_turf, 4, 5, 6, 9, explosion_cause="cruise missile")
+	explosion(target_turf, 6, 8, 12, 16, 6, 3, 8, explosion_cause="cruise missile")
 
 /datum/fire_support/cruise_missile/unlimited
 	fire_support_type = FIRESUPPORT_TYPE_CRUISE_MISSILE_UNLIMITED
@@ -40,11 +40,11 @@
 	///Base strength of the rad effects
 	var/rad_strength = 25
 	///Range for the maximum rad effects
-	var/inner_range = 3
+	var/inner_range = 6
 	///Range for the moderate rad effects
-	var/mid_range = 6
+	var/mid_range = 8
 	///Range for the minimal rad effects
-	var/outer_range = 9
+	var/outer_range = 12
 
 /datum/fire_support/rad_missile/do_impact(turf/target_turf)
 	for(var/obj/machinery/deployable/mounted/sentry/ads_system/ads in range(GLOB.ads_intercept_range,target_turf))
@@ -69,4 +69,4 @@
 		strength = victim.modify_by_armor(strength, BIO, 25)
 		victim.apply_radiation(strength, sound_level)
 
-	explosion(target_turf, 0, 1, 0, 4, explosion_cause=name)
+	explosion(target_turf, 0, 1, 0, 4, 3, 2, explosion_cause=name)

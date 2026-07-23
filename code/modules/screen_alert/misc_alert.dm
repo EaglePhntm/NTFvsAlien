@@ -16,10 +16,11 @@
 	var/image_to_play_offset_y = 32
 	///x offset of image
 	var/image_to_play_offset_x = 0
+	var/imagepath = 'icons/UI_Icons/screen_alert_images.dmi'
 
 /atom/movable/screen/text/screen_text/picture/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
-	var/image/alertimage = image('icons/UI_Icons/screen_alert_images.dmi', icon_state = image_to_play, pixel_y = image_to_play_offset_y, pixel_x = image_to_play_offset_x)
+	var/image/alertimage = image(imagepath, icon_state = image_to_play, pixel_y = image_to_play_offset_y, pixel_x = image_to_play_offset_x)
 	alertimage.appearance_flags = APPEARANCE_UI
 	overlays += alertimage
 

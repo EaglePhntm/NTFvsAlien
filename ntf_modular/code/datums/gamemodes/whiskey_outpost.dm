@@ -28,7 +28,16 @@
 
 	respawn_time = 90 SECONDS
 	randomize_miners = FALSE
+	round_type_flags = parent_type::round_type_flags | MODE_SILOS_SPAWN_MINIONS
 	round_type_flags2 = MODE_2_CHILL_RULES
+	var/turf/mainsiloturf
 
 /datum/game_mode/infestation/secret_of_life/alienonly/whiskey_outpost/generate_nuke_disk_spawners()
 	return //Just skip it.  They're not needed and the map's a bit small to fit the computers.
+
+/datum/game_mode/infestation/secret_of_life/alienonly/whiskey_outpost/post_setup()
+	. = ..()
+	mainsiloturf = pick(GLOB.xeno_resin_silo_turfs)
+	var/obj/structure/xeno/silo/mainsilo = new (mainsiloturf)
+	mainsilo.max_integrity = 10000
+	mainsilo.obj_integrity = 10000

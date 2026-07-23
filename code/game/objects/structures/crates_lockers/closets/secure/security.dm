@@ -194,7 +194,7 @@
 	new /obj/item/clothing/tie/holobadge(src)
 	new /obj/item/clothing/tie/holobadge/cord(src)
 	new /obj/item/clothing/suit/modular/xenonauten/bulletresistant/vest(src)
-	new /obj/item/cell/taser(src)
+	new /obj/item/cell/lasgun/taser(src)
 	new /obj/item/book/manual/marine_law(src)
 
 
