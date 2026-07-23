@@ -241,7 +241,7 @@
 				if(prob(15))
 					to_chat(L, span_warning("You feel your [L.gender==MALE ? "cock throb hard as steel!" : "vagina is dripping like a waterfall!"] your legs almost give up as you come near orgasm!") )
 				L.adjustStaminaLoss(5)
-	if(L.sexcon.arousal + arousal_to_add < (MAX_AROUSAL - 40))
+	if(L.sexcon.arousal + arousal_to_add < (MAX_AROUSAL - 30))
 		L.sexcon.adjust_arousal(arousal_to_add)
 	else
 		if(prob(5))
