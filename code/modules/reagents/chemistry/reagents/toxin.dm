@@ -251,6 +251,10 @@
 /datum/reagent/toxin/sleeptoxin/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(0, 0, 1, 1)
 
+/datum/reagent/toxin/sleeptoxin/on_mob_add(mob/living/L, metabolism)
+	L.emote("yawn")
+	return ..()
+
 /datum/reagent/toxin/chloralhydrate
 	name = "Chloral Hydrate"
 	description = "A powerful sedative."
