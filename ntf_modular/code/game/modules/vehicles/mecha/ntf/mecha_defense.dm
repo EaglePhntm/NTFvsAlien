@@ -51,33 +51,6 @@
 			to_chat(occupants, "[icon2html(src, occupants)][span_danger("[gear2] is critically damaged!")]")
 			playsound(src, gear2.destroy_sound, 50)
 
-/obj/vehicle/sealed/mecha/ntf/ex_act(severity)
-	log_message("Affected by explosion of severity: [severity].", LOG_MECHA, color="red")
-	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
-		return
-	if(!(atom_flags & PREVENT_CONTENTS_EXPLOSION))
-		contents_explosion(severity)
-	if(QDELETED(src))
-		return
-	var/stagger_duration
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(rand(600, 1200), BRUTE, BOMB, 0)
-			stagger_duration = 7 SECONDS
-		if(EXPLODE_HEAVY)
-			take_damage(rand(100, 200), BRUTE, BOMB, 0)
-			stagger_duration = 5 SECONDS
-		if(EXPLODE_LIGHT)
-			take_damage(rand(60, 120), BRUTE, BOMB, 0)
-			stagger_duration = 2 SECONDS
-		if(EXPLODE_WEAK)
-			take_damage(rand(10, 35), BRUTE, BOMB, 0)
-
-	if(!stagger_duration)
-		return
-	for(var/mob/living/living_occupant AS in occupants)
-		living_occupant.Stagger(stagger_duration)
-
 /obj/vehicle/sealed/mecha/ntf/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
 	if(.)
