@@ -27,6 +27,7 @@
 		ticks_per_object = refill.ticks_per_object
 	var/to_refill = min(max_fill_amount - production_amount_left, refill.refill_amount)
 	production_amount_left += to_refill
+	maptext = "[production_amount_left || ""]"
 	refill.refill_amount -= to_refill
 	visible_message(span_notice("[user] restocks \the [src] with \the [refill]!"), span_notice("You restock \the [src] with [refill]!"))
 	if(!on)

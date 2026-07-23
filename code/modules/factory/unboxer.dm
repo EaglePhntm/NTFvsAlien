@@ -41,6 +41,7 @@
 	var/on = FALSE
 	var/progress = 0
 	var/ticks_per_object = 1
+	maptext_x = 12
 
 /obj/machinery/unboxer/Initialize(mapload)
 	. = ..()
@@ -94,6 +95,7 @@
 	if(progress >= ticks_per_object)
 		new production_type(get_step(src, dir))
 		production_amount_left--
+		maptext = "[production_amount_left || ""]"
 		progress = 0
 
 /obj/machinery/unboxer/attackby(obj/item/I, mob/living/user, def_zone)
@@ -108,6 +110,7 @@
 		ticks_per_object = refill.ticks_per_object
 	var/to_refill = min(max_fill_amount - production_amount_left, refill.refill_amount)
 	production_amount_left += to_refill
+	maptext = "[production_amount_left || ""]"
 	refill.refill_amount -= to_refill
 	visible_message(span_notice("[user] restocks \the [src] with \the [refill]!"), span_notice("You restock \the [src] with [refill]!"))
 	if(!on)
