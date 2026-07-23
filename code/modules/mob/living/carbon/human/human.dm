@@ -2,6 +2,7 @@
 	if(client)
 		blood_type = client.prefs.blood_type
 	else
+		npc_characterise()
 		blood_type = pick(7;"O-", 38;"O+", 6;"A-", 34;"A+", 2;"B-", 9;"B+", 1;"AB-", 3;"AB+")
 
 	set_jump_component()

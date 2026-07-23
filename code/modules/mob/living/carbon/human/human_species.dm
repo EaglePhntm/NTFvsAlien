@@ -37,6 +37,8 @@
 /mob/living/carbon/human/species/anthro
 	race = "Anthro"
 
+/mob/living/carbon/human/ai/neutral
+
 /mob/living/carbon/human/species/vatgrown
 	race = "Vat-Grown Human"
 

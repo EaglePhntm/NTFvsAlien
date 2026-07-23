@@ -42,7 +42,7 @@
 	///The character's ethnicity
 	var/ethnicity = "Western"
 	///Human-family body sprite style.
-	var/human_body_style = HUMAN_BODY_STYLE_TGMC
+	var/human_body_style = HUMAN_BODY_STYLE_SPLURT
 
 	//Skin colour
 	var/r_skin = 0

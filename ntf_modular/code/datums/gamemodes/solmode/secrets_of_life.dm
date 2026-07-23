@@ -257,6 +257,9 @@
 		SSpoints.add_tactical_psy_points(hivenumber, 300)
 		SSpoints.add_biomass_points(hivenumber, 0) // Solely to make sure it isn't null.
 
+	for(var/obj/effect/landmark/spawn_marker/civilian/civneu in GLOB.spawn_civneutral)
+		civneu.trigger_now()
+
 //NTF addition start
 	if(randomize_miners)
 		if(length(GLOB.miner_list) > MINIMUM_MINERS)
