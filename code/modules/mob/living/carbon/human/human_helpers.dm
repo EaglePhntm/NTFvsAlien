@@ -764,3 +764,4 @@
 		ass = "pair"
 		ass_color = body_color
 		ass_size = boobs_size //proportions
+	update_icon()
