@@ -11,6 +11,10 @@
 	name = "sommie civilian doctor spawner"
 	occupation = /datum/job/civindep/eastvietzhuan/doctor
 
+/obj/effect/landmark/spawn_marker/civilian/viet/watchman
+	name = "sommie watchman spawner"
+	occupation = /datum/job/civindep/eastvietzhuan/watchman
+
 /datum/job/civindep/eastvietzhuan // not a job meant for players, but rather AI civilians who roam the map
 	title = "Generic East Vietzhuan"
 	supervisors = "For anyone who cares enough, maybe SOM."
