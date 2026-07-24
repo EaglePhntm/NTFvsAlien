@@ -1859,6 +1859,14 @@
 	},
 /turf/open/floor/urban/carpet/carpetred,
 /area/vietzhuo8/indoors/v8west/city/border/security/central)
+"bPz" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	color = "#a6aeab";
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor,
+/area/vietzhuo8/indoors/v8west/city/precinct/records)
 "bPC" = (
 /obj/structure/barricade/sandbags{
 	dir = 8
@@ -8854,6 +8862,7 @@
 	color = "#a6aeab";
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor,
 /area/vietzhuo8/indoors/v8west/city/precinct/dispatchoffices)
 "izC" = (
@@ -17842,6 +17851,7 @@
 /obj/machinery/power/apc/drained{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor,
 /area/vietzhuo8/indoors/v8west/city/precinct/records)
 "qXr" = (
@@ -18041,6 +18051,7 @@
 	color = "#a6aeab";
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor,
 /area/vietzhuo8/indoors/v8west/city/precinct/dispatchoffices)
 "rgR" = (
@@ -28466,7 +28477,7 @@ okC
 sRE
 gIK
 aXh
-fQS
+bPz
 qXc
 sRE
 jPG
@@ -28683,7 +28694,7 @@ okC
 sRE
 jVw
 aXh
-fQS
+bPz
 aXh
 sRE
 sZf
@@ -28900,7 +28911,7 @@ okC
 sRE
 gIK
 bxs
-fQS
+bPz
 aXh
 sRE
 cyk
