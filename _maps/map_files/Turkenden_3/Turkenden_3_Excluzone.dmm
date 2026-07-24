@@ -130,6 +130,12 @@
 /obj/structure/table/wood,
 /turf/open/floor/urban/wood/redwood,
 /area/turkenden3excluzone/indoors/diner)
+"aiE" = (
+/obj/machinery/power/apc/high{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/turkenden3excluzone/indoors/miningshack)
 "aiZ" = (
 /obj/structure/prop/urban/vehicles/large/armored_trucks/nt_security/truck_1{
 	color = "#ff7d7d";
@@ -469,6 +475,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/machinery/light/mainship,
 /turf/open/floor/plating,
 /area/turkenden3excluzone/indoors/serverbuilding/gensrooms)
 "aFw" = (
@@ -598,7 +605,7 @@
 /obj/structure/bed/chair/office/dark{
 	dir = 8
 	},
-/turf/open/floor/prison,
+/turf/open/floor/urban/carpet/carpetblue,
 /area/turkenden3excluzone/indoors/serverbuilding/opsoverseer)
 "aLJ" = (
 /obj/structure/mineral_door/sandstone,
@@ -970,6 +977,13 @@
 	},
 /turf/open/floor/plating/ground/desertdam/asphalt/tile,
 /area/turkenden3excluzone/indoors/sresidencies)
+"bkn" = (
+/obj/machinery/floodlight/colony{
+	name = "Outpost Floodlight";
+	dir = 4
+	},
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/turkenden3excluzone/outdoors/nmilitaryoutpost/parkinglot)
 "bko" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 1
@@ -985,6 +999,9 @@
 /obj/structure/sink{
 	dir = 8;
 	pixel_x = -8
+	},
+/obj/machinery/light/mainship{
+	dir = 8
 	},
 /turf/open/floor/urban/tile/tilewhitecheckered,
 /area/turkenden3excluzone/indoors/nmilitaryoutpost/barracks2)
@@ -1904,7 +1921,7 @@
 /obj/machinery/prop/computer{
 	dir = 1
 	},
-/turf/open/floor/prison,
+/turf/open/floor/urban/carpet/carpetblue,
 /area/turkenden3excluzone/indoors/serverbuilding/opsoverseer)
 "csw" = (
 /obj/structure/bed/chair/office/dark,
@@ -2051,12 +2068,12 @@
 /turf/open/floor/wood,
 /area/turkenden3excluzone/indoors/nmilitaryoutpost/commandpost)
 "cCo" = (
-/obj/machinery/door/airlock/mainship/generic{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/cable,
-/turf/open/floor/prison,
+/obj/machinery/door/airlock/mainship{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetblue,
 /area/turkenden3excluzone/indoors/serverbuilding/opsoverseer)
 "cCw" = (
 /obj/structure/closet,
@@ -3302,7 +3319,9 @@
 	},
 /area/turkenden3excluzone/indoors/nmilitaryoutpost/messhall)
 "ecC" = (
-/obj/structure/window/framed/chigusa,
+/obj/structure/window/framed/chigusa{
+	color = "#699bff"
+	},
 /turf/open/floor/prison,
 /area/turkenden3excluzone/indoors/serverbuilding/opsoverseer)
 "ecN" = (
@@ -5695,7 +5714,7 @@
 "hrs" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/cable,
-/turf/open/floor/prison,
+/turf/open/floor/urban/carpet/carpetblue,
 /area/turkenden3excluzone/indoors/serverbuilding/opsoverseer)
 "hrx" = (
 /obj/effect/ai_node,
@@ -7027,7 +7046,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 4
 	},
-/turf/open/floor/prison,
+/turf/open/floor/urban/carpet/carpetblue,
 /area/turkenden3excluzone/indoors/serverbuilding/opsoverseer)
 "jas" = (
 /turf/closed/wall/r_wall/chigusa{
@@ -7410,6 +7429,9 @@
 	dir = 8;
 	pixel_x = -8
 	},
+/obj/machinery/light/mainship{
+	dir = 8
+	},
 /turf/open/floor/urban/tile/tilewhitecheckered,
 /area/turkenden3excluzone/indoors/nmilitaryoutpost/barracks3)
 "jCQ" = (
@@ -7457,6 +7479,16 @@
 	},
 /turf/open/floor/tile/dark,
 /area/turkenden3excluzone/indoors/mosque)
+"jIn" = (
+/obj/machinery/power/smes/buildable/empty{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/turkenden3excluzone/indoors/serverbuilding/gensrooms)
 "jIz" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -9713,10 +9745,12 @@
 /obj/structure/mineral_door/sandstone,
 /turf/open/floor/plating/ground/desertdam/asphalt/tile,
 /area/turkenden3excluzone/indoors/farmhouse)
+"mBD" = (
+/obj/structure/table/wood,
+/obj/item/tool/candle,
+/turf/open/floor/plating/ground/desertdam/asphalt/tile,
+/area/turkenden3excluzone/indoors/reqcargo/seresidencies)
 "mBF" = (
-/obj/machinery/light/mainship{
-	dir = 1
-	},
 /obj/structure/filingcabinet/nondense{
 	pixel_x = -8;
 	pixel_y = 21
@@ -9724,6 +9758,9 @@
 /obj/structure/filingcabinet/nondense{
 	pixel_x = 8;
 	pixel_y = 21
+	},
+/obj/machinery/light/mainship{
+	dir = 1
 	},
 /turf/open/floor/prison,
 /area/turkenden3excluzone/indoors/serverbuilding/persnoffice2)
@@ -11160,7 +11197,7 @@
 	pixel_y = 6
 	},
 /obj/item/tool/pen,
-/turf/open/floor/prison,
+/turf/open/floor/urban/carpet/carpetblue,
 /area/turkenden3excluzone/indoors/serverbuilding/opsoverseer)
 "okZ" = (
 /obj/machinery/light/mainship,
@@ -11665,6 +11702,15 @@
 	},
 /turf/open/floor/mainship/green,
 /area/turkenden3excluzone/indoors/nwgreenhouse)
+"oOK" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/turkenden3excluzone/indoors/serverbuilding/opsoverseer)
 "oOS" = (
 /turf/open/floor/prison,
 /area/turkenden3excluzone/indoors/serverbuilding/persnoffice1)
@@ -12207,7 +12253,8 @@
 /area/turkenden3excluzone/indoors/medrsr/jointfac)
 "pvi" = (
 /turf/closed/wall/r_wall/chigusa{
-	name = "reinforced metal wall"
+	name = "reinforced metal wall";
+	color = "#699bff"
 	},
 /area/turkenden3excluzone/indoors/serverbuilding/opsoverseer)
 "pvE" = (
@@ -12230,7 +12277,7 @@
 /area/turkenden3excluzone/outdoors/roadnw)
 "pwj" = (
 /obj/effect/spawner/random/machinery/random_broken_computer/intel,
-/turf/open/floor/prison,
+/turf/open/floor/urban/carpet/carpetblue,
 /area/turkenden3excluzone/indoors/serverbuilding/opsoverseer)
 "pws" = (
 /obj/structure/table/wood,
@@ -13687,6 +13734,12 @@
 	color = "#ffe1b9"
 	},
 /area/turkenden3excluzone/outdoors/serverbuilding/groundsw)
+"roh" = (
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/prison,
+/area/turkenden3excluzone/indoors/serverbuilding/southhall)
 "rpG" = (
 /turf/closed/wall/variable/adobe,
 /area/turkenden3excluzone/indoors/nwouthouses)
@@ -14809,6 +14862,13 @@
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/turkenden3excluzone/outdoors/desertnw)
+"sED" = (
+/obj/machinery/floodlight/colony{
+	name = "Outpost Floodlight";
+	dir = 8
+	},
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/turkenden3excluzone/outdoors/nmilitaryoutpost/grounds)
 "sFr" = (
 /obj/structure/table/mainship,
 /turf/open/floor/kutjevo/fake_wood,
@@ -14821,6 +14881,11 @@
 "sFQ" = (
 /turf/open/floor/mainship/cargo,
 /area/turkenden3excluzone/indoors/reqcargo)
+"sGq" = (
+/obj/structure/table/wood,
+/obj/item/tool/candle,
+/turf/open/floor/plating/ground/desertdam/asphalt/tile,
+/area/turkenden3excluzone/indoors/sresidencies)
 "sGZ" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/high,
@@ -15389,7 +15454,7 @@
 	},
 /area/turkenden3excluzone/indoors/miningfacility)
 "tuq" = (
-/turf/open/floor/prison,
+/turf/open/floor/urban/carpet/carpetblue,
 /area/turkenden3excluzone/indoors/serverbuilding/opsoverseer)
 "tuA" = (
 /turf/open/floor/plating/ground/dirt2{
@@ -15860,6 +15925,12 @@
 	dir = 8
 	},
 /area/turkenden3excluzone/indoors/reqcargo)
+"ufp" = (
+/turf/closed/wall/r_wall/chigusa{
+	name = "reinforced metal wall";
+	color = "#699bff"
+	},
+/area/turkenden3excluzone/indoors/serverbuilding/managementrec)
 "ufQ" = (
 /obj/structure/prop/urban/vehicles/large/truck/truck6,
 /turf/open/floor/plating/ground/dirt2{
@@ -16015,7 +16086,7 @@
 /area/turkenden3excluzone/indoors/farmhouse)
 "unF" = (
 /obj/structure/table/mainship,
-/turf/open/floor/prison,
+/turf/open/floor/urban/carpet/carpetblue,
 /area/turkenden3excluzone/indoors/serverbuilding/opsoverseer)
 "unH" = (
 /obj/machinery/door/airlock/mainship/security/glass/free_access{
@@ -17469,7 +17540,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
-/turf/open/floor/prison,
+/turf/open/floor/urban/carpet/carpetblue,
 /area/turkenden3excluzone/indoors/serverbuilding/opsoverseer)
 "wbZ" = (
 /obj/machinery/power/terminal,
@@ -17597,6 +17668,9 @@
 /obj/structure/sink{
 	dir = 8;
 	pixel_x = -8
+	},
+/obj/machinery/light/mainship{
+	dir = 8
 	},
 /turf/open/floor/urban/tile/tilewhitecheckered,
 /area/turkenden3excluzone/indoors/nmilitaryoutpost/barracks1)
@@ -18444,11 +18518,9 @@
 	},
 /area/turkenden3excluzone/outdoors/serverbuilding/eparking)
 "xrl" = (
-/obj/machinery/light/mainship{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/turkenden3excluzone/indoors/serverbuilding/gensrooms)
+/obj/machinery/power/geothermal,
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/turkenden3excluzone/outdoors/desertw)
 "xrz" = (
 /obj/structure/cable,
 /turf/open/floor/tile/blue/taupebluecorner,
@@ -19022,7 +19094,7 @@
 /obj/machinery/power/apc/high{
 	dir = 8
 	},
-/turf/open/floor/prison,
+/turf/open/floor/urban/carpet/carpetblue,
 /area/turkenden3excluzone/indoors/serverbuilding/opsoverseer)
 "ycr" = (
 /obj/structure/table/wood,
@@ -21893,7 +21965,7 @@ eLv
 eLv
 eLv
 nlF
-ouM
+xrl
 gHn
 gHn
 gHn
@@ -22105,7 +22177,7 @@ gHn
 gHn
 gHn
 nlF
-eLv
+aiE
 hrx
 eLv
 eLv
@@ -40441,7 +40513,7 @@ cwF
 (99,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 vlm
@@ -40658,7 +40730,7 @@ cwF
 (100,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 fbB
 eBI
@@ -40671,7 +40743,7 @@ mnQ
 mnQ
 vlm
 vlm
-vlm
+fbB
 vuH
 vuH
 vuH
@@ -40875,7 +40947,7 @@ cwF
 (101,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 vlm
@@ -41092,7 +41164,7 @@ cwF
 (102,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 vlm
@@ -41309,7 +41381,7 @@ cwF
 (103,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 mnQ
@@ -41526,7 +41598,7 @@ cwF
 (104,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 mnQ
 sot
@@ -41743,7 +41815,7 @@ cwF
 (105,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 jsa
 ylb
@@ -41960,7 +42032,7 @@ cwF
 (106,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 mnQ
 nIH
@@ -42177,7 +42249,7 @@ cwF
 (107,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 jsa
 qyY
@@ -42394,7 +42466,7 @@ cwF
 (108,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 mnQ
 kTN
@@ -42611,7 +42683,7 @@ cwF
 (109,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 mnQ
@@ -42828,7 +42900,7 @@ cwF
 (110,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 vlm
@@ -43045,7 +43117,7 @@ cwF
 (111,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 vlm
@@ -43262,7 +43334,7 @@ cwF
 (112,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 mCg
 vlm
@@ -43479,7 +43551,7 @@ cwF
 (113,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 vlm
@@ -43696,7 +43768,7 @@ cwF
 (114,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 fpP
@@ -43913,7 +43985,7 @@ cwF
 (115,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 fpP
@@ -44130,7 +44202,7 @@ cwF
 (116,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 fpP
@@ -44347,7 +44419,7 @@ cwF
 (117,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 fpP
@@ -44564,7 +44636,7 @@ cwF
 (118,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 fpP
@@ -44781,7 +44853,7 @@ cwF
 (119,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 fpP
@@ -44998,7 +45070,7 @@ cwF
 (120,1,1) = {"
 cwF
 rju
-coQ
+vlm
 mCg
 vlm
 vlm
@@ -45026,7 +45098,7 @@ nLx
 gGS
 nLx
 gGS
-gGS
+bkn
 gGS
 gGS
 gGS
@@ -45215,7 +45287,7 @@ cwF
 (121,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 vlm
@@ -45432,7 +45504,7 @@ cwF
 (122,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 dSt
@@ -45649,7 +45721,7 @@ cwF
 (123,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 dSt
@@ -45866,7 +45938,7 @@ cwF
 (124,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 dSt
@@ -46083,7 +46155,7 @@ cwF
 (125,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 uak
@@ -46300,7 +46372,7 @@ cwF
 (126,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 uak
@@ -46517,7 +46589,7 @@ cwF
 (127,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 mCg
 dSt
@@ -46734,7 +46806,7 @@ cwF
 (128,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 dSt
@@ -46757,7 +46829,7 @@ vuH
 bEG
 vlm
 vlm
-vlm
+sED
 gGS
 dEh
 gGS
@@ -46951,7 +47023,7 @@ cwF
 (129,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 dSt
@@ -47168,7 +47240,7 @@ cwF
 (130,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 dSt
@@ -47385,7 +47457,7 @@ cwF
 (131,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 dSt
@@ -47602,7 +47674,7 @@ cwF
 (132,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 dSt
@@ -47819,7 +47891,7 @@ cwF
 (133,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 dSt
@@ -48036,7 +48108,7 @@ cwF
 (134,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 mCg
 vlm
@@ -48253,7 +48325,7 @@ cwF
 (135,1,1) = {"
 cwF
 rju
-coQ
+vlm
 eBI
 vlm
 vlm
@@ -48470,7 +48542,7 @@ cwF
 (136,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 aNq
@@ -48687,7 +48759,7 @@ cwF
 (137,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 aNq
@@ -48904,7 +48976,7 @@ cwF
 (138,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 aNq
@@ -49121,7 +49193,7 @@ cwF
 (139,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 gUB
@@ -49338,7 +49410,7 @@ cwF
 (140,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 gUB
@@ -49555,7 +49627,7 @@ cwF
 (141,1,1) = {"
 cwF
 rju
-coQ
+vlm
 mCg
 vlm
 aNq
@@ -49772,7 +49844,7 @@ cwF
 (142,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 aNq
@@ -49989,7 +50061,7 @@ cwF
 (143,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 aNq
@@ -50206,7 +50278,7 @@ cwF
 (144,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 aNq
@@ -50238,7 +50310,7 @@ hGk
 hGk
 sth
 ecd
-vlm
+mUQ
 vlm
 vlm
 coQ
@@ -50368,7 +50440,7 @@ hvl
 nHa
 nHa
 bkf
-qCs
+sGq
 lZa
 lZa
 qCs
@@ -50423,7 +50495,7 @@ cwF
 (145,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 aNq
@@ -50640,7 +50712,7 @@ cwF
 (146,1,1) = {"
 cwF
 rju
-coQ
+vlm
 mCg
 vlm
 aNq
@@ -50857,7 +50929,7 @@ cwF
 (147,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 aNq
@@ -51074,7 +51146,7 @@ cwF
 (148,1,1) = {"
 cwF
 rju
-coQ
+vlm
 eBI
 vlm
 vlm
@@ -51291,7 +51363,7 @@ cwF
 (149,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 mCg
@@ -51508,7 +51580,7 @@ cwF
 (150,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 gtF
@@ -51725,7 +51797,7 @@ cwF
 (151,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 gtF
@@ -51942,7 +52014,7 @@ cwF
 (152,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 gtF
@@ -52159,7 +52231,7 @@ cwF
 (153,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 mCg
 tuD
@@ -52376,7 +52448,7 @@ cwF
 (154,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 tuD
@@ -52593,7 +52665,7 @@ cwF
 (155,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 gtF
@@ -52810,7 +52882,7 @@ cwF
 (156,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 gtF
@@ -53027,7 +53099,7 @@ cwF
 (157,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 gtF
@@ -53059,7 +53131,7 @@ hGk
 hGk
 fVn
 ecd
-vlm
+mUQ
 vlm
 vlm
 coQ
@@ -53244,7 +53316,7 @@ cwF
 (158,1,1) = {"
 cwF
 rju
-coQ
+vlm
 mCg
 vlm
 gtF
@@ -53461,7 +53533,7 @@ cwF
 (159,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 gtF
@@ -53678,7 +53750,7 @@ cwF
 (160,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 gtF
@@ -53895,7 +53967,7 @@ cwF
 (161,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 gtF
@@ -54112,7 +54184,7 @@ cwF
 (162,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 mCg
@@ -54121,7 +54193,7 @@ vlm
 vlm
 vlm
 vlm
-vlm
+cJU
 vlm
 vlm
 mCg
@@ -54148,7 +54220,7 @@ vlm
 vlm
 vlm
 coQ
-lcS
+qwI
 lcS
 lcS
 lcS
@@ -54329,7 +54401,7 @@ cwF
 (163,1,1) = {"
 cwF
 rju
-coQ
+vlm
 vlm
 vlm
 vlm
@@ -54365,7 +54437,7 @@ vlm
 vlm
 vlm
 coQ
-lcS
+qwI
 lcS
 lcS
 lcS
@@ -54546,20 +54618,20 @@ cwF
 (164,1,1) = {"
 cwF
 rju
-coQ
-coQ
-coQ
-coQ
-coQ
-coQ
-coQ
-coQ
-coQ
-coQ
-coQ
-coQ
-coQ
-coQ
+vlm
+vlm
+vlm
+vlm
+vlm
+vlm
+vlm
+vlm
+vlm
+vlm
+vlm
+vlm
+vlm
+vlm
 wfK
 vuH
 vuH
@@ -54567,22 +54639,22 @@ vuH
 vuH
 vuH
 vlm
+vlm
+vlm
+vlm
+vlm
+vlm
+vlm
+vlm
+vlm
+vlm
+vlm
+vlm
+vlm
+vlm
+vlm
 coQ
-coQ
-coQ
-coQ
-coQ
-coQ
-coQ
-coQ
-coQ
-coQ
-coQ
-coQ
-coQ
-coQ
-coQ
-lcS
+qwI
 lcS
 lcS
 lcS
@@ -54763,20 +54835,20 @@ cwF
 (165,1,1) = {"
 cwF
 rju
-lcS
-lcS
-lcS
-lcS
-lcS
-lcS
-lcS
-lcS
-lcS
-lcS
-lcS
-lcS
-lcS
-lcS
+coQ
+coQ
+coQ
+coQ
+coQ
+coQ
+coQ
+coQ
+coQ
+coQ
+coQ
+coQ
+coQ
+coQ
 wfK
 vuH
 vuH
@@ -54784,21 +54856,21 @@ vuH
 pYg
 vuH
 vlm
-lcS
-lcS
-lcS
-lcS
-lcS
-lcS
-lcS
-lcS
-lcS
-lcS
-lcS
-lcS
-qwI
-qwI
-qwI
+coQ
+coQ
+coQ
+coQ
+coQ
+coQ
+coQ
+coQ
+coQ
+coQ
+coQ
+coQ
+coQ
+coQ
+coQ
 lcS
 lcS
 lcS
@@ -55129,7 +55201,7 @@ pjk
 pjk
 pjk
 oCn
-tGV
+mBD
 ttp
 ttp
 tGV
@@ -55349,7 +55421,7 @@ oCn
 cSq
 qbe
 tGV
-tGV
+mBD
 kNc
 nHa
 jaW
@@ -55777,7 +55849,7 @@ csN
 eXB
 oCn
 peE
-tGV
+mBD
 mGX
 uYu
 oCn
@@ -56647,7 +56719,7 @@ ttp
 qbe
 tGV
 huS
-tGV
+mBD
 oCn
 jaW
 kVM
@@ -58990,7 +59062,7 @@ aOF
 rIC
 pPK
 fYt
-aFg
+jIn
 shw
 oUp
 aFg
@@ -59209,7 +59281,7 @@ kIM
 fYt
 kfF
 cOW
-xrl
+yew
 yew
 fYt
 aBz
@@ -60080,7 +60152,7 @@ uJv
 nrp
 spU
 bcC
-bcC
+urJ
 pUc
 ebU
 bcC
@@ -61128,7 +61200,7 @@ qCw
 oOn
 huU
 pvi
-wbY
+oOK
 aLv
 unF
 ecC
@@ -62680,7 +62752,7 @@ bwS
 xpt
 beU
 kMw
-qEm
+roh
 gnO
 qEm
 spU
@@ -63763,7 +63835,7 @@ anT
 cfI
 vYp
 utr
-cNj
+ufp
 oAt
 lDK
 lDK
@@ -63980,7 +64052,7 @@ cfI
 cfI
 vYp
 uWM
-cNj
+ufp
 lDK
 hTN
 lDK
@@ -64197,10 +64269,10 @@ kre
 ePy
 ePy
 ePy
-cNj
-cNj
-cNj
-cNj
+ufp
+ufp
+ufp
+ufp
 tNM
 cNj
 grv
@@ -64229,9 +64301,9 @@ uSh
 sxN
 skV
 eqp
-xNI
-xNI
-xNI
+bnA
+aiz
+fBs
 xNI
 pzz
 qJE
@@ -64446,9 +64518,9 @@ sxN
 skV
 skV
 eqp
-xNI
-xNI
-xNI
+bnA
+aiz
+fBs
 xNI
 psh
 xNI
