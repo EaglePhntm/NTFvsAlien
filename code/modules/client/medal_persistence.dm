@@ -23,6 +23,8 @@ GLOBAL_VAR(medal_persistence_sealed)
 	var/list/medal_persistence_datums_by_ckey = GLOB.medal_persistence_datums_by_ckey
 	// go over all medals just incase there are any unsaved ones, medals already in the db will not be re-saved so this costs little, even in a worst case scenario
 	for(var/datum/medal_persistence/medal_persistence as anything in medal_persistence_datums_by_ckey)
+		if(!isdatum(medal_persistence))
+			continue
 		for(var/name in medal_persistence.medals_by_real_name)
 			for(var/datum/persistent_medal_info/medal as anything in medal_persistence.medals_by_real_name[name])
 				medal_persistence.save_medal_to_db(null, medal) // not passing usr here even if forced, as this is a mass save
