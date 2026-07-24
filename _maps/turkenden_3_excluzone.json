@@ -1,0 +1,18 @@
+{
+    "map_name": "Turkenden 3 Excluzone",
+    "map_path": "map_files/Turkenden_3",
+    "map_file": "Turkenden_3_Excluzone.dmm",
+	"disk_sets": {
+		"set1": 1,
+		"set2": 1,
+		"set3": 1,
+		"set4": 1
+	},
+	"quickbuilds": 2700,
+	"armor": "desert",
+	"announce_text": "NTC executives have reached an agreement with TRU officials, we are now authorized to enter the Turkenden-3 Exclusionary Zone. Most of the region is desolate, most if not all residents and personnel should've evacuated from the region. Deploy the dropship to the market & joint medical-research spaceport at the southwest or the military spaceport in the northeast. NTF, gear up and prepare to deploy!",
+	"traits":[{
+		"No Parallax": true,
+		"Baseturf": "/turf/open/floor/plating"
+	}]
+}
