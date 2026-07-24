@@ -6,7 +6,7 @@
 	retreating_chat = list("I'm fucking hurt!", "Augh shit!, I'm hit!", "I'm hit!", "I don't want to die!", "Fuck this, man!", "Help me!", "Need help here!", "I'm getting the fuck outta' here!", "Oh no.", "I'm getting hit!", "I'm getting shot at!", "Run for it!")
 	non_aggressive = TRUE
 	medical_rating = AI_MED_DEFAULT
-	base_action = IDLE
+	base_action = MOVING_TO_NODE
 	human_ai_state_flags = 0
 	minimum_health = 0.3 //cowardly
 
