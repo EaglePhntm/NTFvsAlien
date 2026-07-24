@@ -195,6 +195,7 @@
 	var/obj/effect/abstract/particle_holder/particle_holder
 	var/mob/living/carbon/human/debuff_ownerhuman
 	var/clothesundoed = 0
+	var/neuro_stun_cd
 
 /particles/aphrodisiac
 	icon = 'ntf_modular/icons/effects/particles/generic_particles.dmi'
@@ -218,6 +219,7 @@
 	if(debuff_owner)
 		particle_holder.particles.spawning = 1 + round(debuff_owner.reagents.get_reagent_amount(/datum/reagent/toxin/xeno_aphrotoxin) / 4)
 	var/arousal_to_add = 5
+	var/power = 0 //stamina damage to do
 	if(L.sexcon)
 		arousal_to_add += min(25, (L.reagents.get_reagent_amount(/datum/reagent/toxin/xeno_aphrotoxin)))
 		switch(L.sexcon.arousal)
@@ -233,14 +235,22 @@
 					L.AdjustConfused(1 SECONDS)
 				if(prob(15))
 					to_chat(L, span_warning("You feel your [L.gender==MALE ? "cock throb with need!" : "vagina is dripping a trail!"] Your legs tremble, too weak to walk for a moment.") )
-				L.adjustStaminaLoss(5)
+				power = 5
 			if(MAX_AROUSAL*0.7 to MAX_AROUSAL)
 				if(prob(15))
 					L.emote("moan")
 					L.AdjustConfused(2 SECONDS)
 				if(prob(15))
 					to_chat(L, span_warning("You feel your [L.gender==MALE ? "cock throb hard as steel!" : "vagina is dripping like a waterfall!"] your legs almost give up as you come near orgasm!") )
-				L.adjustStaminaLoss(5)
+				power = 5
+	var/stamina_loss_limit = L.maxHealth * STAMINA_LOSS_LIMIT_MULTIPLIER
+	var/applied_damage = clamp(power, 0, (stamina_loss_limit - L.getStaminaLoss()))
+	var/damage_overflow = power - applied_damage
+	if((damage_overflow > 0) && COOLDOWN_FINISHED(src, neuro_stun_cd))
+		L.adjustStaminaLoss(power)
+		COOLDOWN_START(src, neuro_stun_cd, 5 MINUTES) //only do the hard stun once every five minutes, unless the reagent is cleared completely
+	else
+		L.adjustStaminaLoss(applied_damage)
 	if(L.sexcon.arousal + arousal_to_add < (MAX_AROUSAL - 30))
 		L.sexcon.adjust_arousal(arousal_to_add)
 	else
