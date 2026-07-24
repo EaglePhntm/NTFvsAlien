@@ -89,6 +89,7 @@
 	ears = /obj/item/radio/headset/survivor
 	l_hand = /obj/item/flashlight/combat
 	l_pocket = /obj/item/tool/crowbar
+	r_pocket = /obj/item/card/credstick
 
 /datum/outfit/job/civindep/liaison
 	name = "Liaison Colonist"
@@ -100,6 +101,15 @@
 	ears = /obj/item/radio/headset/survivor
 	l_hand = /obj/item/flashlight/combat
 	l_pocket = /obj/item/tool/crowbar
+
+	backpack_contents = list(
+		/obj/item/tool/pen = 1,
+		/obj/item/folder/red = 1,
+		/obj/item/stack/medical/heal_pack/gauze = 1,
+		/obj/item/stack/medical/heal_pack/ointment = 1,
+		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
+		/obj/item/paper = 5,
+	)
 
 /datum/outfit/job/civindep/security
 	name = "Security Guard Colonist"
@@ -113,8 +123,9 @@
 	back = /obj/item/storage/backpack/satchel/sec
 	belt = /obj/item/storage/belt/security/tactical
 	gloves = /obj/item/clothing/gloves/black
-	suit_store = /obj/item/weapon/gun/pistol/g22
 	ears = /obj/item/radio/headset/survivor
+
+	r_hand = /obj/item/weapon/gun/pistol/g22
 
 	backpack_contents = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/tricordrazine = 1,
@@ -303,7 +314,6 @@
 	jobtype = /datum/job/civindep/west/marshal
 
 	w_uniform = /obj/item/clothing/under/CM_uniform
-	wear_suit = /obj/item/clothing/suit/storage/CMB
 	shoes = /obj/item/clothing/shoes/marine/clf/full
 	back = /obj/item/storage/backpack/satchel/sec
 	suit_store = /obj/item/storage/holster/belt/m44/full
@@ -313,6 +323,8 @@
 	ears = /obj/item/radio/headset/survivor
 	head = /obj/item/clothing/head/slouch
 
+	r_hand = /obj/item/weapon/gun/revolver/cmb
+
 	belt_contents = list(
 		/obj/item/restraints/handcuffs = 1,
 		/obj/item/stack/medical/heal_pack/gauze = 1,
@@ -320,7 +332,11 @@
 		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
 	)
 
-	backpack_contents = list(/obj/item/book/manual/marine_law = 1,)
+	backpack_contents = list(
+		/obj/item/book/manual/marine_law = 1,
+		/obj/item/ammo_magazine/revolver/cmb = 3,
+		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
+	)
 
 /datum/outfit/job/civindep/bartender
 	name = "Bartender Colonist"
@@ -328,7 +344,6 @@
 
 	w_uniform = /obj/item/clothing/under/rank/bartender
 	back = /obj/item/storage/backpack/satchel
-	belt = /obj/item/ammo_magazine/shotgun/buckshot
 	shoes = /obj/item/clothing/shoes/marine/clf
 	head = /obj/item/clothing/head/collectable/tophat
 	ears = /obj/item/radio/headset/survivor
@@ -433,3 +448,105 @@
 	head = /obj/item/clothing/head/headband
 	ears = /obj/item/radio/headset/survivor
 	backpack_contents = list()
+
+/datum/outfit/job/civindep/nationaldefense
+	name = "National Defense Colonist"
+	jobtype = /datum/job/civindep/west/nationaldefense
+	w_uniform = /obj/item/clothing/under/marine/camo/woodland
+	wear_suit = /obj/item/clothing/suit/armor/bulletproof
+	shoes = /obj/item/clothing/shoes/marine/clf
+	gloves = /obj/item/clothing/gloves/ruggedgloves
+	l_pocket = /obj/item/storage/pouch/medkit/firstaid
+	r_pocket = /obj/item/flashlight/combat
+	head = /obj/item/clothing/head/modular/m10x
+	ears = /obj/item/radio/headset/survivor
+	backpack_contents = list()
+
+/datum/outfit/job/civindep/nationaldefense/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(prob(20))
+		H.equip_to_slot_or_del(new /obj/item/storage/belt/marine, SLOT_BELT)
+		H.equip_to_slot_or_del(new /obj/item/storage/backpack/marine, SLOT_BACK)
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/khm4, SLOT_S_STORE)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m16, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m16, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m16, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m16, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m16, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m16, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/bodybag/tarp, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/binoculars/tactical/range, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/drinks/flask/marine, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/stack/sandbags/large_stack, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/stack/barbed_wire/small_stack, SLOT_IN_BACKPACK)
+	if(prob(20))
+		H.equip_to_slot_or_del(new /obj/item/storage/belt/marine, SLOT_BELT)
+		H.equip_to_slot_or_del(new /obj/item/storage/backpack/marine, SLOT_BACK)
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/m16, SLOT_S_STORE)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m16, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m16, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m16, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m16, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m16, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m16, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/bodybag/tarp, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/drinks/flask/marine, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/stack/sandbags/large_stack, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/stack/barbed_wire/small_stack, SLOT_IN_BACKPACK)
+	if(prob(20))
+		H.equip_to_slot_or_del(new /obj/item/storage/belt/marine, SLOT_BELT)
+		H.equip_to_slot_or_del(new /obj/item/storage/backpack/marine, SLOT_BACK)
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/mpar/mil, SLOT_S_STORE)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpar, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpar, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpar, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpar, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpar, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpar, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/bodybag/tarp, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/attachable/scope/marine, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/drinks/flask/marine, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/stack/sandbags/large_stack, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/stack/barbed_wire/small_stack, SLOT_IN_BACKPACK)
+	if(prob(20))
+		H.equip_to_slot_or_del(new /obj/item/storage/belt/marine, SLOT_BELT)
+		H.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/radiopack, SLOT_BACK)
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/m25, SLOT_S_STORE)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/bodybag/tarp, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/tool/screwdriver, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/drinks/flask/marine, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/circuitboard/apc, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/stack/cable_coil, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/stack/sandbags/large_stack, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/stack/barbed_wire/small_stack, SLOT_IN_BACKPACK)
+	else
+		H.equip_to_slot_or_del(new /obj/item/storage/belt/shotgun/mixed, SLOT_BELT)
+		H.equip_to_slot_or_del(new /obj/item/storage/backpack/marine, SLOT_BACK)
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/shotgun/pump, SLOT_S_STORE)
+		H.equip_to_slot_or_del(new /obj/item/bodybag/tarp, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/drinks/flask/marine, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/explosive/plastique/genghis_charge, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/explosive/plastique/genghis_charge, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/stack/sandbags/large_stack, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/stack/sandbags/large_stack, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/stack/barbed_wire/small_stack, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/stack/barbed_wire/small_stack, SLOT_IN_BACKPACK)
