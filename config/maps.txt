@@ -135,3 +135,11 @@ endmap
 map bluemoon
 	maxplayers 40
 endmap
+
+map vietzhuo_8_borders
+	minplayers 1
+endmap
+
+map turkenden_3_excluzone
+	minplayers 1
+endmap
