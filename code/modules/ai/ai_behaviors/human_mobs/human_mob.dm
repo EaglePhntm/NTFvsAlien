@@ -41,6 +41,9 @@
 
 /datum/ai_behavior/human/New(loc, mob/parent_to_assign, atom/escorted_atom)
 	. = ..()
+	if(ishuman(mob_parent))
+		var/mob/living/carbon/human/hparent = mob_parent
+		hparent.npc_characterise() //randomise ai appearance
 	mob_inventory = new(mob_parent)
 	RegisterSignal(mob_parent, COMSIG_MOB_DROPPING_ITEM, PROC_REF(on_item_unequip)) //we do this on New because we want to know about items lost when dead
 

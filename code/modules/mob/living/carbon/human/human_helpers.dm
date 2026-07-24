@@ -744,6 +744,7 @@
 
 /mob/living/carbon/human/proc/npc_characterise()
 	//gives extra stuff to npc appearance, maybe one day updated to randomise race but too much work rn
+	blood_type = pick(7;"O-", 38;"O+", 6;"A-", 34;"A+", 2;"B-", 9;"B+", 1;"AB-", 3;"AB+")
 	body_color = pick(38;"#F1D0B5",34;"#E6B98F",9;"#C8895A",6;"#A66A43",2;"#7A4A2E",1;"#4A2C1F") //ghetto npc skin randomiser
 	if(gender == MALE)
 		cock = "human"
