@@ -403,6 +403,13 @@
 /obj/structure/cable,
 /turf/open/floor/urban/carpet/carpetblue,
 /area/turkenden3excluzone/indoors/serverbuilding/management)
+"aCP" = (
+/obj/machinery/floodlight/colony{
+	name = "Outpost Floodlight";
+	dir = 8
+	},
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/turkenden3excluzone/outdoors/nmilitaryoutpost/grounds)
 "aDf" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -977,13 +984,6 @@
 	},
 /turf/open/floor/plating/ground/desertdam/asphalt/tile,
 /area/turkenden3excluzone/indoors/sresidencies)
-"bkn" = (
-/obj/machinery/floodlight/colony{
-	name = "Outpost Floodlight";
-	dir = 4
-	},
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/turkenden3excluzone/outdoors/nmilitaryoutpost/parkinglot)
 "bko" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 1
@@ -1015,6 +1015,11 @@
 	name = "reinforced metal wall"
 	},
 /area/turkenden3excluzone/indoors/medrsr/secwest)
+"bmn" = (
+/obj/structure/table/wood,
+/obj/item/tool/candle,
+/turf/open/floor/plating/ground/desertdam/asphalt/tile,
+/area/turkenden3excluzone/indoors/reqcargo/seresidencies)
 "bmT" = (
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	name = "\improper Server Rooms"
@@ -5094,6 +5099,11 @@
 	},
 /turf/open/floor/plating/ground/desertdam/asphalt/cement_sunbleached,
 /area/turkenden3excluzone/indoors/nmilitaryoutpost/secpoint)
+"gkH" = (
+/obj/structure/table/wood,
+/obj/item/tool/candle,
+/turf/open/floor/plating/ground/desertdam/asphalt/tile,
+/area/turkenden3excluzone/indoors/sresidencies)
 "glX" = (
 /turf/open/floor/carpet/red,
 /area/turkenden3excluzone/indoors/kiosks)
@@ -9745,11 +9755,6 @@
 /obj/structure/mineral_door/sandstone,
 /turf/open/floor/plating/ground/desertdam/asphalt/tile,
 /area/turkenden3excluzone/indoors/farmhouse)
-"mBD" = (
-/obj/structure/table/wood,
-/obj/item/tool/candle,
-/turf/open/floor/plating/ground/desertdam/asphalt/tile,
-/area/turkenden3excluzone/indoors/reqcargo/seresidencies)
 "mBF" = (
 /obj/structure/filingcabinet/nondense{
 	pixel_x = -8;
@@ -11895,6 +11900,10 @@
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/turkenden3excluzone/outdoors/nmilitaryoutpost/grounds)
+"pbE" = (
+/obj/effect/ai_node,
+/turf/open/floor/plating/ground/desertdam/asphalt/tile,
+/area/turkenden3excluzone/outdoors/mosque/ground)
 "pbR" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 4
@@ -12004,6 +12013,12 @@
 	},
 /turf/open/floor/prison,
 /area/turkenden3excluzone/indoors/serverbuilding/menscroom)
+"pim" = (
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/prison,
+/area/turkenden3excluzone/indoors/serverbuilding/southhall)
 "piz" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -13734,12 +13749,6 @@
 	color = "#ffe1b9"
 	},
 /area/turkenden3excluzone/outdoors/serverbuilding/groundsw)
-"roh" = (
-/obj/machinery/light/mainship{
-	dir = 4
-	},
-/turf/open/floor/prison,
-/area/turkenden3excluzone/indoors/serverbuilding/southhall)
 "rpG" = (
 /turf/closed/wall/variable/adobe,
 /area/turkenden3excluzone/indoors/nwouthouses)
@@ -14862,13 +14871,6 @@
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/turkenden3excluzone/outdoors/desertnw)
-"sED" = (
-/obj/machinery/floodlight/colony{
-	name = "Outpost Floodlight";
-	dir = 8
-	},
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/turkenden3excluzone/outdoors/nmilitaryoutpost/grounds)
 "sFr" = (
 /obj/structure/table/mainship,
 /turf/open/floor/kutjevo/fake_wood,
@@ -14881,11 +14883,6 @@
 "sFQ" = (
 /turf/open/floor/mainship/cargo,
 /area/turkenden3excluzone/indoors/reqcargo)
-"sGq" = (
-/obj/structure/table/wood,
-/obj/item/tool/candle,
-/turf/open/floor/plating/ground/desertdam/asphalt/tile,
-/area/turkenden3excluzone/indoors/sresidencies)
 "sGZ" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/high,
@@ -14949,6 +14946,13 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1,
 /turf/open/floor/mainship/mono,
 /area/turkenden3excluzone/indoors/miningfacility/dorms2)
+"sNz" = (
+/obj/machinery/floodlight/colony{
+	name = "Outpost Floodlight";
+	dir = 4
+	},
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/turkenden3excluzone/outdoors/nmilitaryoutpost/parkinglot)
 "sNX" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/sosjerky{
@@ -15925,12 +15929,6 @@
 	dir = 8
 	},
 /area/turkenden3excluzone/indoors/reqcargo)
-"ufp" = (
-/turf/closed/wall/r_wall/chigusa{
-	name = "reinforced metal wall";
-	color = "#699bff"
-	},
-/area/turkenden3excluzone/indoors/serverbuilding/managementrec)
 "ufQ" = (
 /obj/structure/prop/urban/vehicles/large/truck/truck6,
 /turf/open/floor/plating/ground/dirt2{
@@ -18856,9 +18854,18 @@
 "xNI" = (
 /turf/open/floor/urban/wood/redwood,
 /area/turkenden3excluzone/indoors/diner)
+"xNS" = (
+/turf/closed/wall/r_wall/chigusa{
+	name = "reinforced metal wall";
+	color = "#699bff"
+	},
+/area/turkenden3excluzone/indoors/serverbuilding/managementrec)
 "xNV" = (
 /turf/open/floor/carpet/blue,
 /area/turkenden3excluzone/indoors/producemarket)
+"xOa" = (
+/turf/open/floor/plating/ground/desertdam/asphalt/tile,
+/area/turkenden3excluzone/outdoors/mosque/ground)
 "xOc" = (
 /turf/open/floor/mainship/sterile/corner{
 	dir = 4
@@ -34453,7 +34460,7 @@ bYT
 xzW
 xzW
 xzW
-xzW
+xOa
 fLS
 nSa
 bNm
@@ -34463,7 +34470,7 @@ sgO
 sgO
 jTl
 nSa
-kmZ
+pbE
 woa
 shP
 shP
@@ -34670,7 +34677,7 @@ bYT
 xzW
 xzW
 kmZ
-xzW
+xOa
 nSa
 nSa
 nSa
@@ -34680,7 +34687,7 @@ nSa
 nSa
 nSa
 nSa
-xzW
+xOa
 shP
 woa
 shP
@@ -34887,7 +34894,7 @@ bYT
 xzW
 xzW
 xzW
-xzW
+xOa
 mDP
 kCK
 eIZ
@@ -34897,7 +34904,7 @@ kCK
 eIZ
 kCK
 eIZ
-xzW
+xOa
 shP
 shP
 shP
@@ -35104,7 +35111,7 @@ bYT
 xzW
 xzW
 xzW
-xzW
+xOa
 vRs
 kCK
 eIZ
@@ -35114,7 +35121,7 @@ kCK
 vRs
 kCK
 vRs
-xzW
+xOa
 shP
 shP
 shP
@@ -35321,7 +35328,7 @@ bYT
 xzW
 xzW
 xzW
-xzW
+xOa
 eIZ
 kCK
 mDP
@@ -35331,7 +35338,7 @@ kCK
 mDP
 kCK
 mDP
-xzW
+xOa
 shP
 shP
 woa
@@ -35538,7 +35545,7 @@ bYT
 xzW
 xzW
 xzW
-xzW
+xOa
 vRs
 kCK
 vRs
@@ -35548,7 +35555,7 @@ kCK
 vRs
 kCK
 vRs
-xzW
+xOa
 woa
 shP
 shP
@@ -35755,7 +35762,7 @@ bYT
 xzW
 xzW
 xzW
-xzW
+xOa
 mDP
 kCK
 eIZ
@@ -35765,7 +35772,7 @@ kCK
 eIZ
 kCK
 mDP
-xzW
+xOa
 shP
 shP
 shP
@@ -35972,7 +35979,7 @@ bYT
 xzW
 xzW
 kmZ
-xzW
+xOa
 vRs
 kCK
 mDP
@@ -35982,7 +35989,7 @@ kCK
 mDP
 kCK
 eIZ
-xzW
+xOa
 lUh
 shP
 shP
@@ -36189,7 +36196,7 @@ bYT
 xzW
 xzW
 xzW
-xzW
+xOa
 eIZ
 kCK
 eIZ
@@ -36199,7 +36206,7 @@ kCK
 eIZ
 kCK
 vRs
-xzW
+xOa
 shP
 shP
 shP
@@ -36406,7 +36413,7 @@ bYT
 xzW
 xzW
 xzW
-xzW
+xOa
 mDP
 kCK
 vRs
@@ -36416,7 +36423,7 @@ kCK
 vRs
 kCK
 mDP
-xzW
+xOa
 shP
 shP
 shP
@@ -36623,7 +36630,7 @@ bYT
 xzW
 xzW
 xzW
-xzW
+xOa
 vRs
 kCK
 mDP
@@ -36633,7 +36640,7 @@ kCK
 mDP
 kCK
 eIZ
-xzW
+xOa
 woa
 shP
 shP
@@ -36840,7 +36847,7 @@ bYT
 xzW
 xzW
 xzW
-xzW
+xOa
 mDP
 kCK
 eIZ
@@ -36850,7 +36857,7 @@ kCK
 eIZ
 kCK
 vRs
-xzW
+xOa
 xzW
 woa
 shP
@@ -37057,7 +37064,7 @@ bYT
 xzW
 xzW
 xzW
-xzW
+xOa
 eIZ
 kCK
 vRs
@@ -37067,7 +37074,7 @@ kCK
 mDP
 kCK
 eIZ
-xzW
+xOa
 xzW
 shP
 woa
@@ -37274,7 +37281,7 @@ bYT
 bYT
 xzW
 xzW
-kmZ
+pbE
 mDP
 kCK
 eIZ
@@ -37284,7 +37291,7 @@ kCK
 vRs
 kCK
 mDP
-xzW
+xOa
 kmZ
 shP
 xzW
@@ -37491,17 +37498,17 @@ xzW
 bYT
 bYT
 xzW
-xzW
-xzW
-xzW
-xzW
-xzW
-kmZ
-xzW
-xzW
-xzW
-xzW
-xzW
+xOa
+xOa
+xOa
+xOa
+xOa
+pbE
+xOa
+xOa
+xOa
+xOa
+xOa
 xzW
 xzW
 xzW
@@ -45098,7 +45105,7 @@ nLx
 gGS
 nLx
 gGS
-bkn
+sNz
 gGS
 gGS
 gGS
@@ -46829,7 +46836,7 @@ vuH
 bEG
 vlm
 vlm
-sED
+aCP
 gGS
 dEh
 gGS
@@ -50440,7 +50447,7 @@ hvl
 nHa
 nHa
 bkf
-sGq
+gkH
 lZa
 lZa
 qCs
@@ -55201,7 +55208,7 @@ pjk
 pjk
 pjk
 oCn
-mBD
+bmn
 ttp
 ttp
 tGV
@@ -55421,7 +55428,7 @@ oCn
 cSq
 qbe
 tGV
-mBD
+bmn
 kNc
 nHa
 jaW
@@ -55849,7 +55856,7 @@ csN
 eXB
 oCn
 peE
-mBD
+bmn
 mGX
 uYu
 oCn
@@ -56719,7 +56726,7 @@ ttp
 qbe
 tGV
 huS
-mBD
+bmn
 oCn
 jaW
 kVM
@@ -62752,7 +62759,7 @@ bwS
 xpt
 beU
 kMw
-roh
+pim
 gnO
 qEm
 spU
@@ -63835,7 +63842,7 @@ anT
 cfI
 vYp
 utr
-ufp
+xNS
 oAt
 lDK
 lDK
@@ -64052,7 +64059,7 @@ cfI
 cfI
 vYp
 uWM
-ufp
+xNS
 lDK
 hTN
 lDK
@@ -64269,10 +64276,10 @@ kre
 ePy
 ePy
 ePy
-ufp
-ufp
-ufp
-ufp
+xNS
+xNS
+xNS
+xNS
 tNM
 cNj
 grv
