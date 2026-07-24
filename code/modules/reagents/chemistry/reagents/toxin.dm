@@ -464,7 +464,7 @@
 	description = "A debilitating nerve toxin. Impedes motor control in high doses. Causes progressive loss of mobility over time."
 	reagent_state = LIQUID
 	color = COLOR_TOXIN_XENO_NEUROTOXIN
-	custom_metabolism = REAGENTS_METABOLISM * 2
+	custom_metabolism = REAGENTS_METABOLISM
 	overdose_threshold = 10000 //Overdosing for neuro is what happens when you run out of stamina to avoid its oxy and toxin damage
 	toxpwr = 0
 	//var/neuro_stun_cd = 0
