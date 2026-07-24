@@ -669,7 +669,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 
 /datum/skills/sl/icc
 	name = "CM Leader"
-	
+
 /datum/skills/icc_admn
 	name = "Colony Administrator"
 	engineer = SKILL_ENGINEER_ENGI

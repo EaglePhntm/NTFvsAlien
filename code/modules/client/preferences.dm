@@ -81,7 +81,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/age = 20
 	var/species = "Human"
 	var/ethnicity = "Western"
-	var/human_body_style = HUMAN_BODY_STYLE_TGMC
+	var/human_body_style = HUMAN_BODY_STYLE_SPLURT
 	var/good_eyesight = TRUE
 	var/preferred_squad = "None"
 	///Your preferred squad, when playing SOM

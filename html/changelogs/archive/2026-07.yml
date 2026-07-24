@@ -208,3 +208,7 @@
 2026-07-21:
   Lumipharon:
   - code_imp: fixed the install_byond.sh
+2026-07-24:
+  CaputCapital:
+  - rscadd: Neutral AI that uses Healdirt's modified monkey with the assistance of
+      EaglePhntm.
