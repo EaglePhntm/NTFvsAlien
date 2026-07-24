@@ -1,0 +1,19 @@
+{
+    "map_name": "Vietzhuo 8 Borders",
+    "map_path": "map_files/Vietzhuo_8",
+    "map_file": "Vietzhuo_8_Borders.dmm",
+	"disk_sets": {
+		"basic": 1,
+		"set2": 1,
+		"set3": 1,
+		"set4": 1
+	},
+	"quickbuilds": 2700,
+	"armor": "urban",
+	"announce_text": "We are mobilizing to Vietzhuo-8. This is a region with Ninetails presence in the southeast. West Vietzhuo-8 officals have consented to the dispatch of additional NTF elements to the region, meaning we are permitted entry into Western Vietzhuo-8. You have full authorization to land at either West Vietzhuo Customs or the NTF Sanctioned Airfield. NTF, gear up and prepare to deploy!",
+	"traits":[{
+		"weather_rain": true,
+		"No Parallax": true,
+		"Baseturf": "/turf/open/floor/plating"
+	}]
+}

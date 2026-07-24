@@ -38,9 +38,17 @@ GLOBAL_LIST_EMPTY(spawn_evzcivneutral)
 	name = "doctor spawner"
 	occupation = /datum/job/civindep/west/doctor
 
+/obj/effect/landmark/spawn_marker/civilian/atmos
+	name = "technician spawner"
+	occupation = /datum/job/civindep/west/atmos
+
+/obj/effect/landmark/spawn_marker/civilian/nationaldefense
+	name = "national defense spawner"
+	occupation = /datum/job/civindep/west/nationaldefense
+
 /datum/job/civindep // not a job meant for players, but rather AI civilians who roam the map
 	title = "Generic Civilian"
-	var/npc_type = "normal" //normal, doctor, engineer (for ai)
+	var/npc_type = "normal" //normal, doctor, engineer, nationaldefense (for ai)
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_OVERRIDELATEJOINSPAWN
 	job_category = JOB_CAT_SURVIVOR
 	skills_type = /datum/skills/civilian/survivor
@@ -169,4 +177,11 @@ GLOBAL_LIST_EMPTY(spawn_evzcivneutral)
 	title = "Rambo Colonist"
 	skills_type = /datum/skills/civilian/survivor/master
 	outfit = /datum/outfit/job/civindep/rambo
+	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_OVERRIDELATEJOINSPAWN
+
+// National Guard - pretty overpowered, pls spawn with caution
+/datum/job/civindep/west/nationaldefense
+	title = "National Guard Colonist"
+	skills_type = /datum/skills/civilian/survivor/master
+	outfit = /datum/outfit/job/civindep/nationaldefense
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_OVERRIDELATEJOINSPAWN

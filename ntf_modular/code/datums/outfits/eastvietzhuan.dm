@@ -114,21 +114,21 @@
 	gloves = /obj/item/clothing/gloves/black
 	ears = /obj/item/radio/headset/survivor
 
+	r_hand = /obj/item/weapon/gun/pistol/apsmart_pistol
+
 	backpack_contents = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/tricordrazine = 1,
 		/obj/item/tool/crowbar = 1,
 		/obj/item/stack/medical/heal_pack/gauze = 1,
 		/obj/item/stack/medical/heal_pack/ointment = 1,
 		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
-		/obj/item/weapon/gun/pistol/apsmart_pistol = 1,
 	)
 
 	belt_contents = list(
-		/obj/item/ammo_magazine/pistol/standard_pistol/apsmart_pistol = 2,
+		/obj/item/ammo_magazine/pistol/standard_pistol/apsmart_pistol = 3,
 		/obj/item/flashlight/combat = 1,
 		/obj/item/weapon/telebaton = 1,
 		/obj/item/restraints/handcuffs = 1,
-		/obj/item/flash = 1,
 	)
 
 /datum/outfit/job/eastvietzhuan/civilian
@@ -289,8 +289,8 @@
 	name = "East Vietzhuan Watchman"
 	jobtype = /datum/job/civindep/eastvietzhuan/watchman
 
-	w_uniform = /obj/item/clothing/under/CM_uniform
-	wear_suit = /obj/item/clothing/suit/replica
+	w_uniform = /obj/item/clothing/under/icc/som
+	wear_suit = /obj/item/clothing/suit/storage/marine/som
 	shoes = /obj/item/clothing/shoes/sandal
 	back = /obj/item/storage/backpack/satchel/sec
 	belt = /obj/item/storage/belt/sparepouch
@@ -299,14 +299,70 @@
 	ears = /obj/item/radio/headset/survivor
 	head = /obj/item/clothing/head/strawhat
 
-	belt_contents = list(
-		/obj/item/restraints/handcuffs = 1,
-		/obj/item/stack/medical/heal_pack/gauze = 1,
-		/obj/item/tool/crowbar = 1,
-		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
-	)
-
-	backpack_contents = list(/obj/item/binoculars = 1,)
+/datum/outfit/job/eastvietzhuan/watchman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(prob(20))
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/som_carbine, SLOT_S_STORE)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/carbine, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/carbine, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/carbine, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/carbine, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/upp/rice, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/restraints/handcuffs, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/drinks/cans/waterbottle, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/binoculars, SLOT_IN_SUIT)
+	if(prob(20))
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/mpi_km, SLOT_S_STORE)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/plum, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/plum, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/plum, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/plum, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/upp/rice, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/restraints/handcuffs, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/drinks/cans/waterbottle, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/binoculars, SLOT_IN_SUIT)
+	if(prob(20))
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/mpar/export, SLOT_S_STORE)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpar, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpar, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpar, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpar, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/upp/rice, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/restraints/handcuffs, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/drinks/cans/waterbottle, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/binoculars, SLOT_IN_SUIT)
+	if(prob(20))
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/skorpion, SLOT_S_STORE)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/skorpion, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/skorpion, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/skorpion, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/skorpion, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/skorpion, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/upp/rice, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/restraints/handcuffs, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/drinks/cans/waterbottle, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/binoculars, SLOT_IN_SUIT)
+	else
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/shotgun/pump/trenchgun, SLOT_S_STORE)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/buckshot, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/upp/rice, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/restraints/handcuffs, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/drinks/cans/waterbottle, SLOT_IN_BELT)
+		H.equip_to_slot_or_del(new /obj/item/binoculars, SLOT_IN_SUIT)
 
 /datum/outfit/job/eastvietzhuan/bartender
 	name = "East Vietzhuan Bartender"
@@ -332,7 +388,7 @@
 	name = "East Vietzhuan Drug Dealer"
 	jobtype = /datum/job/civindep/eastvietzhuan/drugdealer
 
-	w_uniform = /obj/item/clothing/under/rank/chemist
+	w_uniform = /obj/item/clothing/under/color/black
 	wear_suit = /obj/item/clothing/suit/modular/style/leather_jacket
 	back = /obj/item/storage/backpack/satchel
 	gloves = /obj/item/clothing/gloves/latex
@@ -356,11 +412,11 @@
 	if(prob(50))
 		H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_BACKPACK)
 		H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_BACKPACK)
-		H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/rt3, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/rt3, SLOT_R_HAND)
 		H.equip_to_slot_or_del(new /obj/item/clothing/underwear/shirt/tank_top, SLOT_SHIRT)
 	else
 		H.equip_to_slot_or_del(new /obj/item/card/credstick, SLOT_IN_BACKPACK)
-		H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/highpower, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/highpower, SLOT_R_HAND)
 		H.equip_to_slot_or_del(new /obj/item/clothing/underwear/shirt/tank_top, SLOT_SHIRT)
 
 /datum/outfit/job/eastvietzhuan/profiteer
@@ -387,17 +443,17 @@
 	if(prob(50))
 		H.equip_to_slot_or_del(new /obj/item/stack/sheet/mineral/gold, SLOT_IN_BACKPACK)
 		H.equip_to_slot_or_del(new /obj/item/stack/sheet/mineral/diamond, SLOT_IN_BACKPACK)
-		H.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/minib, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/minib, SLOT_R_HAND)
 	else
 		H.equip_to_slot_or_del(new /obj/item/card/credstick, SLOT_IN_BACKPACK)
 		H.equip_to_slot_or_del(new /obj/item/spacecash/c500, SLOT_IN_BACKPACK)
-		H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/highpower, SLOT_IN_BACKPACK)
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/highpower, SLOT_R_HAND)
 
 /datum/outfit/job/eastvietzhuan/guitarist
 	name = "East Vietzhuan Guitarist"
 	jobtype = /datum/job/civindep/eastvietzhuan/guitarist
 
-	w_uniform = /obj/item/clothing/under/rank/roboticist
+	w_uniform = /obj/item/clothing/under/rank/bartender
 	wear_suit = /obj/item/clothing/suit/modular/style/leather_jacket
 	shoes = /obj/item/clothing/shoes/sandal
 	back = /obj/item/storage/backpack/satchel
@@ -410,17 +466,16 @@
 	backpack_contents = list(
 		/obj/item/stack/sheet/metal/medium_stack = 1,
 		/obj/item/stack/sheet/plasteel/small_stack = 1,
-		/obj/item/cell/high = 1,
+		/obj/item/spacecash/c50 = 1,
 		/obj/item/stack/cable_coil = 2,
 		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
 	)
-
 
 /datum/outfit/job/eastvietzhuan/vietzhong
 	name = "East Vietzhuo Vietzhong"
 	jobtype = /datum/job/civindep/eastvietzhuan/vietzhong
 	w_uniform = /obj/item/clothing/under/marine/pantsblack
-	wear_suit = /obj/item/clothing/suit/storage/marine/som
+	wear_suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/marine/som/knife
 	back = /obj/item/storage/holster/blade/katana/full
 	gloves = /obj/item/clothing/gloves/ruggedgloves
