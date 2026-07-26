@@ -6,8 +6,8 @@
 	layer = VEHICLE_LAYER
 	allow_diagonal_movement = FALSE
 	move_delay = 3
-	max_integrity = 400
-	soft_armor = list(MELEE = 60, BULLET = 40, LASER = 30, ENERGY = 30, BOMB = 25, BIO = 0, FIRE = 50, ACID = 50)
+	max_integrity = 500
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	mecha_flags = ADDING_ACCESS_POSSIBLE | CANSTRAFE | IS_ENCLOSED | HAS_HEADLIGHTS | MECHA_IS_WRECKABLE
 	max_temperature = 25000
 	force = 30
@@ -47,6 +47,8 @@
 
 	var/underlying_icon = 'icons/mecha/mech_construct.dmi'
 	var/underlying_icon_state = "backbone"
+
+	var/sensors_profile = EXOSUIT_SENSORS_NONE
 
 	var/obj/item/mecha_parts/mecha_pieces/mecha_body/body
 	var/obj/item/mecha_parts/mecha_pieces/mecha_head/head

@@ -24,8 +24,9 @@
 	melee_damage = 20
 	action_delay = 15
 	action_power_usage = 10
-	max_integrity = 70
+	max_integrity = 50
 	w_class = WEIGHT_CLASS_BULKY
+	soft_armor = list(MELEE = 40, BULLET = 15, LASER = 15, ENERGY = 5, BOMB = 5, BIO = 0, FIRE = 50, ACID = 50)
 
 /obj/item/mecha_parts/mecha_pieces/mecha_arms/light
 	name = "light arms"
@@ -35,7 +36,8 @@
 //	melee_sound = 'sound/mecha/mech_punch_fast.ogg'
 	action_delay = 10
 	action_power_usage = 10
-	max_integrity = 40
+	max_integrity = 35
+	soft_armor = list(MELEE = 25, BULLET = 5, LASER = 10, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 50)
 
 /obj/item/mecha_parts/mecha_pieces/mecha_arms/heavy
 	name = "heavy arms"
@@ -46,7 +48,8 @@
 	melee_damage = 30
 	action_delay = 20
 	action_power_usage = 60
-	max_integrity = 90
+	max_integrity = 100
+	soft_armor = list(MELEE = 70, BULLET = 60, LASER = 50, ENERGY = 10, BOMB = 25, BIO = 0, FIRE = 50, ACID = 50)
 
 /obj/item/mecha_parts/mecha_pieces/mecha_arms/combat
 	name = "combat arms"
@@ -55,3 +58,5 @@
 	repair_materials = list(STEEL = SECONDARY_REPAIR_AMT, PLASTEEL = TERTIARY_REPAIR_AMT)
 	action_delay = 10
 	action_power_usage = 50
+	max_integrity = 75
+	soft_armor = list(MELEE = 50, BULLET = 40, LASER = 30, ENERGY = 10, BOMB = 15, BIO = 0, FIRE = 50, ACID = 50)

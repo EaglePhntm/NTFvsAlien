@@ -42,6 +42,8 @@
 			to_chat(occupants, "[icon2html(src, occupants)][span_danger("[gear2] is critically damaged!")]")
 			playsound(src, gear2.destroy_sound, 50)
 
+// Whiting out the below, damage should be routed to components all the time - the mech should never take damage..
+// If the mech DOES take damage from take_damage, route it to components
 /obj/vehicle/sealed/mecha/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = TRUE, attack_dir, armour_penetration, mob/living/blame_mob)
 	var/damage_taken = ..()
 	if(damage_taken <= 0 || obj_integrity < 0)
@@ -49,7 +51,7 @@
 
 	log_message("Took [damage_taken] points of damage. Damage type: [damage_type]", LOG_MECHA)
 	if(damage_taken < 5)
-		return damage_taken //its only a scratch
+		return damage_taken
 	spark_system?.start()
 	try_deal_internal_damage(damage_taken)
 	to_chat(occupants, "[icon2html(src, occupants)][span_userdanger("Taking damage!")]")

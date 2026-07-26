@@ -80,10 +80,12 @@
 
 	visible_message(span_notice("The [src]'s engine attempts to start!"))
 	engine_starter_battery.use(ignition_power_consumption)
-	chassis.flicker_lights(draw = ignition_power_consumption)
-//	playsound(src, 'sound/effects/engine.ogg', 50)
+	if(chassis)
+		chassis.flicker_lights(draw = ignition_power_consumption)
 	if(!prob(engine_initial_start_chance))
 		visible_message(span_notice("The [src]'s engine fails to start!"))
+		return
+	engine_start()
 
 /obj/vehicle/sealed/mecha/ntf/proc/flicker_lights(draw = 50)
 //	if(mecha_flags & LIGHTS_ON)

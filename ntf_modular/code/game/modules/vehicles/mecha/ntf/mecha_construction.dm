@@ -1,7 +1,6 @@
 // Adding/Removing parts
 
 /obj/vehicle/sealed/mecha/ntf/attackby(obj/item/W, mob/user, params)
-	.=..()
 	if(istype(W, /obj/item/mecha_parts/mecha_pieces))
 		if(construction_state == MECHA_OPEN_HATCH)
 			var/obj/item/mecha_parts/mecha_pieces/piece_to_add = W
@@ -57,11 +56,7 @@
 #define HEAD "head"
 #define BODY "body"
 
-/obj/vehicle/sealed/mecha/ntf/wrench_act(mob/living/user, obj/item/I)
-	. = ..()
-	if(.)
-		balloon_alert(user, "dot referenced!")
-		return
+/obj/vehicle/sealed/mecha/ntf/wirecutter_act(mob/living/user, obj/item/I)
 	if(construction_state != MECHA_OPEN_HATCH)
 		balloon_alert(user, "hatch not open!")
 		return
@@ -85,11 +80,11 @@
 		return
 
 	balloon_alert(user, "removing [thing_to_remove]...")
-	if(!do_after(user, 7 SECONDS, target = src))
+	if(!do_after(user, 5 SECONDS, target = src))
+		I.play_tool_sound
 		balloon_alert(user, "interrupted!")
 		return
 
-	// re-check everything after the delay; state may have changed
 	if(construction_state != MECHA_OPEN_HATCH)
 		return
 	piece = get_mecha_part(thing_to_remove)
@@ -135,8 +130,8 @@
 	update_icon()
 	if(body)
 		update_body_values()
-//	if(head)
-//		update_head_values()
+	if(head)
+		update_head_values()
 	if(legs)
 		update_legs_values()
 	if(arms)
@@ -147,8 +142,6 @@
 	if(!body)
 		return
 
-//	var/obj/item/mecha_parts/mecha_pieces/mecha_body/the_body
-
 	max_integrity = body.max_integrity
 	obj_integrity = max_integrity
 	max_drivers = body.occupants_allowed[DRIVER]
@@ -156,7 +149,7 @@
 	exit_delay = body.exit_delay
 	enter_delay = body.enter_delay
 	cockpit_armor = body.cockpit_armor
-	soft_armor = body.soft_armor
+	enclosed = body.enclosed
 
 /obj/vehicle/sealed/mecha/ntf/proc/update_arms_values()
 	if(!arms)
@@ -175,4 +168,11 @@
 	allow_diagonal_movement = legs.can_move_diagonally
 	stepsound = legs.step_sound
 	turnsound = legs.turn_sound
-//	can_strafe = legs.can_strafe
+	can_strafe = legs.can_strafe
+
+/obj/vehicle/sealed/mecha/ntf/proc/update_head_values()
+	if(!head)
+		return
+
+	sensors_profile = head.sensors_profile
+	if(sensors_profile)

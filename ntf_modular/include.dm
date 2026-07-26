@@ -101,7 +101,6 @@
 #include "code\game\modules\vehicles\mecha\ntf\mecha_mob_interaction.dm"
 #include "code\game\modules\vehicles\mecha\ntf\ntf.dm"
 #include "code\game\modules\vehicles\mecha\ntf\phazon.dm"
-#include "code\game\modules\vehicles\mecha\ntf\sensors.dm"
 #include "code\game\modules\vehicles\mecha\ntf\seraph.dm"
 #include "code\game\modules\vehicles\mecha\ntf\components\engines.dm"
 #include "code\game\modules\vehicles\mecha\ntf\components\chassis\arms.dm"

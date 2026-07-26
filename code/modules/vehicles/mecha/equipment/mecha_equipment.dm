@@ -210,9 +210,10 @@
 	add tank interactions,   \
 	change wreck states, \
 	add exosuit head benefits (like weapon upgrades) \
-	wreck states: first, breaks down when it loses all its hp.\
-	the mech breaks and becomes a wreck once it loses all its hp. \
-	the mech doesnt take damage from non-torso hits.
+	wreck states: first, the body piece breaks, then the engine breaks (or falls out/breaks at same time) \
+	the pilot is stunned for 5 seconds and another 5 when they get out. eventually, the body breaks again and this \
+	destroys the mech, dropping the chassis parts. the mech can be re-made by making a frame with 25 plasteel and \
+	attaching the body (first) and other parts to the frame.
 
 /**
  * called to detach this equipment

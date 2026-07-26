@@ -23,22 +23,22 @@
 	var/max_range_mod
 
 /datum/exo_sensors/none
-	accuracy_mod = 0.6
+	accuracy_mod = 0.5
 	rof_mod = 1
 	damage_mod = 0.85
-	max_range_mod = 0.9
+	max_range_mod = 0.8
 
 /datum/exo_sensors/basic
 	accuracy_mod = 0.9
 	rof_mod = 1
 	damage_mod = 0.9
-	max_range_mod = 1.5
+	max_range_mod = 1.2
 
 /datum/exo_sensors/adv
 	accuracy_mod = 1.2
 	rof_mod = 1.1
 	damage_mod = 1.1
-	max_range_mod = 1.5
+	max_range_mod = 1.35
 
 /datum/exo_sensors/ultra
 	accuracy_mod = 1.3

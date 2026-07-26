@@ -1,4 +1,3 @@
-#define INTEGRITY_200 400
 #define NEEDS_WELD 1
 #define NEEDS_MATS 2
 
@@ -14,9 +13,14 @@
 	integrity_failure = 0.5
 	destroy_sound = 'sound/effects/glassbr2.ogg'
 	var/obj/vehicle/sealed/mecha/chassis
-	var/sensors_profile
+	var/datum/mecha_sensors_profile/sensors_profile
 	var/extra_overlays = FALSE
 	var/list/inserted_materials
+
+/obj/item/mecha_parts/mecha_pieces/New()
+	.=..()
+	if(sensors_profile)
+		sensors_profile = new sensors_profile()
 
 /obj/item/mecha_parts/mecha_pieces/proc/start_repair(mob/user)
 	if(is_functional || inserted_materials)

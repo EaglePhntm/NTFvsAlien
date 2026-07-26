@@ -1,5 +1,19 @@
 /obj/vehicle/sealed/mecha/ntf/bullet_act(atom/movable/projectile/proj, def_zone, piercing_hit)
 	var/actual_zone = def_zone || proj.def_zone
+
+	if(LAZYLEN(occupants) && !(mecha_flags & SILICON_PILOT) && !(mecha_flags & CANNOT_OVERPENETRATE) && (actual_zone == BODY_ZONE_HEAD || actual_zone == BODY_ZONE_CHEST) && !prob(pilot_coverage))
+		var/original_damage = proj.damage
+		if(proj.armor_type == BOMB || proj.damage >= 300 || proj.penetration >= 90)
+			var/occupant_count = length(occupants)
+			proj.damage /= occupant_count
+			for(var/mob/living/hitee in occupants)
+				hitee.bullet_act(proj, actual_zone, piercing_hit)
+			proj.damage = original_damage
+			return
+		var/mob/living/occupant = pick(occupants)
+		occupant.bullet_act(proj, actual_zone, piercing_hit)
+		return
+
 	var/armor_rating = soft_armor.getRating(proj.armor_type)
 	var/pen_quality = clamp((proj.penetration - (armor_rating * cockpit_armor)) / max(armor_rating, 1), 0, 1)
 	if(LAZYLEN(occupants))
@@ -8,7 +22,14 @@
 			var/original_damage = proj.damage
 			var/pilot_damage = round(proj.damage * pen_quality * 0.90)
 			proj.damage -= pilot_damage
-			. = ..()
+			var/damage_taken = take_damage(proj.damage, BRUTE, proj.armor_type, attack_dir = proj.dir)
+			try_damage_component(
+				damage = damage_taken,
+				def_zone = actual_zone,
+				damage_type = BRUTE,
+				armor_type = proj.armor_type,
+				attack_dir = proj.dir,
+			)
 			proj.damage = pilot_damage
 			if(proj.armor_type == BOMB || proj.damage >= 300 || proj.penetration >= 90)
 				var/occupant_count = length(occupants)
@@ -20,10 +41,17 @@
 			occupant.bullet_act(proj, actual_zone, piercing_hit)
 			proj.damage = original_damage
 			return
-	return ..()
+	var/damage_taken = take_damage(proj.damage, BRUTE, proj.armor_type, attack_dir = proj.dir)
+	return try_damage_component(
+		damage = damage_taken,
+		def_zone = actual_zone,
+		damage_type = BRUTE,
+		armor_type = proj.armor_type,
+		attack_dir = proj.dir,
+	)
 
 /// tries to damage mech equipment depending on damage and where is being targetted
-/obj/vehicle/sealed/mecha/ntf/try_damage_component(damage, def_zone, armor_type)
+/obj/vehicle/sealed/mecha/ntf/try_damage_component(damage, def_zone, damage_type = BRUTE, armor_type = null, effects = TRUE, attack_dir, armour_penetration = 0, mob/living/blame_mob)
 	var/list/gear = list()
 	switch(def_zone)
 		if(BODY_ZONE_L_ARM)
@@ -42,11 +70,11 @@
 		return
 
 	for(var/obj/item/mecha_parts/mecha_equipment/gear2 as anything in gear)
-	// always leave at least 1 health
+		// always leave at least 1 health
 //		var/damage_to_deal = min(gear2.obj_integrity - 1, damage)
 //		if(damage_to_deal <= 0)
 //			return
-		gear2.take_damage(damage)
+		gear2.take_damage(damage, damage_type, armor_type, effects, attack_dir, armour_penetration, blame_mob)
 		if(gear2.obj_integrity <= 1)
 			to_chat(occupants, "[icon2html(src, occupants)][span_danger("[gear2] is critically damaged!")]")
 			playsound(src, gear2.destroy_sound, 50)
@@ -122,7 +150,6 @@
 #define TRY_UNFLIP 7 SECONDS
 
 /obj/vehicle/sealed/mecha/ntf/crowbar_act(mob/living/user, obj/item/I)
-	.=..()
 	if(is_flipped)
 		if(do_after(user, TRY_UNFLIP, target = src))
 			if(prob(50))
@@ -137,3 +164,107 @@
 		return ..()
 
 #undef TRY_UNFLIP
+
+// The mech itself never actually breaks/is destroyed - all damage is routed to components.
+// take_damage() here only handles armor/logging/effects and returns the final damage amount;
+// callers are responsible for routing that damage to try_damage_component() (zone-targeted)
+// or components_take_damage_generic() (spread across all components, e.g. explosions).
+/obj/vehicle/sealed/mecha/ntf/take_damage(damage_amount, damage_type = BRUTE, armor_type = null, effects = TRUE, attack_dir, armour_penetration = 0, mob/living/blame_mob)
+	if(QDELETED(src))
+		CRASH("[src] taking damage after deletion")
+	if(!damage_amount)
+		return
+	if(effects)
+		play_attack_sound(damage_amount, damage_type, armor_type)
+	if((resistance_flags & INDESTRUCTIBLE) || obj_integrity <= 0)
+		return
+	if(damage_amount < DAMAGE_PRECISION)
+		return
+	if(SEND_SIGNAL(src, COMSIG_ATOM_TAKE_DAMAGE, damage_amount, damage_type, armor_type, effects, attack_dir, armour_penetration, blame_mob) & COMPONENT_NO_TAKE_DAMAGE)
+		return
+	log_message("Took [damage_amount] points of damage. Damage type: [damage_type]", LOG_MECHA)
+	if(damage_amount >= 5)
+		spark_system?.start()
+		try_deal_internal_damage(damage_amount)
+		to_chat(occupants, "[icon2html(src, occupants)][span_userdanger("Taking damage!")]")
+	return damage_amount
+
+/// Forces damage onto components generically - splits evenly across whatever
+/// arm/leg/head exist. Falls back to the body taking it all if none exist.
+/// Used for damage sources with no meaningful def_zone (e.g. explosions).
+/obj/vehicle/sealed/mecha/ntf/proc/components_take_damage_generic(damage_taken, damage_type = BRUTE, armor_type = null, effects = TRUE, attack_dir, armour_penetration = 0, mob/living/blame_mob)
+	if(damage_taken <= 0)
+		return
+
+	var/list/obj/item/mecha_parts/mecha_pieces/components_to_damage = list()
+	if(arms)
+		components_to_damage += arms
+	if(legs)
+		components_to_damage += legs
+	if(head)
+		components_to_damage += head
+
+	if(!length(components_to_damage))
+		body?.take_damage(damage_taken, damage_type, armor_type, effects, attack_dir, armour_penetration, blame_mob)
+		return
+
+	if(body)
+		components_to_damage += body
+
+	var/damage_per_component = max(1, round(damage_taken / length(components_to_damage)))
+	for(var/obj/item/mecha_parts/mecha_pieces/component as anything in components_to_damage)
+		component.take_damage(damage_per_component, damage_type, armor_type, effects, attack_dir, armour_penetration, blame_mob)
+
+/// Item and generic overrides
+
+/obj/vehicle/sealed/mecha/ntf/attacked_by(obj/item/attacking_item, mob/living/user)
+	if(!attacking_item.force)
+		return
+
+	var/damage_taken = take_damage(attacking_item.force, attacking_item.damtype, MELEE, attack_dir = get_dir(src, attacking_item), blame_mob = user)
+	try_damage_component(
+		damage = damage_taken,
+		def_zone = user.zone_selected,
+		damage_type = attacking_item.damtype,
+		armor_type = MELEE,
+		attack_dir = get_dir(src, attacking_item),
+		blame_mob = user,
+	)
+
+	var/hit_verb = length(attacking_item.attack_verb) ? "[pick(attacking_item.attack_verb)]" : "hit"
+	user.visible_message(
+		span_danger("[user] [hit_verb][plural_s(hit_verb)] [src] with [attacking_item][damage_taken ? "." : ", without leaving a mark!"]"),
+		span_danger("You [hit_verb] [src] with [attacking_item][damage_taken ? "." : ", without leaving a mark!"]"),
+		span_hear("You hear a [hit_verb]."),
+		COMBAT_MESSAGE_RANGE,
+	)
+
+	log_combat(user, src, "attacked", attacking_item)
+	log_message("Attacked by [user]. Item - [attacking_item], Damage - [damage_taken]", LOG_MECHA)
+
+/obj/vehicle/sealed/mecha/ntf/attack_generic(mob/user, damage_amount = 0, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = 0)
+	user.do_attack_animation(src, ATTACK_EFFECT_SMASH)
+	user.changeNext_move(CLICK_CD_MELEE)
+	var/damage_taken = take_damage(damage_amount, damage_type, armor_type, effects, armour_penetration = armor_penetration)
+	return try_damage_component(
+		damage = damage_taken,
+		def_zone = user.zone_selected,
+		damage_type = damage_type,
+		armor_type = armor_type,
+		effects = effects,
+		armour_penetration = armor_penetration,
+	)
+
+/obj/vehicle/sealed/mecha/ntf/get_pilot_coverage(direction)
+	if(!body)
+		return
+	if(!length(body.coverage_values))
+		return body.pilot_coverage
+	else
+		if(direction & dir)
+			return body.pilot_coverage = body.coverage_values[3]
+		else if(direction & REVERSE_DIR(dir)
+			return body.pilot_coverage = body.coverage_values[1]
+		else
+			// sides
+			return body.pilot_coverage = body.coverage_values[2]
