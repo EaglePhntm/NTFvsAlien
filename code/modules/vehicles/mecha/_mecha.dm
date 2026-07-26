@@ -108,6 +108,10 @@
 	///Whether or not the mech destroys walls by running into it.
 	var/bumpsmash = FALSE
 
+	var/is_flipped = FALSE // move this
+
+#warn mvoe this var
+
 	///////////ATMOS
 	///Whether we are currrently drawing from the internal tank
 	var/use_internal_tank = FALSE

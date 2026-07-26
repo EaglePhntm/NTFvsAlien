@@ -321,6 +321,10 @@
 		var/obj_damage_mult = 1
 		if(isarmoredvehicle(crushed) || ishitbox(crushed))
 			obj_damage_mult = 5
+		if(isexosuit(crushed)) // NTF Edit: Adds flipping to exosuits
+			var/obj/vehicle/sealed/mecha/ntf/exosuit = crushed
+			obj_damage_mult = 2
+			exosuit.attempt_flip(chance = 75, push_back = TRUE)
 		else if(isgreyscalemecha(crushed)) // dont oneshot mechs... thats bad. should be punishing though
 			var/obj/vehicle/sealed/mecha/combat/greyscale/mech = crushed
 			var/datum/mech_limb/legs/legs = mech.limbs[MECH_GREY_LEGS]

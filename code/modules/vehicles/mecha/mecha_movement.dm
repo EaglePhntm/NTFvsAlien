@@ -37,6 +37,8 @@
 		return
 	if(completely_disabled)
 		return FALSE
+	if(is_flipped) // NTF Edit
+		return FALSE
 	if(!direction)
 		return FALSE
 	if(ismovable(loc)) //Mech is inside an object, tell it we moved

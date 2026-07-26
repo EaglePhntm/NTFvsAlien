@@ -282,3 +282,13 @@ GLOBAL_LIST_INIT(restricted_camera_networks, list( //Those networks can only be 
 #define EXTINGUISH_AMOUNT 20
 
 #define DEFAULT_FUEL_TYPE /datum/reagent/fuel
+
+#define PLASTEEL /obj/item/stack/sheet/plasteel
+
+#define URANIUM /obj/item/stack/sheet/mineral/uranium
+
+#define GLASS /obj/item/stack/sheet/glass
+
+#define STEEL /obj/item/stack/sheet/metal
+
+#define RGLASS /obj/item/stack/sheet/glass/reinforced

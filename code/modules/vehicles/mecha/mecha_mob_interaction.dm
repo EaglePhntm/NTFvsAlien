@@ -49,7 +49,8 @@
 	newoccupant.update_mouse_pointer()
 	add_fingerprint(newoccupant, "moved in as pilot")
 	log_message("[newoccupant] moved in as pilot.", LOG_MECHA)
-	setDir(dir_in)
+	if(!isexosuit(src))
+		setDir(dir_in)
 	playsound(src, 'sound/machines/windowdoor.ogg', 50, TRUE)
 	set_mouse_pointer()
 	for(var/faction in GLOB.faction_to_data_hud)
@@ -75,7 +76,8 @@
 	mob_container.forceMove(newloc)//ejecting mob container
 	log_message("[mob_container] moved out.", LOG_MECHA)
 	SStgui.close_user_uis(M, src)
-	setDir(dir_in)
+	if(!isexosuit(src))
+		setDir(dir_in)
 	return ..()
 
 /obj/vehicle/sealed/mecha/add_occupant(mob/M, control_flags)

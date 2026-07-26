@@ -50,3 +50,7 @@
 #define REMOVE_TURF_TRANSPARENCY(modturf, source) \
 	REMOVE_TRAIT(modturf, TURF_Z_TRANSPARENT_TRAIT, (source)); \
 	if(!HAS_TRAIT(modturf, TURF_Z_TRANSPARENT_TRAIT)) { modturf.RemoveElement(/datum/element/turf_z_transparency) }
+
+#define WATER_DEEP "water_deep"
+#define WATER_TRANSITION "water_edge"
+#define WATER_SHALLOW "water_shallow"
