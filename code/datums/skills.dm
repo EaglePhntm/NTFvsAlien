@@ -420,6 +420,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	powerloader = SKILL_POWERLOADER_MASTER
 	chemistry = SKILL_CHEM_EXPERT
 	sex = SKILL_SEX_MASTER
+	large_vehicle = SKILL_LARGE_VEHICLE_EXPERIENCED
 
 /datum/skills/early_synthetic
 	name = "Early Synthetic"
@@ -436,6 +437,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	powerloader = SKILL_POWERLOADER_MASTER
 	chemistry = SKILL_CHEM_EXPERT
 	sex = SKILL_SEX_MASTER
+	large_vehicle = SKILL_LARGE_VEHICLE_EXPERIENCED
 
 /datum/skills/combat_robot
 	name = COMBAT_ROBOT
