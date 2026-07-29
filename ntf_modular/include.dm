@@ -126,6 +126,7 @@
 #include "code\game\objects\items.dm"
 #include "code\game\objects\items\devices\motion_detector.dm"
 #include "code\game\objects\items\exosuit_painter.dm"
+#include "code\game\objects\items\explosives\grenades\ionplasma_grenades.dm"
 #include "code\game\objects\items\loot_box.dm"
 #include "code\game\objects\items\misc_things.dm"
 #include "code\game\objects\items\plantable_flags.dm"
