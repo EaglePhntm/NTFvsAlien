@@ -135,6 +135,7 @@
 #include "code\game\objects\items\skillsoft.dm"
 #include "code\game\objects\items\stacks\medical.dm\medical.dm"
 #include "code\game\objects\items\storage\backpack.dm"
+#include "code\game\objects\items\storage\boxes.dm"
 #include "code\game\objects\items\storage\medicdispenser.dm"
 #include "code\game\objects\items\tools\loadout_tool.dm"
 #include "code\game\objects\items\tools\maintenance_tools.dm"
