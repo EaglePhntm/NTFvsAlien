@@ -1,6 +1,6 @@
 /obj/item/explosive/grenade/ionplasma
 	name = "\improper M55 PLASFIRE grenade"
-	desc = "The M55 PLASFIRE, nickamed 'GOBLIN' has a similar grenade casing design like the M15 model but disperses ionizing plasma fire in a tight radius. The GOBLIN M55 is used to cut off tight bottlenecks and enforce prolonged area denial compared to the M40 HIDP incendiary grenade. It is set to detonate in 3 seconds."
+	desc = "The M55 PLASFIRE, nickamed 'GOBLIN' has a grenade casing design similar to the M15 model but disperses ionizing plasma fire in a tight radius. The PLASFIRE M55 is used to cut off tight bottlenecks and enforce prolonged area denial compared to the M40 HIDP incendiary grenade. It is set to detonate in 3 seconds."
 	icon = 'ntf_modular/icons/obj/items/grenade.dmi'
 	icon_state = "grenade_ionplasma"
 	worn_icon_state = "grenade_ionplasma"
