@@ -81,6 +81,8 @@
 			/obj/item/ammo_magazine/rifle/bolt = -1,
 			/obj/item/weapon/gun/shotgun/double/martini = -1,
 			/obj/item/ammo_magazine/rifle/martini = -1,
+			/obj/item/weapon/gun/rifle/plasma_dmr = 1,
+			/obj/item/ammo_magazine/rifle/plasma_dmr = -1,
 		),
 		"Shotgun" = list(
 			/obj/item/weapon/gun/shotgun/pump/t35 = -1,
@@ -175,6 +177,7 @@
 			/obj/item/explosive/grenade/sticky = 125,
 			/obj/item/explosive/grenade/sticky/trailblazer = 75,
 			/obj/item/explosive/grenade/incendiary = 50,
+			/obj/item/explosive/grenade/ionplasma = 25,
 			/obj/item/explosive/grenade/smokebomb = 25,
 			/obj/item/explosive/grenade/smokebomb/cloak = 25,
 			/obj/item/explosive/grenade/smokebomb/antigas = 10,
