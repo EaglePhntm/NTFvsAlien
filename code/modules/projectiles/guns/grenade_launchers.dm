@@ -74,6 +74,7 @@ The Grenade Launchers
 		/obj/item/explosive/grenade/bullet/hefa,
 		/obj/item/explosive/grenade/emp,
 		/obj/item/explosive/grenade/cagenade,
+		/obj/item/explosive/grenade/ionplasma,
 	)
 	reciever_flags = NONE
 
