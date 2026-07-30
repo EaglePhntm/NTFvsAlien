@@ -353,7 +353,9 @@
 	},
 /area/turkenden3excluzone/outdoors/serverbuilding/groundsn)
 "axv" = (
-/obj/structure/curtain/open/temple,
+/obj/structure/curtain/open/temple{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/plating/ground/desertdam/asphalt/tile,
@@ -951,6 +953,9 @@
 /area/turkenden3excluzone/indoors/nmilitaryoutpost/messhall)
 "bgW" = (
 /obj/structure/window/framed/prison,
+/obj/structure/curtain/temple{
+	dir = 1
+	},
 /turf/open/floor/tile/dark{
 	color = "#c8c8c8"
 	},
@@ -1193,7 +1198,7 @@
 /area/turkenden3excluzone/indoors/serverbuilding/breakroom)
 "bAi" = (
 /obj/machinery/conveyor{
-	id = "lower_garbage"
+	id = "t3e_reqline_1"
 	},
 /obj/machinery/factory/heater{
 	anchored = 1
@@ -1382,7 +1387,9 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
 	},
-/obj/machinery/conveyor_switch,
+/obj/machinery/conveyor_switch{
+	id = "t3e_reqline_2"
+	},
 /turf/open/floor/mainship/mono,
 /area/turkenden3excluzone/indoors/reqcargo)
 "bOh" = (
@@ -1693,6 +1700,13 @@
 	},
 /turf/open/floor/tile/dark,
 /area/turkenden3excluzone/indoors/serverbuilding/lobbysouth)
+"cdS" = (
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/turkenden3excluzone/indoors/reqcargo/generators)
 "ceX" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /turf/open/floor/mainship/green,
@@ -1941,7 +1955,7 @@
 /area/turkenden3excluzone/indoors/reqcargo/qmoffice)
 "csy" = (
 /obj/machinery/conveyor{
-	id = "lower_garbage"
+	id = "t3e_reqline_1"
 	},
 /obj/machinery/factory/cutter{
 	anchored = 1
@@ -3520,7 +3534,9 @@
 /area/turkenden3excluzone/outdoors/roadse)
 "eox" = (
 /obj/machinery/door/airlock/multi_tile/mainship/generic,
-/obj/structure/curtain/open/temple,
+/obj/structure/curtain/open/temple{
+	dir = 1
+	},
 /obj/structure/cable,
 /obj/structure/cable,
 /turf/open/floor/plating/ground/desertdam/asphalt/tile,
@@ -3929,7 +3945,7 @@
 /area/turkenden3excluzone/indoors/medrsr/showers)
 "eMB" = (
 /obj/machinery/conveyor{
-	id = "lower_garbage"
+	id = "t3e_reqline_1"
 	},
 /obj/machinery/factory/flatter{
 	anchored = 1
@@ -4154,7 +4170,9 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/turkenden3excluzone/indoors/militaryoutpost/fieldhospital/surgery)
 "eWd" = (
-/obj/machinery/conveyor,
+/obj/machinery/conveyor{
+	id = "t3e_reqline_2"
+	},
 /obj/machinery/factory/flatter{
 	anchored = 1
 	},
@@ -5113,7 +5131,7 @@
 /area/turkenden3excluzone/outdoors/medrsrgrounds)
 "giM" = (
 /obj/machinery/conveyor{
-	id = "lower_garbage"
+	id = "t3e_reqline_1"
 	},
 /turf/open/floor/plating,
 /area/turkenden3excluzone/indoors/reqcargo)
@@ -5708,6 +5726,9 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
+/obj/machinery/gear{
+	dir = 1
+	},
 /turf/open/floor/mainship/orange/corner{
 	dir = 4
 	},
@@ -5726,7 +5747,7 @@
 	anchored = 1
 	},
 /obj/machinery/conveyor{
-	id = "lower_garbage"
+	id = "t3e_reqline_2"
 	},
 /turf/open/floor/mainship/mono,
 /area/turkenden3excluzone/indoors/reqcargo)
@@ -6524,7 +6545,9 @@
 /turf/open/floor/wood,
 /area/turkenden3excluzone/indoors/nmilitaryoutpost/commandpost)
 "ird" = (
-/obj/machinery/conveyor,
+/obj/machinery/conveyor{
+	id = "t3e_reqline_2"
+	},
 /obj/machinery/factory/reconstructor{
 	anchored = 1
 	},
@@ -6747,7 +6770,9 @@
 /turf/open/floor/tile/lightred/full,
 /area/turkenden3excluzone/indoors/medrsr/secwest)
 "iGs" = (
-/obj/machinery/conveyor,
+/obj/machinery/conveyor{
+	id = "t3e_reqline_2"
+	},
 /obj/machinery/factory/cutter{
 	anchored = 1
 	},
@@ -10541,6 +10566,13 @@
 	},
 /turf/open/floor/prison,
 /area/turkenden3excluzone/indoors/serverbuilding/persnoffice3)
+"nwG" = (
+/obj/structure/window/framed/wood,
+/obj/structure/curtain/temple{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/turkenden3excluzone/indoors/mosque)
 "nxl" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -12238,12 +12270,14 @@
 /turf/open/floor/mainship/cargo,
 /area/turkenden3excluzone/indoors/reqcargo)
 "pqL" = (
-/obj/structure/cable,
-/obj/machinery/power/terminal{
-	dir = 1
+/obj/machinery/unboxer{
+	anchored = 1
 	},
-/turf/open/floor/plating,
-/area/turkenden3excluzone/indoors/reqcargo/generators)
+/obj/machinery/conveyor{
+	id = "t3e_reqline_1"
+	},
+/turf/open/floor/mainship/mono,
+/area/turkenden3excluzone/indoors/reqcargo)
 "pqM" = (
 /obj/structure/closet,
 /turf/open/floor/kutjevo/fake_wood,
@@ -12261,6 +12295,9 @@
 "prT" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
+	},
+/obj/machinery/conveyor_switch{
+	id = "t3e_reqline_1"
 	},
 /turf/open/floor/mainship/mono,
 /area/turkenden3excluzone/indoors/reqcargo)
@@ -12674,7 +12711,9 @@
 /turf/open/floor/plating/ground/desertdam/cave/inner_cave,
 /area/turkenden3excluzone/indoors/caves/ne)
 "pPB" = (
-/obj/machinery/conveyor,
+/obj/machinery/conveyor{
+	id = "t3e_reqline_2"
+	},
 /obj/machinery/light{
 	dir = 4
 	},
@@ -13490,6 +13529,15 @@
 "qRz" = (
 /turf/closed/mineral/smooth/desertdamrockwall,
 /area/turkenden3excluzone/indoors/caves/rock)
+"qRJ" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 8
+	},
+/obj/machinery/gear{
+	dir = 1
+	},
+/turf/open/floor/mainship/mono,
+/area/turkenden3excluzone/indoors/reqcargo)
 "qRQ" = (
 /turf/open/floor/tile/blue/taupebluecorner{
 	dir = 8
@@ -15444,7 +15492,9 @@
 /turf/closed/wall/variable/adobe,
 /area/turkenden3excluzone/indoors/nwgreenhouse)
 "toC" = (
-/obj/machinery/conveyor,
+/obj/machinery/conveyor{
+	id = "t3e_reqline_2"
+	},
 /turf/open/floor/plating,
 /area/turkenden3excluzone/indoors/reqcargo)
 "toH" = (
@@ -15599,7 +15649,7 @@
 /area/turkenden3excluzone/indoors/mosque)
 "tyu" = (
 /obj/machinery/conveyor{
-	id = "lower_garbage"
+	id = "t3e_reqline_1"
 	},
 /obj/machinery/factory/reconstructor{
 	anchored = 1
@@ -17107,7 +17157,9 @@
 /turf/open/floor/plating,
 /area/turkenden3excluzone/indoors/nwpowerhut)
 "vrv" = (
-/obj/machinery/conveyor,
+/obj/machinery/conveyor{
+	id = "t3e_reqline_2"
+	},
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -17220,7 +17272,9 @@
 	},
 /area/turkenden3excluzone/indoors/nwgreenhouse)
 "vBS" = (
-/obj/machinery/conveyor,
+/obj/machinery/conveyor{
+	id = "t3e_reqline_2"
+	},
 /obj/machinery/factory/heater{
 	anchored = 1
 	},
@@ -17610,10 +17664,14 @@
 /turf/open/floor/urban/carpet/carpetblue,
 /area/turkenden3excluzone/indoors/serverbuilding/opsoverseer)
 "wbZ" = (
-/obj/machinery/power/terminal,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/turkenden3excluzone/indoors/reqcargo/generators)
+/obj/structure/window/framed/prison,
+/obj/structure/curtain/temple{
+	dir = 4
+	},
+/turf/open/floor/tile/dark{
+	color = "#c8c8c8"
+	},
+/area/turkenden3excluzone/indoors/mosque)
 "wcl" = (
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/turkenden3excluzone/indoors/nmilitaryoutpost/secpoint)
@@ -24837,7 +24895,7 @@ ueG
 ueG
 ueG
 gHn
-tez
+uRD
 tez
 tez
 tez
@@ -27167,7 +27225,7 @@ xzW
 xzW
 fyW
 fyW
-bgW
+wbZ
 fyW
 fyW
 pJv
@@ -27184,7 +27242,7 @@ pJv
 pJv
 fyW
 fyW
-bgW
+wbZ
 fyW
 fyW
 pJv
@@ -28704,7 +28762,7 @@ aKV
 pCW
 owN
 kcb
-qgB
+nwG
 aij
 xzW
 ulH
@@ -29138,7 +29196,7 @@ fyW
 fyW
 owN
 kcb
-qgB
+nwG
 aij
 xzW
 ulH
@@ -30223,7 +30281,7 @@ fyW
 fyW
 lms
 aLT
-qgB
+nwG
 aij
 xzW
 dVb
@@ -30657,7 +30715,7 @@ aKV
 aKV
 sXJ
 aLT
-qgB
+nwG
 aij
 xzW
 oqC
@@ -32158,7 +32216,7 @@ xzW
 xzW
 fyW
 fyW
-bgW
+wbZ
 fyW
 fyW
 hkr
@@ -32175,7 +32233,7 @@ xzW
 xzW
 fyW
 fyW
-bgW
+wbZ
 fyW
 fyW
 xGN
@@ -60293,7 +60351,7 @@ aXx
 xyU
 aXx
 aXx
-hkZ
+pqL
 giM
 csy
 giM
@@ -60510,7 +60568,7 @@ vGj
 pxi
 lHh
 aXx
-prT
+qRJ
 hdj
 iAZ
 mbC
@@ -66155,10 +66213,10 @@ cco
 nHa
 jNU
 fZq
-pqL
+uCF
 khc
 sBD
-wbZ
+uCF
 eiE
 jNU
 nHa
@@ -66371,12 +66429,12 @@ cco
 cco
 nHa
 jNU
-khc
+cdS
 uCF
 khc
 khc
 uCF
-khc
+cdS
 jNU
 nHa
 nHa
