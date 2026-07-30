@@ -1,7 +1,7 @@
 /obj/vehicle/sealed/mecha/ntf/bullet_act(atom/movable/projectile/proj, def_zone, piercing_hit)
 	var/actual_zone = def_zone || proj.def_zone
 
-	if(LAZYLEN(occupants) && !(mecha_flags & SILICON_PILOT) && !(mecha_flags & CANNOT_OVERPENETRATE) && (actual_zone == BODY_ZONE_HEAD || actual_zone == BODY_ZONE_CHEST) && !prob(pilot_coverage))
+	if(LAZYLEN(occupants) && !(mecha_flags & SILICON_PILOT) && !(mecha_flags & CANNOT_OVERPENETRATE) && (actual_zone == BODY_ZONE_HEAD || actual_zone == BODY_ZONE_CHEST) && !prob(body.pilot_coverage))
 		var/original_damage = proj.damage
 		if(proj.armor_type == BOMB || proj.damage >= 300 || proj.penetration >= 90)
 			var/occupant_count = length(occupants)
@@ -14,13 +14,13 @@
 		occupant.bullet_act(proj, actual_zone, piercing_hit)
 		return
 
-	var/armor_rating = soft_armor.getRating(proj.armor_type)
+	var/armor_rating = body?.soft_armor.getRating(proj.armor_type)
 	var/pen_quality = clamp((proj.penetration - (armor_rating * cockpit_armor)) / max(armor_rating, 1), 0, 1)
 	if(LAZYLEN(occupants))
 		var/mob/living/occupant = pick(occupants)
 		if(pen_quality && LAZYLEN(occupants) && !(mecha_flags & SILICON_PILOT) && !(mecha_flags & CANNOT_OVERPENETRATE) && (actual_zone == BODY_ZONE_HEAD || actual_zone == BODY_ZONE_CHEST))
 			var/original_damage = proj.damage
-			var/pilot_damage = round(proj.damage * pen_quality * 0.90)
+			var/pilot_damage = round(proj.damage * pen_quality * 0.9)
 			proj.damage -= pilot_damage
 			var/damage_taken = take_damage(proj.damage, BRUTE, proj.armor_type, attack_dir = proj.dir)
 			try_damage_component(
@@ -92,11 +92,6 @@
 		return
 	toggle_hatch(user, FALSE)
 
-//obj/vehicle/sealed/mecha/ntf/RightClick(mob/living/user)
-//	if(!(user in occupants))
-//		return
-//	toggle_hatch(user, TRUE)
-
 #define STUCK_AGAINST_TERRAIN 15 SECONDS
 #define STUCK_AGAINST_TERRAIN_CHANCE 50
 
@@ -165,10 +160,6 @@
 
 #undef TRY_UNFLIP
 
-// The mech itself never actually breaks/is destroyed - all damage is routed to components.
-// take_damage() here only handles armor/logging/effects and returns the final damage amount;
-// callers are responsible for routing that damage to try_damage_component() (zone-targeted)
-// or components_take_damage_generic() (spread across all components, e.g. explosions).
 /obj/vehicle/sealed/mecha/ntf/take_damage(damage_amount, damage_type = BRUTE, armor_type = null, effects = TRUE, attack_dir, armour_penetration = 0, mob/living/blame_mob)
 	if(QDELETED(src))
 		CRASH("[src] taking damage after deletion")
@@ -189,9 +180,6 @@
 		to_chat(occupants, "[icon2html(src, occupants)][span_userdanger("Taking damage!")]")
 	return damage_amount
 
-/// Forces damage onto components generically - splits evenly across whatever
-/// arm/leg/head exist. Falls back to the body taking it all if none exist.
-/// Used for damage sources with no meaningful def_zone (e.g. explosions).
 /obj/vehicle/sealed/mecha/ntf/proc/components_take_damage_generic(damage_taken, damage_type = BRUTE, armor_type = null, effects = TRUE, attack_dir, armour_penetration = 0, mob/living/blame_mob)
 	if(damage_taken <= 0)
 		return
@@ -255,7 +243,7 @@
 		armour_penetration = armor_penetration,
 	)
 
-/obj/vehicle/sealed/mecha/ntf/get_pilot_coverage(direction)
+/obj/vehicle/sealed/mecha/ntf/proc/get_pilot_coverage(direction)
 	if(!body)
 		return
 	if(!length(body.coverage_values))
@@ -263,7 +251,7 @@
 	else
 		if(direction & dir)
 			return body.pilot_coverage = body.coverage_values[3]
-		else if(direction & REVERSE_DIR(dir)
+		else if(direction & REVERSE_DIR(dir))
 			return body.pilot_coverage = body.coverage_values[1]
 		else
 			// sides

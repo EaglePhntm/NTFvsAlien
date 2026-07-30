@@ -231,7 +231,9 @@
 /obj/structure/mecha_wreckage/seraph
 	name = "\improper Seraph wreckage"
 	icon_state = "seraph-broken"
-	original_mech = /obj/vehicle/sealed/mecha/ntf/marauder/seraph
+//	original_mech = /obj/vehicle/sealed/mecha/ntf/marauder/seraph
+
+#warn fix all of these
 
 /obj/structure/mecha_wreckage/reticence
 	name = "\improper Reticence wreckage"

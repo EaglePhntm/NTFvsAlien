@@ -81,7 +81,7 @@
 
 	balloon_alert(user, "removing [thing_to_remove]...")
 	if(!do_after(user, 5 SECONDS, target = src))
-		I.play_tool_sound
+//		I.play_tool_sound
 		balloon_alert(user, "interrupted!")
 		return
 
@@ -168,11 +168,12 @@
 	allow_diagonal_movement = legs.can_move_diagonally
 	stepsound = legs.step_sound
 	turnsound = legs.turn_sound
-	can_strafe = legs.can_strafe
+//	can_strafe = legs.can_strafe
 
 /obj/vehicle/sealed/mecha/ntf/proc/update_head_values()
 	if(!head)
 		return
 
-	sensors_profile = head.sensors_profile
-	if(sensors_profile)
+//	sensors_profile = head.sensors_profile
+//	if(sensors_profile)
+//

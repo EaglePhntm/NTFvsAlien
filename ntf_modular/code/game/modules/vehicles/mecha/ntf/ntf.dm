@@ -50,6 +50,9 @@
 
 	var/sensors_profile = EXOSUIT_SENSORS_NONE
 
+	var/pilot_coverage = 100
+	var/list/pilot_overlays
+
 	var/obj/item/mecha_parts/mecha_pieces/mecha_body/body
 	var/obj/item/mecha_parts/mecha_pieces/mecha_head/head
 	var/obj/item/mecha_parts/mecha_pieces/mecha_legs/legs

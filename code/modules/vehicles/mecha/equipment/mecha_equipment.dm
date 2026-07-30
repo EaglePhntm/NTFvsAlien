@@ -205,7 +205,7 @@
 	add equipment sprites,   \
 	add damage processing for components,   \
 	complete flipping/terrain handling,   \
-	complete hatch handling,   \
+	complete hatch handling,  Done? \
 	complete engine logic,   \
 	add tank interactions,   \
 	change wreck states, \

@@ -20,6 +20,7 @@
 	var/wrecked_profile = /datum/wrecked_body/light
 
 	var/pilot_coverage = 100
+	var/list/pilot_positions
 	var/list/coverage_values
 	var/can_be_vaulted = FALSE
 
@@ -42,8 +43,49 @@
 	enclosed = FALSE
 	return ..()
 
+/obj/item/mecha_parts/mecha_pieces/mecha_body/New()
+	..()
+	if(isnull(pilot_positions))
+		pilot_positions = list(
+			list(
+				"[NORTH]" = list("x" = 8, "y" = 0),
+				"[SOUTH]" = list("x" = 8, "y" = 0),
+				"[EAST]"  = list("x" = 8, "y" = 0),
+				"[WEST]"  = list("x" = 8, "y" = 0)
+			)
+		)
 
-///obj/item/mecha_parts/mecha_pieces/mecha_body/Destroy()
+/obj/item/mecha_parts/mecha_pieces/mecha_body/loader
+	name = "loader body"
+	desc = "A Nine-Tails industrial brand roll cage. Technically OSHA compliant. Technically."
+	icon_state = "loader_body"
+	base_icon_state = "loader_body"
+	repair_materials = list(STEEL = PRIMARY_REPAIR_AMT)
+	max_integrity = BODY_HEALTH_400
+	soft_armor = list(MELEE = 50, BULLET = 10, LASER = 15, ENERGY = 0, BOMB = 10, BIO = 0, FIRE = 50, ACID = 50)
+	wrecked_profile = /datum/wrecked_body/light
+	pilot_coverage = 40
+	enter_delay = EGRESS_TIME_QUICK
+	exit_delay = EGRESS_TIME_QUICK
+	show_pilot_body = ALWAYS_SHOW_PILOT
+	extra_overlays = TRUE
+
+/obj/item/mecha_parts/mecha_pieces/mecha_body/loader/Initialize()
+	pilot_positions = list(
+		list(
+			"[NORTH]" = list("x" = 8,  "y" = 8),
+			"[SOUTH]" = list("x" = 8,  "y" = 8),
+			"[EAST]"  = list("x" = 8,  "y" = 8),
+			"[WEST]"  = list("x" = 8,  "y" = 8)
+		),
+		list(
+			"[NORTH]" = list("x" = 8,  "y" = 16),
+			"[SOUTH]" = list("x" = 8,  "y" = 16),
+			"[EAST]"  = list("x" = 0,  "y" = 16),
+			"[WEST]"  = list("x" = 16, "y" = 16)
+		)
+	)
+	. = ..()
 
 /obj/item/mecha_parts/mecha_pieces/mecha_body/light
 	name = "light body"
@@ -54,17 +96,51 @@
 	max_integrity = BODY_HEALTH_200
 	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 30, BOMB = 10, BIO = 0, FIRE = 95, ACID = 50)
 	wrecked_profile = /datum/wrecked_body/light
+	enter_delay = EGRESS_TIME_QUICK
+	exit_delay = EGRESS_TIME_QUICK
+	extra_overlays = TRUE
+
+/obj/item/mecha_parts/mecha_pieces/mecha_body/light/Initialize()
+	pilot_positions = list(
+		list(
+			"[NORTH]" = list("x" = 8,  "y" = 0),
+			"[SOUTH]" = list("x" = 8,  "y" = 0),
+			"[EAST]"  = list("x" = 3,  "y" = 0),
+			"[WEST]"  = list("x" = 13, "y" = 0)
+		)
+	)
+	. = ..()
 
 /obj/item/mecha_parts/mecha_pieces/mecha_body/spherical
 	name = "spherical body"
-	desc = "The body component for a spherical exosuit."
+	desc = "The NanoTrasen Katamari series cockpits have won a massive tender by SCG few years back. No one is sure why, but these terrible things keep popping up on every government facility."
 	icon_state = "pod_body"
 	base_icon_state = "pod_body"
 	repair_materials = list(STEEL = PRIMARY_REPAIR_AMT, GLASS = TERTIARY_REPAIR_AMT)
-	extra_overlays = TRUE
 	max_integrity = BODY_HEALTH_200
 	soft_armor = list(MELEE = 40, BULLET = 5, LASER = 15, ENERGY = 0, BOMB = 5, BIO = 0, FIRE = 100, ACID = 95)
 	wrecked_profile = /datum/wrecked_body/light
+	enter_delay = EGRESS_TIME_QUICK
+	exit_delay = EGRESS_TIME_QUICK
+	extra_overlays = TRUE
+	show_pilot_body = SHOW_PILOT_WHEN_CLOSED
+
+/obj/item/mecha_parts/mecha_pieces/mecha_body/spherical/Initialize()
+	pilot_positions = list(
+		list(
+			"[NORTH]" = list("x" = 8,  "y" = 4),
+			"[SOUTH]" = list("x" = 8,  "y" = 4),
+			"[EAST]"  = list("x" = 12,  "y" = 4),
+			"[WEST]"  = list("x" = 4,  "y" = 4)
+		),
+		list(
+			"[NORTH]" = list("x" = 8,  "y" = 8),
+			"[SOUTH]" = list("x" = 8,  "y" = 8),
+			"[EAST]"  = list("x" = 10,  "y" = 8),
+			"[WEST]"  = list("x" = 6, "y" = 8)
+		)
+	)
+	. = ..()
 
 /obj/item/mecha_parts/mecha_pieces/mecha_body/combat
 	name = "combat body"
@@ -76,6 +152,17 @@
 	soft_armor = list(MELEE = 50, BULLET = 40, LASER = 40, ENERGY = 15, BOMB = 10, BIO = 0, FIRE = 50, ACID = 50)
 	wrecked_profile = /datum/wrecked_body/medium
 
+/obj/item/mecha_parts/mecha_pieces/mecha_body/combat/Initialize()
+	pilot_positions = list(
+		list(
+			"[NORTH]" = list("x" = 8,  "y" = 8),
+			"[SOUTH]" = list("x" = 8,  "y" = 8),
+			"[EAST]"  = list("x" = 4,  "y" = 8),
+			"[WEST]"  = list("x" = 12, "y" = 8)
+		)
+	)
+	. = ..()
+
 /obj/item/mecha_parts/mecha_pieces/mecha_body/heavy
 	name = "heavy body"
 	desc = "The body component for a heavy exosuit."
@@ -85,6 +172,17 @@
 	max_integrity = BODY_HEALTH_500
 	soft_armor = list(MELEE = 65, BULLET = 55, LASER = 40, ENERGY = 15, BOMB = 20, BIO = 0, FIRE = 50, ACID = 50)
 	wrecked_profile = /datum/wrecked_body/heavy
+
+/obj/item/mecha_parts/mecha_pieces/mecha_body/heavy/Initialize()
+	pilot_positions = list(
+		list(
+			"[NORTH]" = list("x" = 8,  "y" = 8),
+			"[SOUTH]" = list("x" = 9,  "y" = 2),
+			"[EAST]"  = list("x" = 4,  "y" = 8),
+			"[WEST]"  = list("x" = 12, "y" = 8)
+		)
+	)
+	. = ..()
 
 /obj/item/mecha_parts/mecha_pieces/mecha_body/cubical
 	name = "cubical body"
@@ -97,6 +195,7 @@
 	compatible_pieces = list(MECHA_BODY, MECHA_LEGS, MECHA_ARMS) // Reason: sprite-wise, it looks bad
 	sensors_profile = EXOSUIT_SENSORS_ADV
 	wrecked_profile = /datum/wrecked_body/heavy
+	show_pilot_body = SHOW_PILOT_WHEN_OPEN
 
 /obj/item/mecha_parts/mecha_pieces/mecha_body/crawler
 	name = "crawler body"
@@ -109,6 +208,17 @@
 	compatible_pieces = list(MECHA_BODY, MECHA_LEGS, MECHA_ARMS) // Reason: sprite-wise, it looks bad
 	sensors_profile = EXOSUIT_SENSORS_BASIC
 	wrecked_profile = /datum/wrecked_body/light
-	coverage_profile = list(100, 25, 0) // 100% coverage front, 25% on the sides and 0% from the rear
-	show_pilot_body = TRUE
+	coverage_values = list(100, 25, 0) // 100% coverage front, 25% on the sides and 0% from the rear
+	show_pilot_body = ALWAYS_SHOW_PILOT
 	can_be_vaulted = TRUE
+
+/obj/item/mecha_parts/mecha_pieces/mecha_body/crawler/Initialize()
+	pilot_positions = list(
+		list(
+			"[NORTH]" = list("x" = 8,  "y" = 15),
+			"[SOUTH]" = list("x" = 8,  "y" = 20),
+			"[EAST]"  = list("x" = -2,  "y" = 16),
+			"[WEST]"  = list("x" = 16,  "y" = 16)
+		)
+	)
+	. = ..()

@@ -13,7 +13,7 @@
 	integrity_failure = 0.5
 	destroy_sound = 'sound/effects/glassbr2.ogg'
 	var/obj/vehicle/sealed/mecha/chassis
-	var/datum/mecha_sensors_profile/sensors_profile
+	var/datum/exo_sensors/sensors_profile
 	var/extra_overlays = FALSE
 	var/list/inserted_materials
 

@@ -6,7 +6,7 @@
 	type_of_piece = MECHA_HEAD
 	sensors_profile = EXOSUIT_SENSORS_BASIC
 
-/obj/item/mecha_parts/mecha_pieces/mecha_head/powerloader
+/obj/item/mecha_parts/mecha_pieces/mecha_head/loader
 	name = "exosuit sensors"
 	desc = "A primitive set of sensors designed to work in tandem with most MKI Eyeball platforms."
 	repair_materials = list(STEEL = TERTIARY_REPAIR_AMT, GLASS = TERTIARY_REPAIR_AMT)

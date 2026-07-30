@@ -183,11 +183,16 @@
 #define MECH_PILOT_LAYER            4.03
 #define MECH_LEG_LAYER              4.04
 #define MECH_COCKPIT_LAYER          4.05
-#define MECH_ARM_LAYER              4.07
-#define MECH_GEAR_LAYER             4.08
+#define MECH_ARM_LAYER              4.06
+#define MECH_GEAR_LAYER             4.07
 
 #define DRIVER "driver"
 #define PASSENGER "passenger"
+
+#define HIDE_PILOT 0
+#define ALWAYS_SHOW_PILOT 1
+#define SHOW_PILOT_WHEN_OPEN 2
+#define SHOW_PILOT_WHEN_CLOSED 3
 
 #define FRONT_POSITION "front position"
 #define SIDE_POSITION "side position"
