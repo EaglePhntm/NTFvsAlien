@@ -222,3 +222,7 @@
 
 #define MECHA_IS_WRECK "mech_wrecked"
 #define MECHA_IS_WRECKABLE (1<<14)
+
+#define IGNITION_OFF 1
+#define IGNITION_AUX 2
+#define IGNITION_ENGINE 3

@@ -232,6 +232,7 @@
 	///holds the EMP timer
 	var/emp_timer
 
+	var/power_status = IGNITION_OFF
 
 	// ******** TGMC VARS ******** //
 	///max amt of repairpacks we can store
@@ -704,6 +705,16 @@
 		landing_particles = new(current_turf, /particles/mech_land)
 	landing_particles.layer = layer - 0.01
 	QDEL_IN(landing_particles, 1 SECONDS)
+
+/obj/vehicle/sealed/mecha/proc/check_power(power_status)
+	if(!isexosuit(src))
+		return TRUE
+	switch(power_status)
+		if(IGNITION_OFF)
+			return FALSE
+		if(IGNITION_AUX, IGNITION_ENGINE)
+			return TRUE
+	return FALSE
 
 /////////////////////////
 ////// Access stuff /////

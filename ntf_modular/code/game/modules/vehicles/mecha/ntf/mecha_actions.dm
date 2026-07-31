@@ -23,6 +23,9 @@
 	if(!ismob(owner))
 		to_chat(owner, "The [src] activates, but you appear to be a mere object!")
 		return
+	if(!chassis.check_power())
+		chassis.balloon_alert(owner, "no power!")
+		return
 	var/mob/user = owner
 	chassis.light_amplification = !chassis.light_amplification
 	action_icon_state = "mech_nightvision_[chassis.light_amplification ? "on" : "off"]"
@@ -74,6 +77,9 @@
 	if(!chassis.use_power(power_cost))
 		chassis.balloon_alert(owner, "No power")
 		return
+	if(!chassis.check_power())
+		chassis.balloon_alert(owner, "No power")
+		return
 	TIMER_COOLDOWN_START(chassis, COOLDOWN_MECHA_EQUIPMENT(type), cooldown)
 	chassis.smoke_system.start()
 
@@ -86,3 +92,54 @@
 /datum/component/jump/exosuit/do_jump(atom/movable/jumper)
     jumper_allow_pass_flags = 0
     return ..()
+
+/datum/action/vehicle/sealed/mecha/toggle_power
+	name = "Toggle Power"
+	action_icon_state = "toggle_power"
+	delay
+
+	var/ignition_status = IGNITION_OFF
+
+/datum/action/vehicle/sealed/mecha/toggle_power/action_activate(trigger_flags)
+	if(!owner?.client || !chassis || !(owner in chassis.occupants))
+		return
+	if(owner.do_actions)
+		return
+
+	var/obj/vehicle/sealed/mecha/ntf/ntf_chassis = chassis
+
+	if(!ntf_chassis.body)
+		for(var/mob/occupant in ntf_chassis.occupants)
+			ntf_chassis.balloon_alert(occupant, "no body")
+		return
+
+	var/obj/item/mecha_parts/exosuit_engine/engine = locate() in ntf_chassis
+	if(!engine)
+		for(var/mob/occupant in ntf_chassis.occupants)
+			ntf_chassis.balloon_alert(occupant, "no engine")
+		return
+
+	switch(ignition_status)
+
+		if(IGNITION_OFF)
+			ignition_status = IGNITION_AUX
+			for(var/occupant in chassis.occupants)
+				ntf_chassis.power_status = IGNITION_AUX
+				ntf_chassis.balloon_alert(occupant, "aux power on")
+				ntf_chassis.check_power(power_status = IGNITION_AUX)
+
+		if(IGNITION_AUX)
+			if(engine.attempt_engine_start())
+				for(var/occupant in chassis.occupants)
+					ntf_chassis.balloon_alert(occupant, "engine starts!")
+					ntf_chassis.power_status = IGNITION_ENGINE
+					ntf_chassis.check_power(power_status = IGNITION_ENGINE)
+					ignition_status = IGNITION_ENGINE
+
+		if(IGNITION_ENGINE)
+			engine.engine_stop()
+			ignition_status = IGNITION_OFF
+			for(var/occupant in chassis.occupants)
+				ntf_chassis.power_status = IGNITION_OFF
+				ntf_chassis.balloon_alert(occupant, "power off")
+				ntf_chassis.check_power(power_status = IGNITION_OFF)

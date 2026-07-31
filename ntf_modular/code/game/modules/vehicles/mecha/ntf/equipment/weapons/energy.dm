@@ -7,6 +7,7 @@
 	harmful = TRUE
 	fire_mode = GUN_FIREMODE_AUTOMATIC
 	slowdown = 0
+	required_power_level = IGNITION_ENGINE
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/exosuit/laser_rifle
 	name = "\improper exosuit-mounted AER-9 laser rifle"
