@@ -38,9 +38,9 @@
 	COOLDOWN_DECLARE(tentacle_cooldown)
 	COOLDOWN_DECLARE(cum_cooldown)
 	max_integrity = 10
-	resist_time = 3 SECONDS //gotta be able to resist quick in case this is used in combat, with the quick capture power, you WILL die so fast.
+	resist_time = 1 SECONDS //gotta be able to resist quick in case this is used in combat, with the quick capture power, you WILL die so fast.
 	var/capture_time = 1 SECONDS
-	var/cooldown_time = 5 SECONDS
+	var/cooldown_time = 10 SECONDS
 	var/cum_time = 29.9 SECONDS
 
 /obj/structure/bed/nest/advanced/Initialize(mapload, _hivenumber)
@@ -293,40 +293,61 @@
 	if(victim.stat == DEAD)
 		unbuckle_mob(victim)
 		return
-	do_thrust_animate(victim, src)
-	do_thrust_animate(src, victim)
-	if(COOLDOWN_FINISHED(src, cum_cooldown))
-		COOLDOWN_START(src, cum_cooldown, cum_time)
-		if(!(victim.status_flags & XENO_HOST))
-			victim.visible_message(span_xenonotice("[src] roughly thrusts a tentacle into [victim]'s [target_hole], a round bulge visibly sliding through it as it inserts an egg into [victim]!"),
-			span_xenonotice("[src] roughly thrusts a tentacle into your [target_hole], a round bulge visibly sliding through it as it inserts an egg into you!"),
-			span_notice("You hear squelching."), 1)
-			playsound(victim, 'ntf_modular/sound/misc/mat/endin.ogg', 50, TRUE, 5, ignore_walls = FALSE)
-			implant_embryo(victim, target_hole, force_xenohive = hivenumber)
+	var/flags = victim?.client.prefs.sex_pref_flags
+	if(!victim.client || flags & SEXPREF_TENTACLE_NEST)
+		do_thrust_animate(victim, src)
+		do_thrust_animate(src, victim)
+		if(COOLDOWN_FINISHED(src, cum_cooldown))
+			COOLDOWN_START(src, cum_cooldown, cum_time)
+			if(!(victim.status_flags & XENO_HOST))
+				victim.visible_message(span_xenonotice("[src] roughly thrusts a tentacle into [victim]'s [target_hole], a round bulge visibly sliding through it as it inserts an egg into [victim]!"),
+				span_xenonotice("[src] roughly thrusts a tentacle into your [target_hole], a round bulge visibly sliding through it as it inserts an egg into you!"),
+				span_notice("You hear squelching."), 1)
+				playsound(victim, 'ntf_modular/sound/misc/mat/endin.ogg', 50, TRUE, 5, ignore_walls = FALSE)
+				implant_embryo(victim, target_hole, force_xenohive = hivenumber)
+			else
+				victim.visible_message(span_love("[src]'s tentacle pumps globs of sizzling acidic cum into [victim]'s [target_hole]!"),
+				span_love("[src] tentacle pumps globs of sizzling acidic cum into your [target_hole]!"),
+				span_love("You hear spurting."), 1)
+				playsound(victim, 'ntf_modular/sound/misc/mat/endin.ogg', 50, TRUE, 5, ignore_walls = FALSE)
+			if(istype(src, /obj/structure/bed/nest/advanced/special))
+				//same medicines as larval growth sting, but no larva jelly
+				if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/tricordrazine) < 5)
+					victim.reagents.add_reagent(/datum/reagent/medicine/tricordrazine, 10)
+				if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/inaprovaline) < 5)
+					victim.reagents.add_reagent(/datum/reagent/medicine/inaprovaline, 10)
+				if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/dexalin) < 5)
+					victim.reagents.add_reagent(/datum/reagent/medicine/dexalin, 10)
+				if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/spaceacillin) < 5)
+					victim.reagents.add_reagent(/datum/reagent/medicine/spaceacillin, 2)
+			victim.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno, 10) //to not generate genetic material reward on auto
+			victim.reagents.add_reagent(/datum/reagent/toxin/acid/xeno_cum, 2) //need to make xenos not leave people in here unattended instead of using regular nests.
 		else
-			victim.visible_message(span_love("[src]'s tentacle pumps globs of sizzling acidic cum into [victim]'s [target_hole]!"),
-			span_love("[src] tentacle pumps globs of sizzling acidic cum into your [target_hole]!"),
-			span_love("You hear spurting."), 1)
-			playsound(victim, 'ntf_modular/sound/misc/mat/endin.ogg', 50, TRUE, 5, ignore_walls = FALSE)
-		if(istype(src, /obj/structure/bed/nest/advanced/special))
-			//same medicines as larval growth sting, but no larva jelly
-			if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/tricordrazine) < 5)
-				victim.reagents.add_reagent(/datum/reagent/medicine/tricordrazine, 10)
-			if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/inaprovaline) < 5)
-				victim.reagents.add_reagent(/datum/reagent/medicine/inaprovaline, 10)
-			if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/dexalin) < 5)
-				victim.reagents.add_reagent(/datum/reagent/medicine/dexalin, 10)
-			if(victim.reagents.get_reagent_amount(/datum/reagent/medicine/spaceacillin) < 5)
-				victim.reagents.add_reagent(/datum/reagent/medicine/spaceacillin, 2)
-		victim.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno, 10) //to not generate genetic material reward on auto
-		victim.reagents.add_reagent(/datum/reagent/toxin/acid/xeno_cum, 2) //need to make xenos not leave people in here unattended instead of using regular nests.
-	else
-		victim.visible_message(span_love("[src] roughly thrusts a tentacle into [victim]'s [target_hole]!"),
-		span_love("[src] roughly thrusts a tentacle into your [target_hole]!"),
-		span_love("You hear squelching."), 1)
-		playsound(victim, 'ntf_modular/sound/misc/mat/segso.ogg', 50, TRUE, 5, ignore_walls = FALSE)
-		victim.adjustStaminaLoss(5)
-		victim.sexcon.adjust_arousal(5)
+			victim.visible_message(span_love("[src] roughly thrusts a tentacle into [victim]'s [target_hole]!"),
+			span_love("[src] roughly thrusts a tentacle into your [target_hole]!"),
+			span_love("You hear squelching."), 1)
+			playsound(victim, 'ntf_modular/sound/misc/mat/segso.ogg', 50, TRUE, 5, ignore_walls = FALSE)
+			victim.adjustStaminaLoss(5)
+			victim.sexcon.adjust_arousal(5)
+	else //snowflake normal way
+		if(COOLDOWN_FINISHED(src, cum_cooldown))
+			COOLDOWN_START(src, cum_cooldown, cum_time)
+			if(!(victim.status_flags & XENO_HOST))
+				victim.visible_message(span_xenonotice("[src] impales [victim] with a sharp tentacle, implanting something!"),
+				span_xenonotice("[src] impales you with a sharp tentacle, implanting something!"),
+				span_notice("You hear stabbing."), 1)
+			else
+				victim.visible_message(span_love("[src]'s tentacle injects acid into [victim]!"),
+				span_love("[src]'s injects a sizzling reagent into you!"),
+				span_love("You hear injecting."), 1)
+				victim.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno/sfw, 10) //to not generate genetic material reward on auto
+				victim.reagents.add_reagent(/datum/reagent/toxin/acid/xeno_cum/sfw, 2) //need to make xenos not leave people in here unattended instead of using regular nests.
+		else
+			victim.visible_message(span_love("[src] constraints [victim]'s airway!"),
+			span_love("[src] constraints your airway!"),
+			span_love("You hear choking."), 1)
+			victim.adjustOxyLoss(1.5) //eh instead of arousal
+			victim.adjustStaminaLoss(5)
 
 /obj/structure/bed/nest/advanced/proc/try_suit_up(mob/living/carbon/human/victim)
 	if(!(victim.status_flags & XENO_HOST))
@@ -348,9 +369,12 @@
 			span_notice("You hear rustling."), 3)
 	if(victim.reagents.get_reagent_amount(/datum/reagent/toxin/acid/xeno_cum) >= 1)
 		victim.reagents.remove_all_type(/datum/reagent/toxin/acid/xeno_cum, 100)
-		victim.visible_message(span_green("Remaining acidic cum spills out from [victim]'s holes!"),
-				span_green("Remaining acidic cum spills out of your holes!"),
-				span_notice("You hear splashing."), 3)
+		victim.reagents.remove_all_type(/datum/reagent/toxin/acid/xeno_cum/sfw, 100)
+		var/flags = victim?.client.prefs.sex_pref_flags
+		if(!victim.client || flags & SEXPREF_TENTACLE_NEST)
+			victim.visible_message(span_green("Remaining acidic cum spills out from [victim]'s holes!"),
+					span_green("Remaining acidic cum spills out of your holes!"),
+					span_notice("You hear splashing."), 3)
 	qdel(src)
 
 /obj/structure/bed/nest/advanced/special
@@ -359,7 +383,7 @@
 	color = COLOR_VIOLET
 	resist_time = 15 SECONDS
 	capture_time = 10 SECONDS
-	cooldown_time = 6 SECONDS
+	cooldown_time = 20 SECONDS
 	max_integrity = 40
 
 //wall nest

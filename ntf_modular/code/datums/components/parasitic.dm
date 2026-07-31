@@ -81,30 +81,50 @@
 		target_hole = HOLE_ASS
 	if(fixed_hole)
 		target_hole = fixed_hole
-	if(COOLDOWN_FINISHED(src, implant_cooldown))
-		COOLDOWN_START(src, implant_cooldown, implant_delay)
-		if(!(wearer.status_flags & XENO_HOST))
-			wearer.visible_message(span_xenonotice("[parent] roughly thrusts a tentacle into [wearer]'s [target_hole], a round bulge visibly sliding through it as it inserts an egg into [wearer]!"),
-			span_xenonotice("[parent] roughly thrusts a tentacle into your [target_hole], a round bulge visibly sliding through it as it inserts an egg into you!"),
-			span_notice("You hear squelching."), 3)
-			playsound(wearer, 'ntf_modular/sound/misc/mat/endin.ogg', 50, TRUE, 5, ignore_walls = FALSE)
-			implant_embryo(wearer, target_hole, force_xenohive = hivenumber)
+	var/flags = wearer?.client.prefs.sex_pref_flags
+	if(!wearer.client || flags & SEXPREF_TENTACLE_NEST)
+		if(COOLDOWN_FINISHED(src, implant_cooldown))
+			COOLDOWN_START(src, implant_cooldown, implant_delay)
+			if(!(wearer.status_flags & XENO_HOST))
+				wearer.visible_message(span_xenonotice("[parent] roughly thrusts a tentacle into [wearer]'s [target_hole], a round bulge visibly sliding through it as it inserts an egg into [wearer]!"),
+				span_xenonotice("[parent] roughly thrusts a tentacle into your [target_hole], a round bulge visibly sliding through it as it inserts an egg into you!"),
+				span_notice("You hear squelching."), 3)
+				playsound(wearer, 'ntf_modular/sound/misc/mat/endin.ogg', 50, TRUE, 5, ignore_walls = FALSE)
+				implant_embryo(wearer, target_hole, force_xenohive = hivenumber)
+			else
+				wearer.visible_message(span_love("[parent]'s tentacle pumps globs slightly acidic cum into [wearer]'s [target_hole]!"),
+				span_love("[parent] tentacle pumps globs of slightly acidic cum into your [target_hole]!"),
+				span_love("You hear spurting."), 3)
+				playsound(wearer, 'ntf_modular/sound/misc/mat/endin.ogg', 50, TRUE, 5, ignore_walls = FALSE)
+			wearer.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno, 3)
+			wearer.reagents.add_reagent(/datum/reagent/toxin/acid/xeno_cum, 1)
+			if(wearer.reagents.get_reagent_amount(/datum/reagent/medicine/tricordrazine) < 4)
+				wearer.reagents.add_reagent(/datum/reagent/medicine/tricordrazine, 2)
+			if(wearer.reagents.get_reagent_amount(/datum/reagent/medicine/spaceacillin) < 2)
+				wearer.reagents.add_reagent(/datum/reagent/medicine/spaceacillin, 2)
 		else
-			wearer.visible_message(span_love("[parent]'s tentacle pumps globs slightly acidic cum into [wearer]'s [target_hole]!"),
-			span_love("[parent] tentacle pumps globs of slightly acidic cum into your [target_hole]!"),
-			span_love("You hear spurting."), 3)
-			playsound(wearer, 'ntf_modular/sound/misc/mat/endin.ogg', 50, TRUE, 5, ignore_walls = FALSE)
-		wearer.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno, 6)
-		wearer.reagents.add_reagent(/datum/reagent/toxin/acid/xeno_cum, 1)
-		if(wearer.reagents.get_reagent_amount(/datum/reagent/medicine/tricordrazine) < 4)
-			wearer.reagents.add_reagent(/datum/reagent/medicine/tricordrazine, 2)
-		if(wearer.reagents.get_reagent_amount(/datum/reagent/medicine/spaceacillin) < 2)
-			wearer.reagents.add_reagent(/datum/reagent/medicine/spaceacillin, 2)
-	else
-		wearer.visible_message(span_love("[parent] roughly thrusts a tentacle into [wearer]'s [target_hole]!"),
-		span_love("[parent] roughly thrusts a tentacle into your [target_hole]!"),
-		span_love("You hear squelching."), 3)
-		wearer.adjustStaminaLoss(2)
-		playsound(wearer, 'ntf_modular/sound/misc/mat/segso.ogg', 50, TRUE, 5, ignore_walls = FALSE)
-		wearer.sexcon.adjust_arousal(5)
-
+			wearer.visible_message(span_love("[parent] roughly thrusts a tentacle into [wearer]'s [target_hole]!"),
+			span_love("[parent] roughly thrusts a tentacle into your [target_hole]!"),
+			span_love("You hear squelching."), 3)
+			wearer.adjustStaminaLoss(2)
+			playsound(wearer, 'ntf_modular/sound/misc/mat/segso.ogg', 50, TRUE, 5, ignore_walls = FALSE)
+			wearer.sexcon.adjust_arousal(5)
+	else //snowflake normal way
+		if(COOLDOWN_FINISHED(src, implant_cooldown))
+			COOLDOWN_START(src, implant_cooldown, implant_delay)
+			if(!(wearer.status_flags & XENO_HOST))
+				wearer.visible_message(span_xenonotice("[parent] impales [wearer] with a sharp tentacle, implanting something!"),
+				span_xenonotice("[parent] impales you with a sharp tentacle, implanting something!"),
+				span_notice("You hear stabbing."), 1)
+			else
+				wearer.visible_message(span_love("[parent]'s tentacle injects acid into [wearer]!"),
+				span_love("[parent]'s injects a sizzling reagent into you!"),
+				span_love("You hear injecting."), 1)
+				wearer.reagents.add_reagent(/datum/reagent/consumable/nutriment/cum/xeno, 3)
+				wearer.reagents.add_reagent(/datum/reagent/toxin/acid/xeno_cum, 1)
+		else
+			wearer.visible_message(span_love("[parent] constraints [wearer]'s airway!"),
+			span_love("[parent] constraints your airway!"),
+			span_love("You hear choking."), 1)
+			wearer.adjustOxyLoss(1)
+			wearer.adjustStaminaLoss(2)

@@ -1,9 +1,9 @@
-Funny lewd modification of TGMC, i try to keep it updated to modern tgmc for as long as i can.
+Funny lewd modification of TGMC, we try to keep it updated to modern tgmc for as long as we can.
 
 
 <h1>
 
-TerraGov Marine Corps 
+NTF vs Alien
 [![Badge Issues]][Issues]
 [![Badge Time]][Time]
 
@@ -18,7 +18,8 @@ TerraGov Marine Corps 
 <br>
 
 ## Licensing
-
+This fork is a modification of https://github.com/tgstation/TerraGov-Marine-Corps
+<br>
 This fork is based on the `July 2018` version of **[ColonialMarines]** .
 
 <br>

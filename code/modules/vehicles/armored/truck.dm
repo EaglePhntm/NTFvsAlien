@@ -31,6 +31,9 @@
 
 /obj/vehicle/sealed/armored/multitile/mrap/Initialize(mapload)
 	. = ..()
+	//this cannot be purchased but comes with module ig
+	var/obj/item/tank_module/module = new /obj/item/tank_module/ability/tesla()
+	module.on_equip(src)
 
 /obj/vehicle/sealed/armored/multitile/mrap/setDir(newdir)
 	. = ..()

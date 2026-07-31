@@ -168,16 +168,28 @@
 		var/mob/living/carbon/C = affected_mob
 		C.med_hud_set_status()
 		affected_mob.jitter(stage * 5)
+	var/flags = affected_mob?.client.prefs.sex_pref_flags
 
 	switch(stage)
 		if(2)
 			if(prob(2))
-				to_chat(affected_mob, span_warning("[pick("You feel something in your [target_hole].", "You feel something in your [target_hole].")]."))
+				if(!affected_mob.client || flags & SEXPREF_FACEHUGGER_LEWD)
+					to_chat(affected_mob, span_warning("[pick("You feel something in your [target_hole].", "You feel something in your [target_hole].")]."))
+				else
+					to_chat(affected_mob, span_warning("[pick("Your chest hurts a little bit", "Your stomach hurts")]."))
 		if(3)
 			if(prob(2))
-				to_chat(affected_mob, span_warning("[pick("You feel something move inside your [target_hole].", "You feel something move in your [target_hole].")]."))
+				if(!affected_mob.client || flags & SEXPREF_FACEHUGGER_LEWD)
+					to_chat(affected_mob, span_warning("[pick("You feel something move inside your [target_hole].", "You feel something move in your [target_hole].")]."))
+				else
+					to_chat(affected_mob, span_warning("[pick("Your throat feels sore", "Mucous runs down the back of your throat")]."))
 			else if(prob(1))
-				to_chat(affected_mob, span_warning("Your [target_hole] aches a little."))
+				if(!affected_mob.client || flags & SEXPREF_FACEHUGGER_LEWD)
+					to_chat(affected_mob, span_warning("Your [target_hole] aches a little."))
+				else
+					to_chat(affected_mob, span_warning("Your muscles ache."))
+			else if(prob(2) && (affected_mob.client && !(flags & SEXPREF_FACEHUGGER_LEWD)))
+				affected_mob.emote("[pick("sneeze", "cough")]")
 		if(4)
 			if(prob(1))
 				if(!affected_mob.IsParalyzed())
@@ -185,7 +197,10 @@
 												span_danger("You start shaking uncontrollably!"))
 					affected_mob.jitter(105)
 			if(prob(2))
-				to_chat(affected_mob, span_warning("[pick("You feel something squirming inside your [target_hole]!.", "It becomes a bit difficult to breathe.")]."))
+				if(!affected_mob.client || flags & SEXPREF_FACEHUGGER_LEWD)
+					to_chat(affected_mob, span_warning("[pick("You feel something squirming inside your [target_hole]!.", "It becomes a bit difficult to breathe.")]."))
+				else
+					to_chat(affected_mob, span_warning("[pick("Your chest hurts badly", "It becomes difficult to breathe", "Your heart starts beating rapidly, and each beat is painful")]."))
 		if(5)
 			var/mob/living/carbon/xenomorph/larva/waiting_larva = locate() in affected_mob
 			if(!waiting_larva)
@@ -241,13 +256,18 @@
 		return
 
 	to_chat(src, span_danger("We start slithering out of [victim]!"))
-	if(!embryo || embryo.target_hole == HOLE_MOUTH)
+	var/flags = victim?.client.prefs.sex_pref_flags
+	if((!embryo || embryo.target_hole == HOLE_MOUTH) && (flags & SEXPREF_FACEHUGGER_LEWD))
 		playsound(victim, 'modular_skyrat/sound/weapons/gagging.ogg', 15, TRUE)
 	else
 		victim.emote_burstscream()
 	victim.Paralyze(15 SECONDS)
-	victim.visible_message("<span class='danger'>\The [victim] starts shaking uncontrollably!</span>", \
-								"<span class='danger'>You feel something wiggling in your [embryo?.target_hole]!</span>")
+	if(!victim.client || flags & SEXPREF_FACEHUGGER_LEWD)
+		victim.visible_message("<span class='danger'>\The [victim] starts shaking uncontrollably!</span>", \
+									"<span class='danger'>You feel something wiggling in your [embryo?.target_hole]!</span>")
+	else
+		victim.visible_message(span_danger("\The [victim] starts shaking uncontrollably!"), \
+									span_danger("You feel something ripping up your insides!"))
 	victim.jitter(150)
 
 	burst_timer = addtimer(CALLBACK(src, PROC_REF(burst), victim, embryo), 3 SECONDS, TIMER_STOPPABLE)
@@ -265,7 +285,11 @@
 	else
 		forceMove(get_turf(victim)) //moved to the turf directly so we don't get stuck inside a cryopod or another mob container.
 	playsound(src, pick('sound/voice/alien/chestburst.ogg','sound/voice/alien/chestburst2.ogg'), 10)
-	victim.visible_message("<span class='danger'>The Larva forces its way out of [victim]'s [embryo?.target_hole]!</span>")
+	var/flags = victim?.client.prefs.sex_pref_flags
+	if(!victim.client || flags & SEXPREF_FACEHUGGER_LEWD)
+		victim.visible_message("<span class='danger'>The Larva forces its way out of [victim]'s [embryo?.target_hole]!</span>")
+	else
+		victim.visible_message("<span class='danger'>The Larva bursts out of [victim]!</span>")
 	GLOB.round_statistics.total_larva_burst++
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "total_larva_burst")
 	if(istype(embryo))
@@ -314,16 +338,22 @@
 	if(ishuman(victim) && !(SSticker.mode.round_type_flags2 & MODE_2_CHILL_RULES))
 		var/mob/living/carbon/human/human_victim = victim
 		if(isxenohybrid(human_victim))
-			var/clone_damage = CHECK_BITFIELD(victim.restrained_flags, RESTRAINED_XENO_NEST) ? 5 : 10
+			var/clone_damage = CHECK_BITFIELD(victim.restrained_flags, RESTRAINED_XENO_NEST) ? 30 : 45 //would refrain from multiples but still less than everyone else
 			victim.adjustCloneLoss(clone_damage)
-			victim.visible_message(span_warning("[victim]'s hybrid body strains, but adapts to the larva's birth."))
+			if(!victim.client || flags & SEXPREF_FACEHUGGER_LEWD)
+				victim.visible_message(span_warning("[victim]'s hybrid body strains, but adapts to the larva's birth."))
+			else
+				victim.visible_message(span_warning("[victim]'s hybrid body strains, but resists some of the the trauma."))
 		else
 			if(victim.getCloneLoss() < 30)
 				victim.adjustCloneLoss(45)
 			if(!(CHECK_BITFIELD(victim.restrained_flags, RESTRAINED_XENO_NEST)) || issynth(victim)) //synth dont have cloneloss so only option is to outright kill them.
 				//victim.death(FALSE)
 				victim.adjustCloneLoss(75) //more if not nested
-			victim.visible_message(span_warning("[victim]'s body and hole are devastated by the birth."))
+			if(!victim.client || flags & SEXPREF_FACEHUGGER_LEWD)
+				victim.visible_message(span_warning("[victim]'s body and hole are devastated by the birth."))
+			else
+				victim.visible_message(span_warning("[victim]'s body is too devastated for any more use."))
 
 	if(((locate(/obj/structure/bed/nest) in loc) || loc_weeds_type) && !mind)
 		var/suitablesilo = FALSE

@@ -71,7 +71,9 @@
 
 /obj/effect/landmark/autowire/proc/autowire_begin()
 	sleep(5 SECONDS) //let shit settle
-	for(var/obj/structure/barricade/cade in loc.contents)
+	for(var/obj/structure/barricade/cade AS in loc.contents)
+		if(!istype(cade))
+			continue
 		if(!cade.is_wired && cade.can_wire)
 			cade.wire()
 	qdel(src)

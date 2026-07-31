@@ -487,13 +487,15 @@
 	var/temp_armor_integrity_mod = armor_integrity_mod
 	if(soft_armor)
 		var/proj_initial_penetration = proj.penetration
+		if(istype(proj.ammo, /datum/ammo/bullet) && proj.armor_type == BOMB) //usually this means its a squash head
+			proj_initial_penetration /= 3 //squash head is worthless against armor.
 		//this may look like double-sided pen adjustion but the integrity mod only changes the minimum integrity required to even NOT bounce off, this makes it actually go through the armor.
 		if(obj_integrity <= (max_integrity/2)) //50% integrity or less, now 1/4 needed to penetrate
 			temp_armor_integrity_mod ++
-			proj.penetration *= 1.5
+			proj_initial_penetration *= 1.5
 		if(obj_integrity <= max_integrity/4) //25% integrity or less, now 1/5 needed to penetrate
 			temp_armor_integrity_mod ++
-			proj.penetration *= 1.5
+			proj_initial_penetration *= 1.5
 		temp_armor_integrity_mod = max(1, temp_armor_integrity_mod) //cant divide by 0
 		if(proj_initial_penetration < (soft_armor.getRating(proj.ammo.armor_type) / temp_armor_integrity_mod) && prob(90))
 			proj.shot_from = src

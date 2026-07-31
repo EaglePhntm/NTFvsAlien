@@ -279,14 +279,15 @@
 	else
 		L.adjustStaminaLoss(applied_damage)
 	if(L.sexcon.arousal + arousal_to_add < (MAX_AROUSAL - 30))
-		L.sexcon.adjust_arousal(arousal_to_add)
-	else
+		if(flags & SEXPREF_APHRO)
+			L.sexcon.adjust_arousal(arousal_to_add)
+		else
+			L.adjustOxyLoss(max(1, arousal_to_add/8))
+	else //rest here shouldnt be relevant if pref is off
 		if(prob(5))
 			if(flags & SEXPREF_APHRO)
 				to_chat(L, span_warning("You HAVE to [L.gender==MALE ? "fuck!" : "get fucked!"] you are going crazy with need!") )
-			else
-				to_chat(L, span_warning("Your can hardly see, hardly think, you have to get rid of this toxin!") )
-			L.sexcon.adjust_arousal(5) //slow creep of cooming
+				L.sexcon.adjust_arousal(5) //slow creep of cooming
 	return ..()
 
 /// Called when the debuff's owner uses the Resist action for this debuff.

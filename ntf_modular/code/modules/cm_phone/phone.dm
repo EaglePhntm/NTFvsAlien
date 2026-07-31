@@ -140,6 +140,12 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 
 		var/id = target_phone.phone_id
 		var/num_id = 1
+		if(is_mainship_level(target_phone.z))
+			target_phone.phone_id = "(Ship) [target_phone.phone_id]"
+		if(is_antagmainship_level(target_phone.z))
+			target_phone.phone_id = "(Outer) [target_phone.phone_id]"
+		if(is_ground_level(target_phone.z))
+			target_phone.phone_id = "(Colony) [target_phone.phone_id]"
 		while(id in phone_list)
 			id = "[target_phone.phone_id] [num_id]"
 			num_id++

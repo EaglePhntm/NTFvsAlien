@@ -314,7 +314,7 @@
 	set category = "IC"
 	var/list/dat = list()
 	var/flags = client.prefs.sex_pref_flags
-	dat += "<center>Some of those that affect combat are purely visual/message changes that do not alter the function.</center>"
+	dat += "<center>Some of those are purely visual/message changes that do not alter the function, while some will cause have other negative effects instead of arousal etc.</center>"
 	if(flags & SEXPREF_BURSTSCREAMS)
 		dat += "<center>Larva burst screams : Enabled|<a href='?_src_=usr;sex_prefs_toggle_off=[SEXPREF_BURSTSCREAMS]'>Disable</a></center>"
 	else
@@ -324,9 +324,13 @@
 	else
 		dat += "<center>Aphrodisiacs : <a href='?_src_=usr;sex_prefs_toggle_on=[SEXPREF_APHRO]'>Enable</a>|Disabled</center>"
 	if(flags & SEXPREF_FACEHUGGER_LEWD)
-		dat += "<center>Lewd Facehuggers (Will go into rough sex territory, disabling will re-enable chestbursters.): Enabled|<a href='?_src_=usr;sex_prefs_toggle_off=[SEXPREF_FACEHUGGER_LEWD]'>Disable</a></center>"
+		dat += "<center>Lewd Facehuggers (Will go into rough sex territory, disabling will re-enable chestbursters.) : Enabled|<a href='?_src_=usr;sex_prefs_toggle_off=[SEXPREF_FACEHUGGER_LEWD]'>Disable</a></center>"
 	else
-		dat += "<center>Lewd Facehuggers (Will go into rough sex territory, disabling will re-enable chestbursters.): <a href='?_src_=usr;sex_prefs_toggle_on=[SEXPREF_FACEHUGGER_LEWD]'>Enable</a>|Disabled</center>"
+		dat += "<center>Lewd Facehuggers (Will go into rough sex territory, disabling will re-enable chestbursters.) : <a href='?_src_=usr;sex_prefs_toggle_on=[SEXPREF_FACEHUGGER_LEWD]'>Enable</a>|Disabled</center>"
+	if(flags & SEXPREF_TENTACLE_NEST)
+		dat += "<center>Lewd Tentacle Nests : Enabled|<a href='?_src_=usr;sex_prefs_toggle_off=[SEXPREF_FACEHUGGER_LEWD]'>Disable</a></center>"
+	else
+		dat += "<center>Lewd Tentacle Nests : <a href='?_src_=usr;sex_prefs_toggle_on=[SEXPREF_FACEHUGGER_LEWD]'>Enable</a>|Disabled</center>"
 	dat += "<center>--------------------------</center>"
 	if(flags & SEXPREF_ROUGH_SEX)
 		dat += "<center>Harm from rough/forceful sex : Enabled|<a href='?_src_=usr;sex_prefs_toggle_off=[SEXPREF_ROUGH_SEX]'>Disable</a></center>"

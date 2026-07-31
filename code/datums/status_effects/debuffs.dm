@@ -1169,3 +1169,8 @@
 	name = "Lifedrain"
 	desc = "Your life force transfers to xenos when they slash you!"
 	icon_state = "skullemoji"
+
+//ntf
+/datum/status_effect/facehugger_resistance
+	id = "facehugger_resistance"
+	duration = 10 SECONDS

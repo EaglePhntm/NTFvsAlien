@@ -69,7 +69,8 @@
 #define SEXPREF_FACEHUGGER_LEWD (1 << 6)
 #define SEXPREF_BURSTSCREAMS (1 << 7)
 #define SEXPREF_APHRO (1 << 8)
-#define SEXPREF_ALL ((1 << 9) - 1)
+#define SEXPREF_TENTACLE_NEST (1 << 9)
+#define SEXPREF_ALL ((1 << 10) - 1)
 
 #define VIOLATED_ALLOWED_TIME (10 MINUTES)
 
