@@ -392,6 +392,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	melee_weapons = SKILL_MELEE_WEAK
 	police = SKILL_POLICE_MP
 	chemistry = SKILL_CHEM_EXPERT
+	sex = SKILL_SEX_TRAINED
 
 /datum/skills/ai
 	name = "AI"
@@ -842,6 +843,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	large_vehicle = SKILL_LARGE_VEHICLE_VETERAN
 	mech = SKILL_MECH_TRAINED
 	chemistry = SKILL_CHEM_EXPERT
+	sex = SKILL_SEX_MASTER // I mean, they have max in everything, might as well, right?
 
 /* Deathsquad */
 /datum/skills/deathsquad
@@ -977,6 +979,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	rifles = SKILL_RIFLES_TRAINED
 	shotguns = SKILL_SHOTGUNS_TRAINED
 	heavy_weapons = SKILL_HEAVY_WEAPONS_TRAINED
+	sex = SKILL_SEX_MASTER // Grey Alien with a 'probing' gimmick? Uh, yeah, they'll probe you in more than one way.
 
 /datum/skills/skeleton
 	name = "Skeleton"
@@ -1046,22 +1049,26 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	smgs = SKILL_SMGS_TRAINED
 	heavy_weapons = SKILL_HEAVY_WEAPONS_DEFAULT
 	smartgun = SKILL_SMART_DEFAULT
+	sex = SKILL_SEX_TRAINED // You know, 'cause it's got ERP in the name?
 
 /datum/skills/prankster/boobookisser
 	name = "ERP Boo-boo Kisser"
 	medical = SKILL_MEDICAL_PRACTICED
 	surgery = SKILL_SURGERY_TRAINED
 	chemistry = SKILL_CHEM_EXPERT //prank require chemistry
+	sex = SKILL_SEX_TRAINED // See datum/skills/prankster
 
 /datum/skills/prankster/piethrower
 	name = "ERP Pie thrower"
 	heavy_weapons = SKILL_HEAVY_WEAPONS_TRAINED
+	sex = SKILL_SEX_TRAINED // See datum/skills/prankster
 
 /datum/skills/prankster/masterprankster
 	name = "ERP Master Prankster"
 	construction = SKILL_CONSTRUCTION_PLASTEEL
 	engineer = SKILL_ENGINEER_PLASTEEL
 	leadership = SKILL_LEAD_EXPERT
+	sex = SKILL_SEX_TRAINED // See datum/skills/prankster
 
 /datum/skills/doctor/ripperdoc
 	unarmed = SKILL_UNARMED_WEAK
@@ -1072,3 +1079,4 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	chemistry = SKILL_CHEM_EXPERT
 	construction = SKILL_CONSTRUCTION_METAL
 	engineer = SKILL_ENGINEER_ENGI
+	sex = SKILL_SEX_TRAINED // If they're good at messing with the guts inside and outside of you, they shouldn't have any issues with messing with them in other ways.
