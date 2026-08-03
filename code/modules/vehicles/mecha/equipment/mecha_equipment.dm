@@ -202,11 +202,11 @@
 	log_message("[src] initialized.", LOG_MECHA)
 
 #warn to-do: \
-	add equipment sprites,   \
-	add damage processing for components,   \
+	add equipment sprites,  Done? \
+	add damage processing for components, 50% done?  \
 	complete flipping/terrain handling,   \
 	complete hatch handling,  Done? \
-	complete engine logic,   \
+	complete engine logic, 50% done?  \
 	add tank interactions,   \
 	change wreck states, \
 	add exosuit head benefits (like weapon upgrades) \

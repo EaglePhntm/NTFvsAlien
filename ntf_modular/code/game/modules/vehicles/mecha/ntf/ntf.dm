@@ -48,8 +48,6 @@
 	var/pilot_coverage = 100
 	var/list/pilot_overlays
 
-	var/obj/item/mecha_parts/exosuit_engine/engine
-
 	var/obj/item/mecha_parts/mecha_pieces/mecha_body/body
 	var/obj/item/mecha_parts/mecha_pieces/mecha_head/head
 	var/obj/item/mecha_parts/mecha_pieces/mecha_legs/legs
@@ -58,11 +56,13 @@
 /obj/vehicle/sealed/mecha/ntf/generate_actions()
 	initialize_passenger_action_type(/datum/action/vehicle/sealed/mecha/mech_eject)
 	initialize_controller_action_type(/datum/action/vehicle/sealed/mecha/mech_toggle_internals, VEHICLE_CONTROL_SETTINGS)
-	initialize_controller_action_type(/datum/action/vehicle/sealed/mecha/mech_toggle_lights, VEHICLE_CONTROL_SETTINGS)
+	initialize_controller_action_type(/datum/action/vehicle/sealed/mecha/mech_toggle_lights/exosuit, VEHICLE_CONTROL_SETTINGS)
 	initialize_controller_action_type(/datum/action/vehicle/sealed/mecha/mech_view_stats, VEHICLE_CONTROL_SETTINGS)
 	initialize_controller_action_type(/datum/action/vehicle/sealed/mecha/strafe, VEHICLE_CONTROL_DRIVE)
 	initialize_controller_action_type(/datum/action/vehicle/sealed/mecha/reload, VEHICLE_CONTROL_EQUIPMENT)
 	initialize_controller_action_type(/datum/action/vehicle/sealed/mecha/toggle_power, VEHICLE_CONTROL_DRIVE)
+	initialize_controller_action_type(/datum/action/vehicle/sealed/mecha/increase_revs, VEHICLE_CONTROL_DRIVE)
+	initialize_controller_action_type(/datum/action/vehicle/sealed/mecha/decrease_revs, VEHICLE_CONTROL_DRIVE)
 
 /obj/vehicle/sealed/mecha/ntf/handle_atom_del(atom/A)
 	. = ..()
@@ -75,15 +75,6 @@
 	.=..()
 	set_jump_component()
 	mecha_update_components()
-	add_engine()
-
-/obj/vehicle/sealed/mecha/ntf/proc/add_engine(obj/item/mecha_parts/exosuit_engine/engine_add)
-	QDEL_NULL(engine)
-	if(engine_add)
-		engine_add.forceMove(src)
-		engine = engine_add
-		return
-	engine = new /obj/item/mecha_parts/exosuit_engine(src)
 
 /obj/vehicle/sealed/mecha/ntf/proc/set_jump_component(duration = 0.2 SECONDS, cooldown = 1 SECONDS, cost = 8, height = 8, sound = null, flags = JUMP_SHADOW, jump_pass_flags = null)
 	var/list/arg_list = list(duration, cooldown, cost, height, sound, flags, jump_pass_flags)
@@ -115,10 +106,10 @@
 		take_damage(burn_level, FIRE)
 
 #warn sort these procs out properly
-
+/*
 /obj/vehicle/sealed/mecha/ntf/use_power(amount)
 	return (get_charge() && cell.use(amount))
-
+*/
 /obj/vehicle/sealed/mecha
 	///Whether or not adding a DNA is possible
 	var/can_dna_lock = TRUE
@@ -141,7 +132,7 @@
 	..()
 
 /obj/vehicle/sealed/mecha/ntf/proc/is_engine_running()
-	return engine?.is_active()
+	return body.engine?.is_active()
 
 /obj/vehicle/sealed/mecha/nft/remove_occupant(mob/M)
 	REMOVE_TRAIT(M, TRAIT_EXOSUIT_NV, VEHICLE_TRAIT)

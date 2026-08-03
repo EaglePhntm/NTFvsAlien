@@ -7,9 +7,10 @@
 
 /obj/vehicle/sealed/mecha/ntf/proc/wreck_mecha()
 	completely_disabled = TRUE
-//	soft_armor = body.wrecked_profile.soft_armor
+	var/datum/wrecked_body/W = new body.wrecked_profile()
+	soft_armor = W.soft_armor
 	density = FALSE
 	anchored = FALSE
 	construction_state = MECHA_OPEN_HATCH
 	mecha_flags |= MECHA_IS_WRECK
-	obj_integrity = body.wreck_health
+//	obj_integrity = body.wreck_health

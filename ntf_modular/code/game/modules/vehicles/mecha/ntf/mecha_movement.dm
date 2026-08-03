@@ -1,10 +1,12 @@
 /obj/vehicle/sealed/mecha/ntf/vehicle_move(mob/living/user, direction, forcerotate = FALSE)
-	. = ..()
-	if(!.)
-		return
 	if(is_flipped) // NTF Edit
 		return FALSE
+	if(!is_engine_running())
+		balloon_alert(user, "engine off!")
+		return FALSE
+	.=..()
 
+/*
 	if(dir != direction && (!strafe || forcerotate || keyheld))
 		// remove diag dirs so it doesnt fuck up any directional stuff
 		var/dir_to_set = ISDIAGONALDIR(direction) ? (direction & ~(NORTH|SOUTH)) : direction
@@ -24,3 +26,4 @@
 		use_power(phasing_energy_drain)
 	if(strafe)
 		setDir(olddir)
+*/

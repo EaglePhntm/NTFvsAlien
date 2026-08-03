@@ -711,10 +711,31 @@
 		return TRUE
 	switch(power_status)
 		if(IGNITION_OFF)
+			turn_off_aux()
 			return FALSE
 		if(IGNITION_AUX, IGNITION_ENGINE)
-			return TRUE
-	return FALSE
+			return power_status
+		else
+			return FALSE
+
+/obj/vehicle/sealed/mecha/proc/turn_off_aux()
+	if(mecha_flags & LIGHTS_ON)
+		for(var/mob/mobee AS in occupant_actions)
+			var/action = /datum/action/vehicle/sealed/mecha/mech_toggle_lights/exosuit
+			var/datum/action/vehicle/sealed/mecha/mech_toggle_lights/exosuit/headlights = occupant_actions[mobee][action]
+			if(!mobee)
+				continue
+			headlights.action_activate(NONE)
+			break
+
+	if(light_amplification)
+		for(var/mob/mobee AS in occupant_actions)
+			var/action = /datum/action/vehicle/sealed/mecha/light_amplification
+			var/datum/action/vehicle/sealed/mecha/light_amplification/nvgs = occupant_actions[mobee][action]
+			if(!mobee)
+				continue
+			nvgs.action_activate(NONE)
+			break
 
 /////////////////////////
 ////// Access stuff /////

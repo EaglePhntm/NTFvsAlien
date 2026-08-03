@@ -149,6 +149,8 @@
 ///Amount added to move_delay by EMP
 #define MECH_EMP_SLOWDOWN 1
 
+/// EXOSUITS BELOW HERE
+
 /// Prevents overpenetrating through the mecha and into the cockpit using an armour penetrating weapon
 #define CANNOT_OVERPENETRATE (1<<13)
 
@@ -226,3 +228,20 @@
 #define IGNITION_OFF 1
 #define IGNITION_AUX 2
 #define IGNITION_ENGINE 3
+
+#define FUEL_PER_CAN_POUR 100
+
+#define REVS_OFF 0
+#define REVS_LOW 200
+#define REVS_MID 600 // Watts?
+#define REVS_HIGH 1200
+
+#define OUTPUT_MECH "mech_output"
+#define OUTPUT_WALL "wall_output"
+
+// Body hardpoints
+
+#define HARDPOINT_BACK "back"
+#define HARDPOINT_LEFT_SHOULDER "left shoulder"
+#define HARDPOINT_RIGHT_SHOULDER "right shoulder"
+#define HARDPOINT_HEAD "head"

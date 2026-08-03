@@ -18,12 +18,13 @@
 	var/required_power_level = IGNITION_AUX
 
 /obj/item/mecha_parts/mecha_equipment/action_checks(atom/target, ignore_cooldown = FALSE)
-	if(!chassis.check_power())
+	var/current_power = chassis.check_power(chassis.power_status)
+	if(!current_power)
 		for(var/occupant in chassis.occupants)
-			chassis.balloon_alert(occupant, "No power")
-			return
-	if(chassis.check_power() < required_power_level)
+			balloon_alert(occupant, "No power")
+		return
+	if(current_power < required_power_level)
 		for(var/occupant in chassis.occupants)
-			chassis.balloon_alert(occupant, "insufficient power")
-			return
+			balloon_alert(occupant, "Insufficient power")
+		return
 	.=..()

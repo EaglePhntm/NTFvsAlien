@@ -30,3 +30,27 @@
 	else
 		to_chat(user, span_notice("You stop exiting the mech. Weapons are enabled again."))
 	is_currently_ejecting = FALSE
+
+/obj/vehicle/sealed/mecha/ntf/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/reagent_containers/jerrycan))
+		var/obj/item/reagent_containers/jerrycan/gascan = I
+		if(!body)
+			return
+		for(var/obj/item/mecha_parts/exosuit_engine/egnine as anything in body)
+			if(body.engine.is_electric)
+				balloon_alert(user, "doesn't take fuel!")
+				return
+			if(gascan.reagents.total_volume == 0)
+				balloon_alert(user, "no fuel!")
+				return
+			if(body.engine.fuel_amount >= body.engine.fuel_max)
+				balloon_alert(user, "full!")
+				return
+
+		var/fuel_transfer_amount = min(gascan.fuel_usage*2, gascan.reagents.total_volume)
+		gascan.reagents.remove_reagent(/datum/reagent/fuel, fuel_transfer_amount)
+		body.engine.fuel_amount = min(body.engine.fuel_amount + FUEL_PER_CAN_POUR, body.engine.fuel_max)
+		playsound(loc, 'sound/effects/refill.ogg', 25, 1, 3)
+		balloon_alert(user, "[body.engine.fuel_amount/body.engine.fuel_max*100]%")
+		return TRUE
+	return ..()

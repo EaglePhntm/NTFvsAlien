@@ -1,16 +1,24 @@
 /datum/looping_sound/exosuit_engine_fuel/sound_loop
 	start_sound = null
 	start_length = 0
-	mid_sounds = list('sound/mecha/engine/engine_running.ogg'=1, 'sound/mecha/engine/engine_running.ogg'=1, 'sound/mecha/engine/engine_running.ogg'=1)
-	mid_length = 4
+	mid_sounds = list('sound/mecha/engine/engine_running.ogg'=1)
+	mid_length = 1 // 2.5
 	end_sound = null
 	volume = 15
 
 /datum/looping_sound/exosuit_engine_electric/sound_loop
 	start_sound = null
 	start_length = 0
-	mid_sounds = list('sound/machines/generator/generator_mid1.ogg'=1, 'sound/machines/generator/generator_mid2.ogg'=1, 'sound/machines/generator/generator_mid3.ogg'=1)
-	mid_length = 4
+	mid_sounds = list('sound/mecha/engine/engine_electric.ogg'=1)
+	mid_length = 2 // 4
+	end_sound = null
+	volume = 3
+
+/datum/looping_sound/exosuit_engine_fuel_high/sound_loop
+	start_sound = null
+	start_length = 0
+	mid_sounds = list('sound/mecha/engine/engine_high.ogg'=1)
+	mid_length = 1 // 1.8
 	end_sound = null
 	volume = 15
 
@@ -60,3 +68,20 @@
 
 /datum/wrecked_body/heavy
 	soft_armor = list(MELEE = 25, BULLET = 10, LASER = 5, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 10, ACID = 10)
+
+/obj/vehicle/sealed/mecha/ntf/use_power(amount)
+	return use_engine_power(amount)
+
+/obj/vehicle/sealed/mecha/ntf/proc/use_engine_power(amount)
+	if(!isexosuit(src))
+		return TRUE
+	if(!body?.engine)
+		return FALSE
+	return body.engine.use_power(amount)
+
+/obj/vehicle/sealed/mecha/ntf/proc/has_power(amount)
+	if(!isexosuit(src))
+		return TRUE
+	if(!body?.engine)
+		return FALSE
+	return body.engine.has_power(amount)

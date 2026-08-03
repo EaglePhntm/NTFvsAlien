@@ -22,6 +22,33 @@
 	mech_flags = EXOSUIT_MODULE_NTF|EXOSUIT_MODULE_COMBAT
 	max_fuel = 50000
 	rechargerate = 15
+	var/is_battery = FALSE
+
+/obj/item/mecha_parts/mecha_equipment/generator/exosuit/Initialize(mapload)
+	.=..()
+	if(is_battery)
+		fuel = max_fuel
+
+/obj/item/mecha_parts/mecha_equipment/generator/exosuit/process()
+	if(!isexosuit(chassis))
+		return
+	var/obj/vehicle/sealed/mecha/ntf/exosuit
+	if(exosuit.body.engine)
+		exosuit.body.engine.engine_power_pool.give(rechargerate)
+	.=..()
+
+/obj/item/mecha_parts/mecha_equipment/generator/exosuit/battery
+	name = "battery generator"
+	icon_state = "phoron_engine_small"
+	equipment_slot = MECHA_UTILITY // Uses a utility slot, for balance.
+	desc = "A storage battery, fitted to be mounted to a exosuit."
+	mech_flags = EXOSUIT_MODULE_NTF|EXOSUIT_MODULE_COMBAT
+	max_fuel = 7500
+	rechargerate = 30
+
+/obj/item/mecha_parts/mecha_equipment/generator/exosuit/battery/proc/give_power(amount)
+	if(fuel < max_fuel)
+		fuel += clamp(amount, fuel, max_fuel)
 
 /obj/item/mecha_parts/mecha_equipment/ability/smoke/cloak_smoke/exosuit
 	name = "smoke generator"

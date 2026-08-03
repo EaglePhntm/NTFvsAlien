@@ -17,6 +17,10 @@
 	var/extra_overlays = FALSE
 	var/list/inserted_materials
 
+	var/power_usage = 0
+
+	var/hardpoints = list(HARDPOINT_RIGHT_SHOULDER, HARDPOINT_LEFT_SHOULDER, HARDPOINT_HEAD, HARDPOINT_BACK)
+
 /obj/item/mecha_parts/mecha_pieces/New()
 	.=..()
 	if(sensors_profile)
@@ -75,6 +79,11 @@
 	icon_state = "[base_icon_state]-broken"
 	if(is_attached)
 		chassis.update_icon()
+
+///obj/item/mecha_parts/mecha_pieces/process()
+//	var/obj/vehicle/sealed/mecha/ntf/ntf_chassis
+//	if(power_usage && ntf_chassis.use_engine_power(power_usage))
+//
 
 /obj/item/mecha_parts/mecha_pieces/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	if(!is_functional)
