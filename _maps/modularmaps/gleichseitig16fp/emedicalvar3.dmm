@@ -534,6 +534,12 @@
 	},
 /turf/open/floor/prison/sterilewhite,
 /area/gleichseitig16/indoors/east/calderacryogen)
+"xT" = (
+/obj/structure/nuke_disk_candidate{
+	set_associations = list("set6")
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
 "yP" = (
 /turf/open/urban/street/sidewalk{
 	dir = 5
@@ -2261,7 +2267,7 @@ Kl
 fy
 MO
 PI
-OQ
+xT
 Kl
 Kl
 xi
