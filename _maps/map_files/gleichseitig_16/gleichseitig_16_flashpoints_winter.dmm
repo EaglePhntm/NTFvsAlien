@@ -23787,9 +23787,9 @@
 	dir = 4
 	},
 /obj/structure/prop/urban/vehicles/large/mega_hauler_truck/brown{
-	dir = 8;
+	dir = 4;
 	icon = 'icons/obj/structures/ehrmanrepublicstrain.dmi';
-	icon_state = "kh";
+	icon_state = "khalt";
 	name = "K&H cargo platform";
 	desc = "It's not going anywhere with these lockdown shutters in place.";
 	pixel_y = 6
@@ -26135,7 +26135,7 @@
 	dir = 4
 	},
 /obj/structure/prop/urban/vehicles/large/mega_hauler_truck/brown{
-	dir = 8;
+	dir = 4;
 	icon = 'icons/obj/structures/ehrmanrepublicstrain.dmi';
 	icon_state = "passenger";
 	name = "passenger carriage";
