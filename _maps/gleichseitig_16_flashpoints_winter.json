@@ -1,0 +1,21 @@
+{
+    "map_name": "Gleichseitig 16 Flashpoints Winter",
+    "map_path": "map_files/Gleichseitig_16",
+    "map_file": "Gleichseitig_16_Flashpoints_Winter.dmm",
+	"disk_sets": {
+		"set1": 1,
+		"set2": 1,
+		"set31": 1,
+		"set4": 1,
+		"set5": 1,
+		"set6": 1
+	},
+	"quickbuilds": 2700,
+	"armor": "urban",
+	"announce_text": "The Central Parliament of the Ehrman Steadfast Republics ruled in favor of SOL-FED intervention to quell a contention zone. Be advised that your area of operation may contain hostiles of Imladrisean, Volkronen and XX-121 backgrounds. Every confirmed kill or capture will be rewarded by the Ehrman Republic Military. Gear up and prepare to deploy, the weather forecast reports blizzards!",
+	"traits":[{
+		"weather_snowstorm": true,
+		"No Parallax": true,
+		"Baseturf": "/turf/open/floor/plating"
+	}]
+}
