@@ -1,0 +1,148 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/three)
+"c" = (
+/obj/structure/bed/chair,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/three)
+"d" = (
+/obj/structure/bed/bedroll,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/three)
+"g" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/three)
+"h" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/three)
+"n" = (
+/obj/effect/spawner/random/misc/structure/supplycrate/secure_supplies,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/three)
+"p" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 1
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/three)
+"t" = (
+/obj/machinery/door/poddoor/shutters/mainship/hangar{
+	dir = 1;
+	id = "wunionstorage3";
+	name = "\improper West Industrial Union Storage 3"
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/three)
+"H" = (
+/obj/effect/spawner/random/misc/structure/supplycrate,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/three)
+"I" = (
+/obj/effect/spawner/random/misc/structure/supplycrate,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/three)
+"L" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/three)
+"N" = (
+/obj/structure/table/reinforced/prison,
+/obj/effect/spawner/random/food_or_drink/drink_alcohol_bottle{
+	pixel_x = -10
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_y = 1;
+	pixel_x = 10
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_y = 8;
+	pixel_x = 1
+	},
+/obj/item/toy/deck,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/three)
+"P" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/northwest/wstorageunits/three)
+"R" = (
+/obj/machinery/door_control{
+	id = "wunionstorage3";
+	name = "West Industrial Union Storage 3";
+	dir = 1
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/three)
+"Y" = (
+/obj/structure/largecrate/random/case/double,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/three)
+
+(1,1,1) = {"
+P
+P
+P
+P
+P
+P
+"}
+(2,1,1) = {"
+P
+Y
+c
+N
+h
+P
+"}
+(3,1,1) = {"
+t
+a
+a
+a
+g
+p
+"}
+(4,1,1) = {"
+t
+g
+a
+a
+R
+P
+"}
+(5,1,1) = {"
+t
+a
+a
+a
+a
+P
+"}
+(6,1,1) = {"
+t
+a
+a
+g
+d
+P
+"}
+(7,1,1) = {"
+P
+H
+I
+L
+n
+P
+"}

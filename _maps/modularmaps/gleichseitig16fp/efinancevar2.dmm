@@ -1,0 +1,1335 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aA" = (
+/obj/machinery/light,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"aG" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"aJ" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southeast/alleys)
+"bu" = (
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/southeast/meierbank)
+"bx" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/parking)
+"bL" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 8;
+	name = "\improper Meier Bank"
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"co" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southeast/meierbank)
+"cH" = (
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/alleys)
+"dK" = (
+/obj/structure/closet/secure_closet{
+	name = "safe deposit locker"
+	},
+/obj/item/stack/sheet/mineral/gold,
+/obj/item/card/credstick,
+/obj/item/card/credstick,
+/obj/item/research_product/money/common,
+/obj/item/research_product/money/basic,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"dV" = (
+/turf/open/floor/urban/carpet/carpetbeigedeco,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"ef" = (
+/obj/effect/urban/decal/road/lines5{
+	pixel_y = 20
+	},
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"fi" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/carpet/carpetblack,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"fr" = (
+/obj/machinery/vending/snack,
+/turf/open/floor/tan,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"fS" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"fX" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/iron/dark/diagonal,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"gh" = (
+/obj/machinery/light,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"gx" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/turf/open/floor/tan,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"gA" = (
+/obj/structure/bed/chair/office/dark,
+/turf/open/floor/iron/dark/diagonal,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"gL" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/item/newspaper,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/tan,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"hl" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 4
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southeast/meierbank)
+"hp" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetbeigedeco,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"hr" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/carpet/carpetblack,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"hw" = (
+/obj/machinery/light,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southeast/meierbank)
+"iG" = (
+/obj/machinery/vending/coffee,
+/turf/open/floor/tan,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"jb" = (
+/obj/machinery/vending/cola,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southeast/meierbank)
+"jJ" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/tile/red/whitered/full{
+	color = "#afebff"
+	},
+/area/gleichseitig16/indoors/southeast/meierbank)
+"jY" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/alleys)
+"ke" = (
+/obj/structure/prop/urban/misc/atm{
+	pixel_x = 6;
+	name = "\improper EHR-COMMERCE Automatic Teller Machine"
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southeast/meierbank)
+"kB" = (
+/obj/structure/table/reinforced,
+/obj/item/flashlight/lamp/green,
+/turf/open/floor/urban/carpet/carpetbeigedeco,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"kD" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/mainship/maint{
+	dir = 2;
+	req_one_access = null
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"kT" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper Meier Bank"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"lg" = (
+/obj/structure/filingcabinet/nondense{
+	pixel_x = -8;
+	pixel_y = 21
+	},
+/obj/structure/filingcabinet/nondense{
+	pixel_x = 8;
+	pixel_y = 21
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/tile/red/whitered/full{
+	color = "#afebff"
+	},
+/area/gleichseitig16/indoors/southeast/meierbank)
+"li" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/iron/dark/diagonal,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"lD" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	name = "\improper Teller Booths";
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"ma" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/tan,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"mc" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/drained{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"mj" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/alleys)
+"ms" = (
+/obj/structure/table/reinforced,
+/obj/machinery/computer/pod/old{
+	name = "Credit Union Systems"
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/diagonal,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"nc" = (
+/obj/structure/platform/rockcliff/icycliff{
+	dir = 10;
+	density = 0
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southeast/meierbank)
+"nQ" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/mainship/generic{
+	pixel_x = 3
+	},
+/turf/open/floor/tan,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"of" = (
+/obj/structure/bed/chair/comfy,
+/turf/open/floor/tan,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"ot" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/storage/box/lights/mixed,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"oE" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"oF" = (
+/obj/effect/urban/decal/road/lines5{
+	pixel_y = 20
+	},
+/obj/machinery/light,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/parking)
+"oI" = (
+/obj/structure/filingcabinet/nondense{
+	pixel_x = -8;
+	pixel_y = 21
+	},
+/obj/structure/filingcabinet/nondense{
+	pixel_x = 8;
+	pixel_y = 21
+	},
+/turf/open/floor/urban/carpet/carpetbeigedeco,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"oN" = (
+/obj/machinery/door/airlock/mainship/generic{
+	pixel_x = 3;
+	dir = 1
+	},
+/turf/open/floor/tan,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"oV" = (
+/obj/structure/closet/secure_closet{
+	name = "safe deposit locker"
+	},
+/obj/item/stack/sheet/mineral/gold,
+/obj/item/card/credstick,
+/obj/item/research_product/money/common,
+/obj/item/research_product/money/basic,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"oW" = (
+/obj/structure/cable,
+/turf/open/floor/tan,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"py" = (
+/obj/structure/platform/rockcliff/icycliff{
+	dir = 9;
+	density = 0
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southeast/meierbank)
+"pJ" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/parking)
+"qc" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 8;
+	name = "\improper Meier Bank Office 1"
+	},
+/turf/open/floor/urban/carpet/carpetbeigedeco,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"qw" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/computer3/laptop,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"qN" = (
+/obj/structure/janitorialcart,
+/obj/item/tool/mop,
+/obj/item/tool/wet_sign{
+	pixel_y = -6
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/light/small,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"rI" = (
+/obj/structure/bed/chair/comfy{
+	dir = 1
+	},
+/turf/open/floor/tan,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"sg" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/diagonal,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"sh" = (
+/turf/open/floor/urban/carpet/carpetblack,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"sx" = (
+/obj/machinery/vending/cigarette,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southeast/meierbank)
+"sG" = (
+/obj/structure/platform/rockcliff/icycliff{
+	dir = 6;
+	density = 0
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southeast/meierbank)
+"ti" = (
+/turf/open/floor/iron/dark/diagonal,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"tj" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetbeigedeco,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"tG" = (
+/obj/machinery/light,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/carpet/carpetblack,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"tV" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/tile/red/whitered/full{
+	color = "#afebff"
+	},
+/area/gleichseitig16/indoors/southeast/meierbank)
+"ub" = (
+/turf/open/floor/tan,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"ue" = (
+/obj/structure/closet/secure_closet{
+	name = "safe deposit locker"
+	},
+/obj/item/stack/sheet/mineral/gold,
+/obj/item/card/credstick,
+/obj/item/card/credstick,
+/obj/item/research_product/money/uncommon,
+/obj/item/research_product/money/basic,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"uD" = (
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"uK" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southeast/basketball)
+"uM" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/tan,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"vn" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southeast/alleys)
+"vF" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/southeast/alleys)
+"zc" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 8;
+	name = "\improper Meier Bank Office 2"
+	},
+/turf/open/floor/urban/carpet/carpetbeigedeco,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"zV" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/iron/dark/diagonal,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"Ay" = (
+/obj/effect/urban/decal/road/lines5{
+	pixel_y = 20
+	},
+/obj/effect/spawner/random/misc/structure/large/car,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/parking)
+"Bw" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southeast/alleys)
+"BD" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/tan,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"CA" = (
+/obj/structure/closet/secure_closet{
+	name = "safe deposit locker"
+	},
+/obj/item/clothing/tie/medal/letter/commendation{
+	name = "family will";
+	desc = "A letter printed on cardstock often filled with statements of who receives the belongings of the deceased."
+	},
+/obj/item/card/credstick,
+/obj/item/research_product/money/uncommon,
+/obj/item/research_product/money/basic,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"Dv" = (
+/obj/structure/closet/secure_closet{
+	name = "safe deposit locker"
+	},
+/obj/item/clothing/tie/medal/letter/commendation{
+	name = "family will";
+	desc = "A letter printed on cardstock often filled with statements of who receives the belongings of the deceased."
+	},
+/obj/item/card/credstick,
+/obj/item/card/credstick,
+/obj/item/research_product/money/basic,
+/obj/item/research_product/money/uncommon,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"DC" = (
+/obj/structure/platform/rockcliff/icycliff{
+	dir = 5;
+	density = 0
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southeast/meierbank)
+"DG" = (
+/obj/machinery/light/small,
+/turf/open/floor/iron/dark/diagonal,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"DJ" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/item/moneybag/vault,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"DR" = (
+/obj/structure/table/reinforced,
+/obj/structure/prop/mainship/gelida/register{
+	dir = 1;
+	name = "money counter";
+	desc = "An antique cash counter, it's used to measure cash to be distributed to bank patrons."
+	},
+/turf/open/floor/iron/dark/diagonal,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"Eq" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southeast/meierbank)
+"Et" = (
+/obj/effect/urban/decal/road/lines5{
+	pixel_y = 20
+	},
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/parking)
+"Fz" = (
+/obj/structure/table/reinforced,
+/obj/machinery/computer/emails{
+	density = 0
+	},
+/turf/open/floor/urban/carpet/carpetbeigedeco,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"FL" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/diagonal,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"Gz" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southeast/basketball)
+"GL" = (
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"GP" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"GU" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/tile/red/whitered/full{
+	color = "#afebff"
+	},
+/area/gleichseitig16/indoors/southeast/meierbank)
+"HA" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/alleys)
+"HS" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/turf/open/floor/tile/red/whitered/full{
+	color = "#afebff"
+	},
+/area/gleichseitig16/indoors/southeast/meierbank)
+"Ig" = (
+/obj/structure/cable,
+/turf/open/floor/urban/carpet/carpetblack,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"IL" = (
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"IQ" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"IT" = (
+/obj/structure/filingcabinet/nondense{
+	pixel_x = -8;
+	pixel_y = 21
+	},
+/obj/structure/filingcabinet/nondense{
+	pixel_x = 8;
+	pixel_y = 21
+	},
+/turf/open/floor/tile/red/whitered/full{
+	color = "#afebff"
+	},
+/area/gleichseitig16/indoors/southeast/meierbank)
+"Jc" = (
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/southeast/alleys)
+"Ke" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/item/newspaper,
+/turf/open/floor/tan,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"KI" = (
+/obj/effect/urban/decal/road/lines5{
+	pixel_y = 20
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/parking)
+"Ml" = (
+/obj/machinery/light,
+/turf/open/floor/urban/carpet/carpetbeigedeco,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"MT" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"Nm" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 8
+	},
+/turf/open/floor/tile/red/whitered/full{
+	color = "#afebff"
+	},
+/area/gleichseitig16/indoors/southeast/meierbank)
+"ND" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/tan,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"NO" = (
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"NW" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/southeast/meierbank)
+"Oj" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	name = "\improper Vault"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"Ok" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/diagonal,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"OM" = (
+/obj/structure/platform/rockcliff/icycliff{
+	dir = 5;
+	density = 0
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southeast/meierbank)
+"Pt" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	name = "\improper Meier Bank"
+	},
+/turf/open/floor/iron/dark/diagonal,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"QE" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/iron/dark/diagonal,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"QT" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"RE" = (
+/obj/machinery/recharger,
+/obj/structure/table/reinforced,
+/turf/open/floor/tile/red/whitered/full{
+	color = "#afebff"
+	},
+/area/gleichseitig16/indoors/southeast/meierbank)
+"Sb" = (
+/obj/structure/closet/secure_closet{
+	name = "safe deposit locker"
+	},
+/obj/item/clothing/tie/medal/letter/commendation{
+	name = "family will";
+	desc = "A letter printed on cardstock often filled with statements of who receives the belongings of the deceased."
+	},
+/obj/item/research_product/money/basic,
+/obj/item/research_product/money/common,
+/obj/item/research_product/money/basic,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"SH" = (
+/obj/structure/closet/secure_closet{
+	name = "safe deposit locker"
+	},
+/obj/item/stack/sheet/mineral/gold,
+/obj/item/card/credstick,
+/obj/item/card/credstick,
+/obj/item/research_product/money/rare,
+/obj/item/research_product/money/basic,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"SU" = (
+/turf/open/floor/tile/red/whitered/full{
+	color = "#afebff"
+	},
+/area/gleichseitig16/indoors/southeast/meierbank)
+"SX" = (
+/obj/structure/platform/rockcliff/icycliff{
+	density = 0
+	},
+/obj/structure/flora/tree/dead{
+	density = 0;
+	pixel_y = 24
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southeast/meierbank)
+"Tw" = (
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/southeast/alleys)
+"TU" = (
+/obj/structure/platform/rockcliff/icycliff{
+	dir = 1;
+	density = 0
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southeast/meierbank)
+"UG" = (
+/obj/structure/closet/secure_closet{
+	name = "safe deposit locker"
+	},
+/obj/item/card/credstick,
+/obj/item/card/credstick,
+/obj/item/research_product/money/uncommon,
+/obj/item/research_product/money/common,
+/obj/item/research_product/money/basic,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"VN" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/southeast/alleys)
+"WH" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/tile/red/whitered/full{
+	color = "#afebff"
+	},
+/area/gleichseitig16/indoors/southeast/meierbank)
+"XJ" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/parking)
+"XM" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southeast/meierbank)
+"Yp" = (
+/obj/machinery/light,
+/turf/open/floor/urban/carpet/carpetblack,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"Zu" = (
+/obj/machinery/door/airlock/multi_tile/mainship/secdoor/glass{
+	req_access = null;
+	dir = 2
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"ZJ" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/urban/carpet/carpetbeigedeco,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"ZO" = (
+/obj/structure/table/reinforced,
+/obj/machinery/prop/computer/communications{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetbeigedeco,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"ZU" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/carpet/carpetbeigedeco,
+/area/gleichseitig16/indoors/southeast/meierbank)
+
+(1,1,1) = {"
+IQ
+mj
+mj
+mj
+mj
+mj
+HA
+mj
+mj
+mj
+HA
+mj
+mj
+mj
+HA
+mj
+mj
+mj
+jY
+cH
+cH
+cH
+mj
+mj
+HA
+mj
+mj
+"}
+(2,1,1) = {"
+uD
+co
+co
+NW
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+bL
+IL
+IL
+Tw
+vF
+Tw
+Tw
+Tw
+Tw
+"}
+(3,1,1) = {"
+uD
+sx
+jb
+hw
+IL
+jJ
+HS
+RE
+jJ
+Nm
+ti
+DG
+IL
+ms
+ti
+DR
+IL
+sh
+Ig
+sh
+IL
+IL
+IL
+IL
+IL
+IL
+Gz
+"}
+(4,1,1) = {"
+uD
+py
+nc
+co
+IL
+GU
+SU
+SU
+GU
+Nm
+ti
+li
+QE
+ti
+zV
+ti
+kT
+sh
+fi
+Yp
+IL
+ue
+Dv
+UG
+SH
+IL
+uK
+"}
+(5,1,1) = {"
+uD
+TU
+SX
+co
+IL
+IT
+SU
+WH
+GU
+Nm
+ti
+DG
+IL
+ms
+ti
+DR
+IL
+sh
+Ig
+sh
+IL
+fS
+GL
+QT
+gh
+IL
+Gz
+"}
+(6,1,1) = {"
+uD
+OM
+sG
+co
+IL
+lg
+SU
+SU
+tV
+Nm
+ti
+ti
+QE
+ti
+ti
+sg
+IL
+sh
+Ig
+sh
+IL
+GL
+DJ
+DJ
+GL
+IL
+Gz
+"}
+(7,1,1) = {"
+uD
+hl
+hl
+hw
+IL
+IL
+GL
+Zu
+IL
+IL
+ti
+DG
+IL
+ms
+ti
+DR
+IL
+hr
+Ig
+sh
+Oj
+QT
+GL
+GL
+GL
+IL
+Gz
+"}
+(8,1,1) = {"
+uD
+co
+Eq
+co
+IL
+ti
+li
+ti
+FL
+ti
+li
+ti
+QE
+gA
+li
+ti
+IL
+sh
+Ig
+sh
+GL
+GL
+GL
+GL
+GL
+IL
+uK
+"}
+(9,1,1) = {"
+uD
+ke
+ke
+co
+Pt
+ti
+ti
+ti
+ti
+ti
+ti
+DG
+IL
+IL
+GL
+lD
+IL
+sh
+Ig
+sh
+IL
+GL
+DJ
+DJ
+GL
+IL
+Gz
+"}
+(10,1,1) = {"
+uD
+co
+co
+co
+ti
+ti
+ti
+ti
+ti
+ti
+ti
+ti
+li
+ti
+ti
+ti
+Pt
+sh
+Ig
+tG
+IL
+fS
+GL
+GL
+aA
+IL
+Gz
+"}
+(11,1,1) = {"
+MT
+XM
+XM
+co
+IL
+ti
+ti
+ti
+fX
+ti
+ti
+ti
+ti
+ti
+Ok
+li
+ti
+sh
+Ig
+sh
+IL
+dK
+CA
+Sb
+oV
+IL
+Gz
+"}
+(12,1,1) = {"
+uD
+py
+nc
+hw
+IL
+IL
+IL
+qc
+IL
+IL
+IL
+IL
+zc
+IL
+IL
+IL
+IL
+IL
+nQ
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+uK
+"}
+(13,1,1) = {"
+uD
+TU
+SX
+Eq
+IL
+oI
+tj
+dV
+dV
+IL
+oI
+tj
+dV
+dV
+IL
+oE
+mc
+IL
+oW
+ub
+of
+gL
+rI
+IL
+aJ
+aJ
+Gz
+"}
+(14,1,1) = {"
+uD
+DC
+sG
+bu
+IL
+oI
+ZU
+dV
+dV
+IL
+oI
+dV
+ZU
+dV
+IL
+qw
+GP
+kD
+uM
+ub
+of
+gx
+rI
+IL
+aJ
+aJ
+Gz
+"}
+(15,1,1) = {"
+XJ
+pJ
+Et
+Ay
+ef
+kB
+ZO
+ZJ
+Ml
+IL
+kB
+ZO
+ZJ
+Ml
+IL
+ot
+NO
+IL
+ma
+ub
+BD
+ub
+ub
+oN
+aJ
+Bw
+Gz
+"}
+(16,1,1) = {"
+XJ
+XJ
+KI
+oF
+ef
+Fz
+hp
+dV
+dV
+IL
+Fz
+dV
+hp
+dV
+IL
+qN
+NO
+IL
+fr
+of
+Ke
+rI
+iG
+IL
+aJ
+vn
+aJ
+"}
+(17,1,1) = {"
+bx
+XJ
+XJ
+XJ
+IL
+IL
+aG
+aG
+IL
+IL
+IL
+aG
+aG
+IL
+IL
+IL
+IL
+IL
+IL
+ND
+ND
+ND
+IL
+IL
+Jc
+Jc
+VN
+"}

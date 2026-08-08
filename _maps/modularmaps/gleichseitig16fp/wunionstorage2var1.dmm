@@ -1,0 +1,142 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/northwest/wstorageunits/two)
+"b" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 1
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/two)
+"f" = (
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/two)
+"h" = (
+/obj/structure/prop/vehicle/truck{
+	dir = 1
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/two)
+"i" = (
+/obj/effect/spawner/random/misc/structure/supplycrate/secure_supplies,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/two)
+"j" = (
+/obj/structure/reagent_dispensers/fueltank/barrel{
+	color = "#ff0000";
+	name = "red fuel barrel"
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/two)
+"u" = (
+/obj/effect/spawner/random/misc/structure/supplycrate,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/two)
+"B" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/two)
+"E" = (
+/obj/machinery/door/poddoor/shutters/mainship/hangar{
+	dir = 1;
+	id = "wunionstorage2";
+	name = "\improper West Industrial Union Storage 2"
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/two)
+"O" = (
+/obj/machinery/robotic_cradle,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/two)
+"P" = (
+/obj/machinery/door_control{
+	id = "wunionstorage2";
+	name = "West Industrial Union Storage 2";
+	dir = 1
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/two)
+"T" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/two)
+"V" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/two)
+"X" = (
+/obj/structure/largecrate/random/case/small,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/two)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+u
+B
+j
+X
+a
+"}
+(3,1,1) = {"
+E
+f
+f
+T
+f
+b
+"}
+(4,1,1) = {"
+E
+f
+f
+h
+P
+a
+"}
+(5,1,1) = {"
+E
+T
+f
+f
+f
+a
+"}
+(6,1,1) = {"
+E
+f
+f
+f
+T
+a
+"}
+(7,1,1) = {"
+a
+V
+i
+O
+u
+a
+"}
+(8,1,1) = {"
+a
+a
+a
+a
+a
+a
+"}

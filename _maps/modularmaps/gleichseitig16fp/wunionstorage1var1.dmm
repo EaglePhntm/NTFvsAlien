@@ -1,0 +1,144 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/one)
+"d" = (
+/obj/machinery/door/poddoor/shutters/mainship/hangar{
+	dir = 1;
+	id = "wunionstorage1";
+	name = "\improper West Industrial Union Storage 1"
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/one)
+"h" = (
+/obj/structure/reagent_dispensers/watertank{
+	icon = 'icons/obj/structures/crates.dmi';
+	icon_state = "barrel_blue";
+	desc = "A blue storage barrel containing water.";
+	name = "blue barrel"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/one)
+"j" = (
+/obj/structure/reagent_dispensers/watertank{
+	icon = 'icons/obj/structures/crates.dmi';
+	icon_state = "barrel_blue";
+	desc = "A blue storage barrel containing water.";
+	name = "blue barrel"
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/one)
+"n" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/one)
+"o" = (
+/obj/structure/largecrate/random/case/small,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/one)
+"u" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 1
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/one)
+"v" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/northwest/wstorageunits/one)
+"w" = (
+/obj/effect/spawner/random/misc/structure/supplycrate,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/one)
+"C" = (
+/obj/structure/largecrate/random/case/double,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/one)
+"D" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/one)
+"J" = (
+/obj/effect/spawner/random/misc/structure/supplycrate,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/one)
+"Q" = (
+/obj/structure/largecrate/random/barrel/green,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/one)
+"T" = (
+/obj/structure/bed/bedroll,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/one)
+"Y" = (
+/obj/machinery/door_control{
+	id = "wunionstorage1";
+	name = "West Industrial Union Storage 1";
+	dir = 1
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/one)
+
+(1,1,1) = {"
+v
+C
+w
+D
+j
+v
+"}
+(2,1,1) = {"
+d
+a
+a
+n
+a
+u
+"}
+(3,1,1) = {"
+d
+n
+a
+a
+Y
+v
+"}
+(4,1,1) = {"
+d
+a
+a
+a
+a
+v
+"}
+(5,1,1) = {"
+d
+a
+a
+n
+T
+v
+"}
+(6,1,1) = {"
+v
+J
+h
+o
+Q
+v
+"}
+(7,1,1) = {"
+v
+v
+v
+v
+v
+v
+"}

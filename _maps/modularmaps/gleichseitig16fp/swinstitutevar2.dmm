@@ -1,0 +1,5713 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ac" = (
+/obj/structure/table/reinforced,
+/obj/machinery/computer3/laptop,
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"af" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"ao" = (
+/obj/machinery/iv_drip,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/mainship/silver/full,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"aB" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Chapel"
+	},
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"aE" = (
+/obj/machinery/light,
+/obj/structure/table/reinforced,
+/obj/structure/paper_bin,
+/obj/item/tool/pen,
+/turf/open/floor/urban/tile/beigetileshiny,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"aF" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/lightbeige_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"aQ" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/machinery/light,
+/turf/open/floor/urban/tile/lightbeige_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"br" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"bE" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/beigetileshiny,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"cH" = (
+/obj/structure/table/reinforced/prison,
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"cO" = (
+/obj/structure/mirror{
+	dir = 4
+	},
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"dc" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Instructor Dorms"
+	},
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"df" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	name = "\improper EHR-MIL Mess Hall"
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"dp" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"dt" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"dz" = (
+/obj/structure/closet,
+/obj/item/clothing/suit/storage/marine/vsd_two{
+	color = "#64e6cd";
+	desc = "The Ehrman Steadfast Republics equip the majority of their national military with CrashCore body armor. This protects the user from most bullet calibers."
+	},
+/obj/item/clothing/suit/storage/marine/vsd_two{
+	color = "#64e6cd";
+	desc = "The Ehrman Steadfast Republics equip the majority of their national military with CrashCore body armor. This protects the user from most bullet calibers."
+	},
+/obj/item/clothing/suit/storage/marine/vsd_two{
+	color = "#64e6cd";
+	desc = "The Ehrman Steadfast Republics equip the majority of their national military with CrashCore body armor. This protects the user from most bullet calibers."
+	},
+/obj/item/clothing/suit/storage/marine/vsd_two{
+	color = "#64e6cd";
+	desc = "The Ehrman Steadfast Republics equip the majority of their national military with CrashCore body armor. This protects the user from most bullet calibers."
+	},
+/obj/item/clothing/suit/storage/marine/vsd_two{
+	color = "#64e6cd";
+	desc = "The Ehrman Steadfast Republics equip the majority of their national military with CrashCore body armor. This protects the user from most bullet calibers."
+	},
+/obj/item/clothing/suit/storage/marine/vsd_two{
+	color = "#64e6cd";
+	desc = "The Ehrman Steadfast Republics equip the majority of their national military with CrashCore body armor. This protects the user from most bullet calibers."
+	},
+/obj/item/clothing/suit/storage/marine/vsd_two{
+	color = "#64e6cd";
+	desc = "The Ehrman Steadfast Republics equip the majority of their national military with CrashCore body armor. This protects the user from most bullet calibers."
+	},
+/obj/item/clothing/suit/storage/marine/vsd_two{
+	color = "#64e6cd";
+	desc = "The Ehrman Steadfast Republics equip the majority of their national military with CrashCore body armor. This protects the user from most bullet calibers."
+	},
+/obj/item/clothing/head/modular/m10x{
+	color = "#4b9b9b"
+	},
+/obj/item/clothing/head/modular/m10x{
+	color = "#4b9b9b"
+	},
+/obj/item/clothing/head/modular/m10x{
+	color = "#4b9b9b"
+	},
+/obj/item/clothing/head/modular/m10x{
+	color = "#4b9b9b"
+	},
+/obj/item/clothing/head/modular/m10x{
+	color = "#4b9b9b"
+	},
+/obj/item/clothing/head/modular/m10x{
+	color = "#4b9b9b"
+	},
+/obj/item/clothing/head/modular/m10x{
+	color = "#4b9b9b"
+	},
+/obj/item/clothing/head/modular/m10x{
+	color = "#4b9b9b"
+	},
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"dC" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/storage/box/m94,
+/obj/item/storage/box/m94,
+/obj/item/storage/box/m94,
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"dE" = (
+/obj/structure/sink/bathroom{
+	dir = 4;
+	pixel_x = 12
+	},
+/obj/structure/mirror{
+	dir = 4
+	},
+/turf/open/floor/iron/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"dH" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
+"dJ" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"ea" = (
+/obj/structure/barricade/railing,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"ef" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper EHR-MIL Academy Reception"
+	},
+/turf/open/floor/urban/tile/beigetileshiny,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"ej" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"el" = (
+/obj/structure/reagent_dispensers/fueltank/barrel{
+	color = "#ff0000";
+	name = "red fuel barrel"
+	},
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"eq" = (
+/obj/structure/bed/chair/wood/wings{
+	dir = 4
+	},
+/turf/open/floor/tile/chapel{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/milacademy)
+"eM" = (
+/obj/machinery/light,
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"fa" = (
+/obj/machinery/shower{
+	dir = 8
+	},
+/turf/open/floor/iron/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"fm" = (
+/turf/closed/wall/indestructible/fakeglass,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"fu" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"fw" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"fA" = (
+/obj/structure/table/reinforced,
+/obj/item/tool/kitchen/knife,
+/obj/item/tool/kitchen/rollingpin,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"fC" = (
+/obj/effect/landmark/start/job/xenomorph,
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"fF" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"fN" = (
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"fR" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"gc" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"gd" = (
+/obj/structure/table/reinforced,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/ears/earmuffs,
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"gi" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/lightbeige_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"gu" = (
+/obj/effect/spawner/random/misc/plant,
+/turf/open/floor/urban/tile/beigetileshiny,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"gz" = (
+/obj/machinery/vending/medical/shipside,
+/turf/open/floor/mainship/silver/full,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"gG" = (
+/obj/machinery/vending/cigarette,
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"gM" = (
+/turf/open/floor/plating/ground/snow{
+	color = "#ffe1af"
+	},
+/area/gleichseitig16/indoors/southwest/milacademy)
+"hq" = (
+/obj/structure/prop/urban/misc/trash/blue,
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"hR" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Laundry";
+	dir = 1
+	},
+/turf/open/floor/urban/tile/lightbeige_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"hV" = (
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"ih" = (
+/obj/effect/urban/decal/dirt,
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"it" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"iu" = (
+/turf/open/floor/iron/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"ix" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
+"iZ" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Office 2";
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"jm" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/item/clothing/under/marine/camo/woodland{
+	color = "#7dcdff";
+	name = "\improper re-patterened camo fatigues (EHR-MIL)";
+	desc = "A set of issued fatigues for a nation-state military. While it may lack most modern amenities, there are some. Judging from the patterns and colors, this appears to be an Ehrman Republics military variant."
+	},
+/obj/item/clothing/head/modular/style/campaignhat{
+	name = "EHR-MIL campaign hat"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"js" = (
+/obj/item/target,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"ju" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"jA" = (
+/obj/structure/bed/chair,
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"jK" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"jM" = (
+/obj/structure/sink/bathroom{
+	dir = 4;
+	pixel_x = 16
+	},
+/turf/open/floor/mainship/silver/full,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"jR" = (
+/obj/machinery/vending/snack,
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"kj" = (
+/obj/structure/prop/urban/vehicles/large/mega_hauler_truck/red_stripe,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"kl" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"kE" = (
+/obj/structure/sign/nosmoking_1,
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"kL" = (
+/obj/machinery/light,
+/turf/open/floor/urban/tile/beigetileshiny,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"kM" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/item/clothing/under/marine/camo/woodland{
+	color = "#7dcdff";
+	name = "\improper re-patterened camo fatigues (EHR-MIL)";
+	desc = "A set of issued fatigues for a nation-state military. While it may lack most modern amenities, there are some. Judging from the patterns and colors, this appears to be an Ehrman Republics military variant."
+	},
+/obj/item/clothing/head/vsd/beret_alt{
+	color = "#64b4ff";
+	name = "\improper crasher ERH-MIL beret";
+	desc = "CrashCore sponsored beret with kevlar fabric, seen on armed forces of EHR-MIL."
+	},
+/obj/item/armor_module/module/pt_belt,
+/obj/item/clothing/under/shorts/black{
+	color = "#64e6b4";
+	name = "military athletic shorts"
+	},
+/obj/item/clothing/underwear/shirt/shirt_grey,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/item/clothing/shoes/marine/clf/full,
+/obj/item/clothing/gloves/combat,
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"kR" = (
+/obj/machinery/vending/armor_supply,
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"kS" = (
+/obj/structure/table/reinforced/prison,
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"kW" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"lj" = (
+/turf/open/floor/urban/tile/supermartfloor2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"lm" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/beigetileshiny,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"lo" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"lv" = (
+/obj/machinery/streetlight/traffic{
+	pixel_x = 5;
+	pixel_y = 12;
+	dir = 8
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"lF" = (
+/obj/structure/window/reinforced/tinted,
+/obj/structure/toilet{
+	dir = 8
+	},
+/turf/open/floor/iron/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"lM" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/iron/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"lN" = (
+/obj/machinery/shower{
+	dir = 4
+	},
+/turf/open/floor/iron/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"lQ" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"lZ" = (
+/obj/structure/curtain/medical,
+/turf/open/floor/mainship/silver/full,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"mg" = (
+/obj/machinery/floodlight/outpost{
+	name = "Range Light"
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"mi" = (
+/obj/structure/largecrate/random/case/double,
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"mq" = (
+/turf/open/floor/iron/textured_large,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"ms" = (
+/obj/effect/landmark/xeno_silo_spawn,
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"nn" = (
+/obj/structure/closet,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/weapon/gun/rifle/m16,
+/obj/item/weapon/gun/rifle/m16,
+/obj/item/weapon/gun/rifle/m16,
+/obj/item/weapon/gun/rifle/m16,
+/obj/item/weapon/gun/rifle/m16,
+/obj/item/weapon/gun/rifle/m16,
+/obj/item/weapon/gun/rifle/m16,
+/obj/item/weapon/gun/rifle/m16,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"no" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/streets)
+"ny" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"nC" = (
+/obj/machinery/light,
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"nK" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/carpet/black,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"nT" = (
+/obj/structure/dropship_equipment/shuttle/operatingtable,
+/obj/item/tank/anesthetic,
+/obj/item/clothing/mask/breath/medical,
+/obj/machinery/light,
+/turf/open/floor/mainship/silver/full,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"oc" = (
+/obj/structure/table/reinforced,
+/obj/machinery/prop/computer/communications,
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"oj" = (
+/obj/structure/toilet{
+	dir = 1
+	},
+/turf/open/floor/iron/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"om" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"oG" = (
+/turf/closed/mineral/smooth/frostwall/indestructible{
+	base_icon_state = "hybrisa_colony_walls";
+	icon_state = "wall-reinforced";
+	icon = 'icons/turf/walls/hybrisa_colony_walls.dmi';
+	name = "indestructible dense metal walls";
+	color = "#b4b4b4"
+	},
+/area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
+"oH" = (
+/obj/structure/sink/bathroom{
+	dir = 8;
+	pixel_x = -16
+	},
+/turf/open/floor/mainship/silver/full,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"oJ" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Ladies Room";
+	dir = 1
+	},
+/turf/open/floor/urban/tile/lightbeige_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"oO" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	name = "\improper EHR-MIL Academy Female Dorm"
+	},
+/turf/open/floor/urban/tile/supermartfloor2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"oQ" = (
+/obj/machinery/washing_machine,
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"oU" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Firing Range"
+	},
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"oW" = (
+/obj/structure/bed/urban/bunkbed3,
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"oX" = (
+/obj/machinery/vending/cola,
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"pg" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/item/assembly/timer,
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"pv" = (
+/obj/machinery/light,
+/obj/structure/table/reinforced,
+/turf/open/floor/urban/tile/beigetileshiny,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"pw" = (
+/obj/machinery/light,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"pE" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/mainship/silver/full,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"pT" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"qa" = (
+/obj/structure/largecrate/random/case/small,
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"qs" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 8
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"qC" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"qF" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/iron/textured_large,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"rf" = (
+/obj/machinery/light/small,
+/turf/open/floor/carpet/black,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"rr" = (
+/obj/structure/window/reinforced/tinted,
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"rP" = (
+/obj/structure/sign/nosmoking_1{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"rS" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/pouch/surgery,
+/obj/item/defibrillator,
+/turf/open/floor/mainship/silver/full,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"sf" = (
+/obj/structure/bed/chair/sofa/corsat/right,
+/turf/open/floor/urban/tile/lightbeige_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"sj" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"sq" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
+"sy" = (
+/turf/open/urban/street/sidewalk{
+	dir = 5
+	},
+/area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
+"sE" = (
+/obj/machinery/door/poddoor/mainship/indestructible{
+	name = "indestructible border doors";
+	desc = "That looks like it doesn't open easily. The Ehrman Republics don't want a xenomorph outbreak nor separatists leaving the region.";
+	dir = 8
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
+"sG" = (
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/southwest/streets)
+"sS" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/item/clothing/under/marine/camo/woodland{
+	color = "#7dcdff";
+	name = "\improper re-patterened camo fatigues (EHR-MIL)";
+	desc = "A set of issued fatigues for a nation-state military. While it may lack most modern amenities, there are some. Judging from the patterns and colors, this appears to be an Ehrman Republics military variant."
+	},
+/obj/item/clothing/head/vsd/beret_alt{
+	color = "#64b4ff";
+	name = "\improper crasher ERH-MIL beret";
+	desc = "CrashCore sponsored beret with kevlar fabric, seen on armed forces of EHR-MIL."
+	},
+/obj/item/armor_module/module/pt_belt,
+/obj/item/clothing/under/shorts/black{
+	color = "#64e6b4";
+	name = "military athletic shorts"
+	},
+/obj/item/clothing/underwear/shirt/shirt_grey,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/item/clothing/shoes/marine/clf/full,
+/obj/item/clothing/gloves/combat,
+/turf/open/floor/urban/tile/supermartfloor2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"sT" = (
+/obj/machinery/miner/damaged/platinum,
+/turf/open/floor/plating/ground/snow{
+	color = "#ffe1af"
+	},
+/area/gleichseitig16/indoors/southwest/milacademy)
+"th" = (
+/obj/structure/prop/urban/misc/trash/blue,
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"tk" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/urban/tile/beigetileshiny,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"tm" = (
+/obj/machinery/light,
+/turf/open/floor/iron/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"tF" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/turf/open/floor/urban/tile/beigetileshiny,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"tT" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = -32;
+	dir = 1
+	},
+/turf/open/floor/urban/tile/beigetileshiny,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"tY" = (
+/obj/structure/nuke_disk_candidate{
+	set_associations = list("set1","set2","set3","set6")
+	},
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"uk" = (
+/obj/structure/table/reinforced,
+/obj/machinery/reagentgrinder,
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"uH" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"uK" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	name = "\improper EHR-MIL Academy";
+	dir = 2
+	},
+/turf/open/floor/urban/tile/beigetileshiny,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"uO" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy";
+	dir = 1
+	},
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"vb" = (
+/obj/structure/reagent_dispensers/watertank{
+	icon = 'icons/obj/structures/crates.dmi';
+	icon_state = "barrel_blue";
+	desc = "A blue storage barrel containing water.";
+	name = "blue barrel"
+	},
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"vg" = (
+/obj/structure/bed/chair/wood/wings{
+	dir = 4
+	},
+/turf/open/floor/tile/chapel{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/milacademy)
+"vk" = (
+/obj/machinery/door/poddoor/mainship/indestructible{
+	name = "indestructible border doors";
+	desc = "That looks like it doesn't open easily. The Ehrman Republics don't want a xenomorph outbreak nor separatists leaving the region.";
+	dir = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
+"vO" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"vQ" = (
+/obj/structure/bed/chair/office/light{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"vU" = (
+/obj/structure/table/reinforced/prison,
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"wk" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"wp" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/caves/rock)
+"wq" = (
+/obj/machinery/door/poddoor/shutters/urban/security_lockdown{
+	id = "ehrmil_academy_garagedoor";
+	name = "\improper Lockdown"
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"wu" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/beigetileshiny,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"wy" = (
+/obj/structure/table/reinforced,
+/obj/machinery/microwave,
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"wK" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Gym";
+	dir = 1
+	},
+/turf/open/floor/iron/textured_large,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"wR" = (
+/obj/structure/barricade/railing,
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"xe" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Gym";
+	dir = 1
+	},
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"xk" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/iron/textured_large,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"xl" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academia 2";
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"xp" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"xq" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"xw" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academia 1";
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"xQ" = (
+/obj/structure/prop/urban/misc/buildinggreeblies/greeble6/dense,
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"xR" = (
+/obj/structure/mirror{
+	dir = 8
+	},
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"xV" = (
+/obj/structure/table/reinforced,
+/obj/machinery/prop/computer/communications,
+/turf/open/floor/urban/tile/beigetileshiny,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"ye" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Firing Range";
+	dir = 1
+	},
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"yi" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/supermartfloor2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"yo" = (
+/obj/machinery/vending/uniform_supply,
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"yt" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/prop/computer/communications,
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"yz" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/sink/bathroom{
+	pixel_y = 12
+	},
+/obj/structure/mirror,
+/turf/open/floor/iron/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"yP" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Washroom"
+	},
+/turf/open/floor/iron/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"zf" = (
+/obj/effect/spawner/random/misc/structure/supplycrate,
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"zh" = (
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/reagent_containers/food/snacks/flour,
+/obj/item/reagent_containers/food/snacks/flour,
+/obj/item/reagent_containers/food/snacks/flour,
+/obj/item/reagent_containers/food/snacks/flour,
+/obj/item/reagent_containers/food/snacks/flour,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"zl" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy"
+	},
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"zo" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Mess Hall";
+	dir = 1
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"zG" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"zU" = (
+/obj/machinery/light,
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"zV" = (
+/obj/structure/prop/urban/misc/firehydrant{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"zY" = (
+/obj/structure/table/wood,
+/obj/item/storage/bible,
+/turf/open/floor/carpet/black,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Ai" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"AA" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/southwest/streets)
+"AB" = (
+/turf/open/floor/urban/tile/lightbeige_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"AI" = (
+/obj/structure/bed/chair/wood/wings{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/tile/chapel{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/milacademy)
+"AM" = (
+/obj/machinery/robotic_cradle,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"AQ" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"AT" = (
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Bn" = (
+/obj/structure/bed/chair/comfy{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Bv" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
+"BC" = (
+/obj/structure/bed/chair/wood/wings{
+	dir = 4
+	},
+/obj/machinery/light/small,
+/turf/open/floor/tile/chapel{
+	dir = 6
+	},
+/area/gleichseitig16/indoors/southwest/milacademy)
+"BQ" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/stack/nanopaste,
+/obj/item/stack/nanopaste,
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Cj" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	name = "\improper EHR-MIL Academy Male Dorm"
+	},
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Ck" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
+"Cs" = (
+/turf/open/floor/carpet/black,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Ct" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"CG" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"CY" = (
+/obj/effect/spawner/random/misc/structure/supplycrate,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"CZ" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/item/clothing/under/marine/camo/woodland{
+	color = "#7dcdff";
+	name = "\improper re-patterened camo fatigues (EHR-MIL)";
+	desc = "A set of issued fatigues for a nation-state military. While it may lack most modern amenities, there are some. Judging from the patterns and colors, this appears to be an Ehrman Republics military variant."
+	},
+/obj/item/clothing/head/vsd/beret_alt{
+	color = "#64b4ff";
+	name = "\improper crasher ERH-MIL beret";
+	desc = "CrashCore sponsored beret with kevlar fabric, seen on armed forces of EHR-MIL."
+	},
+/obj/item/armor_module/module/pt_belt,
+/obj/item/clothing/under/shorts/black{
+	color = "#64e6b4";
+	name = "military athletic shorts"
+	},
+/obj/item/clothing/underwear/shirt/shirt_grey,
+/obj/item/clothing/shoes/marine/clf/full,
+/obj/item/clothing/gloves/combat,
+/turf/open/floor/urban/tile/supermartfloor2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Dt" = (
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Du" = (
+/obj/structure/prop/mainship/railing/corner{
+	dir = 8
+	},
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Dz" = (
+/obj/machinery/vending/MarineMed,
+/turf/open/floor/mainship/silver/full,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"DB" = (
+/obj/machinery/door/poddoor/mainship/indestructible{
+	name = "indestructible border doors";
+	desc = "That looks like it doesn't open easily. The Ehrman Republics don't want a xenomorph outbreak nor separatists leaving the region.";
+	dir = 1
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
+"DH" = (
+/obj/structure/sink/bathroom{
+	dir = 8;
+	pixel_x = -12
+	},
+/obj/structure/mirror{
+	dir = 8
+	},
+/turf/open/floor/iron/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"DO" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Halls";
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Eg" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/closed/wall/indestructible/fakeglass,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Eq" = (
+/obj/machinery/washing_machine,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"EE" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"EG" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"ER" = (
+/obj/structure/bed/chair/sofa/corsat/right/white,
+/turf/open/floor/urban/tile/lightbeige_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"ET" = (
+/obj/structure/bed/chair/sofa/corsat/left/white,
+/turf/open/floor/urban/tile/lightbeige_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"EV" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/mainship/silver/full,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"EX" = (
+/obj/structure/bed/chair/wood/wings{
+	dir = 4
+	},
+/turf/open/floor/tile/chapel{
+	dir = 10
+	},
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Fb" = (
+/obj/structure/bed/chair/comfy{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Fj" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Garage";
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"FD" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Mens Room";
+	dir = 1
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"FR" = (
+/obj/machinery/light,
+/turf/open/floor/iron/textured_large,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Gi" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Garage";
+	dir = 1
+	},
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Gx" = (
+/turf/open/floor/urban/tile/beigetileshiny,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Gy" = (
+/obj/structure/bed/urban/bunkbed1,
+/turf/open/floor/urban/tile/supermartfloor2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"GE" = (
+/obj/structure/prop/mainship/railing/corner,
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"GI" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"GN" = (
+/obj/structure/toilet{
+	dir = 8
+	},
+/obj/structure/window/reinforced/tinted,
+/turf/open/floor/iron/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"GQ" = (
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"GT" = (
+/obj/structure/bed/bedroll,
+/turf/open/floor/iron/textured_large,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Hb" = (
+/obj/structure/sign/nosmoking_1{
+	dir = 1
+	},
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Hc" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Hr" = (
+/obj/structure/window/reinforced/tinted,
+/obj/structure/toilet{
+	dir = 4
+	},
+/turf/open/floor/iron/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Hw" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/structure/window/reinforced/tinted,
+/turf/open/floor/iron/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"HD" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/southwest/streets)
+"HJ" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/iron/textured_large,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Io" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/turf/open/floor/urban/tile/beigetileshiny,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"ID" = (
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"IJ" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow{
+	color = "#ffe1af"
+	},
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Jd" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/machinery/light,
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Jv" = (
+/obj/machinery/vending/weapon,
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Jw" = (
+/obj/machinery/iv_drip,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/turf/open/floor/mainship/silver/full,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"JK" = (
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"JW" = (
+/obj/structure/barricade/railing{
+	dir = 1
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"JX" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Quartermaster";
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Kv" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Washroom";
+	dir = 1
+	},
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"KA" = (
+/obj/structure/bed/chair/office/light{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"KB" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Garage";
+	dir = 1
+	},
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"KC" = (
+/obj/structure/bed/chair/wood/wings{
+	dir = 4
+	},
+/turf/open/floor/tile/chapel{
+	dir = 6
+	},
+/area/gleichseitig16/indoors/southwest/milacademy)
+"KL" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"KY" = (
+/obj/structure/largecrate/random/case/double,
+/obj/machinery/light,
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"LD" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Pool";
+	dir = 1
+	},
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"LI" = (
+/obj/machinery/light,
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"LZ" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Mb" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/drained{
+	dir = 1
+	},
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Me" = (
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"MD" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"MJ" = (
+/obj/structure/cable,
+/obj/structure/prop/urban/misc/buildinggreeblies/greeble1/dense,
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"MP" = (
+/turf/closed/mineral/smooth/frostwall/indestructible{
+	base_icon_state = "hybrisa_colony_walls";
+	icon_state = "wall-reinforced";
+	icon = 'icons/turf/walls/hybrisa_colony_walls.dmi';
+	name = "indestructible dense metal walls";
+	color = "#b4b4b4"
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"MU" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/iron/textured_large,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"MX" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/carpet/black,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Nv" = (
+/obj/effect/urban/decal/road/road_edge,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
+"NF" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
+"NG" = (
+/obj/structure/sink/kitchen{
+	dir = 4;
+	pixel_x = 13
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"NO" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"NV" = (
+/obj/structure/largecrate/random/barrel/green,
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Oh" = (
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Oi" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academia 4"
+	},
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Oq" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	name = "\improper EHR-MIL Mess Hall";
+	dir = 1
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Os" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
+"Oz" = (
+/obj/structure/prop/mainship/railing/corner{
+	dir = 1
+	},
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"OF" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/item/clothing/under/marine/camo/woodland{
+	color = "#7dcdff";
+	name = "\improper re-patterened camo fatigues (EHR-MIL)";
+	desc = "A set of issued fatigues for a nation-state military. While it may lack most modern amenities, there are some. Judging from the patterns and colors, this appears to be an Ehrman Republics military variant."
+	},
+/obj/item/clothing/head/modular/style/campaignhat{
+	name = "EHR-MIL campaign hat"
+	},
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"OI" = (
+/obj/structure/closet/secure_closet/personal,
+/turf/open/floor/urban/tile/lightbeige_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"OQ" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Office 3";
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"OR" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"OW" = (
+/obj/structure/barricade/railing{
+	dir = 1
+	},
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Pj" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Pp" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper EHR-MIL Academia Reception"
+	},
+/turf/open/floor/urban/tile/beigetileshiny,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Ps" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/southwest/streets)
+"Qh" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Qi" = (
+/obj/structure/prop/urban/misc/trash/blue,
+/turf/open/floor/iron/textured_large,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Qo" = (
+/turf/open/floor/mainship/silver/full,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Qw" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/item/clothing/under/marine/camo/woodland{
+	color = "#7dcdff";
+	name = "\improper re-patterened camo fatigues (EHR-MIL)";
+	desc = "A set of issued fatigues for a nation-state military. While it may lack most modern amenities, there are some. Judging from the patterns and colors, this appears to be an Ehrman Republics military variant."
+	},
+/obj/item/clothing/head/vsd/beret_alt{
+	color = "#64b4ff";
+	name = "\improper crasher ERH-MIL beret";
+	desc = "CrashCore sponsored beret with kevlar fabric, seen on armed forces of EHR-MIL."
+	},
+/obj/item/armor_module/module/pt_belt,
+/obj/item/clothing/under/shorts/black{
+	color = "#64e6b4";
+	name = "military athletic shorts"
+	},
+/obj/item/clothing/underwear/shirt/shirt_grey,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/item/clothing/shoes/marine/clf/full,
+/obj/item/clothing/gloves/combat,
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"QH" = (
+/obj/structure/bed/urban/bunkbed2,
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"QJ" = (
+/obj/machinery/door_control{
+	id = "ehrmil_academy_garagedoor";
+	name = "EHR-MIL Academy Garage Door";
+	dir = 4
+	},
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"QM" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"QX" = (
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Rj" = (
+/obj/structure/sink/kitchen{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"RP" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"RZ" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	name = "\improper EHR-MIL Medical";
+	dir = 2
+	},
+/turf/open/floor/mainship/silver/full,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Sa" = (
+/obj/structure/bed/chair/comfy,
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Sd" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper EHR-MIL AcademyReception"
+	},
+/turf/open/floor/urban/tile/beigetileshiny,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Sk" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/storage/toolbox/mechanical,
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Sl" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Quartermaster"
+	},
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Sn" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Pool"
+	},
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"SM" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"SQ" = (
+/turf/open/urban/street/sidewalk{
+	dir = 9
+	},
+/area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
+"ST" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = -32;
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"SY" = (
+/obj/machinery/washing_machine,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"TR" = (
+/obj/machinery/shower{
+	dir = 8
+	},
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"TX" = (
+/obj/structure/sign/nosmoking_1{
+	dir = 8
+	},
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Ux" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/item/clothing/under/marine/camo/woodland{
+	color = "#7dcdff";
+	name = "\improper re-patterened camo fatigues (EHR-MIL)";
+	desc = "A set of issued fatigues for a nation-state military. While it may lack most modern amenities, there are some. Judging from the patterns and colors, this appears to be an Ehrman Republics military variant."
+	},
+/obj/item/clothing/head/vsd/beret_alt{
+	color = "#64b4ff";
+	name = "\improper crasher ERH-MIL beret";
+	desc = "CrashCore sponsored beret with kevlar fabric, seen on armed forces of EHR-MIL."
+	},
+/obj/item/armor_module/module/pt_belt,
+/obj/item/clothing/under/shorts/black{
+	color = "#64e6b4";
+	name = "military athletic shorts"
+	},
+/obj/item/clothing/underwear/shirt/shirt_grey,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/item/clothing/shoes/marine/clf/full,
+/obj/item/clothing/gloves/combat,
+/turf/open/floor/urban/tile/supermartfloor2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Uy" = (
+/obj/structure/bed/chair,
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Uz" = (
+/obj/structure/bed/chair/comfy/black,
+/turf/open/floor/urban/tile/beigetileshiny,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"UA" = (
+/obj/machinery/vending/coffee{
+	density = 0
+	},
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"UV" = (
+/turf/closed/mineral/smooth/frostwall/indestructible{
+	base_icon_state = "hybrisa_colony_walls";
+	icon_state = "wall-reinforced";
+	icon = 'icons/turf/walls/hybrisa_colony_walls.dmi';
+	name = "indestructible dense metal walls";
+	color = "#b4b4b4"
+	},
+/area/gleichseitig16/indoors/southwest/milacademy)
+"UX" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light,
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Ve" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/storage/toolbox/electrical,
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Vm" = (
+/obj/structure/prop/urban/misc/buildinggreebliessmall{
+	pixel_x = -2;
+	pixel_y = 20
+	},
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Vu" = (
+/obj/structure/prop/mainship/railing/corner{
+	dir = 4
+	},
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Vx" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/streets)
+"VB" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	name = "\improper EHR-MIL Mess Hall"
+	},
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"VF" = (
+/obj/effect/urban/decal/trash/four,
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"VJ" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"Wk" = (
+/obj/structure/benchpress,
+/turf/open/floor/iron/textured_large,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Wm" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"Wy" = (
+/obj/machinery/photocopier,
+/turf/open/floor/urban/tile/beigetileshiny,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"WI" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/reagent_containers/glass/rag,
+/obj/item/reagent_containers/glass/rag,
+/obj/item/reagent_containers/glass/rag,
+/obj/item/reagent_containers/glass/rag,
+/obj/item/reagent_containers/glass/rag,
+/obj/item/reagent_containers/glass/rag,
+/obj/item/reagent_containers/glass/rag,
+/turf/open/floor/iron/textured_large,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"WM" = (
+/obj/structure/mirror,
+/obj/structure/sink/bathroom{
+	pixel_y = 12
+	},
+/turf/open/floor/iron/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"WV" = (
+/obj/structure/bed,
+/obj/item/bedsheet{
+	color = "#afe1ff"
+	},
+/turf/open/floor/mainship/silver/full,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"XC" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy";
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"XG" = (
+/obj/structure/bed/chair/office/light{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"XK" = (
+/turf/open/liquid/water/river,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"XT" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/computer3/laptop,
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"XV" = (
+/obj/machinery/shower{
+	dir = 1
+	},
+/turf/open/floor/iron/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Yk" = (
+/obj/machinery/iv_drip,
+/turf/open/floor/mainship/silver/full,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Ys" = (
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
+"YF" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy Office 1";
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"YJ" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/item/clothing/under/marine/camo/woodland{
+	color = "#7dcdff";
+	name = "\improper re-patterened camo fatigues (EHR-MIL)";
+	desc = "A set of issued fatigues for a nation-state military. While it may lack most modern amenities, there are some. Judging from the patterns and colors, this appears to be an Ehrman Republics military variant."
+	},
+/obj/item/clothing/head/vsd/beret_alt{
+	color = "#64b4ff";
+	name = "\improper crasher ERH-MIL beret";
+	desc = "CrashCore sponsored beret with kevlar fabric, seen on armed forces of EHR-MIL."
+	},
+/obj/item/armor_module/module/pt_belt,
+/obj/item/clothing/under/shorts/black{
+	color = "#64e6b4";
+	name = "military athletic shorts"
+	},
+/obj/item/clothing/underwear/shirt/shirt_grey,
+/obj/item/clothing/shoes/marine/clf/full,
+/obj/item/clothing/gloves/combat,
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"YU" = (
+/obj/structure/cable,
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Zg" = (
+/obj/structure/bed/chair/office/light{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Zz" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper EHR-MIL Academy";
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"ZC" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/item/clothing/under/marine/camo/woodland{
+	color = "#7dcdff";
+	name = "\improper re-patterened camo fatigues (EHR-MIL)";
+	desc = "A set of issued fatigues for a nation-state military. While it may lack most modern amenities, there are some. Judging from the patterns and colors, this appears to be an Ehrman Republics military variant."
+	},
+/obj/item/clothing/head/modular/style/campaignhat{
+	name = "EHR-MIL campaign hat"
+	},
+/obj/machinery/light,
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"ZL" = (
+/obj/structure/bed/chair/comfy{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"ZQ" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/iron/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"ZW" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"ZX" = (
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/south/streets)
+
+(1,1,1) = {"
+wp
+wp
+wp
+wp
+wp
+wp
+sE
+sE
+sE
+sE
+sE
+sE
+wp
+wp
+wp
+wp
+wp
+wp
+wp
+wp
+wp
+wp
+wp
+wp
+wp
+wp
+wp
+wp
+wp
+wp
+wp
+wp
+wp
+wp
+wp
+wp
+wp
+wp
+wp
+"}
+(2,1,1) = {"
+Vx
+NF
+NF
+NF
+Os
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+Os
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+Os
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+wp
+"}
+(3,1,1) = {"
+Vx
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+Os
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+Os
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+Ck
+wp
+"}
+(4,1,1) = {"
+no
+NF
+NF
+dH
+NF
+NF
+NF
+NF
+NF
+Os
+NF
+NF
+NF
+NF
+dH
+NF
+NF
+NF
+NF
+Os
+NF
+NF
+dH
+NF
+NF
+Os
+NF
+NF
+dH
+NF
+NF
+NF
+Os
+NF
+NF
+NF
+NF
+NF
+wp
+"}
+(5,1,1) = {"
+sG
+UV
+UV
+UV
+UV
+UV
+wq
+wq
+wq
+wq
+wq
+wq
+UV
+UV
+UV
+UV
+UV
+UV
+Zz
+UV
+UV
+UV
+UV
+UV
+UV
+UV
+UV
+UV
+UV
+UV
+UV
+UV
+UV
+NF
+NF
+Os
+NF
+Nv
+wp
+"}
+(6,1,1) = {"
+sG
+UV
+gM
+gM
+gM
+fw
+Ct
+Ct
+Ct
+Ct
+Ct
+Ct
+QJ
+TX
+zf
+qa
+fw
+QX
+QX
+QX
+fw
+GQ
+mg
+GQ
+fw
+GQ
+mg
+GQ
+fw
+GQ
+mg
+GQ
+UV
+NF
+NF
+NF
+NF
+Ck
+wp
+"}
+(7,1,1) = {"
+sG
+UV
+IJ
+sT
+gM
+fw
+EE
+Ct
+Ct
+Ct
+Ct
+Qh
+fC
+Dt
+Dt
+KY
+fw
+ny
+QX
+QX
+fw
+fm
+fm
+fm
+fw
+fm
+fm
+fm
+fw
+fm
+fm
+fm
+UV
+NF
+NF
+NF
+NF
+NF
+wp
+"}
+(8,1,1) = {"
+sG
+UV
+gM
+gM
+gM
+fw
+Ct
+kj
+Qh
+Ct
+kj
+Ct
+Dt
+Dt
+ms
+vb
+fw
+QX
+QX
+QX
+fm
+GQ
+GQ
+js
+fm
+js
+GQ
+GQ
+fm
+GQ
+GQ
+js
+UV
+NF
+NF
+NF
+NF
+Nv
+wp
+"}
+(9,1,1) = {"
+sG
+UV
+xQ
+Dt
+Dt
+fw
+Ct
+Ct
+Ct
+Ct
+Ct
+Ct
+Dt
+Dt
+Dt
+zf
+fw
+QX
+QX
+QX
+fw
+GQ
+GQ
+GQ
+fw
+GQ
+GQ
+GQ
+fw
+GQ
+GQ
+GQ
+UV
+Bv
+Os
+NF
+NF
+sq
+wp
+"}
+(10,1,1) = {"
+sG
+UV
+Dt
+Dt
+Dt
+fw
+Ct
+Ct
+Ct
+Ct
+Ct
+Ct
+fC
+Dt
+Dt
+dC
+fw
+QX
+ny
+QX
+fm
+GQ
+GQ
+GQ
+fm
+GQ
+GQ
+GQ
+fm
+GQ
+GQ
+GQ
+UV
+NF
+NF
+NF
+NF
+NF
+wp
+"}
+(11,1,1) = {"
+HD
+UV
+MJ
+YU
+Mb
+fw
+EE
+Ct
+Ct
+Ct
+Ct
+Ct
+Dt
+Dt
+fC
+Dt
+Gi
+QX
+QX
+QX
+fw
+GQ
+js
+GQ
+fw
+GQ
+js
+GQ
+fw
+GQ
+js
+GQ
+UV
+NF
+NF
+NF
+NF
+Nv
+wp
+"}
+(12,1,1) = {"
+Ps
+UV
+YU
+Dt
+Dt
+fw
+Hb
+xq
+Dt
+Dt
+Dt
+Dt
+Dt
+xq
+Dt
+kE
+fw
+QX
+QX
+QX
+Eg
+GQ
+GQ
+GQ
+Eg
+GQ
+GQ
+GQ
+Eg
+GQ
+GQ
+GQ
+UV
+NF
+NF
+NF
+NF
+Ck
+wp
+"}
+(13,1,1) = {"
+Ps
+UV
+rP
+Dt
+Dt
+KB
+Dt
+Dt
+Dt
+Dt
+xq
+Dt
+Dt
+Dt
+Dt
+LI
+fw
+QX
+QX
+QX
+fw
+GQ
+GQ
+GQ
+fw
+GQ
+GQ
+GQ
+fw
+GQ
+GQ
+GQ
+UV
+Os
+NF
+NF
+NF
+NF
+wp
+"}
+(14,1,1) = {"
+Ps
+Fj
+YU
+xq
+Dt
+fw
+Vm
+qa
+zf
+mi
+el
+NV
+zf
+Dt
+Dt
+Dt
+fw
+QX
+QX
+ny
+fm
+js
+GQ
+GQ
+fm
+GQ
+GQ
+js
+fm
+js
+GQ
+GQ
+UV
+Bv
+NF
+NF
+NF
+NF
+wp
+"}
+(15,1,1) = {"
+sG
+UV
+Vm
+AM
+BQ
+fw
+vb
+qa
+CY
+el
+el
+mi
+NV
+CY
+Ve
+Sk
+fw
+QX
+QX
+QX
+fw
+GQ
+GQ
+GQ
+fw
+GQ
+GQ
+GQ
+fw
+GQ
+GQ
+GQ
+UV
+NF
+NF
+NF
+NF
+Ck
+wp
+"}
+(16,1,1) = {"
+sG
+UV
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+QX
+QX
+QX
+Eg
+GQ
+GQ
+GQ
+Eg
+GQ
+GQ
+GQ
+Eg
+GQ
+GQ
+GQ
+UV
+NF
+NF
+NF
+NF
+NF
+wp
+"}
+(17,1,1) = {"
+sG
+UV
+QX
+QX
+QX
+ny
+QX
+QX
+QX
+QX
+af
+QX
+QX
+QX
+QX
+QX
+ny
+QX
+QX
+QX
+fw
+GQ
+GQ
+GQ
+fw
+GQ
+GQ
+GQ
+fw
+GQ
+GQ
+GQ
+UV
+NF
+NF
+NF
+Os
+Nv
+wp
+"}
+(18,1,1) = {"
+HD
+UV
+LZ
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+ny
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+fw
+lo
+lo
+lo
+fw
+lo
+lo
+lo
+fw
+lo
+lo
+lo
+UV
+NF
+NF
+NF
+NF
+sq
+wp
+"}
+(19,1,1) = {"
+sG
+UV
+QX
+QX
+QX
+QX
+fu
+QX
+ny
+QX
+QX
+QX
+QX
+QX
+fu
+QX
+QX
+QX
+QX
+QX
+fw
+rr
+rr
+rr
+Hc
+rr
+rr
+rr
+Hc
+rr
+rr
+rr
+UV
+Bv
+NF
+NF
+NF
+NF
+wp
+"}
+(20,1,1) = {"
+sG
+UV
+QX
+QX
+QX
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+JK
+Oq
+fw
+fw
+fw
+QX
+QX
+QX
+fw
+AT
+AT
+AT
+AT
+AT
+AT
+EG
+AT
+AT
+AT
+AT
+UV
+NF
+Os
+NF
+NF
+Nv
+wp
+"}
+(21,1,1) = {"
+sG
+UV
+QX
+ny
+QX
+fw
+zh
+Rj
+uk
+fw
+JK
+JK
+JK
+CG
+JK
+NO
+fw
+QX
+QX
+ny
+ye
+AT
+AT
+AT
+AT
+AT
+AT
+AT
+AT
+AT
+AT
+AT
+UV
+NF
+NF
+NF
+NF
+Ck
+wp
+"}
+(22,1,1) = {"
+sG
+UV
+RP
+QX
+QX
+fw
+fA
+JK
+JK
+wk
+JK
+JK
+NO
+JK
+Uy
+vU
+fw
+RP
+QX
+QX
+fw
+AT
+AT
+EG
+AT
+AT
+AT
+AT
+AT
+AT
+AT
+AT
+UV
+NF
+NF
+NF
+NF
+NF
+wp
+"}
+(23,1,1) = {"
+sG
+kW
+QX
+QX
+QX
+fw
+wy
+JK
+JK
+GI
+JK
+Uy
+vU
+lQ
+NO
+Jd
+fw
+QX
+QX
+QX
+fw
+fw
+Sl
+fw
+it
+it
+it
+fw
+fw
+fw
+oU
+fw
+UV
+NF
+NF
+NF
+NF
+Nv
+wp
+"}
+(24,1,1) = {"
+HD
+kW
+ny
+QX
+QX
+fw
+fw
+JK
+JK
+GI
+JK
+CG
+zG
+Uy
+vU
+lQ
+fw
+QX
+QX
+QX
+fw
+kR
+AT
+oc
+AT
+AT
+AT
+ac
+fw
+QX
+QX
+QX
+UV
+Bv
+NF
+Os
+NF
+Ck
+wp
+"}
+(25,1,1) = {"
+sG
+kW
+QX
+QX
+QX
+fw
+wy
+JK
+uk
+fw
+ZW
+JK
+NO
+JK
+zG
+JK
+fw
+QX
+QX
+QX
+fw
+yo
+AT
+AT
+AT
+EG
+AT
+AT
+JX
+QX
+QX
+QX
+uO
+Os
+NF
+NF
+NF
+NF
+wp
+"}
+(26,1,1) = {"
+sG
+UV
+QX
+QX
+eM
+fw
+fA
+JK
+JK
+zo
+JK
+Uy
+vU
+lQ
+JK
+JK
+df
+ny
+QX
+eM
+fw
+Jv
+AT
+AT
+AT
+AT
+AT
+ST
+fw
+QX
+ny
+QX
+UV
+NF
+NF
+NF
+NF
+Nv
+wp
+"}
+(27,1,1) = {"
+sG
+UV
+QX
+QX
+ny
+fw
+zh
+NG
+fw
+fw
+JK
+JK
+zG
+JK
+CG
+JK
+JK
+QX
+QX
+QX
+fw
+fw
+nn
+dz
+gd
+nn
+dz
+tY
+fw
+RP
+QX
+QX
+kW
+NF
+NF
+NF
+NF
+sq
+wp
+"}
+(28,1,1) = {"
+sG
+UV
+QX
+QX
+QX
+fw
+fw
+fw
+fw
+JK
+CG
+JK
+JK
+QM
+JK
+hq
+fw
+QX
+QX
+QX
+QX
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+ny
+QX
+QX
+kW
+NF
+Os
+NF
+NF
+NF
+wp
+"}
+(29,1,1) = {"
+sG
+UV
+QX
+QX
+QX
+VB
+JK
+Ai
+JK
+JK
+NO
+JK
+fw
+fw
+dc
+fw
+fw
+QX
+QX
+QX
+ny
+af
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+kW
+NF
+NF
+NF
+NF
+Nv
+wp
+"}
+(30,1,1) = {"
+HD
+UV
+RP
+ny
+QX
+QX
+JK
+JK
+JK
+Uy
+br
+lQ
+fw
+oW
+ID
+OF
+fw
+RP
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+ny
+QX
+QX
+QX
+QX
+kW
+NF
+NF
+NF
+NF
+Ck
+wp
+"}
+(31,1,1) = {"
+sG
+UV
+QX
+QX
+QX
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+OF
+ID
+ZC
+fw
+QX
+QX
+QX
+QX
+QX
+QX
+ny
+QX
+fu
+QX
+QX
+QX
+fu
+QX
+QX
+UV
+NF
+NF
+NF
+Os
+NF
+wp
+"}
+(32,1,1) = {"
+sG
+UV
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+af
+QX
+fw
+oW
+ID
+ej
+OF
+fw
+fw
+fw
+fw
+fw
+QX
+QX
+QX
+fw
+fw
+fw
+fw
+Sn
+fw
+fw
+fw
+UV
+Bv
+NF
+NF
+NF
+Nv
+wp
+"}
+(33,1,1) = {"
+sG
+uO
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+fw
+jm
+ID
+ID
+ID
+ID
+Kv
+ZQ
+XV
+fw
+RP
+QX
+QX
+fw
+pg
+fN
+fN
+fN
+dp
+fN
+pg
+UV
+NF
+NF
+NF
+NF
+Ck
+wp
+"}
+(34,1,1) = {"
+HD
+UV
+QX
+QX
+ny
+fu
+QX
+QX
+ny
+QX
+QX
+fw
+oW
+ID
+ID
+OF
+ju
+fw
+WM
+oj
+fw
+QX
+QX
+QX
+fw
+qC
+GE
+fN
+fN
+fN
+Vu
+nC
+UV
+NF
+NF
+NF
+NF
+NF
+wp
+"}
+(35,1,1) = {"
+sG
+UV
+fw
+fw
+aB
+fw
+fw
+fw
+QX
+QX
+eM
+fw
+fw
+fw
+dc
+fw
+fw
+fw
+fw
+fw
+fw
+QX
+QX
+ny
+fw
+fN
+ea
+XK
+XK
+XK
+JW
+fN
+UV
+NF
+Os
+NF
+NF
+Nv
+wp
+"}
+(36,1,1) = {"
+sG
+UV
+vg
+EX
+Cs
+vg
+EX
+fw
+QX
+QX
+QX
+QX
+QX
+QX
+ny
+QX
+QX
+QX
+QX
+af
+QX
+QX
+QX
+QX
+kW
+fN
+wR
+XK
+XK
+XK
+OW
+fN
+UV
+NF
+NF
+NF
+NF
+Ck
+wp
+"}
+(37,1,1) = {"
+sG
+UV
+AI
+KC
+Cs
+eq
+BC
+fw
+QX
+QX
+ny
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+eM
+fw
+fN
+wR
+XK
+XK
+XK
+OW
+fN
+UV
+Bv
+NF
+NF
+NF
+NF
+wp
+"}
+(38,1,1) = {"
+sG
+UV
+vg
+EX
+Cs
+vg
+EX
+fw
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+fu
+QX
+QX
+ny
+QX
+QX
+QX
+QX
+QX
+fw
+fN
+wR
+XK
+XK
+XK
+OW
+fN
+UV
+Os
+NF
+NF
+NF
+Nv
+wp
+"}
+(39,1,1) = {"
+HD
+UV
+AI
+KC
+nK
+eq
+BC
+fw
+RP
+QX
+QX
+fw
+xR
+xR
+xR
+xR
+xR
+xR
+xR
+xR
+fw
+QX
+QX
+QX
+fw
+qC
+wR
+XK
+XK
+XK
+OW
+pw
+UV
+NF
+NF
+NF
+NF
+sq
+wp
+"}
+(40,1,1) = {"
+sG
+UV
+Cs
+Cs
+Cs
+Cs
+Cs
+fw
+QX
+QX
+QX
+fw
+mq
+mq
+MU
+mq
+mq
+MU
+mq
+mq
+fw
+QX
+QX
+ny
+kW
+dp
+wR
+XK
+XK
+XK
+OW
+fN
+UV
+NF
+NF
+NF
+NF
+NF
+wp
+"}
+(41,1,1) = {"
+sG
+UV
+MX
+Cs
+zY
+Cs
+rf
+fw
+ny
+QX
+QX
+fw
+Wk
+mq
+Wk
+mq
+mq
+Wk
+mq
+Wk
+fw
+RP
+QX
+QX
+fw
+fN
+wR
+XK
+XK
+XK
+OW
+fN
+UV
+NF
+NF
+NF
+NF
+Nv
+wp
+"}
+(42,1,1) = {"
+sG
+UV
+Cs
+Cs
+Cs
+Cs
+Cs
+fw
+QX
+QX
+QX
+fw
+xk
+mq
+mq
+mq
+mq
+mq
+mq
+FR
+fw
+QX
+QX
+QX
+fw
+fN
+wR
+XK
+XK
+XK
+OW
+fN
+UV
+Bv
+Os
+NF
+NF
+Ck
+wp
+"}
+(43,1,1) = {"
+HD
+UV
+fw
+fw
+fw
+fw
+fw
+fw
+QX
+QX
+eM
+fw
+Qi
+mq
+mq
+WI
+WI
+mq
+qF
+Qi
+fw
+QX
+QX
+QX
+kW
+fN
+wR
+XK
+XK
+XK
+JW
+fN
+UV
+NF
+NF
+NF
+NF
+NF
+wp
+"}
+(44,1,1) = {"
+sG
+UV
+oQ
+oQ
+SY
+oQ
+oQ
+fw
+QX
+QX
+ny
+wK
+mq
+mq
+mq
+mq
+mq
+mq
+mq
+mq
+xe
+QX
+QX
+QX
+fw
+qC
+ea
+XK
+XK
+XK
+OW
+nC
+UV
+NF
+NF
+NF
+Os
+SQ
+wp
+"}
+(45,1,1) = {"
+sG
+qs
+JK
+JK
+JK
+JK
+JK
+fw
+QX
+QX
+QX
+fw
+GT
+mq
+GT
+qF
+mq
+GT
+mq
+GT
+fw
+ny
+QX
+eM
+fw
+fN
+wR
+XK
+XK
+XK
+OW
+fN
+UV
+NF
+NF
+NF
+NF
+Ys
+wp
+"}
+(46,1,1) = {"
+sG
+qs
+JK
+JK
+CG
+JK
+JK
+FD
+QX
+QX
+QX
+fw
+xk
+mq
+mq
+mq
+mq
+mq
+mq
+FR
+fw
+QX
+QX
+QX
+fw
+fN
+wR
+XK
+XK
+XK
+OW
+fN
+UV
+NF
+NF
+NF
+NF
+ix
+wp
+"}
+(47,1,1) = {"
+sG
+qs
+JK
+JK
+JK
+JK
+JK
+fw
+RP
+ny
+QX
+fw
+GT
+mq
+GT
+mq
+mq
+GT
+mq
+GT
+fw
+QX
+QX
+QX
+kW
+fN
+wR
+XK
+XK
+XK
+OW
+dp
+UV
+Bv
+NF
+Os
+NF
+Ys
+wp
+"}
+(48,1,1) = {"
+HD
+UV
+oQ
+oQ
+Eq
+oQ
+oQ
+fw
+QX
+QX
+QX
+fw
+mq
+mq
+HJ
+mq
+mq
+HJ
+mq
+mq
+fw
+QX
+ny
+QX
+fw
+fN
+wR
+XK
+XK
+XK
+OW
+fN
+UV
+NF
+NF
+NF
+NF
+sy
+wp
+"}
+(49,1,1) = {"
+sG
+UV
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+DO
+fw
+fw
+cO
+cO
+cO
+cO
+cO
+cO
+cO
+cO
+fw
+RP
+QX
+QX
+fw
+kl
+Du
+fN
+fN
+fN
+Oz
+nC
+UV
+NF
+NF
+NF
+NF
+NF
+vk
+"}
+(50,1,1) = {"
+sG
+UV
+OI
+AB
+OI
+AB
+OI
+fw
+QX
+QX
+eM
+fw
+YJ
+Qw
+YJ
+YJ
+YJ
+YJ
+Qw
+YJ
+fw
+QX
+QX
+QX
+LD
+fN
+fN
+fN
+fN
+fN
+dp
+fN
+UV
+Os
+NF
+NF
+NF
+NF
+DB
+"}
+(51,1,1) = {"
+sG
+UV
+OI
+AB
+gi
+AB
+AB
+hR
+QX
+QX
+QX
+fw
+Oh
+Oh
+Oh
+Oh
+Oh
+Oh
+Oh
+Oh
+fw
+QX
+QX
+ny
+fw
+TR
+TR
+TR
+TR
+TR
+TR
+TR
+UV
+NF
+NF
+NF
+NF
+NF
+DB
+"}
+(52,1,1) = {"
+sG
+UV
+aF
+AB
+ET
+AB
+aQ
+fw
+QX
+ny
+QX
+fw
+QH
+Oh
+QH
+Oh
+Oh
+QH
+Oh
+QH
+fw
+QX
+QX
+QX
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+UV
+Bv
+NF
+NF
+NF
+NF
+DB
+"}
+(53,1,1) = {"
+sG
+UV
+OI
+AB
+ER
+AB
+OI
+fw
+QX
+QX
+QX
+Cj
+vO
+Oh
+Oh
+Oh
+Oh
+Oh
+vO
+Oh
+Cj
+QX
+QX
+eM
+fw
+XT
+vQ
+AT
+AT
+AT
+Hc
+AT
+UV
+NF
+NF
+NF
+NF
+NF
+vk
+"}
+(54,1,1) = {"
+HD
+UV
+OI
+AB
+AB
+AB
+OI
+fw
+RP
+QX
+QX
+Oh
+Oh
+Oh
+Oh
+vO
+Oh
+Oh
+Oh
+Oh
+Oh
+QX
+ny
+QX
+fw
+kS
+kS
+AT
+AT
+kS
+XT
+AT
+dJ
+NF
+NF
+NF
+NF
+SQ
+wp
+"}
+(55,1,1) = {"
+sG
+UV
+fw
+fw
+yP
+fw
+fw
+fw
+ny
+QX
+QX
+fw
+QH
+Oh
+QH
+Oh
+Oh
+QH
+Oh
+QH
+fw
+QX
+QX
+QX
+YF
+EG
+AT
+AT
+jA
+kS
+EG
+AT
+dJ
+NF
+Os
+NF
+NF
+Ys
+wp
+"}
+(56,1,1) = {"
+sG
+UV
+Hr
+Hr
+lM
+lN
+lN
+fw
+QX
+QX
+QX
+fw
+Oh
+Oh
+Oh
+Oh
+Oh
+Oh
+Oh
+Oh
+fw
+QX
+QX
+QX
+fw
+AT
+SM
+AT
+AT
+yt
+SM
+Zg
+UV
+NF
+NF
+NF
+NF
+ix
+wp
+"}
+(57,1,1) = {"
+sG
+UV
+yz
+iu
+iu
+iu
+tm
+fw
+QX
+QX
+QX
+fw
+YJ
+kM
+YJ
+YJ
+YJ
+YJ
+kM
+YJ
+fw
+RP
+QX
+QX
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+UV
+Bv
+NF
+NF
+NF
+Ys
+wp
+"}
+(58,1,1) = {"
+sG
+UV
+lF
+lF
+dE
+fa
+fa
+fw
+QX
+QX
+eM
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+ny
+QX
+QX
+fw
+XT
+vQ
+AT
+EG
+AT
+Hc
+AT
+UV
+NF
+NF
+NF
+NF
+sy
+wp
+"}
+(59,1,1) = {"
+HD
+UV
+fw
+fw
+fw
+fw
+fw
+fw
+QX
+QX
+QX
+fw
+CZ
+sS
+CZ
+CZ
+CZ
+CZ
+sS
+CZ
+fw
+QX
+QX
+QX
+fw
+kS
+kS
+AT
+AT
+kS
+XT
+AT
+dJ
+NF
+NF
+NF
+Os
+Ck
+wp
+"}
+(60,1,1) = {"
+sG
+UV
+Hw
+Hw
+DH
+lN
+lN
+fw
+QX
+QX
+ny
+fw
+lj
+lj
+lj
+lj
+lj
+lj
+lj
+lj
+fw
+QX
+QX
+QX
+iZ
+EG
+AT
+AT
+jA
+kS
+AT
+Zg
+dJ
+Os
+NF
+NF
+NF
+NF
+wp
+"}
+(61,1,1) = {"
+sG
+UV
+yz
+iu
+iu
+iu
+tm
+fw
+QX
+QX
+QX
+fw
+Gy
+lj
+Gy
+lj
+lj
+Gy
+lj
+Gy
+fw
+QX
+QX
+eM
+fw
+AT
+SM
+AT
+AT
+yt
+SM
+AT
+UV
+NF
+NF
+NF
+NF
+Nv
+wp
+"}
+(62,1,1) = {"
+sG
+UV
+GN
+GN
+lM
+fa
+fa
+fw
+RP
+QX
+QX
+oO
+lj
+lj
+yi
+lj
+lj
+lj
+lj
+lj
+oO
+QX
+QX
+ny
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+UV
+Bv
+NF
+NF
+NF
+Ck
+wp
+"}
+(63,1,1) = {"
+HD
+UV
+fw
+fw
+yP
+fw
+fw
+fw
+QX
+ny
+QX
+lj
+lj
+lj
+lj
+lj
+lj
+yi
+lj
+lj
+lj
+QX
+QX
+QX
+fw
+AT
+Hc
+AT
+AT
+yt
+Hc
+AT
+UV
+NF
+NF
+NF
+NF
+NF
+wp
+"}
+(64,1,1) = {"
+sG
+UV
+OI
+AB
+AB
+AB
+OI
+fw
+QX
+QX
+QX
+fw
+Gy
+lj
+Gy
+lj
+lj
+Gy
+lj
+Gy
+fw
+QX
+QX
+QX
+OQ
+EG
+AT
+AT
+jA
+kS
+AT
+KA
+dJ
+NF
+NF
+Os
+NF
+Nv
+wp
+"}
+(65,1,1) = {"
+sG
+UV
+OI
+AB
+ET
+AB
+OI
+fw
+QX
+QX
+QX
+fw
+lj
+lj
+lj
+lj
+lj
+lj
+lj
+lj
+fw
+RP
+QX
+QX
+fw
+XT
+kS
+AT
+AT
+kS
+XT
+AT
+dJ
+NF
+NF
+NF
+NF
+sq
+wp
+"}
+(66,1,1) = {"
+sG
+UV
+aF
+AB
+sf
+AB
+aQ
+fw
+QX
+QX
+eM
+fw
+CZ
+Ux
+CZ
+CZ
+CZ
+CZ
+Ux
+CZ
+fw
+ny
+QX
+QX
+fw
+kS
+XG
+AT
+AT
+EG
+SM
+AT
+UV
+NF
+NF
+NF
+NF
+NF
+wp
+"}
+(67,1,1) = {"
+sG
+UV
+OI
+AB
+AB
+gi
+AB
+oJ
+QX
+ny
+QX
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+QX
+QX
+QX
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+UV
+Bv
+Os
+NF
+NF
+Nv
+wp
+"}
+(68,1,1) = {"
+sG
+UV
+OI
+AB
+OI
+AB
+OI
+fw
+QX
+QX
+QX
+th
+fw
+gz
+Qo
+Dz
+EV
+lZ
+oH
+rS
+fw
+QX
+QX
+QX
+fw
+hV
+hV
+hV
+ZL
+hV
+hV
+hV
+UV
+NF
+NF
+NF
+NF
+Ck
+wp
+"}
+(69,1,1) = {"
+HD
+UV
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+DO
+fw
+fw
+fw
+Jw
+Qo
+Jw
+Qo
+lZ
+Qo
+nT
+fw
+QX
+QX
+eM
+fw
+AQ
+hV
+cH
+cH
+cH
+hV
+zU
+UV
+NF
+NF
+NF
+NF
+NF
+wp
+"}
+(70,1,1) = {"
+sG
+om
+QX
+af
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+fw
+WV
+Qo
+WV
+Qo
+lZ
+Qo
+Yk
+fw
+QX
+ny
+QX
+fw
+hV
+hV
+hV
+hV
+hV
+hV
+hV
+UV
+NF
+NF
+NF
+NF
+NF
+wp
+"}
+(71,1,1) = {"
+sG
+om
+QX
+QX
+QX
+QX
+QX
+ny
+QX
+QX
+QX
+eM
+fw
+ao
+Qo
+Jw
+Qo
+lZ
+lZ
+lZ
+fw
+QX
+QX
+QX
+fw
+cH
+cH
+cH
+OR
+cH
+cH
+cH
+UV
+NF
+NF
+NF
+NF
+Ck
+wp
+"}
+(72,1,1) = {"
+sG
+om
+QX
+QX
+QX
+QX
+QX
+fu
+QX
+QX
+QX
+ny
+pE
+WV
+Qo
+WV
+Qo
+lZ
+Qo
+Yk
+fw
+QX
+QX
+QX
+fw
+Bn
+Bn
+Bn
+hV
+Bn
+Bn
+Bn
+UV
+Bv
+NF
+NF
+NF
+NF
+wp
+"}
+(73,1,1) = {"
+sG
+UV
+fw
+Gx
+uK
+fw
+fw
+fw
+fw
+QX
+QX
+QX
+pE
+Jw
+Qo
+Qo
+Qo
+lZ
+Qo
+nT
+pT
+RP
+QX
+ny
+fw
+sj
+cH
+cH
+hV
+cH
+cH
+UX
+UV
+NF
+NF
+NF
+Os
+Nv
+wp
+"}
+(74,1,1) = {"
+AA
+UV
+gu
+Gx
+Gx
+Gx
+gu
+fw
+jR
+QX
+QX
+QX
+fw
+WV
+Qo
+Qo
+Qo
+lZ
+jM
+rS
+fw
+QX
+QX
+QX
+fw
+Bn
+Bn
+Bn
+hV
+Bn
+Bn
+Bn
+UV
+NF
+NF
+NF
+NF
+sq
+wp
+"}
+(75,1,1) = {"
+sG
+bE
+Gx
+Gx
+Gx
+Gx
+kL
+fw
+oX
+QX
+QX
+QX
+fw
+fw
+Qo
+RZ
+fw
+fw
+fw
+fw
+fw
+QX
+QX
+QX
+fw
+fw
+fw
+fw
+Oi
+fw
+fw
+fw
+UV
+NF
+NF
+NF
+NF
+NF
+wp
+"}
+(76,1,1) = {"
+HD
+UV
+Gx
+Gx
+wu
+Gx
+Gx
+fw
+fw
+QX
+ny
+QX
+QX
+af
+QX
+QX
+QX
+QX
+ny
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+jK
+QX
+QX
+QX
+QX
+QX
+UV
+NF
+Os
+NF
+NF
+Nv
+wp
+"}
+(77,1,1) = {"
+sG
+ef
+Gx
+Gx
+Gx
+Gx
+Gx
+Wy
+fw
+RP
+QX
+QX
+QX
+ny
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+XC
+NF
+NF
+NF
+NF
+Ck
+wp
+"}
+(78,1,1) = {"
+sG
+UV
+tF
+Gx
+tk
+tk
+Gx
+aE
+fw
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+fu
+QX
+QX
+QX
+QX
+ny
+QX
+QX
+QX
+QX
+QX
+QX
+ny
+fu
+QX
+UV
+NF
+NF
+NF
+NF
+NF
+wp
+"}
+(79,1,1) = {"
+sG
+bE
+Uz
+Gx
+xV
+Gx
+Gx
+tT
+fw
+ny
+QX
+QX
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+QX
+QX
+QX
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+fw
+UV
+NF
+NF
+NF
+NF
+Nv
+wp
+"}
+(80,1,1) = {"
+sG
+bE
+Uz
+Gx
+tk
+Gx
+Gx
+Gx
+Pp
+QX
+QX
+ny
+fw
+hV
+xp
+hV
+cH
+Fb
+gc
+Fb
+fw
+QX
+QX
+eM
+fw
+Sa
+gc
+Sa
+cH
+hV
+xp
+hV
+UV
+NF
+NF
+NF
+NF
+Ck
+wp
+"}
+(81,1,1) = {"
+HD
+bE
+Uz
+Gx
+tk
+Gx
+wu
+Gx
+fw
+QX
+QX
+QX
+fw
+hV
+hV
+hV
+cH
+Fb
+cH
+Fb
+fw
+QX
+QX
+QX
+fw
+Sa
+cH
+Sa
+cH
+hV
+hV
+hV
+UV
+NF
+NF
+NF
+NF
+NF
+wp
+"}
+(82,1,1) = {"
+sG
+UV
+tF
+Gx
+tk
+tk
+Gx
+pv
+fw
+QX
+QX
+QX
+fw
+hV
+cH
+hV
+cH
+Fb
+cH
+Fb
+fw
+QX
+QX
+QX
+fw
+Sa
+cH
+Sa
+cH
+hV
+cH
+hV
+UV
+Bv
+NF
+Os
+NF
+Nv
+wp
+"}
+(83,1,1) = {"
+sG
+Sd
+Gx
+wu
+Gx
+Gx
+Gx
+fw
+fw
+QX
+QX
+eM
+fw
+Sa
+cH
+hV
+hV
+OR
+hV
+hV
+xw
+QX
+QX
+QX
+xl
+hV
+hV
+OR
+hV
+hV
+cH
+Fb
+UV
+NF
+NF
+NF
+NF
+sq
+wp
+"}
+(84,1,1) = {"
+HD
+UV
+Gx
+Gx
+Gx
+Gx
+Gx
+fw
+th
+QX
+QX
+QX
+fw
+hV
+cH
+hV
+cH
+Fb
+cH
+Fb
+fw
+LZ
+QX
+QX
+fw
+Sa
+cH
+Sa
+cH
+hV
+cH
+hV
+UV
+NF
+NF
+NF
+NF
+NF
+wp
+"}
+(85,1,1) = {"
+sG
+bE
+gu
+Gx
+Gx
+Gx
+kL
+fw
+gG
+ny
+QX
+QX
+fw
+hV
+hV
+hV
+cH
+Fb
+cH
+Fb
+fw
+QX
+QX
+QX
+fw
+Sa
+cH
+Sa
+cH
+hV
+hV
+hV
+UV
+NF
+NF
+NF
+NF
+Nv
+wp
+"}
+(86,1,1) = {"
+sG
+UV
+UV
+Io
+lm
+lm
+Io
+fw
+UA
+QX
+QX
+QX
+fw
+hV
+Pj
+hV
+cH
+Fb
+fR
+Fb
+fw
+QX
+QX
+QX
+fw
+Sa
+fR
+Sa
+cH
+hV
+Pj
+hV
+UV
+Os
+NF
+NF
+NF
+Ck
+wp
+"}
+(87,1,1) = {"
+sG
+fF
+UV
+UV
+UV
+UV
+UV
+UV
+UV
+UV
+zl
+UV
+UV
+UV
+UV
+UV
+UV
+UV
+UV
+UV
+UV
+UV
+zl
+UV
+UV
+UV
+UV
+UV
+UV
+UV
+UV
+UV
+UV
+NF
+NF
+NF
+NF
+NF
+wp
+"}
+(88,1,1) = {"
+lv
+dt
+dt
+dt
+dt
+dt
+dt
+Wm
+dt
+dt
+dt
+dt
+dt
+dt
+dt
+dt
+dt
+dt
+dt
+dt
+Wm
+dt
+dt
+dt
+dt
+dt
+dt
+dt
+dt
+Wm
+dt
+dt
+oG
+NF
+NF
+NF
+oG
+MP
+wp
+"}
+(89,1,1) = {"
+dt
+Wm
+Me
+Me
+Me
+KL
+zV
+Me
+VF
+Me
+Me
+Me
+Me
+KL
+Me
+MD
+Me
+Me
+Me
+dt
+Me
+KL
+Me
+Me
+Me
+Me
+Me
+Me
+Me
+KL
+Me
+Me
+Me
+VJ
+uH
+VJ
+ih
+ZX
+wp
+"}

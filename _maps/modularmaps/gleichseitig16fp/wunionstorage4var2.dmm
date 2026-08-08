@@ -1,0 +1,128 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/effect/spawner/random/misc/structure/supplycrate,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"b" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"i" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"m" = (
+/obj/structure/largecrate/random/case/double,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"r" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"u" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 1
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"x" = (
+/obj/machinery/door/poddoor/shutters/mainship/open/hangar{
+	dir = 1;
+	id = "wunionstorage4";
+	name = "\improper West Industrial Union Storage 4"
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"y" = (
+/obj/structure/largecrate/random/case/small,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"B" = (
+/obj/machinery/door_control{
+	id = "wunionstorage4";
+	name = "West Industrial Union Storage 4"
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"D" = (
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"E" = (
+/obj/structure/table/mainship{
+	color = "#848484"
+	},
+/obj/machinery/recharger,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"O" = (
+/obj/machinery/robotic_cradle,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"V" = (
+/obj/structure/bed/bedroll,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+
+(1,1,1) = {"
+r
+E
+a
+i
+y
+r
+"}
+(2,1,1) = {"
+r
+D
+b
+D
+D
+x
+"}
+(3,1,1) = {"
+r
+V
+D
+D
+b
+x
+"}
+(4,1,1) = {"
+r
+B
+D
+D
+D
+x
+"}
+(5,1,1) = {"
+u
+D
+D
+b
+D
+x
+"}
+(6,1,1) = {"
+r
+y
+O
+m
+a
+r
+"}
+(7,1,1) = {"
+r
+r
+r
+r
+r
+r
+"}

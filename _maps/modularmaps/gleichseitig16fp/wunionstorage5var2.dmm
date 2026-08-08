@@ -1,0 +1,133 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"d" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"e" = (
+/obj/structure/largecrate/random/case/small,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"g" = (
+/obj/effect/spawner/random/misc/structure/supplycrate/secure_supplies,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"h" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 1
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"i" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"j" = (
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"l" = (
+/obj/effect/spawner/random/misc/structure/supplycrate,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"t" = (
+/obj/machinery/door/poddoor/shutters/mainship/open/hangar{
+	dir = 1;
+	id = "wunionstorage5";
+	name = "\improper West Industrial Union Storage 5"
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"H" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"I" = (
+/obj/machinery/door_control{
+	id = "wunionstorage5";
+	name = "West Industrial Union Storage 5"
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"L" = (
+/obj/structure/largecrate/random/case/double,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"N" = (
+/obj/structure/largecrate/random/barrel/black,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"O" = (
+/obj/structure/bed/bedroll,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+
+(1,1,1) = {"
+H
+H
+H
+H
+H
+H
+"}
+(2,1,1) = {"
+H
+i
+j
+g
+e
+H
+"}
+(3,1,1) = {"
+H
+l
+j
+d
+j
+t
+"}
+(4,1,1) = {"
+H
+j
+j
+j
+j
+t
+"}
+(5,1,1) = {"
+H
+I
+j
+j
+d
+t
+"}
+(6,1,1) = {"
+h
+d
+j
+j
+j
+t
+"}
+(7,1,1) = {"
+H
+j
+O
+L
+N
+H
+"}
+(8,1,1) = {"
+H
+H
+H
+H
+H
+H
+"}

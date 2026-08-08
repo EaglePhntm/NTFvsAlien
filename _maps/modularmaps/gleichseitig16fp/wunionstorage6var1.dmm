@@ -1,0 +1,125 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/six)
+"c" = (
+/obj/structure/largecrate/random/barrel/green,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/six)
+"d" = (
+/obj/structure/prop/vehicle/truck,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/six)
+"h" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 1
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/six)
+"n" = (
+/obj/structure/largecrate/random/case/small,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/six)
+"p" = (
+/obj/machinery/door/poddoor/shutters/mainship/hangar{
+	dir = 1;
+	id = "wunionstorage6";
+	name = "\improper West Industrial Union Storage 6"
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/six)
+"t" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/northwest/wstorageunits/six)
+"H" = (
+/obj/structure/largecrate/random/barrel/brown,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/six)
+"I" = (
+/obj/effect/spawner/random/misc/structure/supplycrate,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/six)
+"L" = (
+/obj/structure/largecrate/random/case/double,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/six)
+"N" = (
+/obj/structure/largecrate/random/barrel/brown,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/six)
+"P" = (
+/obj/machinery/door_control{
+	id = "wunionstorage6";
+	name = "West Industrial Union Storage 6"
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/six)
+"W" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/six)
+
+(1,1,1) = {"
+t
+t
+t
+t
+t
+t
+"}
+(2,1,1) = {"
+t
+n
+c
+N
+I
+t
+"}
+(3,1,1) = {"
+t
+a
+W
+a
+a
+p
+"}
+(4,1,1) = {"
+t
+a
+a
+d
+a
+p
+"}
+(5,1,1) = {"
+t
+P
+a
+a
+W
+p
+"}
+(6,1,1) = {"
+h
+W
+a
+a
+a
+p
+"}
+(7,1,1) = {"
+t
+H
+I
+L
+n
+t
+"}

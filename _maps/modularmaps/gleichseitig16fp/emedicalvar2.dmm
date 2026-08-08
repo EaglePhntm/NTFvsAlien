@@ -1,0 +1,3092 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"as" = (
+/obj/machinery/atmospherics/pipe/manifold/general/visible,
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"aT" = (
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"ba" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/ehrmilmaso/yard)
+"bB" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"bM" = (
+/obj/machinery/atmospherics/components/unary/cryo_cell,
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"ce" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	dir = 1
+	},
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"cg" = (
+/obj/machinery/light/small,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"co" = (
+/obj/effect/urban/decal/road/lines5,
+/obj/structure/prop/vehicle/big_truck/enclosed{
+	dir = 4;
+	color = "#afe1ff";
+	name = "EHR-MIL truck"
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/ehrmilmaso/yard)
+"cs" = (
+/obj/structure/closet,
+/obj/machinery/light/small,
+/obj/item/clothing/under/marine/camo/woodland{
+	color = "#7dcdff";
+	name = "\improper re-patterened camo fatigues (EHR-MIL)";
+	desc = "A set of issued fatigues for a nation-state military. While it may lack most modern amenities, there are some. Judging from the patterns and colors, this appears to be an Ehrman Republics military variant."
+	},
+/obj/item/weapon/gun/rifle/khm4,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/storage/belt/marine,
+/obj/item/clothing/suit/storage/marine/vsd_two{
+	color = "#64e6cd";
+	desc = "The Ehrman Steadfast Republics equip the majority of their national military with CrashCore body armor. This protects the user from most bullet calibers."
+	},
+/obj/item/clothing/head/modular/m10x{
+	color = "#4b9b9b"
+	},
+/obj/item/clothing/gloves/combat,
+/obj/item/clothing/shoes/marine/clf/full,
+/obj/item/clothing/mask/gas/modular/skimask{
+	color = "#4b9b9b"
+	},
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"cH" = (
+/obj/structure/table/reinforced,
+/obj/item/folder/blue,
+/obj/machinery/door_control{
+	id = "ehrmil_mash_south_inner";
+	name = "South Inner Checkpoint Gate"
+	},
+/obj/machinery/door_control{
+	id = "ehrmil_mash_south_outer";
+	name = "South Outer Checkpoint Gate";
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"do" = (
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"dr" = (
+/obj/structure/closet,
+/obj/item/clothing/under/marine/camo/woodland{
+	color = "#7dcdff";
+	name = "\improper re-patterened camo fatigues (EHR-MIL)";
+	desc = "A set of issued fatigues for a nation-state military. While it may lack most modern amenities, there are some. Judging from the patterns and colors, this appears to be an Ehrman Republics military variant."
+	},
+/obj/item/weapon/gun/rifle/khm4,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/storage/belt/marine,
+/obj/item/clothing/suit/storage/marine/vsd_two{
+	color = "#64e6cd";
+	desc = "The Ehrman Steadfast Republics equip the majority of their national military with CrashCore body armor. This protects the user from most bullet calibers."
+	},
+/obj/item/clothing/head/modular/m10x{
+	color = "#4b9b9b"
+	},
+/obj/item/clothing/shoes/marine/clf/full,
+/obj/item/clothing/mask/gas/modular/skimask{
+	color = "#4b9b9b"
+	},
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"dT" = (
+/obj/effect/urban/decal/road/lines4,
+/obj/effect/urban/decal/road/road_edge/two,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"ep" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"ez" = (
+/obj/structure/barricade/solid,
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"eD" = (
+/obj/machinery/computer/cloning_console/vats,
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"eN" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	name = "\improper EHR-MIL MASH South Checkpoint"
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"eY" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/ehrmilmaso/yard)
+"fb" = (
+/obj/machinery/atmospherics/pipe/manifold/general/visible,
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"fj" = (
+/obj/machinery/computer/autodoc_console,
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"fo" = (
+/obj/machinery/autodoc,
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"fy" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/concrete{
+	color = "#7db4ff"
+	},
+/area/gleichseitig16/outdoors/east/ehrmilmaso/landpad)
+"ga" = (
+/obj/item/bedsheet{
+	color = "#afe1ff"
+	},
+/obj/structure/bed,
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"gd" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"gm" = (
+/obj/effect/urban/decal/road/road_edge/four,
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"hm" = (
+/obj/structure/platform{
+	dir = 8
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/concrete{
+	color = "#7db4ff"
+	},
+/area/gleichseitig16/outdoors/east/ehrmilmaso/landpad)
+"hP" = (
+/obj/machinery/door/poddoor/shutters/urban/security_lockdown{
+	id = "ehrmil_mash_south_outer";
+	name = "\improper MASH South Checkpoint Outer";
+	dir = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"ij" = (
+/obj/item/bedsheet{
+	color = "#afe1ff"
+	},
+/obj/structure/bed,
+/obj/machinery/light/small,
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"iC" = (
+/obj/machinery/atmospherics/pipe/simple/general/visible{
+	dir = 9
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"iI" = (
+/obj/structure/platform{
+	dir = 6
+	},
+/turf/open/floor/plating/ground/concrete{
+	color = "#7db4ff"
+	},
+/area/gleichseitig16/outdoors/east/ehrmilmaso/landpad)
+"iV" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"jq" = (
+/obj/structure/dropship_equipment/shuttle/operatingtable,
+/obj/item/tank/anesthetic,
+/obj/item/clothing/mask/breath/medical,
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"jr" = (
+/obj/structure/prop/urban/vehicles/large/ambulance{
+	dir = 1;
+	color = "#87d7ff";
+	name = "EHR-MIL ambulance";
+	desc = "The engine isn't on."
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/ehrmilmaso/yard)
+"jM" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"jS" = (
+/obj/structure/closet,
+/obj/item/clothing/under/marine/camo/woodland{
+	color = "#7dcdff";
+	name = "\improper re-patterened camo fatigues (EHR-MIL)";
+	desc = "A set of issued fatigues for a nation-state military. While it may lack most modern amenities, there are some. Judging from the patterns and colors, this appears to be an Ehrman Republics military variant."
+	},
+/obj/item/weapon/gun/rifle/standard_lmg,
+/obj/item/ammo_magazine/standard_lmg,
+/obj/item/ammo_magazine/standard_lmg,
+/obj/item/ammo_magazine/standard_lmg,
+/obj/item/storage/belt/sparepouch,
+/obj/item/clothing/suit/storage/marine/vsd_two{
+	color = "#64e6cd";
+	desc = "The Ehrman Steadfast Republics equip the majority of their national military with CrashCore body armor. This protects the user from most bullet calibers."
+	},
+/obj/item/clothing/head/modular/m10x{
+	color = "#4b9b9b"
+	},
+/obj/item/clothing/gloves/combat,
+/obj/item/clothing/shoes/marine/clf/full,
+/obj/item/clothing/mask/gas/modular/skimask{
+	color = "#4b9b9b"
+	},
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"jU" = (
+/obj/structure/closet,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/item/clothing/under/marine/camo/woodland{
+	color = "#7dcdff";
+	name = "\improper re-patterened camo fatigues (EHR-MIL)";
+	desc = "A set of issued fatigues for a nation-state military. While it may lack most modern amenities, there are some. Judging from the patterns and colors, this appears to be an Ehrman Republics military variant."
+	},
+/obj/item/weapon/gun/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/storage/belt/marine,
+/obj/item/clothing/suit/storage/marine/vsd_two{
+	color = "#64e6cd";
+	desc = "The Ehrman Steadfast Republics equip the majority of their national military with CrashCore body armor. This protects the user from most bullet calibers."
+	},
+/obj/item/clothing/head/modular/m10x{
+	color = "#4b9b9b"
+	},
+/obj/item/clothing/gloves/combat,
+/obj/item/clothing/shoes/marine/clf/full,
+/obj/item/clothing/mask/gas/modular/skimask{
+	color = "#4b9b9b"
+	},
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"kr" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"ky" = (
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/ehrmilmaso/yard)
+"kQ" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"kV" = (
+/turf/open/urban/street/sidewalk{
+	dir = 10
+	},
+/area/gleichseitig16/outdoors/east/ehrmilmaso/yard)
+"kW" = (
+/obj/effect/urban/decal/road/road_edge/eight,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"lc" = (
+/obj/machinery/vending/armor_supply,
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"lj" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"lE" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/ehrmilmaso/yard)
+"mw" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	name = "\improper EHR-MIL Hospital"
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"mL" = (
+/obj/structure/platform,
+/turf/open/floor/plating/ground/concrete{
+	color = "#7db4ff"
+	},
+/area/gleichseitig16/outdoors/east/ehrmilmaso/landpad)
+"mX" = (
+/obj/structure/barricade/folding{
+	dir = 8
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"np" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/drained{
+	dir = 1
+	},
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"nF" = (
+/obj/machinery/light/small,
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"nS" = (
+/obj/effect/urban/decal/road/road_edge/four,
+/obj/effect/urban/decal/road/lines2,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"ol" = (
+/obj/structure/barricade/folding{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"ot" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer,
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"pU" = (
+/obj/structure/sink/bathroom{
+	dir = 1
+	},
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"qf" = (
+/obj/effect/urban/decal/road/road_edge/three,
+/obj/effect/urban/decal/road/lines3,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"qU" = (
+/obj/structure/bed/chair/office/dark/north{
+	dir = 2
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"re" = (
+/obj/structure/bed/chair/office/dark/north,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"rm" = (
+/obj/structure/table/reinforced,
+/obj/machinery/computer3/laptop,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"rs" = (
+/obj/structure/toilet{
+	dir = 8
+	},
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"rw" = (
+/obj/effect/urban/decal/road/road_edge/two,
+/obj/effect/urban/decal/road/lines4,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"si" = (
+/obj/structure/bed/urban/bunkbed2,
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"su" = (
+/obj/effect/urban/decal/dirt,
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"sy" = (
+/obj/structure/bed,
+/obj/item/bedsheet/captain,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"tG" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"tW" = (
+/obj/effect/urban/decal/road/road_edge/two,
+/obj/effect/urban/decal/road/lines4,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"ue" = (
+/obj/machinery/iv_drip,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"ug" = (
+/obj/effect/urban/decal/road/road_edge/five,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"ui" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"uu" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"uM" = (
+/obj/effect/urban/decal/road/road_edge/three,
+/obj/effect/urban/decal/road/lines3,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"vr" = (
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"vt" = (
+/obj/structure/barricade/solid{
+	dir = 8
+	},
+/obj/structure/barricade/solid,
+/turf/open/urban/street/sidewalk{
+	dir = 10
+	},
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"vV" = (
+/obj/structure/sink/bathroom{
+	pixel_y = -16;
+	dir = 1
+	},
+/obj/structure/mirror{
+	dir = 1
+	},
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"wc" = (
+/obj/structure/stairs/seamless/platform_vert{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/concrete{
+	color = "#7db4ff"
+	},
+/area/gleichseitig16/outdoors/east/ehrmilmaso/landpad)
+"wd" = (
+/obj/structure/prop/vehicle/land_rover{
+	dir = 4;
+	color = "#afe1ff";
+	name = "EHR-MIL land rover"
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/ehrmilmaso/yard)
+"wh" = (
+/obj/structure/prop/vehicle/truck{
+	dir = 4;
+	color = "#afe1ff";
+	name = "EHR-MIL truck";
+	desc = "An old truck, the key is missing."
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/ehrmilmaso/yard)
+"wi" = (
+/obj/machinery/light,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"wI" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"xi" = (
+/obj/machinery/iv_drip,
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"xu" = (
+/obj/effect/urban/decal/dirt,
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"xD" = (
+/obj/structure/barricade/solid,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"xX" = (
+/obj/structure/bed,
+/obj/item/bedsheet/captain{
+	color = "#afe1ff"
+	},
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"yP" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 8
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"zl" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"zB" = (
+/obj/effect/urban/decal/road/lines5,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/ehrmilmaso/yard)
+"zI" = (
+/obj/effect/urban/decal/dirt,
+/turf/closed/mineral/smooth/frostwall/indestructible{
+	base_icon_state = "hybrisa_colony_walls";
+	icon_state = "wall-reinforced";
+	icon = 'icons/turf/walls/hybrisa_colony_walls.dmi';
+	name = "indestructible dense metal walls";
+	color = "#b4b4b4"
+	},
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"zQ" = (
+/turf/open/urban/street/sidewalk{
+	dir = 5
+	},
+/area/gleichseitig16/outdoors/east/ehrmilmaso/yard)
+"Al" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Az" = (
+/obj/machinery/vending/MarineMed,
+/obj/machinery/light,
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"AH" = (
+/obj/effect/urban/decal/dirt,
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"AI" = (
+/obj/structure/barricade/solid{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"AU" = (
+/turf/open/urban/street/sidewalk{
+	dir = 6
+	},
+/area/gleichseitig16/outdoors/east/ehrmilmaso/yard)
+"Bc" = (
+/obj/structure/bed/chair,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Be" = (
+/obj/machinery/streetlight/traffic{
+	pixel_x = 5;
+	pixel_y = 12;
+	dir = 4
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/streets)
+"Bu" = (
+/obj/machinery/vending/cigarette,
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Bv" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/streets)
+"BY" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/item/clipboard,
+/obj/item/paper{
+	pixel_y = -4;
+	pixel_x = 4
+	},
+/obj/item/paper,
+/obj/item/tool/pen,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Cm" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/streets)
+"CB" = (
+/obj/structure/barricade/solid{
+	dir = 1
+	},
+/obj/structure/barricade/solid{
+	dir = 8
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 9
+	},
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"CF" = (
+/obj/structure/table/reinforced,
+/obj/item/folder/blue,
+/obj/item/paper{
+	pixel_x = 4;
+	pixel_y = -4
+	},
+/obj/item/paper{
+	pixel_y = -2
+	},
+/obj/machinery/door_control{
+	id = "ehrmil_mash_north_outer";
+	name = "North Outer Checkpoint Gate"
+	},
+/obj/machinery/door_control{
+	id = "ehrmil_mash_north_inner";
+	name = "North Inner Checkpoint Gate";
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Di" = (
+/obj/structure/closet,
+/obj/item/clothing/under/marine/camo/woodland{
+	color = "#7dcdff";
+	name = "\improper re-patterened camo fatigues (EHR-MIL)";
+	desc = "A set of issued fatigues for a nation-state military. While it may lack most modern amenities, there are some. Judging from the patterns and colors, this appears to be an Ehrman Republics military variant."
+	},
+/obj/item/weapon/gun/rifle/khm4,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/storage/belt/marine,
+/obj/item/clothing/suit/storage/marine/vsd_two{
+	color = "#64e6cd";
+	desc = "The Ehrman Steadfast Republics equip the majority of their national military with CrashCore body armor. This protects the user from most bullet calibers."
+	},
+/obj/item/clothing/head/modular/m10x{
+	color = "#4b9b9b"
+	},
+/obj/item/clothing/head/vsd/beret_alt{
+	color = "#64b4ff";
+	name = "\improper crasher ERH-MIL beret";
+	desc = "CrashCore sponsored beret with kevlar fabric, seen on armed forces of EHR-MIL."
+	},
+/obj/item/clothing/gloves/combat,
+/obj/item/clothing/shoes/marine/clf/full,
+/obj/item/clothing/mask/gas/modular/skimask{
+	color = "#4b9b9b"
+	},
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Dv" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"Ej" = (
+/turf/open/floor/plating/ground/snow{
+	color = "#ffe1af"
+	},
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"EE" = (
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"EV" = (
+/obj/item/bedsheet{
+	color = "#afe1ff"
+	},
+/obj/structure/bed,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Fa" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Fc" = (
+/obj/machinery/atmospherics/pipe/simple/general/visible{
+	dir = 5
+	},
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Fj" = (
+/turf/open/floor/iron/white/smooth_large,
+/area/gleichseitig16/outdoors/east/ehrmilmaso/landpad)
+"Ft" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"FG" = (
+/obj/machinery/door/poddoor/shutters/urban/security_lockdown{
+	id = "ehrmil_mash_south_inner";
+	name = "\improper MASH South Checkpoint Inner";
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"FL" = (
+/obj/structure/platform{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/concrete{
+	color = "#7db4ff"
+	},
+/area/gleichseitig16/outdoors/east/ehrmilmaso/landpad)
+"FT" = (
+/obj/structure/platform{
+	dir = 8
+	},
+/turf/open/floor/plating/ground/concrete{
+	color = "#7db4ff"
+	},
+/area/gleichseitig16/outdoors/east/ehrmilmaso/landpad)
+"FX" = (
+/obj/structure/stairs/seamless/platform_vert{
+	dir = 8
+	},
+/turf/open/floor/plating/ground/concrete{
+	color = "#7db4ff"
+	},
+/area/gleichseitig16/outdoors/east/ehrmilmaso/landpad)
+"Gl" = (
+/obj/machinery/vending/cola,
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Gn" = (
+/obj/structure/table/reinforced,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Gw" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"GK" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/table/reinforced/prison,
+/obj/item/ashtray/plastic,
+/obj/effect/spawner/random/misc/cigarettes{
+	pixel_x = 10;
+	pixel_y = 2
+	},
+/obj/item/tool/lighter{
+	pixel_x = -6
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Hh" = (
+/obj/structure/barricade/folding,
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"HU" = (
+/obj/structure/platform{
+	dir = 9
+	},
+/turf/open/floor/plating/ground/concrete{
+	color = "#7db4ff"
+	},
+/area/gleichseitig16/outdoors/east/ehrmilmaso/landpad)
+"HV" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light/small,
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Ir" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"IM" = (
+/obj/structure/closet,
+/obj/item/clothing/under/marine/camo/woodland{
+	color = "#7dcdff";
+	name = "\improper re-patterened camo fatigues (EHR-MIL)";
+	desc = "A set of issued fatigues for a nation-state military. While it may lack most modern amenities, there are some. Judging from the patterns and colors, this appears to be an Ehrman Republics military variant."
+	},
+/obj/item/weapon/gun/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/storage/belt/marine,
+/obj/item/clothing/suit/storage/marine/vsd_two{
+	color = "#64e6cd";
+	desc = "The Ehrman Steadfast Republics equip the majority of their national military with CrashCore body armor. This protects the user from most bullet calibers."
+	},
+/obj/item/clothing/head/modular/m10x{
+	color = "#4b9b9b"
+	},
+/obj/item/clothing/gloves/combat,
+/obj/item/clothing/shoes/marine/clf/full,
+/obj/item/clothing/mask/gas/modular/skimask{
+	color = "#4b9b9b"
+	},
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"JG" = (
+/obj/structure/closet,
+/obj/item/clothing/under/marine/camo/woodland{
+	color = "#7dcdff";
+	name = "\improper re-patterened camo fatigues (EHR-MIL)";
+	desc = "A set of issued fatigues for a nation-state military. While it may lack most modern amenities, there are some. Judging from the patterns and colors, this appears to be an Ehrman Republics military variant."
+	},
+/obj/item/storage/belt/rig/medical,
+/obj/item/clothing/mask/rebreather,
+/obj/item/clothing/gloves/latex/blue,
+/obj/item/clothing/shoes/marine/clf/full,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Kl" = (
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Kw" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/urban/decal/road/road_edge/four,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"KD" = (
+/obj/machinery/door/poddoor/shutters/urban/security_lockdown{
+	id = "ehrmil_mash_south_inner";
+	name = "\improper MASH South Checkpoint Inner";
+	dir = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"KG" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 8
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"KQ" = (
+/turf/open/floor/prison{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"Lk" = (
+/obj/effect/urban/decal/dirt,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"Ln" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/urban/decal/road/road_edge/four,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"Lt" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"LD" = (
+/obj/effect/urban/decal/road/road_edge/four,
+/obj/effect/urban/decal/road/lines2,
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"LE" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"LF" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Mt" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"My" = (
+/obj/effect/urban/decal/road/lines4,
+/obj/effect/urban/decal/road/road_edge/two,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"MD" = (
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"MO" = (
+/turf/open/floor/plating/ground/concrete{
+	color = "#7db4ff"
+	},
+/area/gleichseitig16/outdoors/east/ehrmilmaso/landpad)
+"MS" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Nr" = (
+/obj/structure/cable,
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Nv" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/item/clipboard,
+/obj/item/paper,
+/obj/item/paper{
+	pixel_x = -2;
+	pixel_y = 2
+	},
+/obj/item/paper{
+	pixel_x = -6
+	},
+/obj/item/tool/pen,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Ou" = (
+/obj/structure/sink/bathroom{
+	pixel_y = 16
+	},
+/obj/structure/mirror,
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Ox" = (
+/obj/machinery/door/poddoor/shutters/urban/security_lockdown{
+	id = "ehrmil_mash_north_inner";
+	name = "\improper MASH North Checkpoint Inner";
+	dir = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Pb" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	name = "\improper EHR-MIL MASH North Checkpoint"
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"PE" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"PI" = (
+/obj/structure/platform{
+	dir = 10
+	},
+/turf/open/floor/plating/ground/concrete{
+	color = "#7db4ff"
+	},
+/area/gleichseitig16/outdoors/east/ehrmilmaso/landpad)
+"Qv" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Qx" = (
+/obj/effect/urban/decal/road/lines1{
+	pixel_y = -16
+	},
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"Qy" = (
+/obj/machinery/door/poddoor/shutters/urban/security_lockdown{
+	id = "ehrmil_mash_north_outer";
+	name = "\improper MASH North Checkpoint Outer";
+	dir = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"QB" = (
+/obj/structure/nuke_disk_candidate{
+	set_associations = list("set6")
+	},
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"QU" = (
+/obj/structure/sink/bathroom,
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"QX" = (
+/obj/machinery/vending/weapon,
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Rd" = (
+/turf/open/urban/street/sidewalk{
+	dir = 9
+	},
+/area/gleichseitig16/outdoors/east/ehrmilmaso/yard)
+"Rp" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"RA" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/ehrmilmaso/yard)
+"RV" = (
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Sz" = (
+/obj/machinery/vending/coffee{
+	density = 0
+	},
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"SE" = (
+/obj/structure/table/reinforced,
+/obj/item/defibrillator,
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"SI" = (
+/obj/machinery/light/small,
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"SX" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"Tm" = (
+/obj/machinery/vending/snack,
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Ts" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Tu" = (
+/obj/machinery/door/poddoor/shutters/urban/security_lockdown{
+	id = "ehrmil_mash_south_outer";
+	name = "\improper MASH South Checkpoint Outer";
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Tv" = (
+/obj/structure/barricade/solid{
+	dir = 8
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"TU" = (
+/obj/structure/bed/roller/hospital_empty/bigrollerempty3,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/ehrmilmaso/yard)
+"Um" = (
+/obj/machinery/miner/damaged,
+/turf/open/floor/plating/ground/snow{
+	color = "#ffe1af"
+	},
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Uq" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Uw" = (
+/obj/structure/platform{
+	dir = 5
+	},
+/turf/open/floor/plating/ground/concrete{
+	color = "#7db4ff"
+	},
+/area/gleichseitig16/outdoors/east/ehrmilmaso/landpad)
+"UA" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/gleichseitig16/outdoors/east/ehrmilmaso/landpad)
+"UL" = (
+/obj/structure/bed/roller/hospital_empty/bigrollerempty3{
+	color = "#afe1ff"
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/ehrmilmaso/yard)
+"Vd" = (
+/obj/item/bedsheet/captain{
+	color = "#afe1ff"
+	},
+/obj/structure/bed,
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"VH" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/ehrmilmaso/yard)
+"VI" = (
+/turf/closed/mineral/smooth/frostwall/indestructible{
+	base_icon_state = "hybrisa_colony_walls";
+	icon_state = "wall-reinforced";
+	icon = 'icons/turf/walls/hybrisa_colony_walls.dmi';
+	name = "indestructible dense metal walls";
+	color = "#b4b4b4"
+	},
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"VV" = (
+/obj/machinery/cloning/vats,
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"VW" = (
+/obj/structure/closet,
+/obj/machinery/light/small,
+/obj/item/clothing/under/marine/camo/woodland{
+	color = "#7dcdff";
+	name = "\improper re-patterened camo fatigues (EHR-MIL)";
+	desc = "A set of issued fatigues for a nation-state military. While it may lack most modern amenities, there are some. Judging from the patterns and colors, this appears to be an Ehrman Republics military variant."
+	},
+/obj/item/weapon/gun/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/storage/belt/marine,
+/obj/item/clothing/suit/storage/marine/vsd_two{
+	color = "#64e6cd";
+	desc = "The Ehrman Steadfast Republics equip the majority of their national military with CrashCore body armor. This protects the user from most bullet calibers."
+	},
+/obj/item/clothing/head/modular/m10x{
+	color = "#4b9b9b"
+	},
+/obj/item/clothing/gloves/combat,
+/obj/item/clothing/shoes/marine/clf/full,
+/obj/item/clothing/mask/gas/modular/skimask{
+	color = "#4b9b9b"
+	},
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"VZ" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/ehrmilmaso/yard)
+"Wq" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/pouch/surgery,
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Wz" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"WC" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"WU" = (
+/obj/machinery/vending/MarineMed,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Xj" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	name = "\improper EHR-MIL Hospital";
+	dir = 1
+	},
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"XI" = (
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"XM" = (
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Yu" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	name = "\improper EHR-MIL Hospital"
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"Yx" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 8
+	},
+/turf/open/floor/iron/small,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"YB" = (
+/obj/machinery/vending/uniform_supply,
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"YW" = (
+/obj/structure/platform{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/concrete{
+	color = "#7db4ff"
+	},
+/area/gleichseitig16/outdoors/east/ehrmilmaso/landpad)
+"Zi" = (
+/obj/effect/urban/decal/dirt,
+/obj/effect/urban/decal/dirt,
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"Zp" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"Zx" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/ehrmilmaso/facilities)
+"ZT" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/east/streets)
+
+(1,1,1) = {"
+ug
+My
+My
+My
+My
+My
+dT
+My
+My
+My
+My
+My
+My
+My
+dT
+My
+rw
+rw
+rw
+rw
+rw
+rw
+tW
+rw
+rw
+rw
+rw
+rw
+rw
+rw
+tW
+rw
+rw
+rw
+KQ
+KQ
+kW
+"}
+(2,1,1) = {"
+qf
+XI
+ZT
+XI
+XI
+XI
+XI
+XI
+XI
+XI
+ZT
+XI
+XI
+XI
+XI
+XI
+XI
+XI
+ZT
+XI
+XI
+XI
+XI
+XI
+XI
+XI
+ZT
+XI
+XI
+XI
+XI
+XI
+XI
+XI
+Bv
+KQ
+KQ
+"}
+(3,1,1) = {"
+qf
+Cm
+Cm
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+Be
+Cm
+KQ
+"}
+(4,1,1) = {"
+uM
+EE
+VI
+VI
+XM
+Di
+Lt
+ue
+vr
+Qv
+vr
+ue
+Lt
+JG
+Zx
+JG
+Lt
+VV
+Ft
+QB
+Lt
+JG
+wI
+JG
+Lt
+ue
+vr
+Qv
+vr
+ue
+Lt
+Di
+XM
+VI
+VI
+aT
+gm
+"}
+(5,1,1) = {"
+qf
+EE
+VI
+Rp
+XM
+Vd
+Lt
+vr
+jq
+vr
+jq
+vr
+Lt
+sy
+jM
+sy
+Lt
+eD
+WC
+vr
+Lt
+sy
+Gw
+sy
+Lt
+vr
+jq
+vr
+jq
+vr
+Lt
+xX
+XM
+cg
+VI
+aT
+nS
+"}
+(6,1,1) = {"
+qf
+SX
+VI
+Ts
+Lt
+Lt
+Lt
+QU
+WC
+vr
+vr
+pU
+Lt
+Lt
+Uq
+Lt
+Lt
+Lt
+Yx
+Lt
+Lt
+Lt
+Uq
+Lt
+Lt
+QU
+vr
+vr
+WC
+pU
+Lt
+Lt
+Lt
+Ts
+VI
+kr
+nS
+"}
+(7,1,1) = {"
+qf
+EE
+VI
+MS
+XM
+VW
+Lt
+Wq
+SE
+vr
+SE
+Wq
+Lt
+bB
+ui
+Tm
+Lt
+uu
+Fc
+fo
+Lt
+Bu
+do
+bB
+Lt
+Wq
+SE
+vr
+SE
+Wq
+Lt
+jU
+XM
+XM
+VI
+aT
+nS
+"}
+(8,1,1) = {"
+qf
+Zp
+VI
+QX
+XM
+si
+Lt
+Lt
+Lt
+Yx
+Lt
+Lt
+Lt
+kQ
+do
+Gl
+Lt
+bM
+fb
+fj
+Lt
+Sz
+ui
+HV
+Lt
+Lt
+Lt
+Yx
+Lt
+Lt
+Lt
+si
+XM
+QX
+zI
+ep
+nS
+"}
+(9,1,1) = {"
+qf
+EE
+VI
+IM
+XM
+VW
+Lt
+ga
+vr
+vr
+vr
+ij
+Lt
+Fa
+do
+bB
+Lt
+ot
+as
+np
+Lt
+bB
+do
+Fa
+Lt
+EV
+vr
+vr
+vr
+ga
+Lt
+jU
+XM
+IM
+VI
+aT
+nS
+"}
+(10,1,1) = {"
+qf
+EE
+VI
+YB
+XM
+si
+Lt
+xi
+vr
+vr
+WC
+xi
+Lt
+do
+do
+HV
+Lt
+bM
+iC
+fo
+Lt
+kQ
+do
+do
+Lt
+xi
+WC
+vr
+vr
+xi
+Lt
+si
+XM
+YB
+VI
+aT
+nS
+"}
+(11,1,1) = {"
+qf
+EE
+VI
+IM
+MS
+cs
+Lt
+WU
+vr
+vr
+vr
+vr
+Xj
+do
+do
+Fa
+Lt
+vr
+Nr
+fj
+Lt
+Fa
+do
+do
+Xj
+vr
+vr
+vr
+vr
+Az
+Lt
+jU
+MS
+dr
+zI
+aT
+nS
+"}
+(12,1,1) = {"
+uM
+EE
+VI
+lc
+XM
+si
+Lt
+vr
+WC
+vr
+vr
+xi
+Lt
+Wz
+ui
+do
+Xj
+vr
+Mt
+vr
+Xj
+do
+ui
+SI
+Lt
+xi
+vr
+vr
+vr
+vr
+Lt
+si
+XM
+lc
+VI
+AH
+gm
+"}
+(13,1,1) = {"
+qf
+EE
+VI
+jS
+XM
+nF
+Lt
+vr
+vr
+vr
+vr
+ij
+Lt
+do
+do
+do
+Lt
+vr
+Nr
+vr
+Lt
+do
+do
+do
+Lt
+EV
+vr
+WC
+vr
+vr
+Lt
+Rp
+XM
+jS
+VI
+aT
+nS
+"}
+(14,1,1) = {"
+qf
+EE
+VI
+Lt
+Ts
+Lt
+Lt
+vr
+ce
+Lt
+Lt
+Lt
+Lt
+Lt
+Yu
+Lt
+Lt
+Lt
+mw
+Lt
+Lt
+Lt
+Yu
+Lt
+Lt
+Lt
+Lt
+Lt
+vr
+ce
+Lt
+Lt
+KG
+Lt
+VI
+aT
+nS
+"}
+(15,1,1) = {"
+qf
+EE
+VI
+ba
+lE
+ba
+RA
+RA
+RA
+zB
+RA
+zB
+wd
+RA
+RA
+RA
+RA
+wh
+ky
+RA
+jr
+RA
+RA
+RA
+RA
+zB
+RA
+co
+RA
+RA
+RA
+ba
+lE
+ba
+VI
+AH
+nS
+"}
+(16,1,1) = {"
+qf
+SX
+VI
+ba
+UL
+UL
+RA
+VH
+RA
+zB
+RA
+zB
+RA
+RA
+VZ
+RA
+RA
+RA
+ky
+RA
+RA
+RA
+RA
+RA
+RA
+zB
+RA
+zB
+RA
+VH
+VZ
+TU
+TU
+ba
+VI
+kr
+nS
+"}
+(17,1,1) = {"
+qf
+Zp
+VI
+Yx
+Lt
+Lt
+RA
+RA
+RA
+VZ
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+ky
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+Lt
+Lt
+Yx
+VI
+Lk
+nS
+"}
+(18,1,1) = {"
+qf
+EE
+VI
+WC
+vV
+Lt
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+ky
+RA
+RA
+RA
+RA
+RA
+VZ
+RA
+RA
+RA
+RA
+RA
+RA
+Lt
+Ou
+WC
+VI
+aT
+nS
+"}
+(19,1,1) = {"
+qf
+EE
+VI
+rs
+Lt
+Lt
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+ky
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+Lt
+Lt
+rs
+zI
+aT
+nS
+"}
+(20,1,1) = {"
+qf
+EE
+VI
+Lt
+Lt
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+VZ
+ky
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+Lt
+Lt
+zI
+LE
+LD
+"}
+(21,1,1) = {"
+qf
+EE
+Lt
+AU
+RA
+VZ
+RA
+RA
+RA
+HU
+FT
+FT
+FT
+PI
+RA
+RA
+RA
+RA
+ky
+RA
+RA
+RA
+RA
+HU
+FT
+hm
+FT
+PI
+RA
+VZ
+RA
+RA
+RA
+zQ
+Lt
+Zi
+gm
+"}
+(22,1,1) = {"
+uM
+EE
+Lt
+RA
+RA
+RA
+RA
+RA
+HU
+MO
+MO
+MO
+MO
+MO
+PI
+RA
+RA
+RA
+ky
+RA
+RA
+RA
+HU
+MO
+MO
+MO
+MO
+MO
+PI
+RA
+RA
+RA
+RA
+RA
+Lt
+LE
+nS
+"}
+(23,1,1) = {"
+qf
+EE
+Lt
+RA
+RA
+RA
+RA
+HU
+MO
+MO
+fy
+MO
+MO
+MO
+MO
+PI
+RA
+RA
+ky
+RA
+RA
+HU
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+PI
+RA
+RA
+RA
+RA
+xu
+LE
+nS
+"}
+(24,1,1) = {"
+qf
+EE
+Lt
+RA
+RA
+RA
+HU
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+PI
+RA
+ky
+RA
+HU
+fy
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+PI
+RA
+RA
+RA
+Lt
+LE
+nS
+"}
+(25,1,1) = {"
+qf
+EE
+Lt
+RA
+RA
+RA
+wc
+MO
+MO
+Fj
+Fj
+Fj
+Fj
+Fj
+MO
+MO
+mL
+RA
+ky
+RA
+YW
+MO
+MO
+Fj
+Fj
+Fj
+Fj
+UA
+MO
+MO
+wc
+RA
+RA
+RA
+Lt
+gd
+nS
+"}
+(26,1,1) = {"
+qf
+SX
+Lt
+RA
+RA
+RA
+YW
+MO
+MO
+MO
+MO
+Fj
+MO
+MO
+fy
+MO
+mL
+RA
+ky
+RA
+YW
+MO
+MO
+MO
+MO
+Fj
+MO
+MO
+MO
+MO
+mL
+RA
+RA
+RA
+Lt
+lj
+nS
+"}
+(27,1,1) = {"
+qf
+Zp
+Lt
+RA
+RA
+RA
+FX
+MO
+fy
+Fj
+Fj
+Fj
+Fj
+Fj
+MO
+MO
+mL
+RA
+eY
+RA
+YW
+MO
+MO
+Fj
+Fj
+Fj
+Fj
+Fj
+MO
+MO
+FX
+RA
+VZ
+RA
+Lt
+LE
+nS
+"}
+(28,1,1) = {"
+qf
+EE
+Lt
+RA
+RA
+RA
+Uw
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+iI
+RA
+ky
+RA
+Uw
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+iI
+RA
+RA
+RA
+Lt
+LE
+nS
+"}
+(29,1,1) = {"
+qf
+EE
+Lt
+RA
+VZ
+RA
+RA
+Uw
+MO
+MO
+MO
+fy
+MO
+MO
+MO
+iI
+RA
+RA
+ky
+RA
+RA
+Uw
+MO
+MO
+MO
+fy
+MO
+MO
+MO
+iI
+RA
+RA
+RA
+RA
+Lt
+LE
+gm
+"}
+(30,1,1) = {"
+qf
+EE
+Lt
+RA
+RA
+RA
+RA
+RA
+Uw
+MO
+MO
+MO
+MO
+MO
+iI
+RA
+RA
+RA
+ky
+RA
+RA
+RA
+Uw
+MO
+MO
+MO
+MO
+MO
+iI
+RA
+RA
+RA
+RA
+RA
+Lt
+LE
+nS
+"}
+(31,1,1) = {"
+qf
+EE
+Lt
+RA
+RA
+RA
+RA
+RA
+RA
+Uw
+FL
+FL
+FL
+iI
+RA
+VZ
+RA
+RA
+ky
+RA
+RA
+RA
+VZ
+Uw
+FL
+FL
+FL
+iI
+RA
+RA
+RA
+RA
+RA
+RA
+Lt
+LE
+nS
+"}
+(32,1,1) = {"
+uM
+EE
+Lt
+kV
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+ky
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+Rd
+Lt
+su
+Ln
+"}
+(33,1,1) = {"
+qf
+EE
+Lt
+ba
+kV
+RA
+RA
+RA
+RA
+RA
+VZ
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+ky
+VZ
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+VZ
+RA
+RA
+RA
+Rd
+ba
+Lt
+gd
+Ln
+"}
+(34,1,1) = {"
+qf
+EE
+Lt
+Lt
+Pb
+Lt
+RA
+RA
+RA
+RA
+RA
+RA
+RA
+VZ
+RA
+RA
+RA
+RA
+ky
+RA
+RA
+RA
+RA
+RA
+VZ
+RA
+RA
+RA
+RA
+RA
+RA
+Lt
+eN
+Lt
+Lt
+LE
+Ln
+"}
+(35,1,1) = {"
+qf
+EE
+yP
+Nv
+jM
+Lt
+Lt
+RA
+RA
+RA
+RA
+ky
+ky
+ky
+ky
+ky
+ky
+ky
+ky
+ky
+ky
+ky
+ky
+ky
+ky
+ky
+RA
+RA
+RA
+RA
+Lt
+Lt
+Gw
+BY
+yP
+LE
+nS
+"}
+(36,1,1) = {"
+qf
+Zp
+yP
+rm
+re
+Zx
+yP
+RA
+RA
+VZ
+RA
+ky
+CB
+Tv
+Tv
+mX
+mX
+mX
+Tv
+mX
+mX
+mX
+Tv
+Tv
+vt
+ky
+RA
+RA
+RA
+RA
+yP
+Zx
+qU
+rm
+yP
+LE
+nS
+"}
+(37,1,1) = {"
+qf
+EE
+yP
+Gn
+CF
+Gn
+yP
+RA
+RA
+RA
+RA
+ky
+ol
+Gw
+Gw
+jM
+Gw
+Gw
+Gw
+Gw
+jM
+Gw
+Gw
+Gw
+Hh
+ky
+RA
+RA
+VZ
+RA
+yP
+Gn
+cH
+Gn
+yP
+Qx
+Ir
+"}
+(38,1,1) = {"
+qf
+EE
+Lt
+yP
+yP
+yP
+Lt
+RA
+RA
+RA
+RA
+ky
+AI
+Gw
+Gw
+Gw
+Gw
+Bc
+GK
+Al
+Gw
+Gw
+Gw
+jM
+ez
+ky
+RA
+RA
+RA
+RA
+Lt
+yP
+yP
+yP
+Lt
+MD
+zl
+"}
+(39,1,1) = {"
+zl
+zl
+Qy
+iV
+iV
+iV
+Ox
+RA
+VZ
+RA
+RA
+ky
+AI
+jM
+Lt
+Lt
+Kl
+Lt
+Lt
+Lt
+Kl
+Lt
+Lt
+Gw
+ez
+ky
+RA
+RA
+RA
+RA
+KD
+iV
+iV
+iV
+hP
+MD
+zl
+"}
+(40,1,1) = {"
+Ir
+zl
+Qy
+iV
+iV
+LF
+Ox
+RA
+RA
+RA
+RA
+ky
+AI
+Gw
+Lt
+Ej
+Ej
+Kl
+Lt
+Ej
+Ej
+Kl
+Lt
+Gw
+ez
+ky
+RA
+RA
+RA
+RA
+KD
+iV
+iV
+iV
+hP
+Dv
+zl
+"}
+(41,1,1) = {"
+zl
+zl
+Qy
+iV
+iV
+iV
+Ox
+RA
+RA
+RA
+RA
+ky
+AI
+wi
+Lt
+Kl
+Ej
+Ej
+Lt
+Kl
+Ej
+Ej
+Lt
+tG
+ez
+ky
+ky
+ky
+ky
+eY
+FG
+RV
+RV
+RV
+Tu
+MD
+zl
+"}
+(42,1,1) = {"
+zl
+zl
+Qy
+iV
+iV
+iV
+Ox
+RA
+RA
+RA
+VZ
+ky
+AI
+Gw
+Lt
+Kl
+Um
+Ej
+Lt
+Ej
+Um
+Kl
+Lt
+Gw
+xD
+ky
+RA
+RA
+RA
+RA
+KD
+iV
+LF
+iV
+hP
+zl
+zl
+"}
+(43,1,1) = {"
+zl
+zl
+Qy
+iV
+LF
+iV
+Ox
+RA
+RA
+RA
+RA
+ky
+AI
+Gw
+Lt
+Ej
+Kl
+Ej
+Lt
+Ej
+Kl
+Kl
+Lt
+Gw
+ez
+ky
+RA
+RA
+RA
+RA
+KD
+iV
+iV
+iV
+hP
+zl
+zl
+"}
+(44,1,1) = {"
+qf
+PE
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+kr
+Kw
+"}

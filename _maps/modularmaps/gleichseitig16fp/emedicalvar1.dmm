@@ -1,0 +1,3292 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ai" = (
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"ax" = (
+/obj/structure/fence/dark,
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+"aH" = (
+/obj/structure/table/reinforced,
+/obj/machinery/prop/computer,
+/turf/open/floor/prison/whitegreen{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"bb" = (
+/obj/structure/toilet,
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"bu" = (
+/obj/machinery/autodoc,
+/turf/open/floor/prison/whitegreen{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"bx" = (
+/obj/structure/fence/dark,
+/obj/structure/cable,
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+"bE" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"cj" = (
+/obj/effect/urban/decal/road/road_edge/four,
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"cC" = (
+/obj/structure/cable,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"cH" = (
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"cP" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"cR" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"cT" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/pouch/surgery,
+/turf/open/floor/prison/whitegreen{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"cY" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper Sinitsyn Hospitality"
+	},
+/obj/structure/cable,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"dq" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"dz" = (
+/obj/machinery/door_control{
+	id = "hospitalstorage2";
+	name = "Hospital Storage 2";
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"dO" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"dP" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 8
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"dU" = (
+/turf/open/urban/street/sidewalk{
+	dir = 10
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"ei" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"eq" = (
+/turf/open/floor/prison/whitegreen{
+	dir = 10
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"eY" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"fe" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"fg" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper Sinitsyn Hospitality Reception"
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"fh" = (
+/obj/structure/table/reinforced,
+/obj/structure/paper_bin{
+	pixel_y = 8
+	},
+/obj/item/tool/pen{
+	pixel_y = 4
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 9
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"fl" = (
+/obj/structure/prop/urban/misc/buildinggreeblies/greeble2{
+	light_color = "#00ff9f";
+	light_on = 1;
+	light_power = 2;
+	light_range = 3;
+	pixel_y = 12
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"fo" = (
+/obj/effect/urban/decal/dirt,
+/obj/effect/urban/decal/dirt,
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"fp" = (
+/obj/effect/urban/decal/dirt,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/streets)
+"fx" = (
+/turf/open/floor/prison/whitegreen,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"fN" = (
+/obj/structure/bed/chair{
+	dir = 8;
+	pixel_x = -5;
+	pixel_y = 4
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 6
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"fY" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/prison/whitegreen{
+	dir = 5
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"gB" = (
+/obj/effect/urban/decal/road/road_edge/three,
+/obj/effect/urban/decal/road/lines3,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"gC" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+"gV" = (
+/obj/structure/mirror{
+	dir = 4
+	},
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"hg" = (
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"hI" = (
+/obj/structure/bed/chair/office/dark/north{
+	dir = 4
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"hM" = (
+/obj/structure/sign/greencross{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/streets)
+"ii" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12;
+	pixel_y = 2
+	},
+/obj/structure/table/reinforced,
+/turf/open/floor/prison/whitegreen{
+	dir = 5
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"ir" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"iE" = (
+/obj/structure/prop/urban/misc/trash/blue,
+/turf/open/floor/prison/whitegreen{
+	dir = 6
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"iO" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"jt" = (
+/obj/structure/bed/chair/sofa/corsat/verticaltop,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"jy" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/streets)
+"jO" = (
+/obj/effect/urban/decal/dirt,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"jT" = (
+/obj/structure/prop/urban/misc/trash/blue,
+/turf/open/floor/prison/whitegreen{
+	dir = 9
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"ka" = (
+/obj/structure/bed/chair/sofa/corsat/verticaltop,
+/obj/item/newspaper{
+	pixel_x = 9;
+	desc = "An issue of the Eidos Chronicle, the newspaper circulating across the Ehrman Steadfast Republics. Some pages detail recent news on the Ehrman Military efforts against the Separatists and civic developments."
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"kQ" = (
+/obj/structure/bed/chair/office/dark/north{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"la" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"ld" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+"lq" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"lu" = (
+/obj/structure/barricade/handrail/kutjevo,
+/obj/structure/barricade/handrail/kutjevo{
+	dir = 1
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"mc" = (
+/obj/structure/cable,
+/obj/effect/spawner/random/misc/structure/supplycrate,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"mj" = (
+/obj/structure/barricade/handrail/kutjevo,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"mQ" = (
+/obj/machinery/door_control{
+	id = "hospitalstorage1";
+	name = "Hospital Storage 1";
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"mW" = (
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"ns" = (
+/obj/structure/bed/chair/office/dark/north{
+	dir = 2
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 10
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"nA" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"nI" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"nL" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"nT" = (
+/turf/open/floor/prison/whitegreen/corner{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"nU" = (
+/obj/machinery/robotic_cradle,
+/turf/open/floor/prison/whitegreen{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"om" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/prison/whitegreen,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"oC" = (
+/obj/effect/urban/decal/road/lines4{
+	pixel_y = -16
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"oM" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"pW" = (
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"qy" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 9
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"qL" = (
+/obj/structure/sink/bathroom{
+	dir = 1;
+	pixel_y = 1
+	},
+/obj/structure/mirror{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"ra" = (
+/obj/machinery/door/poddoor/shutters/mainship/hangar{
+	dir = 1;
+	id = "hospitalstorage3";
+	name = "\improper Hospital Storage 3"
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"rx" = (
+/obj/structure/cable,
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+"ry" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/prison/whitegreen{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"rY" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"si" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	pixel_y = -6
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"sl" = (
+/turf/open/floor/prison/whitegreen{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"sr" = (
+/obj/machinery/door/poddoor/shutters/mainship/hangar{
+	dir = 1;
+	id = "hospitalstorage2";
+	name = "\improper Hospital Storage 2"
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"sF" = (
+/obj/structure/bed/chair/office/dark/north,
+/turf/open/floor/prison/whitegreen{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"sO" = (
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"sQ" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+"sR" = (
+/turf/open/urban/street/sidewalk{
+	dir = 5
+	},
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"sW" = (
+/obj/structure/sink/bathroom{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"td" = (
+/obj/effect/urban/decal/dirt,
+/obj/effect/urban/decal/road/lines1{
+	pixel_y = -16
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"tf" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 1
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"to" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"tD" = (
+/obj/structure/table/reinforced,
+/obj/structure/paper_bin{
+	pixel_y = 8
+	},
+/obj/item/tool/pen{
+	pixel_y = 4
+	},
+/turf/open/floor/prison/whitegreen,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"tE" = (
+/obj/structure/prop/vehicle/truck,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"tW" = (
+/obj/structure/cable,
+/turf/open/floor/prison/whitegreen,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"tX" = (
+/obj/structure/sign/greencross{
+	dir = 4
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"ud" = (
+/obj/structure/barricade/handrail/kutjevo{
+	dir = 8
+	},
+/obj/structure/barricade/handrail/kutjevo,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"uo" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/whitegreen,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"uK" = (
+/obj/structure/prop/urban/vehicles/large/suv/misc/whitevan{
+	dir = 8
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"uR" = (
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+"uW" = (
+/turf/open/floor/prison{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"ve" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"vk" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+"vl" = (
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"vC" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"vH" = (
+/obj/structure/sign/restroom{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"wr" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"wA" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 2
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"wQ" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"wX" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/streets)
+"xm" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"xA" = (
+/obj/effect/spawner/random/medical/structure/crate/medsupplies,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"xD" = (
+/turf/open/floor/prison/whitegreen{
+	dir = 9
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"xN" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/snow{
+	color = "#ffe1af"
+	},
+/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+"xU" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"ye" = (
+/obj/structure/prop/urban/misc/trash/green,
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"yn" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/prison/whitegreen{
+	dir = 6
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"yA" = (
+/obj/effect/urban/decal/road/lines4,
+/obj/effect/urban/decal/road/road_edge/two,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"yC" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"yF" = (
+/obj/effect/urban/decal/road/road_edge/eight,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"yM" = (
+/obj/machinery/computer/autodoc_console,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"yP" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/effect/spawner/random/misc/structure/supplycrate,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"zd" = (
+/obj/structure/bed/chair{
+	dir = 4;
+	pixel_x = -5;
+	pixel_y = 4
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 10
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"zh" = (
+/obj/structure/prop/urban/misc/trash/blue,
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"zj" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 2
+	},
+/obj/structure/table/reinforced,
+/turf/open/floor/prison/whitegreen{
+	dir = 9
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"zq" = (
+/obj/structure/bed/chair/sofa/corsat/verticalsouth,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"zB" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/prison/whitegreen{
+	dir = 10
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"zO" = (
+/obj/effect/urban/decal/road/lines1{
+	pixel_y = -16
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"zP" = (
+/obj/structure/table/reinforced,
+/obj/machinery/prop/computer,
+/turf/open/floor/prison/whitegreen{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Aq" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/urban/decal/road/road_edge/four,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"AA" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+"AR" = (
+/obj/structure/table/reinforced,
+/obj/machinery/prop/computer,
+/turf/open/floor/prison/whitegreen{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"AS" = (
+/obj/machinery/door/poddoor/shutters/mainship/hangar{
+	dir = 1;
+	id = "hospitalstorage1";
+	name = "\improper Hospital Storage 1"
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"Bd" = (
+/obj/machinery/light/small,
+/turf/open/floor/prison/whitegreen,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Bf" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	pixel_y = -6;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"Bm" = (
+/obj/effect/urban/decal/road/road_edge/four,
+/obj/effect/urban/decal/road/lines2,
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"BA" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/urban/decal/road/road_edge/four,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"BG" = (
+/obj/structure/cable,
+/turf/open/floor/prison/whitegreen/corner{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"BK" = (
+/obj/effect/urban/decal/dirt,
+/obj/structure/sign/greencross{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/streets)
+"BT" = (
+/obj/machinery/vending/medical,
+/turf/open/floor/prison/whitegreen{
+	dir = 10
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"BU" = (
+/obj/effect/urban/decal/road/lines1{
+	pixel_y = -16
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"Cy" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"CN" = (
+/obj/structure/prop/urban/vehicles/large/van{
+	pixel_y = -6;
+	dir = 8
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"CR" = (
+/obj/machinery/door_control{
+	id = "hospitalstorage3";
+	name = "Hospital Storage 3";
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"Dd" = (
+/obj/machinery/door/airlock/mainship/generic,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"Dj" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	pixel_y = -6;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"Dz" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+"DK" = (
+/turf/open/urban/street/sidewalk{
+	dir = 9
+	},
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"DQ" = (
+/obj/structure/table/reinforced,
+/obj/item/folder/blue,
+/turf/open/floor/prison/whitegreen{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"DR" = (
+/obj/machinery/power/apc/drained{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"DW" = (
+/obj/structure/prop/urban/misc/trash/blue,
+/turf/open/floor/prison/whitegreen{
+	dir = 10
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"DZ" = (
+/obj/effect/urban/decal/road/lines4{
+	pixel_y = -16
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"Eb" = (
+/obj/effect/urban/decal/dirt,
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"En" = (
+/obj/effect/urban/decal/dirt,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"Ez" = (
+/obj/machinery/door/airlock/mainship/generic/corporate{
+	name = "Restroom";
+	req_access = null;
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"EB" = (
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"EP" = (
+/obj/machinery/light,
+/obj/structure/cable,
+/turf/open/floor/prison/whitegreen,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"EV" = (
+/obj/structure/fence/dark,
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+"EY" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+"Fh" = (
+/obj/effect/urban/decal/road/road_edge/three,
+/obj/effect/urban/decal/road/lines3,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"Fm" = (
+/obj/machinery/door/airlock/mainship/maint/free_access{
+	req_one_access = null
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Fq" = (
+/turf/open/floor/prison/whitegreen{
+	dir = 5
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"FD" = (
+/turf/open/floor/prison/whitegreen/corner{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"FJ" = (
+/obj/effect/spawner/random/medical/structure/crate/medsupplies,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"FV" = (
+/obj/structure/cable,
+/turf/open/floor/prison/whitegreen/corner{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Gf" = (
+/obj/effect/urban/decal/road/lines5,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"Gk" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"Gm" = (
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"Go" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/streets)
+"GE" = (
+/obj/machinery/light,
+/obj/machinery/bodyscanner,
+/turf/open/floor/prison/whitegreen,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"GL" = (
+/obj/effect/urban/decal/dirt,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/streets)
+"Hc" = (
+/obj/effect/urban/decal/road/road_edge/two,
+/obj/effect/urban/decal/road/lines4,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"Hi" = (
+/obj/structure/bed/chair/office/dark/north{
+	dir = 4
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Hl" = (
+/obj/effect/urban/decal/road/lines5,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"Ho" = (
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+"HS" = (
+/obj/machinery/streetlight/traffic{
+	pixel_x = 5;
+	pixel_y = 12;
+	dir = 4
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"HU" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/bed/roller/hospital_empty/bigrollerempty3{
+	dir = 1
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Ia" = (
+/obj/structure/cable,
+/turf/open/floor/prison{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"Io" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"IR" = (
+/obj/machinery/vending/MarineMed,
+/turf/open/floor/prison/whitegreen{
+	dir = 6
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Jc" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"JR" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 4;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"JS" = (
+/obj/effect/spawner/random/medical/structure/crate/medsupplies,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"Kc" = (
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"Ke" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Kv" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"KD" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"KH" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"Lf" = (
+/obj/structure/bed/roller/hospital_empty/bigrollerempty3{
+	dir = 1
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Ls" = (
+/obj/effect/urban/decal/dirt,
+/obj/structure/cable,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/streets)
+"LB" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"LF" = (
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"LN" = (
+/obj/structure/bed/chair/sofa/corsat/verticalmiddle,
+/obj/item/newspaper{
+	pixel_x = -8;
+	desc = "An issue of the Eidos Chronicle, the newspaper circulating across the Ehrman Steadfast Republics. Some pages detail recent news on the Ehrman Military efforts against the Separatists and civic developments."
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"LR" = (
+/obj/effect/urban/decal/dirt,
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	pixel_y = -6;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"Mp" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/prison/whitegreen{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"MB" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/prison/whitegreen{
+	dir = 9
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"MQ" = (
+/obj/structure/toilet{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"MW" = (
+/obj/structure/prop/urban/vehicles/large/armored_trucks/heavy_loader/blue_white{
+	dir = 8;
+	pixel_y = -8;
+	pixel_x = 4
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"Nf" = (
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"NC" = (
+/obj/structure/bed/chair/office/dark/north{
+	dir = 8
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"NH" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"NN" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+"NT" = (
+/obj/structure/bed/roller/hospital_empty/bigrollerempty3{
+	dir = 1
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 5
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"OK" = (
+/obj/structure/prop/urban/vehicles/large/ambulance{
+	dir = 8
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"OO" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+"OT" = (
+/turf/open/floor/prison/whitegreen{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"OV" = (
+/turf/open/floor/prison/whitegreen{
+	dir = 6
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"OY" = (
+/obj/structure/cable,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Pk" = (
+/obj/structure/barricade/handrail/kutjevo,
+/obj/structure/barricade/handrail/kutjevo{
+	dir = 4
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Ps" = (
+/turf/open/urban/street/sidewalk{
+	dir = 10
+	},
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"Pv" = (
+/obj/structure/dropship_equipment/shuttle/operatingtable,
+/obj/item/tank/anesthetic,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Pw" = (
+/obj/machinery/light,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/whitegreen,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"PF" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"Qm" = (
+/obj/effect/urban/decal/road/lines4{
+	pixel_y = -16
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"Qt" = (
+/obj/machinery/door/airlock/mainship/maint/free_access{
+	dir = 1;
+	req_one_access = null
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Qv" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"QD" = (
+/obj/structure/table/reinforced,
+/obj/machinery/prop/computer/communications{
+	dir = 1
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"QL" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/prison/whitegreen{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"QO" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 4;
+	pixel_y = -6;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"QR" = (
+/obj/effect/urban/decal/road/road_edge/five,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"Rp" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Rv" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/streets)
+"RB" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"RF" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"RM" = (
+/obj/machinery/bioprinter{
+	stored_metal = 1000
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 9
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"RY" = (
+/obj/structure/cable,
+/turf/open/floor/prison/whitegreen{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Sd" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper Sinitsyn Hospitality Halls"
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Ta" = (
+/obj/structure/barricade/handrail/kutjevo{
+	dir = 1
+	},
+/obj/structure/barricade/handrail/kutjevo{
+	dir = 4
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Ti" = (
+/obj/structure/bed/chair/sofa/corsat/verticalmiddle,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Tk" = (
+/turf/open/floor/plating/ground/snow{
+	color = "#ffe1af"
+	},
+/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+"Tl" = (
+/turf/open/floor/prison/whitegreen{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Tn" = (
+/obj/structure/fence/dark,
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"TB" = (
+/obj/structure/cable,
+/obj/structure/nuke_disk_candidate{
+	set_associations = list("set6")
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"TI" = (
+/obj/machinery/light,
+/turf/open/floor/prison/whitegreen,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"TO" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 6
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Ud" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Un" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"UB" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/prison/whitegreen{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"UO" = (
+/obj/structure/sink/bathroom{
+	dir = 1
+	},
+/obj/structure/mirror{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Ve" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"Vs" = (
+/obj/structure/table/reinforced,
+/obj/item/folder/white,
+/obj/item/paper,
+/turf/open/floor/prison/whitegreen{
+	dir = 6
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Vy" = (
+/obj/machinery/miner/damaged,
+/turf/open/floor/plating/ground/snow{
+	color = "#ffe1af"
+	},
+/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+"VL" = (
+/obj/effect/urban/decal/road/road_edge/four,
+/obj/effect/urban/decal/road/lines2,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"Wa" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Wy" = (
+/obj/effect/urban/decal/road/road_edge/two,
+/obj/effect/urban/decal/road/lines4,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"WQ" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/pouch/surgery,
+/turf/open/floor/prison/whitegreen{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"WZ" = (
+/obj/structure/prop/vehicle/truck/truckcargo,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"Xe" = (
+/obj/structure/bed/chair/office/dark/north{
+	dir = 8
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Xp" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"Xu" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = 32
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"XD" = (
+/obj/structure/bed/chair/office/dark/north,
+/turf/open/floor/prison/whitegreen{
+	dir = 6
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"XM" = (
+/obj/machinery/photocopier,
+/turf/open/floor/prison/whitegreen{
+	dir = 6
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"XP" = (
+/obj/structure/prop/urban/misc/buildinggreeblies/greeble2{
+	light_color = "#00ff9f";
+	light_on = 1;
+	light_power = 2;
+	light_range = 3;
+	pixel_y = 12
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 9
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Yi" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"YV" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper Sinitsyn Hospitality"
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Zc" = (
+/obj/structure/cable,
+/turf/open/floor/plating/ground/snow{
+	color = "#ffe1af"
+	},
+/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+"Zj" = (
+/obj/effect/urban/decal/road/lines4,
+/obj/effect/urban/decal/road/road_edge/two,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"Zn" = (
+/obj/structure/table/reinforced,
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 2
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 10
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Zp" = (
+/obj/structure/mirror{
+	dir = 8
+	},
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"ZI" = (
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"ZY" = (
+/obj/structure/cable,
+/turf/open/floor/prison/whitegreen{
+	dir = 6
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+
+(1,1,1) = {"
+QR
+yA
+yA
+yA
+yA
+yA
+yA
+yA
+yA
+yA
+Zj
+fe
+fe
+fe
+yA
+yA
+Hc
+Hc
+Hc
+Hc
+Hc
+Wy
+Hc
+Hc
+Hc
+Hc
+Wy
+Hc
+Hc
+Hc
+Hc
+Hc
+Hc
+Hc
+Ia
+uW
+yF
+"}
+(2,1,1) = {"
+Fh
+Kc
+Kc
+xU
+Kc
+Kc
+Kc
+Kc
+Kc
+Kc
+Kc
+fe
+fe
+fe
+vl
+cR
+Ps
+LB
+LB
+MW
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+Un
+LB
+LB
+Rv
+Ia
+Ia
+"}
+(3,1,1) = {"
+gB
+jy
+jy
+jy
+jy
+jy
+Go
+jy
+jy
+jy
+jy
+fe
+fe
+fe
+nI
+nI
+EB
+Dj
+Gf
+En
+Gf
+CN
+Gf
+Dj
+Gf
+LR
+Gf
+uK
+Gf
+Dj
+Gf
+LR
+Gf
+Bf
+HS
+jy
+uW
+"}
+(4,1,1) = {"
+Fh
+mW
+jy
+dq
+dq
+dq
+dq
+dq
+dq
+dq
+ZI
+PF
+fe
+fe
+nI
+nI
+EB
+LB
+Hl
+En
+Gf
+LB
+Gf
+LB
+Hl
+En
+Gf
+LB
+Gf
+LB
+Gf
+En
+Gf
+LB
+NH
+ZI
+VL
+"}
+(5,1,1) = {"
+Fh
+mW
+Go
+wr
+FJ
+FJ
+FJ
+xm
+pW
+dq
+lq
+fe
+fe
+fe
+nI
+Gk
+nI
+vl
+vl
+vl
+Xp
+vl
+vl
+vl
+vl
+Xp
+vl
+vl
+cR
+vl
+Xp
+vl
+vl
+vl
+jy
+ZI
+VL
+"}
+(6,1,1) = {"
+Fh
+vC
+jy
+wr
+rY
+pW
+pW
+rY
+mQ
+dq
+ZI
+fe
+fe
+fe
+Yi
+nI
+nI
+nI
+nI
+nI
+nI
+nI
+Yi
+nI
+nI
+nI
+nI
+tX
+nI
+nI
+nI
+nI
+nI
+nI
+jy
+nL
+VL
+"}
+(7,1,1) = {"
+Fh
+mW
+jy
+dq
+KH
+KH
+KH
+KH
+KH
+AS
+sQ
+sQ
+sQ
+sQ
+gC
+ai
+Zp
+ai
+ai
+ai
+ai
+ai
+dP
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+jy
+ZI
+VL
+"}
+(8,1,1) = {"
+Fh
+mW
+jy
+dq
+nA
+KH
+KH
+WZ
+KH
+AS
+sQ
+sQ
+sQ
+sQ
+gC
+ai
+zj
+WQ
+DQ
+DW
+ai
+qy
+fx
+ai
+fh
+to
+eq
+ai
+xD
+OT
+OT
+OT
+eq
+ai
+fp
+ZI
+VL
+"}
+(9,1,1) = {"
+gB
+mW
+jy
+dq
+KH
+KH
+KH
+KH
+KH
+AS
+OO
+sQ
+sQ
+sQ
+gC
+ai
+Xu
+cH
+Jc
+cH
+tf
+Jc
+fx
+ai
+QL
+cH
+fx
+ai
+la
+ka
+Ti
+zq
+fx
+ai
+jy
+ZI
+VL
+"}
+(10,1,1) = {"
+Fh
+mW
+Go
+wr
+pW
+pW
+rY
+pW
+pW
+dq
+uR
+sQ
+sQ
+sQ
+gC
+ai
+oM
+Pv
+cH
+Bd
+ai
+Tl
+cH
+tf
+cH
+cH
+Jc
+Sd
+cH
+cH
+cH
+cH
+TI
+ai
+jy
+ZI
+VL
+"}
+(11,1,1) = {"
+Fh
+mW
+jy
+wr
+FJ
+pW
+pW
+xA
+pW
+dq
+AA
+sQ
+sQ
+OO
+gC
+ai
+fl
+cH
+cH
+om
+ai
+Tl
+fx
+ai
+aH
+hI
+fx
+ai
+Tl
+jt
+Ti
+zq
+fx
+ai
+GL
+ZI
+VL
+"}
+(12,1,1) = {"
+Fh
+mW
+jy
+dq
+dq
+Dd
+dq
+dq
+dq
+dq
+uR
+sQ
+sQ
+sQ
+gC
+ai
+Fq
+AR
+sl
+XD
+ai
+Tl
+TI
+ai
+fY
+RB
+fN
+ai
+Fq
+FD
+cH
+cH
+fx
+ai
+jy
+Eb
+cj
+"}
+(13,1,1) = {"
+gB
+mW
+jy
+ax
+Tk
+Ho
+EY
+Tk
+Tk
+Ho
+uR
+sQ
+sQ
+sQ
+gC
+ai
+ai
+ai
+ai
+ai
+ai
+Tl
+fx
+ai
+ai
+ai
+ai
+ai
+ai
+oM
+jt
+zq
+fx
+ai
+hM
+ZI
+VL
+"}
+(14,1,1) = {"
+Fh
+mW
+jy
+EV
+Ho
+Ho
+Tk
+Ho
+Ho
+Tk
+uR
+OO
+sQ
+sQ
+gC
+ai
+bb
+UO
+ai
+xD
+bu
+nT
+cH
+BT
+ai
+xD
+to
+ns
+QD
+Tl
+cH
+cH
+fx
+ai
+jy
+ZI
+VL
+"}
+(15,1,1) = {"
+Fh
+mW
+Go
+ax
+Ho
+Tk
+Ho
+Tk
+Ho
+Tk
+uR
+sQ
+sQ
+sQ
+NN
+ai
+zh
+cP
+Ez
+cH
+yM
+cH
+cH
+cH
+fg
+cH
+Jc
+fx
+Wa
+Tl
+ud
+cH
+uo
+YV
+jy
+Eb
+VL
+"}
+(16,1,1) = {"
+Fh
+vC
+jy
+EV
+Tk
+Ho
+vk
+Ho
+xN
+Ho
+uR
+sQ
+sQ
+sQ
+gC
+ai
+ai
+ai
+ai
+vH
+cH
+cH
+Jc
+GE
+ai
+ai
+Xu
+tD
+Wa
+Tl
+lu
+mj
+TI
+ai
+jy
+nL
+VL
+"}
+(17,1,1) = {"
+Fh
+mW
+jy
+dq
+dq
+Dd
+dq
+dq
+dq
+dq
+uR
+sQ
+OO
+sQ
+gC
+ai
+ye
+Rp
+Ez
+cH
+cH
+cH
+cH
+cH
+fg
+cH
+cH
+uo
+Wa
+Tl
+Ta
+Pk
+tW
+cY
+Rv
+jO
+VL
+"}
+(18,1,1) = {"
+Fh
+mW
+jy
+wr
+FJ
+pW
+pW
+xm
+FJ
+dq
+AA
+sQ
+sQ
+sQ
+gC
+ai
+bb
+qL
+ai
+Fq
+nU
+FD
+cH
+IR
+ai
+Fq
+kQ
+OV
+QD
+Tl
+Jc
+cH
+tW
+ai
+Rv
+ZI
+VL
+"}
+(19,1,1) = {"
+gB
+mW
+jy
+wr
+pW
+rY
+pW
+pW
+dz
+dq
+uR
+sQ
+sQ
+sQ
+gC
+ai
+Zp
+ai
+ai
+ai
+ai
+Tl
+fx
+ai
+ai
+ai
+ai
+ai
+ai
+oM
+jt
+zq
+tW
+ai
+BK
+ZI
+VL
+"}
+(20,1,1) = {"
+Fh
+mW
+jy
+dq
+KH
+KH
+KH
+KH
+KH
+sr
+sQ
+sQ
+sQ
+sQ
+NN
+ai
+zj
+WQ
+ry
+DW
+ai
+Tl
+Pw
+ai
+MB
+Ke
+zd
+ai
+xD
+nT
+cH
+cH
+tW
+ai
+Ls
+Io
+Bm
+"}
+(21,1,1) = {"
+Fh
+mW
+jy
+dq
+nA
+KH
+tE
+KH
+yC
+sr
+sQ
+OO
+sQ
+sQ
+gC
+ai
+Xu
+cH
+cH
+fx
+ai
+Tl
+fx
+ai
+aH
+Xe
+fx
+ai
+Tl
+jt
+LN
+zq
+tW
+ai
+wX
+fo
+VL
+"}
+(22,1,1) = {"
+Fh
+mW
+jy
+dq
+KH
+KH
+KH
+KH
+KH
+sr
+sQ
+sQ
+sQ
+sQ
+gC
+ai
+oM
+Pv
+cH
+Bd
+ai
+Tl
+cH
+tf
+cH
+cH
+cH
+Sd
+cH
+cH
+cH
+cH
+EP
+ai
+jy
+ZI
+VL
+"}
+(23,1,1) = {"
+Fh
+mW
+Go
+wr
+pW
+pW
+rY
+pW
+pW
+dq
+uR
+sQ
+sQ
+sQ
+gC
+ai
+fl
+Jc
+cH
+cH
+tf
+Jc
+fx
+ai
+QL
+cH
+cH
+ai
+la
+jt
+Ti
+zq
+tW
+ai
+fp
+ZI
+cj
+"}
+(24,1,1) = {"
+Fh
+mW
+jy
+wr
+FJ
+pW
+pW
+xA
+pW
+dq
+AA
+sQ
+sQ
+sQ
+gC
+ai
+Fq
+AR
+sF
+Vs
+ai
+Tl
+TI
+ai
+fY
+wQ
+XM
+ai
+Fq
+OY
+Mp
+ir
+ZY
+ai
+jy
+ZI
+VL
+"}
+(25,1,1) = {"
+Fh
+mW
+jy
+dq
+dq
+dq
+dq
+dq
+dq
+dq
+uR
+sQ
+sQ
+OO
+gC
+ai
+ai
+ai
+ai
+ai
+ai
+Tl
+fx
+ai
+ai
+ai
+ai
+ai
+ai
+Fm
+ai
+Kv
+Zp
+ai
+jy
+ZI
+VL
+"}
+(26,1,1) = {"
+Fh
+vC
+jy
+ax
+xN
+Ho
+Ho
+Tk
+Ho
+Tk
+Dz
+sQ
+sQ
+sQ
+gC
+ai
+RM
+OT
+to
+OT
+OT
+FV
+ir
+Qt
+LF
+Nf
+iO
+Nf
+Ud
+LF
+ai
+ve
+sW
+ai
+jy
+nL
+VL
+"}
+(27,1,1) = {"
+gB
+mW
+jy
+ax
+Tk
+Tk
+Ho
+Ho
+Tk
+Ho
+uR
+sQ
+sQ
+sQ
+gC
+wA
+cH
+cH
+Jc
+cH
+cH
+OY
+Bd
+ai
+yP
+DR
+LF
+LF
+TB
+mc
+ai
+zh
+MQ
+ai
+jy
+KD
+VL
+"}
+(28,1,1) = {"
+Fh
+mW
+jy
+EV
+Ho
+Tk
+Tk
+xN
+Ho
+Tk
+uR
+sQ
+sQ
+sQ
+gC
+ai
+NT
+Lf
+HU
+Lf
+sl
+BG
+fx
+ai
+ai
+ai
+ai
+Zp
+ai
+ai
+ai
+ai
+ai
+ai
+jy
+ZI
+VL
+"}
+(29,1,1) = {"
+Fh
+mW
+jy
+ax
+Tk
+ld
+vk
+Tk
+Ho
+Ho
+uR
+sQ
+sQ
+sQ
+gC
+ai
+ai
+ai
+ai
+ai
+ai
+RY
+fx
+ai
+jT
+ry
+WQ
+Zn
+ai
+OK
+Gf
+OK
+Gf
+OK
+jy
+ZI
+VL
+"}
+(30,1,1) = {"
+Fh
+NH
+jy
+dq
+dq
+Dd
+dq
+dq
+dq
+dq
+uR
+sQ
+sQ
+sQ
+NN
+ai
+XP
+zP
+Hi
+zB
+ai
+RY
+TI
+ai
+Tl
+cH
+cH
+fx
+ai
+LB
+Gf
+LB
+Gf
+LB
+jy
+ZI
+cj
+"}
+(31,1,1) = {"
+Fh
+mW
+jy
+wr
+pW
+pW
+pW
+JS
+FJ
+dq
+AA
+sQ
+sQ
+sQ
+gC
+ai
+Tl
+Jc
+cH
+cH
+tf
+OY
+fx
+ai
+la
+Jc
+Pv
+TI
+ai
+LB
+LB
+LB
+Un
+LB
+jy
+ZI
+VL
+"}
+(32,1,1) = {"
+Fh
+mW
+jy
+wr
+pW
+pW
+pW
+rY
+CR
+dq
+uR
+OO
+sQ
+sQ
+gC
+ai
+oM
+Pv
+cH
+Bd
+ai
+RY
+cH
+tf
+cH
+cH
+cH
+fx
+ai
+LB
+LB
+LB
+LB
+LB
+BU
+td
+fe
+"}
+(33,1,1) = {"
+Fh
+mW
+jy
+dq
+yC
+KH
+KH
+KH
+KH
+ra
+sQ
+sQ
+sQ
+sQ
+gC
+ai
+Xu
+cH
+cH
+fx
+ai
+Qv
+fx
+ai
+Fq
+AR
+NC
+yn
+ai
+Un
+LB
+LB
+LB
+LB
+fe
+fe
+fe
+"}
+(34,1,1) = {"
+Fh
+mW
+Go
+dq
+nA
+KH
+KH
+tE
+KH
+ra
+sQ
+sQ
+sQ
+sQ
+gC
+ai
+ii
+cT
+UB
+iE
+ai
+RY
+TO
+ai
+ai
+ai
+ai
+ai
+ai
+LB
+LB
+LB
+Qm
+Qm
+DZ
+oC
+fe
+"}
+(35,1,1) = {"
+Fh
+mW
+jy
+dq
+KH
+KH
+KH
+KH
+KH
+ra
+sQ
+sQ
+sQ
+sQ
+NN
+ai
+gV
+ai
+ai
+ai
+ai
+eY
+ai
+ai
+nI
+nI
+Yi
+nI
+nI
+LB
+LB
+LB
+DK
+vl
+jy
+ZI
+VL
+"}
+(36,1,1) = {"
+Fh
+mW
+jy
+wr
+pW
+pW
+rY
+pW
+pW
+dq
+Cy
+sO
+sO
+sO
+dO
+dO
+dO
+dO
+ei
+dO
+dO
+dO
+nI
+Yi
+nI
+nI
+Gk
+nI
+nI
+LB
+LB
+LB
+sR
+Gm
+jy
+nL
+VL
+"}
+(37,1,1) = {"
+Fh
+NH
+jy
+wr
+FJ
+pW
+pW
+Ve
+FJ
+dq
+cC
+LB
+LB
+LB
+Gf
+Bf
+Gf
+Dj
+Gf
+Dj
+Gf
+JR
+Gf
+JR
+Gf
+Bf
+Gf
+JR
+Hl
+LB
+LB
+LB
+zO
+zO
+BU
+BU
+fe
+"}
+(38,1,1) = {"
+Fh
+mW
+jy
+dq
+dq
+dq
+dq
+dq
+dq
+dq
+Cy
+LB
+LB
+LB
+Gf
+LB
+Gf
+LB
+Gf
+LB
+Gf
+LB
+Gf
+LB
+Gf
+LB
+Gf
+LB
+Gf
+LB
+LB
+LB
+Un
+LB
+fe
+fe
+fe
+"}
+(39,1,1) = {"
+gB
+bE
+Rv
+bx
+rx
+rx
+rx
+Zc
+rx
+bx
+Cy
+Un
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+Qm
+DZ
+DZ
+fe
+"}
+(40,1,1) = {"
+Fh
+bE
+jy
+ax
+Ho
+ld
+Tk
+Tk
+Tk
+Tk
+EB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+Un
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+DK
+Kc
+dU
+BA
+"}
+(41,1,1) = {"
+Fh
+bE
+jy
+ax
+Ho
+Tk
+Tk
+Vy
+Tk
+Tk
+EB
+LB
+LB
+LB
+LB
+LB
+Un
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+LB
+Un
+LB
+LB
+LB
+LB
+LB
+hg
+jy
+ZI
+Aq
+"}
+(42,1,1) = {"
+Fh
+bE
+Go
+ax
+Ho
+Tk
+Tk
+Tk
+xN
+Tk
+EB
+JR
+Gf
+RF
+Gf
+si
+Gf
+Dj
+Gf
+si
+Gf
+Dj
+Gf
+si
+Gf
+si
+Gf
+QO
+Gf
+QO
+Gf
+Bf
+LB
+hg
+jy
+ZI
+BA
+"}
+(43,1,1) = {"
+Fh
+bE
+jy
+ax
+ld
+Ho
+Tk
+Tk
+Tk
+EV
+EB
+LB
+Gf
+LB
+Gf
+LB
+Gf
+LB
+Gf
+LB
+Gf
+LB
+Gf
+LB
+Gf
+LB
+Gf
+LB
+Gf
+LB
+Gf
+LB
+LB
+hg
+jy
+ZI
+BA
+"}
+(44,1,1) = {"
+gB
+bE
+jy
+EV
+ax
+ax
+ax
+EV
+EV
+EV
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+Tn
+hg
+Go
+ZI
+BA
+"}

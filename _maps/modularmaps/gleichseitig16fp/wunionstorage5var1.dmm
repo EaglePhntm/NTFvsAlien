@@ -1,0 +1,133 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"b" = (
+/obj/machinery/door/poddoor/shutters/mainship/hangar{
+	dir = 1;
+	id = "wunionstorage5";
+	name = "\improper West Industrial Union Storage 5"
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"f" = (
+/obj/machinery/door_control{
+	id = "wunionstorage5";
+	name = "West Industrial Union Storage 5"
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"h" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 1
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"i" = (
+/obj/structure/bed/bedroll,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"j" = (
+/obj/effect/spawner/random/misc/structure/supplycrate/secure_supplies,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"u" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"B" = (
+/obj/structure/largecrate/random/barrel/black,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"E" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"I" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"O" = (
+/obj/structure/largecrate/random/case/double,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"P" = (
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"V" = (
+/obj/effect/spawner/random/misc/structure/supplycrate,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+"X" = (
+/obj/structure/largecrate/random/case/small,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/five)
+
+(1,1,1) = {"
+E
+E
+E
+E
+E
+E
+"}
+(2,1,1) = {"
+E
+u
+P
+j
+X
+E
+"}
+(3,1,1) = {"
+E
+V
+P
+P
+I
+b
+"}
+(4,1,1) = {"
+E
+I
+P
+P
+P
+b
+"}
+(5,1,1) = {"
+E
+f
+P
+P
+P
+b
+"}
+(6,1,1) = {"
+h
+P
+P
+I
+P
+b
+"}
+(7,1,1) = {"
+E
+P
+i
+O
+B
+E
+"}
+(8,1,1) = {"
+E
+E
+E
+E
+E
+E
+"}

@@ -1,0 +1,128 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"c" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"e" = (
+/obj/machinery/door/poddoor/shutters/mainship/hangar{
+	dir = 1;
+	id = "wunionstorage4";
+	name = "\improper West Industrial Union Storage 4"
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"g" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"h" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 1
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"j" = (
+/obj/structure/table/mainship{
+	color = "#848484"
+	},
+/obj/machinery/recharger,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"k" = (
+/obj/structure/largecrate/random/case/double,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"w" = (
+/obj/structure/largecrate/random/case/small,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"L" = (
+/obj/machinery/door_control{
+	id = "wunionstorage4";
+	name = "West Industrial Union Storage 4"
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"M" = (
+/obj/machinery/robotic_cradle,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"Q" = (
+/obj/structure/bed/bedroll,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"W" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+"X" = (
+/obj/effect/spawner/random/misc/structure/supplycrate,
+/turf/open/floor/multi_tiles,
+/area/gleichseitig16/indoors/northwest/wstorageunits/four)
+
+(1,1,1) = {"
+g
+j
+X
+W
+w
+g
+"}
+(2,1,1) = {"
+g
+a
+a
+a
+c
+e
+"}
+(3,1,1) = {"
+g
+Q
+a
+a
+a
+e
+"}
+(4,1,1) = {"
+g
+L
+c
+a
+a
+e
+"}
+(5,1,1) = {"
+h
+a
+a
+a
+c
+e
+"}
+(6,1,1) = {"
+g
+w
+M
+k
+X
+g
+"}
+(7,1,1) = {"
+g
+g
+g
+g
+g
+g
+"}

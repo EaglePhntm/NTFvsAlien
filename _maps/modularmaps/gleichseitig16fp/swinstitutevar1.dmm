@@ -1,0 +1,6618 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ab" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"ad" = (
+/turf/open/floor/prison/darkpurple/corner{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"ak" = (
+/obj/machinery/light/mainship,
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"aF" = (
+/obj/structure/filingcabinet/nondense{
+	pixel_x = -8;
+	pixel_y = 21
+	},
+/obj/structure/filingcabinet/nondense{
+	pixel_x = 8;
+	pixel_y = 21
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"aL" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/bluethree,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"aN" = (
+/obj/machinery/door/airlock/mainship/generic/bathroom{
+	name = "\improper EHR-UNI MED-CHEM Lab"
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"aT" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 4
+	},
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"bh" = (
+/obj/structure/table/reinforced/prison,
+/turf/open/floor/urban/carpet/carpetgreendeco,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"bl" = (
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"bx" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/drained{
+	dir = 1
+	},
+/turf/open/floor/bluethree,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"bz" = (
+/turf/open/floor/bluethree,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"bA" = (
+/turf/open/floor/prison/whitegreen{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"bB" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"bH" = (
+/turf/open/urban/street/sidewalk{
+	dir = 10
+	},
+/area/gleichseitig16/outdoors/southwest/ehruni/fparking)
+"bI" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper EHR-UNI Communications Room 1"
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"bR" = (
+/turf/open/floor/tile/blue/taupeblue{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"bT" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper EHR-UNI SCI-TECH Observation Room"
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"bV" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"cj" = (
+/obj/structure/prop/urban/misc/bench{
+	pixel_x = 14
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/blue{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"cB" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/sparking)
+"cJ" = (
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/prison/darkpurple{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"cK" = (
+/obj/structure/prop/urban/vehicles/meridian/marshalls{
+	name = "EHR-UNI rapid response SUV";
+	color = "#afebff"
+	},
+/obj/effect/urban/decal/road/lines3,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/sparking)
+"cN" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	pixel_y = -4;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/fparking)
+"cS" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/blue{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"cV" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southwest/ehruni/fparking)
+"cZ" = (
+/obj/machinery/door/poddoor/mainship/indestructible{
+	name = "indestructible border doors";
+	desc = "That looks like it doesn't open easily. The Ehrman Republics don't want a xenomorph outbreak nor separatists leaving the region.";
+	dir = 1
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/caves/rock)
+"db" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"dc" = (
+/obj/structure/bed/chair/office/dark,
+/turf/open/floor/urban/carpet/carpetgreendeco,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"di" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper EHR-UNI Communications Room 4"
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"dr" = (
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"dF" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"dI" = (
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"dL" = (
+/obj/structure/bed/chair/sofa/left{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"ec" = (
+/obj/structure/table/reinforced/prison,
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"ed" = (
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"ef" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper EHR-UNI Communications Room 2"
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"et" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 8;
+	name = "\improper University Registration"
+	},
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"ev" = (
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"eC" = (
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"eL" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/sparking)
+"eR" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/structure/prop/urban/vehicles/large/suv/suv_2{
+	dir = 8
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/sparking)
+"eU" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/streets)
+"eY" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/blue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"fe" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper EHR-UNI MED-CHEM Lecture Hall 2"
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"fl" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/blue{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"fn" = (
+/obj/structure/table/reinforced,
+/obj/structure/mirror{
+	dir = 1
+	},
+/turf/open/floor/tile/blue/taupeblue,
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"fs" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"ft" = (
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"fx" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = 32
+	},
+/turf/open/floor/urban/carpet/carpetgreendeco,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"fC" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/obj/machinery/light/mainship,
+/turf/open/floor/bluethree,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"fJ" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	name = "\improper EHR-UNI SCI-TECH Observation Room"
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"fQ" = (
+/obj/structure/prop/urban/misc/bench,
+/turf/open/floor/prison/green{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"fW" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 8;
+	name = "\improper EHR-UNI SCI-TECH Building"
+	},
+/turf/open/floor/prison/bright_clean,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"gg" = (
+/obj/machinery/light/mainship,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"gi" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"gm" = (
+/obj/effect/urban/decal/road/lines3,
+/obj/structure/prop/urban/vehicles/meridian/black,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/sparking)
+"gK" = (
+/obj/structure/bed/chair/sofa/corsat/left,
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"gO" = (
+/obj/machinery/light/small,
+/turf/open/floor/tile/purple/taupepurple,
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"gQ" = (
+/obj/machinery/door/airlock/mainship/generic/bathroom{
+	name = "\improper EHR-UNI Administration Office 1"
+	},
+/turf/open/floor/prison/bright_clean,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"gR" = (
+/obj/structure/prop/urban/misc/bench,
+/turf/open/floor/prison/blue{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"gT" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"gY" = (
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"ha" = (
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/prison/green{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"hb" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	name = "\improper EHR-UNI SCI-TECH Lecture Hall 3"
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"hk" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"hE" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"hI" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/machinery/light/mainship,
+/obj/machinery/prop/computer/communications{
+	dir = 4
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"hX" = (
+/obj/effect/urban/decal/road/lines2,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/sparking)
+"hY" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"ic" = (
+/obj/structure/table/reinforced/prison,
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"im" = (
+/obj/machinery/light/mainship,
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"iq" = (
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/prison/blue{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"ir" = (
+/turf/open/floor/prison/green/corner{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"it" = (
+/turf/open/floor/tile/blue/taupeblue{
+	dir = 10
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"iu" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"ix" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"iD" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/structure/paper_bin,
+/obj/item/tool/pen,
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"iE" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 1
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"iK" = (
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"iO" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	pixel_y = -6;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/fparking)
+"jj" = (
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"jB" = (
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/prison/green{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"jM" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 1
+	},
+/turf/open/floor/prison/whitegreen,
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"jS" = (
+/obj/machinery/vending/cola,
+/turf/open/floor/prison/green{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"kc" = (
+/turf/open/floor/tile/purple/taupepurple,
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"kl" = (
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"km" = (
+/obj/structure/bed/chair/sofa/right{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"kr" = (
+/obj/structure/table/reinforced,
+/obj/structure/sink{
+	dir = 1;
+	pixel_y = -8
+	},
+/obj/structure/mirror{
+	dir = 1
+	},
+/turf/open/floor/tile/blue/taupeblue,
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"kv" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"kx" = (
+/turf/open/floor/prison/blue/corner{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"kH" = (
+/obj/structure/closet,
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"kI" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"kJ" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"kO" = (
+/obj/structure/table/reinforced/prison,
+/obj/structure/paper_bin,
+/obj/item/tool/pen,
+/turf/open/floor/urban/carpet/carpetgreendeco,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"kQ" = (
+/obj/structure/table/reinforced/prison,
+/obj/structure/transmitter/colony_net/desk/auto_id,
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"kX" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"ld" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/bright_clean,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"le" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 1
+	},
+/obj/machinery/light/mainship,
+/turf/open/floor/prison/whitegreen,
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"lm" = (
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"ln" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"lo" = (
+/obj/machinery/light/mainship,
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"lt" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"ly" = (
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/blue{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"lI" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light/mainship,
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"lM" = (
+/obj/machinery/door/airlock/mainship/generic/bathroom{
+	name = "\improper EHR-UNI Communications Conference Room"
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"lZ" = (
+/obj/structure/bookcase,
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"mh" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"mi" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"mk" = (
+/obj/structure/toilet{
+	dir = 1
+	},
+/obj/machinery/light/small,
+/turf/open/floor/tile/purple/taupepurple,
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"mm" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 5
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"mF" = (
+/turf/open/floor/tile/blue/taupeblue,
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"mK" = (
+/obj/structure/bookcase,
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"mO" = (
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 10
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"mQ" = (
+/turf/open/floor/bluethree{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"mW" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"mY" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"nd" = (
+/turf/open/floor/prison/darkpurple{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"nj" = (
+/obj/structure/toilet,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/tile/blue/taupeblue{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"nx" = (
+/turf/open/floor/prison/darkpurple/corner{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"nH" = (
+/obj/structure/table/reinforced/prison,
+/obj/structure/paper_bin,
+/turf/open/floor/bluethree,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"nQ" = (
+/obj/machinery/door/airlock/mainship/generic/bathroom{
+	name = "\improper Medical Chemistry Lab"
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"nW" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/streets)
+"nY" = (
+/obj/structure/bed/chair/sofa/corsat/right,
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"nZ" = (
+/obj/structure/table/reinforced/prison,
+/obj/structure/window{
+	dir = 4
+	},
+/obj/machinery/computer/emails{
+	density = 0
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"oh" = (
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"on" = (
+/obj/structure/closet,
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"oo" = (
+/obj/structure/cable,
+/turf/open/floor/prison/bright_clean,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"oJ" = (
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"oL" = (
+/obj/effect/landmark/xeno_silo_spawn,
+/turf/open/ground/jungle/clear,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"oW" = (
+/obj/structure/window{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"pc" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/south/streets)
+"pt" = (
+/obj/structure/table/reinforced,
+/obj/structure/mirror,
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"pG" = (
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"pQ" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"qd" = (
+/obj/structure/table/reinforced/prison,
+/obj/structure/transmitter/colony_net/desk/auto_id,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"qe" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"qh" = (
+/obj/effect/urban/decal/trash/three{
+	pixel_x = -8;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"qB" = (
+/obj/structure/table/reinforced,
+/obj/item/tool/pen,
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"qD" = (
+/obj/structure/table/reinforced/prison,
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"qK" = (
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"qR" = (
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/southwest/ehruni/fparking)
+"qW" = (
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southwest/ehruni/fparking)
+"rc" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/drained,
+/turf/open/floor/prison/darkpurple{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"rh" = (
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/prison/darkpurple{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"ri" = (
+/obj/machinery/light/mainship,
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"rn" = (
+/obj/structure/closet/secure_closet/marshal,
+/obj/item/clothing/suit/storage/CMB{
+	color = "#96e1ff";
+	name = "\improper EHR-UNI Security jacket"
+	},
+/obj/item/weapon/gun/rifle/khm4,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/head/securitycap{
+	color = "#96e1ff"
+	},
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"rv" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"rI" = (
+/turf/open/floor/prison/green{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"rJ" = (
+/obj/structure/table/reinforced/prison,
+/obj/structure/prop/urban/misc/coffeestuff/coffeemachine1,
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"rK" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"rN" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"rO" = (
+/obj/structure/prop/urban/misc/trash/blue,
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 5
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"rR" = (
+/obj/structure/prop/urban/misc/bench{
+	dir = 1
+	},
+/turf/open/floor/prison/green,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"rT" = (
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/southwest/ehruni/fparking)
+"rV" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/reagent_containers/glass/beaker/bluespace{
+	pixel_x = 6;
+	pixel_y = -3
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"se" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"sj" = (
+/obj/effect/urban/decal/road/road_edge,
+/obj/effect/urban/decal/road/lines2,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/sparking)
+"sl" = (
+/obj/effect/urban/decal/road/lines5,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/fparking)
+"sm" = (
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"st" = (
+/obj/structure/prop/urban/misc/bench{
+	dir = 1;
+	pixel_x = 15
+	},
+/turf/open/floor/prison/blue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"sV" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper EHR-UNI West Halls"
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"tb" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = 32
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"tf" = (
+/obj/structure/bed/chair/sofa/right,
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"tI" = (
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/south/streets)
+"tJ" = (
+/obj/machinery/power/apc/drained{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/prison/blue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"tP" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/folder/blue{
+	pixel_x = 4
+	},
+/obj/item/paper,
+/obj/item/paper{
+	pixel_x = -2;
+	pixel_y = 2
+	},
+/obj/item/paper{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/tool/pen,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"tR" = (
+/obj/structure/bed/chair/comfy/black,
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"tS" = (
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"uj" = (
+/obj/machinery/vending/snack,
+/turf/open/floor/prison/blue{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"ul" = (
+/obj/structure/prop/urban/misc/bench{
+	dir = 1;
+	pixel_x = 15
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/green,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"uD" = (
+/obj/machinery/light/mainship,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"uJ" = (
+/obj/structure/window,
+/obj/structure/window{
+	dir = 1
+	},
+/obj/structure/window{
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/grassybush,
+/turf/open/ground/grass/grass2,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"vc" = (
+/obj/machinery/door/airlock/mainship/generic/bathroom{
+	name = "\improper Mens Restroom";
+	dir = 1
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"vm" = (
+/turf/open/floor/prison/darkpurple{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"vo" = (
+/obj/structure/table/reinforced,
+/obj/machinery/computer/emails{
+	density = 0
+	},
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"vv" = (
+/obj/machinery/door/airlock/mainship/generic/bathroom{
+	name = "\improper EHR-UNI MED-CHEM Conference Room"
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"vE" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/darkpurple{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"vF" = (
+/obj/structure/cable,
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"vN" = (
+/obj/machinery/vending/coffee,
+/turf/open/floor/prison/blue{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"wg" = (
+/obj/machinery/streetlight/traffic{
+	pixel_x = 5;
+	pixel_y = 12;
+	dir = 8
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"wk" = (
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/bluethree{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"wu" = (
+/turf/open/floor/bluethree{
+	dir = 10
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"wU" = (
+/obj/structure/window,
+/obj/structure/window{
+	dir = 1
+	},
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/open/ground/grass/grass2,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"xi" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/structure/prop/urban/vehicles/large/suv/suv_2,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/sparking)
+"xk" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"xq" = (
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"xr" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = 32
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 9
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"xv" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/prison/bright_clean,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"xD" = (
+/obj/structure/table/reinforced/prison,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"xE" = (
+/turf/open/floor/tile/blue/taupeblue{
+	dir = 9
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"xG" = (
+/obj/structure/cable,
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"xL" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"xP" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/computer/emails{
+	density = 0
+	},
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"xT" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"xX" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"xZ" = (
+/turf/open/floor/prison/darkpurple,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"ya" = (
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southwest/ehruni/grounds)
+"yp" = (
+/obj/effect/urban/decal/road/lines5,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/sparking)
+"yr" = (
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/southwest/ehruni/sparking)
+"yx" = (
+/obj/machinery/light/mainship,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"yz" = (
+/obj/structure/cable,
+/turf/open/floor/prison/bright_clean,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"yC" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southwest/streets)
+"yF" = (
+/obj/structure/closet/secure_closet/marshal,
+/obj/item/clothing/suit/storage/CMB{
+	color = "#96e1ff";
+	name = "\improper EHR-UNI Security jacket"
+	},
+/obj/item/weapon/gun/rifle/khm4,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/head/securitycap{
+	color = "#96e1ff"
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"yN" = (
+/turf/open/floor/prison/darkpurple{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"yQ" = (
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"yR" = (
+/obj/structure/prop/urban/misc/bench{
+	pixel_x = 14
+	},
+/turf/open/floor/prison/green{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"yS" = (
+/obj/structure/table/reinforced/prison,
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"yV" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"yY" = (
+/obj/machinery/light/mainship,
+/turf/open/ground/jungle/clear,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"yZ" = (
+/obj/machinery/door/airlock/mainship/generic/bathroom{
+	name = "\improper EHR-UNI Communications Head Office"
+	},
+/turf/open/floor/urban/carpet/carpetgreendeco,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"ze" = (
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"zi" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southwest/ehruni/grounds)
+"zI" = (
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"zK" = (
+/obj/structure/table/reinforced/prison,
+/obj/structure/window{
+	dir = 4
+	},
+/obj/machinery/computer/emails{
+	density = 0
+	},
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"zL" = (
+/obj/structure/table/reinforced,
+/obj/structure/sink,
+/obj/structure/mirror,
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"zM" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"zP" = (
+/turf/open/floor/tile/blue/taupeblue{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"zS" = (
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/green{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Ac" = (
+/turf/open/floor/bluethree{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"Ag" = (
+/obj/structure/bed/chair/comfy/black,
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Am" = (
+/obj/machinery/door/airlock/mainship/generic/bathroom/toilet{
+	dir = 2
+	},
+/turf/open/floor/tile/blue,
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"Ar" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"Av" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/sparking)
+"Aw" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	name = "\improper EHR-UNI SCI-TECH Lecture Hall 2"
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"AJ" = (
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"AK" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/southwest/streets)
+"AR" = (
+/obj/structure/flora/tree/dead{
+	density = 0;
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southwest/ehruni/fparking)
+"AS" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southwest/ehruni/grounds)
+"AW" = (
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"AY" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = -32;
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"Bf" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"Bg" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"Bi" = (
+/obj/structure/prop/urban/vehicles/meridian/black,
+/obj/effect/urban/decal/road/lines3,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/sparking)
+"Bt" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/obj/machinery/computer/emails{
+	density = 0
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"Bu" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = -7;
+	pixel_y = 5
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"By" = (
+/obj/structure/prop/urban/misc/trash/blue,
+/turf/open/floor/tile/blue/taupeblue{
+	dir = 6
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"BA" = (
+/obj/structure/bed/chair/comfy/black,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"BI" = (
+/obj/structure/window,
+/obj/structure/window{
+	dir = 4
+	},
+/obj/structure/window{
+	dir = 1
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/ground/grass/grass2,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"BN" = (
+/obj/structure/table/reinforced,
+/obj/machinery/prop/computer/communications,
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"BO" = (
+/obj/structure/bed/chair/sofa/left{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"BP" = (
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/prison/darkpurple{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"Cc" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"Cd" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"Cg" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southwest/ehruni/grounds)
+"Ck" = (
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/bluethree{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"CA" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8;
+	pixel_y = 24
+	},
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"CL" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 4;
+	pixel_y = -6;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/fparking)
+"CO" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 8;
+	name = "\improper University Registration"
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"CP" = (
+/obj/machinery/miner/damaged/platinum,
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southwest/ehruni/grounds)
+"CY" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 8;
+	name = "\improper EHR-UNI Administration Building"
+	},
+/turf/open/floor/prison/bright_clean,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"Dk" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/tile/blue/taupeblue{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"Dm" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	name = "\improper University Campus Security";
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"Do" = (
+/obj/machinery/door/airlock/mainship/generic/bathroom{
+	name = "\improper Ladies Restroom";
+	dir = 1
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"Dq" = (
+/obj/structure/prop/urban/misc/firehydrant{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"Dv" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"DB" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"DO" = (
+/obj/effect/urban/decal/dirt,
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"DR" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/darkpurple,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"DT" = (
+/obj/effect/urban/decal/trash/four,
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"DY" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Ec" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = -32;
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Eg" = (
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"Em" = (
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"En" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"Eu" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"EB" = (
+/obj/machinery/vending/snack,
+/turf/open/floor/prison/green{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"EF" = (
+/turf/open/urban/street/sidewalk{
+	dir = 9
+	},
+/area/gleichseitig16/outdoors/southwest/ehruni/sparking)
+"EL" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/drained{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"EN" = (
+/obj/effect/spawner/random/misc/plant,
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"EP" = (
+/obj/machinery/light/mainship,
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"ES" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southwest/streets)
+"EX" = (
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"EY" = (
+/turf/open/ground/jungle/clear,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"Fc" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"Fh" = (
+/obj/structure/bed/chair/sofa/corsat,
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"Fj" = (
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/cup/glass/waterbottle,
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"Fr" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/computer/emails{
+	density = 0
+	},
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetgreendeco,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Ft" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/spawner/random/misc/structure/large/car{
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/sparking)
+"Fz" = (
+/obj/structure/prop/urban/misc/bench{
+	dir = 1
+	},
+/turf/open/floor/prison/blue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"FA" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"FG" = (
+/obj/effect/urban/decal/road/lines3,
+/obj/structure/prop/urban/vehicles/meridian/marshalls{
+	name = "EHR-UNI rapid response SUV";
+	color = "#afebff"
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/sparking)
+"FJ" = (
+/obj/structure/table/reinforced/prison,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"FK" = (
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"FM" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 8;
+	name = "\improper EHR-UNI SCI-TECH Building"
+	},
+/turf/open/floor/prison/bright_clean,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"FO" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"FZ" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 4
+	},
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Ga" = (
+/obj/structure/cable,
+/turf/open/floor/prison/blue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"Gc" = (
+/obj/structure/prop/urban/vehicles/large/van,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/sparking)
+"Gr" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper University Registration Records"
+	},
+/obj/structure/cable,
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"Gs" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"Gu" = (
+/obj/structure/table/reinforced/prison,
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Gv" = (
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/southwest/ehruni/fparking)
+"GE" = (
+/obj/structure/urinal,
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/turf/open/floor/tile/blue/taupeblue{
+	dir = 9
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"GF" = (
+/turf/open/floor/prison/blue{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"GG" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/chem_master,
+/turf/open/floor/prison/whitegreen{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"GQ" = (
+/obj/structure/cable,
+/turf/open/floor/bluethree{
+	dir = 5
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"GR" = (
+/obj/structure/bed/chair/comfy/black,
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"GW" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southwest/ehruni/fparking)
+"GX" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Hd" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 4
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"Hi" = (
+/turf/open/floor/prison/green{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Hk" = (
+/obj/structure/cable,
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"HC" = (
+/obj/effect/urban/decal/road/road_edge,
+/obj/effect/urban/decal/road/lines3,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/sparking)
+"HE" = (
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/prison/blue{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"HH" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper EHR-UNI SCI-TECH Lecture Hall 1"
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"HK" = (
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/southwest/ehruni/sparking)
+"HT" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"HZ" = (
+/obj/structure/table/reinforced,
+/obj/structure/transmitter/colony_net/desk/auto_id,
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"Ib" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"Ig" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper EHR-UNI Communications Room 3"
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Il" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/machinery/light/mainship,
+/obj/machinery/prop/computer/communications{
+	dir = 8
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"It" = (
+/obj/structure/window,
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"Iy" = (
+/obj/structure/window{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"IC" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetgreendeco,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"IQ" = (
+/obj/structure/bookcase,
+/turf/open/floor/urban/carpet/carpetgreendeco,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"IR" = (
+/obj/structure/closet,
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"Jk" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"Jm" = (
+/turf/open/floor/prison/whitegreen,
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"Jt" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Jw" = (
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"Jx" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"JA" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	name = "\improper University Campus Security";
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"JL" = (
+/obj/structure/table/reinforced/prison,
+/obj/structure/paper_bin,
+/obj/item/tool/pen,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"JR" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"JT" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 4;
+	pixel_y = 24
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"JW" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light/mainship,
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"Ke" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"Ko" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"Kv" = (
+/turf/open/floor/bluethree{
+	dir = 9
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"Kw" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"KF" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light/mainship,
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"KO" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/obj/machinery/computer/secure_data{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"Lh" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Lj" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/green{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Ls" = (
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"LA" = (
+/obj/machinery/light/mainship,
+/turf/open/floor/prison/green,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"LD" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	dir = 8
+	},
+/turf/open/floor/prison/bright_clean,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"LP" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/bluethree{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"LT" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	name = "\improper University Campus Security"
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"Mk" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/southwest/ehruni/fparking)
+"Mq" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"Mx" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper EHR-UNI MED-CHEM Lecture Hall 1"
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"MT" = (
+/turf/open/urban/street/sidewalk{
+	dir = 9
+	},
+/area/gleichseitig16/outdoors/southwest/ehruni/fparking)
+"MW" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/fparking)
+"No" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/fparking)
+"Ns" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southwest/ehruni/grounds)
+"NA" = (
+/obj/structure/table/reinforced/prison,
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"NF" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 4;
+	pixel_y = -6;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/sparking)
+"NG" = (
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"NI" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"NJ" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 4
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"NU" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/bluethree{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"NY" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/computer/emails{
+	density = 0
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"Oa" = (
+/turf/open/urban/street/sidewalk{
+	dir = 10
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"Oh" = (
+/obj/structure/cable,
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Oj" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 1
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"Ol" = (
+/obj/structure/bed/chair/sofa/left{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"Os" = (
+/turf/open/floor/tile/blue/taupebluecorner{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"Ot" = (
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/south/streets)
+"Ov" = (
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"Oy" = (
+/obj/structure/cable,
+/turf/open/floor/bluethree{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"OA" = (
+/obj/structure/table/reinforced/prison,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"OB" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 4
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"OC" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light/mainship,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"OJ" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/caves/rock)
+"OL" = (
+/obj/structure/closet/secure_closet/marshal,
+/obj/item/clothing/suit/storage/CMB{
+	color = "#96e1ff";
+	name = "\improper EHR-UNI Security jacket"
+	},
+/obj/item/weapon/gun/rifle/khm4,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/head/securitycap{
+	color = "#96e1ff"
+	},
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"OP" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 1
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"OX" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/darkpurple{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"Pg" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 2;
+	name = "\improper University Questioning Room"
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"Pi" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper EHR-UNI MED-CHEM Building"
+	},
+/obj/structure/cable,
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"Pp" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/prison/bright_clean,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"PA" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"PC" = (
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"PF" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 4;
+	pixel_y = -6
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/fparking)
+"PH" = (
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"PS" = (
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 6
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"Qb" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Qu" = (
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Qz" = (
+/turf/open/floor/prison/blue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"QC" = (
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"QG" = (
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/ground/jungle/clear,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"QM" = (
+/obj/structure/bed/chair/comfy{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"QQ" = (
+/obj/structure/window,
+/obj/structure/window{
+	dir = 1
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/ground/grass/grass2,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"QV" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"Re" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = -7
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"Rg" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper EHR-UNI Communications Building"
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Rm" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 8;
+	name = "\improper EHR-UNI Communications Building"
+	},
+/obj/structure/cable,
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Rp" = (
+/turf/open/floor/tile/blue/taupeblue{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"Ru" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"Rv" = (
+/obj/structure/table/reinforced,
+/obj/structure/paper_bin,
+/obj/item/tool/pen,
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"Rw" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Ry" = (
+/obj/structure/table/reinforced/prison,
+/obj/structure/paper_bin,
+/obj/item/tool/pen,
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"RC" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = -32;
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"RD" = (
+/obj/machinery/photocopier,
+/turf/open/floor/bluethree,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"RE" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	name = "\improper EHR-UNI MED-CHEM Building"
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"RJ" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper EHR-UNI Communications Building"
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"RV" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"RX" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"RY" = (
+/obj/machinery/door/airlock/mainship/generic/bathroom{
+	name = "\improper EHR-UNI Administration Office 2"
+	},
+/turf/open/floor/prison/bright_clean,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"Sf" = (
+/obj/structure/table/reinforced/prison,
+/obj/structure/window{
+	dir = 4
+	},
+/obj/machinery/computer/emails{
+	density = 0
+	},
+/obj/machinery/light/mainship,
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"Sl" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southwest/ehruni/fparking)
+"Sr" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/reagent_containers/glass/beaker/noreact,
+/turf/open/floor/prison/whitegreen{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"St" = (
+/obj/structure/table/reinforced,
+/obj/structure/sink,
+/obj/structure/mirror,
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 9
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"Su" = (
+/obj/structure/table/reinforced/prison,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"SE" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/drained{
+	dir = 1
+	},
+/turf/open/floor/prison/green,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"SH" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper University Registration"
+	},
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"SR" = (
+/obj/structure/prop/urban/misc/bench{
+	pixel_x = 14
+	},
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/prison/blue{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"SS" = (
+/turf/open/urban/street/sidewalk{
+	dir = 9
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"SX" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"SZ" = (
+/turf/open/floor/prison/whitegreen{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"Tg" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"Ti" = (
+/turf/open/floor/bluethree{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"Ts" = (
+/turf/open/floor/prison/blue{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"TC" = (
+/turf/open/floor/bluethree{
+	dir = 6
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"TE" = (
+/obj/structure/bed/chair/sofa/right{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"TJ" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/chem_dispenser,
+/turf/open/floor/prison/whitegreen{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"TK" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/southwest/ehruni/fparking)
+"TM" = (
+/obj/structure/bed/chair/sofa/right{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"TO" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"TW" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper EHR-UNI MED-CHEM Lecture Hall 3"
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"Ub" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/tile/blue/taupeblue{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"Uk" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"Uu" = (
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"UA" = (
+/obj/machinery/door/airlock/mainship/generic/bathroom{
+	name = "\improper MED-CHEM Head Office";
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"UE" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	dir = 1;
+	name = "\improper University Campus Sec-Armory"
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"UI" = (
+/obj/structure/table/reinforced/prison,
+/obj/structure/paper_bin,
+/obj/item/tool/pen,
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"UP" = (
+/turf/open/floor/prison/whitegreen{
+	dir = 6
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"UQ" = (
+/obj/structure/nuke_disk_candidate{
+	set_associations = list("set1","set2","set3","set6")
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"UT" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"UX" = (
+/obj/structure/urinal,
+/turf/open/floor/tile/blue/taupeblue{
+	dir = 5
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/restrooms)
+"UY" = (
+/obj/structure/prop/urban/misc/atm{
+	pixel_x = 6;
+	name = "\improper EHR-COMMERCE Automatic Teller Machine"
+	},
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"Va" = (
+/turf/open/floor/urban/carpet/carpetgreendeco,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Vc" = (
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/bluethree{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"Vh" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/southwest/streets)
+"Vk" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 8;
+	name = "\improper EHR-UNI SCI-TECH Building"
+	},
+/obj/structure/cable,
+/turf/open/floor/prison/bright_clean,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"Vl" = (
+/obj/structure/bookcase,
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"Vw" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = -32;
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"VB" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 4
+	},
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"VG" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper EHR-UNI West Halls"
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"VL" = (
+/obj/structure/closet/bombclosetsecurity,
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"VS" = (
+/obj/structure/bed/chair/sofa/left,
+/turf/open/floor/urban/tile/blacktileshiny,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"VX" = (
+/obj/machinery/light/mainship,
+/turf/open/floor/prison/darkpurple,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"VZ" = (
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/cup/glass/waterbottle,
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"Wu" = (
+/obj/effect/ai_node,
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"Wv" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/drained{
+	dir = 8
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/lobby)
+"Wy" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 8;
+	name = "\improper EHR-UNI SCI-TECH Enclosure"
+	},
+/turf/open/ground/jungle/clear,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"WB" = (
+/obj/structure/table/reinforced/prison,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"WG" = (
+/obj/structure/flora/tree/dead,
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"WL" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Xb" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 4;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/fparking)
+"Xp" = (
+/obj/machinery/photocopier,
+/obj/machinery/light/mainship,
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"Xr" = (
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/southwest/streets)
+"Xs" = (
+/turf/open/floor/prison/whitegreen{
+	dir = 10
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"Xv" = (
+/turf/open/floor/prison/bright_clean,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"Xz" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	name = "\improper University Campus SECCOMM Office";
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"XA" = (
+/obj/structure/table/reinforced/prison,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"XG" = (
+/turf/open/floor/prison/blue{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"XJ" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"XN" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/bright_clean,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"XO" = (
+/obj/structure/bookcase,
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"XU" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"XZ" = (
+/turf/open/urban/street/sidewalk{
+	dir = 5
+	},
+/area/gleichseitig16/outdoors/southwest/ehruni/sparking)
+"Yc" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/southwest/streets)
+"Yh" = (
+/obj/structure/table/reinforced/prison,
+/obj/structure/paper_bin,
+/obj/item/tool/pen,
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"Yj" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"Yk" = (
+/obj/effect/spawner/random/misc/plant,
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"Yp" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/computer/emails{
+	density = 0
+	},
+/obj/machinery/light/mainship,
+/turf/open/floor/urban/tile/tilegrey,
+/area/gleichseitig16/indoors/southwest/ehruni/sec)
+"Yr" = (
+/turf/open/floor/prison/bright_clean,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"Yw" = (
+/turf/open/floor/prison/green,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"Yz" = (
+/turf/open/floor/prison/green{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"YA" = (
+/turf/open/urban/street/sidewalk{
+	dir = 5
+	},
+/area/gleichseitig16/outdoors/southwest/streets)
+"YI" = (
+/obj/effect/urban/decal/road/lines3,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/sparking)
+"YL" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/obj/structure/bed/chair/comfy/black{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"YM" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/blue/corner{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"YO" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/ground/jungle/clear,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"YS" = (
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/prison/blue{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"YU" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southwest/ehruni/grounds)
+"YW" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/folder/blue,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/southwest/ehruni/lab)
+"YZ" = (
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/admin)
+"Zb" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/bright_clean,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"ZQ" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/ground/jungle/clear,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"ZS" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetgreen,
+/area/gleichseitig16/indoors/southwest/ehruni/comms)
+"ZU" = (
+/turf/open/floor/prison/bright_clean/two,
+/area/gleichseitig16/indoors/southwest/ehruni/medchem)
+"ZV" = (
+/obj/effect/landmark/start/job/xenomorph,
+/turf/open/ground/jungle/clear,
+/area/gleichseitig16/indoors/southwest/ehruni/scitech)
+"ZZ" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 4;
+	pixel_y = -6;
+	pixel_x = -1;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/ehruni/fparking)
+
+(1,1,1) = {"
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+OJ
+"}
+(2,1,1) = {"
+Xr
+Ns
+XU
+kl
+kl
+kl
+kl
+kl
+kl
+YZ
+SX
+kl
+kl
+kl
+kl
+kl
+YZ
+Yj
+PH
+PH
+PH
+PH
+PH
+PH
+oJ
+PH
+PH
+PH
+Yj
+PH
+PH
+PH
+oJ
+PH
+PH
+Yj
+PH
+PH
+OJ
+"}
+(3,1,1) = {"
+Xr
+Ns
+VG
+kl
+kl
+SX
+kl
+kl
+kl
+kl
+kl
+kl
+kl
+kl
+kl
+kl
+kl
+PH
+PH
+PH
+PH
+Yj
+PH
+PH
+PH
+PH
+PH
+PH
+PH
+PH
+PH
+PH
+PH
+PH
+PH
+PH
+PH
+PH
+OJ
+"}
+(4,1,1) = {"
+Yc
+Ns
+XU
+kl
+kl
+Ov
+kl
+kl
+SX
+kl
+kl
+kl
+kl
+SX
+kl
+kl
+kl
+PH
+PH
+PH
+dI
+PH
+PH
+PH
+PH
+Yj
+PH
+PH
+dI
+PH
+PH
+Yj
+PH
+PH
+PH
+PH
+PH
+PH
+OJ
+"}
+(5,1,1) = {"
+Xr
+Ns
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+CY
+XU
+XU
+kl
+kl
+kl
+kl
+kl
+Gs
+Gs
+Gs
+Gs
+Gs
+Gs
+Gs
+Fc
+fW
+Fc
+Gs
+Gs
+Gs
+Gs
+Gs
+Gs
+Gs
+Gs
+PH
+Yj
+PH
+OJ
+"}
+(6,1,1) = {"
+Xr
+Ns
+XU
+XO
+kl
+kl
+RV
+XU
+Ac
+Xv
+bz
+XU
+AJ
+kl
+kl
+kl
+kl
+Gs
+PH
+oJ
+gT
+PH
+PH
+Gs
+nd
+Yr
+xZ
+Gs
+EY
+EY
+QG
+EY
+EY
+EY
+Gs
+Ls
+PH
+PH
+OJ
+"}
+(7,1,1) = {"
+Xr
+Ns
+Tg
+kl
+kl
+iD
+kl
+XU
+Ac
+Xv
+aL
+XU
+gK
+kl
+uJ
+kl
+SX
+Fc
+PH
+qD
+qD
+Ry
+yx
+Gs
+cJ
+Yr
+xZ
+Fc
+EY
+ZV
+EY
+EY
+EY
+EY
+Gs
+PH
+PH
+PH
+OJ
+"}
+(8,1,1) = {"
+Xr
+YU
+XU
+AJ
+SX
+En
+hI
+XU
+wk
+yz
+bx
+XU
+Fh
+kl
+QQ
+kl
+kl
+Gs
+PH
+PH
+PH
+PH
+PH
+Gs
+nd
+Yr
+DR
+Fc
+EY
+EY
+EY
+oL
+ZV
+EY
+Gs
+PH
+PH
+PH
+OJ
+"}
+(9,1,1) = {"
+Xr
+Ns
+XU
+kl
+kl
+kl
+kl
+XU
+Ac
+yz
+bz
+XU
+Fh
+kl
+wU
+kl
+kl
+Fc
+qD
+qD
+PH
+qD
+qD
+Gs
+rc
+oo
+xZ
+Fc
+EY
+EY
+EY
+EY
+EY
+yY
+Gs
+PH
+PH
+Yj
+OJ
+"}
+(10,1,1) = {"
+Xr
+Ns
+XU
+XU
+gQ
+XU
+XU
+XU
+Ac
+ld
+nH
+XU
+nY
+kl
+BI
+kl
+im
+Gs
+gi
+Uk
+PH
+gi
+gi
+Gs
+nd
+oo
+xZ
+Fc
+EY
+YO
+EY
+EY
+EY
+EY
+Gs
+PH
+PH
+EP
+OJ
+"}
+(11,1,1) = {"
+Xr
+Ns
+LD
+mQ
+mQ
+mQ
+Vc
+LP
+Kv
+yz
+RD
+XU
+kl
+kl
+kl
+kl
+kl
+Fc
+qD
+qD
+PH
+qD
+JW
+Gs
+cJ
+oo
+xZ
+Fc
+EY
+EY
+ZV
+EY
+EY
+EY
+Gs
+PH
+PH
+PH
+OJ
+"}
+(12,1,1) = {"
+Vh
+Cg
+yz
+Oy
+NU
+Oy
+Oy
+Oy
+GQ
+yz
+fC
+XU
+kl
+kl
+SX
+kl
+kl
+Gs
+gi
+PA
+PH
+gi
+gi
+Gs
+OX
+oo
+xZ
+Gs
+EY
+EY
+EY
+EY
+EY
+EY
+Gs
+PH
+PH
+PH
+OJ
+"}
+(13,1,1) = {"
+Yc
+Ns
+XU
+XU
+XU
+RY
+XU
+XU
+Ac
+yz
+bz
+XU
+xv
+xv
+FM
+Pp
+Pp
+Gs
+Gs
+Gs
+hb
+Gs
+Gs
+Gs
+nd
+oo
+xZ
+Gs
+Gs
+ZQ
+ZQ
+Wy
+ZQ
+Gs
+Gs
+PH
+Yj
+PH
+OJ
+"}
+(14,1,1) = {"
+Xr
+Ns
+XU
+kl
+kl
+kl
+kl
+XU
+Ac
+yz
+wu
+mQ
+mQ
+mQ
+Xv
+yN
+yN
+yN
+BP
+yN
+XN
+yN
+yN
+yN
+nx
+oo
+xZ
+Gs
+PH
+PH
+PH
+PH
+Yj
+PH
+Gs
+Ls
+PH
+PH
+OJ
+"}
+(15,1,1) = {"
+Xr
+Ns
+XU
+AJ
+SX
+En
+Il
+XU
+wk
+ld
+yz
+yz
+yz
+yz
+yz
+oo
+Zb
+oo
+oo
+oo
+oo
+oo
+oo
+oo
+oo
+oo
+Yr
+bT
+Yj
+PH
+PH
+PH
+PH
+PH
+bT
+PH
+PH
+PH
+OJ
+"}
+(16,1,1) = {"
+Xr
+Ns
+Tg
+kl
+kl
+iD
+kl
+XU
+Ac
+Xv
+TC
+Ck
+Ti
+Ti
+oo
+vm
+vm
+vm
+vm
+vm
+Yr
+vm
+rh
+vE
+ad
+Yr
+xZ
+Gs
+PH
+dI
+PH
+PH
+dI
+PH
+Gs
+Yj
+PH
+PH
+OJ
+"}
+(17,1,1) = {"
+Xr
+Ns
+XU
+XO
+kl
+kl
+Jk
+XU
+Ac
+Xv
+bz
+XU
+xv
+xv
+Vk
+Pp
+Pp
+Gs
+Gs
+Gs
+Aw
+Gs
+Gs
+Gs
+nd
+Yr
+DR
+Gs
+Gs
+Gs
+fJ
+Gs
+Gs
+Gs
+Gs
+PH
+PH
+PH
+OJ
+"}
+(18,1,1) = {"
+Xr
+YU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+CY
+XU
+XU
+Ns
+Ns
+Cg
+Ns
+Ns
+Gs
+OB
+OB
+PH
+OB
+OB
+Gs
+nd
+Yr
+xZ
+Gs
+OB
+OB
+PH
+PH
+OB
+OB
+Gs
+PH
+PH
+EP
+OJ
+"}
+(19,1,1) = {"
+Xr
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+YU
+Ns
+Ns
+Ns
+YU
+Cg
+Ns
+Ns
+Fc
+qD
+qD
+Yj
+qD
+JW
+Gs
+cJ
+Yr
+xZ
+Gs
+Ar
+qD
+PH
+Yj
+qD
+JW
+Gs
+PH
+PH
+Yj
+OJ
+"}
+(20,1,1) = {"
+Xr
+Ns
+Ns
+Ns
+Ns
+YU
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Cg
+Cg
+Ns
+Gs
+OB
+OB
+PH
+OB
+OB
+Gs
+nd
+Yr
+xZ
+Gs
+OB
+OB
+PH
+PH
+OB
+OB
+Gs
+PH
+PH
+PH
+OJ
+"}
+(21,1,1) = {"
+Xr
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+YU
+Ns
+Ns
+Ns
+Ns
+Cg
+YU
+Fc
+qD
+qD
+PH
+qD
+qD
+Gs
+nd
+Yr
+xZ
+Gs
+qD
+qD
+PH
+PH
+qD
+qD
+Gs
+PH
+PH
+PH
+OJ
+"}
+(22,1,1) = {"
+Xr
+sm
+sm
+sm
+sm
+sm
+sm
+bV
+bV
+yQ
+yQ
+yQ
+yQ
+yQ
+yQ
+Cg
+Ns
+Gs
+Yj
+PH
+PH
+PH
+PH
+Gs
+nd
+Yr
+xZ
+HH
+PH
+Yj
+PH
+PH
+PH
+PH
+Gs
+Ls
+PH
+PH
+OJ
+"}
+(23,1,1) = {"
+Yc
+sm
+nj
+Am
+xE
+it
+sm
+db
+bV
+sm
+sm
+sm
+sm
+sm
+sm
+Cg
+Ns
+Fc
+PH
+qD
+qD
+qD
+EP
+Gs
+nd
+XN
+VX
+Gs
+Ls
+PH
+Ry
+qD
+qD
+yx
+Gs
+PH
+PH
+PH
+OJ
+"}
+(24,1,1) = {"
+Xr
+sm
+sm
+sm
+Ub
+kr
+sm
+bV
+bV
+sm
+St
+mO
+Am
+mk
+sm
+Cg
+Ns
+Gs
+PH
+PH
+rN
+PH
+Yj
+Gs
+nd
+Yr
+xZ
+Gs
+PH
+PH
+PH
+rN
+PH
+PH
+Gs
+PH
+PH
+PH
+OJ
+"}
+(25,1,1) = {"
+Xr
+sm
+nj
+Am
+zP
+fn
+sm
+bV
+bV
+sm
+pt
+gO
+sm
+sm
+sm
+Cg
+Ns
+Gs
+Gs
+Gs
+Gs
+Gs
+Gs
+Gs
+Fc
+fW
+Fc
+Gs
+Gs
+Gs
+Gs
+Gs
+Gs
+Gs
+Gs
+PH
+Yj
+PH
+OJ
+"}
+(26,1,1) = {"
+Xr
+sm
+sm
+sm
+Ub
+kr
+sm
+bV
+bV
+sm
+zL
+kc
+Am
+mk
+sm
+zi
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Gs
+PH
+PH
+PH
+PH
+PH
+oJ
+PH
+PH
+PH
+PH
+PH
+PH
+PH
+EP
+OJ
+"}
+(27,1,1) = {"
+Xr
+sm
+GE
+Rp
+Os
+mF
+vc
+bV
+db
+Do
+tS
+gO
+sm
+sm
+sm
+Cg
+Ns
+Ns
+Ns
+Ns
+YU
+Ns
+Ns
+sV
+Yj
+PH
+PH
+PH
+PH
+Yj
+PH
+PH
+PH
+PH
+PH
+PH
+PH
+PH
+OJ
+"}
+(28,1,1) = {"
+Xr
+sm
+UX
+bR
+Dk
+By
+sm
+bV
+bV
+sm
+rO
+PS
+Am
+mk
+sm
+Cg
+Ns
+ya
+ya
+ya
+Ns
+Ns
+Ns
+Gs
+PH
+dI
+Yj
+PH
+PH
+PH
+PH
+PH
+PH
+QC
+PH
+PH
+PH
+PH
+OJ
+"}
+(29,1,1) = {"
+Xr
+sm
+sm
+sm
+sm
+sm
+sm
+bV
+bV
+sm
+sm
+sm
+sm
+sm
+sm
+Cg
+Ns
+ya
+CP
+ya
+Ns
+Ns
+dF
+rv
+rv
+rv
+rv
+rv
+rv
+iu
+RE
+iu
+rv
+rv
+rv
+rv
+rv
+rv
+OJ
+"}
+(30,1,1) = {"
+Xr
+Ns
+YU
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+zi
+Ns
+ya
+ya
+ya
+Ns
+Ns
+WG
+rv
+xD
+NI
+ed
+AY
+rv
+Ts
+ZU
+Qz
+rv
+xD
+NI
+eC
+ed
+qd
+OJ
+"}
+(31,1,1) = {"
+Xr
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+YU
+Ns
+Ns
+Cg
+zi
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Ns
+gY
+rv
+UI
+xD
+OA
+ed
+rv
+Ts
+ZU
+Qz
+rv
+JL
+xD
+xD
+ed
+ed
+OJ
+"}
+(32,1,1) = {"
+Xr
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Cg
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+YU
+Ns
+Cg
+Ns
+gY
+rv
+ed
+ed
+ed
+ed
+fe
+Ts
+ZU
+eY
+TW
+ed
+ed
+ed
+ed
+ed
+OJ
+"}
+(33,1,1) = {"
+Xr
+ES
+RX
+RX
+RX
+RX
+RX
+RX
+RX
+XJ
+Rm
+XJ
+RX
+RX
+RX
+RX
+RX
+RX
+RX
+Ns
+Cg
+YU
+rv
+rv
+xD
+xD
+xD
+ed
+rv
+cj
+ZU
+Qz
+rv
+HT
+xD
+Kw
+xD
+OC
+OJ
+"}
+(34,1,1) = {"
+Xr
+yC
+RX
+ec
+ZS
+EX
+Em
+kQ
+RX
+rI
+Oh
+Yw
+RX
+Em
+pQ
+pQ
+pQ
+kJ
+qK
+Ns
+Cg
+Ns
+gY
+Mq
+kX
+kX
+kX
+uD
+rv
+Ts
+ZU
+Qz
+rv
+kX
+kX
+ed
+kX
+kX
+OJ
+"}
+(35,1,1) = {"
+Xr
+ES
+RX
+ec
+ec
+ec
+WL
+Em
+Ig
+rI
+ln
+Yw
+di
+WL
+ec
+ec
+ec
+kJ
+qK
+Ns
+Cg
+Ns
+gY
+Mq
+xD
+xD
+xD
+ed
+rv
+ly
+ZU
+Qz
+rv
+xD
+xD
+ed
+xD
+xD
+OJ
+"}
+(36,1,1) = {"
+Xr
+ES
+RX
+Em
+Em
+Em
+Em
+Em
+RX
+yR
+Oh
+Yw
+RX
+Em
+pQ
+pQ
+pQ
+kJ
+qK
+Ns
+Cg
+Ns
+gY
+Mq
+kX
+Kw
+kX
+ed
+rv
+Ts
+ZU
+Qz
+rv
+kX
+kX
+ed
+kX
+kX
+OJ
+"}
+(37,1,1) = {"
+Xr
+ES
+kJ
+ec
+ec
+Em
+ec
+lI
+RX
+rI
+Oh
+Yw
+RX
+xq
+ec
+ec
+ec
+kJ
+qK
+Ns
+zi
+Ns
+gY
+Mq
+xD
+xD
+xD
+uD
+rv
+gR
+ZU
+Qz
+rv
+ab
+xD
+ed
+xD
+OC
+OJ
+"}
+(38,1,1) = {"
+Xr
+ES
+kJ
+Qb
+Qb
+Em
+Qb
+Qb
+RX
+EB
+Oh
+LA
+RX
+Em
+pQ
+YL
+pQ
+kJ
+qK
+Ns
+Cg
+Ns
+rv
+rv
+kX
+kX
+kX
+ed
+rv
+Ts
+ZU
+st
+rv
+kX
+kX
+ed
+kX
+kX
+OJ
+"}
+(39,1,1) = {"
+Yc
+ES
+kJ
+ec
+ec
+Em
+ec
+ec
+RX
+jS
+Oh
+SE
+RX
+Em
+ec
+ec
+ec
+kJ
+qK
+Ns
+Cg
+Ns
+gY
+rv
+rv
+rv
+rv
+rv
+rv
+vN
+hE
+Qz
+rv
+xD
+xD
+ed
+xD
+xD
+OJ
+"}
+(40,1,1) = {"
+Xr
+ES
+kJ
+Qb
+se
+Em
+Qb
+Qb
+RX
+fQ
+Qu
+Yw
+RX
+Em
+pQ
+pQ
+pQ
+kJ
+qK
+Ns
+Cg
+Ns
+gY
+rv
+xD
+NI
+ed
+ed
+rv
+uj
+ZU
+Qz
+rv
+kX
+kX
+ed
+kX
+hk
+OJ
+"}
+(41,1,1) = {"
+Xr
+ES
+kJ
+ec
+ec
+Em
+ec
+lI
+RX
+rI
+Qu
+ul
+RX
+xq
+ec
+ec
+ec
+kJ
+qK
+Ns
+Cg
+YU
+gY
+rv
+UI
+xD
+qd
+uD
+rv
+SR
+ZU
+Qz
+rv
+HT
+xD
+ed
+xD
+OC
+OJ
+"}
+(42,1,1) = {"
+Xr
+yC
+kJ
+Qb
+Qb
+Em
+se
+Qb
+RX
+rI
+Qu
+Yw
+RX
+WL
+Em
+Em
+Em
+RX
+RX
+Ns
+Cg
+Ns
+rv
+rv
+ed
+ed
+Kw
+ed
+rv
+Ts
+ZU
+Fz
+rv
+kX
+kX
+ed
+kX
+kX
+OJ
+"}
+(43,1,1) = {"
+Xr
+ES
+kJ
+ec
+ec
+Em
+ec
+ec
+RX
+rI
+Qu
+Yw
+RX
+ec
+ec
+ec
+Em
+RX
+qK
+Ns
+Cg
+Ns
+gY
+Mq
+xD
+xD
+xD
+ed
+Mx
+cS
+ZU
+Qz
+rv
+rv
+rv
+rv
+rv
+rv
+OJ
+"}
+(44,1,1) = {"
+Xr
+ES
+kJ
+Qb
+Qb
+AW
+Qb
+Qb
+RX
+yR
+Qu
+LA
+RX
+Em
+Em
+ec
+gg
+RX
+qK
+Ns
+Cg
+Ns
+gY
+Mq
+kX
+kX
+kX
+uD
+rv
+Ts
+ZU
+Qz
+rv
+mK
+mK
+Vl
+mK
+mK
+OJ
+"}
+(45,1,1) = {"
+Xr
+ES
+RX
+RX
+RX
+RX
+RX
+RX
+RX
+rI
+Qu
+rR
+RX
+ec
+Lh
+Em
+Ec
+RX
+qK
+YU
+Cg
+Ns
+gY
+Mq
+xD
+xD
+xD
+ed
+rv
+gR
+ZU
+tJ
+rv
+zI
+zI
+zI
+zI
+zI
+OJ
+"}
+(46,1,1) = {"
+Xr
+ES
+qK
+RX
+tb
+EX
+JT
+ri
+RX
+Lj
+Qu
+Yw
+RX
+RX
+RX
+RX
+RX
+RX
+RX
+Ns
+Cg
+Ns
+gY
+Mq
+kX
+mY
+kX
+ed
+rv
+Ts
+ZU
+Ga
+rv
+zI
+zI
+Yh
+yS
+zI
+OJ
+"}
+(47,1,1) = {"
+Yc
+ES
+qK
+DY
+Ag
+ec
+WB
+TO
+RX
+rI
+Qu
+Yw
+ef
+WL
+pQ
+FZ
+Em
+RX
+qK
+Ns
+Cg
+Ns
+gY
+Mq
+xD
+xD
+xD
+uD
+rv
+iq
+hE
+Ga
+UA
+zI
+yV
+yS
+zI
+RC
+OJ
+"}
+(48,1,1) = {"
+Xr
+ES
+qK
+DY
+Ag
+ec
+ec
+TO
+RX
+fQ
+Qu
+Yw
+RX
+Ag
+ec
+ec
+TO
+DY
+qK
+Ns
+Cg
+Ns
+gY
+Mq
+kX
+kX
+kX
+ed
+rv
+Ts
+ZU
+Ga
+rv
+zI
+zI
+Bt
+zI
+Ib
+OJ
+"}
+(49,1,1) = {"
+Xr
+ES
+mi
+DY
+Ag
+ec
+ec
+TO
+RX
+rI
+Qu
+Yw
+RX
+tR
+ec
+ec
+TO
+DY
+qK
+Ns
+Cg
+Ns
+rv
+rv
+rv
+rv
+rv
+rv
+rv
+Ts
+ZU
+Ga
+rv
+rv
+rv
+rv
+rv
+rv
+OJ
+"}
+(50,1,1) = {"
+Xr
+ES
+qK
+DY
+Ag
+WB
+ec
+TO
+RX
+rI
+Qu
+LA
+RX
+Ag
+ec
+WB
+TO
+DY
+qK
+Ns
+Cg
+YU
+Ns
+iu
+GF
+GF
+HE
+GF
+GF
+kx
+ZU
+YM
+GF
+GF
+GF
+HE
+GF
+GF
+cZ
+"}
+(51,1,1) = {"
+Yc
+ES
+qK
+RX
+xq
+Qb
+Jt
+Em
+bI
+rI
+GX
+Yw
+RX
+tb
+Em
+CA
+Em
+RX
+qK
+Ns
+Cg
+Cg
+Cg
+Pi
+xG
+Jx
+xG
+xG
+xG
+xG
+xG
+xG
+ZU
+ZU
+ZU
+ZU
+hE
+ZU
+cZ
+"}
+(52,1,1) = {"
+Xr
+ES
+RX
+RX
+RX
+RX
+RX
+RX
+RX
+rI
+Qu
+Yw
+RX
+RX
+RX
+RX
+RX
+RX
+RX
+Ns
+Cg
+Ns
+Ns
+iu
+XG
+XG
+XG
+XG
+hE
+XG
+YS
+XG
+XG
+fl
+XG
+XG
+XG
+XG
+cZ
+"}
+(53,1,1) = {"
+Xr
+ES
+Rw
+XJ
+Hi
+Hi
+jB
+Hi
+Hi
+ir
+Qu
+ev
+Hi
+Hi
+zS
+Hi
+Hi
+XJ
+Rw
+Ns
+Cg
+Ns
+JR
+JR
+JR
+JR
+JR
+JR
+aN
+JR
+JR
+rv
+vv
+rv
+rv
+rv
+rv
+rv
+OJ
+"}
+(54,1,1) = {"
+Xr
+ES
+xL
+RJ
+Qu
+Qu
+Qu
+GX
+Qu
+Qu
+Qu
+Qu
+Qu
+Qu
+Qu
+Qu
+Qu
+Rg
+xL
+Ns
+Cg
+Ns
+JR
+xr
+bA
+bA
+bA
+bA
+oh
+Xs
+JR
+ic
+dr
+Hd
+Hd
+Hd
+VB
+dr
+OJ
+"}
+(55,1,1) = {"
+Xr
+ES
+Rw
+XJ
+Yz
+Yz
+Yz
+Qu
+Yz
+Yz
+ha
+GX
+Yz
+Yz
+Yz
+Yz
+Yz
+XJ
+Rw
+Ns
+Cg
+Ns
+JR
+Uu
+UT
+oh
+FJ
+Oj
+YW
+le
+JR
+ic
+GR
+Su
+ic
+ic
+Su
+iE
+OJ
+"}
+(56,1,1) = {"
+Yc
+ES
+RX
+RX
+RX
+RX
+RX
+yZ
+RX
+RX
+RX
+lM
+RX
+RX
+RX
+RX
+RX
+RX
+RX
+Ns
+Cg
+Ns
+hY
+Sr
+Re
+oh
+kI
+Oj
+FJ
+jM
+JR
+ic
+FK
+FO
+FO
+FO
+FO
+dr
+OJ
+"}
+(57,1,1) = {"
+Xr
+ES
+qK
+RX
+fx
+dc
+Fr
+Va
+IQ
+RX
+Gu
+ev
+NJ
+NJ
+NJ
+aT
+ev
+RX
+qK
+Ns
+Cg
+Ns
+hY
+TJ
+oh
+oh
+oh
+UT
+oh
+Jm
+JR
+rv
+rv
+iu
+iu
+Ko
+rv
+rv
+OJ
+"}
+(58,1,1) = {"
+Xr
+ES
+mi
+RX
+Va
+kO
+bh
+Va
+IQ
+RX
+Gu
+BA
+Gu
+Gu
+XA
+Gu
+OP
+kJ
+qK
+Ns
+zi
+Ns
+hY
+GG
+rV
+oh
+tP
+Oj
+Bu
+jM
+JR
+NF
+yp
+NF
+yp
+NF
+yp
+Gc
+OJ
+"}
+(59,1,1) = {"
+Xr
+ES
+qK
+RX
+Va
+Va
+Va
+Va
+IQ
+RX
+Gu
+pG
+ix
+ix
+ix
+ix
+ev
+RX
+qK
+Ns
+Cg
+Ns
+JR
+Uu
+oh
+oh
+FJ
+Oj
+FJ
+le
+JR
+Av
+yp
+Av
+yp
+Av
+yp
+Av
+OJ
+"}
+(60,1,1) = {"
+Xr
+ES
+qK
+RX
+RX
+IC
+RX
+IC
+RX
+RX
+RX
+RX
+kJ
+kJ
+kJ
+kJ
+RX
+RX
+qK
+Ns
+Cg
+Ns
+JR
+mm
+SZ
+SZ
+oh
+SZ
+SZ
+UP
+JR
+Av
+cB
+Av
+Av
+Av
+Av
+Av
+OJ
+"}
+(61,1,1) = {"
+Yc
+ES
+qK
+qK
+qK
+qK
+qK
+qK
+qK
+qK
+qK
+qK
+qK
+ya
+ya
+ya
+ya
+qK
+qK
+Ns
+Cg
+Ns
+JR
+JR
+hY
+JR
+nQ
+JR
+hY
+JR
+JR
+Av
+Av
+Av
+Av
+Av
+cB
+Av
+OJ
+"}
+(62,1,1) = {"
+Xr
+Sl
+Sl
+Sl
+Sl
+Ns
+Ns
+Ns
+YU
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Cg
+Ns
+Ns
+Ns
+Ns
+Ns
+YU
+Ns
+Ns
+YU
+Ns
+Ns
+Av
+Av
+Av
+Av
+EF
+HK
+OJ
+"}
+(63,1,1) = {"
+Xr
+Sl
+qR
+qR
+qR
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+YU
+Ns
+Ns
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Cg
+Ns
+Ns
+Ns
+Av
+Av
+Av
+Av
+XZ
+yr
+OJ
+"}
+(64,1,1) = {"
+eU
+No
+No
+No
+MW
+ya
+ya
+ya
+ya
+ya
+ya
+ya
+ya
+ya
+Cg
+Ns
+ya
+ya
+ya
+ya
+ya
+ya
+ya
+ya
+ya
+ya
+xT
+xT
+Hk
+xk
+xT
+xT
+HC
+cB
+Av
+Av
+Av
+sj
+OJ
+"}
+(65,1,1) = {"
+nW
+No
+No
+No
+No
+Jw
+Jw
+Jw
+Jw
+Jw
+Jw
+Jw
+Jw
+ya
+zi
+Ns
+ya
+xT
+xT
+xT
+xT
+xT
+xT
+xT
+xT
+xT
+xT
+QV
+Hk
+PC
+rJ
+xT
+Bi
+Av
+Av
+Av
+Av
+Ft
+OJ
+"}
+(66,1,1) = {"
+nW
+No
+No
+No
+No
+Jw
+aF
+IR
+IR
+IR
+on
+IR
+Jw
+ya
+Cg
+Ns
+ya
+xT
+yF
+yF
+OL
+yF
+VL
+xT
+zM
+zM
+xT
+bB
+Hk
+PC
+bB
+xT
+YI
+Av
+Av
+Av
+Av
+hX
+OJ
+"}
+(67,1,1) = {"
+Xr
+GW
+PF
+sl
+PF
+Jw
+aF
+Eg
+Eg
+Eg
+Eg
+vF
+Gr
+Cg
+Cg
+Ns
+ya
+xT
+PC
+PC
+PC
+PC
+PC
+Bg
+PC
+ak
+xT
+zK
+oW
+It
+Sf
+xT
+HC
+Av
+Av
+Av
+Av
+sj
+OJ
+"}
+(68,1,1) = {"
+Xr
+Sl
+No
+sl
+No
+Jw
+aF
+kH
+IR
+IR
+Eu
+Wv
+Jw
+AS
+Ns
+Ns
+ya
+xT
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+xT
+NY
+oW
+It
+NY
+xT
+gm
+Av
+Av
+cB
+Av
+Ft
+OJ
+"}
+(69,1,1) = {"
+Xr
+Sl
+Jw
+Jw
+Jw
+Jw
+Jw
+Jw
+Jw
+Jw
+CO
+Jw
+Jw
+ya
+Ns
+Ns
+ya
+xT
+yF
+yF
+rn
+yF
+VL
+xT
+PC
+UE
+xT
+Cc
+Hk
+PC
+Cc
+xT
+YI
+Av
+Av
+Av
+Av
+hX
+OJ
+"}
+(70,1,1) = {"
+Yc
+Sl
+Jw
+EN
+Ol
+TM
+bl
+NG
+bl
+bl
+bl
+qB
+Jw
+ya
+Ns
+Ns
+AS
+xT
+xT
+xT
+xT
+xT
+xT
+xT
+Bg
+Hk
+Dm
+Hk
+DB
+PC
+Xp
+xT
+HC
+Av
+Av
+Av
+Av
+sj
+OJ
+"}
+(71,1,1) = {"
+Xr
+Sl
+Jw
+tf
+lt
+lt
+bl
+bl
+Fj
+bl
+Ke
+bl
+Jw
+ya
+Ns
+Ns
+ya
+xT
+PC
+PC
+BN
+PC
+Rv
+xT
+PC
+Hk
+xT
+bB
+PC
+PC
+bB
+xT
+FG
+Av
+Av
+Av
+Av
+eL
+OJ
+"}
+(72,1,1) = {"
+Xr
+Sl
+Jw
+VS
+lt
+rK
+bl
+bl
+HZ
+bl
+rK
+bl
+Jw
+AS
+Ns
+Ns
+ya
+mW
+PC
+PC
+zM
+PC
+Dv
+xT
+PC
+EL
+xT
+nZ
+Iy
+It
+nZ
+xT
+YI
+Av
+Av
+Av
+Av
+hX
+OJ
+"}
+(73,1,1) = {"
+Xr
+GW
+Jw
+bl
+bl
+jj
+bl
+bl
+lt
+vo
+lt
+bl
+Jw
+ya
+Ns
+Ns
+ya
+xT
+PC
+PC
+zM
+PC
+Vw
+xT
+iK
+Bg
+xT
+xP
+Iy
+It
+Yp
+xT
+HC
+Av
+cB
+Av
+Av
+sj
+OJ
+"}
+(74,1,1) = {"
+AK
+Sl
+Jw
+et
+Jw
+Jw
+bl
+bl
+bl
+bl
+bl
+lo
+Jw
+ya
+Ns
+YU
+Ns
+JA
+Bg
+PC
+zM
+VZ
+ak
+xT
+PC
+PC
+xT
+Cc
+PC
+PC
+Cc
+xT
+FG
+Av
+Av
+Av
+Av
+Ft
+OJ
+"}
+(75,1,1) = {"
+Xr
+Sl
+Sl
+Sl
+Sl
+mh
+EN
+bl
+bl
+bl
+bl
+bl
+Jw
+ya
+Ns
+Ns
+ya
+xT
+iK
+PC
+PC
+Bg
+PC
+xT
+PC
+PC
+xT
+xT
+xT
+xT
+xT
+xT
+YI
+Av
+Av
+Av
+Av
+hX
+OJ
+"}
+(76,1,1) = {"
+Xr
+Sl
+Sl
+Sl
+Sl
+Jw
+mh
+Jw
+ft
+bl
+lt
+TE
+Jw
+ya
+Ns
+Ns
+ya
+mW
+PC
+PC
+PC
+PC
+PC
+JA
+Bg
+PC
+xT
+NY
+PC
+lZ
+UQ
+xT
+HC
+Av
+Av
+Av
+Av
+sj
+OJ
+"}
+(77,1,1) = {"
+Xr
+Sl
+Sl
+Sl
+Sl
+Sl
+Sl
+Jw
+bl
+lt
+lt
+dL
+Jw
+ya
+Ns
+Ns
+ya
+xT
+Yk
+Bg
+PC
+PC
+PC
+xT
+PC
+PC
+xT
+NA
+Bf
+PC
+Vw
+xT
+FG
+Av
+Av
+Av
+cB
+xi
+OJ
+"}
+(78,1,1) = {"
+Yc
+Sl
+qW
+AR
+Sl
+Sl
+Sl
+SH
+bl
+km
+BO
+EN
+Jw
+ya
+Ns
+Ns
+ya
+xT
+xT
+mW
+mW
+xT
+UY
+xT
+PC
+ak
+xT
+KO
+NA
+NA
+PC
+xT
+YI
+Av
+Av
+Av
+Av
+hX
+OJ
+"}
+(79,1,1) = {"
+Xr
+Sl
+qW
+qW
+GW
+Sl
+Sl
+Jw
+Jw
+Jw
+Jw
+Jw
+Jw
+ya
+YU
+Ns
+ya
+qW
+qW
+qW
+qW
+xT
+xT
+xT
+PC
+PC
+xT
+PC
+PC
+PC
+ak
+xT
+HC
+Av
+Av
+Av
+Av
+sj
+OJ
+"}
+(80,1,1) = {"
+Xr
+Sl
+Sl
+Sl
+Sl
+Sl
+Sl
+Sl
+Sl
+Sl
+Sl
+Sl
+Sl
+Sl
+Sl
+Sl
+Sl
+Sl
+GW
+Sl
+Sl
+qW
+xT
+PC
+PC
+Bg
+Xz
+PC
+Bg
+PC
+PC
+xT
+cK
+Av
+Av
+Av
+Av
+Ft
+OJ
+"}
+(81,1,1) = {"
+YA
+qR
+qR
+qR
+qR
+qR
+qR
+qR
+qR
+qR
+qR
+TK
+qR
+qR
+qR
+qR
+qR
+qR
+qR
+Sl
+Sl
+qW
+xT
+PC
+PC
+PC
+xT
+PC
+PC
+PC
+PC
+xT
+YI
+Av
+cB
+Av
+Av
+hX
+OJ
+"}
+(82,1,1) = {"
+nW
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+Gv
+Sl
+cV
+xT
+PC
+Bg
+PC
+xT
+xT
+xT
+xT
+xT
+xT
+xT
+Av
+Av
+Av
+Av
+sj
+OJ
+"}
+(83,1,1) = {"
+nW
+No
+No
+No
+No
+No
+No
+No
+MW
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+Gv
+Sl
+qW
+xT
+PC
+PC
+PC
+PC
+PC
+mW
+PC
+PC
+qe
+xT
+Av
+Av
+Av
+Av
+eL
+OJ
+"}
+(84,1,1) = {"
+nW
+No
+No
+No
+MW
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+MW
+No
+No
+No
+Gv
+Sl
+qW
+xT
+iK
+PC
+PC
+Bg
+PC
+Pg
+Bg
+zM
+KF
+xT
+Av
+Av
+Av
+Av
+hX
+OJ
+"}
+(85,1,1) = {"
+nW
+No
+No
+No
+No
+No
+No
+No
+No
+No
+MW
+No
+No
+No
+No
+No
+No
+No
+No
+Gv
+Sl
+qW
+xT
+PC
+PC
+PC
+PC
+PC
+mW
+PC
+QM
+QM
+xT
+cB
+Av
+Av
+Av
+sj
+OJ
+"}
+(86,1,1) = {"
+Xr
+rT
+CL
+sl
+iO
+sl
+iO
+sl
+ZZ
+sl
+cN
+sl
+Xb
+MT
+bH
+No
+No
+No
+No
+Mk
+Sl
+qW
+xT
+xT
+mW
+xT
+LT
+xT
+xT
+xT
+xT
+xT
+xT
+Av
+Av
+Av
+cB
+eR
+OJ
+"}
+(87,1,1) = {"
+Xr
+rT
+No
+sl
+No
+sl
+No
+sl
+No
+sl
+No
+sl
+No
+Gv
+rT
+No
+MW
+No
+No
+Gv
+Sl
+qW
+tI
+tI
+tI
+tI
+pc
+tI
+tI
+tI
+tI
+tI
+tI
+Av
+Av
+Av
+Av
+hX
+OJ
+"}
+(88,1,1) = {"
+wg
+FA
+Wu
+lm
+lm
+lm
+lm
+lm
+lm
+lm
+qh
+Wu
+lm
+FA
+FA
+Ru
+Ru
+Ru
+Ru
+FA
+FA
+FA
+Cd
+FA
+FA
+FA
+FA
+FA
+FA
+Cd
+FA
+FA
+FA
+Ru
+Ru
+Ru
+SS
+Oa
+OJ
+"}
+(89,1,1) = {"
+FA
+FA
+ze
+ze
+ze
+fs
+Dq
+xX
+DT
+ze
+ze
+ze
+ze
+fs
+ze
+Ru
+Ru
+Ru
+Ru
+FA
+ze
+fs
+ze
+ze
+ze
+ze
+ze
+ze
+ze
+fs
+ze
+ze
+ze
+Ru
+kv
+Ru
+DO
+Ot
+OJ
+"}

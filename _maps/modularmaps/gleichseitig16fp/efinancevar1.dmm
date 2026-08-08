@@ -1,0 +1,1049 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aU" = (
+/obj/effect/urban/decal/road/lines5{
+	pixel_y = 20
+	},
+/obj/effect/spawner/random/misc/structure/large/car,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/parking)
+"bN" = (
+/obj/machinery/photocopier,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"cX" = (
+/obj/effect/spawner/random/misc/structure/large/car,
+/obj/effect/urban/decal/road/lines5{
+	pixel_y = 20
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/parking)
+"dj" = (
+/obj/machinery/light/small,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"ds" = (
+/obj/effect/spawner/random/misc/plant,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"dD" = (
+/obj/effect/urban/decal/road/lines5{
+	pixel_y = 20
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/parking)
+"dQ" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/item/flashlight/lamp,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"dY" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southeast/alleys)
+"ex" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"eE" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southeast/basketball)
+"eN" = (
+/obj/structure/table/reinforced,
+/obj/machinery/computer/pod/old{
+	name = "Credit Union Systems"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"eZ" = (
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"hT" = (
+/obj/structure/prop/urban/misc/cabinet{
+	dir = 4;
+	name = "safe deposit boxes"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"hW" = (
+/obj/structure/bed/chair/sofa/left,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"jL" = (
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"jM" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper Charlie's Credit Union"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"jS" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"jV" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"kE" = (
+/obj/structure/table/reinforced,
+/obj/structure/paper_bin,
+/obj/item/tool/pen,
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"kF" = (
+/obj/structure/bed/chair/sofa/left{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"kO" = (
+/obj/structure/prop/urban/misc/cabinet{
+	dir = 8;
+	name = "safe deposit boxes"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"lc" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/drained{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"lo" = (
+/obj/structure/closet/secure_closet{
+	name = "safe deposit locker"
+	},
+/obj/item/clothing/tie/medal/letter/commendation{
+	name = "family will";
+	desc = "A letter printed on cardstock often filled with statements of who receives the belongings of the deceased."
+	},
+/obj/item/card/credstick,
+/obj/item/card/credstick,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"lU" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/alleys)
+"ms" = (
+/obj/structure/barricade/railing{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"mM" = (
+/obj/structure/bed/chair/office/dark,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"mZ" = (
+/obj/structure/bed/chair/sofa/right,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"nm" = (
+/obj/machinery/light,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"oi" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"ov" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/parking)
+"ow" = (
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"pW" = (
+/obj/structure/cable,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"pY" = (
+/obj/structure/table/reinforced,
+/obj/item/flashlight/lamp/green,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"qB" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"rl" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"sr" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"tL" = (
+/obj/effect/urban/decal/road/lines5{
+	pixel_y = 20
+	},
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/parking)
+"us" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/item/newspaper,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"uY" = (
+/obj/structure/table/reinforced,
+/obj/machinery/prop/computer{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"vH" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"vK" = (
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/southeast/alleys)
+"vW" = (
+/obj/structure/sign/nosmoking_1{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"xL" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"yb" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = -32;
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"zh" = (
+/obj/structure/prop/mainship/railing/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"zq" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"Ac" = (
+/obj/structure/table/reinforced,
+/obj/structure/paper_bin,
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"Be" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southeast/basketball)
+"Bk" = (
+/obj/structure/closet/secure_closet{
+	name = "safe deposit locker"
+	},
+/obj/item/clothing/tie/medal/letter/commendation{
+	name = "family will";
+	desc = "A letter printed on cardstock often filled with statements of who receives the belongings of the deceased."
+	},
+/obj/item/card/credstick,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"Br" = (
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/southeast/alleys)
+"BA" = (
+/obj/structure/barricade/railing{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"Ck" = (
+/obj/effect/turf_decal/arrows/white,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"Cl" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"CC" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"CY" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southeast/alleys)
+"Dy" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southeast/alleys)
+"DV" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/alleys)
+"Ev" = (
+/obj/structure/prop/urban/misc/atm{
+	pixel_x = 6;
+	name = "\improper EHR-COMMERCE Automatic Teller Machine"
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"Ie" = (
+/obj/structure/bed/chair/sofa/right{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"Jb" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/parking)
+"Jz" = (
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"JW" = (
+/obj/structure/sign/nosmoking_1{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"KB" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/newscaster{
+	dir = 4;
+	pixel_x = -12
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"Lh" = (
+/obj/effect/urban/decal/road/lines5{
+	pixel_y = 20
+	},
+/obj/machinery/light,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/parking)
+"LO" = (
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/alleys)
+"Md" = (
+/obj/structure/closet/secure_closet{
+	name = "safe deposit locker"
+	},
+/obj/item/stack/sheet/mineral/gold,
+/obj/item/stack/sheet/mineral/gold,
+/obj/item/stack/sheet/mineral/gold,
+/obj/item/stack/sheet/mineral/gold,
+/obj/item/stack/sheet/mineral/gold,
+/obj/item/stack/sheet/mineral/gold,
+/obj/item/stack/sheet/mineral/gold,
+/obj/machinery/light,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"Mu" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"ME" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"MJ" = (
+/obj/structure/barricade/railing{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"Ny" = (
+/obj/structure/closet/secure_closet{
+	name = "safe deposit locker"
+	},
+/obj/item/stack/sheet/mineral/silver,
+/obj/item/stack/sheet/mineral/silver,
+/obj/item/stack/sheet/mineral/silver,
+/obj/item/card/credstick,
+/obj/item/card/credstick,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"Op" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"OC" = (
+/obj/structure/table/reinforced,
+/obj/item/tool/pen,
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"Qu" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 8;
+	name = "\improper Charlie's Credit Union"
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"SS" = (
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"Tj" = (
+/obj/structure/closet/secure_closet{
+	name = "safe deposit locker"
+	},
+/obj/item/stack/sheet/mineral/silver,
+/obj/item/stack/sheet/mineral/silver,
+/obj/machinery/light,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"To" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	name = "\improper Safe Deposit Boxes"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"Tq" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"TA" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southeast/alleys)
+"Uv" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"UU" = (
+/obj/machinery/newscaster{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"Va" = (
+/obj/machinery/light/small,
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"Vh" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"VF" = (
+/obj/machinery/light,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"Wd" = (
+/obj/structure/closet/secure_closet{
+	name = "safe deposit locker"
+	},
+/obj/item/stack/sheet/mineral/silver,
+/obj/item/stack/sheet/mineral/silver,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"WV" = (
+/obj/structure/closet/secure_closet{
+	name = "safe deposit locker"
+	},
+/obj/item/clothing/tie/medal/letter/commendation{
+	name = "family will";
+	desc = "A letter printed on cardstock often filled with statements of who receives the belongings of the deceased."
+	},
+/obj/item/stack/sheet/mineral/silver,
+/obj/item/stack/sheet/mineral/silver,
+/obj/item/stack/sheet/mineral/silver,
+/obj/item/stack/sheet/mineral/silver,
+/obj/item/stack/sheet/mineral/silver,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"Yn" = (
+/obj/structure/prop/mainship/railing/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"YC" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"YQ" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"ZT" = (
+/obj/structure/table/reinforced,
+/obj/item/newspaper,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+
+(1,1,1) = {"
+ex
+DV
+DV
+DV
+DV
+DV
+DV
+DV
+DV
+DV
+lU
+LO
+LO
+lU
+LO
+LO
+LO
+LO
+lU
+LO
+LO
+LO
+DV
+TA
+DV
+DV
+DV
+"}
+(2,1,1) = {"
+Jz
+dj
+ow
+jL
+Vh
+ow
+ow
+ow
+ow
+ow
+Qu
+ow
+ow
+ow
+ow
+ow
+ow
+ow
+ow
+ow
+ow
+ow
+ow
+Br
+Br
+Br
+Br
+"}
+(3,1,1) = {"
+Jz
+CC
+CC
+CC
+nm
+ow
+ME
+KB
+ME
+vW
+pW
+pW
+pW
+jS
+pW
+pW
+pW
+Uv
+pW
+jS
+pW
+lc
+ow
+ow
+ow
+dY
+eE
+"}
+(4,1,1) = {"
+Jz
+CC
+qB
+CC
+CC
+YQ
+mZ
+SS
+Ie
+SS
+Tq
+SS
+ME
+sr
+ME
+Tq
+us
+SS
+ME
+SS
+SS
+ow
+ow
+Ny
+ow
+ow
+eE
+"}
+(5,1,1) = {"
+Jz
+dj
+ow
+CC
+CC
+YQ
+hW
+Tq
+kF
+SS
+SS
+SS
+dQ
+ME
+ME
+SS
+ME
+ME
+dQ
+SS
+SS
+ow
+hT
+SS
+Wd
+ow
+eE
+"}
+(6,1,1) = {"
+Jz
+CC
+Ev
+CC
+nm
+ow
+rl
+SS
+ME
+SS
+SS
+SS
+vH
+SS
+vH
+SS
+vH
+SS
+vH
+SS
+Tq
+ow
+SS
+SS
+Tj
+ow
+eE
+"}
+(7,1,1) = {"
+Jz
+CC
+CC
+qB
+CC
+jM
+SS
+SS
+SS
+SS
+SS
+Tq
+ms
+ms
+ms
+SS
+ms
+ms
+ms
+zh
+SS
+To
+SS
+SS
+Wd
+ow
+Be
+"}
+(8,1,1) = {"
+oi
+CC
+CC
+CC
+CC
+ow
+ds
+SS
+SS
+SS
+SS
+SS
+Ck
+SS
+SS
+SS
+SS
+Tq
+SS
+BA
+SS
+SS
+SS
+Tq
+lo
+ow
+eE
+"}
+(9,1,1) = {"
+YC
+CC
+CC
+CC
+CC
+jM
+SS
+SS
+SS
+Tq
+SS
+SS
+MJ
+MJ
+MJ
+SS
+MJ
+MJ
+SS
+Yn
+SS
+ow
+SS
+SS
+Md
+ow
+eE
+"}
+(10,1,1) = {"
+Jz
+CC
+Ev
+CC
+CC
+ow
+SS
+Op
+SS
+Op
+SS
+SS
+JW
+zq
+Tq
+SS
+SS
+SS
+Tq
+zq
+SS
+ow
+kO
+SS
+Bk
+ow
+eE
+"}
+(11,1,1) = {"
+Jz
+dj
+ow
+CC
+qB
+YQ
+SS
+ME
+ME
+dQ
+SS
+UU
+ow
+ow
+xL
+ow
+xL
+ow
+xL
+ow
+xL
+ow
+ow
+WV
+ow
+ow
+eE
+"}
+(12,1,1) = {"
+Jz
+CC
+CC
+CC
+CC
+YQ
+SS
+us
+SS
+ME
+SS
+SS
+ds
+ow
+sr
+eN
+SS
+eN
+SS
+eN
+SS
+eN
+ow
+ow
+ow
+Dy
+Be
+"}
+(13,1,1) = {"
+Jz
+CC
+qB
+CC
+nm
+ow
+Cl
+Tq
+Mu
+SS
+SS
+SS
+VF
+ow
+SS
+SS
+jV
+SS
+Mu
+Tq
+mM
+SS
+yb
+ow
+Dy
+Dy
+eE
+"}
+(14,1,1) = {"
+Jz
+Va
+ow
+eZ
+eZ
+YQ
+SS
+SS
+SS
+SS
+Tq
+SS
+SS
+jM
+SS
+Tq
+SS
+SS
+SS
+SS
+SS
+SS
+SS
+ow
+Dy
+Dy
+eE
+"}
+(15,1,1) = {"
+ov
+ov
+tL
+aU
+cX
+YQ
+SS
+uY
+kE
+SS
+kE
+uY
+SS
+ow
+SS
+pY
+SS
+uY
+OC
+SS
+OC
+uY
+Tq
+jM
+Dy
+dY
+eE
+"}
+(16,1,1) = {"
+ov
+ov
+dD
+dD
+Lh
+ow
+SS
+SS
+xL
+zq
+xL
+SS
+SS
+ow
+bN
+Ac
+SS
+Tq
+ZT
+zq
+xL
+SS
+SS
+ow
+Dy
+CY
+Dy
+"}
+(17,1,1) = {"
+Jb
+ov
+ov
+ov
+ov
+ow
+ow
+YQ
+YQ
+ow
+ow
+YQ
+YQ
+ow
+YQ
+YQ
+ow
+YQ
+YQ
+ow
+YQ
+YQ
+ow
+ow
+vK
+vK
+vK
+"}

@@ -1,0 +1,848 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"b" = (
+/obj/structure/prop/urban/vehicles/large/suv/suv_2,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/northwest/storage/units)
+"c" = (
+/obj/effect/urban/decal/trash/seventeen,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"d" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 9
+	},
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"e" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"f" = (
+/obj/effect/urban/decal/trash/thirteen,
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"g" = (
+/obj/effect/urban/decal/trash/four,
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"h" = (
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"i" = (
+/obj/machinery/door_control{
+	id = "nwprivatestorage1";
+	dir = 4;
+	name = "Private Storage 1"
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/northwest/storage/units)
+"j" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"k" = (
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"l" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/northwest/storage/units)
+"n" = (
+/obj/effect/urban/decal/trash/two,
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"o" = (
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/northwest/storage/units)
+"q" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"s" = (
+/obj/effect/urban/decal/trash/seven,
+/turf/open/urban/street/sidewalk{
+	dir = 6
+	},
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"t" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"u" = (
+/obj/effect/urban/decal/trash/sixteen,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"v" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"w" = (
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"x" = (
+/obj/machinery/door/poddoor/shutters/mainship/hangar{
+	dir = 8;
+	id = "nwprivatestorage1";
+	name = "\improper NW Industrial Private Storage 1"
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/northwest/storage/units)
+"y" = (
+/obj/machinery/door_control{
+	id = "nwprivatestorage2";
+	dir = 4;
+	name = "Private Storage 1"
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/northwest/storage/units)
+"z" = (
+/obj/structure/largecrate/random/case/double,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/northwest/storage/units)
+"A" = (
+/turf/open/urban/street/sidewalk{
+	dir = 6
+	},
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"B" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/northwest/storage/units)
+"C" = (
+/obj/machinery/door/poddoor/shutters/mainship/hangar{
+	dir = 8;
+	id = "nwprivatestorage2";
+	name = "\improper NW Industrial Private Storage 2"
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/northwest/storage/units)
+"D" = (
+/obj/effect/urban/decal/trash/eleven,
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"F" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"G" = (
+/obj/structure/largecrate/random/barrel/green,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/northwest/storage/units)
+"H" = (
+/obj/effect/urban/decal/trash/thirteen,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"I" = (
+/obj/structure/reagent_dispensers/fueltank/barrel{
+	color = "#ff0000";
+	name = "red fuel barrel"
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/northwest/storage/units)
+"J" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 8
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/northwest/storage/units)
+"L" = (
+/obj/effect/spawner/random/misc/structure/supplycrate,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/northwest/storage/units)
+"M" = (
+/obj/structure/reagent_dispensers/watertank{
+	icon = 'icons/obj/structures/crates.dmi';
+	icon_state = "barrel_blue";
+	desc = "A blue storage barrel containing water.";
+	name = "blue barrel"
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/northwest/storage/units)
+"N" = (
+/obj/structure/largecrate/random/case/small,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/northwest/storage/units)
+"O" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"P" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"Q" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/northwest/storage/units)
+"R" = (
+/obj/effect/urban/decal/trash/five,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"S" = (
+/turf/open/urban/street/sidewalk{
+	dir = 5
+	},
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"T" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/northwest/storage/units)
+"U" = (
+/obj/effect/urban/decal/trash/two,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"V" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"W" = (
+/obj/structure/prop/urban/vehicles/large/suv/suv_1,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/northwest/storage/units)
+"X" = (
+/turf/open/urban/street/sidewalk{
+	dir = 10
+	},
+/area/gleichseitig16/outdoors/northwest/storageunitstreets)
+"Y" = (
+/obj/structure/largecrate/random/barrel/brown,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/northwest/storage/units)
+"Z" = (
+/obj/structure/prop/urban/vehicles/large/van,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/northwest/storage/units)
+
+(1,1,1) = {"
+a
+a
+a
+a
+v
+a
+c
+a
+O
+a
+a
+a
+w
+P
+P
+P
+P
+P
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+"}
+(2,1,1) = {"
+a
+t
+a
+g
+h
+h
+h
+h
+h
+h
+h
+h
+A
+P
+P
+e
+P
+P
+S
+j
+h
+h
+h
+h
+n
+h
+h
+h
+a
+t
+O
+"}
+(3,1,1) = {"
+a
+a
+s
+P
+P
+P
+e
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+e
+S
+a
+O
+"}
+(4,1,1) = {"
+a
+w
+P
+P
+e
+P
+P
+P
+P
+P
+P
+e
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+e
+P
+P
+P
+P
+P
+P
+R
+O
+"}
+(5,1,1) = {"
+v
+w
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+k
+O
+"}
+(6,1,1) = {"
+a
+w
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+e
+P
+P
+P
+P
+P
+P
+P
+P
+P
+e
+P
+P
+P
+k
+O
+"}
+(7,1,1) = {"
+U
+w
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+S
+h
+"}
+(8,1,1) = {"
+a
+w
+P
+P
+P
+P
+P
+T
+T
+T
+x
+x
+x
+T
+T
+T
+T
+T
+C
+C
+C
+T
+T
+T
+P
+P
+P
+P
+e
+P
+P
+"}
+(9,1,1) = {"
+a
+w
+P
+P
+e
+P
+P
+T
+Y
+o
+l
+l
+B
+i
+N
+T
+G
+y
+l
+l
+B
+o
+z
+T
+P
+P
+P
+P
+P
+P
+P
+"}
+(10,1,1) = {"
+a
+w
+P
+P
+P
+P
+P
+T
+L
+o
+W
+l
+b
+o
+M
+T
+I
+o
+l
+Z
+l
+o
+L
+T
+P
+P
+P
+P
+P
+P
+P
+"}
+(11,1,1) = {"
+a
+q
+P
+P
+P
+P
+P
+T
+z
+o
+l
+l
+l
+o
+M
+T
+L
+o
+l
+l
+l
+o
+N
+T
+P
+P
+P
+P
+P
+P
+e
+"}
+(12,1,1) = {"
+a
+w
+P
+P
+P
+P
+P
+T
+N
+o
+o
+Q
+o
+o
+L
+T
+L
+o
+o
+Q
+o
+o
+Y
+T
+P
+P
+e
+P
+P
+P
+P
+"}
+(13,1,1) = {"
+a
+w
+P
+P
+P
+P
+P
+T
+T
+T
+T
+J
+T
+T
+T
+T
+T
+T
+T
+J
+T
+T
+T
+T
+P
+P
+P
+P
+P
+P
+P
+"}
+(14,1,1) = {"
+a
+f
+P
+e
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+d
+X
+"}
+(15,1,1) = {"
+a
+w
+P
+P
+P
+P
+P
+P
+e
+P
+P
+P
+P
+P
+P
+P
+e
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+k
+D
+"}
+(16,1,1) = {"
+v
+w
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+k
+w
+"}
+(17,1,1) = {"
+u
+V
+P
+P
+P
+P
+P
+P
+P
+P
+P
+e
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+e
+P
+P
+P
+P
+P
+P
+F
+w
+"}
+(18,1,1) = {"
+a
+w
+P
+P
+P
+e
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+e
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+e
+H
+w
+"}

@@ -1,0 +1,4247 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aA" = (
+/obj/structure/sink{
+	pixel_y = 24
+	},
+/obj/structure/mirror{
+	pixel_y = 30
+	},
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 5
+	},
+/area/gleichseitig16/indoors/central/consulate/restrooms)
+"aK" = (
+/obj/structure/prop/mainship/gelida/planterboxsoil{
+	dir = 9
+	},
+/obj/structure/flora/ausbushes/genericbush{
+	pixel_y = 8
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"aS" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_x = 2;
+	pixel_y = 13
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_x = -7
+	},
+/obj/item/toy/deck{
+	pixel_x = 10;
+	pixel_y = -1
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/central/consulate/maints)
+"bv" = (
+/obj/machinery/newscaster{
+	dir = 1
+	},
+/turf/open/floor/urban/metal/darkblackmetal2,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"bW" = (
+/turf/open/floor/stairs/rampbottom{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/central/consulate/conference)
+"cg" = (
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/north/streets)
+"cr" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/whall)
+"cs" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"cz" = (
+/turf/open/urban/street/sidewalk{
+	dir = 5
+	},
+/area/gleichseitig16/outdoors/north/streets)
+"cF" = (
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"cQ" = (
+/obj/structure/janitorialcart,
+/obj/item/tool/mop,
+/obj/item/tool/wet_sign{
+	pixel_x = -8;
+	pixel_y = 18
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/central/consulate/maints)
+"cS" = (
+/obj/structure/table/reinforced/prison,
+/turf/open/floor/urban/tile/tileblackcheckered,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"cY" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/courtyard)
+"di" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/secure/right{
+	dir = 2
+	},
+/turf/open/floor/iron/herringbone,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"dj" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"dk" = (
+/obj/effect/urban/decal/dirt,
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 4;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/central/consulate/wparking)
+"dz" = (
+/obj/machinery/newscaster{
+	dir = 4;
+	pixel_x = 32
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/breakroom)
+"dC" = (
+/obj/structure/bed/chair/comfy{
+	dir = 4
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/meeting)
+"dE" = (
+/obj/machinery/newscaster{
+	dir = 8;
+	pixel_x = -32
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/metal/darkblackmetal1,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"dY" = (
+/obj/structure/bed/chair/comfy{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"ed" = (
+/obj/machinery/vending/boozeomat,
+/turf/open/floor/kutjevo/grey,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"eg" = (
+/obj/structure/bed/chair/office/dark/north,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"ei" = (
+/obj/structure/bed/chair/office/dark/north{
+	dir = 2
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"ev" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/structure/paper_bin{
+	pixel_y = 8
+	},
+/obj/item/tool/pen{
+	pixel_y = 4
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"ez" = (
+/obj/machinery/door/airlock/mainship{
+	dir = 1;
+	name = "\improper Consulate Door"
+	},
+/turf/open/floor/urban/tile/tileblackcheckered,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"eU" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/item/folder/white,
+/obj/item/paper{
+	pixel_x = 3;
+	pixel_y = -4
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/meeting)
+"fb" = (
+/obj/structure/table/reinforced,
+/obj/structure/prop/mainship/gelida/register{
+	dir = 1;
+	pixel_x = -16
+	},
+/turf/open/floor/urban/tile/tileblackcheckered,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"fj" = (
+/obj/structure/table/reinforced,
+/obj/item/clipboard,
+/obj/item/paper{
+	pixel_y = -1;
+	pixel_x = 2
+	},
+/obj/item/paper{
+	pixel_y = 1
+	},
+/turf/open/floor/urban/tile/tileblackcheckered,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"fn" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/item/folder/blue,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/meeting)
+"fo" = (
+/obj/structure/window/framed/urban/reinforced,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"fr" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/metal/darkblackmetal2,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"fu" = (
+/obj/structure/bed/chair/comfy,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"fA" = (
+/obj/structure/prop/mainship/gelida/planterboxsoil{
+	dir = 9
+	},
+/obj/structure/flora/ausbushes/palebush{
+	pixel_y = 6
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"fI" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/mainship/maint{
+	dir = 2;
+	req_one_access = null
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/central/consulate/maints)
+"fK" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/microwave,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/breakroom)
+"fT" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"fU" = (
+/obj/structure/table/reinforced,
+/obj/machinery/chem_dispenser/soda{
+	pixel_y = 8
+	},
+/turf/open/floor/kutjevo/grey,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"fX" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"gb" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/secure/right{
+	dir = 1
+	},
+/obj/item/clothing/tie/medal/bronze_heart,
+/obj/structure/window/reinforced/toughened{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"ge" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/reagentgrinder,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/breakroom)
+"gx" = (
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/central/consulate/conference)
+"gA" = (
+/obj/structure/table/reinforced,
+/obj/machinery/microwave,
+/turf/open/floor/iron/herringbone,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"gB" = (
+/turf/open/floor/urban/tile/tileblackcheckered,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"gG" = (
+/obj/machinery/door/airlock/mainship/security/glass/free_access{
+	dir = 8;
+	name = "\improper Security Checkpoint";
+	color = "#afebff"
+	},
+/turf/open/floor/urban/tile/tileblue{
+	color = "#ff9b9b"
+	},
+/area/gleichseitig16/indoors/central/consulate/secpost)
+"gK" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/meeting)
+"gW" = (
+/obj/structure/bed/chair/sofa/corsat/verticaltop/white,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"he" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/central/consulate/wparking)
+"hE" = (
+/obj/structure/table/reinforced,
+/obj/item/tool/pen,
+/turf/open/floor/urban/tile/tileblue{
+	color = "#ff9b9b"
+	},
+/area/gleichseitig16/indoors/central/consulate/secpost)
+"hL" = (
+/obj/structure/bed/chair/comfy{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/meeting)
+"hM" = (
+/obj/structure/prop/mainship/gelida/planterboxsoil{
+	dir = 9
+	},
+/obj/structure/flora/bush,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"ic" = (
+/obj/structure/window/framed/urban/reinforced,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/meeting)
+"ik" = (
+/obj/effect/urban/decal/dirt,
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/central/consulate/wparking)
+"in" = (
+/obj/structure/table/mainship,
+/obj/structure/barricade/railing{
+	dir = 9
+	},
+/obj/machinery/floodlight/outpost{
+	name = "Courtyard Light"
+	},
+/obj/structure/prop/mainship/railing/corner,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"it" = (
+/obj/structure/prop/urban/misc/trash/blue,
+/turf/open/floor/urban/metal/darkblackmetal1,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"iz" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/structure/transmitter/colony_net/desk/auto_id,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"iG" = (
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass,
+/turf/open/floor/urban/tile/tileblackcheckered,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"jd" = (
+/obj/structure/bed/chair/comfy{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/tileblackcheckered,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"jq" = (
+/obj/structure/bed/chair/comfy{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/breakroom)
+"jL" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"jW" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = -4
+	},
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 10
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/central/consulate/maints)
+"kf" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/meeting)
+"kl" = (
+/obj/structure/window/framed/urban/reinforced,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"kp" = (
+/obj/structure/bed/chair/comfy{
+	dir = 8
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/breakroom)
+"ku" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/courtyard)
+"kA" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/whall)
+"kN" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/structure/paper_bin,
+/obj/item/tool/pen,
+/obj/item/clipboard{
+	pixel_x = -9
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"kO" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/item/tool/pen,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"kT" = (
+/obj/structure/window/framed/urban/reinforced,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"kW" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 1;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/central/consulate/wparking)
+"lt" = (
+/obj/structure/prop/mainship/gelida/planterboxsoil{
+	dir = 9
+	},
+/obj/structure/flora/ausbushes/pointybush{
+	pixel_y = 10
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"lu" = (
+/obj/structure/table/reinforced/prison,
+/obj/structure/paper_bin,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"ly" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/tileblackcheckered,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"lA" = (
+/obj/structure/filingcabinet/nondense{
+	pixel_x = 7;
+	pixel_y = 21
+	},
+/obj/structure/filingcabinet/nondense{
+	pixel_x = -8;
+	pixel_y = 21
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"lC" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/meeting)
+"ma" = (
+/obj/structure/table/reinforced/prison,
+/obj/structure/prop/urban/misc/coffeestuff/coffeemachine1,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/breakroom)
+"mf" = (
+/obj/structure/table/reinforced,
+/obj/structure/transmitter/colony_net/desk/auto_id,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/tileblue{
+	color = "#ff9b9b"
+	},
+/area/gleichseitig16/indoors/central/consulate/secpost)
+"mk" = (
+/obj/machinery/door/airlock/mainship/generic/bathroom{
+	name = "\improper Mens Restroom"
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/restrooms)
+"mo" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/machinery/prop/computer/communications{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"mw" = (
+/turf/open/floor/urban/tile/tileblue{
+	color = "#ff9b9b"
+	},
+/area/gleichseitig16/indoors/central/consulate/secpost)
+"my" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/north/streets)
+"mK" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/whall)
+"nc" = (
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/central/consulate/courtyard)
+"ny" = (
+/obj/machinery/light,
+/turf/open/floor/urban/metal/darkblackmetal2,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"nA" = (
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/breakroom)
+"nH" = (
+/obj/structure/table/mainship,
+/obj/structure/barricade/railing{
+	dir = 8
+	},
+/obj/structure/barricade/railing{
+	dir = 4
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"nJ" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/courtyard)
+"nO" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	dir = 4;
+	pixel_x = -16
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"nP" = (
+/obj/structure/prop/mainship/gelida/planterboxsoil{
+	dir = 9
+	},
+/obj/structure/flora/ausbushes/genericbush{
+	pixel_y = 10
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"oe" = (
+/obj/machinery/door/airlock/mainship{
+	dir = 8;
+	name = "\improper Consulate Door"
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"ov" = (
+/obj/machinery/light,
+/turf/open/floor/tile/purple/taupepurple,
+/area/gleichseitig16/indoors/central/consulate/restrooms)
+"oV" = (
+/obj/structure/window/framed/urban/reinforced,
+/turf/open/floor/urban/tile/tileblue{
+	color = "#ff9b9b"
+	},
+/area/gleichseitig16/indoors/central/consulate/secpost)
+"oX" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/central/consulate/maints)
+"pa" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/tileblue{
+	color = "#ff9b9b"
+	},
+/area/gleichseitig16/indoors/central/consulate/secpost)
+"pb" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/machinery/prop/computer/communications,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"pd" = (
+/obj/structure/table/reinforced,
+/obj/structure/platform/metalplatform{
+	dir = 10
+	},
+/turf/open/floor/urban/wood/darkerwood,
+/area/gleichseitig16/indoors/central/consulate/conference)
+"pk" = (
+/obj/machinery/light,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"po" = (
+/obj/machinery/door/airlock/mainship/maint{
+	req_one_access = null
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/central/consulate/maints)
+"pu" = (
+/obj/structure/table/reinforced,
+/obj/machinery/chem_dispenser/beer{
+	pixel_y = 8
+	},
+/turf/open/floor/kutjevo/grey,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"pz" = (
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/reagent_containers/food/snacks/tomatomeat,
+/obj/item/reagent_containers/food/snacks/tomatomeat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/flour,
+/obj/item/reagent_containers/food/snacks/flour,
+/obj/item/reagent_containers/food/snacks/fishfingers,
+/obj/item/reagent_containers/food/snacks/fishfingers,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"pH" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/ashtray/glass,
+/obj/item/trash/cigbutt{
+	pixel_y = 7
+	},
+/obj/machinery/newscaster{
+	dir = 4;
+	pixel_x = 32
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_x = -6;
+	pixel_y = 13
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_x = 9;
+	pixel_y = 3
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/courtyard)
+"qa" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/north/streets)
+"qb" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"qf" = (
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/meeting)
+"qD" = (
+/obj/structure/rock/dark/stalagmite{
+	icon = 'icons\obj\structures\ehrmanrepublicslandmarks.dmi';
+	icon_state = "g16f_balt";
+	pixel_x = -14;
+	pixel_y = 9;
+	desc = "Fredrick Balt was a recently elected official to this Ehrman Steadfast Republic province. He is known for his critical stance on Vokronen immigration and hardline approach to the increasing separatist activity. Detractors argue that his methods have only exacerbated civil unrest to the extent of an armed conflict. Supporters who argue in favor of Balt state that his efforts are the beginning of quelling an insurrection within.";
+	name = "consulate statue"
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"qH" = (
+/obj/structure/sign/restroom{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/whall)
+"qM" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/drained{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/central/consulate/maints)
+"qQ" = (
+/obj/structure/prop/mainship/gelida/planterboxsoil{
+	dir = 9
+	},
+/obj/structure/flora/grass/brown,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"qY" = (
+/obj/structure/table/reinforced,
+/obj/machinery/computer/security{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/tileblue{
+	color = "#ff9b9b"
+	},
+/area/gleichseitig16/indoors/central/consulate/secpost)
+"qZ" = (
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/central/consulate/maints)
+"rg" = (
+/obj/structure/sign/nosmoking_1{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/breakroom)
+"rt" = (
+/obj/effect/urban/decal/dirt,
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/central/consulate/maints)
+"rw" = (
+/obj/structure/filingcabinet/nondense{
+	pixel_x = 7;
+	pixel_y = 21
+	},
+/obj/structure/filingcabinet/nondense{
+	pixel_x = -8;
+	pixel_y = 21
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"rz" = (
+/obj/structure/table/reinforced,
+/obj/machinery/prop/computer/communications{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/tileblue{
+	color = "#ff9b9b"
+	},
+/area/gleichseitig16/indoors/central/consulate/secpost)
+"rA" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"rD" = (
+/obj/structure/bed/chair/comfy{
+	dir = 4
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"rJ" = (
+/obj/structure/bed/chair/office/dark/north{
+	dir = 2
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"rL" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/prop/computer/communications,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/central/consulate/maints)
+"rQ" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"sg" = (
+/obj/machinery/vending/cigarette,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"su" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/urban/metal/darkblackmetal2,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"sz" = (
+/obj/structure/bed/chair,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/courtyard)
+"sC" = (
+/obj/structure/table/reinforced,
+/obj/structure/platform/metalplatform{
+	dir = 8
+	},
+/turf/open/floor/urban/wood/darkerwood,
+/area/gleichseitig16/indoors/central/consulate/conference)
+"sE" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"sL" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/structure/transmitter/colony_net/desk/auto_id,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"sT" = (
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"te" = (
+/obj/machinery/door/airlock/mainship/maint{
+	dir = 2;
+	req_one_access = null
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/central/consulate/maints)
+"to" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/secure/right{
+	dir = 1
+	},
+/obj/item/clothing/tie/medal/gold/heroism{
+	desc = "An extremely rare golden medal awarded only by the Ehrman Republics. To receive such a medal is the highest honor and as such, very few exist."
+	},
+/obj/structure/window/reinforced/toughened{
+	dir = 4
+	},
+/obj/structure/window/reinforced/toughened{
+	dir = 8
+	},
+/obj/machinery/light,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"ty" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/processor,
+/turf/open/floor/iron/herringbone,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"tD" = (
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/central/consulate/whall)
+"tI" = (
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"tJ" = (
+/obj/machinery/light,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"tR" = (
+/obj/machinery/door/airlock/mainship/generic/bathroom/toilet{
+	dir = 2
+	},
+/turf/open/floor/tile/blue,
+/area/gleichseitig16/indoors/central/consulate/restrooms)
+"tZ" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"ug" = (
+/obj/structure/table/reinforced,
+/obj/machinery/computer/security/wooden_tv,
+/turf/open/floor/urban/tile/tileblue{
+	color = "#ff9b9b"
+	},
+/area/gleichseitig16/indoors/central/consulate/secpost)
+"uj" = (
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/whall)
+"un" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"uq" = (
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 10
+	},
+/area/gleichseitig16/indoors/central/consulate/restrooms)
+"uy" = (
+/obj/structure/table/mainship,
+/obj/structure/barricade/railing{
+	dir = 10
+	},
+/obj/machinery/floodlight/outpost{
+	name = "Courtyard Light"
+	},
+/obj/structure/prop/mainship/railing/corner{
+	dir = 4
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"uz" = (
+/obj/structure/filingcabinet/nondense{
+	pixel_x = 7;
+	pixel_y = 21
+	},
+/obj/structure/filingcabinet/nondense{
+	pixel_x = -8;
+	pixel_y = 21
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"uK" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"uO" = (
+/obj/machinery/light/small,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/north/streets)
+"uP" = (
+/obj/structure/bookcase,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"va" = (
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/central/consulate/conference)
+"vj" = (
+/obj/structure/bed/chair/comfy{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/meeting)
+"vx" = (
+/obj/machinery/door/airlock/mainship{
+	dir = 1;
+	name = "\improper Consulate Door"
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"vy" = (
+/obj/structure/bed/chair/comfy{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tileblackcheckered,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"vF" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper Consulate Door"
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"vI" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/turf/open/floor/iron/herringbone,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"vR" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"vV" = (
+/obj/effect/urban/decal/dirt,
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"wm" = (
+/obj/machinery/newscaster{
+	dir = 8;
+	pixel_x = -32
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/breakroom)
+"wq" = (
+/obj/item/stool,
+/turf/open/floor/urban/tile/tileblackcheckered,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"ww" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/north/streets)
+"wD" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/table/reinforced/prison,
+/obj/item/folder{
+	pixel_x = -8
+	},
+/obj/item/folder{
+	pixel_x = -4
+	},
+/obj/item/folder,
+/obj/item/folder{
+	pixel_x = 4
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"wE" = (
+/obj/machinery/vending/coffee{
+	density = 0
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"wL" = (
+/obj/structure/table/reinforced,
+/obj/structure/paper_bin,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"wN" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/ashtray/glass,
+/obj/item/trash/cigbutt{
+	pixel_y = 7
+	},
+/obj/machinery/newscaster{
+	dir = 4;
+	pixel_x = 32
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_x = 10;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/courtyard)
+"wT" = (
+/obj/structure/toilet{
+	dir = 1
+	},
+/obj/machinery/light/small,
+/turf/open/floor/tile/purple/taupepurple,
+/area/gleichseitig16/indoors/central/consulate/restrooms)
+"xc" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/meeting)
+"xi" = (
+/obj/structure/table/mainship,
+/obj/structure/barricade/railing{
+	dir = 6
+	},
+/obj/machinery/floodlight/outpost{
+	name = "Courtyard Light"
+	},
+/obj/structure/prop/mainship/railing/corner{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"xz" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"xK" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/effect/spawner/random/misc/cigarettes{
+	pixel_x = -8
+	},
+/obj/effect/spawner/random/misc/cigarettes{
+	pixel_x = 6
+	},
+/obj/effect/spawner/random/misc/cigarettes{
+	pixel_x = -8;
+	pixel_y = 12
+	},
+/obj/effect/spawner/random/misc/cigarettes{
+	pixel_x = 6;
+	pixel_y = 12
+	},
+/obj/item/tool/lighter/zippo{
+	pixel_x = -8
+	},
+/obj/item/tool/lighter/zippo{
+	pixel_x = 4
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/central/consulate/maints)
+"ya" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/structure/paper_bin,
+/obj/item/tool/pen{
+	pixel_y = -3
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"yd" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/central/consulate/conference)
+"yp" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/item/folder/yellow,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/meeting)
+"yE" = (
+/obj/structure/table/reinforced/prison,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/breakroom)
+"yJ" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/ashtray/glass,
+/obj/item/trash/cigbutt{
+	pixel_y = 7
+	},
+/obj/machinery/newscaster{
+	dir = 4;
+	pixel_x = 32
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_x = 10;
+	pixel_y = 11
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/courtyard)
+"yL" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"yM" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/breakroom)
+"yQ" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	pixel_y = 2;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/sidewalkcenter{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/central/consulate/wparking)
+"yS" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"yU" = (
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"zz" = (
+/obj/machinery/door/airlock/mainship{
+	dir = 8;
+	name = "\improper Consulate Door"
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"zQ" = (
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"zT" = (
+/obj/machinery/door/airlock/mainship/generic/bathroom{
+	name = "\improper Ladies Restroom"
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/restrooms)
+"Ae" = (
+/obj/machinery/light,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"Aq" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/urban/wood/darkerwood,
+/area/gleichseitig16/indoors/central/consulate/conference)
+"Av" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/breakroom)
+"AA" = (
+/obj/machinery/door/airlock/mainship{
+	dir = 1;
+	name = "\improper Consulate Door"
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/meeting)
+"AE" = (
+/obj/structure/sink{
+	pixel_y = 24
+	},
+/obj/structure/mirror{
+	pixel_y = 30
+	},
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 9
+	},
+/area/gleichseitig16/indoors/central/consulate/restrooms)
+"AF" = (
+/obj/structure/window/framed/urban/reinforced,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/secpost)
+"AG" = (
+/obj/structure/bookcase,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"AU" = (
+/obj/item/stool,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/tileblackcheckered,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"Bh" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/item/paper{
+	pixel_x = 3
+	},
+/obj/item/paper{
+	pixel_x = -4;
+	pixel_y = -1
+	},
+/obj/item/paper,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/meeting)
+"Bn" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/table/reinforced,
+/obj/item/tool/kitchen/knife{
+	pixel_x = -6
+	},
+/obj/item/tool/kitchen/rollingpin{
+	pixel_y = 8
+	},
+/turf/open/floor/iron/herringbone,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"Bt" = (
+/obj/structure/bed/chair/comfy{
+	dir = 8
+	},
+/turf/open/floor/urban/metal/darkblackmetal2,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"BE" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"Cm" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/machinery/prop/computer/communications,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"Cp" = (
+/obj/structure/prop/urban/misc/trash/blue,
+/turf/open/floor/iron/herringbone,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"Cu" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"Cw" = (
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"CC" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/urban/metal/darkblackmetal1,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"CF" = (
+/obj/structure/bed/chair/comfy,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/meeting)
+"CG" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/tile/blue/taupeblue{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/central/consulate/restrooms)
+"CH" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/meeting)
+"CP" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/breakroom)
+"CR" = (
+/obj/machinery/vending/cola,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"CU" = (
+/obj/structure/toilet,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/tile/blue/taupeblue{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/central/consulate/restrooms)
+"CZ" = (
+/obj/machinery/light/small,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/north/streets)
+"Dg" = (
+/turf/open/floor/tile/blue/taupeblue{
+	dir = 9
+	},
+/area/gleichseitig16/indoors/central/consulate/restrooms)
+"Dl" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/item/folder/black,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/meeting)
+"Dm" = (
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/central/consulate/maints)
+"Ds" = (
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/central/consulate/secpost)
+"Dy" = (
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"Dz" = (
+/obj/structure/table/reinforced,
+/obj/structure/paper_bin{
+	pixel_y = 8
+	},
+/obj/item/tool/pen{
+	pixel_y = 4
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"DS" = (
+/obj/structure/bed/chair/office/dark/north{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/central/consulate/maints)
+"DT" = (
+/obj/structure/nuke_disk_candidate{
+	set_associations = list("set1","set2","set4")
+	},
+/turf/open/floor/urban/tile/tileblue{
+	color = "#ff9b9b"
+	},
+/area/gleichseitig16/indoors/central/consulate/maints)
+"Ej" = (
+/obj/structure/prop/mainship/gelida/planterboxsoil{
+	dir = 9
+	},
+/obj/structure/flora/ausbushes/stalkybush{
+	pixel_y = 10
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"Er" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/central/consulate/maints)
+"EB" = (
+/obj/structure/sink{
+	dir = 1;
+	pixel_y = -8
+	},
+/obj/structure/mirror{
+	pixel_y = -16;
+	dir = 1
+	},
+/turf/open/floor/tile/blue/taupeblue{
+	dir = 10
+	},
+/area/gleichseitig16/indoors/central/consulate/restrooms)
+"EH" = (
+/obj/structure/bed/chair/office/dark/north{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"EK" = (
+/obj/structure/window/framed/urban/reinforced,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"EM" = (
+/obj/structure/bed/chair/comfy{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/tileblackcheckered,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"Fa" = (
+/obj/structure/bed/chair/office/dark/north{
+	dir = 2
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"Fb" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/urban/tile/tileblackcheckered,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"Fc" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/courtyard)
+"Fu" = (
+/obj/structure/table/mainship,
+/obj/structure/barricade/railing,
+/obj/structure/barricade/railing{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"Fz" = (
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/reagent_containers/food/snacks/tomatomeat,
+/obj/item/reagent_containers/food/snacks/tomatomeat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/flour,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/flour,
+/obj/item/reagent_containers/food/snacks/tomatomeat,
+/obj/item/reagent_containers/food/snacks/tomatomeat,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"FN" = (
+/obj/structure/prop/mainship/gelida/planterboxsoil{
+	dir = 9
+	},
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"FU" = (
+/obj/structure/bed/chair/comfy{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/breakroom)
+"GV" = (
+/turf/open/urban/street/sidewalkcenter{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/central/consulate/wparking)
+"Hb" = (
+/obj/structure/bed/chair,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/central/consulate/maints)
+"Hs" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/structure/paper_bin,
+/obj/item/tool/pen,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"HM" = (
+/obj/structure/window/framed/urban/reinforced,
+/turf/open/floor/urban/tile/tileblue{
+	color = "#ff9b9b"
+	},
+/area/gleichseitig16/indoors/central/consulate/conference)
+"HQ" = (
+/obj/structure/table/reinforced/prison,
+/obj/structure/prop/urban/misc/coffeestuff,
+/obj/item/reagent_containers/cup/glass/coffee_cup{
+	pixel_x = -5;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/cup/glass/coffee_cup{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/cup/glass/coffee_cup{
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/cup/glass/coffee_cup{
+	pixel_x = -5;
+	pixel_y = 7
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/breakroom)
+"HU" = (
+/obj/structure/bed/chair/comfy,
+/turf/open/floor/urban/tile/tileblackcheckered,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"Ie" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/urban/metal/darkblackmetal1,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"It" = (
+/obj/structure/bed/chair/comfy{
+	dir = 8
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"Iu" = (
+/obj/structure/window/framed/urban/reinforced,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/whall)
+"IJ" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/ice,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"IL" = (
+/obj/structure/bed/chair/comfy{
+	dir = 4
+	},
+/turf/open/floor/urban/metal/darkblackmetal2,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"Jj" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 4;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/central/consulate/wparking)
+"Jm" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/ashtray/glass,
+/obj/item/trash/cigbutt{
+	pixel_y = 7
+	},
+/obj/machinery/newscaster{
+	dir = 4;
+	pixel_x = 32
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_x = -8;
+	pixel_y = 11
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/courtyard)
+"JA" = (
+/obj/structure/bed/chair/comfy{
+	dir = 8
+	},
+/turf/open/floor/kutjevo/grey,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"JJ" = (
+/obj/structure/table/reinforced,
+/obj/machinery/reagentgrinder,
+/turf/open/floor/iron/herringbone,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"JK" = (
+/obj/structure/bed/chair,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/courtyard)
+"JV" = (
+/obj/structure/table/reinforced,
+/obj/structure/paper_bin,
+/obj/item/tool/pen,
+/turf/open/floor/urban/tile/tileblue{
+	color = "#ff9b9b"
+	},
+/area/gleichseitig16/indoors/central/consulate/secpost)
+"JW" = (
+/obj/structure/bed/chair/comfy,
+/turf/open/floor/urban/metal/darkblackmetal1,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"JY" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"Kq" = (
+/obj/structure/sink/kitchen{
+	dir = 4;
+	pixel_y = 8;
+	pixel_x = 12
+	},
+/turf/open/floor/iron/herringbone,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"Ks" = (
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/central/consulate/breakroom)
+"KL" = (
+/obj/machinery/light,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"KP" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/item/stack/sheet/metal/small_stack,
+/obj/item/stack/sheet/metal/small_stack,
+/obj/item/stack/sheet/metal/small_stack,
+/obj/item/stack/sheet/plasteel/small_stack,
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/central/consulate/maints)
+"KU" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"KY" = (
+/obj/structure/table/reinforced,
+/obj/structure/platform/metalplatform{
+	dir = 9
+	},
+/turf/open/floor/urban/wood/darkerwood,
+/area/gleichseitig16/indoors/central/consulate/conference)
+"Le" = (
+/turf/open/floor/iron/herringbone,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"Lg" = (
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 6
+	},
+/area/gleichseitig16/indoors/central/consulate/restrooms)
+"LH" = (
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/north/streets)
+"LO" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"Md" = (
+/obj/structure/table/reinforced,
+/obj/item/tool/kitchen/knife{
+	pixel_x = -4
+	},
+/obj/item/tool/kitchen/rollingpin{
+	pixel_x = 6
+	},
+/turf/open/floor/iron/herringbone,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"MA" = (
+/obj/effect/urban/decal/dirt,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"MB" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/courtyard)
+"MO" = (
+/turf/open/floor/plating/ground/ice,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"Nh" = (
+/obj/structure/table/reinforced/prison,
+/turf/open/floor/urban/metal/darkblackmetal2,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"NF" = (
+/obj/structure/table/mainship,
+/obj/structure/barricade/railing{
+	dir = 1
+	},
+/obj/structure/barricade/railing,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"NO" = (
+/obj/machinery/door/airlock/mainship{
+	name = "\improper Consulate Door"
+	},
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"NR" = (
+/obj/structure/prop/urban/misc/trash/blue,
+/turf/open/floor/tile/blue/taupeblue,
+/area/gleichseitig16/indoors/central/consulate/restrooms)
+"Oi" = (
+/obj/effect/urban/decal/dirt,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"On" = (
+/obj/machinery/door/airlock/mainship{
+	dir = 8;
+	name = "\improper Consulate Door"
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"Oo" = (
+/obj/structure/bed/chair/sofa/corsat/verticalsouth/white,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"OE" = (
+/obj/structure/bed/chair/comfy{
+	dir = 1
+	},
+/turf/open/floor/urban/metal/darkblackmetal1,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"OG" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/courtyard)
+"ON" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/central/consulate/wparking)
+"OP" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/central/consulate/conference)
+"OQ" = (
+/turf/open/floor/urban/metal/darkblackmetal2,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"Pa" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/whall)
+"Pc" = (
+/obj/machinery/door/airlock/mainship{
+	dir = 8;
+	name = "\improper Consulate Door"
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/breakroom)
+"Pf" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/structure/paper_bin,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"PG" = (
+/obj/machinery/door/airlock/mainship{
+	dir = 1;
+	name = "\improper Consulate Door"
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/breakroom)
+"PL" = (
+/obj/structure/prop/mainship/gelida/planterboxsoil{
+	dir = 9
+	},
+/obj/structure/flora/ausbushes{
+	pixel_y = 6
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"PQ" = (
+/obj/structure/sink{
+	dir = 1;
+	pixel_y = -8
+	},
+/obj/structure/mirror{
+	pixel_y = -16;
+	dir = 1
+	},
+/turf/open/floor/tile/blue/taupeblue{
+	dir = 6
+	},
+/area/gleichseitig16/indoors/central/consulate/restrooms)
+"Qe" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_x = 7
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_x = -2;
+	pixel_y = 11
+	},
+/obj/item/ashtray/plastic{
+	pixel_x = -16;
+	pixel_y = 7
+	},
+/obj/effect/spawner/random/food_or_drink/drink_alcohol_bottle{
+	pixel_x = -9;
+	pixel_y = 4
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/central/consulate/maints)
+"Qt" = (
+/obj/structure/filingcabinet/nondense{
+	pixel_x = 7;
+	pixel_y = 21
+	},
+/obj/structure/filingcabinet/nondense{
+	pixel_x = -8;
+	pixel_y = 21
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"Qu" = (
+/obj/structure/table/reinforced,
+/obj/structure/paper_bin,
+/obj/item/tool/pen{
+	pixel_y = -3
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"QF" = (
+/obj/effect/spawner/random/misc/plant,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/whall)
+"QM" = (
+/obj/structure/platform/metalplatform{
+	dir = 1
+	},
+/turf/open/floor/urban/wood/darkerwood,
+/area/gleichseitig16/indoors/central/consulate/conference)
+"QN" = (
+/obj/structure/sink/kitchen{
+	dir = 8;
+	pixel_y = 8;
+	pixel_x = -12
+	},
+/turf/open/floor/iron/herringbone,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"Ra" = (
+/obj/structure/sign/nosmoking_2{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"Rb" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/secure/right{
+	dir = 2
+	},
+/obj/item/clothing/tie/medal/letter/commendation{
+	desc = "A letter printed on cardstock often filled with praise for the person it is intended for, an Imladrisean employee of the civic facilitation center."
+	},
+/obj/structure/window/reinforced/toughened{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"Rf" = (
+/obj/structure/table/mainship,
+/obj/structure/barricade/railing{
+	dir = 4
+	},
+/obj/structure/barricade/railing{
+	dir = 8
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"Rj" = (
+/obj/structure/platform/metalplatform,
+/turf/open/floor/urban/wood/darkerwood,
+/area/gleichseitig16/indoors/central/consulate/conference)
+"Rk" = (
+/turf/open/floor/kutjevo/grey,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"Rw" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/breakroom)
+"RM" = (
+/obj/structure/bed/chair/office/dark/north{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"RT" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/prop/computer,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/central/consulate/maints)
+"RY" = (
+/obj/structure/table/mainship,
+/obj/structure/barricade/railing{
+	dir = 5
+	},
+/obj/machinery/floodlight/outpost{
+	name = "Courtyard Light"
+	},
+/obj/structure/prop/mainship/railing/corner{
+	dir = 8
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"RZ" = (
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/reagent_containers/food/snacks/tomatomeat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/flour,
+/obj/item/reagent_containers/food/snacks/fishfingers,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"Sp" = (
+/turf/open/floor/urban/metal/darkblackmetal1,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"SB" = (
+/obj/structure/bed/chair/office/light{
+	dir = 4;
+	pixel_x = -6
+	},
+/turf/open/floor/urban/tile/tileblue{
+	color = "#ff9b9b"
+	},
+/area/gleichseitig16/indoors/central/consulate/secpost)
+"SO" = (
+/obj/structure/sign/nosmoking_2{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/whall)
+"SU" = (
+/obj/structure/prop/mainship/gelida/planterboxsoil{
+	dir = 9
+	},
+/obj/structure/flora/jungle/large_bush{
+	pixel_y = 0
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"Ti" = (
+/obj/machinery/light,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/courtyard)
+"Tk" = (
+/obj/structure/window/framed/urban/reinforced,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/woffices)
+"Tr" = (
+/obj/machinery/light,
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/central/consulate/conference)
+"Tw" = (
+/obj/structure/prop/urban/misc/trash/blue,
+/turf/open/floor/kutjevo/grey,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"Tz" = (
+/obj/effect/urban/decal/dirt,
+/obj/structure/window/framed/urban/reinforced,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"TB" = (
+/obj/machinery/vending/snack,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"TC" = (
+/obj/effect/landmark/sensor_tower,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"TN" = (
+/turf/open/floor/urban/wood/darkerwood,
+/area/gleichseitig16/indoors/central/consulate/conference)
+"TT" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
+"TV" = (
+/obj/structure/filingcabinet/nondense{
+	pixel_x = -8;
+	pixel_y = 21
+	},
+/obj/structure/filingcabinet/nondense{
+	pixel_x = 7;
+	pixel_y = 21
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"TY" = (
+/obj/structure/bed/chair/office/light{
+	dir = 8;
+	pixel_x = -6
+	},
+/turf/open/floor/urban/tile/tileblue{
+	color = "#ff9b9b"
+	},
+/area/gleichseitig16/indoors/central/consulate/secpost)
+"Ur" = (
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
+	pixel_y = 10
+	},
+/turf/open/floor/urban/tile/tileblackcheckered,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"Uy" = (
+/turf/open/floor/tile/blue/taupeblue{
+	dir = 5
+	},
+/area/gleichseitig16/indoors/central/consulate/restrooms)
+"UM" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/central/consulate/conference)
+"Vn" = (
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"Vt" = (
+/obj/machinery/photocopier,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"VD" = (
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/central/consulate/maints)
+"VI" = (
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/central/consulate/meeting)
+"VN" = (
+/obj/machinery/door/airlock/mainship{
+	dir = 1;
+	name = "\improper Consulate Door"
+	},
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/whall)
+"VQ" = (
+/obj/structure/table/reinforced,
+/obj/machinery/prop/computer{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/tileblue{
+	color = "#ff9b9b"
+	},
+/area/gleichseitig16/indoors/central/consulate/secpost)
+"VR" = (
+/obj/structure/prop/urban/misc/trash/green,
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/central/consulate/restrooms)
+"Wi" = (
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/central/consulate/restrooms)
+"WA" = (
+/obj/structure/bed/chair/comfy{
+	dir = 1
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/meeting)
+"WG" = (
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/reagent_containers/food/snacks/tomatomeat,
+/obj/item/reagent_containers/food/snacks/tomatomeat,
+/obj/item/reagent_containers/food/snacks/tomatomeat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/flour,
+/obj/item/reagent_containers/food/snacks/flour,
+/obj/item/reagent_containers/food/snacks/fishfingers,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"Xf" = (
+/obj/machinery/light,
+/obj/structure/bed/chair/office/dark/north,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"XH" = (
+/obj/effect/urban/decal/road/lines5,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/central/consulate/wparking)
+"XJ" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/whall)
+"XZ" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"Yd" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/north/streets)
+"Yk" = (
+/obj/structure/bookcase,
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"YB" = (
+/obj/machinery/door/airlock/mainship{
+	dir = 1;
+	name = "\improper Consulate Door"
+	},
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/central/consulate/conference)
+"Zi" = (
+/obj/machinery/light,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/central/consulate/maints)
+"Zk" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/central/consulate/wparking)
+"Zv" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/structure/transmitter/colony_net/desk/auto_id,
+/obj/item/tool/pen{
+	pixel_y = 14
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/gleichseitig16/indoors/central/consulate/eoffices)
+"ZO" = (
+/obj/structure/table/reinforced,
+/obj/machinery/microwave,
+/obj/machinery/light,
+/turf/open/floor/iron/herringbone,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"ZP" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/iron/herringbone,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"ZS" = (
+/obj/structure/table/reinforced,
+/obj/structure/transmitter/colony_net/desk/auto_id,
+/turf/open/floor/urban/tile/tileblackcheckered,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
+"ZY" = (
+/obj/structure/prop/mainship/gelida/planterboxsoil{
+	dir = 9
+	},
+/obj/structure/flora/ausbushes/fernybush{
+	pixel_y = 10
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+
+(1,1,1) = {"
+Zk
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+Zk
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+Zk
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+Zk
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+Zk
+ON
+ON
+GV
+Cu
+"}
+(2,1,1) = {"
+ON
+ON
+ON
+ON
+ON
+Zk
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+Zk
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+Zk
+ON
+ON
+ON
+ON
+ON
+ON
+GV
+Cu
+"}
+(3,1,1) = {"
+ON
+ON
+Zk
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+Zk
+ON
+ON
+ON
+ON
+Zk
+ON
+ON
+ON
+ON
+ON
+Zk
+ON
+ON
+ON
+ON
+Zk
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+ON
+Zk
+GV
+MA
+"}
+(4,1,1) = {"
+ON
+ON
+he
+XH
+Jj
+XH
+Jj
+XH
+he
+ON
+Zk
+ON
+XH
+he
+XH
+Jj
+XH
+he
+XH
+he
+XH
+Jj
+XH
+he
+XH
+ik
+XH
+kW
+XH
+Jj
+XH
+ik
+XH
+he
+XH
+Jj
+XH
+dk
+XH
+Jj
+XH
+yQ
+qb
+"}
+(5,1,1) = {"
+ON
+ON
+ON
+XH
+ON
+XH
+ON
+XH
+ON
+ON
+ON
+ON
+XH
+ON
+XH
+ON
+XH
+ON
+XH
+ON
+XH
+ON
+XH
+ON
+XH
+ON
+XH
+ON
+XH
+ON
+XH
+ON
+XH
+ON
+XH
+ON
+XH
+ON
+XH
+ON
+XH
+GV
+Cu
+"}
+(6,1,1) = {"
+qa
+VI
+VI
+VI
+ic
+ic
+VI
+VI
+VI
+Ks
+Pc
+Ks
+Ks
+Ks
+tI
+Tk
+Tk
+Tk
+tI
+tI
+tI
+Tk
+Tk
+Tk
+tI
+tI
+tI
+Tk
+Tk
+Tk
+tI
+tI
+Wi
+Wi
+Wi
+Wi
+Wi
+Wi
+Wi
+Wi
+Wi
+Wi
+Cu
+"}
+(7,1,1) = {"
+LH
+VI
+kf
+lC
+qf
+qf
+lC
+xc
+VI
+fK
+nA
+wm
+FU
+Ks
+mo
+kN
+sL
+yU
+AG
+tI
+uz
+yU
+Hs
+yS
+mo
+tI
+Rb
+yU
+sL
+yS
+ev
+tI
+CU
+tR
+Dg
+EB
+Wi
+AE
+uq
+tR
+wT
+Wi
+Cu
+"}
+(8,1,1) = {"
+LH
+ic
+qf
+qf
+dC
+qf
+qf
+qf
+ic
+ge
+yM
+nA
+CP
+Ks
+rJ
+yU
+yS
+yU
+AG
+tI
+uz
+tZ
+yS
+EH
+pk
+tI
+AG
+tZ
+yS
+eg
+pk
+tI
+Wi
+Wi
+CG
+NR
+Wi
+VR
+ov
+Wi
+Wi
+Wi
+Cu
+"}
+(9,1,1) = {"
+LH
+ic
+qf
+CF
+xc
+yp
+vj
+qf
+ic
+ma
+nA
+nA
+kp
+Ks
+uz
+yU
+yS
+yU
+to
+tI
+uP
+yU
+sL
+yU
+AG
+tI
+uP
+yU
+Cm
+yU
+AG
+tI
+CU
+tR
+Uy
+PQ
+Wi
+aA
+Lg
+tR
+wT
+Wi
+Oi
+"}
+(10,1,1) = {"
+LH
+ic
+qf
+CF
+xc
+fn
+vj
+qf
+ic
+HQ
+nA
+nA
+FU
+Ks
+AG
+yU
+yU
+tZ
+gb
+tI
+AG
+yU
+yU
+yU
+AG
+tI
+AG
+yU
+yU
+yU
+AG
+tI
+Wi
+Wi
+mk
+Wi
+Wi
+Wi
+zT
+Wi
+Wi
+Wi
+Cu
+"}
+(11,1,1) = {"
+LH
+ic
+qf
+CF
+xc
+Dl
+WA
+qf
+ic
+Rw
+nA
+nA
+yE
+Ks
+tI
+tI
+tI
+zz
+tI
+tI
+tI
+zz
+tI
+tI
+tI
+tI
+tI
+zz
+tI
+tI
+tI
+tI
+QF
+mK
+uj
+uj
+qH
+uj
+uj
+mK
+QF
+tD
+Cu
+"}
+(12,1,1) = {"
+qa
+ic
+qf
+CF
+eU
+Bh
+vj
+qf
+VI
+Av
+nA
+nA
+jq
+Ks
+uj
+mK
+uj
+uj
+uj
+mK
+uj
+kA
+uj
+mK
+uj
+uj
+uj
+uj
+kA
+mK
+uj
+uj
+uj
+uj
+uj
+kA
+uj
+uj
+uj
+uj
+uj
+tD
+Cu
+"}
+(13,1,1) = {"
+LH
+ic
+qf
+gK
+hL
+qf
+qf
+qf
+AA
+nA
+yM
+nA
+nA
+PG
+uj
+uj
+uj
+uj
+kA
+uj
+uj
+uj
+uj
+uj
+uj
+uj
+uj
+uj
+uj
+uj
+uj
+uj
+uj
+uj
+uj
+uj
+uj
+uj
+uj
+kA
+uj
+VN
+Oi
+"}
+(14,1,1) = {"
+LH
+VI
+xc
+CH
+qf
+CH
+qf
+xc
+VI
+nA
+dz
+nA
+rg
+Ks
+uj
+kA
+uj
+uj
+uj
+uj
+uj
+uj
+uj
+uj
+SO
+kA
+uj
+uj
+uj
+uj
+uj
+uj
+kA
+uj
+uj
+SO
+cr
+uj
+uj
+uj
+uj
+tD
+Cu
+"}
+(15,1,1) = {"
+LH
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+Ks
+Ks
+Pc
+Ks
+Ks
+tD
+Iu
+Iu
+Iu
+tD
+tD
+Pa
+XJ
+tD
+tD
+tD
+tD
+tD
+Iu
+Iu
+tD
+Pa
+XJ
+tD
+tD
+tD
+Cw
+Cw
+Cw
+oe
+Cw
+Cw
+Cw
+Cu
+"}
+(16,1,1) = {"
+CZ
+cF
+Sp
+JW
+CC
+OE
+Sp
+dE
+JW
+CC
+OE
+Sp
+Tw
+cF
+ku
+ku
+ku
+OG
+ku
+ku
+ku
+ku
+Fc
+ku
+ku
+ku
+Fc
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+Cw
+TB
+zQ
+zQ
+vR
+zQ
+Cw
+Cu
+"}
+(17,1,1) = {"
+qa
+ez
+gB
+ly
+gB
+gB
+gB
+gB
+HU
+cS
+vy
+gB
+IL
+fo
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+OG
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+OG
+ku
+ku
+ku
+Cw
+wE
+zQ
+zQ
+zQ
+KL
+Cw
+Cu
+"}
+(18,1,1) = {"
+LH
+cF
+it
+Sp
+Sp
+Sp
+Sp
+gB
+gB
+gB
+gB
+ly
+Nh
+fo
+ku
+ku
+cY
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+OG
+ku
+ku
+ku
+ku
+cY
+ku
+ku
+Cw
+zQ
+zQ
+zQ
+zQ
+BE
+kT
+Cu
+"}
+(19,1,1) = {"
+cF
+cF
+cF
+NO
+cF
+cF
+fr
+HU
+cS
+vy
+gB
+gB
+Bt
+fo
+ku
+OG
+nc
+ku
+ku
+nc
+nc
+nc
+nc
+ku
+ku
+ku
+nc
+nc
+nc
+nc
+ku
+ku
+nc
+ku
+ku
+cs
+zQ
+vR
+zQ
+zQ
+TT
+kT
+Oi
+"}
+(20,1,1) = {"
+cF
+Cp
+QN
+Le
+gA
+cF
+OQ
+HU
+cS
+vy
+gB
+gB
+OQ
+cF
+ku
+ku
+nc
+rA
+rA
+nP
+rD
+rD
+Ej
+rA
+rA
+rA
+SU
+rD
+rD
+hM
+rA
+rA
+nc
+ku
+ku
+zQ
+zQ
+zQ
+zQ
+zQ
+un
+kT
+Cu
+"}
+(21,1,1) = {"
+cF
+Bn
+Le
+ZP
+ZO
+cF
+su
+gB
+gB
+ly
+gB
+EM
+ny
+cF
+ku
+ku
+ku
+rA
+rA
+rA
+rA
+rA
+rA
+rA
+rA
+rA
+rA
+rA
+xz
+rA
+rA
+rA
+ku
+OG
+ku
+Cw
+JY
+zQ
+zQ
+zQ
+Ae
+Cw
+MA
+"}
+(22,1,1) = {"
+kl
+Md
+Le
+Le
+vI
+cF
+OQ
+fj
+Fb
+gB
+gB
+cS
+OQ
+cF
+ku
+ku
+cY
+rA
+xz
+rA
+rA
+rA
+rA
+rA
+xz
+rA
+rA
+rA
+rA
+rA
+rA
+rA
+cY
+ku
+ku
+Cw
+gW
+Oo
+zQ
+zQ
+BE
+kT
+Cu
+"}
+(23,1,1) = {"
+kl
+JJ
+Le
+Le
+vI
+cF
+OQ
+gB
+fb
+gB
+gB
+jd
+OQ
+vF
+OG
+ku
+nc
+SU
+rA
+rA
+in
+nH
+nH
+nH
+nH
+nH
+nH
+nH
+uy
+rA
+rA
+FN
+Cw
+Cw
+Cw
+Cw
+Ra
+zQ
+zQ
+zQ
+TT
+kT
+Cu
+"}
+(24,1,1) = {"
+cF
+ty
+Le
+Le
+Le
+di
+OQ
+ZS
+Fb
+gB
+gB
+gB
+bv
+cF
+ku
+Ti
+nc
+fu
+rA
+rA
+NF
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+Fu
+rA
+rA
+dY
+Cw
+Qt
+zQ
+vx
+zQ
+zQ
+vR
+zQ
+un
+kT
+MA
+"}
+(25,1,1) = {"
+cF
+Le
+ZP
+Kq
+cF
+cF
+su
+Ur
+AU
+gB
+EM
+gB
+OQ
+vF
+ku
+ku
+nc
+fu
+rA
+rA
+NF
+MO
+MO
+rA
+TC
+rA
+MO
+IJ
+Fu
+rA
+rA
+dY
+Cw
+lA
+KL
+Cw
+rQ
+fT
+zQ
+zQ
+KL
+Cw
+Cu
+"}
+(26,1,1) = {"
+cF
+NO
+cF
+cF
+cF
+ed
+OQ
+iG
+wq
+gB
+cS
+gB
+ny
+cF
+ku
+ku
+nc
+fu
+rA
+rA
+NF
+IJ
+rA
+rA
+MO
+rA
+rA
+MO
+Fu
+rA
+rA
+Cw
+Cw
+Qt
+zQ
+nO
+ei
+fT
+zQ
+zQ
+zQ
+vx
+qb
+"}
+(27,1,1) = {"
+cF
+sT
+Fz
+WG
+cF
+pu
+OQ
+Ur
+wq
+gB
+jd
+gB
+IL
+cF
+ku
+ku
+nc
+qQ
+rA
+rA
+NF
+MO
+rA
+MO
+qD
+MO
+rA
+MO
+Fu
+rA
+rA
+ku
+vx
+zQ
+zQ
+zQ
+Dz
+fT
+zQ
+zQ
+vR
+Cw
+MA
+"}
+(28,1,1) = {"
+cF
+LO
+sT
+sT
+cF
+fU
+OQ
+gB
+gB
+gB
+gB
+ly
+Nh
+cF
+ku
+Ti
+nc
+fu
+rA
+rA
+NF
+MO
+rA
+rA
+MO
+rA
+rA
+MO
+Fu
+xz
+rA
+Cw
+Cw
+Qt
+vR
+ei
+zQ
+fT
+zQ
+zQ
+zQ
+vx
+Cu
+"}
+(29,1,1) = {"
+cF
+RZ
+WG
+pz
+cF
+Tw
+Rk
+JW
+Ie
+OE
+Sp
+Sp
+JA
+cF
+ku
+ku
+nc
+fu
+rA
+rA
+NF
+MO
+MO
+rA
+xz
+rA
+MO
+MO
+Fu
+rA
+rA
+dY
+Cw
+Qt
+KL
+Cw
+rQ
+fT
+zQ
+zQ
+KL
+Cw
+Cu
+"}
+(30,1,1) = {"
+cF
+cF
+va
+va
+va
+va
+va
+va
+va
+Ds
+Ds
+gG
+Ds
+Ds
+ku
+ku
+nc
+fu
+rA
+xz
+NF
+MO
+MO
+MO
+MO
+MO
+MO
+MO
+Fu
+rA
+rA
+dY
+Cw
+Qt
+zQ
+vx
+zQ
+zQ
+zQ
+vR
+BE
+kT
+Cu
+"}
+(31,1,1) = {"
+LH
+ww
+va
+gx
+gx
+gx
+gx
+gx
+HM
+JV
+mf
+mw
+DT
+AF
+ku
+OG
+nc
+ZY
+rA
+rA
+RY
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+xi
+rA
+rA
+fA
+Cw
+Cw
+Cw
+Cw
+Ra
+zQ
+zQ
+zQ
+TT
+kT
+Oi
+"}
+(32,1,1) = {"
+Yd
+ww
+va
+gx
+OP
+OP
+OP
+gx
+HM
+ug
+pa
+mw
+hE
+oV
+ku
+ku
+Fc
+rA
+rA
+rA
+rA
+rA
+rA
+rA
+rA
+rA
+rA
+rA
+rA
+rA
+rA
+rA
+Fc
+ku
+ku
+Cw
+gW
+Oo
+zQ
+zQ
+un
+kT
+Cu
+"}
+(33,1,1) = {"
+LH
+my
+va
+yd
+OP
+OP
+OP
+gx
+HM
+TY
+mw
+SB
+mw
+oV
+ku
+ku
+ku
+rA
+rA
+rA
+rA
+rA
+rA
+rA
+rA
+xz
+rA
+rA
+rA
+rA
+rA
+rA
+ku
+OG
+ku
+Cw
+JY
+zQ
+zQ
+zQ
+KL
+Cw
+Cu
+"}
+(34,1,1) = {"
+LH
+ww
+va
+gx
+OP
+OP
+UM
+gx
+HM
+qY
+mw
+VQ
+rz
+AF
+ku
+ku
+nc
+rA
+xz
+PL
+It
+It
+hM
+rA
+rA
+rA
+lt
+It
+It
+aK
+rA
+rA
+nc
+ku
+ku
+cs
+zQ
+zQ
+vR
+zQ
+BE
+kT
+Cu
+"}
+(35,1,1) = {"
+LH
+ww
+va
+gx
+OP
+OP
+OP
+gx
+va
+Ds
+gG
+Ds
+Ds
+Ds
+ku
+ku
+nc
+ku
+ku
+nc
+nc
+nc
+nc
+ku
+ku
+ku
+nc
+nc
+nc
+nc
+ku
+ku
+nc
+ku
+ku
+zQ
+zQ
+zQ
+zQ
+zQ
+TT
+kT
+Cu
+"}
+(36,1,1) = {"
+LH
+ww
+YB
+gx
+UM
+OP
+OP
+gx
+YB
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+Fc
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+OG
+ku
+Fc
+ku
+ku
+Cw
+zQ
+zQ
+zQ
+zQ
+un
+kT
+qb
+"}
+(37,1,1) = {"
+LH
+uO
+va
+yd
+OP
+OP
+OP
+Tr
+va
+nJ
+OG
+ku
+ku
+ku
+ku
+OG
+ku
+ku
+ku
+ku
+ku
+ku
+OG
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+ku
+Cw
+CR
+zQ
+zQ
+zQ
+KL
+Cw
+Cu
+"}
+(38,1,1) = {"
+LH
+ww
+va
+gx
+OP
+OP
+UM
+gx
+YB
+ku
+ku
+ku
+sz
+pH
+MB
+ku
+ku
+ku
+JK
+wN
+MB
+ku
+ku
+ku
+sz
+yJ
+MB
+ku
+OG
+ku
+sz
+Jm
+MB
+ku
+OG
+Cw
+sg
+zQ
+zQ
+zQ
+zQ
+Cw
+MA
+"}
+(39,1,1) = {"
+qa
+ww
+va
+gx
+OP
+OP
+OP
+gx
+va
+Vn
+On
+Vn
+Vn
+Vn
+Vn
+Vn
+On
+Vn
+Vn
+Vn
+Vn
+Vn
+On
+Vn
+Vn
+Vn
+Vn
+Vn
+On
+Vn
+Vn
+Vn
+Vn
+Vn
+On
+Dm
+Dm
+Dm
+po
+Dm
+Dm
+Dm
+Cu
+"}
+(40,1,1) = {"
+LH
+ww
+va
+gx
+OP
+OP
+OP
+gx
+va
+rw
+Dy
+pb
+Dy
+Yk
+Vn
+Dy
+Dy
+pb
+Dy
+Yk
+Vn
+Dy
+Dy
+pb
+RM
+Yk
+Vn
+TV
+Dy
+pb
+Dy
+Yk
+Vn
+Dy
+Dy
+Dm
+cQ
+qM
+VD
+xK
+jW
+Dm
+yL
+"}
+(41,1,1) = {"
+LH
+ww
+va
+yd
+gx
+gx
+gx
+Tr
+va
+rw
+Dy
+KU
+RM
+Yk
+Vn
+Dy
+sE
+KU
+Dy
+wL
+Vn
+TV
+Dy
+KU
+Dy
+Qu
+Vn
+Dy
+Dy
+KU
+RM
+Yk
+Vn
+Vt
+sE
+te
+VD
+qZ
+qZ
+Er
+qZ
+fI
+XZ
+"}
+(42,1,1) = {"
+LH
+ww
+va
+gx
+KY
+sC
+pd
+gx
+va
+uK
+sE
+KU
+Dy
+tJ
+Vn
+uK
+Dy
+kO
+Fa
+tJ
+Vn
+uK
+sE
+KU
+Dy
+tJ
+Vn
+uK
+Dy
+KU
+sE
+Xf
+Vn
+wD
+Dy
+Dm
+KP
+VD
+VD
+VD
+Zi
+Dm
+jL
+"}
+(43,1,1) = {"
+LH
+ww
+va
+bW
+QM
+TN
+Rj
+bW
+va
+Yk
+Dy
+Pf
+Zv
+sE
+Vn
+fX
+Dy
+KU
+iz
+Dy
+Vn
+fX
+Dy
+KU
+iz
+Dy
+Vn
+fX
+Dy
+ya
+iz
+Dy
+Vn
+lu
+Dy
+Dm
+rL
+VD
+Hb
+aS
+oX
+Dm
+dj
+"}
+(44,1,1) = {"
+Yd
+my
+va
+TN
+TN
+Aq
+TN
+TN
+va
+fX
+Dy
+Dy
+Dy
+Dy
+Vn
+rw
+Dy
+Dy
+Dy
+Dy
+Vn
+fX
+Dy
+Dy
+Dy
+Dy
+Vn
+Yk
+Dy
+Dy
+Dy
+Dy
+Vn
+Vt
+Dy
+Dm
+RT
+DS
+Hb
+Qe
+oX
+Dm
+dj
+"}
+(45,1,1) = {"
+cz
+cg
+va
+va
+va
+va
+va
+va
+va
+Vn
+EK
+EK
+EK
+Vn
+Vn
+Vn
+Tz
+EK
+EK
+Vn
+Vn
+Vn
+EK
+EK
+EK
+vV
+Vn
+Vn
+EK
+EK
+EK
+vV
+Vn
+Vn
+EK
+Dm
+Dm
+rt
+Dm
+Dm
+Dm
+Dm
+XZ
+"}

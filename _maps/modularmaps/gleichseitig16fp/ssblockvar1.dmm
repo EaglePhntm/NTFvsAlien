@@ -1,0 +1,1747 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"be" = (
+/obj/structure/closet/crate/ammo,
+/obj/item/ammo_magazine/rifle/m16_quadstack,
+/obj/item/ammo_magazine/rifle/m16_quadstack,
+/obj/item/ammo_magazine/rifle/m16_quadstack,
+/obj/item/ammo_magazine/rifle/m16_quadstack,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16_cmag,
+/obj/item/ammo_magazine/rifle/m16_cmag,
+/turf/open/floor/prison/whitered{
+	dir = 9;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"bq" = (
+/turf/open/floor/prison/whitered{
+	dir = 6;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"bJ" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/prison/whitered{
+	dir = 1;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"bY" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/prison/whitered{
+	color = "#919191";
+	dir = 4
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"cy" = (
+/obj/effect/ai_node,
+/turf/open/urban/street/sidewalk{
+	dir = 5
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"cB" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	name = "\improper Warehouse Loading Bay";
+	dir = 1
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"cI" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/item/weapon/gun/rifle/tx8,
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"dk" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/weapon/gun/rifle/standard_carbine,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e";
+	dir = 1
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"dL" = (
+/obj/structure/filingcabinet/nondense{
+	pixel_x = -8;
+	pixel_y = 21
+	},
+/obj/structure/filingcabinet/nondense{
+	pixel_x = 8;
+	pixel_y = 21
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"es" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/weapon/gun/rifle/standard_carbine,
+/obj/item/weapon/gun/rifle/standard_carbine{
+	pixel_y = 10
+	},
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"eJ" = (
+/obj/effect/urban/decal/dirt,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"fr" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/clothing/under/marine/lv_fatigue/black_vest{
+	name = "\improper EHRREP military fatigues"
+	},
+/obj/machinery/light,
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"gC" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = -32;
+	dir = 1
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"hn" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"hZ" = (
+/obj/effect/urban/decal/dirt,
+/obj/effect/ai_node,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"ib" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/prison/whitered{
+	dir = 8;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"iJ" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/mortal_shell/howitzer/he{
+	pixel_x = -12
+	},
+/obj/item/mortal_shell/howitzer/he,
+/obj/item/mortal_shell/howitzer/he{
+	pixel_x = 12
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e";
+	dir = 8
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"iK" = (
+/obj/effect/ai_node,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"jc" = (
+/obj/structure/cargo_container/red{
+	dir = 4
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"jd" = (
+/obj/effect/ai_node,
+/turf/open/floor/prison/whitered{
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"jC" = (
+/obj/machinery/door/airlock/mainship/generic/corporate{
+	name = "Restroom";
+	req_access = null;
+	dir = 2
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"jF" = (
+/obj/machinery/streetlight/traffic{
+	pixel_x = 5;
+	pixel_y = 12;
+	dir = 8
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"kf" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"kC" = (
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"kE" = (
+/turf/open/urban/street/sidewalk{
+	dir = 1;
+	color = "#c8c8c8"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"kT" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"ld" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/weapon/gun/rifle/icc_assaultcarbine/export,
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"lh" = (
+/obj/structure/prop/urban/vehicles/large/mega_hauler_truck/blue_stripe{
+	dir = 4
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"lv" = (
+/obj/structure/cable,
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"mv" = (
+/obj/effect/ai_node,
+/turf/open/floor/prison/whiteredcorner{
+	color = "#919191";
+	dir = 4
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"mL" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/urban/decal/road/lines5{
+	pixel_y = 16
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"mT" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/drained,
+/turf/open/floor/prison/whitered{
+	dir = 1;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"nn" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 1;
+	name = "\improper Military Warehouse"
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"nM" = (
+/obj/effect/urban/decal/road/lines5{
+	pixel_y = 16
+	},
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"os" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/weapon/gun/rifle/m412,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e";
+	dir = 1
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"ow" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/weapon/gun/rifle/alf_machinecarbine,
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e";
+	dir = 1
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"oK" = (
+/obj/structure/table/reinforced,
+/obj/structure/paper_bin,
+/obj/item/tool/pen,
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"pc" = (
+/turf/open/floor/prison/whitered{
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"px" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/weapon/gun/rifle/standard_assaultrifle,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e";
+	dir = 1
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"pA" = (
+/turf/open/floor/prison/whitered{
+	dir = 1;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"pQ" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"qm" = (
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"qD" = (
+/obj/effect/ai_node,
+/turf/open/floor/prison/whitered{
+	dir = 1;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"qI" = (
+/obj/effect/urban/decal/trash/four,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"ra" = (
+/obj/structure/table/reinforced,
+/obj/machinery/computer/emails{
+	density = 0
+	},
+/turf/open/floor/prison/whitered{
+	dir = 8;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"rj" = (
+/obj/structure/sink{
+	pixel_y = 16
+	},
+/obj/structure/mirror{
+	pixel_y = 30
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"sh" = (
+/obj/machinery/light,
+/turf/open/urban/street/sidewalk{
+	dir = 1;
+	color = "#c8c8c8"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"sq" = (
+/obj/effect/ai_node,
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"sI" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/effect/ai_node,
+/turf/open/floor/prison/whitered{
+	dir = 1;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"sK" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 8;
+	name = "\improper Military Warehouse"
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"tc" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/weapon/gun/rifle/icc_assaultcarbine/exportautorifle,
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"tt" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"uj" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/item/weapon/gun/rifle/khm4,
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"um" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/mortal_shell/howitzer/incendiary{
+	pixel_x = -12
+	},
+/obj/item/mortal_shell/howitzer/incendiary,
+/obj/item/mortal_shell/howitzer/incendiary{
+	pixel_x = 12
+	},
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"up" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/ai_node,
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"uC" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/item/weapon/gun/rifle/standard_skirmishrifle,
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e";
+	dir = 1
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"uG" = (
+/turf/open/urban/street/sidewalk{
+	dir = 5
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"uK" = (
+/obj/machinery/newscaster,
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"wl" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 8;
+	name = "\improper Warehouse Loading Bay"
+	},
+/turf/open/floor/prison/whitered{
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"wz" = (
+/obj/structure/cargo_container/red,
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"wD" = (
+/obj/structure/closet/crate/ammo,
+/obj/item/ammo_magazine/rifle/standard_assaultrifle,
+/obj/item/ammo_magazine/rifle/standard_assaultrifle,
+/obj/item/ammo_magazine/rifle/standard_assaultrifle,
+/obj/item/ammo_magazine/rifle/standard_assaultrifle,
+/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap,
+/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap,
+/obj/item/ammo_magazine/rifle,
+/obj/item/ammo_magazine/rifle,
+/obj/item/ammo_magazine/rifle,
+/obj/item/ammo_magazine/rifle/ap,
+/obj/item/ammo_magazine/rifle/ap,
+/obj/item/ammo_magazine/rifle/ap,
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e";
+	dir = 8
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"wH" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/item/weapon/gun/rifle/standard_autosniper,
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"wP" = (
+/obj/effect/ai_node,
+/turf/open/floor/prison/whitered{
+	color = "#919191";
+	dir = 4
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"xj" = (
+/obj/structure/prop/urban/vehicles/large/mega_hauler_truck/blue_stripe{
+	dir = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"xF" = (
+/obj/effect/ai_node,
+/turf/open/urban/street/sidewalk{
+	color = "#c8c8c8"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"xG" = (
+/turf/open/floor/prison/whiteredcorner{
+	dir = 4;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"xI" = (
+/turf/open/urban/street/sidewalk{
+	color = "#c8c8c8"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"yG" = (
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = -32;
+	dir = 1
+	},
+/turf/open/floor/prison/whitered{
+	dir = 10;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"zM" = (
+/obj/effect/ai_node,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"AX" = (
+/obj/effect/urban/decal/road/lines5{
+	pixel_y = 16
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Bg" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"BS" = (
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Cs" = (
+/obj/structure/closet/crate/ammo,
+/obj/item/ammo_magazine/rifle/standard_carbine/ap,
+/obj/item/ammo_magazine/rifle/standard_carbine/ap,
+/obj/item/ammo_magazine/rifle/standard_carbine/ap,
+/obj/item/ammo_magazine/rifle/standard_carbine/ap,
+/obj/item/ammo_magazine/rifle/standard_carbine/ap,
+/obj/item/ammo_magazine/rifle/standard_carbine/ap,
+/obj/item/ammo_magazine/rifle/standard_carbine,
+/obj/item/ammo_magazine/rifle/standard_carbine,
+/obj/item/ammo_magazine/rifle/standard_carbine,
+/obj/item/ammo_magazine/rifle/standard_carbine,
+/obj/item/ammo_magazine/rifle/standard_carbine,
+/obj/item/ammo_magazine/rifle/standard_carbine,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16_quadstack,
+/obj/item/ammo_magazine/rifle/m16_quadstack,
+/obj/item/ammo_magazine/rifle/m16_quadstack,
+/obj/item/ammo_magazine/rifle/m16_cmag,
+/obj/item/ammo_magazine/rifle/m16_cmag,
+/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
+/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
+/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
+/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
+/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
+/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e";
+	dir = 1
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"CU" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/item/weapon/gun/rifle/m16,
+/obj/item/weapon/gun/rifle/m16{
+	pixel_y = -7
+	},
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Df" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk{
+	color = "#c8c8c8"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Dn" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"DQ" = (
+/obj/machinery/light/small,
+/obj/effect/ai_node,
+/turf/open/floor/prison/whitered{
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"EQ" = (
+/obj/structure/closet/crate/ammo,
+/obj/item/ammo_magazine/rifle/icc_assaultcarbine/export,
+/obj/item/ammo_magazine/rifle/icc_assaultcarbine/export,
+/obj/item/ammo_magazine/rifle/icc_assaultcarbine/export,
+/obj/item/ammo_magazine/rifle/icc_assaultcarbine/export,
+/obj/item/ammo_magazine/rifle/icc_assaultcarbine/export,
+/obj/item/ammo_magazine/rifle/icc_assaultcarbine/export,
+/obj/item/ammo_magazine/rifle/icc_assaultcarbinelbar,
+/obj/item/ammo_magazine/rifle/icc_assaultcarbinelbar,
+/obj/item/ammo_magazine/rifle/icc_assaultcarbinelbar,
+/obj/item/ammo_magazine/rifle/icc_assaultcarbinelbar,
+/obj/item/ammo_magazine/m412l1_hpr,
+/obj/item/ammo_magazine/m412l1_hpr,
+/obj/item/ammo_magazine/m412l1_hpr,
+/obj/item/ammo_magazine/m412l1_hpr,
+/obj/item/ammo_magazine/rifle/alf_machinecarbine,
+/obj/item/ammo_magazine/rifle/alf_machinecarbine,
+/obj/item/ammo_magazine/rifle/alf_machinecarbine,
+/obj/item/ammo_magazine/rifle/alf_machinecarbine,
+/obj/item/ammo_magazine/rifle/alf_machinecarbine,
+/obj/item/ammo_magazine/rifle/alf_machinecarbine,
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"EW" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/ammo_magazine/tank/ltaap_chaingun{
+	pixel_x = -6
+	},
+/obj/item/ammo_magazine/tank/ltaap_chaingun{
+	pixel_x = 9
+	},
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e";
+	dir = 1
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Fo" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 2
+	},
+/turf/open/urban/street/sidewalkfull{
+	color = "#c8c8c8"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Fv" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e";
+	dir = 8
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Fz" = (
+/obj/effect/ai_node,
+/turf/open/urban/street/sidewalk{
+	dir = 1;
+	color = "#c8c8c8"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"GP" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/prison/whitered{
+	dir = 8;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Ip" = (
+/obj/structure/closet,
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e";
+	dir = 4
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"ID" = (
+/turf/open/floor/prison/whiteredcorner{
+	color = "#919191";
+	dir = 1
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"IE" = (
+/obj/machinery/light/small,
+/turf/open/floor/prison/whitered{
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"IO" = (
+/obj/machinery/light/small,
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Ja" = (
+/obj/effect/ai_node,
+/turf/open/floor/prison/whiteredcorner{
+	dir = 4;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Jl" = (
+/turf/open/floor/prison/whitered{
+	dir = 8;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Ko" = (
+/obj/structure/filingcabinet/nondense{
+	pixel_x = 7;
+	pixel_y = 21
+	},
+/obj/structure/filingcabinet/nondense{
+	pixel_x = 7;
+	pixel_y = 16
+	},
+/obj/structure/filingcabinet/nondense{
+	pixel_x = 7;
+	pixel_y = 11
+	},
+/obj/structure/filingcabinet/nondense{
+	pixel_x = 7;
+	pixel_y = 6
+	},
+/obj/structure/filingcabinet/nondense{
+	pixel_x = 7;
+	pixel_y = 1
+	},
+/turf/open/floor/prison/whitered{
+	dir = 6;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"KH" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"KK" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/prison/whitered{
+	dir = 1;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"LX" = (
+/obj/effect/urban/decal/trash/three{
+	pixel_x = -8;
+	pixel_y = 12
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"Mc" = (
+/turf/open/floor/prison/whiteredcorner{
+	color = "#919191";
+	dir = 8
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Mg" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Mx" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/mortal_shell/howitzer/he{
+	pixel_x = -12
+	},
+/obj/item/mortal_shell/howitzer/he,
+/obj/item/mortal_shell/howitzer/he{
+	pixel_x = 12
+	},
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e";
+	dir = 8
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"MP" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/turf/open/floor/prison/whitered{
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"MX" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 8;
+	name = "\improper Military Quartermaster Office"
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Na" = (
+/turf/open/floor/prison/whitered{
+	dir = 5;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Nb" = (
+/obj/machinery/light,
+/turf/open/floor/prison/whitered{
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Nl" = (
+/turf/open/floor/prison/whiteredcorner{
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Nw" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	pixel_y = -6;
+	spawn_loot_chance = 75
+	},
+/obj/effect/urban/decal/road/lines5{
+	pixel_y = 16
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"NB" = (
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"NE" = (
+/obj/structure/prop/urban/misc/trash/green,
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"NM" = (
+/obj/effect/urban/decal/road/lines5{
+	pixel_y = 16
+	},
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	pixel_y = -6;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"NU" = (
+/obj/structure/closet/crate/ammo,
+/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap,
+/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap,
+/obj/item/ammo_magazine/rifle/standard_carbine/ap,
+/obj/item/ammo_magazine/rifle/standard_carbine/ap,
+/obj/item/ammo_magazine/rifle/standard_carbine/ap,
+/obj/item/ammo_magazine/rifle/standard_carbine/ap,
+/obj/item/ammo_magazine/rifle/standard_carbine/ap,
+/obj/item/ammo_magazine/rifle/standard_carbine/ap,
+/obj/item/ammo_magazine/rifle/standard_carbine,
+/obj/item/ammo_magazine/rifle/standard_carbine,
+/obj/item/ammo_magazine/rifle/standard_carbine,
+/obj/item/ammo_magazine/rifle/standard_carbine,
+/obj/item/ammo_magazine/rifle/standard_carbine,
+/obj/item/ammo_magazine/rifle/standard_carbine,
+/obj/item/ammo_magazine/rifle/standard_assaultrifle,
+/obj/item/ammo_magazine/rifle/standard_assaultrifle,
+/obj/item/ammo_magazine/rifle/standard_assaultrifle,
+/obj/item/ammo_magazine/rifle/standard_assaultrifle,
+/obj/item/ammo_magazine/rifle/standard_assaultrifle,
+/obj/item/ammo_magazine/rifle/standard_assaultrifle,
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e";
+	dir = 8
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"NV" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/weapon/gun/rifle/m412l1_hpr,
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e";
+	dir = 1
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Ov" = (
+/obj/structure/table/reinforced,
+/obj/structure/paper_bin,
+/obj/item/tool/pen,
+/obj/item/clipboard{
+	pixel_x = 13;
+	pixel_y = -3
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"OO" = (
+/turf/open/floor/prison/whitered{
+	dir = 9;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Pf" = (
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Qb" = (
+/obj/machinery/door/poddoor/shutters/mainship/hangar{
+	dir = 8;
+	id = "imlawarehouse1";
+	name = "\improper East Village Warehouse Shutters"
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Qr" = (
+/obj/effect/urban/decal/trash/two{
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"RW" = (
+/obj/structure/closet/crate/smart,
+/obj/item/ammo_magazine/rifle/autosniper,
+/obj/item/ammo_magazine/rifle/autosniper,
+/obj/item/ammo_magazine/rifle/autosniper,
+/obj/item/ammo_magazine/rifle/tx8,
+/obj/item/ammo_magazine/rifle/tx8,
+/obj/item/ammo_magazine/rifle/tx8,
+/turf/open/floor/prison/whitered{
+	dir = 10;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"SE" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 1;
+	name = "\improper Military Warehouse";
+	pixel_y = 1
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"SM" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 6
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"SP" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/weapon/gun/rifle/khm4,
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e";
+	dir = 1
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"SV" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Td" = (
+/obj/structure/table/reinforced,
+/obj/machinery/computer/emails{
+	density = 0
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Ug" = (
+/obj/effect/ai_node,
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Um" = (
+/obj/structure/toilet{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Vu" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/clothing/under/marine/lv_fatigue/black_vest{
+	name = "\improper EHRREP military fatigues"
+	},
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Wc" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/mortal_shell/howitzer/incendiary{
+	pixel_x = -12
+	},
+/obj/item/mortal_shell/howitzer/incendiary,
+/obj/item/mortal_shell/howitzer/incendiary{
+	pixel_x = 12
+	},
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e";
+	dir = 8
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"WF" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/weapon/gun/rifle/m16{
+	pixel_y = 10
+	},
+/obj/item/weapon/gun/rifle/m16,
+/obj/item/weapon/gun/rifle/m16{
+	pixel_y = -10
+	},
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e";
+	dir = 1
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"WS" = (
+/turf/open/urban/street/sidewalk{
+	dir = 6
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"Xd" = (
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"Xu" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/ammo_magazine/tank/ltb_cannon,
+/obj/item/ammo_magazine/tank/ltb_cannon{
+	pixel_x = -8
+	},
+/obj/item/ammo_magazine/tank/ltb_cannon{
+	pixel_x = 8
+	},
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"Ze" = (
+/obj/effect/ai_node,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"Zj" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/weapon/gun/rifle/standard_assaultrifle,
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"ZP" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/prison/whitered{
+	dir = 8;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"ZT" = (
+/turf/open/floor/prison/whitered{
+	color = "#919191";
+	dir = 4
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"ZU" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/turf/open/floor/prison/red/full{
+	color = "#6e6e6e";
+	dir = 1
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+
+(1,1,1) = {"
+hn
+Ze
+Dn
+hn
+hn
+Ze
+hn
+hn
+hn
+Ze
+eJ
+eJ
+eJ
+hZ
+hn
+Qr
+"}
+(2,1,1) = {"
+Ze
+Mg
+Mg
+sK
+Mg
+Mg
+Mg
+Mg
+Mg
+Mg
+Mg
+Mg
+Mg
+Mg
+Mg
+Mg
+"}
+(3,1,1) = {"
+hn
+Mg
+OO
+Pf
+Jl
+ZP
+ra
+ib
+yG
+BS
+OO
+Pf
+jC
+up
+NE
+Mg
+"}
+(4,1,1) = {"
+hn
+Mg
+pA
+Pf
+Ug
+kT
+Pf
+Pf
+Ug
+SE
+Pf
+DQ
+BS
+rj
+Um
+Mg
+"}
+(5,1,1) = {"
+hn
+Mg
+pA
+Pf
+Pf
+oK
+Pf
+Pf
+MP
+BS
+pA
+pc
+BS
+BS
+BS
+Mg
+"}
+(6,1,1) = {"
+Ze
+Mg
+Na
+bY
+ZT
+ZT
+wP
+bY
+Ko
+uK
+pA
+Pf
+Ug
+Pf
+Pf
+nn
+"}
+(7,1,1) = {"
+hn
+Mg
+BS
+BS
+BS
+BS
+BS
+BS
+BS
+BS
+pA
+Pf
+Pf
+pc
+IO
+Mg
+"}
+(8,1,1) = {"
+hn
+Mg
+BS
+Fv
+Mx
+iJ
+Mx
+Mx
+BS
+Fv
+pA
+Pf
+Pf
+pc
+Vu
+Mg
+"}
+(9,1,1) = {"
+hn
+Mg
+ZU
+pA
+Pf
+Pf
+Pf
+Pf
+Pf
+Ug
+Pf
+Pf
+Pf
+jd
+fr
+Mg
+"}
+(10,1,1) = {"
+Ze
+Mg
+ZU
+pA
+Pf
+Ug
+Pf
+Pf
+Pf
+Pf
+Pf
+Pf
+Pf
+pc
+Vu
+Mg
+"}
+(11,1,1) = {"
+hn
+Mg
+Mg
+bJ
+Pf
+BS
+Wc
+um
+BS
+EW
+Xu
+BS
+Pf
+Nb
+BS
+Mg
+"}
+(12,1,1) = {"
+hn
+Mg
+ZU
+pA
+Ug
+Pf
+Pf
+Pf
+Pf
+Pf
+Pf
+Ug
+Pf
+pc
+kf
+Mg
+"}
+(13,1,1) = {"
+hn
+Mg
+Cs
+pA
+Nl
+ZT
+bY
+ZT
+Ug
+ZT
+bY
+ZT
+ID
+jd
+EQ
+Mg
+"}
+(14,1,1) = {"
+hn
+Mg
+Mg
+sI
+IE
+Mg
+Mg
+Mg
+MX
+Mg
+Mg
+Mg
+KK
+IE
+BS
+Mg
+"}
+(15,1,1) = {"
+Ze
+Mg
+uC
+pA
+pc
+CU
+Mg
+Pf
+Pf
+Pf
+Mg
+NV
+pA
+pc
+ld
+Mg
+"}
+(16,1,1) = {"
+hn
+Mg
+dk
+pA
+pc
+uj
+Mg
+Pf
+Ug
+Pf
+Mg
+ow
+qD
+pc
+tc
+Mg
+"}
+(17,1,1) = {"
+hn
+Mg
+Mg
+KK
+DQ
+Mg
+Mg
+Ov
+kT
+Pf
+Mg
+Mg
+KK
+IE
+BS
+Mg
+"}
+(18,1,1) = {"
+hn
+Mg
+px
+pA
+pc
+cI
+Mg
+Td
+Pf
+Pf
+Mg
+SP
+pA
+pc
+Zj
+Mg
+"}
+(19,1,1) = {"
+hn
+Mg
+os
+pA
+pc
+wH
+Mg
+dL
+Ug
+gC
+Mg
+WF
+pA
+pc
+es
+Mg
+"}
+(20,1,1) = {"
+Ze
+Mg
+Mg
+KK
+IE
+Mg
+Mg
+kT
+kT
+kT
+Mg
+Mg
+KK
+DQ
+BS
+Mg
+"}
+(21,1,1) = {"
+hn
+Mg
+wD
+Ja
+Mc
+RW
+Mg
+tt
+tt
+tt
+Mg
+be
+xG
+Mc
+NU
+Mg
+"}
+(22,1,1) = {"
+hn
+Mg
+pA
+Pf
+Pf
+Mc
+GP
+Jl
+Jl
+Jl
+GP
+mv
+Pf
+Pf
+pc
+Mg
+"}
+(23,1,1) = {"
+eJ
+Mg
+pA
+Pf
+Pf
+Ug
+Pf
+Pf
+Pf
+Pf
+wz
+Pf
+Pf
+wz
+pc
+Mg
+"}
+(24,1,1) = {"
+hn
+Mg
+bJ
+Pf
+Pf
+Pf
+Pf
+Pf
+Ug
+Pf
+jc
+Pf
+Pf
+jc
+Nb
+Mg
+"}
+(25,1,1) = {"
+Ze
+Mg
+pA
+Ug
+Pf
+kC
+kC
+kC
+Bg
+Pf
+Pf
+Bg
+Pf
+Pf
+pc
+Mg
+"}
+(26,1,1) = {"
+hn
+Mg
+Na
+Pf
+ZT
+kC
+kC
+kC
+Mg
+Ip
+Ip
+Mg
+Ug
+Pf
+bq
+Mg
+"}
+(27,1,1) = {"
+hn
+Mg
+Mg
+wl
+Mg
+Qb
+Qb
+Qb
+Mg
+Mg
+Mg
+Mg
+Pf
+cB
+Mg
+Mg
+"}
+(28,1,1) = {"
+eJ
+Mg
+OO
+Pf
+xI
+lh
+KH
+xj
+Mg
+Nw
+NM
+nM
+KH
+KH
+kE
+Mg
+"}
+(29,1,1) = {"
+hn
+Mg
+bJ
+Pf
+xI
+KH
+KH
+KH
+SV
+AX
+AX
+mL
+KH
+KH
+kE
+Fo
+"}
+(30,1,1) = {"
+Ze
+Mg
+pA
+Ug
+xI
+KH
+KH
+KH
+KH
+KH
+KH
+KH
+KH
+KH
+Fz
+Mg
+"}
+(31,1,1) = {"
+hn
+Mg
+pA
+Pf
+xI
+KH
+KH
+KH
+KH
+KH
+KH
+KH
+KH
+KH
+kE
+Mg
+"}
+(32,1,1) = {"
+hn
+Mg
+mT
+lv
+Df
+NB
+NB
+NB
+NB
+NB
+KH
+KH
+KH
+KH
+kE
+Mg
+"}
+(33,1,1) = {"
+hn
+Mg
+pA
+Pf
+xI
+KH
+KH
+KH
+KH
+NB
+KH
+zM
+KH
+KH
+kE
+Mg
+"}
+(34,1,1) = {"
+hn
+Mg
+bJ
+Pf
+xI
+KH
+KH
+zM
+KH
+NB
+KH
+KH
+KH
+KH
+sh
+Mg
+"}
+(35,1,1) = {"
+Ze
+Mg
+Na
+ZT
+xF
+KH
+KH
+KH
+KH
+NB
+KH
+KH
+KH
+KH
+kE
+Mg
+"}
+(36,1,1) = {"
+hn
+Mg
+Mg
+Mg
+Mg
+Mg
+Mg
+Mg
+Mg
+NB
+KH
+KH
+zM
+KH
+Mg
+Mg
+"}
+(37,1,1) = {"
+jF
+Ze
+hn
+hn
+hn
+hn
+hn
+hn
+WS
+qm
+pQ
+LX
+pQ
+pQ
+uG
+hn
+"}
+(38,1,1) = {"
+hn
+Xd
+Xd
+Xd
+sq
+Xd
+Xd
+SM
+iK
+qm
+pQ
+pQ
+qI
+pQ
+pQ
+cy
+"}

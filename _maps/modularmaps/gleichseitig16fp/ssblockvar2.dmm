@@ -1,0 +1,1135 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aR" = (
+/obj/effect/ai_node,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"cs" = (
+/obj/effect/ai_node,
+/turf/open/floor/urban/carpet/carpetblackdeco,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"dQ" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 8;
+	name = "\improper Trio-Lux Hotel Lobby"
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"ei" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 8;
+	name = "\improper Trio-Lux Exit"
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"ex" = (
+/obj/effect/ai_node,
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"ff" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"fz" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 1;
+	name = "\improper Trio-Lux Exit"
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"fC" = (
+/obj/structure/closet/cabinet,
+/turf/open/floor/urban/carpet/carpetblack,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"fJ" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"fS" = (
+/obj/effect/urban/decal/dirt,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"gf" = (
+/obj/machinery/light/mainship,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"gE" = (
+/turf/open/floor/urban/carpet/carpetblackdeco,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"gF" = (
+/obj/machinery/vending/snack,
+/turf/open/floor/urban/carpet/carpetblackdeco,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"ha" = (
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/obj/effect/ai_node,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"hs" = (
+/obj/effect/ai_node,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"it" = (
+/obj/effect/ai_node,
+/turf/open/floor/carpet/black,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"iZ" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 1;
+	name = "\improper Trio-Lux Room 2"
+	},
+/turf/open/floor/urban/carpet/carpetblackdeco,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"jS" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"kl" = (
+/obj/machinery/streetlight/traffic{
+	pixel_x = 5;
+	pixel_y = 12;
+	dir = 8
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"kP" = (
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetblack,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"ni" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/flashlight/lamp,
+/turf/open/floor/urban/carpet/carpetblack,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"nz" = (
+/obj/structure/table/reinforced,
+/obj/structure/paper_bin,
+/obj/item/tool/pen,
+/turf/open/floor/urban/carpet/carpetblackdeco,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"nE" = (
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetblack,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"nO" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"nY" = (
+/turf/open/liquid/water/river,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"oM" = (
+/turf/open/urban/street/sidewalk{
+	dir = 5
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"px" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"pJ" = (
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/south/streets)
+"qN" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/spawner/random/misc/structure/large/car{
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"rc" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/drained{
+	dir = 4
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"ro" = (
+/obj/effect/ai_node,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"se" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	name = "\improper Trio-Lux Hotel Lobby"
+	},
+/turf/open/floor/urban/carpet/carpetblackdeco,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"sM" = (
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"sO" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper Trio-Lux Hotel Lobby"
+	},
+/turf/open/floor/urban/carpet/carpetblackdeco,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"vf" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 4;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"vn" = (
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"wd" = (
+/obj/effect/ai_node,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"ww" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"xC" = (
+/turf/open/floor/carpet/black,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Aq" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/urban/carpet/carpetblackdeco,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"BM" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/carpet/black,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"BQ" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Dj" = (
+/obj/effect/ai_node,
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"DJ" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"DM" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 1;
+	name = "\improper Trio-Lux Room 3"
+	},
+/turf/open/floor/urban/carpet/carpetblackdeco,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Fh" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 1
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Fx" = (
+/obj/machinery/door/airlock/mainship/generic/corporate{
+	name = "Bathroom";
+	req_access = null
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"FC" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	name = "\improper Trio-Lux Hotel Lobby"
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Gg" = (
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetblackdeco,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Hq" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Hz" = (
+/obj/structure/bed/chair/comfy{
+	dir = 8
+	},
+/turf/open/floor/carpet/black,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"HS" = (
+/obj/machinery/vending/coffee,
+/turf/open/floor/urban/carpet/carpetblackdeco,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Ix" = (
+/turf/open/floor/urban/carpet/carpetblack,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"IT" = (
+/obj/effect/urban/decal/trash/two{
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
+"Jt" = (
+/obj/effect/ai_node,
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Jy" = (
+/obj/structure/table/reinforced,
+/obj/item/clipboard{
+	pixel_x = 5;
+	pixel_y = -3
+	},
+/obj/item/paper{
+	pixel_y = -3;
+	pixel_x = 6
+	},
+/obj/item/paper{
+	pixel_x = 3
+	},
+/obj/item/paper{
+	pixel_x = 8;
+	pixel_y = -1
+	},
+/obj/structure/transmitter/colony_net/auto_id{
+	pixel_y = -32;
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetblackdeco,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"LP" = (
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Mg" = (
+/obj/effect/ai_node,
+/turf/open/floor/urban/carpet/carpetblack,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"MH" = (
+/obj/structure/mirror{
+	dir = 4
+	},
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Nd" = (
+/obj/structure/table/reinforced/prison,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"NK" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/structure/cable,
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 4;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"OE" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 1;
+	name = "\improper Trio-Lux Room 1"
+	},
+/turf/open/floor/urban/carpet/carpetblackdeco,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Pz" = (
+/obj/machinery/washing_machine,
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Qq" = (
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"QN" = (
+/obj/machinery/light/mainship,
+/turf/open/floor/urban/carpet/carpetblackdeco,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"RX" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light/mainship,
+/turf/open/floor/carpet/black,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Sg" = (
+/obj/structure/table/reinforced,
+/obj/machinery/prop/computer{
+	dir = 4
+	},
+/turf/open/floor/carpet/black,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"SL" = (
+/obj/structure/sink/bathroom{
+	dir = 4;
+	pixel_x = 16
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Te" = (
+/obj/machinery/vending/cola,
+/turf/open/floor/urban/carpet/carpetblackdeco,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Tf" = (
+/obj/effect/urban/decal/road/lines2,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"TP" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetblackdeco,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Uz" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetblackdeco,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Vl" = (
+/obj/structure/curtain/open/shower,
+/obj/machinery/shower{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Vn" = (
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/obj/structure/bed/chair/comfy/black,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Wa" = (
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"WC" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Xh" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 1;
+	name = "\improper Trio-Lux Exit"
+	},
+/turf/open/floor/urban/carpet/carpetblackdeco,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Xy" = (
+/obj/structure/prop/mainship/gelida/planterboxsoil{
+	dir = 9
+	},
+/turf/open/floor/carpet/black,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"Yi" = (
+/obj/structure/bed,
+/obj/item/bedsheet/captain,
+/turf/open/floor/urban/carpet/carpetblack,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"YF" = (
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+
+(1,1,1) = {"
+ww
+WC
+WC
+WC
+WC
+WC
+WC
+WC
+WC
+ei
+WC
+WC
+WC
+WC
+WC
+WC
+"}
+(2,1,1) = {"
+ww
+WC
+Vl
+DJ
+WC
+fC
+fC
+WC
+sM
+sM
+sM
+Vn
+Nd
+Fh
+sM
+WC
+"}
+(3,1,1) = {"
+ww
+WC
+Hq
+SL
+WC
+kP
+Mg
+DM
+sM
+sM
+sM
+hs
+sM
+sM
+sM
+WC
+"}
+(4,1,1) = {"
+aR
+WC
+Fx
+MH
+WC
+Ix
+Ix
+WC
+ha
+YF
+YF
+YF
+YF
+YF
+gf
+WC
+"}
+(5,1,1) = {"
+ww
+Uz
+Ix
+Ix
+nE
+Ix
+Ix
+Uz
+sM
+YF
+nY
+nY
+nY
+YF
+sM
+WC
+"}
+(6,1,1) = {"
+IT
+Uz
+Ix
+Mg
+Ix
+Ix
+Ix
+Uz
+sM
+YF
+nY
+nY
+nY
+YF
+hs
+WC
+"}
+(7,1,1) = {"
+ww
+WC
+ni
+Yi
+Yi
+ni
+Ix
+WC
+sM
+Dj
+nY
+nY
+nY
+YF
+sM
+fz
+"}
+(8,1,1) = {"
+ww
+WC
+WC
+WC
+WC
+WC
+WC
+WC
+sM
+YF
+nY
+nY
+nY
+YF
+sM
+WC
+"}
+(9,1,1) = {"
+aR
+WC
+Vl
+DJ
+WC
+fC
+fC
+WC
+sM
+YF
+nY
+nY
+nY
+YF
+sM
+WC
+"}
+(10,1,1) = {"
+ww
+WC
+Hq
+SL
+WC
+kP
+Ix
+iZ
+sM
+YF
+nY
+nY
+nY
+Dj
+sM
+WC
+"}
+(11,1,1) = {"
+ww
+WC
+Fx
+MH
+WC
+Ix
+Ix
+WC
+ha
+YF
+nY
+nY
+nY
+YF
+gf
+WC
+"}
+(12,1,1) = {"
+ww
+Uz
+Ix
+Ix
+nE
+Ix
+Ix
+Uz
+sM
+YF
+nY
+nY
+nY
+YF
+sM
+WC
+"}
+(13,1,1) = {"
+ww
+Uz
+Ix
+Ix
+Ix
+Ix
+Ix
+Uz
+sM
+YF
+nY
+nY
+nY
+YF
+sM
+WC
+"}
+(14,1,1) = {"
+aR
+WC
+ni
+Yi
+Yi
+ni
+Ix
+WC
+sM
+YF
+nY
+nY
+nY
+YF
+sM
+WC
+"}
+(15,1,1) = {"
+ww
+WC
+WC
+WC
+WC
+WC
+WC
+WC
+sM
+Dj
+nY
+nY
+nY
+YF
+hs
+WC
+"}
+(16,1,1) = {"
+ww
+WC
+Vl
+DJ
+WC
+fC
+fC
+WC
+sM
+YF
+YF
+YF
+YF
+YF
+sM
+WC
+"}
+(17,1,1) = {"
+ww
+WC
+Hq
+SL
+WC
+kP
+Ix
+OE
+sM
+YF
+YF
+YF
+Dj
+YF
+sM
+WC
+"}
+(18,1,1) = {"
+ww
+WC
+Fx
+MH
+WC
+Ix
+Ix
+WC
+ha
+YF
+nY
+nY
+nY
+YF
+gf
+WC
+"}
+(19,1,1) = {"
+aR
+Uz
+Ix
+Ix
+nE
+Ix
+Ix
+Uz
+sM
+YF
+nY
+nY
+nY
+YF
+sM
+WC
+"}
+(20,1,1) = {"
+ww
+Uz
+Ix
+Ix
+Mg
+Ix
+Ix
+Uz
+sM
+YF
+nY
+nY
+nY
+Dj
+sM
+WC
+"}
+(21,1,1) = {"
+ww
+WC
+ni
+Yi
+Yi
+ni
+Ix
+WC
+sM
+YF
+YF
+LP
+YF
+YF
+sM
+WC
+"}
+(22,1,1) = {"
+ww
+WC
+WC
+WC
+WC
+WC
+WC
+WC
+se
+WC
+WC
+WC
+WC
+WC
+FC
+WC
+"}
+(23,1,1) = {"
+fS
+WC
+gE
+gE
+gE
+cs
+gE
+gE
+gE
+cs
+gE
+gE
+gE
+gE
+cs
+WC
+"}
+(24,1,1) = {"
+aR
+WC
+cs
+gE
+Pz
+WC
+nz
+gE
+TP
+gE
+Jy
+WC
+Pz
+gE
+gE
+WC
+"}
+(25,1,1) = {"
+ww
+WC
+Gg
+gE
+Pz
+WC
+BM
+Aq
+Aq
+Sg
+RX
+WC
+Pz
+gE
+QN
+WC
+"}
+(26,1,1) = {"
+ww
+WC
+gE
+cs
+WC
+WC
+gE
+gE
+gE
+gE
+gE
+WC
+WC
+gE
+cs
+Xh
+"}
+(27,1,1) = {"
+ww
+WC
+gE
+gE
+sO
+gE
+xC
+xC
+xC
+it
+xC
+gE
+sO
+gE
+gE
+WC
+"}
+(28,1,1) = {"
+fS
+WC
+HS
+Te
+WC
+Xy
+it
+Hz
+Hz
+Hz
+xC
+Xy
+WC
+HS
+gF
+WC
+"}
+(29,1,1) = {"
+aR
+WC
+WC
+WC
+WC
+WC
+dQ
+WC
+WC
+WC
+dQ
+WC
+WC
+WC
+WC
+WC
+"}
+(30,1,1) = {"
+ww
+WC
+vn
+Jt
+vn
+vn
+vn
+vn
+rc
+ff
+vn
+Jt
+vn
+vn
+vn
+WC
+"}
+(31,1,1) = {"
+ww
+WC
+fJ
+jS
+jS
+vf
+vf
+qN
+jS
+NK
+vf
+jS
+qN
+jS
+Tf
+WC
+"}
+(32,1,1) = {"
+ww
+WC
+fJ
+Tf
+Tf
+Tf
+Tf
+Tf
+Tf
+BQ
+Tf
+Tf
+Tf
+Tf
+Tf
+WC
+"}
+(33,1,1) = {"
+ww
+WC
+fJ
+fJ
+fJ
+fJ
+fJ
+fJ
+fJ
+Wa
+fJ
+fJ
+fJ
+ro
+fJ
+WC
+"}
+(34,1,1) = {"
+aR
+WC
+fJ
+fJ
+fJ
+ro
+fJ
+fJ
+fJ
+Wa
+fJ
+fJ
+fJ
+fJ
+fJ
+WC
+"}
+(35,1,1) = {"
+ww
+WC
+ro
+fJ
+fJ
+fJ
+fJ
+fJ
+fJ
+Wa
+ro
+fJ
+fJ
+fJ
+fJ
+WC
+"}
+(36,1,1) = {"
+ww
+WC
+WC
+WC
+WC
+fJ
+fJ
+fJ
+fJ
+Wa
+fJ
+fJ
+WC
+WC
+WC
+WC
+"}
+(37,1,1) = {"
+kl
+ww
+ww
+aR
+ww
+px
+px
+wd
+px
+Qq
+px
+px
+ww
+ww
+ww
+ww
+"}
+(38,1,1) = {"
+ww
+ex
+pJ
+nO
+px
+px
+px
+px
+px
+Qq
+px
+wd
+px
+pJ
+pJ
+oM
+"}

@@ -1,0 +1,2875 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aT" = (
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"ba" = (
+/obj/machinery/atmospherics/pipe/manifold/general/visible,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"bB" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"bM" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"ce" = (
+/obj/structure/mirror,
+/obj/structure/sink/bathroom{
+	pixel_y = 12
+	},
+/obj/structure/sign/nosmoking_2{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"co" = (
+/obj/machinery/vending/medical,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"cs" = (
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/cup/glass/coffee,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"cH" = (
+/obj/effect/urban/decal/road/lines3,
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 4;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"do" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/computer3/laptop,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"dr" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper Caldera Cryogenics"
+	},
+/obj/structure/cable,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"dF" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"dH" = (
+/obj/structure/closet/secure_closet/medical1,
+/obj/item/reagent_containers/glass/beaker/cryomix,
+/obj/item/reagent_containers/glass/beaker/cryomix,
+/obj/item/reagent_containers/glass/beaker/cryomix,
+/obj/item/reagent_containers/glass/beaker/cryomix,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"dT" = (
+/obj/effect/urban/decal/road/lines4,
+/obj/effect/urban/decal/road/road_edge/two,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"ep" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"ez" = (
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/cup/glass/waterbottle,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"eD" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"eN" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkcenter,
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"eY" = (
+/obj/structure/cable,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"fb" = (
+/obj/machinery/light,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"fj" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"fo" = (
+/obj/machinery/door/airlock/mainship/generic/corporate{
+	name = "Restroom";
+	req_access = null;
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"fy" = (
+/obj/machinery/atmospherics/components/unary/cryo_cell,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"ga" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/drained{
+	dir = 8
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"gd" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"gm" = (
+/obj/effect/urban/decal/road/road_edge/four,
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"gt" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"hm" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"hP" = (
+/turf/open/urban/street/sidewalk{
+	dir = 9
+	},
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"ij" = (
+/obj/structure/bookcase/manuals/medical,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"iI" = (
+/obj/structure/prop/urban/misc/trash/green,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"iV" = (
+/obj/machinery/door/airlock/mainship/generic/corporate{
+	name = "\improper Doctor's Office 3 Airlock";
+	req_access = null
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"jq" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"jr" = (
+/obj/structure/table/reinforced,
+/obj/item/newspaper,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"jM" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"jS" = (
+/obj/effect/urban/decal/road/lines3,
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"jU" = (
+/obj/machinery/atmospherics/pipe/simple/general/visible{
+	dir = 5
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"jV" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/tool/pen{
+	pixel_y = 8;
+	pixel_x = -4
+	},
+/obj/item/radio/loadout_tool/green{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/item/paper{
+	pixel_x = 3;
+	pixel_y = 7;
+	info = "If you're reading this, please keep my little moth friend safe. He deserves the best.";
+	name = "pleading note"
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"kr" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"ky" = (
+/turf/open/floor/prison/whitegreen{
+	dir = 10
+	},
+/area/gleichseitig16/indoors/east/calderacryogen)
+"kJ" = (
+/obj/structure/closet/secure_closet,
+/obj/item/storage/fancy/chemrettes,
+/obj/item/storage/fancy/chemrettes,
+/obj/item/storage/fancy/chemrettes,
+/obj/item/tool/lighter/zippo,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"kQ" = (
+/obj/structure/prop/urban/misc/trash/green,
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"kV" = (
+/obj/structure/sign/nosmoking_2{
+	dir = 1
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"kW" = (
+/obj/effect/urban/decal/road/road_edge/eight,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"lc" = (
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"lE" = (
+/turf/open/floor/prison/whitegreen{
+	dir = 6
+	},
+/area/gleichseitig16/indoors/east/calderacryogen)
+"mw" = (
+/obj/structure/bed/chair/office/dark,
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"mL" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/prop/computer/communications{
+	dir = 1
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"mX" = (
+/obj/structure/toilet{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"nk" = (
+/obj/structure/bed/chair/east,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"np" = (
+/obj/structure/bed/chair/sofa/corsat/verticaltop,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"nF" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/toy/plush/moth,
+/obj/structure/window{
+	dir = 8
+	},
+/obj/machinery/door/window/elevator/left/directional/south,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"nS" = (
+/obj/effect/urban/decal/road/road_edge/four,
+/obj/effect/urban/decal/road/lines2,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"ol" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/urban/decal/road/road_edge/four,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"oC" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/newspaper{
+	desc = "An issue of the Eidos Chronicle, the newspaper circulating across the Ehrman Steadfast Republics. Some pages detail recent news on the Ehrman Military efforts against the Separatists and civic developments."
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"oR" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"pd" = (
+/obj/structure/cable,
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"pJ" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/whitegreen/full,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"pU" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"pZ" = (
+/obj/structure/cable,
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"qf" = (
+/obj/effect/urban/decal/road/road_edge/three,
+/obj/effect/urban/decal/road/lines3,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"qA" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkcenter,
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"qM" = (
+/obj/structure/closet/secure_closet,
+/obj/item/reagent_containers/hypospray/autoinjector/rezadone,
+/obj/item/reagent_containers/hypospray/autoinjector/antitox_mix,
+/obj/item/reagent_containers/hypospray/autoinjector/regrow,
+/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
+/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
+/obj/item/reagent_containers/hypospray/autoinjector/medicalnanites,
+/obj/item/reagent_containers/hypospray/autoinjector/elite,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"rs" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"rw" = (
+/obj/effect/urban/decal/road/road_edge/two,
+/obj/effect/urban/decal/road/lines4,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"rO" = (
+/obj/structure/table/reinforced,
+/obj/item/tool/pen{
+	pixel_y = 8
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"rP" = (
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"si" = (
+/obj/effect/urban/decal/road/lines3,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"sy" = (
+/obj/machinery/vending/snack,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"tW" = (
+/obj/effect/urban/decal/road/road_edge/two,
+/obj/effect/urban/decal/road/lines4,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"ue" = (
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"ug" = (
+/obj/effect/urban/decal/road/road_edge/five,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"ui" = (
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"ux" = (
+/obj/structure/closet/secure_closet,
+/obj/item/storage/fancy/chemrettes,
+/obj/item/storage/fancy/chemrettes,
+/obj/item/tool/lighter/zippo,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"uM" = (
+/obj/effect/urban/decal/road/road_edge/three,
+/obj/effect/urban/decal/road/lines3,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"vr" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/tool/pen{
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/cup/glass/waterbottle,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"vV" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/obj/effect/urban/decal/road/road_edge/three,
+/obj/effect/urban/decal/road/lines3,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"wc" = (
+/obj/structure/table/reinforced,
+/obj/machinery/computer/med_data/laptop{
+	dir = 8
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"wd" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"wh" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"wi" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"wE" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/whitegreen/full,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"wI" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/prop/computer/communications{
+	dir = 1
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"xb" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"xi" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 8
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"yP" = (
+/turf/open/urban/street/sidewalk{
+	dir = 5
+	},
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"zl" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"zr" = (
+/obj/structure/table/reinforced/prison,
+/obj/structure/paper_bin{
+	pixel_y = 8
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"zB" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"zI" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"zP" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"zQ" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"Al" = (
+/obj/machinery/computer/med_data/laptop{
+	dir = 4
+	},
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Az" = (
+/obj/structure/bed/chair/east,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"AH" = (
+/obj/effect/urban/decal/dirt,
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"AI" = (
+/obj/machinery/light/small,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"Bc" = (
+/obj/machinery/door/airlock/mainship/generic/corporate{
+	name = "\improper Doctor's Office 1 Airlock";
+	req_access = null
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Be" = (
+/obj/machinery/streetlight/traffic{
+	pixel_x = 5;
+	pixel_y = 12;
+	dir = 4
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/streets)
+"Bk" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/reagent_containers/cup/glass/waterbottle{
+	pixel_x = -7;
+	pixel_y = 10
+	},
+/obj/item/paper{
+	pixel_x = 3;
+	pixel_y = -5;
+	info = "The separatists moved into this sector and you know what that means, bad for business. If you know me, you know where I am. Get out of this district as fast as you can, the fighting will only get worse day by day. Anything you want in the locker, go ahead and take it. My treat.";
+	name = "suspicious note"
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Bv" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/streets)
+"BM" = (
+/obj/machinery/atmospherics/pipe/simple/general/visible{
+	dir = 5
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"BY" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/toner,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Cm" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/streets)
+"CB" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"CF" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/paper_bin{
+	pixel_y = 8
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Da" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"Di" = (
+/turf/open/floor/prison/whitegreen/full,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Dv" = (
+/obj/structure/bed/chair/office/dark,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Ex" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"EE" = (
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"EV" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Fj" = (
+/obj/structure/table/reinforced,
+/obj/machinery/computer/med_data/laptop{
+	dir = 1
+	},
+/obj/machinery/light,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Fq" = (
+/obj/structure/table/reinforced,
+/obj/item/radio/loadout_tool/green,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Ft" = (
+/obj/structure/table/reinforced,
+/obj/machinery/computer/med_data/laptop{
+	dir = 4
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"FG" = (
+/obj/structure/sign/nosmoking_2{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"FT" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalkcenter,
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"FX" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/flashlight/lamp/green,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Gg" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper Caldera Cryogenics"
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Gn" = (
+/obj/machinery/door/airlock/mainship/generic/corporate{
+	name = "\improper Doctor's Office 2 Airlock";
+	req_access = null
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Gw" = (
+/obj/structure/filingcabinet/nondense{
+	pixel_x = 8;
+	pixel_y = 21
+	},
+/obj/structure/filingcabinet/nondense{
+	pixel_x = -8;
+	pixel_y = 21
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"GK" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	name = "\improper Caldera Cryogenics"
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"GW" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"HU" = (
+/obj/structure/table/reinforced,
+/obj/machinery/prop/computer{
+	desc = "A small computer hooked up into the cryogenic systems."
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Io" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"Ir" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"JG" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"Kl" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Km" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/reagent_containers/cup/glass/waterbottle/large,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Kw" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/urban/decal/road/road_edge/four,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"KI" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"KQ" = (
+/turf/open/floor/prison{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"Lk" = (
+/obj/effect/urban/decal/dirt,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"Ln" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/urban/decal/road/road_edge/four,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"Lt" = (
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"LD" = (
+/obj/effect/urban/decal/road/road_edge/four,
+/obj/effect/urban/decal/road/lines2,
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"LE" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"LF" = (
+/obj/effect/urban/decal/road/lines3,
+/obj/effect/spawner/random/misc/structure/large/car{
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"My" = (
+/obj/effect/urban/decal/road/lines4,
+/obj/effect/urban/decal/road/road_edge/two,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/streets)
+"MO" = (
+/obj/machinery/atmospherics/pipe/simple/general/visible{
+	dir = 9
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Nd" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/tool/pen{
+	pixel_y = 8
+	},
+/obj/item/radio/loadout_tool/green{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Nr" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Nv" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	dir = 8;
+	name = "\improper Caldera Cryogenics"
+	},
+/obj/structure/cable,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Ou" = (
+/obj/machinery/photocopier,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"OQ" = (
+/obj/structure/table/reinforced/prison,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Pb" = (
+/obj/machinery/vending/coffee{
+	density = 0
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"PE" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"PI" = (
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Qt" = (
+/obj/structure/closet/secure_closet,
+/obj/item/stack/req_jelly,
+/obj/item/reagent_containers/hypospray/autoinjector/rezadone,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Qv" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"QB" = (
+/obj/structure/table/reinforced,
+/obj/item/newspaper{
+	desc = "An issue of the Eidos Chronicle, the newspaper circulating across the Ehrman Steadfast Republics. Some pages detail recent news on the Ehrman Military efforts against the Separatists and civic developments."
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Rp" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"RA" = (
+/obj/structure/bed/chair/sofa/corsat/verticalsouth,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"RF" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/tool/pen{
+	pixel_y = 8
+	},
+/obj/item/newspaper{
+	desc = "An issue of the Eidos Chronicle, the newspaper circulating across the Ehrman Steadfast Republics. Some pages detail recent news on the Ehrman Military efforts against the Separatists and civic developments."
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"RI" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"RV" = (
+/obj/machinery/door/airlock/mainship/generic/corporate{
+	name = "\improper Doctor's Office 4 Airlock";
+	req_access = null
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Sz" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"SE" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"SI" = (
+/obj/structure/bed/chair/east{
+	dir = 8
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"SX" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"Ts" = (
+/turf/open/floor/prison/whitegreen{
+	dir = 5
+	},
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Tu" = (
+/turf/open/urban/street/sidewalkcenter{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"Tv" = (
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"TI" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"TU" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Um" = (
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"Uw" = (
+/obj/machinery/vending/cola,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"UA" = (
+/turf/open/floor/prison/whitegreen{
+	dir = 9
+	},
+/area/gleichseitig16/indoors/east/calderacryogen)
+"UL" = (
+/obj/machinery/computer/med_data/laptop{
+	dir = 8
+	},
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Vd" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk{
+	dir = 5
+	},
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"VH" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"VI" = (
+/obj/structure/table/reinforced/prison,
+/obj/item/reagent_containers/cup/glass/coffee,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"VW" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"VZ" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"WC" = (
+/turf/open/urban/street/sidewalkcenter,
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"WU" = (
+/obj/structure/mirror,
+/obj/structure/sink/bathroom{
+	pixel_y = 12
+	},
+/obj/structure/sign/nosmoking_2{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"XI" = (
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"XM" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"XP" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"Yu" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Yx" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/east/calderacryogen/parking)
+"YB" = (
+/obj/structure/sign/nosmoking_2{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"YW" = (
+/obj/structure/cable,
+/turf/open/floor/prison/whitegreen/full,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"Zi" = (
+/obj/effect/urban/decal/dirt,
+/obj/effect/urban/decal/dirt,
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
+"Zp" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
+"ZT" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/east/streets)
+
+(1,1,1) = {"
+ug
+My
+My
+My
+My
+My
+dT
+My
+My
+My
+My
+My
+My
+My
+dT
+My
+rw
+rw
+rw
+rw
+rw
+rw
+tW
+rw
+rw
+rw
+rw
+rw
+rw
+rw
+tW
+rw
+rw
+rw
+KQ
+KQ
+kW
+"}
+(2,1,1) = {"
+qf
+XI
+ZT
+XI
+XI
+XI
+XI
+XI
+XI
+XI
+ZT
+XI
+XI
+XI
+XI
+XI
+XI
+XI
+ZT
+XI
+XI
+XI
+XI
+XI
+XI
+XI
+ZT
+XI
+XI
+XI
+Ex
+XI
+XI
+XI
+Bv
+KQ
+KQ
+"}
+(3,1,1) = {"
+qf
+Cm
+ui
+lc
+lc
+lc
+lc
+lc
+lc
+TI
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+TI
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+Be
+Cm
+KQ
+"}
+(4,1,1) = {"
+uM
+EE
+WC
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+Yx
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+cH
+cH
+cH
+jS
+cH
+yP
+aT
+gm
+"}
+(5,1,1) = {"
+qf
+EE
+WC
+JG
+JG
+JG
+JG
+Yx
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+Yx
+JG
+JG
+JG
+JG
+si
+si
+si
+si
+si
+Tu
+aT
+nS
+"}
+(6,1,1) = {"
+qf
+SX
+WC
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+Yx
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+Yx
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+Yx
+JG
+JG
+JG
+JG
+Yx
+Tu
+kr
+nS
+"}
+(7,1,1) = {"
+qf
+EE
+WC
+JG
+JG
+JG
+hP
+ue
+ue
+ue
+ue
+ue
+ue
+ue
+ue
+ue
+SE
+ue
+ue
+ue
+ue
+ue
+ue
+ue
+ue
+ue
+WC
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+Tu
+aT
+nS
+"}
+(8,1,1) = {"
+qf
+Zp
+WC
+JG
+JG
+Yx
+Lt
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+xi
+xi
+Kl
+Kl
+jM
+fj
+rP
+rP
+jM
+xb
+jM
+Kl
+eN
+JG
+JG
+JG
+JG
+Yx
+JG
+JG
+Tu
+ep
+nS
+"}
+(9,1,1) = {"
+qf
+EE
+WC
+JG
+JG
+JG
+Lt
+Kl
+Gw
+zB
+wi
+ij
+Kl
+Gw
+PI
+bB
+ij
+Kl
+GK
+Kl
+Kl
+Kl
+Kl
+jM
+jM
+jM
+WC
+JG
+JG
+cH
+jS
+cH
+jS
+jS
+Tu
+aT
+nS
+"}
+(10,1,1) = {"
+qf
+EE
+WC
+JG
+JG
+JG
+Lt
+xi
+PI
+do
+PI
+PI
+Kl
+PI
+do
+PI
+PI
+Kl
+PI
+fo
+CB
+kQ
+Kl
+VW
+jM
+jM
+qA
+JG
+JG
+si
+si
+si
+si
+si
+hP
+aT
+nS
+"}
+(11,1,1) = {"
+qf
+EE
+WC
+JG
+JG
+JG
+Lt
+xi
+PI
+RF
+Km
+Al
+Kl
+wd
+VI
+jV
+Al
+Kl
+Nr
+Kl
+WU
+mX
+Kl
+rP
+jM
+jM
+WC
+JG
+JG
+hP
+GW
+ue
+ue
+ue
+Da
+aT
+nS
+"}
+(12,1,1) = {"
+uM
+EE
+WC
+JG
+JG
+JG
+Lt
+xi
+PI
+PI
+SI
+KI
+Kl
+PI
+KI
+SI
+PI
+Kl
+KI
+Kl
+Kl
+Kl
+Kl
+rP
+jM
+jM
+WC
+JG
+JG
+yP
+lc
+XP
+lc
+lc
+Da
+AH
+gm
+"}
+(13,1,1) = {"
+qf
+EE
+WC
+JG
+Yx
+JG
+Lt
+Kl
+FX
+PI
+PI
+ux
+Kl
+nF
+PI
+PI
+Qt
+Kl
+PI
+PI
+zB
+PI
+Kl
+Sz
+jM
+jM
+WC
+JG
+JG
+cH
+cH
+cH
+cH
+jS
+yP
+aT
+nS
+"}
+(14,1,1) = {"
+qf
+EE
+WC
+JG
+JG
+JG
+Lt
+Kl
+Kl
+Kl
+Gn
+Kl
+Kl
+Kl
+Kl
+Bc
+Kl
+Kl
+PI
+np
+RA
+PI
+xi
+Tv
+jM
+Kl
+eN
+Yx
+JG
+si
+si
+si
+si
+si
+Tu
+aT
+nS
+"}
+(15,1,1) = {"
+qf
+EE
+WC
+JG
+JG
+JG
+Lt
+Kl
+sy
+zB
+PI
+PI
+PI
+zB
+PI
+PI
+KI
+Kl
+PI
+PI
+PI
+KI
+Kl
+XM
+jM
+jM
+WC
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+Tu
+AH
+nS
+"}
+(16,1,1) = {"
+qf
+SX
+WC
+JG
+JG
+JG
+Io
+Gg
+PI
+KI
+PI
+PI
+PI
+PI
+PI
+PI
+PI
+VZ
+PI
+np
+RA
+PI
+xi
+rP
+jM
+jM
+WC
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+Tu
+kr
+nS
+"}
+(17,1,1) = {"
+qf
+Zp
+WC
+JG
+JG
+JG
+AI
+Kl
+kV
+PI
+PI
+zr
+Ou
+KI
+PI
+PI
+PI
+Kl
+PI
+PI
+PI
+PI
+Kl
+Tv
+jM
+jM
+WC
+JG
+JG
+JG
+JG
+Yx
+JG
+JG
+Tu
+Lk
+nS
+"}
+(18,1,1) = {"
+qf
+EE
+WC
+JG
+JG
+JG
+Lt
+Kl
+fy
+jU
+PI
+BY
+Kl
+Kl
+xi
+xi
+Kl
+Kl
+wd
+np
+RA
+PI
+xi
+rP
+jM
+xb
+WC
+JG
+JG
+jS
+jS
+cH
+jS
+jS
+Tu
+aT
+nS
+"}
+(19,1,1) = {"
+qf
+EE
+WC
+JG
+JG
+JG
+Lt
+Kl
+eD
+ba
+PI
+co
+Kl
+zP
+wc
+QB
+iI
+Kl
+kV
+KI
+PI
+PI
+Kl
+Tv
+jM
+jM
+WC
+JG
+JG
+si
+si
+si
+si
+si
+hP
+aT
+nS
+"}
+(20,1,1) = {"
+qf
+EE
+WC
+JG
+JG
+Yx
+Lt
+Kl
+fy
+ba
+PI
+PI
+Kl
+Fq
+EV
+PI
+PI
+VZ
+PI
+np
+RA
+fb
+Kl
+VW
+jM
+Kl
+eN
+JG
+JG
+hP
+ue
+ue
+ue
+ue
+Da
+LE
+LD
+"}
+(21,1,1) = {"
+qf
+EE
+WC
+JG
+JG
+JG
+Lt
+Kl
+gd
+MO
+KI
+PI
+VZ
+PI
+KI
+PI
+Kl
+Kl
+PI
+PI
+PI
+PI
+Kl
+Kl
+jM
+hm
+FT
+Um
+Um
+Vd
+pZ
+gt
+zQ
+zQ
+zQ
+Zi
+gm
+"}
+(22,1,1) = {"
+Ir
+zl
+JG
+JG
+JG
+JG
+Lt
+Kl
+HU
+PI
+Dv
+Fj
+Kl
+Gw
+PI
+Dv
+wI
+PI
+lE
+Di
+Di
+Ts
+PI
+Kl
+hm
+hm
+WC
+Yx
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+zl
+zl
+"}
+(23,1,1) = {"
+zl
+zl
+JG
+JG
+JG
+JG
+Lt
+Kl
+jr
+PI
+PI
+cs
+Kl
+Gw
+PI
+jq
+Yu
+PI
+Di
+PI
+PI
+pJ
+eY
+Nv
+hm
+jM
+WC
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+zl
+zl
+"}
+(24,1,1) = {"
+zl
+zl
+JG
+JG
+JG
+JG
+Lt
+Kl
+ez
+PI
+PI
+TU
+Kl
+Gw
+PI
+mw
+bM
+PI
+wE
+PI
+eY
+YW
+PI
+PI
+xb
+jM
+WC
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+zl
+zl
+"}
+(25,1,1) = {"
+zl
+zl
+JG
+JG
+JG
+JG
+Lt
+Kl
+HU
+bB
+PI
+Fj
+Kl
+Gw
+PI
+KI
+mL
+PI
+ky
+YW
+YW
+UA
+PI
+Kl
+jM
+jM
+WC
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+Ir
+zl
+"}
+(26,1,1) = {"
+qf
+SX
+WC
+JG
+JG
+JG
+Io
+Kl
+gd
+BM
+PI
+PI
+VZ
+PI
+bB
+PI
+Kl
+Kl
+eY
+eY
+PI
+PI
+Kl
+Kl
+jM
+jM
+WC
+JG
+JG
+hP
+ue
+SE
+ue
+ue
+ue
+aT
+nS
+"}
+(27,1,1) = {"
+qf
+Zp
+WC
+JG
+JG
+JG
+Lt
+Kl
+fy
+ba
+PI
+PI
+Kl
+QB
+PI
+PI
+PI
+VZ
+eY
+np
+RA
+fb
+Kl
+VW
+jM
+Kl
+eN
+JG
+JG
+yP
+TI
+lc
+lc
+lc
+Da
+aT
+nS
+"}
+(28,1,1) = {"
+qf
+EE
+WC
+JG
+JG
+JG
+Lt
+Kl
+eD
+ba
+PI
+co
+Kl
+CF
+Ft
+rO
+iI
+Kl
+FG
+PI
+KI
+PI
+Kl
+Tv
+jM
+jM
+WC
+JG
+JG
+cH
+cH
+cH
+jS
+cH
+yP
+aT
+nS
+"}
+(29,1,1) = {"
+qf
+EE
+WC
+JG
+JG
+JG
+Lt
+Kl
+fy
+MO
+PI
+OQ
+Kl
+Kl
+xi
+xi
+Kl
+Kl
+Qv
+np
+RA
+PI
+xi
+rP
+jM
+jM
+WC
+JG
+Yx
+si
+si
+si
+si
+si
+Tu
+aT
+gm
+"}
+(30,1,1) = {"
+qf
+EE
+WC
+JG
+JG
+JG
+AI
+Kl
+Uw
+PI
+PI
+OQ
+dH
+PI
+PI
+PI
+PI
+Kl
+eY
+PI
+PI
+PI
+Kl
+Sz
+jM
+jM
+WC
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+Tu
+aT
+nS
+"}
+(31,1,1) = {"
+qf
+wh
+FT
+Um
+RI
+Um
+Rp
+dr
+dF
+eY
+eY
+dF
+eY
+eY
+eY
+eY
+eY
+oR
+dF
+np
+RA
+PI
+xi
+Tv
+jM
+jM
+WC
+JG
+JG
+JG
+JG
+JG
+Yx
+JG
+Tu
+AH
+nS
+"}
+(32,1,1) = {"
+uM
+wh
+WC
+JG
+JG
+JG
+Lt
+Kl
+Pb
+YB
+PI
+PI
+ga
+VH
+PI
+KI
+PI
+Kl
+PI
+PI
+PI
+KI
+Kl
+zI
+jM
+jM
+qA
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+Tu
+ep
+Ln
+"}
+(33,1,1) = {"
+qf
+wh
+WC
+JG
+JG
+JG
+Lt
+Kl
+Kl
+Kl
+RV
+Kl
+Kl
+Kl
+Kl
+iV
+Kl
+Kl
+PI
+np
+RA
+PI
+xi
+Tv
+jM
+Kl
+eN
+JG
+JG
+LF
+jS
+jS
+jS
+jS
+Tu
+aT
+Ln
+"}
+(34,1,1) = {"
+qf
+wh
+WC
+JG
+JG
+JG
+Lt
+Kl
+FX
+PI
+PI
+qM
+Kl
+zr
+PI
+PI
+kJ
+Kl
+KI
+PI
+VH
+PI
+Kl
+rP
+jM
+jM
+WC
+JG
+JG
+si
+si
+si
+si
+si
+hP
+aT
+Ln
+"}
+(35,1,1) = {"
+qf
+wh
+WC
+JG
+JG
+JG
+Io
+xi
+PI
+PI
+Az
+PI
+Kl
+PI
+PI
+nk
+PI
+Kl
+PI
+Kl
+Kl
+Kl
+Kl
+rP
+xb
+jM
+WC
+JG
+JG
+hP
+ue
+SE
+ue
+ue
+Da
+aT
+nS
+"}
+(36,1,1) = {"
+qf
+PE
+WC
+JG
+JG
+JG
+Lt
+xi
+PI
+Bk
+Nd
+UL
+Kl
+wd
+vr
+oC
+UL
+Kl
+Nr
+Kl
+ce
+mX
+Kl
+Tv
+jM
+jM
+WC
+JG
+JG
+yP
+TI
+lc
+lc
+XP
+Da
+aT
+nS
+"}
+(37,1,1) = {"
+qf
+wh
+WC
+JG
+JG
+JG
+Lt
+xi
+PI
+do
+KI
+PI
+Kl
+PI
+do
+bB
+PI
+Kl
+PI
+fo
+rs
+kQ
+Kl
+VW
+jM
+jM
+WC
+JG
+Yx
+cH
+jS
+jS
+cH
+LF
+yP
+aT
+ol
+"}
+(38,1,1) = {"
+qf
+wh
+WC
+JG
+JG
+JG
+Lt
+Kl
+Gw
+VH
+EV
+ij
+Kl
+Gw
+PI
+PI
+ij
+Kl
+GK
+Kl
+Kl
+Kl
+Kl
+xb
+jM
+jM
+WC
+JG
+JG
+si
+si
+si
+si
+si
+Tu
+aT
+Ln
+"}
+(39,1,1) = {"
+qf
+pd
+WC
+JG
+JG
+JG
+Lt
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+xi
+xi
+Kl
+Kl
+xb
+pU
+Tv
+rP
+jM
+jM
+jM
+Kl
+eN
+JG
+JG
+JG
+JG
+JG
+Yx
+JG
+Tu
+aT
+Ln
+"}
+(40,1,1) = {"
+vV
+wh
+WC
+JG
+Yx
+JG
+yP
+lc
+XP
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+lc
+qA
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+Tu
+ep
+Ln
+"}
+(41,1,1) = {"
+qf
+wh
+WC
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+Yx
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+Yx
+JG
+JG
+JG
+Tu
+aT
+Ln
+"}
+(42,1,1) = {"
+qf
+wh
+WC
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+Yx
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+jS
+jS
+jS
+LF
+jS
+Tu
+aT
+Ln
+"}
+(43,1,1) = {"
+qf
+wh
+WC
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+Yx
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+JG
+Yx
+si
+si
+si
+si
+si
+hP
+aT
+Ln
+"}
+(44,1,1) = {"
+qf
+PE
+ue
+ue
+ue
+ue
+SE
+ue
+ue
+GW
+ue
+ue
+ue
+ue
+ue
+ue
+ue
+SE
+ue
+ue
+GW
+ue
+ue
+ue
+SE
+ue
+ue
+ue
+ue
+GW
+ue
+ue
+SE
+ue
+Da
+kr
+Kw
+"}
