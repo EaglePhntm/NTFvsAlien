@@ -143,3 +143,7 @@ endmap
 map turkenden_3_excluzone
 	minplayers 1
 endmap
+
+map gleichseitig_16_flashpoints_winter
+	minplayers 1
+endmap
