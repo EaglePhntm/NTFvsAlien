@@ -1799,6 +1799,13 @@
 	dir = 4
 	},
 /area/gleichseitig16/outdoors/east/parking)
+"bxJ" = (
+/obj/structure/table/reinforced,
+/obj/item/newspaper{
+	desc = "An issue of the Perron Union Report, a newsletter circulating across Ehrman Steadfast Republics specifically among laborers. Some pages detail recent news on the injustices committed by the ESR guardians against organized Imladrisean-Vokronen demonstrations."
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/northwest/union/consulting)
 "bxL" = (
 /obj/effect/urban/decal/doubleroad/lines2{
 	pixel_y = -14
@@ -3567,6 +3574,12 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/snow/layer1,
 /area/gleichseitig16/outdoors/northeast/phoronex/yard)
+"dcH" = (
+/obj/structure/nuke_disk_candidate{
+	set_associations = list("set6")
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/northeast/warehouse)
 "ddi" = (
 /turf/closed/wall/urban/colony,
 /area/gleichseitig16/indoors/south/mindfulyoga)
@@ -4674,12 +4687,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/mainship/black/full,
 /area/gleichseitig16/indoors/northeast/spaceport)
-"dVN" = (
-/obj/structure/urinal{
-	dir = 4
-	},
-/turf/closed/wall/r_wall,
-/area/gleichseitig16/indoors/east/rsr/breakroom)
 "dVP" = (
 /obj/effect/urban/decal/dirt,
 /turf/open/urban/street/asphalt,
@@ -5320,13 +5327,6 @@
 	color = "#e1f5ff"
 	},
 /area/gleichseitig16/indoors/southeast/kh)
-"evR" = (
-/obj/structure/table/reinforced,
-/obj/item/newspaper{
-	desc = "An issue of the Perron Union Report, a newsletter circulating across Ehrman Steadfast Republics specifically among laborers. Some pages detail recent news on the injustices committed by the ESR guardians against organized Imladrisean-Vokronen demonstrations."
-	},
-/turf/open/urban/street/cement3,
-/area/gleichseitig16/indoors/northwest/union/consulting)
 "ewf" = (
 /obj/structure/toilet{
 	dir = 4
@@ -6861,11 +6861,13 @@
 	},
 /area/gleichseitig16/indoors/west/rsr/servers)
 "fQy" = (
-/obj/structure/mirror{
-	dir = 4
+/obj/structure/nuke_disk_candidate{
+	set_associations = list("set6")
 	},
-/turf/closed/wall/r_wall,
-/area/gleichseitig16/indoors/east/rsr/breakroom)
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
 "fQE" = (
 /obj/machinery/door/airlock/mainship/security/glass/free_access{
 	name = "\improper Security Checkpoint";
@@ -6993,12 +6995,11 @@
 /turf/open/floor/plating/ground/snow/layer1,
 /area/gleichseitig16/outdoors/southwest/stadium/field)
 "fVK" = (
-/obj/structure/table/reinforced,
-/obj/item/newspaper{
-	desc = "An issue of the Perron Union Report, a newsletter circulating across Ehrman Steadfast Republics specifically among laborers. Some pages detail recent news on the injustices committed by the ESR guardians against organized Imladrisean-Vokronen demonstrations."
+/obj/structure/mirror{
+	dir = 4
 	},
-/turf/open/floor/urban/carpet/carpetbeige,
-/area/gleichseitig16/indoors/northwest/radiostation)
+/turf/closed/wall/r_wall,
+/area/gleichseitig16/indoors/east/rsr/breakroom)
 "fWM" = (
 /turf/open/floor/tile/blue/taupeblue,
 /area/gleichseitig16/indoors/west/rsr/mrestroom)
@@ -8309,6 +8310,15 @@
 	},
 /turf/open/urban/street/cement3,
 /area/gleichseitig16/indoors/northeast/factory/assembly)
+"haQ" = (
+/obj/structure/closet/secure_closet/security,
+/obj/item/weapon/gun/rifle/mpi_km,
+/obj/item/ammo_magazine/rifle/mpi_km/plum,
+/obj/item/ammo_magazine/rifle/mpi_km/plum,
+/obj/item/ammo_magazine/rifle/mpi_km/plum,
+/obj/item/storage/belt/security/tactical,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/northwest/union/railways)
 "hbx" = (
 /turf/open/floor/urban/metal/zbrownfloor_corner{
 	dir = 1
@@ -10828,6 +10838,14 @@
 	},
 /turf/open/urban/street/sidewalkfull,
 /area/gleichseitig16/outdoors/south/streets)
+"jav" = (
+/obj/structure/closet/secure_closet,
+/obj/item/weapon/gun/pistol/apsmart_pistol,
+/obj/item/ammo_magazine/pistol/standard_pistol/apsmart_pistol,
+/obj/item/ammo_magazine/pistol/standard_pistol/apsmart_pistol,
+/obj/item/ammo_magazine/pistol/standard_pistol/apsmart_pistol,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/northwest/union/consulting)
 "jaJ" = (
 /turf/closed/wall/urban/colony,
 /area/gleichseitig16/indoors/southeast/kicksklub)
@@ -11835,6 +11853,10 @@
 	},
 /turf/open/floor/grayscale/darkgray,
 /area/gleichseitig16/indoors/west/rsr/noffices)
+"jOP" = (
+/obj/structure/closet/secure_closet,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/northwest/union/consulting)
 "jPc" = (
 /obj/structure/cable,
 /obj/effect/ai_node{
@@ -11902,15 +11924,6 @@
 	},
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/indoors/southeast/ganongym)
-"jSD" = (
-/obj/structure/closet/secure_closet/security,
-/obj/item/weapon/gun/rifle/mpi_km,
-/obj/item/ammo_magazine/rifle/mpi_km/plum,
-/obj/item/ammo_magazine/rifle/mpi_km/plum,
-/obj/item/ammo_magazine/rifle/mpi_km/plum,
-/obj/item/storage/belt/security/tactical,
-/turf/open/urban/street/cement3,
-/area/gleichseitig16/indoors/northwest/union/railways)
 "jSI" = (
 /obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer2,
@@ -16938,12 +16951,8 @@
 /turf/open/urban/street/sidewalkfull,
 /area/gleichseitig16/outdoors/northwest/streets)
 "nSA" = (
-/obj/structure/prop/urban/misc/machinery/screens/redalertblank{
-	light_color = "#FF0000";
-	light_on = 1;
-	light_power = 3;
-	light_range = 5;
-	pixel_y = 32
+/obj/structure/bed/chair/office/dark{
+	dir = 4
 	},
 /turf/open/urban/street/cement3,
 /area/gleichseitig16/indoors/northwest/union/railways)
@@ -16975,14 +16984,6 @@
 /obj/structure/prop/mainship/sensor_computer1/white,
 /turf/open/floor/prison/bright_clean,
 /area/gleichseitig16/indoors/northeast/powerplant)
-"nUD" = (
-/obj/structure/closet/secure_closet,
-/obj/item/weapon/gun/pistol/apsmart_pistol,
-/obj/item/ammo_magazine/pistol/standard_pistol/apsmart_pistol,
-/obj/item/ammo_magazine/pistol/standard_pistol/apsmart_pistol,
-/obj/item/ammo_magazine/pistol/standard_pistol/apsmart_pistol,
-/turf/open/urban/street/cement3,
-/area/gleichseitig16/indoors/northwest/union/consulting)
 "nVc" = (
 /obj/machinery/light/mainship{
 	dir = 8
@@ -17074,10 +17075,6 @@
 /obj/machinery/newscaster,
 /turf/closed/wall/urban/colony,
 /area/gleichseitig16/indoors/south/cuppajoe)
-"nYm" = (
-/obj/machinery/photocopier,
-/turf/open/urban/street/cement3,
-/area/gleichseitig16/indoors/northwest/union/railways)
 "nYq" = (
 /obj/structure/bed/chair/office/dark/north,
 /turf/open/floor/grayscale/darkgray,
@@ -18395,7 +18392,7 @@
 "pdv" = (
 /obj/structure/table/reinforced,
 /obj/item/newspaper{
-	desc = "An issue of the Eidos Chronicle, the newspaper circulating across the Ehrman Steadfast Republics. Some pages detail recent news on the Ehrman Military efforts against the Separatists and civic developments."
+	desc = "An issue of the Perron Union Report, a newsletter circulating across Ehrman Steadfast Republics specifically among laborers. Some pages detail recent news on the injustices committed by the ESR guardians against organized Imladrisean-Vokronen demonstrations."
 	},
 /turf/open/floor/urban/carpet/carpetbeige,
 /area/gleichseitig16/indoors/northwest/radiostation)
@@ -19092,6 +19089,12 @@
 /obj/machinery/light/small,
 /turf/open/floor/urban/wood/redwood,
 /area/gleichseitig16/indoors/landing_zone_2/apartment4)
+"pGR" = (
+/obj/structure/urinal{
+	dir = 4
+	},
+/turf/closed/wall/r_wall,
+/area/gleichseitig16/indoors/east/rsr/breakroom)
 "pHr" = (
 /obj/structure/prop/urban/supermart/rack/longrackempty,
 /obj/item/clothing/shoes/high_heels{
@@ -20578,12 +20581,6 @@
 	dir = 4
 	},
 /area/gleichseitig16/indoors/northeast/powerplant)
-"qUF" = (
-/obj/structure/bed/chair/office/dark{
-	dir = 4
-	},
-/turf/open/urban/street/cement3,
-/area/gleichseitig16/indoors/northwest/union/railways)
 "qVc" = (
 /obj/effect/urban/decal/road/lines1{
 	pixel_y = 15
@@ -21273,6 +21270,10 @@
 	},
 /turf/open/urban/street/sidewalkfull,
 /area/gleichseitig16/indoors/east/rsr/smaints)
+"rDe" = (
+/obj/machinery/photocopier,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/northwest/union/railways)
 "rDh" = (
 /obj/effect/urban/decal/road/lines2,
 /turf/open/urban/street/asphalt,
@@ -22740,10 +22741,6 @@
 	},
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/outdoors/southeast/parking)
-"sHA" = (
-/obj/structure/closet/secure_closet,
-/turf/open/urban/street/cement3,
-/area/gleichseitig16/indoors/northwest/union/consulting)
 "sHZ" = (
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/indoors/northwest/union/railways)
@@ -24594,6 +24591,16 @@
 	},
 /turf/open/urban/street/cement2,
 /area/gleichseitig16/indoors/northwest/union/nwstorage)
+"tZu" = (
+/obj/structure/prop/urban/misc/machinery/screens/redalertblank{
+	light_color = "#FF0000";
+	light_on = 1;
+	light_power = 3;
+	light_range = 5;
+	pixel_y = 32
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/northwest/union/railways)
 "tZz" = (
 /obj/structure/table/reinforced/prison{
 	color = "#6b675e"
@@ -27334,6 +27341,13 @@
 	dir = 6
 	},
 /area/gleichseitig16/outdoors/southeast/streets)
+"wsy" = (
+/obj/structure/table/reinforced,
+/obj/item/newspaper{
+	desc = "An issue of the Eidos Chronicle, the newspaper circulating across the Ehrman Steadfast Republics. Some pages detail recent news on the Ehrman Military efforts against the Separatists and civic developments."
+	},
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/northwest/radiostation)
 "wsP" = (
 /obj/machinery/streetlight/street{
 	level = 7;
@@ -34206,7 +34220,7 @@ gaI
 sHZ
 sHZ
 aft
-nSA
+tZu
 lYg
 aft
 aft
@@ -34246,7 +34260,7 @@ lYg
 aft
 aft
 mMz
-nYm
+rDe
 aft
 qqi
 qqi
@@ -34423,9 +34437,9 @@ uKa
 sHZ
 sHZ
 aft
-jSD
+haQ
 lYg
-qUF
+nSA
 aft
 aft
 fFR
@@ -34897,7 +34911,7 @@ kQx
 cUz
 xIl
 xIl
-jSD
+haQ
 aft
 jaX
 qqi
@@ -36829,7 +36843,7 @@ obr
 kro
 kro
 kro
-nUD
+jav
 hPa
 kro
 fRq
@@ -36838,7 +36852,7 @@ lsX
 jrb
 kro
 kro
-sHA
+jOP
 hPa
 cKE
 llu
@@ -37053,7 +37067,7 @@ mHB
 hPa
 pOr
 kro
-evR
+bxJ
 kro
 mHB
 hPa
@@ -37797,7 +37811,7 @@ rjn
 aep
 vej
 vej
-pzW
+fQy
 vej
 vej
 oTX
@@ -40950,7 +40964,7 @@ gRD
 hPa
 uaW
 kro
-evR
+bxJ
 kro
 mHB
 hPa
@@ -41169,7 +41183,7 @@ lsX
 eKL
 kro
 kro
-sHA
+jOP
 hPa
 kro
 fRq
@@ -41178,7 +41192,7 @@ lsX
 kro
 kro
 kro
-sHA
+jOP
 hPa
 cKE
 llu
@@ -43362,7 +43376,7 @@ xHU
 qqi
 kJd
 vAH
-fVK
+pdv
 kmY
 kmY
 kmY
@@ -44678,7 +44692,7 @@ xdC
 gIE
 gIE
 blt
-pdv
+wsy
 vAH
 gHE
 wXd
@@ -46618,7 +46632,7 @@ qqi
 kJd
 tAV
 oTW
-fVK
+pdv
 aNO
 gIE
 gIE
@@ -64807,7 +64821,7 @@ soD
 diy
 pwB
 pwB
-pwB
+dcH
 ltH
 kpV
 jkR
@@ -71610,8 +71624,8 @@ ncH
 vpc
 qnX
 aQN
-dVN
-dVN
+pGR
+pGR
 aQN
 aQN
 aQN
@@ -72695,18 +72709,18 @@ ncH
 kit
 ncH
 aQN
-fQy
+fVK
 aQN
-fQy
+fVK
 aQN
 aQN
 ekl
 aQN
 nZY
 aQN
-fQy
+fVK
 aQN
-fQy
+fVK
 aQN
 cnK
 vHY
