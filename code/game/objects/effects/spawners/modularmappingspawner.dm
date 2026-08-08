@@ -339,3 +339,68 @@
 	mapid = "ficore"
 	spawner_width = 25
 	spawner_height = 25
+
+/obj/effect/spawner/modularmap/gleichseitig16fp/wunionstorage1
+	mapid = "g16fpwunionstorage1"
+	spawner_width = 7
+	spawner_height = 6
+
+/obj/effect/spawner/modularmap/gleichseitig16fp/wunionstorage2
+	mapid = "g16fpwunionstorage2"
+	spawner_width = 8
+	spawner_height = 6
+
+/obj/effect/spawner/modularmap/gleichseitig16fp/wunionstorage3
+	mapid = "g16fpwunionstorage3"
+	spawner_width = 7
+	spawner_height = 6
+
+/obj/effect/spawner/modularmap/gleichseitig16fp/wunionstorage4
+	mapid = "g16fpwunionstorage4"
+	spawner_width = 7
+	spawner_height = 6
+
+/obj/effect/spawner/modularmap/gleichseitig16fp/wunionstorage5
+	mapid = "g16fpwunionstorage5"
+	spawner_width = 8
+	spawner_height = 6
+
+/obj/effect/spawner/modularmap/gleichseitig16fp/wunionstorage6
+	mapid = "g16fpwunionstorage6"
+	spawner_width = 7
+	spawner_height = 6
+
+/obj/effect/spawner/modularmap/gleichseitig16fp/wunionstorage6
+	mapid = "g16fpwunionstorage6"
+	spawner_width = 7
+	spawner_height = 6
+
+/obj/effect/spawner/modularmap/gleichseitig16fp/nwprivatestorage
+	mapid = "g16fpnwprivatestorages"
+	spawner_width = 18
+	spawner_height = 31
+
+/obj/effect/spawner/modularmap/gleichseitig16fp/swinstitute
+	mapid = "g16fpswinstitute"
+	spawner_width = 89
+	spawner_height = 39
+
+/obj/effect/spawner/modularmap/gleichseitig16fp/southblock
+	mapid = "g16fpsblock"
+	spawner_width = 35
+	spawner_height = 15
+
+/obj/effect/spawner/modularmap/gleichseitig16fp/centralconsulate
+	mapid = "g16fpcconsulate"
+	spawner_width = 45
+	spawner_height = 43
+
+/obj/effect/spawner/modularmap/gleichseitig16fp/eastmedical
+	mapid = "g16fpemedical"
+	spawner_width = 44
+	spawner_height = 37
+
+/obj/effect/spawner/modularmap/gleichseitig16fp/southeastfinancial
+	mapid = "g16fpfinancial"
+	spawner_width = 17
+	spawner_height = 27
