@@ -1506,3 +1506,178 @@
 	modular_id = "ficore"
 	template_width = 25
 	template_height = 25
+
+/datum/map_template/modular/gleichseitig16fp/wusoneone
+	name = "West Union Storage 1"
+	mappath = "_maps/modularmaps/gleichseitig16fp/wunionstorage1var1.dmm"
+	modular_id = "g16fpwunionstorage1"
+	template_width = 7
+	template_height = 6
+
+/datum/map_template/modular/gleichseitig16fp/wustonetwo
+	name = "West Union Storage 1"
+	mappath = "_maps/modularmaps/gleichseitig16fp/wunionstorage1var2.dmm"
+	modular_id = "g16fpwunionstorage1"
+	template_width = 7
+	template_height = 6
+
+/datum/map_template/modular/gleichseitig16fp/wusttwoone
+	name = "West Union Storage 2"
+	mappath = "_maps/modularmaps/gleichseitig16fp/wunionstorage2var1.dmm"
+	modular_id = "g16fpwunionstorage2"
+	template_width = 8
+	template_height = 6
+
+/datum/map_template/modular/gleichseitig16fp/wusttwotwo
+	name = "West Union Storage 2"
+	mappath = "_maps/modularmaps/gleichseitig16fp/wunionstorage2var2.dmm"
+	modular_id = "g16fpwunionstorage2"
+	template_width = 8
+	template_height = 6
+
+/datum/map_template/modular/gleichseitig16fp/wustthreeone
+	name = "West Union Storage 3"
+	mappath = "_maps/modularmaps/gleichseitig16fp/wunionstorage3var1.dmm"
+	modular_id = "g16fpwunionstorage3"
+	template_width = 7
+	template_height = 6
+
+/datum/map_template/modular/gleichseitig16fp/wustthreetwo
+	name = "West Union Storage 3"
+	mappath = "_maps/modularmaps/gleichseitig16fp/wunionstorage3var2.dmm"
+	modular_id = "g16fpwunionstorage3"
+	template_width = 7
+	template_height = 6
+
+/datum/map_template/modular/gleichseitig16fp/wustfourone
+	name = "West Union Storage 4"
+	mappath = "_maps/modularmaps/gleichseitig16fp/wunionstorage4var1.dmm"
+	modular_id = "g16fpwunionstorage4"
+	template_width = 7
+	template_height = 6
+
+/datum/map_template/modular/gleichseitig16fp/wustfourtwo
+	name = "West Union Storage 4"
+	mappath = "_maps/modularmaps/gleichseitig16fp/wunionstorage4var2.dmm"
+	modular_id = "g16fpwunionstorage4"
+	template_width = 7
+	template_height = 6
+
+/datum/map_template/modular/gleichseitig16fp/wustfiveone
+	name = "West Union Storage 5"
+	mappath = "_maps/modularmaps/gleichseitig16fp/wunionstorage5var1.dmm"
+	modular_id = "g16fpwunionstorage5"
+	template_width = 8
+	template_height = 6
+
+/datum/map_template/modular/gleichseitig16fp/wustfivetwo
+	name = "West Union Storage 5"
+	mappath = "_maps/modularmaps/gleichseitig16fp/wunionstorage5var2.dmm"
+	modular_id = "g16fpwunionstorage5"
+	template_width = 8
+	template_height = 6
+
+/datum/map_template/modular/gleichseitig16fp/wustsixone
+	name = "West Union Storage 6"
+	mappath = "_maps/modularmaps/gleichseitig16fp/wunionstorage6var1.dmm"
+	modular_id = "g16fpwunionstorage6"
+	template_width = 7
+	template_height = 6
+
+/datum/map_template/modular/gleichseitig16fp/wustsixtwo
+	name = "West Union Storage 6"
+	mappath = "_maps/modularmaps/gleichseitig16fp/wunionstorage6var2.dmm"
+	modular_id = "g16fpwunionstorage6"
+	template_width = 7
+	template_height = 6
+
+/datum/map_template/modular/gleichseitig16fp/nwprivatestorageone
+	name = "Northwest Private Storage"
+	mappath = "_maps/modularmaps/gleichseitig16fp/nwprivatestoragevar1.dmm"
+	modular_id = "g16fpnwprivatestorages"
+	template_width = 18
+	template_height = 31
+
+/datum/map_template/modular/gleichseitig16fp/nwprivatestoragetwo
+	name = "Northwest Private Storage"
+	mappath = "_maps/modularmaps/gleichseitig16fp/nwprivatestoragevar2.dmm"
+	modular_id = "g16fpnwprivatestorages"
+	template_width = 18
+	template_height = 31
+
+/datum/map_template/modular/gleichseitig16fp/swinstituteone
+	name = "Southwest Institute"
+	mappath = "_maps/modularmaps/gleichseitig16fp/swinstitutevar1.dmm"
+	modular_id = "g16fpswinstitute"
+	template_width = 89
+	template_height = 39
+
+/datum/map_template/modular/gleichseitig16fp/swinstitutetwo
+	name = "Southwest Institute"
+	mappath = "_maps/modularmaps/gleichseitig16fp/swinstitutevar2.dmm"
+	modular_id = "g16fpswinstitute"
+	template_width = 89
+	template_height = 39
+
+/datum/map_template/modular/gleichseitig16fp/sblockone
+	name = "South Block"
+	mappath = "_maps/modularmaps/gleichseitig16fp/ssblockvar1.dmm"
+	modular_id = "g16fpsblock"
+	template_width = 35
+	template_height = 15
+
+/datum/map_template/modular/gleichseitig16fp/sblocktwo
+	name = "South Block"
+	mappath = "_maps/modularmaps/gleichseitig16fp/ssblockvar2.dmm"
+	modular_id = "g16fpsblock"
+	template_width = 35
+	template_height = 15
+
+/datum/map_template/modular/gleichseitig16fp/cconsulateone
+	name = "Central Consolate"
+	mappath = "_maps/modularmaps/gleichseitig16fp/cconsulatevar1.dmm"
+	modular_id = "g16fpcconsulate"
+	template_width = 45
+	template_height = 43
+
+/datum/map_template/modular/gleichseitig16fp/cconsulatetwo
+	name = "Central Consolate"
+	mappath = "_maps/modularmaps/gleichseitig16fp/cconsulatevar2.dmm"
+	modular_id = "g16fpcconsulate"
+	template_width = 45
+	template_height = 43
+
+/datum/map_template/modular/gleichseitig16fp/emedicalone
+	name = "East Medical"
+	mappath = "_maps/modularmaps/gleichseitig16fp/emedicalvar1.dmm"
+	modular_id = "g16fpemedical"
+	template_width = 44
+	template_height = 37
+
+/datum/map_template/modular/gleichseitig16fp/emedicaltwo
+	name = "East Medical"
+	mappath = "_maps/modularmaps/gleichseitig16fp/emedicalvar2.dmm"
+	modular_id = "g16fpemedical"
+	template_width = 44
+	template_height = 37
+
+/datum/map_template/modular/gleichseitig16fp/emedicalthree
+	name = "East Medical"
+	mappath = "_maps/modularmaps/gleichseitig16fp/emedicalvar3.dmm"
+	modular_id = "g16fpemedical"
+	template_width = 44
+	template_height = 37
+
+/datum/map_template/modular/gleichseitig16fp/efinanceone
+	name = "East Financial"
+	mappath = "_maps/modularmaps/gleichseitig16fp/efinancevar2.dmm"
+	modular_id = "g16fpfinancial"
+	template_width = 17
+	template_height = 27
+
+/datum/map_template/modular/gleichseitig16fp/efinancetwo
+	name = "East Financial"
+	mappath = "_maps/modularmaps/gleichseitig16fp/efinancevar2.dmm"
+	modular_id = "g16fpfinancial"
+	template_width = 17
+	template_height = 27
