@@ -282,6 +282,9 @@
 	for(var/obj/effect/landmark/spawn_marker/civilian/civneu in GLOB.spawn_civneutral)
 		civneu.trigger_now()
 
+	for(var/obj/effect/landmark/spawn_marker/euseparatists/unionhostile in GLOB.spawn_eusmilitia)
+		unionhostile.trigger_now()
+
 //NTF addition start
 	if(randomize_miners)
 		if(length(GLOB.miner_list) > MINIMUM_MINERS)
