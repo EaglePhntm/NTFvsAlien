@@ -60,7 +60,7 @@
 	. = ..()
 	if(SSmonitor.gamestate == SHUTTERS_CLOSED)
 		RegisterSignals(SSdcs, list(COMSIG_GLOB_GAMESTATE_GROUNDSIDE), PROC_REF(update_ability_cost))
-		update_ability_cost()
+	update_ability_cost()
 
 /// Updates the ability cost.
 /datum/action/ability/activable/xeno/plant_weeds/proc/update_ability_cost(datum/source)

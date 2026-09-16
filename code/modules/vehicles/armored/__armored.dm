@@ -379,8 +379,10 @@
 	if(isobserver(entering_mob))
 		interior?.mob_enter(entering_mob)
 		return FALSE
+	/*
 	if(!ishuman(entering_mob))
 		return FALSE
+	*/
 	if(entering_mob.skills.getRating(SKILL_LARGE_VEHICLE) < required_entry_skill)
 		return FALSE
 	if(!loc_override && !(entering_mob.loc in enter_locations(entering_mob)))
