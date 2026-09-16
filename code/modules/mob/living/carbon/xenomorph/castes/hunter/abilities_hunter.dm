@@ -425,12 +425,12 @@
 	new /obj/effect/temp_visual/after_image(get_turf(owner), owner) //Create the after image.
 
 /datum/action/ability/activable/xeno/pounce/proc/object_hit(datum/source, obj/object_target, speed)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	object_target.hitby(owner, speed)
 	pounce_complete()
 
 /datum/action/ability/activable/xeno/pounce/proc/mob_hit(datum/source, mob/living/living_target)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	. = TRUE
 	if(living_target.stat == DEAD|| isxeno(living_target)) //we leap past xenos
 		pounce_complete()
@@ -461,7 +461,7 @@
 
 //lets us hit laying mobs if we jump on them.
 /datum/action/ability/activable/xeno/pounce/proc/laying_check()
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	var/mob/living/victim = locate() in xeno_owner.loc.contents
 	if(victim && victim.lying_angle)
 		mob_hit(xeno_owner, victim)
