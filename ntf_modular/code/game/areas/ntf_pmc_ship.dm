@@ -1,5 +1,5 @@
 /area/antag_ship/pmc_ntf
-	name = "NTF PMC Ship"
+	name = "NTC PMC Ship"
 	requires_power = TRUE
 	always_unpowered = FALSE
 
@@ -9,10 +9,10 @@
 	icon_state = "north"
 
 /area/antag_ship/pmc_ntf/fore/bridge
-	name = "NTF PMC Bridge"
+	name = "NTC PMC Bridge"
 
 /area/antag_ship/pmc_ntf/fore/restroom
-	name = "NTF PMC Rest Room"
+	name = "NTC PMC Rest Room"
 
 
 //	EAST
@@ -20,10 +20,10 @@
 	icon_state = "east"
 
 /area/antag_ship/pmc_ntf/starboard/medbay
-	name = "NTF PMC Medbay"
+	name = "NTC PMC Medbay"
 
 /area/antag_ship/pmc_ntf/starboard/spaceport
-	name = "NTF PMC Starboard Port"
+	name = "NTC PMC Starboard Port"
 
 
 //	SOUTH
@@ -33,13 +33,13 @@
 /area/antag_ship/pmc_ntf/aft/engiroom
 
 /area/antag_ship/pmc_ntf/aft/engiroom/starboard
-	name = "NTF PMC Starboard Engi Room"
+	name = "NTC PMC Starboard Engi Room"
 
 /area/antag_ship/pmc_ntf/aft/engiroom/port
-	name = "NTF PMC Port Engi Room"
+	name = "NTC PMC Port Engi Room"
 
 /area/antag_ship/pmc_ntf/aft/spaceport
-	name = "NTF PMC Aft Port"
+	name = "NTC PMC Aft Port"
 
 
 //	WEST
@@ -47,10 +47,10 @@
 	icon_state = "west"
 
 /area/antag_ship/pmc_ntf/port/spaceport
-	name = "NTF PMC Port Port"	// :)
+	name = "NTC PMC Port Port"	// :)
 
 /area/antag_ship/pmc_ntf/port/quarters
-	name = "NTF PMC Crew Quarters"
+	name = "NTC PMC Crew Quarters"
 
 
 //	DOES NOT LAY ON THE COMPASS! :(
@@ -58,4 +58,4 @@
 	icon_state = "green"
 
 /area/antag_ship/pmc_ntf/center/armory
-	name = "NTF PMC Armory"
+	name = "NTC PMC Armory"

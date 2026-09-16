@@ -158,7 +158,7 @@
 		dancer.forceMove(get_turf(src))
 		dancer = null
 
-/obj/structure/stripper_pole/CtrlShiftClick(mob/user)
+/obj/structure/stripper_pole/MouseDrop(mob/user)
 	add_fingerprint(user)
 	balloon_alert(user, "disassembling...")
 	if(!do_after(user, 8 SECONDS, src))
@@ -172,4 +172,4 @@
 
 /obj/structure/stripper_pole/examine(mob/user)
 	. = ..()
-	. += span_purple("[src] can be disassembled by using Ctrl+Shift+Click")
+	. += span_purple("[src] can be disassembled by dragging it to yourself")

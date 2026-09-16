@@ -1507,6 +1507,8 @@
 	template_width = 25
 	template_height = 25
 
+/**********Gleichseitig 16*******/
+
 /datum/map_template/modular/gleichseitig16fp/wusoneone
 	name = "West Union Storage 1"
 	mappath = "_maps/modularmaps/gleichseitig16fp/wunionstorage1var1.dmm"
@@ -1670,7 +1672,7 @@
 
 /datum/map_template/modular/gleichseitig16fp/efinanceone
 	name = "East Financial"
-	mappath = "_maps/modularmaps/gleichseitig16fp/efinancevar2.dmm"
+	mappath = "_maps/modularmaps/gleichseitig16fp/efinancevar1.dmm"
 	modular_id = "g16fpfinancial"
 	template_width = 17
 	template_height = 27
@@ -1681,3 +1683,115 @@
 	modular_id = "g16fpfinancial"
 	template_width = 17
 	template_height = 27
+
+/datum/map_template/modular/gleichseitig16fp/swlargeblockone
+	name = "Leopold Stadium"
+	mappath = "_maps/modularmaps/gleichseitig16fp/swlargeblockvar1.dmm"
+	modular_id = "g16fpswlargeblock"
+	template_width = 62
+	template_height = 37
+
+/datum/map_template/modular/gleichseitig16fp/swlargeblocktwo
+	name = "Cerulean Hotel"
+	mappath = "_maps/modularmaps/gleichseitig16fp/swlargeblockvar2.dmm"
+	modular_id = "g16fpswlargeblock"
+	template_width = 62
+	template_height = 37
+
+/datum/map_template/modular/gleichseitig16fp/nineeintersectionone
+	name = "Street"
+	mappath = "_maps/modularmaps/gleichseitig16fp/9esintersectionvar1.dmm"
+	modular_id = "g16fp9eintersect"
+	template_width = 5
+	template_height = 5
+
+/datum/map_template/modular/gleichseitig16fp/nineeintersectiontwo
+	name = "Street Checkpoint"
+	mappath = "_maps/modularmaps/gleichseitig16fp/9esintersectionvar2.dmm"
+	modular_id = "g16fp9eintersect"
+	template_width = 5
+	template_height = 5
+
+/datum/map_template/modular/gleichseitig16fp/ninegintersectionone
+	name = "Street"
+	mappath = "_maps/modularmaps/gleichseitig16fp/9gsintersectionvar1.dmm"
+	modular_id = "g16fp9gintersect"
+	template_width = 5
+	template_height = 5
+
+/datum/map_template/modular/gleichseitig16fp/ninegintersectiontwo
+	name = "Street Checkpoint"
+	mappath = "_maps/modularmaps/gleichseitig16fp/9gsintersectionvar2.dmm"
+	modular_id = "g16fp9gintersect"
+	template_width = 5
+	template_height = 5
+
+/datum/map_template/modular/gleichseitig16fp/threefsintersectionone
+	name = "Street"
+	mappath = "_maps/modularmaps/gleichseitig16fp/3fsintersectionvar1.dmm"
+	modular_id = "g16fp3fintersect"
+	template_width = 7
+	template_height = 7
+
+/datum/map_template/modular/gleichseitig16fp/threefsintersectiontwo
+	name = "Street Checkpoint"
+	mappath = "_maps/modularmaps/gleichseitig16fp/3fsintersectionvar2.dmm"
+	modular_id = "g16fp3fintersect"
+	template_width = 7
+	template_height = 7
+
+/datum/map_template/modular/gleichseitig16fp/twojsintersectionone
+	name = "Street"
+	mappath = "_maps/modularmaps/gleichseitig16fp/2jsintersectionvar1.dmm"
+	modular_id = "g16fp2jintersect"
+	template_width = 7
+	template_height = 7
+
+/datum/map_template/modular/gleichseitig16fp/twojsintersectiontwo
+	name = "Street Checkpoint"
+	mappath = "_maps/modularmaps/gleichseitig16fp/2jsintersectionvar2.dmm"
+	modular_id = "g16fp2jintersect"
+	template_width = 7
+	template_height = 7
+
+/datum/map_template/modular/gleichseitig16fp/fourabroadone
+	name = "Street"
+	mappath = "_maps/modularmaps/gleichseitig16fp/4abroadvar1.dmm"
+	modular_id = "g16fp4abroad"
+	template_width = 12
+	template_height = 10
+
+/datum/map_template/modular/gleichseitig16fp/fourabroadtwo
+	name = "Street Checkpoint"
+	mappath = "_maps/modularmaps/gleichseitig16fp/4abroadvar2.dmm"
+	modular_id = "g16fp4abroad"
+	template_width = 12
+	template_height = 10
+
+/datum/map_template/modular/gleichseitig16fp/threedetsectionone
+	name = "Street"
+	mappath = "_maps/modularmaps/gleichseitig16fp/3detsectionvar1.dmm"
+	modular_id = "g16fp3detsection"
+	template_width = 7
+	template_height = 7
+
+/datum/map_template/modular/gleichseitig16fp/threedetsectiontwo
+	name = "Street Checkpoint"
+	mappath = "_maps/modularmaps/gleichseitig16fp/3detsectionvar2.dmm"
+	modular_id = "g16fp3detsection"
+	template_width = 7
+	template_height = 7
+
+/datum/map_template/modular/gleichseitig16fp/onecstreetone
+	name = "Street"
+	mappath = "_maps/modularmaps/gleichseitig16fp/1cstreetvar1.dmm"
+	modular_id = "g16fp1cstreet"
+	template_width = 9
+	template_height = 5
+
+/datum/map_template/modular/gleichseitig16fp/onecstreettwo
+	name = "Street Checkpoint"
+	mappath = "_maps/modularmaps/gleichseitig16fp/1cstreetvar2.dmm"
+	modular_id = "g16fp1cstreet"
+	template_width = 9
+	template_height = 5

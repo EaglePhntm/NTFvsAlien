@@ -115,6 +115,10 @@
 /obj/item/weapon/gun/rifle/standard_carbine/npc
 	starting_attachment_types = list(/obj/item/attachable/stock/t18stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/verticalgrip, /obj/item/attachable/bayonet)
 
+/obj/item/weapon/gun/rifle/standard_carbine/ap
+	starting_attachment_types = list(/obj/item/attachable/stock/t18stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/angledgrip, /obj/item/attachable/compensator)
+	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_carbine/ap
+
 //-------------------------------------------------------
 //AR-12 Assault Rifle
 
@@ -638,7 +642,7 @@
 	force = 20
 
 	burst_amount = 1
-	fire_delay = 0.225 SECONDS
+	fire_delay = 0.25 SECONDS
 	scatter = 1
 	wield_delay = 0.9 SECONDS
 
@@ -882,6 +886,12 @@
 	icon = 'icons/obj/items/guns/rifles64.dmi'
 	icon_state = "m16a4"
 	worn_icon_state = "m16a4"
+	worn_icon_list = list(
+		slot_l_hand_str = 'ntf_modular/icons/mob/inhands/guns/rifles_left_1.dmi',
+		slot_r_hand_str = 'ntf_modular/icons/mob/inhands/guns/rifles_right_1.dmi',
+		slot_s_store_str = 'ntf_modular/icons/mob/suit_slot.dmi',
+		slot_back_str = 'ntf_modular/icons/mob/clothing/back.dmi',
+	)
 
 	caliber = CALIBER_556X45 //codex
 	max_shells = 30 //codex
@@ -998,6 +1008,8 @@
 	worn_icon_list = list(
 		slot_l_hand_str = 'ntf_modular/icons/mob/inhands/guns/rifles_left_1.dmi',
 		slot_r_hand_str = 'ntf_modular/icons/mob/inhands/guns/rifles_right_1.dmi',
+		slot_s_store_str = 'ntf_modular/icons/mob/suit_slot.dmi',
+		slot_back_str = 'ntf_modular/icons/mob/clothing/back.dmi',
 	)
 
 	caliber = CALIBER_556X45 //codex
@@ -1061,6 +1073,10 @@
 	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/verticalgrip, /obj/item/attachable/suppressor)
 
 /obj/item/weapon/gun/rifle/khm4/sof
+	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/angledgrip, /obj/item/attachable/compensator)
+
+/obj/item/weapon/gun/rifle/khm4/extended
+	default_ammo_type = /obj/item/ammo_magazine/rifle/m16_quadstack
 	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/angledgrip, /obj/item/attachable/compensator)
 
 //-------------------------------------------------------
@@ -1901,7 +1917,7 @@
 	icon_state = "t81"
 	worn_icon_state = "t81"
 	gun_crosshair = 'icons/UI_Icons/gun_crosshairs/sniper.dmi'
-	fire_sound = 'sound/weapons/guns/fire/sniper.ogg'
+	fire_sound = 'sound/weapons/guns/fire/iffautosniper1.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/sniper_empty.ogg'
 	unload_sound = 'sound/weapons/guns/interact/m41a_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/m41a_reload.ogg'
@@ -3200,6 +3216,12 @@
 	desc = "An aged, reliable, but outdated bullpup rifle produced by Lancaster & Stark. Usually seen within ICC space due to being surplused long ago, some of these surplus models sometimes find themselves within NTC space via underhanded means. It's best used in close quarters when you need to quickly clear corners at rapid pace, has an integral foregrip and unmagnified scope to increase accuracy and reduce drag. Chambered in 5.56x45mm NATO."
 	icon_state = "l88_export"
 	worn_icon_state = "l88_export"
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/guns/rifles_left_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/guns/rifles_right_1.dmi',
+		slot_s_store_str = 'ntf_modular/icons/mob/suit_slot.dmi',
+		slot_back_str = 'ntf_modular/icons/mob/clothing/back.dmi',
+	)
 	default_ammo_type = /obj/item/ammo_magazine/rifle/icc_assaultcarbine/export
 
 /obj/item/weapon/gun/rifle/icc_assaultcarbine/exportautorifle

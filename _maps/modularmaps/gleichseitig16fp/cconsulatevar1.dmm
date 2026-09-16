@@ -170,6 +170,7 @@
 /obj/structure/bed/chair/sofa/right{
 	dir = 8
 	},
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
 /turf/open/floor/urban/metal/zbrownfloor_full,
 /area/gleichseitig16/indoors/central/consulate/pastry)
 "eb" = (
@@ -678,6 +679,10 @@
 	},
 /turf/open/floor/urban/tile/tileblue,
 /area/gleichseitig16/indoors/central/consulate/lobby)
+"pw" = (
+/obj/effect/landmark/spawn_marker/euseparatists/advisorcommando,
+/turf/open/floor/kutjevo/grey,
+/area/gleichseitig16/indoors/central/consulate/pastry)
 "py" = (
 /obj/structure/window/framed/urban/reinforced,
 /turf/open/urban/street/sidewalkfull,
@@ -992,6 +997,10 @@
 /obj/structure/prop/urban/misc/trash/blue,
 /turf/open/floor/kutjevo/grey,
 /area/gleichseitig16/indoors/central/consulate/pastry)
+"wt" = (
+/obj/effect/landmark/spawn_marker/euseparatists/advisormg,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
 "xA" = (
 /obj/machinery/light{
 	dir = 1
@@ -1139,6 +1148,7 @@
 /obj/structure/bed/chair{
 	dir = 1
 	},
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
 /turf/open/floor/plating,
 /area/gleichseitig16/indoors/central/consulate/maints)
 "Bi" = (
@@ -1152,6 +1162,13 @@
 	dir = 6
 	},
 /area/gleichseitig16/indoors/central/consulate/restrooms)
+"BZ" = (
+/obj/structure/bed/chair/comfy{
+	dir = 8
+	},
+/obj/effect/landmark/spawn_marker/euseparatists/militant,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/walley)
 "Ch" = (
 /turf/open/floor/plating/ground/snow/layer2,
 /area/gleichseitig16/outdoors/central/consulate/walley)
@@ -1186,6 +1203,7 @@
 /area/gleichseitig16/outdoors/north/streets)
 "CN" = (
 /obj/structure/bed/chair,
+/obj/effect/landmark/spawn_marker/euseparatists/sapperidle,
 /turf/open/floor/plating,
 /area/gleichseitig16/indoors/central/consulate/maints)
 "CP" = (
@@ -1404,6 +1422,15 @@
 	},
 /turf/open/urban/street/sidewalkfull,
 /area/gleichseitig16/outdoors/south/streets)
+"GY" = (
+/obj/structure/bed/chair/sofa/corsat/verticaltop,
+/obj/effect/landmark/spawn_marker/euseparatists/militant,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/central/consulate/courtyard)
+"Hf" = (
+/obj/effect/landmark/spawn_marker/euseparatists/deserter,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/courtyard)
 "Hn" = (
 /obj/structure/transmitter/colony_net/auto_id{
 	dir = 4;
@@ -1835,6 +1862,13 @@
 	},
 /turf/open/urban/street/sidewalkfull,
 /area/gleichseitig16/outdoors/central/consulate/courtyard)
+"Sf" = (
+/obj/structure/bed/chair,
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/floor/iron/diagonal{
+	color = "#9b9b9b"
+	},
+/area/gleichseitig16/indoors/central/consulate/ehall)
 "Sj" = (
 /obj/structure/table/mainship,
 /obj/structure/barricade/railing{
@@ -1873,6 +1907,10 @@
 	},
 /turf/open/floor/plating/ground/snow/layer2,
 /area/gleichseitig16/outdoors/central/consulate/walley)
+"Tu" = (
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/whall)
 "TC" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -1914,6 +1952,10 @@
 /obj/structure/prop/mainship/railing/corner,
 /turf/open/urban/street/sidewalkfull,
 /area/gleichseitig16/outdoors/central/consulate/courtyard)
+"Ug" = (
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/breakroom)
 "Ui" = (
 /obj/machinery/photocopier,
 /turf/open/floor/urban/tile/tileblue,
@@ -2349,7 +2391,7 @@ hL
 Er
 hL
 qA
-EN
+BZ
 EN
 GB
 hL
@@ -2661,7 +2703,7 @@ Yo
 Al
 nx
 CB
-Ts
+Ug
 Ts
 Ts
 iJ
@@ -2690,7 +2732,7 @@ wf
 wf
 wf
 wf
-wf
+Tu
 Mv
 wf
 ZI
@@ -2866,7 +2908,7 @@ az
 az
 gs
 az
-az
+Hf
 rx
 MO
 ZG
@@ -3156,7 +3198,7 @@ qk
 ql
 qk
 ql
-qk
+pw
 KP
 qk
 ql
@@ -3315,7 +3357,7 @@ OV
 EJ
 az
 AA
-ZG
+wt
 YW
 ZG
 YM
@@ -3566,7 +3608,7 @@ TC
 TC
 IX
 CD
-az
+eN
 az
 az
 OV
@@ -3735,7 +3777,7 @@ nn
 Gh
 rd
 EJ
-Wk
+GY
 lf
 OV
 OV
@@ -3746,7 +3788,7 @@ TC
 TC
 IX
 CD
-az
+Hf
 az
 uS
 az
@@ -3837,8 +3879,8 @@ TC
 IX
 bY
 hf
-dA
-Ln
+TG
+Sf
 De
 cA
 TG
@@ -3882,13 +3924,13 @@ TC
 IX
 iO
 TG
-TG
-TG
-TG
 dA
 TG
 TG
 TG
+TG
+TG
+dA
 TG
 TG
 TG

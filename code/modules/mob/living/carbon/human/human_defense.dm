@@ -433,7 +433,7 @@ Contains most of the procs that are called when a mob is attacked by something
 	if(user.a_intent != INTENT_HELP)
 		return ..()
 
-	var/datum/limb/affecting = user.client.prefs.toggles_gameplay & RADIAL_MEDICAL ? radial_medical(src, user) : get_limb(user.zone_selected)
+	var/datum/limb/affecting = user.client?.prefs.toggles_gameplay & RADIAL_MEDICAL ? radial_medical(src, user) : get_limb(user.zone_selected)
 
 	if(!affecting)
 		return TRUE

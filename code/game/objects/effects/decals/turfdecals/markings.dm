@@ -185,9 +185,12 @@
 	icon_state = "wood_sidingalt"
 
 /obj/effect/turf_decal/woodsiding/Initialize(mapload)
-	. = ..()
-	loc.overlays += image(icon, icon_state, dir = src.dir)
-	return INITIALIZE_HINT_QDEL
+    . = ..()
+    var/image/img = image(icon, icon_state, dir = src.dir)
+    img.color = color
+    img.alpha = alpha
+    loc.overlays += img
+    return INITIALIZE_HINT_QDEL
 
 /obj/effect/turf_decal/siding
 	icon_state = "siding"
@@ -196,9 +199,12 @@
 	icon_state = "sidingalt"
 
 /obj/effect/turf_decal/siding/Initialize(mapload)
-	. = ..()
-	loc.overlays += image(icon, icon_state, dir = src.dir)
-	return INITIALIZE_HINT_QDEL
+    . = ..()
+    var/image/img = image(icon, icon_state, dir = src.dir)
+    img.color = color
+    img.alpha = alpha
+    loc.overlays += img
+    return INITIALIZE_HINT_QDEL
 
 /obj/effect/turf_decal/symbol/corsat
 	color = "#9c7f42"

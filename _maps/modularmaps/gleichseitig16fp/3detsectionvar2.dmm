@@ -1,0 +1,254 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/north/streets)
+"d" = (
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 4
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/north/streets)
+"e" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/obj/structure/barricade/sandbags{
+	faction = "Hostile"
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/north/streets)
+"f" = (
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 8
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/north/streets)
+"i" = (
+/obj/effect/mapping_helpers/barricade/wired,
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/north/streets)
+"j" = (
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/north/streets)
+"k" = (
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 4
+	},
+/obj/structure/barricade/sandbags{
+	faction = "Hostile"
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/north/streets)
+"m" = (
+/obj/machinery/streetlight/traffic{
+	pixel_x = 5;
+	pixel_y = 12;
+	dir = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/north/streets)
+"n" = (
+/obj/effect/urban/decal/doubleroad/lines3{
+	pixel_y = 14
+	},
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 8
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/north/streets)
+"r" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/north/streets)
+"t" = (
+/obj/structure/barricade/sandbags{
+	faction = "Hostile"
+	},
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 8
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/north/streets)
+"x" = (
+/obj/effect/urban/decal/road/road_edge/three,
+/obj/effect/urban/decal/road/lines3,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/north/streets)
+"y" = (
+/obj/effect/urban/decal/road/road_edge/three,
+/obj/effect/urban/decal/road/lines3,
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 8
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/north/streets)
+"A" = (
+/obj/effect/urban/decal/road/road_edge/three,
+/obj/effect/urban/decal/road/lines3,
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 4
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/north/streets)
+"C" = (
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 8
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/north/streets)
+"D" = (
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/north/streets)
+"G" = (
+/obj/structure/barricade/sandbags{
+	faction = "Hostile"
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/north/streets)
+"J" = (
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 8
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/north/streets)
+"L" = (
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/north/streets)
+"O" = (
+/obj/effect/mapping_helpers/barricade/wired,
+/obj/structure/barricade/folding{
+	faction = "Hostile"
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/north/streets)
+"R" = (
+/obj/machinery/streetlight/traffic{
+	pixel_x = 5;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 4
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/north/streets)
+"T" = (
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 4
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/north/streets)
+
+(1,1,1) = {"
+J
+C
+n
+C
+y
+f
+t
+"}
+(2,1,1) = {"
+i
+r
+a
+a
+x
+m
+O
+"}
+(3,1,1) = {"
+i
+a
+a
+D
+x
+L
+G
+"}
+(4,1,1) = {"
+i
+a
+a
+a
+x
+L
+e
+"}
+(5,1,1) = {"
+i
+a
+a
+a
+x
+L
+G
+"}
+(6,1,1) = {"
+i
+a
+r
+a
+x
+j
+O
+"}
+(7,1,1) = {"
+d
+T
+T
+T
+A
+R
+k
+"}

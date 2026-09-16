@@ -502,9 +502,12 @@
 			if(proj.ammo.sound_bounce)
 				playsound(loc, proj.ammo.sound_bounce, 15, TRUE, 7, 5, pitch)
 			do_sparks(rand(1,2), TRUE, loc)
+			var/old_bonus_projectile_type = proj.ammo.bonus_projectiles_type
 			proj.ammo.bonus_projectiles_type = proj.ammo.type
 			proj.proj_max_range /= rand(2,3)
-			proj.ammo.reflect(get_turf(src), proj, 90)
+			ASYNC
+				proj.ammo.reflect(get_turf(src), proj, 90)
+			proj.ammo.bonus_projectiles_type = old_bonus_projectile_type
 			proj.proj_max_range = 0 //kill original proj
 			return FALSE
 	if(src == proj.original_target)

@@ -2,10 +2,15 @@
 "ai" = (
 /turf/closed/wall/urban/colony,
 /area/gleichseitig16/indoors/east/sinitsynhospital)
+"al" = (
+/obj/effect/urban/decal/trash/sixteen,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/streets)
 "ax" = (
 /obj/structure/fence/dark,
-/turf/open/floor/plating/ground/snow/layer1,
-/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+/obj/structure/cable,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "aH" = (
 /obj/structure/table/reinforced,
 /obj/machinery/prop/computer,
@@ -17,6 +22,15 @@
 /obj/structure/toilet,
 /turf/open/floor/urban/tile/tilewhite,
 /area/gleichseitig16/indoors/east/sinitsynhospital)
+"bc" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "bu" = (
 /obj/machinery/autodoc,
 /turf/open/floor/prison/whitegreen{
@@ -25,9 +39,8 @@
 /area/gleichseitig16/indoors/east/sinitsynhospital)
 "bx" = (
 /obj/structure/fence/dark,
-/obj/structure/cable,
-/turf/open/floor/plating/ground/snow/layer1,
-/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "bE" = (
 /obj/structure/cable,
 /turf/open/urban/street/sidewalk{
@@ -82,8 +95,14 @@
 /turf/open/floor/prison/sterilewhite,
 /area/gleichseitig16/indoors/east/sinitsynhospital)
 "dq" = (
-/turf/closed/wall/r_wall/urban,
+/turf/closed/wall/urban/colony,
 /area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"du" = (
+/obj/effect/urban/decal/trash/fifteen,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
 "dz" = (
 /obj/machinery/door_control{
 	id = "hospitalstorage2";
@@ -115,6 +134,7 @@
 /turf/open/urban/street/sidewalkfull,
 /area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "eq" = (
+/obj/machinery/bodyscanner,
 /turf/open/floor/prison/whitegreen{
 	dir = 10
 	},
@@ -172,6 +192,12 @@
 "fx" = (
 /turf/open/floor/prison/whitegreen,
 /area/gleichseitig16/indoors/east/sinitsynhospital)
+"fH" = (
+/obj/effect/urban/decal/trash/ten,
+/turf/open/floor/prison/whitegreen{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
 "fN" = (
 /obj/structure/bed/chair{
 	dir = 8;
@@ -197,8 +223,9 @@
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/outdoors/east/streets)
 "gC" = (
+/obj/effect/urban/decal/trash/nine,
 /turf/open/urban/street/sidewalkfull,
-/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "gV" = (
 /obj/structure/mirror{
 	dir = 4
@@ -210,6 +237,14 @@
 	dir = 1
 	},
 /area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"hq" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/rack,
+/obj/item/storage/firstaid/regular,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
 "hI" = (
 /obj/structure/bed/chair/office/dark/north{
 	dir = 4
@@ -222,6 +257,19 @@
 	},
 /turf/open/urban/street/sidewalkfull,
 /area/gleichseitig16/outdoors/east/streets)
+"ic" = (
+/obj/structure/filingcabinet/nondense{
+	pixel_x = 7;
+	pixel_y = 21
+	},
+/obj/structure/filingcabinet/nondense{
+	pixel_x = -8;
+	pixel_y = 21
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 9
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
 "ii" = (
 /obj/structure/sink{
 	dir = 4;
@@ -252,6 +300,14 @@
 	},
 /turf/open/floor/plating,
 /area/gleichseitig16/indoors/east/sinitsynhospital)
+"iV" = (
+/obj/effect/urban/decal/trash/ten,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"jm" = (
+/obj/structure/prop/urban/containersextended/medicalright,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
 "jt" = (
 /obj/structure/bed/chair/sofa/corsat/verticaltop,
 /turf/open/floor/prison/sterilewhite,
@@ -267,11 +323,25 @@
 /turf/open/urban/street/sidewalk,
 /area/gleichseitig16/outdoors/east/streets)
 "jT" = (
-/obj/structure/prop/urban/misc/trash/blue,
-/turf/open/floor/prison/whitegreen{
-	dir = 9
-	},
-/area/gleichseitig16/indoors/east/sinitsynhospital)
+/obj/structure/closet/crate/medical,
+/obj/item/roller/bedroll,
+/obj/item/roller/bedroll,
+/obj/item/roller/bedroll,
+/obj/item/roller/bedroll,
+/obj/item/roller/bedroll,
+/obj/item/roller/bedroll,
+/obj/item/roller/bedroll,
+/obj/item/roller/bedroll,
+/obj/item/bedsheet,
+/obj/item/bedsheet,
+/obj/item/bedsheet,
+/obj/item/bedsheet,
+/obj/item/bedsheet,
+/obj/item/bedsheet,
+/obj/item/bedsheet,
+/obj/item/bedsheet,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
 "ka" = (
 /obj/structure/bed/chair/sofa/corsat/verticaltop,
 /obj/item/newspaper{
@@ -303,8 +373,9 @@
 /obj/effect/ai_node{
 	pixel_x = 1
 	},
-/turf/open/floor/plating/ground/snow/layer1,
-/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+/obj/structure/cable,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "lq" = (
 /obj/machinery/light{
 	dir = 1
@@ -327,6 +398,11 @@
 /obj/structure/barricade/handrail/kutjevo,
 /turf/open/floor/prison/sterilewhite,
 /area/gleichseitig16/indoors/east/sinitsynhospital)
+"mO" = (
+/obj/structure/rack,
+/obj/item/storage/firstaid/o2,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
 "mQ" = (
 /obj/machinery/door_control{
 	id = "hospitalstorage1";
@@ -375,6 +451,10 @@
 	dir = 4
 	},
 /area/gleichseitig16/indoors/east/sinitsynhospital)
+"of" = (
+/obj/effect/urban/decal/trash/twelve,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/streets)
 "om" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/prison/whitegreen,
@@ -396,6 +476,17 @@
 	dir = 1
 	},
 /area/gleichseitig16/indoors/east/sinitsynhospital)
+"oV" = (
+/obj/effect/urban/decal/trash/six,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"pI" = (
+/obj/structure/rack,
+/obj/item/storage/firstaid/toxin,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
 "pW" = (
 /turf/open/floor/plating,
 /area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
@@ -403,6 +494,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/effect/urban/decal/trash/two,
 /turf/open/floor/prison/whitegreen{
 	dir = 9
 	},
@@ -426,9 +518,10 @@
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
 "rx" = (
-/obj/structure/cable,
-/turf/open/floor/plating/ground/snow/layer1,
-/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+/obj/structure/rack,
+/obj/item/storage/firstaid/regular,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
 "ry" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/prison/whitegreen{
@@ -472,8 +565,9 @@
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "sQ" = (
-/turf/open/urban/street/asphalt,
-/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+/obj/structure/prop/urban/containersextended/emptymedicalright,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
 "sR" = (
 /turf/open/urban/street/sidewalk{
 	dir = 5
@@ -497,6 +591,12 @@
 	dir = 1
 	},
 /turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"tn" = (
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/floor/prison/whitegreen{
+	dir = 10
+	},
 /area/gleichseitig16/indoors/east/sinitsynhospital)
 "to" = (
 /obj/machinery/light{
@@ -543,6 +643,14 @@
 	},
 /turf/open/floor/prison/whitegreen,
 /area/gleichseitig16/indoors/east/sinitsynhospital)
+"ux" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/rack,
+/obj/item/storage/firstaid/fire,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
 "uK" = (
 /obj/structure/prop/urban/vehicles/large/suv/misc/whitevan{
 	dir = 8
@@ -550,8 +658,9 @@
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "uR" = (
+/obj/effect/urban/decal/trash/eight,
 /turf/open/urban/street/sidewalk,
-/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "uW" = (
 /turf/open/floor/prison{
 	dir = 8
@@ -567,13 +676,22 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/open/floor/plating/ground/snow/layer1,
-/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "vl" = (
 /turf/open/urban/street/sidewalk{
 	dir = 8
 	},
 /area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"vv" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/urban/decal/trash/seven,
+/turf/open/floor/prison/whitegreen{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
 "vC" = (
 /obj/machinery/streetlight/street{
 	level = 7;
@@ -627,13 +745,29 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/closet/crate/medical,
+/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
+/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
+/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
+/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
 /turf/open/floor/plating,
 /area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
 "xA" = (
-/obj/effect/spawner/random/medical/structure/crate/medsupplies,
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/clothing/mask/rebreather/scarf,
+/obj/item/clothing/mask/rebreather/scarf,
+/obj/item/clothing/mask/rebreather/scarf,
+/obj/item/clothing/mask/rebreather/scarf,
+/obj/item/clothing/mask/rebreather/scarf,
+/obj/item/clothing/mask/rebreather/scarf,
+/obj/item/clothing/mask/rebreather/scarf,
+/obj/item/clothing/mask/rebreather/scarf,
+/obj/structure/closet/crate,
 /turf/open/floor/plating,
 /area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
 "xD" = (
@@ -642,13 +776,10 @@
 	},
 /area/gleichseitig16/indoors/east/sinitsynhospital)
 "xN" = (
-/obj/effect/ai_node{
-	pixel_x = 1
-	},
 /turf/open/floor/plating/ground/snow{
 	color = "#ffe1af"
 	},
-/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "xU" = (
 /obj/effect/ai_node{
 	pixel_x = 1
@@ -696,6 +827,12 @@
 /obj/structure/cable,
 /obj/effect/spawner/random/misc/structure/supplycrate,
 /turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"yX" = (
+/obj/effect/urban/decal/trash/thirteen,
+/turf/open/floor/prison/whitegreen{
+	dir = 5
+	},
 /area/gleichseitig16/indoors/east/sinitsynhospital)
 "zd" = (
 /obj/structure/bed/chair{
@@ -758,7 +895,7 @@
 	dir = 1
 	},
 /turf/open/urban/street/sidewalk,
-/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "AR" = (
 /obj/structure/table/reinforced,
 /obj/machinery/prop/computer,
@@ -774,6 +911,12 @@
 	},
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"AW" = (
+/obj/machinery/computer/body_scanconsole,
+/turf/open/floor/prison/whitegreen{
+	dir = 5
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
 "Bd" = (
 /obj/machinery/light/small,
 /turf/open/floor/prison/whitegreen,
@@ -792,6 +935,10 @@
 /obj/structure/cable,
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/outdoors/east/streets)
+"Bx" = (
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
+/turf/open/floor/prison/whitegreen,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
 "BA" = (
 /obj/effect/urban/decal/road/lines2,
 /obj/effect/urban/decal/road/road_edge/four,
@@ -827,6 +974,10 @@
 /obj/structure/cable,
 /turf/open/urban/street/sidewalk,
 /area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"Cz" = (
+/obj/machinery/iv_drip,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
 "CN" = (
 /obj/structure/prop/urban/vehicles/large/van{
 	pixel_y = -6;
@@ -846,6 +997,10 @@
 /obj/machinery/door/airlock/mainship/generic,
 /turf/open/floor/plating,
 /area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"Dg" = (
+/obj/effect/urban/decal/trash/twelve,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "Dj" = (
 /obj/effect/spawner/random/misc/structure/large/car{
 	pixel_y = -6;
@@ -853,12 +1008,22 @@
 	},
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"Dw" = (
+/obj/effect/urban/decal/trash/fourteen,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "Dz" = (
-/obj/effect/ai_node{
-	pixel_x = 1
-	},
-/turf/open/urban/street/sidewalk,
-/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
 "DK" = (
 /turf/open/urban/street/sidewalk{
 	dir = 9
@@ -915,9 +1080,10 @@
 /turf/open/floor/prison/whitegreen,
 /area/gleichseitig16/indoors/east/sinitsynhospital)
 "EV" = (
-/obj/structure/fence/dark,
-/turf/open/floor/plating/ground/snow/layer2,
-/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+/obj/structure/rack,
+/obj/item/storage/firstaid/rad,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
 "EY" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -925,8 +1091,8 @@
 /obj/effect/ai_node{
 	pixel_x = 1
 	},
-/turf/open/floor/plating/ground/snow/layer1,
-/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "Fh" = (
 /obj/effect/urban/decal/road/road_edge/three,
 /obj/effect/urban/decal/road/lines3,
@@ -950,7 +1116,8 @@
 	},
 /area/gleichseitig16/indoors/east/sinitsynhospital)
 "FJ" = (
-/obj/effect/spawner/random/medical/structure/crate/medsupplies,
+/obj/structure/rack,
+/obj/item/storage/firstaid/adv,
 /turf/open/floor/plating,
 /area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
 "FV" = (
@@ -981,10 +1148,24 @@
 	},
 /turf/open/urban/street/sidewalkfull,
 /area/gleichseitig16/outdoors/east/streets)
-"GE" = (
-/obj/machinery/light,
-/obj/machinery/bodyscanner,
+"Gy" = (
+/obj/structure/closet/walllocker/medical_wall/full{
+	dir = 1
+	},
 /turf/open/floor/prison/whitegreen,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"GE" = (
+/obj/structure/filingcabinet/nondense{
+	pixel_x = -8;
+	pixel_y = 21
+	},
+/obj/structure/filingcabinet/nondense{
+	pixel_x = 7;
+	pixel_y = 21
+	},
+/turf/open/floor/prison/whitegreen{
+	dir = 5
+	},
 /area/gleichseitig16/indoors/east/sinitsynhospital)
 "GL" = (
 /obj/effect/urban/decal/dirt,
@@ -993,6 +1174,12 @@
 	},
 /turf/open/urban/street/sidewalkfull,
 /area/gleichseitig16/outdoors/east/streets)
+"GY" = (
+/obj/effect/urban/decal/trash/two,
+/turf/open/floor/prison/whitegreen{
+	dir = 9
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
 "Hc" = (
 /obj/effect/urban/decal/road/road_edge/two,
 /obj/effect/urban/decal/road/lines4,
@@ -1014,8 +1201,8 @@
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "Ho" = (
-/turf/open/floor/plating/ground/snow/layer1,
-/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+/turf/open/urban/street/sidewalkcenter,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "HS" = (
 /obj/machinery/streetlight/traffic{
 	pixel_x = 5;
@@ -1043,6 +1230,10 @@
 	dir = 8
 	},
 /area/gleichseitig16/outdoors/east/streets)
+"Ig" = (
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/floor/prison/whitegreen,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
 "Io" = (
 /obj/structure/cable,
 /turf/open/urban/street/sidewalk,
@@ -1059,6 +1250,16 @@
 	},
 /turf/open/floor/prison/sterilewhite,
 /area/gleichseitig16/indoors/east/sinitsynhospital)
+"Jv" = (
+/obj/machinery/bodyscanner,
+/turf/open/floor/prison/whitegreen{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"JK" = (
+/obj/effect/landmark/spawn_marker/euseparatists/medic,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
 "JR" = (
 /obj/effect/spawner/random/misc/structure/large/car{
 	dir = 4;
@@ -1067,10 +1268,11 @@
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "JS" = (
-/obj/effect/spawner/random/medical/structure/crate/medsupplies,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/rack,
+/obj/item/storage/firstaid/adv,
 /turf/open/floor/plating,
 /area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
 "Kc" = (
@@ -1086,6 +1288,10 @@
 /turf/open/floor/prison/whitegreen{
 	dir = 8
 	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"Kk" = (
+/obj/machinery/computer/body_scanconsole,
+/turf/open/floor/prison/whitegreen,
 /area/gleichseitig16/indoors/east/sinitsynhospital)
 "Kv" = (
 /obj/machinery/door/airlock/mainship/generic{
@@ -1115,6 +1321,10 @@
 /obj/structure/cable,
 /turf/open/urban/street/sidewalkfull,
 /area/gleichseitig16/outdoors/east/streets)
+"Lu" = (
+/obj/effect/landmark/spawn_marker/euseparatists/sapperidle,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
 "LB" = (
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
@@ -1179,6 +1389,12 @@
 	dir = 4
 	},
 /area/gleichseitig16/indoors/east/sinitsynhospital)
+"NG" = (
+/obj/structure/closet/walllocker/medical_wall/full,
+/turf/open/floor/prison/whitegreen{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/east/sinitsynhospital)
 "NH" = (
 /obj/effect/ai_node{
 	pixel_x = 1
@@ -1188,11 +1404,11 @@
 	},
 /area/gleichseitig16/outdoors/east/streets)
 "NN" = (
-/obj/effect/ai_node{
-	pixel_x = 1
+/obj/structure/cable,
+/turf/open/floor/plating/ground/snow{
+	color = "#ffe1af"
 	},
-/turf/open/urban/street/sidewalkfull,
-/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "NT" = (
 /obj/structure/bed/roller/hospital_empty/bigrollerempty3{
 	dir = 1
@@ -1208,11 +1424,9 @@
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "OO" = (
-/obj/effect/ai_node{
-	pixel_x = 1
-	},
-/turf/open/urban/street/asphalt,
-/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+/obj/effect/urban/decal/trash/two,
+/turf/open/floor/prison/whitegreen,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
 "OT" = (
 /turf/open/floor/prison/whitegreen{
 	dir = 8
@@ -1305,6 +1519,14 @@
 /obj/effect/urban/decal/road/road_edge/five,
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/outdoors/east/streets)
+"QY" = (
+/obj/structure/cable,
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "Rp" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -1339,6 +1561,14 @@
 	dir = 9
 	},
 /area/gleichseitig16/indoors/east/sinitsynhospital)
+"RX" = (
+/obj/structure/closet/crate/medical,
+/obj/item/clothing/tie/stethoscope,
+/obj/item/clothing/tie/stethoscope,
+/obj/item/clothing/tie/stethoscope,
+/obj/item/clothing/tie/stethoscope,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
 "RY" = (
 /obj/structure/cable,
 /turf/open/floor/prison/whitegreen{
@@ -1352,6 +1582,16 @@
 	},
 /turf/open/floor/prison/sterilewhite,
 /area/gleichseitig16/indoors/east/sinitsynhospital)
+"SA" = (
+/obj/effect/urban/decal/trash/fifteen,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"SD" = (
+/obj/effect/urban/decal/trash/fourteen,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/east/streets)
 "Ta" = (
 /obj/structure/barricade/handrail/kutjevo{
 	dir = 1
@@ -1366,10 +1606,9 @@
 /turf/open/floor/prison/sterilewhite,
 /area/gleichseitig16/indoors/east/sinitsynhospital)
 "Tk" = (
-/turf/open/floor/plating/ground/snow{
-	color = "#ffe1af"
-	},
-/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+/obj/item/trash/barcaridine,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "Tl" = (
 /turf/open/floor/prison/whitegreen{
 	dir = 1
@@ -1377,7 +1616,9 @@
 /area/gleichseitig16/indoors/east/sinitsynhospital)
 "Tn" = (
 /obj/structure/fence/dark,
-/turf/open/floor/plating/ground/snow/layer2,
+/turf/open/floor/plating/ground/snow{
+	color = "#ffe1af"
+	},
 /area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "TB" = (
 /obj/structure/cable,
@@ -1394,6 +1635,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/effect/urban/decal/trash/seven,
 /turf/open/floor/prison/whitegreen{
 	dir = 6
 	},
@@ -1410,6 +1652,10 @@
 	},
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"Ut" = (
+/obj/effect/urban/decal/trash/four,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
 "UB" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/prison/whitegreen{
@@ -1429,6 +1675,11 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/rack,
+/obj/item/bodybag,
+/obj/item/bodybag,
+/obj/item/bodybag,
+/obj/item/bodybag,
 /turf/open/floor/plating,
 /area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
 "Vs" = (
@@ -1439,17 +1690,29 @@
 	dir = 6
 	},
 /area/gleichseitig16/indoors/east/sinitsynhospital)
+"Vv" = (
+/obj/structure/prop/urban/containersextended/medicalleft,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
 "Vy" = (
 /obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow{
 	color = "#ffe1af"
 	},
-/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "VL" = (
 /obj/effect/urban/decal/road/road_edge/four,
 /obj/effect/urban/decal/road/lines2,
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/outdoors/east/streets)
+"VX" = (
+/obj/structure/rack,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
 "Wa" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/prison/sterilewhite,
@@ -1462,6 +1725,10 @@
 	},
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/outdoors/east/streets)
+"Wz" = (
+/obj/effect/urban/decal/trash/thirteen,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "WQ" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/pouch/surgery,
@@ -1473,6 +1740,10 @@
 /obj/structure/prop/vehicle/truck/truckcargo,
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/indoors/east/sinitsynhospital/warehouses)
+"Xb" = (
+/obj/effect/urban/decal/trash/seven,
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/east/streets)
 "Xe" = (
 /obj/structure/bed/chair/office/dark/north{
 	dir = 8
@@ -1480,13 +1751,8 @@
 /turf/open/floor/prison/sterilewhite,
 /area/gleichseitig16/indoors/east/sinitsynhospital)
 "Xp" = (
-/obj/machinery/streetlight/street{
-	level = 7;
-	pixel_y = 12
-	},
-/turf/open/urban/street/sidewalk{
-	dir = 8
-	},
+/obj/effect/urban/decal/trash/six,
+/turf/open/urban/street/sidewalkfull,
 /area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
 "Xu" = (
 /obj/structure/transmitter/colony_net/auto_id{
@@ -1526,6 +1792,14 @@
 	},
 /turf/open/urban/street/sidewalkfull,
 /area/gleichseitig16/outdoors/east/sinitsynhospital/parking)
+"Ym" = (
+/obj/effect/urban/decal/trash/five,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
+"YD" = (
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
 "YV" = (
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
 	dir = 1;
@@ -1533,12 +1807,16 @@
 	},
 /turf/open/floor/prison/sterilewhite,
 /area/gleichseitig16/indoors/east/sinitsynhospital)
+"YW" = (
+/obj/effect/landmark/spawn_marker/euseparatists/medicidle,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/sinitsynhospital)
 "Zc" = (
-/obj/structure/cable,
-/turf/open/floor/plating/ground/snow{
-	color = "#ffe1af"
+/obj/structure/prop/urban/misc/trash/blue,
+/turf/open/floor/prison/whitegreen{
+	dir = 5
 	},
-/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys)
+/area/gleichseitig16/indoors/east/sinitsynhospital)
 "Zj" = (
 /obj/effect/urban/decal/road/lines4,
 /obj/effect/urban/decal/road/road_edge/two,
@@ -1569,6 +1847,7 @@
 /area/gleichseitig16/outdoors/east/streets)
 "ZY" = (
 /obj/structure/cable,
+/obj/effect/urban/decal/trash/six,
 /turf/open/floor/prison/whitegreen{
 	dir = 6
 	},
@@ -1661,7 +1940,7 @@ jy
 jy
 Go
 jy
-jy
+of
 jy
 jy
 fe
@@ -1707,7 +1986,7 @@ PF
 fe
 fe
 nI
-nI
+gC
 EB
 LB
 Hl
@@ -1736,10 +2015,10 @@ mW
 Go
 wr
 FJ
-FJ
-FJ
+EV
+rx
 xm
-pW
+Dz
 dq
 lq
 fe
@@ -1751,18 +2030,18 @@ nI
 vl
 vl
 vl
-Xp
 vl
 vl
 vl
+bc
 vl
-Xp
+vl
 vl
 vl
 cR
 vl
-Xp
 vl
+bc
 vl
 vl
 jy
@@ -1787,7 +2066,7 @@ fe
 Yi
 nI
 nI
-nI
+Xp
 nI
 nI
 nI
@@ -1801,7 +2080,7 @@ tX
 nI
 nI
 nI
-nI
+Dg
 nI
 nI
 jy
@@ -1810,7 +2089,7 @@ VL
 "}
 (7,1,1) = {"
 Fh
-mW
+du
 jy
 dq
 KH
@@ -1819,11 +2098,11 @@ KH
 KH
 KH
 AS
-sQ
-sQ
-sQ
-sQ
-gC
+LB
+LB
+LB
+LB
+nI
 ai
 Zp
 ai
@@ -1858,11 +2137,11 @@ KH
 WZ
 KH
 AS
-sQ
-sQ
-sQ
-sQ
-gC
+LB
+LB
+LB
+LB
+nI
 ai
 zj
 WQ
@@ -1876,11 +2155,11 @@ fh
 to
 eq
 ai
-xD
+GY
 OT
 OT
 OT
-eq
+tn
 ai
 fp
 ZI
@@ -1897,13 +2176,13 @@ KH
 KH
 KH
 AS
-OO
-sQ
-sQ
-sQ
-gC
+Un
+LB
+LB
+LB
+nI
 ai
-Xu
+Tl
 cH
 Jc
 cH
@@ -1912,8 +2191,8 @@ Jc
 fx
 ai
 QL
-cH
-fx
+Ut
+Kk
 ai
 la
 ka
@@ -1930,21 +2209,21 @@ Fh
 mW
 Go
 wr
-pW
+Vv
 pW
 rY
 pW
 pW
 dq
-uR
-sQ
-sQ
-sQ
-gC
+EB
+LB
+LB
+LB
+nI
 ai
 oM
 Pv
-cH
+YD
 Bd
 ai
 Tl
@@ -1969,31 +2248,31 @@ Fh
 mW
 jy
 wr
-FJ
+jm
 pW
-pW
+Cz
 xA
-pW
+jT
 dq
 AA
-sQ
-sQ
-OO
-gC
+LB
+LB
+Un
+nI
 ai
 fl
 cH
-cH
+Ym
 om
 ai
-Tl
+NG
 fx
 ai
 aH
 hI
 fx
 ai
-Tl
+NG
 jt
 Ti
 zq
@@ -2014,11 +2293,11 @@ dq
 dq
 dq
 dq
-uR
-sQ
-sQ
-sQ
-gC
+EB
+LB
+LB
+LB
+nI
 ai
 Fq
 AR
@@ -2046,18 +2325,18 @@ cj
 gB
 mW
 jy
-ax
-Tk
-Ho
+bx
+iV
+nI
 EY
-Tk
-Tk
-Ho
-uR
-sQ
-sQ
-sQ
-gC
+nI
+Gm
+Gm
+EB
+LB
+LB
+LB
+nI
 ai
 ai
 ai
@@ -2085,18 +2364,18 @@ VL
 Fh
 mW
 jy
-EV
+bx
+nI
+nI
+nI
+nI
 Ho
-Ho
-Tk
-Ho
-Ho
-Tk
-uR
-OO
-sQ
-sQ
-gC
+LB
+LB
+Un
+LB
+LB
+nI
 ai
 bb
 UO
@@ -2107,8 +2386,8 @@ nT
 cH
 BT
 ai
-xD
-to
+ic
+vv
 ns
 QD
 Tl
@@ -2124,18 +2403,18 @@ VL
 Fh
 mW
 Go
-ax
+bx
+nI
+nI
+nI
+nI
 Ho
-Tk
-Ho
-Tk
-Ho
-Tk
-uR
-sQ
-sQ
-sQ
-NN
+LB
+LB
+LB
+LB
+LB
+Yi
 ai
 zh
 cP
@@ -2148,7 +2427,7 @@ cH
 fg
 cH
 Jc
-fx
+Ig
 Wa
 Tl
 ud
@@ -2163,27 +2442,27 @@ VL
 Fh
 vC
 jy
-EV
-Tk
-Ho
+bx
+nI
+nI
 vk
-Ho
-xN
-Ho
-uR
-sQ
-sQ
-sQ
-gC
+Dw
+vl
+vl
+EB
+LB
+LB
+LB
+nI
 ai
 ai
 ai
 ai
 vH
 cH
-cH
+JK
 Jc
-GE
+TI
 ai
 ai
 Xu
@@ -2209,11 +2488,11 @@ dq
 dq
 dq
 dq
-uR
-sQ
-OO
-sQ
-gC
+EB
+LB
+Un
+LB
+nI
 ai
 ye
 Rp
@@ -2224,7 +2503,7 @@ cH
 cH
 cH
 fg
-cH
+Ut
 cH
 uo
 Wa
@@ -2242,28 +2521,28 @@ Fh
 mW
 jy
 wr
-FJ
+Vv
 pW
-pW
-xm
+mO
+hq
 FJ
 dq
 AA
-sQ
-sQ
-sQ
-gC
+LB
+LB
+LB
+nI
 ai
 bb
 qL
 ai
-Fq
+yX
 nU
 FD
 cH
 IR
 ai
-Fq
+GE
 kQ
 OV
 QD
@@ -2281,17 +2560,17 @@ gB
 mW
 jy
 wr
-pW
+sQ
 rY
 pW
 pW
 dz
 dq
-uR
-sQ
-sQ
-sQ
-gC
+EB
+LB
+LB
+LB
+nI
 ai
 Zp
 ai
@@ -2326,11 +2605,11 @@ KH
 KH
 KH
 sr
-sQ
-sQ
-sQ
-sQ
-NN
+LB
+LB
+LB
+LB
+Yi
 ai
 zj
 WQ
@@ -2357,22 +2636,22 @@ Bm
 (21,1,1) = {"
 Fh
 mW
-jy
+of
 dq
 nA
 KH
 tE
 KH
-yC
+KH
 sr
-sQ
-OO
-sQ
-sQ
-gC
+LB
+Un
+LB
+LB
+nI
 ai
-Xu
-cH
+Tl
+YW
 cH
 fx
 ai
@@ -2381,7 +2660,7 @@ fx
 ai
 aH
 Xe
-fx
+OO
 ai
 Tl
 jt
@@ -2404,11 +2683,11 @@ KH
 KH
 KH
 sr
-sQ
-sQ
-sQ
-sQ
-gC
+LB
+LB
+LB
+LB
+nI
 ai
 oM
 Pv
@@ -2443,11 +2722,11 @@ rY
 pW
 pW
 dq
-uR
-sQ
-sQ
-sQ
-gC
+EB
+LB
+LB
+LB
+nI
 ai
 fl
 Jc
@@ -2457,7 +2736,7 @@ tf
 Jc
 fx
 ai
-QL
+Jv
 cH
 cH
 ai
@@ -2476,17 +2755,17 @@ Fh
 mW
 jy
 wr
+mO
+rx
 FJ
-pW
-pW
-xA
-pW
+ux
+pI
 dq
 AA
-sQ
-sQ
-sQ
-gC
+LB
+LB
+LB
+nI
 ai
 Fq
 AR
@@ -2496,7 +2775,7 @@ ai
 Tl
 TI
 ai
-fY
+AW
 wQ
 XM
 ai
@@ -2522,10 +2801,10 @@ dq
 dq
 dq
 uR
-sQ
-sQ
-OO
-gC
+LB
+LB
+Un
+nI
 ai
 ai
 ai
@@ -2553,21 +2832,21 @@ VL
 Fh
 vC
 jy
-ax
-xN
-Ho
-Ho
-Tk
-Ho
-Tk
-Dz
-sQ
-sQ
-sQ
-gC
+bx
+Yi
+nI
+nI
+nI
+Gm
+Gm
+EB
+LB
+LB
+LB
+nI
 ai
 RM
-OT
+fH
 to
 OT
 OT
@@ -2577,7 +2856,7 @@ Qt
 LF
 Nf
 iO
-Nf
+Lu
 Ud
 LF
 ai
@@ -2592,18 +2871,18 @@ VL
 gB
 mW
 jy
-ax
-Tk
-Tk
+bx
+nI
+SA
+nI
+nI
 Ho
-Ho
-Tk
-Ho
-uR
-sQ
-sQ
-sQ
-gC
+LB
+LB
+LB
+LB
+LB
+nI
 wA
 cH
 cH
@@ -2623,7 +2902,7 @@ ai
 zh
 MQ
 ai
-jy
+al
 KD
 VL
 "}
@@ -2631,18 +2910,18 @@ VL
 Fh
 mW
 jy
-EV
+bx
+nI
+nI
+nI
+nI
 Ho
-Tk
-Tk
-xN
-Ho
-Tk
-uR
-sQ
-sQ
-sQ
-gC
+LB
+LB
+LB
+LB
+LB
+nI
 ai
 NT
 Lf
@@ -2650,7 +2929,7 @@ HU
 Lf
 sl
 BG
-fx
+Gy
 ai
 ai
 ai
@@ -2670,18 +2949,18 @@ VL
 Fh
 mW
 jy
-ax
-Tk
-ld
+bx
+nI
+Yi
 vk
 Tk
-Ho
-Ho
-uR
-sQ
-sQ
-sQ
-gC
+vl
+vl
+EB
+LB
+LB
+LB
+nI
 ai
 ai
 ai
@@ -2691,7 +2970,7 @@ ai
 RY
 fx
 ai
-jT
+XP
 ry
 WQ
 Zn
@@ -2716,11 +2995,11 @@ dq
 dq
 dq
 dq
-uR
-sQ
-sQ
-sQ
-NN
+EB
+LB
+LB
+LB
+Yi
 ai
 XP
 zP
@@ -2733,7 +3012,7 @@ ai
 Tl
 cH
 cH
-fx
+OO
 ai
 LB
 Gf
@@ -2749,17 +3028,17 @@ Fh
 mW
 jy
 wr
+rx
 pW
-pW
-pW
+pI
 JS
-FJ
+Cz
 dq
 AA
-sQ
-sQ
-sQ
-gC
+LB
+LB
+LB
+nI
 ai
 Tl
 Jc
@@ -2794,11 +3073,11 @@ pW
 rY
 CR
 dq
-uR
-OO
-sQ
-sQ
-gC
+EB
+Un
+LB
+LB
+nI
 ai
 oM
 Pv
@@ -2833,21 +3112,21 @@ KH
 KH
 KH
 ra
-sQ
-sQ
-sQ
-sQ
-gC
+LB
+LB
+LB
+LB
+nI
 ai
-Xu
+Tl
 cH
 cH
-fx
+Bx
 ai
 Qv
-fx
+Ig
 ai
-Fq
+Zc
 AR
 NC
 yn
@@ -2863,7 +3142,7 @@ fe
 "}
 (34,1,1) = {"
 Fh
-mW
+SD
 Go
 dq
 nA
@@ -2872,11 +3151,11 @@ KH
 tE
 KH
 ra
-sQ
-sQ
-sQ
-sQ
-gC
+LB
+LB
+LB
+LB
+nI
 ai
 ii
 cT
@@ -2911,11 +3190,11 @@ KH
 KH
 KH
 ra
-sQ
-sQ
-sQ
-sQ
-NN
+LB
+LB
+LB
+LB
+Yi
 ai
 gV
 ai
@@ -2925,7 +3204,7 @@ ai
 eY
 ai
 ai
-nI
+Wz
 nI
 Yi
 nI
@@ -2957,7 +3236,7 @@ sO
 dO
 dO
 dO
-dO
+QY
 ei
 dO
 dO
@@ -2983,11 +3262,11 @@ Fh
 NH
 jy
 wr
-FJ
-pW
-pW
+Cz
+Dz
+RX
 Ve
-FJ
+VX
 dq
 cC
 LB
@@ -3058,14 +3337,14 @@ fe
 "}
 (39,1,1) = {"
 gB
-bE
-Rv
+mW
+jy
 bx
-rx
-rx
-rx
-Zc
-rx
+nI
+nI
+nI
+nI
+nI
 bx
 Cy
 Un
@@ -3098,15 +3377,15 @@ fe
 (40,1,1) = {"
 Fh
 bE
-jy
+Rv
 ax
-Ho
+dO
 ld
-Tk
-Tk
-Tk
-Tk
-EB
+NN
+NN
+NN
+dO
+Cy
 LB
 LB
 LB
@@ -3138,13 +3417,13 @@ BA
 Fh
 bE
 jy
-ax
-Ho
-Tk
-Tk
+bx
+nI
+nI
+xN
 Vy
-Tk
-Tk
+xN
+nI
 EB
 LB
 LB
@@ -3168,7 +3447,7 @@ LB
 LB
 LB
 LB
-hg
+oV
 jy
 ZI
 Aq
@@ -3177,13 +3456,13 @@ Aq
 Fh
 bE
 Go
-ax
-Ho
-Tk
-Tk
-Tk
+bx
+nI
+nI
 xN
-Tk
+xN
+xN
+nI
 EB
 JR
 Gf
@@ -3216,13 +3495,13 @@ BA
 Fh
 bE
 jy
-ax
-ld
-Ho
-Tk
-Tk
-Tk
-EV
+bx
+Yi
+nI
+nI
+nI
+nI
+bx
 EB
 LB
 Gf
@@ -3248,20 +3527,20 @@ LB
 LB
 hg
 jy
-ZI
+Xb
 BA
 "}
 (44,1,1) = {"
 gB
 bE
 jy
-EV
-ax
-ax
-ax
-EV
-EV
-EV
+bx
+bx
+bx
+bx
+bx
+bx
+bx
 Tn
 Tn
 Tn

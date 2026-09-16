@@ -74,6 +74,13 @@
 /obj/item/reagent_containers/glass/beaker/cryomix,
 /turf/open/floor/prison/sterilewhite,
 /area/gleichseitig16/indoors/east/calderacryogen)
+"dQ" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8
+	},
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
 "dT" = (
 /obj/effect/urban/decal/road/lines4,
 /obj/effect/urban/decal/road/road_edge/two,
@@ -177,6 +184,10 @@
 /obj/structure/prop/urban/misc/trash/green,
 /turf/open/floor/prison/sterilewhite,
 /area/gleichseitig16/indoors/east/calderacryogen)
+"iS" = (
+/obj/effect/landmark/spawn_marker/euseparatists/advisorbreacher,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
 "iV" = (
 /obj/machinery/door/airlock/mainship/generic/corporate{
 	name = "\improper Doctor's Office 3 Airlock";
@@ -274,6 +285,11 @@
 	dir = 6
 	},
 /area/gleichseitig16/indoors/east/calderacryogen)
+"mm" = (
+/obj/structure/bed/chair/office/dark,
+/obj/effect/landmark/spawn_marker/euseparatists/medicidle,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
 "mw" = (
 /obj/structure/bed/chair/office/dark,
 /obj/structure/window/reinforced/tinted{
@@ -322,6 +338,10 @@
 /obj/effect/urban/decal/road/lines2,
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/outdoors/east/streets)
+"od" = (
+/obj/effect/landmark/spawn_marker/euseparatists/advisorrifleman,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
 "ol" = (
 /obj/effect/ai_node{
 	pixel_x = 1
@@ -410,6 +430,10 @@
 /obj/effect/urban/decal/road/lines4,
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/outdoors/east/streets)
+"rJ" = (
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
 "rO" = (
 /obj/structure/table/reinforced,
 /obj/item/tool/pen{
@@ -494,6 +518,13 @@
 	},
 /turf/open/floor/prison/sterilewhite,
 /area/gleichseitig16/indoors/east/calderacryogen)
+"wg" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/obj/effect/landmark/spawn_marker/euseparatists/medicidle,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
 "wh" = (
 /obj/structure/cable,
 /turf/open/urban/street/sidewalk{
@@ -532,6 +563,10 @@
 /obj/structure/window/framed/urban/reinforced{
 	dir = 8
 	},
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"xs" = (
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
 /turf/open/floor/prison/sterilewhite,
 /area/gleichseitig16/indoors/east/calderacryogen)
 "xT" = (
@@ -678,6 +713,13 @@
 /area/gleichseitig16/indoors/east/calderacryogen)
 "Dv" = (
 /obj/structure/bed/chair/office/dark,
+/turf/open/floor/prison/sterilewhite,
+/area/gleichseitig16/indoors/east/calderacryogen)
+"El" = (
+/obj/structure/bed/chair/east{
+	dir = 8
+	},
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
 /turf/open/floor/prison/sterilewhite,
 /area/gleichseitig16/indoors/east/calderacryogen)
 "Ex" = (
@@ -995,6 +1037,7 @@
 /obj/structure/bed/chair/east{
 	dir = 8
 	},
+/obj/effect/landmark/spawn_marker/euseparatists/medicidle,
 /turf/open/floor/prison/sterilewhite,
 /area/gleichseitig16/indoors/east/calderacryogen)
 "SX" = (
@@ -1608,7 +1651,7 @@ KI
 Kl
 PI
 KI
-SI
+El
 PI
 Kl
 KI
@@ -1653,7 +1696,7 @@ Kl
 PI
 PI
 zB
-PI
+iS
 Kl
 Sz
 jM
@@ -1693,7 +1736,7 @@ PI
 np
 RA
 PI
-xi
+Kl
 Tv
 jM
 Kl
@@ -1802,7 +1845,7 @@ PI
 zr
 Ou
 KI
-PI
+rJ
 PI
 PI
 Kl
@@ -1993,7 +2036,7 @@ Lt
 Kl
 HU
 PI
-Dv
+mm
 Fj
 Kl
 Gw
@@ -2036,7 +2079,7 @@ PI
 cs
 Kl
 Gw
-PI
+od
 jq
 Yu
 PI
@@ -2109,7 +2152,7 @@ JG
 Lt
 Kl
 HU
-bB
+wg
 PI
 Fj
 Kl
@@ -2311,7 +2354,7 @@ dH
 PI
 PI
 PI
-PI
+rJ
 Kl
 eY
 PI
@@ -2434,7 +2477,7 @@ PI
 np
 RA
 PI
-xi
+Kl
 Tv
 jM
 Kl
@@ -2472,7 +2515,7 @@ Kl
 KI
 PI
 VH
-PI
+xs
 Kl
 rP
 jM
@@ -2583,7 +2626,7 @@ PI
 Kl
 PI
 do
-bB
+wg
 PI
 Kl
 PI
@@ -2617,7 +2660,7 @@ Lt
 Kl
 Gw
 VH
-EV
+dQ
 ij
 Kl
 Gw

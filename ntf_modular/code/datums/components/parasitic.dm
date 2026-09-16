@@ -81,8 +81,10 @@
 		target_hole = HOLE_ASS
 	if(fixed_hole)
 		target_hole = fixed_hole
-	var/flags = wearer?.client.prefs.sex_pref_flags
-	if(!wearer.client || flags & SEXPREF_TENTACLE_NEST)
+	var/flags = SEXPREF_ALL
+	if(wearer?.client)
+		flags = wearer.client.prefs.sex_pref_flags
+	if(flags & SEXPREF_TENTACLE_NEST)
 		if(COOLDOWN_FINISHED(src, implant_cooldown))
 			COOLDOWN_START(src, implant_cooldown, implant_delay)
 			if(!(wearer.status_flags & XENO_HOST))

@@ -375,6 +375,11 @@
 /obj/item/reagent_containers/cup/glass/drinkingglass/shotglass,
 /turf/open/floor/urban/tile/tileblackcheckered,
 /area/gleichseitig16/indoors/central/consulate/steakhouse)
+"iY" = (
+/obj/structure/bed/chair,
+/obj/effect/landmark/spawn_marker/euseparatists/sapperidle,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/central/consulate/maints)
 "jd" = (
 /obj/structure/bed/chair/comfy{
 	dir = 8
@@ -385,6 +390,7 @@
 /obj/structure/bed/chair/comfy{
 	dir = 8
 	},
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
 /turf/open/floor/urban/tile/tileblue,
 /area/gleichseitig16/indoors/central/consulate/breakroom)
 "jL" = (
@@ -526,6 +532,10 @@
 	},
 /turf/open/floor/urban/carpet/carpetblue,
 /area/gleichseitig16/indoors/central/consulate/woffices)
+"mt" = (
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/whall)
 "mw" = (
 /turf/open/floor/urban/tile/tileblue{
 	color = "#ff9b9b"
@@ -596,6 +606,16 @@
 /obj/machinery/light,
 /turf/open/floor/tile/purple/taupepurple,
 /area/gleichseitig16/indoors/central/consulate/restrooms)
+"oE" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/effect/landmark/spawn_marker/euseparatists/medicidle,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/courtyard)
 "oV" = (
 /obj/structure/window/framed/urban/reinforced,
 /turf/open/floor/urban/tile/tileblue{
@@ -953,6 +973,10 @@
 	},
 /turf/open/floor/urban/carpet/carpetblue,
 /area/gleichseitig16/indoors/central/consulate/woffices)
+"uY" = (
+/obj/effect/landmark/spawn_marker/euseparatists/militant,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/courtyard)
 "va" = (
 /turf/closed/wall/urban/colony,
 /area/gleichseitig16/indoors/central/consulate/conference)
@@ -1580,6 +1604,11 @@
 	},
 /turf/open/floor/urban/metal/darkblackmetal2,
 /area/gleichseitig16/indoors/central/consulate/steakhouse)
+"IT" = (
+/obj/structure/bed/chair/comfy,
+/obj/effect/landmark/spawn_marker/euseparatists/militant,
+/turf/open/floor/urban/tile/tileblackcheckered,
+/area/gleichseitig16/indoors/central/consulate/steakhouse)
 "Jj" = (
 /obj/effect/spawner/random/misc/structure/large/car{
 	dir = 4;
@@ -1833,6 +1862,11 @@
 	dir = 6
 	},
 /area/gleichseitig16/indoors/central/consulate/restrooms)
+"PV" = (
+/obj/structure/bed/chair,
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/central/consulate/courtyard)
 "Qe" = (
 /obj/structure/table/reinforced/prison,
 /obj/item/reagent_containers/cup/glass/drinkingglass{
@@ -1918,6 +1952,10 @@
 	},
 /turf/open/urban/street/sidewalkfull,
 /area/gleichseitig16/outdoors/central/consulate/courtyard)
+"Ri" = (
+/obj/effect/landmark/spawn_marker/euseparatists/militant,
+/turf/open/floor/urban/tile/tileblue,
+/area/gleichseitig16/indoors/central/consulate/lobby)
 "Rj" = (
 /obj/structure/platform/metalplatform,
 /turf/open/floor/urban/wood/darkerwood,
@@ -2043,6 +2081,7 @@
 	dir = 8;
 	pixel_x = -6
 	},
+/obj/effect/landmark/spawn_marker/euseparatists/advisorbreacher,
 /turf/open/floor/urban/tile/tileblue{
 	color = "#ff9b9b"
 	},
@@ -2059,6 +2098,13 @@
 	dir = 5
 	},
 /area/gleichseitig16/indoors/central/consulate/restrooms)
+"UH" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/effect/landmark/spawn_marker/euseparatists/advisorrecon,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/central/consulate/maints)
 "UM" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -2752,7 +2798,7 @@ uj
 uj
 uj
 kA
-uj
+mt
 uj
 uj
 uj
@@ -2930,7 +2976,7 @@ ku
 ku
 ku
 ku
-ku
+uY
 Cw
 TB
 zQ
@@ -3038,7 +3084,7 @@ NO
 cF
 cF
 fr
-HU
+IT
 cS
 vy
 gB
@@ -3676,7 +3722,7 @@ SB
 mw
 oV
 ku
-ku
+uY
 ku
 rA
 rA
@@ -3699,7 +3745,7 @@ ku
 Cw
 JY
 zQ
-zQ
+Ri
 zQ
 KL
 Cw
@@ -3898,9 +3944,9 @@ YB
 ku
 ku
 ku
-sz
+PV
 pH
-MB
+oE
 ku
 ku
 ku
@@ -3910,7 +3956,7 @@ MB
 ku
 ku
 ku
-sz
+PV
 yJ
 MB
 ku
@@ -4149,7 +4195,7 @@ Dy
 Dm
 rL
 VD
-Hb
+iY
 aS
 oX
 Dm
@@ -4196,7 +4242,7 @@ RT
 DS
 Hb
 Qe
-oX
+UH
 Dm
 dj
 "}

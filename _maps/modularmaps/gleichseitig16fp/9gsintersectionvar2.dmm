@@ -1,0 +1,174 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/barricade/folding{
+	faction = "Hostile"
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"d" = (
+/obj/structure/barricade/folding{
+	dir = 8;
+	faction = "Hostile"
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"f" = (
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 1
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"i" = (
+/obj/effect/urban/decal/road/road_edge/six,
+/obj/structure/barricade/sandbags{
+	faction = "Hostile"
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/obj/structure/barricade/sandbags{
+	dir = 8;
+	faction = "Hostile"
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"k" = (
+/obj/structure/barricade/sandbags{
+	dir = 8;
+	faction = "Hostile"
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"o" = (
+/obj/structure/barricade/sandbags{
+	faction = "Hostile"
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"s" = (
+/obj/structure/barricade/folding{
+	dir = 4;
+	faction = "Hostile"
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"z" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"F" = (
+/obj/effect/mapping_helpers/barricade/wired,
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"G" = (
+/obj/structure/barricade/folding{
+	dir = 1;
+	faction = "Hostile"
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"I" = (
+/obj/effect/urban/decal/road/road_edge/seven,
+/obj/effect/mapping_helpers/barricade/wired,
+/obj/structure/barricade/sandbags{
+	dir = 8;
+	faction = "Hostile"
+	},
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"M" = (
+/obj/structure/barricade/sandbags{
+	dir = 4;
+	faction = "Hostile"
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"O" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"S" = (
+/obj/structure/prop/manhole,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"U" = (
+/obj/effect/urban/decal/road/road_edge/eight,
+/obj/effect/mapping_helpers/barricade/wired,
+/obj/structure/barricade/sandbags{
+	dir = 4;
+	faction = "Hostile"
+	},
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"W" = (
+/obj/effect/urban/decal/road/road_edge/five,
+/obj/structure/barricade/sandbags{
+	dir = 4;
+	faction = "Hostile"
+	},
+/obj/structure/barricade/sandbags{
+	faction = "Hostile"
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"Z" = (
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+
+(1,1,1) = {"
+I
+k
+d
+k
+i
+"}
+(2,1,1) = {"
+F
+O
+z
+Z
+o
+"}
+(3,1,1) = {"
+G
+z
+S
+z
+a
+"}
+(4,1,1) = {"
+f
+Z
+z
+O
+o
+"}
+(5,1,1) = {"
+U
+M
+s
+M
+W
+"}

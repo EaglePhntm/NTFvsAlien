@@ -19,6 +19,7 @@
 	},
 /area/gleichseitig16/indoors/south/militarysurplus)
 "bq" = (
+/obj/effect/landmark/spawn_marker/euseparatists/medicidle,
 /turf/open/floor/prison/whitered{
 	dir = 6;
 	color = "#919191"
@@ -112,9 +113,6 @@
 	},
 /area/gleichseitig16/indoors/south/militarysurplus)
 "gC" = (
-/obj/structure/bed/chair/office/dark{
-	dir = 1
-	},
 /obj/structure/transmitter/colony_net/auto_id{
 	pixel_y = -32;
 	dir = 1
@@ -247,6 +245,10 @@
 	color = "#919191"
 	},
 /area/gleichseitig16/indoors/south/militarysurplus)
+"mY" = (
+/obj/effect/landmark/spawn_marker/euseparatists/advisorbreacher,
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/south/militarysurplus)
 "nn" = (
 /obj/machinery/door/airlock/mainship/generic{
 	dir = 1;
@@ -325,6 +327,13 @@
 /obj/effect/urban/decal/trash/four,
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/outdoors/south/streets)
+"qT" = (
+/obj/effect/landmark/spawn_marker/euseparatists/advisormg,
+/turf/open/floor/prison/whitered{
+	dir = 1;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
 "ra" = (
 /obj/structure/table/reinforced,
 /obj/machinery/computer/emails{
@@ -414,7 +423,6 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/ai_node,
 /turf/open/floor/urban/tile/tilewhite,
 /area/gleichseitig16/indoors/south/militarysurplus)
 "uC" = (
@@ -518,6 +526,13 @@
 	dir = 10;
 	color = "#919191"
 	},
+/area/gleichseitig16/indoors/south/militarysurplus)
+"zs" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
+/turf/open/floor/prison,
 /area/gleichseitig16/indoors/south/militarysurplus)
 "zM" = (
 /obj/effect/ai_node,
@@ -710,6 +725,12 @@
 	color = "#919191"
 	},
 /area/gleichseitig16/indoors/south/militarysurplus)
+"JE" = (
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
+/turf/open/urban/street/sidewalk{
+	color = "#c8c8c8"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
 "Ko" = (
 /obj/structure/filingcabinet/nondense{
 	pixel_x = 7;
@@ -779,12 +800,8 @@
 	},
 /area/gleichseitig16/indoors/south/militarysurplus)
 "MP" = (
-/obj/structure/bed/chair/office/dark{
-	dir = 1
-	},
-/turf/open/floor/prison/whitered{
-	color = "#919191"
-	},
+/obj/effect/landmark/spawn_marker/euseparatists/advisorrifleman,
+/turf/open/floor/prison,
 /area/gleichseitig16/indoors/south/militarysurplus)
 "MX" = (
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
@@ -908,6 +925,13 @@
 	},
 /turf/open/urban/street/sidewalkfull,
 /area/gleichseitig16/outdoors/south/streets)
+"Rv" = (
+/obj/effect/landmark/spawn_marker/euseparatists/medicidle,
+/turf/open/floor/prison/whitered{
+	dir = 1;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
 "RW" = (
 /obj/structure/closet/crate/smart,
 /obj/item/ammo_magazine/rifle/autosniper,
@@ -1060,6 +1084,13 @@
 	dir = 1
 	},
 /area/gleichseitig16/indoors/south/militarysurplus)
+"ZW" = (
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
+/turf/open/floor/prison/whitered{
+	dir = 1;
+	color = "#919191"
+	},
+/area/gleichseitig16/indoors/south/militarysurplus)
 
 (1,1,1) = {"
 hn
@@ -1122,7 +1153,7 @@ pA
 Pf
 Ug
 kT
-Pf
+zs
 Pf
 Ug
 SE
@@ -1142,7 +1173,7 @@ Pf
 oK
 Pf
 Pf
-MP
+pc
 BS
 pA
 pc
@@ -1180,7 +1211,7 @@ BS
 BS
 BS
 BS
-pA
+ZW
 Pf
 Pf
 pc
@@ -1232,7 +1263,7 @@ Pf
 Ug
 Pf
 Pf
-Pf
+mY
 Pf
 Pf
 Pf
@@ -1376,7 +1407,7 @@ pc
 cI
 Mg
 Td
-Pf
+zs
 Pf
 Mg
 SP
@@ -1453,14 +1484,14 @@ Jl
 GP
 mv
 Pf
-Pf
+MP
 pc
 Mg
 "}
 (23,1,1) = {"
 eJ
 Mg
-pA
+qT
 Pf
 Pf
 Ug
@@ -1496,7 +1527,7 @@ Mg
 (25,1,1) = {"
 Ze
 Mg
-pA
+ZW
 Ug
 Pf
 kC
@@ -1586,7 +1617,7 @@ Fo
 (30,1,1) = {"
 Ze
 Mg
-pA
+Rv
 Ug
 xI
 KH
@@ -1660,10 +1691,10 @@ hn
 Mg
 bJ
 Pf
-xI
+xF
 KH
 KH
-zM
+KH
 KH
 NB
 KH
@@ -1678,10 +1709,10 @@ Ze
 Mg
 Na
 ZT
-xF
+JE
 KH
 KH
-KH
+zM
 KH
 NB
 KH

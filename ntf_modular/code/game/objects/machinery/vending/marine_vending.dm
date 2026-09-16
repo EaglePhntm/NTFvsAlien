@@ -430,6 +430,8 @@
 			/obj/item/clothing/under/wedding/bride_white = -1,
 			/obj/item/clothing/under/dress/black_tango = -1,
 			/obj/item/clothing/under/sundress = -1,
+			/obj/item/clothing/under/dress/apron = -1,
+			/obj/item/clothing/under/dress/qipao = -1,
 			/obj/item/clothing/under/cheerleader = -1,
 			/obj/item/clothing/under/cheerleader/yellow = -1,
 			/obj/item/clothing/under/cheerleader/purple = -1,
@@ -566,6 +568,7 @@
 
 			/obj/item/clothing/underwear/shirt/polo = -1,
 			/obj/item/clothing/underwear/shirt/normal = -1,
+			/obj/item/clothing/underwear/shirt/longsleeverolled = -1,
 			/obj/item/clothing/underwear/shirt/longsleeve = -1,
 			/obj/item/clothing/underwear/shirt/tanktop_midriff = -1,
 			/obj/item/clothing/underwear/shirt/tanktop_midriff_alt = -1,
@@ -2641,21 +2644,21 @@
 
 /obj/machinery/vending/MarineMed/pmc
 	name = "\improper MarineMed"
-	desc = "A Medical drug dispenser, just like the NTC use. Provided by Ninetails Pharmaceuticals Division(TM)."
+	desc = "A Medical drug dispenser, just like the NTC use. Provided by Novamed Pharmaceuticals Division(TM)."
 
 /obj/machinery/vending/MarineMed/icc
 	name = "\improper MarineMed"
-	desc = "An ICCAF Medical drug dispenser. Provided by Ninetails Pharmaceuticals Division(TM)."
+	desc = "An ICCAF Medical drug dispenser. Provided by Novamed Pharmaceuticals Division(TM)."
 	req_one_access = null
 
 /obj/machinery/vending/MarineMed/icc/clf
 	name = "\improper Stolen MarineMed"
-	desc = "A Medical drug dispenser, just like the NTC use. 'Provided' by Ninetails Pharmaceuticals Division(TM)."
+	desc = "A Medical drug dispenser, just like the NTC use. 'Provided' by Novamed Pharmaceuticals Division(TM)."
 
 /obj/machinery/vending/MarineMed/vsd
 	name = "\improper KZ MarineMed"
 	faction = FACTION_VSD
-	desc = "KZ Medical drug dispenser. 'Provided' by Ninetails Pharmaceuticals Division(TM)."
+	desc = "KZ Medical drug dispenser. 'Provided' by Novamed Pharmaceuticals Division(TM)."
 	req_one_access = null
 
 /obj/machinery/vending/weapon/clf

@@ -8,6 +8,15 @@
   CaputCapital:
   - rscadd: Gleichseitig-16 Flashpoints Winter map to the list
   - rscadd: Additional sprites for G16F
+2026-08-10:
+  FoxTrot (and superlagg too):
+  - rscadd: added a smoothing yellow wall and a yellow carpet with three kinds of gross stains!
+  CaputCapital:
+  - rscadd: PMR-14 Plasma Marksman Rifle
+  - rscadd: M55 PLASFIRE Grenade
+  - rscadd: M55 PLASFIRE Grenade box
+  - rscadd: PMR-14 Plasma Marksman Rifle & M55 PLASFIRE Grenade Boxes to requisitions
+  - rscadd: Bundles for attachments, top rail, bottom rail and muzzle
 2026-08-15:
   CaputCapital:
   - bugfix: remapped smes layouts for V8E

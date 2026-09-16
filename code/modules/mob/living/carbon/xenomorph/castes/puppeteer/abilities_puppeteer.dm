@@ -68,12 +68,12 @@
 		return
 	if(xeno_owner.do_actions)
 		return FALSE
-	xeno_owner.face_atom(victim)
-	if(!do_after(xeno_owner, 0.3 SECONDS, IGNORE_HELD_ITEM|IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE, victim, BUSY_ICON_DANGER, extra_checks = CALLBACK(xeno_owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = xeno_owner.health))))
-		return FALSE
-	succeed_activate()
 
 /datum/action/ability/activable/xeno/pincushion/use_ability(atom/victim)
+	xeno_owner.face_atom(victim)
+	if(!do_after(xeno_owner, 0.3 SECONDS, IGNORE_HELD_ITEM|IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE, victim, BUSY_ICON_DANGER, extra_checks = CALLBACK(xeno_owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = xeno_owner.health))))
+		return	fail_activate()
+	succeed_activate()
 	var/turf/current_turf = get_turf(owner)
 	playsound(xeno_owner.loc, 'sound/bullets/spear_armor1.ogg', 25, 1)
 	xeno_owner.visible_message(span_warning("[xeno_owner] shoots a spike!"), span_xenonotice("We discharge a spinal spike from our body."))

@@ -15,7 +15,7 @@
 	icon_state = "bdsm_bed_kit"
 	w_class = WEIGHT_CLASS_HUGE
 
-/obj/item/bdsm_bed_kit/CtrlShiftClick(mob/user)
+/obj/item/bdsm_bed_kit/CtrlClick(mob/user)
 	add_fingerprint(user)
 	if((item_flags & IN_INVENTORY) || (item_flags & IN_STORAGE))
 		return
@@ -33,7 +33,7 @@
 
 /obj/item/bdsm_bed_kit/examine(mob/user)
 	. = ..()
-	. += span_purple("[src] can be assembled by using Ctrl+Shift+Click while [src] is on the floor.")
+	. += span_purple("[src] can be assembled by using Ctrl+Click while [src] is on the floor.")
 
 /obj/structure/bed/bdsm_bed/post_buckle_mob(mob/living/affected_mob)
 	density = TRUE
@@ -41,7 +41,7 @@
 /obj/structure/bed/bdsm_bed/post_unbuckle_mob(mob/living/affected_mob)
 	density = FALSE
 
-/obj/structure/bed/bdsm_bed/CtrlShiftClick(mob/user)
+/obj/structure/bed/bdsm_bed/MouseDrop(mob/user)
 	. = ..()
 	add_fingerprint(user)
 	to_chat(user, span_notice("You begin unfastening the frame of [src] and deflating the latex pillows..."))
@@ -59,7 +59,7 @@
 
 /obj/structure/bed/bdsm_bed/examine(mob/user)
 	. = ..()
-	. += span_purple("[src] can be disassembled by using Ctrl+Shift+Click")
+	. += span_purple("[src] can be disassembled by dragging it to yourself")
 
 /*
 *	X-STAND
@@ -243,7 +243,7 @@
 *	X-STAND CONSTRUCTION KIT
 */
 
-/obj/structure/bed/chair/x_stand/CtrlShiftClick(mob/user)
+/obj/structure/bed/chair/x_stand/MouseDrop(mob/user)
 	add_fingerprint(user)
 	to_chat(user, span_notice("You begin unfastening the frame of [src]..."))
 	if(!do_after(user, 8 SECONDS, src))
@@ -256,7 +256,7 @@
 
 /obj/structure/bed/chair/x_stand/examine(mob/user)
 	. = ..()
-	. += span_purple("[src] can be disassembled by using Ctrl+Shift+Click")
+	. += span_purple("[src] can be disassembled by dragging it to yourself")
 
 #undef X_STAND_CLOSED_STATE
 #undef X_STAND_OPEN_STATE

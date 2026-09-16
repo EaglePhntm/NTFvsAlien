@@ -73,7 +73,7 @@
 		/obj/structure/largecrate/supply/medicine/medkits = 2,
 		/obj/structure/largecrate/supply/medicine/blood = 2,
 		/obj/structure/largecrate/supply/medicine/iv = 2,
-		/obj/structure/largecrate/supply/medicine/medivend = 2,
+		/obj/structure/largecrate/supply/medicine/novamed = 2,
 		/obj/structure/largecrate/machine/autodoc = 3,
 		/obj/structure/largecrate/machine/bodyscanner = 1,
 		/obj/structure/largecrate/machine/sleeper = 2,
@@ -366,11 +366,15 @@
 	desc = "A crate containing an operating table, two tanks of anasthetic, a surgery kit, some anasthetic injectors, and some space cleaner."
 	supplies = list(/obj/machinery/optable = 1, /obj/item/storage/surgical_tray = 1, /obj/item/tank/anesthetic = 2, /obj/item/reagent_containers/spray/cleaner = 1)
 
-/obj/structure/largecrate/supply/medicine/medivend
+/obj/structure/largecrate/supply/medicine/novamed
 	name = "\improper NovaMed Plus crate (x1)"
 	desc = "A crate containing one fully-stocked Novamed Plus medical vendor."
 	supplies = list(/obj/machinery/vending/medical = 1)
 
+/obj/structure/largecrate/supply/medicine/marinemed
+	name = "\improper MarineMed crate (x1)"
+	desc = "A crate containing one NTC Plus medical vendor."
+	supplies = list(/obj/machinery/vending/MarineMed = 1)
 
 /obj/structure/largecrate/machine
 	name = "machine crate"

@@ -490,7 +490,7 @@ GLOBAL_LIST(cable_radial_layer_list)
 	if(user.a_intent != INTENT_HELP)
 		return ..()
 
-	var/datum/limb/affecting = user.client.prefs.toggles_gameplay & RADIAL_MEDICAL ? radial_medical(H, user) : H.get_limb(user.zone_selected)
+	var/datum/limb/affecting = user.client?.prefs.toggles_gameplay & RADIAL_MEDICAL ? radial_medical(H, user) : H.get_limb(user.zone_selected)
 
 	if(!affecting)
 		return TRUE

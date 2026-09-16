@@ -1,5 +1,5 @@
 /obj/vehicle/sealed/mecha/ntf
-	desc = "NTF Exosuit"
+	desc = "AC Exosuit"
 	allow_diagonal_movement = FALSE
 	move_delay = 3
 	max_integrity = 400

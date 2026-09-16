@@ -232,3 +232,58 @@
 	scatter = 1
 	scatter_unwielded = 8
 	recoil_unwielded = 1
+
+// Full auto smart pistol, based on the G18
+/obj/item/weapon/gun/pistol/smart_fastpistol
+	name = "\improper SP-28 smart autopistol"
+	desc = "The SP-28 is a IFF-capable sidearm used by various private security companies and militaries, including the NTC. Similar to the SP-13, the SP-28 can be used by anyone even without smartgun training or the necessity of KTLD optics. The primary differences between the SP-13 and SP-28 is that the SP-28 trades stopping power, accuracy and spread for rate of fire."
+	icon = 'ntf_modular/icons/obj/items/guns/pistols.dmi'
+	icon_state = "sp28"
+	worn_icon_state = "sp28"
+	worn_icon_list = list(
+		slot_l_hand_str = 'ntf_modular/icons/mob/inhands/guns/pistols_left_1.dmi',
+		slot_r_hand_str = 'ntf_modular/icons/mob/inhands/guns/pistols_right_1.dmi',
+	)
+	holstered_underlay_icon = 'ntf_modular/icons/obj/items/storage/holster.dmi'
+	caliber = CALIBER_9X19 //codex
+	max_shells = 33 //codex
+	fire_sound = 'sound/weapons/guns/fire/smartmachinepistol1.ogg'
+	reload_sound = 'sound/weapons/guns/interact/tp14_reload.ogg'
+	default_ammo_type = /obj/item/ammo_magazine/pistol/standard_pistol/smart_fastpistol
+	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/standard_pistol/smart_fastpistol)
+	attachable_allowed = list(
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/motiondetector,
+		/obj/item/attachable/motiondetector/advanced/pocket,
+	)
+
+	gun_features_flags = GUN_AMMO_COUNTER|GUN_IFF|GUN_SMOKE_PARTICLES
+	actions_types = list() // Inherits aimmode, but has IFF so..
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_SEMIAUTO)
+
+	attachable_offset = list("muzzle_x" = 29, "muzzle_y" = 20,"rail_x" = 6, "rail_y" = 28, "under_x" = 20, "under_y" = 20, "stock_x" = 21, "stock_y" = 17)
+
+	aim_slowdown = 0.25
+	wield_delay = 0.4 SECONDS
+	fire_delay = 0.1 SECONDS
+	accuracy_mult = 1
+	accuracy_mult_unwielded = 0.75
+	damage_falloff_mult = 1
+	scatter = 4
+	scatter_unwielded = 16
+	recoil_unwielded = 1
+	damage_mult = 0.75
+
+/obj/item/ammo_magazine/pistol/standard_pistol/smart_fastpistol
+	name = "\improper SP-28 magazine (9mm AP)"
+	icon = 'ntf_modular/icons/obj/items/ammo/pistol.dmi'
+	caliber = CALIBER_9X19
+	icon_state = "sp28"
+	icon_state_mini = "mag_pistol_orange"
+	max_rounds = 33
+	w_class = WEIGHT_CLASS_SMALL
+	default_ammo = /datum/ammo/bullet/pistol/ap

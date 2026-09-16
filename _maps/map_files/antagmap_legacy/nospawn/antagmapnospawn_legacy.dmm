@@ -1,0 +1,404 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ai" = (
+/obj/effect/spawner/random/misc/structure/chair_or_metal/east,
+/obj/effect/landmark/weapon_spawn/tier4_weapon_spawn,
+/turf/open/floor/plating/ground/dirt,
+/area/mainship/groundhq/som/powered)
+"aX" = (
+/obj/structure/largecrate/supply/supplies/cloth,
+/turf/open/floor/plating/ground/dirt,
+/area/mainship/groundhq/som/powered)
+"bb" = (
+/obj/machinery/telecomms/processor/preset_four/pmc,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"ci" = (
+/obj/machinery/telecomms/server/presets/command/som,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"dT" = (
+/obj/machinery/light,
+/obj/machinery/telecomms/receiver/preset_right/som,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"ej" = (
+/obj/machinery/telecomms/receiver/preset_right/kz,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"ff" = (
+/obj/item/stack/sheet/metal/large_stack,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/dirt,
+/area/mainship/groundhq/som/powered)
+"fT" = (
+/obj/machinery/telecomms/broadcaster/preset_left/clf,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"hl" = (
+/obj/item/stack/sheet/plasteel/medium_stack,
+/turf/open/floor/plating/ground/dirt,
+/area/mainship/groundhq/som/powered)
+"hB" = (
+/obj/machinery/telecomms/server/presets/common/clf,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"hG" = (
+/obj/machinery/telecomms/hub/preset/cm,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"ls" = (
+/obj/machinery/telecomms/broadcaster/preset_left/cm,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"mo" = (
+/obj/machinery/telecomms/bus/preset_four/cm,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"mw" = (
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"np" = (
+/obj/item/flashlight/lantern,
+/turf/open/floor/plating/ground/dirt,
+/area/mainship/groundhq/som/powered)
+"pb" = (
+/obj/machinery/telecomms/bus/preset_four/kz,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"pe" = (
+/obj/machinery/camera/autoname/mainship/somship{
+	dir = 10
+	},
+/obj/machinery/telecomms/broadcaster/preset_left/som,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"pU" = (
+/obj/machinery/telecomms/bus/preset_four/pmc,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"qh" = (
+/obj/machinery/telecomms/receiver/preset_left/som,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"sV" = (
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/obj/machinery/telecomms/server/presets/common/cm,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"tf" = (
+/obj/machinery/telecomms/bus/preset_four/clf,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"tK" = (
+/obj/machinery/telecomms/processor/preset_four/som,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"uh" = (
+/obj/machinery/telecomms/bus/preset_three/som,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"wT" = (
+/obj/machinery/telecomms/server/presets/engineering/som,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"xD" = (
+/obj/machinery/telecomms/bus/preset_four/som,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"xY" = (
+/obj/structure/largecrate/supply/supplies/plastic,
+/turf/open/floor/plating/ground/dirt,
+/area/mainship/groundhq/som/powered)
+"ye" = (
+/obj/machinery/telecomms/server/presets/common/pmc,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"yO" = (
+/obj/machinery/telecomms/hub/preset/pmc,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"zx" = (
+/turf/closed/mineral/smooth/indestructible,
+/area/mainship/groundhq/som/powered)
+"zQ" = (
+/obj/machinery/telecomms/hub/preset/som,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"Bd" = (
+/obj/machinery/light,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"Cx" = (
+/obj/item/bedsheet/brown,
+/obj/effect/decal/cleanable/blood/splatter/cum,
+/obj/effect/landmark/start/latejoinsurvivor,
+/obj/item/clothing/under/lewd/panties,
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/plating/ground/dirt,
+/area/mainship/groundhq/som/powered)
+"CL" = (
+/obj/effect/spawner/random/engineering/structure/powergenerator,
+/turf/open/floor/plating/ground/dirt,
+/area/mainship/groundhq/som/powered)
+"CN" = (
+/obj/machinery/telecomms/hub/preset/kz,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"Dk" = (
+/obj/machinery/telecomms/processor/preset_four/kz,
+/obj/machinery/light/red,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"EO" = (
+/turf/open/space/basic,
+/area/mainship/groundhq/som/powered)
+"HD" = (
+/obj/machinery/telecomms/processor/preset_four/clf,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"HE" = (
+/obj/machinery/telecomms/receiver/preset_right/clf,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"HP" = (
+/turf/open/floor/plating/ground/dirt,
+/area/mainship/groundhq/som/powered)
+"Id" = (
+/obj/machinery/telecomms/processor/preset_three/som,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"Ie" = (
+/obj/effect/landmark/weapon_spawn/tier3_weapon_spawn,
+/turf/open/floor/plating/ground/dirt,
+/area/mainship/groundhq/som/powered)
+"JZ" = (
+/obj/machinery/telecomms/server/presets/common/som,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"MJ" = (
+/obj/machinery/telecomms/broadcaster/preset_left/pmc,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"Nw" = (
+/obj/machinery/telecomms/receiver/preset_right/pmc,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"NT" = (
+/obj/machinery/telecomms/processor/preset_one/som,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"OK" = (
+/obj/machinery/telecomms/processor/preset_two/som,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"Pz" = (
+/obj/machinery/telecomms/broadcaster/preset_left/kz,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"Qo" = (
+/obj/machinery/cryopod/right,
+/turf/open/floor/plating/ground/dirt,
+/area/mainship/groundhq/som/powered)
+"QZ" = (
+/obj/structure/drop_pod_launcher,
+/obj/structure/droppod/respawning/earlylaunch,
+/turf/open/floor/plating/ground/dirt,
+/area/mainship/groundhq/som/powered)
+"Se" = (
+/obj/machinery/telecomms/bus/preset_one/som,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"To" = (
+/obj/machinery/telecomms/server/presets/medical/som,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"Vf" = (
+/obj/machinery/telecomms/server/presets/common/kz,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"VF" = (
+/obj/machinery/telecomms/processor/preset_four/cm,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"VK" = (
+/obj/effect/forcefield/fog,
+/turf/open/floor/plating/ground/dirt,
+/area/mainship/groundhq/som/powered)
+"YR" = (
+/obj/machinery/telecomms/hub/preset/clf,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+"Zz" = (
+/obj/machinery/telecomms/receiver/preset_right/cm,
+/turf/open/floor/bcircuit/anim,
+/area/mainship/groundhq/som/powered)
+
+(1,1,1) = {"
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+"}
+(2,1,1) = {"
+zx
+xD
+uh
+tK
+pb
+CN
+tf
+YR
+zx
+ai
+aX
+xY
+VK
+"}
+(3,1,1) = {"
+zx
+mw
+mw
+To
+Pz
+Dk
+fT
+HD
+zx
+ff
+HP
+HP
+VK
+"}
+(4,1,1) = {"
+zx
+Se
+mw
+mw
+ej
+Vf
+HE
+hB
+zx
+HP
+HP
+QZ
+VK
+"}
+(5,1,1) = {"
+zx
+OK
+mw
+dT
+pU
+yO
+mo
+hG
+zx
+np
+Ie
+Qo
+zx
+"}
+(6,1,1) = {"
+zx
+mw
+mw
+pe
+mw
+MJ
+VF
+ls
+zx
+Cx
+hl
+zx
+zx
+"}
+(7,1,1) = {"
+zx
+NT
+mw
+qh
+mw
+Nw
+sV
+Zz
+zx
+zx
+CL
+zx
+zx
+"}
+(8,1,1) = {"
+zx
+Id
+mw
+Bd
+bb
+ye
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+"}
+(9,1,1) = {"
+zx
+mw
+mw
+wT
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+"}
+(10,1,1) = {"
+zx
+zQ
+ci
+JZ
+zx
+zx
+zx
+zx
+EO
+EO
+EO
+EO
+EO
+"}
+(11,1,1) = {"
+zx
+zx
+zx
+zx
+zx
+EO
+EO
+EO
+EO
+EO
+EO
+EO
+EO
+"}

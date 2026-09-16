@@ -15,7 +15,7 @@
 
 /datum/sex_action/force_eye_sex/on_start(mob/living/carbon/user, mob/living/carbon/target)
 	target.visible_message(span_warning("[target] slides [target.p_their()] cock into [user]'s eye!"))
-	var/flags = user.client.prefs.sex_pref_flags
+	var/flags = user.client?.prefs.sex_pref_flags
 	if(ishuman(user))
 		if(flags & SEXPREF_ROUGH_SEX)
 			var/mob/living/carbon/human/H = user
@@ -37,7 +37,7 @@
 		target.visible_message(target.sexcon.spanify_force("[target] [target.sexcon.get_generic_force_adjective()] fucks [user]'s eye."))
 	playsound(user, 'ntf_modular/sound/misc/mat/segso.ogg', 50, TRUE, 5, ignore_walls = FALSE)
 
-	var/flags = user.client.prefs.sex_pref_flags
+	var/flags = user.client?.prefs.sex_pref_flags
 	target.sexcon.perform_sex_action(target, 2, 0, TRUE)
 	if(target.sexcon.check_active_ejaculation())
 		target.visible_message(span_love("[target] cums into [user]'s eye!"))

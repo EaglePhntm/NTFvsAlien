@@ -1,0 +1,293 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northwest/streets)
+"b" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/northwest/streets)
+"c" = (
+/obj/structure/barricade/folding{
+	dir = 1;
+	faction = "Hostile"
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northwest/streets)
+"h" = (
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/northwest/streets)
+"l" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/northwest/streets)
+"r" = (
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/northwest/streets)
+"t" = (
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/northwest/streets)
+"w" = (
+/obj/effect/mapping_helpers/barricade/wired,
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/northwest/streets)
+"A" = (
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/northwest/streets)
+"B" = (
+/obj/effect/urban/decal/doubleroad/lines1{
+	pixel_x = 14
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northwest/streets)
+"D" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/northwest/streets)
+"J" = (
+/obj/effect/mapping_helpers/barricade/wired,
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/northwest/streets)
+"K" = (
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 1
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/northwest/streets)
+"L" = (
+/obj/effect/urban/decal/doubleroad/lines1{
+	pixel_x = 14
+	},
+/obj/structure/barricade/folding{
+	faction = "Hostile"
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northwest/streets)
+"M" = (
+/obj/structure/barricade/sandbags{
+	faction = "Hostile"
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/northwest/streets)
+"N" = (
+/obj/structure/barricade/folding{
+	faction = "Hostile"
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northwest/streets)
+"O" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/northwest/streets)
+"Q" = (
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northwest/streets)
+"R" = (
+/obj/effect/urban/decal/doubleroad/lines1{
+	pixel_x = 14
+	},
+/obj/structure/barricade/folding{
+	dir = 1;
+	faction = "Hostile"
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northwest/streets)
+"T" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northwest/streets)
+"U" = (
+/obj/effect/mapping_helpers/barricade/wired,
+/obj/structure/barricade/sandbags{
+	faction = "Hostile";
+	dir = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 9
+	},
+/area/gleichseitig16/outdoors/northwest/streets)
+"V" = (
+/obj/structure/barricade/folding{
+	dir = 4;
+	faction = "Hostile"
+	},
+/obj/effect/mapping_helpers/barricade/wired,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/northwest/streets)
+"X" = (
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/northwest/streets)
+
+(1,1,1) = {"
+K
+X
+A
+X
+A
+A
+r
+X
+X
+M
+"}
+(2,1,1) = {"
+J
+A
+O
+X
+X
+X
+A
+X
+A
+M
+"}
+(3,1,1) = {"
+c
+a
+a
+a
+a
+a
+a
+T
+a
+N
+"}
+(4,1,1) = {"
+c
+a
+a
+a
+a
+a
+a
+a
+a
+N
+"}
+(5,1,1) = {"
+R
+B
+B
+B
+B
+B
+B
+B
+B
+L
+"}
+(6,1,1) = {"
+c
+a
+Q
+a
+T
+a
+a
+a
+a
+N
+"}
+(7,1,1) = {"
+c
+a
+a
+a
+a
+a
+a
+a
+a
+N
+"}
+(8,1,1) = {"
+U
+h
+h
+h
+h
+h
+h
+h
+h
+M
+"}
+(9,1,1) = {"
+w
+l
+l
+l
+l
+b
+l
+l
+l
+M
+"}
+(10,1,1) = {"
+w
+l
+l
+D
+l
+l
+t
+l
+l
+M
+"}
+(11,1,1) = {"
+w
+l
+l
+l
+l
+l
+l
+D
+l
+M
+"}
+(12,1,1) = {"
+w
+l
+V
+V
+l
+l
+l
+l
+l
+M
+"}

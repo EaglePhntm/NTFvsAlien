@@ -1,0 +1,212 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/effect/urban/decal/doubleroad/lines1{
+	pixel_x = 14
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northwest/streets)
+"b" = (
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/northwest/streets)
+"j" = (
+/turf/open/urban/street/sidewalk{
+	dir = 9
+	},
+/area/gleichseitig16/outdoors/northwest/streets)
+"l" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/northwest/streets)
+"r" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/northwest/streets)
+"z" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/northwest/streets)
+"L" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northwest/streets)
+"M" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/northwest/streets)
+"P" = (
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/northwest/streets)
+"R" = (
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/northwest/streets)
+"S" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northwest/streets)
+"V" = (
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/northwest/streets)
+"W" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/northwest/streets)
+
+(1,1,1) = {"
+R
+P
+R
+P
+R
+R
+P
+P
+P
+M
+"}
+(2,1,1) = {"
+P
+R
+r
+P
+P
+P
+R
+P
+R
+M
+"}
+(3,1,1) = {"
+L
+L
+L
+L
+L
+L
+L
+S
+L
+L
+"}
+(4,1,1) = {"
+L
+L
+L
+L
+L
+L
+L
+L
+L
+L
+"}
+(5,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(6,1,1) = {"
+L
+L
+L
+L
+S
+L
+L
+L
+L
+L
+"}
+(7,1,1) = {"
+L
+L
+L
+L
+L
+L
+L
+L
+L
+L
+"}
+(8,1,1) = {"
+j
+V
+V
+V
+V
+V
+V
+l
+V
+M
+"}
+(9,1,1) = {"
+b
+M
+M
+M
+M
+W
+M
+M
+M
+M
+"}
+(10,1,1) = {"
+b
+M
+M
+z
+M
+M
+M
+M
+M
+M
+"}
+(11,1,1) = {"
+b
+M
+M
+M
+M
+M
+M
+M
+M
+M
+"}
+(12,1,1) = {"
+b
+M
+M
+M
+M
+M
+M
+M
+M
+M
+"}

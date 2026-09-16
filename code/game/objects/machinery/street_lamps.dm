@@ -96,3 +96,25 @@
 /obj/machinery/streetlight/Destroy()
 	. = ..()
 	set_light(0)
+
+// CoE Base Streetlights
+/obj/machinery/streetlight/streetCoE
+	name = "Colony Streetlight"
+	icon = 'icons/obj/structures/prop/urban/64x64_urbanrandomprops.dmi'
+	icon_state = "street_off"
+	layer = MOB_BELOW_PIGGYBACK_LAYER
+	resistance_flags = XENO_DAMAGEABLE
+	max_integrity = 220
+	density = FALSE
+
+/obj/machinery/streetlight/streetCoE/update_icon_state()
+	var/area/street_light_area = get_area(src)
+	if(obj_integrity != initial(max_integrity))
+		icon_state = "street_dmg"
+		set_light(0)
+	else if(street_light_area.power_light)
+		icon_state = "street_on"
+		set_light(8, 5, COLOR_WHITE)
+	else
+		icon_state = "street_off"
+		set_light(0)

@@ -1454,6 +1454,7 @@
 #include "code\game\turfs\turf.dm"
 #include "code\game\turfs\open\openspace.dm"
 #include "code\game\turfs\space\transit.dm"
+#include "code\game\turfs\walls\backrooms_wall.dm"
 #include "code\game\turfs\walls\r_wall.dm"
 #include "code\game\turfs\walls\resin.dm"
 #include "code\game\turfs\walls\wall_types.dm"

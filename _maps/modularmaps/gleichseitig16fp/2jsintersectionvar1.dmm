@@ -1,0 +1,160 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northeast/streets)
+"d" = (
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/northeast/streets)
+"i" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/urban/decal/road/road_edge/four,
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northeast/streets)
+"k" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/northeast/streets)
+"m" = (
+/obj/effect/urban/decal/road/lines4,
+/obj/effect/urban/decal/road/road_edge/two,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northeast/streets)
+"o" = (
+/obj/effect/urban/decal/doubleroad/lines3{
+	pixel_y = 8
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northeast/streets)
+"q" = (
+/obj/effect/urban/decal/road/road_edge/six,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northeast/streets)
+"r" = (
+/obj/effect/urban/decal/doubleroad/lines1{
+	pixel_x = 14
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northeast/streets)
+"s" = (
+/turf/open/urban/street/sidewalk{
+	dir = 5
+	},
+/area/gleichseitig16/outdoors/northeast/streets)
+"B" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/northeast/streets)
+"E" = (
+/obj/effect/urban/decal/road/lines3,
+/obj/effect/urban/decal/road/road_edge/three,
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northeast/streets)
+"J" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/urban/decal/road/road_edge/four,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northeast/streets)
+"K" = (
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northeast/streets)
+"L" = (
+/obj/effect/urban/decal/road/road_edge,
+/obj/effect/urban/decal/road/lines1,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northeast/streets)
+"P" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk{
+	dir = 9
+	},
+/area/gleichseitig16/outdoors/northeast/streets)
+"R" = (
+/obj/effect/urban/decal/road/road_edge/five,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northeast/streets)
+"V" = (
+/obj/effect/urban/decal/doubleroad/lines3{
+	pixel_y = 8
+	},
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northeast/streets)
+"X" = (
+/obj/effect/ai_node,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northeast/streets)
+"Z" = (
+/obj/effect/urban/decal/road/lines3,
+/obj/effect/urban/decal/road/road_edge/three,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northeast/streets)
+
+(1,1,1) = {"
+d
+J
+a
+o
+a
+Z
+s
+"}
+(2,1,1) = {"
+d
+J
+a
+o
+a
+q
+L
+"}
+(3,1,1) = {"
+d
+J
+X
+o
+a
+a
+a
+"}
+(4,1,1) = {"
+B
+J
+a
+o
+a
+a
+r
+"}
+(5,1,1) = {"
+d
+J
+a
+o
+a
+a
+a
+"}
+(6,1,1) = {"
+d
+J
+a
+o
+a
+R
+m
+"}
+(7,1,1) = {"
+k
+i
+K
+V
+K
+E
+P
+"}

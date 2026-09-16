@@ -416,42 +416,47 @@
 
 	xeno_owner.face_atom(target)
 	xeno_owner.visible_message(xeno_owner, span_danger("[xeno_owner] begins to produce a large fluctuation of psychic power!"))
-	if(!do_after(xeno_owner, 10 SECONDS, IGNORE_HELD_ITEM, xeno_owner, BUSY_ICON_DANGER, extra_checks = CALLBACK(xeno_owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = xeno_owner.health))))
-		return FALSE
-	succeed_activate()
 
 /datum/action/ability/activable/xeno/creation/use_ability(atom/target)
+	if(!do_after(xeno_owner, 10 SECONDS, IGNORE_HELD_ITEM, xeno_owner, BUSY_ICON_DANGER, extra_checks = CALLBACK(xeno_owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = xeno_owner.health))))
+		fail_activate()
+		return
+	succeed_activate()
 	var/turf/target_turf = get_turf(target)
-
 	var/mob/living/carbon/xenomorph/nymph/creature = new(target_turf, TRUE, owner.get_xeno_hivenumber(), owner)
+	creature.AddComponent(/datum/component/ai_controller, /datum/ai_behavior/xeno/suicidal)
 	playsound(creature.loc, 'sound/voice/alien/roar_larva2.ogg', 45)
+
 // Beetle version
 /datum/action/ability/activable/xeno/creation/beetle
 	action_icon_state = "beetle"
 
 /datum/action/ability/activable/xeno/creation/beetle/use_ability(atom/target)
 	var/turf/target_turf = get_turf(target)
-
 	var/mob/living/carbon/xenomorph/beetle/creature = new(target_turf, TRUE, owner.get_xeno_hivenumber(), owner)
+	creature.AddComponent(/datum/component/ai_controller, /datum/ai_behavior/xeno/suicidal)
 	playsound(creature.loc, 'sound/voice/alien/roar_larva4.ogg', 45)
+
 // Mantis version
 /datum/action/ability/activable/xeno/creation/mantis
 	action_icon_state = "mantis"
 
 /datum/action/ability/activable/xeno/creation/mantis/use_ability(atom/target)
 	var/turf/target_turf = get_turf(target)
-
 	var/mob/living/carbon/xenomorph/mantis/creature = new(target_turf, TRUE, owner.get_xeno_hivenumber(), owner)
+	creature.AddComponent(/datum/component/ai_controller, /datum/ai_behavior/xeno/suicidal)
 	playsound(creature.loc, 'sound/voice/alien/roar_larva3.ogg', 45)
+
 // Scorpion version
 /datum/action/ability/activable/xeno/creation/scorpion
 	action_icon_state = "scorpion"
 
 /datum/action/ability/activable/xeno/creation/scorpion/use_ability(atom/target)
 	var/turf/target_turf = get_turf(target)
-
 	var/mob/living/carbon/xenomorph/scorpion/creature = new(target_turf, TRUE, owner.get_xeno_hivenumber(), owner)
+	creature.AddComponent(/datum/component/ai_controller, /datum/ai_behavior/xeno/suicidal)
 	playsound(creature.loc, 'sound/voice/alien/roar_larva1.ogg', 45)
+
 /////////////////////////////////
 // Devour/Abduct
 /////////////////////////////////
@@ -660,6 +665,7 @@
 	var/range = 2
 	///our stabbing style.
 	var/stab_description = "swift tail-jab!"
+	var/limb_name = "tail"
 	///the flat armor penetration damage, doubled when grabbed. Blunt tailed xenos wont have sharpness but will have 1.2x more penetration, like maces from most games i guess.
 	var/penetration = 15
 	///the multiplier for damage against structures.
@@ -726,14 +732,14 @@
 
 	if(isxeno(A) && A.issamexenohive(owner))
 		if(!silent)
-			owner.visible_message(span_xenowarning("\The [owner] swipes their tail through the air!"), span_xenowarning("We swipe our tail through the air!"))
+			owner.visible_message(span_xenowarning("\The [owner] swipes their [limb_name] through the air!"), span_xenowarning("We swipe our [limb_name] through the air!"))
 		add_cooldown(1 SECONDS)
 		playsound(owner, "alien_tail_swipe", 50, TRUE)
 		return FALSE
 
 	if(!isliving(A) && !isstructure(A) && !ismachinery(A) && !isvehicle(A) && ((isturf(A) || (A.type in ignored_things)) && !can_hit_turf))
 		if(!silent)
-			owner.visible_message(span_xenowarning("\The [owner] swipes their tail through the air!"), span_xenowarning("We swipe our tail through the air!"))
+			owner.visible_message(span_xenowarning("\The [owner] swipes their [limb_name] through the air!"), span_xenowarning("We swipe our [limb_name] through the air!"))
 		add_cooldown(1 SECONDS)
 		playsound(owner, "alien_tail_swipe", 50, TRUE)
 		return FALSE
@@ -741,7 +747,7 @@
 	if(isturf(A) && !can_hit_turf)
 		add_cooldown(1 SECONDS)
 		if(!silent)
-			owner.visible_message(span_xenowarning("\The [owner] swipes their tail through the air!"), span_xenowarning("We swipe our tail through the air!"))
+			owner.visible_message(span_xenowarning("\The [owner] swipes their [limb_name] through the air!"), span_xenowarning("We swipe our [limb_name] through the air!"))
 		playsound(owner, "alien_tail_swipe", 50, TRUE)
 		return FALSE
 

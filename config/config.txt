@@ -315,3 +315,17 @@ TGUI_MAX_CHUNK_COUNT 32
 #FORUM_LINK_URI
 
 ALLOW_ADMIN_OOCCOLOR
+
+## Use the webhook for public status updates
+WEBHOOK_ENABLED_PUBLIC
+## URL of the webhook for public status updates. Should look like:
+## DISCORD_WEBHOOK_PUBLIC https://discord.com/api/webhooks/blahblahblah
+## Do not put real webhook urls on the github, anyone can use them
+DISCORD_WEBHOOK_PUBLIC
+
+## Use the webhook for admin status updates
+WEBHOOK_ENABLED_ADMIN
+## URL of the webhook for admin status updates. Should look like:
+## DISCORD_WEBHOOK_ADMIN https://discord.com/api/webhooks/blahblahblah
+## Do not put real webhook urls on the github, anyone can use them
+DISCORD_WEBHOOK_ADMIN

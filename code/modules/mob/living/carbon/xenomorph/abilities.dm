@@ -1455,6 +1455,10 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 	xeno_owner.face_atom(victim) //Face towards the target so we don't look silly
 	xeno_owner.visible_message(span_xenowarning("\The [xeno_owner] begins opening its mouth and extending a second jaw towards \the [victim]."), \
 	span_danger("We slowly drain \the [victim]'s life force!"), null, 20)
+
+/datum/action/ability/activable/xeno/psydrain/use_ability(mob/M)
+	var/mob/living/carbon/victim = M
+
 	var/channel = SSsounds.random_available_channel()
 	playsound(xeno_owner, 'sound/magic/nightfall.ogg', 40, channel = channel)
 	if(!do_after(xeno_owner, drain_time, IGNORE_HELD_ITEM, victim, BUSY_ICON_DANGER, extra_checks = CALLBACK(xeno_owner, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = xeno_owner.health))))
@@ -1464,9 +1468,6 @@ GLOBAL_LIST_INIT(xeno_resin_costs, list(
 		return FALSE
 	xeno_owner.stop_sound_channel(channel)
 	succeed_activate() //dew it
-
-/datum/action/ability/activable/xeno/psydrain/use_ability(mob/M)
-	var/mob/living/carbon/victim = M
 
 	if(HAS_TRAIT(victim, TRAIT_PSY_DRAINED) || victim.getCloneLoss() >= 20)
 		to_chat(xeno_owner, span_warning("Someone drained the life force of our victim before we could do it!"))

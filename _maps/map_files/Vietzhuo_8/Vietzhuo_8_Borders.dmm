@@ -713,6 +713,7 @@
 	color = "#a6aeab";
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/vietzhuo8/indoors/v8west/city/powerstation)
 "aLx" = (
@@ -1506,6 +1507,16 @@
 /obj/structure/table/reinforced,
 /turf/open/floor/urban/tile/tilebeigecheckered,
 /area/vietzhuo8/indoors/v8west/stripmall/clothing)
+"bvH" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	color = "#a6aeab"
+	},
+/obj/structure/cable,
+/obj/machinery/computer/body_scanconsole{
+	dir = 8
+	},
+/turf/open/floor/tile/bar,
+/area/vietzhuo8/indoors/v8west/city/hospital/halls)
 "bvU" = (
 /obj/effect/urban/decal/road/lines3{
 	pixel_y = -2
@@ -2669,6 +2680,11 @@
 /obj/structure/prop/urban/misc/trash/blue,
 /turf/open/floor/tile/white,
 /area/vietzhuo8/indoors/v8west/city/precinct/breakroom)
+"cBI" = (
+/obj/effect/ai_node,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/vietzhuo8/indoors/v8west/city/powerstation)
 "cBY" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -2795,6 +2811,11 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/vietzhuo8/indoors/v8sentaf/corporate_dorms)
+"cKz" = (
+/obj/effect/ai_node,
+/obj/structure/cable,
+/turf/open/ground/grass/weedable,
+/area/vietzhuo8/outdoors/v8west/city/centralarea)
 "cLQ" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/effect/ai_node{
@@ -3220,7 +3241,6 @@
 /obj/item/tool/pen,
 /obj/structure/paper_bin,
 /obj/structure/table/reinforced,
-/obj/item/folder/white,
 /obj/item/folder/white,
 /obj/item/folder/white,
 /obj/item/folder/white,
@@ -5270,7 +5290,9 @@
 /turf/open/floor/tile/bar,
 /area/vietzhuo8/indoors/v8west/city/hospital/halls)
 "eVH" = (
-/obj/machinery/autodoc,
+/obj/machinery/autodoc{
+	dir = 8
+	},
 /turf/open/floor/tile/bar,
 /area/vietzhuo8/indoors/v8west/city/hospital/halls)
 "eVN" = (
@@ -6952,6 +6974,12 @@
 /obj/structure/bed/roller/hospital_empty/bigrollerempty3,
 /turf/open/floor/tile/bar,
 /area/vietzhuo8/indoors/v8west/city/hospital/halls)
+"gAU" = (
+/obj/structure/table/reinforced,
+/obj/structure/paper_bin,
+/obj/item/tool/pen,
+/turf/open/floor/tile/bar,
+/area/vietzhuo8/indoors/v8west/city/hospital/lobby)
 "gBr" = (
 /obj/effect/ai_node,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -10149,11 +10177,20 @@
 /turf/open/liquid/water/river,
 /area/vietzhuo8/outdoors/river/southern)
 "jxe" = (
-/obj/structure/transmitter/colony_net/auto_id{
-	pixel_y = 32
+/obj/structure/cable,
+/turf/open/ground/grass/weedable,
+/area/vietzhuo8/outdoors/v8west/city/centralarea)
+"jxj" = (
+/obj/machinery/door/airlock/mainship/engineering/free_access{
+	name = "\improper Power Station";
+	dir = 1
 	},
-/turf/open/floor/tile/bar,
-/area/vietzhuo8/indoors/v8west/city/hospital/lobby)
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	color = "#a6aeab"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/vietzhuo8/indoors/v8west/city/powerstation)
 "jxv" = (
 /obj/structure/flora/tree/jungle/small,
 /turf/open/ground/grass/weedable,
@@ -10203,6 +10240,14 @@
 "jyT" = (
 /turf/closed/wall,
 /area/vietzhuo8/indoors/v8west/city/hospital/restroom)
+"jzg" = (
+/obj/machinery/door/airlock/mainship/engineering/free_access{
+	name = "\improper Power Station";
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/vietzhuo8/indoors/v8west/city/powerstation)
 "jzT" = (
 /obj/effect/ai_node,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
@@ -12078,6 +12123,7 @@
 	color = "#a6aeab";
 	dir = 5
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/vietzhuo8/indoors/v8west/city/powerstation)
 "lry" = (
@@ -12589,6 +12635,16 @@
 "lIP" = (
 /turf/closed/wall/urban/colony,
 /area/vietzhuo8/indoors/v8west/city/precinct/swatarmory)
+"lIT" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	color = "#a6aeab"
+	},
+/obj/structure/cable,
+/obj/machinery/computer/autodoc_console{
+	dir = 8
+	},
+/turf/open/floor/tile/bar,
+/area/vietzhuo8/indoors/v8west/city/hospital/halls)
 "lJd" = (
 /obj/machinery/power/apc/high{
 	dir = 1
@@ -13450,6 +13506,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/vietzhuo8/indoors/v8west/city/powerstation)
 "mAP" = (
@@ -14016,7 +14073,9 @@
 	},
 /area/vietzhuo8/indoors/v8west/city/embassy/visascenter/lobby)
 "ncl" = (
-/obj/machinery/bodyscanner,
+/obj/machinery/bodyscanner{
+	dir = 8
+	},
 /turf/open/floor/tile/bar,
 /area/vietzhuo8/indoors/v8west/city/hospital/halls)
 "ncu" = (
@@ -14803,7 +14862,6 @@
 /obj/item/tool/pen,
 /obj/structure/paper_bin,
 /obj/structure/table/reinforced,
-/obj/item/folder/white,
 /obj/item/folder/white,
 /obj/item/folder/white,
 /obj/item/folder/white,
@@ -16604,7 +16662,9 @@
 	},
 /area/vietzhuo8/outdoors/v8west/city/centralstreets)
 "ptG" = (
-/obj/machinery/sleeper,
+/obj/machinery/sleeper{
+	dir = 8
+	},
 /turf/open/floor/tile/bar,
 /area/vietzhuo8/indoors/v8west/city/hospital/halls)
 "puX" = (
@@ -17301,6 +17361,16 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/vietzhuo8/outdoors/v8sentaf/corporatewalkwaysnorth)
+"qdl" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	color = "#a6aeab"
+	},
+/obj/structure/cable,
+/obj/machinery/computer/sleep_console{
+	dir = 8
+	},
+/turf/open/floor/tile/bar,
+/area/vietzhuo8/indoors/v8west/city/hospital/halls)
 "qdu" = (
 /obj/effect/ai_node,
 /obj/structure/cable,
@@ -19961,6 +20031,11 @@
 	},
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/vietzhuo8/outdoors/v8ntcroadnw)
+"soN" = (
+/obj/structure/cable,
+/obj/structure/plasticflaps,
+/turf/open/floor/plating,
+/area/vietzhuo8/indoors/v8west/city/powerstation)
 "soQ" = (
 /obj/docking_port/stationary/crashmode,
 /turf/open/floor/plating/ground/desertdam/asphalt,
@@ -20268,6 +20343,10 @@
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/ground/grass/weedable,
 /area/vietzhuo8/outdoors/v8ne/village)
+"sCq" = (
+/obj/structure/cable,
+/turf/open/ground/grass/weedable/patch/grassyellow,
+/area/vietzhuo8/outdoors/v8west/city/centralarea)
 "sCw" = (
 /obj/effect/landmark/start/job/xenomorph,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -24402,6 +24481,13 @@
 /obj/machinery/faxmachine,
 /turf/open/floor/wood,
 /area/vietzhuo8/indoors/v8ntc/officesmanagement)
+"why" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	color = "#a6aeab"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/vietzhuo8/indoors/v8west/city/powerstation)
 "whQ" = (
 /obj/structure/bed/chair/comfy{
 	dir = 1
@@ -30492,13 +30578,13 @@ lfV
 lfV
 lfV
 hoW
+lIT
 lfV
-lfV
-lfV
+lIT
 nlS
+bvH
 lfV
-lfV
-lfV
+qdl
 lfV
 lfV
 rNW
@@ -32019,7 +32105,7 @@ apZ
 apZ
 gIX
 uCP
-jxe
+kGu
 dDM
 hma
 hfa
@@ -32674,7 +32760,7 @@ kGu
 oBX
 kGu
 kGu
-rMZ
+gAU
 hfa
 lzO
 tiE
@@ -43117,7 +43203,7 @@ okC
 okC
 lTT
 lTT
-lTT
+aXw
 lTT
 lTT
 lTT
@@ -43334,7 +43420,7 @@ mUN
 rJC
 sEi
 erh
-sEi
+sCq
 loo
 loo
 iAh
@@ -43551,7 +43637,7 @@ mUN
 mUN
 hoU
 hoU
-hoU
+jxe
 loo
 ghx
 wyz
@@ -43768,7 +43854,7 @@ qeD
 mUN
 sEi
 hoU
-hoU
+jxe
 loo
 kTK
 wyz
@@ -43985,7 +44071,7 @@ cYt
 mUN
 rJC
 hoU
-hoU
+jxe
 loo
 ghx
 wyz
@@ -44202,7 +44288,7 @@ mUN
 mUN
 sJY
 hoU
-erh
+cKz
 loo
 ghx
 wyz
@@ -44419,7 +44505,7 @@ qQW
 mUN
 mUN
 hoU
-hoU
+jxe
 loo
 kTK
 wyz
@@ -44628,15 +44714,15 @@ mUN
 fHa
 jsB
 wab
-vDI
-vDI
-bOW
+why
+why
+jxj
 lrn
 cTn
 cTn
 sKU
 hoU
-hoU
+jxe
 loo
 ouG
 wyz
@@ -44844,16 +44930,16 @@ kKL
 sRl
 nrr
 dLu
-uGh
+cTn
 cTn
 dSQ
 mUN
 aLn
-xbg
-cTn
-qcN
-erh
-hoU
+cBI
+uGh
+jzg
+cKz
+jxe
 loo
 loo
 iVt
@@ -45065,7 +45151,7 @@ pdD
 pdD
 pdD
 mUN
-fHa
+qfM
 cTn
 cTn
 sKU
@@ -45281,7 +45367,7 @@ mJG
 mJG
 mJG
 mJG
-mUN
+soN
 myY
 qcb
 mUN

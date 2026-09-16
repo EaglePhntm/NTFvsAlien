@@ -539,8 +539,9 @@
 /turf/open/floor/mainship/red/full,
 /area/mainship/groundhq/ntf/command/cic)
 "aFa" = (
-/obj/structure/cable,
-/turf/open/floor/mainship/mono,
+/turf/open/floor/mainship/red{
+	dir = 1
+	},
 /area/mainship/shipboard/sensors)
 "aFD" = (
 /obj/structure/largecrate/supply/floodlights,
@@ -620,7 +621,7 @@
 /turf/open/floor/mainship/tcomms,
 /area/mainship/engineering/engine_core)
 "aLE" = (
-/obj/structure/flora/ausbushes/sunnybush,
+/obj/structure/flora/grass/brown,
 /turf/open/floor/plating/ground/snow/layer3,
 /area/mainship/groundhq/ntf/living/starboard_garden)
 "aMb" = (
@@ -629,10 +630,10 @@
 /turf/open/floor/wood,
 /area/mainship/hallways/ntf/dorm1)
 "aMn" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/layer1,
+/obj/structure/window_frame/colony,
 /turf/open/floor/mainship/mono,
-/area/mainship/groundhq/ntf/hallways/aft_hallway{
-	name = "HQ Northwest Hallways"
+/area/mainship/groundhq/ntf/hallways/stern_hallway{
+	name = "HQ Eastern hallways"
 	})
 "aMp" = (
 /obj/structure/cable,
@@ -649,7 +650,7 @@
 /turf/open/floor/mainship,
 /area/mainship/groundhq/ntf/living/chapel)
 "aOS" = (
-/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/grass/green,
 /obj/effect/ai_node,
 /obj/effect/landmark/sensor_tower,
 /turf/open/floor/plating/ground/snow/layer3,
@@ -775,10 +776,8 @@
 /turf/open/floor/mainship,
 /area/mainship/living/grunt_rnr)
 "aXx" = (
-/obj/structure/bed/chair/office/dark{
-	dir = 1
-	},
 /obj/effect/ai_node,
+/obj/machinery/atmospherics/components/unary/vent_pump/layer1,
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/hallways/aft_hallway{
 	name = "HQ Northwest Hallways"
@@ -836,8 +835,11 @@
 	static_lighting = 1
 	})
 "baH" = (
-/turf/open/floor/plating/ground/snow/layer3,
-/area/mainship/living/grunt_rnr)
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/open/floor/mainship/red{
+	dir = 10
+	},
+/area/mainship/shipboard/sensors)
 "bbA" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -874,7 +876,7 @@
 /turf/open/floor/mainship/blue/full,
 /area/mainship/groundhq/ntf/command/cic)
 "beK" = (
-/obj/structure/flora/ausbushes/ywflowers,
+/obj/structure/flora/bush,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -963,8 +965,8 @@
 	},
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/security{
-	dir = 1;
-	req_access = list(105)
+	req_access = list(105);
+	dir = 2
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/shipboard/sensors)
@@ -1346,7 +1348,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/living/starboard_garden)
 "bMS" = (
-/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/grass/green,
 /turf/open/floor/plating/ground/snow/layer2,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "bNo" = (
@@ -1650,12 +1652,7 @@
 /turf/open/floor/mainship/orange/full,
 /area/mainship/engineering/engineering_workshop)
 "cjZ" = (
-/obj/structure/cable,
-/obj/machinery/power/apc{
-	dir = 1
-	},
-/obj/item/clothing/suit/bio_suit/janitor,
-/turf/open/floor/mainship/mono,
+/turf/open/floor/mainship/floor,
 /area/mainship/shipboard/sensors)
 "ckf" = (
 /obj/structure/table/mainship,
@@ -2069,8 +2066,15 @@
 /area/lv624/lazarus/armory)
 "cHf" = (
 /obj/machinery/door/firedoor/mainship,
-/obj/structure/mineral_door/wood,
-/turf/open/floor/mainship/mono,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/machinery/door/airlock/mainship/security{
+	req_access = list(105)
+	},
+/turf/open/floor/mainship/cargo/arrow{
+	dir = 4
+	},
 /area/mainship/groundhq/ntf/hallways/aft_hallway{
 	name = "HQ Northwest Hallways"
 	})
@@ -2702,9 +2706,13 @@
 /turf/open/floor/mainship,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "dxi" = (
-/obj/structure/closet/swimsuit,
-/turf/open/floor/plating/ground/snow/layer3,
-/area/mainship/living/grunt_rnr)
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 5
+	},
+/turf/open/floor/mainship/mono,
+/area/mainship/groundhq/ntf/hallways/aft_hallway{
+	name = "HQ Northwest Hallways"
+	})
 "dxk" = (
 /obj/structure/closet/secure_closet/engineering_welding,
 /turf/open/floor/mainship/orange/full,
@@ -2885,9 +2893,14 @@
 /turf/open/floor/wood,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "dLv" = (
-/obj/structure/window_frame,
-/turf/open/floor/plating,
-/area/desert_dam/exterior/valley/valley_wilderness)
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+	dir = 8
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/groundhq/ntf/hallways/aft_hallway{
+	name = "HQ Northeast Hallways"
+	})
 "dMd" = (
 /obj/structure/table/mainship,
 /obj/item/tool/extinguisher/mini,
@@ -3093,7 +3106,7 @@
 	on = 1
 	},
 /obj/effect/ai_node,
-/turf/open/floor/mainship/mono,
+/turf/open/floor/mainship/floor,
 /area/mainship/shipboard/sensors)
 "dWT" = (
 /obj/structure/table/wood,
@@ -3425,10 +3438,11 @@
 /area/mainship/hallways/ntf/dorm1)
 "etd" = (
 /obj/item/storage/box/crate/loot/telecomm_tower_pack/cm,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/open/floor/mainship/tcomms,
-/area/mainship/groundhq/ntf/command/telecomms{
-	ceiling = 0
-	})
+/area/mainship/groundhq/ntf/command/telecomms)
 "ety" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment/corner{
@@ -3537,7 +3551,9 @@
 "eCa" = (
 /obj/structure/table/mainship,
 /obj/machinery/computer/secure_data,
-/turf/open/floor/mainship/mono,
+/turf/open/floor/mainship/red{
+	dir = 1
+	},
 /area/mainship/shipboard/sensors)
 "eCA" = (
 /turf/open/floor/plating/ground/snow/layer0,
@@ -3571,7 +3587,7 @@
 /area/desert_dam/exterior/valley/valley_wilderness)
 "eEr" = (
 /obj/item/storage/box/crate/loot/materials_pack,
-/turf/open/floor/plating/ground/snow/layer1,
+/turf/open/floor/plating/ground/snow/layer2,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "eEV" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -3718,7 +3734,7 @@
 	name = "Kitchen"
 	})
 "eMj" = (
-/obj/structure/window_frame,
+/obj/structure/window_frame/colony,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/groundhq/ntf/hallways/starboard_hallway{
 	name = "HQ Central Hallways"
@@ -3758,7 +3774,7 @@
 /obj/item/clothing/glasses/meson,
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/item/clothing/suit/storage/hazardvest,
-/turf/open/floor/plating/ground/snow/layer1,
+/turf/open/floor/plating/ground/snow/layer2,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "eOe" = (
 /obj/structure/cable,
@@ -3853,11 +3869,11 @@
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "eXS" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 10
-	},
 /obj/structure/disposalpipe/segment/corner{
 	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/groundhq/ntf/hallways/aft_hallway{
@@ -3960,9 +3976,13 @@
 	name = "Ground CEO Office"
 	})
 "fbA" = (
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/open/floor/plating/ground/snow/layer3,
-/area/mainship/groundhq/ntf/living/grunt_rnr)
+/obj/item/flashlight/lantern,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/ground/caves{
+	ceiling = 2;
+	name = "HQ Tunnels";
+	always_unpowered = 0
+	})
 "fbF" = (
 /obj/effect/spawner/random/misc/structure/supplycrate,
 /turf/open/floor/mainship/mono,
@@ -4017,7 +4037,7 @@
 /area/mainship/squads/req)
 "fgz" = (
 /obj/structure/closet/crate/miningcar,
-/turf/open/floor/plating/ground/snow/layer1,
+/turf/open/floor/plating/ground/snow/layer2,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "fgD" = (
 /obj/item/reagent_containers/glass/beaker/biomass{
@@ -4990,7 +5010,7 @@
 	name = "HQ Northeast Hallways"
 	})
 "gGH" = (
-/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/flora/grass/green,
 /turf/open/floor/plating/ground/snow/layer3,
 /area/mainship/groundhq/ntf/living/starboard_garden)
 "gHF" = (
@@ -5878,7 +5898,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/shipboard/brig)
 "hQf" = (
-/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/grass/both,
 /turf/open/floor/plating/ground/snow/layer2,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "hQl" = (
@@ -5900,18 +5920,6 @@
 /obj/item/toy/inflatable_duck,
 /turf/open/liquid/water/river/autosmooth,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
-"hSe" = (
-/obj/structure/window/framed/mainship,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/mainship{
-	dir = 2
-	},
-/turf/open/floor/mainship/mono,
-/area/mainship/groundhq/ntf/hallways/aft_hallway{
-	name = "HQ Northwest Hallways"
-	})
 "hSA" = (
 /obj/structure/table/wood,
 /obj/item/clipboard{
@@ -6024,7 +6032,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "hWd" = (
-/obj/structure/flora/ausbushes/sunnybush,
+/obj/structure/flora/grass/brown,
 /turf/open/floor/plating/ground/snow/layer3,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "hWv" = (
@@ -6297,14 +6305,6 @@
 /area/mainship/groundhq/ntf/hallways/starboard_hallway{
 	name = "HQ Central Hallways"
 	})
-"ioZ" = (
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/squads/req)
 "ipy" = (
 /obj/structure/table/mainship,
 /obj/structure/transmitter/colony_net/desk{
@@ -6567,7 +6567,7 @@
 	name = "HQ Northeast Hallways"
 	})
 "iEL" = (
-/obj/structure/flora/ausbushes/sunnybush,
+/obj/structure/flora/grass/brown,
 /turf/open/floor/plating/ground/snow/layer2,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "iFm" = (
@@ -6749,12 +6749,6 @@
 /area/mainship/command/corporateliaison{
 	name = "Ground CEO Office"
 	})
-"iPV" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/open/floor/plating/ground/snow/layer3,
-/area/mainship/living/grunt_rnr)
 "iQl" = (
 /obj/machinery/floodlight/landing/testroom,
 /turf/open/floor/plating/ground/snow/layer3,
@@ -6856,10 +6850,6 @@
 /obj/structure/closet/secure_closet/hydroponics,
 /turf/open/floor/prison/cleanmarked,
 /area/mainship/groundhq/ntf/shipboard/brig_cells)
-"iVu" = (
-/obj/structure/inflatable/door,
-/turf/open/floor/plating/ground/snow/layer1,
-/area/desert_dam/exterior/valley/valley_wilderness)
 "iVG" = (
 /obj/structure/bed,
 /obj/item/bedsheet/blue,
@@ -6883,7 +6873,7 @@
 	name = "CC Office"
 	})
 "iYd" = (
-/obj/structure/flora/ausbushes/sunnybush,
+/obj/structure/flora/grass/brown,
 /obj/structure/largecrate/supply/floodlights,
 /turf/open/floor/plating/ground/snow/layer3,
 /area/desert_dam/exterior/valley/valley_wilderness)
@@ -6961,7 +6951,6 @@
 	},
 /area/mainship/groundhq/ntf/shipboard/brig)
 "jeb" = (
-/obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 1
@@ -7298,8 +7287,12 @@
 /area/mainship/living/grunt_rnr)
 "jCh" = (
 /obj/item/ore/glass,
-/turf/open/floor/plating/ground/snow/layer1,
-/area/desert_dam/exterior/valley/valley_wilderness)
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/ground/caves{
+	ceiling = 2;
+	name = "HQ Tunnels";
+	always_unpowered = 0
+	})
 "jCj" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -7571,6 +7564,7 @@
 /obj/machinery/door/airlock/mainship/research/glass/free_access{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/hallways/aft_hallway{
 	name = "HQ Northeast Hallways"
@@ -8072,8 +8066,12 @@
 /area/mainship/groundhq/ntf/engineering/upper_engineering)
 "kBq" = (
 /obj/item/ore,
-/turf/open/floor/plating/ground/snow/layer1,
-/area/desert_dam/exterior/valley/valley_wilderness)
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/ground/caves{
+	ceiling = 2;
+	name = "HQ Tunnels";
+	always_unpowered = 0
+	})
 "kCg" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 1
@@ -8261,9 +8259,15 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/command/cic)
 "kQm" = (
-/obj/item/toy/inflatable_duck,
-/turf/open/floor/plating/ground/snow/layer3,
-/area/desert_dam/exterior/valley/valley_wilderness)
+/obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/vent_pump/layer1{
+	dir = 8;
+	on = 1
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/groundhq/ntf/hallways/aft_hallway{
+	name = "HQ Northeast Hallways"
+	})
 "kQT" = (
 /obj/machinery/status_display,
 /turf/closed/wall/mainship,
@@ -8327,7 +8331,7 @@
 "kUe" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 9
+	dir = 8
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/hallways/aft_hallway{
@@ -8558,13 +8562,6 @@
 	base_lighting_alpha = 0;
 	static_lighting = 1
 	})
-"lnt" = (
-/obj/structure/closet/swimsuit,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/open/floor/plating/ground/snow/layer3,
-/area/mainship/living/grunt_rnr)
 "lnV" = (
 /obj/structure/rack,
 /obj/item/stack/sandbags/large_stack,
@@ -8815,7 +8812,7 @@
 /area/mainship/groundhq/ntf/engineering/engineering_workshop)
 "lBG" = (
 /obj/structure/closet/crate/trashcart,
-/turf/open/floor/plating/ground/snow/layer1,
+/turf/open/floor/plating/ground/snow/layer2,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "lCl" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -9024,7 +9021,8 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "lRK" = (
-/turf/open/floor/plating/ground/ice,
+/obj/structure/inflatable/wall,
+/turf/open/floor/plating/ground/snow/layer2,
 /area/lv624/ground/caves{
 	ceiling = 2;
 	name = "HQ Tunnels";
@@ -9036,14 +9034,6 @@
 	dir = 4
 	},
 /area/mainship/medical/lower_medical)
-"lSE" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 6
-	},
-/turf/open/floor/mainship/mono,
-/area/mainship/groundhq/ntf/hallways/aft_hallway{
-	name = "HQ Northwest Hallways"
-	})
 "lTb" = (
 /obj/structure/curtain/medical,
 /obj/structure/cable,
@@ -9402,10 +9392,6 @@
 /obj/structure/toilet,
 /turf/open/floor/mainship/mono,
 /area/mainship/ntf/fcroom)
-"muq" = (
-/obj/effect/ai_node,
-/turf/open/floor/plating/ground/snow/layer1,
-/area/desert_dam/exterior/valley/valley_wilderness)
 "muy" = (
 /obj/structure/cable,
 /obj/machinery/power/apc{
@@ -9420,8 +9406,12 @@
 /area/mainship/ntf/fcroom)
 "mvo" = (
 /obj/item/ore/slag,
-/turf/open/floor/plating/ground/snow/layer1,
-/area/desert_dam/exterior/valley/valley_wilderness)
+/turf/open/floor/plating/ground/snow/layer0,
+/area/lv624/ground/caves{
+	ceiling = 2;
+	name = "HQ Tunnels";
+	always_unpowered = 0
+	})
 "mvp" = (
 /obj/structure/closet/cabinet,
 /obj/item/reagent_containers/spray/cleaner,
@@ -9612,9 +9602,14 @@
 /turf/open/floor/wood,
 /area/mainship/hallways/ntf/dorm2)
 "mKu" = (
-/obj/item/toy/beach_ball,
-/turf/open/floor/plating/ground/snow/layer3,
-/area/desert_dam/exterior/valley/valley_wilderness)
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 1
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/groundhq/ntf/hallways/aft_hallway{
+	name = "HQ Northwest Hallways"
+	})
 "mKv" = (
 /obj/structure/table/mainship,
 /obj/item/storage/fancy/cigarettes/kpack,
@@ -9839,7 +9834,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
-/turf/open/floor/mainship/mono,
+/turf/open/floor/mainship/floor,
 /area/mainship/shipboard/sensors)
 "nbi" = (
 /obj/structure/bed/chair{
@@ -10044,7 +10039,7 @@
 /obj/item/pizzabox/margherita,
 /obj/item/clothing/glasses/meson,
 /obj/item/flashlight/lantern,
-/turf/open/floor/plating/ground/snow/layer1,
+/turf/open/floor/plating/ground/snow/layer2,
 /area/lv624/ground/caves{
 	ceiling = 2;
 	name = "HQ Tunnels";
@@ -10173,7 +10168,7 @@
 "nyK" = (
 /obj/structure/window/framed/colony/reinforced,
 /turf/open/floor/mainship,
-/area/mainship/hallways/hangar2)
+/area/mainship/groundhq/ntf/command/telecomms)
 "nyT" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment/corner{
@@ -10549,9 +10544,12 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/living/officer_study)
 "nVm" = (
-/obj/effect/spawner/random/misc/structure/supplycrate,
-/turf/open/floor/plating/ground/snow/layer1,
-/area/desert_dam/exterior/valley/valley_wilderness)
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/groundhq/ntf/hallways/aft_hallway{
+	name = "HQ Northeast Hallways"
+	})
 "nVy" = (
 /obj/structure/closet/secure_closet/engineering_electrical,
 /turf/open/floor/mainship/orange/full,
@@ -10838,14 +10836,9 @@
 	name = "CC Office"
 	})
 "osj" = (
-/obj/structure/window/framed/mainship,
-/obj/machinery/door/firedoor/mainship{
-	dir = 2
-	},
+/obj/effect/light_emitter/daylight,
 /turf/open/floor/mainship/mono,
-/area/mainship/groundhq/ntf/hallways/aft_hallway{
-	name = "HQ Northwest Hallways"
-	})
+/area/desert_dam/exterior/valley/valley_wilderness)
 "otz" = (
 /obj/structure/mineral_door/wood,
 /obj/structure/disposalpipe/segment{
@@ -11343,7 +11336,7 @@
 /obj/structure/table/wood,
 /obj/item/ore/coal,
 /obj/item/ore/gold,
-/turf/open/floor/plating/ground/snow/layer1,
+/turf/open/floor/plating/ground/snow/layer2,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "oYd" = (
 /obj/structure/catwalk,
@@ -11744,6 +11737,10 @@
 	always_unpowered = 0
 	})
 "pwp" = (
+/obj/structure/cable,
+/obj/machinery/power/apc{
+	dir = 4
+	},
 /turf/open/floor/mainship/red{
 	dir = 8
 	},
@@ -11819,8 +11816,7 @@
 	})
 "pAv" = (
 /obj/machinery/light,
-/obj/structure/reagent_dispensers/water_cooler,
-/turf/open/floor/mainship/mono,
+/turf/open/floor/mainship/red,
 /area/mainship/shipboard/sensors)
 "pAD" = (
 /obj/machinery/door/firedoor/mainship{
@@ -11877,7 +11873,7 @@
 	},
 /area/mainship/groundhq/ntf/command/corporateliaison)
 "pBr" = (
-/obj/structure/flora/ausbushes/ywflowers,
+/obj/structure/flora/bush,
 /turf/open/floor/plating/ground/snow/layer3,
 /area/mainship/groundhq/ntf/living/starboard_garden)
 "pCq" = (
@@ -11939,7 +11935,7 @@
 	name = "HQ Northwest Hallways"
 	})
 "pGk" = (
-/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/grass/both,
 /obj/machinery/camera/autoname/mainship{
 	dir = 4
 	},
@@ -12125,7 +12121,7 @@
 /turf/open/floor/wood,
 /area/mainship/hallways/ntf/dorm1)
 "pUy" = (
-/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/grass/both,
 /turf/open/floor/plating/ground/snow/layer3,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "pVG" = (
@@ -12150,7 +12146,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/req)
 "pWE" = (
-/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/flora/grass/green,
 /turf/open/floor/plating/ground/snow/layer3,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "pWX" = (
@@ -12164,7 +12160,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/shipboard/brig)
 "pYf" = (
-/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/flora/grass/green,
 /turf/open/floor/plating/ground/snow/layer3,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "pYz" = (
@@ -12317,7 +12313,7 @@
 /turf/closed/wall/mainship,
 /area/mainship/squads/req)
 "qjQ" = (
-/obj/structure/window_frame,
+/obj/structure/window_frame/colony,
 /turf/open/floor/plating/ground/snow/layer3,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "qkg" = (
@@ -12538,7 +12534,7 @@
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "qwM" = (
 /obj/machinery/miner/damaged/platinum,
-/turf/open/floor/plating/ground/snow/layer1,
+/turf/open/floor/plating/ground/snow/layer2,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "qxo" = (
 /obj/structure/bed/chair/sofa{
@@ -12936,7 +12932,7 @@
 /obj/item/clothing/head/hardhat/orange,
 /obj/item/clothing/glasses/meson,
 /obj/item/clothing/suit/storage/hazardvest,
-/turf/open/floor/plating/ground/snow/layer1,
+/turf/open/floor/plating/ground/snow/layer2,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "qVc" = (
 /obj/effect/ai_node,
@@ -13347,7 +13343,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/command/corporateliaison)
 "rqu" = (
-/obj/structure/flora/ausbushes/sunnybush,
+/obj/structure/flora/grass/brown,
 /obj/effect/spawner/random/misc/structure/supplycrate,
 /turf/open/floor/plating/ground/snow/layer3,
 /area/desert_dam/exterior/valley/valley_wilderness)
@@ -13417,14 +13413,14 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/living/starboard_garden)
 "rtM" = (
-/obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/cable,
+/obj/effect/ai_node,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 1
+	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
-/area/mainship/groundhq/ntf/hallways/stern_hallway{
-	name = "HQ Eastern hallways"
+/area/mainship/groundhq/ntf/hallways/aft_hallway{
+	name = "HQ Northeast Hallways"
 	})
 "ruY" = (
 /obj/structure/closet/secure_closet/CMO,
@@ -13718,11 +13714,6 @@
 	},
 /turf/open/floor/plating,
 /area/mainship/hallways/ntf/dorm1)
-"rVj" = (
-/turf/open/floor/plating/ground/snow/layer1,
-/area/mainship/groundhq/ntf/hallways/starboard_hallway{
-	name = "HQ Central Hallways"
-	})
 "rVw" = (
 /obj/structure/table/mainship,
 /obj/machinery/computer/med_data/laptop{
@@ -13881,7 +13872,7 @@
 	dir = 8
 	},
 /obj/item/radio,
-/turf/open/floor/plating/ground/snow/layer1,
+/turf/open/floor/plating/ground/snow/layer2,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "sfy" = (
 /obj/structure/disposalpipe/segment/corner,
@@ -13953,14 +13944,6 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/hallways/aft_hallway{
 	name = "HQ Northeast Hallways"
-	})
-"sjO" = (
-/obj/effect/ai_node,
-/turf/open/floor/plating/ground/snow/layer1,
-/area/lv624/ground/caves{
-	ceiling = 2;
-	name = "HQ Tunnels";
-	always_unpowered = 0
 	})
 "skX" = (
 /obj/structure/table/wood,
@@ -14143,8 +14126,8 @@
 	name = "Ground CEO Office"
 	})
 "szx" = (
-/obj/structure/window_frame,
-/turf/open/floor/plating,
+/obj/structure/window_frame/colony,
+/turf/open/floor/plating/ground/snow/layer3,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "szV" = (
 /obj/machinery/door/firedoor/mainship,
@@ -14434,7 +14417,7 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/red{
-	dir = 4
+	dir = 5
 	},
 /area/mainship/shipboard/sensors)
 "sVk" = (
@@ -14503,16 +14486,6 @@
 /area/mainship/groundhq/ntf/hallways/starboard_hallway{
 	name = "HQ Central Hallways"
 	})
-"sZi" = (
-/obj/structure/cable,
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 1
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/groundhq/ntf/hallways/stern_hallway{
-	name = "HQ Eastern hallways"
-	})
 "tad" = (
 /turf/closed/wall/mainship/white,
 /area/centcom/practice/medical{
@@ -14520,10 +14493,6 @@
 	base_lighting_alpha = 0;
 	static_lighting = 1
 	})
-"tbr" = (
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/open/floor/plating/ground/snow/layer3,
-/area/mainship/groundhq/ntf/living/starboard_garden)
 "tby" = (
 /obj/structure/table/wood,
 /obj/item/toy/deck,
@@ -14702,10 +14671,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/command/cic)
-"toH" = (
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/open/floor/plating/ground/snow/layer3,
-/area/desert_dam/exterior/valley/valley_wilderness)
 "toR" = (
 /obj/machinery/button/door{
 	name = "lockdown button";
@@ -14722,11 +14687,10 @@
 	},
 /area/mainship/groundhq/ntf/medical/medical_science)
 "tqZ" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
 /obj/structure/cable,
-/obj/machinery/power/apc,
+/obj/machinery/power/apc{
+	dir = 4
+	},
 /turf/open/floor/mainship/tcomms,
 /area/mainship/groundhq/ntf/command/telecomms)
 "trg" = (
@@ -14901,7 +14865,10 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/engineering/engineering_workshop)
 "tEK" = (
-/turf/open/floor/mainship/cargo/arrow,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 8
+	},
+/turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/hallways/aft_hallway{
 	name = "HQ Northwest Hallways"
 	})
@@ -15125,7 +15092,7 @@
 /obj/item/tool/lighter/zippo,
 /obj/item/clothing/head/hardhat/orange,
 /obj/item/clothing/suit/storage/hazardvest,
-/turf/open/floor/plating/ground/snow/layer1,
+/turf/open/floor/plating/ground/snow/layer2,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "tZf" = (
 /turf/closed/wall,
@@ -15290,8 +15257,8 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/req)
 "ulO" = (
-/obj/structure/window_frame,
-/turf/open/floor/plating,
+/obj/structure/window_frame/colony,
+/turf/open/floor/plating/ground/snow/layer3,
 /area/mainship/groundhq/ntf/hallways/stern_hallway{
 	name = "HQ Eastern hallways"
 	})
@@ -15625,7 +15592,7 @@
 /turf/closed/wall/mainship/gray/outer,
 /area/mainship/living/grunt_rnr)
 "uNh" = (
-/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/grass/both,
 /turf/open/floor/plating/ground/snow/layer3,
 /area/mainship/groundhq/ntf/living/grunt_rnr)
 "uNG" = (
@@ -15713,7 +15680,9 @@
 	dir = 1
 	},
 /turf/closed/wall,
-/area/mainship/shipboard/sensors)
+/area/orion_outpost/surface/building/prep{
+	name = "Worker Preperations"
+	})
 "uRj" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8
@@ -15780,8 +15749,8 @@
 /area/mainship/groundhq/ntf/living/bridgebunks)
 "uTp" = (
 /obj/structure/cable,
-/turf/open/floor/mainship/red/corner{
-	dir = 8
+/turf/open/floor/mainship/red{
+	dir = 9
 	},
 /area/mainship/shipboard/sensors)
 "uTL" = (
@@ -15819,7 +15788,9 @@
 /obj/machinery/recharger{
 	pixel_y = 10
 	},
-/turf/open/floor/mainship/mono,
+/turf/open/floor/mainship/red{
+	dir = 1
+	},
 /area/mainship/shipboard/sensors)
 "uVJ" = (
 /obj/structure/flora/ausbushes/palebush,
@@ -16047,7 +16018,7 @@
 	name = "HQ Northeast Hallways"
 	})
 "vlV" = (
-/obj/structure/flora/ausbushes/ywflowers,
+/obj/structure/flora/bush,
 /turf/open/floor/plating/ground/snow/layer3,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "vmP" = (
@@ -16106,11 +16077,11 @@
 	id = "starboard_target";
 	name = "Groundside ERT Landing zone 2"
 	},
-/turf/open/floor/plating/ground/snow/layer1,
+/turf/open/floor/plating/ground/snow/layer2,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "vrd" = (
 /obj/item/flashlight/lantern,
-/turf/open/floor/plating/ground/snow/layer1,
+/turf/open/floor/plating/ground/snow/layer2,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "vsa" = (
 /obj/machinery/vending/MarineMed{
@@ -16203,7 +16174,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/shipboard/brig)
 "vvj" = (
-/obj/structure/flora/tree/jungle/small,
+/obj/structure/flora/tree/pine,
 /turf/open/floor/plating/ground/snow/layer3,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "vvv" = (
@@ -16281,7 +16252,7 @@
 	name = "HQ Central Hallways"
 	})
 "vAZ" = (
-/turf/open/floor/mainship/mono,
+/turf/open/floor/mainship/red,
 /area/mainship/shipboard/sensors)
 "vCe" = (
 /obj/machinery/computer/body_scanconsole,
@@ -16586,9 +16557,14 @@
 	},
 /area/mainship/squads/req)
 "vTf" = (
-/obj/item/ore/coal,
-/turf/open/floor/plating/ground/snow/layer1,
-/area/desert_dam/exterior/valley/valley_wilderness)
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 10
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/groundhq/ntf/hallways/aft_hallway{
+	name = "HQ Northwest Hallways"
+	})
 "vTm" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -16963,7 +16939,7 @@
 	name = "HQ Central Hallways"
 	})
 "wpW" = (
-/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/grass/both,
 /turf/open/floor/plating/ground/snow/layer3,
 /area/mainship/groundhq/ntf/living/starboard_garden)
 "wqf" = (
@@ -17409,10 +17385,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/groundhq/ntf/engineering/engine_core)
-"wPP" = (
-/obj/structure/flora/tree/jungle,
-/turf/open/floor/plating/ground/snow/layer2,
-/area/desert_dam/exterior/valley/valley_wilderness)
 "wPT" = (
 /obj/machinery/vending/dinnerware,
 /turf/open/floor/wood,
@@ -17612,11 +17584,14 @@
 	name = "CC Office"
 	})
 "xaZ" = (
-/obj/structure/flora/tree/jungle,
-/turf/open/floor/plating/ground/snow/layer3,
-/area/desert_dam/exterior/valley/valley_wilderness)
+/turf/closed/mineral/smooth/outdoor/phoron,
+/area/lv624/ground/caves{
+	ceiling = 2;
+	name = "HQ Tunnels";
+	always_unpowered = 0
+	})
 "xcC" = (
-/obj/structure/flora/ausbushes/sunnybush,
+/obj/structure/flora/grass/brown,
 /turf/open/floor/plating/ground/snow/layer3,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "xcN" = (
@@ -17893,7 +17868,7 @@
 /area/mainship/ntf/fcroom)
 "xzu" = (
 /obj/machinery/deployable/floodlight,
-/turf/open/floor/plating/ground/snow/layer1,
+/turf/open/floor/plating/ground/snow/layer2,
 /area/desert_dam/exterior/valley/valley_wilderness)
 "xzI" = (
 /obj/structure/inflatable/door,
@@ -17929,8 +17904,8 @@
 	name = "HQ Eastern hallways"
 	})
 "xEq" = (
-/obj/structure/window_frame,
-/turf/open/floor/plating/plating_catwalk,
+/obj/structure/window_frame/colony,
+/turf/open/floor/plating/ground/snow/layer2,
 /area/mainship/groundhq/ntf/hallways/bathroom)
 "xEQ" = (
 /obj/structure/cable,
@@ -18355,6 +18330,9 @@
 "ygm" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 1
+	},
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/groundhq/ntf/hallways/aft_hallway{
 	name = "HQ Northwest Hallways"
@@ -18647,17 +18625,17 @@ hKj
 hKj
 hKj
 hKj
+dOq
+dOq
+dOq
+dOq
 hKj
 hKj
 hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
+xaZ
+xaZ
+xaZ
+xaZ
 hKj
 hKj
 vLi
@@ -18758,11 +18736,11 @@ hKj
 hKj
 hKj
 hKj
+dOq
 hKj
+xaZ
 hKj
-hKj
-hKj
-hKj
+xaZ
 hKj
 hKj
 hKj
@@ -18861,17 +18839,17 @@ hKj
 hKj
 hKj
 hKj
+dOq
+dOq
+dOq
+dOq
 hKj
 hKj
 hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
+xaZ
+xaZ
+xaZ
+xaZ
 hKj
 hKj
 vLi
@@ -19075,13 +19053,13 @@ hKj
 hKj
 hKj
 hKj
+dOq
+dOq
+dOq
+dOq
+dOq
 hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
+xaZ
 hKj
 hKj
 hKj
@@ -19188,11 +19166,11 @@ hKj
 hKj
 hKj
 hKj
-hKj
-hKj
-hKj
-hKj
-hKj
+xaZ
+xaZ
+xaZ
+xaZ
+xaZ
 hKj
 hKj
 vLi
@@ -19289,13 +19267,13 @@ hKj
 hKj
 hKj
 hKj
+dOq
+dOq
+dOq
+dOq
+dOq
 hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
+xaZ
 hKj
 hKj
 hKj
@@ -19396,11 +19374,11 @@ hKj
 hKj
 hKj
 hKj
+dOq
 hKj
 hKj
 hKj
-hKj
-hKj
+dOq
 hKj
 hKj
 hKj
@@ -19504,9 +19482,9 @@ hKj
 hKj
 hKj
 hKj
-hKj
-hKj
-hKj
+dOq
+dOq
+dOq
 hKj
 hKj
 hKj
@@ -19617,10 +19595,10 @@ hKj
 hKj
 hKj
 hKj
-hKj
-hKj
-hKj
-hKj
+xaZ
+xaZ
+xaZ
+xaZ
 hKj
 hKj
 hLV
@@ -19717,13 +19695,13 @@ hKj
 hKj
 hKj
 hKj
+dOq
+dOq
+dOq
+dOq
+dOq
 hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
+xaZ
 hKj
 hKj
 hKj
@@ -19824,15 +19802,15 @@ hKj
 hKj
 hKj
 hKj
+dOq
+hKj
+dOq
+hKj
+dOq
 hKj
 hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
+xaZ
+xaZ
 hKj
 hKj
 hKj
@@ -19937,7 +19915,7 @@ hKj
 hKj
 hKj
 hKj
-hKj
+xaZ
 hKj
 hKj
 hKj
@@ -20045,10 +20023,10 @@ hKj
 hKj
 hKj
 hKj
-hKj
-hKj
-hKj
-hKj
+xaZ
+xaZ
+xaZ
+xaZ
 hKj
 hKj
 hLV
@@ -20145,11 +20123,11 @@ hKj
 vcu
 hKj
 hKj
-hKj
-hKj
-hKj
-hKj
-hKj
+dOq
+dOq
+dOq
+dOq
+dOq
 hKj
 hKj
 hKj
@@ -20253,16 +20231,16 @@ hKj
 hKj
 hKj
 hKj
+dOq
+dOq
 hKj
 hKj
 hKj
 hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
+xaZ
+xaZ
+xaZ
+xaZ
 hKj
 hKj
 hKj
@@ -20359,15 +20337,15 @@ hKj
 hKj
 hKj
 hKj
+hKj
+hKj
 dOq
 dOq
-dOq
-dOq
 hKj
 hKj
+xaZ
 hKj
-hKj
-hKj
+xaZ
 hKj
 hKj
 hKj
@@ -20466,17 +20444,17 @@ hKj
 hKj
 hKj
 hKj
-hKj
-hKj
-hKj
-hKj
+dOq
+dOq
+dOq
+dOq
 dOq
 hKj
 hKj
-hKj
-hKj
-hKj
-hKj
+xaZ
+xaZ
+xaZ
+xaZ
 hKj
 hKj
 hKj
@@ -20573,10 +20551,10 @@ hKj
 hKj
 hKj
 hKj
-dOq
-dOq
-dOq
-dOq
+hKj
+hKj
+hKj
+hKj
 hKj
 hKj
 hKj
@@ -20680,17 +20658,17 @@ hKj
 hKj
 hKj
 hKj
+dOq
+dOq
+dOq
+dOq
+dOq
 hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
+xaZ
+xaZ
+xaZ
+xaZ
+xaZ
 hKj
 hKj
 oGw
@@ -20788,14 +20766,14 @@ hKj
 hKj
 hKj
 dOq
-dOq
-dOq
-dOq
-dOq
 hKj
 hKj
 hKj
+dOq
 hKj
+xaZ
+hKj
+xaZ
 hKj
 hKj
 hKj
@@ -20894,14 +20872,14 @@ hKj
 hKj
 hKj
 hKj
+dOq
+dOq
+dOq
+dOq
+dOq
 hKj
 hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
+xaZ
 hKj
 hKj
 hKj
@@ -21001,11 +20979,11 @@ hKj
 hKj
 hKj
 hKj
-dOq
-dOq
-dOq
-dOq
-dOq
+hKj
+hKj
+hKj
+hKj
+hKj
 hKj
 hKj
 hKj
@@ -21109,16 +21087,16 @@ hKj
 hKj
 hKj
 dOq
-hKj
-hKj
-hKj
+dOq
+dOq
+dOq
 dOq
 hKj
-hKj
-hKj
-hKj
-hKj
-hKj
+xaZ
+xaZ
+xaZ
+xaZ
+xaZ
 hKj
 hKj
 oGw
@@ -21216,14 +21194,14 @@ hKj
 hKj
 hKj
 hKj
-dOq
-dOq
-dOq
 hKj
 hKj
 hKj
 hKj
 hKj
+xaZ
+hKj
+xaZ
 hKj
 hKj
 hKj
@@ -21322,14 +21300,14 @@ hKj
 hKj
 hKj
 hKj
+dOq
+dOq
+dOq
+dOq
+dOq
 hKj
 hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
+xaZ
 hKj
 hKj
 hKj
@@ -21430,10 +21408,10 @@ hKj
 hKj
 hKj
 dOq
+hKj
 dOq
-dOq
-dOq
-dOq
+hKj
+hKj
 hKj
 hKj
 hKj
@@ -21536,17 +21514,17 @@ hKj
 hKj
 hKj
 hKj
-dOq
 hKj
 dOq
 hKj
 dOq
+dOq
 hKj
+xaZ
 hKj
-hKj
-hKj
-hKj
-hKj
+xaZ
+xaZ
+xaZ
 hKj
 hKj
 oGw
@@ -21751,16 +21729,16 @@ hKj
 hKj
 hKj
 hKj
+xaZ
 hKj
 hKj
+xaZ
 hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
-hKj
+xaZ
+xaZ
+xaZ
+xaZ
+xaZ
 hKj
 hKj
 oGw
@@ -21857,15 +21835,15 @@ hKj
 hKj
 hKj
 hKj
-dOq
-dOq
-dOq
-dOq
-dOq
+xaZ
+hKj
+xaZ
+hKj
+xaZ
 hKj
 hKj
-hKj
-hKj
+xaZ
+xaZ
 hKj
 hKj
 hKj
@@ -21964,16 +21942,16 @@ hKj
 hKj
 hKj
 hKj
-hKj
-dOq
-dOq
+xaZ
 hKj
 hKj
-hKj
+xaZ
 hKj
 hKj
 hKj
 hKj
+xaZ
+xaZ
 hKj
 hKj
 hKj
@@ -22073,15 +22051,15 @@ hKj
 hKj
 hKj
 hKj
-dOq
-dOq
 hKj
 hKj
 hKj
 hKj
-hKj
-hKj
-hKj
+xaZ
+xaZ
+xaZ
+xaZ
+xaZ
 hKj
 hKj
 oGw
@@ -22178,11 +22156,11 @@ hKj
 hKj
 hKj
 hKj
-dOq
-dOq
-dOq
-dOq
-dOq
+xaZ
+xaZ
+xaZ
+xaZ
+hKj
 hKj
 hKj
 hKj
@@ -22289,12 +22267,12 @@ hKj
 hKj
 hKj
 hKj
+xaZ
 hKj
 hKj
-hKj
-hKj
-hKj
-hKj
+xaZ
+xaZ
+xaZ
 hKj
 hKj
 hKj
@@ -22392,17 +22370,17 @@ hKj
 hKj
 hKj
 hKj
-dOq
-dOq
-dOq
-dOq
-dOq
 hKj
 hKj
 hKj
 hKj
+xaZ
+hKj
+xaZ
 hKj
 hKj
+hKj
+xaZ
 hKj
 hKj
 hKj
@@ -22499,17 +22477,17 @@ hKj
 hKj
 hKj
 hKj
-dOq
+xaZ
+xaZ
+xaZ
+xaZ
 hKj
 hKj
+xaZ
 hKj
-dOq
+xaZ
 hKj
-hKj
-hKj
-hKj
-hKj
-hKj
+xaZ
 hKj
 hKj
 hKj
@@ -22606,16 +22584,16 @@ hKj
 hKj
 hKj
 hKj
-dOq
-dOq
-dOq
-dOq
-dOq
 hKj
 hKj
 hKj
 hKj
 hKj
+hKj
+xaZ
+hKj
+xaZ
+xaZ
 hKj
 hKj
 hKj
@@ -22713,11 +22691,11 @@ hKj
 hKj
 hKj
 hKj
+xaZ
+xaZ
 hKj
-hKj
-hKj
-hKj
-hKj
+xaZ
+xaZ
 hKj
 hKj
 hKj
@@ -22820,11 +22798,11 @@ hKj
 hKj
 hKj
 hKj
-dOq
-dOq
-dOq
-dOq
-dOq
+hKj
+hKj
+xaZ
+hKj
+hKj
 hKj
 hKj
 hKj
@@ -22927,11 +22905,11 @@ hKj
 hKj
 hKj
 hKj
+xaZ
+xaZ
 hKj
-hKj
-hKj
-hKj
-hKj
+xaZ
+xaZ
 hKj
 hKj
 hKj
@@ -23034,11 +23012,11 @@ hKj
 hKj
 hKj
 hKj
-dOq
-dOq
-dOq
-dOq
-dOq
+hKj
+hKj
+hKj
+hKj
+hKj
 hKj
 hKj
 hKj
@@ -23141,9 +23119,9 @@ hKj
 hKj
 hKj
 hKj
-dOq
 hKj
-dOq
+hKj
+hKj
 hKj
 hKj
 hKj
@@ -23249,10 +23227,10 @@ hKj
 hKj
 hKj
 hKj
-dOq
 hKj
-dOq
-dOq
+hKj
+hKj
+hKj
 hKj
 hKj
 hKj
@@ -23376,10 +23354,10 @@ hKj
 gfR
 olq
 jaR
-lSE
-hSe
-xRG
-ioZ
+adO
+gfR
+adO
+hhG
 hcS
 vFN
 qFg
@@ -23483,8 +23461,8 @@ hKj
 gfR
 dJm
 aXx
-aAf
-osj
+dxi
+gfR
 adO
 hhG
 hcS
@@ -23589,7 +23567,7 @@ hKj
 hKj
 gfR
 ppO
-aMn
+jaR
 kUe
 gfR
 adO
@@ -23911,8 +23889,8 @@ hKj
 adO
 rAO
 duV
-duV
-duV
+vTf
+mKu
 ygm
 eXS
 cFQ
@@ -25758,7 +25736,7 @@ iTZ
 iTZ
 xcC
 iTZ
-toH
+pWE
 iTZ
 lpm
 jfc
@@ -25875,7 +25853,7 @@ lpm
 iTZ
 pWE
 iTZ
-toH
+pWE
 iTZ
 spn
 xcC
@@ -26076,7 +26054,7 @@ iTZ
 iTZ
 iTZ
 xUL
-toH
+pWE
 iTZ
 iTZ
 iTZ
@@ -26195,7 +26173,7 @@ wEy
 bkS
 uTp
 pwp
-nNK
+baH
 nKd
 auC
 dBZ
@@ -26302,8 +26280,8 @@ ted
 miI
 aFa
 cjZ
-nNK
-nNK
+vAZ
+nKd
 luO
 aqq
 rTJ
@@ -26410,7 +26388,7 @@ miI
 eCa
 dWR
 pAv
-nNK
+nKd
 ffu
 dBZ
 rTJ
@@ -26506,7 +26484,7 @@ iTZ
 iTZ
 jvr
 iTZ
-toH
+pWE
 iTZ
 spn
 iyk
@@ -26517,7 +26495,7 @@ miI
 uUZ
 naM
 vAZ
-nNK
+nKd
 ewf
 dBZ
 rTJ
@@ -26698,7 +26676,7 @@ iTZ
 iTZ
 iTZ
 iTZ
-toH
+pWE
 iTZ
 iTZ
 iTZ
@@ -26731,7 +26709,7 @@ nNK
 nNK
 nNK
 nNK
-nNK
+nKd
 uab
 aqq
 rTJ
@@ -27142,7 +27120,7 @@ iTZ
 iEL
 iTZ
 iTZ
-toH
+pWE
 iTZ
 iTZ
 iTZ
@@ -27978,7 +27956,7 @@ hKj
 hKj
 hKj
 iTZ
-toH
+pWE
 iTZ
 iTZ
 dUV
@@ -28559,10 +28537,10 @@ rnl
 akp
 agt
 gGH
-tbr
+gGH
 aLE
-tbr
-tbr
+gGH
+gGH
 pBr
 aLE
 wmQ
@@ -28745,10 +28723,10 @@ doP
 doP
 doP
 doP
-fTV
-umc
-doP
-doP
+anD
+anD
+anD
+anD
 xkJ
 kzw
 kzw
@@ -28852,7 +28830,7 @@ doP
 iTZ
 iTZ
 iTZ
-fav
+anD
 etd
 tqZ
 nyK
@@ -28860,9 +28838,9 @@ xkJ
 xEq
 lxp
 lxp
-lxp
-lxp
 dZi
+lxp
+lxp
 eMj
 aUF
 ouD
@@ -28879,7 +28857,7 @@ akp
 rnl
 akp
 agt
-tbr
+gGH
 gGH
 wpW
 yaO
@@ -28949,7 +28927,7 @@ iTZ
 iTZ
 iTZ
 iTZ
-toH
+pWE
 iTZ
 xkJ
 iTZ
@@ -28959,10 +28937,10 @@ hYG
 hYG
 iTZ
 hYG
-fav
+anD
 anD
 dFL
-oyO
+anD
 mMv
 mGA
 mGA
@@ -28991,7 +28969,7 @@ gGH
 yaO
 uoi
 bMP
-tbr
+gGH
 vxV
 wmQ
 doP
@@ -29070,7 +29048,7 @@ xkJ
 pFN
 uqK
 mMv
-mMv
+osj
 pYW
 rmJ
 npa
@@ -29202,7 +29180,7 @@ gmg
 wmQ
 oEu
 wpW
-tbr
+gGH
 uiK
 wpW
 wpW
@@ -30673,7 +30651,7 @@ gRJ
 vzx
 kgH
 beK
-fbA
+pYf
 ohd
 mGA
 mBM
@@ -30698,9 +30676,9 @@ mGA
 mGA
 mGA
 mGA
-lRK
-lRK
-lRK
+iTZ
+axU
+oGw
 gmg
 nqs
 uNG
@@ -30804,10 +30782,10 @@ qvp
 pUy
 pWE
 iTZ
-pVG
-lRK
+iTZ
+iTZ
 doP
-lRK
+oGw
 frB
 uNG
 cVW
@@ -30819,7 +30797,7 @@ von
 von
 doP
 doP
-pVG
+oGw
 oGw
 oGw
 oGw
@@ -30911,10 +30889,10 @@ mGA
 iTZ
 iTZ
 iTZ
-pVG
-lRK
+iTZ
+iTZ
 doP
-lRK
+oGw
 gmg
 bSy
 pCK
@@ -30924,10 +30902,10 @@ doP
 doP
 von
 jJD
-nCF
-nCF
-pVG
-pVG
+oGw
+oGw
+oGw
+oGw
 qVR
 oGw
 doP
@@ -31002,26 +30980,26 @@ iTZ
 aOS
 xcC
 iTZ
-toH
+pWE
 ulO
 ihi
 eNV
 xEp
-ulO
+aMn
 pUy
 iTZ
 qRY
-dLv
+qjQ
 iTZ
 iTZ
 pUy
 xcC
 qRY
 iTZ
-pVG
-lRK
+iTZ
+iTZ
 doP
-lRK
+oGw
 gmg
 gmg
 gmg
@@ -31031,12 +31009,12 @@ doP
 doP
 von
 jJD
-nCF
-nCF
-nCF
-pVG
-pVG
-pVG
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
 ihZ
 doP
 doP
@@ -31114,21 +31092,21 @@ ulO
 hUR
 mps
 xEp
-ulO
+aMn
 iTZ
 pWE
 iTZ
-dLv
+qjQ
 iTZ
 iTZ
 iTZ
 iTZ
 iTZ
 iTZ
-pVG
-lRK
+iTZ
+iTZ
 doP
-lRK
+oGw
 doP
 doP
 doP
@@ -31138,13 +31116,13 @@ doP
 doP
 ihZ
 doP
-nCF
-nCF
-nCF
-nCF
-nCF
-nCF
-nCF
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
 doP
 doP
 doP
@@ -31232,35 +31210,35 @@ gPM
 iTZ
 iTZ
 iTZ
-pVG
+iTZ
 doP
 doP
-lRK
-lRK
-lRK
-lRK
-pVG
+oGw
+oGw
+oGw
+oGw
+oGw
 doP
 doP
 von
 von
 doP
-muq
-nCF
-nCF
-nCF
-nCF
-nCF
-nCF
-nCF
+qVR
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
 doP
 doP
-nCF
-nVm
+oGw
+nte
 doP
-nCF
-nCF
-nCF
+oGw
+oGw
+oGw
 doP
 von
 doP
@@ -31343,30 +31321,30 @@ doP
 doP
 doP
 doP
-lRK
+oGw
 hKj
 doP
-sjO
-pVG
+qVR
+oGw
 doP
 doP
 doP
-nCF
-nCF
-nCF
-pVG
+oGw
+oGw
+oGw
+oGw
 doP
 doP
 doP
-nCF
-nCF
-nCF
-nCF
-nCF
-nCF
-nCF
-nCF
-nCF
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
 doP
 von
 doP
@@ -31450,28 +31428,28 @@ hKj
 hKj
 hKj
 hKj
-pVG
+oGw
 hKj
 doP
 doP
-pVG
+oGw
 doP
 doP
 doP
-nCF
-nCF
-nCF
+oGw
+oGw
+oGw
 doP
 doP
 doP
-nCF
-nCF
-nCF
-nCF
+oGw
+oGw
+oGw
+oGw
 doP
 doP
 doP
-nCF
+oGw
 doP
 doP
 doP
@@ -31553,38 +31531,38 @@ gPM
 iTZ
 iTZ
 iTZ
-xkJ
+iTZ
 doP
 doP
-pVG
-pVG
+oGw
+oGw
 hKj
 doP
 doP
-pVG
+oGw
 doP
 doP
-nCF
-nCF
-nCF
-nCF
+oGw
+oGw
+oGw
+oGw
 doP
 doP
-nCF
-nCF
-muq
-nCF
-nCF
+oGw
+oGw
+qVR
+oGw
+oGw
 doP
 lDg
 doP
-kkr
+lRK
 doP
 doP
 doP
-nCF
-nCF
-nVm
+oGw
+oGw
+nte
 von
 von
 doP
@@ -31660,38 +31638,38 @@ jEU
 iTZ
 iTZ
 iTZ
-xkJ
-pVG
-pVG
-pVG
+iTZ
+iTZ
+doP
+oGw
 doP
 hKj
 doP
-pVG
-pVG
+oGw
+oGw
 doP
 doP
 doP
 doP
 doP
-nCF
-nCF
-nCF
-nCF
-nCF
-nCF
-nCF
-nCF
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
 doP
 doP
 doP
 tYD
 oXV
-kkr
-nCF
-nCF
+ddC
+oGw
+oGw
 kBq
-nVm
+nte
 doP
 doP
 doP
@@ -31765,40 +31743,40 @@ eSj
 pUq
 gPM
 iTZ
-toH
+pWE
 iTZ
-xkJ
-pVG
-pVG
-pVG
+iTZ
+iTZ
+axU
+oGw
 doP
 hKj
 doP
-pVG
+oGw
 doP
 doP
 doP
 doP
-nCF
-nCF
-nCF
-nCF
-nCF
-nCF
-nCF
-nCF
-nCF
-nCF
-kkr
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+ddC
 lBG
 fgz
 sfn
-nVm
-kkr
+czo
+ddC
 kBq
-nCF
-nCF
-nCF
+oGw
+oGw
+oGw
 doP
 doP
 doP
@@ -31843,7 +31821,7 @@ qfG
 hKj
 hKj
 doP
-xaZ
+iTZ
 iTZ
 iTZ
 iTZ
@@ -31874,39 +31852,39 @@ gPM
 iTZ
 iTZ
 iTZ
-xkJ
-pVG
-pVG
+iTZ
+iTZ
+doP
 doP
 doP
 hKj
 doP
-pVG
-pVG
+oGw
+oGw
 doP
 doP
 doP
-nCF
-nCF
-nCF
-nCF
-nCF
-nCF
-nCF
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
 doP
-nCF
-nCF
-kkr
-nCF
-nCF
-muq
-nCF
-iVu
-nCF
-nCF
-muq
+oGw
+oGw
+ddC
+xkJ
+xkJ
+udS
+xkJ
+kaL
+oGw
+oGw
+qVR
 kBq
-nCF
+oGw
 doP
 doP
 hKj
@@ -31980,40 +31958,40 @@ lWX
 gPM
 iTZ
 iTZ
-toH
-xkJ
-pVG
+pWE
+iTZ
+iTZ
 doP
 doP
 doP
 hKj
 doP
 doP
-sjO
+qVR
 doP
 doP
-nCF
-nCF
-nCF
-nCF
-muq
-nCF
+oGw
+oGw
+oGw
+oGw
+qVR
+oGw
 doP
 doP
 doP
 doP
 doP
-kkr
-nCF
+ddC
+xkJ
 qwM
-nCF
-nCF
-iVu
-nCF
-nCF
+xkJ
+xkJ
+kaL
+oGw
+oGw
 kBq
-nCF
-nCF
+oGw
+oGw
 paj
 doP
 hKj
@@ -32057,7 +32035,7 @@ qfG
 hKj
 hKj
 doP
-xaZ
+iTZ
 iTZ
 iTZ
 iTZ
@@ -32088,22 +32066,22 @@ gPM
 dUV
 iTZ
 iTZ
-xkJ
-pVG
+iTZ
+iTZ
 doP
 doP
 doP
 hKj
-pVG
-pVG
-pVG
+oGw
+oGw
+oGw
 doP
-nCF
-nCF
-nCF
-nCF
-nCF
-nCF
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
 doP
 doP
 doP
@@ -32111,16 +32089,16 @@ doP
 doP
 doP
 vrd
-nCF
-nCF
+xkJ
+xkJ
 vrd
 eEr
 doP
 doP
 doP
-nCF
-nCF
-nCF
+oGw
+oGw
+oGw
 doP
 doP
 hKj
@@ -32195,40 +32173,40 @@ gPM
 iTZ
 xcC
 iTZ
-xkJ
-pVG
-pVG
-pVG
+iTZ
+iTZ
+iTZ
+iTZ
 doP
 hKj
-pVG
+oGw
 doP
 doP
 doP
 doP
 doP
-nCF
-nCF
-nCF
-nCF
+oGw
+oGw
+oGw
+oGw
 doP
 doP
 doP
 doP
 noD
 doP
-nCF
-nCF
+xkJ
+xkJ
 xzu
 eOa
-nCF
+xkJ
 doP
 jMq
 von
-nCF
-vrd
-nCF
-nCF
+oGw
+fbA
+oGw
+oGw
 doP
 hKj
 "}
@@ -32302,38 +32280,38 @@ dpa
 iTZ
 iTZ
 iTZ
-xkJ
-pVG
-pVG
-pVG
+iTZ
+iTZ
+iTZ
+iTZ
 doP
 hKj
-pVG
+oGw
 doP
-pVG
-pVG
-pVG
-doP
-doP
-pVG
+oGw
+oGw
+oGw
 doP
 doP
+oGw
 doP
 doP
 doP
 doP
-nCF
-nCF
-nCF
-nCF
+doP
+doP
+xkJ
+xkJ
+xkJ
+xkJ
 doP
 doP
 qUY
 doP
 doP
 von
-nCF
-nCF
+oGw
+oGw
 von
 von
 doP
@@ -32409,29 +32387,29 @@ gPM
 iTZ
 iTZ
 iTZ
+iTZ
+iTZ
+iTZ
+hKj
+hKj
+hKj
+oGw
+oGw
+oGw
+doP
+oGw
+oGw
+oGw
+oGw
+doP
+doP
+doP
+doP
+doP
 xkJ
-pVG
-pVG
-hKj
-hKj
-hKj
-pVG
-pVG
-pVG
-doP
-pVG
-pVG
-pVG
-pVG
-doP
-doP
-doP
-doP
-doP
-nCF
-nCF
-nCF
-nCF
+xkJ
+xkJ
+xkJ
 doP
 doP
 doP
@@ -32439,8 +32417,8 @@ doP
 doP
 doP
 doP
-nCF
-nCF
+oGw
+oGw
 von
 doP
 paj
@@ -32485,7 +32463,7 @@ qfG
 hKj
 hKj
 doP
-xaZ
+iTZ
 iTZ
 iTZ
 qRY
@@ -32515,12 +32493,12 @@ gPM
 gPM
 iTZ
 iTZ
-toH
-xkJ
-pVG
-pVG
-pVG
-lRK
+pWE
+iTZ
+iTZ
+iTZ
+axU
+oGw
 hKj
 hKj
 doP
@@ -32528,26 +32506,26 @@ doP
 doP
 doP
 doP
-pVG
+oGw
 doP
 doP
 doP
 doP
 doP
-kkr
-iVu
-iVu
-iVu
-kkr
+ddC
+kaL
+kaL
+kaL
+ddC
 doP
 doP
 doP
 doP
 doP
-vTf
+tlS
 kBq
-nCF
-nCF
+oGw
+oGw
 kBq
 mvo
 doP
@@ -32623,30 +32601,30 @@ gPM
 iTZ
 iTZ
 iTZ
-xkJ
-pVG
-pVG
+iTZ
+iTZ
+iTZ
 hKj
-lRK
-lRK
+oGw
+oGw
 hKj
 hKj
 hKj
 hKj
 doP
 doP
-pVG
+axU
 doP
-kkr
-kkr
-kkr
+ddC
+ddC
+ddC
 hSK
 ddC
-nCF
-muq
-nCF
-kkr
-nCF
+xkJ
+udS
+xkJ
+ddC
+xkJ
 doP
 iTZ
 iTZ
@@ -32655,7 +32633,7 @@ doP
 doP
 doP
 doP
-nCF
+oGw
 jMq
 doP
 hKj
@@ -32730,29 +32708,29 @@ gPM
 iTZ
 iTZ
 iTZ
-xkJ
-pVG
-pVG
+iTZ
+iTZ
+iTZ
 hKj
 doP
-lRK
-lRK
-lRK
-lRK
+oGw
+oGw
+oGw
+oGw
 hKj
 hKj
 doP
 xkJ
 xkJ
-kkr
+ddC
 aFD
 hWD
 hLb
 ddC
-nCF
+xkJ
 xzu
-nCF
-kkr
+xkJ
+ddC
 xkJ
 xkJ
 iTZ
@@ -32837,29 +32815,29 @@ gPM
 iTZ
 iTZ
 iTZ
-xkJ
-pVG
-pVG
+iTZ
+iTZ
+iTZ
 hKj
 doP
 doP
 doP
 doP
-lRK
-lRK
+oGw
+oGw
 hKj
 iTZ
 iTZ
 xkJ
-kkr
+ddC
 gfY
 dQk
 xkJ
 ddC
-nCF
-nCF
-nCF
-kkr
+xkJ
+xkJ
+xkJ
+ddC
 cHr
 iTZ
 iTZ
@@ -32944,16 +32922,16 @@ dpa
 iTZ
 iTZ
 xcC
-xkJ
-pVG
-pVG
-pVG
+iTZ
+iTZ
+iTZ
+iTZ
 hKj
 doP
 doP
 doP
 doP
-lRK
+oGw
 hKj
 doP
 iTZ
@@ -32963,10 +32941,10 @@ xkJ
 xkJ
 xkJ
 ddC
-iVu
-iVu
-iVu
-kkr
+kaL
+kaL
+kaL
+ddC
 cHr
 iTZ
 iTZ
@@ -33051,16 +33029,16 @@ gPM
 iTZ
 iTZ
 iTZ
-xkJ
-pVG
-pVG
-pVG
-pVG
+iTZ
+iTZ
+iTZ
+iTZ
+iTZ
 hKj
 doP
 doP
 doP
-lRK
+oGw
 hKj
 iTZ
 iTZ
@@ -33070,10 +33048,10 @@ gUt
 quH
 iTZ
 ddC
-nCF
-nCF
-nCF
-nCF
+xkJ
+xkJ
+xkJ
+xkJ
 cHr
 iTZ
 iTZ
@@ -33127,7 +33105,7 @@ qfG
 hKj
 hKj
 doP
-xaZ
+iTZ
 iTZ
 vvj
 iTZ
@@ -33155,19 +33133,19 @@ gPM
 gPM
 gPM
 gPM
-toH
+pWE
 iTZ
 iTZ
-xkJ
-pVG
-pVG
-pVG
-pVG
+iTZ
+iTZ
+iTZ
+iTZ
+iTZ
 hKj
 doP
 doP
 doP
-lRK
+oGw
 hKj
 iTZ
 iTZ
@@ -33177,10 +33155,10 @@ raq
 qJp
 iTZ
 kaL
-nCF
-nCF
-nCF
-nCF
+xkJ
+xkJ
+xkJ
+xkJ
 cHr
 iTZ
 iTZ
@@ -33265,16 +33243,16 @@ gPM
 iTZ
 iTZ
 iTZ
-xkJ
-pVG
-pVG
-pVG
-pVG
+iTZ
+iTZ
+iTZ
+iTZ
+iTZ
 hKj
 doP
 doP
 doP
-lRK
+oGw
 hKj
 iTZ
 iTZ
@@ -33284,10 +33262,10 @@ vHP
 qJp
 iTZ
 ddC
-nCF
-nCF
-nCF
-nCF
+xkJ
+xkJ
+xkJ
+xkJ
 iod
 iod
 iod
@@ -33372,16 +33350,16 @@ gPM
 dUV
 iTZ
 iTZ
-xkJ
-pVG
-pVG
-pVG
+iTZ
+iTZ
+iTZ
+iTZ
 hKj
 doP
 doP
 doP
 doP
-lRK
+oGw
 hKj
 iTZ
 iTZ
@@ -33391,18 +33369,18 @@ hYG
 hYG
 hYG
 ddC
-nCF
-nCF
-nCF
-nCF
-rVj
+xkJ
+xkJ
+xkJ
+xkJ
 iWq
 iWq
-rVj
 iWq
-rVj
-rVj
-rVj
+iWq
+iWq
+iWq
+iWq
+iWq
 iWq
 iWq
 abF
@@ -33479,16 +33457,16 @@ gPM
 iTZ
 iTZ
 iTZ
-xkJ
-pVG
-pVG
+iTZ
+iTZ
+iTZ
 hKj
 doP
 doP
 doP
 doP
-lRK
-lRK
+oGw
+oGw
 hKj
 doP
 kby
@@ -33498,19 +33476,19 @@ kby
 kby
 kby
 cHr
-nCF
-nCF
-nCF
-nCF
-rVj
-rVj
-rVj
+xkJ
+xkJ
+xkJ
+xkJ
 iWq
-rVj
 iWq
-rVj
 iWq
-rVj
+iWq
+iWq
+iWq
+iWq
+iWq
+iWq
 iWq
 iWq
 iod
@@ -33555,7 +33533,7 @@ qfG
 hKj
 hKj
 doP
-wPP
+xkJ
 xkJ
 xkJ
 xkJ
@@ -33584,9 +33562,9 @@ rHL
 vst
 lRk
 iTZ
-xcC
+pWE
 iTZ
-xkJ
+iTZ
 hKj
 hKj
 doP
@@ -33595,7 +33573,7 @@ doP
 doP
 doP
 doP
-lRK
+oGw
 hKj
 hKj
 iTZ
@@ -33605,17 +33583,17 @@ iTZ
 iTZ
 spn
 cHr
-nCF
-nCF
-nCF
-nCF
-rVj
-rVj
-rVj
-rVj
-rVj
+xkJ
+xkJ
+xkJ
+xkJ
+iWq
+iWq
+iWq
+iWq
+iWq
 qoB
-rVj
+iWq
 iWq
 iWq
 iWq
@@ -33665,9 +33643,9 @@ npt
 npt
 npt
 npt
-nCF
-nCF
-nCF
+xkJ
+xkJ
+xkJ
 xkJ
 iTZ
 iTZ
@@ -33690,7 +33668,7 @@ gPM
 iVG
 ePS
 gPM
-pWE
+iTZ
 iTZ
 iTZ
 hKj
@@ -33702,8 +33680,8 @@ doP
 doP
 doP
 doP
-lRK
-lRK
+oGw
+oGw
 hKj
 iTZ
 iTZ
@@ -33712,18 +33690,18 @@ iTZ
 iTZ
 iTZ
 cHr
-nCF
-nCF
+xkJ
+xkJ
 vqu
-nCF
-rVj
-rVj
-rVj
+xkJ
 iWq
 iWq
-rVj
 iWq
-rVj
+iWq
+iWq
+iWq
+iWq
+iWq
 iWq
 iWq
 iWq
@@ -33799,6 +33777,7 @@ gPM
 gPM
 iTZ
 iTZ
+hKj
 doP
 doP
 doP
@@ -33809,8 +33788,7 @@ doP
 doP
 doP
 doP
-doP
-lRK
+oGw
 hKj
 iTZ
 aZX
@@ -33819,21 +33797,21 @@ pMJ
 iDI
 iTZ
 cHr
-nCF
-nCF
-nCF
-nCF
-rVj
-rVj
-rVj
+xkJ
+xkJ
+xkJ
+xkJ
 iWq
-rVj
 iWq
-rVj
 iWq
-rVj
 iWq
-rVj
+iWq
+iWq
+iWq
+iWq
+iWq
+iWq
+iWq
 iod
 hKj
 "}
@@ -33897,28 +33875,28 @@ bQH
 fKB
 rpE
 eok
-dxi
-dxi
-lnt
-dxi
-dxi
 iTZ
 iTZ
 iTZ
-doP
-npt
-npt
-npt
-npt
-npt
-doP
-doP
+iTZ
+iTZ
+iTZ
+iTZ
+iTZ
+hKj
 doP
 doP
+oGw
+oGw
+oGw
 doP
-lRK
-lRK
-lRK
+doP
+doP
+doP
+doP
+oGw
+oGw
+axU
 iTZ
 eYe
 bVK
@@ -33926,15 +33904,15 @@ qcU
 mdS
 iTZ
 cHr
-nCF
-muq
-nCF
-nCF
-rVj
+xkJ
+udS
+xkJ
+xkJ
 iWq
-rVj
 iWq
-rVj
+iWq
+iWq
+iWq
 iWq
 iWq
 iWq
@@ -33968,18 +33946,18 @@ cxN
 tuO
 czt
 ajI
-oHV
-oHV
-oHV
-oHV
-oHV
-oHV
-oHV
-oHV
-oHV
-jPO
-oHV
 fEK
+nVm
+nVm
+nVm
+nVm
+nVm
+nVm
+nVm
+nVm
+jPO
+nVm
+dLv
 fGy
 ciN
 rCj
@@ -33992,12 +33970,12 @@ rCj
 rCj
 laL
 aQF
-sZi
-sZi
+mGl
+mGl
 aQF
 mGl
 jeb
-rtM
+mGl
 aQF
 sFx
 jXb
@@ -34006,24 +33984,24 @@ xwd
 eok
 iTZ
 iTZ
-vlV
+pWE
 iTZ
 iTZ
 iTZ
-nCF
-npt
-npt
-npt
-npt
-npt
-npt
-npt
-npt
-npt
+iTZ
+hKj
+doP
+doP
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
 doP
 doP
 doP
-lRK
+oGw
 hKj
 hKj
 iTZ
@@ -34033,18 +34011,18 @@ qcU
 mdS
 iTZ
 cHr
-nCF
-nCF
-nCF
-nCF
-rVj
-iWq
-rVj
+xkJ
+xkJ
+xkJ
+xkJ
 iWq
 iWq
 iWq
-rVj
-rVj
+iWq
+iWq
+iWq
+iWq
+iWq
 iWq
 iWq
 iWq
@@ -34075,7 +34053,7 @@ iXw
 qKE
 rcR
 gDP
-oHV
+gvK
 kUc
 kUc
 kUc
@@ -34111,26 +34089,26 @@ ovr
 chI
 ttS
 wta
-iPV
 iTZ
 iTZ
 iTZ
 iTZ
 iTZ
-nCF
-npt
-npt
-npt
-npt
-npt
-npt
-npt
-npt
-npt
-lRK
+iTZ
+iTZ
+hKj
 doP
-lRK
-lRK
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+doP
+oGw
+oGw
 hKj
 doP
 iTZ
@@ -34140,10 +34118,10 @@ rAx
 wbi
 iTZ
 cHr
-nCF
-nCF
-nCF
-nCF
+xkJ
+xkJ
+xkJ
+xkJ
 iod
 iod
 iod
@@ -34182,7 +34160,7 @@ kRA
 gqT
 czt
 kUc
-uyb
+rtM
 kUc
 kUc
 kUc
@@ -34196,7 +34174,7 @@ dCx
 gXE
 oCU
 usm
-nCF
+xkJ
 npt
 npt
 npt
@@ -34217,26 +34195,26 @@ vTP
 rsI
 bLN
 csa
-baH
+xkJ
 iTZ
 iTZ
 iTZ
 iTZ
 iTZ
 iTZ
-nCF
-npt
-npt
-npt
-npt
-npt
-npt
-npt
-npt
-npt
-lRK
-lRK
-lRK
+iTZ
+doP
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
 hKj
 hKj
 doP
@@ -34247,10 +34225,10 @@ iTZ
 iTZ
 iTZ
 cHr
-nCF
-nCF
-nCF
-nCF
+xkJ
+xkJ
+xkJ
+xkJ
 cHr
 iTZ
 iTZ
@@ -34289,7 +34267,7 @@ iyI
 mvL
 czt
 kUc
-oHV
+gvK
 kUc
 kUc
 mPO
@@ -34303,7 +34281,7 @@ kUc
 gvK
 oCU
 hKj
-nCF
+xkJ
 npt
 npt
 npt
@@ -34324,24 +34302,24 @@ rog
 xJy
 xJy
 csa
+xkJ
 iTZ
 iTZ
 iTZ
+xcC
 iTZ
-toH
 iTZ
 iTZ
-nCF
-npt
-npt
-npt
-npt
-npt
-npt
-npt
-npt
-npt
-lRK
+doP
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
 hKj
 hKj
 hKj
@@ -34354,10 +34332,10 @@ iTZ
 iTZ
 spn
 cHr
-nCF
-nCF
-nCF
-nCF
+xkJ
+xkJ
+xkJ
+xkJ
 cHr
 iTZ
 iTZ
@@ -34396,7 +34374,7 @@ dYa
 nxj
 czt
 kUc
-oHV
+gvK
 kUc
 czt
 czt
@@ -34410,14 +34388,14 @@ kUc
 gvK
 oCU
 hKj
-nCF
-nCF
+xkJ
+xkJ
 npt
 wcK
 npt
 npt
 npt
-nCF
+xkJ
 xkJ
 iTZ
 iTZ
@@ -34431,23 +34409,23 @@ urC
 urC
 urC
 ety
-iTZ
+xkJ
 iTZ
 iTZ
 iTZ
 qRY
 iTZ
 iTZ
-nCF
-npt
-npt
-npt
-npt
-npt
-npt
-npt
-npt
-npt
+iTZ
+axU
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
 hKj
 hKj
 tZf
@@ -34461,10 +34439,10 @@ caw
 fmZ
 fmZ
 fmZ
-nCF
-nCF
-nCF
-nCF
+xkJ
+xkJ
+xkJ
+xkJ
 cHr
 iTZ
 iTZ
@@ -34503,7 +34481,7 @@ czt
 czt
 czt
 kZa
-oHV
+gvK
 kUc
 czt
 ceK
@@ -34517,14 +34495,14 @@ kUc
 gvK
 oCU
 hKj
-nCF
-nCF
+xkJ
+xkJ
 npt
 npt
 npt
 npt
 npt
-nCF
+xkJ
 xkJ
 cCZ
 wta
@@ -34538,23 +34516,23 @@ eok
 wta
 aWR
 rsI
-iTZ
+xkJ
 pUy
 iTZ
-kQm
 iTZ
 iTZ
 iTZ
-nCF
-npt
-npt
-npt
-npt
-npt
-npt
-npt
-npt
-npt
+iTZ
+iTZ
+axU
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
+oGw
 hKj
 hKj
 tZf
@@ -34568,10 +34546,10 @@ pfz
 muy
 ecl
 fmZ
-nCF
-nCF
-nCF
-nCF
+xkJ
+xkJ
+xkJ
+xkJ
 cHr
 iTZ
 iTZ
@@ -34610,7 +34588,7 @@ cxN
 tuO
 czt
 kUc
-oHV
+gvK
 wfh
 czt
 aQh
@@ -34624,14 +34602,14 @@ gDP
 gvK
 oCU
 hKj
-nCF
+xkJ
 npt
 npt
 gRZ
 npt
 npt
 npt
-nCF
+xkJ
 xkJ
 iTZ
 eok
@@ -34645,6 +34623,7 @@ dga
 eok
 gFK
 rsI
+xkJ
 iTZ
 iTZ
 iTZ
@@ -34652,13 +34631,12 @@ iTZ
 iTZ
 iTZ
 iTZ
-nCF
-npt
-npt
-npt
-npt
-npt
-npt
+axU
+oGw
+oGw
+oGw
+oGw
+oGw
 hKj
 hKj
 hKj
@@ -34675,10 +34653,10 @@ eSD
 kCF
 vsO
 ayg
-nCF
-nCF
-nCF
-nCF
+xkJ
+xkJ
+xkJ
+xkJ
 cHr
 iTZ
 iTZ
@@ -34717,7 +34695,7 @@ iXw
 qKE
 ddT
 gDP
-oHV
+gvK
 kUc
 czt
 czt
@@ -34731,14 +34709,14 @@ kUc
 gvK
 oCU
 hKj
-nCF
+xkJ
 npt
 npt
 npt
 npt
 npt
 npt
-nCF
+xkJ
 xkJ
 rqu
 eok
@@ -34752,19 +34730,19 @@ oVL
 eok
 ctS
 rsI
-iTZ
+xkJ
 iTZ
 iTZ
 iQl
 iTZ
 iTZ
 iTZ
-nCF
-npt
-npt
-npt
-npt
-npt
+iTZ
+axU
+oGw
+oGw
+oGw
+oGw
 hKj
 hKj
 hKj
@@ -34782,10 +34760,10 @@ aDL
 ozz
 uhO
 ayg
-nCF
-nCF
-nCF
-nCF
+xkJ
+xkJ
+xkJ
+xkJ
 cHr
 iTZ
 iTZ
@@ -34824,7 +34802,7 @@ kRA
 gqT
 czt
 kUc
-oHV
+gvK
 kUc
 czt
 hcq
@@ -34845,7 +34823,7 @@ npt
 npt
 npt
 npt
-nCF
+xkJ
 xkJ
 spn
 eok
@@ -34859,6 +34837,7 @@ iii
 eok
 ctS
 rsI
+xkJ
 iTZ
 iTZ
 iTZ
@@ -34866,12 +34845,11 @@ iTZ
 iTZ
 iTZ
 iTZ
-nCF
-npt
-npt
-npt
-npt
-npt
+axU
+oGw
+oGw
+oGw
+oGw
 hKj
 hKj
 aaV
@@ -34889,10 +34867,10 @@ eSD
 kLp
 djt
 ayg
-nCF
-nCF
-nCF
-nCF
+xkJ
+xkJ
+xkJ
+xkJ
 cHr
 iTZ
 iTZ
@@ -34931,7 +34909,7 @@ iyI
 mvL
 czt
 kUc
-oHV
+gvK
 kUc
 czt
 jaE
@@ -34945,7 +34923,7 @@ kUc
 gvK
 qfG
 hKj
-xaZ
+iTZ
 xkJ
 npt
 npt
@@ -34966,19 +34944,19 @@ lpw
 eok
 gFK
 rsI
-iTZ
+xkJ
 iTZ
 iTZ
 pWE
 iTZ
 iTZ
 iTZ
-nCF
-npt
-npt
-npt
-npt
-npt
+iTZ
+axU
+oGw
+oGw
+oGw
+oGw
 hKj
 hKj
 xIG
@@ -34996,10 +34974,10 @@ kKQ
 fAb
 gPq
 fmZ
-nCF
-nCF
-nCF
-nCF
+xkJ
+xkJ
+xkJ
+xkJ
 cHr
 iTZ
 iTZ
@@ -35038,7 +35016,7 @@ dYa
 nxj
 czt
 kUc
-oHV
+gvK
 kUc
 czt
 czt
@@ -35073,6 +35051,7 @@ xtf
 eok
 ctS
 rsI
+xkJ
 iTZ
 iTZ
 iTZ
@@ -35080,12 +35059,11 @@ iTZ
 iTZ
 iTZ
 iTZ
-nCF
-npt
-npt
-npt
-npt
-npt
+axU
+oGw
+oGw
+oGw
+oGw
 hKj
 hKj
 pwY
@@ -35103,10 +35081,10 @@ fmZ
 caw
 fmZ
 fmZ
-nCF
-muq
-nCF
-nCF
+xkJ
+udS
+xkJ
+xkJ
 cHr
 iTZ
 iTZ
@@ -35145,7 +35123,7 @@ czt
 czt
 czt
 fyT
-oHV
+gvK
 kUc
 czt
 ceK
@@ -35159,7 +35137,7 @@ kUc
 dsW
 qfG
 hKj
-xaZ
+iTZ
 xkJ
 npt
 npt
@@ -35180,6 +35158,7 @@ wta
 wta
 oyT
 rsI
+xkJ
 iTZ
 iTZ
 iTZ
@@ -35187,11 +35166,10 @@ iTZ
 iTZ
 iTZ
 iTZ
-nCF
-npt
-npt
-npt
-npt
+doP
+oGw
+oGw
+oGw
 hKj
 hKj
 hKj
@@ -35210,10 +35188,10 @@ iaK
 iTZ
 iTZ
 cHr
-nCF
-nCF
-nCF
-nCF
+xkJ
+xkJ
+xkJ
+xkJ
 cHr
 iTZ
 iTZ
@@ -35252,7 +35230,7 @@ cxN
 tuO
 czt
 kUc
-oHV
+kQm
 kUc
 czt
 aQh
@@ -35287,18 +35265,18 @@ jAW
 wta
 gFK
 rsI
+xkJ
 iTZ
 iTZ
 iTZ
 iTZ
-mKu
 iTZ
 iTZ
-nCF
-npt
-npt
-npt
-npt
+iTZ
+doP
+oGw
+oGw
+oGw
 hKj
 hKj
 hKj
@@ -35317,10 +35295,10 @@ iaK
 iTZ
 dUV
 cHr
-nCF
-nCF
-nCF
-nCF
+xkJ
+xkJ
+xkJ
+xkJ
 cHr
 iTZ
 iTZ
@@ -35376,7 +35354,7 @@ hKj
 doP
 jKB
 iTZ
-xaZ
+iTZ
 dUV
 uSL
 iTZ
@@ -35394,6 +35372,7 @@ lab
 wta
 aWR
 rsI
+xkJ
 iTZ
 iTZ
 iTZ
@@ -35401,11 +35380,10 @@ iTZ
 iTZ
 iTZ
 iTZ
-nCF
-npt
-npt
-npt
-npt
+doP
+oGw
+oGw
+oGw
 hKj
 hKj
 aVg
@@ -35424,10 +35402,10 @@ iaK
 iTZ
 iTZ
 cHr
-nCF
-nCF
-nCF
-nCF
+xkJ
+xkJ
+xkJ
+xkJ
 cHr
 iTZ
 iTZ
@@ -35510,9 +35488,9 @@ doP
 doP
 doP
 doP
-doP
-doP
-npt
+oGw
+oGw
+oGw
 hKj
 hKj
 cVs

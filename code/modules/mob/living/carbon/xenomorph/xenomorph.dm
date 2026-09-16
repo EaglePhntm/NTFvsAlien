@@ -257,10 +257,6 @@
 		CRASH("Unemployment has reached to a xeno, who has failed to become a [xeno_caste.job_type]")
 	apply_assigned_role_to_spawn(xeno_job)
 
-///Initiate of form changing on the xeno
-/mob/living/carbon/xenomorph/proc/change_form()
-	return
-
 /mob/living/carbon/xenomorph/examine(mob/user)
 	. = ..()
 	. += xeno_caste.caste_desc

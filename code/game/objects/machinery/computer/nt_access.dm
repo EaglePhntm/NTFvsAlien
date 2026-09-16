@@ -18,7 +18,7 @@
 
 
 /obj/machinery/computer/code_generator/nt_access
-	name = "NT security override terminal"
+	name = "NTC security override terminal"
 	desc = "Used to generate a security override code."
 	icon = 'icons/obj/structures/campaign/tall_structures.dmi'
 	icon_state = "terminal_red"

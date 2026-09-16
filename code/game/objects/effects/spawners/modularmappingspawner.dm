@@ -340,6 +340,8 @@
 	spawner_width = 25
 	spawner_height = 25
 
+/**********Gleichseitig 16*******/
+
 /obj/effect/spawner/modularmap/gleichseitig16fp/wunionstorage1
 	mapid = "g16fpwunionstorage1"
 	spawner_width = 7
@@ -404,3 +406,43 @@
 	mapid = "g16fpfinancial"
 	spawner_width = 17
 	spawner_height = 27
+
+/obj/effect/spawner/modularmap/gleichseitig16fp/southwestlargeblock
+	mapid = "g16fpswlargeblock"
+	spawner_width = 62
+	spawner_height = 37
+
+/obj/effect/spawner/modularmap/gleichseitig16fp/nineeintersection
+	mapid = "g16fp9eintersect"
+	spawner_width = 5
+	spawner_height = 5
+
+/obj/effect/spawner/modularmap/gleichseitig16fp/ninegintersection
+	mapid = "g16fp9gintersect"
+	spawner_width = 5
+	spawner_height = 5
+
+/obj/effect/spawner/modularmap/gleichseitig16fp/threefintersection
+	mapid = "g16fp3fintersect"
+	spawner_width = 7
+	spawner_height = 7
+
+/obj/effect/spawner/modularmap/gleichseitig16fp/twojintersection
+	mapid = "g16fp2jintersect"
+	spawner_width = 7
+	spawner_height = 7
+
+/obj/effect/spawner/modularmap/gleichseitig16fp/fourabroad
+	mapid = "g16fp4abroad"
+	spawner_width = 12
+	spawner_height = 10
+
+/obj/effect/spawner/modularmap/gleichseitig16fp/threedetsection
+	mapid = "g16fp3detsection"
+	spawner_width = 7
+	spawner_height = 7
+
+/obj/effect/spawner/modularmap/gleichseitig16fp/onecstreet
+	mapid = "g16fp1cstreet"
+	spawner_width = 9
+	spawner_height = 5
