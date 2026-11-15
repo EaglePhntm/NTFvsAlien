@@ -119,7 +119,7 @@
 		/datum/job/icc/liaison_cm = 1,
 		/datum/job/clf/liaison_clf = 1,
 		/datum/job/som/civilian/liaison_som = 1,
-		/datum/job/vsd_squad/liaison_kaizoku = 1,
+		/datum/job/vsd_squad/liaison_kurogane = 1,
 	)
 	enable_fun_tads = TRUE
 	xenorespawn_time = 2 MINUTES
@@ -824,7 +824,7 @@ alt gamemodes
 		/datum/job/icc/liaison_cm = 1,
 		/datum/job/clf/liaison_clf = 1,
 		/datum/job/som/civilian/liaison_som = 1,
-		/datum/job/vsd_squad/liaison_kaizoku = 1,
+		/datum/job/vsd_squad/liaison_kurogane = 1,
 		/datum/job/pmc/squad/standard = 1,
 		/datum/job/pmc/squad/medic = 1,
 		/datum/job/pmc/squad/engineer = 1,

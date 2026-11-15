@@ -1,6 +1,6 @@
 /datum/job/vsd_squad
 	job_category =  JOB_CAT_VSD
-	supervisors = "Kaizoku Corporation high command."
+	supervisors = "Kurogane Neuro-Kinetics high command."
 	selection_color = "#ffeeee"
 	faction = FACTION_VSD
 	minimap_icon = "pmc2"
@@ -8,13 +8,13 @@
 /datum/job/vsd_squad/get_spawn_message_information(mob/M)
 	. = ..()
 	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
-	. += {"You are trained loyal mercenaries of Kaizoku Corporation, though in company rumors are Kaizoku is backed by Yakuza Syndicate which nuked the Corporate Sector. Surely it is unbased else it would be disasterous.
-Kaizoku is in the corporate council that leads Phantom City, or what's left of it for now. Therefore it shares a table with Ninetails and all the other megacorps, which makes it vital they play along to ensure survival and prosperity of the corporation.
-and at the same time Kaizoku is pressured into playing along with SOM by their said similiarly powerful shareholder, Keep in mind your situation when choosing who to support when it is time, with enough justification you can get around accusations."}
+	. += {"You are trained loyal mercenaries of Kurogane Neuro-Kinetics, though in company rumors are Kurogane is backed by Yakuza Syndicate which nuked the Corporate Sector. Surely it is unbased else it would be disasterous.
+Kurogane is in the corporate council that leads Phantom City, or what's left of it for now. Therefore it shares a table with Ninetails and all the other megacorps, which makes it vital they play along to ensure survival and prosperity of the corporation.
+and at the same time Kurogane is pressured into playing along with SOM by their said similiarly powerful shareholder, Keep in mind your situation when choosing who to support when it is time, with enough justification you can get around accusations."}
 
 //VSD Standard
 /datum/job/vsd_squad/standard
-	title = "KZ Standard"
+	title = "KN Standard"
 	paygrade = "KZ1"
 	comm_title = "JSGT"
 	skills_type = /datum/skills/crafty
@@ -30,7 +30,7 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 	)
 
 /datum/outfit/job/vsd_squad/standard
-	name = "KZ Standard"
+	name = "KN Standard"
 	jobtype = /datum/job/vsd_squad/standard
 
 	id = /obj/item/card/id/dogtag
@@ -38,7 +38,7 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 
 //VSD Engineer
 /datum/job/vsd_squad/engineer
-	title = "KZ Engineer"
+	title = "KN Engineer"
 	paygrade = "KZ3"
 	comm_title = "SGM"
 	skills_type = /datum/skills/combat_engineer
@@ -55,7 +55,7 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 	minimap_icon = "pmc2"
 
 /datum/outfit/job/vsd_squad/engineer
-	name = "KZ Engineer"
+	name = "KN Engineer"
 	jobtype = /datum/job/vsd_squad/engineer
 
 	id = /obj/item/card/id/dogtag/engineer
@@ -64,7 +64,7 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 
 //VSD Medic
 /datum/job/vsd_squad/medic
-	title = "KZ Medic"
+	title = "KN Medic"
 	paygrade = "KZ2"
 	comm_title = "SSGT"
 	skills_type = /datum/skills/combat_medic
@@ -81,7 +81,7 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 	minimap_icon = "pmc2"
 
 /datum/outfit/job/vsd_squad/medic
-	name = "KZ Medic"
+	name = "KN Medic"
 	jobtype = /datum/job/vsd/medic
 
 	id = /obj/item/card/id/dogtag/corpsman
@@ -89,7 +89,7 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 
 //VSD Spec
 /datum/job/vsd_squad/spec
-	title = "KZ Specialist"
+	title = "KN Specialist"
 	paygrade = "KZ4"
 	comm_title = "LT"
 	skills_type = /datum/skills/specialist_vsd
@@ -105,7 +105,7 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 	)
 
 /datum/outfit/job/vsd_squad/spec
-	name = "KZ Specialist"
+	name = "KN Specialist"
 	jobtype = /datum/job/vsd_squad/spec
 
 	id = /obj/item/card/id/dogtag/specialist
@@ -113,10 +113,10 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 
 //VSD Squad Leader
 /datum/job/vsd_squad/leader
-	title = "KZ Squad Leader"
+	title = "KN Squad Leader"
 	paygrade = "KZ5"
 	comm_title = "KZCOMM"
-	skills_type = /datum/skills/sl/kz
+	skills_type = /datum/skills/sl/kn
 	access = list (ACCESS_VSD_PREP, ACCESS_VSD_MEDPREP, ACCESS_VSD_ENGPREP, ACCESS_VSD_LEADPREP, ACCESS_VSD_CARGO, ACCESS_VSD_TADPOLE, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY, ACCESS_SOM_MEDICAL)
 	minimal_access = list (ACCESS_VSD_PREP, ACCESS_VSD_MEDPREP, ACCESS_VSD_ENGPREP, ACCESS_VSD_LEADPREP, ACCESS_VSD_CARGO, ACCESS_VSD_TADPOLE, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY, ACCESS_SOM_MEDICAL)
 	display_order = JOB_DISPLAY_ORDER_SQUAD_MARINE
@@ -129,7 +129,7 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 	)
 
 /datum/outfit/job/vsd_squad/leader
-	name = "KZ Squad Leader"
+	name = "KN Squad Leader"
 	jobtype = /datum/job/vsd_squad/leader
 
 	id = /obj/item/card/id/dogtag/leader
@@ -137,7 +137,7 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 
 //VSD Combat Escort
 /datum/job/vsd_squad/escort
-	title = "KZ Combat Escort"
+	title = "KN Combat Escort"
 	paygrade = "KZ4"
 	comm_title = "LT"
 	skills_type = /datum/skills/specialist_vsdescort
@@ -153,7 +153,7 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 	)
 
 /datum/outfit/job/vsd_squad/escort
-	name = "KZ Combat Escort"
+	name = "KN Combat Escort"
 	jobtype = /datum/job/vsd_squad/escort
 
 	id = /obj/item/card/id/dogtag/specialist
@@ -162,16 +162,16 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 /datum/job/vsd_squad/escort/get_spawn_message_information(mob/M)
 	. = ..()
 	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
-	. += {"\nYou are a chosen elite of the Kaizoku Corporation, handpicked for your exceptional combat skills and unwavering loyalty. Protect Valuable Corporate Assets, Relieve pressure from the frontline troops deployed alongside you and broker deals with the factions planetside, especially if it means using your body!"}
+	. += {"\nYou are a chosen elite of the Kurogane Neuro-Kinetics, handpicked for your exceptional combat skills and unwavering loyalty. Protect Valuable Corporate Assets, Relieve pressure from the frontline troops deployed alongside you and broker deals with the factions planetside, especially if it means using your body!"}
 
-//KZ Synthetic
+//KN Synthetic
 
 /datum/job/vsd_squad/silicon/synthetic
-	title = "KZ Synthetic"
+	title = "KN Synthetic"
 	req_admin_notify = TRUE
 	comm_title = "Syn"
 	paygrade = "Mk.I"
-	supervisors = "The Squad Leader, Liaison, Kaizoku Zaibatsu."
+	supervisors = "The Squad Leader, Liaison, Kurogane Zaibatsu."
 	total_positions = 1
 	skills_type = /datum/skills/synthetic
 	access = list (ACCESS_VSD_PREP, ACCESS_VSD_MEDPREP, ACCESS_VSD_ENGPREP, ACCESS_VSD_SPECPREP, ACCESS_VSD_LEADPREP, ACCESS_VSD_CARGO, ACCESS_VSD_TADPOLE, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY, ACCESS_SOM_MEDICAL)
@@ -195,7 +195,7 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 		<b>You answer to the</b> acting Command Staff and the human crew<br /><br />
 		<b>Unlock Requirement</b>: Starting Role<br /><br />
 		<b>Gamemode Availability</b>: Crash, Nuclear War<br /><br /><br />
-		<b>Duty</b>: Support and assist in every department of Kaizoku Zaibatsu, use your incredibly developed skills to help the mercenaries during their missions.
+		<b>Duty</b>: Support and assist in every department of Kurogane Zaibatsu, use your incredibly developed skills to help the mercenaries during their missions.
 	"}
 	minimap_icon = "synth"
 
@@ -262,16 +262,16 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 /datum/job/vsd_squad/silicon/synthetic/get_spawn_message_information(mob/M)
 	. = ..()
 	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
-	. += "Your primary job is to support and assist all KZ departments and personnel on-board. \
+	. += "Your primary job is to support and assist all KN departments and personnel on-board. \
 		In addition, being a Synthetic gives you knowledge in every field and specialization possible on-board the ship."
 
 //ripperdoc, mix of tech and doc
 /datum/job/vsd_squad/medical/ripperdoc
-	title = "KZ Ripperdoc"
+	title = "KN Ripperdoc"
 	comm_title = "KMD"
 	paygrade = "MS"
 	total_positions = 1
-	supervisors = "Kaizoku Corporation."
+	supervisors = "Kurogane Neuro-Kinetics."
 	access = list (ACCESS_VSD_PREP, ACCESS_VSD_MEDPREP, ACCESS_VSD_ENGPREP, ACCESS_VSD_SPECPREP, ACCESS_VSD_LEADPREP, ACCESS_VSD_CARGO, ACCESS_VSD_TADPOLE, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY, ACCESS_SOM_MEDICAL)
 	minimal_access = list (ACCESS_VSD_PREP, ACCESS_VSD_MEDPREP, ACCESS_VSD_ENGPREP, ACCESS_VSD_SPECPREP, ACCESS_VSD_LEADPREP, ACCESS_VSD_CARGO, ACCESS_VSD_TADPOLE, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY, ACCESS_SOM_MEDICAL)
 	skills_type = /datum/skills/doctor/ripperdoc
@@ -287,15 +287,15 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 	)
 	html_description = {"
 		<b>Difficulty</b>: Medium<br /><br />
-		<b>You answer to the</b> KZ Liason<br /><br />
+		<b>You answer to the</b> KN Liason<br /><br />
 		<b>Unlock Requirement</b>: Starting Role<br /><br />
 		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
-		<b>Duty</b>: Serve as a tech and doctor for KZ shuttle.
+		<b>Duty</b>: Serve as a tech and doctor for KN shuttle.
 	"}
 	minimap_icon = "medical"
 
 /datum/outfit/job/medical/ripperdoc
-	name = "KZ Ripperdoc"
+	name = "KN Ripperdoc"
 	jobtype = /datum/job/vsd_squad/medical/ripperdoc
 
 	id = /obj/item/card/id
@@ -337,6 +337,6 @@ and at the same time Kaizoku is pressured into playing along with SOM by their s
 /datum/job/vsd_squad/medical/ripperdoc/get_spawn_message_information(mob/M)
 	. = ..()
 	. += separator_hr("[span_role_header("<b>[title] Information</b>")]")
-	. += {"You are a doctor stationed aboard the KZ ship.
-You are tasked with keeping the KZ operatives healthy and strong, usually in the form of surgery.
+	. += {"You are a doctor stationed aboard the KN ship.
+You are tasked with keeping the KN operatives healthy and strong, usually in the form of surgery.
 You are also an expert when it comes to medication and treatment. If you do not know what you are doing, <b>mentorhelp</b> so a mentor can assist you... You are also sidetasked to keep the tech running"}

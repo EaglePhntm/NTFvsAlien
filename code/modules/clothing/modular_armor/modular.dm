@@ -322,8 +322,8 @@
 	allowed_uniform_type = /obj/item/clothing/under/rank/clown/erp
 
 /obj/item/clothing/suit/modular/rownin/vsdelite
-	name = "KZ Rownin Skeleton"
-	desc = "An experimental Rownin Skeleton modified by KZ. Reserved for Lieutenants and above. Outfitted with both the valkyrie autodoc beta and an overclocked eshield for improved odds of survival. The armor supports only the core modules it arrived with, but can be outfitted with any storage module. Only the valkyrie autodoc beta and overclocked eshield can fit on the specialized skeleton. Due to complex rigging, they cannot be applied to most forms of modular armor. The added weight reduces it's granted speed also. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
+	name = "KN Rownin Skeleton"
+	desc = "An experimental Rownin Skeleton modified by KN. Reserved for Lieutenants and above. Outfitted with both the valkyrie autodoc beta and an overclocked eshield for improved odds of survival. The armor supports only the core modules it arrived with, but can be outfitted with any storage module. Only the valkyrie autodoc beta and overclocked eshield can fit on the specialized skeleton. Due to complex rigging, they cannot be applied to most forms of modular armor. The added weight reduces it's granted speed also. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
 	attachments_by_slot = list(
 		ATTACHMENT_SLOT_CHESTPLATE,
 		ATTACHMENT_SLOT_SHOULDER,
@@ -358,7 +358,7 @@
 	slowdown = -0.15
 
 /obj/item/clothing/suit/modular/rownin/vsdelite/escort
-	name = "\improper KZ Rownin Skeleton"
+	name = "\improper KN Rownin Skeleton"
 	starting_attachments = list(
 		/obj/item/armor_module/module/eshield/vsd/overclocked,
 		/obj/item/armor_module/module/valkyrie_autodoc_beta,

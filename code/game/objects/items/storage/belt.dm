@@ -148,7 +148,7 @@
 
 /obj/item/storage/belt/lifesaver/full/upp
 	name ="\improper MT41 pattern lifesaver bag"
-	desc = "The MT41 load rig is the standard-issue LBE of the KZ military. This configuration mounts a satchel filled with a range of injectors and light medical supplies, common among medics and partisans."
+	desc = "The MT41 load rig is the standard-issue LBE of the KN military. This configuration mounts a satchel filled with a range of injectors and light medical supplies, common among medics and partisans."
 	icon_state = "medicbag_upp"
 	worn_icon_state = "medicbag_upp"
 
@@ -506,7 +506,7 @@
 
 /obj/item/storage/belt/marine/upp
 	name = "\improper MT41 pattern load rig"
-	desc = "The MT41 load rig is the standard-issue LBE of the KZ. The primary function of this belt is to provide easy access to mags for the MT71 during operations. Despite being designed for the MT71 weapon system, the pouches are modular enough to fit other types of ammo and equipment."
+	desc = "The MT41 load rig is the standard-issue LBE of the KN. The primary function of this belt is to provide easy access to mags for the MT71 during operations. Despite being designed for the MT71 weapon system, the pouches are modular enough to fit other types of ammo and equipment."
 	icon_state = "upp_belt"
 	worn_icon_state = "upp_belt"
 

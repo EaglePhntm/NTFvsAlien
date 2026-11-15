@@ -138,7 +138,7 @@
 
 /obj/item/ammo_magazine/flamer_tank/vsd
 	name = "large CC/21 flamerthrower tank"
-	desc = "A large tank for the Kaizoku CC/21 Flamer, filled with thick napthal fuel."
+	desc = "A large tank for the Kurogane CC/21 Flamer, filled with thick napthal fuel."
 	icon_state = "flametank_vsd_orange"
 	max_rounds = 150
 	current_rounds = 150
@@ -151,7 +151,7 @@
 
 /obj/item/ammo_magazine/flamer_tank/vsd/blue
 	name = "large CC/21 flamerthrower tank (X)"
-	desc = "A large tank for the Kaizoku CC/21 Flamer, filled with thick napthal X fuel."
+	desc = "A large tank for the Kurogane CC/21 Flamer, filled with thick napthal X fuel."
 	icon_state = "flametank_vsd"
 	max_rounds = 150
 	current_rounds = 150

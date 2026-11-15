@@ -1,6 +1,6 @@
 /obj/item/clothing/under/marine/kzsneaking
-	name = "KZ Covert Outfit"
-	desc = "A costly stealth outfit devised by Kaizoku Zaibatsu Counterintelligence intended for covert operations. The uniform is created with layers of light nano-fibers, allowing the wearer to mold their body into tight spaces. Parts of the armor have light amounts of kevlar interweaving with nano-fibers, impacting the speed of the average NTF variant. The uniform allows you to walk quietly and crawl through vents with ALT-CLICK. To change the variant of the suit, ALT-RIGHTCLICK on it."
+	name = "KN Covert Outfit"
+	desc = "A costly stealth outfit devised by Kurogane Zaibatsu Counterintelligence intended for covert operations. The uniform is created with layers of light nano-fibers, allowing the wearer to mold their body into tight spaces. Parts of the armor have light amounts of kevlar interweaving with nano-fibers, impacting the speed of the average NTF variant. The uniform allows you to walk quietly and crawl through vents with ALT-CLICK. To change the variant of the suit, ALT-RIGHTCLICK on it."
 	icon = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi'
 	icon_state = "sneak"
 	armor_protection_flags = CHEST|GROIN|LEGS|ARMS|HANDS|FEET
@@ -32,17 +32,17 @@
 		variant = 1
 	switch(variant)
 		if(1)
-			name = "KZ Covert Outfit"
-			desc = "A costly stealth outfit devised by the Kaizoku Zaibatsu Counterintelligence intended for covert operations. The uniform is created with layers of light nano-fibers, allowing the wearer to mold their body into tight spaces. Parts of the armor have light amounts of kevlar interweaving with nano-fibers, impacting the speed of the average NTF variant. The uniform allows you to walk quietly and crawl through vents with ALT-CLICK. To change the variant of the suit, ALT-RIGHTCLICK on it."
+			name = "KN Covert Outfit"
+			desc = "A costly stealth outfit devised by the Kurogane Zaibatsu Counterintelligence intended for covert operations. The uniform is created with layers of light nano-fibers, allowing the wearer to mold their body into tight spaces. Parts of the armor have light amounts of kevlar interweaving with nano-fibers, impacting the speed of the average NTF variant. The uniform allows you to walk quietly and crawl through vents with ALT-CLICK. To change the variant of the suit, ALT-RIGHTCLICK on it."
 			icon_state = "sneak"
 		if(2)
-			name = "KZ Counterintel Tactical T-Back Leotard"
-			desc = "An extremely expensive sneaking leotard with extra skin-showing properties created by the Kaizoku Zaibatsu for high risk tasking with high risk clothes, made with several layers of a nano-fiber that, while light, molds to the wearer's body shape and hardens protecting them. This leotard allows you to walk quietly and crawl through vents with ALT-CLICK"
+			name = "KN Counterintel Tactical T-Back Leotard"
+			desc = "An extremely expensive sneaking leotard with extra skin-showing properties created by the Kurogane Zaibatsu for high risk tasking with high risk clothes, made with several layers of a nano-fiber that, while light, molds to the wearer's body shape and hardens protecting them. This leotard allows you to walk quietly and crawl through vents with ALT-CLICK"
 			icon_state = "sneak_leotard"
 			shows_butt = TRUE
 		if(3)
-			name = "KZ Counterintel Tactical String bikini"
-			desc = "An extremely expensive sneaking... string bikini? with ultra-extra skin-showing properties created by the Kaizoku Zaibatsu for high risk tasking with highest risk clothes, made with several layers of a nano-fiber that, while light-- It doesn't even matter, it practically doesn't exist, guess the sneakiest suit of all so far. This bikini allows you to walk quietly and crawl through vents with ALT-CLICK"
+			name = "KN Counterintel Tactical String bikini"
+			desc = "An extremely expensive sneaking... string bikini? with ultra-extra skin-showing properties created by the Kurogane Zaibatsu for high risk tasking with highest risk clothes, made with several layers of a nano-fiber that, while light-- It doesn't even matter, it practically doesn't exist, guess the sneakiest suit of all so far. This bikini allows you to walk quietly and crawl through vents with ALT-CLICK"
 			icon_state = "sneak_kini"
 			shows_butt = TRUE
 		if(4)

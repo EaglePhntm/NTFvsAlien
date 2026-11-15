@@ -2,7 +2,7 @@
 
 /obj/item/weapon/gun/smg/minib
 	name = "\improper MINI-B machinepistol"
-	desc = "A niche classic refurbished and improved by Kaizoku Zaibatsu for bodyguards and field adjutants, the MINI-B is a take on the SMG-2 platform and uses specialized highpowered 9MM armor piercing munitions."
+	desc = "A niche classic refurbished and improved by Kurogane Zaibatsu for bodyguards and field adjutants, the MINI-B is a take on the SMG-2 platform and uses specialized highpowered 9MM armor piercing munitions."
 	icon = 'ntf_modular/icons/obj/items/guns/submachineguns.dmi'
 	worn_icon_state = "minib"
 	worn_icon_list = list(

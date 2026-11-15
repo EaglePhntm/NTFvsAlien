@@ -591,14 +591,14 @@
 // VSD
 
 /obj/machinery/marine_selector/clothes/vsd
-	name = "GHMME Automated KZ Closet"
+	name = "GHMME Automated KN Closet"
 	req_access = list(ACCESS_VSD_PREP)
 	vendor_role = /datum/job/vsd_squad/standard
 	faction = FACTION_VSD
 	lock_flags = JOB_LOCK
 
 /obj/machinery/marine_selector/clothes/vsd/standard
-	name = "GHMME Automated KZ Standard Closet"
+	name = "GHMME Automated KN Standard Closet"
 	vendor_role = /datum/job/vsd_squad/standard
 
 /obj/machinery/marine_selector/clothes/vsd/standard/Initialize(mapload)
@@ -606,7 +606,7 @@
 	listed_products = GLOB.vsd_standard_clothes_listed_products
 
 /obj/machinery/marine_selector/clothes/vsd/medic
-	name = "GHMME Automated KZ Medic Closet"
+	name = "GHMME Automated KN Medic Closet"
 	vendor_role = /datum/job/vsd_squad/medic
 	req_access = list(ACCESS_VSD_MEDPREP)
 
@@ -615,7 +615,7 @@
 	listed_products = GLOB.vsd_medic_clothes_listed_products
 
 /obj/machinery/marine_selector/clothes/vsd/engineer
-	name = "GHMME Automated KZ Engineer Closet"
+	name = "GHMME Automated KN Engineer Closet"
 	vendor_role = /datum/job/vsd_squad/engineer
 	req_access = list(ACCESS_VSD_ENGPREP)
 
@@ -624,7 +624,7 @@
 	listed_products = GLOB.vsd_engineer_clothes_listed_products
 
 /obj/machinery/marine_selector/clothes/vsd/specialist
-	name = "GHMME Automated KZ Specialist Closet"
+	name = "GHMME Automated KN Specialist Closet"
 	vendor_role = /datum/job/vsd_squad/spec
 	req_access = list(ACCESS_VSD_SPECPREP)
 
@@ -633,7 +633,7 @@
 	listed_products = GLOB.vsd_specialist_clothes_listed_products
 
 /obj/machinery/marine_selector/clothes/vsd/leader
-	name = "GHMME Automated KZ Leader Closet"
+	name = "GHMME Automated KN Leader Closet"
 	vendor_role = /datum/job/vsd_squad/leader
 	req_access = list(ACCESS_VSD_LEADPREP)
 

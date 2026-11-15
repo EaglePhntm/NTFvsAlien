@@ -92,7 +92,7 @@ CLOTHING
 	cost = 2000
 
 /datum/supply_packs/clothing/cm12nvg
-	name = "CM-12 KZ night vision goggles"
+	name = "CM-12 KN night vision goggles"
 	contains = list(/obj/item/clothing/glasses/night_vision/vsd)
 	cost = 1000
 
@@ -102,7 +102,7 @@ CLOTHING
 	cost = 3000
 
 /datum/supply_packs/clothing/night_visionvsd
-	name = "KZ Type 9 goggles"
+	name = "KN Type 9 goggles"
 	contains = list(/obj/item/clothing/glasses/night/m42_night_goggles/upp)
 	cost = 3000
 

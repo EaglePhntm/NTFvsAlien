@@ -139,7 +139,7 @@ export const NeuralStationConsole = () => {
 
   if (data.no_target) {
     return (
-      <Window width={820} height={760} theme="kaizoku">
+      <Window width={820} height={760} theme="kurogane">
         <Window.Content>
           <NoticeBox color="orange" textAlign="center" fontSize="18px" bold>
             <Box as="span" color="#ffffff">
@@ -156,10 +156,10 @@ export const NeuralStationConsole = () => {
   );
 
   return (
-    <Window width={820} height={760} theme="kaizoku">
+    <Window width={820} height={760} theme="kurogane">
       <Window.Content scrollable>
         <Section
-          title="KZ Neural Harvesting System"
+          title="KN Neural Harvesting System"
           buttons={
             <Box color="#d4af37" bold fontSize="13px">
               Covert Division • NS-92

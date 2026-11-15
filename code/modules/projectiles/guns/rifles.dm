@@ -3361,7 +3361,7 @@
 
 /obj/item/weapon/gun/rifle/vsd_lmg
 	name = "\improper L26 support machine gun"
-	desc = "The KZ's main all purpose machine gun, chambered in 5.56. It's design seems... outdated yet still reliable. Fires rapidly with devasting kicks, at a cost of movement speed."
+	desc = "The KN's main all purpose machine gun, chambered in 5.56. It's design seems... outdated yet still reliable. Fires rapidly with devasting kicks, at a cost of movement speed."
 	icon = 'icons/obj/items/guns/machineguns64.dmi'
 	icon_state = "l26"
 	worn_icon_state = "l26"
@@ -3432,7 +3432,7 @@
 
 /obj/item/weapon/gun/rifle/vsd_rifle
 	name = "\improper CC/67 combat rifle"
-	desc = "Crash Core's next-gen combat rifle, chambered in 6.8mm. The KZ SOP manual recommends using the CC/67 at medium range to maximize stopping power and accuracy. The CC/67 has a few caveats for being difficult to handle in close quarters and loses effectiveness at longer distances due to falloff. This Crash Core combat rifle is still hard hitting and suppression worthy, it will pack a kick to anyone standing in front of you."
+	desc = "Crash Core's next-gen combat rifle, chambered in 6.8mm. The KN SOP manual recommends using the CC/67 at medium range to maximize stopping power and accuracy. The CC/67 has a few caveats for being difficult to handle in close quarters and loses effectiveness at longer distances due to falloff. This Crash Core combat rifle is still hard hitting and suppression worthy, it will pack a kick to anyone standing in front of you."
 	icon = 'icons/obj/items/guns/rifles64.dmi'
 	icon_state = "c550"
 	worn_icon_state = "c550"
@@ -3549,7 +3549,7 @@
 
 /obj/item/weapon/gun/rifle/vsd_lmg_main
 	name = "\improper CC/74 Assault LMG"
-	desc = "The CC/74, newest Assault Light-Machinegun in the KZ arsenal. Chambered in 7.62x39mm, it crackles with power as it destroys anything in its cold iron sights."
+	desc = "The CC/74, newest Assault Light-Machinegun in the KN arsenal. Chambered in 7.62x39mm, it crackles with power as it destroys anything in its cold iron sights."
 	icon = 'icons/obj/items/guns/machineguns64.dmi'
 	icon_state = "c74"
 	worn_icon_state = "c74"
@@ -3678,7 +3678,7 @@
 
 /obj/item/weapon/gun/rifle/vsd_breaching
 	name = "\improper CC/B/31 Breaching Shotgun"
-	desc = "The Kaizoku Corporation's breaching shotgun, firing 16 gauge breaching slugs. Not optimal for combat."
+	desc = "The Kurogane Neuro-Kinetics's breaching shotgun, firing 16 gauge breaching slugs. Not optimal for combat."
 	icon = 'ntf_modular/icons/obj/items/guns/shotguns64.dmi'
 	worn_icon_list = list(
 		slot_s_store_str = 'ntf_modular/icons/mob/suit_slot.dmi',

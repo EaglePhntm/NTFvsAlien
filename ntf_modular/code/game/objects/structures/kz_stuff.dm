@@ -31,7 +31,7 @@
 	new_skills.sex = sex
 	return new_skills
 
-/obj/structure/bed/chair/kz/neural_station
+/obj/structure/bed/chair/kn/neural_station
 	name = "Unknown industrial frame"
 	desc = "A bulky metal assembly with inactive interfaces."
 	icon = 'ntf_modular/icons/obj/structures/kz_stuff.dmi'
@@ -44,11 +44,11 @@
 	var/obj/item/disk/kz_neurodisk/loaded_disk
 	var/obj/machinery/computer/neural_station_console/attached_console
 
-/obj/structure/bed/chair/kz/neural_station/examine(mob/user)
+/obj/structure/bed/chair/kn/neural_station/examine(mob/user)
 	. = ..()
 	if(user.faction != FACTION_VSD)
 		return
-	. += "<br><b>KZ Neural Station</b><br>Kaizoku Covert Division prototype for neural harvesting and imprinting."
+	. += "<br><b>KN Neural Station</b><br>Kurogane Covert Division prototype for neural harvesting and imprinting."
 	. += "<br>Designed to capture and encode cortical skill structures onto NS-92 neurodisks, and transfer them to new hosts."
 	. += "<br><i>Unauthorized disclosure will result in immediate contract termination and/or asset liquidation.</i><br>"
 	if(attached_console)
@@ -56,7 +56,7 @@
 	else
 		. += "It is not linked to any console."
 
-/obj/structure/bed/chair/kz/neural_station/Destroy()
+/obj/structure/bed/chair/kn/neural_station/Destroy()
 	if(current_occupant)
 		if(current_occupant.handcuffed)
 			current_occupant.handcuffed.dropped(current_occupant)
@@ -67,10 +67,10 @@
 		attached_console = null
 	return ..()
 
-/obj/structure/bed/chair/kz/neural_station/attack_tk(mob/user)
+/obj/structure/bed/chair/kn/neural_station/attack_tk(mob/user)
 	return FALSE
 
-/obj/structure/bed/chair/kz/neural_station/user_unbuckle_mob(mob/living/buckled_mob, mob/living/user)
+/obj/structure/bed/chair/kn/neural_station/user_unbuckle_mob(mob/living/buckled_mob, mob/living/user)
 	if(!buckled_mob)
 		return FALSE
 	if(buckled_mob != user)
@@ -99,7 +99,7 @@
 		pulling_mob.set_pull_offsets(buckled_mob, buckled_mob.grab_state)
 	return buckled_mob
 
-/obj/structure/bed/chair/kz/neural_station/user_buckle_mob(mob/living/affected_mob, mob/user, check_loc = TRUE)
+/obj/structure/bed/chair/kn/neural_station/user_buckle_mob(mob/living/affected_mob, mob/user, check_loc = TRUE)
 	add_fingerprint(user, "buckle")
 	if(affected_mob == user)
 		if(!do_after(user, 10 SECONDS, affected_mob))
@@ -125,7 +125,7 @@
 		span_hear("You hear metal clanking."))
 	return TRUE
 
-/obj/structure/bed/chair/kz/neural_station/post_buckle_mob(mob/living/affected_mob)
+/obj/structure/bed/chair/kn/neural_station/post_buckle_mob(mob/living/affected_mob)
 	affected_mob.layer = BELOW_MOB_LAYER
 	if(LAZYLEN(buckled_mobs))
 		if(ishuman(buckled_mobs[1]))
@@ -139,7 +139,7 @@
 	cuffs.parent_chair = WEAKREF(src)
 	current_occupant.update_abstract_handcuffed()
 
-/obj/structure/bed/chair/kz/neural_station/post_unbuckle_mob(mob/living/affected_mob)
+/obj/structure/bed/chair/kn/neural_station/post_unbuckle_mob(mob/living/affected_mob)
 	affected_mob.layer = initial(affected_mob.layer)
 	if(!current_occupant)
 		return FALSE
@@ -148,7 +148,7 @@
 	current_occupant.update_abstract_handcuffed()
 	current_occupant = null
 
-/obj/structure/bed/chair/kz/neural_station/attack_hand(mob/living/user)
+/obj/structure/bed/chair/kn/neural_station/attack_hand(mob/living/user)
 	if(user.faction == FACTION_VSD && user.a_intent == INTENT_HARM && loaded_disk)
 		to_chat(user, span_notice("You carefully lift the neurodisk from the station."))
 		if(!do_after(user, 7 SECONDS, src))
@@ -169,7 +169,7 @@
 		return TRUE
 	user_buckle_mob(affected_mob, user, check_loc = TRUE)
 
-/obj/structure/bed/chair/kz/neural_station/attackby(obj/item/attacking_item, mob/living/user)
+/obj/structure/bed/chair/kn/neural_station/attackby(obj/item/attacking_item, mob/living/user)
 	. = ..()
 	if(.)
 		return
@@ -190,12 +190,12 @@
 		qdel(attacking_item)
 		return TRUE
 
-/obj/structure/bed/chair/kz/neural_station/proc/can_extract(mob/living/carbon/human/target)
+/obj/structure/bed/chair/kn/neural_station/proc/can_extract(mob/living/carbon/human/target)
 	if(!target || target.stat == DEAD || target.faction == FACTION_VSD || HAS_TRAIT(target, TRAIT_SKILLS_EXTRACTED) || target.extract_count >= 2 || !loaded_disk)
 		return FALSE
 	return TRUE
 
-/obj/structure/bed/chair/kz/neural_station/proc/perform_extract(mob/living/carbon/human/target, mob/user)
+/obj/structure/bed/chair/kn/neural_station/proc/perform_extract(mob/living/carbon/human/target, mob/user)
 	if(!can_extract(target))
 		return FALSE
 	if(!target.base_skills)
@@ -241,12 +241,12 @@
 		))
 	return TRUE
 
-/obj/structure/bed/chair/kz/neural_station/proc/can_imprint(mob/living/carbon/human/target)
+/obj/structure/bed/chair/kn/neural_station/proc/can_imprint(mob/living/carbon/human/target)
 	if(!target || target.stat == DEAD || HAS_TRAIT(target, TRAIT_SKILLS_IMPRINTED) || !loaded_disk || !loaded_disk.stored_name)
 		return FALSE
 	return TRUE
 
-/obj/structure/bed/chair/kz/neural_station/proc/perform_imprint(mob/living/carbon/human/target, mob/user)
+/obj/structure/bed/chair/kn/neural_station/proc/perform_imprint(mob/living/carbon/human/target, mob/user)
 	if(!can_imprint(target))
 		return FALSE
 	if(!target.base_skills)
@@ -413,14 +413,14 @@
 	icon_state = "kz_terminal"
 	base_icon_state = "kz_terminal"
 	resistance_flags = RESIST_ALL
-	var/obj/structure/bed/chair/kz/neural_station/linked_station
+	var/obj/structure/bed/chair/kn/neural_station/linked_station
 	var/list/logs = list()
 
 /obj/machinery/computer/neural_station_console/examine(mob/user)
 	. = ..()
 	if(user.faction != FACTION_VSD)
 		return
-	. += "<br><b>KZ Neural Station Console</b><br>Kaizoku Covert Division control interface for neural harvesting and imprinting operations."
+	. += "<br><b>KN Neural Station Console</b><br>Kurogane Covert Division control interface for neural harvesting and imprinting operations."
 	. += "<br>Allows extraction and imprinting of cortical skill structures via NS-92 neurodisks."
 	. += "<br><i>Unauthorized access will result in immediate contract termination and/or asset liquidation.</i><br>"
 	if(linked_station)
@@ -431,7 +431,7 @@
 /obj/machinery/computer/neural_station_console/Initialize(mapload)
 	. = ..()
 	if(!linked_station)
-		for(var/obj/structure/bed/chair/kz/neural_station/station in range(3, src))
+		for(var/obj/structure/bed/chair/kn/neural_station/station in range(3, src))
 			if(!station.attached_console)
 				linked_station = station
 				station.attached_console = src
@@ -627,7 +627,7 @@
 	. = ..()
 	if(user.faction != FACTION_VSD)
 		return
-	. += "<br><b>NS-92 Covert Neurodisk</b><br>Kaizoku Covert Division encrypted module containing extracted neural skill architecture."
+	. += "<br><b>NS-92 Covert Neurodisk</b><br>Kurogane Covert Division encrypted module containing extracted neural skill architecture."
 	. += "<br><i>Unauthorized disclosure will result in immediate termination.</i><br>"
 	if(stored_name)
 		. += "This neurodisk contains <b>[stored_name]'s</b> scan."

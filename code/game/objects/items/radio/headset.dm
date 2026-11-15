@@ -201,7 +201,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	if(faction == FACTION_SOM)
 		camera = new /obj/machinery/camera/headset/som(src)
 	else if(faction == FACTION_VSD)
-		camera = new /obj/machinery/camera/headset/kz(src)
+		camera = new /obj/machinery/camera/headset/kn(src)
 	else if(faction == FACTION_CLF)
 		camera = new /obj/machinery/camera/headset/clf(src)
 	else
@@ -664,7 +664,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	minimap_type = /datum/action/minimap/icc
 
 /obj/item/radio/headset/mainship/vsd
-	name = "kaizoku corporation headset"
+	name = "Kurogane Neuro-Kinetics headset"
 	icon_state = "headset_marine_generic"
 	keyslot = /obj/item/encryptionkey/vsd
 	frequency = FREQ_VSD

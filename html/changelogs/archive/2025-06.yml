@@ -75,12 +75,12 @@
   - rscadd: You can destroy weeds with grab intent
   - balance: Weed NODES now can be taken down in 2 xeno hits, not 3
   - balance: Increased weed NODE removal click delay
-  - rscadd: Adds Stolen Medicament Vendor, Marine F&D Vendor, Engi-Vend to KZ Loadout
+  - rscadd: Adds Stolen Medicament Vendor, Marine F&D Vendor, Engi-Vend to KN Loadout
       Vendor Selection
   - rscdel: Comments out TRAIT_HAS_SPAWNED_MECH
-  - rscadd: Added headsets to kz quick outfits
-  - rscadd: Added missing armor items to kz vendor
-  - bugfix: VSD -> KZ
+  - rscadd: Added headsets to kn quick outfits
+  - rscadd: Added missing armor items to kn vendor
+  - bugfix: VSD -> KN
   - bugfix: Corrupted now properly share their map with marines and not xenos
   - rscadd: New som tank fabricator
   - rscadd: SOM Assault Crewman
@@ -88,7 +88,7 @@
   - qol: More free space for som base
   - balance: CC/77 Extended magazine now inherits default magazine ammotype
   - balance: AT32 Fire delay lowered
-  - balance: Buffed kz weapon sunder values
+  - balance: Buffed kn weapon sunder values
   - balance: Buffed AT32 damage but nerfed firerate and movement speed while wielding
       it
   - balance: Made AT32 canisters a little bit more unique, adding special properties
@@ -103,12 +103,12 @@
   - rscdel: Annihilation of compile error from existence
   - balance: Increased penetration of incend and ap
   - bugfix: Incendinary cylinder now uses proper burn damage type instead of brute
-  - rscadd: Expands kz vendor clothes selection
+  - rscadd: Expands kn vendor clothes selection
   - bugfix: Ronin is no more piss-colored
   - rscadd: Added more attachments to CC/Weaponry
-  - rscadd: Added shrap nade to kz weapon vendor
+  - rscadd: Added shrap nade to kn weapon vendor
   - rscadd: C96 can be put inside sidearm belts
-  - bugfix: Moved wp nades from ship to kz weapon vendor
+  - bugfix: Moved wp nades from ship to kn weapon vendor
   - bugfix: Syndicate weapons rack got proper category order
   - bugfix: XM104 Cylinder -> CC/104 Cylinder
   - bugfix: C77, C74 Back Sprites Offset Fixed
@@ -123,7 +123,7 @@
   - imageadd: A batch of images for new armor and weapons
   - bugfix: Removes outfit copies
   - balance: Adds more attachments to CC/21
-  - balance: KZ Pyro Outfit now has a xfuel backpack
+  - balance: KN Pyro Outfit now has a xfuel backpack
   - rscadd: Adds new fast mechs
   - rscadd: Reworks mech nade launcher, mech rocket launcher
   - rscadd: Adds a mech sword
@@ -139,17 +139,17 @@
   - bugfix: Proper grab cooldown
   - bugfix: Fixes dragon grab being broken if you try to grab with an item in hand
   - balance: Buffed CC/AT32 Autocannon
-  - rscadd: Added KZ Headwear
-  - rscadd: Added armor modules to KZ Armor Vendor
-  - rscadd: Added modular KZ armor to KZ Armor Vendor
-  - bugfix: Changed KZ armor values to previous values (Port reverted them)
+  - rscadd: Added KN Headwear
+  - rscadd: Added armor modules to KN Armor Vendor
+  - rscadd: Added modular KN armor to KN Armor Vendor
+  - bugfix: Changed KN armor values to previous values (Port reverted them)
   - bugfix: Fixed juggernaut sprite
   - bugfix: Fixed rocket launcher inhand sprite
   - bugfix: Fixed ammo rifle sprite
-  - bugfix: VSD Mentions -> KZ Mentions
-  - bugfix: VSD Airlocks -> KZ Airlocks
+  - bugfix: VSD Mentions -> KN Mentions
+  - bugfix: VSD Airlocks -> KN Airlocks
   - bugfix: No more spinning breaching shotgun
-  - bugfix: Quick equip KZ Medic Loadout readded
+  - bugfix: Quick equip KN Medic Loadout readded
   - bugfix: A bunch of fixes
   - rscadd: Added TRAIT_NOHEALTHREGEN
   - rscadd: Added nonstackable /datum/status_effect/nohealthregen that applies TRAIT_NOHEALTHREGEN
@@ -161,8 +161,8 @@
   SandPoot:
   - rscadd: Returning to the lobby without cryo will apply respawn timers.
   Valen417:
-  - rscadd: KZ PDW to KZ Vendor
-  - rscadd: KZ PDW Magazine to KZ Vendor
+  - rscadd: KN PDW to KN Vendor
+  - rscadd: KN PDW Magazine to KN Vendor
   W0LF-101:
   - balance: Overhauls bullet speed across the board, most bullets now have 0.5 higher
       shell_speed

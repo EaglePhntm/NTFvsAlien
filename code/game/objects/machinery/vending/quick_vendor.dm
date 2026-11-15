@@ -316,16 +316,16 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 	)
 
 /obj/machinery/quick_vendor/vsd
-	name = "KZ Kwik-E-Quip vendor"
+	name = "KN Kwik-E-Quip vendor"
 	icon_state = "loadoutvendor"
 	faction = FACTION_VSD
 	categories = list(
-		"KZ Standard",
-		"KZ Medic",
-		"KZ Engineer",
-		"KZ Specialist",
-		"KZ Combat Escort",
-		"KZ Squad Leader",
+		"KN Standard",
+		"KN Medic",
+		"KN Engineer",
+		"KN Specialist",
+		"KN Combat Escort",
+		"KN Squad Leader",
 	)
 
 /obj/machinery/quick_vendor/pmc
@@ -367,15 +367,15 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 
 
 /obj/machinery/quick_vendor/vsd
-	desc = "An advanced vendor used by the KZ to rapidly equip their operatives"
+	desc = "An advanced vendor used by the KN to rapidly equip their operatives"
 	faction = VENDOR_FACTION_VSD
 	categories = list(
-		"KZ Standard",
-		"KZ Medic",
-		"KZ Engineer",
-		"KZ Specialist",
-		"KZ Combat Escort",
-		"KZ Squad Leader",
+		"KN Standard",
+		"KN Medic",
+		"KN Engineer",
+		"KN Specialist",
+		"KN Combat Escort",
+		"KN Squad Leader",
 	)
 
 

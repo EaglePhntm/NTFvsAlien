@@ -39,7 +39,7 @@
 #define VENDOR_FACTION_PMC "PMC"
 #define VENDOR_FACTION_ICC "CM"
 #define VENDOR_FACTION_CLF "Cult"
-#define VENDOR_FACTION_VSD "KZ"
+#define VENDOR_FACTION_VSD "KN"
 
 
 GLOBAL_LIST_INIT(marine_selector_cats, list(
@@ -830,7 +830,7 @@ GLOBAL_LIST_INIT(loadout_linked_vendor, list(
 		/obj/machinery/vending/armor_supply/vsd,
 		/obj/machinery/vending/uniform_supply/vsd,
 		/obj/machinery/vending/MarineMed/vsd,
-		/obj/machinery/vending/medical/kz,
+		/obj/machinery/vending/medical/kn,
 		/obj/machinery/vending/marineFood,
 		/obj/machinery/vending/engivend,
 		/obj/machinery/vending/cigarette,
@@ -1585,7 +1585,7 @@ GLOBAL_LIST_INIT(vsd_standard_clothes_listed_products, list(
 		/obj/item/storage/pouch/grenade/slightlyfull = list(CAT_POU, "Grenade pouch (grenades included)", 0,"black"),
 		/obj/item/storage/pouch/construction/full = list(CAT_POU, "Construction pouch (materials included)", 0,"black"),
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0,"black"),
-		/obj/item/clothing/mask/gas/vsd = list(CAT_MAS, "KZ armored commando balaclava", 0,"black"),
+		/obj/item/clothing/mask/gas/vsd = list(CAT_MAS, "KN armored commando balaclava", 0,"black"),
 		/obj/item/clothing/mask/gas/icc = list(CAT_MAS, "Modello/60 gas mask", 0,"black"),
 	))
 
@@ -1604,7 +1604,7 @@ GLOBAL_LIST_INIT(vsd_medic_clothes_listed_products, list(
 		/obj/item/storage/belt/hypospraybelt/full = list(CAT_BEL, "Hypospray belt", 0, "black"),
 		/obj/item/storage/pouch/medical_injectors/firstaid = list(CAT_POU, "Advanced Autoinjector pouch", 0, "orange"),
 		/obj/item/storage/pouch/medkit/medic = list(CAT_POU, "Medkit pouch", 0, "orange"),
-		/obj/item/clothing/mask/gas/vsd = list(CAT_MAS, "KZ armored commando balaclava", 0,"black"),
+		/obj/item/clothing/mask/gas/vsd = list(CAT_MAS, "KN armored commando balaclava", 0,"black"),
 		/obj/item/clothing/mask/gas/icc = list(CAT_MAS, "Modello/60 gas mask", 0,"black"),
 	))
 
@@ -1643,7 +1643,7 @@ GLOBAL_LIST_INIT(vsd_engineer_clothes_listed_products, list(
 		/obj/item/storage/pouch/medical_injectors/firstaid = list(CAT_POU, "Combat injector pouch", 0, "orange"),
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0, "black"),
 		/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0, "black"),
-		/obj/item/clothing/mask/gas/vsd = list(CAT_MAS, "KZ armored commando balaclava", 0,"black"),
+		/obj/item/clothing/mask/gas/vsd = list(CAT_MAS, "KN armored commando balaclava", 0,"black"),
 		/obj/item/clothing/mask/gas/icc = list(CAT_MAS, "Modello/60 gas mask", 0,"black"),
 	))
 
@@ -1672,7 +1672,7 @@ GLOBAL_LIST_INIT(vsd_specialist_clothes_listed_products, list(
 		/obj/item/storage/pouch/grenade/slightlyfull = list(CAT_POU, "Grenade pouch (grenades included)", 0,"black"),
 		/obj/item/storage/pouch/construction/full = list(CAT_POU, "Construction pouch (materials included)", 0,"black"),
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0,"black"),
-		/obj/item/clothing/mask/gas/vsd = list(CAT_MAS, "KZ armored commando balaclava", 0,"black"),
+		/obj/item/clothing/mask/gas/vsd = list(CAT_MAS, "KN armored commando balaclava", 0,"black"),
 		/obj/item/clothing/mask/gas/icc = list(CAT_MAS, "Modello/60 gas mask", 0,"black"),
 	))
 
@@ -1700,7 +1700,7 @@ GLOBAL_LIST_INIT(vsd_leader_clothes_listed_products, list(
 		/obj/item/storage/pouch/grenade/slightlyfull = list(CAT_POU, "Grenade pouch (grenades included)", 0,"black"),
 		/obj/item/storage/pouch/construction/full = list(CAT_POU, "Construction pouch (materials included)", 0,"black"),
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0,"black"),
-		/obj/item/clothing/mask/gas/vsd = list(CAT_MAS, "KZ armored commando balaclava", 0,"black"),
+		/obj/item/clothing/mask/gas/vsd = list(CAT_MAS, "KN armored commando balaclava", 0,"black"),
 		/obj/item/clothing/mask/gas/icc = list(CAT_MAS, "Modello/60 gas mask", 0,"black"),
 	))
 

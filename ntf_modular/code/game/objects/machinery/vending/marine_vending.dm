@@ -705,7 +705,7 @@
 	)
 
 /obj/machinery/vending/weapon/vsd
-	name = "Kaizoku weapons rack"
+	name = "Kurogane weapons rack"
 	faction = FACTION_VSD
 	desc = "An automated weapon rack hooked up to a colossal storage of short amount of weapons. Deadly, no-less"
 	icon_state = "syndi"
@@ -942,7 +942,7 @@
 	)
 
 /obj/machinery/vending/uniform_supply/vsd
-	name = "\improper Kaizoku Clothing Vendor"
+	name = "\improper Kurogane Clothing Vendor"
 	faction = FACTION_VSD
 	desc = "An automated equipment rack hooked up to a colossal storage of clothing and accessories. Ninetails designed a new vendor that utilizes bluespace technology to send surplus equipment from outer colonies' sweatshops to your hands! Be grateful."
 	icon_state = "surplus_clothes"
@@ -1331,7 +1331,7 @@
 	)
 
 /obj/machinery/vending/armor_supply/vsd
-	name = "\improper Kaizoku Armor Equipment Vendor"
+	name = "\improper Kurogane Armor Equipment Vendor"
 	faction = FACTION_VSD
 	desc = "An automated equipment rack hooked up to a colossal storage of armor and accessories. Ninetails designed a new vendor that utilizes bluespace technology to send surplus equipment from outer colonies' sweatshops to your hands! Be grateful."
 	icon_state = "surplus_armor"
@@ -1341,7 +1341,7 @@
 	wrenchable = FALSE
 	product_ads = "You are out of uniform, marine! Where is your armor? Don't have any? You expect me to believe that, maggot?;Why wear heavy armor and unable to chase the enemy when you can go light and zoom by your peers?;Thank your armor later when you didn't die!;I remember PAS, do you remember PAS?;Time to paint the rainbow!;So many selections to choose from!"
 	products = list(
-		"KZ Standard issue" = list(
+		"KN Standard issue" = list(
 			/obj/item/clothing/suit/modular/xenonauten/light/bikini/neutral/vsd = -1,
 			/obj/item/clothing/suit/storage/marine/vsd = -1,
 			/obj/item/clothing/suit/storage/marine/vsd/alt = -1,
@@ -2632,8 +2632,8 @@
 	desc = "Medical Pharmaceutical dispenser. 'Provided' by Novamed Pharmaceuticals."
 	req_access = ACCESS_SOM_MEDICAL
 
-/obj/machinery/vending/medical/kz
-	name = "KZ Medicament Vendor"
+/obj/machinery/vending/medical/kn
+	name = "KN Medicament Vendor"
 	desc = "Medical Pharmaceutical dispenser. 'Provided' by Novamed Pharmaceuticals."
 	req_access = ACCESS_VSD_MEDPREP
 
@@ -2656,9 +2656,9 @@
 	desc = "A Medical drug dispenser, just like the NTC use. 'Provided' by Novamed Pharmaceuticals Division(TM)."
 
 /obj/machinery/vending/MarineMed/vsd
-	name = "\improper KZ MarineMed"
+	name = "\improper KN MarineMed"
 	faction = FACTION_VSD
-	desc = "KZ Medical drug dispenser. 'Provided' by Novamed Pharmaceuticals Division(TM)."
+	desc = "KN Medical drug dispenser. 'Provided' by Novamed Pharmaceuticals Division(TM)."
 	req_one_access = null
 
 /obj/machinery/vending/weapon/clf

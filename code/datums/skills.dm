@@ -620,8 +620,8 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	medical = SKILL_MEDICAL_NOVICE
 	surgery = SKILL_SURGERY_AMATEUR
 
-/datum/skills/sl/kz
-	name = "KZ Squad Leader"
+/datum/skills/sl/kn
+	name = "KN Squad Leader"
 	rifles = SKILL_RIFLES_TRAINED
 
 /datum/skills/sl/clf
@@ -714,7 +714,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	smartgun = SKILL_SMART_TRAINED //CoE armory has a chance to spawn a free SG29 the champion can use
 
 /datum/skills/specialist_vsd
-	name = "VSD Specialist" // Curated to represent the KZ Specialist skillset instead of its NT counterpart
+	name = "VSD Specialist" // Curated to represent the KN Specialist skillset instead of its NT counterpart
 	unarmed = SKILL_UNARMED_TRAINED // Not a master at CQC, but still trained to a smaller degree.
 	heavy_weapons = SKILL_HEAVY_WEAPONS_TRAINED // They're often packing the big guns, they have the qualifications.
 	construction = SKILL_CONSTRUCTION_METAL

@@ -673,7 +673,7 @@
 /obj/structure/table/black,
 /obj/structure/transmitter/colony_net/desk{
 	phone_category = "Diplomacy";
-	phone_id = "KZ"
+	phone_id = "KN"
 	},
 /turf/open/floor/prison/redfloor,
 /area/antag_ship/vsd/bridge)
@@ -845,7 +845,7 @@
 "bbb" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/medical/glass{
-	name = "\improper KZ Medbay Airlock";
+	name = "\improper KN Medbay Airlock";
 	req_access = list(237);
 	req_one_access = null
 	},
@@ -1104,7 +1104,7 @@
 "bqA" = (
 /obj/effect/step_trigger/teleporter/random,
 /obj/docking_port/stationary/crashmode{
-	name = "KZ Crashland point";
+	name = "KN Crashland point";
 	dir = 1;
 	id = "kzcrashland"
 	},
@@ -1323,7 +1323,7 @@
 /turf/open/floor/carpet/green,
 /area/antag_ship/som/office/commander)
 "bCX" = (
-/obj/machinery/vending/medical/kz,
+/obj/machinery/vending/medical/kn,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
 	},
@@ -3153,7 +3153,7 @@
 /area/antag_ship/som/bridge)
 "eea" = (
 /obj/structure/table/black,
-/obj/machinery/computer/communications/kz,
+/obj/machinery/computer/communications/kn,
 /turf/open/floor/prison/redfloor,
 /area/antag_ship/vsd/bridge)
 "efv" = (
@@ -3533,7 +3533,7 @@
 /area/antag_ship/icc/hangar/east)
 "exw" = (
 /obj/machinery/door/airlock/mainship/generic{
-	name = "\improper KZ Preparations Airlock";
+	name = "\improper KN Preparations Airlock";
 	dir = 1;
 	req_access = list(236)
 	},
@@ -3882,7 +3882,7 @@
 "fck" = (
 /obj/structure/cable,
 /obj/machinery/dropship_part_fabricator/tadpole{
-	faction = "Kaizoku Corporation"
+	faction = "Kurogane Neuro-Kinetics"
 	},
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/antag_ship/vsd/engi)
@@ -4931,7 +4931,7 @@
 "gxm" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/generic{
-	name = "\improper KZ Technical Storage Airlock";
+	name = "\improper KN Technical Storage Airlock";
 	req_access = list(238)
 	},
 /turf/open/floor/grayscale/round/black,
@@ -5150,7 +5150,7 @@
 "gQh" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/glass_command{
-	name = "\improper KZ Command Airlock";
+	name = "\improper KN Command Airlock";
 	dir = 2
 	},
 /turf/open/floor/prison/blackfloor,
@@ -5622,7 +5622,7 @@
 /area/antag_ship/som/medbay/morgue)
 "hub" = (
 /obj/machinery/door/airlock/mainship/secure{
-	name = "\improper KZ Research Airlock";
+	name = "\improper KN Research Airlock";
 	req_access = null;
 	req_one_access = list(239,240)
 	},
@@ -6629,7 +6629,7 @@
 /area/antag_ship/vsd/med)
 "iUb" = (
 /obj/structure/table/black,
-/obj/machinery/faxmachine/kz,
+/obj/machinery/faxmachine/kn,
 /turf/open/floor/prison/redfloor,
 /area/antag_ship/vsd/bridge)
 "iUd" = (
@@ -6667,7 +6667,7 @@
 /turf/open/floor/mainship/mono,
 /area/antag_ship/icc/warehouse)
 "iWH" = (
-/obj/machinery/telecomms/broadcaster/preset_left/kz,
+/obj/machinery/telecomms/broadcaster/preset_left/kn,
 /obj/machinery/door/window{
 	dir = 1;
 	pixel_y = 8
@@ -9965,7 +9965,7 @@
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/engi)
 "nmD" = (
-/obj/machinery/telecomms/processor/preset_four/kz,
+/obj/machinery/telecomms/processor/preset_four/kn,
 /obj/machinery/light/red,
 /turf/open/floor/bcircuit/anim,
 /area/antag_ship/vsd/hall)
@@ -10012,7 +10012,7 @@
 /area/antag_ship/icc/living_area)
 "npp" = (
 /obj/machinery/door/airlock/mainship/generic{
-	name = "\improper KZ Armory Airlock";
+	name = "\improper KN Armory Airlock";
 	req_access = list(236)
 	},
 /obj/structure/cable,
@@ -10423,7 +10423,7 @@
 "nRy" = (
 /obj/structure/table/black,
 /obj/item/storage/backpack/marine/radiopack/kz_net,
-/obj/item/storage/box/crate/loot/telecomm_tower_pack/kz,
+/obj/item/storage/box/crate/loot/telecomm_tower_pack/kn,
 /turf/open/floor/iron/dark/side,
 /area/antag_ship/vsd/armory)
 "nRO" = (
@@ -10665,7 +10665,7 @@
 /obj/structure/table/black,
 /obj/structure/transmitter/kz_net/desk{
 	phone_category = "Combat Information Center";
-	phone_id = "KZ CIC"
+	phone_id = "KN CIC"
 	},
 /turf/open/floor/prison/redfloor,
 /area/antag_ship/vsd/bridge)
@@ -13540,7 +13540,7 @@
 /turf/open/floor/bcircuit/anim,
 /area/antag_ship/som/telecomms)
 "rSs" = (
-/obj/structure/bed/chair/kz/neural_station,
+/obj/structure/bed/chair/kn/neural_station,
 /turf/open/floor/prison/darkpurple{
 	dir = 1
 	},
@@ -13885,7 +13885,7 @@
 "snp" = (
 /obj/effect/landmark/start/job/vsd,
 /obj/docking_port/stationary/crashmode{
-	name = "KZ Crashland point 2";
+	name = "KN Crashland point 2";
 	dir = 1;
 	id = "kzcrashland2"
 	},
@@ -14121,7 +14121,7 @@
 /turf/open/floor/mainship/mono,
 /area/antag_ship/som/hangar)
 "sFK" = (
-/obj/machinery/telecomms/hub/preset/kz,
+/obj/machinery/telecomms/hub/preset/kn,
 /turf/open/floor/bcircuit/anim,
 /area/antag_ship/vsd/hall)
 "sFU" = (
@@ -14220,7 +14220,7 @@
 /area/antag_ship/som/upperladders)
 "sNh" = (
 /obj/machinery/door/airlock/mainship/generic{
-	name = "\improper KZ Port Airlock";
+	name = "\improper KN Port Airlock";
 	req_access = list(236)
 	},
 /obj/structure/cable,
@@ -14807,7 +14807,7 @@
 /obj/structure/prop/mainship/railing{
 	dir = 8
 	},
-/obj/machinery/computer/supplycomp/kz,
+/obj/machinery/computer/supplycomp/kn,
 /turf/open/floor/iron/dark/herringbone,
 /area/antag_ship/vsd/port)
 "tEm" = (
@@ -15037,7 +15037,7 @@
 /turf/open/floor/freezer,
 /area/antag_ship/clf_base/facade/kitchen)
 "tSW" = (
-/obj/machinery/telecomms/server/presets/common/kz,
+/obj/machinery/telecomms/server/presets/common/kn,
 /obj/structure/window/reinforced/tinted{
 	dir = 8
 	},
@@ -15192,7 +15192,7 @@
 /turf/open/floor/plating/ground/drought/cave,
 /area/antag_ship/clf_base/caves/surface)
 "uev" = (
-/obj/machinery/telecomms/bus/preset_four/kz,
+/obj/machinery/telecomms/bus/preset_four/kn,
 /obj/structure/window/reinforced/tinted{
 	dir = 1;
 	layer = 2.8;
@@ -18052,7 +18052,7 @@
 /turf/open/floor/kutjevo/colors/purple,
 /area/antag_ship/clf_base/real/reedroom)
 "yaW" = (
-/obj/machinery/telecomms/receiver/preset_right/kz,
+/obj/machinery/telecomms/receiver/preset_right/kn,
 /obj/structure/window/reinforced/tinted{
 	dir = 1;
 	pixel_y = 8

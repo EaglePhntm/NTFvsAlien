@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/energy/lasgun/lasrifle/plasma_kz/kpx
 	name = "\improper KPX/47 Spectra"
-	desc = "Kaizoku Plasma eXperimental branded plasma rifle built on reworked volkite induction tech, optimized to fire focused purple beams with excellent accuracy. Designed for adaptable field use and compatible with an extended range of attachments."
+	desc = "Kurogane Plasma eXperimental branded plasma rifle built on reworked volkite induction tech, optimized to fire focused purple beams with excellent accuracy. Designed for adaptable field use and compatible with an extended range of attachments."
 	icon = 'ntf_modular/icons/obj/items/guns/energy64.dmi'
 	icon_state = "spectra"
 	worn_icon_state = "spectra"

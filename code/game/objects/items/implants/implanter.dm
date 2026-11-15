@@ -55,7 +55,7 @@
 
 /obj/item/implanter/neurostim
 	name = "neurostim implanter"
-	desc = "The result of a joint project between Kaizoku, NovaMed and NTC. This implant is capable of regulating nociception and sensory function, allowing one to experience pain reduction, improved balance, and improved resistance to overstimulation and disoritentation. To encourage compliance, NTC have implimented a negative stimulus system, activated if the implant hears a (non-radio) spoken codeprhase."
+	desc = "The result of a joint project between Kurogane, NovaMed and NTC. This implant is capable of regulating nociception and sensory function, allowing one to experience pain reduction, improved balance, and improved resistance to overstimulation and disoritentation. To encourage compliance, NTC have implimented a negative stimulus system, activated if the implant hears a (non-radio) spoken codeprhase."
 	imp = /obj/item/implant/neurostim
 
 /obj/item/implanter/chem

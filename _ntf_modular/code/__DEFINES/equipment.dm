@@ -1,6 +1,6 @@
 #define PHONE_MARINE "NTC"
 #define PHONE_SOM "SOM"
-#define PHONE_KZ "KZ"
+#define PHONE_KZ "KN"
 #define PHONE_CLF "Cult"
 #define PHONE_CM "CM"
 

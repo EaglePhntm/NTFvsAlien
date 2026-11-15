@@ -19,7 +19,7 @@
 #define FACTION_PIRATE "Pirate"
 #define FACTION_SPECFORCE "Special Forces"
 #define FACTION_MOTHELLIAN "Mothellians"
-#define FACTION_VSD "Kaizoku Corporation"
+#define FACTION_VSD "Kurogane Neuro-Kinetics"
 #define FACTION_ERP "Emergency Response Pranksters"
 #define FACTION_SPATIAL_AGENT "Spatial Agents"
 
@@ -143,7 +143,7 @@ GLOBAL_LIST_INIT(faction_to_acronym, list(
 	FACTION_ICC = "CM",
 	FACTION_USL = "USL",
 	FACTION_PIRATE = "Pirates",
-	FACTION_VSD = "KZ",
+	FACTION_VSD = "KN",
 ))
 
 ///general comms by faction where applicable

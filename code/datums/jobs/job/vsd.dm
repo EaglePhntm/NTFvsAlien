@@ -6,7 +6,7 @@
 
 //VSD Standard
 /datum/job/vsd/standard
-	title = "KZ Standard"
+	title = "KN Standard"
 	paygrade = "KZ1"
 	outfit = /datum/outfit/job/vsd/standard/grunt_one
 	multiple_outfits = TRUE
@@ -23,7 +23,7 @@
 
 //outfits
 /datum/outfit/job/vsd/standard
-	name = "KZ Standard"
+	name = "KN Standard"
 	jobtype = /datum/job/vsd/standard
 
 	id = /obj/item/card/id/silver
@@ -262,7 +262,7 @@
 
 //VSD Engineer
 /datum/job/vsd/engineer
-	title = "KZ Engineer"
+	title = "KN Engineer"
 	paygrade = "KZ3"
 	skills_type = /datum/skills/combat_engineer
 	outfit = /datum/outfit/job/vsd/engineer/l26
@@ -274,7 +274,7 @@
 
 //outfits
 /datum/outfit/job/vsd/engineer
-	name = "KZ Engineer"
+	name = "KN Engineer"
 	jobtype = /datum/job/vsd/engineer
 
 	id = /obj/item/card/id/silver
@@ -361,7 +361,7 @@
 
 //VSD Medic
 /datum/job/vsd/medic
-	title = "KZ Medic"
+	title = "KN Medic"
 	paygrade = "KZ2"
 	skills_type = /datum/skills/combat_medic
 	outfit = /datum/outfit/job/vsd/medic/ksg
@@ -374,7 +374,7 @@
 
 //outfits
 /datum/outfit/job/vsd/medic
-	name = "KZ Medic"
+	name = "KN Medic"
 	jobtype = /datum/job/vsd/medic
 
 	id = /obj/item/card/id/silver
@@ -497,7 +497,7 @@
 
 //VSD Spec
 /datum/job/vsd/spec
-	title = "KZ Specialist"
+	title = "KN Specialist"
 	paygrade = "KZ4"
 	skills_type = /datum/skills/specialist_vsd
 	outfit = /datum/outfit/job/vsd/spec/demolitionist
@@ -512,7 +512,7 @@
 
 //outfits
 /datum/outfit/job/vsd/spec
-	name = "KZ Specialist"
+	name = "KN Specialist"
 	jobtype = /datum/job/vsd/spec
 
 	id = /obj/item/card/id/silver
@@ -706,7 +706,7 @@
 
 //VSD Juggernauts
 /datum/job/vsd/juggernaut
-	title = "KZ Juggernaut"
+	title = "KN Juggernaut"
 	paygrade = "KZ4"
 	outfit = /datum/outfit/job/vsd/juggernaut
 	multiple_outfits = TRUE
@@ -718,7 +718,7 @@
 
 //juggernaut outfits
 /datum/outfit/job/vsd/juggernaut
-	name = "KZ Juggernaut"
+	name = "KN Juggernaut"
 	jobtype = /datum/job/vsd/juggernaut
 
 	id = /obj/item/card/id/silver
@@ -847,7 +847,7 @@
 //VSD Squad Leader
 /datum/job/vsd/leader
 	job_category = JOB_CAT_COMMAND
-	title = "KZ Squad Leader"
+	title = "KN Squad Leader"
 	paygrade = "KZ5"
 	skills_type = /datum/skills/sl
 	outfit = /datum/outfit/job/vsd/leader/one
@@ -860,7 +860,7 @@
 
 //SL outfits
 /datum/outfit/job/vsd/leader
-	name = "KZ Squad Leader"
+	name = "KN Squad Leader"
 	jobtype = /datum/job/vsd/leader
 
 	id = /obj/item/card/id/silver
@@ -991,7 +991,7 @@
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_mg, SLOT_IN_L_POUCH)
 
 /datum/job/vsd/escort
-	title = "KZ Combat Escort"
+	title = "KN Combat Escort"
 	paygrade = "KZ4"
 	skills_type = /datum/skills/specialist_vsdescort
 	outfit = /datum/outfit/job/vsd/leader/one
@@ -1003,7 +1003,7 @@
 	)
 
 /datum/job/vsd/synthetic
-	title = "KZ Synthetic"
+	title = "KN Synthetic"
 	paygrade = "Mk.I"
 	skills_type = /datum/skills/synthetic
 	outfit = /datum/outfit/job/vsd_squad/silicon/synthetic

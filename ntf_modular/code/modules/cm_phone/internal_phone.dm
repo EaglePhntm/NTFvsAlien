@@ -181,7 +181,7 @@ GLOBAL_LIST_EMPTY(radio_packs)
 	phone_category = PHONE_SOM
 
 /obj/item/storage/backpack/marine/radiopack/kz_net
-	name = "\improper KZ Radio operator Pack"
+	name = "\improper KN Radio operator Pack"
 	color = COLOR_YELLOW
 	networks_receive = list(FACTION_VSD)
 	networks_transmit = list(FACTION_VSD)

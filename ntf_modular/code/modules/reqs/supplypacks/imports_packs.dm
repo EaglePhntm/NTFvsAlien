@@ -171,7 +171,7 @@
 	cost = 800
 
 /datum/supply_packs/imports/antiballisticshield
-	name = "KZ Anti Ballsitic Shield"
+	name = "KN Anti Ballsitic Shield"
 	contains = list(/obj/item/armor_module/module/eshield/absorbant/ballistic)
 	cost = 800
 
@@ -838,55 +838,55 @@
 	cost = 600
 
 /datum/supply_packs/imports/kzflamethrower
-	name = "KZ CC/21 flamethrower (Kaizoku Supply)"
+	name = "KN CC/21 flamethrower (Kurogane Supply)"
 	contains = list(/obj/item/weapon/gun/flamer/vsd)
 	faction_lock = list(FACTION_VSD)
 	cost = 300
 
 /datum/supply_packs/imports/kzfuelreg
-	name = "KZ CC/21 fuel tank (Kaizoku Supply)"
+	name = "KN CC/21 fuel tank (Kurogane Supply)"
 	contains = list(/obj/item/ammo_magazine/flamer_tank/vsd)
 	faction_lock = list(FACTION_VSD)
 	cost = 50
 
 /datum/supply_packs/imports/kzfuelx
-	name = "KZ CC/21 X fuel tank (Kaizoku upply)"
+	name = "KN CC/21 X fuel tank (Kurogane upply)"
 	contains = list(/obj/item/ammo_magazine/flamer_tank/vsd/blue)
 	faction_lock = list(FACTION_VSD)
 	cost = 150
 
 /datum/supply_packs/imports/kzrocketlauncher
-	name = "KZ C153 shoulder launcher (Kaizoku Supply)"
+	name = "KN C153 shoulder launcher (Kurogane Supply)"
 	contains = list(/obj/item/weapon/gun/launcher/rocket/vsd)
 	faction_lock = list(FACTION_VSD)
 	cost = 800
 
 /datum/supply_packs/imports/kzrockethe
-	name = "KZ C153 shoulder launcher he rocket (Kaizoku Supply)"
+	name = "KN C153 shoulder launcher he rocket (Kurogane Supply)"
 	contains = list(/obj/item/ammo_magazine/rocket/vsd/he)
 	faction_lock = list(FACTION_VSD)
 	cost = 25
 
 /datum/supply_packs/imports/kzrocketincend
-	name = "KZ C153 shoulder launcher incendiary rocket (Kaizoku Supply)"
+	name = "KN C153 shoulder launcher incendiary rocket (Kurogane Supply)"
 	contains = list(/obj/item/ammo_magazine/rocket/vsd/incendiary)
 	faction_lock = list(FACTION_VSD)
 	cost = 50
 
 /datum/supply_packs/imports/kzrocketchem
-	name = "KZ C153 shoulder launcher chemical rocket (Kaizoku Supply)"
+	name = "KN C153 shoulder launcher chemical rocket (Kurogane Supply)"
 	contains = list(/obj/item/ammo_magazine/rocket/vsd/chemical)
 	faction_lock = list(FACTION_VSD)
 	cost = 50
 
 /datum/supply_packs/imports/kzrocketheat
-	name = "KZ C153 shoulder launcher HEAT rocket (Kaizoku Supply)"
+	name = "KN C153 shoulder launcher HEAT rocket (Kurogane Supply)"
 	contains = list(/obj/item/ammo_magazine/rocket/vsd/heat)
 	faction_lock = list(FACTION_VSD)
 	cost = 50
 
 /datum/supply_packs/imports/antiballisticshieldfs
-	name = "KZ Anti Ballsitic Shield (Kaizoku Supply)"
+	name = "KN Anti Ballsitic Shield (Kurogane Supply)"
 	contains = list(/obj/item/armor_module/module/eshield/absorbant/ballistic)
 	faction_lock = list(FACTION_VSD)
 	cost = 600

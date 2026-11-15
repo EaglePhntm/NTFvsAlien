@@ -519,8 +519,8 @@
 	basic_comms = TRUE
 	faction = FACTION_CLF
 
-/obj/machinery/computer/communications/kz
-	name = "kz communications console"
+/obj/machinery/computer/communications/kn
+	name = "kn communications console"
 	req_access = ACCESS_VSD_LEADPREP
 	basic_comms = TRUE
 	faction = FACTION_VSD

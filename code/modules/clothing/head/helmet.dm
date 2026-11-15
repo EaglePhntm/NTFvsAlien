@@ -747,7 +747,7 @@
 
 /obj/item/clothing/head/helmet/marine/vsd
 	name = "\improper Crasher MT/43 ballistic helmet"
-	desc = "Kaizoku Corporation's quality helmet, designed with modular slots and combat readiness."
+	desc = "Kurogane Neuro-Kinetics's quality helmet, designed with modular slots and combat readiness."
 	icon = 'icons/mob/clothing/headwear/ert_headwear.dmi'
 	icon_state = "vsd_main"
 	worn_icon_state = "vsd_main"
@@ -764,7 +764,7 @@
 
 /obj/item/clothing/head/helmet/marine/vsd/juggernaut
 	name = "\improper Crasher MT-H/43 'Ares' powered ballistic helmet"
-	desc = "Kaizoku Corporation's custom, modified helmet designed for the 'Ares' Juggernaut suit."
+	desc = "Kurogane Neuro-Kinetics's custom, modified helmet designed for the 'Ares' Juggernaut suit."
 	icon_state = "vsd_juggernaut_ballistic"
 	worn_icon_state = "vsd_juggernaut_ballistic"
 	inv_hide_flags = HIDEALLHAIR|HIDEEARS|HIDEMASK
@@ -772,7 +772,7 @@
 
 /obj/item/clothing/head/helmet/marine/vsd/eod
 	name = "\improper Crasher MT-H/43 'Zeus' powered explosive-defensive helmet"
-	desc = "Kaizoku Corporation's custom, modified helmet designed for the 'Zeus' Juggernaut suit."
+	desc = "Kurogane Neuro-Kinetics's custom, modified helmet designed for the 'Zeus' Juggernaut suit."
 	icon_state = "vsd_juggernaut_eod"
 	worn_icon_state = "vsd_juggernaut_eod"
 	inv_hide_flags = HIDEALLHAIR|HIDEEARS|HIDEMASK
@@ -780,7 +780,7 @@
 
 /obj/item/clothing/head/helmet/marine/vsd/flamer
 	name = "\improper Crasher MT-H/43 'Apollo' powered fire-protected helmet"
-	desc = "Kaizoku Corporation's custom, modified helmet designed for the 'Apollo' Juggernaut suit."
+	desc = "Kurogane Neuro-Kinetics's custom, modified helmet designed for the 'Apollo' Juggernaut suit."
 	icon_state = "vsd_juggernaut_pyro"
 	worn_icon_state = "vsd_juggernaut_pyro"
 	inv_hide_flags = HIDEALLHAIR|HIDEEARS|HIDEMASK
@@ -788,7 +788,7 @@
 
 /obj/item/clothing/head/helmet/marine/vsd_two
 	name = "Crasher multi-threat ballistic helmet"
-	desc = "Kaizoku's grunt helmet, doesn't protect your chrome-dome much though."
+	desc = "Kurogane's grunt helmet, doesn't protect your chrome-dome much though."
 	icon = 'icons/mob/clothing/headwear/marine_helmets.dmi'
 	icon_state = "vsd_helmet"
 	worn_icon_state = "vsd_helmet"

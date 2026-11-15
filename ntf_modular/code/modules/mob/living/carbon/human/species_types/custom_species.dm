@@ -61,8 +61,6 @@
 	Resurgentis have poor body insulation and temperature regulation, making them more vulnerable to burning damage due to their larger size and phsiology.<br /><br /> \
 	-Glowing Essence-<br /><br />\
 	Resurgentis have a unique glowing neon colored 'essence' (or the mentioned blood) of many colors, which determine the color of their glowing hair, glowing iris-invisible eyes, (and glowing nipples, inner vagina) colors. <b>This makes them impossible to hide in the dark without covering those up."
-	//<img src=https://images2.imgbox.com/eb/ed/Ej1joSvd_o.png width=100 height=150/> <img src=https://images2.imgbox.com/a1/a1/CRPdB4Ir_o.png width=100 height=150/><br /><img src=https://images2.imgbox.com/3e/34/Grph56ZU_o.png width=100 height=150/> <img src=https://images2.imgbox.com/83/96/oDGu3zmO_o.png width=100 height=150/><br /><img src=https://images2.imgbox.com/66/71/1633KcMb_o.png width=100 height=150/><br /><br /><br /><br />\
-	//imgbox is fucking dead, removed from string.
 
 	inherent_actions = list(/datum/action/ability/last_stand)
 

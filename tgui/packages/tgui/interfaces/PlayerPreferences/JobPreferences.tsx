@@ -114,15 +114,15 @@ export const JobPreferences = (props) => {
     'CM Colony Administrator',
   ];
   const kzJobs = [
-    'KZ Standard',
-    'KZ Medic',
-    'KZ Engineer',
-    'KZ Specialist',
-    'KZ Combat Escort',
-    'KZ Synthetic',
-    'KZ Squad Leader',
-    'KZ Ripperdoc',
-    'Kaizoku Liaison',
+    'KN Standard',
+    'KN Medic',
+    'KN Engineer',
+    'KN Specialist',
+    'KN Combat Escort',
+    'KN Synthetic',
+    'KN Squad Leader',
+    'KN Ripperdoc',
+    'Kurogane Liaison',
   ];
   const ColonistJobs = [
     'Assistant Colonist',
@@ -305,7 +305,7 @@ export const JobPreferences = (props) => {
           <JobList name="CM Jobs" jobs={cmJobs} />
         </Stack.Item>
         <Stack.Item grow>
-          <JobList name="KZ Jobs" jobs={kzJobs} />
+          <JobList name="KN Jobs" jobs={kzJobs} />
         </Stack.Item>
       </Stack>
     </Section>
