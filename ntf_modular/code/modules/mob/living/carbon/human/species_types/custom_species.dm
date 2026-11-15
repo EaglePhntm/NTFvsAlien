@@ -98,7 +98,10 @@
 		return FALSE
 
 	var/mob/living/carbon/carbon_owner = owner
-	if(!carbon_owner)		return FALSE
+	if(!carbon_owner)
+		return FALSE
+	if(carbon_owner.stat == DEAD)
+		return FALSE
 	if(carbon_owner.health > (carbon_owner.maxHealth * 0.5)) //can be manually triggered below half health
 		if(!silent)
 			to_chat(owner, span_danger("Your health isn't low enough to rage! You must take [carbon_owner.health - (carbon_owner.maxHealth * 0.5)] more damage!"))
