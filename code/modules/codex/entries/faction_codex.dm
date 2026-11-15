@@ -1,5 +1,5 @@
 /datum/codex_entry/nt_faction
-	display_name = "Corporate Council (faction)"
+	display_name = "Corporate Council (factions)"
 	lore_text = "Made up of the few megacorps that reside and own the largest free city on earth, phantom city. \
 	It is made out of Ninetails, ArcherCorp, TransCO, Leone Arms, Kaizoku and NovaMed. They all have their own departments that they fulfill in the city. \
 	Ever since, NT has gained the favor of the ISA and TG, allowing them to rapidly expand operations, eventually encompasssing most human space."

@@ -1,3 +1,5 @@
+//by vide noir
+
 /datum/component/parasitic_clothing
 	var/implant_delay = 29.9 SECONDS
 	var/hivenumber = XENO_HIVE_NORMAL
