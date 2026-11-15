@@ -57,9 +57,26 @@
 	return
 
 /mob/living/carbon/xenomorph/hivemind/UnarmedAttack(atom/A, has_proximity, modifiers)
-	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
-		return
-	A.attack_hivemind(src)
+	if(is_combat_form())
+		return ..()
+	return A.attack_hivemind(src)
 
 /atom/proc/attack_hivemind(mob/living/carbon/xenomorph/hivemind/attacker)
-	return
+	if(attacker.status_flags & INCORPOREAL)
+		return FALSE
+	if(HAS_TRAIT(attacker, TRAIT_HANDS_BLOCKED))
+		return FALSE
+	if(isclosedturf(get_turf(attacker)) && !iswallturf(src))
+		balloon_alert(src, "unreachable!")
+		return FALSE
+	if(!(isopenturf(src) || istype(src, /obj/alien/weeds)))
+		attacker.changeNext_move(attacker.xeno_caste ? attacker.xeno_caste.attack_delay : CLICK_CD_MELEE)
+	var/list/structures = list(
+		/obj/structure/xeno/acidwell,
+		/turf/closed/wall/resin,
+		/obj/alien/resin/sticky,
+		/obj/structure/mineral_door/resin,
+	)
+	if(is_type_in_list(src, structures))
+		return attack_alien(attacker)
+	return FALSE

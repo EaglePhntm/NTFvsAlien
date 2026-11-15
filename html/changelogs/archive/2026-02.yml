@@ -16,10 +16,10 @@
       until death
 2026-02-06:
   CaputCapital:
-  - rscadd: KZ loadouts have been fixed
-  - rscadd: New KZ loadouts have been added to all KZ roles
+  - rscadd: KN loadouts have been fixed
+  - rscadd: New KN loadouts have been added to all KN roles
   - rscadd: lMG-D, lMG-D drum mags, V-34 black pattern, and 10 extended magazines
-      have been added to KZ's weapon vendors
+      have been added to KN's weapon vendors
   Colfer1:
   - qol: The health EKG has been changed to a healthbar for carbon mobs
   Joe13413:
@@ -50,7 +50,7 @@
       to the others (2.5 seconds at the time of this writting) from 15 seconds.
 2026-02-09:
   CaputCapital:
-  - rscadd: Adds the Korovin to KZ.
+  - rscadd: Adds the Korovin to KN.
   Colfer1:
   - balance: Tanks can no longer be disassembled in 2 seconds
   destrucktoid:

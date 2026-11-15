@@ -240,7 +240,7 @@
 
 /datum/map_template/shuttle/supplykz
 	shuttle_id = "supplykz"
-	name = "KZ Supply Shuttle"
+	name = "KN Supply Shuttle"
 
 /datum/map_template/shuttle/supplypmc
 	shuttle_id = "supplypmc"

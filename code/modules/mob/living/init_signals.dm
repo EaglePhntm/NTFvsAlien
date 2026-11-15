@@ -20,7 +20,7 @@
 
 ///Called when TRAIT_KNOCKEDOUT is added to the mob.
 /mob/living/proc/on_knockedout_trait_gain(datum/source)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	if(stat < UNCONSCIOUS)
 		set_stat(UNCONSCIOUS)
 	drop_all_held_items()

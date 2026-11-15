@@ -21,7 +21,7 @@
 
 /obj/item/clothing/glasses/night/m56_goggles/vsd
 	name = "\improper CM-13 night vision goggles"
-	desc = "KZ's newer, clearer version of CM-12 night vision goggles, For the extra tacticool feel, Crash Core and your superior officers are not responsible for blindness and burning."
+	desc = "KN's newer, clearer version of CM-12 night vision goggles, For the extra tacticool feel, Crash Core and your superior officers are not responsible for blindness and burning."
 	icon = 'icons/mob/clothing/eyes.dmi'
 	icon_state = "vsd_nvg"
 	worn_icon_state = "vsd_nvg"
@@ -31,7 +31,7 @@
 
 /obj/item/clothing/glasses/night/m56_goggles/vsd/alt
 	name = "\improper CM-13 night vision faceplate"
-	desc = "KZ's newer, clearer version of CM-12 night vision faceplate, made for attachments to the Medium armor variant of their armor. Crash Core and your superior officers are not responsible for blindness and burning."
+	desc = "KN's newer, clearer version of CM-12 night vision faceplate, made for attachments to the Medium armor variant of their armor. Crash Core and your superior officers are not responsible for blindness and burning."
 	icon_state = "vsd_alt"
 	worn_icon_state = "vsd_alt"
 	deactive_state = "vsd_alt_off"

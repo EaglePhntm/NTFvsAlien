@@ -304,6 +304,10 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 				log_admin_private("Automatic Mia is enabled, sending their whines to discord.")
 				to_chat(C, span_notice("No active admins are online. Your ahelp will try to be relayed to the admin channel now. Thank you for your patience."))
 				amia_ahelprelay(id,initiator_ckey,msg)
+			else if(CONFIG_GET(flag/webhook_enabled_admin))
+				log_admin_private("Webhook is enabled, sending their whines to discord.")
+				to_chat(C, span_notice("No active admins are online. Your ahelp will try to be relayed to the admin channel now. Thank you for your patience."))
+				amia_ahelprelay(id,initiator_ckey,msg)
 
 	GLOB.ahelp_tickets.active_tickets += src
 

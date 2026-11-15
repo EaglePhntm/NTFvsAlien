@@ -13,7 +13,7 @@
 	vehicle.move_delay += 0.2 SECONDS
 	vehicle.glide_size = 4
 
-/obj/item/tank_module/teletruck/on_unequip(mob/user)
+/obj/item/tank_module/interior/teletruck/on_unequip(mob/user)
 	owner.enter_delay -= 0.8 SECONDS
 	owner.move_delay -= 0.2 SECONDS
 	owner.glide_size = initial(owner.glide_size)

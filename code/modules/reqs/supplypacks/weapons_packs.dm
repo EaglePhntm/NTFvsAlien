@@ -647,6 +647,16 @@ WEAPONS
 	contains = list(/obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol)
 	cost = 10
 
+/datum/supply_packs/weapons/smart_autopistol
+	name = "TX28 smart machinepistol"
+	contains = list(/obj/item/weapon/gun/pistol/smart_fastpistol)
+	cost = 175
+
+/datum/supply_packs/weapons/smart_autopistol_ammo
+	name = "TX28 smart machinepistol ammo"
+	contains = list(/obj/item/ammo_magazine/pistol/standard_pistol/smart_fastpistol)
+	cost = 5
+
 /datum/supply_packs/weapons/sledgehammer
 	name = "Sledgehammer"
 	contains = list(/obj/item/weapon/twohanded/sledgehammer)

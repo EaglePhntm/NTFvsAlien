@@ -170,7 +170,7 @@
 
 /obj/item/clothing/under/marine/striped
 	name = "\improper Striped fatigues"
-	desc = "A simple set of camo pants and a striped shirt. A tag on the back indicates that this is old KZ surplus."
+	desc = "A simple set of camo pants and a striped shirt. A tag on the back indicates that this is old KN surplus."
 	icon_state = "marine_striped"
 	worn_icon_state = "marine_striped"
 	adjustment_variants = list()
@@ -531,7 +531,7 @@
 
 /obj/item/clothing/under/som/sleeveless
 	name = "\improper SOM Sleeveless Uniform"
-	desc = "A non-standard uniform of the SOM, it is sleeveless and seems to be borrowed from the Kaizoku Corporation"
+	desc = "A non-standard uniform of the SOM, it is sleeveless and seems to be borrowed from the Kurogane Neuro-Kinetics"
 	icon = 'icons/mob/clothing/uniforms/ert_uniforms.dmi'
 	icon_state = "som_stripedshirt"
 	worn_icon_state = "som_stripedshirt"
@@ -645,8 +645,8 @@
 	has_sensor = 0
 
 /obj/item/clothing/under/vsd
-	name = "\improper KZ jumpsuit"
-	desc = "The standard uniform for the Kaizoku Corporation, weaved with kevlar and marked with blood."
+	name = "\improper KN jumpsuit"
+	desc = "The standard uniform for the Kurogane Neuro-Kinetics, weaved with kevlar and marked with blood."
 	icon = 'icons/mob/clothing/uniforms/ert_uniforms.dmi'
 	icon_state = "vsd_uniform_main"
 	worn_icon_state = "vsd_uniform_main"
@@ -662,7 +662,7 @@
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/white_vest)
 
 /obj/item/clothing/under/vsd/alt
-	name = "\improper KZ seasoned jumpsuit"
+	name = "\improper KN seasoned jumpsuit"
 	icon_state = "vsd_uniform_alt"
 	worn_icon_state = "vsd_uniform_alt"
 
@@ -673,8 +673,8 @@
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/white_vest)
 
 /obj/item/clothing/under/vsd/officer
-	name = "KZ officer jumpsuit"
-	desc = "The standard uniform for officers in the Kaizoku Corporation, weaved with kevlar and marked with blood."
+	name = "KN officer jumpsuit"
+	desc = "The standard uniform for officers in the Kurogane Neuro-Kinetics, weaved with kevlar and marked with blood."
 	icon_state = "vsd_uniform_officer"
 	worn_icon_state = "vsd_uniform_officer"
 
@@ -682,7 +682,7 @@
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/black_vest)
 
 /obj/item/clothing/under/vsd/secondary
-	name = "KZ 'mixed' jumpsuit"
+	name = "KN 'mixed' jumpsuit"
 	icon_state = "vsd_uniform_alt"
 	worn_icon_state = "vsd_uniform_alt"
 
@@ -690,8 +690,8 @@
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/black_vest)
 
 /obj/item/clothing/under/vsd/upp
-	name = "KZ military jumpsuit"
-	desc = "A standard uniform for a division in the Kaizoku Corporation, it's colors feel reminiscent."
+	name = "KN military jumpsuit"
+	desc = "A standard uniform for a division in the Kurogane Neuro-Kinetics, it's colors feel reminiscent."
 	icon_state = "upp_retired"
 	worn_icon_state = "upp_retired"
 
@@ -702,7 +702,7 @@
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/white_vest)
 
 /obj/item/clothing/under/vsd/upp/alt
-	name = "KZ military seasoned jumpsuit"
+	name = "KN military seasoned jumpsuit"
 	icon_state = "upp_secondary"
 	worn_icon_state = "upp_secondary"
 
@@ -713,8 +713,8 @@
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/white_vest)
 
 /obj/item/clothing/under/vsd/upp/officer
-	name = "KZ military officer jumpsuit"
-	desc = "A standard uniform for a officer in a division of the Kaizoku Corporation, it's colors feel reminiscent."
+	name = "KN military officer jumpsuit"
+	desc = "A standard uniform for a officer in a division of the Kurogane Neuro-Kinetics, it's colors feel reminiscent."
 	icon_state = "upp_retired_officer"
 	worn_icon_state = "upp_retired_officer"
 
@@ -722,7 +722,7 @@
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/black_vest)
 
 /obj/item/clothing/under/vsd/shirt
-	name = "KZ shirt"
+	name = "KN shirt"
 	icon_state = "vsd_shirt"
 	worn_icon_state = "vsd_shirt"
 
@@ -730,12 +730,12 @@
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/black_vest)
 
 /obj/item/clothing/under/vsd/sleeveless
-	name = "KZ sleeveless shirt"
+	name = "KN sleeveless shirt"
 	icon_state = "vsd_stripedshirt"
 	worn_icon_state = "vsd_stripedshirt"
 
 /obj/item/clothing/under/vsd/juggernaut
-	name = "KZ military overalls"
+	name = "KN military overalls"
 	icon_state = "vsd_alt_juggernaut"
 	worn_icon_state = "vsd_alt_juggernaut"
 

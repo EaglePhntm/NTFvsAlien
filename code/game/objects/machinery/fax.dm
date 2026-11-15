@@ -213,8 +213,8 @@
 	department = "SOM"
 	faction = FACTION_SOM
 
-/obj/machinery/faxmachine/kz
-	department = "KZ"
+/obj/machinery/faxmachine/kn
+	department = "KN"
 	faction = FACTION_VSD
 
 /obj/machinery/faxmachine/pmc

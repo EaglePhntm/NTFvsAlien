@@ -8,7 +8,7 @@
 
 /obj/item/explosive/grenade/m15
 	name = "\improper M15 fragmentation grenade"
-	desc = "An outdated NTF fragmentation grenade. With decades of service in the NTF, the old M15 Fragmentation Grenade is slowly being replaced with the slightly safer M40 HEDP. It is set to detonate in 4 seconds."
+	desc = "An outdated NTC fragmentation grenade. With decades of service in the NTC, the old M15 Fragmentation Grenade is slowly being replaced with the slightly safer M40 HEDP. It is set to detonate in 4 seconds."
 	icon_state = "grenade_ex"
 	worn_icon_state = "grenade_ex"
 	hud_state = "grenade_frag"
@@ -27,7 +27,7 @@
 
 /obj/item/explosive/grenade/bullet/upp
 	name = "\improper XM5 shrapnel grenade"
-	desc = "A fragmentation grenade found within the ranks of the KZ. Designed to explode into shrapnel and rupture the bodies of opponents. It explodes 3 seconds after the pin has been pulled."
+	desc = "A fragmentation grenade found within the ranks of the KN. Designed to explode into shrapnel and rupture the bodies of opponents. It explodes 3 seconds after the pin has been pulled."
 	icon_state = "grenade_upp"
 	worn_icon_state = "grenade_upp"
 	hud_state = "greande_frag"

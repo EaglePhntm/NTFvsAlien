@@ -654,7 +654,7 @@
 
 // VSD
 /obj/effect/landmark/corpsespawner/vsd_standard
-	name = "Kaizoku operative"
+	name = "Kurogane operative"
 	corpseuniform = /obj/item/clothing/under/vsd/webbing
 	corpsesuit = /obj/item/clothing/suit/storage/marine/vsd
 	corpsemask = /obj/item/clothing/mask/gas/vsd
@@ -663,7 +663,7 @@
 	corpseshoes = /obj/item/clothing/shoes/marine/vsd
 
 /obj/effect/landmark/corpsespawner/vsd_command
-	name = "Kaizoku officer"
+	name = "Kurogane officer"
 	corpseuniform = /obj/item/clothing/under/vsd/officer/webbing
 	corpsesuit = /obj/item/clothing/suit/storage/marine/vsd/alt
 	corpsemask = /obj/item/clothing/mask/gas/vsd

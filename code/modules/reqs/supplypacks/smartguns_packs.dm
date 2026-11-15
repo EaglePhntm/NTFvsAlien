@@ -15,6 +15,16 @@ SMARTGUNS
 	contains = list(/obj/item/ammo_magazine/standard_smartmachinegun)
 	cost = 50
 
+/datum/supply_packs/smartguns/smart_carbine
+	name = "SG-30 smart carbine"
+	contains = list(/obj/item/weapon/gun/rifle/standard_smartcarbine)
+	cost = 400
+
+/datum/supply_packs/smartguns/smart_carbine_ammo
+	name = "SG-30 smart carbine ammo magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/standard_smartcarbine)
+	cost = 20
+
 /datum/supply_packs/smartguns/smart_minigun
 	name = "SG-85 smart gatling gun"
 	contains = list(/obj/item/weapon/gun/minigun/smart_minigun)
@@ -34,6 +44,21 @@ SMARTGUNS
 	name = "SG-62 smart target rifle"
 	contains = list(/obj/item/weapon/gun/rifle/standard_smarttargetrifle)
 	cost = 400
+
+/datum/supply_packs/smartguns/smart_autoshotgun
+	name = "SG-12 smart assault shotgun"
+	contains = list(/obj/item/weapon/gun/rifle/sg_autoshotgun)
+	cost = 400
+
+/datum/supply_packs/smartguns/smart_autoshotgun_ammo
+	name = "SG-12 slug ammo drum"
+	contains = list(/obj/item/ammo_magazine/rifle/sg_autoshotgun)
+	cost = 40
+
+/datum/supply_packs/smartguns/smart_autoshotgun_ammo/flak
+	name = "SG-12 flak ammo drum"
+	contains = list(/obj/item/ammo_magazine/rifle/sg_autoshotgun/explosive)
+	cost = 40
 
 /datum/supply_packs/smartguns/smarttarget_rifle_ammo
 	name = "SG-62 smart target rifle ammo"

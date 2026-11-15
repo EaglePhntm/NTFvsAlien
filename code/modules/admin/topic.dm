@@ -2128,7 +2128,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			if("upgrade")
 				previous = X.xeno_caste.upgrade
 
-				change = input("Select a new upgrade tier.", "Xeno Panel") as null|anything in (GLOB.xenoupgradetiers - XENO_UPGRADE_BASETYPE - XENO_UPGRADE_INVALID - XENO_UPGRADE_MANIFESTATION)
+				change = input("Select a new upgrade tier.", "Xeno Panel") as null|anything in (GLOB.xenoupgradetiers - XENO_UPGRADE_BASETYPE - XENO_UPGRADE_INVALID - XENO_UPGRADE_MANIFESTATION - XENO_UPGRADE_HIVEMIND_COMBAT)
 				if(!change || change == previous)
 					return
 

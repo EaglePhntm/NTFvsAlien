@@ -95,8 +95,8 @@
 
 
 ///Handles the evolution or devolution of the xenomorph
-/mob/living/carbon/xenomorph/proc/do_evolve(datum/xeno_caste/caste_type, regression = FALSE)
-	if(!generic_evolution_checks())
+/mob/living/carbon/xenomorph/proc/do_evolve(datum/xeno_caste/caste_type, regression = FALSE, forced = FALSE)
+	if(!generic_evolution_checks(forced = forced))
 		return
 
 	if(caste_type == /datum/xeno_caste/hivemind && tgui_alert(src, "You are about to evolve into a hivemind, which places its core on the tile you're on when evolving. This core cannot be moved and you cannot regress. Are you sure you would like to place your core here?", "Evolving to hivemind", list("Yes", "No"), FALSE) != "Yes")
@@ -144,11 +144,12 @@
 		zoom_out()
 
 	SStgui.close_user_uis(src) //Force close all UIs upon evolution.
-	finish_evolve(new_mob_type)
+	return finish_evolve(new_mob_type)
 
 ///Actually changes the xenomorph to another caste
 /mob/living/carbon/xenomorph/proc/finish_evolve(new_mob_type)
 	var/mob/living/carbon/xenomorph/new_xeno = new new_mob_type(get_turf(src), TRUE, hivenumber)
+	. = new_xeno
 
 	if(!istype(new_xeno))
 		//Something went horribly wrong!
@@ -225,10 +226,7 @@
 	INVOKE_ASYNC(new_xeno, TYPE_PROC_REF(/atom, do_jitter_animation), 1000)
 
 ///Check if the xeno is currently able to evolve
-/mob/living/carbon/xenomorph/proc/generic_evolution_checks()
-	if(do_actions)
-		balloon_alert(src, "busy!")
-		return FALSE
+/mob/living/carbon/xenomorph/proc/generic_evolution_checks(forced = FALSE)
 
 	if(is_ventcrawling)
 		balloon_alert(src, "not in a vent!")
@@ -238,11 +236,22 @@
 		balloon_alert(src, "not on the ground!")
 		return FALSE
 
+	if(eaten_mob)
+		balloon_alert(src, "too full!")
+		return FALSE
+
 	if(is_banned_from(ckey, ROLE_XENOMORPH))
 		log_admin_private("[key_name(src)] has tried to evolve as a xenomorph while being banned from the role.")
 		message_admins("[ADMIN_TPMONTY(src)] has tried to evolve as a xenomorph while being banned. They shouldn't be playing the role.")
 		to_chat(src, span_userdanger("You are jobbanned from aliens and cannot evolve. How did you even become an alien?"))
-		return FALSE
+		if(!forced)
+			return FALSE
+
+	if(forced)
+		return TRUE
+
+	if(do_actions)
+		balloon_alert(src, "busy!")
 
 	if(incapacitated(TRUE))
 		balloon_alert(src, "not conscious enough!")
@@ -266,10 +275,6 @@
 
 	if(fortify || crest_defense || status_flags & INCORPOREAL)
 		balloon_alert(src, "not in this stance!")
-		return FALSE
-
-	if(eaten_mob)
-		balloon_alert(src, "too full!")
 		return FALSE
 
 	if(HAS_TRAIT_FROM(src, TRAIT_IMMOBILE, BOILER_ROOTED_TRAIT))

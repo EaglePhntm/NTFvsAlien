@@ -293,8 +293,10 @@
 	if(victim.stat == DEAD)
 		unbuckle_mob(victim)
 		return
-	var/flags = victim?.client.prefs.sex_pref_flags
-	if(!victim.client || flags & SEXPREF_TENTACLE_NEST)
+	var/flags = SEXPREF_ALL
+	if(victim?.client)
+		flags = victim.client.prefs.sex_pref_flags
+	if(flags & SEXPREF_TENTACLE_NEST)
 		do_thrust_animate(victim, src)
 		do_thrust_animate(src, victim)
 		if(COOLDOWN_FINISHED(src, cum_cooldown))
@@ -370,8 +372,10 @@
 	if(victim.reagents.get_reagent_amount(/datum/reagent/toxin/acid/xeno_cum) >= 1)
 		victim.reagents.remove_all_type(/datum/reagent/toxin/acid/xeno_cum, 100)
 		victim.reagents.remove_all_type(/datum/reagent/toxin/acid/xeno_cum/sfw, 100)
-		var/flags = victim?.client.prefs.sex_pref_flags
-		if(!victim.client || flags & SEXPREF_TENTACLE_NEST)
+		var/flags = SEXPREF_ALL
+		if(victim?.client)
+			flags = victim.client.prefs.sex_pref_flags
+		if(flags & SEXPREF_TENTACLE_NEST)
 			victim.visible_message(span_green("Remaining acidic cum spills out from [victim]'s holes!"),
 					span_green("Remaining acidic cum spills out of your holes!"),
 					span_notice("You hear splashing."), 3)

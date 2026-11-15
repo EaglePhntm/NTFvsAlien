@@ -141,7 +141,7 @@ GLOBAL_LIST_EMPTY_TYPED(custom_updating_encryptkeys, /obj/item/encryptionkey)
 	independent = TRUE
 
 /obj/item/encryptionkey/vsd
-	name = "\improper Kaizoku encryption key"
+	name = "\improper Kurogane encryption key"
 	channels = list(RADIO_CHANNEL_VSD = TRUE)
 	independent = TRUE
 

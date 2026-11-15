@@ -125,13 +125,16 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 		UnregisterSignal(source, COMSIG_QDELETING)
 
 	source = S //set and register new source
-	//we use slow animation for player hugger
-	worn_item_state_slots = list(slot_wear_mask_str = "facehugger_face_slow", slot_underwear_str = "facehugger_crotch_slow", slot_shirt_str = "facehugger_back_slow")
-	//
-	var/flags = S?.client.prefs.sex_pref_flags
-	if(S?.client && !(flags & SEXPREF_FACEHUGGER_LEWD)) //non thrusting versions, for hugger itself with prefs disabled
-		worn_item_state_slots = list(slot_wear_mask_str = "facehugger_face_stop", slot_underwear_str = "facehugger_crotch_stop", slot_shirt_str = "facehugger_back_stop")
-	RegisterSignal(S, COMSIG_QDELETING, PROC_REF(clear_hugger_source))
+	if(isxenofacehugger(source))
+		//we use slow animation for player hugger
+		worn_item_state_slots = list(slot_wear_mask_str = "facehugger_face_slow", slot_underwear_str = "facehugger_crotch_slow", slot_shirt_str = "facehugger_back_slow")
+		//
+		var/flags = SEXPREF_ALL
+		if(S?.client)
+			flags = S.client.prefs.sex_pref_flags
+		if(!(flags & SEXPREF_FACEHUGGER_LEWD)) //non thrusting versions, for hugger itself with prefs disabled
+			worn_item_state_slots = list(slot_wear_mask_str = "facehugger_face_stop", slot_underwear_str = "facehugger_crotch_stop", slot_shirt_str = "facehugger_back_stop")
+		RegisterSignal(S, COMSIG_QDELETING, PROC_REF(clear_hugger_source))
 
 /// Sets the fire immunity and adds/removes an outline filter if it gained or lost fire immunity.
 /obj/item/clothing/mask/facehugger/proc/set_fire_immunity(new_fire_immunity)
@@ -724,8 +727,10 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 		if(ishuman(user))
 			var/hugsound = user.gender == FEMALE ? SFX_FEMALE_HUGGED : SFX_MALE_HUGGED
 			playsound(loc, hugsound, 25, 0)
-	var/flags = user?.client.prefs.sex_pref_flags
-	if(user.client && !(flags & SEXPREF_FACEHUGGER_LEWD)) //non thrusting versions
+	var/flags = SEXPREF_ALL
+	if(user.client)
+		flags = user.client.prefs.sex_pref_flags
+	if(!(flags & SEXPREF_FACEHUGGER_LEWD)) //non thrusting versions
 		worn_item_state_slots = list(slot_wear_mask_str = "facehugger_face_stop", slot_underwear_str = "facehugger_crotch_stop", slot_shirt_str = "facehugger_back_stop")
 	if(!issamexenohive(user))
 		if(!user.has_status_effect(/datum/status_effect/facehugger_resistance))
@@ -748,7 +753,9 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 /obj/item/clothing/mask/facehugger/proc/try_impregnate(mob/living/carbon/human/target)
 	//ADD_TRAIT(src, TRAIT_NODROP, HUGGER_TRAIT)
 	var/as_planned = target?.wear_mask == src  || target?.w_underwear == src || target?.w_undershirt == src
-	var/flags = target?.client.prefs.sex_pref_flags
+	var/flags = SEXPREF_ALL
+	if(target?.client)
+		flags = target.client.prefs.sex_pref_flags
 	if((target.can_be_facehugged(src, FALSE, FALSE, TRUE)) && !sterile && as_planned && can_implant_embryo(target)) //is hugger still on face and can they still be impregnated
 		if(source && (hivenumber == source.get_xeno_hivenumber()))
 			implant_embryo(target, target_hole, source = source)
@@ -777,7 +784,7 @@ GLOBAL_LIST_EMPTY(alive_hugger_list)
 				if(damage)
 					target.apply_damage(damage, BRUTE, BODY_ZONE_PRECISE_GROIN, MELEE, updating_health = TRUE)
 		else //Huggered but not impregnated, deal damage.
-			if(!target.client || (flags & SEXPREF_FACEHUGGER_LEWD))
+			if((flags & SEXPREF_FACEHUGGER_LEWD))
 				target.visible_message(span_danger("[src] frantically claws and fucks [target] before falling down!"),span_danger("[src] frantically claws and fucks you before falling down! Auugh!"))
 			else
 				target.visible_message(span_danger("[src] frantically claws [target] before falling down!"),span_danger("[src] frantically claws you before falling down! Auugh!"))

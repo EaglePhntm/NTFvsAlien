@@ -6,7 +6,7 @@ $include resources.txt
 $include amia.txt
 
 ## Server name: This appears at the top of the screen in-game.
-SERVER_NAME SoL|NTF vs Alien M/ERP +18 (WL at Discord)
+SERVER_NAME SoL|NTF vs Alien M/ERP +18
 
 ## Hosted by name for unix platforms.
 HOSTEDBY VideNoir
@@ -69,10 +69,10 @@ PROTECT_LEGACY_RANKS
 #FORUMURL
 #WIKIURL
 RULESURL FROM_FILE
-DISCORDURL https://discord.gg/cDNZXUWjmJ
+DISCORDURL
 #DONATIONURL
 GITHUBURL https://github.com/EaglePhntm/NTFvsAlien
-BANAPPEALS https://discord.gg/cDNZXUWjmJ
+BANAPPEALS
 
 ## Uncomment to enable global ban DB using the provided URL. The API should expect to receive a ckey at the end of the URL.
 ## More API details can be found here: https://centcom.melonmesa.com
@@ -315,3 +315,17 @@ TGUI_MAX_CHUNK_COUNT 32
 #FORUM_LINK_URI
 
 ALLOW_ADMIN_OOCCOLOR
+
+## Use the webhook for public status updates
+WEBHOOK_ENABLED_PUBLIC
+## URL of the webhook for public status updates. Should look like:
+## DISCORD_WEBHOOK_PUBLIC https://discord.com/api/webhooks/blahblahblah
+## Do not put real webhook urls on the github, anyone can use them
+DISCORD_WEBHOOK_PUBLIC
+
+## Use the webhook for admin status updates
+WEBHOOK_ENABLED_ADMIN
+## URL of the webhook for admin status updates. Should look like:
+## DISCORD_WEBHOOK_ADMIN https://discord.com/api/webhooks/blahblahblah
+## Do not put real webhook urls on the github, anyone can use them
+DISCORD_WEBHOOK_ADMIN

@@ -1,4 +1,6 @@
 #define TIME_TO_TRANSFORM 1.6 SECONDS
+#define TIME_TO_TRANSFORM_COMBAT 10 SECONDS
+#define HIVEMIND_COMBAT_DEATH_COOLDOWN 3 MINUTES
 
 /mob/living/carbon/xenomorph/hivemind
 	caste_base_type =/datum/xeno_caste/hivemind
@@ -25,8 +27,6 @@
 	sight = SEE_MOBS|SEE_TURFS|SEE_OBJS
 	move_on_shuttle = TRUE
 
-	hud_type = /datum/hud/hivemind
-	hud_possible = list(PLASMA_HUD, HEALTH_HUD_XENO, PHEROMONE_HUD, XENO_RANK_HUD, QUEEN_OVERWATCH_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD)
 	///The core of our hivemind
 	var/datum/weakref/core
 	///The minimum health we can have
@@ -35,29 +35,48 @@
 	var/incorporeal_pass_flags = PASS_LOW_STRUCTURE|PASS_THROW|PASS_PROJECTILE|PASS_AIR|PASS_FIRE
 	///pass_flags given when manifested
 	var/manifest_pass_flags = PASS_LOW_STRUCTURE|PASS_MOB|PASS_XENO
+	///list of cooldowns to share through forms
+	var/list/saved_ability_cooldowns = list()
 
 /mob/living/carbon/xenomorph/hivemind/Initialize(mapload, do_not_set_as_ruler, _hivenumber)
 	var/obj/structure/xeno/hivemindcore/new_core = new /obj/structure/xeno/hivemindcore(loc, hivenumber)
 	core = WEAKREF(new_core)
 	. = ..()
 	new_core.parent = WEAKREF(src)
-	RegisterSignal(src, COMSIG_XENOMORPH_CORE_RETURN, PROC_REF(return_to_core))
-	RegisterSignal(src, COMSIG_XENOMORPH_HIVEMIND_CHANGE_FORM, PROC_REF(change_form))
 	add_pass_flags(incorporeal_pass_flags, INNATE_TRAIT)
 	update_action_buttons()
 
 /mob/living/carbon/xenomorph/hivemind/upgrade_possible()
 	return FALSE
 
+/mob/living/carbon/xenomorph/hivemind/proc/is_combat_form()
+	return upgrade == XENO_UPGRADE_HIVEMIND_COMBAT
+
 /mob/living/carbon/xenomorph/hivemind/upgrade_xeno(newlevel, silent = FALSE)
 	newlevel = XENO_UPGRADE_BASETYPE
 	return ..()
 
 /mob/living/carbon/xenomorph/hivemind/updatehealth()
-	if(on_fire)
+	if(on_fire && !is_combat_form())
 		ExtinguishMob()
 	health = maxHealth - getFireLoss() - getBruteLoss() //Xenos can only take brute and fire damage.
-	if(health <= 0 && !(status_flags & INCORPOREAL))
+	if(is_combat_form())
+		if(health <= xeno_caste.crit_health)
+			setBruteLoss(0)
+			setFireLoss(-minimum_health)
+			change_form(TRUE)
+			set_stat(CONSCIOUS)
+			drop_all_held_items()
+			if(eaten_mob)
+				eaten_mob.handle_unhaul()
+				eject_victim()
+			remove_status_effect(/datum/status_effect/spacefreeze)
+			TIMER_COOLDOWN_START(src, COOLDOWN_HIVEMIND_MANIFESTATION_COMBAT, HIVEMIND_COMBAT_DEATH_COOLDOWN)
+		else if(health < 0)
+			set_stat(UNCONSCIOUS)
+		else
+			set_stat(CONSCIOUS)
+	else if(health <= 0 && !(status_flags & INCORPOREAL))
 		setBruteLoss(0)
 		setFireLoss(-minimum_health)
 		change_form()
@@ -68,11 +87,20 @@
 		return
 	update_wounds()
 
-/mob/living/carbon/xenomorph/hivemind/handle_living_health_updates()
+/mob/living/carbon/xenomorph/hivemind/handle_living_health_updates(seconds_per_tick)
 	if(TIMER_COOLDOWN_RUNNING(src, COOLDOWN_HIVEMIND_MANIFESTATION))
 		return
 	var/turf/T = loc
 	if(!istype(T))
+		return
+	if(is_combat_form())
+		if(health < 0)
+			handle_critical_health_updates(seconds_per_tick)
+			return
+		if(!loc_weeds_type)
+			return
+		heal_wounds(XENO_RESTING_HEAL, TRUE, seconds_per_tick)
+		updatehealth()
 		return
 	// If manifested and off weeds, lets deal some damage.
 	if(!(status_flags & INCORPOREAL) && !loc_weeds_type)
@@ -105,9 +133,40 @@
 	return_to_core()
 
 /mob/living/carbon/xenomorph/hivemind/set_resting()
+	if(is_combat_form())
+		return ..()
 	return
 
-/mob/living/carbon/xenomorph/hivemind/change_form()
+/mob/living/carbon/xenomorph/hivemind/proc/cancel_manifestation(datum/source, damage, mob/living/attacker)
+	SIGNAL_HANDLER
+
+	Paralyze(10 SECONDS, TRUE, TRUE)
+
+/mob/living/carbon/xenomorph/hivemind/proc/manifest_combat()
+	if(TIMER_COOLDOWN_RUNNING(src, COOLDOWN_HIVEMIND_MANIFESTATION))
+		balloon_alert(src, "cannot manifest during transformation!")
+		return
+	if(TIMER_COOLDOWN_RUNNING(src, COOLDOWN_HIVEMIND_MANIFESTATION_COMBAT))
+		balloon_alert(src, "died too recently!")
+		return
+	RegisterSignal(src, COMSIG_XENOMORPH_TAKING_DAMAGE, PROC_REF(cancel_manifestation))
+	if(!do_after(src, TIME_TO_TRANSFORM_COMBAT, NONE, src, BUSY_ICON_DANGER))
+		UnregisterSignal(src, COMSIG_XENOMORPH_TAKING_DAMAGE)
+		return
+	UnregisterSignal(src, COMSIG_XENOMORPH_TAKING_DAMAGE)
+	if(health < maxHealth)
+		balloon_alert(src, "must be at full health!")
+		return
+	if(is_combat_form())
+		flick("Hivemind_materialisation_reverse", src)
+		do_manifest_builder()
+		return
+	flick("Hivemind_materialisation", src)
+	do_manifest_combat()
+
+/mob/living/carbon/xenomorph/hivemind/proc/change_form(forced = FALSE)
+	if(is_combat_form() && !forced)
+		return
 	if(status_flags & INCORPOREAL && health != maxHealth)
 		to_chat(src, span_xenowarning("You do not have the strength to manifest yet!"))
 		return
@@ -120,7 +179,44 @@
 	addtimer(CALLBACK(src, PROC_REF(do_change_form)), TIME_TO_TRANSFORM)
 
 /mob/living/carbon/xenomorph/hivemind/set_jump_component(duration = 0.5 SECONDS, cooldown = 2 SECONDS, cost = 0, height = 16, sound = null, flags = JUMP_SHADOW, jump_pass_flags = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
-	return //no jumping, bad hivemind
+	if(is_combat_form())
+		return ..()
+	remove_component(/datum/component/jump)
+
+/mob/living/carbon/xenomorph/hivemind/proc/do_manifest_builder()
+	LAZYCLEARLIST(movespeed_modification)
+	update_movespeed()
+	hive.xenos_by_upgrade[upgrade] -= src
+	upgrade = XENO_UPGRADE_MANIFESTATION
+	set_datum(FALSE)
+	status_flags = NONE
+	sync_hivemind_abilities()
+	add_pass_flags(manifest_pass_flags, MANIFESTED_TRAIT)
+	hive.xenos_by_upgrade[upgrade] += src
+	set_jump_component()
+	update_wounds()
+	update_icon()
+	update_action_buttons()
+	drop_all_held_items()
+	if(eaten_mob)
+		eaten_mob.handle_unhaul()
+		eject_victim()
+
+/mob/living/carbon/xenomorph/hivemind/proc/do_manifest_combat()
+	LAZYCLEARLIST(movespeed_modification)
+	update_movespeed()
+	hive.xenos_by_upgrade[upgrade] -= src
+	upgrade = XENO_UPGRADE_HIVEMIND_COMBAT
+	set_datum(FALSE)
+	status_flags = CANSTUN | CANKNOCKDOWN | CANKNOCKOUT | CANPUSH | CANUNCONSCIOUS | CANCONFUSE
+	health = maxHealth
+	sync_hivemind_abilities()
+	remove_pass_flags(manifest_pass_flags, MANIFESTED_TRAIT)
+	hive.xenos_by_upgrade[upgrade] += src
+	set_jump_component()
+	update_wounds()
+	update_icon()
+	update_action_buttons()
 
 ///Finish the form changing of the hivemind and give the needed stats
 /mob/living/carbon/xenomorph/hivemind/proc/do_change_form()
@@ -135,7 +231,9 @@
 		hive.xenos_by_upgrade[upgrade] -= src
 		upgrade = XENO_UPGRADE_MANIFESTATION
 		set_datum(FALSE)
+		sync_hivemind_abilities()
 		hive.xenos_by_upgrade[upgrade] += src
+		set_jump_component()
 		update_wounds()
 		update_icon()
 		update_action_buttons()
@@ -148,22 +246,30 @@
 	hive.xenos_by_upgrade[upgrade] -= src
 	upgrade = XENO_UPGRADE_BASETYPE
 	set_datum(FALSE)
+	sync_hivemind_abilities()
 	hive.xenos_by_upgrade[upgrade] += src
+	set_jump_component()
 	update_wounds()
 	update_icon()
 	update_action_buttons()
 	handle_weeds_adjacent_removed()
+	if(eaten_mob)
+		eaten_mob.handle_unhaul()
+		eject_victim()
 
 /mob/living/carbon/xenomorph/hivemind/fire_act(burn_level)
+	if(is_combat_form())
+		return ..()
 	return_to_core()
 	to_chat(src, span_xenonotice("We were on top of fire, we got moved to our core."))
 
 /mob/living/carbon/xenomorph/hivemind/handle_weeds_adjacent_removed()
+	if(is_combat_form())
+		return
 	if(loc_weeds_type || check_weeds(get_turf(src)))
 		return
 	return_to_core()
 	to_chat(src, span_xenonotice("We had no weeds nearby, we got moved to our core."))
-	return
 
 /mob/living/carbon/xenomorph/hivemind/proc/return_to_core()
 	if(!(status_flags & INCORPOREAL) && TIMER_COOLDOWN_FINISHED(src, COOLDOWN_HIVEMIND_MANIFESTATION))
@@ -248,25 +354,46 @@
 		invisibility = INVISIBILITY_MAXIMUM
 	else
 		invisibility = 0
-/mob/living/carbon/xenomorph/hivemind/update_icons()
-	return
+
+/mob/living/carbon/xenomorph/hivemind/update_icons(state_change = TRUE)
+	if(status_flags & INCORPOREAL)
+		return
+	SEND_SIGNAL(src, COMSIG_XENOMORPH_UPDATE_ICONS, state_change)
+	if(state_change)
+		if(lying_angle)
+			if((resting || IsSleeping()) && (!IsParalyzed() && !IsUnconscious() && health > 0))
+				icon_state = "[xeno_caste.caste_name][is_a_rouny ? " rouny" : ""] Sleeping"
+			else
+				icon_state = "[xeno_caste.caste_name][is_a_rouny ? " rouny" : ""] Knocked Down"
+		else
+			icon_state = "[xeno_caste.caste_name][is_a_rouny ? " rouny" : ""]"
+	update_fire() //the fire overlay depends on the xeno's stance, so we must update it.
+	update_wounds()
+	INVOKE_ASYNC(src, PROC_REF(update_xeno_gender))
+	update_snowflake_overlays()
+
+	hud_set_sunder()
+	hud_set_firestacks()
+
+/mob/living/carbon/xenomorph/hivemind/update_wounds()
+	if(status_flags & INCORPOREAL)
+		wound_overlay.icon_state = "none"
+		return
+	return ..()
 
 /mob/living/carbon/xenomorph/hivemind/med_hud_set_health()
+	. = ..()
 	var/image/holder = hud_list[HEALTH_HUD_XENO]
 	if(!holder)
 		return
-
-	var/amount = round(health * 100 / maxHealth, 10)
-	if(!amount)
-		amount = 1 //don't want the 'zero health' icon when we still have 4% of our health
-	holder.icon_state = "health[amount]"
-
 	holder.overlays.Cut()
 	if(status_flags & INCORPOREAL)
-		holder.overlays +=image('icons/Xeno/castes/hivemind.dmi', src, "hivemind_marker")
+		holder.overlays += image('icons/Xeno/castes/hivemind.dmi', src, "hivemind_marker")
 
 /mob/living/carbon/xenomorph/hivemind/DblClickOn(atom/A, params)
 	if(TIMER_COOLDOWN_RUNNING(src, COOLDOWN_HIVEMIND_MANIFESTATION))
+		return
+	if(is_combat_form())
 		return
 	var/list/modifiers = params2list(params)
 	if(modifiers["right"])
@@ -289,9 +416,6 @@
 		return ..()
 	return FALSE
 
-/mob/living/carbon/xenomorph/hivemind/a_intent_change()
-	return //Unable to change intent, forced help intent
-
 /// Hiveminds specifically have no status hud element
 /mob/living/carbon/xenomorph/hivemind/med_hud_set_status()
 	return
@@ -301,12 +425,31 @@
 
 /obj/fire/flamer/CanAllowThrough(atom/movable/mover, turf/target)
 	if(isxenohivemind(mover))
-		return FALSE
+		var/mob/living/carbon/xenomorph/hivemind/hivemind = mover
+		if(!hivemind.is_combat_form())
+			return FALSE
 	return ..()
 
 /// Getter proc for the weakref'd core
 /mob/living/carbon/xenomorph/hivemind/proc/get_core()
 	return core?.resolve()
+
+
+
+/mob/living/carbon/xenomorph/hivemind/proc/sync_hivemind_abilities()
+	for(var/datum/action/ability/xeno_action/action AS in mob_abilities)
+		if(action.cooldown_timer)
+			saved_ability_cooldowns[action.type] = timeleft(action.cooldown_timer)
+		action.remove_action(src)
+
+	mob_abilities = list()
+	for(var/allowed_action_path in xeno_caste.actions)
+		var/datum/action/ability/xeno_action/action = new allowed_action_path()
+		if(!SSticker.mode || (SSticker.mode.xeno_abilities_flags & action.gamemode_flags))
+			action.give_action(src)
+			if(saved_ability_cooldowns[action.type])
+				action.add_cooldown(saved_ability_cooldowns[action.type])
+				saved_ability_cooldowns -= action.type
 
 // =================
 // hivemind core

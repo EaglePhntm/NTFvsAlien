@@ -1,0 +1,66 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"v" = (
+/obj/structure/prop/manhole,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"y" = (
+/obj/effect/urban/decal/road/road_edge/seven,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"H" = (
+/obj/effect/urban/decal/road/road_edge/six,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"I" = (
+/obj/effect/urban/decal/road/road_edge/eight,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"P" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"S" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+"U" = (
+/obj/effect/urban/decal/road/road_edge/five,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/south/streets)
+
+(1,1,1) = {"
+y
+S
+S
+S
+H
+"}
+(2,1,1) = {"
+S
+S
+S
+S
+S
+"}
+(3,1,1) = {"
+S
+S
+v
+S
+P
+"}
+(4,1,1) = {"
+S
+S
+S
+S
+S
+"}
+(5,1,1) = {"
+I
+S
+S
+S
+U
+"}

@@ -13,6 +13,10 @@
 	},
 /turf/open/floor/grayscale/darkred,
 /area/bigredv2/outside/chapel)
+"fa" = (
+/obj/machinery/light,
+/turf/open/floor/grayscale/darkred,
+/area/bigredv2/outside/chapel)
 "gy" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -43,10 +47,21 @@
 /turf/open/floor/engine/cult,
 /area/bigredv2/outside/chapel)
 "jg" = (
-/turf/open/floor/tile/darkish,
+/obj/effect/decal/cleanable/ash,
+/obj/structure/bed/chair/pew{
+	dir = 6;
+	name = "bench"
+	},
+/turf/open/floor/tile/chapel,
 /area/bigredv2/outside/chapel)
 "le" = (
 /obj/effect/decal/cleanable/blood,
+/turf/open/floor/tile/chapel{
+	dir = 4
+	},
+/area/bigredv2/outside/chapel)
+"lA" = (
+/obj/effect/decal/cleanable/ash,
 /turf/open/floor/tile/chapel{
 	dir = 4
 	},
@@ -63,8 +78,9 @@
 "nQ" = (
 /obj/effect/landmark/start/job/survivor,
 /obj/effect/landmark/start/latejoinsurvivor,
-/obj/structure/bed/chair/wood/wings{
-	dir = 8
+/obj/structure/bed/chair/pew{
+	dir = 5;
+	name = "bench"
 	},
 /turf/open/floor/tile/chapel{
 	dir = 4
@@ -75,10 +91,11 @@
 /turf/open/floor/grayscale/darkred,
 /area/bigredv2/outside/chapel)
 "pK" = (
-/obj/structure/bed/chair/wood/wings{
-	dir = 8
-	},
 /obj/effect/decal/cleanable/ash,
+/obj/structure/bed/chair/pew{
+	dir = 6;
+	name = "bench"
+	},
 /turf/open/floor/tile/chapel{
 	dir = 8
 	},
@@ -88,8 +105,9 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/chapel)
 "qq" = (
-/obj/structure/bed/chair/wood/wings{
-	dir = 8
+/obj/structure/bed/chair/pew{
+	dir = 5;
+	name = "bench"
 	},
 /turf/open/floor/tile/chapel{
 	dir = 1
@@ -140,8 +158,9 @@
 /turf/open/floor/grayscale/darkred,
 /area/bigredv2/outside/chapel)
 "vc" = (
-/obj/structure/bed/chair/wood/wings{
-	dir = 8
+/obj/structure/bed/chair/pew{
+	dir = 6;
+	name = "bench"
 	},
 /turf/open/floor/tile/chapel,
 /area/bigredv2/outside/chapel)
@@ -175,7 +194,7 @@
 /obj/structure/table/wood,
 /obj/effect/landmark/weed_node,
 /obj/item/tool/candle,
-/turf/open/floor/tile/darkish,
+/turf/open/floor/grayscale/darkred,
 /area/bigredv2/outside/chapel)
 "xw" = (
 /obj/structure/cable,
@@ -209,7 +228,7 @@
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	name = "\improper Chapel"
 	},
-/turf/open/floor/tile/darkish,
+/turf/open/floor/grayscale/darkred,
 /area/bigredv2/outside/chapel)
 "Cl" = (
 /obj/machinery/air_alarm{
@@ -234,14 +253,19 @@
 /obj/structure/table/wood,
 /obj/effect/spawner/random/weaponry/ammo,
 /obj/effect/spawner/random/weaponry/ammo,
-/turf/open/floor/tile/darkish,
+/turf/open/floor/grayscale/darkred,
+/area/bigredv2/outside/chapel)
+"Do" = (
+/obj/structure/cable,
+/obj/machinery/light,
+/turf/open/floor/grayscale/darkred,
 /area/bigredv2/outside/chapel)
 "Ei" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/structure/table/wood,
-/obj/item/storage/bible,
+/obj/item/storage/bible/booze,
 /turf/open/floor/engine/cult,
 /area/bigredv2/outside/chapel)
 "EZ" = (
@@ -258,22 +282,20 @@
 /turf/open/floor/engine/cult,
 /area/bigredv2/outside/chapel)
 "JD" = (
-/obj/structure/bed/chair/wood/wings{
-	dir = 8
-	},
 /obj/effect/decal/cleanable/ash,
 /turf/open/floor/tile/chapel,
 /area/bigredv2/outside/chapel)
 "Lr" = (
 /obj/structure/table/wood,
 /obj/item/tool/candle,
-/turf/open/floor/tile/darkish,
+/turf/open/floor/grayscale/darkred,
 /area/bigredv2/outside/chapel)
 "NF" = (
-/obj/structure/bed/chair/wood/wings{
-	dir = 8
-	},
 /obj/effect/decal/cleanable/ash,
+/obj/structure/bed/chair/pew{
+	dir = 5;
+	name = "bench"
+	},
 /turf/open/floor/tile/chapel{
 	dir = 4
 	},
@@ -295,8 +317,9 @@
 	},
 /area/bigredv2/outside/chapel)
 "PY" = (
-/obj/structure/bed/chair/wood/wings{
-	dir = 8
+/obj/structure/bed/chair/pew{
+	dir = 6;
+	name = "bench"
 	},
 /turf/open/floor/tile/chapel{
 	dir = 8
@@ -377,8 +400,9 @@
 	},
 /area/bigredv2/outside/chapel)
 "Zz" = (
-/obj/structure/bed/chair/wood/wings{
-	dir = 8
+/obj/structure/bed/chair/pew{
+	dir = 5;
+	name = "bench"
 	},
 /turf/open/floor/tile/chapel{
 	dir = 4
@@ -437,16 +461,16 @@ VS
 Qt
 XR
 VS
-Te
+fa
 vU
 "}
 (6,1,1) = {"
 Oe
 uV
-NF
+lA
 JD
 cb
-NF
+lA
 JD
 Te
 vU
@@ -466,11 +490,11 @@ vU
 vU
 uy
 Zz
-JD
+jg
 rc
 nQ
 vc
-Te
+fa
 vU
 "}
 (9,1,1) = {"
@@ -491,7 +515,7 @@ Zz
 vc
 cb
 NF
-JD
+jg
 sI
 vU
 "}
@@ -503,7 +527,7 @@ PY
 zI
 qq
 PY
-TV
+Do
 vU
 "}
 (12,1,1) = {"
@@ -536,7 +560,7 @@ vc
 cb
 Zz
 vc
-TV
+Do
 vU
 "}
 (15,1,1) = {"
@@ -551,7 +575,7 @@ TV
 vU
 "}
 (16,1,1) = {"
-jg
+Te
 TZ
 lU
 Sg

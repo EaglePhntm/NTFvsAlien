@@ -22,7 +22,7 @@
 /turf/open/floor/bcircuit/anim,
 /area/mainship/groundhq/som/powered)
 "ej" = (
-/obj/machinery/telecomms/receiver/preset_right/kz,
+/obj/machinery/telecomms/receiver/preset_right/kn,
 /turf/open/floor/bcircuit/anim,
 /area/mainship/groundhq/som/powered)
 "ff" = (
@@ -64,7 +64,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/mainship/groundhq/som/powered)
 "pb" = (
-/obj/machinery/telecomms/bus/preset_four/kz,
+/obj/machinery/telecomms/bus/preset_four/kn,
 /turf/open/floor/bcircuit/anim,
 /area/mainship/groundhq/som/powered)
 "pe" = (
@@ -145,11 +145,11 @@
 /turf/open/floor/plating/ground/dirt,
 /area/mainship/groundhq/som/powered)
 "CN" = (
-/obj/machinery/telecomms/hub/preset/kz,
+/obj/machinery/telecomms/hub/preset/kn,
 /turf/open/floor/bcircuit/anim,
 /area/mainship/groundhq/som/powered)
 "Dk" = (
-/obj/machinery/telecomms/processor/preset_four/kz,
+/obj/machinery/telecomms/processor/preset_four/kn,
 /obj/machinery/light/red,
 /turf/open/floor/bcircuit/anim,
 /area/mainship/groundhq/som/powered)
@@ -196,7 +196,7 @@
 /turf/open/floor/bcircuit/anim,
 /area/mainship/groundhq/som/powered)
 "Pz" = (
-/obj/machinery/telecomms/broadcaster/preset_left/kz,
+/obj/machinery/telecomms/broadcaster/preset_left/kn,
 /turf/open/floor/bcircuit/anim,
 /area/mainship/groundhq/som/powered)
 "Qo" = (
@@ -217,7 +217,7 @@
 /turf/open/floor/bcircuit/anim,
 /area/mainship/groundhq/som/powered)
 "Vf" = (
-/obj/machinery/telecomms/server/presets/common/kz,
+/obj/machinery/telecomms/server/presets/common/kn,
 /turf/open/floor/bcircuit/anim,
 /area/mainship/groundhq/som/powered)
 "VF" = (

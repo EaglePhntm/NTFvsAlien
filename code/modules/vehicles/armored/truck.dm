@@ -32,8 +32,10 @@
 /obj/vehicle/sealed/armored/multitile/mrap/Initialize(mapload)
 	. = ..()
 	//this cannot be purchased but comes with module ig
+	/*Now it can be purchased since the teletruck is an alternative
 	var/obj/item/tank_module/module = new /obj/item/tank_module/ability/tesla()
 	module.on_equip(src)
+	*/
 
 /obj/vehicle/sealed/armored/multitile/mrap/setDir(newdir)
 	. = ..()

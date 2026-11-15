@@ -4669,6 +4669,13 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/turkenden3excluzone/indoors/reqcargo/lobby)
+"fFW" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 0;
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/turkenden3excluzone/indoors/nmilitaryoutpost/messhall)
 "fGf" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -4701,6 +4708,15 @@
 	},
 /turf/open/floor/plating/ground/desertdam/asphalt/tile,
 /area/turkenden3excluzone/indoors/farmhouse)
+"fIR" = (
+/obj/structure/cable,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 0;
+	pixel_x = -8;
+	dir = 8
+	},
+/turf/open/floor/prison,
+/area/turkenden3excluzone/indoors/serverbuilding/northhalls)
 "fIV" = (
 /obj/effect/ai_node{
 	pixel_x = 1
@@ -6829,6 +6845,9 @@
 "iIe" = (
 /obj/structure/cable,
 /obj/structure/closet/crate/secure/hydrosec,
+/obj/item/tool/minihoe,
+/obj/item/tool/hatchet,
+/obj/item/tool/plantspray/pests,
 /turf/open/floor/mainship/orange{
 	dir = 1
 	},
@@ -7174,6 +7193,8 @@
 "jbd" = (
 /obj/structure/closet/crate/science,
 /obj/structure/cable,
+/obj/item/reagent_containers/glass/beaker/bluespace,
+/obj/item/reagent_containers/glass/beaker/bluespace,
 /turf/open/floor/mainship/orange{
 	dir = 1
 	},
@@ -8676,6 +8697,14 @@
 	},
 /turf/open/floor/plating,
 /area/turkenden3excluzone/indoors/producemarket)
+"leQ" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 0
+	},
+/turf/open/floor/mainship/sterile/side{
+	dir = 1
+	},
+/area/turkenden3excluzone/indoors/medrsr/meddorms)
 "lfg" = (
 /obj/machinery/light/mainship,
 /turf/open/floor/mainship/sterile/purple/side,
@@ -9193,9 +9222,7 @@
 /turf/open/floor/prison,
 /area/turkenden3excluzone/indoors/serverbuilding/secpost)
 "lPE" = (
-/obj/machinery/autodoc{
-	dir = 8
-	},
+/obj/machinery/autodoc,
 /turf/open/floor/mainship/sterile/dark,
 /area/turkenden3excluzone/indoors/militaryoutpost/fieldhospital)
 "lPH" = (
@@ -9461,6 +9488,14 @@
 	dir = 9
 	},
 /area/turkenden3excluzone/indoors/medrsr/rsrdorms)
+"miF" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 0;
+	pixel_x = -8;
+	dir = 1
+	},
+/turf/open/floor/prison,
+/area/turkenden3excluzone/indoors/serverbuilding/northoffices)
 "miY" = (
 /obj/structure/barricade/wooden{
 	dir = 4
@@ -9526,6 +9561,7 @@
 /area/turkenden3excluzone/outdoors/reqcargo)
 "mlJ" = (
 /obj/structure/closet/crate/secure,
+/obj/machinery/exportpad,
 /turf/open/floor/mainship/cargo,
 /area/turkenden3excluzone/indoors/reqcargo/reqstorage2)
 "mmE" = (
@@ -9863,6 +9899,13 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/turkenden3excluzone/outdoors/nmilitaryoutpost/grounds)
+"mCx" = (
+/obj/machinery/optable,
+/obj/item/tank/anesthetic,
+/obj/item/clothing/mask/breath/medical,
+/obj/machinery/light/mainship,
+/turf/open/floor/mainship/sterile/dark,
+/area/turkenden3excluzone/indoors/medrsr/operatingtheatre)
 "mDp" = (
 /obj/structure/bookcase/manuals/research_and_development,
 /turf/open/floor/carpet/purple,
@@ -9885,6 +9928,13 @@
 	color = "#ffe1b9"
 	},
 /area/turkenden3excluzone/outdoors/mosque/cemetary)
+"mEA" = (
+/obj/machinery/computer/body_scanconsole,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 0
+	},
+/turf/open/floor/mainship/sterile/dark,
+/area/turkenden3excluzone/indoors/militaryoutpost/fieldhospital)
 "mFQ" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 6
@@ -10751,6 +10801,17 @@
 "nHa" = (
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/turkenden3excluzone/outdoors/desertse)
+"nHC" = (
+/obj/structure/cable,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 0;
+	pixel_y = 0;
+	dir = 4
+	},
+/turf/open/floor/mainship/orange{
+	dir = 4
+	},
+/area/turkenden3excluzone/indoors/reqcargo)
 "nHM" = (
 /obj/effect/spawner/random/machinery/random_broken_computer/intel,
 /turf/open/floor/tile/lightred/full,
@@ -11035,6 +11096,10 @@
 /area/turkenden3excluzone/outdoors/roadnw)
 "nTn" = (
 /obj/structure/bed/chair/office/dark,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 0;
+	pixel_y = 0
+	},
 /turf/open/floor/tile/dark,
 /area/turkenden3excluzone/indoors/serverbuilding/lobbysouth)
 "nTr" = (
@@ -11667,6 +11732,13 @@
 "oEW" = (
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/turkenden3excluzone/outdoors/serverbuilding/eparking)
+"oFl" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 0;
+	dir = 8
+	},
+/turf/open/floor/urban_wood,
+/area/turkenden3excluzone/indoors/nmilitaryoutpost/barracks3)
 "oFG" = (
 /obj/effect/ai_node{
 	pixel_x = 1
@@ -12504,6 +12576,10 @@
 /area/turkenden3excluzone/indoors/medrsr/secwest)
 "pAW" = (
 /obj/machinery/camera/autoname{
+	dir = 4
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 0;
 	dir = 4
 	},
 /turf/open/floor/wood,
@@ -13367,6 +13443,17 @@
 	color = "#ffe1b9"
 	},
 /area/turkenden3excluzone/outdoors/roads)
+"qFx" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 0;
+	pixel_x = -8
+	},
+/turf/open/floor/prison,
+/area/turkenden3excluzone/indoors/serverbuilding/breakroom)
 "qGb" = (
 /obj/structure/table/reinforced,
 /obj/machinery/prop/computer/communications{
@@ -13673,6 +13760,7 @@
 "raA" = (
 /obj/structure/closet/crate/secure/phoron,
 /obj/structure/cable,
+/obj/item/stack/sheet/mineral/phoron/small_stack,
 /turf/open/floor/mainship/orange{
 	dir = 1
 	},
@@ -13748,6 +13836,13 @@
 	},
 /turf/open/floor/urban_wood,
 /area/turkenden3excluzone/indoors/nmilitaryoutpost/barracks1)
+"rgH" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/open/floor/urban/carpet/carpetblue,
+/area/turkenden3excluzone/indoors/serverbuilding/managementrec)
 "rhZ" = (
 /obj/effect/ai_node,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -14249,6 +14344,7 @@
 /area/turkenden3excluzone/outdoors/medrsrgrounds)
 "rRl" = (
 /obj/machinery/light/mainship,
+/obj/machinery/computer/sleep_console,
 /turf/open/floor/mainship/sterile/dark,
 /area/turkenden3excluzone/indoors/militaryoutpost/fieldhospital)
 "rSd" = (
@@ -14277,6 +14373,13 @@
 	dir = 8
 	},
 /area/turkenden3excluzone/indoors/medrsr/jointfac)
+"rSU" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 0;
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/turkenden3excluzone/indoors/nmilitaryoutpost/commandpost)
 "rTB" = (
 /obj/structure/bed/chair/wood/wings{
 	dir = 8
@@ -14996,6 +15099,16 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/high,
 /turf/open/floor/mainship/mono,
+/area/turkenden3excluzone/indoors/miningfacility)
+"sHd" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 0;
+	pixel_y = 0;
+	dir = 8
+	},
+/turf/open/floor/mainship/orange{
+	dir = 8
+	},
 /area/turkenden3excluzone/indoors/miningfacility)
 "sHi" = (
 /obj/structure/cable,
@@ -15850,6 +15963,16 @@
 	},
 /turf/open/floor/mainship/sterile/dark,
 /area/turkenden3excluzone/indoors/militaryoutpost/fieldhospital/mo)
+"tOM" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 0;
+	pixel_y = 0;
+	dir = 4
+	},
+/turf/open/floor/mainship/orange{
+	dir = 4
+	},
+/area/turkenden3excluzone/indoors/reqcargo/lobby)
 "tQd" = (
 /obj/effect/landmark/xeno_tunnel_spawn,
 /turf/open/floor/plating/ground/desertdam/cave/inner_cave,
@@ -16492,6 +16615,13 @@
 	},
 /turf/open/floor/carpet/orange,
 /area/turkenden3excluzone/indoors/goldandsilver)
+"uEg" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 0;
+	dir = 8
+	},
+/turf/open/floor/urban_wood,
+/area/turkenden3excluzone/indoors/nmilitaryoutpost/barracks2)
 "uEA" = (
 /obj/machinery/light/mainship{
 	dir = 1
@@ -17290,6 +17420,9 @@
 /obj/machinery/optable,
 /obj/item/tank/anesthetic,
 /obj/item/clothing/mask/breath/medical,
+/obj/machinery/light/mainship{
+	dir = 1
+	},
 /turf/open/floor/mainship/sterile/dark,
 /area/turkenden3excluzone/indoors/medrsr/operatingtheatre)
 "vEl" = (
@@ -17539,6 +17672,16 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/prison,
 /area/turkenden3excluzone/indoors/serverbuilding/menscroom)
+"vTz" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 0;
+	pixel_y = 0;
+	dir = 4
+	},
+/turf/open/floor/mainship/sterile/purple/corner{
+	dir = 8
+	},
+/area/turkenden3excluzone/indoors/medrsr/rsrdorms)
 "vTM" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -18005,6 +18148,14 @@
 /obj/item/weapon/gun/rifle/icc_battlecarbine,
 /turf/open/floor/urban_wood,
 /area/turkenden3excluzone/indoors/nmilitaryoutpost/barracks2)
+"wAS" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 0;
+	dir = 8;
+	pixel_y = -8
+	},
+/turf/open/floor/urban/carpet/carpetred,
+/area/turkenden3excluzone/indoors/serverbuilding/seccenter)
 "wAT" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2,
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -18596,6 +18747,13 @@
 	color = "#ffe1b9"
 	},
 /area/turkenden3excluzone/indoors/nmilitaryoutpost/secpoint)
+"xnX" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 0;
+	dir = 8
+	},
+/turf/open/floor/urban/wood/redwood,
+/area/turkenden3excluzone/indoors/diner)
 "xod" = (
 /obj/structure/flora/drought/grass,
 /obj/structure/flora/desert/grass/heavy,
@@ -18914,6 +19072,10 @@
 	},
 /turf/open/floor/carpet/red,
 /area/turkenden3excluzone/indoors/westresidencies)
+"xHV" = (
+/obj/machinery/computer/autodoc_console,
+/turf/open/floor/mainship/sterile/dark,
+/area/turkenden3excluzone/indoors/militaryoutpost/fieldhospital)
 "xJd" = (
 /obj/structure/window/framed/chigusa{
 	color = "#8c6946"
@@ -19298,6 +19460,13 @@
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/turkenden3excluzone/outdoors/desertsw)
+"ygQ" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 0;
+	dir = 8
+	},
+/turf/open/floor/urban_wood,
+/area/turkenden3excluzone/indoors/nmilitaryoutpost/barracks1)
 "yhh" = (
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	dir = 8;
@@ -33448,7 +33617,7 @@ hlO
 rDK
 lOT
 xAH
-lPj
+vTz
 oxw
 mDp
 aDR
@@ -35408,7 +35577,7 @@ pcU
 kzC
 uzN
 pcU
-vDt
+mCx
 mQi
 cgK
 neO
@@ -37007,12 +37176,12 @@ shP
 shP
 lUh
 gQj
-mke
+bGw
 bdr
 cid
 cid
 cor
-mke
+bGw
 gQj
 shP
 shP
@@ -37224,12 +37393,12 @@ shP
 shP
 gQj
 gQj
-mke
+bGw
 jLn
 cid
 cid
 ieq
-mke
+bGw
 gQj
 gQj
 shP
@@ -37446,7 +37615,7 @@ csT
 cid
 cid
 ieq
-mke
+bGw
 gQj
 fYd
 shP
@@ -37663,7 +37832,7 @@ iny
 hmm
 cid
 iPg
-mke
+bGw
 gQj
 gQj
 shP
@@ -37796,7 +37965,7 @@ ckF
 tXd
 hXU
 eaF
-lsf
+leQ
 qpX
 bOi
 kHf
@@ -40038,7 +40207,7 @@ wuG
 gQj
 gQj
 gQj
-bGw
+mke
 mke
 mke
 eBU
@@ -40254,8 +40423,8 @@ gQj
 gQj
 gQj
 gQj
-bGw
-bGw
+mke
+mke
 cid
 cid
 cid
@@ -41547,7 +41716,7 @@ mLF
 oPc
 uvo
 tMi
-dqY
+mEA
 eoX
 rRl
 wTe
@@ -41981,7 +42150,7 @@ tMi
 tMi
 nyF
 tMi
-dqY
+xHV
 dqY
 pts
 wTe
@@ -46954,7 +47123,7 @@ rrQ
 jzq
 qon
 vQV
-qon
+oFl
 dSt
 vlm
 mwX
@@ -47402,7 +47571,7 @@ djv
 nZp
 cMR
 nJW
-nyz
+rSU
 mse
 nZp
 xKR
@@ -49992,7 +50161,7 @@ qOs
 ofq
 gwF
 jzf
-gwF
+uEg
 aNq
 vlm
 mwX
@@ -53030,7 +53199,7 @@ wzX
 dEA
 nhk
 api
-nhk
+ygQ
 gtF
 vlm
 evX
@@ -53695,7 +53864,7 @@ ecd
 iQm
 oLV
 nKH
-oLV
+fFW
 oLV
 qWu
 uVN
@@ -59153,7 +59322,7 @@ jpe
 jpe
 otE
 uCq
-otE
+miF
 oGv
 fTW
 fTW
@@ -59837,7 +60006,7 @@ skY
 skY
 xtP
 xzg
-jQy
+qFx
 xpt
 xpt
 rno
@@ -59901,7 +60070,7 @@ gZq
 uoh
 usj
 sRN
-kXh
+tOM
 kXh
 aJC
 kXh
@@ -59921,7 +60090,7 @@ yal
 oMJ
 yal
 yal
-yal
+nHC
 yal
 oMJ
 yal
@@ -60746,7 +60915,7 @@ pvE
 hVN
 ttC
 pkw
-sBp
+sHd
 inc
 sBp
 sBp
@@ -62419,7 +62588,7 @@ ncu
 qzy
 iZK
 iZK
-iZK
+fIR
 iZK
 iZK
 gpQ
@@ -63322,7 +63491,7 @@ hdq
 nLL
 qtD
 cNj
-lDK
+rgH
 fKK
 knY
 ovI
@@ -63963,7 +64132,7 @@ kGw
 ixk
 twY
 kJd
-twY
+wAS
 twY
 twY
 twY
@@ -66213,10 +66382,10 @@ cco
 nHa
 jNU
 fZq
-uCF
+khc
 khc
 sBD
-uCF
+khc
 eiE
 jNU
 nHa
@@ -66616,7 +66785,7 @@ haX
 lIE
 eqp
 xNI
-xNI
+xnX
 xNI
 xNI
 xNI

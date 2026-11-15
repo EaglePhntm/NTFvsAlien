@@ -112,8 +112,8 @@ converting the absorbed energy into shield power, warning: overcharging too much
 
 //boolet shield
 /obj/item/armor_module/module/eshield/absorbant/ballistic
-	name = "KZ Ronin Anti-Ballistics Shield System"
-	desc = "Kaizoku Corporation's specialized anti-ballistic shield allowing the shield utilize the kinetic energy created by bullet impacts to overcharge itself.\
+	name = "KN Ronin Anti-Ballistics Shield System"
+	desc = "Kurogane Neuro-Kinetics's specialized anti-ballistic shield allowing the shield utilize the kinetic energy created by bullet impacts to overcharge itself.\
 warning: overcharging too much will result in an explosion, accumulated energy dissipates over time using heatsinks."
 	soft_armor = list(MELEE = -10, BULLET = -10, LASER = 0, ENERGY = 0, BOMB = 0, BIO = -5, FIRE = 10, ACID = -5)
 	blocked_attack_types = list(BULLET)

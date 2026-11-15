@@ -1297,3 +1297,342 @@
 	w_class = WEIGHT_CLASS_SMALL
 	max_rounds = 5
 	default_ammo = /datum/ammo/bullet/rifle/heavy/mpar/electro
+
+/datum/ammo/energy/plasma_dmr
+	name = "ionized plasma bolt"
+	icon_state = "overchargedlaser_green"
+	hud_state = "electrothermal"
+	hud_state_empty = "electrothermal_empty"
+	damage = 50
+	accurate_range = 11
+	max_range = 22
+	penetration = 7
+	shell_speed = 3.5
+	damage_falloff = 2
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_TARGET_TURF
+	bullet_color = LIGHT_COLOR_ELECTRIC_GREEN
+
+	///Fire burn time
+	var/burn_time = 15
+	///Fire damage
+	var/burn_damage = 10
+	///Fire color
+	var/fire_color = "green"
+
+/datum/ammo/energy/plasma_dmr/proc/drop_fire(atom/target, atom/movable/projectile/proj)
+	var/turf/target_turf = get_turf(target)
+	var/burn_mod = 1
+	if(istype(target_turf, /turf/closed/wall))
+		burn_mod = 3
+	target_turf.ignite(burn_time, burn_damage * burn_mod, fire_color)
+
+	for(var/mob/living/mob_caught in target_turf)
+		if(mob_caught.stat == DEAD || mob_caught == target)
+			continue
+		mob_caught.adjust_fire_stacks(burn_damage)
+		mob_caught.IgniteMob()
+
+/datum/ammo/energy/plasma_dmr/on_hit_turf(turf/target_turf, atom/movable/projectile/proj)
+	drop_fire(target_turf, proj)
+
+/datum/ammo/energy/plasma_dmr/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
+	drop_fire(target_mob, proj)
+
+/datum/ammo/energy/plasma_dmr/on_hit_obj(obj/target_obj, atom/movable/projectile/proj)
+	drop_fire(target_obj, proj)
+
+/datum/ammo/energy/plasma_dmr/do_at_max_range(turf/target_turf, atom/movable/projectile/proj)
+	drop_fire(target_turf, proj)
+
+//PMR-14 Plasma Marksman Rifle
+/obj/item/weapon/gun/rifle/plasma_dmr
+	name = "\improper PMR-14 plasma marksman rifle"
+	desc = "An experimental weapon designed to set the terrain and targets on fire. It hums with power as magnetic fields coil round each other. This is the Designated Marksman Rifle variant of the series with twenty bolts and higher projectile velocity."
+	icon = 'ntf_modular/icons/obj/items/guns/energy64.dmi'
+	icon_state = "lamplighter"
+	worn_icon_state = "lamplighter"
+	ammo_level_icon = ""
+	inhand_x_dimension = 64
+	inhand_y_dimension = 32
+	worn_icon_list = list(
+		slot_l_hand_str = 'ntf_modular/icons/mob/inhands/guns/energy_left_64.dmi',
+		slot_r_hand_str = 'ntf_modular/icons/mob/inhands/guns/energy_right_64.dmi',
+	)
+	caliber = CALIBER_PLASMA
+	max_shots = 20
+	reload_sound = 'sound/weapons/guns/interact/tp14_reload.ogg'
+	fire_sound = 'sound/weapons/guns/fire/laser3.ogg'
+	default_ammo_type = /obj/item/ammo_magazine/rifle/plasma_dmr
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/plasma_dmr)
+	burst_amount = 1
+	type_of_casings = null
+	attachable_offset = list("muzzle_x" = 48, "muzzle_y" = 18,"rail_x" = 25, "rail_y" = 22, "under_x" = 30, "under_y" = 15, "stock_x" = 21, "stock_y" = 17)
+	attachable_allowed = list(
+		/obj/item/attachable/bayonet/converted,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonet/som,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/angledgrip,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/foldable/bipod,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/marine,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/scope/mini/dmr,
+		/obj/item/attachable/motiondetector,
+		/obj/item/weapon/gun/pistol/plasma_pistol,
+		/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/pistol/g22/tranq,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/attachable/buildasentry,
+		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
+		/obj/item/weapon/gun/flamer/hydro_cannon,
+		/obj/item/attachable/shoulder_mount,
+	)
+
+	muzzleflash_iconstate = "muzzle_flash_laser"
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_ENERGY|GUN_AMMO_COUNTER|GUN_IS_ATTACHMENT|GUN_SMOKE_PARTICLES|GUN_SHOWS_LOADED
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	reciever_flags = AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_AUTO_EJECT|AMMO_RECIEVER_DO_NOT_EJECT_HANDFULS|AMMO_RECIEVER_CYCLE_ONLY_BEFORE_FIRE
+	wield_delay = 1.5 SECONDS
+	muzzle_flash_color = COLOR_GREEN
+
+	aim_slowdown = 0.5
+	fire_delay = 1 SECONDS
+	scatter_unwielded = 20
+	recoil = 0
+	recoil_unwielded = 2
+
+/obj/item/ammo_magazine/rifle/plasma_dmr
+	name = "\improper PMR-14 plasma cell"
+	desc = "An energy cell for the PMR-14 plasma marksman rifle."
+	icon = 'ntf_modular/icons/obj/items/ammo/rifle.dmi'
+	caliber = CALIBER_PLASMA
+	icon_state = "lamplighter"
+	max_rounds = 20
+	w_class = WEIGHT_CLASS_NORMAL
+	default_ammo = /datum/ammo/energy/plasma_dmr
+	magazine_flags = NONE
+	icon_state_mini = "mag_plasma"
+
+//SG-30 Smart Carbine
+
+/obj/item/weapon/gun/rifle/standard_smartcarbine
+	name = "\improper SG-30 smart carbine"
+	desc = "The SG-30 is a SOLFED experimental model of smart gun system, designed around modernized assault carbines. Requires special training and it cannot turn off IFF. It uses 10x26mm ammunition."
+	icon = 'ntf_modular/icons/obj/items/guns/rifles64.dmi'
+	icon_state = "sg30"
+	worn_icon_state = "sg30"
+	worn_icon_list = list(
+		slot_l_hand_str = 'ntf_modular/icons/mob/inhands/guns/rifles_left_1.dmi',
+		slot_r_hand_str = 'ntf_modular/icons/mob/inhands/guns/rifles_right_1.dmi',
+		slot_s_store_str = 'ntf_modular/icons/mob/suit_slot.dmi',
+		slot_back_str = 'ntf_modular/icons/mob/clothing/back.dmi',
+	)
+	caliber = CALIBER_300 //codex
+	max_shells = 45 //codex
+	force = 25
+	aim_slowdown = 0.45
+	wield_delay = 0.75 SECONDS
+	fire_sound = 'sound/weapons/guns/fire/smartguncarbine1.ogg'
+	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
+	unload_sound = 'sound/weapons/guns/interact/T42_unload.ogg'
+	reload_sound = 'sound/weapons/guns/interact/T42_reload.ogg'
+	default_ammo_type = /obj/item/ammo_magazine/rifle/standard_smartcarbine
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_smartcarbine)
+	attachable_allowed = list(
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/motiondetector,
+		/obj/item/attachable/bayonet/converted,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonet/som,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/scope/marine,
+		/obj/item/attachable/angledgrip,
+		/obj/item/weapon/gun/pistol/plasma_pistol,
+		/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/pistol/g22/tranq,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
+		/obj/item/weapon/gun/flamer/hydro_cannon,
+		/obj/item/attachable/foldable/bipod,
+		/obj/item/attachable/motiondetector/advanced/sg,
+		/obj/item/attachable/shoulder_mount,
+	)
+
+	starting_attachment_types = list(/obj/item/attachable/motiondetector/advanced/sg)
+
+	gun_features_flags = GUN_AMMO_COUNTER|GUN_IFF|GUN_SMOKE_PARTICLES
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	gun_skill_category = SKILL_SMARTGUN //Uses SG skill for the penalties.
+	attachable_offset = list("muzzle_x" = 47, "muzzle_y" = 17,"rail_x" = 22, "rail_y" = 20, "under_x" = 30, "under_y" = 13, "stock_x" = 1, "stock_y" = 16)
+	fire_delay = 0.15 SECONDS
+	burst_amount = 0
+	accuracy_mult = 1
+	scatter = 0
+	accuracy_mult_unwielded = 0.5
+	scatter_unwielded = 30
+	damage_falloff_mult = 2
+
+//SMARTCARBINE AMMUNITION
+
+/datum/ammo/bullet/smartcarbine
+	name = "smartcarbine bullet"
+	icon_state = "bullet_red"
+	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
+	hud_state = "smartgun"
+	hud_state_empty = "smartgun_empty"
+	ammo_behavior_flags = AMMO_BALLISTIC
+	accurate_range = 8
+	damage = 30
+	penetration = 17.5
+	sundering = 1.5
+	shell_speed = 3
+
+/obj/item/ammo_magazine/rifle/standard_smartcarbine
+	name = "\improper SG-30 magazine (.300 AAC)"
+	desc = "A .300 assault rifle magazine."
+	icon = 'ntf_modular/icons/obj/items/ammo/rifle.dmi'
+	caliber = CALIBER_300
+	icon_state = "sg30"
+	w_class = WEIGHT_CLASS_NORMAL
+	default_ammo = /datum/ammo/bullet/smartcarbine
+	max_rounds = 45
+	icon_state_mini = "mag_rifle_big"
+
+//SG-12 Assault Shotgun
+
+/obj/item/weapon/gun/rifle/sg_autoshotgun
+	name = "\improper SG-12 autoshotgun"
+	desc = "The SG-12 is an assault shotgun produced by Atwood Assault Industries and entered service with the NTC for smartgunners attached to breaching squads. The SG-12 dominates in close quarters combat using a select variety of specialized smart-slugs but suffers from extreme falloff. Takes specialized 20-round 12 gauge drums with smart-shells."
+	icon = 'ntf_modular/icons/obj/items/guns/shotguns64.dmi'
+	icon_state = "sg12"
+	worn_icon_state = "sg12"
+	worn_icon_list = list(
+		slot_l_hand_str = 'ntf_modular/icons/mob/inhands/guns/shotguns_left_1.dmi',
+		slot_r_hand_str = 'ntf_modular/icons/mob/inhands/guns/shotguns_right_1.dmi',
+		slot_s_store_str = 'ntf_modular/icons/mob/suit_slot.dmi',
+		slot_back_str = 'ntf_modular/icons/mob/clothing/back.dmi',
+	)
+	gun_crosshair = 'icons/UI_Icons/gun_crosshairs/shotgun.dmi'
+	fire_sound = 'sound/weapons/guns/fire/smartgunautoshotgun1.ogg'
+	dry_fire_sound = 'sound/weapons/guns/fire/shotgun_empty.ogg'
+	caliber = CALIBER_12G //codex
+	max_shells = 20 //codex
+	force = 20
+	default_ammo_type = /obj/item/ammo_magazine/rifle/sg_autoshotgun
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/sg_autoshotgun,/obj/item/ammo_magazine/rifle/sg_autoshotgun/explosive
+	)
+	attachable_allowed = list(
+		/obj/item/attachable/bayonet/converted,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonet/som,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/motiondetector,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/angledgrip,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/shoulder_mount,
+	)
+
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_IFF|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES //Its a shotgun type weapon effectively, most shotgun type weapons shouldn't be able to point blank 1 handed.
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 26,"rail_x" = 15, "rail_y" = 24, "under_x" = 32, "under_y" = 12, "stock_x" = 26, "stock_y" = 13)
+	gun_skill_category = SKILL_SMARTGUN //Uses SG skill for the penalties.
+
+	fire_delay = 0.4 SECONDS
+	accuracy_mult = 1
+	accuracy_mult_unwielded = 0.4
+	scatter_unwielded = 40
+	damage_falloff_mult = 4
+	aim_slowdown = 0.75
+	wield_delay = 1.35 SECONDS
+	burst_amount = 1
+
+/obj/item/ammo_magazine/rifle/sg_autoshotgun
+	name = "\improper SG-12 Autoshotgun slug drum magazine (12G)"
+	desc = "A drum magazine filled with 12G slug smart-shells for the SG-12."
+	caliber = CALIBER_12G
+	icon = 'ntf_modular/icons/obj/items/ammo/rifle.dmi'
+	icon_state = "sg12"
+	default_ammo = /datum/ammo/bullet/shotgun/slug/sg
+	max_rounds = 20
+	reload_delay = 10
+	icon_state_mini = "mag_rifle_big"
+	w_class = WEIGHT_CLASS_NORMAL
+	aim_speed_mod = 0.2
+	wield_delay_mod = 0.2 SECONDS
+
+/datum/ammo/bullet/shotgun/slug/sg
+	name = "smart shotgun slug"
+	icon_state = "bullet_large_red"
+	handful_icon = 'ntf_modular/icons/obj/items/ammo/handful.dmi'
+	handful_icon_state = "sg_shotgun_slug"
+	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
+	ammo_behavior_flags = AMMO_BALLISTIC
+	accurate_range = 8
+	shell_speed = 3
+	max_range = 10
+	damage = 60
+	penetration = 15
+	sundering = 5
+
+/datum/ammo/bullet/shotgun/slug/sg/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
+	if(ishuman(target_mob))
+		staggerstun(target_mob, proj, paralyze = 0, stun = 0, stagger = 1 SECONDS, knockback = 1, slowdown = 1)
+	else
+		staggerstun(target_mob, proj, paralyze = 0 SECONDS, stagger = 1 SECONDS, knockback = 1, slowdown = 1)
+
+/obj/item/ammo_magazine/rifle/sg_autoshotgun/explosive
+	name = "SG-12 Autoshotgun High Explosive drum (12G)"
+	desc = "A drum magazine filled with 12G HE smart-shells for the SG-12, perfect for clearing weeds, obstructions and dealing with grouped targets."
+	caliber = CALIBER_20
+	icon = 'ntf_modular/icons/obj/items/ammo/rifle.dmi'
+	icon_state = "sg12he"
+	default_ammo = /datum/ammo/bullet/shotgun/flak/sg
+	max_rounds = 20
+	reload_delay = 10
+	icon_state_mini = "mag_dmr"
+	w_class = WEIGHT_CLASS_NORMAL
+
+/datum/ammo/bullet/shotgun/flak/sg
+	name = "smart shotgun flak shell"
+	icon_state = "bullet_large_red"
+	handful_icon = 'ntf_modular/icons/obj/items/ammo/handful.dmi'
+	handful_icon_state = "sg_shotgun_he"
+	hud_state = "sniper_flak"
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_TARGET_TURF
+	shell_speed = 2.75
+	max_range = 10
+	damage = 20
+	penetration = 5
+	sundering = 2.5
+
+	var/autocannon_wall_bonus = 20
+	///Damage done via airburst
+	var/burst_damage = 40
+
+/datum/ammo/bullet/shotgun/flak/sg/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
+	airburst(target_mob, proj, burst_damage)
+
+/datum/ammo/bullet/shotgun/flak/sg/do_at_max_range(turf/target_turf, atom/movable/projectile/proj)
+	airburst(target_turf, proj, burst_damage)

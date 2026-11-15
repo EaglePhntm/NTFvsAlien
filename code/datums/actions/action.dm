@@ -155,7 +155,7 @@ KEYBINDINGS
 
 ///Signal Handler for main action
 /datum/action/proc/keybind_activation()
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	if(can_use_action())
 		INVOKE_ASYNC(src, PROC_REF(action_activate))
 	return COMSIG_KB_ACTIVATED
@@ -167,7 +167,7 @@ KEYBINDINGS
 
 /// Handler for what action to trigger, inherit from this and call parent before for extra actions
 /datum/action/proc/keybind_trigger(mob/source, datum/keybinding/kb_type)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	/**
 	 * assumption: if no keybind ref passed you want to call normally.
 	 * would use _listen_lookup but that'd start getting cursed and overly expensive for what it is

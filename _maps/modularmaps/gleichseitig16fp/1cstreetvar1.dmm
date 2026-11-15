@@ -1,0 +1,80 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northwest/streets)
+"B" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northwest/streets)
+"G" = (
+/obj/effect/urban/decal/doubleroad/lines3{
+	pixel_y = 14
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/northwest/streets)
+
+(1,1,1) = {"
+a
+a
+G
+a
+a
+"}
+(2,1,1) = {"
+a
+a
+G
+a
+a
+"}
+(3,1,1) = {"
+a
+a
+G
+a
+a
+"}
+(4,1,1) = {"
+a
+a
+G
+a
+a
+"}
+(5,1,1) = {"
+a
+a
+G
+B
+a
+"}
+(6,1,1) = {"
+a
+a
+G
+a
+a
+"}
+(7,1,1) = {"
+a
+a
+G
+a
+a
+"}
+(8,1,1) = {"
+a
+B
+G
+a
+a
+"}
+(9,1,1) = {"
+a
+a
+G
+a
+a
+"}

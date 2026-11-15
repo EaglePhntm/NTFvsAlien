@@ -55,6 +55,11 @@
 	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
 	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, Get_Angle(proj.starting_turf, target_turf), loc_override = det_turf)
 
+/datum/ammo/tx54/fire_directionalburst(atom/movable/projectile/main_proj, mob/living/shooter, atom/source, projectile_amount, angle, target, loc_override)
+	if(!bonus_projectiles_type || ispath(bonus_projectiles_type,/datum/ammo/tx54))
+		CRASH("Infinite recursion caught in [logdetails(src)]! A prjectile attempted to clone itself infinitely, it was [logdetails(main_proj)] fired by [logdetails(shooter)] from [logdetails(source)].")
+	. = ..()
+
 /datum/ammo/tx54/incendiary
 	name = "20mm incendiary grenade"
 	hud_state = "grenade_fire"

@@ -36,8 +36,8 @@
   - bugfix: fixed NPC's trying to pickup things with missing limbs
 2025-12-05:
   Nokia2Student:
-  - rscadd: KZ Neural Extractor, KZ Neural Imprinter
-  - rscadd: KZ Torture Chamber
+  - rscadd: KN Neural Extractor, KN Neural Imprinter
+  - rscadd: KN Torture Chamber
   - balance: Nerfed neurodisks
 2025-12-06:
   Despong & Lumi:
@@ -66,11 +66,11 @@
   - balance: CC/67 Rifle -> CC/67 Sniper Rifle (Gun rework)
   - rscadd: Extended rubber magazine for cc/77
   - balance: L12 damage increased, ammo capacity reduced
-  - balance: All kz rocket types now share the exact same reload delay
-  - balance: Kz chemical warhead smoke lifetime increased
+  - balance: All kn rocket types now share the exact same reload delay
+  - balance: KN chemical warhead smoke lifetime increased
   - balance: Xp5 shrap nade now explodes in shrap
-  - rscadd: Added TARP to KZ Vendor
-  - rscadd: Added KPX/47 Spectra for KZ
+  - rscadd: Added TARP to KN Vendor
+  - rscadd: Added KPX/47 Spectra for KN
 2025-12-10:
   Colfer1:
   - balance: Lets all factions see excavations on the minimap
@@ -193,7 +193,7 @@
   Ducky-Momo:
   - rscadd: added transparent gas masks to CLF and CM vendors, adds two PTR anti-mech
       rifles and ammo boxes to CLF, adds anti-smoke/gas grenades to SOM
-  - balance: gave PTR one more round in the mag, removed autocannon from KZ weapon
+  - balance: gave PTR one more round in the mag, removed autocannon from KN weapon
       vendor
   Nokia2Student:
   - balance: Buffed xenomorph damage against resin structures

@@ -81,7 +81,7 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 		if(iff_signal & TGMC_LOYALIST_IFF)
 			camera.network = list("marine", "marinesl")
 		if(iff_signal & VSD_IFF)
-			camera.network = list("kaizoku")
+			camera.network = list("kurogane")
 		if(iff_signal & ICC_IFF)
 			camera.network = list("icc")
 		camera.c_tag = "[name] ([rand(0, 1000)])"

@@ -37,9 +37,9 @@
 	name = "\improper TC-4T Telecommunications CM Circuit Board"
 	build_path = /obj/machinery/telecomms/relay/preset/tower/faction/cm
 
-/obj/item/circuitboard/machine/telecomms/relay/tower/faction/kz
-	name = "\improper TC-4T Telecommunications KZ Circuit Board"
-	build_path = /obj/machinery/telecomms/relay/preset/tower/faction/kz
+/obj/item/circuitboard/machine/telecomms/relay/tower/faction/kn
+	name = "\improper TC-4T Telecommunications KN Circuit Board"
+	build_path = /obj/machinery/telecomms/relay/preset/tower/faction/kn
 
 /obj/item/storage/box/crate/loot/telecomm_tower_pack
 	name = "\improper Portable Factional Relay Pack"
@@ -85,12 +85,12 @@
 	. = ..()
 	new /obj/item/circuitboard/machine/telecomms/relay/tower/faction/icc(src)
 
-/obj/item/storage/box/crate/loot/telecomm_tower_pack/kz
+/obj/item/storage/box/crate/loot/telecomm_tower_pack/kn
 	name = parent_type::name +" (" + FACTION_VSD + ")"
 
-/obj/item/storage/box/crate/loot/telecomm_tower_pack/kz/Initialize(mapload)
+/obj/item/storage/box/crate/loot/telecomm_tower_pack/kn/Initialize(mapload)
 	. = ..()
-	new /obj/item/circuitboard/machine/telecomms/relay/tower/faction/kz(src)
+	new /obj/item/circuitboard/machine/telecomms/relay/tower/faction/kn(src)
 
 /obj/machinery/telecomms/relay/preset/tower
 	name = "TC-4T telecommunications tower"
@@ -292,9 +292,9 @@
 	freq_listening = SOM_FREQS
 	faction_shorthand = "SOM"
 
-/obj/machinery/telecomms/relay/preset/tower/faction/kz
+/obj/machinery/telecomms/relay/preset/tower/faction/kn
 	freq_listening = KZ_FREQS
-	faction_shorthand = "KZ"
+	faction_shorthand = "KN"
 
 /obj/machinery/telecomms/relay/preset/tower/faction/cm
 	freq_listening = CM_FREQS

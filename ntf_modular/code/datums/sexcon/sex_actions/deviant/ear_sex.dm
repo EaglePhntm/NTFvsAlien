@@ -38,7 +38,7 @@
 		user.sexcon.perform_sex_action(target, 1.2, 3, FALSE)
 	else
 		user.sexcon.perform_sex_action(target, 2.4, 7, FALSE)
-	var/flags = target.client.prefs.sex_pref_flags
+	var/flags = target.client?.prefs.sex_pref_flags
 	if(flags & SEXPREF_ROUGH_SEX)
 		if(ishuman(target))
 			if(flags & SEXPREF_ROUGH_SEX)

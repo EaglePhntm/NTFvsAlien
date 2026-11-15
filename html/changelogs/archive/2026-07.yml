@@ -2,7 +2,7 @@
   Ldip999:
   - bugfix: Failsafes added to slot changes.
   Lewdissar:
-  - bugfix: Gives KZ Combat Escort their intended research ability, fixes an oversight
+  - bugfix: Gives KN Combat Escort their intended research ability, fixes an oversight
       in their join text.
   Meghan-Rossi:
   - rscadd: All (T1+) Xenos can now corrupt geothermal generators
@@ -11,7 +11,7 @@
   Lewdissar:
   - rscadd: Added two new types of crop top turtlenecks with two color variants each
       (Black and White)
-  - rscadd: KZ Synth role and related bullshit shipside. It does the exact same shit
+  - rscadd: KN Synth role and related bullshit shipside. It does the exact same shit
       as a normal synth dog.
   Meghan-Rossi:
   - balance: Bull health increased from 425 to 445

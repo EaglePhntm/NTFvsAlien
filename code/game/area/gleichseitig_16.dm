@@ -56,23 +56,25 @@
 	name = "Gleichseitig-16 - LZ1 - Flight Control Building"
 	icon_state = "g16f_lz1_flight_ctrl"
 	ceiling = CEILING_METAL
+	minimap_color = MINIMAP_AREA_ENGI
 
 /area/gleichseitig16/indoors/landing_zone_1/lz1_console
 	name = "Gleichseitig-16 - LZ1 - Dropship Normandy Console"
 	icon_state = "g16f_lz1_console"
 	requires_power = FALSE
 	ceiling = CEILING_METAL
+	minimap_color = MINIMAP_AREA_ENGI
 
 // Landing Zone 2
 /area/gleichseitig16/outdoors/landing_zone_2
-	name = "Gleichseitig-16 - LZ1 - Apartment Courtyard"
+	name = "Gleichseitig-16 - LZ2 - Apartment Courtyard"
 	icon_state = "g16f_lz2_apts"
 	minimap_color = MINIMAP_AREA_LZ
 	ceiling = CEILING_NONE
 	area_flavor = AREA_FLAVOR_URBAN
 
 /area/gleichseitig16/outdoors/landing_zone_2/parking
-	name = "Gleichseitig-16 - LZ1 - Apartment Parking Lot"
+	name = "Gleichseitig-16 - LZ2 - Apartment Parking Lot"
 	icon_state = "g16f_lz2_apts_parking"
 	ceiling = CEILING_NONE
 	minimap_color = MINIMAP_AREA_COLONY
@@ -233,6 +235,7 @@
 /area/gleichseitig16/indoors/north/crawlergarages
 	name = "Gleichseitig-16 - North - Crawler Garages"
 	icon_state = "g16f_ncrawler_garages"
+	minimap_color = MINIMAP_AREA_REQ
 
 /area/gleichseitig16/outdoors/north/phoronex/yard
 	name = "Gleichseitig-16 - North - PhoronEX Yard"
@@ -249,6 +252,7 @@
 /area/gleichseitig16/indoors/north/phoronex/garage
 	name = "Gleichseitig-16 - North - PhoronEX Garage"
 	icon_state = "g16f_nphoronex_storage"
+	minimap_color = MINIMAP_AREA_REQ
 
 /area/gleichseitig16/indoors/north/guardianmotorpost
 	name = "Gleichseitig-16 - North - Guardian Outpost"
@@ -282,7 +286,7 @@
 	name = "Gleichseitig-16 - East"
 	icon_state = "v8se_lz1site"
 
-/area/gleichseitig16/outdoors/east/sinitsynhospital/alleys
+/area/gleichseitig16/outdoors/east/sinitsynhospital
 	name = "Gleichseitig-16 - East - Sinitsyn Hospital Alleys"
 	icon_state = "g16f_sinitsyn_hospital_ealley"
 	minimap_color = MINIMAP_AREA_COLONY
@@ -290,7 +294,6 @@
 /area/gleichseitig16/outdoors/east/sinitsynhospital/parking
 	name = "Gleichseitig-16 - East - Sinitsyn Hospital Parking"
 	icon_state = "g16f_sinitsyn_hospital_eparking"
-	minimap_color = MINIMAP_AREA_COLONY
 
 /area/gleichseitig16/indoors/east/sinitsynhospital
 	name = "Gleichseitig-16 - East - Sinitsyn Hospital"
@@ -300,7 +303,6 @@
 /area/gleichseitig16/indoors/east/sinitsynhospital/warehouses
 	name = "Gleichseitig-16 - East - Sinitsyn Hospital Warehouses"
 	icon_state = "g16f_sinitsyn_hospital_ewareh"
-	minimap_color = MINIMAP_AREA_MEDBAY
 
 /area/gleichseitig16/indoors/east/ehrmilmaso/facilities
 	name = "Gleichseitig-16 - East - EHR-MIL M.A.S.O Facilities"
@@ -1098,6 +1100,21 @@
 	name = "Gleichseitig-16 - Southwest - Leopold Stadium Generators"
 	icon_state = "g16f_stadium_swgens"
 	minimap_color = MINIMAP_AREA_LIVING
+
+/area/gleichseitig16/indoors/southwest/ceruleanhotel
+	name = "Gleichseitig-16 - Southwest - Cerulean Hotel"
+	icon_state = "g16_swceruleanhotel"
+	minimap_color = MINIMAP_AREA_LIVING
+
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking
+	name = "Gleichseitig-16 - Southwest - Cerulean Hotel Parking"
+	icon_state = "g16_ceruleanhotel_swparking"
+	minimap_color = MINIMAP_AREA_COLONY
+
+/area/gleichseitig16/indoors/southwest/powerstation
+	name = "Gleichseitig-16 - Southwest - Power Station"
+	icon_state = "g16f_power_swstation"
+	minimap_color = MINIMAP_AREA_ENGI
 
 /area/gleichseitig16/outdoors/southwest/ehruni/grounds
 	name = "Gleichseitig-16 - Southwest - EHR-UNI Grounds"

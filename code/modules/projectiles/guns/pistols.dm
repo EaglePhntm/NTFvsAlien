@@ -716,7 +716,7 @@
 
 /obj/item/weapon/gun/pistol/vsd_pistol
 	name = "\improper C96 pistol"
-	desc = "A 'riot control' weapon used by the protectors of colonies. Now adopted by the KZ, it is the standard side arm for all members. Firing armor piercing 9x19mm parabellum with a capacity of 22 rounds."
+	desc = "A 'riot control' weapon used by the protectors of colonies. Now adopted by the KN, it is the standard side arm for all members. Firing armor piercing 9x19mm parabellum with a capacity of 22 rounds."
 	icon_state = "c96"
 	worn_icon_state = "c96"
 	caliber = CALIBER_9X19

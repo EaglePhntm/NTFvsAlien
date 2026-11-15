@@ -1066,6 +1066,9 @@
 /turf/open/floor/whitecyanfour
 	icon_state = "white_cyan4"
 
+/turf/open/floor/whitecyanfive
+	icon_state = "white_cyan5"
+
 /turf/open/floor/carpet
 	name = "Carpet"
 	icon = 'icons/turf/floors/carpet.dmi'

@@ -280,7 +280,7 @@
 	/// What type of weeds this node spreads
 	var/obj/alien/weeds/weed_type = /obj/alien/weeds
 	///The plasma cost multiplier for this node
-	var/ability_cost_mult = 1
+	var/ability_cost_mult = 0.8
 	cross_slowdown = SLOWDOWN_NORMAL
 
 /obj/alien/weeds/node/Initialize(mapload, _hivenumber, obj/alien/weeds/node/node)

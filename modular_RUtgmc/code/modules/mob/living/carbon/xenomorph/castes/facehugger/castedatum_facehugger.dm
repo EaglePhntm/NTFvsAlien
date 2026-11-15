@@ -41,6 +41,7 @@
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/xeno_action/xenohide,
 		/datum/action/ability/activable/xeno/pounce/hugger,
+		/datum/action/ability/xeno_action/psychic_influence,
 	)
 
 	// *** Vent Crawl Parameters *** //

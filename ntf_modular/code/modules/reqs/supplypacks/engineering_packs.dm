@@ -101,10 +101,10 @@
 	cost = 50
 	faction_lock = list(FACTION_CLF)
 
-/datum/supply_packs/engineering/towerboard/kz
-	name = "TC-4T Telecommunications Circuit Board (KZ)"
+/datum/supply_packs/engineering/towerboard/kn
+	name = "TC-4T Telecommunications Circuit Board (KN)"
 	notes = "A modular component commonly used in machines."
-	contains = list(/obj/item/circuitboard/machine/telecomms/relay/tower/faction/kz)
+	contains = list(/obj/item/circuitboard/machine/telecomms/relay/tower/faction/kn)
 	cost = 50
 	faction_lock = list(FACTION_VSD)
 

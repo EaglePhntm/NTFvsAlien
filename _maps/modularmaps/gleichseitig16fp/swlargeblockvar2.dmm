@@ -1,0 +1,3856 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aj" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"au" = (
+/obj/machinery/washing_machine,
+/turf/open/floor/urban/tile/beige_bigtile,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"ax" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"ay" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"aR" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light,
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"aS" = (
+/obj/structure/prop/mainship/railing/corner,
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"bu" = (
+/obj/structure/closet,
+/obj/item/toner,
+/obj/item/toner,
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"bD" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"bL" = (
+/obj/effect/urban/decal/dirt,
+/obj/effect/urban/decal/road/road_edge,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/west/streets)
+"bO" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"bY" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/west/streets)
+"cd" = (
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"ci" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/west/streets)
+"cp" = (
+/obj/structure/cable,
+/obj/machinery/power/geothermal,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"cy" = (
+/obj/machinery/shower{
+	dir = 4
+	},
+/obj/structure/curtain/open/shower,
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"cC" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking)
+"cF" = (
+/obj/effect/landmark/spawn_marker/euseparatists/militant,
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"du" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/mainship/engineering/free_access{
+	name = "\improper Power Station";
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"dx" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking)
+"dE" = (
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"dL" = (
+/obj/structure/bed/chair/sofa/left,
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"dV" = (
+/obj/structure/stairs/seamless/platform/water{
+	dir = 4
+	},
+/turf/open/liquid/water/river/desertdam/notliquid/clean/shallow,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"dW" = (
+/obj/effect/spawner/random/misc/structure/closet/welding,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"ec" = (
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking)
+"ee" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/freezer,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"ep" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/streets)
+"eG" = (
+/obj/structure/bed/chair/comfy{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"eI" = (
+/obj/effect/spawner/random/engineering/structure/powergenerator/superweighted,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"eJ" = (
+/obj/machinery/light,
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"eY" = (
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"fd" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/west/streets)
+"fP" = (
+/obj/structure/bed/chair/comfy,
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"fQ" = (
+/obj/structure/barricade/railing{
+	dir = 9
+	},
+/obj/structure/barricade/railing{
+	dir = 6
+	},
+/obj/machinery/floodlight/landing{
+	name = "Pool Light";
+	desc = "A powerful light to provide better visibility."
+	},
+/turf/open/liquid/water/river/desertdam/notliquid/clean/shallow,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"fS" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper Cerulean Hotel Room 5"
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"fV" = (
+/obj/effect/spawner/random/misc/structure/flavorvending/engitool,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"fW" = (
+/obj/structure/bed/chair/office/dark,
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"gj" = (
+/obj/structure/cable,
+/obj/machinery/power/terminal,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"gT" = (
+/obj/structure/closet/cabinet,
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"gX" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"hh" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/beige_bigtile,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"hl" = (
+/obj/structure/barricade/railing,
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"hq" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"hF" = (
+/obj/structure/sink/bathroom{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"ie" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"if" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/urban/metal/metalwhitefull,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"ir" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/southwest/streets)
+"it" = (
+/obj/structure/barricade/railing{
+	dir = 5
+	},
+/obj/structure/barricade/railing{
+	dir = 10
+	},
+/obj/machinery/floodlight/landing{
+	name = "Pool Light";
+	desc = "A powerful light to provide better visibility."
+	},
+/turf/open/liquid/water/river/desertdam/notliquid/clean/shallow,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"iV" = (
+/obj/machinery/door/airlock/mainship/generic/corporate{
+	name = "Bathroom";
+	req_access = null;
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"jb" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"jc" = (
+/obj/machinery/vending/coffee{
+	pixel_x = 3
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"ji" = (
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"jm" = (
+/turf/open/floor/freezer,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"jo" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/mainship/engineering/free_access{
+	name = "\improper Power Station";
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"jr" = (
+/obj/structure/table/reinforced/prison,
+/obj/structure/prop/urban/misc/machinery/screens/telescreen{
+	density = 1;
+	pixel_x = 16;
+	name = "flatscreen television"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"jK" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper Cerulean Hotel Room 3";
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"jP" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"kh" = (
+/obj/structure/benchpress,
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"km" = (
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/southwest/streets)
+"kp" = (
+/obj/structure/closet/crate/trashcart/food,
+/turf/open/floor/freezer,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"kD" = (
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking)
+"kY" = (
+/obj/machinery/photocopier,
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"lo" = (
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"lR" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"mb" = (
+/obj/structure/cable,
+/obj/structure/extinguisher_cabinet{
+	dir = 1;
+	pixel_y = -32
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"mf" = (
+/obj/structure/bed/chair/comfy{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"mA" = (
+/obj/structure/closet/secure_closet/freezer/fridge,
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"mM" = (
+/obj/structure/extinguisher_cabinet,
+/turf/open/floor/freezer,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"nq" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkcenter{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/southwest/streets)
+"nM" = (
+/obj/structure/stairs/seamless/platform_vert/water{
+	dir = 1
+	},
+/turf/open/liquid/water/river/desertdam/notliquid/clean/shallow,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"nQ" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light,
+/turf/open/floor/freezer,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"nX" = (
+/obj/structure/table/reinforced,
+/obj/machinery/computer/emails{
+	density = 0
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"oe" = (
+/obj/structure/table/wood/fancy,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"of" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/west/streets)
+"om" = (
+/turf/open/urban/street/sidewalkcenter{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/southwest/streets)
+"oz" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking)
+"oB" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"oP" = (
+/obj/structure/sink/bathroom{
+	pixel_y = 16
+	},
+/obj/structure/mirror,
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"oY" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"pk" = (
+/obj/structure/extinguisher_cabinet,
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"pl" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/freezer,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"pr" = (
+/obj/structure/mirror{
+	dir = 4
+	},
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"ps" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"py" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"pL" = (
+/turf/closed/wall/urban/colony,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"pV" = (
+/obj/structure/stairs/seamless/platform_vert/water,
+/turf/open/liquid/water/river/desertdam/notliquid/clean/shallow,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"qx" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"qE" = (
+/obj/structure/prop/mainship/railing/corner{
+	dir = 8
+	},
+/turf/open/liquid/water/river/desertdam/notliquid/clean/shallow,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"qF" = (
+/obj/effect/urban/decal/dirt,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/west/streets)
+"qI" = (
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/reagent_containers/food/snacks/flour,
+/obj/item/reagent_containers/food/snacks/flour,
+/obj/item/reagent_containers/food/snacks/flour,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/turf/open/floor/freezer,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"rh" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking)
+"rz" = (
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"sd" = (
+/obj/effect/urban/decal/dirt,
+/obj/effect/spawner/random/misc/structure/large/car{
+	spawn_loot_chance = 75;
+	dir = 8
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/west/streets)
+"sk" = (
+/obj/effect/landmark/nuke_spawn,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"sF" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"tb" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"tg" = (
+/obj/effect/urban/decal/road/road_edge,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/west/streets)
+"tr" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic,
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"tv" = (
+/obj/structure/sink/bathroom{
+	pixel_y = -16;
+	dir = 1
+	},
+/obj/structure/mirror{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"tP" = (
+/obj/machinery/power/smes/buildable/empty{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"tW" = (
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/streets)
+"us" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper Cerulean Hotel Room 7"
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"uA" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southwest/streets)
+"uI" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/freezer,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"uU" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/west/streets)
+"uX" = (
+/obj/structure/stairs/seamless/platform_vert/water{
+	dir = 8
+	},
+/turf/open/liquid/water/river/desertdam/notliquid/clean/shallow,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"uY" = (
+/obj/structure/rack,
+/obj/item/storage/box/lights/mixed,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"uZ" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking)
+"va" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"vE" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"vG" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper The Cerulean Hotel"
+	},
+/turf/open/floor/freezer,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"vI" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"vK" = (
+/obj/machinery/vending/cola,
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"vR" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 8;
+	name = "\improper The Cerulean Hotel"
+	},
+/turf/open/floor/urban/tile/beige_bigtile,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"wc" = (
+/obj/structure/bed,
+/obj/item/bedsheet/captain,
+/obj/item/bedsheet/hop,
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"wh" = (
+/obj/machinery/light,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"wi" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/paper_bin,
+/obj/item/tool/pen,
+/obj/item/tool/pen{
+	pixel_y = -4
+	},
+/obj/item/tool/pen{
+	pixel_y = -8
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"wn" = (
+/obj/structure/table/reinforced/prison,
+/obj/structure/prop/urban/misc/machinery/screens/telescreen{
+	density = 1;
+	pixel_x = 16;
+	name = "flatscreen television"
+	},
+/obj/machinery/light,
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"wB" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"wG" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper Cerulean Hotel Room 6"
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"xR" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"yA" = (
+/obj/structure/bed/chair,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"yU" = (
+/obj/machinery/conveyor_switch{
+	id = "hotelgymtreadmill1";
+	name = "treadmill switch"
+	},
+/obj/structure/barricade/railing{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"zi" = (
+/obj/structure/table/reinforced/prison,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"zA" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper Cerulean Hotel Room 4"
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"zP" = (
+/obj/structure/sink/bathroom{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"zR" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper The Cerulean Gym"
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"zY" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Aa" = (
+/turf/open/floor/urban/metal/metalwhitefull,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Ap" = (
+/obj/structure/prop/urban/vehicles/large/armored_trucks/heavy_loader/white_teal{
+	dir = 8
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/west/streets)
+"Aq" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light,
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"AG" = (
+/obj/effect/landmark/spawn_marker/euseparatists/militant,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"AU" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Bf" = (
+/obj/structure/sink/bathroom{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Bk" = (
+/obj/structure/stairs/seamless/platform/water{
+	dir = 1
+	},
+/turf/open/liquid/water/river/desertdam/notliquid/clean/shallow,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Cg" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/effect/landmark/spawn_marker/euseparatists/sapperidle,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Ci" = (
+/obj/structure/bed/chair/comfy{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Co" = (
+/obj/machinery/processor,
+/turf/open/floor/freezer,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"CA" = (
+/turf/open/urban/street/sidewalk{
+	dir = 6
+	},
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking)
+"CK" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	name = "\improper The Cerulean Plunge"
+	},
+/turf/open/floor/freezer,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"CO" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Df" = (
+/obj/structure/bed/chair,
+/obj/effect/landmark/spawn_marker/euseparatists/sapperidle,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Dy" = (
+/obj/structure/table/reinforced/prison,
+/obj/structure/prop/urban/misc/machinery/screens/telescreen{
+	density = 1;
+	pixel_x = 16;
+	name = "flatscreen television"
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"DD" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	spawn_loot_chance = 100
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking)
+"DT" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	name = "\improper The Cerulean Plunge"
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"DV" = (
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking)
+"Ec" = (
+/obj/structure/prop/mainship/railing/corner,
+/turf/open/liquid/water/river/desertdam/notliquid/clean/shallow,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"En" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 4;
+	spawn_loot_chance = 100
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking)
+"Ex" = (
+/obj/machinery/light,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"ED" = (
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking)
+"EY" = (
+/obj/structure/prop/urban/vehicles/large/armored_trucks/heavy_loader/blue_white{
+	dir = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/west/streets)
+"Fw" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/mainship/maint{
+	dir = 2;
+	req_one_access = null
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"FE" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/spawner/random/misc/structure/large/car{
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking)
+"FJ" = (
+/obj/structure/janitorialcart,
+/obj/item/tool/mop,
+/obj/item/tool/wet_sign{
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Gb" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 8;
+	name = "\improper The Cerulean Hotel"
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Gc" = (
+/turf/open/liquid/water/river/desertdam/notliquid/clean/deep_water_clean,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"GF" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"GQ" = (
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Hc" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/item/laptop,
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"HS" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/machinery/computer/emails{
+	density = 0
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"HX" = (
+/obj/machinery/light,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking)
+"Id" = (
+/obj/machinery/conveyor{
+	id = "hotelgymtreadmill2"
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"If" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Ig" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper Cerulean Hotel Room 2";
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Ix" = (
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/southwest/streets)
+"IV" = (
+/obj/structure/bed/chair,
+/obj/effect/landmark/spawn_marker/euseparatists/medicidle,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Jk" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/urban/tile/beige_bigtile,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Jz" = (
+/obj/machinery/conveyor{
+	id = "hotelgymtreadmill1"
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"JG" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/drained,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"JJ" = (
+/obj/effect/spawner/random/misc/structure/closet/electrical,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"JM" = (
+/obj/machinery/conveyor_switch{
+	id = "hotelgymtreadmill2";
+	name = "treadmill switch"
+	},
+/obj/structure/barricade/railing{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"JX" = (
+/turf/open/urban/street/sidewalkcenter{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/southwest/streets)
+"JZ" = (
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/west/streets)
+"Kt" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"Kw" = (
+/obj/machinery/conveyor{
+	id = "hotelgymtreadmill2"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"KB" = (
+/obj/structure/table/wood/fancy,
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"KD" = (
+/obj/machinery/door/airlock/mainship/generic/corporate{
+	name = "Bathroom";
+	req_access = null
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"KF" = (
+/obj/structure/table/reinforced,
+/obj/machinery/prop/computer/communications{
+	dir = 8;
+	idle_power_usage = 50
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Ly" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/drained{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"LK" = (
+/turf/open/floor/urban/tile/beige_bigtile,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"MC" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/item/flashlight/lamp,
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"MJ" = (
+/obj/structure/table/reinforced/prison,
+/obj/machinery/power/monitor,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"ML" = (
+/obj/effect/landmark/spawn_marker/euseparatists/militant,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking)
+"MQ" = (
+/turf/open/urban/street/sidewalk{
+	dir = 10
+	},
+/area/gleichseitig16/outdoors/southwest/streets)
+"MU" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/streets)
+"NN" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	spawn_loot_chance = 75;
+	dir = 8
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/west/streets)
+"NO" = (
+/obj/structure/cable,
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/southwest/streets)
+"Oh" = (
+/obj/structure/rack,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"On" = (
+/obj/structure/stairs/seamless/platform_vert/water{
+	dir = 4
+	},
+/turf/open/liquid/water/river/desertdam/notliquid/clean/shallow,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Oq" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Os" = (
+/obj/structure/mirror{
+	dir = 8
+	},
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"OB" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	name = "\improper The Cerulean Plunge";
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"OP" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"OX" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	name = "\improper The Cerulean Plunge"
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"OY" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 8
+	},
+/area/gleichseitig16/outdoors/southwest/streets)
+"Pa" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/turf/open/floor/urban/metal/metalwhitefull,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Px" = (
+/obj/structure/bed,
+/obj/item/bedsheet/hop,
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Pz" = (
+/obj/machinery/light,
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"PA" = (
+/obj/structure/barricade/railing{
+	dir = 4
+	},
+/obj/structure/stairs/seamless/platform_vert/water,
+/turf/open/liquid/water/river/desertdam/notliquid/clean/shallow,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"PN" = (
+/obj/structure/table/reinforced,
+/obj/machinery/microwave,
+/turf/open/floor/freezer,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Qm" = (
+/obj/structure/stairs/seamless/platform/water,
+/turf/open/liquid/water/river/desertdam/notliquid/clean/shallow,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Qz" = (
+/turf/open/urban/street/sidewalk{
+	dir = 9
+	},
+/area/gleichseitig16/outdoors/southwest/streets)
+"QE" = (
+/obj/structure/extinguisher_cabinet{
+	dir = 4;
+	pixel_x = -32
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"QG" = (
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper Cerulean Hotel Room 1";
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"QH" = (
+/obj/structure/table/reinforced,
+/obj/item/tool/kitchen/knife,
+/obj/item/tool/kitchen/rollingpin,
+/turf/open/floor/freezer,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"QX" = (
+/obj/structure/bed/chair/comfy,
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Rh" = (
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Rq" = (
+/obj/structure/table/reinforced/prison,
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Th" = (
+/obj/structure/bed/chair/sofa/right{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Tq" = (
+/turf/open/urban/street/sidewalk{
+	dir = 5
+	},
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking)
+"Ts" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/southwest/streets)
+"TM" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking)
+"TX" = (
+/obj/machinery/door/airlock/mainship/generic/corporate{
+	name = "Restroom";
+	req_access = null
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Uh" = (
+/obj/structure/closet,
+/obj/effect/spawner/random/food_or_drink/drink_alcohol_bottle,
+/obj/effect/spawner/random/food_or_drink/drink_alcohol_bottle,
+/obj/effect/spawner/random/food_or_drink/drink_alcohol_bottle,
+/obj/effect/spawner/random/food_or_drink/drink_alcohol_bottle,
+/obj/effect/spawner/random/food_or_drink/drink_alcohol_bottle,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Uw" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper The Cerulean Laundry Room"
+	},
+/turf/open/floor/urban/tile/beige_bigtile,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"UB" = (
+/obj/structure/bed/chair/sofa/left{
+	dir = 1
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"UM" = (
+/obj/structure/barricade/railing{
+	dir = 8
+	},
+/obj/structure/stairs/seamless/platform_vert/water{
+	dir = 1
+	},
+/turf/open/liquid/water/river/desertdam/notliquid/clean/shallow,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"UT" = (
+/obj/structure/sink/bathroom{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/open/floor/urban/metal/metalwhitefull,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"UW" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/rack,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Vn" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Vv" = (
+/obj/structure/closet,
+/obj/item/stack/sheet/mineral/phoron/medium_stack,
+/obj/item/stack/sheet/mineral/uranium/medium_stack,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"VB" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/urban/tile/beige_bigtile,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"VP" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 1;
+	name = "\improper The Cerulean Hotel"
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"We" = (
+/obj/structure/toilet{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Wl" = (
+/obj/structure/table/reinforced,
+/obj/machinery/microwave,
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Wo" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	spawn_loot_chance = 100
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking)
+"WH" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"WI" = (
+/obj/machinery/shower{
+	dir = 8
+	},
+/obj/structure/curtain/open/shower,
+/turf/open/floor/urban/tile/tilewhite,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"WL" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"WN" = (
+/obj/structure/bed/chair/sofa/right,
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Xe" = (
+/turf/open/liquid/water/river/desertdam/notliquid/clean/shallow,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Xo" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Xv" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"XI" = (
+/obj/structure/stairs/seamless/platform/water{
+	dir = 8
+	},
+/turf/open/liquid/water/river/desertdam/notliquid/clean/shallow,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"XQ" = (
+/obj/structure/barricade/railing{
+	dir = 4
+	},
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Yb" = (
+/obj/machinery/vending/snack,
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Yk" = (
+/obj/machinery/conveyor{
+	id = "hotelgymtreadmill1"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Ym" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access{
+	dir = 8;
+	name = "\improper Plaza Mall"
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"Yu" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/turf/open/floor/urban/carpet/carpetbluedeco,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+"YB" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking)
+"Zm" = (
+/obj/effect/spawner/random/misc/structure/closet/tool,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/powerstation)
+"Zx" = (
+/obj/effect/urban/decal/road/lines2,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking)
+"ZD" = (
+/obj/machinery/door/airlock/mainship/maint{
+	dir = 2;
+	req_one_access = null
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel/parking)
+"ZO" = (
+/obj/effect/urban/decal/dirt,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/west/streets)
+"ZZ" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light,
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/gleichseitig16/indoors/southwest/ceruleanhotel)
+
+(1,1,1) = {"
+ZO
+uU
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+"}
+(2,1,1) = {"
+uU
+uU
+ep
+ep
+ep
+MU
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+MU
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+MU
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+"}
+(3,1,1) = {"
+uU
+uU
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+MU
+ep
+ep
+ep
+ep
+"}
+(4,1,1) = {"
+uU
+uU
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+MU
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+MU
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+"}
+(5,1,1) = {"
+ci
+fd
+km
+km
+km
+km
+km
+km
+MQ
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+Qz
+km
+km
+km
+km
+km
+km
+km
+km
+km
+km
+km
+ep
+ep
+ep
+pL
+pL
+gX
+pL
+pL
+Ix
+"}
+(6,1,1) = {"
+JZ
+fd
+rh
+rh
+rh
+rh
+rh
+rh
+rh
+rh
+oz
+oz
+oz
+oz
+oz
+rh
+rh
+rh
+rh
+rh
+rh
+ax
+ax
+ax
+ax
+ax
+ax
+Ix
+ep
+ep
+ep
+pL
+cp
+rz
+cp
+pL
+Ix
+"}
+(7,1,1) = {"
+JZ
+fd
+rh
+uZ
+YB
+ED
+ED
+ED
+YB
+CA
+oz
+oz
+oz
+oz
+oz
+Tq
+YB
+ED
+ED
+uZ
+rh
+uY
+dE
+Df
+zi
+Cg
+ax
+Ix
+ep
+ep
+ep
+pL
+pL
+jo
+pL
+pL
+Ix
+"}
+(8,1,1) = {"
+JZ
+fd
+rh
+kD
+DD
+DD
+DD
+FE
+Wo
+Wo
+oz
+oz
+oz
+oz
+oz
+Wo
+Wo
+En
+Wo
+ec
+rh
+UW
+dE
+dE
+dE
+wh
+ax
+Ix
+ep
+ep
+ep
+pL
+eI
+gj
+tP
+pL
+Ix
+"}
+(9,1,1) = {"
+JZ
+fd
+rh
+kD
+oz
+oz
+oz
+Zx
+Zx
+Zx
+oz
+oz
+oz
+oz
+oz
+Zx
+Zx
+Zx
+Zx
+HX
+rh
+FJ
+dE
+dE
+dE
+Oh
+ax
+Ix
+MU
+ep
+ep
+pL
+fV
+gj
+tP
+pL
+Ix
+"}
+(10,1,1) = {"
+JZ
+fd
+rh
+kD
+oz
+oz
+oz
+oz
+oz
+oz
+oz
+oz
+oz
+oz
+oz
+oz
+oz
+oz
+oz
+ec
+rh
+Uh
+dE
+dE
+eY
+eY
+Fw
+Ts
+tW
+tW
+tW
+du
+rz
+ji
+mb
+pL
+Ix
+"}
+(11,1,1) = {"
+JZ
+fd
+rh
+dx
+ML
+TM
+oz
+oz
+oz
+oz
+oz
+oz
+TM
+oz
+oz
+oz
+oz
+oz
+TM
+ec
+ZD
+dE
+WL
+dE
+eY
+dE
+ax
+Ix
+ep
+ep
+ep
+pL
+MJ
+bO
+rz
+du
+Ts
+"}
+(12,1,1) = {"
+of
+fd
+rh
+kD
+oz
+oz
+oz
+oz
+oz
+oz
+oz
+oz
+oz
+oz
+oz
+oz
+oz
+oz
+oz
+ec
+rh
+dE
+dE
+dE
+Ly
+Oh
+ax
+Ix
+ep
+ep
+ep
+pL
+JG
+ji
+WH
+pL
+Ts
+"}
+(13,1,1) = {"
+qF
+fd
+rh
+kD
+DD
+FE
+Wo
+Wo
+En
+Wo
+oz
+oz
+oz
+oz
+oz
+Wo
+Wo
+En
+Wo
+HX
+rh
+dE
+dE
+ax
+ax
+ax
+ax
+Ix
+ep
+ep
+ep
+pL
+Zm
+ji
+Kt
+gX
+Ts
+"}
+(14,1,1) = {"
+Ap
+fd
+rh
+kD
+oz
+Zx
+Zx
+Zx
+Zx
+Zx
+oz
+oz
+oz
+oz
+oz
+Zx
+Zx
+Zx
+Zx
+ec
+rh
+Xo
+dE
+ax
+Aa
+Pa
+ax
+Ix
+ep
+ep
+ep
+pL
+JJ
+ji
+aj
+pL
+Ts
+"}
+(15,1,1) = {"
+uU
+fd
+rh
+uZ
+cC
+DV
+DV
+DV
+cC
+DV
+uZ
+uZ
+uZ
+uZ
+uZ
+DV
+cC
+DV
+DV
+uZ
+rh
+dE
+dE
+ax
+if
+UT
+ax
+Ix
+ep
+MU
+ep
+pL
+dW
+ji
+Vv
+pL
+Ts
+"}
+(16,1,1) = {"
+uU
+fd
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+vR
+ax
+wB
+ax
+vR
+ax
+ax
+wB
+ax
+ax
+ax
+dE
+Oq
+ax
+TX
+pr
+ax
+Ix
+ep
+ep
+ep
+pL
+pL
+gX
+pL
+pL
+Ts
+"}
+(17,1,1) = {"
+bL
+fd
+ax
+Rh
+Rh
+Rh
+Rh
+Rh
+tb
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+tb
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+tb
+Rh
+Rh
+ax
+Ix
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+tW
+"}
+(18,1,1) = {"
+EY
+fd
+VP
+Rh
+vE
+Rh
+Rh
+Rh
+Rh
+Rh
+vE
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+vE
+Rh
+Rh
+Rh
+Rh
+vE
+Rh
+Rh
+Rh
+ax
+Ix
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+tW
+"}
+(19,1,1) = {"
+uU
+fd
+ax
+Rh
+Rh
+Rh
+Rh
+fP
+KB
+mf
+Rh
+Rh
+Rh
+Rh
+Rh
+QX
+KB
+mf
+Rh
+QX
+oe
+mf
+Rh
+Rh
+Rh
+Rh
+VP
+Ix
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+tW
+"}
+(20,1,1) = {"
+uU
+fd
+ax
+Rh
+Rh
+Rh
+ax
+ax
+ax
+ax
+ax
+If
+If
+If
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Rh
+Rh
+Rh
+ax
+uA
+km
+km
+km
+OY
+km
+km
+km
+km
+Ts
+"}
+(21,1,1) = {"
+ci
+fd
+wB
+Rh
+Rh
+Rh
+ax
+kY
+wi
+Yu
+ax
+KF
+GQ
+GQ
+GQ
+nX
+If
+ax
+au
+VB
+au
+Jk
+ax
+Rh
+Rh
+Rh
+ax
+uA
+uA
+uA
+uA
+uA
+uA
+uA
+uA
+uA
+Ts
+"}
+(22,1,1) = {"
+of
+fd
+wB
+Rh
+Rh
+Pz
+ax
+Rh
+Rh
+Yu
+ax
+OP
+GQ
+va
+GQ
+GQ
+ZZ
+ax
+au
+LK
+LK
+LK
+Uw
+Rh
+Rh
+Pz
+ax
+ax
+ax
+lR
+lR
+lR
+ax
+ax
+ax
+uA
+Ts
+"}
+(23,1,1) = {"
+JZ
+fd
+wB
+Rh
+Rh
+Rh
+ax
+Rh
+fW
+Hc
+ax
+pk
+GQ
+GQ
+oB
+GQ
+GQ
+ax
+au
+LK
+LK
+au
+ax
+Rh
+vE
+Rh
+ax
+GQ
+zY
+GQ
+GQ
+GQ
+zY
+GQ
+ax
+uA
+Ts
+"}
+(24,1,1) = {"
+sd
+fd
+ax
+Rh
+Rh
+Rh
+ax
+Rh
+Rh
+bu
+ax
+ax
+Gb
+ax
+ax
+ax
+ax
+ax
+au
+LK
+LK
+au
+ax
+Rh
+Rh
+Rh
+vI
+GQ
+kh
+GQ
+kh
+GQ
+kh
+GQ
+lR
+uA
+Ts
+"}
+(25,1,1) = {"
+uU
+fd
+ax
+Rh
+Rh
+vE
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+tb
+Rh
+ax
+ax
+hh
+hh
+ax
+ax
+Rh
+Rh
+Rh
+ax
+GQ
+GQ
+GQ
+GQ
+GQ
+GQ
+GQ
+lR
+uA
+Ts
+"}
+(26,1,1) = {"
+tg
+fd
+ax
+py
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+tr
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+cF
+Rh
+zR
+GQ
+GQ
+GQ
+va
+GQ
+GQ
+GQ
+lR
+uA
+ir
+"}
+(27,1,1) = {"
+sd
+fd
+ax
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+vE
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+ax
+GQ
+GQ
+GQ
+GQ
+GQ
+GQ
+GQ
+lR
+uA
+Ts
+"}
+(28,1,1) = {"
+uU
+fd
+ax
+Rh
+Rh
+Rh
+ax
+jc
+vK
+Yb
+ax
+HS
+ay
+HS
+GF
+HS
+GF
+ax
+Rh
+Rh
+Vn
+Rh
+Rh
+Rh
+vE
+Rh
+vI
+aS
+yU
+XQ
+aS
+JM
+XQ
+GQ
+lR
+uA
+Ts
+"}
+(29,1,1) = {"
+tg
+fd
+wB
+Rh
+Rh
+Rh
+ax
+ax
+ax
+ax
+ax
+ax
+Os
+ax
+ax
+ax
+Os
+ax
+ax
+ax
+ax
+ax
+ax
+Rh
+Rh
+Rh
+ax
+hl
+Yk
+Jz
+hl
+Id
+Kw
+GQ
+ax
+uA
+Ts
+"}
+(30,1,1) = {"
+NN
+fd
+wB
+Rh
+Rh
+Rh
+ax
+CO
+ax
+GQ
+zY
+gT
+sF
+gT
+ax
+gT
+sF
+gT
+zY
+GQ
+ax
+CO
+ax
+ax
+DT
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+uA
+Ts
+"}
+(31,1,1) = {"
+uU
+fd
+ax
+Rh
+Rh
+Rh
+ax
+oP
+iV
+GQ
+GQ
+GQ
+GQ
+eJ
+ax
+OP
+GQ
+GQ
+GQ
+GQ
+iV
+tv
+ax
+cd
+cd
+cd
+ax
+Ci
+GQ
+hF
+Wl
+ax
+jb
+cy
+ax
+uA
+Ts
+"}
+(32,1,1) = {"
+JZ
+fd
+VP
+Rh
+vE
+Pz
+ax
+WI
+ax
+GQ
+GQ
+Px
+MC
+Px
+ax
+Px
+MC
+Px
+GQ
+GQ
+ax
+WI
+ax
+cd
+cd
+cd
+vI
+Rq
+GQ
+lo
+Aq
+ax
+bD
+Bf
+ax
+uA
+Ts
+"}
+(33,1,1) = {"
+of
+fd
+ax
+Rh
+Rh
+Rh
+ax
+ax
+ax
+GQ
+va
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+GQ
+GQ
+ax
+ax
+ax
+cd
+cd
+cd
+vI
+Rq
+GQ
+lo
+mA
+ax
+KD
+pr
+ax
+uA
+Ts
+"}
+(34,1,1) = {"
+qF
+fd
+wB
+Rh
+Rh
+Rh
+ax
+Wl
+hF
+GQ
+GQ
+WN
+GQ
+Dy
+ax
+Dy
+GQ
+Th
+GQ
+va
+hF
+Wl
+ax
+hq
+cd
+cd
+ax
+eG
+GQ
+GQ
+GQ
+GQ
+GQ
+GQ
+ax
+uA
+ir
+"}
+(35,1,1) = {"
+JZ
+fd
+wB
+Rh
+Rh
+Rh
+ax
+oY
+lo
+GQ
+GQ
+dL
+GQ
+aR
+ax
+AU
+GQ
+UB
+GQ
+GQ
+lo
+Aq
+ax
+cd
+ie
+cd
+QG
+GQ
+GQ
+GQ
+va
+GQ
+GQ
+GQ
+vI
+uA
+Ts
+"}
+(36,1,1) = {"
+sd
+fd
+ax
+Rh
+Rh
+Rh
+ax
+mA
+lo
+GQ
+GQ
+GQ
+GQ
+GQ
+ax
+GQ
+GQ
+GQ
+GQ
+GQ
+lo
+mA
+ax
+cd
+cd
+cd
+ax
+GQ
+GQ
+GQ
+GQ
+GQ
+GQ
+GQ
+vI
+uA
+Ts
+"}
+(37,1,1) = {"
+uU
+fd
+ax
+ax
+OX
+ax
+ax
+ax
+ax
+zA
+ax
+wB
+wB
+ax
+ax
+ax
+wB
+wB
+ax
+fS
+ax
+ax
+ax
+cd
+cd
+cd
+ax
+MC
+Px
+Px
+MC
+gT
+Xv
+gT
+ax
+uA
+Ts
+"}
+(38,1,1) = {"
+bL
+fd
+ax
+cd
+cd
+cd
+IV
+qx
+xR
+cd
+cd
+cd
+cd
+yA
+qx
+xR
+cd
+cd
+cd
+cd
+cd
+qx
+xR
+cd
+cd
+Ex
+ax
+ax
+ax
+ax
+ax
+ax
+pr
+ax
+ax
+uA
+Ts
+"}
+(39,1,1) = {"
+NN
+fd
+ax
+hq
+ie
+cd
+cd
+cd
+cd
+ie
+cd
+cd
+cd
+cd
+cd
+cd
+ie
+cd
+cd
+cd
+cd
+cd
+ie
+cd
+cd
+cd
+ax
+Ci
+GQ
+hF
+Wl
+ax
+jb
+cy
+ax
+uA
+Ts
+"}
+(40,1,1) = {"
+uU
+fd
+ax
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+sk
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+vI
+Rq
+GQ
+lo
+Aq
+ax
+bD
+Bf
+ax
+uA
+Ts
+"}
+(41,1,1) = {"
+tg
+fd
+ax
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+fQ
+XI
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Bk
+it
+cd
+cd
+cd
+cd
+vI
+Rq
+GQ
+lo
+mA
+ax
+KD
+pr
+ax
+uA
+Ts
+"}
+(42,1,1) = {"
+NN
+fd
+ax
+cd
+Xe
+Xe
+Xe
+Xe
+cd
+cd
+cd
+On
+Xe
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Xe
+nM
+cd
+cd
+AG
+cd
+ax
+eG
+GQ
+GQ
+GQ
+GQ
+GQ
+GQ
+ax
+uA
+ir
+"}
+(43,1,1) = {"
+uU
+fd
+ax
+ie
+Xe
+Xe
+Ec
+PA
+cd
+cd
+cd
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+cd
+cd
+ie
+cd
+Ig
+GQ
+GQ
+GQ
+va
+GQ
+GQ
+GQ
+vI
+uA
+Ts
+"}
+(44,1,1) = {"
+tg
+bY
+ax
+cd
+Xe
+Xe
+qE
+UM
+cd
+ie
+cd
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+cd
+cd
+cd
+cd
+ax
+GQ
+GQ
+GQ
+GQ
+GQ
+GQ
+GQ
+vI
+uA
+Ts
+"}
+(45,1,1) = {"
+NN
+fd
+ax
+cd
+Xe
+Xe
+Xe
+Xe
+cd
+cd
+cd
+uX
+Xe
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Xe
+pV
+cd
+cd
+cd
+cd
+ax
+MC
+wc
+wc
+MC
+gT
+Xv
+gT
+ax
+uA
+Ts
+"}
+(46,1,1) = {"
+uU
+fd
+ax
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+it
+dV
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Qm
+fQ
+cd
+cd
+cd
+Ex
+ax
+ax
+ax
+ax
+ax
+ax
+pr
+ax
+ax
+uA
+Ts
+"}
+(47,1,1) = {"
+tg
+fd
+ax
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+cd
+ax
+Ci
+GQ
+hF
+Wl
+ax
+jb
+cy
+ax
+uA
+Ts
+"}
+(48,1,1) = {"
+NN
+fd
+ax
+hq
+ie
+cd
+cd
+cd
+cd
+ie
+AG
+cd
+cd
+cd
+cd
+cd
+ie
+cd
+cd
+cd
+cd
+cd
+ie
+cd
+cd
+cd
+vI
+Rq
+GQ
+lo
+Aq
+ax
+bD
+Bf
+ax
+uA
+Ts
+"}
+(49,1,1) = {"
+uU
+fd
+ax
+cd
+cd
+cd
+yA
+ps
+xR
+cd
+cd
+cd
+cd
+yA
+ps
+xR
+cd
+cd
+cd
+cd
+IV
+ps
+xR
+cd
+cd
+cd
+vI
+Rq
+GQ
+lo
+mA
+ax
+KD
+pr
+ax
+uA
+Ts
+"}
+(50,1,1) = {"
+tg
+fd
+ax
+ax
+CK
+ax
+ax
+ax
+ax
+wG
+ax
+wB
+wB
+ax
+ax
+ax
+wB
+wB
+ax
+us
+ax
+ax
+ax
+cd
+cd
+cd
+ax
+eG
+GQ
+GQ
+GQ
+GQ
+GQ
+GQ
+ax
+uA
+Ts
+"}
+(51,1,1) = {"
+NN
+fd
+ax
+kp
+jm
+qI
+ax
+mA
+lo
+GQ
+GQ
+GQ
+GQ
+GQ
+ax
+GQ
+GQ
+GQ
+GQ
+GQ
+lo
+mA
+ax
+cd
+ie
+cd
+jK
+GQ
+GQ
+GQ
+va
+GQ
+GQ
+GQ
+vI
+uA
+Ts
+"}
+(52,1,1) = {"
+uU
+fd
+wB
+kp
+jm
+QH
+ax
+oY
+lo
+GQ
+GQ
+WN
+GQ
+wn
+ax
+jr
+GQ
+Th
+GQ
+GQ
+lo
+Aq
+ax
+cd
+cd
+cd
+ax
+GQ
+GQ
+GQ
+GQ
+GQ
+GQ
+GQ
+vI
+uA
+Ts
+"}
+(53,1,1) = {"
+ci
+fd
+wB
+jm
+jm
+uI
+ax
+Wl
+zP
+GQ
+GQ
+dL
+GQ
+Rq
+ax
+Rq
+GQ
+UB
+GQ
+va
+zP
+Wl
+ax
+cd
+cd
+cd
+ax
+MC
+Px
+Px
+MC
+gT
+Xv
+gT
+ax
+uA
+Ts
+"}
+(54,1,1) = {"
+JZ
+fd
+wB
+jm
+ee
+nQ
+ax
+ax
+ax
+GQ
+va
+ax
+Os
+ax
+ax
+ax
+Os
+ax
+GQ
+GQ
+ax
+ax
+ax
+hq
+cd
+cd
+ax
+ax
+ax
+ax
+ax
+ax
+pr
+ax
+ax
+uA
+Ts
+"}
+(55,1,1) = {"
+of
+fd
+ax
+mM
+jm
+uI
+ax
+cy
+ax
+GQ
+GQ
+gT
+sF
+gT
+ax
+gT
+sF
+gT
+GQ
+GQ
+ax
+cy
+ax
+cd
+cd
+cd
+ax
+Rh
+Rh
+Rh
+QE
+Rh
+Rh
+Rh
+ax
+uA
+Ts
+"}
+(56,1,1) = {"
+JZ
+fd
+vG
+jm
+jm
+PN
+ax
+oP
+iV
+GQ
+GQ
+GQ
+GQ
+eJ
+ax
+OP
+GQ
+GQ
+GQ
+GQ
+iV
+tv
+ax
+cd
+ie
+cd
+OB
+Rh
+Rh
+Rh
+vE
+Rh
+Rh
+Rh
+VP
+uA
+Ts
+"}
+(57,1,1) = {"
+JZ
+fd
+ax
+jm
+pl
+Co
+ax
+We
+ax
+GQ
+jP
+Px
+MC
+Px
+ax
+Px
+MC
+Px
+jP
+GQ
+ax
+We
+ax
+cd
+cd
+cd
+ax
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+ax
+uA
+Ts
+"}
+(58,1,1) = {"
+qF
+fd
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Ym
+ax
+ax
+ax
+wB
+wB
+wB
+wB
+ax
+ax
+ax
+uA
+NO
+"}
+(59,1,1) = {"
+uU
+uU
+JX
+JX
+JX
+JX
+JX
+JX
+JX
+JX
+JX
+nq
+JX
+JX
+JX
+JX
+JX
+nq
+JX
+JX
+JX
+JX
+JX
+JX
+nq
+JX
+JX
+JX
+JX
+JX
+JX
+nq
+JX
+JX
+JX
+ep
+tW
+"}
+(60,1,1) = {"
+uU
+uU
+ep
+ep
+MU
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+tW
+"}
+(61,1,1) = {"
+ZO
+uU
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+ep
+tW
+"}
+(62,1,1) = {"
+uU
+uU
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+om
+ep
+tW
+"}

@@ -1,86 +1,118 @@
-/datum/codex_entry/tg_faction
-	display_name = "Terran Government (faction)"
-	lore_text = "The Terran Government, known informally as the TG, is a militaristic type of democracy, requiring military service and bolstering a \
-	a large, generally capable navy.<br><br> The Terran Government traces back to the Intercelestial Space Authority, an organization created to legislate \
-	and enforce Space Law, which over time amassed more influence until eventually managing to absorb most of the UN, leading to the modern-day government. \
-	The Terran Government is the largest human authority in space, currently fighting a war against the ICC, one that has however been put on delay due to \
-	other threats. The TG has suffered several losses at the hands of the ''xenos'', and it remains to be seen whether they can take them and the ICC on or not."
-	mechanics_text = "11 billion people.<br><br>Standing army of several million troops.<br><br>~600 FTL ships, mainly modern and combat-ready<br><br>\
-	++Largest military in space.<br>\
+/datum/codex_entry/cc_faction
+	display_name = "Corporate Council (factions)"
+	lore_text = "Made up of the few megacorps that reside and own the largest free city on earth, phantom city. \
+	It is made out of Ninetails, ArcherCorp, TransCO, Leone Arms, Kurogane and NovaMed. They all have their own departments that they fulfill in the city. \
+	Ever since, NT has gained the favor of the ISA and TG, allowing them to rapidly expand operations, eventually encompasssing most human space."
+	mechanics_text = "5.000 people.<br><br>Standing army of 3.000.<br><br>~5 FTL ships, modern and combat-ready<br><br>\
+	++Largest military and resources in the known galaxy.<br>\
 	+Good scientific capabilities.<br>\
-	+Possesses GalComs, allowing FTL communication.<br>\
-	-High opposition and unrest in fringe areas.<br>\
-	--Navy is spread out thinly."
-
-/datum/codex_entry/nt_faction
-	display_name = "Ninetails (faction)"
-	lore_text = "Ninetails, known informally as NT, is the largest corporation in human space, with facilities mainly in TG space along with a few \
-	frontier outposts. They focus on phoron research and mining.<br><br> Ninetails was started in in 2057, their main invention back then being a phoron-engine design. \
-	Ever since, NT has gained the favor of the ISA and TG, allowing them to rapidly expand operations, eventually encompasssing most human space. \
-	Despite their generally good PR and wide acclaim, vocal critics of NT indicate their abuses of workers, as well as their controversial production of \
-	vatborns for the military. Despite this, NT is projected to keep growing, even with the TG-ICC war."
-	mechanics_text = "Several million employees.<br><br>Has a few thousand armed security officers.<br><br>~100 FTL ships, mainly non-combatant or escorts<br><br>\
-	++Great scientific capabilities.<br>\
+	+Self-sufficent together.<br>\
 	+Posseses a large amount of influence.<br>\
 	+Makes large amounts of revenue.<br>\
-	--More vocal criticism in recent years."
+	--High opposition and unrest in fringe areas.<br>"
 
-/datum/codex_entry/icc_faction
-	display_name = "Independent Colonial Confederation (faction)"
-	lore_text = "The Independent Colonial Confederation, known informally as the ICC, is an alliance of colonies, habitats and space stations, \
-	which revolted against the Terran Government due to a variety of ideological differences.<br><br> The Confederation's three main planets are Gilgamesh, \
-	known as the diplomatic and governmental center and formed by the two habitat stations that fled Earth orbit, Caelus, formed by Earth nationalists, \
-	a group of free thinkers and middle-class men united in their beliefs against the Terran Government and its authoritarian rule, and Cydonia, \
-	inhabited by descendants of the Sons of Mars, known as the naval, military and engineering powerhouse of the ICC due to its large expertise."
-	mechanics_text = "~110 million people.<br><br>Standing army of 500.000. (SoM troops included)<br><br>275 FTL ships, largely formed of converted ships (SoM ships included)<br><br>\
-	++High military and civilian morale.<br>\
-	+Good engineering capabilites.<br>\
-	+Good defensive/guerilla tactics.<br>\
-	-Largely unable to go on the offensive.<br>\
-	-Ideological and military differences between the SoM and rest of the ICC.<br>\
-	--Very small population and military compared to the Terran Government."
+/datum/codex_entry/nt_faction
+	display_name = "Ninetails (CC subfaction)"
+	lore_text = "Ninetails Corporation is the newest addition to the Corporate Council, formed by Elizabeth Decker, who was in her youth, part of the slums of Phantom city and rose up with dreams \
+	of a better life for all. Ninetails as the name suggests, is a company with several branches, starting by PI (allegedly invasive intelligence gathering methods) to R&D, \
+	to manufacturing high-end consumer goods and even a small military branch. Ninetails is not largest of the Corporate Council but the one with most civilian acceptance due to their \
+	several charitable programs and their focus on the well-being of the people of Phantom City and their own employees. Although it is often taken as a PR campaign by most."
+	mechanics_text = "~1.000 people.<br><br>Standing army of 500.<br><br>1 FTL ship, repurposed out of an old world destroyer<br><br>\
+	++ Loyal employees, mercenaries.<br>\
+	+ R&D capabilities.<br>\
+	+ Vast variety of small equipment.<br>\
+	- Recent disasters and controversies within the colonies shook their reputation and public trust.<br>\
+	-- High opposition and unrest in fringe areas and those who do not believe their honesty.<br>"
+
+/datum/codex_entry/ac_faction
+	display_name = "Archercorp (CC subfaction)"
+	lore_text = "Archercorp is a major player in the Corporate Council, founded by the Archer family pre-war, AC are known for their innovative approaches and strong market presence. They have an oppressive hi-tech and heavy military goods presence, \
+	Their influence falls dead due to their isolationism due to being the only surviving old world faction and living comfortably, untouchably in the only hypertech space station orbiting earth, \
+	Nevertheless, Their sheer old-world hypertech technological knowledge makes them a formidable force within the known galaxy. \
+	Yet their super-automation made them shrink to a small population as most tasks are performed by robots and two hypertech AIs, one for space station, other for ground operations."
+	mechanics_text = "~250 people.<br><br>Standing army of unknown size.<br><br>Fleet information undisclosed.<br><br>\
+	++ Vast knowledge and utilization of old world hypertech.<br>\
+	+ High-tech and heavy military goods presence.<br>\
+	+ Self-sufficent.<br>\
+	-- Dormant and isolationist nature makes them less of an active element."
+
+/datum/codex_entry/kn_faction
+	display_name = "Kurogane Neuro-kinetics (CC subfaction)"
+	lore_text = "Kurogane is a neural-ware and railgun manufacturer, founded by Kaizoku Family and still run by them for about 3 generations. Kurogane was previously named Kaizoku but was renamed due to 'Pirate' being a bad name for a company. \
+	Kurogane is known for their high-end neural-ware and railgun technology, and their military branch is known for their highly trained and over-equipped but fewer soldiers. Kurogane was working with the Syndicate of slums occasionally, \
+	even after their bombing of Corporate District which was directly above the slums."
+	mechanics_text = "~600 people.<br><br>Standing army of 150.<br><br>1 FTL ship, repurposed out of an old world scout vessel<br><br>\
+	++ High-end neural-ware and railgun technology.<br>\
+	+ Highly trained and over-equipped soldiers.<br>\
+	+ Good engineering capabilities.<br>\
+	- Double-Faced secret nature of the company, as they are known to be holding a chair in the Corporate Council but also have underground dealings, often working against the Corporate Council's interests. \
+	-- Small population and military compared to the Corporate Council.<br>"
+
+/datum/codex_entry/tc_faction
+	display_name = "TransCO (CC subfaction)"
+	lore_text = "TransCO is THE logistics and infrastructure company of Phantom City, founded by a group of engineers and entrepreneurs who saw the need for an organised infrastructure for the previously chaotic conditions. It is led by small groups of managers. \
+	Transco manufactures small-scale space craft and all sorts of infrastructure equipment, and is known for their highly efficient logistics and infrastructure solutions. \
+	Transco has a strong presence in the Corporate Council due to their irreplacable services, although their military branch is nonexistent."
+	mechanics_text = "~700 people.<br><br>Standing army of Nothing.<br><br>5 FTL ships, repurposed old world logistics vessels<br><br>\
+	++ Highly efficient logistics and infrastructure solutions.<br>\
+	+ Large FTL fleet albeit unarmed.<br>\
+	+ Good engineering capabilities and skilled engineers.<br>\
+	- Nonexistent military branch.<br>"
+
+/datum/codex_entry/nm_faction
+	display_name = "NovaMed (CC subfaction)"
+	lore_text = "Novamed, formerly 'Biodyne', is the medical and pharmaceutical company of Phantom City, founded by an unknown party initially and changed several chairmans along the way, \
+	During the Quzot war they had a major controversy involving their chairman coming out as a 'Free Scion' (Alien replaced individual purposed to be a spy and weapon but they allegedly were freed from the hivemind.) \
+	Novamed has monopoly over the health industry of Phantom City, and is known for their highly efficient medical and pharmaceutical solutions. Their services are irreplacable in a world where no real doctors are made besides their own. \
+	Novamed is also infamous for their clone army and supersoldier programs, which is still ongoing and has been a topic for the public for a long time."
+	mechanics_text = "~1000 people.<br><br>Standing army of 500.<br><br>1 FTL ship, repurposed old world cargo hauler<br><br>\
+	++ Highly efficient medical and pharmaceutical solutions.<br>\
+	+ Monopoly over the health industry of Phantom City.<br>\
+	- Limited military presence formed out of clone soldiers. \
+	-- Long past controversy involving their ex-chairman and their clone-army program."
+
+
+/datum/codex_entry/la_faction
+	display_name = "Leone Arms (CC subfaction)"
+	lore_text = "Leone Arms is one of the major Arms manufacturer in the very competitive Phantom City arms market, founded by the Leone family and still run by them today.\
+	Leone Arms is known for their high-end ballistic arms of exceptional quality and general military equipment, their military branch is nonexistent. \
+	Leone Arms is one of the oldest corporations but it was originally founded in the 'Kingdom of the North' which is now called 'Frozen City' after monarchy turned into anarchy. They moved into Phantom City later."
+	mechanics_text = "~500 people.<br><br>Standing army of 25.<br><br>No FTL ships.<br><br>\
+	++ High quality ballistic arms and general military equipment.<br>\
+	- Nonexistent military branch.<br>\
+	- Not a major player or have much of an effect in the Corporate Council and the operations out in XF-69.<br>"
+
+/datum/codex_entry/coe_faction
+	display_name = "Cult of Evolution (faction)"
+	lore_text = "The Cult of Evolution, known informally as the CoE, is a religious cult that believes in the evolution of all life forms and that the current state of humanity is not the final form and they must \
+	be ascended via rebirth and servitude towards the hyper-evolved lifeforms known as xenomorphs. The CoE is considered a terrorist cell within the XF-69 planet and they are a massive headache for any opposition \
+	as they are often indistinguishable from civilians and they are known to have several sleeper cells within the colonies, often bringing them to their doom via sabotage and preparing better ground for xenomorph infestation."
+	mechanics_text = "Population unknown.<br><br>Standing army unknown.<br><br>Naval holdings unknown.<br><br>\
+	++ Xenomorph alliance.\
+	+ Infiltration and sabotage capabilities.\
+	- Underequipped and untrained soldiers.\
+	-- Small population that suffers more by sacrifice to xenomorphs when necessary."
 
 /datum/codex_entry/som_faction
 	display_name = "Sons of Mars (faction)"
-	lore_text = "The Sons of Mars, known informally as the SoM, is an organized government with major holdings in the ICC space, \
-	tracing its roots back being to a major rebellion on Mars.<br><br> The Sons of Mars center of operations is on Cydonia, a planet inhabited by \
-	descendants and survivors of the Martian rioters, fueled by their collective hatred of the Terran Government. Their expertise in engineering \
-	allowed them to build space stations, habitats and small colonies in nearby areas, making them the naval powerhouse of the ICC."
-	mechanics_text = "~40 million people.<br><br>Standing army of 200.000.<br><br>150 FTL ships, largely formed of converted ships<br><br>\
+	lore_text = "The Sons of Mars, known informally as the SoM, is an organized government with holdings over mars, \
+	tracing its roots back being to a major rebellion on Mars.<br><br> The Sons of Mars center of operations is on Mars, \
+	fueled by their collective hatred of the Corpo Dystopian government. Their expertise in engineering and survival \
+	allowed them to thrive in harsh conditions in mars while others can not."
+	mechanics_text = "~1.250 people.<br><br>Standing army of 500.<br><br>2 FTL ships, largely formed of converted ships<br><br>\
 	++High military and civilian morale.<br>\
-	++Large shipyard capacity.<br>\
+	+High harsh environment survival capabilities.<br>\
 	+Good engineering capabilites.<br>\
-	+Good defensive/guerilla tactics.<br>\
-	-Largely unable to go on the offensive.<br>\
-	-Ideological and military differences between the SoM and rest of the ICC.<br>\
-	--Very small population and military compared to the Terran Government."
+	-Chaotic governing and people of different ideologies.<br>\
+	--Very small population and military compared to the Corporate Council."
 
 /datum/codex_entry/xeno_faction
 	display_name = "Xenomorphs (faction)"
 	lore_text = "The Xenomorphs, known informally as Xenos, are a mysterious insectoid race that are extremely aggressive towards any other forms of life.<br><br> \
-	The first Xenomorph ships were reported around the 2320's, however no contact was made with them and they soon disappeared. However, in 2414, a lost colony \
-	ship appeared in the Sol system, which was found out to contain Xenos, and inflicted massive damages on both the TG fleet and nearby colonies, these being \
-	followed up by attacks on TG frontier colonies. Combat analysis has suggested that Xenomorphs work in a caste system, and that they are weaker to fire."
+	They were first encountered when humans nearly finished colonising the planet and were met with a hostile force of Xenos that woke up when the drills first started going."
 	mechanics_text = "Population unknown.<br><br>Combat-capable xenos unknown.<br><br>Naval holdings unknown.<br><br>\
 	++Capable of rapid reproduction.<br>\
 	+Organized in a caste system.<br>\
 	+Capable of nesting.<br>\
 	+Diverse specimens.<br>\
 	--Very weak to fire."
-
-/datum/codex_entry/Zippy_faction
-	display_name = "Zippy pizza (faction)"
-	lore_text = "A LLC company specializing in production and delivery of pizza, Zippy Pizza was founded in 2407 when John Zippy, \
-	an eccentric billionare who had made his fortune in the food service industry, saw the ICC starship Far Horizon up for auction. Purchasing the \
-	ship for near $400,000,000 was pricy, but refitting it and saving it from the scrapyard cost a similar amount. Once the refit was finished, \
-	he had a private starship of his own, the only one in existence, which he then used to travel the stars. As a throwback to his early days, \
-	he began running a pizza business out of the Horizon as an excuse. No one was more suprised than he was when it actually began to turn a profit! \
-	<br><br> John Zippy died after only 5 years from old age, but Zippy Pizza and the Far Horizon still carry on his legacy as the only \
-	interstellar-capable pizza company in existence, somehow managing to make something pay that shouldn't be possible."
-	mechanics_text = "~1,500 people.<br><br>Standing army of 0.<br><br>1 FTL ship, the ICC Far Horizon. 4 medium-range shuttles<br><br>\
-	++The furthest range of ANY pizza company.<br>\
-	+Decent pizza, too!<br>\
-	+Privately owned starship.<br>\
-	-How the HELL are they making a profit?<br>\
-	-No combat capability whatsoever<br>\
-	--Will get tips by hook or by crook."

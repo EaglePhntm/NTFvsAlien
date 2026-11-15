@@ -157,7 +157,7 @@
 
 //Bugfix to handle cases for ghosts/observers that dont automatically close uis on move.
 /obj/machinery/cic_maptable/proc/on_move(mob/dead/observer/source, oldloc)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	if(!istype(source))
 		CRASH("on_move called by non observer")
 	if(Adjacent(source))
@@ -167,7 +167,7 @@
 
 ///Updates the z-level this maptable views
 /obj/machinery/cic_maptable/proc/change_targeted_z(datum/source, new_z)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	if(!isnum(new_z))
 		return
 	var/list/old_interactors = interactees.Copy()

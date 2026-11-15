@@ -1010,7 +1010,7 @@
 
 /obj/item/clothing/suit/storage/marine/vsd
 	name = "\improper Crasher MT-L/43 ballistic armor"
-	desc = "The Kaizoku Corporation's main body armor. Protects the user from most bullet calibers."
+	desc = "The Kurogane Neuro-Kinetics's main body armor. Protects the user from most bullet calibers."
 	icon = 'icons/mob/clothing/suits/ert_suits.dmi'
 	worn_icon_list = list(
 		slot_wear_suit_str = 'icons/mob/clothing/suits/ert_suits.dmi',
@@ -1039,7 +1039,7 @@
 
 /obj/item/clothing/suit/storage/marine/vsd/marmor
 	name = "\improper Crasher MT-M/43 ballistic armor"
-	desc = "The Kaizoku Corporation's uncommon use body armor, used usually by engineers. Protects the user from most bullet calibers."
+	desc = "The Kurogane Neuro-Kinetics's uncommon use body armor, used usually by engineers. Protects the user from most bullet calibers."
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
 	icon_state = "vsd_armor_medium"
 	worn_icon_state = "vsd_armor_medium"
@@ -1058,7 +1058,7 @@
 /obj/item/clothing/suit/storage/marine/vsd/harmor
 	name = "\improper Crasher MT-H/43 powered ballistic armor"
 	icon = 'icons/mob/clothing/suits/ert_suits.dmi'
-	desc = "The Kaizoku Corporation's heavy armor, rarely given to the grunts. Protects the user from most bullet calibers."
+	desc = "The Kurogane Neuro-Kinetics's heavy armor, rarely given to the grunts. Protects the user from most bullet calibers."
 	slowdown = SLOWDOWN_ARMOR_HEAVY
 	icon_state = "vsd_armor_heavy"
 	worn_icon_state = "vsd_armor_heavy"
@@ -1071,7 +1071,7 @@
 
 /obj/item/clothing/suit/storage/marine/vsd/juggernaut
 	name = "\improper Crasher MT-H/43 'Ares' powered ballistic armor"
-	desc = "The Kaizoku Corporation's juggernaut set, given to the best and trusted veterans. Protects the user from almost all bullet calibers."
+	desc = "The Kurogane Neuro-Kinetics's juggernaut set, given to the best and trusted veterans. Protects the user from almost all bullet calibers."
 	icon = 'icons/mob/clothing/suits/ert_suits.dmi'
 	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
 	stamina_regen_mod = -0.2
@@ -1087,7 +1087,7 @@
 
 /obj/item/clothing/suit/storage/marine/vsd/eod
 	name = "\improper Crasher MT-H/43 'Zeus' powered explosive-defensive armor"
-	desc = "The Kaizoku Corporation's EOD-based armor, protects the user from most threats and heavily protects them against explosives."
+	desc = "The Kurogane Neuro-Kinetics's EOD-based armor, protects the user from most threats and heavily protects them against explosives."
 	icon = 'icons/mob/clothing/suits/ert_suits.dmi'
 	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
 	stamina_regen_mod = -0.2
@@ -1097,7 +1097,7 @@
 
 /obj/item/clothing/suit/storage/marine/vsd/flamer
 	name = "\improper Crasher MT-H/43 'Apollo' powered fire-protected armor"
-	desc = "The Kaizoku Corporation's flamer armor, protects the user from most threats and suits them against fire and heat."
+	desc = "The Kurogane Neuro-Kinetics's flamer armor, protects the user from most threats and suits them against fire and heat."
 	icon = 'icons/mob/clothing/suits/ert_suits.dmi'
 	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
 	stamina_regen_mod = -0.2

@@ -204,7 +204,7 @@
 		/obj/structure/largecrate/supply/medicine/medkits = 6,
 		/obj/structure/largecrate/supply/medicine/blood = 2,
 		/obj/structure/largecrate/supply/medicine/iv = 2,
-		/obj/structure/largecrate/supply/medicine/medivend = 1,
+		/obj/structure/largecrate/supply/medicine/novamed = 1,
 	)
 
 /obj/effect/spawner/random/medical/structure/crate/medsupplies/alwaysspawns

@@ -28,7 +28,6 @@
 		/datum/job/survivor/synth = 1,
 		/datum/job/survivor/bartender = 1,
 		/datum/job/survivor/chemist = 1,
-		/datum/job/survivor/roboticist = 1,
 		/datum/job/clf/traitor = 3,
 		/datum/job/xenomorph = 2,//two so they dont wipe by a mistake or maybe duo.
 	)

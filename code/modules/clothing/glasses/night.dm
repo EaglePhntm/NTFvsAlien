@@ -225,7 +225,7 @@
 
 /obj/item/clothing/glasses/night_vision/vsd
 	name = "\improper CM-12 night vision goggles"
-	desc = "KZ's night vision goggles, For the extra tacticool feel, Crash Core and your superior officers are not responsible for blindness and burning."
+	desc = "KN's night vision goggles, For the extra tacticool feel, Crash Core and your superior officers are not responsible for blindness and burning."
 	icon = 'icons/mob/clothing/eyes.dmi'
 	icon_state = "vsd_nvg"
 	worn_icon_state = "vsd_nvg"

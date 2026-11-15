@@ -12,7 +12,7 @@
 	"ntf_modular/sound/music/war_mode/adminmusic/Red_Alert_3/Hell_March_3.ogg"\
 )
 
-#define KAIZOKU_MUSIC_LIST list(\
+#define KUROGANE_MUSIC_LIST list(\
 	"ntf_modular/sound/music/war_mode/adminmusic/Red_Alert_3/Japan_Combat_1.ogg",\
 	"ntf_modular/sound/music/war_mode/adminmusic/Red_Alert_3/Japan_Combat_2.ogg"\
 )
@@ -33,7 +33,7 @@ ADMIN_VERB(play_warmode_action_music, R_FUN, "Quick-play War Music to Factions",
 	var/sound/sound_path
 	var/ntmusic = pick(NTC_MUSIC_LIST)
 	var/sommusic = pick(SOM_MUSIC_LIST)
-	var/kaimusic = pick(KAIZOKU_MUSIC_LIST)
+	var/kaimusic = pick(KUROGANE_MUSIC_LIST)
 	var/xenomusic = pick(XENO_MUSIC_LIST)
 	for(var/mob/M AS in GLOB.alive_living_list)
 		if(!M.client)

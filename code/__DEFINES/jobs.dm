@@ -128,13 +128,13 @@
 #define SOM_SQUAD_SLUT "SOM Squad Slut"
 
 // VSD
-#define VSD_STANDARD "KZ Standard"
-#define VSD_ENGINEER "KZ Engineer"
-#define VSD_MEDIC "KZ Medic"
-#define VSD_SPECIALIST "KZ Specialist"
-#define VSD_ESCORT "KZ Combat Escort"
-#define VSD_SYNTHETIC "KZ Synthetic"
-#define VSD_LEADER "KZ Squad Leader"
+#define VSD_STANDARD "KN Standard"
+#define VSD_ENGINEER "KN Engineer"
+#define VSD_MEDIC "KN Medic"
+#define VSD_SPECIALIST "KN Specialist"
+#define VSD_ESCORT "KN Combat Escort"
+#define VSD_SYNTHETIC "KN Synthetic"
+#define VSD_LEADER "KN Squad Leader"
 
 #define JOB_CAT_COMMAND "Command"
 #define JOB_CAT_SILICON "Silicon"
@@ -146,7 +146,7 @@
 #define JOB_CAT_XENO "Xenomorph"
 #define JOB_CAT_UNASSIGNED "Unassigned"
 #define JOB_CAT_PMC "ArcherCorp Asset Protection"
-#define JOB_CAT_VSD "Kaizoku Corporation"
+#define JOB_CAT_VSD "Kurogane Neuro-Kinetics"
 #define JOB_CAT_CLF "Cult of Evolution"
 #define JOB_CAT_ICC "Colonial Militia"
 #define JOB_CAT_SURVIVOR "Colonist"
@@ -184,10 +184,10 @@ MEDICAL_DOCTOR, MEDICAL_RESEARCHER, SQUAD_LEADER, SQUAD_SPECIALIST, SQUAD_SMARTG
 SOM_SQUAD_SLUT, SOM_SQUAD_MARINE, SOM_SQUAD_VETERAN, SOM_SQUAD_ENGINEER, SOM_SQUAD_CORPSMAN, SOM_SQUAD_LEADER, SOM_CHEF, SOM_MEDICAL_DOCTOR, SOM_TECH, SOM_CHIEF_MEDICAL_OFFICER, SOM_CHIEF_ENGINEER, SOM_REQUISITIONS_OFFICER, SOM_MECH_PILOT, SOM_PILOT_OFFICER, SOM_ASSAULT_CREWMAN, SOM_FIELD_COMMANDER, SOM_STAFF_OFFICER, SOM_COMMANDER, \
 PMC_MEDIC, PMC_ENGINEER, PMC_GUNNER, PMC_STANDARD, PMC_SNIPER, PMC_LEADER,\
 "Cult Offering", "Cultist", "Cultist Mender", "Cultist Champion", "Cult Synthetic", "Cultist Sect Leader", "Cultist Technomancer",\
-"KZ Standard", "KZ Engineer", "KZ Medic", "KZ Specialist", "KZ Combat Escort", "KZ Synthetic", "KZ Ripperdoc", "KZ Squad Leader",\
+"KN Standard", "KN Engineer", "KN Medic", "KN Specialist", "KN Combat Escort", "KN Synthetic", "KN Ripperdoc", "KN Squad Leader",\
 "CM Standard", "CM Medic", "CM Guardsman", "CM Squad Leader", "CM Base Technician",\
 "Prisoner", "SOM Prisoner", "Cult Prisoner",\
-"Morale Officer", "Worker", "Archercorp Liaison", "Novamed Liaison", "TRANSCo Liaison", "Kaizoku Liaison", "Colonial Militia Representative", "Cult Representative", "Sons of Mars Representative", "Cult Messiah", "CM Commander", "CM Militia Captain", "CM Colony Administrator"))
+"Morale Officer", "Worker", "Archercorp Liaison", "Novamed Liaison", "TRANSCo Liaison", "Kurogane Liaison", "Colonial Militia Representative", "Cult Representative", "Sons of Mars Representative", "Cult Messiah", "CM Commander", "CM Militia Captain", "CM Colony Administrator"))
 
 GLOBAL_LIST_INIT(jobs_xenos, list(ROLE_XENOMORPH, ROLE_XENO_QUEEN, ROLE_XENO_HUGGER))
 GLOBAL_LIST_INIT(jobs_fallen_marine, typecacheof(list(/datum/job/fallen/marine), TRUE))

@@ -14,11 +14,11 @@
 	cost = 3300
 
 /datum/supply_packs/clothing/cm13nvg
-	name = "CM-13 KZ night vision goggles"
+	name = "CM-13 KN night vision goggles"
 	contains = list(/obj/item/clothing/glasses/night/m56_goggles/vsd)
 	cost = 1100
 
 /datum/supply_packs/clothing/cm13nvgalt
-	name = "CM-13 KZ night vision faceplate"
+	name = "CM-13 KN night vision faceplate"
 	contains = list(/obj/item/clothing/glasses/night/m56_goggles/vsd/alt)
 	cost = 1100

@@ -1,3 +1,5 @@
+//shit made up by vide noir like many other things here.
+
 /obj/item/clothing/suit/resin_bodysuit
 	name = "living resin bodysuit"
 	desc = "Living mass of tentacles pretty much, yuck. This might be removed with fire."

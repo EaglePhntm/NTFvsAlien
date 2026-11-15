@@ -91,6 +91,17 @@
 	health = 200
 	maxHealth = 200
 
+/mob/living/simple_animal/cat/salem
+	name = "Salem"
+	desc = "A judgemental looking cat currently being 'fostered' by the Church of Evolution. Nobody is really sure exactly when she showed up or where she came from, and whenever the question is asked, it gets nowhere."
+	icon_state = "catcult"
+	icon_living = "catcult"
+	icon_dead = "catcult_dead"
+	gender = FEMALE
+	health = 666
+	maxHealth = 666
+
+
 
 /mob/living/simple_animal/cat/martin/martina
 	name = "Martina"

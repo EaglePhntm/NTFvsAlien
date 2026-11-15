@@ -30,7 +30,7 @@
 		leader = H
 		var/datum/job/J = SSjob.GetJobType(/datum/job/vsd/leader)
 		H.apply_assigned_role_to_spawn(J)
-		to_chat(H, "<p style='font-size:1.5em'><span class='notice'>You are the leader of the Kaizoku 'Death Squad' group. Lead your men to victory, leave no trace. Hoorah!</notice></p>")
+		to_chat(H, "<p style='font-size:1.5em'><span class='notice'>You are the leader of the Kurogane 'Death Squad' group. Lead your men to victory, leave no trace. Hoorah!</notice></p>")
 		return
 
 	if(medics < max_medics)
@@ -49,4 +49,4 @@
 
 	var/datum/job/J = SSjob.GetJobType(/datum/job/vsd/standard)
 	H.apply_assigned_role_to_spawn(J)
-	to_chat(H, "<p style='font-size:1.5em'><span class='notice'>You are a trained Kaizoku operative. You are no disposable. You are trained in every way possible to counter NTF's weaponries. We will not accept any casualties here. Good luck grunt, Hoorah!</notice></p>")
+	to_chat(H, "<p style='font-size:1.5em'><span class='notice'>You are a trained Kurogane operative. You are no disposable. You are trained in every way possible to counter NTF's weaponries. We will not accept any casualties here. Good luck grunt, Hoorah!</notice></p>")

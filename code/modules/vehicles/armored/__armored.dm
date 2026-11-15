@@ -379,8 +379,10 @@
 	if(isobserver(entering_mob))
 		interior?.mob_enter(entering_mob)
 		return FALSE
+	/*
 	if(!ishuman(entering_mob))
 		return FALSE
+	*/
 	if(entering_mob.skills.getRating(SKILL_LARGE_VEHICLE) < required_entry_skill)
 		return FALSE
 	if(!loc_override && !(entering_mob.loc in enter_locations(entering_mob)))
@@ -502,9 +504,12 @@
 			if(proj.ammo.sound_bounce)
 				playsound(loc, proj.ammo.sound_bounce, 15, TRUE, 7, 5, pitch)
 			do_sparks(rand(1,2), TRUE, loc)
+			var/old_bonus_projectile_type = proj.ammo.bonus_projectiles_type
 			proj.ammo.bonus_projectiles_type = proj.ammo.type
 			proj.proj_max_range /= rand(2,3)
-			proj.ammo.reflect(get_turf(src), proj, 90)
+			ASYNC
+				proj.ammo.reflect(get_turf(src), proj, 90)
+			proj.ammo.bonus_projectiles_type = old_bonus_projectile_type
 			proj.proj_max_range = 0 //kill original proj
 			return FALSE
 	if(src == proj.original_target)

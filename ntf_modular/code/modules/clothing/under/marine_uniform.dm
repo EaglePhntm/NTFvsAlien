@@ -225,3 +225,21 @@
 	desc = "Surplus blue tactical booty shorts."
 	icon_state = "shortsblue"
 	shows_top_genital = TRUE
+
+/obj/item/clothing/under/dress/apron
+	name = "apron dress"
+	desc = "A stylish apron dress intended to be worn over a shirt, there are white, subtle seams almost resembling a web."
+	icon = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi'
+	worn_icon_list = list(
+		slot_w_uniform_str = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi',
+	)
+	icon_state = "alex_aprondress"
+
+/obj/item/clothing/under/dress/qipao
+	name = "dark blue qipao dress"
+	desc = "A stylish qipao with dark blue aquamarine markings, suggesting ties to old history."
+	icon = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi'
+	worn_icon_list = list(
+		slot_w_uniform_str = 'ntf_modular/icons/obj/clothing/uniforms/uniforms.dmi',
+	)
+	icon_state = "taiwan_qipaodress"

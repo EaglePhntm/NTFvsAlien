@@ -6,7 +6,7 @@
 
 	id = /obj/item/card/id/silver
 	ears = /obj/item/radio/headset/mainship/vsd
-	glasses = /obj/item/clothing/glasses/mgoggles/kz
+	glasses = /obj/item/clothing/glasses/mgoggles/kn
 	w_uniform = /obj/item/clothing/under/vsd/webbing
 	shoes = /obj/item/clothing/shoes/marine/vsd/full
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd
@@ -69,7 +69,7 @@
 
 /datum/outfit/job/vsd/standard/ksg
 	w_uniform = /obj/item/clothing/under/vsd/shirt/webbing
-	glasses = /obj/item/clothing/glasses/mgoggles/kz/alt
+	glasses = /obj/item/clothing/glasses/mgoggles/kn/alt
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/marmor
 	suit_store = /obj/item/weapon/gun/shotgun/pump/ksg/standard
 	l_pocket = /obj/item/storage/pouch/shotgun
@@ -126,7 +126,7 @@
 
 /datum/outfit/job/vsd/standard/lmg
 	w_uniform = /obj/item/clothing/under/vsd/alt/webbing
-	glasses = /obj/item/clothing/glasses/mgoggles/kz/alt
+	glasses = /obj/item/clothing/glasses/mgoggles/kn/alt
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/marmor
 	suit_store = /obj/item/weapon/gun/rifle/vsd_lmg_main/recoilcomp
 
@@ -182,7 +182,7 @@
 
 /datum/outfit/job/vsd/standard/upp_third
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/marmor
-	glasses = /obj/item/clothing/glasses/mgoggles/kz/alt
+	glasses = /obj/item/clothing/glasses/mgoggles/kn/alt
 	w_uniform = /obj/item/clothing/under/vsd/upp/alt/webbing
 	suit_store = /obj/item/weapon/gun/rifle/lmg_d
 	l_pocket = /obj/item/storage/holster/flarepouch

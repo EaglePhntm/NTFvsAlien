@@ -114,7 +114,7 @@
 		recipe_list = srl.recipes
 	else
 		//We need to open the menu only if radial stacks are disabled, or if select_radial tells us to by returning TRUE
-		if(!(!(user.client.prefs.toggles_gameplay & RADIAL_STACKS) || select_radial(user)))
+		if(!(!(user.client?.prefs.toggles_gameplay & RADIAL_STACKS) || select_radial(user)))
 			return
 
 	if(.)

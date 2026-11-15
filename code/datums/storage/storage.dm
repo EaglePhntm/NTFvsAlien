@@ -308,7 +308,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 ///This proc is called when you want to place an attacking_item into the storage
 /datum/storage/proc/on_attackby(datum/source, obj/item/attacking_item, mob/user, params)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	if(length(refill_types))
 		for(var/typepath in refill_types)
 			if(istype(attacking_item, typepath))
@@ -323,7 +323,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 ///Called when you click on parent with an empty hand
 /datum/storage/proc/on_attack_hand(datum/source, mob/living/user)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	if(parent.loc == user || parent.loc.loc == user)
 		var/obj/item/item_to_attack = source
 		if(item_to_attack.item_flags & IN_STORAGE)
@@ -368,7 +368,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
  */
 
 /datum/storage/proc/on_alt_right_click(datum/source, mob/user)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	//todo: Else where in this datum it just checks ishuman, but it should really just check for dextrous
 	if(isliving(user) && !user.dextrous) //bad xeno.
 		return
@@ -385,12 +385,12 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		INVOKE_ASYNC(src, PROC_REF(attempt_draw_object), user, TRUE)
 
 /datum/storage/proc/on_attack_ghost(datum/source, mob/user)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	open(user)
 
 ///Signal handler for when you click drag parent to something (usually ourselves or an inventory slot)
 /datum/storage/proc/on_mousedrop_onto(datum/source, obj/over_object as obj, mob/user)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	if(!ishuman(user))
 		return COMPONENT_NO_MOUSEDROP
 

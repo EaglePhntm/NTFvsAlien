@@ -100,6 +100,13 @@
 	},
 /turf/open/urban/street/sidewalkfull,
 /area/gleichseitig16/outdoors/south/streets)
+"kA" = (
+/obj/structure/bed/chair/comfy{
+	dir = 8
+	},
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/floor/carpet/black,
+/area/gleichseitig16/indoors/south/luxuryhotel)
 "kP" = (
 /obj/machinery/light/mainship{
 	dir = 1
@@ -227,6 +234,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/tile/barber,
 /area/gleichseitig16/indoors/south/luxuryhotel)
+"DB" = (
+/obj/effect/landmark/spawn_marker/euseparatists/medicidle,
+/turf/open/floor/urban/carpet/carpetblackdeco,
+/area/gleichseitig16/indoors/south/luxuryhotel)
 "DJ" = (
 /obj/structure/toilet{
 	dir = 4
@@ -244,6 +255,7 @@
 /obj/structure/bed/chair/comfy/black{
 	dir = 1
 	},
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
 /turf/open/urban/street/cement3,
 /area/gleichseitig16/indoors/south/luxuryhotel)
 "Fx" = (
@@ -263,6 +275,10 @@
 /obj/machinery/light/mainship{
 	dir = 1
 	},
+/turf/open/floor/urban/carpet/carpetblackdeco,
+/area/gleichseitig16/indoors/south/luxuryhotel)
+"GF" = (
+/obj/effect/landmark/spawn_marker/euseparatists/sapperidle,
 /turf/open/floor/urban/carpet/carpetblackdeco,
 /area/gleichseitig16/indoors/south/luxuryhotel)
 "Hq" = (
@@ -367,6 +383,10 @@
 /obj/machinery/light/mainship,
 /turf/open/floor/urban/carpet/carpetblackdeco,
 /area/gleichseitig16/indoors/south/luxuryhotel)
+"Re" = (
+/obj/effect/landmark/spawn_marker/euseparatists/militant,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/south/luxuryhotel)
 "RX" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light/mainship,
@@ -418,6 +438,7 @@
 	dir = 8
 	},
 /obj/structure/bed/chair/comfy/black,
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
 /turf/open/urban/street/cement3,
 /area/gleichseitig16/indoors/south/luxuryhotel)
 "Wa" = (
@@ -848,7 +869,7 @@ WC
 (23,1,1) = {"
 fS
 WC
-gE
+GF
 gE
 gE
 cs
@@ -913,7 +934,7 @@ gE
 gE
 WC
 WC
-gE
+DB
 cs
 Xh
 "}
@@ -943,7 +964,7 @@ Te
 WC
 Xy
 it
-Hz
+kA
 Hz
 Hz
 xC
@@ -1046,7 +1067,7 @@ WC
 (34,1,1) = {"
 aR
 WC
-fJ
+Re
 fJ
 fJ
 ro
@@ -1057,7 +1078,7 @@ Wa
 fJ
 fJ
 fJ
-fJ
+Re
 fJ
 WC
 "}

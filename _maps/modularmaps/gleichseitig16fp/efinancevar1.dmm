@@ -65,6 +65,10 @@
 	dir = 4
 	},
 /area/gleichseitig16/indoors/southeast/charliescredit)
+"fJ" = (
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
 "hT" = (
 /obj/structure/prop/urban/misc/cabinet{
 	dir = 4;
@@ -147,7 +151,7 @@
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/outdoors/southeast/alleys)
 "ms" = (
-/obj/structure/barricade/railing{
+/obj/structure/barricade/handrail/kutjevo{
 	dir = 4
 	},
 /turf/open/floor/iron/dark/textured_large,
@@ -158,6 +162,7 @@
 /area/gleichseitig16/indoors/southeast/charliescredit)
 "mZ" = (
 /obj/structure/bed/chair/sofa/right,
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
 /turf/open/floor/iron/dark/textured_large,
 /area/gleichseitig16/indoors/southeast/charliescredit)
 "nm" = (
@@ -222,7 +227,9 @@
 /obj/structure/table/reinforced/prison{
 	color = "#6b675e"
 	},
-/obj/item/newspaper,
+/obj/item/newspaper{
+	desc = "An issue of The Ehrman-Eco, the newspaper circulating around multiple provinces that covers economy-related topics. There is a section in the paper that describes the increase of stocks for arms companies and an increase in oil company stock."
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/gleichseitig16/indoors/southeast/charliescredit)
 "uY" = (
@@ -261,9 +268,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/gleichseitig16/indoors/southeast/charliescredit)
 "zh" = (
-/obj/structure/prop/mainship/railing/corner{
-	dir = 4
-	},
+/obj/structure/barricade/handrail/kutjevo,
 /turf/open/floor/iron/dark/textured_large,
 /area/gleichseitig16/indoors/southeast/charliescredit)
 "zq" = (
@@ -299,12 +304,6 @@
 	dir = 8
 	},
 /area/gleichseitig16/outdoors/southeast/alleys)
-"BA" = (
-/obj/structure/barricade/railing{
-	dir = 1
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/gleichseitig16/indoors/southeast/charliescredit)
 "Ck" = (
 /obj/effect/turf_decal/arrows/white,
 /turf/open/floor/iron/dark/textured_large,
@@ -328,6 +327,13 @@
 "Dy" = (
 /turf/open/urban/street/sidewalkfull,
 /area/gleichseitig16/outdoors/southeast/alleys)
+"DN" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/charliescredit)
 "DV" = (
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/outdoors/southeast/alleys)
@@ -337,6 +343,10 @@
 	name = "\improper EHR-COMMERCE Automatic Teller Machine"
 	},
 /turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/indoors/southeast/charliescredit)
+"Fl" = (
+/obj/effect/landmark/spawn_marker/euseparatists/sapperidle,
+/turf/open/floor/iron/dark/textured_large,
 /area/gleichseitig16/indoors/southeast/charliescredit)
 "Ie" = (
 /obj/structure/bed/chair/sofa/right{
@@ -409,7 +419,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/gleichseitig16/indoors/southeast/charliescredit)
 "MJ" = (
-/obj/structure/barricade/railing{
+/obj/structure/barricade/handrail/kutjevo{
 	dir = 8
 	},
 /turf/open/floor/iron/dark/textured_large,
@@ -479,6 +489,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
 /turf/open/floor/iron/dark/textured_large,
 /area/gleichseitig16/indoors/southeast/charliescredit)
 "UU" = (
@@ -528,12 +539,6 @@
 /obj/item/stack/sheet/mineral/silver,
 /turf/open/floor/iron/dark/textured_large,
 /area/gleichseitig16/indoors/southeast/charliescredit)
-"Yn" = (
-/obj/structure/prop/mainship/railing/corner{
-	dir = 1
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/gleichseitig16/indoors/southeast/charliescredit)
 "YC" = (
 /obj/effect/ai_node{
 	pixel_x = 1
@@ -550,7 +555,9 @@
 /area/gleichseitig16/indoors/southeast/charliescredit)
 "ZT" = (
 /obj/structure/table/reinforced,
-/obj/item/newspaper,
+/obj/item/newspaper{
+	desc = "An issue of The Ehrman-Eco, the newspaper circulating around multiple provinces that covers economy-related topics. There is a section in the paper that describes the increase of stocks for arms companies and an increase in oil company stock."
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/gleichseitig16/indoors/southeast/charliescredit)
 
@@ -662,7 +669,7 @@ us
 SS
 ME
 SS
-SS
+Fl
 ow
 ow
 Ny
@@ -748,7 +755,7 @@ SS
 ms
 ms
 ms
-zh
+SS
 SS
 To
 SS
@@ -776,8 +783,8 @@ SS
 SS
 SS
 Tq
+zh
 SS
-BA
 SS
 SS
 SS
@@ -806,7 +813,7 @@ SS
 MJ
 MJ
 SS
-Yn
+SS
 SS
 ow
 SS
@@ -888,7 +895,7 @@ SS
 SS
 ds
 ow
-sr
+DN
 eN
 SS
 eN
@@ -996,7 +1003,7 @@ dD
 dD
 Lh
 ow
-SS
+fJ
 SS
 xL
 zq

@@ -124,8 +124,8 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	home_id = "supply_colony"
 	railing_gear_name = "supply_colony"
 
-/obj/docking_port/mobile/supply/kz
-	name = "KZ supply shuttle"
+/obj/docking_port/mobile/supply/kn
+	name = "KN supply shuttle"
 	id = "supplykz"
 	faction = FACTION_VSD
 	home_id = "supply_KZ_home"
@@ -697,7 +697,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	. = ..()
 	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('ntf_modular/icons/UI_icons/map_blips.dmi', null, "reqterminal", MINIMAP_LABELS_LAYER))
 
-/obj/machinery/computer/supplycomp/kz
+/obj/machinery/computer/supplycomp/kn
 	shuttle_id = "supplykz"
 	faction = FACTION_VSD
 	home_id = "supply_kz"
@@ -727,12 +727,12 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	faction = FACTION_CLF
 	railing_gear_name = "supply_clf"
 
-/obj/docking_port/mobile/supply/kz
+/obj/docking_port/mobile/supply/kn
 	dir = 1
 	height = 1
 	home_id = "supply_kz"
 	id = "supplykz"
-	name = "kz supply shuttle"
+	name = "kn supply shuttle"
 	dheight = 0
 	dwidth = 0
 	width = 3

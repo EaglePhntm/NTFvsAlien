@@ -91,8 +91,8 @@
 	icon_state = "icc"
 
 /obj/item/clothing/mask/gas/vsd
-	name = "\improper Kaizoku armored commando balaclava"
-	desc = "Old balaclava's handed down to KZ."
+	name = "\improper Kurogane armored commando balaclava"
+	desc = "Old balaclava's handed down to KN."
 	inv_hide_flags = HIDEEARS|HIDEFACE|HIDEALLHAIR
 	icon_state = "upp_mask"
 

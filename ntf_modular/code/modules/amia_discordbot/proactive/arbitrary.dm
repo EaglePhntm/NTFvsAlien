@@ -1,6 +1,10 @@
 
 /proc/amia_arbitrary_status_update(msg, pingid)
 	SHOULD_NOT_SLEEP(TRUE)
+	if(CONFIG_GET(flag/webhook_enabled_public))
+		ASYNC
+			send_webhook_message_public(msg, pingid)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(status_update_heartbeat)), 1 HOURS, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE|TIMER_NO_HASH_WAIT)
 	if(CONFIG_GET(flag/amia_enabled)) //Yes I know we had a check, but what about a second check?
 		var/encodedmsg = url_encode(msg)
 		var/constring

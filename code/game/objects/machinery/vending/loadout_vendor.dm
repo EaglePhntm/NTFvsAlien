@@ -116,14 +116,14 @@
 
 
 /obj/machinery/loadout_vendor/vsd
-	desc = "An advanced vendor used by the KZ to rapidly equip their operatives"
+	desc = "An advanced vendor used by the KN to rapidly equip their operatives"
 	faction = VENDOR_FACTION_VSD
 	categories = list(
-		"KZ Standard",
-		"KZ Medic",
-		"KZ Engineer",
-		"KZ Specialist",
-		"KZ Squad Leader",
+		"KN Standard",
+		"KN Medic",
+		"KN Engineer",
+		"KN Specialist",
+		"KN Squad Leader",
 	)
 
 

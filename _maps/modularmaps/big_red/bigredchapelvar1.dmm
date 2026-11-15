@@ -14,7 +14,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/weed_node,
-/turf/open/floor/tile/darkish,
+/turf/open/floor/plating/mainship,
 /area/bigredv2/outside/chapel)
 "d" = (
 /obj/structure/stairs/edge,
@@ -44,14 +44,15 @@
 /obj/machinery/power/apc{
 	dir = 1
 	},
-/turf/open/floor/tile/darkish,
+/turf/open/floor/plating/mainship,
 /area/bigredv2/outside/chapel)
 "j" = (
 /turf/open/floor/tile/chapel,
 /area/bigredv2/outside/chapel)
 "k" = (
-/obj/structure/bed/chair/wood/normal{
-	dir = 8
+/obj/structure/bed/chair/pew{
+	dir = 5;
+	name = "bench"
 	},
 /turf/open/floor/tile/chapel{
 	dir = 4
@@ -72,13 +73,18 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/open/floor/tile/darkish,
+/turf/open/floor/plating/mainship,
 /area/bigredv2/outside/chapel)
 "o" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/turf/open/floor/tile/darkish,
+/turf/open/floor/plating/mainship,
+/area/bigredv2/outside/chapel)
+"p" = (
+/obj/structure/table/wood,
+/obj/item/storage/fancy/candle_box,
+/turf/open/floor/plating/mainship,
 /area/bigredv2/outside/chapel)
 "q" = (
 /obj/machinery/door_control{
@@ -88,15 +94,31 @@
 	},
 /turf/open/floor/engine/cult,
 /area/bigredv2/outside/chapel)
+"r" = (
+/obj/structure/bed/chair/pew{
+	dir = 5;
+	name = "bench"
+	},
+/turf/open/floor/tile/chapel,
+/area/bigredv2/outside/chapel)
 "s" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
-/turf/open/floor/tile/darkish,
+/turf/open/floor/plating/mainship,
 /area/bigredv2/outside/chapel)
 "t" = (
 /turf/open/floor/engine/cult,
+/area/bigredv2/outside/chapel)
+"u" = (
+/obj/structure/table/wood,
+/obj/item/storage/bible,
+/turf/open/floor/plating/mainship,
+/area/bigredv2/outside/chapel)
+"v" = (
+/obj/machinery/light,
+/turf/open/floor/plating/mainship,
 /area/bigredv2/outside/chapel)
 "w" = (
 /obj/structure/table/wood,
@@ -105,7 +127,7 @@
 "x" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /obj/structure/cable,
-/turf/open/floor/tile/darkish,
+/turf/open/floor/plating/mainship,
 /area/bigredv2/outside/chapel)
 "y" = (
 /turf/open/floor/tile/chapel{
@@ -114,7 +136,9 @@
 /area/bigredv2/outside/chapel)
 "z" = (
 /obj/structure/table/wood,
-/turf/open/floor/tile/darkish,
+/obj/item/reagent_containers/food/snacks/grown/poppy,
+/obj/item/reagent_containers/food/snacks/grown/poppy,
+/turf/open/floor/plating/mainship,
 /area/bigredv2/outside/chapel)
 "A" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -124,8 +148,9 @@
 	},
 /area/bigredv2/outside/chapel)
 "B" = (
-/obj/structure/bed/chair/wood/normal{
-	dir = 8
+/obj/structure/bed/chair/pew{
+	dir = 5;
+	name = "bench"
 	},
 /turf/open/floor/tile/chapel{
 	dir = 1
@@ -133,19 +158,31 @@
 /area/bigredv2/outside/chapel)
 "C" = (
 /obj/effect/landmark/weed_node,
-/turf/open/floor/tile/darkish,
+/turf/open/floor/plating/mainship,
 /area/bigredv2/outside/chapel)
 "D" = (
 /turf/open/floor/tile/chapel{
 	dir = 8
 	},
 /area/bigredv2/outside/chapel)
-"F" = (
-/obj/structure/bed/chair/wood/normal{
-	dir = 8
+"E" = (
+/obj/structure/bed/chair/pew{
+	dir = 5;
+	name = "bench"
 	},
+/obj/structure/bed/chair/pew{
+	dir = 6;
+	name = "bench"
+	},
+/turf/open/floor/tile/chapel,
+/area/bigredv2/outside/chapel)
+"F" = (
 /obj/effect/landmark/start/job/survivor,
 /obj/effect/landmark/start/latejoinsurvivor,
+/obj/structure/bed/chair/pew{
+	dir = 5;
+	name = "bench"
+	},
 /turf/open/floor/tile/chapel{
 	dir = 4
 	},
@@ -157,6 +194,11 @@
 	name = "\improper Chapel Shutters"
 	},
 /turf/open/floor/plating,
+/area/bigredv2/outside/chapel)
+"J" = (
+/obj/structure/cable,
+/obj/machinery/light,
+/turf/open/floor/plating/mainship,
 /area/bigredv2/outside/chapel)
 "K" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
@@ -179,21 +221,23 @@
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	name = "\improper Chapel"
 	},
-/turf/open/floor/tile/darkish,
+/turf/open/floor/plating/mainship,
 /area/bigredv2/outside/chapel)
 "N" = (
 /obj/structure/cable,
-/turf/open/floor/tile/darkish,
+/turf/open/floor/plating/mainship,
 /area/bigredv2/outside/chapel)
 "O" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
-/turf/open/floor/tile/darkish,
+/turf/open/floor/plating/mainship,
 /area/bigredv2/outside/chapel)
 "P" = (
 /obj/structure/table/wood,
 /obj/effect/landmark/weed_node,
-/turf/open/floor/tile/darkish,
+/obj/item/reagent_containers/food/snacks/grown/harebell,
+/obj/item/reagent_containers/food/snacks/grown/harebell,
+/turf/open/floor/plating/mainship,
 /area/bigredv2/outside/chapel)
 "R" = (
 /obj/structure/cable,
@@ -202,8 +246,9 @@
 	},
 /area/bigredv2/outside/chapel)
 "S" = (
-/obj/structure/bed/chair/wood/normal{
-	dir = 8
+/obj/structure/bed/chair/pew{
+	dir = 6;
+	name = "bench"
 	},
 /turf/open/floor/tile/chapel{
 	dir = 8
@@ -214,18 +259,19 @@
 	dir = 8;
 	on = 1
 	},
-/turf/open/floor/tile/darkish,
+/turf/open/floor/plating/mainship,
 /area/bigredv2/outside/chapel)
 "V" = (
-/obj/structure/bed/chair/wood/normal{
-	dir = 8
+/obj/structure/bed/chair/pew{
+	dir = 6;
+	name = "bench"
 	},
 /turf/open/floor/tile/chapel,
 /area/bigredv2/outside/chapel)
 "W" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
-/turf/open/floor/tile/darkish,
+/turf/open/floor/plating/mainship,
 /area/bigredv2/outside/chapel)
 "X" = (
 /turf/open/floor/tile/chapel{
@@ -233,7 +279,7 @@
 	},
 /area/bigredv2/outside/chapel)
 "Y" = (
-/turf/open/floor/tile/darkish,
+/turf/open/floor/plating/mainship,
 /area/bigredv2/outside/chapel)
 "Z" = (
 /obj/structure/table/wood,
@@ -294,17 +340,17 @@ D
 s
 y
 D
-Y
+v
 a
 "}
 (6,1,1) = {"
 g
 Y
-k
-V
+X
+j
 o
-k
-V
+X
+j
 Y
 a
 "}
@@ -323,11 +369,11 @@ a
 a
 n
 k
-V
+r
 o
 F
-V
-Y
+E
+v
 a
 "}
 (9,1,1) = {"
@@ -345,7 +391,7 @@ a
 g
 Y
 k
-V
+E
 o
 k
 V
@@ -360,7 +406,7 @@ S
 o
 B
 S
-N
+J
 a
 "}
 (12,1,1) = {"
@@ -393,7 +439,7 @@ V
 o
 k
 V
-N
+J
 a
 "}
 (15,1,1) = {"
@@ -424,8 +470,8 @@ Y
 P
 z
 C
-z
-z
+p
+u
 c
 a
 "}

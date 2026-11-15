@@ -150,6 +150,10 @@
 	if(xeno_attacker.handcuffed)
 		return
 	if(!issamexenohive(xeno_attacker))
+		if(isxenohivemind(xeno_attacker))
+			var/mob/living/carbon/xenomorph/hivemind/hivemind = xeno_attacker
+			if(!hivemind.is_combat_form())
+				return
 		SEND_SIGNAL(xeno_attacker, COMSIG_XENOMORPH_ATTACK_OBJ, src)
 		if(SEND_SIGNAL(src, COMSIG_OBJ_ATTACK_ALIEN, xeno_attacker) & COMPONENT_NO_ATTACK_ALIEN)
 			return FALSE

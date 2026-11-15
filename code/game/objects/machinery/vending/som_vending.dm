@@ -874,6 +874,8 @@
 			/obj/item/clothing/under/wedding/bride_white = -1,
 			/obj/item/clothing/under/dress/black_tango = -1,
 			/obj/item/clothing/under/sundress = -1,
+			/obj/item/clothing/under/dress/apron = -1,
+			/obj/item/clothing/under/dress/qipao = -1,
 			/obj/item/clothing/under/cheerleader = -1,
 			/obj/item/clothing/under/cheerleader/yellow = -1,
 			/obj/item/clothing/under/cheerleader/purple = -1,
@@ -1010,6 +1012,7 @@
 
 			/obj/item/clothing/underwear/shirt/polo = -1,
 			/obj/item/clothing/underwear/shirt/normal = -1,
+			/obj/item/clothing/underwear/shirt/longsleeverolled = -1,
 			/obj/item/clothing/underwear/shirt/longsleeve = -1,
 			/obj/item/clothing/underwear/shirt/tanktop_midriff = -1,
 			/obj/item/clothing/underwear/shirt/tanktop_midriff_alt = -1,

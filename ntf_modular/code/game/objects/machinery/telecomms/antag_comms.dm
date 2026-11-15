@@ -34,38 +34,38 @@
 	freq_listening = list(FREQ_ICC)
 
 
-//KZ
+//KN
 
-/obj/machinery/telecomms/bus/preset_four/kz
-	id = "Bus kz"
+/obj/machinery/telecomms/bus/preset_four/kn
+	id = "Bus kn"
 	freq_listening = list(FREQ_VSD)
 	autolinkers = list("processor4_kz", "common_kz")
 
-/obj/machinery/telecomms/processor/preset_four/kz
-	id = "Processor kz 4"
+/obj/machinery/telecomms/processor/preset_four/kn
+	id = "Processor kn 4"
 	autolinkers = list("processor4_kz")
 
-/obj/machinery/telecomms/server/presets/common/kz
-	id = "Common Server KZ"
+/obj/machinery/telecomms/server/presets/common/kn
+	id = "Common Server KN"
 	freq_listening = list(FREQ_VSD)
 	autolinkers = list("common_kz")
 
-/obj/machinery/telecomms/hub/preset/kz
-	id = "Hub KZ"
+/obj/machinery/telecomms/hub/preset/kn
+	id = "Hub KN"
 	autolinkers = list("hub_kz", "relay", "s_relay", "common_kz",
 	"receiverA_kz", "receiverB_kz", "broadcasterA_kz")
 
-/obj/machinery/telecomms/receiver/preset_right/kz
-	id = "Receiver B kz"
+/obj/machinery/telecomms/receiver/preset_right/kn
+	id = "Receiver B kn"
 	autolinkers = list("receiverB_kz") // link to relay
 	freq_listening = list(FREQ_VSD)
 
-/obj/machinery/telecomms/broadcaster/preset_left/kz
-	id = "Broadcaster A kz"
+/obj/machinery/telecomms/broadcaster/preset_left/kn
+	id = "Broadcaster A kn"
 	network = "tcommsat"
 	autolinkers = list("broadcasterA_kz")
 
-/obj/machinery/telecomms/allinone/kz
+/obj/machinery/telecomms/allinone/kn
 	freq_listening = list(FREQ_VSD)
 
 //Cult

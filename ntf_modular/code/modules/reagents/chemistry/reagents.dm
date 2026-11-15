@@ -232,7 +232,9 @@
 		particle_holder.particles.spawning = 1 + round(debuff_owner.reagents.get_reagent_amount(/datum/reagent/toxin/xeno_aphrotoxin) / 4)
 	var/arousal_to_add = 5
 	var/power = 0 //stamina damage to do
-	var/flags = L.client.prefs.sex_pref_flags
+	var/flags = SEXPREF_ALL
+	if(L?.client)
+		flags = L.client.prefs.sex_pref_flags
 	if(L.sexcon)
 		arousal_to_add += min(25, (L.reagents.get_reagent_amount(/datum/reagent/toxin/xeno_aphrotoxin)))
 		switch(L.sexcon.arousal)

@@ -39,7 +39,7 @@
 #define VENDOR_FACTION_PMC "PMC"
 #define VENDOR_FACTION_ICC "CM"
 #define VENDOR_FACTION_CLF "Cult"
-#define VENDOR_FACTION_VSD "KZ"
+#define VENDOR_FACTION_VSD "KN"
 
 
 GLOBAL_LIST_INIT(marine_selector_cats, list(
@@ -204,13 +204,20 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 
 //A way to give them everything at once that still works with loadouts would be nice, but barring that make sure that your point calculation is set up so they don't get more than what they're supposed to
 GLOBAL_LIST_INIT(smartgunner_gear_listed_products, list(
-	/obj/effect/vendor_bundle/smartgunner_pistol = list(CAT_ESS, "SP-13 smart pistol", 0, "white"),
-	/obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol = list(CAT_SGSUP, "SP-13 smart pistol ammo", 1, "black"),
+	/obj/effect/vendor_bundle/smartgunner_pistol = list(CAT_ESS, "SP-13 Smart Machinepistol", 0, "white"),
+	/obj/effect/vendor_bundle/smartgunner_autopistol = list(CAT_ESS, "SP-28 Smart Autopistol", 0, "white"),
+	/obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol = list(CAT_SGSUP, "SP-13 Smart Pistol Ammo", 1, "black"),
+	/obj/item/ammo_magazine/pistol/standard_pistol/smart_fastpistol = list(CAT_SGSUP, "SP-28 Smart Pistol Ammo", 1, "black"),
 	/obj/item/weapon/gun/rifle/standard_smartmachinegun = list(CAT_SGSUP, "SG-29 Smart Machine Gun", 21, "orange"), //If a smartgunner buys a SG-29, then they will have points to purchase 6 SG-29 drums
 	/obj/item/ammo_magazine/standard_smartmachinegun = list(CAT_SGSUP, "SG-29 Ammo Drum", 4, "black"),
+	/obj/item/weapon/gun/rifle/standard_smartcarbine = list(CAT_SGSUP, "SG-30 Smart Carbine", 21, "orange"), //If a smartgunner buys a SG-30, then they will have points to purchase 12 SG-30 magazines
+	/obj/item/ammo_magazine/rifle/standard_smartcarbine = list(CAT_SGSUP, "SG-30 Smart Carbine Magazine", 2, "black"),
 	/obj/item/weapon/gun/minigun/smart_minigun = list(CAT_SGSUP, "SG-85 Smart Handheld Gatling Gun", 27, "orange"), //If a smartgunner buys a SG-85, then they should be able to buy only 1 powerpack and 2 ammo bins
 	/obj/item/ammo_magazine/minigun_powerpack/smartgun = list(CAT_SGSUP, "SG-85 Powerpack", 10, "black"),
 	/obj/item/ammo_magazine/packet/smart_minigun = list(CAT_SGSUP, "SG-85 Ammo Bin", 4, "black"),
+	/obj/item/weapon/gun/rifle/sg_autoshotgun = list(CAT_SGSUP, "SG-12 Smart Assault Shotgun", 21, "orange"), //If a smartgunner buys a SG-12, then they should be able to buy 12 ammo drums
+	/obj/item/ammo_magazine/rifle/sg_autoshotgun = list(CAT_SGSUP, "SG-12 Smart Slug Drum", 2, "black"),
+	/obj/item/ammo_magazine/rifle/sg_autoshotgun/explosive = list(CAT_SGSUP, "SG-12 Smart Flak Drum", 2, "black"),
 	/obj/item/storage/box/crate/loot/targetrifle_pack_spec = list(CAT_SGSUP, "SG-62 Target Rifle (and fuckton of ammo)", 15, "orange"), //If a SG buys a SG-62, they'll have 15 points left, should be enough to buy some mags and or extra SR ammo.
 	/obj/item/ammo_magazine/rifle/standard_smarttargetrifle = list(CAT_SGSUP, "SG-62 Target Rifle Magazine", 1, "orange"),
 	/obj/item/ammo_magazine/packet/smart_targetrifle = list(CAT_SGSUP, "SG-62 Target Rifle Ammo Bin", 2, "black"),
@@ -823,7 +830,7 @@ GLOBAL_LIST_INIT(loadout_linked_vendor, list(
 		/obj/machinery/vending/armor_supply/vsd,
 		/obj/machinery/vending/uniform_supply/vsd,
 		/obj/machinery/vending/MarineMed/vsd,
-		/obj/machinery/vending/medical/kz,
+		/obj/machinery/vending/medical/kn,
 		/obj/machinery/vending/marineFood,
 		/obj/machinery/vending/engivend,
 		/obj/machinery/vending/cigarette,
@@ -1578,7 +1585,7 @@ GLOBAL_LIST_INIT(vsd_standard_clothes_listed_products, list(
 		/obj/item/storage/pouch/grenade/slightlyfull = list(CAT_POU, "Grenade pouch (grenades included)", 0,"black"),
 		/obj/item/storage/pouch/construction/full = list(CAT_POU, "Construction pouch (materials included)", 0,"black"),
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0,"black"),
-		/obj/item/clothing/mask/gas/vsd = list(CAT_MAS, "KZ armored commando balaclava", 0,"black"),
+		/obj/item/clothing/mask/gas/vsd = list(CAT_MAS, "KN armored commando balaclava", 0,"black"),
 		/obj/item/clothing/mask/gas/icc = list(CAT_MAS, "Modello/60 gas mask", 0,"black"),
 	))
 
@@ -1597,7 +1604,7 @@ GLOBAL_LIST_INIT(vsd_medic_clothes_listed_products, list(
 		/obj/item/storage/belt/hypospraybelt/full = list(CAT_BEL, "Hypospray belt", 0, "black"),
 		/obj/item/storage/pouch/medical_injectors/firstaid = list(CAT_POU, "Advanced Autoinjector pouch", 0, "orange"),
 		/obj/item/storage/pouch/medkit/medic = list(CAT_POU, "Medkit pouch", 0, "orange"),
-		/obj/item/clothing/mask/gas/vsd = list(CAT_MAS, "KZ armored commando balaclava", 0,"black"),
+		/obj/item/clothing/mask/gas/vsd = list(CAT_MAS, "KN armored commando balaclava", 0,"black"),
 		/obj/item/clothing/mask/gas/icc = list(CAT_MAS, "Modello/60 gas mask", 0,"black"),
 	))
 
@@ -1636,7 +1643,7 @@ GLOBAL_LIST_INIT(vsd_engineer_clothes_listed_products, list(
 		/obj/item/storage/pouch/medical_injectors/firstaid = list(CAT_POU, "Combat injector pouch", 0, "orange"),
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0, "black"),
 		/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0, "black"),
-		/obj/item/clothing/mask/gas/vsd = list(CAT_MAS, "KZ armored commando balaclava", 0,"black"),
+		/obj/item/clothing/mask/gas/vsd = list(CAT_MAS, "KN armored commando balaclava", 0,"black"),
 		/obj/item/clothing/mask/gas/icc = list(CAT_MAS, "Modello/60 gas mask", 0,"black"),
 	))
 
@@ -1665,7 +1672,7 @@ GLOBAL_LIST_INIT(vsd_specialist_clothes_listed_products, list(
 		/obj/item/storage/pouch/grenade/slightlyfull = list(CAT_POU, "Grenade pouch (grenades included)", 0,"black"),
 		/obj/item/storage/pouch/construction/full = list(CAT_POU, "Construction pouch (materials included)", 0,"black"),
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0,"black"),
-		/obj/item/clothing/mask/gas/vsd = list(CAT_MAS, "KZ armored commando balaclava", 0,"black"),
+		/obj/item/clothing/mask/gas/vsd = list(CAT_MAS, "KN armored commando balaclava", 0,"black"),
 		/obj/item/clothing/mask/gas/icc = list(CAT_MAS, "Modello/60 gas mask", 0,"black"),
 	))
 
@@ -1693,7 +1700,7 @@ GLOBAL_LIST_INIT(vsd_leader_clothes_listed_products, list(
 		/obj/item/storage/pouch/grenade/slightlyfull = list(CAT_POU, "Grenade pouch (grenades included)", 0,"black"),
 		/obj/item/storage/pouch/construction/full = list(CAT_POU, "Construction pouch (materials included)", 0,"black"),
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0,"black"),
-		/obj/item/clothing/mask/gas/vsd = list(CAT_MAS, "KZ armored commando balaclava", 0,"black"),
+		/obj/item/clothing/mask/gas/vsd = list(CAT_MAS, "KN armored commando balaclava", 0,"black"),
 		/obj/item/clothing/mask/gas/icc = list(CAT_MAS, "Modello/60 gas mask", 0,"black"),
 	))
 

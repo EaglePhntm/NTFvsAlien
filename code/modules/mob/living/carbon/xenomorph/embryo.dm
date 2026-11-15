@@ -168,23 +168,25 @@
 		var/mob/living/carbon/C = affected_mob
 		C.med_hud_set_status()
 		affected_mob.jitter(stage * 5)
-	var/flags = affected_mob?.client.prefs.sex_pref_flags
+	var/flags = SEXPREF_ALL
+	if(affected_mob.client)
+		flags = affected_mob?.client.prefs.sex_pref_flags
 
 	switch(stage)
 		if(2)
 			if(prob(2))
-				if(!affected_mob.client || flags & SEXPREF_FACEHUGGER_LEWD)
+				if(flags & SEXPREF_FACEHUGGER_LEWD)
 					to_chat(affected_mob, span_warning("[pick("You feel something in your [target_hole].", "You feel something in your [target_hole].")]."))
 				else
 					to_chat(affected_mob, span_warning("[pick("Your chest hurts a little bit", "Your stomach hurts")]."))
 		if(3)
 			if(prob(2))
-				if(!affected_mob.client || flags & SEXPREF_FACEHUGGER_LEWD)
+				if(flags & SEXPREF_FACEHUGGER_LEWD)
 					to_chat(affected_mob, span_warning("[pick("You feel something move inside your [target_hole].", "You feel something move in your [target_hole].")]."))
 				else
 					to_chat(affected_mob, span_warning("[pick("Your throat feels sore", "Mucous runs down the back of your throat")]."))
 			else if(prob(1))
-				if(!affected_mob.client || flags & SEXPREF_FACEHUGGER_LEWD)
+				if(flags & SEXPREF_FACEHUGGER_LEWD)
 					to_chat(affected_mob, span_warning("Your [target_hole] aches a little."))
 				else
 					to_chat(affected_mob, span_warning("Your muscles ache."))
@@ -256,13 +258,15 @@
 		return
 
 	to_chat(src, span_danger("We start slithering out of [victim]!"))
-	var/flags = victim?.client.prefs.sex_pref_flags
+	var/flags = SEXPREF_ALL
+	if(victim.client)
+		flags = victim?.client.prefs.sex_pref_flags
 	if((!embryo || embryo.target_hole == HOLE_MOUTH) && (flags & SEXPREF_FACEHUGGER_LEWD))
 		playsound(victim, 'modular_skyrat/sound/weapons/gagging.ogg', 15, TRUE)
 	else
 		victim.emote_burstscream()
 	victim.Paralyze(15 SECONDS)
-	if(!victim.client || flags & SEXPREF_FACEHUGGER_LEWD)
+	if(flags & SEXPREF_FACEHUGGER_LEWD)
 		victim.visible_message("<span class='danger'>\The [victim] starts shaking uncontrollably!</span>", \
 									"<span class='danger'>You feel something wiggling in your [embryo?.target_hole]!</span>")
 	else
@@ -285,8 +289,10 @@
 	else
 		forceMove(get_turf(victim)) //moved to the turf directly so we don't get stuck inside a cryopod or another mob container.
 	playsound(src, pick('sound/voice/alien/chestburst.ogg','sound/voice/alien/chestburst2.ogg'), 10)
-	var/flags = victim?.client.prefs.sex_pref_flags
-	if(!victim.client || flags & SEXPREF_FACEHUGGER_LEWD)
+	var/flags = SEXPREF_ALL
+	if(victim?.client)
+		flags = victim.client.prefs.sex_pref_flags
+	if(flags & SEXPREF_FACEHUGGER_LEWD)
 		victim.visible_message("<span class='danger'>The Larva forces its way out of [victim]'s [embryo?.target_hole]!</span>")
 	else
 		victim.visible_message("<span class='danger'>The Larva bursts out of [victim]!</span>")
@@ -350,7 +356,7 @@
 			if(!(CHECK_BITFIELD(victim.restrained_flags, RESTRAINED_XENO_NEST)) || issynth(victim)) //synth dont have cloneloss so only option is to outright kill them.
 				//victim.death(FALSE)
 				victim.adjustCloneLoss(75) //more if not nested
-			if(!victim.client || flags & SEXPREF_FACEHUGGER_LEWD)
+			if(flags & SEXPREF_FACEHUGGER_LEWD)
 				victim.visible_message(span_warning("[victim]'s body and hole are devastated by the birth."))
 			else
 				victim.visible_message(span_warning("[victim]'s body is too devastated for any more use."))

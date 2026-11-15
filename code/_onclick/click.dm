@@ -308,7 +308,7 @@
 
 /mob/living/carbon/human/MiddleClickOn(atom/A)
 	. = ..()
-	if(!(client.prefs.toggles_gameplay & MIDDLESHIFTCLICKING))
+	if(client && !(client.prefs.toggles_gameplay & MIDDLESHIFTCLICKING))
 		return
 	var/obj/item/held_thing = get_active_held_item()
 	if(held_thing && SEND_SIGNAL(held_thing, COMSIG_ITEM_MIDDLECLICKON, A, src) & COMPONENT_ITEM_CLICKON_BYPASS)
@@ -336,7 +336,7 @@ if(selected_ability.target_flags & flagname && !istype(A, typepath)){\
 
 /mob/living/carbon/xenomorph/MiddleClickOn(atom/A)
 	. = ..()
-	if(!(client.prefs.toggles_gameplay & MIDDLESHIFTCLICKING) || !selected_ability)
+	if(client && !(client.prefs.toggles_gameplay & MIDDLESHIFTCLICKING) || !selected_ability)
 		return FALSE
 	A = ability_target(A)
 	if(selected_ability.can_use_ability(A))
@@ -418,7 +418,7 @@ if(selected_ability.target_flags & flagname && !istype(A, typepath)){\
 
 
 /mob/living/carbon/human/ShiftClickOn(atom/A)
-	if(client.prefs.toggles_gameplay & MIDDLESHIFTCLICKING)
+	if(client?.prefs.toggles_gameplay & MIDDLESHIFTCLICKING)
 		return ..()
 	if(selected_ability)
 		A = ability_target(A)
@@ -433,7 +433,7 @@ if(selected_ability.target_flags & flagname && !istype(A, typepath)){\
 
 
 /mob/living/carbon/xenomorph/ShiftClickOn(atom/A)
-	if(!selected_ability || (client.prefs.toggles_gameplay & MIDDLESHIFTCLICKING))
+	if(!selected_ability || (client?.prefs.toggles_gameplay & MIDDLESHIFTCLICKING))
 		return ..()
 	A = ability_target(A)
 	if(selected_ability.can_use_ability(A))

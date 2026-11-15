@@ -28,6 +28,12 @@
 	greyscale_config = /datum/greyscale_config/shirt
 	colorable_allowed = COLOR_WHEEL_ALLOWED
 
+/obj/item/clothing/underwear/shirt/longsleeverolled
+	name = "Rolled Long-Sleeved Shirt"
+	icon_state = "shirt_white_long_rolled"
+	greyscale_config = /datum/greyscale_config/shirt
+	colorable_allowed = COLOR_WHEEL_ALLOWED
+
 /obj/item/clothing/underwear/shirt/longsleeve
 	name = "Long-Sleeved Shirt"
 	icon_state = "shirt_white_long"

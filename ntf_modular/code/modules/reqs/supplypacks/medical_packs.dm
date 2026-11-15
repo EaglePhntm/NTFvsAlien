@@ -28,7 +28,7 @@
 /datum/supply_packs/medical/medvend
 	name = "NovaMed Plus crate (x1)"
 	notes = "A crate containing one fully-stocked Novamed Plus medical vendor."
-	contains = list(/obj/structure/largecrate/supply/medicine/medivend)
+	contains = list(/obj/structure/largecrate/supply/medicine/novamed)
 	containertype = null
 	cost = 2500
 	access = ACCESS_MARINE_MEDBAY

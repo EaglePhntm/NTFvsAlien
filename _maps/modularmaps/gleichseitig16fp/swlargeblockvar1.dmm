@@ -1,0 +1,3747 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ac" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = -4
+	},
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 10
+	},
+/obj/item/clothing/head/welding,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/stadium/gens)
+"al" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"aX" = (
+/obj/structure/sink/bathroom{
+	dir = 4
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/stadium)
+"bg" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 1
+	},
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"bh" = (
+/obj/effect/urban/decal/dirt,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/west/streets)
+"bH" = (
+/obj/effect/urban/decal/dirt,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/west/streets)
+"bJ" = (
+/obj/effect/urban/decal/road/lines5,
+/turf/open/floor/plating/ground/snow{
+	color = "#ffe1af"
+	},
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"cT" = (
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"cU" = (
+/obj/structure/bed/urban/chairs/black{
+	dir = 4
+	},
+/obj/structure/barricade/railing{
+	dir = 6
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"db" = (
+/obj/structure/bed/urban/chairs/black{
+	dir = 8
+	},
+/obj/structure/prop/mainship/railing/corner{
+	dir = 1
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"dD" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/west/streets)
+"dP" = (
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"dY" = (
+/obj/machinery/vending/snack,
+/turf/open/floor/multi_tiles{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"eb" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 8
+	},
+/turf/open/floor/multi_tiles{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"ef" = (
+/obj/effect/urban/decal/road/lines6{
+	pixel_y = -16
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"eA" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"eE" = (
+/obj/structure/table/reinforced,
+/obj/item/radio/intercom/general/colony{
+	dir = 1
+	},
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"eH" = (
+/obj/effect/urban/decal/road/lines4{
+	pixel_y = 16
+	},
+/turf/open/floor/plating/ground/snow{
+	color = "#ffe1af"
+	},
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"eJ" = (
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/stadium)
+"eS" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/storage/box/lights/mixed,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/stadium/gens)
+"fA" = (
+/obj/machinery/floodlight/outpost{
+	name = "Stadium Light"
+	},
+/turf/open/floor/multi_tiles{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"fK" = (
+/obj/structure/barricade/railing{
+	dir = 1
+	},
+/obj/structure/bed/urban/chairs/black{
+	dir = 1
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"fL" = (
+/obj/structure/bed/urban/chairs/black{
+	dir = 8
+	},
+/obj/structure/barricade/railing{
+	dir = 10
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"fN" = (
+/obj/effect/urban/decal/road/lines4{
+	pixel_y = 16
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"gf" = (
+/obj/effect/urban/decal/road/lines5,
+/obj/effect/urban/decal/road/lines6{
+	pixel_y = 16
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"go" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/multi_tiles{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"gI" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/streets)
+"gT" = (
+/obj/structure/prop/urban/vehicles/large/van{
+	pixel_y = -6;
+	dir = 8
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"hs" = (
+/obj/structure/bed/urban/chairs/black{
+	dir = 8
+	},
+/obj/structure/barricade/railing,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"hA" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"hT" = (
+/obj/effect/urban/decal/road/lines5,
+/obj/effect/urban/decal/road/lines4{
+	pixel_y = 16
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"jl" = (
+/obj/effect/urban/decal/road/lines5{
+	pixel_x = -1
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"jp" = (
+/obj/effect/urban/decal/road/lines5{
+	pixel_x = 3
+	},
+/obj/effect/urban/decal/road/lines1{
+	pixel_y = 15
+	},
+/turf/open/floor/plating/ground/snow{
+	color = "#ffe1af"
+	},
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"ju" = (
+/obj/machinery/power/geothermal,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/stadium/gens)
+"jD" = (
+/obj/machinery/light,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"kd" = (
+/obj/structure/bed/chair/comfy/beige{
+	dir = 8
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"kj" = (
+/obj/effect/urban/decal/road/lines6{
+	pixel_y = 16
+	},
+/obj/effect/landmark/sensor_tower,
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"kz" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"kB" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/structure/prop/urban/vehicles/large/suv/misc/whitevan,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"kS" = (
+/obj/machinery/power/terminal,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/stadium/gens)
+"lf" = (
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/indoors/southwest/stadium)
+"ln" = (
+/obj/effect/urban/decal/road/lines2,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"lP" = (
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/stadium/gens)
+"lZ" = (
+/obj/structure/cable,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/southwest/streets)
+"mC" = (
+/obj/structure/prop/urban/vehicles/large/suv/misc/whitevan{
+	dir = 8
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"mD" = (
+/obj/structure/bed/urban/chairs/black{
+	dir = 8
+	},
+/obj/structure/barricade/railing{
+	dir = 8
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"mT" = (
+/obj/structure/cable,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/stadium/gens)
+"mW" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/southwest/stadium/gens)
+"np" = (
+/obj/item/weapon/gun/sentry/ads_system/premade{
+	faction = "Hostile"
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"nu" = (
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"nC" = (
+/obj/effect/urban/decal/road/lines4{
+	pixel_y = 16
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"oc" = (
+/obj/structure/bed/urban/chairs/black{
+	dir = 8
+	},
+/obj/structure/barricade/railing{
+	dir = 9
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"oj" = (
+/obj/machinery/power/smes/buildable/empty{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/stadium/gens)
+"ox" = (
+/obj/structure/sink/bathroom{
+	pixel_y = 16
+	},
+/obj/structure/mirror,
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/stadium)
+"oH" = (
+/obj/effect/urban/decal/road/lines4{
+	pixel_y = 16;
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"oQ" = (
+/obj/structure/table/reinforced,
+/obj/machinery/microwave,
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"pc" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/item/tool/kitchen/knife,
+/obj/item/tool/kitchen/rollingpin,
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"pf" = (
+/obj/machinery/vending/cola,
+/turf/open/floor/multi_tiles{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"pA" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/multi_tiles{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"qn" = (
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/item/stack/sheet/metal/medium_stack,
+/obj/item/stack/sheet/plasteel/small_stack,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/stadium/gens)
+"qz" = (
+/obj/structure/bed/urban/chairs/black{
+	dir = 4
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"qD" = (
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/southwest/streets)
+"qG" = (
+/obj/machinery/vending/coffee{
+	density = 0
+	},
+/turf/open/floor/multi_tiles{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"qP" = (
+/obj/structure/bed/chair/comfy/beige,
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"rf" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"rn" = (
+/obj/structure/bed/urban/chairs/black{
+	dir = 4
+	},
+/obj/structure/prop/mainship/railing/corner{
+	dir = 4
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"rC" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8
+	},
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"rP" = (
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/stadium/gens)
+"sw" = (
+/obj/structure/prop/urban/misc/trash/blue,
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"sJ" = (
+/obj/machinery/light,
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/stadium)
+"tA" = (
+/turf/open/floor/multi_tiles{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"tQ" = (
+/obj/effect/urban/decal/road/road_edge,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"tS" = (
+/obj/item/weapon/gun/sentry/ads_system/premade{
+	faction = "Hostile"
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"tT" = (
+/obj/effect/urban/decal/road/lines5{
+	pixel_x = 2
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"ue" = (
+/obj/structure/cable,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/streets)
+"ul" = (
+/obj/structure/cable,
+/obj/machinery/power/geothermal,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/stadium/gens)
+"uH" = (
+/obj/effect/urban/decal/road/lines1{
+	pixel_y = 16
+	},
+/turf/open/floor/plating/ground/snow{
+	color = "#ffe1af"
+	},
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"uK" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"uM" = (
+/obj/structure/bed/chair/comfy/beige{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"uP" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	dir = 1
+	},
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"vb" = (
+/obj/effect/urban/decal/road/lines6{
+	pixel_y = -16
+	},
+/obj/effect/urban/decal/road/lines6{
+	pixel_y = 16
+	},
+/turf/open/floor/plating/ground/snow{
+	color = "#ffe1af"
+	},
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"vf" = (
+/obj/machinery/vending/cola,
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"vA" = (
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/southwest/stadium)
+"wr" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"wv" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	dir = 1
+	},
+/turf/open/floor/multi_tiles{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"wD" = (
+/obj/machinery/light/mainship,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/stadium/gens)
+"wN" = (
+/obj/effect/urban/decal/road/lines4{
+	pixel_y = 16;
+	pixel_x = 1
+	},
+/obj/effect/urban/decal/road/lines5{
+	pixel_x = -1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"xC" = (
+/obj/structure/mirror{
+	dir = 4
+	},
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/southwest/stadium)
+"xQ" = (
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
+/turf/open/floor/multi_tiles{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"xR" = (
+/obj/effect/urban/decal/road/lines5,
+/obj/effect/urban/decal/road/lines1{
+	pixel_y = 16;
+	pixel_x = -2
+	},
+/obj/effect/urban/decal/road/lines6{
+	pixel_y = 16
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"yl" = (
+/obj/machinery/door/airlock/mainship/generic/bathroom/toilet{
+	dir = 2
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/stadium)
+"yO" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"zy" = (
+/obj/effect/urban/decal/road/lines5{
+	pixel_x = -1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"zT" = (
+/turf/open/urban/street/sidewalk{
+	dir = 6
+	},
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"zZ" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 1;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"Aa" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"Ag" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	spawn_loot_chance = 75
+	},
+/obj/effect/urban/decal/road/lines2,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"Ap" = (
+/obj/effect/urban/decal/road/lines2,
+/turf/open/urban/street/sidewalkcenter{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"Az" = (
+/turf/open/floor/plating/ground/snow{
+	color = "#ffe1af"
+	},
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"AF" = (
+/obj/effect/urban/decal/road/lines4{
+	pixel_y = 16
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"AH" = (
+/obj/effect/urban/decal/road/lines4{
+	pixel_y = 16
+	},
+/obj/effect/urban/decal/road/lines5{
+	pixel_x = -1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"Bz" = (
+/obj/machinery/vending/coffee{
+	density = 0
+	},
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"BR" = (
+/obj/machinery/vending/cigarette,
+/turf/open/floor/multi_tiles{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"Ca" = (
+/obj/effect/urban/decal/road/lines6{
+	pixel_y = -16
+	},
+/obj/effect/urban/decal/road/lines6{
+	pixel_y = 16
+	},
+/obj/effect/landmark/nuke_spawn,
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"Cr" = (
+/obj/effect/urban/decal/road/lines5{
+	pixel_x = 3
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"CA" = (
+/obj/structure/bed/chair/comfy/beige{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"CF" = (
+/obj/effect/urban/decal/road/lines1{
+	pixel_y = 16
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"CW" = (
+/obj/structure/table/reinforced,
+/obj/machinery/prop/computer/communications{
+	dir = 8
+	},
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"Dg" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	dir = 8
+	},
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"DG" = (
+/obj/structure/bed/urban/chairs/black{
+	dir = 4
+	},
+/obj/structure/barricade/railing{
+	dir = 4
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"DT" = (
+/obj/structure/bed/chair/comfy/beige,
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"Ee" = (
+/obj/structure/urinal,
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/stadium)
+"Ex" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/snow{
+	color = "#ffe1af"
+	},
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"Ez" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/spawner/random/misc/structure/large/car{
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"FM" = (
+/obj/structure/bed/urban/chairs/black{
+	dir = 1
+	},
+/obj/structure/barricade/railing{
+	dir = 1
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"FT" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 4;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/sidewalkcenter{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"GA" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"GN" = (
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/reagent_containers/food/snacks/burger/bun,
+/obj/item/reagent_containers/food/snacks/burger/bun,
+/obj/item/reagent_containers/food/snacks/burger/bun,
+/obj/item/reagent_containers/food/snacks/burger/bun,
+/obj/item/reagent_containers/food/snacks/burger/bun,
+/obj/item/reagent_containers/food/snacks/burger/bun,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/flour,
+/obj/item/reagent_containers/food/snacks/flour,
+/obj/item/reagent_containers/food/snacks/flour,
+/obj/item/reagent_containers/food/snacks/flour,
+/obj/item/reagent_containers/food/snacks/flour,
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"GO" = (
+/obj/structure/toilet{
+	dir = 1
+	},
+/obj/machinery/light/small,
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/stadium)
+"Hn" = (
+/obj/effect/urban/decal/road/lines5{
+	pixel_x = -1
+	},
+/obj/effect/urban/decal/road/lines1{
+	pixel_y = 16;
+	pixel_x = -2
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"Ho" = (
+/obj/machinery/light,
+/turf/open/floor/multi_tiles{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"Hy" = (
+/turf/open/urban/street/sidewalkcenter{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"Ib" = (
+/turf/open/urban/street/sidewalk{
+	dir = 10
+	},
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"It" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/multi_tiles{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"Ja" = (
+/obj/structure/prop/urban/misc/trash/blue,
+/turf/open/floor/multi_tiles{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"Jj" = (
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/indoors/southwest/stadium)
+"Jl" = (
+/turf/open/urban/street/sidewalk{
+	dir = 9
+	},
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"JE" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/obj/structure/cable,
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/southwest/streets)
+"JH" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/sidewalkcenter{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"JI" = (
+/obj/structure/urinal,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/stadium)
+"JJ" = (
+/obj/structure/bed/urban/chairs/black,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"JL" = (
+/obj/effect/urban/decal/road/lines1{
+	pixel_y = 16;
+	pixel_x = -2
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"JU" = (
+/obj/effect/urban/decal/road/lines5,
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"Kv" = (
+/obj/structure/bed/urban/chairs/black{
+	dir = 4
+	},
+/obj/structure/prop/mainship/railing/corner,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"KM" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"KV" = (
+/obj/effect/urban/decal/road/lines5{
+	pixel_x = -1
+	},
+/obj/effect/urban/decal/road/lines1{
+	pixel_y = 15
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"Lz" = (
+/obj/structure/bed/chair/comfy/beige{
+	dir = 4
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"LJ" = (
+/obj/structure/bed/chair/comfy/beige{
+	dir = 8
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"LS" = (
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"LV" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"Mg" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 8
+	},
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"Mq" = (
+/obj/structure/bed/urban/chairs/black{
+	dir = 4
+	},
+/obj/structure/barricade/railing{
+	dir = 5
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"MK" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic,
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"MX" = (
+/obj/structure/bed/urban/chairs/black{
+	dir = 8
+	},
+/obj/structure/prop/mainship/railing/corner{
+	dir = 8
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"Ng" = (
+/obj/effect/landmark/spawn_marker/euseparatists/deserter,
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"Nt" = (
+/obj/structure/bed/urban/chairs/black{
+	dir = 8
+	},
+/obj/structure/prop/mainship/railing/corner{
+	dir = 1
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"Nz" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"NA" = (
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"NN" = (
+/obj/structure/bed/urban/chairs/black{
+	dir = 4
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"NZ" = (
+/obj/structure/bed/urban/chairs/black{
+	dir = 8
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"Ol" = (
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/west/streets)
+"On" = (
+/obj/effect/urban/decal/road/lines5,
+/obj/effect/landmark/spawn_marker/euseparatists/deserter,
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"Ox" = (
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/stadium/gens)
+"OB" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"Px" = (
+/obj/effect/urban/decal/road/lines1{
+	pixel_y = 16
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"PE" = (
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"PK" = (
+/obj/effect/urban/decal/dirt,
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/west/streets)
+"PO" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/mainship/maint{
+	dir = 2;
+	req_one_access = null
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/stadium/gens)
+"Ql" = (
+/obj/structure/bed/urban/chairs/black{
+	dir = 1
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"Qp" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/prop/urban/misc/trash/blue,
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"Qt" = (
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"QJ" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"QU" = (
+/obj/structure/toilet,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/stadium)
+"QV" = (
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/gleichseitig16/indoors/southwest/stadium/gens)
+"Rm" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/multi_tiles{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"Ro" = (
+/obj/effect/urban/decal/road/lines5,
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"Rx" = (
+/obj/machinery/light,
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"RD" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/structure/prop/urban/vehicles/large/van{
+	pixel_y = -6
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"RW" = (
+/obj/structure/bed/chair/office/dark,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"Se" = (
+/obj/machinery/streetlight/street{
+	level = 7;
+	pixel_y = 12
+	},
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/west/streets)
+"Sf" = (
+/obj/effect/urban/decal/road/lines5,
+/obj/effect/urban/decal/road/lines1{
+	pixel_y = 15
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"SI" = (
+/turf/open/urban/street/sidewalkcenter{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"SP" = (
+/obj/effect/urban/decal/road/lines5{
+	pixel_x = -1
+	},
+/turf/open/floor/plating/ground/snow{
+	color = "#ffe1af"
+	},
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"Tz" = (
+/obj/effect/urban/decal/road/lines5,
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"TB" = (
+/obj/effect/urban/decal/road/lines2,
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 4;
+	spawn_loot_chance = 75
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"TM" = (
+/obj/effect/urban/decal/road/lines6{
+	pixel_y = 16
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"TX" = (
+/obj/machinery/door/airlock/mainship/generic/bathroom{
+	name = "\improper Mens Restroom";
+	dir = 8
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/stadium)
+"Uj" = (
+/obj/effect/urban/decal/road/lines5{
+	pixel_x = 2
+	},
+/obj/effect/urban/decal/road/lines1{
+	pixel_y = 16
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"Un" = (
+/obj/structure/bed/urban/chairs/black{
+	dir = 1
+	},
+/obj/structure/barricade/railing{
+	dir = 1
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"UE" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/west/streets)
+"UL" = (
+/obj/structure/bed/urban/chairs/black{
+	dir = 8
+	},
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"Vc" = (
+/obj/effect/urban/decal/road/lines1{
+	pixel_y = 16;
+	pixel_x = -2
+	},
+/obj/effect/urban/decal/road/lines6{
+	pixel_y = 16
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"VL" = (
+/obj/structure/window/framed/urban/reinforced{
+	dir = 8
+	},
+/turf/open/floor/multi_tiles{
+	dir = 1
+	},
+/area/gleichseitig16/indoors/southwest/stadium)
+"VZ" = (
+/obj/structure/bed/urban/chairs/black{
+	dir = 4
+	},
+/obj/structure/barricade/railing{
+	dir = 4
+	},
+/obj/effect/landmark/spawn_marker/euseparatists/deserter,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"Wg" = (
+/turf/open/urban/street/sidewalk,
+/area/gleichseitig16/outdoors/southwest/streets)
+"Wn" = (
+/obj/effect/urban/decal/road/lines1{
+	pixel_y = 16
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"WA" = (
+/obj/structure/sink/bathroom{
+	dir = 1
+	},
+/obj/structure/mirror{
+	dir = 1
+	},
+/turf/open/floor/prison,
+/area/gleichseitig16/indoors/southwest/stadium)
+"WG" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/indoors/southwest/stadium)
+"Ym" = (
+/obj/effect/urban/decal/road/lines1{
+	pixel_y = 15
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"YA" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"YN" = (
+/obj/effect/urban/decal/road/lines1{
+	pixel_y = 15
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/gleichseitig16/outdoors/southwest/stadium/field)
+"Zk" = (
+/obj/structure/bed/urban/chairs/black,
+/obj/structure/barricade/railing,
+/turf/open/urban/street/cement3,
+/area/gleichseitig16/indoors/southwest/stadium)
+"ZF" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	spawn_loot_chance = 75
+	},
+/obj/effect/urban/decal/road/lines2,
+/turf/open/urban/street/sidewalkcenter{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/southwest/stadium/parking)
+"ZW" = (
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/west/streets)
+
+(1,1,1) = {"
+bH
+dD
+PE
+PE
+PE
+PE
+PE
+PE
+YA
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+YA
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+YA
+PE
+PE
+PE
+PE
+PE
+PE
+gI
+"}
+(2,1,1) = {"
+dD
+dD
+PE
+PE
+YA
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+YA
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+YA
+gI
+"}
+(3,1,1) = {"
+dD
+dD
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+YA
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+YA
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+gI
+"}
+(4,1,1) = {"
+UE
+dD
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+gT
+vA
+vA
+vA
+vA
+vA
+vA
+vA
+vA
+go
+tA
+vA
+vA
+vA
+vA
+vA
+vA
+vA
+vA
+PE
+PE
+PE
+YA
+PE
+PE
+PE
+PE
+gI
+"}
+(5,1,1) = {"
+ZW
+Ol
+LV
+Ez
+Aa
+ln
+PE
+PE
+PE
+PE
+vA
+Ee
+eJ
+eJ
+eJ
+yl
+GO
+vA
+tA
+tA
+vA
+QU
+yl
+eJ
+eJ
+yl
+GO
+vA
+mW
+mW
+mW
+mW
+mW
+mW
+mW
+mW
+gI
+"}
+(6,1,1) = {"
+ZW
+Ol
+PE
+ln
+ln
+ln
+YA
+PE
+PE
+tQ
+vA
+JI
+eJ
+eJ
+sJ
+vA
+vA
+vA
+tA
+wv
+vA
+vA
+vA
+ox
+WA
+vA
+vA
+vA
+mW
+ul
+Ox
+Ox
+Ox
+kS
+oj
+mW
+Wg
+"}
+(7,1,1) = {"
+ZW
+Ol
+yO
+GA
+zT
+PE
+PE
+PE
+PE
+gT
+vA
+Ee
+aX
+aX
+eJ
+yl
+GO
+vA
+tA
+tA
+vA
+QU
+yl
+eJ
+eJ
+yl
+GO
+vA
+mW
+QV
+lP
+rP
+Ox
+lP
+wD
+mW
+Wg
+"}
+(8,1,1) = {"
+ZW
+Ol
+GA
+zT
+PE
+PE
+PE
+PE
+PE
+PE
+vA
+vA
+xC
+xC
+TX
+vA
+vA
+vA
+tA
+tA
+vA
+vA
+vA
+TX
+vA
+vA
+vA
+vA
+mW
+ju
+Ox
+Ox
+Ox
+kS
+oj
+mW
+Wg
+"}
+(9,1,1) = {"
+ZW
+Ol
+zT
+PE
+PE
+PE
+PE
+PE
+PE
+vA
+vA
+sw
+rf
+Nz
+dP
+dP
+dP
+dP
+dP
+dP
+Nz
+dP
+NA
+dP
+dP
+rf
+dP
+sw
+vA
+mW
+ac
+lP
+Ox
+lP
+lP
+mW
+Wg
+"}
+(10,1,1) = {"
+ZW
+Ol
+PE
+PE
+PE
+PE
+YA
+PE
+vA
+vA
+dP
+dP
+dP
+dP
+dP
+dP
+al
+dP
+dP
+dP
+dP
+hA
+dP
+dP
+Nz
+dP
+dP
+dP
+dP
+vA
+mW
+qn
+Ox
+Ox
+wD
+mW
+Wg
+"}
+(11,1,1) = {"
+Se
+Ol
+PE
+PE
+PE
+PE
+PE
+vA
+vA
+dP
+dP
+dP
+dP
+dP
+vA
+vA
+vA
+vA
+tA
+wv
+vA
+vA
+vA
+vA
+dP
+dP
+dP
+tA
+tA
+tA
+vA
+mW
+eS
+Ox
+lP
+mW
+qD
+"}
+(12,1,1) = {"
+bh
+dD
+PE
+PE
+PE
+PE
+vA
+vA
+tA
+tA
+tA
+tA
+tA
+vA
+vA
+qz
+qz
+qz
+lf
+WG
+qz
+qz
+qz
+vA
+vA
+dP
+tA
+tA
+tA
+go
+tA
+vA
+mW
+Ox
+Ox
+PO
+qD
+"}
+(13,1,1) = {"
+dD
+dD
+PE
+PE
+PE
+vA
+vA
+tA
+tA
+go
+It
+vA
+eb
+vA
+qz
+qz
+qz
+qz
+Jj
+lf
+qz
+qz
+qz
+qz
+vA
+eb
+vA
+It
+tA
+tA
+tA
+tA
+vA
+lP
+Ox
+mW
+qD
+"}
+(14,1,1) = {"
+dD
+dD
+PE
+PE
+PE
+vA
+tA
+tA
+tA
+tA
+vA
+vA
+tA
+qz
+NN
+qz
+qz
+qz
+Jj
+Jj
+qz
+qz
+qz
+qz
+qz
+tA
+vA
+vA
+tA
+tA
+tA
+Ho
+vA
+mW
+Ox
+mW
+qD
+"}
+(15,1,1) = {"
+dD
+dD
+PE
+PE
+vA
+vA
+pA
+tA
+tA
+vA
+vA
+fA
+qz
+Kv
+DG
+DG
+DG
+DG
+lf
+lf
+DG
+VZ
+DG
+DG
+rn
+qz
+fA
+vA
+vA
+tA
+tA
+tA
+tA
+PO
+mT
+mW
+qD
+"}
+(16,1,1) = {"
+bH
+dD
+PE
+PE
+vA
+go
+tA
+tA
+tA
+bg
+dP
+qz
+Kv
+cU
+cT
+cT
+cT
+cT
+Qt
+Qt
+cT
+cT
+Qt
+cT
+Mq
+rn
+NN
+dP
+bg
+tA
+go
+tA
+tA
+vA
+mW
+mW
+qD
+"}
+(17,1,1) = {"
+dD
+dD
+PE
+vA
+vA
+tA
+tA
+tA
+tA
+vA
+qz
+Kv
+cU
+tS
+cT
+uM
+Lz
+Lz
+KM
+cT
+uM
+Lz
+uM
+wr
+tS
+Mq
+rn
+qz
+vA
+tA
+tA
+tA
+tA
+tA
+vA
+vA
+qD
+"}
+(18,1,1) = {"
+dD
+dD
+PE
+vA
+tA
+tA
+tA
+tA
+vA
+vA
+JJ
+Zk
+Qt
+Qt
+cT
+Qt
+Qt
+Qt
+cT
+Qt
+Qt
+cT
+Qt
+Qt
+cT
+cT
+FM
+Ql
+vA
+vA
+tA
+tA
+tA
+go
+vA
+vA
+qD
+"}
+(19,1,1) = {"
+dD
+dD
+vA
+vA
+tA
+tA
+tA
+go
+vA
+JJ
+JJ
+Zk
+cT
+Qt
+fN
+fN
+fN
+fN
+eH
+nC
+fN
+fN
+fN
+fN
+fN
+cT
+FM
+Ql
+Ql
+vA
+pA
+tA
+tA
+tA
+Ja
+vA
+qD
+"}
+(20,1,1) = {"
+bH
+Ol
+vA
+dY
+tA
+tA
+tA
+Ho
+vA
+JJ
+JJ
+Zk
+cT
+Tz
+Ex
+Tz
+Qt
+zy
+Qt
+Qt
+jl
+Qt
+Tz
+Qt
+Tz
+cT
+LS
+LS
+LS
+vA
+tA
+tA
+tA
+tA
+tA
+vA
+qD
+"}
+(21,1,1) = {"
+ZW
+Ol
+vA
+qG
+tA
+tA
+tA
+tA
+vA
+LS
+LS
+LS
+Qt
+Tz
+Qt
+Tz
+Qt
+zy
+eH
+AF
+AH
+Qt
+Tz
+Az
+Tz
+cT
+CA
+LS
+QJ
+MK
+dP
+dP
+dP
+dP
+Rx
+vA
+qD
+"}
+(22,1,1) = {"
+Se
+Ol
+vA
+vA
+tA
+tA
+tA
+tA
+MK
+LS
+QJ
+qP
+cT
+bJ
+Qt
+JU
+Az
+Qt
+Qt
+Qt
+Qt
+Qt
+Tz
+Qt
+bJ
+cT
+CA
+LS
+LS
+dP
+dP
+Nz
+dP
+dP
+dP
+vA
+qD
+"}
+(23,1,1) = {"
+ZW
+Ol
+vA
+dP
+dP
+Nz
+dP
+dP
+dP
+LS
+LS
+DT
+cT
+Tz
+Qt
+Tz
+nC
+fN
+fN
+fN
+eH
+fN
+hT
+KM
+JU
+Qt
+LS
+LS
+LS
+vA
+vf
+dP
+dP
+dP
+dP
+vA
+qD
+"}
+(24,1,1) = {"
+bh
+Ol
+vA
+uK
+NA
+dP
+dP
+dP
+vA
+LS
+LS
+LS
+cT
+Tz
+KM
+Qt
+cT
+jl
+fN
+eH
+AH
+Qt
+Qt
+Qt
+JU
+Qt
+FM
+Ql
+Ql
+vA
+vA
+vA
+dP
+dP
+Nz
+vA
+qD
+"}
+(25,1,1) = {"
+ZW
+Ol
+vA
+dP
+dP
+dP
+vA
+vA
+vA
+JJ
+JJ
+Zk
+cT
+Tz
+Qt
+Az
+Qt
+Qt
+cT
+Qt
+Qt
+Qt
+Qt
+cT
+Tz
+Qt
+FM
+Ql
+vA
+vA
+CW
+eA
+dP
+dP
+dP
+vA
+qD
+"}
+(26,1,1) = {"
+ZW
+Ol
+vA
+dP
+dP
+vA
+vA
+eA
+vA
+vA
+JJ
+Zk
+Qt
+Tz
+Qt
+Qt
+Qt
+Qt
+Qt
+wr
+Qt
+Qt
+Az
+Qt
+Tz
+Qt
+FM
+Ql
+vA
+dP
+dP
+eA
+dP
+dP
+Rx
+vA
+lZ
+"}
+(27,1,1) = {"
+bh
+Ol
+vA
+dP
+dP
+vA
+dP
+kz
+eE
+vA
+JJ
+Zk
+Qt
+Tz
+Qt
+Qt
+Qt
+cT
+Qt
+Qt
+Az
+Qt
+cT
+Qt
+bJ
+cT
+Un
+Ql
+vA
+RW
+dP
+eA
+dP
+dP
+dP
+vA
+qD
+"}
+(28,1,1) = {"
+ZW
+Ol
+vA
+dP
+dP
+vA
+uK
+dP
+eA
+VL
+JJ
+Zk
+cT
+Tz
+Qt
+Az
+Qt
+cT
+Qt
+Qt
+Qt
+cT
+cT
+Qt
+Tz
+cT
+FM
+Ql
+vA
+dP
+dP
+eA
+Nz
+dP
+dP
+Dg
+qD
+"}
+(29,1,1) = {"
+ZW
+Ol
+bg
+dP
+dP
+vA
+kz
+dP
+eA
+VL
+JJ
+Zk
+cT
+Ro
+Qt
+Qt
+cT
+Qt
+Cr
+jp
+Qt
+cT
+Qt
+Qt
+Tz
+cT
+FM
+Ql
+vA
+dP
+eA
+eA
+dP
+dP
+dP
+dP
+qD
+"}
+(30,1,1) = {"
+ZW
+Ol
+vA
+Nz
+dP
+vA
+dP
+dP
+eA
+VL
+JJ
+Zk
+cT
+On
+Qt
+Qt
+cT
+tT
+Px
+Qt
+Uj
+Qt
+Qt
+Qt
+Tz
+cT
+FM
+Ql
+vA
+dP
+vA
+vA
+dP
+dP
+dP
+vA
+qD
+"}
+(31,1,1) = {"
+Se
+Ol
+vA
+uK
+dP
+bg
+dP
+dP
+Rx
+vA
+JJ
+Zk
+tS
+bJ
+TM
+TM
+gf
+Vc
+kj
+Ca
+Qt
+xR
+vb
+ef
+bJ
+np
+fK
+Ql
+vA
+dP
+OB
+dP
+dP
+dP
+jD
+vA
+qD
+"}
+(32,1,1) = {"
+ZW
+Ol
+vA
+dP
+dP
+vA
+rC
+dP
+eA
+VL
+JJ
+Zk
+cT
+Tz
+Qt
+Qt
+Qt
+Hn
+oH
+cT
+wN
+JL
+Qt
+cT
+bJ
+wr
+FM
+Ql
+vA
+vA
+dP
+vA
+dP
+dP
+dP
+vA
+qD
+"}
+(33,1,1) = {"
+ZW
+Ol
+bg
+dP
+dP
+vA
+dP
+dP
+eA
+VL
+JJ
+Zk
+cT
+Tz
+Qt
+Az
+Qt
+Qt
+zy
+AH
+Qt
+Qt
+Qt
+Qt
+JU
+cT
+FM
+Ql
+vA
+oQ
+dP
+vA
+dP
+dP
+dP
+Dg
+qD
+"}
+(34,1,1) = {"
+bh
+Ol
+vA
+dP
+dP
+vA
+RW
+dP
+eA
+VL
+JJ
+Zk
+cT
+Tz
+cT
+Qt
+Az
+Qt
+Qt
+Qt
+Qt
+Qt
+cT
+Az
+JU
+cT
+FM
+Ql
+vA
+eA
+dP
+eA
+dP
+dP
+dP
+dP
+lZ
+"}
+(35,1,1) = {"
+ZW
+Ol
+vA
+dP
+dP
+vA
+dP
+dP
+eE
+vA
+JJ
+Zk
+Qt
+Tz
+Qt
+Qt
+Qt
+Qt
+Qt
+Qt
+Az
+wr
+Qt
+cT
+bJ
+cT
+FM
+Ql
+vA
+pc
+dP
+eA
+Nz
+dP
+dP
+vA
+qD
+"}
+(36,1,1) = {"
+bh
+Ol
+vA
+Nz
+dP
+vA
+vA
+eA
+vA
+vA
+JJ
+Zk
+wr
+JU
+Qt
+Qt
+Qt
+Az
+wr
+Qt
+Qt
+Qt
+Qt
+Qt
+Tz
+cT
+FM
+Ql
+vA
+GN
+dP
+eA
+dP
+dP
+Rx
+vA
+qD
+"}
+(37,1,1) = {"
+ZW
+Ol
+vA
+dP
+dP
+dP
+vA
+vA
+vA
+JJ
+JJ
+Zk
+cT
+Tz
+Qt
+Qt
+cT
+cT
+Az
+Qt
+Qt
+Az
+cT
+Qt
+Tz
+cT
+Un
+Ql
+vA
+vA
+dP
+eA
+dP
+dP
+dP
+vA
+qD
+"}
+(38,1,1) = {"
+bh
+Ol
+vA
+uK
+NA
+dP
+dP
+dP
+vA
+LS
+LS
+LS
+cT
+bJ
+Qt
+cT
+Qt
+zy
+Ym
+YN
+KV
+Qt
+Qt
+Az
+Tz
+cT
+FM
+Ql
+Ql
+vA
+vA
+vA
+dP
+dP
+dP
+vA
+qD
+"}
+(39,1,1) = {"
+ZW
+Ol
+vA
+dP
+dP
+dP
+dP
+dP
+MK
+LS
+LS
+qP
+cT
+Tz
+Qt
+bJ
+YN
+Ym
+Ym
+Ym
+Ym
+YN
+Sf
+Qt
+Tz
+cT
+LS
+LS
+LS
+vA
+Bz
+dP
+dP
+dP
+Nz
+vA
+qD
+"}
+(40,1,1) = {"
+ZW
+Ol
+vA
+vA
+tA
+go
+tA
+tA
+dP
+LS
+QJ
+qP
+cT
+Tz
+Qt
+Tz
+Qt
+cT
+cT
+Qt
+Qt
+Qt
+Tz
+Qt
+Tz
+Qt
+CA
+QJ
+LS
+MK
+dP
+dP
+dP
+dP
+dP
+vA
+qD
+"}
+(41,1,1) = {"
+Se
+Ol
+vA
+BR
+tA
+tA
+tA
+tA
+vA
+LS
+LS
+LS
+cT
+bJ
+cT
+Tz
+Qt
+SP
+YN
+YN
+KV
+Qt
+Tz
+KM
+Tz
+cT
+CA
+LS
+LS
+dP
+dP
+dP
+dP
+dP
+Rx
+vA
+qD
+"}
+(42,1,1) = {"
+ZW
+Ol
+vA
+pf
+tA
+tA
+tA
+Ho
+vA
+JJ
+JJ
+Zk
+cT
+bJ
+cT
+bJ
+cT
+jl
+Qt
+Az
+zy
+Az
+Tz
+Qt
+bJ
+Ng
+LS
+LS
+LS
+vA
+tA
+go
+tA
+tA
+tA
+vA
+lZ
+"}
+(43,1,1) = {"
+dD
+Ol
+vA
+dY
+tA
+tA
+tA
+tA
+vA
+JJ
+JJ
+Zk
+cT
+cT
+uH
+CF
+CF
+Wn
+Px
+Px
+CF
+Px
+Px
+Px
+Px
+cT
+FM
+Ql
+Ql
+vA
+pA
+tA
+tA
+tA
+Ja
+vA
+qD
+"}
+(44,1,1) = {"
+dD
+dD
+vA
+vA
+tA
+tA
+tA
+tA
+vA
+vA
+UL
+hs
+wr
+cT
+cT
+cT
+cT
+Qt
+cT
+Qt
+Qt
+cT
+Qt
+Qt
+Qt
+cT
+FM
+Ql
+vA
+vA
+xQ
+tA
+tA
+tA
+vA
+vA
+qD
+"}
+(45,1,1) = {"
+dD
+dD
+PE
+vA
+tA
+tA
+tA
+tA
+tA
+vA
+UL
+MX
+fL
+tS
+cT
+LJ
+LJ
+LJ
+cT
+cT
+LJ
+kd
+kd
+cT
+np
+oc
+Nt
+UL
+vA
+tA
+tA
+tA
+tA
+tA
+vA
+Hy
+ue
+"}
+(46,1,1) = {"
+UE
+dD
+PE
+vA
+vA
+tA
+tA
+tA
+tA
+bg
+dP
+UL
+MX
+fL
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+wr
+cT
+cT
+oc
+Nt
+UL
+dP
+bg
+tA
+tA
+tA
+go
+vA
+vA
+PE
+ue
+"}
+(47,1,1) = {"
+dD
+dD
+PE
+PE
+vA
+tA
+tA
+go
+tA
+vA
+vA
+fA
+UL
+MX
+mD
+mD
+mD
+mD
+lf
+lf
+mD
+mD
+mD
+mD
+db
+UL
+fA
+vA
+vA
+tA
+tA
+tA
+tA
+vA
+PE
+PE
+ue
+"}
+(48,1,1) = {"
+dD
+dD
+PE
+PE
+vA
+vA
+pA
+tA
+tA
+tA
+vA
+vA
+tA
+NZ
+UL
+UL
+UL
+UL
+lf
+WG
+UL
+UL
+UL
+UL
+UL
+tA
+vA
+vA
+tA
+go
+tA
+Ho
+vA
+vA
+PE
+PE
+ue
+"}
+(49,1,1) = {"
+dD
+dD
+PE
+PE
+PE
+vA
+tA
+tA
+tA
+tA
+Rm
+vA
+eb
+vA
+UL
+UL
+UL
+UL
+lf
+lf
+UL
+UL
+UL
+UL
+vA
+Mg
+vA
+tA
+tA
+tA
+tA
+tA
+vA
+PE
+PE
+PE
+ue
+"}
+(50,1,1) = {"
+ZW
+dD
+PE
+PE
+PE
+vA
+vA
+tA
+tA
+tA
+tA
+dP
+dP
+vA
+vA
+UL
+UL
+UL
+lf
+lf
+UL
+UL
+UL
+vA
+vA
+dP
+dP
+tA
+tA
+tA
+tA
+vA
+vA
+PE
+PE
+SI
+qD
+"}
+(51,1,1) = {"
+Se
+Ol
+PE
+PE
+YA
+PE
+vA
+vA
+tA
+tA
+dP
+dP
+dP
+dP
+vA
+vA
+vA
+vA
+tA
+wv
+vA
+vA
+vA
+vA
+dP
+dP
+dP
+dP
+tA
+tA
+vA
+vA
+PE
+PE
+PE
+JH
+qD
+"}
+(52,1,1) = {"
+ZW
+Ol
+PE
+PE
+PE
+PE
+PE
+vA
+vA
+dP
+Nz
+dP
+dP
+dP
+dP
+rf
+dP
+dP
+dP
+dP
+dP
+dP
+rf
+dP
+dP
+dP
+dP
+Nz
+tA
+vA
+vA
+PE
+PE
+PE
+PE
+SI
+qD
+"}
+(53,1,1) = {"
+ZW
+Ol
+Ib
+PE
+PE
+PE
+PE
+PE
+vA
+vA
+dP
+dP
+dP
+dP
+dP
+Nz
+dP
+dP
+dP
+dP
+dP
+dP
+dP
+dP
+dP
+dP
+dP
+dP
+vA
+vA
+PE
+YA
+PE
+PE
+PE
+Jl
+qD
+"}
+(54,1,1) = {"
+ZW
+Ol
+GA
+Ib
+PE
+PE
+PE
+PE
+PE
+vA
+vA
+dP
+dP
+dP
+dP
+dP
+dP
+dP
+dP
+dP
+dP
+dP
+dP
+Nz
+dP
+dP
+dP
+vA
+vA
+PE
+PE
+PE
+PE
+PE
+Jl
+GA
+qD
+"}
+(55,1,1) = {"
+ZW
+Ol
+GA
+GA
+Ib
+PE
+PE
+PE
+PE
+PE
+vA
+vA
+Qp
+dP
+dP
+dP
+hA
+dP
+Nz
+dP
+dP
+hA
+dP
+dP
+dP
+Qp
+vA
+vA
+PE
+PE
+PE
+PE
+PE
+Jl
+yO
+GA
+qD
+"}
+(56,1,1) = {"
+ZW
+Ol
+LV
+Ez
+Ez
+ln
+PE
+PE
+PE
+PE
+PE
+vA
+vA
+vA
+tA
+wv
+vA
+vA
+tA
+wv
+vA
+vA
+dP
+uP
+vA
+vA
+vA
+PE
+PE
+PE
+PE
+PE
+PE
+Ag
+TB
+ZF
+qD
+"}
+(57,1,1) = {"
+ZW
+Ol
+PE
+ln
+ln
+ln
+PE
+YA
+PE
+PE
+PE
+PE
+nu
+nu
+nu
+nu
+nu
+nu
+nu
+nu
+nu
+nu
+nu
+nu
+nu
+nu
+PE
+YA
+PE
+PE
+YA
+PE
+PE
+ln
+ln
+Ap
+qD
+"}
+(58,1,1) = {"
+ZW
+Ol
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+YA
+PE
+PE
+PE
+PE
+PE
+PE
+YA
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+SI
+qD
+"}
+(59,1,1) = {"
+PK
+Ol
+PE
+YA
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+YA
+PE
+PE
+PE
+PE
+PE
+PE
+YA
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+YA
+PE
+SI
+JE
+"}
+(60,1,1) = {"
+ZW
+Ol
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+YA
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+PE
+YA
+PE
+PE
+PE
+PE
+PE
+PE
+SI
+qD
+"}
+(61,1,1) = {"
+bh
+Ol
+mC
+Ez
+Aa
+Aa
+TB
+Aa
+TB
+Aa
+Aa
+TB
+zZ
+Aa
+TB
+TB
+RD
+TB
+zZ
+kB
+Aa
+zZ
+zZ
+zZ
+TB
+Aa
+TB
+Aa
+Aa
+TB
+TB
+TB
+Aa
+Aa
+TB
+FT
+qD
+"}
+(62,1,1) = {"
+ZW
+Ol
+PE
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+ln
+Ap
+qD
+"}

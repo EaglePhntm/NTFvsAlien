@@ -32,9 +32,9 @@
 	force_eye_emissive = TRUE
 	species_description = "<br /><br /><b>Lore</b>:<br /><br /> \
 	The Resurgentis are one of the oldest species of humanoids after humans, they are the primary population of phantom city, the now biggest free city of the new world.<br /><br /> \
-	They have been allegedly, ancestrally created by the death god, from altered semi-undead humans who were supposed to be the superior race...<br /><br /> \
+	They have been -allegedly-, ancestrally created by the death god although they are not undead or anything, legends say, they are made from altered semi-undead humans who were supposed to be the superior race...<br /><br /> \
 	While their ancestors are semi-undead, their offspring, therefore entirety of the race except the tree originals are entirely living.<br /><br /> \
-	They usually aren't happy to hear about the racist remark towards them, 'reapers' to shorten their species name, for the reason their ancestors have been associated with cannibalism,<br /><br /> \
+	They usually aren't happy to hear about the racist remark towards them, 'reapers' to shorten their species name, for the reason their ancestors and certain today's groups have been associated with cannibalism,<br /><br /> \
 	alongside certain cannibal tribes in 'middle ages' of the New World and even todays in no mans land.<br /><br /><br /><br /> \
 	<b>Physiology</b>:<br /><br /> \
 	Due to their allegedly designed physiology, they have a greater tolerance to pain and damage, mostly due to their denser muscles, slightly larger size and unique blood.<br /><br /> \
@@ -52,7 +52,6 @@
 	Cryostatis is more disorienting to resurgentis than to other species, mentally and physically.<br /><br /> \
 	Resurgentis are the prime prey of Corrupted (the shadowy monsters that started emerging after the great war.), they are able to be corrupted into one of them through 'mind flayers' fog, except the white essence resurgentis, phantom city had to fight sieges of those things in the past.<br /><br />\
 	They are known for their aggressive behavior and tendency to go into a berserk rage when injured or provoked, especially if they are of weak will.<br /><br /><br /><br /> \
-	<img src=https://images2.imgbox.com/eb/ed/Ej1joSvd_o.png width=100 height=150/> <img src=https://images2.imgbox.com/a1/a1/CRPdB4Ir_o.png width=100 height=150/><br /><img src=https://images2.imgbox.com/3e/34/Grph56ZU_o.png width=100 height=150/> <img src=https://images2.imgbox.com/83/96/oDGu3zmO_o.png width=100 height=150/><br /><img src=https://images2.imgbox.com/66/71/1633KcMb_o.png width=100 height=150/><br /><br /><br /><br />\
 	<br /><br /><b>Mechanics:</b><br /><br /> \
 	-Last Stand-<br /><br />\
 	Resurgentis have a unique ability to go into a berserk rage when critically injured, granting them temporary healing, boosts to their speed and making them withstand dying out of pure rage and determination for its short duration, but leaving them exhausted once the effect ends. Cooldown is automatically refreshed in 5 minutes.<br /><br /> \
@@ -98,7 +97,10 @@
 		return FALSE
 
 	var/mob/living/carbon/carbon_owner = owner
-	if(!carbon_owner)		return FALSE
+	if(!carbon_owner)
+		return FALSE
+	if(carbon_owner.stat == DEAD)
+		return FALSE
 	if(carbon_owner.health > (carbon_owner.maxHealth * 0.5)) //can be manually triggered below half health
 		if(!silent)
 			to_chat(owner, span_danger("Your health isn't low enough to rage! You must take [carbon_owner.health - (carbon_owner.maxHealth * 0.5)] more damage!"))

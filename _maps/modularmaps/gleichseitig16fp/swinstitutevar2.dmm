@@ -10,6 +10,10 @@
 	},
 /turf/open/floor/urban/tile/darkgrey_bigtile,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"an" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/mainship/silver/full,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "ao" = (
 /obj/machinery/iv_drip,
 /obj/item/reagent_containers/blood/random,
@@ -178,8 +182,15 @@
 	},
 /turf/open/floor/iron/dark/textured,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"dT" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "ea" = (
-/obj/structure/barricade/railing,
+/obj/structure/barricade/guardrail,
 /obj/effect/ai_node{
 	pixel_x = 1
 	},
@@ -213,6 +224,13 @@
 	dir = 4
 	},
 /area/gleichseitig16/indoors/southwest/milacademy)
+"ey" = (
+/obj/structure/bed/chair/comfy{
+	dir = 8
+	},
+/obj/effect/landmark/weed_node,
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "eM" = (
 /obj/machinery/light,
 /turf/open/floor/urban/tile/darkgrey_bigtile,
@@ -222,6 +240,11 @@
 	dir = 8
 	},
 /turf/open/floor/iron/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"fk" = (
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/urban/tile/darkgrey_bigtile,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "fm" = (
 /turf/closed/wall/indestructible/fakeglass,
@@ -249,6 +272,7 @@
 /turf/open/urban/street/cement2,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "fF" = (
+/obj/effect/landmark/weed_node,
 /turf/open/urban/street/sidewalkfull,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "fN" = (
@@ -260,6 +284,10 @@
 	dir = 4
 	},
 /turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"fS" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/iron/textured,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "gc" = (
 /obj/structure/table/reinforced/prison,
@@ -294,6 +322,10 @@
 	},
 /turf/open/floor/urban/tile/lightbeige_bigtile,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"gl" = (
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "gu" = (
 /obj/effect/spawner/random/misc/plant,
 /turf/open/floor/urban/tile/beigetileshiny,
@@ -305,6 +337,11 @@
 "gG" = (
 /obj/machinery/vending/cigarette,
 /turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"gJ" = (
+/obj/effect/spawner/random/misc/plant,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/urban/tile/beigetileshiny,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "gM" = (
 /turf/open/floor/plating/ground/snow{
@@ -323,6 +360,10 @@
 /turf/open/floor/urban/tile/lightbeige_bigtile,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "hV" = (
+/turf/open/floor/urban/carpet/carpetbeige,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"id" = (
+/obj/effect/landmark/weed_node,
 /turf/open/floor/urban/carpet/carpetbeige,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "ih" = (
@@ -374,12 +415,17 @@
 /turf/open/floor/iron/smooth,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "js" = (
+/obj/structure/target_stake,
 /obj/item/target,
 /turf/open/floor/plating,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "ju" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/iron/smooth,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"jx" = (
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/floor/iron/checker,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "jA" = (
 /obj/structure/bed/chair,
@@ -452,7 +498,10 @@
 /turf/open/floor/urban/tile/supermartfloor1,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "kR" = (
-/obj/machinery/vending/armor_supply,
+/obj/machinery/vending/weapon/crash{
+	products = list("Rifles" = list(/obj/item/weapon/gun/rifle/standard_assaultrifle = -1, /obj/item/ammo_magazine/rifle/standard_assaultrifle = -1, /obj/item/ammo_magazine/rifle/standard_assaultrifle/rubber = -1, /obj/item/weapon/gun/rifle/standard_carbine = -1, /obj/item/ammo_magazine/rifle/standard_carbine = -1, /obj/item/ammo_magazine/rifle/standard_carbine/rubber = -1, /obj/item/weapon/gun/rifle/standard_skirmishrifle = -1, /obj/item/ammo_magazine/rifle/standard_skirmishrifle = -1, /obj/item/ammo_magazine/rifle/standard_skirmishrifle/rubber = -1, /obj/item/weapon/gun/rifle/tx11 = 2, /obj/item/ammo_magazine/rifle/tx11 = 18, /obj/item/ammo_magazine/rifle/tx11/rubber = 18, /obj/item/weapon/gun/rifle/m41a = 2, /obj/item/ammo_magazine/rifle/m41a = -1, /obj/item/weapon/gun/rifle/m412 = -1, /obj/item/weapon/gun/rifle/alf_machinecarbine = -1, /obj/item/ammo_magazine/rifle/alf_machinecarbine = -1, /obj/item/ammo_magazine/rifle = -1, /obj/item/weapon/gun/rifle/m16 = -1, /obj/item/weapon/gun/rifle/khm4 = -1, /obj/item/ammo_magazine/rifle/m16 = -1, /obj/item/ammo_magazine/rifle/m16_quadstack = 20, /obj/item/ammo_magazine/rifle/m16_cmag = 10),"SMGs"=list(/obj/item/weapon/gun/smg/standard_smg = -1, /obj/item/ammo_magazine/smg/standard_smg = -1, /obj/item/weapon/gun/smg/standard_machinepistol = -1, /obj/item/ammo_magazine/smg/standard_machinepistol = -1, /obj/item/weapon/gun/smg/m25 = -1, /obj/item/ammo_magazine/smg/m25 = -1, /obj/item/weapon/gun/smg/standard_heavysmg = -1, /obj/item/ammo_magazine/smg/standard_heavysmg = -1, /obj/item/ammo_magazine/smg/standard_heavysmg/squashhead = -1, /obj/item/ammo_magazine/smg/standard_heavysmg/rubber = -1),"Marksman"=list(/obj/item/weapon/gun/rifle/standard_dmr = -1, /obj/item/ammo_magazine/rifle/standard_dmr = -1, /obj/item/weapon/gun/rifle/mpar/mil = 2, /obj/item/ammo_magazine/rifle/mpar = -1, /obj/item/ammo_magazine/rifle/mpar/ext = 12, /obj/item/ammo_magazine/rifle/mpar/smart = 12, /obj/item/ammo_magazine/rifle/mpar/bomb = -1, /obj/item/ammo_magazine/rifle/mpar/drain = 20, /obj/item/ammo_magazine/rifle/mpar/electromag = 6, /obj/item/weapon/gun/rifle/chambered = -1, /obj/item/ammo_magazine/rifle/chamberedrifle = -1, /obj/item/weapon/gun/shotgun/pump/bolt = -1, /obj/item/ammo_magazine/rifle/boltclip = -1, /obj/item/ammo_magazine/rifle/bolt = -1, /obj/item/weapon/gun/rifle/plasma_dmr = 1, /obj/item/ammo_magazine/rifle/plasma_dmr = -1),"Shotgun"=list(/obj/item/weapon/gun/shotgun/pump/t35 = -1, /obj/item/weapon/gun/shotgun/combat/standardmarine = -1, /obj/item/ammo_magazine/shotgun = -1, /obj/item/ammo_magazine/shotgun/buckshot = -1, /obj/item/ammo_magazine/shotgun/flechette = -1, /obj/item/ammo_magazine/shotgun/tracker = 1, /obj/item/ammo_magazine/shotgun/beanbag = -1, /obj/item/ammo_magazine/shotgun/rubber_pellet = -1, /obj/item/ammo_magazine/handful/slug = -1, /obj/item/ammo_magazine/handful/buckshot = -1, /obj/item/ammo_magazine/handful/flechette = -1, /obj/item/ammo_magazine/handful/tracker = 5, /obj/item/ammo_magazine/handful/beanbag = -1, /obj/item/ammo_magazine/handful/rubber_pellet = -1, /obj/item/weapon/gun/rifle/standard_autoshotgun = -1, /obj/item/ammo_magazine/rifle/tx15_flechette = -1, /obj/item/ammo_magazine/rifle/tx15_slug = -1, /obj/item/weapon/gun/rifle/light_autoshotgun = -1, /obj/item/ammo_magazine/rifle/sh410_sabot = -1, /obj/item/ammo_magazine/rifle/sh410_buckshot = -1, /obj/item/ammo_magazine/rifle/sh410_ricochet = -1, /obj/item/ammo_magazine/rifle/sh410_tracker = -1, /obj/item/ammo_magazine/rifle/sh410_gas = -1),"Machinegun"=list(/obj/item/weapon/gun/rifle/standard_lmg = -1, /obj/item/ammo_magazine/standard_lmg = -1, /obj/item/weapon/gun/rifle/standard_gpmg = -1, /obj/item/ammo_magazine/standard_gpmg = -1, /obj/item/weapon/gun/rifle/m412l1_hpr = 2, /obj/item/ammo_magazine/m412l1_hpr = -1, /obj/item/weapon/gun/standard_mmg = 5, /obj/item/ammo_magazine/standard_mmg = -1),"Melee"=list(/obj/item/weapon/combat_knife = -1, /obj/item/attachable/bayonet = -1, /obj/item/stack/throwing_knife = -1, /obj/item/storage/belt/knifepouch = -1, /obj/item/storage/holster/blade/machete/full = -1, /obj/item/weapon/shield/riot/marine = 6, /obj/item/weapon/shield/riot/marine/deployable = 6),"Sidearm"=list(/obj/item/weapon/gun/pistol/standard_pistol = -1, /obj/item/ammo_magazine/pistol/standard_pistol = -1, /obj/item/weapon/gun/pistol/standard_heavypistol = -1, /obj/item/ammo_magazine/pistol/standard_heavypistol = -1, /obj/item/weapon/gun/revolver/standard_revolver = -1, /obj/item/ammo_magazine/revolver/standard_revolver = -1, /obj/item/weapon/gun/pistol/standard_pocketpistol = -1, /obj/item/ammo_magazine/pistol/standard_pocketpistol = -1, /obj/item/weapon/gun/pistol/g22 = -1, /obj/item/ammo_magazine/pistol/g22 = -1, /obj/item/weapon/gun/pistol/plasma_pistol = -1, /obj/item/ammo_magazine/pistol/plasma_pistol = -1, /obj/item/weapon/gun/pistol/smart_fastpistol = 2, /obj/item/ammo_magazine/pistol/standard_pistol/smart_fastpistol = -1),"Grenades"=list(/obj/item/weapon/gun/grenade_launcher/single_shot = -1, /obj/item/weapon/gun/grenade_launcher/multinade_launcher/unloaded = -1, /obj/item/weapon/gun/rifle/tx54 = 2, /obj/item/ammo_magazine/rifle/tx54 = 5, /obj/item/ammo_magazine/rifle/tx54/incendiary = 5, /obj/item/ammo_magazine/rifle/tx54/smoke = 15, /obj/item/ammo_magazine/rifle/tx54/smoke/tangle = 10, /obj/item/explosive/grenade = 200, /obj/item/explosive/grenade/m15 = 30, /obj/item/explosive/grenade/sticky = 125, /obj/item/explosive/grenade/sticky/trailblazer = 75, /obj/item/explosive/grenade/incendiary = 50, /obj/item/explosive/grenade/ionplasma = 25, /obj/item/explosive/grenade/smokebomb = 25, /obj/item/explosive/grenade/smokebomb/cloak = 25, /obj/item/explosive/grenade/smokebomb/antigas = 10, /obj/item/explosive/grenade/sticky/cloaker = 10, /obj/item/explosive/grenade/smokebomb/drain = 25, /obj/item/explosive/grenade/mirage = 100, /obj/item/explosive/grenade/training = -1, /obj/item/explosive/grenade/impact = 40, /obj/item/explosive/grenade/phosphorus = 5, /obj/item/explosive/grenade/chem_grenade/metalfoam = 10, /obj/item/explosive/grenade/smokebomb/neuro = 20, /obj/item/explosive/grenade/smokebomb/neuro/alt = 10, /obj/item/explosive/grenade/smokebomb/acid = 15, /obj/item/explosive/grenade/smokebomb/satrapine = 10, /obj/item/explosive/grenade/smokebomb/aphrotoxin = 15, /obj/item/explosive/grenade/flashbang/stun = 30, /obj/item/explosive/grenade/smokebomb/sleep = 15, /obj/item/explosive/grenade/chem_grenade/teargas = 15, /obj/item/explosive/grenade/bullet/laser = 30, /obj/item/explosive/grenade/bullet/hefa = 5, /obj/item/explosive/grenade/emp = 5, /obj/item/explosive/grenade/cagenade = 3, /obj/item/storage/box/m94 = 200, /obj/item/storage/box/m94/cas = 30),"Specialized"=list(/obj/item/weapon/gun/rifle/pepperball = 10, /obj/item/ammo_magazine/rifle/pepperball = -1, /obj/item/weapon/gun/flamer/big_flamer/marinestandard = 2, /obj/item/ammo_magazine/flamer_tank/large = 8, /obj/item/ammo_magazine/flamer_tank/backtank = 4, /obj/item/weapon/gun/flamer/hydro_cannon = -1, /obj/item/ammo_magazine/flamer_tank/water = -1, /obj/item/bodybag/tarp = 10, /obj/item/storage/holster/backholster/rpg = 2, /obj/item/weapon/gun/launcher/rocket/recoillessrifle = 2, /obj/item/ammo_magazine/rocket/recoilless = 10, /obj/item/ammo_magazine/rocket/recoilless/light = 8, /obj/item/ammo_magazine/rocket/recoilless/low_impact = 6, /obj/item/ammo_magazine/rocket/recoilless/smoke = 8, /obj/item/ammo_magazine/rocket/recoilless/cloak = 4, /obj/item/ammo_magazine/rocket/recoilless/plasmaloss = 4, /obj/item/ammo_magazine/rocket/recoilless/heat = 4, /obj/item/ammo_magazine/rocket/recoilless/heam = 4),"Heavy Weapons"=list(/obj/structure/closet/crate/mortar_ammo/mortar_kit = 1, /obj/structure/closet/crate/mortar_ammo/howitzer_kit = 1, /obj/item/storage/box/hsg_102 = 1, /obj/item/weapon/gun/heavymachinegun = 1, /obj/item/ammo_magazine/heavymachinegun = 5, /obj/item/ammo_magazine/heavymachinegun/small = 10),"Attachments"=list(/obj/item/attachable/bayonet/converted = -1, /obj/item/attachable/compensator = -1, /obj/item/attachable/extended_barrel = -1, /obj/item/attachable/suppressor = -1, /obj/item/attachable/heavy_barrel = -1, /obj/item/attachable/lace = -1, /obj/item/attachable/flashlight = -1, /obj/item/attachable/flashlight/under = -1, /obj/item/attachable/magnetic_harness = -1, /obj/item/attachable/reddot = -1, /obj/item/attachable/motiondetector = -1, /obj/item/attachable/scope/marine = -1, /obj/item/attachable/scope/mini = -1, /obj/item/attachable/angledgrip = -1, /obj/item/attachable/verticalgrip = -1, /obj/item/attachable/foldable/bipod = -1, /obj/item/attachable/gyro = -1, /obj/item/attachable/lasersight = -1, /obj/item/attachable/burstfire_assembly = -1, /obj/item/attachable/quickfire = -1, /obj/item/weapon/gun/shotgun/combat/masterkey = -1, /obj/item/weapon/gun/grenade_launcher/underslung = -1, /obj/item/weapon/gun/flamer/mini_flamer = -1, /obj/item/ammo_magazine/flamer_tank/mini = -1, /obj/item/weapon/gun/rifle/pepperball/pepperball_mini = -1, /obj/item/ammo_magazine/rifle/pepperball/pepperball_mini = -1, /obj/item/attachable/stock/t76 = -1, /obj/item/attachable/flamer_nozzle = -1, /obj/item/attachable/flamer_nozzle/wide = -1, /obj/item/attachable/flamer_nozzle/long = -1),"Boxes"=list(/obj/item/ammo_magazine/packet/p9mm = -1, /obj/item/ammo_magazine/packet/p9mmap = -1, /obj/item/ammo_magazine/packet/acp = -1, /obj/item/ammo_magazine/packet/pthreeightyacp = -1, /obj/item/ammo_magazine/packet/magnum = -1, /obj/item/ammo_magazine/packet/p10x20mm = -1, /obj/item/ammo_magazine/packet/p10x24mm = -1, /obj/item/ammo_magazine/packet/p10x25mm = -1, /obj/item/ammo_magazine/packet/p10x26mm = -1, /obj/item/ammo_magazine/packet/p10x265mm = -1, /obj/item/ammo_magazine/packet/p10x27mm = -1, /obj/item/ammo_magazine/packet/p492x34mm = -1, /obj/item/ammo_magazine/packet/p86x70mm = -1, /obj/item/ammo_magazine/packet/standardautoshotgun = -1, /obj/item/ammo_magazine/packet/standardautoshotgun/flechette = -1, /obj/item/ammo_magazine/packet/p4570 = -1, /obj/item/ammo_magazine/packet/p41ae = -1, /obj/item/ammo_magazine/packet/p41ae_squashhead = -1, /obj/item/storage/box/visual/magazine = -1, /obj/item/storage/box/visual/grenade = -1, /obj/structure/closet/crate/mass_produced_crate = -1, /obj/structure/closet/crate/mass_produced_crate/alpha = -1, /obj/structure/closet/crate/mass_produced_crate/bravo = -1, /obj/structure/closet/crate/mass_produced_crate/charlie = -1, /obj/structure/closet/crate/mass_produced_crate/delta = -1, /obj/structure/closet/crate/mass_produced_crate/ammo = -1, /obj/structure/closet/crate/mass_produced_crate/construction = -1, /obj/structure/closet/crate/mass_produced_crate/explosives = -1, /obj/structure/closet/crate/mass_produced_crate/medical = -1, /obj/structure/closet/crate/mass_produced_crate/supply = -1, /obj/structure/closet/crate/mass_produced_crate/weapon = -1),"Utility"=list(/obj/item/roller/bedroll = -1, /obj/item/restraints/handcuffs/cable = -1, /obj/item/restraints/handcuffs/zip = -1, /obj/item/clothing/head/head_sack = -1, /obj/item/clothing/head/head_sack/light = -1, /obj/item/clothing/glasses/sunglasses/blindfold = -1, /obj/item/clothing/glasses/sunglasses/blindfold/light = -1, /obj/item/flashlight/combat = -1, /obj/item/weapon/gun/grenade_launcher/single_shot/flare/marine = -1, /obj/item/tool/shovel/etool = -1, /obj/item/tool/extinguisher = -1, /obj/item/tool/extinguisher/mini = -1, /obj/item/assembly/signaler = -1, /obj/item/binoculars = -1, /obj/item/compass = -1, /obj/item/paper_map = -1, /obj/item/tool/hand_labeler = -1, /obj/item/toy/deck/kotahi = -1, /obj/item/toy/deck = -1, /obj/item/toy/dice = -1, /obj/item/toy/dice/d20 = -1, /obj/item/deployable_floodlight = 5, /obj/item/quikdeploy/cade = 30, /obj/item/quikdeploy/cade/plasteel = 10));
+	name = "automated Ehrman Military weapons rack"
+	},
 /turf/open/floor/iron/dark/textured,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "kS" = (
@@ -493,6 +542,11 @@
 	},
 /turf/open/floor/iron/textured,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"lL" = (
+/obj/structure/bed/chair,
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "lM" = (
 /obj/effect/ai_node{
 	pixel_x = 1
@@ -525,6 +579,13 @@
 /obj/structure/largecrate/random/case/double,
 /turf/open/urban/street/cement2,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"mj" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/closed/wall/indestructible/fakeglass,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "mq" = (
 /turf/open/floor/iron/textured_large,
 /area/gleichseitig16/indoors/southwest/milacademy)
@@ -532,6 +593,16 @@
 /obj/effect/landmark/xeno_silo_spawn,
 /turf/open/urban/street/cement2,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"mV" = (
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/closed/wall/r_wall/urban,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"nb" = (
+/obj/effect/landmark/weed_node,
+/turf/open/urban/street/sidewalk{
+	dir = 4
+	},
+/area/gleichseitig16/outdoors/south/streets)
 "nn" = (
 /obj/structure/closet,
 /obj/item/ammo_magazine/rifle/m16,
@@ -609,6 +680,15 @@
 	},
 /turf/open/floor/urban/tile/darkgrey_bigtile,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"oC" = (
+/obj/structure/barricade/guardrail{
+	dir = 1
+	},
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "oG" = (
 /turf/closed/mineral/smooth/frostwall/indestructible{
 	base_icon_state = "hybrisa_colony_walls";
@@ -663,6 +743,19 @@
 /obj/item/assembly/timer,
 /turf/open/floor/tile/barber,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"pj" = (
+/obj/effect/landmark/weed_node,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/southwest/streets)
+"pr" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/obj/effect/landmark/weed_node,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
 "pv" = (
 /obj/machinery/light,
 /obj/structure/table/reinforced,
@@ -697,6 +790,10 @@
 	},
 /turf/open/floor/iron/checker,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"qx" = (
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "qC" = (
 /obj/machinery/light{
 	dir = 1
@@ -709,8 +806,29 @@
 	},
 /turf/open/floor/iron/textured_large,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"qG" = (
+/obj/structure/bed/chair/office/light{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"qS" = (
+/obj/structure/bed/chair,
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"qW" = (
+/obj/structure/window/reinforced/tinted,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "rf" = (
 /obj/machinery/light/small,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/carpet/black,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "rr" = (
@@ -747,6 +865,13 @@
 	},
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
+"ss" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/landmark/weed_node,
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "sy" = (
 /turf/open/urban/street/sidewalk{
 	dir = 5
@@ -796,6 +921,16 @@
 	color = "#ffe1af"
 	},
 /area/gleichseitig16/indoors/southwest/milacademy)
+"tc" = (
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/closed/mineral/smooth/frostwall/indestructible{
+	base_icon_state = "hybrisa_colony_walls";
+	icon_state = "wall-reinforced";
+	icon = 'icons/turf/walls/hybrisa_colony_walls.dmi';
+	name = "indestructible dense metal walls";
+	color = "#b4b4b4"
+	},
+/area/gleichseitig16/indoors/southwest/milacademy)
 "th" = (
 /obj/structure/prop/urban/misc/trash/blue,
 /turf/open/floor/urban/tile/darkgrey_bigtile,
@@ -817,6 +952,24 @@
 	},
 /turf/open/floor/urban/tile/beigetileshiny,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"tH" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/iron/textured_large,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"tN" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/landmark/weed_node,
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"tP" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/landmark/weed_node,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
 "tT" = (
 /obj/structure/transmitter/colony_net/auto_id{
 	pixel_y = -32;
@@ -830,10 +983,19 @@
 	},
 /turf/open/floor/iron/dark/textured,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"uj" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/carpet/black,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "uk" = (
 /obj/structure/table/reinforced,
 /obj/machinery/reagentgrinder,
 /turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"uA" = (
+/obj/structure/window/reinforced/tinted,
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/floor/iron/dark/textured,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "uH" = (
 /obj/effect/ai_node{
@@ -893,6 +1055,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/landmark/weed_node,
 /turf/open/floor/iron/dark/textured,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "vU" = (
@@ -934,8 +1097,12 @@
 	},
 /turf/open/floor/iron/textured_large,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"wM" = (
+/obj/effect/landmark/weed_node,
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "wR" = (
-/obj/structure/barricade/railing,
+/obj/structure/barricade/guardrail,
 /turf/open/floor/tile/barber,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "xe" = (
@@ -1072,6 +1239,7 @@
 /area/gleichseitig16/indoors/southwest/milacademy)
 "zU" = (
 /obj/machinery/light,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/urban/carpet/carpetbeige,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "zV" = (
@@ -1086,6 +1254,10 @@
 /obj/structure/table/wood,
 /obj/item/storage/bible,
 /turf/open/floor/carpet/black,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Aa" = (
+/obj/effect/landmark/xeno_tunnel_spawn,
+/turf/open/urban/street/cement2,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "Ai" = (
 /obj/effect/ai_node{
@@ -1107,6 +1279,10 @@
 /area/gleichseitig16/outdoors/southwest/streets)
 "AB" = (
 /turf/open/floor/urban/tile/lightbeige_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"AF" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/tile/barber,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "AI" = (
 /obj/structure/bed/chair/wood/wings{
@@ -1141,6 +1317,11 @@
 	},
 /turf/open/floor/urban/carpet/carpetbeige,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"Bq" = (
+/obj/structure/bed/chair/office/light,
+/obj/effect/landmark/spawn_marker/euseparatists/advisorrifleman,
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "Bv" = (
 /obj/machinery/light{
 	dir = 1
@@ -1155,6 +1336,10 @@
 /turf/open/floor/tile/chapel{
 	dir = 6
 	},
+/area/gleichseitig16/indoors/southwest/milacademy)
+"BO" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/iron/smooth,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "BQ" = (
 /obj/structure/prop/urban/supermart/rack/longrackempty,
@@ -1216,14 +1401,21 @@
 /obj/item/clothing/gloves/combat,
 /turf/open/floor/urban/tile/supermartfloor2,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"Dl" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/effect/landmark/spawn_marker/euseparatists/sapperidle,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "Dt" = (
 /turf/open/urban/street/cement2,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "Du" = (
-/obj/structure/prop/mainship/railing/corner{
-	dir = 8
-	},
-/turf/open/floor/tile/barber,
+/obj/structure/largecrate/random/case/double,
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/open/urban/street/cement2,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "Dz" = (
 /obj/machinery/vending/MarineMed,
@@ -1266,6 +1458,13 @@
 	dir = 4
 	},
 /turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Eu" = (
+/obj/structure/bed/chair/comfy{
+	dir = 1
+	},
+/obj/effect/landmark/weed_node,
+/turf/open/floor/urban/carpet/carpetbeige,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "EE" = (
 /obj/machinery/light{
@@ -1315,6 +1514,11 @@
 /obj/structure/cable,
 /turf/open/urban/street/sidewalkfull,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"Fw" = (
+/obj/structure/largecrate/random/barrel/green,
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "FD" = (
 /obj/machinery/door/airlock/mainship/generic{
 	name = "\improper EHR-MIL Academy Mens Room";
@@ -1322,9 +1526,24 @@
 	},
 /turf/open/floor/iron/checker,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"FH" = (
+/obj/structure/barricade/guardrail{
+	dir = 1
+	},
+/obj/effect/landmark/weed_node,
+/turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"FQ" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/urban/tile/lightbeige_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "FR" = (
 /obj/machinery/light,
 /turf/open/floor/iron/textured_large,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Gd" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/urban/tile/beigetileshiny,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "Gi" = (
 /obj/machinery/door/airlock/mainship/generic{
@@ -1341,9 +1560,9 @@
 /turf/open/floor/urban/tile/supermartfloor2,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "GE" = (
-/obj/structure/prop/mainship/railing/corner,
-/turf/open/floor/tile/barber,
-/area/gleichseitig16/indoors/southwest/milacademy)
+/obj/effect/landmark/weed_node,
+/turf/open/urban/street/sidewalkfull,
+/area/gleichseitig16/outdoors/south/streets)
 "GI" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/iron/checker,
@@ -1373,6 +1592,10 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Ho" = (
+/obj/effect/landmark/excavation_site_spawner,
+/turf/open/urban/street/cement2,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "Hr" = (
 /obj/structure/window/reinforced/tinted,
@@ -1408,6 +1631,15 @@
 	},
 /turf/open/floor/urban/tile/beigetileshiny,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"It" = (
+/obj/structure/bed/chair/wood/wings{
+	dir = 4
+	},
+/obj/effect/landmark/weed_node,
+/turf/open/floor/tile/chapel{
+	dir = 4
+	},
+/area/gleichseitig16/indoors/southwest/milacademy)
 "ID" = (
 /turf/open/floor/iron/smooth,
 /area/gleichseitig16/indoors/southwest/milacademy)
@@ -1427,7 +1659,9 @@
 /turf/open/floor/iron/checker,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "Jv" = (
-/obj/machinery/vending/weapon,
+/obj/machinery/vending/armor_supply{
+	products = list("Xenonauten/NTC" = list(/obj/item/clothing/suit/modular/xenonauten/light/bikini = -1, /obj/item/clothing/suit/modular/xenonauten/bulletresistant = -1, /obj/item/clothing/suit/modular/xenonauten/bulletresistant/vest = -1, /obj/item/clothing/suit/modular/xenonauten/bulletresistant/bikini = -1, /obj/item/clothing/suit/modular/xenonauten/ablative = -1, /obj/item/clothing/suit/modular/xenonauten/ablative/vest = -1, /obj/item/clothing/suit/modular/xenonauten/ablative/bikini = -1, /obj/item/clothing/suit/modular/xenonauten/light = -1, /obj/item/clothing/suit/modular/xenonauten = -1, /obj/item/clothing/suit/modular/xenonauten/heavy = -1, /obj/item/clothing/head/modular/m10x = -1, /obj/item/clothing/head/modular/m10x/heavy = -1),"General"=list(/obj/item/clothing/suit/modular/rownin = -1, /obj/item/facepaint/green = -1, /obj/item/facepaint/brown = -1, /obj/item/facepaint/black = -1, /obj/item/radio/loadout_tool = -1),"Armor modules"=list(/obj/item/armor_module/storage/general = -1, /obj/item/armor_module/storage/ammo_mag = -1, /obj/item/armor_module/storage/engineering = -1, /obj/item/armor_module/storage/medical = -1, /obj/item/armor_module/storage/injector = -1, /obj/item/armor_module/storage/grenade = -1, /obj/item/armor_module/module/welding = -1, /obj/item/armor_module/module/binoculars = -1, /obj/item/armor_module/module/artemis = -1, /obj/item/armor_module/module/tyr_head = -1, /obj/item/armor_module/module/antenna = -1, /obj/item/armor_module/module/mimir_environment_protection/mark1 = -1, /obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1 = -1, /obj/item/armor_module/module/tyr_extra_armor/mark1 = -1, /obj/item/armor_module/module/better_shoulder_lamp = -1, /obj/item/armor_module/module/chemsystem = -1, /obj/item/armor_module/module/knight = -1, /obj/item/armor_module/module/eshield = -1, /obj/item/armor_module/module/mirage = -1, /obj/item/armor_module/module/armorlock = -1),"Style Line"=list(/obj/item/clothing/suit/modular/style/leather_jacket = -1, /obj/item/clothing/suit/modular/style/duster = -1, /obj/item/armor_module/module/style/light_armor = -1, /obj/item/armor_module/module/style/medium_armor = -1, /obj/item/armor_module/module/style/heavy_armor = -1, /obj/item/clothing/suit/modular/style/barrier/lightbarrier = -1, /obj/item/clothing/suit/modular/style/barrier/mediumbarrier = -1, /obj/item/clothing/suit/modular/style/barrier/heavybarrier = -1, /obj/item/clothing/suit/modular/dermal = -1, /obj/item/clothing/gloves/marine/dermal = -1, /obj/item/clothing/shoes/marine/dermal = -1, /obj/item/clothing/head/helmet/HoS/dermal = -1),"Jaeger Mk.I chestpieces"=list(/obj/item/armor_module/armor/chest/marine/skirmisher = -1, /obj/item/armor_module/armor/chest/marine/skirmisher/scout = -1, /obj/item/armor_module/armor/chest/marine/skirmisher/trooper = -1, /obj/item/armor_module/armor/chest/marine = -1, /obj/item/armor_module/armor/chest/marine/eva = -1, /obj/item/armor_module/armor/chest/marine/assault = -1, /obj/item/armor_module/armor/chest/marine/assault/eod = -1, /obj/item/armor_module/armor/chest/marine/helljumper = -1, /obj/item/armor_module/armor/chest/marine/ranger = -1, /obj/item/armor_module/armor/chest/marine/mjolnir = -1, /obj/item/armor_module/armor/chest/marine/invis = -1, /obj/item/armor_module/armor/chest/marine/skirmisher/invis = -1, /obj/item/armor_module/armor/chest/marine/assault/invis = -1),"Jaeger Mk.I armpiece"=list(/obj/item/armor_module/armor/arms/marine/skirmisher = -1, /obj/item/armor_module/armor/arms/marine/scout = -1, /obj/item/armor_module/armor/arms/marine/trooper = -1, /obj/item/armor_module/armor/arms/marine = -1, /obj/item/armor_module/armor/arms/marine/eva = -1, /obj/item/armor_module/armor/arms/marine/assault = -1, /obj/item/armor_module/armor/arms/marine/eod = -1, /obj/item/armor_module/armor/arms/marine/helljumper = -1, /obj/item/armor_module/armor/arms/marine/ranger = -1, /obj/item/armor_module/armor/arms/marine/mjolnir = -1),"Jaeger Mk.I legpiece"=list(/obj/item/armor_module/armor/legs/marine/skirmisher = -1, /obj/item/armor_module/armor/legs/marine/scout = -1, /obj/item/armor_module/armor/legs/marine/trooper = -1, /obj/item/armor_module/armor/legs/marine = -1, /obj/item/armor_module/armor/legs/marine/eva = -1, /obj/item/armor_module/armor/legs/marine/assault = -1, /obj/item/armor_module/armor/legs/marine/eod = -1, /obj/item/armor_module/armor/legs/marine/scout = -1, /obj/item/armor_module/armor/legs/marine/helljumper = -1, /obj/item/armor_module/armor/legs/marine/ranger = -1, /obj/item/armor_module/armor/legs/marine/mjolnir = -1),"Jaeger Mk.I helmets"=list(/obj/item/clothing/head/modular/marine/old/skirmisher = -1, /obj/item/clothing/head/modular/marine/old/scout = -1, /obj/item/clothing/head/modular/marine/old = -1, /obj/item/clothing/head/modular/marine/old/open = -1, /obj/item/clothing/head/modular/marine/old/eva = -1, /obj/item/clothing/head/modular/marine/old/eva/skull = -1, /obj/item/clothing/head/modular/marine/old/assault = -1, /obj/item/clothing/head/modular/marine/old/eod = -1, /obj/item/clothing/head/modular/marine/old/mjolnir = -1, /obj/item/clothing/head/modular/marine/mjolnir_open = -1))
+	},
 /turf/open/floor/iron/dark/textured,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "Jw" = (
@@ -1440,12 +1674,17 @@
 "JK" = (
 /turf/open/floor/iron/checker,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"JN" = (
+/obj/structure/cable,
+/obj/effect/landmark/weed_node,
+/turf/open/urban/street/cement2,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "JW" = (
-/obj/structure/barricade/railing{
-	dir = 1
-	},
 /obj/effect/ai_node{
 	pixel_x = 1
+	},
+/obj/structure/barricade/guardrail{
+	dir = 1
 	},
 /turf/open/floor/tile/barber,
 /area/gleichseitig16/indoors/southwest/milacademy)
@@ -1455,6 +1694,16 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Kh" = (
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Kl" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/snow{
+	color = "#ffe1af"
+	},
 /area/gleichseitig16/indoors/southwest/milacademy)
 "Kv" = (
 /obj/machinery/door/airlock/mainship/generic{
@@ -1498,12 +1747,26 @@
 /obj/machinery/light,
 /turf/open/urban/street/cement2,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"Lq" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/landmark/weed_node,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
 "LD" = (
 /obj/machinery/door/airlock/mainship/generic{
 	name = "\improper EHR-MIL Academy Pool";
 	dir = 1
 	},
 /turf/open/floor/tile/barber,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"LH" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/landmark/weed_node,
+/turf/open/floor/iron/textured_large,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "LI" = (
 /obj/machinery/light,
@@ -1530,6 +1793,14 @@
 	dir = 4
 	},
 /area/gleichseitig16/outdoors/south/streets)
+"Mw" = (
+/obj/machinery/door/poddoor/shutters/urban/security_lockdown{
+	id = "ehrmil_academy_garagedoor";
+	name = "\improper Lockdown"
+	},
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "MD" = (
 /obj/effect/ai_node{
 	pixel_x = 1
@@ -1538,6 +1809,17 @@
 	dir = 4
 	},
 /area/gleichseitig16/outdoors/south/streets)
+"MG" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/obj/effect/landmark/weed_node,
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"MI" = (
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "MJ" = (
 /obj/structure/cable,
 /obj/structure/prop/urban/misc/buildinggreeblies/greeble1/dense,
@@ -1611,11 +1893,17 @@
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
 "Oz" = (
-/obj/structure/prop/mainship/railing/corner{
-	dir = 1
+/obj/effect/landmark/weed_node,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
+"OA" = (
+/obj/effect/spawner/random/misc/structure/large/car{
+	dir = 8;
+	spawn_loot_chance = 75
 	},
-/turf/open/floor/tile/barber,
-/area/gleichseitig16/indoors/southwest/milacademy)
+/obj/effect/landmark/weed_node,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
 "OF" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/item/clothing/under/marine/camo/woodland{
@@ -1632,6 +1920,11 @@
 /obj/structure/closet/secure_closet/personal,
 /turf/open/floor/urban/tile/lightbeige_bigtile,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"OL" = (
+/obj/structure/bed/chair,
+/obj/effect/landmark/spawn_marker/euseparatists/militantidle,
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "OQ" = (
 /obj/machinery/door/airlock/mainship/generic{
 	name = "\improper EHR-MIL Academy Office 3";
@@ -1646,7 +1939,7 @@
 /turf/open/floor/urban/carpet/carpetbeige,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "OW" = (
-/obj/structure/barricade/railing{
+/obj/structure/barricade/guardrail{
 	dir = 1
 	},
 /turf/open/floor/tile/barber,
@@ -1736,6 +2029,15 @@
 	},
 /turf/open/floor/iron/checker,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"Rn" = (
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"RI" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/urban/tile/supermartfloor1,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "RP" = (
 /obj/machinery/light{
 	dir = 1
@@ -1814,6 +2116,10 @@
 	},
 /turf/open/urban/street/cement2,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"Ug" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "Ux" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/item/clothing/under/marine/camo/woodland{
@@ -1853,6 +2159,10 @@
 	},
 /turf/open/floor/urban/tile/darkgrey_bigtile,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"UJ" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/urban/tile/supermartfloor2,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "UV" = (
 /turf/closed/mineral/smooth/frostwall/indestructible{
 	base_icon_state = "hybrisa_colony_walls";
@@ -1872,6 +2182,13 @@
 /obj/item/storage/toolbox/electrical,
 /turf/open/urban/street/cement2,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"Vf" = (
+/obj/structure/bed/chair/office/light{
+	dir = 8
+	},
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
+/turf/open/floor/iron/dark/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "Vm" = (
 /obj/structure/prop/urban/misc/buildinggreebliessmall{
 	pixel_x = -2;
@@ -1880,14 +2197,17 @@
 /turf/open/urban/street/cement2,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "Vu" = (
-/obj/structure/prop/mainship/railing/corner{
-	dir = 4
-	},
-/turf/open/floor/tile/barber,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/urban/tile/darkgrey_bigtile,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "Vx" = (
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/outdoors/southwest/streets)
+"VA" = (
+/obj/effect/urban/decal/road/road_edge,
+/obj/effect/landmark/weed_node,
+/turf/open/urban/street/asphalt,
+/area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
 "VB" = (
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	name = "\improper EHR-MIL Mess Hall"
@@ -1917,6 +2237,13 @@
 /obj/machinery/photocopier,
 /turf/open/floor/urban/tile/beigetileshiny,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"WG" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/obj/effect/landmark/weed_node,
+/turf/open/floor/urban/tile/darkgrey_bigtile,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "WI" = (
 /obj/structure/table/reinforced/prison,
 /obj/item/reagent_containers/glass/rag,
@@ -1933,6 +2260,13 @@
 /obj/structure/sink/bathroom{
 	pixel_y = 12
 	},
+/turf/open/floor/iron/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"WT" = (
+/obj/machinery/shower{
+	dir = 4
+	},
+/obj/effect/landmark/weed_node,
 /turf/open/floor/iron/textured,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "WV" = (
@@ -1956,6 +2290,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/effect/landmark/weed_node,
 /turf/open/floor/iron/dark/textured,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "XK" = (
@@ -1970,17 +2305,35 @@
 /obj/machinery/shower{
 	dir = 1
 	},
+/obj/effect/landmark/weed_node,
 /turf/open/floor/iron/textured,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"XY" = (
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/open/urban/street/cement2,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "Yk" = (
 /obj/machinery/iv_drip,
 /turf/open/floor/mainship/silver/full,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Yq" = (
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/closed/wall/indestructible/fakeglass,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "Ys" = (
 /turf/open/urban/street/sidewalk{
 	dir = 1
 	},
 /area/gleichseitig16/indoors/southwest/milacademy/alleyparking)
+"YD" = (
+/obj/effect/ai_node{
+	pixel_x = 1
+	},
+/obj/effect/landmark/weed_node,
+/turf/open/urban/street/sidewalk{
+	dir = 1
+	},
+/area/gleichseitig16/outdoors/southwest/streets)
 "YF" = (
 /obj/machinery/door/airlock/mainship/generic{
 	name = "\improper EHR-MIL Academy Office 1";
@@ -2020,11 +2373,20 @@
 	},
 /turf/open/floor/iron/dark/textured,
 /area/gleichseitig16/indoors/southwest/milacademy)
+"Zr" = (
+/obj/effect/landmark/spawn_marker/euseparatists/medicidle,
+/turf/open/floor/mainship/silver/full,
+/area/gleichseitig16/indoors/southwest/milacademy)
+"Zy" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/iron/checker,
+/area/gleichseitig16/indoors/southwest/milacademy)
 "Zz" = (
 /obj/machinery/door/airlock/mainship/generic{
 	name = "\improper EHR-MIL Academy";
 	pixel_x = 1
 	},
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/urban/tile/darkgrey_bigtile,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "ZC" = (
@@ -2059,6 +2421,7 @@
 /turf/open/floor/iron/checker,
 /area/gleichseitig16/indoors/southwest/milacademy)
 "ZX" = (
+/obj/effect/landmark/weed_node,
 /turf/open/urban/street/sidewalk,
 /area/gleichseitig16/outdoors/south/streets)
 
@@ -2112,23 +2475,23 @@ Os
 NF
 NF
 NF
-NF
-NF
-NF
-NF
-NF
-Os
-NF
-NF
-NF
-NF
-NF
+Oz
 NF
 NF
 NF
 NF
 Os
 NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+Os
+Oz
 NF
 NF
 NF
@@ -2159,25 +2522,25 @@ NF
 NF
 NF
 NF
-NF
-NF
-Os
-NF
-NF
-NF
-NF
-NF
-NF
-NF
-NF
-NF
-NF
-NF
+Oz
 NF
 Os
 NF
 NF
 NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+Os
+NF
+NF
+Oz
 NF
 NF
 NF
@@ -2190,7 +2553,7 @@ no
 NF
 NF
 dH
-NF
+Oz
 NF
 NF
 NF
@@ -2206,7 +2569,7 @@ NF
 NF
 NF
 Os
-NF
+Oz
 NF
 dH
 NF
@@ -2214,7 +2577,7 @@ NF
 Os
 NF
 NF
-dH
+Lq
 NF
 NF
 NF
@@ -2238,16 +2601,16 @@ wq
 wq
 wq
 wq
-wq
-UV
-UV
-UV
-UV
-UV
-UV
+Mw
+tc
+tc
+tc
+tc
+tc
+tc
 Zz
-UV
-UV
+tc
+tc
 UV
 UV
 UV
@@ -2262,13 +2625,13 @@ UV
 UV
 NF
 NF
-Os
+pr
 NF
 Nv
 wp
 "}
 (6,1,1) = {"
-sG
+pj
 UV
 gM
 gM
@@ -2279,7 +2642,7 @@ Ct
 Ct
 Ct
 Ct
-Ct
+qx
 QJ
 TX
 zf
@@ -2288,7 +2651,7 @@ fw
 QX
 QX
 QX
-fw
+mV
 GQ
 mg
 GQ
@@ -2320,16 +2683,16 @@ Ct
 Ct
 Ct
 Ct
-Qh
+dT
 fC
-Dt
+Aa
 Dt
 KY
 fw
 ny
 QX
 QX
-fw
+mV
 fm
 fm
 fm
@@ -2354,23 +2717,23 @@ sG
 UV
 gM
 gM
-gM
+Kl
 fw
 Ct
 kj
 Qh
 Ct
 kj
-Ct
-Dt
+qx
+wM
 Dt
 ms
 vb
 fw
 QX
+Vu
 QX
-QX
-fm
+Yq
 GQ
 GQ
 js
@@ -2402,7 +2765,7 @@ Ct
 Ct
 Ct
 Ct
-Ct
+qx
 Dt
 Dt
 Dt
@@ -2411,7 +2774,7 @@ fw
 QX
 QX
 QX
-fw
+mV
 GQ
 GQ
 GQ
@@ -2443,7 +2806,7 @@ Ct
 Ct
 Ct
 Ct
-Ct
+qx
 fC
 Dt
 Dt
@@ -2452,7 +2815,7 @@ fw
 QX
 ny
 QX
-fm
+Yq
 GQ
 GQ
 GQ
@@ -2476,7 +2839,7 @@ wp
 HD
 UV
 MJ
-YU
+JN
 Mb
 fw
 EE
@@ -2484,8 +2847,8 @@ Ct
 Ct
 Ct
 Ct
-Ct
-Dt
+qx
+Ho
 Dt
 fC
 Dt
@@ -2493,7 +2856,7 @@ Gi
 QX
 QX
 QX
-fw
+mV
 GQ
 js
 GQ
@@ -2507,7 +2870,7 @@ js
 GQ
 UV
 NF
-NF
+Oz
 NF
 NF
 Nv
@@ -2523,9 +2886,9 @@ fw
 Hb
 xq
 Dt
+wM
 Dt
-Dt
-Dt
+XY
 Dt
 xq
 Dt
@@ -2534,7 +2897,7 @@ fw
 QX
 QX
 QX
-Eg
+mj
 GQ
 GQ
 GQ
@@ -2566,7 +2929,7 @@ Dt
 Dt
 Dt
 xq
-Dt
+XY
 Dt
 Dt
 Dt
@@ -2574,8 +2937,8 @@ LI
 fw
 QX
 QX
-QX
-fw
+Vu
+mV
 GQ
 GQ
 GQ
@@ -2600,23 +2963,23 @@ Ps
 Fj
 YU
 xq
-Dt
+wM
 fw
 Vm
 qa
 zf
 mi
 el
-NV
+Fw
 zf
-Dt
+wM
 Dt
 Dt
 fw
 QX
 QX
 ny
-fm
+Yq
 js
 GQ
 GQ
@@ -2648,7 +3011,7 @@ qa
 CY
 el
 el
-mi
+Du
 NV
 CY
 Ve
@@ -2657,7 +3020,7 @@ fw
 QX
 QX
 QX
-fw
+mV
 GQ
 GQ
 GQ
@@ -2673,7 +3036,7 @@ UV
 NF
 NF
 NF
-NF
+Oz
 Ck
 wp
 "}
@@ -2689,16 +3052,16 @@ fw
 fw
 fw
 fw
-fw
-fw
-fw
-fw
-fw
-fw
-QX
-QX
-QX
-Eg
+mV
+mV
+mV
+mV
+mV
+mV
+Kh
+Kh
+Kh
+mj
 GQ
 GQ
 GQ
@@ -2733,7 +3096,7 @@ af
 QX
 QX
 QX
-QX
+Vu
 QX
 ny
 QX
@@ -2764,7 +3127,7 @@ HD
 UV
 LZ
 QX
-QX
+Vu
 QX
 QX
 QX
@@ -2808,8 +3171,8 @@ QX
 QX
 QX
 fu
-QX
-ny
+MI
+WG
 QX
 QX
 QX
@@ -2823,18 +3186,18 @@ QX
 QX
 fw
 rr
+qW
+uA
+Hc
 rr
+uA
 rr
 Hc
 rr
 rr
-rr
-Hc
-rr
-rr
-rr
+uA
 UV
-Bv
+tP
 NF
 NF
 NF
@@ -2842,7 +3205,7 @@ NF
 wp
 "}
 (20,1,1) = {"
-sG
+pj
 UV
 QX
 QX
@@ -2860,7 +3223,7 @@ fw
 fw
 fw
 QX
-QX
+Vu
 QX
 fw
 AT
@@ -2870,7 +3233,7 @@ AT
 AT
 AT
 EG
-AT
+Ug
 AT
 AT
 AT
@@ -2894,7 +3257,7 @@ Rj
 uk
 fw
 JK
-JK
+Zy
 JK
 CG
 JK
@@ -2928,7 +3291,7 @@ sG
 UV
 RP
 QX
-QX
+Vu
 fw
 fA
 JK
@@ -2949,13 +3312,13 @@ AT
 AT
 EG
 AT
+Ug
 AT
 AT
 AT
 AT
 AT
-AT
-AT
+Ug
 UV
 NF
 NF
@@ -2972,8 +3335,8 @@ QX
 QX
 fw
 wy
-JK
-JK
+Zy
+jx
 GI
 JK
 Uy
@@ -3021,7 +3384,7 @@ CG
 zG
 Uy
 vU
-lQ
+Dl
 fw
 QX
 QX
@@ -3031,7 +3394,7 @@ kR
 AT
 oc
 AT
-AT
+Bq
 AT
 ac
 fw
@@ -3041,7 +3404,7 @@ QX
 UV
 Bv
 NF
-Os
+pr
 NF
 Ck
 wp
@@ -3064,7 +3427,7 @@ JK
 zG
 JK
 fw
-QX
+Vu
 QX
 QX
 fw
@@ -3074,7 +3437,7 @@ AT
 AT
 EG
 AT
-AT
+Ug
 JX
 QX
 QX
@@ -3099,7 +3462,7 @@ JK
 JK
 zo
 JK
-Uy
+lL
 vU
 lQ
 JK
@@ -3110,14 +3473,14 @@ QX
 eM
 fw
 Jv
-AT
+Ug
 AT
 AT
 AT
 AT
 ST
 fw
-QX
+MI
 ny
 QX
 UV
@@ -3131,7 +3494,7 @@ wp
 (27,1,1) = {"
 sG
 UV
-QX
+Vu
 QX
 ny
 fw
@@ -3158,7 +3521,7 @@ nn
 dz
 tY
 fw
-RP
+ss
 QX
 QX
 kW
@@ -3180,7 +3543,7 @@ fw
 fw
 fw
 JK
-CG
+MG
 JK
 JK
 QM
@@ -3190,7 +3553,7 @@ fw
 QX
 QX
 QX
-QX
+Vu
 fw
 fw
 fw
@@ -3247,7 +3610,7 @@ kW
 NF
 NF
 NF
-NF
+Oz
 Nv
 wp
 "}
@@ -3258,15 +3621,15 @@ RP
 ny
 QX
 QX
+Zy
 JK
 JK
-JK
-Uy
+OL
 br
 lQ
 fw
 oW
-ID
+BO
 OF
 fw
 RP
@@ -3278,7 +3641,7 @@ QX
 QX
 QX
 QX
-QX
+Vu
 ny
 QX
 QX
@@ -3324,7 +3687,7 @@ QX
 QX
 fu
 QX
-QX
+Vu
 UV
 NF
 NF
@@ -3334,12 +3697,12 @@ NF
 wp
 "}
 (32,1,1) = {"
-sG
+pj
 UV
 QX
 QX
 QX
-QX
+Vu
 QX
 QX
 QX
@@ -3357,7 +3720,7 @@ fw
 fw
 QX
 QX
-QX
+Vu
 fw
 fw
 fw
@@ -3384,7 +3747,7 @@ QX
 QX
 QX
 QX
-QX
+Vu
 QX
 fw
 jm
@@ -3402,13 +3765,13 @@ QX
 fw
 pg
 fN
-fN
+AF
 fN
 dp
 fN
 pg
 UV
-NF
+Oz
 NF
 NF
 NF
@@ -3429,7 +3792,7 @@ QX
 QX
 fw
 oW
-ID
+BO
 ID
 OF
 ju
@@ -3442,11 +3805,11 @@ QX
 QX
 fw
 qC
-GE
 fN
 fN
 fN
-Vu
+fN
+fN
 nC
 UV
 NF
@@ -3512,9 +3875,9 @@ QX
 QX
 QX
 QX
-ny
+WG
 QX
-QX
+MI
 QX
 QX
 af
@@ -3544,7 +3907,7 @@ UV
 AI
 KC
 Cs
-eq
+It
 BC
 fw
 QX
@@ -3560,7 +3923,7 @@ QX
 QX
 QX
 QX
-QX
+Vu
 QX
 eM
 fw
@@ -3574,7 +3937,7 @@ fN
 UV
 Bv
 NF
-NF
+Oz
 NF
 NF
 wp
@@ -3590,7 +3953,7 @@ EX
 fw
 QX
 QX
-QX
+Vu
 QX
 QX
 QX
@@ -3598,7 +3961,7 @@ QX
 fu
 QX
 QX
-ny
+WG
 QX
 QX
 QX
@@ -3610,7 +3973,7 @@ wR
 XK
 XK
 XK
-OW
+FH
 fN
 UV
 Os
@@ -3664,7 +4027,7 @@ wp
 (40,1,1) = {"
 sG
 UV
-Cs
+uj
 Cs
 Cs
 Cs
@@ -3721,7 +4084,7 @@ Wk
 mq
 mq
 Wk
-mq
+tH
 Wk
 fw
 RP
@@ -3736,7 +4099,7 @@ XK
 OW
 fN
 UV
-NF
+Oz
 NF
 NF
 NF
@@ -3756,7 +4119,7 @@ QX
 QX
 QX
 fw
-xk
+LH
 mq
 mq
 mq
@@ -3793,7 +4156,7 @@ fw
 fw
 fw
 fw
-QX
+Vu
 QX
 eM
 fw
@@ -3808,20 +4171,20 @@ Qi
 fw
 QX
 QX
-QX
+Rn
 kW
 fN
 wR
 XK
 XK
 XK
-JW
+oC
 fN
 UV
 NF
 NF
 NF
-NF
+Oz
 NF
 wp
 "}
@@ -3869,7 +4232,7 @@ wp
 (45,1,1) = {"
 sG
 qs
-JK
+Zy
 JK
 JK
 JK
@@ -3892,13 +4255,13 @@ ny
 QX
 eM
 fw
-fN
+AF
 wR
 XK
 XK
 XK
 OW
-fN
+AF
 UV
 NF
 NF
@@ -3918,12 +4281,12 @@ JK
 FD
 QX
 QX
-QX
+fk
 fw
 xk
 mq
 mq
-mq
+tH
 mq
 mq
 mq
@@ -3954,7 +4317,7 @@ qs
 JK
 JK
 JK
-JK
+Zy
 JK
 fw
 RP
@@ -3970,7 +4333,7 @@ GT
 mq
 GT
 fw
-QX
+Vu
 QX
 QX
 kW
@@ -3982,7 +4345,7 @@ XK
 OW
 dp
 UV
-Bv
+tP
 NF
 Os
 NF
@@ -4009,7 +4372,7 @@ mq
 mq
 HJ
 mq
-mq
+tH
 fw
 QX
 ny
@@ -4031,7 +4394,7 @@ sy
 wp
 "}
 (49,1,1) = {"
-sG
+pj
 UV
 fw
 fw
@@ -4057,11 +4420,11 @@ QX
 QX
 fw
 kl
-Du
 fN
 fN
 fN
-Oz
+fN
+fN
 nC
 UV
 NF
@@ -4075,7 +4438,7 @@ vk
 sG
 UV
 OI
-AB
+FQ
 OI
 AB
 OI
@@ -4100,14 +4463,14 @@ LD
 fN
 fN
 fN
-fN
+AF
 fN
 dp
 fN
 UV
 Os
 NF
-NF
+Oz
 NF
 NF
 DB
@@ -4121,7 +4484,7 @@ gi
 AB
 AB
 hR
-QX
+Vu
 QX
 QX
 fw
@@ -4167,7 +4530,7 @@ ny
 QX
 fw
 QH
-Oh
+RI
 QH
 Oh
 Oh
@@ -4177,7 +4540,7 @@ QH
 fw
 QX
 QX
-QX
+Vu
 fw
 fw
 fw
@@ -4214,7 +4577,7 @@ Oh
 Oh
 Oh
 vO
-Oh
+RI
 Cj
 QX
 QX
@@ -4241,7 +4604,7 @@ UV
 OI
 AB
 AB
-AB
+FQ
 OI
 fw
 RP
@@ -4272,7 +4635,7 @@ dJ
 NF
 NF
 NF
-NF
+Oz
 SQ
 wp
 "}
@@ -4287,7 +4650,7 @@ fw
 fw
 ny
 QX
-QX
+Vu
 fw
 QH
 Oh
@@ -4333,13 +4696,13 @@ fw
 Oh
 Oh
 Oh
-Oh
+RI
 Oh
 Oh
 Oh
 Oh
 fw
-QX
+Vu
 QX
 QX
 fw
@@ -4348,8 +4711,8 @@ SM
 AT
 AT
 yt
-SM
-Zg
+tN
+Vf
 UV
 NF
 NF
@@ -4362,7 +4725,7 @@ wp
 sG
 UV
 yz
-iu
+fS
 iu
 iu
 tm
@@ -4426,15 +4789,15 @@ QX
 QX
 fw
 XT
-vQ
+qG
 AT
 EG
-AT
+Ug
 Hc
 AT
 UV
 NF
-NF
+Oz
 NF
 NF
 sy
@@ -4450,7 +4813,7 @@ fw
 fw
 fw
 QX
-QX
+Vu
 QX
 fw
 CZ
@@ -4488,7 +4851,7 @@ Hw
 Hw
 DH
 lN
-lN
+WT
 fw
 QX
 QX
@@ -4509,7 +4872,7 @@ QX
 iZ
 EG
 AT
-AT
+Ug
 jA
 kS
 AT
@@ -4526,19 +4889,19 @@ wp
 sG
 UV
 yz
-iu
+fS
 iu
 iu
 tm
 fw
-QX
+gl
 QX
 QX
 fw
 Gy
 lj
 Gy
-lj
+UJ
 lj
 Gy
 lj
@@ -4572,7 +4935,7 @@ lM
 fa
 fa
 fw
-RP
+ss
 QX
 QX
 oO
@@ -4587,7 +4950,7 @@ lj
 oO
 QX
 QX
-ny
+WG
 fw
 fw
 fw
@@ -4605,7 +4968,7 @@ Ck
 wp
 "}
 (63,1,1) = {"
-HD
+YD
 UV
 fw
 fw
@@ -4624,7 +4987,7 @@ lj
 lj
 yi
 lj
-lj
+UJ
 lj
 QX
 QX
@@ -4636,11 +4999,11 @@ AT
 AT
 yt
 Hc
-AT
+Ug
 UV
 NF
 NF
-NF
+Oz
 NF
 NF
 wp
@@ -4674,7 +5037,7 @@ OQ
 EG
 AT
 AT
-jA
+qS
 kS
 AT
 KA
@@ -4692,7 +5055,7 @@ UV
 OI
 AB
 ET
-AB
+FQ
 OI
 fw
 QX
@@ -4700,7 +5063,7 @@ QX
 QX
 fw
 lj
-lj
+UJ
 lj
 lj
 lj
@@ -4791,7 +5154,7 @@ fw
 fw
 fw
 QX
-QX
+Vu
 QX
 fw
 fw
@@ -4813,18 +5176,18 @@ wp
 sG
 UV
 OI
-AB
+FQ
 OI
 AB
 OI
 fw
 QX
 QX
-QX
+Vu
 th
 fw
 gz
-Qo
+Zr
 Dz
 EV
 lZ
@@ -4836,7 +5199,7 @@ QX
 QX
 fw
 hV
-hV
+id
 hV
 ZL
 hV
@@ -4897,7 +5260,7 @@ om
 QX
 af
 QX
-QX
+Vu
 QX
 QX
 QX
@@ -4910,7 +5273,7 @@ Qo
 WV
 Qo
 lZ
-Qo
+an
 Yk
 fw
 QX
@@ -4925,7 +5288,7 @@ hV
 hV
 hV
 UV
-NF
+Oz
 NF
 NF
 NF
@@ -4947,7 +5310,7 @@ QX
 eM
 fw
 ao
-Qo
+an
 Jw
 Qo
 lZ
@@ -4976,13 +5339,13 @@ wp
 (72,1,1) = {"
 sG
 om
-QX
+Vu
 QX
 QX
 QX
 QX
 fu
-QX
+Vu
 QX
 QX
 ny
@@ -5026,7 +5389,7 @@ fw
 fw
 QX
 QX
-QX
+Vu
 pE
 Jw
 Qo
@@ -5052,7 +5415,7 @@ NF
 NF
 NF
 Os
-Nv
+VA
 wp
 "}
 (74,1,1) = {"
@@ -5062,7 +5425,7 @@ gu
 Gx
 Gx
 Gx
-gu
+gJ
 fw
 jR
 QX
@@ -5072,7 +5435,7 @@ fw
 WV
 Qo
 Qo
-Qo
+an
 lZ
 jM
 rS
@@ -5086,7 +5449,7 @@ Bn
 Bn
 hV
 Bn
-Bn
+ey
 Bn
 UV
 NF
@@ -5156,23 +5519,23 @@ QX
 QX
 QX
 QX
-ny
+WG
 QX
 QX
 QX
 QX
 QX
-QX
+Vu
 QX
 jK
 QX
 QX
 QX
-QX
+MI
 QX
 UV
 NF
-Os
+pr
 NF
 NF
 Nv
@@ -5183,12 +5546,12 @@ sG
 ef
 Gx
 Gx
-Gx
+Gd
 Gx
 Gx
 Wy
 fw
-RP
+ss
 QX
 QX
 QX
@@ -5235,7 +5598,7 @@ QX
 QX
 QX
 QX
-QX
+Vu
 QX
 fu
 QX
@@ -5302,7 +5665,7 @@ Nv
 wp
 "}
 (80,1,1) = {"
-sG
+pj
 bE
 Uz
 Gx
@@ -5315,7 +5678,7 @@ QX
 QX
 ny
 fw
-hV
+id
 xp
 hV
 cH
@@ -5323,7 +5686,7 @@ Fb
 gc
 Fb
 fw
-QX
+Vu
 QX
 eM
 fw
@@ -5339,7 +5702,7 @@ NF
 NF
 NF
 NF
-Ck
+OA
 wp
 "}
 (81,1,1) = {"
@@ -5362,9 +5725,9 @@ hV
 cH
 Fb
 cH
-Fb
+Eu
 fw
-QX
+MI
 QX
 QX
 fw
@@ -5376,7 +5739,7 @@ hV
 hV
 hV
 UV
-NF
+Oz
 NF
 NF
 NF
@@ -5390,10 +5753,10 @@ tF
 Gx
 tk
 tk
-Gx
+Gd
 pv
 fw
-QX
+MI
 QX
 QX
 fw
@@ -5468,7 +5831,7 @@ wp
 (84,1,1) = {"
 HD
 UV
-Gx
+Gd
 Gx
 Gx
 Gx
@@ -5477,7 +5840,7 @@ fw
 th
 QX
 QX
-QX
+Vu
 fw
 hV
 cH
@@ -5522,7 +5885,7 @@ QX
 fw
 hV
 hV
-hV
+id
 cH
 Fb
 cH
@@ -5542,7 +5905,7 @@ hV
 UV
 NF
 NF
-NF
+Oz
 NF
 Nv
 wp
@@ -5571,7 +5934,7 @@ Fb
 fw
 QX
 QX
-QX
+Vu
 fw
 Sa
 fR
@@ -5649,7 +6012,7 @@ dt
 dt
 dt
 dt
-dt
+GE
 Wm
 dt
 dt
@@ -5661,7 +6024,7 @@ dt
 dt
 Wm
 dt
-dt
+GE
 oG
 NF
 NF
@@ -5696,7 +6059,7 @@ KL
 Me
 Me
 Me
-Me
+nb
 Me
 Me
 Me

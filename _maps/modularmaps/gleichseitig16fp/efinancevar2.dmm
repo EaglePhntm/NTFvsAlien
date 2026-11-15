@@ -99,6 +99,7 @@
 /area/gleichseitig16/indoors/southeast/meierbank)
 "gA" = (
 /obj/structure/bed/chair/office/dark,
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
 /turf/open/floor/iron/dark/diagonal,
 /area/gleichseitig16/indoors/southeast/meierbank)
 "gL" = (
@@ -269,6 +270,7 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
+/obj/effect/landmark/spawn_marker/euseparatists/sapperidle,
 /turf/open/floor/plating,
 /area/gleichseitig16/indoors/southeast/meierbank)
 "oF" = (
@@ -347,6 +349,10 @@
 /obj/machinery/light/small,
 /turf/open/floor/plating,
 /area/gleichseitig16/indoors/southeast/meierbank)
+"ra" = (
+/obj/effect/landmark/spawn_marker/euseparatists/advisorbreacher,
+/turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
 "rI" = (
 /obj/structure/bed/chair/comfy{
 	dir = 1
@@ -373,6 +379,10 @@
 	},
 /turf/open/floor/plating/ground/snow/layer2,
 /area/gleichseitig16/outdoors/southeast/meierbank)
+"sZ" = (
+/obj/effect/landmark/spawn_marker/euseparatists/advisorinfil,
+/turf/open/floor/urban/carpet/carpetblack,
+/area/gleichseitig16/indoors/southeast/meierbank)
 "ti" = (
 /turf/open/floor/iron/dark/diagonal,
 /area/gleichseitig16/indoors/southeast/meierbank)
@@ -411,6 +421,17 @@
 /obj/item/research_product/money/uncommon,
 /obj/item/research_product/money/basic,
 /turf/open/floor/iron/dark/textured_large,
+/area/gleichseitig16/indoors/southeast/meierbank)
+"ul" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/paper_bin,
+/obj/item/tool/pen,
+/turf/open/floor/tile/red/whitered/full{
+	color = "#afebff"
+	},
 /area/gleichseitig16/indoors/southeast/meierbank)
 "uD" = (
 /turf/open/urban/street/sidewalk{
@@ -549,6 +570,13 @@
 	},
 /turf/open/urban/street/asphalt,
 /area/gleichseitig16/outdoors/southeast/parking)
+"Fs" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8
+	},
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
+/turf/open/floor/urban/carpet/carpetbeigedeco,
+/area/gleichseitig16/indoors/southeast/meierbank)
 "Fz" = (
 /obj/structure/table/reinforced,
 /obj/machinery/computer/emails{
@@ -565,6 +593,11 @@
 "Gz" = (
 /turf/open/urban/street/sidewalkfull,
 /area/gleichseitig16/outdoors/southeast/basketball)
+"GI" = (
+/obj/structure/bed/chair/comfy,
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
+/turf/open/floor/tan,
+/area/gleichseitig16/indoors/southeast/meierbank)
 "GL" = (
 /turf/open/floor/iron/dark/textured_large,
 /area/gleichseitig16/indoors/southeast/meierbank)
@@ -591,6 +624,7 @@
 /obj/structure/bed/chair/office/dark{
 	dir = 4
 	},
+/obj/effect/landmark/spawn_marker/euseparatists/deserteridle,
 /turf/open/floor/tile/red/whitered/full{
 	color = "#afebff"
 	},
@@ -904,7 +938,7 @@ sx
 jb
 hw
 IL
-jJ
+ul
 HS
 RE
 jJ
@@ -1036,7 +1070,7 @@ hr
 Ig
 sh
 Oj
-QT
+GL
 GL
 GL
 GL
@@ -1061,14 +1095,14 @@ gA
 li
 ti
 IL
-sh
+sZ
 Ig
 sh
 GL
 GL
 GL
 GL
-GL
+ra
 IL
 uK
 "}
@@ -1209,7 +1243,7 @@ mc
 IL
 oW
 ub
-of
+GI
 gL
 rI
 IL
@@ -1282,7 +1316,7 @@ KI
 oF
 ef
 Fz
-hp
+Fs
 dV
 dV
 IL
