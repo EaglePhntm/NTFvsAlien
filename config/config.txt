@@ -6,7 +6,7 @@ $include resources.txt
 $include amia.txt
 
 ## Server name: This appears at the top of the screen in-game.
-SERVER_NAME SoL|NTF vs Alien M/ERP +18 (WL at Discord)
+SERVER_NAME SoL|NTF vs Alien M/ERP +18
 
 ## Hosted by name for unix platforms.
 HOSTEDBY VideNoir
@@ -69,10 +69,10 @@ PROTECT_LEGACY_RANKS
 #FORUMURL
 #WIKIURL
 RULESURL FROM_FILE
-DISCORDURL https://discord.gg/cDNZXUWjmJ
+DISCORDURL
 #DONATIONURL
 GITHUBURL https://github.com/EaglePhntm/NTFvsAlien
-BANAPPEALS https://discord.gg/cDNZXUWjmJ
+BANAPPEALS
 
 ## Uncomment to enable global ban DB using the provided URL. The API should expect to receive a ckey at the end of the URL.
 ## More API details can be found here: https://centcom.melonmesa.com
